@@ -1,12 +1,16 @@
 {
   "recentFiles": [
     {
-      "basename": "Links",
-      "path": "40_Resources/CS/Links.md"
+      "basename": "00_Dashboard",
+      "path": "00_Dashboard.md"
     },
     {
       "basename": "Random",
       "path": "Random.md"
+    },
+    {
+      "basename": "Links",
+      "path": "40_Resources/CS/Links.md"
     },
     {
       "basename": "AI Journaling Deeper (app.myentries.ai)",
@@ -195,10 +199,6 @@
     {
       "basename": "Week - 12",
       "path": "10_UMN/CSCI 4041/Week - 12.md"
-    },
-    {
-      "basename": "Week - 11",
-      "path": "10_UMN/CSCI 4041/Week - 11.md"
     }
   ],
   "omittedPaths": [],

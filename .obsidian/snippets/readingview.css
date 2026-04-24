@@ -1,0 +1,32 @@
+/* =========================
+   READING VIEW (Preview)
+   Reduce HUGE gaps before headings
+   without making everything too compact
+========================= */
+
+/* 1) Keep normal heading spacing (gentle, not cramped) */
+.markdown-reading-view .markdown-preview-section :is(h1,h2,h3,h4,h5,h6) {
+  line-height: 1.15 !important;
+  margin-block-start: 1.0em !important;   /* default-ish */
+  margin-block-end: 0.35em !important;   /* smaller after heading */
+}
+
+/* 2) If ANY block (p/list/callout/etc.) is immediately before a heading,
+      reduce the *top* margin so it doesn't look like a huge gap */
+.markdown-reading-view .markdown-preview-section
+  > :is(.el-p, .el-ul, .el-ol, .el-blockquote, .el-pre, .el-callout, .el-table, .el-hr)
+  + :is(.el-h1, .el-h2, .el-h3, .el-h4, .el-h5, .el-h6) {
+  margin-top: 0.55em !important;
+}
+
+/* 3) If headings are consecutive, make that spacing even tighter */
+.markdown-reading-view .markdown-preview-section
+  > :is(.el-h1, .el-h2, .el-h3, .el-h4, .el-h5, .el-h6)
+  + :is(.el-h1, .el-h2, .el-h3, .el-h4, .el-h5, .el-h6) {
+  margin-top: 0.30em !important;
+}
+
+/* 4) Optional: lists often add extra bottom space; trim slightly */
+.markdown-reading-view .markdown-preview-section > :is(.el-ul, .el-ol) {
+  margin-bottom: 0.55em !important;
+}

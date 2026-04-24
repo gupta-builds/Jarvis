@@ -1,0 +1,77 @@
+{
+  "dualConfigs": true,
+  "showConsoleLog": false,
+  "desktop": {
+    "shortDelaySeconds": 5,
+    "longDelaySeconds": 15,
+    "delayBetweenPlugins": 40,
+    "defaultStartupType": "short",
+    "showDescriptions": true,
+    "enableDependencies": false,
+    "plugins": {
+      "code-styler": {
+        "startupType": "instant"
+      },
+      "copilot": {
+        "startupType": "long"
+      },
+      "dataview": {
+        "startupType": "instant"
+      },
+      "excalibrain": {
+        "startupType": "long"
+      },
+      "obsidian-excalidraw-plugin": {
+        "startupType": "long"
+      },
+      "file-explorer-plus": {
+        "startupType": "instant"
+      },
+      "obsidian-hover-editor": {
+        "startupType": "short"
+      },
+      "obsidian-kanban": {
+        "startupType": "short"
+      },
+      "obsidian-latex-suite": {
+        "startupType": "instant"
+      },
+      "obsidian-local-rest-api": {
+        "startupType": "instant"
+      },
+      "ninja-cursor": {
+        "startupType": "instant"
+      },
+      "omnisearch": {
+        "startupType": "short"
+      },
+      "url-into-selection": {
+        "startupType": "instant"
+      },
+      "periodic-notes": {
+        "startupType": "short"
+      },
+      "quickadd": {
+        "startupType": "short"
+      },
+      "recent-files-obsidian": {
+        "startupType": "instant"
+      },
+      "obsidian-spaced-repetition": {
+        "startupType": "short"
+      },
+      "obsidian-style-settings": {
+        "startupType": "instant"
+      },
+      "obsidian-tasks-plugin": {
+        "startupType": "instant"
+      },
+      "templater-obsidian": {
+        "startupType": "instant"
+      },
+      "obsidian-git": {
+        "startupType": "short"
+      }
+    }
+  }
+}

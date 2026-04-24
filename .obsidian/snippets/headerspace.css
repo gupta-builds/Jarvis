@@ -1,0 +1,28 @@
+/* === Editor (Live Preview) heading spacing === */
+/* Targets the *line* that contains the heading, not the inline span */
+.mod-cm6 .cm-editor .cm-line.HyperMD-header {
+  line-height: 1.15 !important;
+  padding-top: 0.10em !important;
+  padding-bottom: 0.05em !important;
+}
+
+/* Reduce extra gap specifically when a heading is followed by another heading (your exact case) */
+.mod-cm6 .cm-editor .cm-line.HyperMD-header + .cm-line.HyperMD-header {
+  padding-top: 0.05em !important;
+}
+
+/* Optional: tighten the very next line after any heading (use ONLY if you still see a big gap) */
+
+.mod-cm6 .cm-editor .cm-line.HyperMD-header + .cm-line {
+  padding-top: 0 !important;
+}
+
+/* Tighten specifically H2 -> H3 gap in Live Preview */
+.mod-cm6 .cm-editor .cm-line.HyperMD-header-2 + .cm-line.HyperMD-header-3 {
+  padding-top: 0.00em !important;
+}
+
+/* If you sometimes see a blank spacer line between them, kill its top padding */
+.mod-cm6 .cm-editor .cm-line.HyperMD-header-2 + .cm-line:not(.HyperMD-header) {
+  padding-top: 0 !important;
+}

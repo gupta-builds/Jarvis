@@ -1,0 +1,11 @@
+{
+  "cssTheme": "AnuPpuccin",
+  "accentColor": "",
+  "theme": "obsidian",
+  "enabledCssSnippets": [
+    "headerspace",
+    "myedits",
+    "rainbowfile_colors",
+    "readingview"
+  ]
+}

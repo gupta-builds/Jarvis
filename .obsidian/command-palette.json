@@ -1,0 +1,21 @@
+{
+  "pinned": [
+    "workspace:undo-close-pane",
+    "editor:swap-line-up",
+    "editor:swap-line-down",
+    "workspace:toggle-pin",
+    "editor:open-link-in-new-leaf",
+    "editor:toggle-source",
+    "file-explorer:move-file",
+    "workspace:toggle-stacked-tabs",
+    "editor:insert-link",
+    "markdown:add-alias",
+    "app:open-sandbox-vault",
+    "editor:cycle-list-checklist",
+    "editor:open-search-replace",
+    "editor:fold-all",
+    "editor:unfold-all",
+    "editor:clear-formatting",
+    "app:show-debug-info"
+  ]
+}

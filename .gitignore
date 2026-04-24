@@ -1,0 +1,21 @@
+# Obsidian workspace/cache (regenerated on open)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache
+.trash/
+
+# Plugin data with API keys / secrets
+.obsidian/plugins/copilot/data.json
+.obsidian/plugins/quickadd/data.json
+.obsidian/plugins/obsidian-local-rest-api/data.json
+
+# Copilot vector index (large, regenerated)
+.obsidian/copilot-index-*.json
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Large binary blobs (keep images tracked but ignore temp)
+*.tmp

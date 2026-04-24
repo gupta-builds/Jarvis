@@ -1,0 +1,17 @@
+{
+  "promptDelete": true,
+  "alwaysUpdateLinks": true,
+  "pdfExportSettings": {
+    "includeName": true,
+    "pageSize": "A4",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 65
+  },
+  "readableLineLength": true,
+  "showUnsupportedFiles": false,
+  "uriCallbacks": false,
+  "userIgnoreFilters": [
+    "50_Archive/"
+  ]
+}

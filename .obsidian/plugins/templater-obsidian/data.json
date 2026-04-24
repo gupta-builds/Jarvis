@@ -1,0 +1,48 @@
+{
+  "command_timeout": 5,
+  "templates_folder": "30_Order/Templates",
+  "templates_pairs": [
+    ["", ""]
+  ],
+  "trigger_on_file_creation": true,
+  "auto_jump_to_cursor": true,
+  "enable_system_commands": false,
+  "shell_path": "",
+  "user_scripts_folder": "",
+  "enable_folder_templates": true,
+  "folder_templates": [
+    {
+      "folder": "10_UMN",
+      "template": "30_Order/Templates/Classes/Week Template.md"
+    },
+    {
+      "folder": "20_Progress",
+      "template": "30_Order/Templates/Metadata/For Progress.md"
+    },
+    {
+      "folder": "40_Resources",
+      "template": "30_Order/Templates/Metadata/For Evergreen.md"
+    },
+    {
+      "folder": "60_Claude/20_Distilled_Notes",
+      "template": "30_Order/Templates/Metadata/For Evergreen.md"
+    },
+    {
+      "folder": "60_Claude/30_Source_Summaries",
+      "template": "30_Order/Templates/Metadata/For Inputs.md"
+    },
+    {
+      "folder": "60_Claude/40_Project_Briefs",
+      "template": "30_Order/Templates/Metadata/For Progress.md"
+    }
+  ],
+  "enable_file_templates": false,
+  "file_templates": [
+    { "regex": ".*", "template": "" }
+  ],
+  "syntax_highlighting": true,
+  "syntax_highlighting_mobile": false,
+  "enabled_templates_hotkeys": [""],
+  "startup_templates": [""],
+  "intellisense_render": 1
+}

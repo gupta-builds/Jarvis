@@ -1,0 +1,39 @@
+{
+  "mcpServers": {
+    "obsidian": {
+      "type": "stdio",
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "obsidian-mcp-server"
+      ],
+      "env": {
+        "OBSIDIAN_API_KEY": "bb7145f6d6c2d0684869f3b8f4d7a6bd342e47329194bbf117d503f42bd639a1",
+        "OBSIDIAN_BASE_URL": "http://127.0.0.1:27123"
+      },
+      "autoApprove": [
+        "obsidian_list_notes",
+        "obsidian_read_note",
+        "obsidian_search_replace",
+        "obsidian_manage_frontmatter",
+        "obsidian_global_search",
+        "obsidian_update_note"
+      ]
+    },
+    "context7": {
+      "url": "https://mcp.context7.com/mcp"
+    },
+    "openaiDeveloperDocs": {
+      "url": "https://developers.openai.com/mcp"
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest"
+      ]
+    }
+  }
+}

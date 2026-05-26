@@ -10,7 +10,8 @@
         "obsidian-mcp-server"
       ],
       "env": {
-        "OBSIDIAN_BASE_URL": "http://127.0.0.1:27123"
+        "OBSIDIAN_BASE_URL": "http://127.0.0.1:27123",
+        "OBSIDIAN_API_KEY": "fc476089453ad5877911e547cf37fd62746933a40b67a83eba6185e4623195d0"
       },
       "autoApprove": [
         "obsidian_list_notes",

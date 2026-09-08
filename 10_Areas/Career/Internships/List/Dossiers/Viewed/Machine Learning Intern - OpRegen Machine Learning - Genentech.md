@@ -11,15 +11,18 @@ target_year: []
 date_posted: '2026-08-24'
 date_found: '2026-08-25'
 matched_reason: Spring 2027, AI/ML/Data
-status: unreviewed
+status: removed
 next:
 notes:
   - '[[10_Areas/Career/Internships/List/Dossiers MOC]]'
+  - '[[10_Areas/Career/Internships/List/Dossiers/Viewed/Removed Dossiers MOC]]'
 preference_tier:
 tags:
   - internship
   - auto-discovered
   - company/genentech
+removed_date: '2026-09-08'
+removed_reason: 'active: false upstream'
 ---
 # Machine Learning Intern - OpRegen Machine Learning
 Found 2026-08-25 via SimplifyJobs.

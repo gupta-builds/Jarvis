@@ -12,15 +12,18 @@ target_year: []
 date_posted: '2026-08-27'
 date_found: '2026-08-28'
 matched_reason: Spring 2027, Summer 2027, AI/ML/Data
-status: unreviewed
+status: removed
 next:
 notes:
   - '[[10_Areas/Career/Internships/List/Dossiers MOC]]'
+  - '[[10_Areas/Career/Internships/List/Dossiers/Viewed/Removed Dossiers MOC]]'
 preference_tier:
 tags:
   - internship
   - auto-discovered
   - company/booz-allen
+removed_date: '2026-09-11'
+removed_reason: 'active: false upstream'
 ---
 # Applied AI Intern - University
 Found 2026-08-28 via SimplifyJobs.

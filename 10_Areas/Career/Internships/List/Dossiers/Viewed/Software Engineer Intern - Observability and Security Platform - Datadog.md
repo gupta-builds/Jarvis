@@ -12,11 +12,16 @@ target_year: []
 date_posted: '2026-08-17'
 date_found: '2026-08-17'
 matched_reason: Winter 2027, Software
-status: unreviewed
+status: removed
 next:
 tags:
   - internship
   - auto-discovered
+notes:
+  - '[[10_Areas/Career/Internships/List/Dossiers MOC]]'
+  - '[[10_Areas/Career/Internships/List/Dossiers/Viewed/Removed Dossiers MOC]]'
+removed_date: '2026-09-12'
+removed_reason: 'active: false upstream'
 ---
 # Software Engineer Intern - Observability and Security Platform
 Found 2026-08-17 via SimplifyJobs.

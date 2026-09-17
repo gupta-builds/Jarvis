@@ -11,15 +11,18 @@ target_year: []
 date_posted: '2026-08-27'
 date_found: '2026-08-28'
 matched_reason: Summer 2027, AI/ML/Data
-status: unreviewed
+status: removed
 next:
 notes:
   - '[[10_Areas/Career/Internships/List/Dossiers MOC]]'
+  - '[[10_Areas/Career/Internships/List/Dossiers/Viewed/Removed Dossiers MOC]]'
 preference_tier:
 tags:
   - internship
   - auto-discovered
   - company/finastra
+removed_date: '2026-09-17'
+removed_reason: 'active: false upstream'
 ---
 # AI Engineer Intern - Summer 2027
 Found 2026-08-28 via SimplifyJobs.

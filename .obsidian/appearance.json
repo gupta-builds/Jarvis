@@ -6,5 +6,6 @@
     "readingview",
     "headerspace"
   ],
-  "cssTheme": "AnuPpuccin"
+  "cssTheme": "AnuPpuccin",
+  "baseFontSizeAction": false
 }

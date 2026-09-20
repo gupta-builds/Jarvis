@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 {
     "backlink:open":  [
                           {
@@ -59,4 +60,67 @@
                                                    "key":  "M"
                                                }
                                            ]
+=======
+{
+    "backlink:open":  [
+                          {
+                              "modifiers":  [
+                                                "Alt"
+                                            ],
+                              "key":  "B"
+                          }
+                      ],
+    "workspace:close-others":  [
+                                   {
+                                       "modifiers":  [
+                                                         "Alt"
+                                                     ],
+                                       "key":  "W"
+                                   }
+                               ],
+    "obsidian-excalidraw-plugin:save":  [
+
+                                        ],
+    "file-explorer:open":  [
+                               {
+                                   "modifiers":  [
+                                                     "Mod",
+                                                     "Shift"
+                                                 ],
+                                   "key":  "E"
+                               }
+                           ],
+    "editor:insert-codeblock":  [
+                                    {
+                                        "modifiers":  [
+                                                          "Alt"
+                                                      ],
+                                        "key":  "V"
+                                    }
+                                ],
+    "omnisearch:show-modal":  [
+                                  {
+                                      "modifiers":  [
+                                                        "Alt"
+                                                    ],
+                                      "key":  "F"
+                                  }
+                              ],
+    "quickadd:runQuickAdd":  [
+                                 {
+                                     "modifiers":  [
+                                                       "Alt"
+                                                   ],
+                                     "key":  "Q"
+                                 }
+                             ],
+    "excalibrain:excalibrain-open-hover":  [
+                                               {
+                                                   "modifiers":  [
+                                                                     "Alt"
+                                                                 ],
+                                                   "key":  "M"
+                                               }
+                                           ]
+>>>>>>> Stashed changes
 }

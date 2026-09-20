@@ -55,6 +55,12 @@ mcp.env
 # Codex config backups — found to contain a live OpenAI API key, 2026-09-19
 .codex/*.bak
 .codex/config.toml.pre-*.bak
+
+# git-auto-sync's own operational log/lock — tracking these would make every
+# run's own log entry look like a real diff for the NEXT run to commit, an
+# infinite self-referential loop. Found during Build 7 testing.
+30_Order/System/claude-workflow/logs/git-auto-sync.log
+30_Order/System/claude-workflow/scripts/.git-auto-sync.lock
 # AI tool internal state (sessions, history, creds) — never commit
 20_Progress/AI/Claude Code/.claude_wsl/
 20_Progress/AI/Claude Code/.claude_windows/

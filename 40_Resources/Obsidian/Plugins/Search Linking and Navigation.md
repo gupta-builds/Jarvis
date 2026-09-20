@@ -2,7 +2,7 @@
 type: evergreen
 status: sprout
 created: 2026-05-15
-updated: 2026-09-19
+updated: 2026-09-20
 tags:
   - evergreen
   - system
@@ -64,7 +64,7 @@ Current Hover Editor settings:
 Writing implication: the first paragraph under a heading should say the mechanism or decision, not warm-up prose. A hover preview should let the reader decide whether to open the note.
 
 ## Omnisearch
-Omnisearch has its own deep reference now: [[Omnisearch and Retrieval]]. Short version: fuzzy ranked full-text search, weights filenames and headings highest, indexes Markdown only (PDF/Office/image indexing all off). Use it for broad human retrieval; do not assume any attachment is searchable. The Text Extractor decision and full settings live in that doc.
+Omnisearch has its own deep reference now: [[Omnisearch and Retrieval]]. Short version: fuzzy ranked full-text search, weights filenames and headings highest. **Updated 2026-09-20:** PDF, Office, and image indexing are now on via the newly installed Text Extractor plugin — see that note for the mechanism, reliability caveats, and why AI image indexing specifically was left off. Use Omnisearch for broad human retrieval; don't assume indexing is instant even now that attachments are covered.
 
 ## Quick Switcher, Recent Files, and Recent Edits
 

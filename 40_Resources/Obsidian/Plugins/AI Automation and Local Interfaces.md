@@ -2,7 +2,7 @@
 type: evergreen
 status: sprout
 created: 2026-05-15
-updated: 2026-09-19
+updated: 2026-09-20
 tags:
   - evergreen
   - system
@@ -40,52 +40,70 @@ Copilot memory, chat history, embeddings, provider context, and recent files are
 
 ## Copilot
 
-Observed safe facts:
+**Resolved 2026-09-20 — real permission expansion, live now.** Copilot version is `4.0.9` (was documented as `3.2.7` — corrected in [[Plugin Inventory and Configuration Map]] too). The user asked for Copilot to get autonomous vault-edit access "routed through the same jarvis MCP mechanism the other AI tools use." Both proposed mechanisms were researched directly rather than guessed at:
+
+- **(a) Copilot's own in-process Autonomous Agent mode** — real, confirmed live in this vault's `data.json`: `enableAutonomousAgent: true`, and `autonomousAgentEnabledToolIds` already includes **`writeFile` and `editFile`** alongside `localSearch`, `readNote`, `webSearch`, `pomodoro`, `youtubeTranscription`, and `updateMemory`. This is Copilot's own internal tool-calling against Obsidian's app API — nothing to do with MCP.
+- **(b) Copilot as an MCP client** — checked directly: **not present.** A full scan of Copilot's `data.json` (106 top-level keys) found zero keys matching `mcp` in any form, and the plugin's own GitHub release notes (v4.0.0–v4.0.9) contain no mention of MCP or Model Context Protocol anywhere. Copilot does not connect to this vault's `.mcp.json` `obsidian` server (the `mcp-obsidian` bridge that Claude Code and Cursor use) or to any other MCP server.
+
+**The real answer is (a), not (b).** Copilot already has autonomous, unlogged vault-write access via `writeFile`/`editFile` in its own tool-calling loop — this is **live right now**, not a change made this session (the flags were already `true`/enabled before this session started; the only thing this session added was confirming which mechanism it actually is and updating the Risk Register accordingly). This means Copilot can create or overwrite vault files outside of any agent's review, on its own timing, with no session log entry and no Write Contract enforcement — it doesn't read CLAUDE.md/AGENTS.md the way an agent invoked through Claude Code does.
+
+**Separately, this Copilot version also ships an unrelated "Agent Chat" feature** (Settings → Copilot → Basic → Agents) that can run **Claude Code, Codex, or opencode** natively inside Obsidian as one of three selectable coding-agent backends. This is not MCP either — it's Copilot shelling out to (or, for opencode/Codex, optionally auto-installing) each tool's own binary. See the opencode section below; this is very likely what the user's `opencode` install is actually for.
+
+Other observed facts:
 
 - Installed and lazy-loaded with long delay.
-- Conversations are saved under `50_Archive/copilot/copilot-conversations`.
-- Custom prompts are under `50_Archive/copilot/copilot-custom-prompts`.
-- Autosave chat is enabled.
-- Inline citations are enabled.
-- Saved memory is enabled.
-- Autonomous agent mode is enabled.
-
-Docs describe Copilot as supporting vault QA, citations, memory, custom prompts, and agent-like tool use. In Jarvis, this is useful for human-in-Obsidian questioning, but it should not become an unlogged parallel agent.
+- Conversations saved under `50_Archive/copilot/copilot-conversations`.
+- Custom prompts under `50_Archive/copilot/copilot-custom-prompts`.
+- Autosave chat, inline citations, and saved memory are all enabled.
 
 Rules:
 
 - Treat `50_Archive/copilot` as read-only historical context unless the user asks.
 - Do not copy provider credentials, auth material, memory internals, or generated indexes into notes.
 - Prefer vault notes and dashboards over Copilot memory when facts conflict.
-- Treat autonomous tools as high-risk until the user approves a specific workflow.
+- **Autonomous vault-write access is no longer a hypothetical to flag — it is live.** If a note looks edited in a way no logged agent session accounts for, Copilot's autonomous agent is a real candidate, not just Copilot memory or manual edits. This doesn't change any agent's own behavior, but it changes what "unexplained edit" should make an agent suspect.
 
 ## Local REST API
 
-Observed safe facts:
+**Resolved 2026-09-20 — standardized on the insecure port, by user decision.** This vault's `mcp-obsidian` bridge (both Claude Code and Cursor connect through it, via `.mcp.json`'s `obsidian` server) doesn't have a straightforward way to trust the plugin's self-signed HTTPS certificate authority. The plugin's own README frames the insecure port as exactly this fallback, not a general convenience — so `.mcp.json` is configured to default `OBSIDIAN_PORT` to `27123` (confirmed directly in this vault's `.mcp.json`), and this is the settled design, not a compromise pending a better fix.
 
-- Secure port: `27124`.
-- Insecure port: `27123`.
-- Insecure server: enabled.
-- API credential material exists and must not be exposed.
+Observed safe facts (re-verified directly against `.obsidian/plugins/obsidian-local-rest-api/data.json` this session — **the secure port number was previously documented wrong**, see below):
 
-The plugin documentation describes local HTTP endpoints for vault file operations, search, commands, and note/block/heading style updates. In Jarvis, this is a possible bridge for external automation, but direct filesystem edits are easier to audit in Codex.
+- Secure port: **`27126`** — corrected 2026-09-20; every prior note and the tracker said `27124`, which does not match the live config. Not a bug, just documentation drift (likely from a port regenerating at some point after a conflict); `27124` is stale everywhere it appears and has been corrected in this pass.
+- Insecure port: `27123` — this is the port actually in use for all MCP traffic (Claude Code, Cursor).
+- Insecure server: enabled (`enableInsecureServer: true`).
+- Secure server: also enabled (`enableSecureServer: true`) — left on, since nothing about standardizing MCP traffic on `27123` requires turning `27126` off; a tool that *can* trust the CA still has the option.
+- API credential material exists (`crypto.privateKey`, `apiKey`) and must not be exposed — confirmed present, values never read or copied into any note.
+
+The plugin documentation describes local HTTP endpoints for vault file operations, search, commands, and note/block/heading style updates. In Jarvis, this is the bridge for *external* MCP-based automation; direct filesystem edits remain easier to audit for an agent already working in the vault.
 
 Rules:
 
 - Do not call Local REST API unless the user explicitly asks.
 - Do not expose credential values.
-- Prefer filesystem edits for documentation work.
-- Treat insecure port `27123` as a risk surface and `needs verification`.
+- Prefer filesystem edits for documentation and note work — the REST API is for external tools that need HTTP, not a shortcut for an in-editor agent.
 - If an automation later uses the API, constrain it to exact paths and operations.
 
-**Researched 2026-09-18:** the plugin's own README frames the insecure port as a fallback, not a general convenience. Port `27124` serves HTTPS over a locally generated, name-constrained certificate authority — *"it can only vouch for `127.0.0.1`, `localhost`, your configured binding host, and the hostnames you list under Subject alternative names"* — and every request on either port still requires the API key as a bearer token. Port `27123` exists only because some HTTP clients (the README names MCP clients specifically) cannot be configured to trust a locally generated CA, so the plugin exposes the same authenticated API without TLS as a fallback ([Local REST API README](https://github.com/coddingtonbear/obsidian-local-rest-api)).
-
-**Resolved 2026-09-19:** the binding-host gap flagged below is closed. The plugin's server binds to a "Binding Host" setting whose documented default is `127.0.0.1` — *"Setting this to `0.0.0.0` allows access from other devices on the network"* ([Local REST API installation/configuration reference](https://deepwiki.com/coddingtonbear/obsidian-local-rest-api/1.1-installation-and-configuration)). This vault's `.obsidian/plugins/obsidian-local-rest-api/data.json` has no `bindingHost` key set, which means it is running on the plugin's default — localhost-only on both `27123` and `27124`. The real gap on `27123` is still transport encryption, not network exposure: an unencrypted request never leaves this machine, but anything else running locally that can reach `127.0.0.1:27123` (a browser tab, another process) sees the API key and payload in plaintext.
+**Binding host, resolved 2026-09-19, still true:** the plugin's server binds to a "Binding Host" setting whose documented default is `127.0.0.1` — *"Setting this to `0.0.0.0` allows access from other devices on the network"* ([Local REST API installation/configuration reference](https://deepwiki.com/coddingtonbear/obsidian-local-rest-api/1.1-installation-and-configuration)). This vault's `data.json` has no `bindingHost` override, so it runs on the plugin default — localhost-only on both ports. The `27123` gap is transport encryption within this one machine (a browser tab or another local process could technically read the plaintext request), not network exposure.
 
 Needs verification:
 
-- Which local tools are expected to use the insecure endpoint (the README's own use case is MCP clients that cannot trust a self-signed CA).
-- Whether command endpoints should be allowed for any AI workflow.
+- Whether command endpoints should be allowed for any AI workflow — none currently approved.
+
+## opencode
+**Researched 2026-09-20, partially resolved.** The user installed `opencode` (the open-source AI coding CLI, supports free/open model providers) believing it was related to Obsidian Copilot, then hit an error running the `opencode` command in a terminal — exact error text not yet captured.
+
+What's confirmed from Copilot's own documentation (fetched this session, `docs.obsidiancopilot.com`): opencode genuinely is one of three real, first-class agent backends in Copilot's **Agent Chat** feature (Settings → Copilot → Basic → Agents), alongside Claude Code and Codex — described as "the best starting point" of the three. Setup has two paths:
+- **"Managed by Copilot"** → Download & install — Copilot downloads and manages its own opencode binary internally. The docs explicitly note this path **"does not require a PowerShell command or PATH changes"** — it never touches the system terminal or PATH at all.
+- **"My own binary"** → point Copilot at an existing install (auto-detect, or the full path to `opencode.exe`).
+
+**This strongly suggests the user's install is a separate, standalone `opencode` install** (e.g. via `npm install -g opencode-ai` or similar) made outside Copilot's managed flow — Copilot's own managed path wouldn't produce a terminal error at all, since it never runs `opencode` as a user-typed command. That lines up with the user's own second goal: using `opencode` **standalone**, independent of Copilot, for free/open-model work — that's inherently a system-PATH CLI install, not Copilot's internal managed one. The two may end up pointing at the same binary eventually (Copilot's "My own binary" option can target a standalone install), but they are functionally two different setup paths today.
+
+**Checked directly on this machine (Dell), 2026-09-20:** `opencode` is not on PATH in either PowerShell (`Get-Command opencode` finds nothing) or Git Bash (`which opencode` finds nothing), and it is not installed as a global npm package under either `opencode` or `opencode-ai` (`npm list -g` shows neither). This means the most likely explanation is simply that `opencode` was never actually installed as a standalone CLI on this machine — the error the user saw was probably a plain "command not found" / "'opencode' is not recognized," not a deeper configuration problem. This doesn't rule out WSL (not checked from this session) or the possibility that it's only ever been set up through Copilot's own managed sandbox, which deliberately doesn't touch PATH.
+
+Still needed from the user before this can be fixed:
+- Confirmation of the exact error text and which terminal/shell it was run in (PowerShell, Git Bash, WSL) — to confirm it matches the "not installed" theory above rather than something else (a version mismatch, a permissions error, a corrupted partial install).
+- Whether they want the standalone CLI working first (`npm install -g opencode-ai`, for free/open models on its own, independent of Obsidian), the Copilot-managed integration (Settings → Copilot → Basic → Agents → opencode → Configure, inside Obsidian, no terminal), or both.
 
 ## Lean Terminal
 Lean Terminal embeds an `xterm.js` terminal panel inside Obsidian, so CLI agents (Claude Code, Codex) can run directly in the vault workspace instead of a separate window.
@@ -145,10 +163,10 @@ Automation should make the vault easier to audit, not harder.
 
 | Surface | Risk | Jarvis rule |
 |---|---|---|
-| Copilot autonomous tools | Parallel writes and hidden context drift. | Use only after workflow approval. |
+| Copilot autonomous tools | **Live, not hypothetical, as of this session's confirmation.** `writeFile`/`editFile` are enabled tool IDs — Copilot can edit vault notes on its own, unlogged, outside the Write Contract. | Vault notes beat Copilot memory when facts conflict. An unexplained edit is now a real candidate to check against Copilot's autonomous agent, not just manual edits. |
 | Copilot memory | Stale or unreviewed facts. | Vault notes beat memory. |
-| Local REST API secure port `27124` | Programmatic writes. | Do not call unless asked. |
-| Local REST API insecure port `27123` | Still requires the API key — the gap is transport encryption, not authentication. Its own README frames it as an MCP-client fallback for clients that cannot trust a locally generated CA, not a general convenience. | Review whether it should remain enabled; verify its binding host is localhost-only. |
+| Local REST API secure port `27126` | Programmatic writes if called. | Do not call unless asked. |
+| Local REST API insecure port `27123` | **Resolved 2026-09-20 — standardized on, by design.** Still requires the API key; the gap is transport encryption within this one machine, not authentication or network exposure (binding host confirmed localhost-only). This is the port both Claude Code and Cursor's MCP bridge actually use. | Settled design, not a pending review — see the Local REST API section above. |
 | QuickAdd AI | Capture macros can mix raw and processed material. | Configure capture first, AI later. |
 | DataviewJS/HTML | Executable dashboard behavior. | Prefer plain Dataview. |
 
@@ -157,25 +175,25 @@ Automation should make the vault easier to audit, not harder.
 - **Local REST API ↔ MCP/filesystem:** the API exposes the same vault operations an agent already has via filesystem edits. For documentation and note work, prefer filesystem edits — they are easier to audit than HTTP calls. The API is a bridge for *external* tools, not a shortcut for an in-editor agent.
 - **Secrets ↔ `.gitignore`:** `copilot`, `quickadd`, and `local-rest-api` `data.json` files are gitignored precisely because they can hold credentials. This is why these docs describe behavior, never values. See [[Git Recovery and Vault Safety]].
 ## Gold-Standard Example
-The correct pattern is restraint, so the example is a boundary, not a feature: `50_Archive/copilot/copilot-conversations` is read-only historical context — an agent may read it for continuity but must not treat it as a write target or as authority over current notes. There is no approved automation workflow in the vault yet, which is itself the honest current state: the safe default is "filesystem edits, logged."
+The correct pattern is restraint, so the example is a boundary, not a feature: `50_Archive/copilot/copilot-conversations` is read-only historical context — an agent may read it for continuity but must not treat it as a write target or as authority over current notes. **Updated 2026-09-20:** Copilot's own autonomous vault-write access is now a real, approved exception to "no automation workflow yet" — but it's Copilot's own internal tool-calling, not something other agents gain access to, and it doesn't change the rule for any agent working through Claude Code or Cursor: the safe default there stays "filesystem edits, logged."
 ## Verified Open State
-- Should the Local REST API insecure server on port `27123` remain enabled, and which local tool needs it? — *security decision; insecure server is currently on. `27123` skips TLS, not authentication — it exists for MCP clients that cannot trust the plugin's self-signed CA. Binding host resolved 2026-09-19: defaults to `127.0.0.1`, and this vault has no override, so it is localhost-only today.*
-- Should Copilot's autonomous agent mode be allowed to make vault edits, or stay human-facing Q&A? — *unresolved; high-risk until scoped*
-- Which, if any, AI workflow is approved to call command endpoints? — *none currently approved*
-- Should Lean Terminal's `persistBuffer` stay on, given it writes full session scrollback (and machine-specific `cwd` paths) to a plaintext `data.json`? — *unresolved; flagged 2026-09-19, mitigated for sync by excluding the file via `.stignore`, not by changing the plugin setting*
-## Suggestions
-- **Build 3's `.stignore` fix solves the sync-exposure problem but not the standing local one — this is the real remaining decision, not a footnote to the sync fix.** `persistBuffer: true` means every CLI session Anant runs through Lean Terminal (Claude Code, Codex, inside the vault workspace) has its full raw output sitting in a plaintext file on this one machine, whether or not it ever syncs anywhere. **Worth deciding: yes** — this is a local-machine question independent of cross-laptop sync, and it's currently framed as settled when only the sync half is.
-- **Local REST API's insecure-server decision and Copilot's autonomous-mode decision are both already tracked** in [[Plugin Gaps Recommendations and Verification]] — do not re-decide them here.
-- **Lowering `recentSessionsMax` from 10: worth it as a cheap partial mitigation, not a fix.** Fewer retained sessions shrinks the standing exposure window (less history sitting in plaintext at any moment) without touching whether `persistBuffer` itself is on — a reasonable middle ground if turning buffering off entirely would lose scrollback Anant actually wants to scroll back to mid-session. Not worth agonizing over the exact number; 3-5 sessions instead of 10 gets most of the benefit with no real workflow cost.
+- Which, if any, AI workflow is approved to call Local REST API command endpoints? — *none currently approved; the port/standardization decision is settled, command-endpoint usage is a separate, still-open question*
+- Should Lean Terminal's `persistBuffer` stay on, given it writes full session scrollback (and machine-specific `cwd` paths) to a plaintext `data.json`? — *unresolved; flagged 2026-09-19, mitigated for sync by excluding the file via `.stignore`, not by changing the plugin setting. Lowering `recentSessionsMax` from `10` to `3`-`5` would shrink the standing local exposure window without touching whether buffering itself is on — a cheap partial mitigation, not acted on without the user's say-so since it trades away scrollback they may actually use.*
+- opencode: exact error text, shell used, and standalone-vs-Copilot-managed intent — *see the opencode section above; this machine's own PATH/npm state was checked directly, the rest needs the user.*
+
 ## Sources
 
 - [Copilot docs](https://www.obsidiancopilot.com/en/docs)
 - [Copilot Vault QA](https://www.obsidiancopilot.com/en/docs/vault-qa)
+- [Copilot — Autonomous Agent docs](https://docs.obsidiancopilot.com/autonomous-agent/) and [Agent Chat overview](https://docs.obsidiancopilot.com/agent-mode-and-tools/) — tool-calling mechanism, opencode/Claude Code/Codex agent backends, fetched 2026-09-20
+- [Copilot — Windows setup for Agent Chat](https://docs.obsidiancopilot.com/agent-mode-windows-setup/) — opencode Managed-by-Copilot install path, fetched 2026-09-20
+- [Copilot GitHub releases](https://github.com/logancyang/obsidian-copilot/releases) — checked for any MCP mention (none found) and opencode/Codex/Claude Code agent feature history, fetched 2026-09-20
 - [Local REST API README](https://github.com/coddingtonbear/obsidian-local-rest-api)
 - [Local REST API docs](https://coddingtonbear.github.io/obsidian-local-rest-api/)
 - [Local REST API installation/configuration reference](https://deepwiki.com/coddingtonbear/obsidian-local-rest-api/1.1-installation-and-configuration) — Binding Host default
 - [QuickAdd docs](https://quickadd.obsidian.guide/docs/)
 - [QuickAdd Capture choice](https://quickadd.obsidian.guide/docs/Choices/CaptureChoice)
-- Direct read of `.obsidian/plugins/lean-terminal/data.json` — this session, 2026-09-19
+- Direct read of `.obsidian/plugins/copilot/data.json` (non-secret keys only), `.obsidian/plugins/obsidian-local-rest-api/data.json` (non-secret keys only), `.mcp.json`, and `.obsidian/plugins/lean-terminal/data.json` — this session, 2026-09-20
+- `Get-Command opencode` / `which opencode` / `npm list -g` checked directly on this machine — this session, 2026-09-20
 - [[AI_CONTEXT]]
 - [[Agent Operating Guide]]

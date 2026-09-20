@@ -2,7 +2,7 @@
 type: evergreen
 status: sprout
 created: 2026-05-15
-updated: 2026-09-19
+updated: 2026-09-20
 tags:
   - evergreen
   - system
@@ -27,6 +27,7 @@ Use all three deliberately:
 - Project notes answer: why does this work matter, what has been decided, and what is the current `next:` move?
 
 ## Current Tasks Settings
+Re-verified directly against `.obsidian/plugins/obsidian-tasks-plugin/data.json` 2026-09-20 — accurate, no drift.
 
 - Task format: `tasksPluginEmoji`.
 - Done date: set automatically.
@@ -113,7 +114,7 @@ Use task lines when multiple actions need tracking:
 - [ ] Test QuickAdd choice in a disposable note
 ```
 
-Do not keep a different next action in prose, frontmatter, and a Kanban card. Pick one canonical current move and let dashboards surface it.
+Do not keep a different next action in prose, frontmatter, and a Kanban card. Pick one canonical current move and let dashboards surface it. This doesn't mean an active note should have `next:` *or* task lines, never both — a project routinely has one current move in `next:` and a queue of further trackable actions behind it as task lines. The rule is about not letting the *same* step be described three different, possibly-drifting ways, not about picking only one mechanism.
 
 ## Task Query Blocks
 
@@ -134,12 +135,19 @@ Coursework due soon:
 ````markdown
 ```tasks
 not done
-path includes 10_UMN
+path includes 10_Areas/UMN
 due before in 14 days
 sort by due
 short mode
 ```
 ````
+*Path corrected 2026-09-20 — was `10_UMN`, never a real vault folder. Note `10_Areas/UMN` itself doesn't exist in the vault yet either (real coursework material lives outside the vault) — this query is correctly written for when it does, not currently returning results.*
+
+Recurring task, worked example:
+
+```markdown
+- [ ] Weekly review 🔁 every week 📅 2026-09-26
+```
 
 In-progress work:
 
@@ -238,17 +246,15 @@ When adding work to Jarvis:
 - *Kanban:* [[10_Areas/Life/Habits/Habit Tracker Board|Habit Tracker Board]] is a real lane-based board (stage movement is the point), not a task dump.
 - *next-driven project:* [[BOOM Board|BOOM Board]] keeps context in the note and surfaces one current move.
 ## Verified Open State
-- Preferred priority scale for coursework vs projects (which of `🔺/⏫/🔼/🔽/⏬` maps to what)? — *unresolved; pick a convention before scaling Tasks usage*
-- Canonical lane names for future project boards (the doc offers four templates; none is yet declared the default)? — *needs user choice*
+- **Preferred priority scale for coursework vs projects and canonical lane names for future project boards are both genuine open preferences, not settings gaps — deliberately not resolved here.** Both are the user's call, not something to guess at; the syntax and four candidate lane templates are documented above and ready whenever the choice is made.
+- Kanban WIP/lane card-limits: checked the plugin's own README and Publish docs directly — neither confirms a per-lane card-limit feature exists, one way or the other. Don't assume it's there and plan around it; a live in-app settings check would resolve this, not more doc research.
 - ~~Should `00_Dashboard`'s open-task block migrate from a Dataview `TASK` query to a native `tasks` query for emoji-date accuracy?~~ — *resolved 2026-09-19: no, see decision above. Its filter is page-metadata (`file.day`), which Dataview handles directly and Tasks cannot.*
-## Suggestions
-- **The priority scale and lane-name questions are both already tracked in [[Plugin Gaps Recommendations and Verification]]** — do not re-decide them here. **On WIP caps: checked the Kanban plugin's own README and publish docs directly and could not confirm a per-lane card-limit feature exists either way** — neither source documents one. Don't assume the feature is there and plan around it; if a hard forcing-function against overcommitment is actually wanted, the honest options are checking the in-app settings directly or accepting that lane discipline has to be a habit, not an enforced limit. Not worth further doc research — this needs a live check, not more citation-hunting.
-- **Adding one real recurring-task example: worth it, five-minute fix.** `🔁` is real, documented syntax the Tasks plugin supports, but it's currently a row in a table with no worked example — for a UMN student with genuinely recurring obligations (weekly review, recurring habit tracking), seeing `- [ ] Weekly review 🔁 every week 📅 2026-09-26` once is what turns "this exists" into "I know how to write it."
-- **Clarifying `next:` + task lines can coexist: worth one sentence, prevents a real misreading.** As written, "pick one canonical current move" could plausibly be read as "an active project note should have no task lines, only `next:`," which isn't what the rest of this doc actually means (the Integration Map already treats them as complementary — one thing now, a queue behind it). One sentence removes the ambiguity instead of relying on a careful reader connecting two sections.
+
 ## Sources
 
 - [Tasks User Guide - Task formats](https://publish.obsidian.md/tasks/Reference/Task+Formats/About+Task+Formats)
 - [Tasks User Guide](https://publish.obsidian.md/tasks/)
 - [Kanban README](https://github.com/obsidian-community/obsidian-kanban)
 - [Kanban Publish docs](https://publish.obsidian.md/kanban/) — checked directly for WIP/lane-limit support, not confirmed either way, fetched 2026-09-19
+- Direct read of `.obsidian/plugins/obsidian-tasks-plugin/data.json` and `.obsidian/plugins/obsidian-kanban/data.json` — this session, 2026-09-20
 - [[40_Resources/Obsidian/Data View's/Tasks Plugin - Review and check your Statuses 2025-12-20 18-37-12]]

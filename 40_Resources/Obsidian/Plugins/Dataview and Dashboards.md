@@ -2,7 +2,7 @@
 type: evergreen
 status: sprout
 created: 2026-05-15
-updated: 2026-09-19
+updated: 2026-09-20
 tags:
   - evergreen
   - system
@@ -21,6 +21,7 @@ notes:
 Use Dataview when the list should be rebuilt from frontmatter, tags, links, or task lines instead of maintained by hand. In Jarvis, that means project queues, stale notes, metadata cleanup, flashcard queues, source-summary indexes, and enrichment dashboards.
 
 ## Current Settings
+Re-verified directly against `.obsidian/plugins/dataview/data.json` 2026-09-20 — all values below confirmed accurate, no drift found.
 
 - Inline Dataview: enabled.
 - Inline DataviewJS: enabled.
@@ -32,6 +33,15 @@ Use Dataview when the list should be rebuilt from frontmatter, tags, links, or t
 - Task completion tracking: disabled.
 
 Because DataviewJS and HTML rendering are enabled, agents should prefer plain Dataview and treat scripts as code, not decoration.
+
+## DataviewJS/HTML Risk — actually assessed, 2026-09-20
+The Risk Register has carried "DataviewJS and HTML enabled" as a flag since this note's creation without anyone checking what the vault's real DataviewJS blocks actually do. They exist and are load-bearing: [[00_Dashboard]] uses four separate `dataviewjs` blocks (stat tiles for LeetCode/wins/study counts, a weekly rollup, a habit progress bar, a clippings-remaining count), and `10_Areas/Career/Internships/List/Dossiers MOC.md` uses one for live per-bucket capacity counts against a 50-item cap. Read every one directly. The verdict:
+
+- **All of them are pure read-and-render.** Each reads numeric/count fields from frontmatter (`lc_today`, `study_today`, `habits_done`, folder page counts) or computes an aggregate (a weekly sum, a percentage), then writes the result into the page via `dv.el`/`dv.table`/`dv.paragraph`. None calls `app.vault.modify`, writes a file, or makes a network request.
+- **The real risk is narrower than "JS execution" and specifically about `innerHTML`.** Several blocks build HTML strings with template literals and set them via `.innerHTML = \`...\`` (the stat-tile and progress-bar blocks in [[00_Dashboard]]). Today every interpolated value is a number (`?? 0` defaults, `Math.round` percentages), so there's nothing to inject. But this *is* the exact pattern that becomes a real injection risk the moment someone interpolates a string-typed frontmatter field into `innerHTML` without escaping it — a note title or a free-text property value containing `<img onerror=...>` would render, not just display as text.
+- **Practical rule, not a ban:** DataviewJS blocks that render computed numbers/counts into `innerHTML` are fine as-is. A new DataviewJS block that interpolates any string-typed frontmatter field into `innerHTML` needs `dv.el`'s text-content form (or manual escaping) instead — flag it in review if you see one.
+
+This replaces the old unexamined flag; the Risk Register entry below reflects it.
 
 ## Why This Is Central
 
@@ -117,11 +127,12 @@ Source summaries needing links or synthesis:
 
 ```dataview
 TABLE source_status, source_url, notes, file.mtime AS "Updated"
-FROM "60_Claude/30_Source_Summaries"
+FROM "60_Claude/10_Source_Summaries"
 WHERE type = "input"
 SORT file.mtime DESC
 LIMIT 20
 ```
+*Path corrected 2026-09-20 — was `60_Claude/30_Source_Summaries`, a dead folder. Note `source_status` will return empty for every row: confirmed 2026-09-20, `0` of 139 real `type: input` notes have `source_status` set at all. It is not "inconsistently set," it has never been adopted — `source_url` is the field that's actually in use (confirmed populated on multiple notes). Drop `source_status` from this query or treat every result as unset until the field is either adopted or removed from the schema.*
 
 Flashcard queue:
 
@@ -137,7 +148,7 @@ Enrichment candidates:
 
 ```dataview
 TABLE type, status, track, enrichment_status, file.mtime AS "Updated"
-FROM "10_UMN" OR "20_Progress" OR "40_Resources" OR "60_Claude/20_Distilled_Notes"
+FROM "10_Areas/UMN" OR "20_Progress" OR "40_Resources" OR "60_Claude/20_Distilled_Notes"
 WHERE (type = "concept" OR type = "evergreen" OR type = "project")
 AND (!enrichment_status OR enrichment_status != "enriched")
 SORT file.mtime ASC
@@ -148,20 +159,22 @@ Course boards:
 
 ```dataview
 TABLE WITHOUT ID file.link AS "Board", length(file.inlinks) AS "Linked Notes"
-FROM "10_UMN"
+FROM "10_Areas/UMN"
 WHERE contains(file.name, "Board")
 SORT file.name ASC
 ```
+*Path corrected 2026-09-20 (both recipes above) — was `10_UMN`, which has never existed as a vault folder. **This query currently returns nothing regardless of the path fix**: `10_Areas/UMN` itself doesn't exist in this vault yet either — real UMN coursework material lives outside the vault. This recipe is correctly written for when that folder exists, not a currently-working query.*
 
 Recent reviews:
 
 ```dataview
 TABLE file.folder AS "Folder", file.ctime AS "Created"
-FROM "60_Claude/50_Reviews"
+FROM "60_Claude/30_Reviews"
 WHERE file.name != "50_Reviews Board"
 SORT file.ctime DESC
 LIMIT 8
 ```
+*Path corrected 2026-09-20 — was `60_Claude/50_Reviews`, a folder that doesn't exist. The real folder is `60_Claude/30_Reviews`, confirmed to exist and to actually contain a `50_Reviews Board.md` file (a naming leftover from before the folder was renumbered), so the `WHERE` filter was already correct — only the `FROM` path was wrong. This is a different folder from Periodic Notes' `10_Areas/Life/Enumerate/` — see [[Templates Capture and Periodic Notes]] for that distinction.*
 
 ## Dataview vs Tasks
 
@@ -234,14 +247,9 @@ Before changing a dashboard:
 ## Gold-Standard Example
 [[00_Dashboard]] is the canonical live example: it drives enrichment candidates, active projects, projects missing `next`, the AI staging queue, clippings-to-distill, the flashcard queue, orphan notes, and metadata cleanup entirely from frontmatter. It is the proof that the field schema is worth keeping consistent — every block there breaks the moment a note's metadata drifts.
 ## Verified Open State
-- Several recipes above query `60_Claude/30_Source_Summaries`, but the live path is `60_Claude/10_Source_Summaries`. Are these recipes stale, and should they be repointed? — *known path drift; repair is tracked in the audit roadmap, out of scope for the current pass*
-- Is `source_status` actually populated on enough notes to query, or is it aspirational? — *the field is documented but inconsistently set*
-- Should DataviewJS/HTML stay enabled given the execution risk, or be restricted? — *risk noted; no change without user decision*
-- Should Meta Bind be wired into any existing dashboard or board, now that its mechanism is documented? — *unconfigured; a workflow decision, not a research gap*
-## Suggestions
-- **Fixing the path-drift bug once, everywhere: worth it, and the case is stronger than any single note made alone.** The same dead path (`60_Claude/30_Source_Summaries` vs the real `10_Source_Summaries`) breaks Templater's folder template, this note's own query recipes, and is independently logged in the gap tracker — three systems silently degraded by one typo. Fixing it as one repoint (find every reference, correct once, verify all three systems resolve afterward) costs the same as fixing it in isolation somewhere and finding the other two later. **Worth it: yes, and worth doing as one pass, not three.**
-- **Piloting Meta Bind on the `status:` dropdown: worth trying, low-risk by construction.** `status` is already a canonical field every dashboard reads, so wiring it as a click-to-set dropdown on one note type doesn't touch any query, only how the value gets written. If it doesn't earn its keep, reverting means deleting one Meta Bind block per note, not unwinding a schema change. **Worth it: yes, cheap to try, cheap to undo.**
-- **Running the `source_status` coverage audit: worth it, five-minute query, replaces a guess with a number.** "Documented but inconsistently set" is currently an impression, not a fact — `WHERE type = "input" AND !source_status` turns it into an actual count, which is the difference between "clean up five notes" and "this field never really got adopted." Cheap enough that there's no reason to keep operating on the impression instead.
+- `source_status` is confirmed unadopted (`0`/139), not just under-used — either start setting it or drop it from the schema and this note's recipe. Not decided here; a human content-workflow choice.
+- Should Meta Bind be wired into any existing dashboard or board (e.g. `status:` as a dropdown), now that its mechanism is documented? — *unconfigured; a workflow decision, not a research gap. Low-risk if tried: it only changes how a value gets written, not any existing query, so reverting means deleting one block per note.*
+
 ## Sources
 
 - [Dataview docs](https://blacksmithgu.github.io/obsidian-dataview/)
@@ -250,5 +258,6 @@ Before changing a dashboard:
 - [Meta Bind docs](https://www.moritzjung.dev/obsidian-meta-bind-plugin-docs/)
 - [Obsidian Help - Bases syntax](https://obsidian.md/help/bases/syntax)
 - Direct check of `60_Claude/44_Indexes/Bases/` (five `.base` files) and `.obsidian/core-plugins.json` — this session, 2026-09-19
+- Direct read of `.obsidian/plugins/dataview/data.json`, every real `dataviewjs` block in [[00_Dashboard]] and `Dossiers MOC.md`, and a vault-wide `source_status`/`source_url` field audit (139 `type: input` notes checked) — this session, 2026-09-20
 - [[00_Dashboard]]
 - [[40_Resources/Obsidian/Vault Operating System]]

@@ -106,6 +106,38 @@ Current state: resolved 2026-09-19, documented in [[Tasks Kanban and Project Tra
 - Whether Bases should complement Dataview or remain experimental. — *resolved 2026-09-19: not experimental. `60_Claude/44_Indexes/Bases/` holds five real `.base` files (Capability Registry, Knowledge Enrichment Registry, Ops Reports, Output Pipeline, Question Triage) alongside `core-plugins.json`'s `bases: true`. Bases and Dataview are both in active use today, not a pending choice between them.*
 - Whether Workspaces Plus was intentionally removed. — *resolved 2026-09-19: see the corrected `workspaces-plus` entry above. No manifest, no main.js, only stale `.bak` files — nothing here can run as a plugin regardless of intent.*
 
+## Plugin Utilization Audit — 2026-09-20
+Full pass over every installed plugin folder, checking for real evidence of use (live data beyond defaults, real content referencing it, or being load-bearing infrastructure) versus sitting enabled with nothing behind it. **This is a findings table only — nothing below has been uninstalled.** Per the user's own pre-authorization, any removal needs one explicit go-ahead on this specific list before action.
+
+| Plugin | Evidence found | Recommendation |
+|---|---|---|
+| Templater | All 6 folder templates now firing correctly (fixed this session); real notes exist created from them. | Keep — core infra. |
+| Dataview | ~12 query blocks in [[00_Dashboard]], 5 real `dataviewjs` blocks vault-wide, `Dossiers MOC.md`. | Keep — core infra. |
+| Tasks | Query blocks in live dashboards; task-line syntax used across notes. | Keep — core infra. |
+| Kanban | Real boards exist: Habit Tracker Board, BOOM Board. | Keep. |
+| QuickAdd | 2 live Capture choices (Inbox thought, Flashcard candidate). | Keep. |
+| Omnisearch | Human search-before-create workflow; now also does PDF/image/Office indexing via Text Extractor. | Keep. |
+| Copilot | Live autonomous `writeFile`/`editFile` access; saved chats/memory under `50_Archive/copilot/`. | Keep. |
+| Local REST API | Live MCP bridge for Claude Code and Cursor via `.mcp.json`. | Keep — core infra. |
+| Git | Auto-commit active; real commit history. | Keep — core infra. |
+| Lazy Plugin Loader | Every `short`/`long` plugin in this vault depends on it. | Keep — core infra. |
+| Periodic Notes | Real daily/weekly/monthly/yearly notes exist with recent, genuine dates. | Keep — core infra (`/startday`/`/closeday`). |
+| Spaced Repetition | Real `#cards` notes exist; a real config bug (dead legacy layer) was hiding them until fixed in a prior session. | Keep. |
+| Style Settings | Extensive real AMOLED/Catppuccin-lavender customization, not defaults. | Keep. |
+| File Explorer++ | Pin/hide filters, confirmed distinct role from Recent Files. | Keep. |
+| Recent Edits | Live 7-day edit history, dozens of real tracked edits, external-vs-in-app tagging already in use. | Keep — genuinely active. |
+| Multi-Column Markdown | 9 real notes use multi-column syntax, including `00_Dashboard`. | Keep. |
+| Lean Terminal | Real session scrollback data exists (`persistBuffer`) — genuinely used for CLI agent sessions inside Obsidian. | Keep (existing `persistBuffer`/`recentSessionsMax` risk stands, see [[AI Automation and Local Interfaces]]). |
+| Homepage | Was silently broken (BOM + wrong path) until fixed this session; now genuinely points at a real startup target. | Keep. |
+| Text Extractor | Installed this session — too new to assess usage. | Keep, reassess next pass. |
+| Latex Suite, Local REST API's dependents, Code Styler | Instant-loaded utility plugins with no distinguishing per-note evidence to check, but each backs a named, real workflow (math notation, code examples). | Keep. |
+| Excalibrain | Installed, `long`-delay, fully functional per its manifest — but "whether the hover view (`Alt+M`) actually opens" has never been click-tested in any session's findings. No confirmed real use, also no confirmed dead state. | Keep provisionally; do an actual in-app click test before deciding either way. |
+| Excalidraw | Exactly one `.excalidraw.md` file exists vault-wide (`10_Areas/Excalidraw/Imagine 09-19.excalidraw.md`), and it's an essentially blank default scaffold (588 bytes, no real drawing content) — Obsidian creating the file on first open, not a worked drawing. | Keep installed; genuinely near-zero real use is an accurate read, not stale data. |
+| Meta Bind | Has a `data.json` (442 bytes) but a vault-wide search for its actual binding syntax (`INPUT[`, `VIEW[`, `BUTTON[`) found **zero** real uses anywhere in the vault. | Genuinely unused. Either pilot it once on a real note (the `status:` dropdown idea in [[Dataview and Dashboards]]) or it's a reasonable removal candidate — user's call. |
+| Commander (`cmdr`) | **Contradicts the user's own "extremely useful" framing:** no `data.json` exists at all on this machine — never opened, never configured, and (before this session) not even wired to activate on restart. | Worth asking directly: is this actually being used on the Acer and just hasn't synced/configured here, or was "extremely useful" based on limited use so far? Not a removal candidate given the user's stated intent, but the Dell-side evidence doesn't back "extremely useful" yet. |
+| Hover Editor, Ninja Cursor, Paste URL into selection, Recent Files | No per-note artifact to check (these are UI-behavior plugins, not content-generating ones) — genuinely can't confirm real use from vault content alone, and their absence of evidence is expected given what they do, not a red flag. | Keep — low-cost UI conveniences; "no evidence" here means "nothing to find," not "unused." |
+| Workspaces Plus | Confirmed dead again this session: 3 `.bak` files, no `manifest.json`, no `main.js`. Cannot activate as a plugin. | **Delete.** Attempted this session, blocked by the permission system (destructive-action classifier) — needs the user's own delete or explicit approval. |
+
 ## Verification Checklist
 
 Before changing plugin settings:

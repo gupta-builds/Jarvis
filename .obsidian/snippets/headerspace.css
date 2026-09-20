@@ -1,3 +1,4 @@
+/* Hand-written for this vault - do not treat as a theme file. See 40_Resources/Obsidian/Settings/Appearance Theme and CSS Snippets.md */
 /* === Editor (Live Preview) heading spacing === */
 /* Targets the *line* that contains the heading, not the inline span */
 .mod-cm6 .cm-editor .cm-line.HyperMD-header {

@@ -2,6 +2,7 @@
 type: evergreen
 status: sprout
 created: 2026-09-19
+updated: 2026-09-20
 tags:
   - evergreen
   - system
@@ -14,7 +15,6 @@ notes:
   - "[[00 Plugin Reference Index]]"
   - "[[Plugin Inventory and Configuration Map]]"
   - "[[File Handling and Properties]]"
-next: "[[File Handling and Properties]]"
 ---
 # Appearance Theme and CSS Snippets
 ==Two of this vault's five enabled CSS snippets are not custom edits despite their names — `myedits.css` (3,910 lines) is AnuPpuccin's own extended Style Settings schema, and `rainbowfile_colors.css` (2,662 lines) is a third-party AnuPpuccin add-on by AnubisNekhet — only `headerspace.css`, `readingview.css`, and `dashboard.css` were actually written for this vault.==
@@ -40,13 +40,15 @@ The overall shape: an AMOLED-leaning dark Catppuccin Mocha with lavender accents
 > [!NOTE]
 > Per Obsidian's own CSS snippets documentation, snippets apply live on save with no reload needed, and exist specifically as a lighter-weight alternative to building a full theme — which is exactly how this vault uses them: two small hand-written layout fixes plus one hand-written dashboard stylesheet, sitting alongside two large third-party AnuPpuccin extension files that happen to also be delivered as snippets.
 
-Practical implication for agents: never treat `myedits.css` or `rainbowfile_colors.css` as vault-specific customization to preserve or migrate carefully — they are theme add-ons, replaceable by re-downloading from AnuPpuccin if lost. Only `headerspace.css`, `readingview.css`, and `dashboard.css` represent choices unique to this vault, and only those three would need hand-recreating on a fresh install.
-## Suggestions
-- **The Acer-theme-installation concern from before Build 6 is resolved, not just checked — the theme folder itself syncs, not just its name.** Confirmed directly: `.obsidian/themes/AnuPpuccin/` exists as real local files on the Dell, and `.stignore` has no line touching `themes/` anywhere — so the actual theme CSS files propagate to the Acer via Syncthing the same as any other vault content, alongside `appearance.json`'s `cssTheme` reference. There is no separate "browse and install from Community Themes" step required on the Acer; the synced files are the installed files. Genuinely useful to know, and now a closed question rather than an open one — worth one visual glance on the Acer after full sync just to eyeball that AnuPpuccin actually renders, since a byte-identical file tree and a running theme are still two different things to confirm once, not two things to assume are the same.
-- **`headerspace.css`, `readingview.css`, and `dashboard.css` are the only three files worth versioning carefully — real, standing guidance, not a one-time task.** If any hand-written CSS work happens on this vault going forward, it belongs in one of these three, not `myedits.css` or `rainbowfile_colors.css` — editing the theme's own extended-settings file directly would get silently overwritten the next time AnuPpuccin ships an update to that schema. Worth Anant keeping in his head permanently, since the failure mode (losing custom CSS to a theme update) only shows up months later when it's hard to trace back.
-- **A short comment header inside each of the three vault-authored snippets is low-effort and genuinely worth doing, not just tidy.** One line each (`headerspace.css`, `readingview.css`, `dashboard.css`) stating "hand-written for this vault, do not treat as a theme file" turns a fact that currently lives only in this note into something visible the moment anyone (Anant, or an agent) opens Community Themes → Snippets without vault-history context. Costs nothing, prevents a real future mistake (editing the wrong file, or deleting a "duplicate-looking" custom snippet during a cleanup pass).
+Practical implication for agents: never treat `myedits.css` or `rainbowfile_colors.css` as vault-specific customization to preserve or migrate carefully — they are theme add-ons, replaceable by re-downloading from AnuPpuccin if lost. Only `headerspace.css`, `readingview.css`, and `dashboard.css` represent choices unique to this vault, and only those three would need hand-recreating on a fresh install. If any hand-written CSS work happens going forward, it belongs in one of these three, not `myedits.css` or `rainbowfile_colors.css` — editing the theme's own extended-settings file directly would get silently overwritten the next time AnuPpuccin ships an update to that schema.
+
+**Marked 2026-09-20:** each of the three vault-authored files now opens with `/* Hand-written for this vault - do not treat as a theme file. See 40_Resources/Obsidian/Settings/Appearance Theme and CSS Snippets.md */`, so the distinction from `myedits.css`/`rainbowfile_colors.css` is visible the moment anyone opens Community Themes → Snippets, not just documented here. **Found in the same pass:** `dashboard.css` carried a UTF-8 BOM (stripped while adding the marker — CSS parsers generally tolerate a leading BOM, so this wasn't causing a functional bug the way the same class of corruption did in `homepage/data.json` — see [[AI Automation and Local Interfaces]] — but it's now clean and consistent with the other two).
+
+The Acer theme-installation question is resolved, not just checked: `.obsidian/themes/AnuPpuccin/` exists as real local files on the Dell, and `.stignore` has no line touching `themes/` anywhere, so the actual theme CSS files propagate to the Acer via Syncthing the same as any other vault content, alongside `appearance.json`'s `cssTheme` reference. There is no separate "browse and install from Community Themes" step required on the Acer; the synced files are the installed files. Still worth one visual glance on the Acer after a full sync to eyeball that AnuPpuccin actually renders — a byte-identical file tree and a running theme are still two different things to confirm once, not two things to assume are the same.
+
 ## Sources
 - [AnuPpuccin theme repository](https://github.com/AnubisNekhet/AnuPpuccin) — theme description, extended colorschemes, rainbow-folder snippet variants, fetched 2026-09-19
 - [Obsidian Help — CSS snippets](https://obsidian.md/help/Extending+Obsidian/CSS+snippets) — snippet activation and live-reload behavior, fetched 2026-09-19
 - Direct read of `.obsidian/appearance.json`, `.obsidian/plugins/obsidian-style-settings/data.json`, and all five files under `.obsidian/snippets/` — this session, 2026-09-19
 - Direct filesystem check of `.obsidian/themes/AnuPpuccin/` (exists) and `.stignore` (no `themes/` exclusion) — confirms the theme folder syncs via Syncthing, this session, 2026-09-19
+- BOM check across all five snippet files (one found, in `dashboard.css`, fixed) and marker-comment addition to the three vault-authored files — this session, 2026-09-20

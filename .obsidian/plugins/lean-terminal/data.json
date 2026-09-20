@@ -1,0 +1,94 @@
+{
+  "shellPath": "",
+  "shellPathWin": "",
+  "shellPathMac": "",
+  "shellPathLinux": "",
+  "startupCommand": "",
+  "fontSize": 14,
+  "fontFamily": "IosevkaTerm Nerd Font",
+  "lineHeight": 1,
+  "theme": "tokyo-night",
+  "backgroundColor": "#30303b",
+  "cursorBlink": true,
+  "cursorStyle": "bar",
+  "copyOnSelect": true,
+  "scrollback": 5000,
+  "ribbonIcon": "terminal",
+  "defaultLocation": "bottom",
+  "notifyOnCompletion": true,
+  "notificationSound": "beep",
+  "notificationVolume": 50,
+  "searchShortcut": "Ctrl+Alt+F",
+  "persistBuffer": true,
+  "recentSessionsMax": 10,
+  "recentSessions": [
+    {
+      "name": "Terminal 2",
+      "color": "",
+      "cwd": "D:\\_Anant\\20_Progress\\Documents\\Jarvis",
+      "bufferSerial": "Microsoft Windows [Version 10.0.26200.9457]\r\n(c) Microsoft Corporation. All rights reserved.\r\n\r\nD:\\_Anant\\20_Progress\\Documents\\Jarvis> \u001b[1D\u001b[?1004h",
+      "closedAt": 1789868688751
+    },
+    {
+      "name": "Terminal 1",
+      "color": "",
+      "cwd": "D:\\_Anant\\20_Progress\\Documents\\Jarvis",
+      "bufferSerial": "\r\n\u001b[33mTerminal binaries not installed.\r\n\u001b[0mGo to Settings → Terminal to download them.\u001b[1B\u001b[43D",
+      "closedAt": 1789868688750
+    }
+  ],
+  "enableClaudeIntegration": true,
+  "claudeSessionsDir": "D:\\_Anant\\20_Progress\\Documents\\Jarvis",
+  "claudeRegistryPath": "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/claude.sessions.md",
+  "claudeSessionsMax": 25,
+  "tabColorTintsBackground": true,
+  "tabColors": [
+    {
+      "name": "None",
+      "value": "",
+      "tintStrength": 0,
+      "builtin": true
+    },
+    {
+      "name": "Vermilion",
+      "value": "#FC3634",
+      "tintStrength": 12,
+      "builtin": true
+    },
+    {
+      "name": "Sky Blue",
+      "value": "#25D0F7",
+      "tintStrength": 12,
+      "builtin": true
+    },
+    {
+      "name": "Gold",
+      "value": "#FFD700",
+      "tintStrength": 12,
+      "builtin": true
+    },
+    {
+      "name": "Mint",
+      "value": "#18BC9C",
+      "tintStrength": 12,
+      "builtin": true
+    },
+    {
+      "name": "Azure",
+      "value": "#007BFF",
+      "tintStrength": 12,
+      "builtin": true
+    },
+    {
+      "name": "Purple",
+      "value": "#A991D4",
+      "tintStrength": 12,
+      "builtin": true
+    }
+  ],
+  "tabBarPosition": "right",
+  "wikiLinkAutocomplete": true,
+  "wikiLinkInsertMode": "wikilink",
+  "clickableFilePaths": true,
+  "readlineShortcuts": true
+}

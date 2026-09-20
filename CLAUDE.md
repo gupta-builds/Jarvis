@@ -124,7 +124,6 @@ Skills are registered as slash commands via `.claude/commands/`. Type the comman
 | 5-advisor decision council | `/llm-council "question"` | `.claude/skills/llm-council.md` |
 
 ## Available Agents
-
 When a user invokes an agent, read the corresponding file from `.claude/agents/` and follow its instructions.
 
 | Agent | Purpose | File |

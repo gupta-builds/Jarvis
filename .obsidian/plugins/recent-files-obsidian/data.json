@@ -5,16 +5,196 @@
       "path": "40_Resources/CS/Concepts/New Laptop/Statusline Migration — Acer Prompt.md"
     },
     {
-      "basename": "CLAUDE",
-      "path": "CLAUDE.md"
+      "basename": "WSL Session Briefing",
+      "path": "40_Resources/CS/Concepts/New Laptop/Sync/WSL Session Briefing.md"
     },
     {
-      "basename": "Imagine 09-19.excalidraw",
-      "path": "10_Areas/Excalidraw/Imagine 09-19.excalidraw.md"
+      "basename": "Jarvis MCP and REST API Setup",
+      "path": "40_Resources/CS/Concepts/New Laptop/Sync/Jarvis MCP and REST API Setup.md"
     },
     {
-      "basename": "2026-09-19",
-      "path": "10_Areas/Life/Enumerate/Daily/2026-09-19.md"
+      "basename": "Google Drive Sync Policy",
+      "path": "40_Resources/CS/Concepts/New Laptop/Sync/Google Drive Sync Policy.md"
+    },
+    {
+      "basename": "Cross-Laptop Sync - Rollback Procedure",
+      "path": "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Rollback Procedure.md"
+    },
+    {
+      "basename": "Cross-Laptop Sync - Build 5 Findings",
+      "path": "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build 5 Findings.md"
+    },
+    {
+      "basename": "Cross-Laptop Sync - Build Roadmap",
+      "path": "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build Roadmap.md"
+    },
+    {
+      "basename": "Cross-Laptop Sync - Build 4 Findings",
+      "path": "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build 4 Findings.md"
+    },
+    {
+      "basename": "Cross-Laptop Sync - Build 3 Findings",
+      "path": "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build 3 Findings.md"
+    },
+    {
+      "basename": "Cross-Laptop Sync - Build 1 Findings",
+      "path": "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build 1 Findings.md"
+    },
+    {
+      "basename": "Cross-Laptop Sync - Build 2 Findings",
+      "path": "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build 2 Findings.md"
+    },
+    {
+      "basename": "Session - 2 Problems Transcript",
+      "path": "20_Progress/Degree/_Courses/Technical Interview/Session - 2 Problems Transcript.md"
+    },
+    {
+      "basename": "WSL New Laptop Master Plan — Verified 2026-09-11",
+      "path": "40_Resources/CS/Concepts/New Laptop/WSL New Laptop Master Plan — Verified 2026-09-11.md"
+    },
+    {
+      "basename": "New Laptop Setup",
+      "path": "40_Resources/CS/Concepts/New Laptop/New Laptop Setup.md"
+    },
+    {
+      "basename": "Ubuntu - WSL",
+      "path": "40_Resources/CS/Concepts/New Laptop/Ubuntu - WSL.md"
+    },
+    {
+      "basename": "Old Laptop Decommission Checklist",
+      "path": "40_Resources/CS/Concepts/New Laptop/Old Laptop Decommission Checklist.md"
+    },
+    {
+      "basename": "VS Code Professional Setup",
+      "path": "40_Resources/CS/Concepts/New Laptop/VS Code Professional Setup.md"
+    },
+    {
+      "basename": "Installations",
+      "path": "40_Resources/CS/Concepts/New Laptop/Installations.md"
+    },
+    {
+      "basename": "Acer Live State — 2026-09-16",
+      "path": "40_Resources/CS/Concepts/New Laptop/Acer Live State — 2026-09-16.md"
+    },
+    {
+      "basename": "Untitled",
+      "path": "20_Progress/Degree/Untitled.md"
+    },
+    {
+      "basename": "Fall'26 Syllabus",
+      "path": "20_Progress/Degree/Fall'26 Syllabus.md"
+    },
+    {
+      "basename": "Preparation",
+      "path": "20_Progress/Degree/CSCI 5304/Preparation.md"
+    },
+    {
+      "basename": "Anti-Drift Rules",
+      "path": "10_Areas/Life/Plans/Fall 2026/Anti-Drift Rules.md"
+    },
+    {
+      "basename": "Preparation",
+      "path": "20_Progress/Degree/ENGL 1004/Preparation.md"
+    },
+    {
+      "basename": "Preparation",
+      "path": "20_Progress/Degree/MGMT 3015/Preparation.md"
+    },
+    {
+      "basename": "CSCI 5304 Board",
+      "path": "20_Progress/Degree/CSCI 5304/CSCI 5304 Board.md"
+    },
+    {
+      "basename": "Fall 2026 - The One Thing",
+      "path": "10_Areas/Life/Plans/Fall 2026/Fall 2026 - The One Thing.md"
+    },
+    {
+      "basename": "Week - 1",
+      "path": "20_Progress/Degree/CSCI 4511W/Weekly/Week - 1.md"
+    },
+    {
+      "basename": "Preparation",
+      "path": "20_Progress/Degree/CSCI 4511W/Preparation.md"
+    },
+    {
+      "basename": "Textbook Map",
+      "path": "20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.md"
+    },
+    {
+      "basename": "Textbook Map",
+      "path": "20_Progress/Degree/CSCI 4511W/Textbook/Textbook Map.md"
+    },
+    {
+      "basename": "Lecture - 1",
+      "path": "20_Progress/Degree/MGMT 3015/Lecture/Lecture - 1.md"
+    },
+    {
+      "basename": "Textbook Map",
+      "path": "20_Progress/Degree/MGMT 3015/Textbook/Textbook Map.md"
+    },
+    {
+      "basename": "Entrepreneurship Concepts Board",
+      "path": "20_Progress/Degree/MGMT 3015/Concepts/Entrepreneurship Concepts Board.md"
+    },
+    {
+      "basename": "Weekly Board",
+      "path": "20_Progress/Degree/MGMT 3015/Lecture/Weekly Board.md"
+    },
+    {
+      "basename": "MGMT 3015 Board",
+      "path": "20_Progress/Degree/MGMT 3015/MGMT 3015 Board.md"
+    },
+    {
+      "basename": "Weekly Board",
+      "path": "20_Progress/Degree/CSCI 4511W/Weekly/Weekly Board.md"
+    },
+    {
+      "basename": "AI Concept Board",
+      "path": "20_Progress/Degree/CSCI 4511W/Concepts/AI Concept Board.md"
+    },
+    {
+      "basename": "Definitions",
+      "path": "20_Progress/Degree/CSCI 4511W/Concepts/Definitions.md"
+    },
+    {
+      "basename": "CSCI 4511W Board",
+      "path": "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md"
+    },
+    {
+      "basename": "APAS",
+      "path": "40_Resources/UMN/The Plan/APAS.md"
+    },
+    {
+      "basename": "Human Writing Standard",
+      "path": "30_Order/Standards/Enrich/Human Writing Standard.md"
+    },
+    {
+      "basename": "Plugins Usage Standard",
+      "path": "30_Order/Standards/Enrich/Plugins Usage Standard.md"
+    },
+    {
+      "basename": "Plugins Usage",
+      "path": "30_Order/Workflows/Enrichment/Plugins Usage.md"
+    },
+    {
+      "basename": "Decoration",
+      "path": "30_Order/Workflows/Enrichment/Decoration.md"
+    },
+    {
+      "basename": "Researcher",
+      "path": "30_Order/Workflows/Enrichment/Researcher.md"
+    },
+    {
+      "basename": "Human Content Writer",
+      "path": "30_Order/Workflows/Enrichment/Human Content Writer.md"
+    },
+    {
+      "basename": "Decoration Standard",
+      "path": "30_Order/Standards/Decoration Standard.md"
+    },
+    {
+      "basename": "Editing Standard",
+      "path": "30_Order/Standards/Editing Standard.md"
     }
   ],
   "omittedPaths": [],

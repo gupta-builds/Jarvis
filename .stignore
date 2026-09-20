@@ -37,12 +37,11 @@
 30_Order/System/jarvis-memory/__pycache__
 
 
-// Build 6, 2026-09-19: root-level file literally named "NUL" (Windows reserved
-// device name), created 2026-09-05 as stderr-redirect debris from a WSL/cmd.exe
-// "2>NUL" hook invocation bug (already fixed at the source in settings.json).
-// Confirmed this can never sync to a Windows device (Win32 CreateFile refuses
-// the name) and that deleting the file on disk + forcing a rescan does not
-// clear Syncthing's stale "invalid" index entry for it (tested directly this
-// session). Not a secrets/churn/bloat case, but a genuine permanent sync
-// blocker with no other working remedy — narrowly scoped to this exact path.
+// Platform-incompatibility exclusion (not secrets/churn/bloat) - Build 6, 2026-09-19:
+// A file literally named NUL was created at the vault root on 2026-09-05 via a WSL-to-cmd.exe
+// interop bug (a hook's "2>NUL" redirect landed as a real file instead of the null device).
+// No Windows filesystem can ever hold a real file named NUL/CON/PRN/COM1-9/LPT1-9 - Syncthing
+// indexed it anyway and got permanently stuck (deletion + forced rescan did not clear the stale
+// index entry). The originating hook command was already fixed separately; this line guards
+// against the same class of debris recurring.
 /NUL

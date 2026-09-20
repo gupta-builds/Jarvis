@@ -1,4 +1,4 @@
-﻿2026-08-10 14:11:30 +0400  .claude_windows  OK
+2026-08-10 14:11:30 +0400  .claude_windows  OK
 2026-08-10 14:12:35 +0400  .claude_windows  OK
 2026-08-10 14:12:46 +0400  .claude_windows  OK
 2026-08-10 14:12:55 +0400  .claude_windows  OK

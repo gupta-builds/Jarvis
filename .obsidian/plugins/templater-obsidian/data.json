@@ -10,28 +10,28 @@
   "user_scripts_folder": "",
   "folder_templates": [
     {
-      "folder": "10_UMN",
+      "folder": "10_Areas/UMN",
       "template": "30_Order/Templates/Classes/Week Template.md"
     },
     {
       "folder": "20_Progress",
-      "template": "30_Order/Templates/Metadata/For Progress.md"
+      "template": "30_Order/Templates/Frontmatter/For Progress.md"
     },
     {
       "folder": "40_Resources",
-      "template": "30_Order/Templates/Metadata/For Evergreen.md"
+      "template": "30_Order/Templates/Frontmatter/For Evergreen.md"
     },
     {
       "folder": "60_Claude/20_Distilled_Notes",
-      "template": "30_Order/Templates/Metadata/For Evergreen.md"
+      "template": "30_Order/Templates/Frontmatter/For Evergreen.md"
     },
     {
-      "folder": "60_Claude/30_Source_Summaries",
-      "template": "30_Order/Templates/Metadata/For Inputs.md"
+      "folder": "60_Claude/10_Source_Summaries",
+      "template": "30_Order/Templates/Frontmatter/For Inputs.md"
     },
     {
       "folder": "60_Claude/40_Project_Briefs",
-      "template": "30_Order/Templates/Metadata/For Progress.md"
+      "template": "30_Order/Templates/Frontmatter/For Progress.md"
     }
   ],
   "file_templates": [],

@@ -2,7 +2,7 @@
 type: evergreen
 status: sprout
 created: 2026-05-31
-updated: 2026-05-31
+updated: 2026-09-20
 tags:
   - evergreen
   - system
@@ -30,7 +30,8 @@ From the official Canvas docs:
 - **Text card:** Markdown that lives only on the canvas — **does not appear in backlinks** until converted to a file.
 - **Web card:** an embedded URL.
 - **Connections:** directed lines, optionally labelled and colored, that describe the relationship between two cards.
-- **Groups:** named regions that cluster related cards.
+- **Groups:** named regions that cluster related cards. A Canvas Group is purely a visual boundary on that one canvas — confirmed against the [JSON Canvas spec](https://jsoncanvas.org/spec/1.0/), a group is a node type with a bounding box and no path reference. It does nothing to the vault's folder structure. Don't infer a file-move from "organize this Canvas group."
+- **Color:** cards and connections can be colored — a preset index `1`–`6` or a hex value per the [JSON Canvas spec](https://jsoncanvas.org/spec/1.0/), set in Obsidian's UI via "Set color" in the selection controls that appear above a selected card ([Obsidian Help — Canvas](https://obsidian.md/help/plugins/canvas)). Useful for a small course concept-map (color by prerequisite vs application, or by mastery status) — there's no bulk or rule-based coloring in the base plugin, so it stops being worth the manual effort past a handful of cards.
 - Embed a canvas in a note with `![[Name.canvas]]`.
 ## Integration Map
 - **Canvas → notes (backlinks):** note cards create real link context; **text-only cards do not.** If a card represents something you'll want to find later, make it a note card or convert it to a file. This is the single most important Canvas rule for a link-dependent vault like Jarvis.
@@ -53,12 +54,7 @@ If the same information is better as a Dataview list or a short table, skip the 
 ## Gold-Standard Example
 None exists — there is no `.canvas` file in the vault, which confirms the audit's "Canvas: zero usage." There is honestly nothing real to point at. The first candidate is a single-course concept map (e.g. the MGMT 3001 concept notes laid out with prerequisite arrows) linked from [[40_Resources/UMN/Previous Classes/Minor/MGMT 3001/MGMT 3001 Board|the MGMT 3001 Board]]. Do not invent a `.canvas` reference that does not exist.
 ## Verified Open State
-- Is Canvas deliberately unused, or just never started? — *unverified; no `.canvas` files exist, but the plugin is enabled*
-- Would one course concept-map Canvas be worth building as the seed example, or does the graph view already cover this need? — *open question for the user*
-## Suggestions
-- **Building the MGMT 3001 concept-map Canvas: yes, worth it, and it's the same recommendation [[Visual Thinking with Canvas and Excalidraw]] makes independently** — doing it once closes the "zero usage" gap in both notes instead of leaving each to flag it separately. For Anant specifically, the payoff isn't the Canvas itself, it's seeing prerequisite structure across a course's concepts at a glance before an exam, something the linear note list and the graph view both do badly per this note's own Mechanism section.
-- **JSON Canvas's `color` field, confirmed real via the spec** (preset index 1-6 or a hex value — [JSON Canvas spec](https://jsoncanvas.org/spec/1.0/)), **and confirmed operable in Obsidian's own UI**: select a card, use "Set color" in the selection controls that appear above it, pick from the palette ([Obsidian Help — Canvas](https://obsidian.md/help/plugins/canvas)). **Worth it: yes, for the course concept-map use case specifically** — coloring by concept type (prerequisite vs application) or mastery status turns the Canvas into a status view, not just a layout, at zero cost beyond a few clicks per card. Not worth doing for a Canvas with more than a handful of cards; recoloring by hand doesn't scale and there's no bulk/rule-based coloring in the base plugin.
-- **Groups vs folders: worth one line, not worth more.** A Canvas Group is purely a named visual boundary on that one canvas — it does nothing to the vault's folder structure, confirmed by how JSON Canvas stores groups (a node type with a bounding box, no path reference). The actual risk this note is guarding against is narrow but real: an agent told to "organize" a Canvas group could otherwise infer a file-move is wanted. One clarifying sentence closes that; it doesn't need its own section.
+- Canvas remains genuinely unused, not just unverified: confirmed again 2026-09-20, no `.canvas` file exists anywhere in the vault despite the plugin being enabled. Building a first real example (the MGMT 3001 concept-map candidate named above) is content-creation work, not a plugin-settings question — out of scope for this documentation batch, tracked here and in [[Visual Thinking with Canvas and Excalidraw]] as the same open recommendation, not duplicated as two separate asks.
 ## Sources
 - [Obsidian Help - Canvas](https://help.obsidian.md/plugins/canvas)
 - [JSON Canvas format](https://jsoncanvas.org/)

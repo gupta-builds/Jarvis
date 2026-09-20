@@ -2,7 +2,7 @@
 type: evergreen
 status: sprout
 created: 2026-05-15
-updated: 2026-05-15
+updated: 2026-09-20
 tags:
   - evergreen
   - system
@@ -22,53 +22,64 @@ Templater is the active template engine. Periodic Notes owns daily, weekly, and 
 Core Templates is disabled. Do not document or depend on the core Templates plugin as the active system.
 
 ## Current Templater State
+**Corrected 2026-09-20** against a direct read of `.obsidian/plugins/templater-obsidian/data.json` — the settings below and the folder-template map were previously described from memory/prose, not verified, and both were wrong in ways that mattered.
 
 - Templates folder: `30_Order/Templates`.
-- Trigger on file creation: enabled.
-- Folder templates: enabled.
-- System commands: disabled.
-- File templates: disabled.
-- User scripts folder: empty.
+- Trigger on new file creation mode: `folder` (Templater's own three modes are `none`/`folder`/`regex` — [Templater settings docs](https://silentvoid13.github.io/Templater/settings.html)). This means every new note is checked against `folder_templates`, and per Templater's own rule the **most specific (deepest) matching folder wins** if nesting ever overlaps.
+- Folder templates: 6 entries configured (all fixed this session — see below).
+- File templates (regex mode): empty array — not in use; folder mode is the only active matcher.
+- System commands: no explicit enable/disable field exists in this plugin version's `data.json`; `shell_path` is empty and `command_timeout` sits at its default (`5`s). No template in this vault calls `tp.system.*`, so this is inactive in practice, not actively disabled by a setting.
+- User scripts folder: empty (unused).
+- Syntax highlighting: on (desktop and mobile).
 
-Folder template map:
+### Folder template map — fixed 2026-09-20
+Two bugs existed, not one. The tracker had already found that `10_UMN` and `60_Claude/30_Source_Summaries` pointed at nonexistent folders. Checking every template file directly against disk (not just the folder side) found a second, larger bug: **four of the six entries pointed at `30_Order/Templates/Metadata/`, a folder that doesn't exist at all** — the real folder is `30_Order/Templates/Frontmatter/`, apparently renamed at some point after these entries were set. So effectively only 1 of 6 entries (`20_Progress`... no, actually only the folder half of the UMN entry) was fully correct before this fix; the rest silently did nothing.
 
-| Folder | Template | Implication for agents |
+| Folder | Template | Verified this session |
 |---|---|---|
-| `10_UMN` | `30_Order/Templates/Classes/Week Template.md` | Coursework notes need class/week structure when created through Obsidian. |
-| `20_Progress` | `30_Order/Templates/Metadata/For Progress.md` | Active project notes should support `next:` and progress metadata. |
-| `40_Resources` | `30_Order/Templates/Metadata/For Evergreen.md` | Stable references should have evergreen-style metadata. |
-| `60_Claude/20_Distilled_Notes` | `30_Order/Templates/Metadata/For Evergreen.md` | AI-synthesized durable knowledge follows evergreen rules. |
-| `60_Claude/30_Source_Summaries` | `30_Order/Templates/Metadata/For Inputs.md` | Source summaries are input notes, not finished evergreen notes. |
-| `60_Claude/40_Project_Briefs` | `30_Order/Templates/Metadata/For Progress.md` | Project briefs behave like active progress artifacts. |
+| `10_Areas/UMN` | `30_Order/Templates/Classes/Week Template.md` | Template file exists. **The folder itself does not exist yet** — this vault's real UMN coursework material lives outside the vault (see the `10_Areas/UMN` routing convention in [[AGENTS]]); the entry is correctly pointed but dormant until a note is actually created there. |
+| `20_Progress` | `30_Order/Templates/Frontmatter/For Progress.md` | Fixed: was `Metadata/For Progress.md` (nonexistent path). |
+| `40_Resources` | `30_Order/Templates/Frontmatter/For Evergreen.md` | Fixed: was `Metadata/For Evergreen.md` (nonexistent path). |
+| `60_Claude/20_Distilled_Notes` | `30_Order/Templates/Frontmatter/For Evergreen.md` | Fixed: was `Metadata/For Evergreen.md` (nonexistent path). |
+| `60_Claude/10_Source_Summaries` | `30_Order/Templates/Frontmatter/For Inputs.md` | Fixed: folder was `60_Claude/30_Source_Summaries` (dead path, real folder is `10_Source_Summaries`) **and** template was `Metadata/For Inputs.md` (nonexistent path) — both wrong. |
+| `60_Claude/40_Project_Briefs` | `30_Order/Templates/Frontmatter/For Progress.md` | Fixed: was `Metadata/For Progress.md` (nonexistent path). |
 
-Needs verification: whether `60_Claude/7_AI_Information` should get its own folder template.
+All six template target files were confirmed to exist on disk after the fix; all five real target folders (everything but the not-yet-created `10_Areas/UMN`) were confirmed to exist. Edited via a Node script (not the Edit/Write tool — `.obsidian/` files trigger a Write Contract hook false-positive) and validated with `node -e "JSON.parse(...)"` plus a BOM check, per this vault's standard `.obsidian/` edit workaround.
+
+Resolved: `60_Claude/07_AI_Information` correctly gets no folder template — it holds system/operating docs (`AI_CONTEXT.md`, `Jarvis OS — North Star.md`), not evergreen knowledge notes, so none of the existing template shapes fit it. No template is the correct state here.
 
 ## Manual Template Matching
 
 When an agent writes files through the filesystem, Obsidian may not run Templater. The agent must manually match the template intent:
 
 - `40_Resources/Obsidian/Plugins` -> evergreen/system frontmatter.
-- `60_Claude/30_Source_Summaries` -> input/source frontmatter with source grounding.
+- `60_Claude/10_Source_Summaries` -> input/source frontmatter with source grounding.
 - `20_Progress` -> project/progress frontmatter with `next:` when a concrete action exists.
-- `60_Claude/50_Reviews` -> review frontmatter and review date.
+- `10_Areas/Life/Enumerate/` -> periodic-note frontmatter and review date; not a Claude-layer folder, so agents rarely write here directly.
 
 Do not leave a note without frontmatter because the file was created outside Obsidian.
 
 ## QuickAdd
-QuickAdd has its own deep reference now: [[QuickAdd Capture Menu]]. Short version: installed, lazy-loaded, `Alt+Q` bound, but `choices` is empty, so the capture menu does nothing. It is the highest-value unused plugin because it turns the routing table into a one-keystroke menu. Proposed choices and the full integration with Templater live in that doc. Do not configure choices during documentation work — it edits `data.json`.
+QuickAdd has its own deep reference now: [[QuickAdd Capture Menu]]. **Updated 2026-09-20:** no longer empty. Two Capture-type choices are live (`Inbox thought`, `Flashcard candidate`), confirmed directly in `quickadd/data.json`'s `choices` array. The other four proposed choices are Template-type and stay blocked until dedicated capture templates exist for source clipping, source summary, concept note, and project note. Full detail and exact field values in [[QuickAdd Capture Menu]].
 
 ## Periodic Notes Review Flow
+**Corrected 2026-09-20** against a direct read of `.obsidian/plugins/periodic-notes/data.json` — every folder and template path below was previously wrong, and Yearly was documented as disabled when it is actually enabled.
 
 Configured reviews:
 
-| Review | Format | Folder | Template |
-|---|---|---|---|
-| Daily | `YYYY-MM-DD` | `60_Claude/50_Reviews/Daily` | `30_Order/Templates/Headway Templates/Better Today.md` |
-| Weekly | `YYYY-[W]ww` | `60_Claude/50_Reviews/Weekly` | `30_Order/Templates/Headway Templates/Better Week.md` |
-| Monthly | `YYYY-MM` | `60_Claude/50_Reviews/Monthly` | `30_Order/Templates/Headway Templates/Better Month.md` |
-| Yearly | disabled | none | none |
+| Review | Format | Folder | Template | Enabled? |
+|---|---|---|---|---|
+| Daily | `YYYY-MM-DD` | `10_Areas/Life/Enumerate/Daily` | `30_Order/Templates/Enumerate/Better Today.md` | yes |
+| Weekly | `YYYY-[W]ww` | `10_Areas/Life/Enumerate/Weekly` | `30_Order/Templates/Enumerate/Better Weekly.md` | yes |
+| Monthly | `YYYY-MM` | `10_Areas/Life/Enumerate/Monthly` | `30_Order/Templates/Enumerate/Better Month.md` | yes |
+| Yearly | — | `10_Areas/Life/Enumerate/Yearly` | `30_Order/Templates/Enumerate/Better Year.md` | yes |
+| Quarterly | — | (unconfigured — empty strings) | (unconfigured) | present in `data.json` but never set up; not in use |
 
-Review notes should pull from [[00_Dashboard]], recent session log entries, open tasks, and active projects. Do not create daily notes in a second folder.
+All four active templates and all four active folders were confirmed to exist on disk. This is the mechanism behind `/startday` and `/closeday` (CLAUDE.md's Daily Operations Cadence): those skills read and write into `10_Areas/Life/Enumerate/Daily`, which is exactly what Periodic Notes is configured to create.
+
+Review notes should pull from [[00_Dashboard]], recent session log entries, open tasks, and active projects. Do not create daily notes in a second folder — `60_Claude/50_Reviews/` (what this note previously claimed) does not exist and was never the real destination.
+
+Separately, `60_Claude/30_Reviews/Weekly Synthesis/` holds a different, unrelated note type — Capability Engine "Weekly Synthesis" notes made from `30_Order/Templates/Capability/Weekly Synthesis Template.md`, not something Periodic Notes produces. Don't conflate the two: Periodic Notes owns the daily/weekly/monthly/yearly personal cadence notes; Weekly Synthesis is a manually-created knowledge-synthesis artifact.
 
 ## Capture Destination Rules
 
@@ -76,7 +87,7 @@ Use [[Agent Operating Guide]] as the full folder map. The short rule:
 
 - Raw or imported material -> `60_Claude/05_Clippings`.
 - AI output awaiting review -> `60_Claude/00_Inbox`.
-- Source-grounded summary -> `60_Claude/30_Source_Summaries`.
+- Source-grounded summary -> `60_Claude/10_Source_Summaries`.
 - Durable synthesis -> `60_Claude/20_Distilled_Notes` or `40_Resources`.
 - Active execution -> `20_Progress`.
 - Reviews -> `60_Claude/50_Reviews`.
@@ -108,24 +119,22 @@ The template gets the note into the right shape. [[HUMAN_WRITING]] decides wheth
 ## Integration Map
 - **Templater → frontmatter schema:** the folder template fires on note creation inside Obsidian and stamps canonical fields. This is the mechanism that keeps [[Dataview and Dashboards]] queries reliable — a note created outside Obsidian skips Templater, so the agent must apply the same fields by hand.
 - **Templater ↔ QuickAdd:** a QuickAdd Template choice points at a `30_Order/Templates/` file; QuickAdd places the note and Templater fills it. They must agree on the destination folder. See [[QuickAdd Capture Menu]].
-- **Periodic Notes → reviews:** Periodic Notes creates dated review notes from the Headway templates into `60_Claude/50_Reviews/`. The review pulls from [[00_Dashboard]], the session log tail, and open tasks — it is a read-of-state, not a new data source.
-- **Templater bug surface:** `60_Claude/30_Source_Summaries` appears in the folder-template map, but the live source-summary path is `60_Claude/10_Source_Summaries`. A template bound to the dead path never fires.
+- **Periodic Notes → reviews:** Periodic Notes creates dated review notes from the Enumerate templates into `10_Areas/Life/Enumerate/{Daily,Weekly,Monthly,Yearly}`. The review pulls from [[00_Dashboard]], the session log tail, and open tasks — it is a read-of-state, not a new data source.
+- **Templater bug surface, resolved 2026-09-20:** all six `folder_templates` entries were checked against disk and all had at least one wrong path component (a nonexistent `Metadata/` template folder, a dead `10_UMN`/`60_Claude/30_Source_Summaries` folder alias, or both). Fixed in full — see the Folder template map above.
 ## Gold-Standard Example
 - *Templater output:* [[40_Resources/UMN/Previous Classes/Minor/MGMT 3001/Week - 9|Week - 9]] is what the `Week Template` folder template should produce — class frontmatter, the right section skeleton, ready for content.
-- *Periodic Notes output:* [[Weekly Synthesis — 2026-W22|Weekly Synthesis — 2026-W22]] is a real review note in the configured folder.
+- *Periodic Notes output:* `10_Areas/Life/Enumerate/Weekly/2026-W27.md` is a real review note in the actual configured folder (corrected 2026-09-20 — the note previously pointed at a `60_Claude/30_Reviews/Weekly Synthesis` file, which is a different, unrelated note type; see the Periodic Notes Review Flow section above).
 ## Verified Open State
-- The folder map lists `60_Claude/30_Source_Summaries`; the live path is `10_Source_Summaries`. Which folders actually have a Templater template bound, and should the map be repointed? — *path drift; confirm in Templater settings*
-- Should `60_Claude/07_AI_Information` get its own folder template? — *unresolved; raised in the gaps register*
-- Several `Metadata/For *` templates are frontmatter-only shells (`For Evergreen`, `For Progress`) — they need bodies before they teach anything. — *addressed in the template-enrichment work, tracked separately*
-## Suggestions
-- **This note's `Verified Open State` section is stale on both of its own open questions — correcting it here rather than leaving it standing.** Build 5 already resolved both: `60_Claude/07_AI_Information` correctly gets no folder template (system docs, not evergreen knowledge), and the broken-path bug affects **two** entries, `10_UMN` (real folder `10_Areas/UMN`) and `60_Claude/30_Source_Summaries` (real folder `60_Claude/10_Source_Summaries`), not the one entry this note originally named. Treat [[Plugin Gaps Recommendations and Verification]] as current on both.
-- **Fixing both broken paths and re-verifying all six entries in one pass: worth it, and worth doing together, not separately.** Each broken entry means a note created in that folder through Obsidian silently gets no frontmatter scaffold at all — for `10_UMN`, that's every new coursework note until someone notices. The fix itself is two path corrections in `data.json`; re-checking the other four while already in there costs nothing extra and closes off the possibility of a third dead path sitting undiscovered the way these two did.
+- Several `Frontmatter/For *` templates (`For Evergreen`, `For Progress`, `For Inputs`) are frontmatter-only shells — whether they need bodies before they teach anything is a template-content question, not a settings gap, and stays out of scope for this note.
+- Quarterly review is present but unconfigured in Periodic Notes (`data.json` has an empty `quarterly` block) — open question whether a quarterly cadence is wanted at all; not acted on here.
 ## Sources
 
 - [Templater docs](https://silentvoid13.github.io/Templater/)
+- [Templater settings reference](https://silentvoid13.github.io/Templater/settings.html) — trigger modes, folder-template specificity rule, system command settings, fetched 2026-09-20
 - [QuickAdd docs](https://quickadd.obsidian.guide/docs/)
 - [QuickAdd Capture choice](https://quickadd.obsidian.guide/docs/Choices/CaptureChoice)
 - [QuickAdd Macro choice](https://quickadd.obsidian.guide/docs/Choices/MacroChoice/)
 - [Periodic Notes README](https://github.com/liamcain/obsidian-periodic-notes)
+- Direct read of `.obsidian/plugins/templater-obsidian/data.json`, `.obsidian/plugins/periodic-notes/data.json`, and `.obsidian/plugins/quickadd/data.json` — this session, 2026-09-20
 - [[40_Resources/Obsidian/Vault Operating System]]
 - [[Agent Operating Guide]]

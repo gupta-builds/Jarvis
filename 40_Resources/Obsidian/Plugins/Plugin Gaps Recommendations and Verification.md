@@ -2,7 +2,7 @@
 type: evergreen
 status: sprout
 created: 2026-05-15
-updated: 2026-09-19
+updated: 2026-09-20
 tags:
   - evergreen
   - system
@@ -49,9 +49,7 @@ Decision needed: whether the insecure server should remain enabled and which loc
 
 ### Omnisearch and Text Extractor
 
-Current state: PDF, Office, image, and AI image indexing are disabled.
-
-Decision needed: whether source PDFs, screenshots, and Office files should become searchable. If yes, evaluate Text Extractor and performance/privacy tradeoffs.
+**Resolved 2026-09-20 — user decision, implemented.** Text Extractor (`scambier/obsidian-text-extractor`, v0.7.0) installed for real — not the unrelated Microsoft PowerToys "Text Extractor" screen-OCR utility the user also has, see the explicit distinction in [[Omnisearch and Retrieval]]. Omnisearch's `PDFIndexing`, `officeIndexing`, and `imagesIndexing` are now `true`; `aiImageIndexing` stays `false` (a further, separate privacy step beyond local OCR, not part of the user's stated decision). Full mechanism, install method, and the unmaintained-repo caveat documented in [[Omnisearch and Retrieval]].
 
 ### Copilot autonomous tools
 
@@ -67,11 +65,11 @@ Decision needed: whether Copilot can make vault edits, or whether it should stay
 
 | Option | Why consider it | Do not add unless |
 |---|---|---|
-| Text Extractor | Helps Omnisearch index PDFs/images. | Attachments become central to retrieval. |
+| Text Extractor | Helps Omnisearch index PDFs/images. | **Installed 2026-09-20** — see [[Omnisearch and Retrieval]]. |
 | Calendar | Better visual Periodic Notes navigation. | Daily/weekly review navigation becomes painful. |
-| Recent Edits | Better edit-trail review than Recent Files. | Human/agent edits need faster audit. |
+| Recent Edits | Better edit-trail review than Recent Files. | **Installed and in real use** — `data.json` holds a live 7-day edit history with dozens of real entries and external-vs-in-app edit-source tracking. Wired into Lazy Plugin Loader 2026-09-20 (was installed but not activated in either `community-plugins.json` or the loader — see [[Plugin Inventory and Configuration Map]]). |
 | Excalibrain | Visual graph-style concept exploration. | Existing Excalibrain references are intentional. |
-| Commander | Command/ribbon customization. | Plugin commands become hard to access. |
+| Commander | Command/ribbon customization. | **Installed, not yet configured** — no `data.json` exists yet (never opened/customized). Wired into Lazy Plugin Loader 2026-09-20 so it activates; actual ribbon/command customization is still a zero-config install. |
 
 ## Risk Register
 
@@ -94,7 +92,7 @@ Decision needed: whether Copilot can make vault edits, or whether it should stay
 - Lazy Plugin Loader references `excalibrain`, but no matching plugin folder was found. — *correction, 2026-09-19: this was wrong. `.obsidian/plugins/excalibrain/` contains `main.js`, `manifest.json` (v0.2.18), and `styles.css` — a fully installed plugin, not a missing one. The earlier claim was never checked directly against the filesystem. See [[Plugin Inventory and Configuration Map]].*
 - `workspaces-plus` exists but has no readable manifest. — *resolved 2026-09-19: the folder holds only three `.bak` files (`app.json.bak`, `appearance.json.bak`, `workspaces.json.bak`) — no `manifest.json`, no `main.js`. This is not an installed plugin; it is leftover settings-backup files sitting in a folder that happens to be named after one. Answers the "was Workspaces Plus intentionally removed" question below: functionally, yes — nothing here can activate.*
 - Whether `60_Claude/7_AI_Information` should get a Templater folder template. — *resolved 2026-09-19: no. That folder (`60_Claude/07_AI_Information/`) holds system/operating docs — `AI_CONTEXT.md`, `Vault Rules — Complete AI Ruleset.md`, `Jarvis OS — North Star.md` — not evergreen knowledge notes, so the existing `For Evergreen.md` template that other folder-template entries use would be the wrong shape here. No template is the correct state, not a gap.*
-- **New finding, 2026-09-19:** two of Templater's six `folder_templates` entries in `.obsidian/plugins/templater-obsidian/data.json` point at folders that do not exist and so silently never fire: `10_UMN` (the real folder is `10_Areas/UMN`) and `60_Claude/30_Source_Summaries` (the real folder is `60_Claude/10_Source_Summaries`). The other four entries (`20_Progress`, `40_Resources`, `60_Claude/20_Distilled_Notes`, `60_Claude/40_Project_Briefs`) all resolve correctly. Not fixed in this session — `.obsidian/plugins/*/data.json` is a "do not edit without explicit permission" file per this note's own Verification Checklist. Recommend the user re-point these two entries to the real folder names.
+- **Resolved 2026-09-20.** The 2026-09-19 finding undercounted the bug: checking template-file existence (not just folder existence) found that **four of the six entries** also pointed at a nonexistent `30_Order/Templates/Metadata/` folder — the real folder is `Frontmatter/`. Combined with the already-known dead `10_UMN`/`60_Claude/30_Source_Summaries` folder aliases, effectively all six entries were broken before this fix. All six corrected in `.obsidian/plugins/templater-obsidian/data.json` (Node-script edit + strict JSON + BOM validation, per this vault's `.obsidian/` edit workaround), and the mapping table rewritten with real verified paths in [[Templates Capture and Periodic Notes]]. The `10_Areas/UMN` entry is now correctly pointed but stays dormant — that folder doesn't exist in-vault yet.
 - Whether QuickAdd should be configured with capture choices. — *how-to now documented in [[QuickAdd Capture Menu]] (2026-09-19); the yes/no decision itself is still open.*
 - Whether Recent Files and File Explorer++ overlap in function. — *resolved 2026-09-19 in [[Search Linking and Navigation]]: no overlap, checked against both plugins' READMEs. Recent Files is time-based (recently opened); File Explorer++ is structure-based (pin/hide filters), no recency concept. Keep both.*
 - Whether Omnisearch should enable PDF/image/Office indexing, likely with Text Extractor. — *tradeoffs researched 2026-09-19: confirmed current state directly in `.obsidian/plugins/omnisearch/data.json` — `PDFIndexing`, `officeIndexing`, `imagesIndexing`, and `aiImageIndexing` are all `false`. Text Extractor ([scambier/obsidian-text-extractor](https://github.com/scambier/obsidian-text-extractor)) is the plugin Omnisearch expects for this: OCR runs locally via Tesseract.js (no file content leaves the device), but it needs an internet connection once to download language files, does not work on mobile at all (falls back to cached JSON extracted elsewhere), and PDF extraction specifically is described by the plugin's own docs as frequently failing. The decision itself is still open — mobile-unusable and PDF-unreliable are real costs against searchable PDFs/screenshots as a benefit.*
@@ -102,6 +100,7 @@ Decision needed: whether Copilot can make vault edits, or whether it should stay
 - Whether Local REST API insecure server should remain enabled. — *tradeoff now documented in [[AI Automation and Local Interfaces]] (2026-09-18); the decision itself is still open.*
 - Preferred Tasks date conventions for coursework vs projects. — *syntax documented 2026-09-19: 📅 due, ⏳ scheduled, 🛫 start (all manual), plus automatic ➕ created / ✅ done / ❌ cancelled, all in `YYYY-MM-DD` format ([Tasks — Dates](https://publish.obsidian.md/tasks/Getting+Started/Dates)). The official guidance is explicitly against over-engineering: "you don't have to use all available dates... don't over-engineer your task management." Coursework vs project split is still a preference decision, not a syntax gap.*
 - Preferred Tasks priority scale for coursework vs projects. — *syntax documented 2026-09-19: six levels, 🔺 Highest, ⏫ High, 🔼 Medium, no marker = default, 🔽 Low, ⏬ Lowest — tasks with no priority marker rank above tasks explicitly marked Low, by design, so low-effort filtering doesn't require marking everything ([Tasks — Priority](https://publish.obsidian.md/tasks/Getting+Started/Priority)). Coursework vs project scale is still a preference decision, not a syntax gap.*
+- **New correction, 2026-09-20:** [[Templates Capture and Periodic Notes]]'s Periodic Notes Review Flow table was entirely wrong when checked against `.obsidian/plugins/periodic-notes/data.json` directly — real folders are `10_Areas/Life/Enumerate/{Daily,Weekly,Monthly,Yearly}` (not `60_Claude/50_Reviews/`, which doesn't exist), real templates are `30_Order/Templates/Enumerate/Better *.md` (not `Headway Templates/`), and Yearly is enabled (was documented as disabled). This is the mechanism `/startday`/`/closeday` actually use. Note rewritten with verified values.
 - Preferred Kanban lane names for future project boards.
 - Whether Calendar is installed or only referenced by old hotkeys. — *resolved 2026-09-19, acted on 2026-09-20: no `calendar` folder exists under `.obsidian/plugins/`. The dead `calendar:show-calendar-view` binding (`Alt+C`) has been removed from `hotkeys.json` — see [[Core Plugins Hotkeys and Defaults]].*
 - Whether Excalibrain is intentionally absent or partially removed. — *resolved 2026-09-19: not absent. See the corrected `excalibrain` entry above — the plugin is fully installed and configured `long` in Lazy Plugin Loader.*

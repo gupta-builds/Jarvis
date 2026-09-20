@@ -2,7 +2,7 @@
 type: evergreen
 status: sprout
 created: 2026-05-15
-updated: 2026-05-31
+updated: 2026-09-20
 tags:
   - evergreen
   - system
@@ -25,6 +25,7 @@ This is the chooser between the two visual tools. Each now has its own deep refe
 |---|---|---|
 | Existing notes, and you want their layout | **Canvas** | Cards can be live note references, so the map stays linked to real notes. |
 | Shapes, arrows, flows, annotations | **Excalidraw** | Drawing tools for state machines, architecture, annotated figures. |
+| An existing image you want to mark up (a lecture-slide screenshot, a textbook figure) | **Excalidraw** | Image annotation is a first-class Excalidraw mode, not a workaround — embed the image, draw directly on top of it ([Excalidraw plugin README](https://github.com/zsviczian/obsidian-excalidraw-plugin)). |
 | A list, table, or 3 sentences would be clearer | **Markdown** | A drawing that only restates a list adds cost and no retrieval value. |
 - Canvas examples: course concept webs, project note-maps, source-to-concept layouts.
 - Excalidraw examples: system architecture, algorithm state transitions, feedback loops, PDF figure annotation.
@@ -44,9 +45,8 @@ Whichever tool you pick, the visual is embedded in or linked from a Markdown not
 - Do not expose Excalidraw AI credentials.
 - Do not replace searchable text with image-only diagrams.
 - Create visual files only when the user asks; otherwise write a Markdown scaffold with a labelled embed placeholder.
-## Suggestions
-- **Building one real example of each, worth it: yes, and cheaply so.** Anant is a UMN student whose actual coursework already produces exactly the raw material both tools want (concept notes, PDF figures). One MGMT 3001 concept-web Canvas and one annotated PDF-figure Excalidraw drawing would take under an hour combined and would replace two "no gold-standard example exists yet" sections with something he can copy the pattern from on the next course. The cost of *not* doing this isn't just a missing example — both tools stay at zero real usage indefinitely, since nothing forces a first attempt.
-- **Adding "existing image to annotate" as a third chooser row: yes, small fix, real gap.** The current table only distinguishes "existing notes" (Canvas) from "shapes/arrows/flows" (Excalidraw), which genuinely doesn't cover the third case Anant will hit constantly: a lecture-slide screenshot or textbook figure he wants to mark up, not redraw from scratch. Excalidraw's own README confirms image annotation is a first-class supported mode (embed an image, draw directly on top of it), not a workaround — so the fix is one row in this table, not new plugin capability.
+## Verified Open State
+- Both tools remain at zero real usage as of 2026-09-20 — no `.canvas` file and no hand-made `.excalidraw` drawing exists anywhere in the vault. Building one real example of each (an MGMT 3001 concept-web Canvas, an annotated PDF-figure Excalidraw drawing) is content-creation work, not a plugin-settings question, so it's out of scope for this documentation batch — it's tracked as an open recommendation here and in [[Canvas Spatial Maps]] and [[Excalidraw Diagrams and Annotation]], not acted on.
 ## Sources
 - [Obsidian Help - Canvas](https://help.obsidian.md/plugins/canvas)
 - [Excalidraw plugin README](https://github.com/zsviczian/obsidian-excalidraw-plugin)

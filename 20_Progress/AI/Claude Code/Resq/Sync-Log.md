@@ -2832,3 +2832,9 @@ Synchronization complete at 14:42:37  (0 items transferred, 1 skipped, 0 failed)
 2026-09-20 10:19:35 -0500  instructions/  OK  AGENTS.md -> AGENTS.md
 2026-09-20 10:19:35 -0500  instructions/  OK  README.md -> README.md
 2026-09-20 10:19:35 -0500  context/  OK  .claude/context -> context/Resq
+2026-09-20 10:34:35 -0500  OK  exit=0
+2026-09-20 10:34:35 -0500  instructions/  OK  .claude/PRD.md -> PRD.md
+2026-09-20 10:34:35 -0500  instructions/  OK  .claude/README.md -> claude-README.md
+2026-09-20 10:34:35 -0500  instructions/  OK  AGENTS.md -> AGENTS.md
+2026-09-20 10:34:35 -0500  instructions/  OK  README.md -> README.md
+2026-09-20 10:34:35 -0500  context/  OK  .claude/context -> context/Resq

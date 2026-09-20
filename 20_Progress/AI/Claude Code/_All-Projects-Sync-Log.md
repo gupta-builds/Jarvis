@@ -4634,3 +4634,14 @@ One line per manifest entry per run of `sync-all.sh`, appended automatically. Re
 2026-09-19 22:19:34 -0500  The Plan  OK
 2026-09-19 22:19:34 -0500  internship-research-loop  OK
 2026-09-19 22:19:34 -0500  .claude_wsl  OK
+2026-09-19 22:34:34 -0500  second-brain-claudekit  OK
+2026-09-19 22:34:34 -0500  .claude_windows  OK
+2026-09-19 22:34:34 -0500  CausalOps  OK
+2026-09-19 22:34:34 -0500  Jarvis  OK
+2026-09-19 22:34:34 -0500  Portfolio  OK
+2026-09-19 22:34:34 -0500  Trading View  OK
+2026-09-19 22:34:34 -0500  Resq  OK
+2026-09-19 22:34:34 -0500  OpsPilot  OK
+2026-09-19 22:34:34 -0500  The Plan  OK
+2026-09-19 22:34:34 -0500  internship-research-loop  OK
+2026-09-19 22:34:34 -0500  .claude_wsl  OK

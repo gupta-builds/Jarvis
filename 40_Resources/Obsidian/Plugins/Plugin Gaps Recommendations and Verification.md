@@ -61,9 +61,7 @@ Decision needed: whether Copilot can make vault edits, or whether it should stay
 
 ### Obsidian Git auto-push
 
-Current state: auto-push interval is `5`, auto-pull interval is `10`, pull-before-push is enabled.
-
-Decision needed: whether this cadence is still desirable while multiple AI tools edit the vault.
+**Resolved 2026-09-20.** This was a real collision, not just a theoretical cadence question: the plugin's own auto-push (was every 121 min) and auto-pull (was every 120 min, plus on every Obsidian boot) ran completely uncoordinated with the new cross-laptop `Jarvis-GitAutoSync` scheduled task. Worse, `mergeStrategy: "ours"` meant an automatic pull hitting a real conflict would silently discard the incoming side. Fixed: auto-push and auto-pull both disabled (`0`), auto-pull-on-boot off, merge strategy corrected to `"none"` (real conflict markers, no silent data loss). Auto-commit (local only, no push/pull) stays on — it's complementary to the scheduled script, not competing with it. Full detail in [[Git Recovery and Vault Safety]].
 
 ## Optional
 
@@ -82,7 +80,7 @@ Decision needed: whether this cadence is still desirable while multiple AI tools
 | DataviewJS and HTML enabled | Dataview settings allow both. | Prefer plain Dataview; document any JS near the block. |
 | Local REST API insecure server | `enableInsecureServer` is true. | Review need; do not call REST endpoints without approval. |
 | Copilot autonomous tools | Copilot autonomous agent mode is enabled. | Vault notes beat Copilot memory; no unapproved parallel writes. |
-| Obsidian Git auto-push | Auto-push interval is `5`. | Check status before broad edits; never stage unrelated changes. |
+| Obsidian Git auto-push | **Resolved 2026-09-20** — auto-push/pull disabled, merge strategy fixed. See [[Git Recovery and Vault Safety]]. | No longer a live risk; still check status before broad edits as general practice. |
 | Dirty worktree | Vault often has unrelated changes. | Preserve unrelated changes and log meaningful edits. |
 | QuickAdd AI providers | Provider config exists. | Configure non-AI capture first; do not expose credentials. |
 | Excalidraw AI | AI enabled. | Do not expose credentials; keep text source of truth. |

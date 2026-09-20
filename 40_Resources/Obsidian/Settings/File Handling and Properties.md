@@ -29,13 +29,17 @@ Read directly from `.obsidian/app.json`, cross-checked against Obsidian's own se
 - **`uriCallbacks: false`** — the `obsidian://` URI handler that lets external apps open or create notes by URL is off. Nothing outside Obsidian currently triggers vault actions this way.
 ## PDF Export Settings
 `pdfExportSettings` in `app.json`: A4 page size, portrait, 65% downscale, filename included, zero margin. Minor — only matters when a note gets exported to PDF from inside Obsidian, which is not a used workflow today; recorded here so a future export doesn't have to rediscover the defaults.
-## Ignore Filters Are A Third Exclusion Mechanism
-`userIgnoreFilters` in `app.json` currently holds three paths:
+## Ignore Filters Are A Third Exclusion Mechanism, Not A Performance Fix
+`userIgnoreFilters` in `app.json` currently holds five paths as of 2026-09-20:
 - `50_Archive/`
 - `30_Order/System/excalidraw-mcp/node_modules/`
 - `60_Claude/00_Inbox/copilot/`
+- `30_Order/System/cursor-workflow/logs/` — added 2026-09-20
+- `30_Order/System/claude-workflow/logs/` — added 2026-09-20
 > [!NOTE]
 > This setting is Obsidian's own **Files & Links → Excluded files** list — confirmed against community plugin documentation that reads and writes this exact `app.json` key, since Obsidian's own help site does not document it directly (open issue: [obsidianmd/obsidian-help#956](https://github.com/obsidianmd/obsidian-help/issues/956)).
+> [!WARNING]
+> **Corrected 2026-09-20 — this setting does not meaningfully help startup/launch performance, despite reading like it should.** Community reports (Obsidian forum feature-request thread on excluding files from all indexers, and the third-party "File Ignore" plugin's own stated reason for existing) consistently describe `userIgnoreFilters` as filtering what's *displayed* in File Explorer/Quick Switcher/search, without reliably stopping Obsidian from scanning or indexing the excluded files in the first place. The two log folders above were added for genuine UI decluttering value (they no longer clutter File Explorer or search results), not because it fixes slow launches. The mechanism that actually does exclude files from indexing in this vault is the dot-prefix convention already used for `.claude_windows`/`.claude_wsl`/`.cursor_windows`/`.cursor_wsl`/`.kiro_windows`/`.kiro_wsl` (confirmed in [[Cross-Laptop Sync - Build 4 Findings]] — these are hidden from Obsidian's sidebar specifically because of the leading dot, a more fundamental exclusion than `userIgnoreFilters`). Renaming the high-churn log folders to a dot-prefixed form would be the real fix, but that's a structural change touching every script that references those exact paths (`git-auto-sync.ps1`, the cursor-workflow sweep script, `.stignore`, `.gitignore`) — flagged here as the genuine next step, not done in this pass without checking every reference first.
 
 It is a third, independent exclusion layer alongside `.gitignore` (git) and `.stignore` (Syncthing), and the three do not automatically agree with each other. `userIgnoreFilters` only hides a path from Obsidian's own File Explorer, Quick Switcher, search, and graph/backlink views — it has no effect on what git commits or what Syncthing transfers. A path can be excluded here and still sync via Syncthing, or vice versa; each of the three files needs to be checked on its own terms when auditing what actually leaves this machine, which is what the [[Cross-Laptop Sync - Build Roadmap|cross-laptop sync builds]] have been doing for `.stignore` specifically.
 ## Properties Type Registry

@@ -23,6 +23,20 @@
   "recentSessionsMax": 10,
   "recentSessions": [
     {
+      "name": "Terminal 1",
+      "color": "",
+      "cwd": "D:\\_Anant\\20_Progress\\Documents\\Jarvis",
+      "bufferSerial": "Microsoft Windows [Version 10.0.26200.9457]\r\n(c) Microsoft Corporation. All rights reserved.\r\n\r\nD:\\_Anant\\20_Progress\\Documents\\Jarvis>Microsoft Windows [Version 10.0.26200.9457]\r\n(c) Microsoft Corporation. All rights reserved.\r\n\r\nD:\\_Anant\\20_Progress\\Documents\\Jarvis>\u001b[?1004h",
+      "closedAt": 1789869012377
+    },
+    {
+      "name": "Terminal 1",
+      "color": "",
+      "cwd": "D:\\_Anant\\20_Progress\\Documents\\Jarvis",
+      "bufferSerial": "Microsoft Windows [Version 10.0.26200.9457]\r\n(c) Microsoft Corporation. All rights reserved.\r\n\r\nD:\\_Anant\\20_Progress\\Documents\\Jarvis>\u001b[?1004h",
+      "closedAt": 1789868949721
+    },
+    {
       "name": "Terminal 2",
       "color": "",
       "cwd": "D:\\_Anant\\20_Progress\\Documents\\Jarvis",

@@ -143,3 +143,5 @@ When a user invokes an agent, read the corresponding file from `.claude/agents/`
 ---
 
 **Meta:** Keep this file under ~150 lines. Link to detailed notes instead of repeating information.
+
+@AGENTS.md

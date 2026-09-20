@@ -1,6 +1,0 @@
-[mcp_servers.jarvis-memory]
-command = "python"
-args = ['D:\Users\_Anant\10_Areas\Documents\Jarvis\30_Order\System\jarvis-memory\server.py']
-
-[mcp_servers.jarvis-memory.env]
-JARVIS_VAULT_ROOT = 'D:\Users\_Anant\10_Areas\Documents\Jarvis'

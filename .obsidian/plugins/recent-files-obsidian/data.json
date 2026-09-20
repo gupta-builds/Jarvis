@@ -1,6 +1,62 @@
 {
   "recentFiles": [
     {
+      "basename": "Tool log",
+      "path": "60_Claude/30_Reviews/AI/Tools/Tool log.md"
+    },
+    {
+      "basename": "00 - Capture Health",
+      "path": "60_Claude/05_Clippings/AI Conversations/00 - Capture Health.md"
+    },
+    {
+      "basename": "Log",
+      "path": "20_Progress/Projects/AI Use/Claude Kit/Log.md"
+    },
+    {
+      "basename": "Build Map",
+      "path": "20_Progress/Projects/AI Use/Claude Kit/Build Map.md"
+    },
+    {
+      "basename": "System - Build Log",
+      "path": "20_Progress/Internship/Building System/System - Build Log.md"
+    },
+    {
+      "basename": "Claude OS Dashboard",
+      "path": "20_Progress/AI/Claude OS Dashboard.md"
+    },
+    {
+      "basename": "Write Log",
+      "path": "20_Progress/AI/Claude Code/Write Log.md"
+    },
+    {
+      "basename": "Sync-Log-Archive-2026-09-19",
+      "path": "20_Progress/AI/Claude Code/Sync-Log-Archive-2026-09-19.md"
+    },
+    {
+      "basename": "Sync - Unison",
+      "path": "20_Progress/AI/Claude Code/Sync - Unison.md"
+    },
+    {
+      "basename": "excalibrain",
+      "path": "10_Areas/Excalidraw/excalibrain.md"
+    },
+    {
+      "basename": "Imagine 09-19.excalidraw",
+      "path": "10_Areas/Excalidraw/Imagine 09-19.excalidraw.md"
+    },
+    {
+      "basename": "Internships Hub",
+      "path": "10_Areas/Career/Internships/Internships Hub.md"
+    },
+    {
+      "basename": "README",
+      "path": "10_Areas/Career/Internships/README.md"
+    },
+    {
+      "basename": "2026-07 Found",
+      "path": "10_Areas/Career/Internships/List/2026-07 Found.md"
+    },
+    {
       "basename": "Statusline Migration — Acer Prompt",
       "path": "40_Resources/CS/Concepts/New Laptop/Statusline Migration — Acer Prompt.md"
     },
@@ -143,58 +199,6 @@
     {
       "basename": "MGMT 3015 Board",
       "path": "20_Progress/Degree/MGMT 3015/MGMT 3015 Board.md"
-    },
-    {
-      "basename": "Weekly Board",
-      "path": "20_Progress/Degree/CSCI 4511W/Weekly/Weekly Board.md"
-    },
-    {
-      "basename": "AI Concept Board",
-      "path": "20_Progress/Degree/CSCI 4511W/Concepts/AI Concept Board.md"
-    },
-    {
-      "basename": "Definitions",
-      "path": "20_Progress/Degree/CSCI 4511W/Concepts/Definitions.md"
-    },
-    {
-      "basename": "CSCI 4511W Board",
-      "path": "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md"
-    },
-    {
-      "basename": "APAS",
-      "path": "40_Resources/UMN/The Plan/APAS.md"
-    },
-    {
-      "basename": "Human Writing Standard",
-      "path": "30_Order/Standards/Enrich/Human Writing Standard.md"
-    },
-    {
-      "basename": "Plugins Usage Standard",
-      "path": "30_Order/Standards/Enrich/Plugins Usage Standard.md"
-    },
-    {
-      "basename": "Plugins Usage",
-      "path": "30_Order/Workflows/Enrichment/Plugins Usage.md"
-    },
-    {
-      "basename": "Decoration",
-      "path": "30_Order/Workflows/Enrichment/Decoration.md"
-    },
-    {
-      "basename": "Researcher",
-      "path": "30_Order/Workflows/Enrichment/Researcher.md"
-    },
-    {
-      "basename": "Human Content Writer",
-      "path": "30_Order/Workflows/Enrichment/Human Content Writer.md"
-    },
-    {
-      "basename": "Decoration Standard",
-      "path": "30_Order/Standards/Decoration Standard.md"
-    },
-    {
-      "basename": "Editing Standard",
-      "path": "30_Order/Standards/Editing Standard.md"
     }
   ],
   "omittedPaths": [],

@@ -35,12 +35,12 @@ Use it after the note has a mechanism, contrast, or worked example worth recalli
 - Curly-brace clozes: disabled.
 - Randomize card order: enabled.
 - Show context in cards: enabled.
-- Ignored folders (legacy block): `30_Order/Templates`, `50_Archive`, `.obsidian`.
+- Ignored folders: `30_Order/Templates`, `50_Archive`, `.obsidian`, `**/*.excalidraw.md`.
 
 Because bold and highlight clozes are enabled, formatting choices can accidentally create cards.
 
-> [!WARNING]
-> **`data.json` contains two conflicting config layers.** The nested `settings` block (the newer plugin schema) says `flashcardTags: ["#flashcards"]`, `convertBoldTextToClozes: false`, and `convertFoldersToDecks: false`. The legacy top-level keys say `flashcardTags: "#cards"`, `convertBoldTextToClozes: true`, `convertFoldersToDecks: true`. Every real note and every rule in this vault assumes `#cards/[track]` plus bold-clozes-on. If the nested block is the one the installed version (1.13.9) actually reads, then `#cards` notes are **not scanned** and bold does **not** create clozes. Verify in Settings → Spaced Repetition which layer is effective before trusting either. This is the single highest-impact unknown for this plugin.
+> [!NOTE]
+> **Fixed 2026-09-20 — `data.json` held two config layers, only one of which was ever real.** Confirmed directly from `main.js` (`PluginDataManager.loadData()`, `DEFAULT_DATA`): the plugin only ever reads the nested `settings` block. A set of top-level keys at the root of `data.json` (`flashcardTags: "#cards"`, `convertBoldTextToClozes: true`, etc.) were dead weight from an older plugin schema — never read, never migrated, silently preserved on every save. The installed version (1.15.4) was actually running on `flashcardTags: ["#flashcards"]` with bold-clozes off, meaning **every `#cards`-tagged card in this vault was invisible to review.** Fixed by editing the nested `settings` block to match this vault's actual established convention (`#cards`, bold-clozes-on, folders-to-decks-on) rather than renaming hundreds of existing card tags, and the dead top-level keys were deleted outright so this can't silently recur. If review still shows nothing, check `.obsidian/plugins/obsidian-spaced-repetition/data.json`'s `settings.flashcardTags` directly — that key, and only that key, path, is load-bearing.
 
 ## Card Syntax
 
@@ -202,16 +202,18 @@ Review should improve the note. If a card feels hard because the underlying note
 ## Gold-Standard Example
 [[40_Resources/UMN/Previous Classes/Minor/MGMT 3001/Week - 9|Week - 9]] is the model: a `## Flashcards` section at the very end, tagged `#cards/MGMT`, with cards that test distinctions (power vs influence vs authority; the five power bases) rather than label trivia — placed after the concepts are explained in the body. [[40_Resources/UMN/Previous Classes/Minor/MGMT 3001/Week - 4|Week - 4]] shows the same pattern with numbered single-line cards. Match these, not invented examples.
 ## Verified Open State
-- Which config layer is effective — `#cards` (legacy) or `#flashcards` (nested `settings`)? Are bold-clozes actually on? — *critical; must be checked in the Obsidian UI, see warning above*
 - Is the review cadence being followed, or are cards accumulating without review? — *behavioral, not a settings question*
 - Should capability notes standardize on `last_drilled`/`next_drill`, and which dashboard reads them? — *partially answered in Dataview doc; field adoption still inconsistent*
-## Suggestions
-- **Confirmed this cannot be resolved from documentation** — fetched the plugin's own GitHub README directly looking for which config layer (legacy top-level vs. nested `settings`) the installed version actually reads, and it isn't documented at that level; it would require reading the plugin's source. That makes the live check the *only* path, not just the fastest one. **Worth it: yes, immediately, ahead of everything else in this note.** Open Settings → Spaced Repetition once and read which tag/cloze values the UI shows as active. Every other rule here (deck naming, bold/highlight clozes, PDF ingestion structure) assumes `#cards` and bold-clozes-on are real; if the nested block is what's effective instead, every `#cards/[track]` card across the vault, including the ones in real coursework notes already cited as gold-standard examples in this doc, is invisible to review right now, silently, with no error to notice.
-- **If the legacy layer turns out dead: worth planning for, not worth doing preemptively.** Every existing `#cards` note would need auditing for whether it becomes `#flashcards` — a vault-wide tag rename is real work, not a settings flip. Don't start that migration until the check above confirms it's actually needed; auditing tags that turn out to already be correct wastes the exact time this is trying to save.
-- **Nested sub-decks (`#cards/CS/algorithms`) vs the current flat list: not worth doing now.** The tag system supports arbitrary depth, but with six decks and coursework still arriving in normal volume, flat names are still easy to scan and file into. Revisit only if a single deck (most likely `#cards/CS`) grows large enough that scrolling it becomes the actual bottleneck — retrofitting nesting later costs a find-and-replace across existing tags, not a rebuild, so there's no real penalty for waiting.
+- Nested sub-decks (`#cards/CS/algorithms`) vs the current flat list — not worth doing now. The tag system supports arbitrary depth, but with six decks and coursework arriving at normal volume, flat names stay easy to scan. Revisit only if one deck (most likely `#cards/CS`) grows large enough that scrolling becomes the real bottleneck; retrofitting nesting later is a find-and-replace, not a rebuild, so there's no cost to waiting.
+## How To Verify This Is Actually Working
+Do this after any Obsidian update to this plugin, since a version bump can reintroduce a schema mismatch the same way the original one happened:
+1. Open Settings → Spaced Repetition → Flashcards. The "Flashcard Tags" field must show `#cards`, not `#flashcards`.
+2. Open Settings → Spaced Repetition → Behaviour. "Convert highlights to clozes" and "Convert bold text to clozes" must both be on.
+3. Open a note with a real `#cards/[track]` card, confirm the SR ribbon icon or `Ctrl/Cmd+P` → "Spaced Repetition: Open flashcard queue" actually shows that card queued.
+4. If any of these three show the wrong value, `data.json`'s `settings` block (not any top-level key — there are no more of those) is the only place to fix it.
 ## Sources
-
 - [Spaced Repetition README](https://github.com/st3v3nmw/obsidian-spaced-repetition)
 - [Spaced Repetition resources](https://www.stephenmwangi.com/obsidian-spaced-repetition/resources/)
+- Direct read of `.obsidian/plugins/obsidian-spaced-repetition/main.js` (`PluginDataManager.loadData`, `DEFAULT_DATA`, `DEFAULT_SETTINGS`, `SettingsManager` constructor) — confirms the nested `settings` block is the only config path the installed version (1.15.4) ever reads — this session, 2026-09-20
 - [[00_Dashboard]]
 - [[40_Resources/Obsidian/Vault Operating System]]

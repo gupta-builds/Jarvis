@@ -25,37 +25,19 @@ Do not scatter recommendations across the plugin docs. Link here and keep one ca
 
 ### QuickAdd capture menu
 
-Current state: installed, lazy-loaded, hotkeyed with `Alt+Q`, but `choices` is empty. Exact UI steps and field values for building the six choices below (Capture: `Capture To`/`Capture format`; Template: `Template Path`/`File Name Format`/`New Note Location`) are now documented in [[QuickAdd Capture Menu]] — researched 2026-09-19. Two of the six (Inbox thought, Flashcard candidate) are Capture-type and buildable today; the other four are Template-type and blocked on `30_Order/Templates/` only having `MOC.md` so far. Building any of it still needs user approval (edits `data.json`).
-
-Recommended first choices:
-
-- Inbox capture -> `60_Claude/00_Inbox`
-- Source clipping -> `60_Claude/05_Clippings`
-- Project note -> `20_Progress`
-- Concept note -> `40_Resources` or `60_Claude/20_Distilled_Notes`
-- Daily review -> `60_Claude/50_Reviews/Daily`
-- Flashcard candidate -> current note or inbox
-
-Start without AI actions. Capture correctness matters more than clever macros.
+**Resolved 2026-09-20.** Two of the six proposed choices (Inbox thought, Flashcard candidate) are built and live, exact field values in [[QuickAdd Capture Menu]]. The other four are Template-type and still blocked on `30_Order/Templates/` only having `MOC.md` — building them is the next step once real templates exist for source clipping, source summary, concept note, and project note.
 
 ### Tasks dashboard conventions
 
 Current state: resolved 2026-09-19, documented in [[Tasks Kanban and Project Tracking]]. `00_Dashboard`'s "Today's Priorities" block keeps its Dataview `TASK` block — checked against the live query, its filter is `file.day = date(today)`, a page-metadata property Dataview reads directly and the Tasks query language has no equivalent for. Tasks query examples for due-soon/in-progress/priority views were already added to that note.
 
-### Spaced Repetition review cadence
+### Spaced Repetition effective config
 
-Current state: `#cards` exists as a review surface, and Spaced Repetition is configured, but cadence and card quality rules need adoption.
-
-Recommendation: add cards only after distillation, then connect `#cards`, `last_drilled`, `next_drill`, and review notes.
+**Resolved 2026-09-20 — this was a real bug, not just a cadence question.** `data.json` held a dead legacy top-level config layer alongside the real nested `settings` block; the plugin only ever reads the nested one (confirmed from `main.js` source), which had `#flashcards`/bold-clozes-off, not the `#cards`/bold-clozes-on every real card in this vault assumed. Every `#cards` card was invisible to review. Fixed by correcting the nested settings to match the vault's actual convention and deleting the dead legacy keys. Full detail in [[Spaced Repetition and Learning Loops]]. Cadence/card-quality adoption (add cards only after distillation, connect `last_drilled`/`next_drill`) remains a behavioral practice, not a settings gap.
 
 ### Excalidraw visual templates
 
-Current state: Excalidraw has folder, template, autosave, scripts folder, and wikilink embeds configured. How-to guidance for building and applying templates (including how to offer two distinct templates, since the plugin only supports one default) is now documented in [[Excalidraw Diagrams and Annotation]] — researched 2026-09-18. The templates themselves are not yet built.
-
-Recommendation: create one or two templates after approval:
-
-- system architecture map
-- course concept/PDF annotation map
+**Partially resolved 2026-09-20.** The `templateFilePath` typo (`10_Area` vs `10_Areas`) is fixed — the single-default-template mechanism now works correctly, it just has no file at that path yet. Building the two proposed templates themselves (system architecture map, course concept/PDF annotation map) stays deliberately deferred: the vault has zero real Excalidraw drawings to justify a template yet, per [[Excalidraw Diagrams and Annotation]]'s Verified Open State. Build the first real drawing before templating an unused workflow.
 
 ## High Impact / Needs Decision
 
@@ -123,7 +105,7 @@ Decision needed: whether this cadence is still desirable while multiple AI tools
 - Preferred Tasks date conventions for coursework vs projects. — *syntax documented 2026-09-19: 📅 due, ⏳ scheduled, 🛫 start (all manual), plus automatic ➕ created / ✅ done / ❌ cancelled, all in `YYYY-MM-DD` format ([Tasks — Dates](https://publish.obsidian.md/tasks/Getting+Started/Dates)). The official guidance is explicitly against over-engineering: "you don't have to use all available dates... don't over-engineer your task management." Coursework vs project split is still a preference decision, not a syntax gap.*
 - Preferred Tasks priority scale for coursework vs projects. — *syntax documented 2026-09-19: six levels, 🔺 Highest, ⏫ High, 🔼 Medium, no marker = default, 🔽 Low, ⏬ Lowest — tasks with no priority marker rank above tasks explicitly marked Low, by design, so low-effort filtering doesn't require marking everything ([Tasks — Priority](https://publish.obsidian.md/tasks/Getting+Started/Priority)). Coursework vs project scale is still a preference decision, not a syntax gap.*
 - Preferred Kanban lane names for future project boards.
-- Whether Calendar is installed or only referenced by old hotkeys. — *resolved 2026-09-19: no `calendar` folder exists under `.obsidian/plugins/`. `hotkeys.json` still binds `calendar:show-calendar-view` to `Alt+C` — a dead hotkey left over from a plugin that is no longer installed. See [[Search Linking and Navigation]].*
+- Whether Calendar is installed or only referenced by old hotkeys. — *resolved 2026-09-19, acted on 2026-09-20: no `calendar` folder exists under `.obsidian/plugins/`. The dead `calendar:show-calendar-view` binding (`Alt+C`) has been removed from `hotkeys.json` — see [[Core Plugins Hotkeys and Defaults]].*
 - Whether Excalibrain is intentionally absent or partially removed. — *resolved 2026-09-19: not absent. See the corrected `excalibrain` entry above — the plugin is fully installed and configured `long` in Lazy Plugin Loader.*
 - Whether Publish is actively used and what should be publishable. — *checked 2026-09-19: `core-plugins.json` has `publish: true`, but no `.obsidian/publish.json` (the file Obsidian writes once a publish site is configured) exists anywhere in the vault. No evidence of active use — reads as a default-on core toggle, not a live publish workflow. Still needs the user's own confirmation.*
 - Whether Bases should complement Dataview or remain experimental. — *resolved 2026-09-19: not experimental. `60_Claude/44_Indexes/Bases/` holds five real `.base` files (Capability Registry, Knowledge Enrichment Registry, Ops Reports, Output Pipeline, Question Triage) alongside `core-plugins.json`'s `bases: true`. Bases and Dataview are both in active use today, not a pending choice between them.*

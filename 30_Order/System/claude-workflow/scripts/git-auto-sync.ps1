@@ -33,9 +33,14 @@ $LockFile = Join-Path $PSScriptRoot ".git-auto-sync.lock"
 $LockStaleMinutes = 30
 
 function Write-SyncLog {
+    # Deliberately Write-Host, not Write-Output: this is called from inside
+    # functions that return $true/$false, and Write-Output would leak into
+    # that return value (a non-empty array is always truthy under -not,
+    # which silently defeats every caller's success/failure check). Caught
+    # by real testing, not reasoned out in advance, see Build 7 Findings.
     param([string]$Message)
     $line = "[$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')] $Message"
-    Write-Output $line
+    Write-Host $line
     if (-not (Test-Path $LogDir)) {
         New-Item -ItemType Directory -Path $LogDir -Force | Out-Null
     }
@@ -47,8 +52,13 @@ function Get-CurrentBranch {
 }
 
 function Invoke-PullRebase {
+    # --autostash: this runs before the commit step, so uncommitted changes
+    # sitting in the working tree are the normal case, not an edge case.
+    # Without it, pull --rebase refuses outright on a dirty tree (exit 128,
+    # "You have unstaged changes") - hit for real on this script's first
+    # live run, see Build 7 Findings.
     param([string]$Branch)
-    git pull --rebase origin $Branch 2>&1 | Out-String | ForEach-Object { $_.Trim() } | Where-Object { $_ } | ForEach-Object { Write-SyncLog "  $_" }
+    git pull --rebase --autostash origin $Branch 2>&1 | Out-String | ForEach-Object { $_.Trim() } | Where-Object { $_ } | ForEach-Object { Write-SyncLog "  $_" }
     if ($LASTEXITCODE -ne 0) {
         Write-SyncLog "pull --rebase failed (exit $LASTEXITCODE), aborting rebase to avoid leaving the repo mid-rebase."
         git rebase --abort 2>&1 | Out-Null
@@ -58,7 +68,7 @@ function Invoke-PullRebase {
 }
 
 function Test-HasRealChanges {
-    git add -A
+    git add -A | Out-Null
     git diff --cached --quiet
     return ($LASTEXITCODE -ne 0)
 }

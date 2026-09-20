@@ -312,3 +312,10 @@
 2026-09-20 15:04:34 -0500  agents/  OK  .claude/agents -> agents/Trading View
 2026-09-20 15:04:34 -0500  hooks/  OK  .claude/hooks -> hooks/Trading View
 2026-09-20 15:04:34 -0500  skills/  OK  .claude/skills -> skills/Trading View
+2026-09-20 15:19:34 -0500  OK  exit=0
+2026-09-20 15:19:34 -0500  instructions/  OK  CLAUDE.md -> CLAUDE.md
+2026-09-20 15:19:34 -0500  instructions/  OK  AGENTS.md -> AGENTS.md
+2026-09-20 15:19:34 -0500  instructions/  OK  README.md -> README.md
+2026-09-20 15:19:34 -0500  agents/  OK  .claude/agents -> agents/Trading View
+2026-09-20 15:19:34 -0500  hooks/  OK  .claude/hooks -> hooks/Trading View
+2026-09-20 15:19:34 -0500  skills/  OK  .claude/skills -> skills/Trading View

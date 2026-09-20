@@ -21,21 +21,20 @@ notes:
 Obsidian Git and File Recovery protect the vault, but they are not permission to make broad edits.
 
 ## Current Obsidian Git Settings
-
-Observed safe facts:
-
+**Fixed 2026-09-20 — this plugin's own automatic push/pull was genuinely colliding with the cross-laptop `Jarvis-GitAutoSync` scheduled task**, confirmed live: both processes independently pull, commit, and push the same repo on their own timers with zero coordination between them. Current state, read directly from `.obsidian/plugins/obsidian-git/data.json`:
 - Installed and lazy-loaded with short delay.
-- Auto backup after file change: enabled.
-- Auto-push interval: `5`.
-- Auto-pull interval: `10`.
-- Auto-pull on boot: enabled.
-- Pull before push: enabled.
-- Push disabled: false.
-- Commit message pattern: `vault backup: {{date}}`.
+- Auto-commit (local, on file change) interval: `120` minutes — **kept on.** This only stages and commits locally; it never pushes or pulls, so it has no collision risk with the scheduled script and usefully catches fast edits between the script's own 15-minute sweeps.
+- Auto-push interval: **`0` (disabled)** — was `121` minutes. `Jarvis-GitAutoSync` now owns all pushing, exclusively.
+- Auto-pull interval: **`0` (disabled)** — was `120` minutes. Same reasoning, the scheduled script owns all pulling.
+- Auto-pull on boot: **`false`** — was `true`. This was the most dangerous of the three: an automatic pull firing the instant Obsidian opens, before anyone (or the scheduled script) can supervise it.
+- Merge strategy: **`none`** (git's real default, conflict markers on a real conflict) — was `"ours"`, which would have silently kept the local side and discarded the incoming side on any real conflict, with no warning. Confirmed via the plugin's own source (`Vinzent03/obsidian-git`, `src/setting/settings.ts`) that `"none"` is a real, selectable option, not assumed.
+- Pull before push: enabled — harmless now that auto-push/pull are both off; still relevant if a manual push is triggered from the plugin's UI.
+- Push disabled: `false` — deliberately left alone. The automatic timers are off, so this doesn't matter for automation; a manual push button in the UI still works if ever wanted deliberately.
+- Commit message pattern: `auto: {{date}} | {{numFiles}} files`.
 - Diff style: split.
 - Changed files shown in status bar.
 
-Implication: the vault may sync or push through Obsidian while an agent is also editing files. Agents should check status before broad work and never assume the working tree is clean.
+Implication, now genuinely resolved rather than just flagged: this plugin can no longer race `Jarvis-GitAutoSync` for a push or pull, and its own auto-commit is complementary, not competing. Agents should still check `git status` before broad work — Obsidian Git's auto-commit means the working tree is rarely dirty for long, but "rarely" is not "never."
 
 ## Dirty Worktree Rules
 
@@ -118,23 +117,22 @@ Agents should not:
 - treat `50_Archive` as normal write space
 
 ## Integration Map
-- **Obsidian Git ↔ agent edits:** auto-backup-on-change plus a `5`-minute auto-push means the working tree can commit or sync *while an agent is mid-edit*. So an agent must check `git status` before broad work and never assume a clean tree. The plugin's convenience for a human is a coordination hazard for an agent.
+- **Obsidian Git ↔ agent edits:** auto-commit-on-change (no auto-push/pull as of 2026-09-20) means the working tree can get locally committed *while an agent is mid-edit*, but never pushed or pulled out from under it. So an agent must still check `git status` before broad work — a local commit landing mid-task is milder than a sync happening mid-task, but still worth knowing about.
+- **Obsidian Git ↔ `Jarvis-GitAutoSync`:** the scheduled script owns all push/pull; this plugin owns only local auto-commit. Two processes touching the same repo used to mean two uncoordinated actors; now it means one fast local committer feeding one scheduled remote synchronizer, a division of labor, not a race.
 - **`.gitignore` ↔ plugin secrets:** the ignore list covers `copilot`, `quickadd`, and `local-rest-api` `data.json`, plus Copilot vector indexes and workspace state. This is the safety net behind the "document behavior, never values" rule in [[AI Automation and Local Interfaces]] — do not remove these ignores for convenience.
 - **Git ↔ session log:** the session log in `60_Claude/07_AI_Information/Session Logs/log.md` is the human-readable audit trail; Git is the byte-level one. After meaningful edits, the agent appends to the log but does **not** commit unless asked.
 ## Gold-Standard Example
 The correct example is a process, not a note: the repo at the start of this very session had ~100 unrelated dirty files (plugin updates, Excalidraw, archive moves). The right handling is to edit only the task's files, stage nothing unrelated, leave the rest of the dirty tree untouched, and never run a broad `add -A` or `reset`. That restraint *is* the gold standard for Git in a vault that multiple tools edit.
+## File Recovery Snapshot Retention
+Confirmed from Obsidian's own help page: snapshots save a minimum of 5 minutes apart and are kept for 7 days by default ([Obsidian Help — File Recovery](https://obsidian.md/help/plugins/file-recovery)). "Use File Recovery for a recent uncommitted version" means "recent" = within the last week, checked every 5+ minutes, not an open-ended promise. The defaults already cover every realistic single-session recovery case this vault has hit — no reason to change them.
 ## Verified Open State
-- Is a `5`-minute auto-push cadence still safe while Claude, Cursor, Kiro, and Copilot all edit the vault? — *needs user decision; concurrent writers raise conflict risk*
-- Should agents ever be allowed to commit, or remain commit-free by default? — *current rule is commit-free; confirm it stays*
-## Suggestions
-- **The `5`-minute auto-push cadence question is already tracked** in [[Plugin Gaps Recommendations and Verification]] — do not re-decide it here. What this note adds: [[Cross-Laptop Sync - Build Roadmap]] plans a *separate* scheduled git-commit script for cross-laptop sync, and it is now live on both laptops (Build 6). Running Obsidian Git's own auto-push alongside that script means two independent processes both trying to push the same repo — this is no longer a future collision, it is a real one as of now. **Worth it: yes, decide this before the next session that touches git on either machine, not after a real push conflict happens.**
-- **Obsidian Git's own README and full docs (fetched directly, not assumed) never describe a documented "disable push, keep commit" setting** — the plugin bundles commit and push into one "commit-and-sync" operation in its published feature list ([Obsidian Git — Features](https://publish.obsidian.md/git-doc/Features)). But this vault's own `data.json` already shows a literal `Push disabled: false` key, confirmed by direct read, not by trusting undocumented behavior — so the setting is real in this installed version even though the public docs don't walk through it. **Worth it: yes, flip it to `true` once Build 6's scheduled script is confirmed working, so Obsidian Git keeps catching fast local commits but stops racing the script's own push.** Until then, leave it `false` — Obsidian Git is currently the only thing pushing Jarvis to GitHub.
-- **File Recovery's snapshot retention, confirmed from Obsidian's own help page:** snapshots save a minimum of 5 minutes apart and are kept for 7 days by default ([Obsidian Help — File Recovery](https://obsidian.md/help/plugins/file-recovery)). **Worth it: yes, worth writing down once** — "use File Recovery for a recent uncommitted version" now means "recent" = within the last week, checked every 5+ minutes, not an open-ended promise. Not worth changing the defaults; a week of snapshots at 5-minute granularity already covers every realistic single-session recovery case this vault has hit.
+- Should agents ever be allowed to commit, or remain commit-free by default? — current rule is commit-free; unchanged by this fix
 ## Sources
-
 - [Obsidian Git docs - Features](https://publish.obsidian.md/git-doc/Features) — confirms commit and push are bundled as "commit-and-sync" in the documented feature set, fetched 2026-09-19
 - [Obsidian Git README](https://github.com/Vinzent03/obsidian-git)
+- [`Vinzent03/obsidian-git` — `src/setting/settings.ts`](https://github.com/Vinzent03/obsidian-git/blob/master/src/setting/settings.ts) — confirms the real `mergeStrategy` options (`none`/`ours`/`theirs`) and `syncMethod` options (`merge`/`rebase`/`reset`), fetched 2026-09-20
 - [Obsidian Help - File Recovery](https://obsidian.md/help/plugins/file-recovery) — 5-minute minimum snapshot spacing, 7-day retention, fetched 2026-09-19
-- Direct read of this vault's Obsidian Git `data.json` — confirms a real `Push disabled` key exists, currently `false`
+- Direct read of this vault's Obsidian Git `data.json`, before and after the fix — this session, 2026-09-20
+- [[Cross-Laptop Sync - Build Roadmap]], [[Cross-Laptop Sync - Build 7 Findings]] — the `Jarvis-GitAutoSync` script this plugin's automation now defers to
 - [[AI_CONTEXT]]
 - [[40_Resources/Obsidian/Vault Operating System]]

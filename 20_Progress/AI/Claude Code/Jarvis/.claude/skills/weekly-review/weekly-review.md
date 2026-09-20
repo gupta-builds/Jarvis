@@ -200,6 +200,20 @@ Read `60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis Index.md`. Add the 
 
 ---
 
+## Step 7.5: Log Maintenance
+
+Read `60_Claude/30_Reviews/Weekly Synthesis/Logs/Log Review.md` in full — it holds the managed-logs registry (which logs, their line/file caps, and the trim rule for each) and the exact entry format. For every log in that registry:
+
+1. Check its current size against its cap (line count for line-based logs, file count/age for the dated-file logs like `cursor-workflow/logs/sweep-*.log`).
+2. If under the cap, do nothing — no entry, no action. A quiet log this week is not worth logging.
+3. If over the cap: read the portion beyond the cap, write a real aggregate summary (success/failure/conflict counts, date range, any genuine anomaly — not a restated line count) as a new dated entry in `Log Review.md`, then actually delete the excess from the source log. Never move it to a second file — that recreates the exact bloat this step exists to remove.
+4. The 10 `Sync-Log-Archive-2026-09-19.md` files are a one-time cleanup, not a recurring check: if any still exist, summarize each in full into `Log Review.md` and delete the archive file entirely, then remove that file's row from the registry table in `Log Review.md` since it no longer exists to manage.
+5. Logs marked "Curated" or "Monitor only" in the registry never get trimmed by this step, even if they cross their cap — flag it as a line in this week's synthesis note instead (Step 6's "Vault Health" section) so a human decides, rather than auto-deleting dense, hand-quality content.
+
+This step is independent of Steps 1-6's narrative synthesis — run it regardless of whether the rest of the review found anything notable.
+
+---
+
 ## Step 8: Log the Session
 
 Append to `60_Claude/07_AI_Information/Session Logs/log.md`:
@@ -214,7 +228,8 @@ Append to `60_Claude/07_AI_Information/Session Logs/log.md`:
 
 ## Execution Notes for Future Claude
 
-- This skill is called by a Cowork scheduled task every Monday morning. You start cold with no prior context. The pre-flight reads are not optional.
+- **Trigger, corrected 2026-09-20:** the previously-documented "Cowork scheduled task every Monday morning" was never actually verified and had been silently dead for 13 weeks (last real run: 2026-W22, per the Weekly Synthesis Index and zero matching entries in the Session Log since). Replaced with a real Windows Scheduled Task (`Jarvis-WeeklyReview`) invoking Claude Code headlessly (`claude -p`), registered independently on each laptop per [[Cross-Laptop Sync - Build Roadmap]]'s pattern for cross-laptop automation. Because both laptops may have this registered, **check `60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis Index.md` for this week's ISO week number before doing any real work** — if this week's entry already exists, stop, this is a duplicate fire from the other laptop, not an error.
+- You start cold with no prior context. The pre-flight reads are not optional.
 - The three-month plan started April 24, 2026. Use that anchor to calculate which phase and week you're in.
 - The master plan's "Weekly Operating Rhythm" section defines the expected weekly cadence. Compare actual vault activity against it honestly.
 - Fall 2026 Plan's own cadence rule: two consecutive missed `/weekly-review` runs means a full re-scope conversation before that plan continues, per [[30_Order/Standards/Daily Workflow Standard|Daily Workflow Standard]] — flag this explicitly if it applies.

@@ -87,3 +87,9 @@ mcp.env
 20_Progress/Internship/Resumes/
 10_Areas/Career/Internships/Contacts/*
 !10_Areas/Career/Internships/Contacts/Mimic.md
+
+# Syncthing's own staggered-versioning backup folder — pure regenerable churn,
+# Syncthing manages its own retention. Tracking it in git means every edit to
+# every file gets a second, permanent, ever-growing copy in history. Found
+# 2026-09-20 already committed across multiple prior auto-sync commits.
+.stversions/

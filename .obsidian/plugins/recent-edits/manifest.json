@@ -1,0 +1,11 @@
+{
+  "id": "recent-edits",
+  "name": "Recent Edits",
+  "version": "1.6.0",
+  "minAppVersion": "1.13.0",
+  "description": "Shows files modified in the last N days, grouped by day. Marks edits made from filesystem writes with a configurable indicator.",
+  "author": "Chris Wagner",
+  "authorUrl": "https://github.com/cwagner223355",
+  "fundingUrl": "https://ko-fi.com/S6S6Z9TE1",
+  "isDesktopOnly": false
+}

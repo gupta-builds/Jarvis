@@ -83,6 +83,15 @@
       },
       "multi-column-markdown": {
         "startupType": "short"
+      },
+      "text-extractor": {
+        "startupType": "short"
+      },
+      "cmdr": {
+        "startupType": "short"
+      },
+      "recent-edits": {
+        "startupType": "short"
       }
     }
   }

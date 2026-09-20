@@ -29,6 +29,8 @@ vault/
   agents/<ProjectName>/    # per-destination-project staging — real, in-progress artifacts for a specific project
   commands/<ProjectName>/  # same, for commands. Create a project subfolder only when real content lands.
   hooks/<ProjectName>/     # same, for hooks
+  context/<ProjectName>/   # same, for .claude/context (added 2026-09-05 alongside rules/)
+  rules/<ProjectName>/     # same, for .claude/rules (added 2026-09-05 alongside context/)
   skills/           # source-repo staging (unchanged role — not per-project)
   instructions/<ProjectName>/  # CLAUDE.md/AGENTS.md/PRD.md of a REAL project Anant works on — live-synced one-way, never sandbox/ candidates
   tests/<type>/<repo>/  # evidence a specific tool was actually run — script or dated real-output log

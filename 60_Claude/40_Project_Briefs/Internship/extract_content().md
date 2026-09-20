@@ -2,7 +2,7 @@
 source_file: "ingestion/posting_page.py"
 type: "code"
 community: "writer.py"
-location: "L263"
+location: "L284"
 tags:
   - graphify/code
   - graphify/EXTRACTED
@@ -22,6 +22,7 @@ tags:
 - [[test_extract_content_from_real_page()]] - `calls` [EXTRACTED]
 - [[test_extract_content_renders_real_section_names_as_headings()]] - `calls` [EXTRACTED]
 - [[test_extract_content_skips_google_careers_listing_shell()]] - `calls` [EXTRACTED]
+- [[test_extract_content_skips_microsoft_careers_listing_shell()]] - `calls` [EXTRACTED]
 - [[test_extract_content_splits_ats_chrome_run_ons_real_conagra_case()]] - `calls` [EXTRACTED]
 - [[test_extract_content_strips_read_more_and_follow_us_chrome_real_manhattan_case()]] - `calls` [EXTRACTED]
 - [[test_extract_content_treats_real_zipline_board_index_as_unconfirmed()]] - `calls` [EXTRACTED]

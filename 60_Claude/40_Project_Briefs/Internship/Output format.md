@@ -1,17 +1,17 @@
 ---
-source_file: ".claude/agents/contact-researcher.md"
+source_file: ".claude/agents/applying.md"
 type: "document"
-community: "contact-researcher.md"
-location: "L55"
+community: "check_interndock_sitemap"
+location: "L39"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/contact-researchermd
+  - community/check_interndock_sitemap
 ---
 
 # Output format
 
 ## Connections
-- [[contact-researcher]] - `contains` [EXTRACTED]
+- [[applying]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/contact-researchermd
+#graphify/document #graphify/EXTRACTED #community/check_interndock_sitemap

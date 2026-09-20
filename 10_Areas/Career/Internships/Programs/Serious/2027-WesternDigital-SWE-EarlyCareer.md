@@ -8,20 +8,21 @@ eligible_classes:
   - Senior
 grad_year: 2027
 role_type: internship
-wave:
+wave: null
 opens_date: 2026-07-23
 deadline_posted: 2026-10-20
-deadline_real:
+deadline_real: null
 pay_per_hour_low: 34.52
-pay_per_hour_high: 46.00
+pay_per_hour_high: 46
 pay_currency: USD
-duration_weeks:
+duration_weeks: null
 benefits: []
 application_url: https://jobs.smartrecruiters.com/WesternDigital/744000138727213
 careers_page: https://www.westerndigital.com/company/careers
 list_origin: manual-web-find (Anant, 2026-07-23 clip, promoted 2026-07-29)
-applying_note:
-recruiter_contact:
+applying_note: null
+recruiter_contact: "[[10_Areas/Career/Internships/Contacts/Each
+  One/Ongoing/Summer 2027 Software Engineering Internship - Western Digital]]"
 tags:
   - internship
   - program

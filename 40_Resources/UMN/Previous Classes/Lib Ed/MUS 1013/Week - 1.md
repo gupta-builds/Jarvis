@@ -6,7 +6,7 @@ created: 2026-01-21
 updated:
 area:
   - "[[MUS Board]]"
-  - "[[Weekly Board]]"
+  - "[[40_Resources/UMN/Previous Classes/Weekly Board]]"
 tags:
   - "#class"
 next:

@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_schema_drift.py"
 type: "rationale"
-community: "vault_root"
-location: "L157"
+community: "test_schema_drift.py"
+location: "L172"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/vault_root
+  - community/test_schema_driftpy
 ---
 
 # category is read via .get() so a rename wouldn't crash the normalizer —     it w
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[test_simplify_schema_detects_dropped_optional_field()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/vault_root
+#graphify/rationale #graphify/EXTRACTED #community/test_schema_driftpy

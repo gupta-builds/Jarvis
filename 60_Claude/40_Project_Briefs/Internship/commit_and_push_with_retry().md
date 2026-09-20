@@ -13,12 +13,11 @@ tags:
 
 ## Connections
 - [[GitPushError]] - `calls` [EXTRACTED]
-- [[Path]] - `calls` [INFERRED]
 - [[Stages everything under repo_dir, commits, and pushes. On a rejected     push (s]] - `rationale_for` [EXTRACTED]
 - [[_commit_log()]] - `calls` [EXTRACTED]
 - [[_git()]] - `calls` [EXTRACTED]
 - [[git_ops.py]] - `contains` [EXTRACTED]
-- [[main()_2]] - `calls` [EXTRACTED]
+- [[main()_5]] - `calls` [EXTRACTED]
 - [[recheck.py]] - `imports` [EXTRACTED]
 - [[run_pipeline.py]] - `imports` [EXTRACTED]
 - [[test_git_ops.py]] - `imports` [EXTRACTED]

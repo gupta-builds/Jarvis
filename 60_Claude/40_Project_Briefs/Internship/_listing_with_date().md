@@ -2,7 +2,7 @@
 source_file: "tests/test_run_pipeline.py"
 type: "code"
 community: "_listing_with_date"
-location: "L153"
+location: "L160"
 tags:
   - graphify/code
   - graphify/EXTRACTED
@@ -24,5 +24,9 @@ tags:
 - [[test_prioritize_and_cap_scopes_budget_per_bucket()]] - `calls` [EXTRACTED]
 - [[test_prioritize_and_cap_without_preferred_companies_keeps_recency_only_order()]] - `calls` [EXTRACTED]
 - [[test_run_pipeline.py]] - `contains` [EXTRACTED]
+- [[test_select_exact_quota_bucket_missing_from_quota_is_fully_deferred()]] - `calls` [EXTRACTED]
+- [[test_select_exact_quota_does_not_grant_a_reserved_slot_unlike_prioritize_and_cap()]] - `calls` [EXTRACTED]
+- [[test_select_exact_quota_reports_shortfall_and_returns_nothing_when_a_bucket_is_short()]] - `calls` [EXTRACTED]
+- [[test_select_exact_quota_selects_exactly_and_defers_rest_in_debate_order()]] - `calls` [EXTRACTED]
 
 #graphify/code #graphify/EXTRACTED #community/_listing_with_date

@@ -17,5 +17,4 @@ next:
 ## Notes
 - 
 ## Action items
-- [ ]   
-## 
+- [ ] 

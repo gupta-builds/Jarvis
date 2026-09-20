@@ -12,7 +12,7 @@ tags:
   - "#class"
   - "#Project"
 related:
-  - "[[Final Project|Final Project]]"
+  - "[[20_Progress/Degree/CSCI 4041/Final Project|Final Project]]"
   - "[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 13|Week - 13]]"
   - "[[Chapter - 22|Chapter - 22]]"
   - "[[Chapter - 23|Chapter - 23]]"

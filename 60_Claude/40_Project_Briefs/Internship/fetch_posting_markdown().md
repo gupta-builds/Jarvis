@@ -1,12 +1,12 @@
 ---
 source_file: "ingestion/posting_page.py"
 type: "code"
-community: "stage1_reject"
+community: "writer.py"
 location: "L149"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/stage1_reject
+  - community/writerpy
 ---
 
 # fetch_posting_markdown()
@@ -17,9 +17,10 @@ tags:
 - [[fetch_interndock_drop()]] - `calls` [EXTRACTED]
 - [[interndock.py]] - `imports` [EXTRACTED]
 - [[posting_page.py]] - `contains` [EXTRACTED]
+- [[reseed.py]] - `imports` [EXTRACTED]
 - [[run_pipeline.py]] - `imports` [EXTRACTED]
 - [[test_fetch_posting_markdown_calls_firecrawl()]] - `calls` [EXTRACTED]
 - [[test_fetch_posting_markdown_strips_ashby_application_suffix_before_calling_firecrawl()]] - `calls` [EXTRACTED]
 - [[test_posting_page.py]] - `imports` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/stage1_reject
+#graphify/code #graphify/EXTRACTED #community/writerpy

@@ -3,7 +3,7 @@ kanban-plugin: board
 created: 2026-01-17
 related_progress:
   - "[[UMN Board]]"
-  - "[[Weekly Board]]"
+  - "[[40_Resources/UMN/Previous Classes/Weekly Board]]"
   - "[[40_Resources/UMN/The Plan/Spring'26 Syllabus]]"
 tags:
   - "#kanban"

@@ -2,7 +2,7 @@
 type: evergreen
 status: sprout
 created: 2026-05-15
-updated: 2026-05-15
+updated: 2026-09-19
 tags:
   - evergreen
   - system
@@ -14,6 +14,7 @@ notes:
   - "[[40_Resources/Obsidian/Vault Operating System]]"
   - "[[60_Claude/07_AI_Information/Plugins]]"
   - "[[00 Plugin Reference Index]]"
+  - "[[Cross-Laptop Sync - Build 3 Findings]]"
 ---
 # Dataview and Dashboards
 
@@ -180,6 +181,14 @@ Use Tasks when the question is about actions:
 
 Dataview can render `TASK` queries, but Tasks understands Tasks-specific emoji metadata and recurrence semantics better. Do not build a second task system with ad hoc inline fields unless there is a clear reason.
 
+## Bases vs Dataview
+**Resolved 2026-09-19: not a pending choice.** `60_Claude/44_Indexes/Bases/` holds five real `.base` files (Capability Registry, Knowledge Enrichment Registry, Ops Reports, Output Pipeline, Question Triage), and `core-plugins.json` has `bases: true`. Both are live today. Bases gives filterable, sortable, view-switchable tables over frontmatter with no query language; Dataview gives programmable queries (`FROM`, `WHERE`, grouping, DataviewJS) over the same frontmatter. Use Bases for a fixed registry someone will browse and filter by eye; use Dataview when the view needs logic — computed fields, multi-source joins, or conditional grouping a Bases filter can't express.
+
+## Meta Bind
+Meta Bind turns frontmatter fields into interactive widgets inside a note: text/number/toggle inputs, dropdowns bound to a property, progress bars, and buttons that run a command or JS snippet on click ([Meta Bind docs](https://www.moritzjung.dev/obsidian-meta-bind-plugin-docs/)).
+
+**Researched 2026-09-19.** Installed and lazy-loaded (`short`), not yet used anywhere in the vault. The fit is dashboard-adjacent but distinct from Dataview: Dataview *reads* frontmatter to build a view; Meta Bind lets a note *write* its own frontmatter through a UI control, without opening Properties. A concrete use here: a project note's `status` field (`seed`/`sprout`/`tree`) as a Meta Bind dropdown instead of hand-typing it, or a habit board's daily checkboxes as bound toggles instead of raw Tasks lines. Do not wire buttons to arbitrary JS without the user's approval — that is the same risk class as DataviewJS, just triggered by a click instead of a render.
+
 ## DataviewJS Rule
 
 Use DataviewJS only when plain Dataview cannot express the transformation.
@@ -228,10 +237,18 @@ Before changing a dashboard:
 - Several recipes above query `60_Claude/30_Source_Summaries`, but the live path is `60_Claude/10_Source_Summaries`. Are these recipes stale, and should they be repointed? — *known path drift; repair is tracked in the audit roadmap, out of scope for the current pass*
 - Is `source_status` actually populated on enough notes to query, or is it aspirational? — *the field is documented but inconsistently set*
 - Should DataviewJS/HTML stay enabled given the execution risk, or be restricted? — *risk noted; no change without user decision*
+- Should Meta Bind be wired into any existing dashboard or board, now that its mechanism is documented? — *unconfigured; a workflow decision, not a research gap*
+## Suggestions
+- **Fixing the path-drift bug once, everywhere: worth it, and the case is stronger than any single note made alone.** The same dead path (`60_Claude/30_Source_Summaries` vs the real `10_Source_Summaries`) breaks Templater's folder template, this note's own query recipes, and is independently logged in the gap tracker — three systems silently degraded by one typo. Fixing it as one repoint (find every reference, correct once, verify all three systems resolve afterward) costs the same as fixing it in isolation somewhere and finding the other two later. **Worth it: yes, and worth doing as one pass, not three.**
+- **Piloting Meta Bind on the `status:` dropdown: worth trying, low-risk by construction.** `status` is already a canonical field every dashboard reads, so wiring it as a click-to-set dropdown on one note type doesn't touch any query, only how the value gets written. If it doesn't earn its keep, reverting means deleting one Meta Bind block per note, not unwinding a schema change. **Worth it: yes, cheap to try, cheap to undo.**
+- **Running the `source_status` coverage audit: worth it, five-minute query, replaces a guess with a number.** "Documented but inconsistently set" is currently an impression, not a fact — `WHERE type = "input" AND !source_status` turns it into an actual count, which is the difference between "clean up five notes" and "this field never really got adopted." Cheap enough that there's no reason to keep operating on the impression instead.
 ## Sources
 
 - [Dataview docs](https://blacksmithgu.github.io/obsidian-dataview/)
 - [Dataview query structure](https://blacksmithgu.github.io/obsidian-dataview/queries/structure/)
 - [Dataview metadata docs](https://blacksmithgu.github.io/obsidian-dataview/annotation/metadata-pages/)
+- [Meta Bind docs](https://www.moritzjung.dev/obsidian-meta-bind-plugin-docs/)
+- [Obsidian Help - Bases syntax](https://obsidian.md/help/bases/syntax)
+- Direct check of `60_Claude/44_Indexes/Bases/` (five `.base` files) and `.obsidian/core-plugins.json` — this session, 2026-09-19
 - [[00_Dashboard]]
 - [[40_Resources/Obsidian/Vault Operating System]]

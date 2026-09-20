@@ -1,17 +1,18 @@
 ---
-source_file: ".cursor/skills/loop-health-check/SKILL.md"
+source_file: ".claude/skills/review-loop-change/SKILL.md"
 type: "document"
-community: "Checks to run, in this order"
+community: "What to check"
 location: "L1"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/Checks_to_run_in_this_order
+  - community/What_to_check
 ---
 
 # SKILL.md
 
 ## Connections
-- [[loop-health-check]] - `contains` [EXTRACTED]
+- [[review-loop-change]] - `contains` [EXTRACTED]
+- [[example-review]] - `references` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/Checks_to_run_in_this_order
+#graphify/document #graphify/EXTRACTED #community/What_to_check

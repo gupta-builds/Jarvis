@@ -1,6 +1,6 @@
 ---
 type: evergreen
-status: sprout
+status: retired
 created: 2026-05-29
 updated: 2026-07-29
 tags:
@@ -12,6 +12,8 @@ notes:
   - "[[40_Resources/CS/Repos]]"
 ---
 # GitHub Stars — How Anant Uses Each Repo
+
+> **Retired 2026-09-05.** Content preserved below as historical record, per this vault's retirement convention — not deleted, not live. Real, current "how Anant actually uses this now" content for every repo that reached an actual decision now lives in `40_Resources/CS/AI/` (see [[40_Resources/CS/Repos]]'s "Real usage notes" section for the full list, or [[20_Progress/Projects/AI Use/Claude Kit/Tool Map]] for the per-tool pipeline record). This note's own install commands were speculative `npx`/`bunx` guesses, mostly never actually verified — the new notes carry only commands that were actually run.
 
 Two questions for every starred repo: **how does he use it**, **why does he use it**.
 

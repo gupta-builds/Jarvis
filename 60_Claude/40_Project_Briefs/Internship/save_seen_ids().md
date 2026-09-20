@@ -2,7 +2,7 @@
 source_file: "run_pipeline.py"
 type: "code"
 community: "recheck.py"
-location: "L489"
+location: "L571"
 tags:
   - graphify/code
   - graphify/EXTRACTED
@@ -12,7 +12,6 @@ tags:
 # save_seen_ids()
 
 ## Connections
-- [[Path]] - `calls` [INFERRED]
 - [[run_once()]] - `calls` [EXTRACTED]
 - [[run_pipeline.py]] - `contains` [EXTRACTED]
 

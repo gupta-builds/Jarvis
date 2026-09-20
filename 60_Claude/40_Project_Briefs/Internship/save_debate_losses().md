@@ -2,7 +2,7 @@
 source_file: "run_pipeline.py"
 type: "code"
 community: "recheck.py"
-location: "L230"
+location: "L312"
 tags:
   - graphify/code
   - graphify/EXTRACTED
@@ -12,7 +12,6 @@ tags:
 # save_debate_losses()
 
 ## Connections
-- [[Path]] - `calls` [INFERRED]
 - [[run_once()]] - `calls` [EXTRACTED]
 - [[run_pipeline.py]] - `contains` [EXTRACTED]
 

@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_schema_drift.py"
 type: "rationale"
-community: "check_interndock_sitemap"
-location: "L523"
+community: "test_schema_drift.py"
+location: "L463"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/check_interndock_sitemap
+  - community/test_schema_driftpy
 ---
 
 # Every real URL is still there, but none look drop-shaped anymore —     e.g. inte
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[test_interndock_sitemap_detects_no_drop_shaped_candidates()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/check_interndock_sitemap
+#graphify/rationale #graphify/EXTRACTED #community/test_schema_driftpy

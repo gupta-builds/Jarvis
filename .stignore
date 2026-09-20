@@ -1,0 +1,48 @@
+.git
+.mcp.json
+.credentials.json
+.env
+.env.local
+.claude/.env.local
+.claude/settings.local.json
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.trash
+.obsidian/workspaces.json
+.obsidian/plugins/copilot/data.json
+.obsidian/plugins/quickadd/data.json
+.obsidian/plugins/obsidian-local-rest-api/data.json
+.obsidian/plugins/lean-terminal/data.json
+.obsidian/plugins/recent-files-obsidian/data.json
+.obsidian/copilot-index-*.json
+30_Order/System/jarvis-memory/*.sqlite*
+60_Claude/05_Clippings/AI Conversations/**/_raw_jsonl
+60_Claude/05_Clippings/AI Conversations/**/_raw_composer
+20_Progress/AI/Kiro/.kiro_windows
+20_Progress/AI/Claude Code/.claude_wsl/skills/gbrain
+20_Progress/AI/Claude Code/.claude_wsl/skills/gstack
+20_Progress/AI/Cursor/.cursor_windows/extensions
+20_Progress/AI/Cursor/.cursor_windows/projects
+20_Progress/AI/Cursor/.cursor_windows/plugins
+20_Progress/AI/Cursor/.cursor_windows/ai-tracking
+20_Progress/AI/Cursor/.cursor_wsl/projects
+20_Progress/AI/Cursor/.cursor_wsl/plugins
+20_Progress/AI/Cursor/.cursor_wsl/worktrees
+20_Progress/AI/Kiro/.kiro_wsl/extensions
+20_Progress/AI/Kiro/.kiro_wsl/powers/repos
+.venv
+.obsidian/plugins/lean-terminal/node_modules
+30_Order/System/excalidraw-mcp/node_modules
+30_Order/System/cursor-workflow/scripts/__pycache__
+30_Order/System/jarvis-memory/__pycache__
+
+
+// Build 6, 2026-09-19: root-level file literally named "NUL" (Windows reserved
+// device name), created 2026-09-05 as stderr-redirect debris from a WSL/cmd.exe
+// "2>NUL" hook invocation bug (already fixed at the source in settings.json).
+// Confirmed this can never sync to a Windows device (Win32 CreateFile refuses
+// the name) and that deleting the file on disk + forcing a rescan does not
+// clear Syncthing's stale "invalid" index entry for it (tested directly this
+// session). Not a secrets/churn/bloat case, but a genuine permanent sync
+// blocker with no other working remedy — narrowly scoped to this exact path.
+/NUL

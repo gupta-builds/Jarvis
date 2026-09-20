@@ -1,17 +1,17 @@
 ---
-source_file: ".cursor/skills/resume-alteration/SKILL.md"
+source_file: ".claude/skills/promoting-manual-find/SKILL.md"
 type: "document"
-community: "Steps"
-location: "L51"
+community: "check_lever_schema"
+location: "L28"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/Steps
+  - community/check_lever_schema
 ---
 
 # What this skill does not do
 
 ## Connections
-- [[resume-alteration]] - `contains` [EXTRACTED]
+- [[promoting-manual-find]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/Steps
+#graphify/document #graphify/EXTRACTED #community/check_lever_schema

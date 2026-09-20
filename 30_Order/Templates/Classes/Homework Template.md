@@ -5,7 +5,7 @@ status: seed
 created:
 updated:
 area:
-  - "[[Weekly Board]]"
+  - "[[40_Resources/UMN/Previous Classes/Weekly Board]]"
 tags:
   - "#class"
   - "#Homework"
@@ -21,5 +21,4 @@ next:
 - [[Concept - ...]]
 ## Post-submit reflection
 - What failed first?
-- What pattern repeats?
-# 
+- What pattern repeats? 

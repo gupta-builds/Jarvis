@@ -2,7 +2,7 @@
 source_file: ".claude/skills/promote-dossier/SKILL.md"
 type: "document"
 community: "/promote-dossier"
-location: "L29"
+location: "L31"
 tags:
   - graphify/document
   - graphify/EXTRACTED

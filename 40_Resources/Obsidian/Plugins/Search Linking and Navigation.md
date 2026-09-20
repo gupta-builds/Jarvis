@@ -2,7 +2,7 @@
 type: evergreen
 status: sprout
 created: 2026-05-15
-updated: 2026-05-15
+updated: 2026-09-19
 tags:
   - evergreen
   - system
@@ -14,6 +14,7 @@ notes:
   - "[[40_Resources/Obsidian/Vault Operating System]]"
   - "[[60_Claude/07_AI_Information/Plugins]]"
   - "[[00 Plugin Reference Index]]"
+  - "[[Cross-Laptop Sync - Build 3 Findings]]"
 ---
 # Search Linking and Navigation
 
@@ -75,6 +76,8 @@ Recent Files is weak session context. It can help a human resume work, but agent
 
 File Explorer++ supports pinned and hidden navigation filters.
 
+**Overlap with Recent Files, checked against both plugins' own READMEs (2026-09-19): none.** They answer different questions. Recent Files tracks *time* — a chronological list of files most recently opened, filtered by excluded paths/tags/bookmarks ([Recent Files README](https://github.com/tgrosinger/recent-files-obsidian)). File Explorer++ tracks *standing structure* — wildcard/regex filters that pin or hide items in the static file tree, with no concept of recency at all ("enhances the built-in file explorer" through hide/pin filtering only — [File Explorer++ README](https://github.com/kelszo/obsidian-file-explorer-plus)). Recent Files answers "what did I just touch"; File Explorer++ answers "what should always be visible regardless of when I touched it." A dashboard pinned in File Explorer++ stays pinned whether or not it was opened today; a dashboard opened once shows in Recent Files whether or not it's pinned. Keep both.
+
 Treat pinned files as navigation landmarks:
 
 - dashboards
@@ -84,6 +87,11 @@ Treat pinned files as navigation landmarks:
 - system reference notes
 
 Do not rewrite pin/hide filters during documentation work. These are human layout preferences.
+
+## Homepage
+Homepage opens a chosen note, canvas, base, or workspace whenever the vault starts, instead of restoring whatever was open last.
+
+**Researched 2026-09-19.** Not yet configured with a target in this vault's `data.json` — the plugin is installed and lazy-loaded (`short`) but has no destination set, so it currently has no visible effect on startup. If configured, the natural choice for a vault this dashboard-driven is [[00_Dashboard]]: a fixed landing point means every session starts from the same live view of active projects, review queues, and orphan notes, rather than wherever the last session happened to leave off. Setting it is a human preference, not a research gap — the mechanism just needed confirming.
 
 ## Paste URL Into Selection
 
@@ -132,12 +140,18 @@ When an agent cannot find a note:
 [[HeapSort|HeapSort]] previews well on hover because its first lines state the mechanism, and it ranks well in Omnisearch because its headings name specific things. Contrast a note whose first heading is "Overview" followed by warm-up prose — it previews as noise and ranks for nothing.
 ## Verified Open State
 - Should source-summary folders (`60_Claude/10_Source_Summaries/`) be pinned in File Explorer++ for quick navigation, as the audit suggested? — *human layout preference; needs user choice*
-- Is the `Alt+C` Calendar hotkey live, or a leftover from an uninstalled Calendar plugin? — *unresolved across inventory*
+- Is the `Alt+C` Calendar hotkey live, or a leftover from an uninstalled Calendar plugin? — *resolved 2026-09-19: leftover. No `calendar` folder exists under `.obsidian/plugins/`; `hotkeys.json` still binds it. The hotkey does nothing.*
+- Should Homepage be configured with a startup target, and should it be [[00_Dashboard]]? — *mechanism confirmed 2026-09-19, unconfigured; the choice itself is a human preference*
+## Suggestions
+- **Setting Homepage to [[00_Dashboard]]: worth it, and the honest verdict is this barely counts as a decision anymore.** The mechanism is confirmed, the target is already named, and the whole rest of this vault is built around the dashboard being the live entry point for active projects and review queues. Leaving it unconfigured means every session starts wherever the last one happened to close instead — for a vault this dashboard-driven, that's a real, if small, daily cost against zero cost to just setting it.
+- **The File Explorer++/Recent Files interaction question: not worth resolving as written, because it isn't actually ambiguous.** They render in two different UI panels (the file tree vs. a separate recent-files list) — a file hidden in the tree still shows in Recent Files, and neither "wins" over the other because they were never competing for the same space. Worth one clarifying sentence saying exactly that, not a deeper investigation.
+- **The dead `Alt+C` Calendar hotkey: same verdict as [[Plugin Inventory and Configuration Map]]'s Suggestions — worth a one-line fix, low priority, batch it with the next `hotkeys.json` change rather than a dedicated approval round.**
 ## Sources
 
 - [Obsidian Help - Backlinks](https://help.obsidian.md/plugins)
 - [Omnisearch docs](https://publish.obsidian.md/omnisearch/Index)
 - [Omnisearch community plugin page](https://community.obsidian.md/plugins/omnisearch)
+- Direct check of `.obsidian/plugins/calendar/` (absent) and `.obsidian/plugins/homepage/data.json` — this session, 2026-09-19
 - [Hover Editor README](https://github.com/nothingislost/obsidian-hover-editor)
 - [File Explorer++ README](https://github.com/kelszo/obsidian-file-explorer-plus)
 - [Recent Files README](https://github.com/tgrosinger/recent-files-obsidian)

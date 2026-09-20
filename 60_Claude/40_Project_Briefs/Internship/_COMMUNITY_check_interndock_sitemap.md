@@ -1,21 +1,24 @@
 ---
 type: community
-members: 8
+members: 11
 ---
 
 # check_interndock_sitemap
 
-**Members:** 8 nodes
+**Members:** 11 nodes
 
 ## Members
-- [[Every real URL is still there, but none look drop-shaped anymore —     e.g. inte]] - rationale - tests/test_schema_drift.py
-- [[Not a field-schema check (InternDock has no JSON API — see the block     comment]] - rationale - core/schema_drift.py
-- [[_text_response()]] - code - tests/test_schema_drift.py
-- [[check_interndock_sitemap()]] - code - core/schema_drift.py
-- [[test_interndock_sitemap_detects_no_drop_shaped_candidates()]] - code - tests/test_schema_drift.py
-- [[test_interndock_sitemap_detects_no_loc_entries()]] - code - tests/test_schema_drift.py
-- [[test_interndock_sitemap_hits_the_real_url()]] - code - tests/test_schema_drift.py
-- [[test_interndock_sitemap_passes_on_real_shape()]] - code - tests/test_schema_drift.py
+- [[1. Read inputs]] - document - .claude/agents/applying.md
+- [[2. Draft]] - document - .claude/agents/applying.md
+- [[3. Plan]] - document - .claude/agents/applying.md
+- [[4. Stop for approval]] - document - .claude/agents/applying.md
+- [[Not fully runnable yet — read this before doing anything else]] - document - .claude/agents/applying.md
+- [[Output format]] - document - .claude/agents/applying.md
+- [[Prerequisite]] - document - .claude/agents/applying.md
+- [[Steps]] - document - .claude/agents/applying.md
+- [[The evidence rule — the one thing that overrides everything else]] - document - .claude/agents/applying.md
+- [[What you do not do]] - document - .claude/agents/applying.md
+- [[applying]] - document - .claude/agents/applying.md
 
 ## Live Query (requires Dataview plugin)
 
@@ -23,15 +26,3 @@ members: 8
 TABLE source_file, type FROM #community/check_interndock_sitemap
 SORT file.name ASC
 ```
-
-## Connections to other communities
-- 6 edges to [[_COMMUNITY_test_schema_drift.py]]
-- 2 edges to [[_COMMUNITY_schema_drift.py]]
-- 1 edge to [[_COMMUNITY_check_all]]
-
-## Top bridge nodes
-- [[check_interndock_sitemap()]] - degree 9, connects to 3 communities
-- [[_text_response()]] - degree 5, connects to 1 community
-- [[test_interndock_sitemap_detects_no_drop_shaped_candidates()]] - degree 4, connects to 1 community
-- [[test_interndock_sitemap_passes_on_real_shape()]] - degree 3, connects to 1 community
-- [[test_interndock_sitemap_hits_the_real_url()]] - degree 3, connects to 1 community

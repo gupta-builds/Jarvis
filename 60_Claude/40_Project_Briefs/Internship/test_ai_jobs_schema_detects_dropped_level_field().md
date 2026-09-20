@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_schema_drift.py"
 type: "code"
-community: "check_ai_jobs_schema"
-location: "L483"
+community: "test_schema_drift.py"
+location: "L423"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/check_ai_jobs_schema
+  - community/test_schema_driftpy
 ---
 
 # test_ai_jobs_schema_detects_dropped_level_field()
@@ -17,4 +17,4 @@ tags:
 - [[level is what fetch_ai_jobs' own role-type triage reads     (raw.get(level) ==]] - `rationale_for` [EXTRACTED]
 - [[test_schema_drift.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/check_ai_jobs_schema
+#graphify/code #graphify/EXTRACTED #community/test_schema_driftpy

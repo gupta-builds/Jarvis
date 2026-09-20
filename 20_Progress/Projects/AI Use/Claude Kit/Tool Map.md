@@ -2,7 +2,7 @@
 type: index
 status: active
 created: 2026-07-29
-updated: 2026-08-20
+updated: 2026-09-05
 tags:
   - claude-code
   - ai-use
@@ -12,7 +12,9 @@ notes:
   - "[[Claude Kit Implementation|Claude Kit]]"
   - "[[40_Resources/CS/Repos]]"
   - "[[20_Progress/AI/Claude Code/MOC|Claude Code MOC]]"
-next: Add a row here the same session anything new lands in second-brain-claudekit's sandbox/, tested-tools/, or a rigid folder — see that repo's _docs/Jarvis.md for the ritual
+next: Add a row here the same session anything new lands in
+  second-brain-claudekit's sandbox/, tested-tools/, or a rigid folder — see that
+  repo's _docs/Jarvis.md for the ritual
 ---
 # Claude Kit — second-brain-claudekit Tool Map
 
@@ -38,6 +40,8 @@ This tracks a different layer than `20_Progress/AI/Claude Code/<Project>/Setup.m
 - **Displaces:** Makes `memsearch` (auto-capture, no synthesis) and `context-sync` (thinner SQLite memory) both redundant once adopted — see [[40_Resources/CS/Repos]]'s entries for both.
 - **Paired with:** gstack's own `/setup-gbrain` command (below) — same author, designed as a matched pair, not two independent tools.
 
+- **Real usage note (2026-09-05):** [[40_Resources/CS/AI/GBrain and gstack]].
+
 ### gstack
 - **What:** ~34 slash commands + 55 generated skills (Playwright-based browse/design/PDF tooling), from the same author as GBrain.
 - **Useful for:** Global by design — its own `./setup` targets Claude Code, Codex, Factory, and OpenCode simultaneously.
@@ -50,6 +54,8 @@ This tracks a different layer than `20_Progress/AI/Claude Code/<Project>/Setup.m
   ```
 - **Confirmed NOT registered:** `~/.claude/skills/gstack` and `~/.claude/commands/gstack*` both absent — setup aborted before its own registration step.
 
+- **Real usage note (2026-09-05):** [[40_Resources/CS/AI/GBrain and gstack]].
+
 ### mattpocock-skills (`engineering/` category)
 - **What:** 41 skills total (not the 18 originally assumed — a real correction from actually running the installer), fixing common agent failure modes. Only the `engineering/` category (17 skills: `code-review`, `tdd`, `diagnosing-bugs`, `implement`, `research`, `to-spec`, `to-tickets`, `codebase-design`, `domain-modeling`, `improve-codebase-architecture`, `resolving-merge-conflicts`, `triage`, `wayfinder`, `ask-matt`, `grill-with-docs`, `prototype`, `setup-matt-pocock-skills`) has been looked at.
 - **Useful for:** Likely global (generic engineering-process skills, not project-specific), pending per-skill review.
@@ -57,6 +63,8 @@ This tracks a different layer than `20_Progress/AI/Claude Code/<Project>/Setup.m
 - **Pipeline stage:** `tested-tools/skills/mattpocock-engineering/` — cleared `sandbox/`, sitting in the second-look stage. Not yet promoted to any rigid folder.
 - **Why not promoted yet:** The interactive picker (`bunx skills@latest add mattpocock/skills`) doesn't complete non-interactively, so the whole `engineering/` category was copied for manual review rather than cherry-picked live. `personal`, `productivity`, `misc`, `in-progress`, `deprecated` categories exist in the same repo and haven't been looked at at all.
 - **Verified 2026-08-19:** still 0 of the 17 skills individually tested — `tests/skills/mattpocock-engineering/README.md` now tracks this as an honest, dated backlog table (one "Tested?" column, all `No`) rather than leaving it implicit. This is the real state, not a placeholder — confirmed by direct read.
+
+- **Real usage note (2026-09-05):** [[40_Resources/CS/AI/Mattpocock Engineering Skills]].
 
 ### cpr-compress-preserve-resume (EliaAlberti)
 - **What:** Three markdown slash commands (`compress`, `preserve`, `resume`) implementing the same Compress→Preserve→Resume session-continuity pattern second-brain-claudekit's own hand-authored `commands/compress.md`/`preserve.md`/`resume.md` already used.
@@ -67,6 +75,8 @@ This tracks a different layer than `20_Progress/AI/Claude Code/<Project>/Setup.m
 - **What was deliberately not adopted:** `model: opus` pinning (this repo's other commands don't pin models), full raw-conversation logging (conflicts with this repo's "structured-summary-only" session-log principle), and per-project-root detection via `CC-Session-Logs/` (superseded by the fixed `60_Claude/Sessions/` path this repo already anchors to).
 - **Old hand-authored trio:** not deleted — archived to `.claude/_archive/superseded-commands/`.
 - **Open, not resolved:** this folder sits at a literal two-level path (`tested-tools/commands/cpr-compress-preserve-resume/`), not the three-level `tested-tools/<type>/<use-case>/<repo>/` convention `tested-tools/README.md` states elsewhere. Flagged inside `VERDICT.md` itself, not silently fixed — a future pass should either rename it under a `session-continuity/` use-case layer or amend the convention to allow two levels when one tool *is* the use case.
+
+- **Real usage note (2026-09-05):** [[40_Resources/CS/AI/CPR - Compress Preserve Resume]] — also notes this repo has no `Repos.md` entry for CPR to cross-link from (it entered the pipeline via `Useful Repos - Shortlist.md` instead, never the master 95-repo index).
 
 ### Native-scaffold relocation (batch — 15 files, 2026-08-19)
 - **What:** The repo's top-level `agents/` (4 files: `connector`, `researcher`, `reviewer`, `writer`), `commands/` (8 files: `brainstorm`, `capture`, `connect`, `inbox-process`, `journal`, `research`, `review`, `summarize`), and `hooks/` (3 files: `auto-link`, `daily-summary`, `post-note-create`) — all traced to the repo's very first scaffold commit (`d35f0b7`, 2026-04-03), confirmed zero external provenance by cross-referencing distinctive phrases against every repo in `sandbox/` and `tested-tools/` (zero matches).
@@ -106,6 +116,8 @@ This tracks a different layer than `20_Progress/AI/Claude Code/<Project>/Setup.m
 - **Pipeline stage:** `sandbox/claude-skills-llm-council/` and `sandbox/llm-council/` — clone only (2026-07-30).
 - **Upstream:** https://github.com/aiwithremy/claude-skills-llm-council · https://github.com/karpathy/llm-council
 
+- **Real usage note (2026-09-05):** [[40_Resources/CS/AI/LLM Council Skill]] — documents the live skill these two were compared against and dropped in favor of.
+
 ##### last30days-skill
 - **What:** Skill for researching / summarizing the last 30 days of a topic.
 - **Useful for:** Undetermined — clone only.
@@ -120,6 +132,8 @@ This tracks a different layer than `20_Progress/AI/Claude Code/<Project>/Setup.m
 - **Pipeline stage:** `sandbox/spec-kit/` — clone only (2026-07-30).
 - **Upstream:** https://github.com/github/spec-kit
 
+- **Real usage note (2026-09-05):** [[40_Resources/CS/AI/Spec Kit]].
+
 ##### claude-context (Zilliz)
 - **What:** Semantic code context for Claude / agents.
 - **Useful for:** Marked **to use** — not just reference.
@@ -127,12 +141,16 @@ This tracks a different layer than `20_Progress/AI/Claude Code/<Project>/Setup.m
 - **Pipeline stage:** `sandbox/claude-context/` — clone only (2026-07-30). Next: real install/run per Promotion-Criteria.
 - **Upstream:** https://github.com/zilliztech/claude-context
 
+- **Real usage note (2026-09-05):** [[40_Resources/CS/AI/Claude Context (Zilliz)]].
+
 ##### graphify
 - **What:** Build knowledge graphs from content (code, docs, papers, etc.).
 - **Useful for:** Marked **to use** — local skill already exists at `~/.claude/skills/graphify`; sandbox clone is for qualification before trusting/promoting further.
 - **Global vs. project-scoped:** Not decided.
 - **Pipeline stage:** `sandbox/graphify/` — clone only (2026-07-30).
 - **Upstream:** https://github.com/safishamsi/graphify
+
+- **Real usage note:** [[40_Resources/CS/Concepts/Helpful Tools/Graphify]] (already live, pre-dating this clone — the round-2 sandbox triage below correctly dropped this `sandbox/graphify/` copy as redundant).
 
 ##### claude-code-best-practice
 - **What:** Claude Code best-practice / learning reference guide.
@@ -162,6 +180,8 @@ This tracks a different layer than `20_Progress/AI/Claude Code/<Project>/Setup.m
 - **Pipeline stage:** `sandbox/promptfoo/` — clone only (2026-07-30). Large shallow clone (~417M).
 - **Upstream:** https://github.com/promptfoo/promptfoo
 
+- **Real usage note (2026-09-05):** [[40_Resources/CS/AI/Promptfoo]].
+
 ##### hiring-agent
 - **What:** InterviewStreet hiring agent.
 - **Useful for:** Evaluate usefulness for the internship research loop (`internship-research-loop`).
@@ -189,6 +209,8 @@ This tracks a different layer than `20_Progress/AI/Claude Code/<Project>/Setup.m
 - **Global vs. project-scoped:** Project-scoped (TradingView) if anything is adopted.
 - **Pipeline stage:** `sandbox/OpenBB/` — clone only (2026-07-30). Large shallow clone (~345M).
 - **Upstream:** https://github.com/OpenBB-finance/OpenBB
+
+- **Real usage note (2026-09-05):** [[40_Resources/CS/AI/ECC - Everything Claude Code]] — also documents the 3 separate, unmerged ECC manifestations on this machine (WSL plugin marketplace, pre-existing clone, this repo's own sandbox clone).
 
 ## Sandbox triage — 2026-08-20 (the 17 clones that sat dormant three weeks)
 Verified directly (`find <repo> -maxdepth 0 -printf` on every directory in `sandbox/`, plus a `node_modules`/`.venv` check) rather than trusting the "clone-only" label: all 17 repos from the 2026-07-30 batch still have a directory mtime of exactly 2026-07-30 and zero installed dependencies — genuinely untouched since the clone, not just under-documented. One-line decision per repo, so none stays silently unexamined:
@@ -224,5 +246,15 @@ That leaves **8 genuinely new decisions** — matching the codebase session's ow
 - **agentic-inbox** — **Still worth evaluating**, real recorded intent (directly relevant to Jarvis's `00_Daily/` capture-then-process flow). Next: compare its triage logic against second-brain-claudekit's own `commands/inbox-process.md` (already confirmed zero-provenance native scaffold, currently unused) to see if it's a real improvement over what's already there.
 Net across both rounds: 32 total clones, 13 dropped, 10 still worth evaluating with a named next step, 5 already tracked elsewhere with their own real activity, 2 out of scope for this pipeline entirely (`adx`, and `memsearch` already resolved before this round). Zero left silently unexamined.
 
+## Round 10 (2026-09-05) — sandbox re-audit; the 4 held-open items from round 2, resolved
+
+Per `second-brain-claudekit/20_Progress/Projects/AI Use/Claude Kit/Claude Code/Prompts.md`'s Round 10 prompt — Round 9 (same day, earlier) onboarded Jarvis's 6 empty agents + `internship-research-loop`, confirmed committed (`git log`: `167d563`, `e2c27b9`, `0db6c75`, `491a0c6`, `e21ff9e`, all 2026-09-05; `git status` clean), and is not re-litigated here. `ls -d sandbox/*/ | wc -l` **still 32** — no new arrivals since the round-2 count above; nothing new to triage.
+
+- **obsidian-mind** — reference-pattern review done, not an install. Read its five-hook lifecycle (`.claude/settings.json` + `.claude/scripts/{session-start,pre-compact,stop-checklist,validate-write,classify-message}.ts`) against `Jarvis OS — North Star.md` Part 5.3 (which already names obsidian-mind as the model). **Real match, 2 of 5**: SessionStart context-pack injection is built (`jarvis-session-continuity.ps1`'s SessionStart branch, staged into `second-brain-claudekit/hooks/Jarvis/` 2026-09-05 by Round 9) — reads as the same pattern as obsidian-mind's `session-start.ts`. A narrow, project-scoped precedent for PostToolUse frontmatter validation exists (`jarvis-internship-note-guard.ps1`, scoped to 5 internship note types only, not vault-wide). **Still genuinely unbuilt, 3 of 5**: UserPromptSubmit classify-and-route (obsidian-mind's `classify-message.ts` — nothing equivalent exists in Jarvis), a vault-wide PostToolUse frontmatter/wikilink validator (only the narrow internship-scoped one exists), and PreCompact transcript backup (obsidian-mind's `pre-compact.ts`; Jarvis's conversation-capture layer solves a related but different problem via `Stop`/`SessionEnd`, not `PreCompact`). obsidian-mind's procedural-vs-content split (`.claude/` vs. `brain/`/`work/`/`org/`/`perf/`) is already mirrored by Jarvis's own `.claude/` vs. PARA-folder separation — nothing new to adopt there. **Verdict: still worth evaluating, narrowed** — if picked up next, the concrete target is `classify-message.ts`'s UserPromptSubmit pattern specifically, not a repeat of this review.
+- **obsidian-second-brain** — vault-rules diff done, real disagreements found, not a skim. Compared `references/write-rules.md` + `references/ai-first-rules.md` against `second-brain-claudekit/60_Claude/vault-rules/{linking-strategy,naming-conventions,tagging-system,write-contract}.md`. Real, adoptable gaps neither this repo's nor Jarvis's own rules currently cover: (1) an explicit anti-fabrication rule ("never claim absence from memory... false absence is the most common failure mode") — `write-contract.md` names no equivalent rule today, despite this repo's own `_docs/Repo-Map.md` incident log showing the same failure shape more than once; (2) typed relation edges (`relations: supersedes/depends_on/caused_by`, each with a stated inverse) — `linking-strategy.md` only has plain `[[wikilinks]]` + MOCs, no way to mark a directional relationship, even though this very Log.md's own "correction" entries are exactly this relationship shape today, expressed only in prose; (3) sentinel-safe regeneration markers (`@generated:start/end` vs. `@user:start/end`) for a note that's both machine-refreshed and human-edited — no equivalent convention exists here. **Not a gap**: this repo's own `write-contract.md` "Automated mechanisms must be failure-visible" section (5 named incidents) is more rigorous than anything in obsidian-second-brain's rules on that specific axis — nothing to adopt there. **Verdict: comparison complete, no promotion** — these 3 are candidate additions to `60_Claude/vault-rules/` or Jarvis's own write-contract equivalent, named here so they aren't lost, not queued as unrequested work.
+- **claude-mem** — hold confirmed to still apply, correctly not re-opened. Its own recorded condition ("hold until gbrain's promotion lands") is unmet: gbrain is still not actually installed on either home as of this round — no `gbrain` on WSL `PATH`, no MCP registration in `~/.claude.json`, `~/.mcp.json`, or `~/.claude/.mcp.json` (checked directly), only leftover `~/.gbrain/` data on disk from the 2026-08-20 sandbox test run. No action taken — re-check after gbrain actually installs, not before.
+- **agentic-inbox** — comparison done, real verdict, not a deferral, and it corrects this file's own prior framing. The real repo (`cloudflare/agentic-inbox`) is a self-hosted **email client** (React Router + Cloudflare Workers, Durable Objects per mailbox, R2 attachments, Cloudflare Email Routing) with an AI agent that reads/searches/drafts/sends *email* — confirmed directly from its README and `workers/lib/tools.ts`. It has no note-triage logic of any kind. `second-brain-claudekit`'s own `commands/inbox-process.md` (`tested-tools/commands/native-scaffold/inbox-process.md`) triages *vault notes* in `00_Daily/` (promote/atomise/develop/integrate/archive/delete) — a different domain entirely. **Correction:** this file's 2026-08-20 entry's premise ("directly relevant to Jarvis's `00_Daily/` capture-then-process flow... compare its triage logic against `inbox-process.md`") doesn't hold up against the real repo — there is no triage-logic overlap to compare. **Verdict: drop.** Deploying it (a real Cloudflare Workers domain, Email Routing, Access) would be disproportionate to a use case it doesn't actually serve.
+
+**Also found this round, a standing gap distinct from the above**: two `tested-tools/` items have cleared all four `Promotion-Criteria.md` gates but were never actually promoted anywhere — **gbrain** (cleared 2026-08-20 for global promotion, still not installed on WSL or Windows as of 2026-09-05, confirmed directly per above) and **cpr-compress-preserve-resume** (blend verdict, cleared 2026-08-19, the blended `compress.md`/`preserve.md`/`resume.md` still sit only in `tested-tools/commands/cpr-compress-preserve-resume/`, not in `second-brain-claudekit/.claude/commands/` — confirmed by direct listing, 2026-09-05). Both are ready-to-execute, no further review needed, just the actual copy/install step.
 ## Not yet in `sandbox/` at all
 Everything else in [[40_Resources/CS/Repos]] not named above — still starred, still where earlier GitHub ingestion left it. Update clones with `second-brain-claudekit/60_Claude/scripts/update-sandbox.sh` (path corrected 2026-08-20 — the repo's `50_Claude/` → `60_Claude/` rename was fixed in the script's own comments back on 2026-08-08 but this note still pointed at the old path); inventory lives in `sandbox/README.md`.

@@ -27,6 +27,7 @@ tags:
 - [[degrees_eligible()]] - `contains` [EXTRACTED]
 - [[load_profile()]] - `contains` [EXTRACTED]
 - [[location_eligible()]] - `contains` [EXTRACTED]
+- [[matched_term_in_free_text()]] - `contains` [EXTRACTED]
 - [[matches()]] - `contains` [EXTRACTED]
 - [[revalidate.py]] - `imports_from` [EXTRACTED]
 - [[run_pipeline.py]] - `imports_from` [EXTRACTED]

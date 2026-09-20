@@ -12,8 +12,8 @@ tags:
 # load_dossier_uids()
 
 ## Connections
-- [[Path]] - `calls` [EXTRACTED]
-- [[main()_2]] - `calls` [EXTRACTED]
+- [[Path_3]] - `calls` [EXTRACTED]
+- [[main()_5]] - `calls` [EXTRACTED]
 - [[move_dossier_to_viewed()]] - `calls` [EXTRACTED]
 - [[recheck.py]] - `imports` [EXTRACTED]
 - [[test_move_dossier_to_viewed_updates_uid_manifest()]] - `calls` [EXTRACTED]

@@ -12,6 +12,7 @@ tags:
 # compute_uid()
 
 ## Connections
+- [[_listing_for_bucket()]] - `calls` [EXTRACTED]
 - [[_listing_with_date()]] - `calls` [EXTRACTED]
 - [[dedup_new()]] - `calls` [EXTRACTED]
 - [[fetch_and_filter()]] - `calls` [EXTRACTED]
@@ -29,9 +30,11 @@ tags:
 - [[test_missing_raw_id_raises()]] - `calls` [EXTRACTED]
 - [[test_opt_cache_short_circuits_before_fetch()]] - `calls` [EXTRACTED]
 - [[test_opt_exclusion_rejects_and_caches()]] - `calls` [EXTRACTED]
+- [[test_reseed.py]] - `imports` [EXTRACTED]
 - [[test_run_once_excludes_and_never_refetches_real_dead_link_after_threshold()]] - `calls` [EXTRACTED]
 - [[test_run_once_never_fetches_an_already_excluded_uid()]] - `calls` [EXTRACTED]
 - [[test_run_pipeline.py]] - `imports` [EXTRACTED]
+- [[test_run_reseed_end_to_end_merges_state_and_respects_seeded_opt_cache()]] - `calls` [EXTRACTED]
 - [[test_simplify_uid_uses_upstream_id()]] - `calls` [EXTRACTED]
 - [[test_uids_stable_across_recomputation()]] - `calls` [EXTRACTED]
 - [[test_uids_unique_across_distinct_listings()]] - `calls` [EXTRACTED]

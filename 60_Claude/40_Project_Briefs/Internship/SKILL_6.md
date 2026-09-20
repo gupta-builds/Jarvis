@@ -1,5 +1,5 @@
 ---
-source_file: ".cursor/skills/resume-alteration/SKILL.md"
+source_file: ".claude/skills/testing/SKILL.md"
 type: "document"
 community: "Steps"
 location: "L1"
@@ -12,6 +12,6 @@ tags:
 # SKILL.md
 
 ## Connections
-- [[resume-alteration]] - `contains` [EXTRACTED]
+- [[testing]] - `contains` [EXTRACTED]
 
 #graphify/document #graphify/EXTRACTED #community/Steps

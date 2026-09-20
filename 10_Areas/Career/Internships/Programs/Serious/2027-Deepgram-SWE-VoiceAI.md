@@ -8,20 +8,21 @@ eligible_classes:
   - Senior
 grad_year: 2027
 role_type: internship
-wave:
+wave: null
 opens_date: 2026-07-23
-deadline_posted:
-deadline_real:
+deadline_posted: null
+deadline_real: null
 pay_per_hour_low: 55
 pay_per_hour_high: 65
 pay_currency: USD
-duration_weeks:
+duration_weeks: null
 benefits: []
 application_url: https://jobs.ashbyhq.com/Deepgram/dc8693b5-72ce-4ca3-ab15-9c8434d35da1
 careers_page: https://deepgram.com/careers
 list_origin: manual-web-find (Anant, 2026-07-23 clip, promoted 2026-07-29)
-applying_note:
-recruiter_contact:
+applying_note: null
+recruiter_contact: "[[10_Areas/Career/Internships/Contacts/Each
+  One/Ongoing/Software Engineering Internship - Deepgram]]"
 tags:
   - internship
   - program

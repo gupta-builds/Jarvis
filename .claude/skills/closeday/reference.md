@@ -11,21 +11,19 @@ Append to `10_Areas/Life/Enumerate/Daily/YYYY-MM-DD.md`, below the Morning Plan:
 ```markdown
 ## End of Day
 
-### Summer Ops Scorecard
+### Fall Ops Scorecard
 
-| Track     | Minimum  | Met?       |
-|-----------|----------|------------|
-| LeetCode  | ≥5       | [ ] count: |
-| CSCI 4041 | 25-45 min| [ ]        |
-| CSCI 2033 | 30-45 min| [ ]        |
-| MATH 2230 | board    | [ ]        |
-| HIST 1103 | step/N/A | [ ]        |
-| 4 Wins    | 4/4      | [ ]        |
+| Track              | Minimum                       | Met?       |
+|---------------------|--------------------------------|------------|
+| Application         | ≥1 company Current/ → Applied/ | [ ]        |
+| LeetCode/CodePath   | ≥5                              | [ ] count: |
+| Fall'26 class step  | one class, one step            | [ ]        |
+| 4 Wins              | 4/4                             | [ ]        |
 
 **Day Status: GREEN** (or **RED**)
 
-> GREEN = ≥90% rows met AND LeetCode ≥5. Everything else = RED.
-> HIST 1103 counts as met if nothing was due within 7 days (mark N/A).
+> GREEN = Application met AND LeetCode/CodePath ≥5 AND at least one of (Fall'26 class step, 4 Wins) met. Everything else = RED.
+> The Application row is the one that can't slide — it's the number the whole Fall 2026 Plan is judged on.
 
 ### What Actually Happened
 

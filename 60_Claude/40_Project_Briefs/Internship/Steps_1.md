@@ -1,23 +1,21 @@
 ---
-source_file: ".cursor/skills/cover-letter-alteration/SKILL.md"
+source_file: ".claude/agents/promotion.md"
 type: "document"
-community: "Steps"
-location: "L27"
+community: "check_greenhouse_schema"
+location: "L17"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/Steps
+  - community/check_greenhouse_schema
 ---
 
 # Steps
 
 ## Connections
-- [[1. Take the input_1]] - `contains` [EXTRACTED]
-- [[2. Gather evidence]] - `contains` [EXTRACTED]
-- [[3. Propose the content plan — before writing anything]] - `contains` [EXTRACTED]
-- [[4. Humanizer gate]] - `contains` [EXTRACTED]
-- [[5. Write the file]] - `contains` [EXTRACTED]
-- [[6. Link back]] - `contains` [EXTRACTED]
-- [[cover-letter-alteration]] - `contains` [EXTRACTED]
+- [[1. Take the input]] - `contains` [EXTRACTED]
+- [[2. Ask two concrete questions — same shape as `promote-dossier`]] - `contains` [EXTRACTED]
+- [[3. Invoke contact research and show findings — before writing anything]] - `contains` [EXTRACTED]
+- [[4. On explicit go-ahead only, invoke the writers in order]] - `contains` [EXTRACTED]
+- [[promotion]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/Steps
+#graphify/document #graphify/EXTRACTED #community/check_greenhouse_schema

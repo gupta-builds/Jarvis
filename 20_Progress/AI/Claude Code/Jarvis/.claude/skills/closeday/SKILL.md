@@ -26,18 +26,19 @@ Locate `10_Areas/Life/Enumerate/Daily/YYYY-MM-DD.md` (today's date).
 
 Read, in this order:
 - Today's entries in `60_Claude/07_AI_Information/Session Logs/log.md`
-- The daily note's morning plan (Academic Stack topics, Summer OS win targets, carryover items)
+- The daily note's morning plan (Fall Daily Floor topics, Fall Daily Wins targets, carryover items)
 - Files modified in `20_Progress/` today (modification time)
 - Files created in `60_Claude/10_Source_Summaries/` today
 
 ### Step 2 — Ask the User (one block, all at once)
 
 > Closing the day — quick check:
-> 1. LeetCode today: how many problems? (target ≥5)
+> 1. LeetCode/CodePath today: how many problems? (target ≥5)
 > 2. Study hours today: total focused study time? (e.g., 2.5)
 > 3. Which wins did you hit? (Project / Career / Cleanup / Review)
-> 4. Habits done? (leetcode-5, csci2033, course-step, review-note)
-> 5. Anything to add, blocked, or carried forward?
+> 4. Habits done? (application-floor, leetcode-codepath, class-step, review-note)
+> 5. Did a company actually move `Current/` → `Applied/` today?
+> 6. Anything to add, blocked, or carried forward?
 
 Accept free text. Missing answers → leave the field at its current value and mark the scorecard row "(unverified)".
 

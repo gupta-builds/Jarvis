@@ -12,7 +12,6 @@ tags:
 # _append_markdown_line()
 
 ## Connections
-- [[Path]] - `calls` [INFERRED]
 - [[append_excluded_log()]] - `calls` [EXTRACTED]
 - [[append_weekly_rollup()]] - `calls` [EXTRACTED]
 - [[append_write_gate_excluded_log()]] - `calls` [EXTRACTED]

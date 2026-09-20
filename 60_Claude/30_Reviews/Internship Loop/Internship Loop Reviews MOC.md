@@ -11,7 +11,16 @@ notes:
   - "[[Internship Loop Review Standard]]"
   - "[[10_Areas/Career/Internships/List/Dossiers MOC]]"
   - "[[Internship Pipeline]]"
-next: "2026-W36/2026-09 reviews found two real deadlines (Castleton, KeyBank) already reached or passed with zero Applying-note activity, a confirmed stage1_reject false-positive regression on 6 Microsoft dossiers, and Prompt 27's Batch B never landing despite being recorded as run. Run the next Weekly Discovery Review once run.yml is re-enabled and has a few days of data; run the next Monthly once the urgent deadline findings above are resolved one way or another."
+next: "2026-09-05: review system rebuilt end to end — see
+  [[10_Areas/Career/Internships/Tracker/Main Log]] for the new tracking hub,
+  [[30_Order/Standards/Internship/Internship Loop Review Standard]] for the new
+  Immediate Actions/Health Check/Application Census sections, and
+  [[30_Order/Workflows/Internship/Internship Review System]] for the new
+  local-cron cadence (Weekly: Friday, Monthly: 1st, Deadline Sweep: every 3
+  days). Same-session sweep also found and fixed 3 more passed-deadline Programs
+  the 2026-09 Monthly Review missed — see that review's own dated correction.
+  Next real Weekly/Monthly review should run on the new cadence and cite the new
+  sections."
 ---
 # Internship Loop Reviews — Map of Content
 ## Purpose

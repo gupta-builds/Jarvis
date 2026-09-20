@@ -14,7 +14,7 @@ tags:
 ## Connections
 - [[enrich.py]] - `contains` [EXTRACTED]
 - [[fc_search()]] - `calls` [EXTRACTED]
-- [[main()]] - `calls` [EXTRACTED]
+- [[main()_3]] - `calls` [EXTRACTED]
 - [[test_enrich.py]] - `imports` [EXTRACTED]
 - [[test_linkedin_recruiter_snippet_ignores_non_linkedin_hits()]] - `calls` [EXTRACTED]
 - [[test_linkedin_recruiter_snippet_never_calls_fc_scrape()]] - `calls` [EXTRACTED]

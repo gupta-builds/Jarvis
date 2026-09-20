@@ -1,21 +1,82 @@
 ---
 type: project
-status: tree
+status: active
 created: 2026-07-16
-updated: 2026-07-19
+updated: 2026-09-06
 related_progress:
   - "[[System - Build Log]]"
   - "[[Internship Pipeline]]"
   - "[[Phases Run]]"
   - "[[Source of Truth]]"
+  - "[[20_Progress/Internship/Building System/Research Loop - Improvement Plan]]"
+  - "[[20_Progress/Internship/Building System/V0/Dossier Corrections]]"
 tags:
   - internship
   - automation
   - system-design
-next: Superseded as the live scope reference by [[20_Progress/Internship/Building System/Internship Research Loop — Source of Truth]] — this note stays as the original forward spec and Phase 1-2 review, unedited beyond this frontmatter fix.
+next: "2026-09-06: added a live \"# Execution Plan\" section right after this
+  note's original title/banner — six ready-to-run prompts across two tracks
+  (discovery-loop precision; resume/CL + company-cache beyond discovery),
+  sequenced by dependency, each citing real file+line. Everything below the
+  Execution Plan section is unchanged historical spec/build-review, per this
+  note's own existing frontmatter note about being superseded by [[Source of
+  Truth]] as the live scope reference — the Execution Plan section is the one
+  new exception: it IS live and current, the rest stays historical."
 ---
 # Research Loop — Implementation Plan
 ==The technical spec for the 24/7 discovery automation, written so a fresh Claude Code session in a separate WSL repo can build it without re-deriving anything here. As of 2026-07-19, [[Source of Truth]] is the current, consolidated statement of full scope across all six phases — read that first; this note is the historical spec and Phase 1-2 review it grew from.== [[System - Build Log]] is the retrospective record of the folder redesign; this note is the forward spec for the loop that feeds it. Obsidian stays the source of truth throughout — the automation writes into it, never replaces it.
+### Execution Plan — 2026-09-06
+==Live section — everything below this one (Source Verdicts, Profile Filter, Repo Structure, Phase 1-2 Build Review) is unchanged historical spec, per this note's own frontmatter. This section is the current "how"; [[20_Progress/Internship/Building System/Research Loop - Improvement Plan]] is the current "why/priority" — read that one first if you haven't. Two tracks, six prompts, essentialist by design: each prompt below is meant to be handed whole to a fresh, high-effort Sonnet session with no other context loaded.==
+
+#### Standing rules for every prompt below
+- Cite file+line, a commit hash, or a command's real output for every claim — non-negotiable, not optional.
+- Re-verify every number/claim in this plan against live code/vault before acting on it. One claim in this plan's own diagnosis note (schema-drift coverage) was already found stale once this session — assume more might be.
+- `.claude/` stays untouched. `run.yml` is not re-enabled. No new discovery sources this round. No vault dossier/promotion-note cleanup this round.
+- Every new regex/rule/company entry cites the real posting/dossier it was built from, right next to the code — this repo's own `CLAUDE.md` convention, unchanged.
+- Full `pytest` suite (not just touched files) green before calling anything done.
+
+#### Track A — Discovery-loop precision (this repo's Python code, sequential by dependency)
+
+##### Prompt 1 — Company Registry (do this first — the crucial one)
+**Goal:** replace three unsynchronized, ad hoc company-level mechanisms with one structured registry, closing the "classification is whack-a-mole" gap named in the 2026-08-26 postmortem.
+**Build:** `core/company_registry.py` — a loader over a small data structure (a module-level dict, or `core/company_registry.yaml` — your call, but data, not code): `{company_name: {"preference_tier": "high"|"medium"|"watch"|None, "adjacent_field": bool, "quant_bucket_override": bool}}`. Seed from what's already cited in comments: `profile.yaml`'s 11 `preferred_companies` (all currently flat `"high"` — keep them `"high"` unless you find real evidence to re-tier, re-tiering isn't this prompt's job), `core/relevance.py`'s `_ADJACENT_FIELD_COMPANY_HINT_RE` company list (fti consulting, truist, vertiv, uhy, cno financial, dimensional fund, keybank, continental resources), and a quant-firm list built from `20_Progress/Internship/Building System/V0/Dossier Corrections.md` §2 (Optiver, IMC, Chicago Trading Company — verify there are no others in that finding before assuming these three are the whole list).
+**Wire in:** `core/classify.py`'s `classify()` — check `quant_bucket_override` before the three generic regexes, routing deterministically to `CyS & Finance`. `core/debate.py`'s `_TIER_RANK` — replace the flat `{"high": 0}` with real ranks from the registry, chosen so today's 11 `high`-tier companies keep their current rank-0 behavior. `core/relevance.py`'s `stage2_confirm()` — source the adjacent-field company check from the registry instead of the literal company names in `_ADJACENT_FIELD_COMPANY_HINT_RE` (leave the non-company terms — aerospace/robotics/astro/etc. — as the regex they already are).
+**Test:** every existing fixture citing Optiver/IMC/Chicago Trading Company/FTI/Truist/Vertiv/UHY/CNO/Dimensional/KeyBank/Continental Resources must still pass unchanged. Add one new fixture proving an Optiver posting now lands in one deterministic bucket regardless of which keyword it also matches.
+**Done when:** `pytest` full suite green, and the new fixture demonstrates deterministic single-bucket routing on a real Optiver/IMC/Chicago Trading Company posting.
+
+##### Prompt 2 — Posting-extraction: Microsoft sidebar-bleed
+**Goal:** stop "related jobs" sidebar content leaking into extracted posting text on Microsoft's careers site — same bug class as the already-fixed Google listing-shell case.
+**Read first:** `mcp__jarvis__vault_read` at least 2 of the 6 flagged Microsoft dossiers (2026-W36 review names all 6: AIML & LLM, CoreAI, Cloud & Distributed Backend, Fullstack Product, Data Platform/Analytics, Security & Identity) — get the real surrounding text around the cited `[Supply Chain Program Management Intern\` line, not just the one quoted line, before writing a regex.
+**Build:** extend `ingestion/posting_page.py`'s `_LISTING_SHELL_RESET_RE` (line ~195) with a Microsoft-specific (or, if the real text shows it's generic across ATS platforms, a general "related/similar jobs" heading) reset pattern — same citation-and-narrow-scope style already used for the Google and Zipline entries in that regex.
+**Test:** fixtures from the real fetched content of at least 2 of the 6 Microsoft dossiers (should extract clean post-fix), plus confirm the existing Google/Zipline fixtures still pass unchanged.
+**Done when:** re-running `stage1_reject` against the 6 real Microsoft dossiers' re-extracted content shows zero false positives, cited to the actual before/after text.
+
+##### Prompt 3 — `matched_reason` DRY completion
+**Goal:** give all 11 sources a real reason, not just SimplifyJobs/Jose-Gael-Cruz-Lopez.
+**Build:** extend `run_pipeline.py`'s `build_matched_reason()` (lines 495-501) per source, using each source's own already-available structured signal: `vanshb03`/`zshah101`'s `sponsorship` field, `category` where present, the specific matched keyword `core/filter.py`'s `_matches_free_text_source` already knows for Greenhouse/Ashby/Lever/InternDock/Freehire (surface it instead of discarding it). Same shape as the two existing cases, extended — not a redesign.
+**Test:** one fixture per newly-covered source showing a real, non-bare reason string.
+**Done when:** `pytest` green; a spot-check against 3 real live matches per newly-covered source shows a real reason, not the literal `"matched"`.
+
+##### Prompt 4 — Housekeeping: test DRY + doc correction + pipeline contract doc
+**Goal:** three small, independent, low-risk items bundled because none needs its own prompt.
+1. Parametrize `tests/test_schema_drift.py`'s 46 repeated per-source tests into `@pytest.mark.parametrize` blocks (already spec'd in [[20_Progress/Internship/Building System/Research Loop - Improvement Plan]]'s `# Plan` §2). Keep every real fixture; do not touch `test_filter.py`/`test_relevance.py` (real-incident regression tests, not redundant).
+2. Correct the 2026-08-26 postmortem's and `Source of Truth.md`'s stale "schema-drift covers only 5/11 sources" claim via a dated correction entry (not an in-place rewrite) — it was fixed by `2fa8b76`, confirmed live 2026-09-06.
+3. Write `docs/PIPELINE_CONTRACT.md` (repo root, not vault, not `.claude/`) — one page stating the contract at each stage: `core/profile.yaml`'s schema, each of the 4 GitHub Actions workflows' trigger/purpose/required secrets (`run.yml`/`recheck.yml`/`revalidate.yml`/`test.yml`), and `vault_writer/validate.py`'s `REQUIRED_FRONTMATTER_FIELDS` — pointing to `CLAUDE.md`'s note-template contracts for everything downstream, not duplicating it. Scoped to what's actually undocumented (the pipeline's own contract), not a rewrite of what `CLAUDE.md` already documents well.
+**Done when:** test count unchanged or higher post-parametrize; `Source of Truth.md` carries the dated correction; `docs/PIPELINE_CONTRACT.md` exists and every fact in it is a real citation (file+line or workflow file), not paraphrase.
+
+#### Track B — Beyond discovery (parallel to Track A, different dependencies)
+
+##### Prompt 5 — Company-research cache (plain Python, ai-job-search-inspired)
+**Goal:** port ai-job-search's `company_research/*.json` pattern (cited in the Pipeline Blueprint artifact, Tier 2) as a plain repo-side module — no `.claude/` skill this round.
+**Build:** `core/company_cache.py` — one JSON file per company (under a new `company_research/` directory, or under `state/` — match this repo's existing state-file convention), 30-day TTL, schema mirroring what `contact-researcher` actually needs (website, LinkedIn, engineering-blog presence, GitHub org) — a cache hit is a lead the agent builds on, never a substitute for re-confirming a specific claim before it lands in a real Contact note.
+**Explicitly not this prompt's job:** wiring it into the `contact-researcher` agent itself (that's `.claude/`-scoped, deferred) — build the cache module standalone, ready for that wiring once `.claude/` work resumes.
+**Done when:** the module has a real test (write, read, expire-after-30-days) and a `demo()`/`__main__` self-check.
+
+##### Prompt 6 — Main Resume.md / Main Cover Letter.md evidence-bank rebuild
+**Goal:** close the one named blocker for the entire downstream Application Bench ([[20_Progress/Internship/Building System/Resume & Cover Letter - System Map]]'s own `next` field has said this since 2026-08-29).
+**This is not a headless prompt.** Per `Resume Alteration Standard`'s own three-source evidence rule, the human is the primary source for anything not already in a project note. Run this as an interactive session that asks Anant directly for the real fact inventory (specific projects, roles, metrics, tools) behind each resume bullet, one at a time, rather than guessing or filling a gap with a plausible-sounding invention.
+**Build:** `20_Progress/Internship/Resumes/Main Resume.md` rebuilt into evidence-tagged bullets per `Resume Alteration Standard` §1/§2; `20_Progress/Internship/Cover Letters/Main Cover Letter.md` built as a paragraph/story bank per `Cover Letter Alteration Standard`.
+**Done when:** both files hold real evidence-tagged content (not filler), and the two Cursor skills' Prerequisite checks (`.cursor/skills/resume-alteration`, `cover-letter-alteration`) pass for the first time.
 ## Correction Carried Into This Plan
 Class year corrected 2026-07-16: **rising junior**, expected grad Spring 2028 (consistent — a standard 4-year timeline from a Fall 2024 start, no contradiction with the resume). Filter targets Junior-eligible **and** any-year/unrestricted postings, not sophomore-scoped ones. The HRT Sophomore worked example built last session was withdrawn as no longer eligible — see its Log entry.
 ## Source Verdicts (Verified, Not Assumed)

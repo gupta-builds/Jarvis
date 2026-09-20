@@ -26,7 +26,7 @@ tags:
 ## Findings
 -
 ## Decided Fixes
-_Only items with 100% clarity — see [[30_Order/Standards/Review Standard]]._
+_Only items with 100% clarity — see [[Review Standard]]._
 -
 ## Open Questions
 -

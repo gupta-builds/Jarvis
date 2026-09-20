@@ -40,4 +40,4 @@ notes:
 [[Lab Template]]
 [[Week Template]]
 [[Project Template]]
-[[Class Board Template]]
+[[Board or Main Template]]

@@ -32,7 +32,7 @@ next:
 - **Creative & Content** — 80% covered by agency-agents (queued); 20% low priority, not content-marketing focused.
 - **Coding & Technical** — 100% covered by existing/queued repos (gstack, spec-kit, Claude native).
 - **Research & Deep Dives** — 70% covered (Applied ML, research-distiller agent); 30% light composition.
-- **Power Commands** — 100% covered — CPR (`/preserve`/`/compress`/`/resume`) is Jarvis-only per [[How Anant Uses Each Repo]]'s status marker; gbrain supersedes the memsearch/context-sync half.
+- **Power Commands** — 100% covered — CPR (`/preserve`/`/compress`/`/resume`) is repo-scoped to `second-brain-claudekit` itself, per [[40_Resources/CS/AI/CPR - Compress Preserve Resume]] (real state, 2026-09-05: cleared with a blend verdict, still not promoted into that repo's own `.claude/commands/` — `[[How Anant Uses Each Repo]]` is retired, this is the live pointer now); gbrain supersedes the memsearch/context-sync half, see [[40_Resources/CS/AI/GBrain and gstack]].
 ## What This Changes Now That Both Gaps Are Closed
 [[Maverick Skills Analysis - Cross-Reference with GitHub Repos]]'s own two flagged custom-skill gaps were `/challenge` and `/strategy` — both are now real files in `.claude/skills/`. The remaining Maverick-mode gaps in the table above (`/mirror` style transfer, `/speedrun` accelerated learning) are explicitly flagged **Medium priority, deferrable** in the source note — not queued for this pass.
 ## How To Use This Table

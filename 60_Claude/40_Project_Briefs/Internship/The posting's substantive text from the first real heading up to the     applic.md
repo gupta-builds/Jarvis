@@ -2,7 +2,7 @@
 source_file: "ingestion/posting_page.py"
 type: "rationale"
 community: "writer.py"
-location: "L264"
+location: "L285"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED

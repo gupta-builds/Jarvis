@@ -15,8 +15,11 @@ tags:
 - [[Layer 2.5b — priority-bucket classification for listings that already passed cor]] - `rationale_for` [EXTRACTED]
 - [[classification_callout()]] - `contains` [EXTRACTED]
 - [[classify()]] - `contains` [EXTRACTED]
+- [[company_registry.py]] - `imports_from` [EXTRACTED]
 - [[debate.py]] - `imports_from` [EXTRACTED]
+- [[is_quant_finance_company()]] - `imports` [EXTRACTED]
 - [[run_pipeline.py]] - `imports_from` [EXTRACTED]
+- [[screen_report.py]] - `imports_from` [EXTRACTED]
 - [[test_classify.py]] - `imports_from` [EXTRACTED]
 
 #graphify/code #graphify/EXTRACTED #community/test_write_dossier_creates_missing_dossiers_dir

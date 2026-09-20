@@ -40,4 +40,4 @@ The repo-root staging folders (`agents/`, `commands/`, `hooks/`, plus a new `doc
 - Exactly how content moves from a project's real, already-synced `.claude/` (e.g. `20_Progress/AI/Claude Code/CausalOps/.claude/agents/`) into this repo's per-destination-project staging folders. Direction is settled (project → Jarvis → claudekit, for review, never the reverse); mechanism isn't — likely a script, likely Jarvis-side since it only touches already-mirrored files. Not built yet. Don't build it without confirming the design first.
 
 ## Links
-[[20_Progress/AI/Claude Code/Sync - Unison]] for sync mechanics. [[20_Progress/Projects/AI Use/Claude Kit/Tool Map]] for current pipeline state. [[30_Order/Standards/Review Standard]] for the review process. [[10_Areas/AI/Setup/Review System]] for the full review-system write-up (2026-08-19).
+[[20_Progress/AI/Claude Code/Sync - Unison]] for sync mechanics. [[20_Progress/Projects/AI Use/Claude Kit/Tool Map]] for current pipeline state. [[Review Standard]] for the review process. [[10_Areas/AI/Setup/Review System]] for the full review-system write-up (2026-08-19).

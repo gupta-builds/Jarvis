@@ -71,13 +71,6 @@
         "name": "",
         "active": true,
         "type": "FILES",
-        "pattern": "20_Progress/Degree/CSCI 2033/CSCI 2033 Board.md",
-        "patternType": "STRICT"
-      },
-      {
-        "name": "",
-        "active": true,
-        "type": "FILES",
         "pattern": "40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/CSCI 2021 Board.md",
         "patternType": "STRICT"
       },
@@ -114,13 +107,6 @@
         "active": true,
         "type": "FILES",
         "pattern": "40_Resources/UMN/Previous Classes/CSCI/CSCI 2011/CSCI 2011 Board.md",
-        "patternType": "STRICT"
-      },
-      {
-        "name": "",
-        "active": true,
-        "type": "FILES",
-        "pattern": "20_Progress/Degree/CSCI 4041/CSCI 4041 Board.md",
         "patternType": "STRICT"
       },
       {
@@ -197,7 +183,7 @@
         "name": "",
         "active": true,
         "type": "FILES",
-        "pattern": "20_Progress/Degree/CSCI 2033/Concepts/Python.md",
+        "pattern": "40_Resources/UMN/Previous Classes/CSCI 2033/Concepts/Python.md",
         "patternType": "STRICT"
       },
       {
@@ -379,7 +365,7 @@
         "name": "",
         "active": true,
         "type": "FILES",
-        "pattern": "20_Progress/Degree/MATH 2230/MATH 2230 Board.md",
+        "pattern": "40_Resources/UMN/Previous Classes/MATH 2230/MATH 2230 Board.md",
         "patternType": "STRICT"
       },
       {
@@ -393,7 +379,7 @@
         "name": "",
         "active": true,
         "type": "FILES",
-        "pattern": "20_Progress/Degree/MATH 2230/Homework/Homework Board.md",
+        "pattern": "40_Resources/UMN/Previous Classes/MATH 2230/Homework/Homework Board.md",
         "patternType": "STRICT"
       },
       {
@@ -814,6 +800,153 @@
         "active": true,
         "type": "FILES",
         "pattern": "20_Progress/Projects/AI Use/Claude Kit/Claude Code/Prompts.md",
+        "patternType": "STRICT"
+      },
+      {
+        "name": "",
+        "active": true,
+        "type": "FILES",
+        "pattern": "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md",
+        "patternType": "STRICT"
+      },
+      {
+        "name": "",
+        "active": true,
+        "type": "FILES",
+        "pattern": "20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.md",
+        "patternType": "STRICT"
+      },
+      {
+        "name": "",
+        "active": true,
+        "type": "FILES",
+        "pattern": "20_Progress/Degree/CSCI 4521/Textbook/Textbook Map.md",
+        "patternType": "STRICT"
+      },
+      {
+        "name": "",
+        "active": true,
+        "type": "FILES",
+        "pattern": "20_Progress/Degree/CSCI 4521/Weekly/Weekly Board.md",
+        "patternType": "STRICT"
+      },
+      {
+        "name": "",
+        "active": true,
+        "type": "FILES",
+        "pattern": "20_Progress/Degree/CSCI 5304/Weekly/Weekly Board.md",
+        "patternType": "STRICT"
+      },
+      {
+        "name": "",
+        "active": true,
+        "type": "FILES",
+        "pattern": "20_Progress/Degree/CSCI 5304/Textbook/Textbook Map.md",
+        "patternType": "STRICT"
+      },
+      {
+        "name": "",
+        "active": true,
+        "type": "FILES",
+        "pattern": "20_Progress/Degree/_Courses/How does this Help.md",
+        "patternType": "STRICT"
+      },
+      {
+        "name": "",
+        "active": true,
+        "type": "FILES",
+        "pattern": "20_Progress/Degree/_Courses/System Design/Course Map.md",
+        "patternType": "STRICT"
+      },
+      {
+        "name": "",
+        "active": true,
+        "type": "FILES",
+        "pattern": "20_Progress/Degree/_Courses/ML Engineer/Course Map.md",
+        "patternType": "STRICT"
+      },
+      {
+        "name": "",
+        "active": true,
+        "type": "FILES",
+        "pattern": "20_Progress/Degree/_Courses/Technical Interview/Preparation & Sources.md",
+        "patternType": "STRICT"
+      },
+      {
+        "name": "",
+        "active": true,
+        "type": "FILES",
+        "pattern": "20_Progress/Degree/CSCI 4511W/Concepts/AI Concept Board.md",
+        "patternType": "STRICT"
+      },
+      {
+        "name": "",
+        "active": true,
+        "type": "FILES",
+        "pattern": "20_Progress/Degree/CSCI 4511W/Textbook/Textbook Map.md",
+        "patternType": "STRICT"
+      },
+      {
+        "name": "",
+        "active": true,
+        "type": "FILES",
+        "pattern": "20_Progress/Degree/CSCI 4511W/Weekly/Weekly Board.md",
+        "patternType": "STRICT"
+      },
+      {
+        "name": "",
+        "active": true,
+        "type": "FILES",
+        "pattern": "20_Progress/Degree/MGMT 3015/Preparation.md",
+        "patternType": "STRICT"
+      },
+      {
+        "name": "",
+        "active": true,
+        "type": "FILES",
+        "pattern": "20_Progress/Degree/MGMT 3015/Textbook/Textbook Map.md",
+        "patternType": "STRICT"
+      },
+      {
+        "name": "",
+        "active": true,
+        "type": "FILES",
+        "pattern": "20_Progress/Degree/MGMT 3015/Lecture/Weekly Board.md",
+        "patternType": "STRICT"
+      },
+      {
+        "name": "",
+        "active": true,
+        "type": "FILES",
+        "pattern": "20_Progress/Degree/MGMT 3015/Concepts/Entrepreneurship Concepts Board.md",
+        "patternType": "STRICT"
+      },
+      {
+        "name": "",
+        "active": true,
+        "type": "FILES",
+        "pattern": "20_Progress/Degree/CSCI 5304/Preparation.md",
+        "patternType": "STRICT"
+      },
+      {
+        "name": "",
+        "active": true,
+        "type": "FILES",
+        "pattern": "20_Progress/Degree/CSCI 4511W/Preparation.md",
+        "patternType": "STRICT"
+      },
+      {
+        "name": "",
+        "active": true,
+        "type": "FILES",
+        "pattern": "40_Resources/CS/Concepts/New Laptop/New Laptop Setup.md",
+        "patternType": "STRICT"
+      },
+      {
+        "name": "",
+        "active": true,
+        "type": "FILES",
+        "pattern": "20_Progress/Degree/ENGL 1004/Preparation.md",
         "patternType": "STRICT"
       }
     ],

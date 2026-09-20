@@ -2,7 +2,7 @@
 type: evergreen
 status: sprout
 created: 2026-05-15
-updated: 2026-05-15
+updated: 2026-09-19
 tags:
   - evergreen
   - system
@@ -14,6 +14,7 @@ notes:
   - "[[40_Resources/Obsidian/Vault Operating System]]"
   - "[[60_Claude/07_AI_Information/Plugins]]"
   - "[[00 Plugin Reference Index]]"
+  - "[[Cross-Laptop Sync - Build 3 Findings]]"
 ---
 # Appearance Code Math and Reading Experience
 
@@ -134,6 +135,21 @@ Ninja Cursor is UI-only. It affects cursor visibility and typing feel, not note 
 
 Agents should not mention it in workflow instructions except in inventory/safety docs.
 
+## Multi-Column Markdown
+Multi-Column Markdown renders content into side-by-side columns in reading/preview mode, using a fenced block syntax rather than raw HTML:
+
+```markdown
+=== multi-column-start
+Left column content.
+
+--- column-end ---
+
+Right column content.
+=== multi-column-end
+```
+
+**Researched 2026-09-19.** Installed and lazy-loaded (`short`), not yet used anywhere in the vault. It is a reading-experience plugin, not a data plugin — it changes layout only, so it does not interact with Dataview, Tasks, or frontmatter. The natural fit here is dense comparison notes (contrast tables in [[HUMAN_WRITING]]'s "prefer contrast" pattern, or side-by-side before/after code) where a Markdown table would otherwise force short lines to wrap awkwardly. Do not reach for it as a default layout tool — most notes in this vault read better as a single column, per [[HUMAN_WRITING]]'s short-paragraph rule.
+
 ## Callouts and Reading View
 
 Use callouts sparingly:
@@ -179,11 +195,17 @@ The final test is still [[HUMAN_WRITING]]: the note should contain mechanism, co
 ## Verified Open State
 - Which Latex Suite snippets are active, and should any custom ones be documented as vault conventions (e.g. preferred notation for probability/expectation)? — *unverified; snippet config not yet read*
 - Does `myedits.css` change anything semantically relevant, or is it purely cosmetic? — *needs verification before relying on its effects*
+- Should Multi-Column Markdown be used anywhere yet? — *mechanism confirmed 2026-09-19, no current use; not a gap, just unconfigured*
+## Suggestions
+- **Correcting the CSS Snippets table: worth it, and it's a correction, not a suggestion — this note currently gives a weaker answer than one that already exists elsewhere in the vault.** [[40_Resources/Obsidian/Settings/Appearance Theme and CSS Snippets]] confirms `myedits.css` and `rainbowfile_colors.css` are AnuPpuccin's own files, not vault edits, while this table still labels them "Broad custom theme edits" / "File explorer colors" with agent rules implying they might be hand-edited. An agent reading only this table would get the wrong impression of what's safe to touch.
+- **Reading Latex Suite's actual configured snippets: worth doing before it matters, not urgently.** No course note has hit this gap yet, but the first one that needs a specific probability/expectation or vector notation convention will silently assume a snippet exists that may not — cheap to check now, more annoying to debug mid-note later.
+- **Code Styler's `ad-*`/`reference` exclusions and `run-*`/`include` whitelist, confirmed directly from the plugin's own README (not guessed):** `ad-*` excludes Admonitions-plugin callout code fences from getting Code Styler's own decoration; `run-*` and `include` are whitelist entries for the Execute Code Plugin and File Include Plugin respectively ([Code Styler README](https://github.com/mayurankv/Obsidian-Code-Styler)). **Worth noting, low priority: neither Execute Code Plugin nor File Include Plugin is installed in this vault** — confirmed against the 12-entry `community-plugins.json` and the lazy-loaded plugin list, neither appears. The `run-*`/`include` whitelist entries are currently inert settings carried over from somewhere else, not active configuration. Worth one line saying so; not worth removing them, since they cost nothing sitting unused.
 ## Sources
 
 - [Obsidian Help - Appearance](https://obsidian.md/help/appearance)
-- [Code Styler README](https://github.com/mayurankv/Obsidian-Code-Styler)
+- [Code Styler README](https://github.com/mayurankv/Obsidian-Code-Styler) — excluded-language and processed-codeblock whitelist mechanism, fetched 2026-09-19
 - [Latex Suite README](https://github.com/artisticat1/obsidian-latex-suite)
 - [Style Settings README](https://github.com/obsidian-community/obsidian-style-settings)
+- [Multi-Column Markdown README](https://github.com/ckRobinson/multi-column-markdown)
 - [Ninja Cursor README](https://github.com/vrtmrz/ninja-cursor)
 - [[HUMAN_WRITING]]

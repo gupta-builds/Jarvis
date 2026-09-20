@@ -5,7 +5,7 @@ status: sprout
 created: 2026-01-21
 updated: 2026-02-26
 area:
-  - "[[Weekly Board]]"
+  - "[[40_Resources/UMN/Previous Classes/Weekly Board]]"
   - "[[40_Resources/UMN/The Plan/Spring'26 Syllabus]]"
   - "[[10_UMN/Links|Links]]"
 tags:

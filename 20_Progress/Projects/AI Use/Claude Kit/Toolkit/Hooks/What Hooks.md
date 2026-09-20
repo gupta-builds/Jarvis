@@ -2,7 +2,7 @@
 type: evergreen
 status: sprout
 created: 2026-08-10
-updated: 2026-08-19
+updated: 2026-09-06
 tags:
   - evergreen
   - claude-kit
@@ -24,5 +24,7 @@ Both were the source of a real incident (`_docs/Repo-Map.md`'s "50_Claude recrea
 Verified directly against `.claude/settings.json` and `.claude/settings.local.json` at the vault root, not against `10_Areas/AI/Claude Code.md`'s table, which claims two wired hooks — that claim is only half true right now.
 - **jarvis-write-guard.ps1** — `PreToolUse` (`Write|Edit|MultiEdit`) — **actually registered**, confirmed in `.claude/settings.json`. Enforces the Write Contract: denies vault-root files, `50_Archive/`, `.obsidian/`, `05_Clippings/`, `.cursor/`, `.kiro/`, `.git/`; allowlists daily-ops paths. Fails open on a JSON parse error.
 - **jarvis-session-continuity.ps1** — exists on disk at `30_Order/System/claude-workflow/hooks/jarvis-session-continuity.ps1`, documented as injecting context at `SessionStart` and continuity at `SessionEnd` — **not present in either settings file**, so it does not currently run. This is a real, current gap, not a documentation nitpick — the "morning context assembly" behavior several notes describe as automatic is not happening via this mechanism today.
+## External projects
+**New 2026-09-06 — a third layer beyond "Promoted in claudekit" and "Live in Jarvis" above.** Real, external Claude Code projects get their own inventory note here once reviewed in depth, starting with [[20_Progress/Projects/AI Use/Claude Kit/Toolkit/Hooks/internship-research-loop|internship-research-loop]] — 2 real hooks (bash, advisory-only, fail-open), both read directly from the live repo. More will follow the same pattern; not yet interlinked further while that build-out is in progress.
 ## Links
 [[20_Progress/Projects/AI Use/Claude Kit/Toolkit/Hooks/How to Use Hooks]] for lifecycle-event guidance. [[10_Areas/AI/Setup/Gaps]] already names the broader "nothing runs on a schedule" gap this connects to.

@@ -33,8 +33,9 @@ SORT file.name ASC
 ```
 
 ## Connections to other communities
-- 3 edges to [[_COMMUNITY_test_writer.py]]
+- 2 edges to [[_COMMUNITY_plan_removals]]
 - 1 edge to [[_COMMUNITY_recheck.py]]
+- 1 edge to [[_COMMUNITY_test_writer.py]]
 
 ## Top bridge nodes
 - [[test_zero_match_alert.py]] - degree 13, connects to 2 communities

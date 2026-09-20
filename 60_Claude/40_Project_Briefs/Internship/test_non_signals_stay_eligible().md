@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_posting_page.py"
 type: "code"
-community: "plan_removals"
-location: "L65"
+community: "writer.py"
+location: "L66"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/plan_removals
+  - community/writerpy
 ---
 
 # test_non_signals_stay_eligible()
@@ -15,4 +15,4 @@ tags:
 - [[opt_exclusion()]] - `calls` [EXTRACTED]
 - [[test_posting_page.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/plan_removals
+#graphify/code #graphify/EXTRACTED #community/writerpy

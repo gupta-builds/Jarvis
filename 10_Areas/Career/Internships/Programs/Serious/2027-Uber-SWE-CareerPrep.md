@@ -7,19 +7,20 @@ eligible_classes:
   - Senior
 grad_year: 2027
 role_type: internship
-wave:
+wave: null
 opens_date: 2026-07-20
-deadline_posted:
-deadline_real:
+deadline_posted: null
+deadline_real: null
 pay_per_hour: 52
 pay_currency: USD
-duration_weeks:
+duration_weeks: null
 benefits: []
 application_url: https://jobs.uber.com/en/jobs/300697/
 careers_page: https://jobs.uber.com/en/teams/emerging-talent/careerprep/
 list_origin: manual-web-find (Anant, 2026-07-23 clip, promoted 2026-07-29)
-applying_note:
-recruiter_contact:
+applying_note: null
+recruiter_contact: "[[10_Areas/Career/Internships/Contacts/Each One/Ongoing/2027
+  Software Engineering Internship - Uber]]"
 tags:
   - internship
   - program
@@ -43,6 +44,9 @@ No contact researched yet — this is a manually-clipped find, not yet through S
 > **The stated 3rd/4th-year requirement likely conflicts with sophomore standing.** Verify via the Career Prep program page (linked above) whether this specific pipeline has different eligibility than the general SWE intern req before investing prep time, since applying against a hard-blocked eligibility filter wastes the application.
 > [!WARNING]
 > Office presence is required at least 50% of the time (not fully remote) — factor this into location planning if pursued.
+
+> [!NOTE]
+> **Corrected 2026-09-05 — the eligibility conflict above looks resolved, not open.** `contact-researcher` found Uber's own Beamery interest-form page (linked off the official Career Prep page) states Career Prep is "a mentorship and technical training program for **1st and 2nd year**, undergraduate students," and the Hidden Genius Project's official Career Prep partner page lists the current cohort's Basic Qualifications as graduating Dec 2027-Aug 2028 — consistent with a rising sophomore, not the general req's 3rd/4th-year language. See the Contact note for full sourcing. The original warning above is left as written, not deleted, per this vault's dated-correction convention.
 ## Prep Checklist
 - [ ] Verify Career Prep program's actual eligibility (sophomore vs. 3rd/4th-year-only) before applying
 - [ ] Confirm which office (SF / Seattle / Sunnyvale) is realistic given housing/relocation

@@ -62,10 +62,12 @@ If a new piece of recurring toil shows up and it's mechanical/deterministic (ano
 
 ## `.claude/rules/` — steering wrappers, same pattern as the Jarvis vault's
 
-Three files, each a thin pointer or narrowly-scoped addition — none restates content that already lives somewhere else, per the Jarvis build standard's anti-duplication principle ("if a sentence is true in both, one copy is wrong"):
+Five files, each a thin pointer or narrowly-scoped addition — none restates content that already lives somewhere else, per the Jarvis build standard's anti-duplication principle ("if a sentence is true in both, one copy is wrong"):
 - **`rules/internship-loop.md`** — pointer to this file's own "Conventions this codebase enforces" section above. Exists so the always-loaded `rules/` mechanism reinforces it, not because the content lives twice.
 - **`rules/jarvis.md`** — the vault-reachability check (sibling checkout vs. `jarvis` MCP tools) every vault-writing agent needs, stated once instead of five times across `program-writer`/`tracking`/`promotion`/`applying`/`/promote-dossier`.
 - **`rules/autonomous.md`** — which agents are safe to run unattended (read-only: `loop-verifier`, `testing-tools`, `contact-researcher`) versus never-autonomous (write real vault data: `program-writer`, `tracking`, `promotion`, `applying`, all gated behind explicit human consent already documented in each one's own file).
+- **`rules/hooks.md`** — catalog of this repo's two hooks (`review-reminder.sh`, `vault-write-guard.sh`) and the shared rule behind both: hooks here inform, they never deny.
+- **`rules/mcp-permissions.md`** — why `.claude/settings.json` pre-approves every `jarvis`/`jarvis-fs` call except `vault_delete`: the calling skill/agent's own consent gate is the real safety mechanism, not the MCP permission.
 
 ## Auto-mode classifier notes (this repo only)
 

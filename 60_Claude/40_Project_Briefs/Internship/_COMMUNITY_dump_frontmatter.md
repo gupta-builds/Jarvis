@@ -1,19 +1,32 @@
 ---
 type: community
-members: 6
+members: 19
 ---
 
 # dump_frontmatter
 
-**Members:** 6 nodes
+**Members:** 19 nodes
 
 ## Members
-- [[Real Optiver 'Quantitative Research Intern, PhD (Summer 2027)'     (Greenhouse j]] - rationale - tests/test_posting_page.py
-- [[The matched PhD-exclusivity phrase, or None if the posting shows no     explicit]] - rationale - ingestion/posting_page.py
-- [[phd_only_exclusion()]] - code - ingestion/posting_page.py
-- [[test_phd_only_exclusion_does_not_reject_bachelors_masters_eligible_real_text()]] - code - tests/test_posting_page.py
-- [[test_phd_only_exclusion_rejects_explicit_equivalent_phrasing()]] - code - tests/test_posting_page.py
-- [[test_phd_only_exclusion_rejects_real_optiver_text()]] - code - tests/test_posting_page.py
+- [[(b) Already sourced in the vault's own research log  Cover Letter Alteration Standard §7]] - document - .claude/skills/generating-cover-letter-docx/reference/cover-letter-reference.md
+- [[(b) Columbia University SEAS Career Center — verified live 2026-09-06]] - document - .claude/skills/generating-cover-letter-docx/reference/cover-letter-reference.md
+- [[(b) National American University Career Services — verified live 2026-09-06]] - document - .claude/skills/generating-cover-letter-docx/reference/cover-letter-reference.md
+- [[1. `python-docx` (low freedom)]] - document - .claude/skills/generating-cover-letter-docx/SKILL.md
+- [[2. Build the `ContentPlan` (medium freedom — shape fixed, wording is the approved content verbatim)]] - document - .claude/skills/generating-cover-letter-docx/SKILL.md
+- [[3. Generate, verify, report (low freedom)]] - document - .claude/skills/generating-cover-letter-docx/SKILL.md
+- [[Closing  signature block — sourced]] - document - .claude/skills/generating-cover-letter-docx/reference/cover-letter-reference.md
+- [[Correction to an initial assumption — stated plainly]] - document - .claude/skills/generating-cover-letter-docx/reference/cover-letter-reference.md
+- [[Cover letter reference — rules and example, one file]] - document - .claude/skills/generating-cover-letter-docx/reference/cover-letter-reference.md
+- [[Example — fabricated, format only, never a content source]] - document - .claude/skills/generating-cover-letter-docx/reference/cover-letter-reference.md
+- [[Generating a cover letter .docx]] - document - .claude/skills/generating-cover-letter-docx/SKILL.md
+- [[Output format_4]] - document - .claude/skills/generating-cover-letter-docx/SKILL.md
+- [[Precondition — do not skip]] - document - .claude/skills/generating-cover-letter-docx/SKILL.md
+- [[Reference]] - document - .claude/skills/generating-cover-letter-docx/SKILL.md
+- [[SKILL]] - document - .claude/skills/generating-cover-letter-docx/SKILL.md
+- [[Steps_2]] - document - .claude/skills/generating-cover-letter-docx/SKILL.md
+- [[The rules, tiered]] - document - .claude/skills/generating-cover-letter-docx/reference/cover-letter-reference.md
+- [[What this skill does not do]] - document - .claude/skills/generating-cover-letter-docx/SKILL.md
+- [[cover-letter-reference]] - document - .claude/skills/generating-cover-letter-docx/reference/cover-letter-reference.md
 
 ## Live Query (requires Dataview plugin)
 
@@ -21,15 +34,3 @@ members: 6
 TABLE source_file, type FROM #community/dump_frontmatter
 SORT file.name ASC
 ```
-
-## Connections to other communities
-- 4 edges to [[_COMMUNITY_plan_removals]]
-- 1 edge to [[_COMMUNITY_vault_root_1]]
-- 1 edge to [[_COMMUNITY_recheck.py]]
-- 1 edge to [[_COMMUNITY__fake_http_get_only_interndock]]
-
-## Top bridge nodes
-- [[phd_only_exclusion()]] - degree 8, connects to 4 communities
-- [[test_phd_only_exclusion_rejects_real_optiver_text()]] - degree 3, connects to 1 community
-- [[test_phd_only_exclusion_does_not_reject_bachelors_masters_eligible_real_text()]] - degree 2, connects to 1 community
-- [[test_phd_only_exclusion_rejects_explicit_equivalent_phrasing()]] - degree 2, connects to 1 community

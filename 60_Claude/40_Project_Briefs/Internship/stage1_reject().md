@@ -1,12 +1,12 @@
 ---
 source_file: "core/relevance.py"
 type: "code"
-community: "test_write_dossier_different_uid_same_role_company_gets_collision_suffix"
-location: "L78"
+community: "vault_root"
+location: "L80"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_write_dossier_different_uid_same_role_company_gets_collision_suffix
+  - community/vault_root
 ---
 
 # stage1_reject()
@@ -19,6 +19,8 @@ tags:
 - [[revalidate.py]] - `imports` [EXTRACTED]
 - [[run_once()]] - `calls` [EXTRACTED]
 - [[run_pipeline.py]] - `imports` [EXTRACTED]
+- [[test_extract_content_skips_microsoft_careers_listing_shell()]] - `calls` [EXTRACTED]
+- [[test_posting_page.py]] - `imports` [EXTRACTED]
 - [[test_relevance.py]] - `imports` [EXTRACTED]
 - [[test_stage1_does_not_reject_engineering_track_rotational_program()]] - `calls` [EXTRACTED]
 - [[test_stage1_does_not_reject_plain_software_titles()]] - `calls` [EXTRACTED]
@@ -30,4 +32,4 @@ tags:
 - [[test_stage1_rejects_real_databricks_product_management_title()]] - `calls` [EXTRACTED]
 - [[test_stage1_rejects_real_investor_relations_title()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_write_dossier_different_uid_same_role_company_gets_collision_suffix
+#graphify/code #graphify/EXTRACTED #community/vault_root

@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_run_pipeline.py"
 type: "code"
-community: "test_writer.py"
-location: "L711"
+community: "_fake_http_get_only_interndock"
+location: "L996"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_writerpy
+  - community/_fake_http_get_only_interndock
 ---
 
 # _fake_interndock_sitemap_get()
@@ -17,4 +17,4 @@ tags:
 - [[test_discover_interndock_returns_empty_when_fetch_fn_is_none()]] - `indirect_call` [INFERRED]
 - [[test_run_pipeline.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_writerpy
+#graphify/code #graphify/EXTRACTED #community/_fake_http_get_only_interndock

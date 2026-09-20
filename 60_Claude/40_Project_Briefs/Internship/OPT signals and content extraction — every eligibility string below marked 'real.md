@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_posting_page.py"
 type: "rationale"
-community: "plan_removals"
+community: "writer.py"
 location: "L1"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/plan_removals
+  - community/writerpy
 ---
 
 # OPT signals and content extraction — every eligibility string below marked 'real
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[test_posting_page.py]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/plan_removals
+#graphify/rationale #graphify/EXTRACTED #community/writerpy

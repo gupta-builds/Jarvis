@@ -1,17 +1,18 @@
 ---
 type: community
-members: 25
+members: 26
 ---
 
 # render_dossier
 
-**Members:** 25 nodes
+**Members:** 26 nodes
 
 ## Members
 - [[Confirms REQUIRED_FRONTMATTER_FIELDS actually enforces notes — adding     it to]] - rationale - tests/test_validate.py
 - [[The mid-body loop explicitly allows a blank line after a callout — but not     w]] - rationale - tests/test_validate.py
 - [[_ok_response()]] - code - tests/test_validate.py
 - [[check_format_compliance()]] - code - vault_writer/validate.py
+- [[listing()]] - code - tests/test_validate.py
 - [[render_dossier()]] - code - vault_writer/writer.py
 - [[required_fields runs before url_liveness — a missing field should reject     wit]] - rationale - tests/test_validate.py
 - [[test_format_compliance_allows_blank_line_after_callout()]] - code - tests/test_validate.py
@@ -44,14 +45,15 @@ SORT file.name ASC
 ## Connections to other communities
 - 23 edges to [[_COMMUNITY__fake_http_get_only_interndock]]
 - 11 edges to [[_COMMUNITY_build_frontmatter]]
-- 5 edges to [[_COMMUNITY_writer.py_1]]
+- 4 edges to [[_COMMUNITY_writer.py_1]]
 - 2 edges to [[_COMMUNITY_normalize_simplify]]
 - 2 edges to [[_COMMUNITY_recheck.py]]
 - 1 edge to [[_COMMUNITY_write_dossier]]
+- 1 edge to [[_COMMUNITY_vault_root_1]]
 
 ## Top bridge nodes
+- [[render_dossier()]] - degree 32, connects to 5 communities
 - [[test_validate.py]] - degree 36, connects to 4 communities
-- [[render_dossier()]] - degree 32, connects to 4 communities
 - [[check_format_compliance()]] - degree 18, connects to 2 communities
 - [[test_validate_happy_path()]] - degree 4, connects to 1 community
 - [[test_validate_stops_at_first_failing_check()]] - degree 4, connects to 1 community

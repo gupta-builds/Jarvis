@@ -1,12 +1,12 @@
 ---
 source_file: "core/schema_drift.py"
 type: "rationale"
-community: "check_all"
+community: "test_schema_drift.py"
 location: "L273"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/check_all
+  - community/test_schema_driftpy
 ---
 
 # Runs every check in order; raises SchemaDriftError from whichever     fails firs
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[check_all()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/check_all
+#graphify/rationale #graphify/EXTRACTED #community/test_schema_driftpy

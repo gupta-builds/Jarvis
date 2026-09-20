@@ -2,7 +2,7 @@
 source_file: "run_pipeline.py"
 type: "code"
 community: "recheck.py"
-location: "L638"
+location: "L745"
 tags:
   - graphify/code
   - graphify/EXTRACTED
@@ -12,8 +12,8 @@ tags:
 # run_once()
 
 ## Connections
-- [[Path]] - `calls` [INFERRED]
 - [[_prioritize_and_cap()]] - `calls` [EXTRACTED]
+- [[_select_exact_quota()]] - `calls` [EXTRACTED]
 - [[append_excluded_log()]] - `calls` [EXTRACTED]
 - [[append_run_log()]] - `calls` [EXTRACTED]
 - [[append_weekly_rollup()]] - `calls` [EXTRACTED]
@@ -21,7 +21,7 @@ tags:
 - [[check_all()]] - `calls` [EXTRACTED]
 - [[compute_uid()]] - `calls` [EXTRACTED]
 - [[count_dossiers_by_bucket()]] - `calls` [EXTRACTED]
-- [[datetime_2]] - `references` [EXTRACTED]
+- [[datetime_3]] - `references` [EXTRACTED]
 - [[dedup_new()]] - `calls` [EXTRACTED]
 - [[discover_interndock()]] - `calls` [EXTRACTED]
 - [[fetch_and_filter()]] - `calls` [EXTRACTED]

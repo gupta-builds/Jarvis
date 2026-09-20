@@ -5,7 +5,7 @@ status: sprout
 created: 2026-01-22
 updated:
 area:
-  - "[[Weekly Board]]"
+  - "[[40_Resources/UMN/Previous Classes/Weekly Board]]"
   - "[[CSCI 3923 Board]]"
 tags:
   - "#class"

@@ -1848,7 +1848,7 @@ application_url: https://osv-cci.wd1.myworkdayjobs.com/en-US/CCICareers/job/Stam
 careers_page: https://cci.com/careers/students/
 list_origin: "[[10_Areas/Career/Internships/List/Dossiers/2 - Fullstack/Data Engineering Intern - Castleton Commodities International]]"
 applying_note: null
-recruiter_contact: "[[10_Areas/Career/Internships/Contacts/Each One/Data Engineering Intern - Castleton Commodities International]]"
+recruiter_contact: "[[10_Areas/Career/Internships/Contacts/Each One/Ongoing/Data Engineering Intern - Castleton Commodities International]]"
 tags:
   - internship
   - program
@@ -1911,7 +1911,7 @@ Given the posting deadline (2026-09-01) has passed, reach out to Lauren Haymond 
 ---
 type: tracker
 program: "[[10_Areas/Career/Internships/Programs/Serious/Data Engineering Intern - Castleton Commodities International]]"
-contact: "[[10_Areas/Career/Internships/Contacts/Each One/Data Engineering Intern - Castleton Commodities International]]"
+contact: "[[10_Areas/Career/Internships/Contacts/Each One/Ongoing/Data Engineering Intern - Castleton Commodities International]]"
 company: Castleton Commodities International
 url: https://osv-cci.wd1.myworkdayjobs.com/en-US/CCICareers/job/Stamford-CT/[REDACTED]
 date_noted: '2026-07-22'
@@ -2190,7 +2190,7 @@ application_url: https://lplfinancial.wd1.myworkdayjobs.com/university/job/Fort-
 careers_page: https://career.lpl.com/internship
 list_origin: "[[10_Areas/Career/Internships/List/Dossiers/1 - AI & ML/Software Engineer Intern - LPL Financial Holdings]]"
 applying_note: null
-recruiter_contact: "[[10_Areas/Career/Internships/Contacts/Each One/Software Engineer Intern - LPL Financial Holdings]]"
+recruiter_contact: "[[10_Areas/Career/Internships/Contacts/Each One/Ongoing/Software Engineer Intern - LPL Financial Holdings]]"
 tags:
   - internship
   - program
@@ -2256,7 +2256,7 @@ Reach out to Sean Stiles (Charlotte Metro-based, matches a target office locatio
 ---
 type: tracker
 program: "[[10_Areas/Career/Internships/Programs/Serious/Software Engineer Intern - LPL Financial Holdings]]"
-contact: "[[10_Areas/Career/Internships/Contacts/Each One/Software Engineer Intern - LPL Financial Holdings]]"
+contact: "[[10_Areas/Career/Internships/Contacts/Each One/Ongoing/Software Engineer Intern - LPL Financial Holdings]]"
 company: LPL Financial Holdings
 url: https://lplfinancial.wd1.myworkdayjobs.com/university/job/Fort-MillCharlotte/[REDACTED]
 date_noted: '2026-08-11'
@@ -2306,7 +2306,7 @@ application_url: https://regions.wd5.myworkdayjobs.com/regions_careers/job/Hoove
 careers_page: https://careers.regions.com/us/en/interns
 list_origin: "[[10_Areas/Career/Internships/List/Dossiers/Other/Technology, Operations, Digital, and Data Analytics Intern - Regions Bank]]"
 applying_note: null
-recruiter_contact: "[[10_Areas/Career/Internships/Contacts/Each One/Technology, Operations, Digital, and Data Analytics Intern - Regions Bank]]"
+recruiter_contact: "[[10_Areas/Career/Internships/Contacts/Each One/Ongoing/Technology, Operations, Digital, and Data Analytics Intern - Regions Bank]]"
 tags:
   - internship
   - program
@@ -2371,7 +2371,7 @@ Pick one of the five general Regions Bank TA contacts to reach out to cold, or a
 ---
 type: tracker
 program: "[[10_Areas/Career/Internships/Programs/Serious/Technology, Operations, Digital, and Data Analytics Intern - Regions Bank]]"
-contact: "[[10_Areas/Career/Internships/Contacts/Each One/Technology, Operations, Digital, and Data Analytics Intern - Regions Bank]]"
+contact: "[[10_Areas/Career/Internships/Contacts/Each One/Ongoing/Technology, Operations, Digital, and Data Analytics Intern - Regions Bank]]"
 company: Regions Bank
 url: https://regions.wd5.myworkdayjobs.com/regions_careers/job/Hoover-AL---Riverchase-Operations-Center-Birmingham-AL/[REDACTED]
 date_noted: '2026-08-19'

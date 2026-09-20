@@ -2,7 +2,7 @@
 source_file: "tests/test_posting_page.py"
 type: "rationale"
 community: "writer.py"
-location: "L167"
+location: "L168"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED

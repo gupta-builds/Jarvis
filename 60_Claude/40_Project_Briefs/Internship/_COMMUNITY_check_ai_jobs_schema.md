@@ -1,19 +1,16 @@
 ---
 type: community
-members: 6
+members: 3
 ---
 
 # check_ai_jobs_schema
 
-**Members:** 6 nodes
+**Members:** 3 nodes
 
 ## Members
-- [[check_ai_jobs_schema()]] - code - core/schema_drift.py
-- [[level is what fetch_ai_jobs' own role-type triage reads     (raw.get(level) ==]] - rationale - tests/test_schema_drift.py
-- [[test_ai_jobs_schema_detects_dropped_level_field()]] - code - tests/test_schema_drift.py
-- [[test_ai_jobs_schema_detects_empty_jobs_list()]] - code - tests/test_schema_drift.py
-- [[test_ai_jobs_schema_hits_the_real_url()]] - code - tests/test_schema_drift.py
-- [[test_ai_jobs_schema_passes_on_real_shape()]] - code - tests/test_schema_drift.py
+- [[Layer 2.5 — CSsoftware-relevance gate. Runs after matches() passes, before the]] - rationale - core/relevance.py
+- [[_norm()_1]] - code - core/relevance.py
+- [[relevance.py]] - code - core/relevance.py
 
 ## Live Query (requires Dataview plugin)
 
@@ -23,14 +20,12 @@ SORT file.name ASC
 ```
 
 ## Connections to other communities
-- 5 edges to [[_COMMUNITY_test_schema_drift.py]]
-- 4 edges to [[_COMMUNITY_vault_root]]
-- 2 edges to [[_COMMUNITY_schema_drift.py]]
-- 1 edge to [[_COMMUNITY_check_all]]
+- 2 edges to [[_COMMUNITY_test_write_dossier_different_uid_same_role_company_gets_collision_suffix]]
+- 1 edge to [[_COMMUNITY_test_write_dossier_creates_missing_dossiers_dir]]
+- 1 edge to [[_COMMUNITY_vault_root]]
+- 1 edge to [[_COMMUNITY_commit_and_push_with_retry_1]]
+- 1 edge to [[_COMMUNITY_recheck.py]]
+- 1 edge to [[_COMMUNITY_writer.py]]
 
 ## Top bridge nodes
-- [[check_ai_jobs_schema()]] - degree 8, connects to 3 communities
-- [[test_ai_jobs_schema_detects_dropped_level_field()]] - degree 4, connects to 2 communities
-- [[test_ai_jobs_schema_passes_on_real_shape()]] - degree 3, connects to 2 communities
-- [[test_ai_jobs_schema_hits_the_real_url()]] - degree 3, connects to 2 communities
-- [[test_ai_jobs_schema_detects_empty_jobs_list()]] - degree 3, connects to 2 communities
+- [[relevance.py]] - degree 9, connects to 6 communities

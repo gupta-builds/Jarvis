@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_posting_page.py"
 type: "code"
-community: "plan_removals"
-location: "L124"
+community: "writer.py"
+location: "L125"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/plan_removals
+  - community/writerpy
 ---
 
 # test_content_fetch_url_rewrites_real_zipline_query_url_to_path_form()
@@ -16,4 +16,4 @@ tags:
 - [[_content_fetch_url()]] - `calls` [EXTRACTED]
 - [[test_posting_page.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/plan_removals
+#graphify/code #graphify/EXTRACTED #community/writerpy

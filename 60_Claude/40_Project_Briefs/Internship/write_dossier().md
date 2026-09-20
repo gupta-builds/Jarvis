@@ -12,7 +12,7 @@ tags:
 # write_dossier()
 
 ## Connections
-- [[Path]] - `references` [EXTRACTED]
+- [[Path_3]] - `references` [EXTRACTED]
 - [[Writes an already-rendered, already-validated dossier into its     priority-buck]] - `rationale_for` [EXTRACTED]
 - [[dossier_filename()]] - `calls` [EXTRACTED]
 - [[load_dossier_uids()]] - `calls` [EXTRACTED]

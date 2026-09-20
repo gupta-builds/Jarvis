@@ -26,6 +26,9 @@
 Thumbs.db
 desktop.ini
 
+# Google Drive desktop sync staging cache (transient, not vault content)
+.tmp.driveupload/
+
 # Large binary blobs (keep images tracked but ignore temp)
 *.tmp
 
@@ -48,6 +51,10 @@ __pycache__/
 mcp.env
 *.env.local
 **/.kiro/settings/
+
+# Codex config backups — found to contain a live OpenAI API key, 2026-09-19
+.codex/*.bak
+.codex/config.toml.pre-*.bak
 # AI tool internal state (sessions, history, creds) — never commit
 20_Progress/AI/Claude Code/.claude_wsl/
 20_Progress/AI/Claude Code/.claude_windows/
@@ -63,6 +70,12 @@ mcp.env
 # Excalidraw MCP local install (npm package, regenerable)
 30_Order/System/excalidraw-mcp/node_modules/
 30_Order/System/excalidraw-mcp/*.log
+
+# Lean Terminal plugin's native node-pty dependency (npm package, regenerable)
+.obsidian/plugins/lean-terminal/node_modules/
+
+# Root Python venv (regenerable)
+.venv/
 
 # Internship personal/contact data — repo is public, never commit PII
 20_Progress/Internship/Resumes/

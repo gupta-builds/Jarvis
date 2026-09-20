@@ -13,7 +13,7 @@ tags:
 
 ## Connections
 - [[Hard line (non-negotiable, inherited from enrich.py's own docstring)]] - `contains` [EXTRACTED]
-- [[Output format]] - `contains` [EXTRACTED]
+- [[Output format_1]] - `contains` [EXTRACTED]
 - [[The one rule that overrides everything else]] - `contains` [EXTRACTED]
 - [[What to look for, and how to report each]] - `contains` [EXTRACTED]
 - [[What you have available]] - `contains` [EXTRACTED]

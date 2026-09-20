@@ -12,7 +12,6 @@ tags:
 # extract_posting_content()
 
 ## Connections
-- [[Path]] - `calls` [INFERRED]
 - [[The dossier's own already-fetched content (verbatim, as originally     written)]] - `rationale_for` [EXTRACTED]
 - [[find_regressions()]] - `calls` [EXTRACTED]
 - [[revalidate.py]] - `contains` [EXTRACTED]

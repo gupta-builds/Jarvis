@@ -1,28 +1,19 @@
 ---
-source_file: "enrich.py"
+source_file: ".claude/skills/promote-dossier/scripts/check_vault_reachability.py"
 type: "code"
-community: "test_enrich.py"
-location: "L136"
+community: "check_vault_reachability.py"
+location: "L71"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_enrichpy
+  - community/check_vault_reachabilitypy
 ---
 
 # main()
 
 ## Connections
-- [[_search_and_filter()]] - `calls` [EXTRACTED]
-- [[enrich.py]] - `contains` [EXTRACTED]
-- [[extract_bylines()]] - `calls` [EXTRACTED]
-- [[fc_scrape()]] - `calls` [EXTRACTED]
-- [[fc_search()]] - `calls` [EXTRACTED]
-- [[github_org_members()]] - `calls` [EXTRACTED]
-- [[infer_email()]] - `calls` [EXTRACTED]
-- [[linkedin_recruiter_snippet()]] - `calls` [EXTRACTED]
-- [[mx_ok()]] - `calls` [EXTRACTED]
-- [[read_dossier()]] - `calls` [EXTRACTED]
-- [[replace_enrichment()]] - `calls` [EXTRACTED]
-- [[trim()]] - `calls` [EXTRACTED]
+- [[check_mcp_registration()]] - `calls` [EXTRACTED]
+- [[check_sibling_checkout()]] - `calls` [EXTRACTED]
+- [[check_vault_reachability.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_enrichpy
+#graphify/code #graphify/EXTRACTED #community/check_vault_reachabilitypy

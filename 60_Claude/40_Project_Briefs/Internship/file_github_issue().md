@@ -2,7 +2,7 @@
 source_file: "run_pipeline.py"
 type: "code"
 community: "commit_and_push_with_retry"
-location: "L633"
+location: "L731"
 tags:
   - graphify/code
   - graphify/EXTRACTED
@@ -12,8 +12,8 @@ tags:
 # file_github_issue()
 
 ## Connections
-- [[main()_2]] - `calls` [EXTRACTED]
-- [[main()_3]] - `calls` [EXTRACTED]
+- [[main()_5]] - `calls` [EXTRACTED]
+- [[main()_6]] - `calls` [EXTRACTED]
 - [[recheck.py]] - `imports` [EXTRACTED]
 - [[revalidate.py]] - `imports` [EXTRACTED]
 - [[run_pipeline.py]] - `contains` [EXTRACTED]

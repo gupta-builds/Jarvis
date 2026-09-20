@@ -30,7 +30,7 @@ Cross-check [[20_Progress/Projects/AI Use/Claude Kit/Tool Map|Tool Map]] — any
 ## Findings
 -
 ## Decided Fixes
-_Only items with 100% clarity — see [[30_Order/Standards/Review Standard]]._
+_Only items with 100% clarity — see [[Review Standard]]._
 -
 ## Open Questions
 _Carried forward from Weekly reviews if still unresolved._

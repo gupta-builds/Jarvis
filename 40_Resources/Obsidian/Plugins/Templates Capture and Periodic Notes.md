@@ -117,6 +117,9 @@ The template gets the note into the right shape. [[HUMAN_WRITING]] decides wheth
 - The folder map lists `60_Claude/30_Source_Summaries`; the live path is `10_Source_Summaries`. Which folders actually have a Templater template bound, and should the map be repointed? — *path drift; confirm in Templater settings*
 - Should `60_Claude/07_AI_Information` get its own folder template? — *unresolved; raised in the gaps register*
 - Several `Metadata/For *` templates are frontmatter-only shells (`For Evergreen`, `For Progress`) — they need bodies before they teach anything. — *addressed in the template-enrichment work, tracked separately*
+## Suggestions
+- **This note's `Verified Open State` section is stale on both of its own open questions — correcting it here rather than leaving it standing.** Build 5 already resolved both: `60_Claude/07_AI_Information` correctly gets no folder template (system docs, not evergreen knowledge), and the broken-path bug affects **two** entries, `10_UMN` (real folder `10_Areas/UMN`) and `60_Claude/30_Source_Summaries` (real folder `60_Claude/10_Source_Summaries`), not the one entry this note originally named. Treat [[Plugin Gaps Recommendations and Verification]] as current on both.
+- **Fixing both broken paths and re-verifying all six entries in one pass: worth it, and worth doing together, not separately.** Each broken entry means a note created in that folder through Obsidian silently gets no frontmatter scaffold at all — for `10_UMN`, that's every new coursework note until someone notices. The fix itself is two path corrections in `data.json`; re-checking the other four while already in there costs nothing extra and closes off the possibility of a third dead path sitting undiscovered the way these two did.
 ## Sources
 
 - [Templater docs](https://silentvoid13.github.io/Templater/)

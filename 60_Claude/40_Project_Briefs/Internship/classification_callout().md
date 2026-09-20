@@ -2,7 +2,7 @@
 source_file: "core/classify.py"
 type: "code"
 community: "test_write_dossier_creates_missing_dossiers_dir"
-location: "L71"
+location: "L81"
 tags:
   - graphify/code
   - graphify/EXTRACTED

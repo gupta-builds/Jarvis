@@ -1,17 +1,17 @@
 ---
-source_file: ".cursor/skills/cover-letter-alteration/SKILL.md"
+source_file: ".claude/skills/promoting-manual-find/SKILL.md"
 type: "document"
-community: "Steps"
+community: "check_lever_schema"
 location: "L1"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/Steps
+  - community/check_lever_schema
 ---
 
 # SKILL.md
 
 ## Connections
-- [[cover-letter-alteration]] - `contains` [EXTRACTED]
+- [[promoting-manual-find]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/Steps
+#graphify/document #graphify/EXTRACTED #community/check_lever_schema

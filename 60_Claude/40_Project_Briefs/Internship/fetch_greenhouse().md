@@ -1,12 +1,12 @@
 ---
 source_file: "ingestion/sources.py"
 type: "code"
-community: "write_dossier"
+community: "recheck.py"
 location: "L129"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/write_dossier
+  - community/recheckpy
 ---
 
 # fetch_greenhouse()
@@ -17,4 +17,4 @@ tags:
 - [[run_pipeline.py]] - `imports` [EXTRACTED]
 - [[sources.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/write_dossier
+#graphify/code #graphify/EXTRACTED #community/recheckpy

@@ -1,30 +1,32 @@
 ---
 type: community
-members: 17
+members: 19
 ---
 
 # vault_root
 
-**Members:** 17 nodes
+**Members:** 19 nodes
 
 ## Members
-- [[Not a bare list (SimplifyJobsJGCLvanshb03) or a dict keyed by posting     id (]] - rationale - tests/test_schema_drift.py
-- [[_json_response()]] - code - tests/test_schema_drift.py
-- [[category is read via .get() so a rename wouldn't crash the normalizer —     it w]] - rationale - tests/test_schema_drift.py
-- [[check_applyguy_schema()]] - code - core/schema_drift.py
-- [[check_simplify_schema()]] - code - core/schema_drift.py
-- [[season is read via .get() so a rename wouldn't crash the normalizer —     every]] - rationale - tests/test_schema_drift.py
-- [[test_applyguy_schema_detects_dropped_listing_url_field()]] - code - tests/test_schema_drift.py
-- [[test_applyguy_schema_detects_dropped_season_field()]] - code - tests/test_schema_drift.py
-- [[test_applyguy_schema_detects_empty_jobs_list()]] - code - tests/test_schema_drift.py
-- [[test_applyguy_schema_detects_wrong_shape()]] - code - tests/test_schema_drift.py
-- [[test_applyguy_schema_passes_on_real_shape()]] - code - tests/test_schema_drift.py
-- [[test_simplify_schema_detects_dropped_optional_field()]] - code - tests/test_schema_drift.py
-- [[test_simplify_schema_detects_dropped_permissive_field()]] - code - tests/test_schema_drift.py
-- [[test_simplify_schema_detects_empty_list()]] - code - tests/test_schema_drift.py
-- [[test_simplify_schema_detects_renamed_key()]] - code - tests/test_schema_drift.py
-- [[test_simplify_schema_detects_wrong_shape()]] - code - tests/test_schema_drift.py
-- [[test_simplify_schema_passes_on_real_shape()]] - code - tests/test_schema_drift.py
+- [[A genuine software-engineering-track rotational program that names     actual en]] - rationale - tests/test_relevance.py
+- [[Real committed fixture (testsfixturessimplifyjobs.json) — Grant     Thornton ']] - rationale - tests/test_relevance.py
+- [[Real, live Conagra Brands posting (SimplifyJobs, found 2026-07-27,     still in]] - rationale - tests/test_relevance.py
+- [[Real, live Databricks posting (AIJobs, found 2026-07-26) — genuinely     PM work]] - rationale - tests/test_relevance.py
+- [[Real, live FC Cincinnati Greenhouse posting (fccincinnati board,     2026-07-26)]] - rationale - tests/test_relevance.py
+- [[Real, live Walleye Capital Greenhouse posting (walleyecapital-external-students]] - rationale - tests/test_relevance.py
+- [[Real, live Walleye Capital Greenhouse posting — 'Risk Technology     Analyst Int]] - rationale - tests/test_relevance.py
+- [[True if this listing's titleraw_text is unambiguously non-software —     reject]] - rationale - core/relevance.py
+- [[_simplify_titled()]] - code - tests/test_relevance.py
+- [[stage1_reject()]] - code - core/relevance.py
+- [[test_stage1_does_not_reject_engineering_track_rotational_program()]] - code - tests/test_relevance.py
+- [[test_stage1_does_not_reject_plain_software_titles()]] - code - tests/test_relevance.py
+- [[test_stage1_does_not_reject_product_engineer_titles()]] - code - tests/test_relevance.py
+- [[test_stage1_does_not_reject_real_risk_technology_analyst_title()]] - code - tests/test_relevance.py
+- [[test_stage1_does_not_reject_real_tax_technology_intern()]] - code - tests/test_relevance.py
+- [[test_stage1_rejects_real_academy_performance_analyst_title()]] - code - tests/test_relevance.py
+- [[test_stage1_rejects_real_conagra_demand_science_rotational_title()]] - code - tests/test_relevance.py
+- [[test_stage1_rejects_real_databricks_product_management_title()]] - code - tests/test_relevance.py
+- [[test_stage1_rejects_real_investor_relations_title()]] - code - tests/test_relevance.py
 
 ## Live Query (requires Dataview plugin)
 
@@ -34,18 +36,16 @@ SORT file.name ASC
 ```
 
 ## Connections to other communities
-- 17 edges to [[_COMMUNITY_test_schema_drift.py]]
-- 9 edges to [[_COMMUNITY_schema_drift.py]]
-- 5 edges to [[_COMMUNITY_check_freehire_schema]]
-- 4 edges to [[_COMMUNITY_check_ai_jobs_schema]]
-- 4 edges to [[_COMMUNITY_check_ashby_schema]]
-- 4 edges to [[_COMMUNITY_check_greenhouse_schema]]
-- 4 edges to [[_COMMUNITY_check_lever_schema]]
-- 3 edges to [[_COMMUNITY_check_all]]
+- 11 edges to [[_COMMUNITY_test_write_dossier_different_uid_same_role_company_gets_collision_suffix]]
+- 3 edges to [[_COMMUNITY_recheck.py]]
+- 2 edges to [[_COMMUNITY_commit_and_push_with_retry_1]]
+- 2 edges to [[_COMMUNITY_writer.py]]
+- 1 edge to [[_COMMUNITY_check_ai_jobs_schema]]
+- 1 edge to [[_COMMUNITY_normalize_simplify]]
 
 ## Top bridge nodes
-- [[_json_response()]] - degree 42, connects to 8 communities
-- [[check_simplify_schema()]] - degree 10, connects to 3 communities
-- [[check_applyguy_schema()]] - degree 9, connects to 3 communities
-- [[test_simplify_schema_detects_dropped_optional_field()]] - degree 4, connects to 1 community
-- [[test_applyguy_schema_detects_dropped_season_field()]] - degree 4, connects to 1 community
+- [[stage1_reject()]] - degree 19, connects to 5 communities
+- [[test_stage1_does_not_reject_real_tax_technology_intern()]] - degree 5, connects to 2 communities
+- [[test_stage1_rejects_real_academy_performance_analyst_title()]] - degree 3, connects to 1 community
+- [[test_stage1_rejects_real_investor_relations_title()]] - degree 3, connects to 1 community
+- [[test_stage1_does_not_reject_real_risk_technology_analyst_title()]] - degree 3, connects to 1 community

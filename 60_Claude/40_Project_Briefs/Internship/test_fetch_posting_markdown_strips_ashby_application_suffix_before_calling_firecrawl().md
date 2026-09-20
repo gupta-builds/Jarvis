@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_posting_page.py"
 type: "code"
-community: "stage1_reject"
-location: "L155"
+community: "writer.py"
+location: "L156"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/stage1_reject
+  - community/writerpy
 ---
 
 # test_fetch_posting_markdown_strips_ashby_application_suffix_before_calling_firecrawl()
@@ -15,4 +15,4 @@ tags:
 - [[fetch_posting_markdown()]] - `calls` [EXTRACTED]
 - [[test_posting_page.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/stage1_reject
+#graphify/code #graphify/EXTRACTED #community/writerpy

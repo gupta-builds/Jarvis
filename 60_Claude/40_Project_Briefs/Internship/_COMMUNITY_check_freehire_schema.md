@@ -1,21 +1,25 @@
 ---
 type: community
-members: 8
+members: 12
 ---
 
 # check_freehire_schema
 
-**Members:** 8 nodes
+**Members:** 12 nodes
 
 ## Members
-- [[The one company (google) legitimately having zero intern-tagged     postings rig]] - rationale - tests/test_schema_drift.py
-- [[check_freehire_schema()]] - code - core/schema_drift.py
-- [[seniority lives nested under enrichment — what fetch_freehire's own     role-typ]] - rationale - tests/test_schema_drift.py
-- [[test_freehire_schema_detects_dropped_nested_seniority()]] - code - tests/test_schema_drift.py
-- [[test_freehire_schema_detects_dropped_public_slug()]] - code - tests/test_schema_drift.py
-- [[test_freehire_schema_hits_the_schema_check_slug()]] - code - tests/test_schema_drift.py
-- [[test_freehire_schema_passes_on_empty_data_list()]] - code - tests/test_schema_drift.py
-- [[test_freehire_schema_passes_on_real_shape()]] - code - tests/test_schema_drift.py
+- [[DiffHunk]] - code - .claude/skills/review-loop-change/scripts/check_conventions.py
+- [[Finding]] - code - .claude/skills/review-loop-change/scripts/check_conventions.py
+- [[Minimal unified-diff parser enough to know which file and which new-file     li]] - rationale - .claude/skills/review-loop-change/scripts/check_conventions.py
+- [[Namespace]] - code
+- [[check_1_zero_llm()]] - code - .claude/skills/review-loop-change/scripts/check_conventions.py
+- [[check_2_permissive_default()]] - code - .claude/skills/review-loop-change/scripts/check_conventions.py
+- [[check_3_write_gate_order()]] - code - .claude/skills/review-loop-change/scripts/check_conventions.py
+- [[check_4_cited_real_data()]] - code - .claude/skills/review-loop-change/scripts/check_conventions.py
+- [[check_conventions.py]] - code - .claude/skills/review-loop-change/scripts/check_conventions.py
+- [[get_diff()]] - code - .claude/skills/review-loop-change/scripts/check_conventions.py
+- [[main()_2]] - code - .claude/skills/review-loop-change/scripts/check_conventions.py
+- [[parse_diff()]] - code - .claude/skills/review-loop-change/scripts/check_conventions.py
 
 ## Live Query (requires Dataview plugin)
 
@@ -23,16 +27,3 @@ members: 8
 TABLE source_file, type FROM #community/check_freehire_schema
 SORT file.name ASC
 ```
-
-## Connections to other communities
-- 6 edges to [[_COMMUNITY_test_schema_drift.py]]
-- 5 edges to [[_COMMUNITY_vault_root]]
-- 2 edges to [[_COMMUNITY_schema_drift.py]]
-- 1 edge to [[_COMMUNITY_check_all]]
-
-## Top bridge nodes
-- [[check_freehire_schema()]] - degree 9, connects to 3 communities
-- [[test_freehire_schema_detects_dropped_nested_seniority()]] - degree 4, connects to 2 communities
-- [[test_freehire_schema_passes_on_empty_data_list()]] - degree 4, connects to 2 communities
-- [[test_freehire_schema_passes_on_real_shape()]] - degree 3, connects to 2 communities
-- [[test_freehire_schema_hits_the_schema_check_slug()]] - degree 3, connects to 2 communities

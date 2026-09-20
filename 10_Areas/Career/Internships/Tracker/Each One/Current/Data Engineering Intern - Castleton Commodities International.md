@@ -1,22 +1,26 @@
 ---
 type: tracker
-program: "[[10_Areas/Career/Internships/Programs/Serious/Data Engineering Intern - Castleton Commodities International]]"
-contact: "[[10_Areas/Career/Internships/Contacts/Each One/Data Engineering Intern - Castleton Commodities International]]"
+program: "[[10_Areas/Career/Internships/Programs/Serious/Data Engineering Intern
+  - Castleton Commodities International]]"
+contact: "[[10_Areas/Career/Internships/Contacts/Each One/Ongoing/Data
+  Engineering Intern - Castleton Commodities International]]"
 company: Castleton Commodities International
 url: https://osv-cci.wd1.myworkdayjobs.com/en-US/CCICareers/job/Stamford-CT/Data-Engineering-Internship--Summer-2027-_R1346
-date_noted: '2026-07-22'
-date_researched: '2026-09-04'
-date_created: '2026-09-04'
+date_noted: 2026-07-22
+date_researched: 2026-09-04
+date_created: 2026-09-04
 date_applied: null
 date_result: null
-result: null
-deadline: '2026-09-01'
+result: missed
+deadline: 2026-09-01
 related_notes:
-  - "[[10_Areas/Career/Internships/List/Dossiers/2 - Fullstack/Data Engineering Intern - Castleton Commodities International]]"
+  - "[[10_Areas/Career/Internships/List/Dossiers/2 - Fullstack/Data Engineering
+    Intern - Castleton Commodities International]]"
 tags:
   - internship
   - tracker
-next: "Deadline already passed (2026-09-01) — confirm with a recruiter contact whether a late application is possible before treating this as closed"
+next: Deadline already passed (2026-09-01) — confirm with a recruiter contact
+  whether a late application is possible before treating this as closed
 ---
 # Data Engineering Intern — Castleton Commodities International
 The dated index for this internship — source of truth for "where does this stand" until an Applying note exists (see [[Internship Pipeline]] Step 8).

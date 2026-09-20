@@ -56,10 +56,41 @@ The existing `slideVariants` opacity/scale shape (0→1 opacity, 0.92→1 scale)
 - Side cards: opacity ramps from 0 to their existing resting `0.35`, not to 1 — don't change their resting opacity.
 - After the emerge completes, existing carousel interactions (drag/keyboard/dots/auto-play) resume completely unchanged, including their own `slideVariants` transitions.
 
-### 3. Edge / border background effect
-- During auto-play, after the pin (progress past ~0.5, or simply "always while pinned and auto-playing" — your call): recurring gradient pulse on the section's screen periphery.
-- New CSS on `globals.css` or a scoped `<style>` — violet/indigo ~15% opacity, 4–6s loop. No existing class to conflict with.
-- Optional stretch: dispatch a `background:mode: projects-edge` CustomEvent for R3F ring sync — out of scope unless trivial; the hero-background note ([[ui-fix-01-hero-background]]) explicitly defers building the consumer side of this event.
+##### 3. Background sequence — solar-system flythrough → starfield → hyperspace exit
+
+> **2026-09-05: new spec, dictated by the user, not previously written anywhere.** This SUPERSEDES the earlier "simple CSS gradient pulse on the section edges" concept — that was a placeholder guess before this was described in detail. The `background:mode: projects-edge` CustomEvent stub mentioned in [[ui-fix-01-hero-background]] and referenced below is now this sequence's actual trigger, not an optional stretch goal.
+
+**The experience, precisely, in three beats:**
+
+**Beat 1 — Entry ("warp-out"), scrub-driven by the Projects pin's own scroll progress, roughly progress 0.0→0.35 (finishing at or slightly before the card-emerge completes at ~0.5 per the existing Timeline beats table):**
+- As the user scrolls Projects into its pinned position, the background reads as the camera rapidly flying OUTWARD through a (generic, stylized — not literally our solar system) starfield/solar-system scene: a small number of planet-like spheres briefly pass by the viewer's periphery, and stars streak past, all from a first-person point of view (the camera itself is moving through space — this is not a third-person shot of a distant solar system).
+- This happens fast — it's compressed into roughly a third of the pin's total scroll distance, not a leisurely pan.
+- The moment the project cards finish emerging (rendered/solid), this motion stops — it does not continue past that point.
+
+**Beat 2 — Settled ("starfield hold"), holds for the remainder of the pin (roughly progress 0.35→1.0, while the auto-play carousel is active):**
+- The background has arrived at and holds on: a deep-space view with **one medium-to-large glowing object roughly centered**, bright enough to read as a light source (it should visually motivate the light hitting the front-facing project card, i.e. brighter on the side facing the card), surrounded by **thousands of stars** of varying size (mostly small/medium, a few noticeably bigger) filling the rest of the frame.
+- This is the resting backdrop for however long the user stays in the pinned Projects section — no more camera motion, just the existing ambient star-twinkle/parallax the file already has, if any.
+
+**Beat 3 — Exit ("hyperspace-in"), a one-shot fixed-duration transition (not scroll-scrubbed) triggered when the user scrolls DOWN past the end of the Projects pin (GSAP ScrollTrigger's `onLeave`, not a scrub range):**
+- The camera now flies rapidly FORWARD/IN, targeting one specific star among the "thousands" from Beat 2 (pick the same central glowing object, or another — implementer's call, but be deliberate about which and say so in the PR/report).
+- The motion has a clear ease-in acceleration curve: **starts slow, then builds up speed** until it's moving so fast that passing stars read as **streaks/light trails ("shooting stars")**, not discrete points — this is the "so fast it looks like shooting stars" moment, and it should be a *build*, not instant.
+- It ends framed close on **one large, bright central star**, with the remaining starfield visible **around the borders/edges of the screen** (i.e., the final framing is a tight, off-center-feeling close-up on the bright star with stars only at the periphery, not spread evenly across the whole frame like Beat 2).
+- Total duration should be short — on the order of 1–2 seconds, in the same "fast, punchy" register as this file's own `FORM_CLICK_OUT_DURATION`/`FORM_CLICK_IN_DURATION` constants (0.9s/2.6s) rather than a slow cinematic dissolve.
+
+**Reduced motion:** skip this entire sequence. Cards still emerge (per §2) with no camera warp, no flythrough, no streaks — jump straight to a static version of the Beat 2 backdrop (or the file's existing resting sphere, implementer's call, whichever is cheaper) exactly as the rest of this file already handles `prefers-reduced-motion`.
+
+**Where this lives, architecturally — reuse the existing canvas, do not build a second one:**
+- `ObsidianBackgroundCanvas.tsx` is the single fixed, always-mounted background canvas per this project's own architecture contract (see project CLAUDE.md's "ObsidianBackground contract"). This sequence is a new **mode** on that same canvas, not a second competing Three.js scene — mounting a second canvas would double GPU/render cost for a background that's supposed to be one continuous space.
+- Reuse what's already in the file rather than inventing new primitives:
+  - The existing starfield generator (`createStars`, already producing 5,500/2,750 points depending on `useIsMobile`) is very plausibly "thousands of stars" already — extend/reuse its point cloud rather than generating a second star system from scratch. Boosting its brightness/opacity or repositioning the camera relative to it may be enough for Beat 2's backdrop.
+  - The file's existing `LineSegments` pattern (already used for planet/ring edge connections, e.g. `planetLinesRef`/`ringLinesRef`) is the natural, already-proven mechanism for the Beat 3 "streak" look — a per-star short line segment from its previous-frame position to its current position, with opacity/length driven by the camera's current warp speed, reads as a streak without needing a custom shader.
+  - The "planets passing by" in Beat 1 can be a small number (single digits, e.g. 4–8) of simple, cheap spheres (plain `sphereGeometry` + `meshBasicMaterial`, no need for the `MeshDistortMaterial`/`Float` treatment used on the Education blobs — these are glimpsed briefly, not focal objects) spawned ahead of the camera's flight path and recycled once passed.
+  - Camera motion for both Beat 1 and Beat 3 should temporarily override (not fight) the existing scroll-driven `CAM_START`→`CAM_END` lerp — the cleanest approach is an explicit "warp mode" branch in the camera-update code (parallel to how `formationActive` already branches the per-point physics loop away from normal scroll physics) rather than blending two competing camera-position writers.
+
+**Trigger wiring:**
+- Beat 1/2 progress comes from the same GSAP ScrollTrigger pin instance driving the card-emerge/timeline-beats work in §1/§2 of this file — dispatch `background:mode` with `detail: { mode: 'projects-edge', phase: 'warp-out' | 'settled', progress }` from that same `onUpdate` callback (do not create a second ScrollTrigger for this).
+- Beat 3 fires from that same trigger's `onLeave` callback (scrolling down past the pin) as a one-shot, not a scrub — dispatch `background:mode` with `detail: { mode: 'projects-edge', phase: 'hyperspace-exit' }` once, and let `ObsidianBackgroundCanvas.tsx` run its own internal timer/easing for the 1–2s duration rather than trying to drive it from scroll position (there is no more scroll distance to scrub against once the user has left the pin).
+- On `onEnterBack` (scrolling back up into Projects from below) or a page reload mid-section, decide and document a sane fallback (e.g. snap straight to the Beat 2 settled state rather than re-playing Beat 1) rather than leaving it undefined.
 
 ### 4. Side card ambient drift — extend, don't duplicate
 `useSpaceFloat` already drives side-card transforms. **Read `src/hooks/use-space-float.ts` before adding anything** — if it writes a CSS transform on the same element you'd target with a second Framer `repeat: Infinity` animation, the two will fight over the same `transform` property and one will silently win each render. Prefer: tune `useSpaceFloat`'s existing `radius`/`rotate` params (or add an optional bounded-mode param to the hook) over layering a second independent animation system on the same div.
@@ -80,13 +111,16 @@ User confirmed: **keep cycling through all projects** (the live behavior). The "
 
 ## Files to modify
 
+> **2026-09-05 root-cause finding:** user reported "no effect at all on scroll" after running the background-sequence prompt. Verified against the live repo: `ObsidianBackgroundCanvas.tsx`'s `projects-edge` mode (camera warp/settled/hyperspace-exit, pass-planets, streaks, glow) is fully built and correct — manually dispatching `background:mode` events proves it works. The actual bug: **`src/lib/gsap/projects-pin.ts` was never created.** Nothing dispatches these events on real scroll, and no ScrollTrigger pin exists for `#projects` at all yet (confirmed: `grep -rn ScrollTrigger src/components/three/ProjectsSlider.tsx` finds nothing; `Draggable`/`InertiaPlugin` are registered, `ScrollTrigger` is not). This isn't a bug to patch, it's the one piece of this file's own §1/§2 spec that was never run. As a genuinely minor, safe prerequisite fix (done directly, not via a Cursor prompt): extracted the event contract Cursor/Grok's canvas code was using as a private local type into `src/lib/background-mode.ts` (`BACKGROUND_MODE_EVENT`, `BackgroundModeDetail`, `ProjectsEdgePhase`, `dispatchBackgroundMode()`) — exactly the file this project's own design doc originally proposed and never built — so `projects-pin.ts` can import the exact contract instead of re-typing a string/shape that has to match by convention. `pnpm typecheck` and Biome both clean after this change; zero behavior change.
+
 | File | Action |
 |---|---|
-| `src/lib/gsap/projects-pin.ts` | NEW — pin + one-time emerge timeline, registers `ScrollTrigger` |
+| `src/lib/background-mode.ts` | **DONE** — shared `background:mode` event contract, extracted 2026-09-05. Import from here, do not re-type the event name or detail shape. |
+| `src/lib/gsap/projects-pin.ts` | **NOT YET BUILT — this is the actual missing piece.** Pin + one-time card emerge + `background:mode` dispatch, registers `ScrollTrigger` (already globally registered in `Providers.tsx` — do not re-register) |
 | `src/components/three/ProjectsSlider.tsx` | Wire pin-entry emerge on outer card wrappers; do not touch `slideVariants`, `Draggable`/`InertiaPlugin` setup, or `tetherActive` logic |
-| `src/components/PortfolioContent.tsx` | Pin trigger ref/id on the existing `#projects` section (no new wrapper component needed) |
+| `src/components/PortfolioContent.tsx` | `#projects` id already exists (confirmed, line 47) — no change needed here |
+| `src/components/three/ObsidianBackgroundCanvas.tsx` | **DONE** — `projects-edge` mode fully implemented and verified. Do not modify; only consume its event contract from `projects-pin.ts`. |
 | `src/hooks/use-space-float.ts` | Read first; extend only if needed for bounded auto-play drift |
-| `globals.css` | New edge-pulse keyframes (no existing class to collide with) |
 
 ## Do NOT
 
@@ -96,6 +130,9 @@ User confirmed: **keep cycling through all projects** (the live behavior). The "
 - Do not cap or otherwise change auto-play's index range — confirmed to keep cycling all projects (§5, resolved).
 - Do not add a new animation dependency — `ScrollTrigger` ships inside the already-installed `gsap` package.
 - Do not touch `orby:navigate` chat-nav slug handling.
+- Do not mount a second Three.js/R3F canvas for the background sequence in §3 — it's a new mode on the existing `ObsidianBackgroundCanvas.tsx`, not a separate scene.
+- Do not touch the hero click-scatter mechanism (`formationActive`, `pScatter`, `FORM_CLICK_*` constants) or the About-pin `about-pin` mode while building `projects-edge` — these are separate modes on the same file; keep them cleanly branched, don't let one mode's state leak into another's.
+- Do not build the simple CSS gradient-pulse edge effect this section originally described — it's superseded by §3's sequence.
 
 ## Visual reference
 
@@ -112,11 +149,13 @@ User confirmed: **keep cycling through all projects** (the live behavior). The "
 
 - [ ] Section pins on scroll entry
 - [ ] Cards emerge once on pin-entry without disturbing per-index slide transitions
-- [ ] Edge effect loops during auto-play
+- [ ] Entering the pin: background reads as flying outward through space, planets/spheres briefly pass by, motion stops right as cards finish emerging
+- [ ] Settled state: a bright central glowing object + thousands of stars fills the backdrop for the rest of the pin, motivating light on the front card
+- [ ] Leaving the pin (scrolling past): a fast, accelerating zoom toward one star, streaking into "shooting stars," ending framed close on one large bright star with the remaining stars at the screen edges
 - [ ] Auto-play still cycles through all projects (confirmed, unchanged) — side-card drift stays always-on as it is today
 - [ ] Drag-to-swipe, keyboard arrows, dot nav, and chat-nav slug jump all still work exactly as before
-- [ ] `prefers-reduced-motion`: no pin animation, no edge pulse, existing static/no-autoplay fallback unchanged
-- [ ] `pnpm typecheck && pnpm lint` pass
+- [ ] `prefers-reduced-motion`: no pin animation, no warp/flythrough/streak sequence — cards appear statically over the existing resting background
+- [ ] `pnpm typecheck && pnpm lint` pass; frame rate holds on mobile (`useIsMobile` point-count reduction still applies to any new geometry)
 
 ## Implementation prompt
 
@@ -155,6 +194,47 @@ VERIFY before reporting done, and state the result of each explicitly:
 Run pnpm typecheck && pnpm lint and paste the output. Do not deploy, do not commit.
 ```
 
+### Implementation prompt — Background Sequence (§3, separate session from card emerge)
+
+> This is a materially bigger, more novel piece of work than the card-emerge prompt above — new camera behavior, new transient geometry, and a new rendering technique (streaks) inside a 1,296-line file that currently has zero of those. Run it as its own session, not bundled with §1/§2.
+
+```
+Read ui-fix-04-projects-section.md §3 ("Background sequence — solar-system flythrough → starfield → hyperspace exit") in full before writing any code. This is a new, previously-undocumented spec — do not look for it anywhere else, and do not confuse it with the old "CSS gradient edge-pulse" idea, which it explicitly supersedes.
+
+CONTEXT: src/components/three/ObsidianBackgroundCanvas.tsx is a single, always-mounted, fixed-position R3F canvas (~1,300 lines) already handling: a fibonacci-sphere particle "planet," a tilted-ring particle system, a 5,500/2,750-point starfield (createStars, mobile-reduced via useIsMobile), scroll-driven camera dolly (CAM_START→CAM_END, lerped by scroll progress), a magnetic cursor dent, and a click-triggered "formation" scatter/reassemble sequence (formationActive branch) that already demonstrates this file's pattern for a mode that temporarily takes over the per-point physics loop and the camera. You are adding a FOURTH mode to this same file — do not create a second canvas or a second Three.js scene.
+
+STEP 0 — before writing the full implementation, write a short comment block (10-20 lines) at the top of your diff describing your concrete plan: what new refs/state you're adding, how the camera-override branch will parallel the existing formationActive pattern without fighting it, which existing geometry you're reusing for the starfield vs. what's new (the "passing planets" and the streak lines), and how the three beats (warp-out / settled / hyperspace-exit) will be sequenced and gated by prefers-reduced-motion. This is a novel enough feature that a wrong architectural guess costs more than a few minutes of planning up front.
+
+TASK — implement the three-beat sequence exactly as specced in §3:
+
+1. **Trigger plumbing:** Extend (or create, if it doesn't exist yet from other in-flight work) the `background:mode` CustomEvent listener in ObsidianBackgroundCanvas.tsx to handle `mode: 'projects-edge'` with a `phase` of `'warp-out' | 'settled' | 'hyperspace-exit'` and a `progress` (0-1) field for the scrubbed phases. This will be dispatched by the Projects GSAP ScrollTrigger (a separate task/file, src/lib/gsap/projects-pin.ts) — for THIS task, you can drive/test it by dispatching the CustomEvent manually from devtools or a temporary test button; do not build the ScrollTrigger dispatch side unless it already exists.
+
+2. **Beat 1 (warp-out, scrubbed 0→~0.35):** On progress driven by the incoming event, branch the camera update (parallel to, not fighting, the existing scroll-driven CAM_START/CAM_END lerp — look at how `formationActive` already diverts the per-point loop away from normal physics for the pattern to follow) into a fast forward-dolly motion. Spawn 4-8 simple spheres (plain `sphereGeometry` + `meshBasicMaterial`, varied size/color, no distort material needed) ahead of the camera's path, animate them past/behind it, and recycle (reposition ahead again, don't create/destroy every frame — this file is written zero-allocation-per-frame on purpose, follow that convention for any new per-frame code).
+
+3. **Beat 2 (settled, holds while phase === 'settled'):** Camera holds a fixed deep-space position. Reuse the existing starfield point cloud (extend/repurpose `createStars`'s output rather than generating a second star system) at increased brightness/visibility. Add ONE new bright object roughly centered — a glowing sprite or small emissive-looking sphere is fine, it does not need real PBR lighting, just needs to read as a light source (brighter facing side, e.g. via a simple gradient sprite texture or `MeshBasicMaterial` with a bright color, whichever is the smaller diff given what's already in the file — `createPointSprite` may already give you what you need).
+
+4. **Beat 3 (hyperspace-exit, one-shot ~1-2s on receiving `phase: 'hyperspace-exit'`, no `progress` driving it — run your own internal easing/timer):** Camera dollies rapidly toward the central bright object (or another star, your call — state which in your report) with an ease-in curve (slow start, fast finish). During the fast portion, draw per-star trailing line segments using the same `LineSegments` pattern already in this file (see `planetLinesRef`/`ringLinesRef` for the existing approach: a `BufferGeometry` with position pairs updated per frame) — segment endpoints are each star's previous-frame vs. current-frame position, opacity/length scaling with current camera speed. End framed close on the bright star with remaining stars visible only at the screen periphery.
+
+5. **prefers-reduced-motion:** this entire sequence (all three beats) must be a no-op — reuse the exact `reducedMotion` detection already in this file (grep for how it's checked elsewhere, e.g. the click listener) rather than adding a second check. Cards (built in the separate §1/§2 task) should still appear over whatever the file's normal resting background is.
+
+CONSTRAINTS:
+- Do not touch `formationActive`, `pScatter`, any `FORM_CLICK_*`/`FORM_MOUNT_*` constant, or the click-scatter mechanism from ui-fix-01 — build `projects-edge` as a cleanly separate branch, not by extending or reusing that state.
+- Do not touch the magnetic cursor dent, the scroll-driven `stretchT` physics, or the ring particle system except where Beat 1/3's camera override needs to temporarily suspend the normal camera lerp (suspend cleanly, restore cleanly when the sequence ends — do not leave the camera stuck in a warp position if the user scrolls back up mid-sequence).
+- No new npm dependencies — everything here (spheres, line segments, sprites) is buildable with primitives already imported in this file (`three`, `@react-three/fiber`, `@react-three/drei` if already imported).
+- No new per-frame heap allocations — this file's existing code reuses typed arrays and scratch variables throughout; match that discipline for anything new.
+- Respect the existing mobile point-count reduction pattern (`useIsMobile`) for any new geometry (fewer passing-planets, fewer/no streak segments on mobile if frame time is a concern).
+
+VERIFY before reporting done, and state the result of each explicitly:
+(a) Dispatching a test `projects-edge` / `warp-out` event with increasing progress visibly moves the camera forward with planets passing by, without fighting or permanently breaking the normal scroll-driven camera path afterward.
+(b) The `settled` phase shows a clearly brighter central object plus a dense starfield, stable (no jitter) for as long as the phase persists.
+(c) Dispatching `hyperspace-exit` produces a visibly accelerating zoom that becomes streaky, ending on a close framing of one bright star with stars at the periphery — total duration in the 1-2s range.
+(d) Scrolling back to a normal, non-`projects-edge` state afterward returns the camera and starfield to their exact prior normal-mode appearance — no leftover offset, stuck state, or visual artifact.
+(e) prefers-reduced-motion: none of this fires; background stays in its normal resting state.
+(f) Frame rate: describe (numerically if you can measure it, qualitatively if not) whether this holds acceptable frame time on a throttled/mobile profile with the new geometry active.
+Run pnpm typecheck && pnpm lint and paste the output. Do not deploy, do not commit.
+
+If your Step 0 plan reveals this needs a bigger architectural change than "a fourth mode branch" (e.g. you find the existing camera-update code structurally cannot be branched this way without a larger refactor), stop after Step 0 and report that finding rather than forcing an awkward implementation on top of a plan you already know is wrong.
+```
 ## Dependencies
 
 - Task 3.0 GSAP research (reuse ScrollTrigger patterns from About, once that exists)

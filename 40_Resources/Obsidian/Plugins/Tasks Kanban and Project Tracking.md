@@ -2,7 +2,7 @@
 type: evergreen
 status: sprout
 created: 2026-05-15
-updated: 2026-05-15
+updated: 2026-09-19
 tags:
   - evergreen
   - system
@@ -153,6 +153,8 @@ short mode
 
 Use Dataview task queries when a dashboard is mostly about page metadata and only needs a simple open-task list.
 
+**Decision (2026-09-19): `00_Dashboard`'s "Today's Priorities" block stays Dataview `TASK`, not a Tasks query — checked against the actual block, not just the tracker's abstract question.** Its filter is `FROM "10_Areas/Life/Enumerate/Daily" WHERE file.day = date(today) AND !completed` — `file.day` is a Dataview-computed property of the daily note itself (which day this page is), not a property of the task line. Tasks' query language filters on task-line emoji metadata (`📅`, `⏳`, recurrence, priority) and `path`/`heading` text matching; it has no equivalent to "the page this task lives on has `file.day` equal to today," so switching this block to a `tasks` query would mean approximating a page-metadata filter with a path-string match against today's daily-note filename — more fragile than the property comparison Dataview already does directly. Tasks queries are still the right tool for date/priority/recurrence-heavy views elsewhere in Jarvis (the two examples above); this specific block is metadata-driven, so it keeps the tool built for metadata.
+
 ## Kanban Boundaries
 
 Current Kanban settings:
@@ -238,11 +240,15 @@ When adding work to Jarvis:
 ## Verified Open State
 - Preferred priority scale for coursework vs projects (which of `🔺/⏫/🔼/🔽/⏬` maps to what)? — *unresolved; pick a convention before scaling Tasks usage*
 - Canonical lane names for future project boards (the doc offers four templates; none is yet declared the default)? — *needs user choice*
-- Should `00_Dashboard`'s open-task block migrate from a Dataview `TASK` query to a native `tasks` query for emoji-date accuracy? — *open; both work, Tasks is more date-aware*
+- ~~Should `00_Dashboard`'s open-task block migrate from a Dataview `TASK` query to a native `tasks` query for emoji-date accuracy?~~ — *resolved 2026-09-19: no, see decision above. Its filter is page-metadata (`file.day`), which Dataview handles directly and Tasks cannot.*
+## Suggestions
+- **The priority scale and lane-name questions are both already tracked in [[Plugin Gaps Recommendations and Verification]]** — do not re-decide them here. **On WIP caps: checked the Kanban plugin's own README and publish docs directly and could not confirm a per-lane card-limit feature exists either way** — neither source documents one. Don't assume the feature is there and plan around it; if a hard forcing-function against overcommitment is actually wanted, the honest options are checking the in-app settings directly or accepting that lane discipline has to be a habit, not an enforced limit. Not worth further doc research — this needs a live check, not more citation-hunting.
+- **Adding one real recurring-task example: worth it, five-minute fix.** `🔁` is real, documented syntax the Tasks plugin supports, but it's currently a row in a table with no worked example — for a UMN student with genuinely recurring obligations (weekly review, recurring habit tracking), seeing `- [ ] Weekly review 🔁 every week 📅 2026-09-26` once is what turns "this exists" into "I know how to write it."
+- **Clarifying `next:` + task lines can coexist: worth one sentence, prevents a real misreading.** As written, "pick one canonical current move" could plausibly be read as "an active project note should have no task lines, only `next:`," which isn't what the rest of this doc actually means (the Integration Map already treats them as complementary — one thing now, a queue behind it). One sentence removes the ambiguity instead of relying on a careful reader connecting two sections.
 ## Sources
 
 - [Tasks User Guide - Task formats](https://publish.obsidian.md/tasks/Reference/Task+Formats/About+Task+Formats)
 - [Tasks User Guide](https://publish.obsidian.md/tasks/)
 - [Kanban README](https://github.com/obsidian-community/obsidian-kanban)
-- [Kanban Publish docs](https://publish.obsidian.md/kanban/)
+- [Kanban Publish docs](https://publish.obsidian.md/kanban/) — checked directly for WIP/lane-limit support, not confirmed either way, fetched 2026-09-19
 - [[40_Resources/Obsidian/Data View's/Tasks Plugin - Review and check your Statuses 2025-12-20 18-37-12]]

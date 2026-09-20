@@ -208,3 +208,16 @@ Repos decided against, reasoned per entry — either genuinely not useful, or fu
 - [[40_Resources/CS/Links]] — general CS links
 - [[40_Resources/CS/AI/]] — AI-specific concept notes
 - `60_Claude/10_Source_Summaries/Github Ingestion/` — individual repo deep-dives
+# Real usage notes (added 2026-09-05, second-brain-claudekit Round 10)
+
+Cross-links to real "how Anant actually uses this now" notes, added alongside (not replacing) each repo's existing `→` deep-dive link above — these document actual install state, real commands, and current workflow use, written after the tool was actually run through `second-brain-claudekit`'s pipeline. Not added inline on each bullet above to avoid touching this file's dense, CRLF-formatted per-repo lines by partial-string edit; listed here instead, same `→` convention:
+
+- **GBrain** (line 85 above) → also [[40_Resources/CS/AI/GBrain and gstack]]
+- **gstack** (line 20 above) → also [[40_Resources/CS/AI/GBrain and gstack]]
+- **Skills (mattpocock)** (line 21 above) → also [[40_Resources/CS/AI/Mattpocock Engineering Skills]]
+- **ECC** (line 19 above) → also [[40_Resources/CS/AI/ECC - Everything Claude Code]]
+- **Spec Kit** (line 31 above) → also [[40_Resources/CS/AI/Spec Kit]]
+- **Claude Context** (line 38 above) → also [[40_Resources/CS/AI/Claude Context (Zilliz)]]
+- **Promptfoo** (line 60 above) → also [[40_Resources/CS/AI/Promptfoo]]
+- **Claude Skills LLM Council / LLM Council** (lines 26, 82 above) → also [[40_Resources/CS/AI/LLM Council Skill]] (the live skill these were compared against and dropped in favor of)
+- **CPR (Compress/Preserve/Resume)** — no entry exists on this page for it (confirmed by direct search, 2026-09-05); it only appears in [[Useful Repos - Shortlist]], now retired — see [[40_Resources/CS/AI/CPR - Compress Preserve Resume]] for its real usage note directly.

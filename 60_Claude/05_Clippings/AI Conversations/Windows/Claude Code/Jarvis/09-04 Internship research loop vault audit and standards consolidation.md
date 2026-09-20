@@ -5,39 +5,40 @@ source_app: claude-code
 source_os: windows
 title: "Internship research loop vault audit and standards consolidation"
 started_at: 2026-09-04T18:01:31
-ended_at: 2026-09-05T01:29:58
-exported_at: 2026-09-05T11:00:03
-duration_minutes: 448.5
+ended_at: 2026-09-05T12:32:29
+exported_at: 2026-09-05T17:30:24
+duration_minutes: 1111
 project: Jarvis
 cwd: 'D:\Users\_Anant\10_Areas\Documents\Jarvis'
 session_id: d924b0b1-5105-4f87-b8f4-6050f926a208
 status: raw
-turn_count: 8
+turn_count: 14
 tools_used:
-  AskUserQuestion: 1
-  Bash: 10
-  Edit: 43
-  Glob: 20
-  Grep: 25
-  PowerShell: 55
-  Read: 67
+  AskUserQuestion: 2
+  Bash: 13
+  Edit: 49
+  Glob: 28
+  Grep: 27
+  PowerShell: 58
+  Read: 80
   Skill: 2
   ToolSearch: 1
-  WebFetch: 6
-  Write: 28
+  WebFetch: 9
+  Write: 29
 tokens:
-  input: 774
-  output: 653222
-  cache_creation: 3446535
-  cache_read: 121314999
-  total: 125415530
-cost_usd: 44.582908
+  input: 916
+  output: 793108
+  cache_creation: 5872667
+  cache_read: 162978624
+  total: 169645315
+cost_usd: 64.019305
 model:
   - "claude-sonnet-5"
 files_touched:
   - "C:\\Users\\Anant Gupta\\.claude\\projects\\D--Users--Anant-10-Areas-Documents-Jarvis\\d924b0b1-5105-4f87-b8f4-6050f926a208\\tool-results\\bn9o5xyew.txt"
   - "C:\\Users\\Anant Gupta\\.claude\\projects\\D--Users--Anant-10-Areas-Documents-Jarvis\\d924b0b1-5105-4f87-b8f4-6050f926a208\\tool-results\\repo-claude-md.txt"
   - "C:\\Users\\Anant Gupta\\.claude\\projects\\D--Users--Anant-10-Areas-Documents-Jarvis\\d924b0b1-5105-4f87-b8f4-6050f926a208\\tool-results\\repo-rules.txt"
+  - "C:\\Users\\Anant Gupta\\.claude\\projects\\D--Users--Anant-10-Areas-Documents-Jarvis\\d924b0b1-5105-4f87-b8f4-6050f926a208\\tool-results\\toolu_017L1wmR7MzGZBetuXWJJTL7.txt"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\.claude\\agents\\daily-operator.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\.claude\\agents\\human-operator.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\.claude\\agents\\ingestion.md"
@@ -115,9 +116,15 @@ files_touched:
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\30_Order\\Workflows\\Internship\\Internship Pipeline.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\30_Order\\Workflows\\Internship\\Internship Review System.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\30_Order\\Workflows\\Internship\\Internship Tracking Workflow.md"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Repos.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\60_Claude\\05_Clippings\\AI Conversations\\Windows\\Claude Code\\Jarvis\\09-04 Internship research loop vault audit and standards consolidation.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\60_Claude\\07_AI_Information\\Jarvis OS — North Star.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\60_Claude\\07_AI_Information\\Session Logs\\log.md"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\60_Claude\\10_Source_Summaries\\Github Ingestion\\Claude Kit Implementation.md"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\60_Claude\\10_Source_Summaries\\Github Ingestion\\How Anant Uses Each Repo.md"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\60_Claude\\10_Source_Summaries\\Github Ingestion\\Useful Repos - Shortlist.md"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\60_Claude\\20_Distilled_Notes\\Sources - Plan\\_Notes Created From Ingestion.md"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\60_Claude\\20_Distilled_Notes\\Sources - Plan\\GitHub Ingestion Implementation.md"
 tags:
   - input
   - ai-conversation
@@ -2558,6 +2565,459 @@ For anything genuinely new found in `sandbox/` beyond the 32 already tracked (re
 **Round 8, 2026-08-21 — fresh session.**
 ```
 
+## You
+
+```Everything's committed and logged. Full status:
+
+Done and verified this round:
+- 7 agent files live in Jarvis's real .claude/agents/ (6 written fresh from your descriptions + learning-agent merged: its existing spaced-repetition drilling is now "Mode A," your Jarvis-only topic-research description is new "Mode B," never-web enforced structurally by leaving WebFetch/WebSearch off its tool list).
+- Jarvis's own CLAUDE.md agent table updated to list all 7 — it only listed 4 before, which is exactly why the 6 were unrecoverable from context in the first place.
+- internship-research-loop fully onboarded: manifest entry, real sync run, Setup.md, MOC.md updated, this repo's 4 staging folders populated.
+- hooks/Jarvis/ gap closed — real cause was a missing manifest path, not a missing bucket; the 3 hooks actually live at 30_Order/System/claude-workflow/hooks/, not .claude/hooks/.
+- Cross-checked all 11 manifest entries — every real source category is now staged in this repo; the only gaps (Windows agents/commands/hooks, Resq/OpsPilot agents/commands/hooks) are confirmed real absences, not sync bugs.
+- Both home syncs (WSL, Windows) verified mechanically healthy — 15-min scheduled task running clean on both. Windows isn't broken, it's just empty.
+- ecc deliberately left out of the manifest per your call — stays in the sandbox pipeline.
+- Logged as a dated entry in Jarvis's Claude Kit/Log.md, matching the existing density/citation style.
+- research-distiller checked against your description — already matches, no changes needed.
+- Your note about new folders appearing in the home directories going forward: no action needed on the manifest itself — sync-all.sh already auto-picks up new content in any existing agents/commands/hooks/skills folder under a home's .claude/. Only a genuinely new category name (not one of those four) would need a manifest/script change.
+
+Not done — two substantial pieces still open from your message:
+1. Actually populating Windows's .claude/ with real content (agents/commands/hooks currently don't exist there at all).
+2. "Identify the most useful content from sandbox for Jarvis — test it and implement it correctly" — this is real, per-tool qualification work (same weight as onboarding internship-research-loop), not something to fold in as an afterthought.
+
+Given both are substantial, want me to pick one and start now, or do you want to direct which sandbox tools specifically?
+
+✻ Churned for 19m 59s · done 11:20 AM
+
+※ recap: We're building out second-brain-claudekit's Jarvis integration; just finished onboarding internship-research-loop and filling in Jarvis's 7 agent files. Next: decide whether to populate Windows's empty .claude folde```. Prompt 9 returned this output and the first suggestion to lay out everything from the widnowsand other repos was decided to take place first. The process is still running and writingalot of notes onto this codebase and jarvis. What I am aiming to acheive at the end of the session is to be ready to be able to ingest the sandbox for jarvis and the home directories. But now in a different session - home direcotry for the windos session -you are going to start laying out the base required for claude code to be a complete master at it's task. Completely human responses, complete set of rules, clear agents.md, ckaude.md, memory.md, how jarvis is the main point for the entire laptop actually. We are using jarvis for literally each and everything so we need the windows hoem directory to make the job really easy for any sort of plugin, skills, etc. in the future to usejarvis since there are global instructions set for it right there. This is just one of the things that need tobe done, create a folder for context that will hold these notes and a memory.md which global. We talk about a lot of things in the home directory, establish global skills that will be sued everywhere. The skills, agents, commands, sub agents, hooks and mcps will be laid out perfectly in this session that we will be writing the prompt to. That's the end of the goal for the session. How exactly is this going to take place? There are tons of things that are already planned out to be listed globally inside claudekit which we ill be starting on soon. But before we do any of it. I want to first lay out the perfect base for these crucial ande important notes to exist. There is no shortcut for this and the manner to create everything will be discussed later on further detail. But for now we are focused on creating the base - blank notes, empty folders, new skill folders, new agent docs, new context, new instruction providingdocuments for the claude home directory based off the official anthropic docs. Make sure that this information is coming off directly from the right source. Do not make mistakes with this task, this a very sensitive task that takes place upon clear instructions provided in the prompt. We will beworking in the home direcotry so each and everything that is changed is going to be mentioned to me.
+
+## Claude
+
+The prompt is written into `Claude Kit/Claude Code/Prompts.md` under a new "Windows Home Directory" section. Here's what grounds it and what it asks for.
+
+## Two real corrections I caught before writing anything
+Fetched the current official docs (memory, MCP, settings) rather than trust assumption, since you were explicit about this being sensitive:
+
+1. **Claude Code does not read `AGENTS.md`.** The actual mechanism is `CLAUDE.md` importing it with `@AGENTS.md` — and Windows can't use the symlink alternative (needs Admin/Developer Mode), so the import syntax is the only real option here. Building a standalone global AGENTS.md and expecting it to load on its own would have been silently broken.
+2. **`context/` isn't an auto-loaded folder name.** Only `CLAUDE.md`, `CLAUDE.local.md`, and `.claude/rules/*.md` load automatically. A `context/MEMORY.md` (the pattern Jarvis's own `.claude/` already uses) only actually loads if `CLAUDE.md` explicitly `@`-imports it — otherwise it just sits on disk, inert. I flagged this as something to also spot-check against Jarvis's own CLAUDE.md, since it's plausible the same mistake already exists there.
+
+Also surfaced: official "auto memory" is a real, separate, Claude-authored system (`~/.claude/projects/<project>/memory/`) — not the same thing as the hand-authored global `MEMORY.md` you're asking for, and the prompt says explicitly not to conflate them. And Windows already has a real `~/.claude.json` (68KB) *plus* a home-root `.mcp.json` and an env-substitution scaffold that predates this task — the prompt tells the session to reconcile which one is actually live before touching either, never to print either file's contents.
+
+## What the prompt actually asks for
+Scaffolding only, per your instruction — blank/near-empty files in the *correct*, *correctly-wired* shape, not full content. Ordered skills → hooks → agents+commands as you specified, with an explicit inventory step first (re-verify the current bare state directly, don't trust the prompt's numbers), then CLAUDE.md (keep the existing em-dash rule, add a placeholder "Jarvis is the machine's hub" section marked explicitly as a stub, wire the AGENTS.md import), then context/+rules/, then agent/command stub pairs (only for whatever you name when asked — it doesn't invent skills or agents itself), then the MCP diagnosis task. It closes with a hard requirement to report every single file touched, per your instruction.
+
+Not started or executed by me — this is the prompt only, ready to paste into a fresh session cwd'd at `C:\Users\Anant Gupta`.
+
+### Tool Calls
+
+- `WebFetch` -- `{"url":"https://code.claude.com/docs/en/memory","prompt":"Describe the full official memory/CLAUDE.md system: the file hierarchy (enterprise, project, user/global, local), exact file paths for each level on Windows and WSL/Linux, whether AGENTS.md is supported as an alternative/additional file, import syntax (@path), and the /memory command. Be precise about the exact global (user-level) file path."}`
+- `WebFetch` -- `{"url":"https://code.claude.com/docs/en/mcp","prompt":"Describe exactly where MCP server configuration lives for Claude Code: project-scoped .mcp.json, user/global scope, and local scope. What is the exact file path and JSON shape for a USER-level (global, all-projects) MCP server config? Is it ~/.claude.json, ~/.claude/mcp.json, or something else?"}`
+- `WebFetch` -- `{"url":"https://code.claude.com/docs/en/settings","prompt":"Describe the full settings.json hierarchy and precedence (enterprise managed policy, command line args, local project settings, shared project settings, user/global settings) with exact file paths for each on Windows and Linux/WSL. List every top-level settings key that\u0027s officially documented (model, permissions, hooks, env, statusLine, outputStyle, etc.)."}`
+- `Read` -- `C:\Users\Anant Gupta\.claude\projects\D--Users--Anant-10-Areas-Documents-Jarvis\d924b0b1-5105-4f87-b8f4-6050f926a208\tool-results\toolu_017L1wmR7MzGZBetuXWJJTL7.txt`
+- `Grep` -- pattern `^\| `|^## |statusLine|outputStyle|permissions\.|^\* \*\*`` path `C:\Users\Anant Gupta\.claude\projects\D--Users--Anant-10-Areas-Documents-Jarvis\d924b0b1-5105-4f87-b8f4-6050f926a208\tool-results\toolu_017L1wmR7MzGZBetuXWJJTL7.txt`
+- `PowerShell` -- `{"command":"Test-Path \"$env:USERPROFILE\\.claude.json\"\nif (Test-Path \"$env:USERPROFILE\\.claude.json\") { (Get-Item \"$env:USERPROFILE\\.claude.json\").Length }\nWrite-Output \"---rules---\"\nTest-Path \"$env:USERPROFILE\\.claude\\rules\"\nWrite-Output \"---context---\"\nTest-Path \"$env:USERPROFILE\\.claude\\context\"\nWrite-Output \"---CLAUDE.md content---\"\nGet-Content \"$env:USERPROFILE\\.claude\\CLAUDE.md\" -Raw\nWrite-Output \"---mcp related files at home root---\"\nGet-ChildItem \"$env:USERPROFILE\" -Filter \"*.mcp*\" -File -ErrorAction SilentlyContinue\nGet-ChildItem \"$env:USERPROFILE\" -Filter \".mcp.json\" -Force -ErrorAction SilentlyContinue","description":"Check Windows home for .claude.json, rules/, context/, CLAUDE.md content, mcp config"}`
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\Projects\AI Use\Claude Kit\Claude Code\Prompts.md`
+- `Bash` -- `wc -l "/d/Users/_Anant/10_Areas/Documents/Jarvis/20_Progress/Projects/AI Use/Claude Kit/Claude Code/Prompts.md"`
+```
+242 /d/Users/_Anant/10_Areas/Documents/Jarvis/20_Progress/Projects/AI Use/Claude Kit/Claude Code/Prompts.md
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\Projects\AI Use\Claude Kit\Claude Code\Prompts.md`
+```diff
+- next: "Round 9, 2026-09-05 — the first real 'third hop' attempt: staged/mirrored content actually promoted into real .claude/ config, across Jarvis, both global homes, and a brand-new internship-research-loop manifest entry. After this: whatever the session's own report names as the real next gap — don't pre-guess it here."
++ next: "Windows Home Directory round, 2026-09-05 — base scaffolding only (blank files/folders, correctly wired per official docs), for ~/.claude on Windows. Content comes later, in a separate round, per explicit instruction. After this: same base-layout treatment is owed to the WSL home (already populated but never audited against the same official-docs checklist) and to claudekit's own .claude/."
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\Projects\AI Use\Claude Kit\Claude Code\Prompts.md`
+```diff
+- 4. Before writing anything, show the full set of changes as a diff-style summary (file, before, after) and stop for explicit confirmation. This touches global config every project inherits, plus live credentials -- apply nothing until confirmed.
+2. After applying, once confirmed correct, run the plan's own named final-state checks (e.g. the MCP secret grep, any "should hold N files" sanity check), then delete both `_global-config-plan.md` files -- they're scratch artifacts, not something that should linger in `.claude/`.
+</phase-2-execute>
+
+<constraints>
+- Never modify anything inside ~/projects/ except the one named CLAUDE.md append the plan specifies.
+- Never print, log, or write any MCP config file's secret values anywhere, even partially -- not in chat, not in the plan file, not in a commit.
+- Don't touch any firecrawl-* symlink.
+- If phase 1 finds the plan's core approach is wrong in a way that's more than a fact-level correction (a verdict's whole premise no longer holds, not just a stale detail), stop and report that instead of forcing an execution -- that's a re-plan, not a correction.
+</constraints>
+```
++ 4. Before writing anything, show the full set of changes as a diff-style summary (file, before, after) and stop for explicit confirmation. This touches global config every project inherits, plus live credentials -- apply nothing until confirmed.
+2. After applying, once confirmed correct, run the plan's own named final-state checks (e.g. the MCP secret grep, any "should hold N files" sanity check), then delete both `_global-config-plan.md` files -- they're scratch artifacts, not something that should linger in `.claude/`.
+</phase-2-execute>
+
+<constraints>
+- Never modify anything inside ~/projects/ except the one named CLAUDE.md append the plan specifies.
+- Never print, log, or write any MCP config file's secret values anywhere, even partially -- not in chat, not in the plan file, not in a commit.
+- Don't touch any firecrawl-* symlink.
+- If phase 1 finds the plan's core approach is wrong in a way that's more than a fact-level correction (a verdict's whole premise no longer holds, not just a stale detail), stop and report that instead of forcing an execution -- that's a re-plan, not a correction.
+</constraints>
+```
+
+# Windows Home Directory — base layout, official-docs-verified
+
+**2026-09-05 — scaffolding only, content later, by explicit instruction.** The 2026-08-22 Cursor/Grok+Sonnet round above targeted the same two home directories but never confirmed as executed — this Windows home directory (`C:\Users\Anant Gupta\`) is still genuinely thin, re-verified directly today: `.claude\CLAUDE.md` exists but is 3 lines (one writing-style rule only), `.claude\agents\`/`.claude\commands\`/`.claude\hooks\` are all empty, `.claude\rules\` and `.claude\context\` don't exist at all, and `.claude\skills\` has exactly one real folder (`export-ai-session`) plus ~30 firecrawl-* plugin skills untouched by this pipeline. **This round's job is the base only** — blank/near-empty files and folders, in the *correct* shape and *correctly wired* per Anthropic's own current docs, not full content. A later round writes the real content once the base is confirmed right. Anant's own words: "there is no shortcut for this."
+
+**Why this needs official-docs verification, not assumption**: this is the global config every future project, plugin, and skill on this machine inherits — a wrong assumption here (e.g. treating a folder name as auto-loaded when it isn't) creates scaffolding that looks right on disk but silently does nothing. Two corrections already caught by checking the live docs before writing this prompt, stated here so the session executing it doesn't have to re-derive them:
+1. **Claude Code does not read `AGENTS.md` directly — confirmed, current docs.** "Claude Code reads CLAUDE.md, not AGENTS.md." If an AGENTS.md-equivalent file is wanted, `CLAUDE.md` must explicitly import it with `@AGENTS.md` syntax (a symlink also works on Linux/WSL, but **Windows symlinks need Administrator privileges or Developer Mode, so use the `@` import, not a symlink**, on this machine).
+2. **`context/` is not an officially-recognized auto-loaded folder name.** Only `CLAUDE.md`, `CLAUDE.local.md`, and `.claude/rules/*.md` load automatically at session start. A `.claude/context/` folder (the pattern Jarvis's own `.claude/` already uses, with `workspace-context.md` and `MEMORY.md`) only actually loads if something explicitly `@`-imports each file from `CLAUDE.md` — creating the folder without wiring the import makes it inert, present on disk but never read. **Do not repeat this mistake here** — actually check, while doing this, whether Jarvis's own `CLAUDE.md` imports its `context/` files with `@` syntax or only mentions them in prose (Obsidian `[[wikilink]]` style, which Claude Code's import mechanism does not recognize) — if Jarvis's own version is inert, that's worth flagging back, not fixing from here (out of scope for a Windows-home-directory session).
+3. **Official built-in "auto memory" is a separate, different thing from a hand-authored `context/MEMORY.md`.** Real auto memory is Claude-authored automatically, stored per-project at `~/.claude/projects/<project>/memory/MEMORY.md` + topic files — nothing to scaffold by hand for that system; it already exists per-project once any project is used. A hand-authored `context/MEMORY.md` (the Jarvis-style convention Anant is asking for here — a global, human-and-Claude-jointly-maintained reference note, not the official auto-memory index) is a *custom* pattern this vault already uses, not an Anthropic-documented mechanism. Build it as the custom convention it is, wired via `@` import so it actually loads, and don't describe it as "the memory system" without that distinction — conflating the two is exactly the kind of mistake this task can't afford.
+4. **MCP config's real location, confirmed**: user-scope (global, all projects) servers live in the top-level `mcpServers` key of `~/.claude.json` (**not** `~/.claude/mcp.json` — that path doesn't exist per the docs); project-local scope lives in the same `~/.claude.json`, nested under `projects."<path>".mcpServers`. Windows already has a real `C:\Users\Anant Gupta\.claude.json` (68,657 bytes, confirmed present, **never read its contents in this task — inspect only via targeted, secret-safe checks like `claude mcp list`, never a raw file dump**) — but *also* has a home-root `.mcp.json` (612 bytes) plus a `.mcp.env`/`.mcp-env-apply.ps1`/`.mcp-env-exec.ps1` secret-substitution scaffold, none of which is the documented global mechanism (`.mcp.json` is a *project*-scope convention meant to sit at a project root, not a home directory). Reconcile which of these is actually live and read by Claude Code before assuming either is authoritative — don't delete or restructure any of them without confirming first, since real secrets may already be routed through one.
+
+Paste into a fresh Claude Code session, cwd = `C:\Users\Anant Gupta`, `high` effort. This is Windows home directory work — every single file or folder created, moved, or edited must be reported, per Anant's explicit instruction; this is not a summarize-the-highlights task.
+
+```
+You're working directly in the Windows global Claude Code home directory (C:\Users\Anant Gupta), not inside any project. This is sensitive, global-blast-radius work: everything here is inherited by every project, plugin, and skill run on this machine from now on. Read the official docs yourself before writing anything — https://code.claude.com/docs/en/memory, https://code.claude.com/docs/en/skills, https://code.claude.com/docs/en/sub-agents, https://code.claude.com/docs/en/hooks, https://code.claude.com/docs/en/settings, https://code.claude.com/docs/en/mcp, https://code.claude.com/docs/en/settings-reference — and verify every claim in this prompt against them rather than trusting it silently. If you find this prompt states something the live docs now contradict, say so plainly and follow the docs, don't force this prompt's version through.
+
+<the-goal-of-this-round>
+Base layout only — blank or near-empty files and correctly-shaped empty folders, wired so they actually load per the official mechanisms, not full content. A separate, later round writes real content once this base is confirmed correct. Do not pre-write agent bodies, skill instructions, hook logic, or CLAUDE.md philosophy beyond a short placeholder heading — that is explicitly out of scope for this round.
+</the-goal-of-this-round>
+
+<already-verified-corrections-do-not-relitigate-these>
+1. Claude Code reads CLAUDE.md, not AGENTS.md. If Anant wants an AGENTS.md-equivalent, CLAUDE.md must `@AGENTS.md`-import it — Windows can't use the symlink alternative (needs Admin/Developer Mode), so the import syntax is the only real option here.
+2. `.claude/context/` is not auto-loaded. Anything placed there only loads if CLAUDE.md explicitly `@`-imports each file. Wire every file you create there, don't just create the folder.
+3. Official "auto memory" (`~/.claude/projects/<project>/memory/`) already exists automatically and is a different system from a hand-authored global `context/MEMORY.md`. Build the latter as the custom convention it is (matching Jarvis's own `.claude/context/MEMORY.md` pattern) and never conflate the two in anything you write.
+4. MCP global config's real location is `~/.claude.json`'s `mcpServers` key, not `.claude/mcp.json`. This machine also has a home-root `.mcp.json` plus an env-substitution scaffold (`.mcp.env`, `.mcp-env-apply.ps1`, `.mcp-env-exec.ps1`) — figure out which is actually live before touching either, and never print any of these files' raw contents (they may hold real credentials).
+</already-verified-corrections-do-not-relitigate-these>
+
+<procedure-order>
+Per Anant's standing instruction for how anything gets built in this whole effort: skills first, then hooks, then agents — and write each agent's matching command in the same pass as the agent. Apply that order to this round's scaffolding work too, even though everything here is a stub: create the skills/ scaffolding before hooks/, hooks/ before agents/, and pair every agent stub with a command stub.
+</procedure-order>
+
+<[REDACTED]>
+Before creating anything, list exactly what's already on disk under C:\Users\Anant Gupta\.claude\ and C:\Users\Anant Gupta\ directly (CLAUDE.md, agents/, commands/, hooks/, skills/, settings.json, settings.local.json, .claude.json, .mcp.json, .mcp.env*, .mcp-env-*.ps1) — full listing, not a summary from memory of this prompt. Confirm the specific facts this prompt states (CLAUDE.md's real current content, which folders are genuinely empty vs. don't exist, .claude.json's real size) and correct anything that's changed since 2026-09-05.
+</[REDACTED]>
+
+<task-2-claude-md>
+Rewrite C:\Users\Anant Gupta\.claude\CLAUDE.md to keep the existing em-dash rule (word for word — don't lose it) and add:
+- A short placeholder section (a heading and one or two sentences, not the full philosophy) establishing that the Jarvis vault (D:\Users\_Anant\10_Areas\Documents\Jarvis) is this machine's central knowledge base — Anant's own framing: "Jarvis is the main point for the entire laptop... we are using Jarvis for literally each and everything." State this as a placeholder to be expanded later, explicitly, in the file itself (e.g. an HTML comment or a "(expand this section — see Prompts.md's next round)" note) so it doesn't get mistaken for finished content.
+- An `@` import line for a to-be-created AGENTS.md (create an empty or near-empty `C:\Users\Anant Gupta\.claude\AGENTS.md` stub if one doesn't already exist, then `@AGENTS.md` import it from CLAUDE.md) — per the verified correction above, this is the only correct way to get AGENTS.md-shaped content actually loading on Windows.
+- `@` import lines for whatever you create under `context/` in Task 4, so that folder isn't inert.
+Keep the whole file under the docs' own 200-line guidance — this is a scaffold, it should be short.
+</task-2-claude-md>
+
+<task-3-skills>
+Create `C:\Users\Anant Gupta\.claude\skills\` scaffolding for whatever global (not project-specific) skills Anant names as wanted globally — do not invent skill ideas yourself this round; if none are named yet, create nothing here beyond confirming the existing `export-ai-session` folder is intact, and say so plainly rather than fabricating placeholder skills to look complete. Match the official shape exactly (SKILL.md with `name`+`description` frontmatter at minimum; `reference.md`/`examples.md`/`scripts/` only where a real need is already known, not speculatively).
+</task-3-skills>
+
+<[REDACTED]>
+1. Create `C:\Users\Anant Gupta\.claude\context\` and, inside it, a `MEMORY.md` stub (frontmatter matching Jarvis's own `context/MEMORY.md` shape if that file is real there — check it directly first) and confirm it's `@`-imported from CLAUDE.md per Task 2.
+2. Create `C:\Users\Anant Gupta\.claude\rules\` (doesn't exist yet) with one real, narrow rule file to start — not a restatement of CLAUDE.md, something genuinely rule-shaped (e.g. a Windows-path-conventions rule, or a pointer to Jarvis being the default target for anything vault-shaped). If nothing genuinely rule-shaped is ready to write yet, create the empty folder and say so rather than forcing content.
+3. Hooks: `C:\Users\Anant Gupta\.claude\hooks\` is currently empty. Per the procedure order, don't write real hook logic yet — but do confirm what `settings.json` would need to look like to register one later (read it now, report its current hook state, which per Task 1's finding is likely also empty), so the next round isn't starting from zero investigation.
+</[REDACTED]>
+
+<[REDACTED]>
+For each global agent Anant names as wanted (none pre-decided in this prompt — ask, don't invent), create the `agents/<name>.md` stub with real, correct frontmatter (`name`, `description` in "Use proactively for… MUST BE USED for…" form, `tools`, `model`) even if the body is a placeholder, and its matching `commands/<name>.md` stub in the same pass — per the procedure order, never an agent with no way to invoke it deliberately.
+</[REDACTED]>
+
+<[REDACTED]>
+Without printing any secret value: determine which MCP config mechanism is actually live on this machine — run `claude mcp list` (or the equivalent current CLI command; verify the real one from the docs) and compare against what `~/.claude.json`'s `mcpServers` key and the home-root `.mcp.json` each claim. Report which one Claude Code is actually reading from, and whether the `.mcp.env`/`.mcp-env-*.ps1` scaffold is wired to either. Do not restructure or delete anything here yet — this task is diagnosis, the fix is a later round once the real mechanism is confirmed.
+</[REDACTED]>
+
+<report-everything>
+Anant's explicit requirement: every single file or folder created, moved, or edited gets named in your final report, with a one-line reason for each — no "and a few other small tweaks." Structure the report by task number above. Name anything you could not do because it depended on Anant naming a preference (which skills, which agents, which rules) rather than silently skipping it.
+</report-everything>
+```
+
+```
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\Projects\AI Use\Claude Kit\Claude Code\Prompts.md`
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\Projects\AI Use\Claude Kit\Claude Code\Prompts.md`
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\Projects\AI Use\Claude Kit\Claude Code\Prompts.md`
+```diff
+- 3. Before writing anything, show the full set of changes as a diff-style summary (file, before, after) and stop for explicit confirmation. This touches global config every project inherits, plus live credentials -- apply nothing until confirmed.
+4. After applying, once confirmed correct, run the plan's own named final-state checks (e.g. the MCP secret grep, any "should hold N files" sanity check), then delete both `_global-config-plan.md` files -- they're scratch artifacts, not something that should linger in `.claude/`.
+</phase-2-execute>
+
+<constraints>
+- Never modify anything inside ~/projects/ except the one named CLAUDE.md append the plan specifies.
+- Never print, log, or write any MCP config file's secret values anywhere, even partially -- not in chat, not in the plan file, not in a commit.
+- Don't touch any firecrawl-* symlink.
+- If phase 1 finds the plan's core approach is wrong in a way that's more than a fact-level correction (a verdict's whole premise no longer holds, not just a stale detail), stop and report that instead of forcing an execution -- that's a re-plan, not a correction.
+</constraints>
+```
++ 3. Before writing anything, show the full set of changes as a diff-style summary (file, before, after) and stop for explicit confirmation. This touches global config every project inherits, plus live credentials -- apply nothing until confirmed.
+4. After applying, once confirmed correct, run the plan's own named final-state checks (e.g. the MCP secret grep, any "should hold N files" sanity check), then delete both `_global-config-plan.md` files -- they're scratch artifacts, not something that should linger in `.claude/`.
+</phase-2-execute>
+
+<constraints>
+- Never modify anything inside ~/projects/ except the one named CLAUDE.md append the plan specifies.
+- Never print, log, or write any MCP config file's secret values anywhere, even partially -- not in chat, not in the plan file, not in a commit.
+- Don't touch any firecrawl-* symlink.
+- If phase 1 finds the plan's core approach is wrong in a way that's more than a fact-level correction (a verdict's whole premise no longer holds, not just a stale detail), stop and report that instead of forcing an execution -- that's a re-plan, not a correction.
+</constraints>
+```
+
+# Windows Home Directory — base layout, official-docs-verified
+
+**2026-09-05 — scaffolding only, content later, by explicit instruction.** The 2026-08-22 Cursor/Grok+Sonnet round above targeted the same two home directories but never confirmed as executed — this Windows home directory (`C:\Users\Anant Gupta\`) is still genuinely thin, re-verified directly today: `.claude\CLAUDE.md` exists but is 3 lines (one writing-style rule only), `.claude\agents\`/`.claude\commands\`/`.claude\hooks\` are all empty, `.claude\rules\` and `.claude\context\` don't exist at all, and `.claude\skills\` has exactly one real folder (`export-ai-session`) plus ~30 firecrawl-* plugin skills untouched by this pipeline. **This round's job is the base only** — blank/near-empty files and folders, in the *correct* shape and *correctly wired* per Anthropic's own current docs, not full content. A later round writes the real content once the base is confirmed right. Anant's own words: "there is no shortcut for this."
+
+**Why this needs official-docs verification, not assumption**: this is the global config every future project, plugin, and skill on this machine inherits — a wrong assumption here (e.g. treating a folder name as auto-loaded when it isn't) creates scaffolding that looks right on disk but silently does nothing. Two corrections already caught by checking the live docs before writing this prompt, stated here so the session executing it doesn't have to re-derive them:
+1. **Claude Code does not read `AGENTS.md` directly — confirmed, current docs.** "Claude Code reads CLAUDE.md, not AGENTS.md." If an AGENTS.md-equivalent file is wanted, `CLAUDE.md` must explicitly import it with `@AGENTS.md` syntax (a symlink also works on Linux/WSL, but **Windows symlinks need Administrator privileges or Developer Mode, so use the `@` import, not a symlink**, on this machine).
+2. **`context/` is not an officially-recognized auto-loaded folder name.** Only `CLAUDE.md`, `CLAUDE.local.md`, and `.claude/rules/*.md` load automatically at session start. A `.claude/context/` folder (the pattern Jarvis's own `.claude/` already uses, with `workspace-context.md` and `MEMORY.md`) only actually loads if something explicitly `@`-imports each file from `CLAUDE.md` — creating the folder without wiring the import makes it inert, present on disk but never read. **Do not repeat this mistake here** — actually check, while doing this, whether Jarvis's own `CLAUDE.md` imports its `context/` files with `@` syntax or only mentions them in prose (Obsidian `[[wikilink]]` style, which Claude Code's import mechanism does not recognize) — if Jarvis's own version is inert, that's worth flagging back, not fixing from here (out of scope for a Windows-home-directory session).
+3. **Official built-in "auto memory" is a separate, different thing from a hand-authored `context/MEMORY.md`.** Real auto memory is Claude-authored automatically, stored per-project at `~/.claude/projects/<project>/memory/MEMORY.md` + topic files — nothing to scaffold by hand for that system; it already exists per-project once any project is used. A hand-authored `context/MEMORY.md` (the Jarvis-style convention Anant is asking for here — a global, human-and-Claude-jointly-maintained reference note, not the official auto-memory index) is a *custom* pattern this vault already uses, not an Anthropic-documented mechanism. Build it as the custom convention it is, wired via `@` import so it actually loads, and don't describe it as "the memory system" without that distinction — conflating the two is exactly the kind of mistake this task can't afford.
+4. **MCP config's real location, confirmed**: user-scope (global, all projects) servers live in the top-level `mcpServers` key of `~/.claude.json` (**not** `~/.claude/mcp.json` — that path doesn't exist per the docs); project-local scope lives in the same `~/.claude.json`, nested under `projects."<path>".mcpServers`. Windows already has a real `C:\Users\Anant Gupta\.claude.json` (68,657 bytes, confirmed present, **never read its contents in this task — inspect only via targeted, secret-safe checks like `claude mcp list`, never a raw file dump**) — but *also* has a home-root `.mcp.json` (612 bytes) plus a `.mcp.env`/`.mcp-env-apply.ps1`/`.mcp-env-exec.ps1` secret-substitution scaffold, none of which is the documented global mechanism (`.mcp.json` is a *project*-scope convention meant to sit at a project root, not a home directory). Reconcile which of these is actually live and read by Claude Code before assuming either is authoritative — don't delete or restructure any of them without confirming first, since real secrets may already be routed through one.
+
+Paste into a fresh Claude Code session, cwd = `C:\Users\Anant Gupta`, `high` effort. This is Windows home directory work — every single file or folder created, moved, or edited must be reported, per Anant's explicit instruction; this is not a summarize-the-highlights task.
+
+```
+You're working directly in the Windows global Claude Code home directory (C:\Users\Anant Gupta), not inside any project. This is sensitive, global-blast-radius work: everything here is inherited by every project, plugin, and skill run on this machine from now on. Read the official docs yourself before writing anything — https://code.claude.com/docs/en/memory, https://code.claude.com/docs/en/skills, https://code.claude.com/docs/en/sub-agents, https://code.claude.com/docs/en/hooks, https://code.claude.com/docs/en/settings, https://code.claude.com/docs/en/mcp, https://code.claude.com/docs/en/settings-reference — and verify every claim in this prompt against them rather than trusting it silently. If you find this prompt states something the live docs now contradict, say so plainly and follow the docs, don't force this prompt's version through.
+
+<the-goal-of-this-round>
+Base layout only — blank or near-empty files and correctly-shaped empty folders, wired so they actually load per the official mechanisms, not full content. A separate, later round writes real content once this base is confirmed correct. Do not pre-write agent bodies, skill instructions, hook logic, or CLAUDE.md philosophy beyond a short placeholder heading — that is explicitly out of scope for this round.
+</the-goal-of-this-round>
+
+<already-verified-corrections-do-not-relitigate-these>
+1. Claude Code reads CLAUDE.md, not AGENTS.md. If Anant wants an AGENTS.md-equivalent, CLAUDE.md must `@AGENTS.md`-import it — Windows can't use the symlink alternative (needs Admin/Developer Mode), so the import syntax is the only real option here.
+2. `.claude/context/` is not auto-loaded. Anything placed there only loads if CLAUDE.md explicitly `@`-imports each file. Wire every file you create there, don't just create the folder.
+3. Official "auto memory" (`~/.claude/projects/<project>/memory/`) already exists automatically and is a different system from a hand-authored global `context/MEMORY.md`. Build the latter as the custom convention it is (matching Jarvis's own `.claude/context/MEMORY.md` pattern) and never conflate the two in anything you write.
+4. MCP global config's real location is `~/.claude.json`'s `mcpServers` key, not `.claude/mcp.json`. This machine also has a home-root `.mcp.json` plus an env-substitution scaffold (`.mcp.env`, `.mcp-env-apply.ps1`, `.mcp-env-exec.ps1`) — figure out which is actually live before touching either, and never print any of these files' raw contents (they may hold real credentials).
+</already-verified-corrections-do-not-relitigate-these>
+
+<procedure-order>
+Per Anant's standing instruction for how anything gets built in this whole effort: skills first, then hooks, then agents — and write each agent's matching command in the same pass as the agent. Apply that order to this round's scaffolding work too, even though everything here is a stub: create the skills/ scaffolding before hooks/, hooks/ before agents/, and pair every agent stub with a command stub.
+</procedure-order>
+
+<[REDACTED]>
+Before creating anything, list exactly what's already on disk under C:\Users\Anant Gupta\.claude\ and C:\Users\Anant Gupta\ directly (CLAUDE.md, agents/, commands/, hooks/, skills/, settings.json, settings.local.json, .claude.json, .mcp.json, .mcp.env*, .mcp-env-*.ps1) — full listing, not a summary from memory of this prompt. Confirm the specific facts this prompt states (CLAUDE.md's real current content, which folders are genuinely empty vs. don't exist, .claude.json's real size) and correct anything that's changed since 2026-09-05.
+</[REDACTED]>
+
+<task-2-claude-md>
+Rewrite C:\Users\Anant Gupta\.claude\CLAUDE.md to keep the existing em-dash rule (word for word — don't lose it) and add:
+- A short placeholder section (a heading and one or two sentences, not the full philosophy) establishing that the Jarvis vault (D:\Users\_Anant\10_Areas\Documents\Jarvis) is this machine's central knowledge base — Anant's own framing: "Jarvis is the main point for the entire laptop... we are using Jarvis for literally each and everything." State this as a placeholder to be expanded later, explicitly, in the file itself (e.g. an HTML comment or a "(expand this section — see Prompts.md's next round)" note) so it doesn't get mistaken for finished content.
+- An `@` import line for a to-be-created AGENTS.md (create an empty or near-empty `C:\Users\Anant Gupta\.claude\AGENTS.md` stub if one doesn't already exist, then `@AGENTS.md` import it from CLAUDE.md) — per the verified correction above, this is the only correct way to get AGENTS.md-shaped content actually loading on Windows.
+- `@` import lines for whatever you create under `context/` in Task 4, so that folder isn't inert.
+Keep the whole file under the docs' own 200-line guidance — this is a scaffold, it should be short.
+</task-2-claude-md>
+
+<task-3-skills>
+Create `C:\Users\Anant Gupta\.claude\skills\` scaffolding for whatever global (not project-specific) skills Anant names as wanted globally — do not invent skill ideas yourself this round; if none are named yet, create nothing here beyond confirming the existing `export-ai-session` folder is intact, and say so plainly rather than fabricating placeholder skills to look complete. Match the official shape exactly (SKILL.md with `name`+`description` frontmatter at minimum; `reference.md`/`examples.md`/`scripts/` only where a real need is already known, not speculatively).
+</task-3-skills>
+
+<[REDACTED]>
+1. Create `C:\Users\Anant Gupta\.claude\context\` and, inside it, a `MEMORY.md` stub (frontmatter matching Jarvis's own `context/MEMORY.md` shape if that file is real there — check it directly first) and confirm it's `@`-imported from CLAUDE.md per Task 2.
+2. Create `C:\Users\Anant Gupta\.claude\rules\` (doesn't exist yet) with one real, narrow rule file to start — not a restatement of CLAUDE.md, something genuinely rule-shaped (e.g. a Windows-path-conventions rule, or a pointer to Jarvis being the default target for anything vault-shaped). If nothing genuinely rule-shaped is ready to write yet, create the empty folder and say so rather than forcing content.
+3. Hooks: `C:\Users\Anant Gupta\.claude\hooks\` is currently empty. Per the procedure order, don't write real hook logic yet — but do confirm what `settings.json` would need to look like to register one later (read it now, report its current hook state, which per Task 1's finding is likely also empty), so the next round isn't starting from zero investigation.
+</[REDACTED]>
+
+<[REDACTED]>
+For each global agent Anant names as wanted (none pre-decided in this prompt — ask, don't invent), create the `agents/<name>.md` stub with real, correct frontmatter (`name`, `description` in "Use proactively for… MUST BE USED for…" form, `tools`, `model`) even if the body is a placeholder, and its matching `commands/<name>.md` stub in the same pass — per the procedure order, never an agent with no way to invoke it deliberately.
+</[REDACTED]>
+
+<[REDACTED]>
+Without printing any secret value: determine which MCP config mechanism is actually live on this machine — run `claude mcp list` (or the equivalent current CLI command; verify the real one from the docs) and compare against what `~/.claude.json`'s `mcpServers` key and the home-root `.mcp.json` each claim. Report which one Claude Code is actually reading from, and whether the `.mcp.env`/`.mcp-env-*.ps1` scaffold is wired to either. Do not restructure or delete anything here yet — this task is diagnosis, the fix is a later round once the real mechanism is confirmed.
+</[REDACTED]>
+
+<report-everything>
+Anant's explicit requirement: every single file or folder created, moved, or edited gets named in your final report, with a one-line reason for each — no "and a few other small tweaks." Structure the report by task number above. Name anything you could not do because it depended on Anant naming a preference (which skills, which agents, which rules) rather than silently skipping it.
+</report-everything>
+```
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\Projects\AI Use\Claude Kit\Claude Code\Prompts.md`
+```diff
+- created: 2026-08-11
+updated: 2026-08-22
++ created: 2026-08-11
+updated: 2026-09-05
+```
+
+## You
+
+Now that the prompt was sent over to the home directory. Let's focus on what exactly needs to be added from the sandbox, go through the existing notes inside jarvis that talk about these things in detail. What exactly is installed globally, altered, etc. We go through extreme notes listed out inside jarvis already for this process. Here are some folders and files that hold extremely useful information about the ingestion: `60_Claude/10_Source_Summaries/Github Ingestion`, `60_Claude/20_Distilled_Notes/Sources - Plan/_Notes Created From Ingestion`, `60_Claude/20_Distilled_Notes/Sources - Plan` & `60_Claude/40_Project_Briefs/Claude Kit`. Based om everything that is laid out in the homedirectory right now. I want to make sure to establish clear instructions over here inside claudekit. We sync each and every single folder that hold this type of information. Utilize it all times so that nothing breaks down. But after everything is clearly laid out synced and ready to be ingested. We are going to finally go through the repos (`40_Resources/CS/Repos`) and list out excellent notes for how to use each and everything in the end (`40_Resources/CS/AI`): after installation. that's the end goal of this session. In another session for knowledge the base for sync process and makingsure that everythingis perfectly aligned has just been completed. Now moving on to what exactly is there already in the sandbox, what needs to be removed, what is used already?what is being tested as of now for some use case? There are tons of things going to be done to each and every single repo. We utilize in detail what exactly we require for a perfect jarvis and homebase setup. Bopth wsl and windows will have almost the indetical form of setup. But wsl might have more considering the projects. Windows has moreregarding jarvius and obsidian since it lives in windows. How to use mcps, agents, etc. will always be written down clearly inside jarvis. So, now for the ingestion taken place already and everything already written down. Do a lot of research inside obsidian, find good rich content about the ingestion. After having a complete in depth understanding - go ahead and implement everything. Write a good prompyt for this to take placer. Ask me more questions if unclear.
+
+## Claude
+
+I've now read the core ingestion trail — `Repos.md` (95 starred repos, tiered Implement>Knowledge markers), `How Anant Uses Each Repo.md` and `Useful Repos - Shortlist.md` (both already "how to use" documents, but written back in May/July before most tools were actually tested), `GitHub Ingestion Implementation.md`, and `_Notes Created From Ingestion.md`. Two of the four paths you named don't exist as given — `40_Resources/CS/Repos` is actually the single file `40_Resources/CS/Repos.md`, and `60_Claude/40_Project_Briefs/Claude Kit` doesn't exist (the real project folder is `20_Progress/Projects/AI Use/Claude Kit/`, which I already went through last turn). Before I write the prompt, two things materially change its shape:
+
+The prompt is written into `Claude Kit/Claude Code/Prompts.md` as Round 10, right after Round 9 (same `# Claudekit` cwd). Quick summary:
+
+## Corrections to your original message
+- `40_Resources/CS/Repos` is a single file (`Repos.md`), not a folder.
+- `60_Claude/40_Project_Briefs/Claude Kit` doesn't exist — the real project folder is `20_Progress/Projects/AI Use/Claude Kit/` (which I already went through in depth last turn).
+- `How Anant Uses Each Repo.md` and `Useful Repos - Shortlist.md` already **are** "how to use each repo" docs — just stale (May/July, before most tools were actually tested). That's why your third question mattered: the real task is rewriting these against what's now actually true, not writing from scratch.
+
+## What Round 10 does, per your answers
+1. **Citation only** — adds explicit pointers to the vault's ingestion trail (`Repos.md`, the two how-to docs, the GitHub Ingestion Implementation chain, the whole Claude Kit project folder) into claudekit's `_docs/Design.md` and `_docs/Jarvis.md`, following the exact citation pattern `Claudekit Session Context.md` already uses for `Tool Map.md`/`Log.md`. No new sync-manifest mechanism.
+2. **Sandbox re-audit** — builds on the 2026-08-20 triage (32 repos, already decided) rather than redoing it: checks for new arrivals, executes named-but-still-unexecuted next steps (obsidian-mind, obsidian-second-brain, claude-mem, agentic-inbox), and flags anything in `tested-tools/` that cleared promotion but was never actually installed (gbrain, still). I folded in your WSL-vs-Windows principle explicitly as a decision rule: WSL gets project-specific tools, Windows gets Jarvis/Obsidian-specific ones.
+3. **Real usage docs, retire the stale ones** — writes one usage note per repo into `40_Resources/CS/AI/` for the ~15-20 with an actual decision (I gave a named starting list — gbrain, gstack, mattpocock-engineering, cpr-compress-preserve-resume, ECC, spec-kit, claude-context, promptfoo, bumblebee, graphify, Firecrawl, llm-council, hiring-agent — explicitly flagged as a floor to verify, not final), cross-links them from `Repos.md` and `Tool Map.md`, then marks the two old docs `status: retired` and fixes every live wikilink pointing at them.
+
+Not started or executed by me this turn — research and the prompt only, same as the last two rounds.
+
+### Tool Calls
+
+- `Glob` -- pattern `60_Claude/10_Source_Summaries/Github Ingestion/**` path ``
+- `Glob` -- pattern `60_Claude/20_Distilled_Notes/Sources - Plan/**` path ``
+- `Glob` -- pattern `60_Claude/40_Project_Briefs/Claude Kit/**` path ``
+- `Glob` -- pattern `40_Resources/CS/Repos/**` path ``
+- `Glob` -- pattern `40_Resources/CS/AI/**` path ``
+- `Glob` -- pattern `**/Repos.md` path ``
+- `Glob` -- pattern `**/*Claude Kit*.md` path ``
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\60_Claude\10_Source_Summaries\Github Ingestion\Claude Kit Implementation.md`
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\60_Claude\20_Distilled_Notes\Sources - Plan\_Notes Created From Ingestion.md`
+- `Bash` -- `wc -l "/d/Users/_Anant/10_Areas/Documents/Jarvis/40_Resources/CS/Repos.md" "/d/Users/_Anant/10_Areas/Documents/Jarvis/60_Claude/10_Source_Summaries/Github Ingestion/How Anant Uses Each Repo.md" "/d/Users/_Anant/10_Areas/Documents/Jarvis/60_Claude/10_Source_Summaries/Github Ingestion/Useful Repos - Shortlist.md" "/d/Users/_Anant/10_Areas/Documents/Jarvis/60_Claude/20_Distilled_Notes/Sources - Plan/GitHub Ingestion Implementation.md" "/d/Users/_Anant/10_Areas/Documents/Jarvis/60_Claude/20_Distilled_Notes/Sources - Plan/00_Execution.md"`
+```
+   210 /d/Users/_Anant/10_Areas/Documents/Jarvis/40_Resources/CS/Repos.md
+   662 /d/Users/_Anant/10_Areas/Documents/Jarvis/60_Claude/10_Source_Summaries/Github Ingestion/How Anant Uses Each Repo.md
+   698 /d/Users/_Anant/10_Areas/Documents/Jarvis/60_Claude/10_Source_Summaries/Github Ingestion/Useful Repos - Shortlist.md
+   143 /d/Users/_Anant/10_Areas/Documents/Jarvis/60_Claude/20_Distilled_Notes/Sources - Plan/GitHub Ingestion Implementation.md
+   216 /d/Users/_Anant/10_Areas/Documents/Jarvis/60_Claude/20_Distilled_Notes/Sources - Plan/00_Execution.md
+  1929 total
+```
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Repos.md`
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\60_Claude\20_Distilled_Notes\Sources - Plan\GitHub Ingestion Implementation.md`
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\60_Claude\10_Source_Summaries\Github Ingestion\How Anant Uses Each Repo.md`
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\60_Claude\10_Source_Summaries\Github Ingestion\Useful Repos - Shortlist.md`
+- `AskUserQuestion` -- `{"questions":[{"question":"These vault research folders (Repos.md, How Anant Uses Each Repo.md, the Claude Kit project folder, _Notes Created From Ingestion.md) are plain markdown content, not a project\u0027s .claude/ config — they don\u0027t fit second-brain-claudekit\u0027s existing sync-manifest.json schema (which mirrors five .claude/-shaped folders per real project). What should \"sync\" mean for them?","header":"Sync mechanism","multiSelect":false,"options":[{"label":"Citation only, no new mechanism (Recommended)","description":"Add explicit pointers inside claudekit\u0027s _docs/ (Design.md, Jarvis.md) so any future claudekit session reads these as ground truth before a sandbox decision — the same pattern Claudekit Session Context.md already uses for Tool Map.md/Log.md. No new sync plumbing."},{"label":"A real new manifest entry/category","description":"Add a genuinely new field or entry type to sync-manifest.json for \"reference docs,\" distinct from the five .claude/-shaped folders — a real mechanism change to the pipeline itself."},{"label":"Something else — I\u0027ll clarify","description":"Neither of the above matches what you meant."}]},{"question":"How Anant Uses Each Repo.md and Useful Repos - Shortlist.md already ARE \"how to use each repo\" documents — but written May/July, before most tools were actually tested (speculative install commands, \"verify exact command in README\"). The end-goal usage docs for 40_Resources/CS/AI should reflect what\u0027s REALLY installed/tested now. What\u0027s the right relationship between the new docs and these two existing ones?","header":"Doc relationship","multiSelect":false,"options":[{"label":"Rewrite and retire the old ones (Recommended)","description":"The new 40_Resources/CS/AI docs supersede these two — mark both status: retired/superseded once the real content is written, same pattern already used for Write Log.md and the Session Logs Board."},{"label":"New docs live alongside, old ones stay as-is","description":"Keep both May/July docs untouched as historical record; the new usage docs are a separate, distinct layer with no retirement."},{"label":"Something else — I\u0027ll clarify","description":"Neither of the above matches what you meant."}]},{"question":"Repos.md has ~95 entries, but only ~15-20 have actually been installed, tested, or run through a real decision (per Tool Map.md and the GitHub Ingestion Implementation history). Should the new 40_Resources/CS/AI usage docs cover only those ~15-20 real ones, or all 95?","header":"Coverage","multiSelect":false,"options":[{"label":"Only the ~15-20 with a real decision (Recommended)","description":"Writing \"how to use X\" for a repo that\u0027s still just starred/undecided would be inventing usage ahead of any real install — exactly what this whole pipeline exists to prevent."},{"label":"All 95, noting which are untested","description":"Write something for every repo, explicitly marking untested ones as speculative/not-yet-verified rather than omitting them."}]}]}`
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\Projects\AI Use\Claude Kit\Claude Code\Prompts.md`
+- `Grep` -- pattern `^# |Round 9|Round 10` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\Projects\AI Use\Claude Kit\Claude Code\Prompts.md`
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\Projects\AI Use\Claude Kit\Claude Code\Prompts.md`
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\Projects\AI Use\Claude Kit\Claude Code\Prompts.md`
+```diff
+- - Anything in this prompt's own "already established" section that turned out wrong when you checked it directly — state that plainly, same discipline every prior round in this file has used.
+```
+
+**Round 8, 2026-08-21 — fresh session.**
++ - Anything in this prompt's own "already established" section that turned out wrong when you checked it directly — state that plainly, same discipline every prior round in this file has used.
+```
+
+**Round 10, 2026-09-05 — cite the vault's real ingestion trail, re-audit sandbox with fresh eyes, then write the real usage docs.** Round 9 (above) onboarded Jarvis's 6 empty agents and internship-research-loop into the pipeline — confirmed done and committed by Anant's own report. This round doesn't touch that work again. It closes a different gap: this repo's `_docs/` never explicitly cites the vault's own pre-existing ingestion research (`40_Resources/CS/Repos.md`, `60_Claude/10_Source_Summaries/Github Ingestion/How Anant Uses Each Repo.md` + `Useful Repos - Shortlist.md`, `60_Claude/20_Distilled_Notes/Sources - Plan/{GitHub Ingestion Implementation,00_Execution,_Notes Created From Ingestion}.md`, `20_Progress/Projects/AI Use/Claude Kit/` — the whole project folder with `Tool Map.md`/`Log.md`), even though every real decision this pipeline has ever made (gbrain, gstack, mattpocock-skills, ECC, spec-kit, claude-context, promptfoo, bumblebee, and the 32-repo sandbox triage) traces directly back to that trail. Three tasks, in order, ending in the actual "how to use it now that it's real" docs Anant asked for.
+
+**Anant's own decisions, already made — don't re-ask these:**
+- Citation only for the vault research folders — no new sync-manifest.json mechanism. They aren't `.claude/`-shaped config, they're reference research; wire them the same way `Claudekit Session Context.md`'s own "What to check in Jarvis" table already treats `Tool Map.md`/`Log.md` — a cited pointer in this repo's own docs, not a mirrored folder.
+- The new usage docs rewrite-and-retire `How Anant Uses Each Repo.md` and `Useful Repos - Shortlist.md` — mark both `status: retired` once the real content exists elsewhere, same pattern already used for `Write Log.md`/the Session Logs Board (kept for historical reference, never deleted, every live pointer updated to the new location).
+- Coverage is the ~15-20 repos with an actual real decision (installed, tested, blocked-with-a-real-attempt, or explicitly dropped-with-reason) — not all 95 in `Repos.md`. Writing "how to use X" for a repo that's still just starred and undecided is exactly the kind of invented-ahead-of-a-real-decision content this whole pipeline exists to prevent. Compile the real list yourself from `Tool Map.md`'s rows + `Repos.md`'s non-blank status markers — the starting set below is what's visible as of 2026-09-05, treat it as a floor to verify and extend, not a final list: gbrain, gstack, mattpocock-engineering (the 17-skill subset), cpr-compress-preserve-resume, ECC, spec-kit, claude-context, promptfoo, bumblebee, graphify (already live, has its own note at `40_Resources/CS/Concepts/Helpful Tools/Graphify`), Firecrawl (already adopted, in daily use, never individually ingested as a repo summary — the most-used real tool with the least real documentation), the Claude Council/llm-council skill, hiring-agent (check Prompt 9's actual outcome first — Anant's own report didn't confirm it ran).
+
+Paste into a fresh Claude Code session, cwd = `~/projects/ai/claude/second-brain-claudekit`, `high` effort.
+
+```
+Read this repo's own _docs/Architecture.md, _docs/Design.md, _docs/Promotion-Criteria.md, _docs/Jarvis.md before anything else. Confirm Round 9 (2026-09-05, the prior prompt in this same file) actually landed and is committed — git log, git status — before starting; if it's still mid-flight or has unexplained dirty paths, stop and report that rather than building on top of an unfinished round.
+
+## Task 1 — Cite the vault's ingestion trail in this repo's own docs
+
+Read, in full, in the Jarvis vault (reachable via /mnt/d/Users/_Anant/10_Areas/Documents/Jarvis or the jarvis MCP tools):
+- 40_Resources/CS/Repos.md (the master 95-repo index, tiered Implement>Knowledge markers, each entry annotated with a real or provisional status)
+- 60_Claude/10_Source_Summaries/Github Ingestion/{How Anant Uses Each Repo,Useful Repos - Shortlist,Claude Kit Implementation}.md
+- 60_Claude/20_Distilled_Notes/Sources - Plan/{GitHub Ingestion Implementation,00_Execution,_Notes Created From Ingestion}.md
+- 20_Progress/Projects/AI Use/Claude Kit/ in full (Tool Map.md, Log.md, Source of Truth/The Qualification Pipeline.md, Claude Code/Claudekit Session Context.md, and the rest) — you likely already half-know this from Round 9, re-confirm rather than assume it's unchanged.
+
+Add an explicit, named citation to this list — where the sandbox/tested-tools/Promotion-Criteria decision trail actually started, and where the per-repo "why" for every real decision in Tool Map.md ultimately traces back to — into _docs/Design.md and _docs/Jarvis.md, next to wherever each already cites Tool Map.md/Log.md. Follow the exact citation pattern Claudekit Session Context.md's own "What to check in Jarvis before reviewing or improving any tool" table already uses (a path, then what it answers) — don't invent a new citation style. This is documentation only — no new manifest entry, no new sync folder.
+
+## Task 2 — Re-audit sandbox/ and tested-tools/ with fresh eyes
+
+Per Anant's own instruction: figure out, concretely, what's in the sandbox now, what should be removed, what's already in real use, and what's actively being tested for a real use case — building on top of the 2026-08-20 triage (32 repos, 13 dropped, 10 "still worth evaluating," 5 already tracked elsewhere) recorded in Tool Map.md, not redoing it.
+
+1. Re-list sandbox/ (a fresh `ls -d sandbox/*/ | wc -l` — compare against the 32 last confirmed; if it's grown, the new arrivals need the same one-line keep/drop/still-evaluating treatment the 2026-08-20 pass gave the others).
+2. For every item Tool Map.md marks "still worth evaluating" with a named next step that Round 9 didn't already execute (obsidian-mind, obsidian-second-brain, claude-mem, agentic-inbox, TradingAgents, OpenBB — the last two explicitly deferred to a TradingView-side session, don't attempt here), check whether its named next step has actually happened since 2026-08-20 (Round 9 may have touched some of these — verify, don't assume either way) and execute it for real if not.
+3. Anything in tested-tools/ that cleared Promotion-Criteria.md's four gates but was never actually promoted anywhere (gbrain is the clearest case — cleared 2026-08-20, still not globally installed as of Round 9's own report) is a real, standing gap — name every one you find, don't just re-confirm gbrain's.
+4. Apply the WSL-vs-Windows split Anant has stated as the standing principle for any promotion decision from here on: WSL gets more project-specific tooling (real code projects live there), Windows gets more Jarvis/Obsidian-specific tooling (the vault lives there). A tool like obsidian-mind or graphify's own extensions belongs Windows-side; a tool like claude-context (BOOM) or TradingAgents (TradingView) belongs WSL-side. State this explicitly against every promotion decision this task makes, don't leave it implicit.
+
+## Task 3 — Write the real usage docs, retire the stale ones
+
+For each repo in the "already established" coverage list above (verified/extended per this prompt's own instruction, not treated as final):
+1. Write one usage note per repo (or a small number of tools per note where they're genuinely paired, e.g. gstack+gbrain — Tool Map.md already documents them as a matched pair from the same author) into 40_Resources/CS/AI/ — real, current "how Anant actually uses this now" content: the real install state (installed/blocked/tested/dropped, cited to Tool Map.md's row), the real command(s) that actually worked (not the speculative `npx`/`bunx` guesses the May/July docs carried), and what it's actually for in Anant's real workflow today, not a generic README summary.
+2. Cross-link every new note from 40_Resources/CS/Repos.md's matching entry (the `→ [[note]]` convention that file already uses) and from Tool Map.md's matching row.
+3. Once real coverage exists for everything on the list, mark How Anant Uses Each Repo.md and Useful Repos - Shortlist.md `status: retired` (frontmatter change only — content stays, per this vault's own retirement convention), with a one-line pointer at the top of each to where the real content now lives. Update every live wikilink to either file across the vault to point at the new notes instead — grep for both filenames first, don't guess at what references them.
+4. Do not write a usage note for anything not on the verified coverage list — an undecided, still-just-starred repo gets left alone, not filled in with plausible-sounding speculation to look complete.
+
+## Report back
+
+- Task 1: the exact citation lines added, in which two files.
+- Task 2: sandbox's real current count, every keep/drop/still-evaluating decision made this round (not re-litigating 2026-08-20's), every tested-tools/ item found cleared-but-unpromoted, and the WSL/Windows split applied explicitly per decision.
+- Task 3: the real coverage list as actually verified (name any repo added or removed from this prompt's starting list, and why), every new note written, both retirement edits, and the grep-and-fix result for stale wikilinks.
+- Anything in this prompt that turned out wrong when checked directly against the live repo or vault — state it plainly, same discipline every prior round in this file has used.
+```
+
+**Round 8, 2026-08-21 — fresh session.**
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\Projects\AI Use\Claude Kit\Claude Code\Prompts.md`
+```diff
+- next: "Windows Home Directory round, 2026-09-05 — base scaffolding only (blank files/folders, correctly wired per official docs), for ~/.claude on Windows. Content comes later, in a separate round, per explicit instruction. After this: same base-layout treatment is owed to the WSL home (already populated but never audited against the same official-docs checklist) and to claudekit's own .claude/."
++ next: "Round 10, 2026-09-05 — cite the vault's ingestion trail in claudekit's _docs/, re-audit sandbox/tested-tools with fresh eyes, then write real 40_Resources/CS/AI usage docs for the ~15-20 repos with an actual decision, retiring the two stale May/July docs. Windows Home Directory round (also 2026-09-05) is base scaffolding only for ~/.claude on Windows — content comes later. After both: same base-layout treatment is owed to the WSL home and to claudekit's own .claude/."
+```
+
+## You
+
+All the promts listed inside the file has been run now, remove all the old prompts. Kepp the live number runningand the headers for all the prompts that were previously listed ouit (`#`). Make sure to remove all the prompts since they were completely run now, just state the last state of the prompts that were run recently.
+
+## Claude
+
+I found something worth flagging before I do this: Round 10's Task 1 (citing the vault's ingestion trail) is confirmed done — I verified it directly in `_docs/Design.md`. But Tasks 2 and 3 (sandbox re-audit, and the actual usage docs + retiring the two stale files) show no evidence of having run — `40_Resources/CS/AI/` has no new files, and both `How Anant Uses Each Repo.md`/`Useful Repos - Shortlist.md` are still `status: sprout`, not retired. I'll compress the file as asked, but I'll keep Round 10's still-open Tasks 2/3 as a short pointer rather than declaring them done, so that work isn't lost. Everything else (Round 9, Jarvis Round 8, the Cursor round, Windows Home Directory) I verified as genuinely complete.
+
+Done. The file went from 355 lines of fenced prompts down to a compact status tracker — headers kept, numbering/dating preserved so the next round in each section picks up correctly, and every prompt body replaced with a one-line "last state."
+
+One thing to flag plainly, since it contradicts what you told me: **Claudekit Round 10 is only partially done.** I verified Task 1 (citing the ingestion trail in `_docs/Design.md`) landed for real. But Tasks 2 (sandbox re-audit) and 3 (the actual usage docs in `40_Resources/CS/AI/`, retiring the two stale files) have no evidence of having run — no new files exist, and both old docs are still `status: sprout`. Rather than declare that work done and lose it, I kept a short pointer in the Claudekit section noting Round 10's Tasks 2-3 as the next thing to pick up, instead of erasing them entirely.
+
+Also noted inline: the Windows Home Directory round went further than its own "scaffolding only" instruction — it landed real agent/command/hook content (mirroring WSL's set), not empty stubs. Not a problem, just flagged so it's not silently glossed over.
+
+### Tool Calls
+
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\Projects\AI Use\Claude Kit\Claude Code\Prompts.md`
+- `PowerShell` -- `{"command":"Write-Output \"--- Windows .claude top level ---\"\nGet-ChildItem \"$env:USERPROFILE\\.claude\" | Select-Object Name\nWrite-Output \"--- CLAUDE.md ---\"\nGet-Content \"$env:USERPROFILE\\.claude\\CLAUDE.md\" -Raw\nWrite-Output \"--- AGENTS.md ---\"\nTest-Path \"$env:USERPROFILE\\.claude\\AGENTS.md\"\nWrite-Output \"--- context ---\"\nGet-ChildItem \"$env:USERPROFILE\\.claude\\context\" -ErrorAction SilentlyContinue\nWrite-Output \"--- rules ---\"\nGet-ChildItem \"$env:USERPROFILE\\.claude\\rules\" -ErrorAction SilentlyContinue\nWrite-Output \"--- agents/commands/hooks ---\"\nGet-ChildItem \"$env:USERPROFILE\\.claude\\agents\" -ErrorAction SilentlyContinue\nGet-ChildItem \"$env:USERPROFILE\\.claude\\commands\" -ErrorAction SilentlyContinue\nGet-ChildItem \"$env:USERPROFILE\\.claude\\hooks\" -ErrorAction SilentlyContinue\nWrite-Output \"--- leftover plan files ---\"\nTest-Path \"$env:USERPROFILE\\.claude\\_global-config-plan.md\"","description":"Check Windows home directory real current state"}`
+- `PowerShell` -- `{"command":"wsl.exe -d Ubuntu -- bash -lc \"cat /home/anant_gupta/projects/ai/claude/second-brain-claudekit/_docs/Design.md | grep -i -A2 \u0027Repos.md\\|How Anant Uses\\|ingestion trail\u0027 | head -40\"\nwsl.exe -d Ubuntu -- bash -lc \"test -f /home/anant_gupta/.claude/_global-config-plan.md \u0026\u0026 echo EXISTS || echo GONE\"","description":"Check claudekit Design.md for Round 10 citations and WSL leftover plan file"}`
+- `Glob` -- pattern `40_Resources/CS/AI/**` path ``
+- `Bash` -- `head -8 "/d/Users/_Anant/10_Areas/Documents/Jarvis/60_Claude/10_Source_Summaries/Github Ingestion/How Anant Uses Each Repo.md"
+echo "---"
+head -8 "/d/Users/_Anant/10_Areas/Documents/Jarvis/60_Claude/10_Source_Summaries/Github Ingestion/Useful Repos - Shortlist.md"`
+```
+---
+type: evergreen
+status: sprout
+created: 2026-05-29
+updated: 2026-07-29
+tags:
+  - github
+  - resources
+---
+---
+type: evergreen
+status: sprout
+created: 2026-05-29
+tags:
+  - evergreen
+  - github
+  - claude-code
+```
+- `Write` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\Projects\AI Use\Claude Kit\Claude Code\Prompts.md`
+```
+---
+type: input
+status: active
+created: 2026-08-11
+updated: 2026-09-05
+tags:
+  - claude-kit
+  - prompts
+  - second-brain-claudekit
+notes:
+  - "[[20_Progress/Projects/AI Use/Claude Kit/Tool Map]]"
+  - "[[20_Progress/AI/Claude Code/second-brain-claudekit/Setup]]"
+  - "[[20_Progress/AI/Claude Code/Sync - Unison]]"
+  - "[[20_Progress/Projects/AI Use/Claude Kit/Claude Code/Claudekit Session Context]]"
+  - "[[20_Progress/Projects/AI Use/Claude Kit/Claude Code/WSL Environment]]"
+  - "[[20_Progress/Projects/AI Use/Claude Kit/Claude Code/Windows Environment]]"
+next: "Claudekit Round 10's Tasks 2-3 are still open (sandbox re-audit, real 40_Resources/CS/AI usage docs, retiring the two stale docs) — confirmed 2026-09-05 that Task 1 landed but 2-3 didn't. Next new prompt in any header should be numbered/dated past what's recorded below."
+---
+# Claude Kit — Build Prompts
+==Only prompts live in this note, each inside a fenced block, ready to paste into a fresh session. Everything else — context, background, open questions — lives in [[20_Progress/Projects/AI Use/Claude Kit/Claude Code/Claudekit Session Context]]. Rewritten 2026-08-19; that note's prior content (dated 2026-08-11) is preserved there, not lost. Cleared out 2026-09-05: every prompt below had actually been run, so the fenced blocks were removed and replaced with a one-line last-state summary per header — full history for anything summarized here lives in [[20_Progress/Projects/AI Use/Claude Kit/Log]] and this repo's own commit history, not duplicated back into this file.==
+## Sequencing
+**Run `# Claudekit` first.** It lays out the repo's own structural base — nothing in `# Jarvis` should be attempted until that base is real, because `# Jarvis`'s job is to document what the base actually became, not what it was planned to become. Read the Claudekit session's final report (or its `git log`/diff) before starting `# Jarvis`.
+
+# Claudekit
+
+**Last run: Round 10, 2026-09-05.** Round 9 (2026-09-05, the "third hop" round) is confirmed complete by Anant's own report: 7 real agents now live in Jarvis's `.claude/agents/` (6 written fresh + `learning-agent` merged into two modes), Jarvis's `CLAUDE.md` agent table updated to list all 7, `internship-research-loop` fully onboarded (manifest entry, real sync run, `Setup.md`/`MOC.md` updated, this repo's 4 staging folders populated), the `hooks/Jarvis/` gap closed (real cause was a missing manifest path, not a missing bucket — Jarvis's hooks actually live at `30_Order/System/claude-workflow/hooks/`), all 11 manifest entries cross-checked clean, both home syncs verified mechanically healthy, `ecc` deliberately left out of the manifest per Anant's call, logged in [[20_Progress/Projects/AI Use/Claude Kit/Log]].
+
+Round 10 (2026-09-05, citing the vault's ingestion trail + sandbox re-audit + real usage docs) is **only partially confirmed**. Task 1 — citing `40_Resources/CS/Repos.md` and the rest of the ingestion trail in `_docs/Design.md`/`_docs/Jarvis.md` — verified done by direct read 2026-09-05. **Tasks 2 and 3 show no evidence of having run**: no new notes exist in `40_Resources/CS/AI/`, and both `How Anant Uses Each Repo.md` and `Useful Repos - Shortlist.md` are still `status: sprout`, not retired. Next Claudekit round should pick up Round 10's Tasks 2 (sandbox re-audit — what's in `sandbox/` now, what's cleared-but-unpromoted in `tested-tools/`, the WSL-vs-Windows split applied per decision) and 3 (write real usage docs for the ~15-20 repos with an actual decision, retire the two stale docs) before starting anything new.
+
+# Jarvis
+
+**Last run: Round 8, 2026-08-21.** Verification-only round confirming the `instructions/<repo>/` scope fix (third correction, mechanism-level) actually landed in the live repo. Confirmed done per [[20_Progress/Projects/AI Use/Claude Kit/Log]]'s 2026-08-21 entries — the sync-build phase closed out; `tests/` was the next real work at the time, since superseded by the Round 9/10 work above.
+
+# Cursor — Grok 4.6 → Sonnet 5
+
+**Last run: 2026-08-22.** WSL + Windows global-config setup, two-phase handoff (Grok 4.6 plans, Sonnet 5 corrects-then-executes). Confirmed executed to completion 2026-09-05: both `_global-config-plan.md` scratch files (WSL and Windows) are gone, per the prompt's own final cleanup step, which only runs after a confirmed-correct apply — not just attempted. Windows's `.claude/agents/`+`commands/`+`hooks/` now hold real content matching WSL's own set (`obsidian-architect`/`obsidian-researcher`/`obsidian-session-archivist` agents; `obsidian-daily-review`/`obsidian-session-review`/`second-brain-*` commands; `after-edit-log.ps1`/`session-wrapup.ps1` hooks), consistent with this plan's "keep global" verdicts having actually been applied to both homes, not just decided.
+
+# Windows Home Directory — base layout, official-docs-verified
+
+**Last run: 2026-09-05.** Confirmed done by direct inspection the same day: `CLAUDE.md` now `@AGENTS.md`-imports a real `AGENTS.md` stub and `@context/MEMORY.md`-imports a real `context/MEMORY.md`, plus a short, explicitly-marked-placeholder "Jarvis is this machine's central knowledge base" section. `rules/windows-paths.md` is real and narrow, not a CLAUDE.md restatement. **Note, not re-litigated here:** `agents/`/`commands/`/`hooks/` ended up populated with real content (the same set the Cursor round above pushed to Windows), not left as empty stubs — this round's own instructions asked for scaffolding only, so either the executing session judged this content already-decided and safe to land in the same pass, or the two rounds' work overlapped in execution order. Worth confirming which, next time either home directory is touched, but not re-done here.
+
+```
+
 ## Actions Taken
 
 **Files created:**
@@ -2580,6 +3040,7 @@ For anything genuinely new found in `sandbox/` beyond the 32 already tracked (re
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\.tmp_wsl_stage2\test3.json`
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\.tmp_wsl_stage2\test4.json`
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\10_Areas\Career\Internships\Tracker\Each One\Current\ZZTEST-hook-check.md`
+- `D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\Projects\AI Use\Claude Kit\Claude Code\Prompts.md`
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\30_Order\Standards\Internship\Applying Standard.md`
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\30_Order\Standards\Internship\Deadline and Intake Triage Standard.md`
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\30_Order\Standards\Internship\Internship Tracker Standard.md`
@@ -2603,7 +3064,6 @@ For anything genuinely new found in `sandbox/` beyond the 32 already tracked (re
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\Internship\Building System\V0\Cover Letter Alteration.md`
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\Internship\Building System\V0\Humanizer.md`
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\Internship\Building System\V0\Resume Alteration.md`
-- `D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\Projects\AI Use\Claude Kit\Claude Code\Prompts.md`
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\30_Order\Standards\Humanized Writing Standard.md`
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\30_Order\Standards\Internship\Cover Letter Alteration Standard.md`
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\30_Order\Standards\Internship\Internship Loop Review Standard.md`
@@ -2634,5 +3094,10 @@ echo "cleaned"`
 - `rm -f "/d/Users/_Anant/10_Areas/Documents/Jarvis/30_Order/System/claude-workflow/logs/internship-note-guard.jsonl"
 rm -rf "/d/Users/_Anant/10_Areas/Documents/Jarvis/.tmp_wsl_stage2"
 echo "cleaned"`
+- `wc -l "/d/Users/_Anant/10_Areas/Documents/Jarvis/20_Progress/Projects/AI Use/Claude Kit/Claude Code/Prompts.md"`
+- `wc -l "/d/Users/_Anant/10_Areas/Documents/Jarvis/40_Resources/CS/Repos.md" "/d/Users/_Anant/10_Areas/Documents/Jarvis/60_Claude/10_Source_Summaries/Github Ingestion/How Anant Uses Each Repo.md" "/d/Users/_Anant/10_Areas/Documents/Jarvis/60_Claude/10_Source_Summaries/Github Ingestion/Useful Repos - Shortlist.md" "/d/Users/_Anant/10_Areas/Documents/Jarvis/60_Claude/20_Distilled_Notes/Sources - Plan/GitHub Ingestion Implementation.md" "/d/Users/_Anant/10_Areas/Documents/Jarvis/60_Claude/20_Distilled_Notes/Sources - Plan/00_Execution.md"`
+- `head -8 "/d/Users/_Anant/10_Areas/Documents/Jarvis/60_Claude/10_Source_Summaries/Github Ingestion/How Anant Uses Each Repo.md"
+echo "---"
+head -8 "/d/Users/_Anant/10_Areas/Documents/Jarvis/60_Claude/10_Source_Summaries/Github Ingestion/Useful Repos - Shortlist.md"`
 
 

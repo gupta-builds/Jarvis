@@ -41,30 +41,34 @@ For each group, note: what was created vs. what was updated, and whether the wor
 
 ---
 
-## Step 2: Summer Execution Audit
+## Step 2: Fall Execution Audit
 
-Check four execution tracks against the targets in `10_Areas/Life/Plans/Summer/`. As of 2026-07-27 this folder holds 6 consolidated files, not the old numbered set — plan and tracker pairs were merged into one file each, tracker data now lives in a `§8` section of the plan note, and the old status/close-out/monthly-map notes are one file: [[Final Month Plan (Jul 28 - Sep 1)]].
+Check execution tracks against the Systems table and Week-by-Week table in [[10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan|Fall 2026 Plan]]. The frame that arbitrates priority is [[10_Areas/Life/Plans/Fall 2026/Fall 2026 - The One Thing|Fall 2026 - The One Thing]]. The Summer 2026 plan folder is closed — do not read from it here.
 
 Do not re-read all plan files — use these specific checks:
 
-### LeetCode
-- Read `10_Areas/Life/Plans/Summer/LeetCode & CSCI 4041.md` §8 Daily Log — find this week's total
-- Target: ≥35 problems/week
-- Flag if < 35: how far behind, which days had zero
+### Internship application floor (the one thing)
+- Check `10_Areas/Career/Internships/Tracker/Each One/` — count `Current/` vs `Applied/` vs `Result/`, compare to last week's count
+- Target: at least one company moves `Current/` → `Applied/` most days
+- Flag if the Applied count didn't move this week
 
-### Courses and certifications
-- MATH 2230 and HIST 1103 are complete — no deadline table to check there anymore
-- Read `10_Areas/Life/Plans/Summer/Final Month Plan (Jul 28 - Sep 1).md` — Timeframe table for this week's certification and any Git-exam date; Implementation Status / Current Progress for what's actually true
-- Read `10_Areas/Life/Plans/Summer/ML Fundamentals (2033 + 2230).md` §8 Progress Tracking — how many spine units or bridge notes completed vs. planned
+### Technical interview prep (CodePath + LeetCode) and System Design
+- Check whether a Fall LeetCode/CodePath daily log exists yet (per Fall 2026 Plan's Systems table, this was an open task as of 2026-09-07) — if still missing, flag it every week until created
+- If it exists, read its daily log for this week's solved count against the floor of 5/day
+- Check for a logged System Design session (2x/week target, starting 2026-09-14)
 
-### Projects
+### Classes
+- Read [[20_Progress/Degree/Fall'26 Syllabus|Fall'26 Syllabus]] — Grading Criteria section, and whether it's been filled in with real rubrics yet
+- Any of the 6 Fall'26 courses (ENGL 1004, CSCI 4511W, CSCI 4061, CSCI 5304, MGMT 3015, CSCI 4521) with a deadline in the next 7 days? (ENGL 1004 replaced AMES 1201 and CSCI 4511W replaced CSCI 3081W, 2026-09-09 - both archived under their old names)
+
+### Projects (TradingView, Portfolio v2, ClaudeKit)
 - Check `20_Progress/` — any project notes modified in the past 7 days?
-- From `10_Areas/Life/Plans/Summer/Final Month Plan (Jul 28 - Sep 1).md`'s Timeframe table — did this week's flagship project advance?
+- Against the Fall 2026 Plan's Systems table done-definitions: did TradingView's `tasks.md` checkpoints move, did Portfolio v2 publish a real blog post, did the ClaudeKit sync permission-bit issue get worked?
 - What shipped this week? (code pushed, document finalized, demo done — concrete artifacts only)
 
-### Career Pipeline
-- Any LeetCode company-tagged problems this week? (track from the Daily Log)
-- Any applications submitted, outreach sent, or interviews scheduled?
+### Career Pipeline (broader)
+- Any applications submitted, outreach sent, or interviews scheduled beyond the daily floor?
+- AIIS, mentorship, scholarships, networking/hackathons, LinkedIn — check each Systems-table row's done-definition against what actually happened this week
 - Check if `20_Progress/` has any career-related notes touched this week
 
 For each track mark: ✅ on target, ⚠️ partial, ❌ missed. One line per track explaining the verdict.
@@ -213,6 +217,7 @@ Append to `60_Claude/07_AI_Information/Session Logs/log.md`:
 - This skill is called by a Cowork scheduled task every Monday morning. You start cold with no prior context. The pre-flight reads are not optional.
 - The three-month plan started April 24, 2026. Use that anchor to calculate which phase and week you're in.
 - The master plan's "Weekly Operating Rhythm" section defines the expected weekly cadence. Compare actual vault activity against it honestly.
+- Fall 2026 Plan's own cadence rule: two consecutive missed `/weekly-review` runs means a full re-scope conversation before that plan continues, per [[30_Order/Standards/Daily Workflow Standard|Daily Workflow Standard]] — flag this explicitly if it applies.
 - If conversation capture folders (`60_Claude/05_Clippings/AI Conversations/` and `60_Claude/10_Source_Summaries/AI Conversations/`) don't exist yet, flag this every week until they're created. This is the most critical missing piece of the build spine.
 - If it's the last week of a month, also check whether a monthly review note belongs in `60_Claude/30_Reviews/Monthly/`.
 - Do not modify raw clippings, archive notes, `.obsidian/`, `.claude/`, `.kiro/`, or `.cursor/` directories.

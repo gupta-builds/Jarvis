@@ -5,7 +5,7 @@ status: seed
 created: 2026-01-21
 updated: 2026-05-06
 area:
-  - "[[Weekly Board]]"
+  - "[[40_Resources/UMN/Previous Classes/Weekly Board]]"
   - "[[UMN Board]]"
 tags:
   - "#class"

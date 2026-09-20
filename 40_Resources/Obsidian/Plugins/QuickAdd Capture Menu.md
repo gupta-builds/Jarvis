@@ -2,7 +2,7 @@
 type: evergreen
 status: sprout
 created: 2026-05-31
-updated: 2026-05-31
+updated: 2026-09-19
 tags:
   - evergreen
   - system
@@ -58,6 +58,18 @@ Format syntax available in any choice: `{{DATE}}`, `{{VALUE}}` (selection), `{{F
 | Concept note | Template | `60_Claude/20_Distilled_Notes/` | `Concept Template` with `track`, mechanism scaffold. |
 | Project note | Template | `20_Progress/` | `For Progress` with `next:` prompt. |
 | Flashcard candidate | Capture | current note | Appends a `#review` prompt, not a finished card. |
+## How to Configure a Choice
+Documented for when the user approves building this menu — not executed here, per Agent Rules below. Steps and field names verified against the [QuickAdd docs](https://quickadd.obsidian.guide/docs/Choices/CaptureChoice) ([Template choice](https://quickadd.obsidian.guide/docs/Choices/TemplateChoice)), 2026-09-19.
+**General steps, both types:**
+1. Settings → QuickAdd.
+2. Type the choice name, pick **Capture** or **Template** from the dropdown, click **Add Choice**.
+3. Click the gear icon next to the new choice to open its builder.
+**Capture choice fields** (`Capture To`, `Capture format`, `Create file if it doesn't exist`, `Write position`) — these two of the six proposed choices need no template file, so they can be built today:
+| Choice | Capture To | Capture format | Create if missing |
+|---|---|---|---|
+| Inbox thought | `60_Claude/00_Inbox/{{DATE:YYYY-MM-DD}} Inbox.md` | `- {{DATE:HH:mm}} {{VALUE}}` | On |
+| Flashcard candidate | current file (leave `Capture To` on "Active file") | `> [!question]- {{VALUE}} #review` | Off (must already exist) |
+**Template choice fields** (`Template Path`, `File Name Format`, `New Note Location`) — the other four proposed choices (source clipping, source summary, concept note, project note) are **blocked**: `30_Order/Templates/` currently holds only `MOC.md` ([[MOC Standard]]'s template). Binding a Template choice needs a real template file to point `Template Path` at, so building these four has to wait until the corresponding templates exist — this is the same block the "Verified Open State" section below already names.
 ## Failure Modes
 - **Empty menu (current state):** `Alt+Q` does nothing useful, so capture stays manual and notes get misfiled. This is the failure the plugin exists to prevent.
 - **Choice folder disagrees with Templater folder template:** the note is created in QuickAdd's folder but the wrong template fills it, producing mismatched frontmatter.
@@ -69,6 +81,10 @@ None exists yet — `choices` is empty, so there is no real QuickAdd workflow in
 - Should QuickAdd be configured with the six choices above? (User decision; requires editing `data.json`.) — *unresolved, needs user approval*
 - Which template file should each Template choice bind to once the `30_Order/Templates/` files are rewritten? — *answerable after templates are finalized*
 - Should `templateFolderPath` be set to `30_Order/Templates` so the suggester finds templates? — *needs user decision*
+## Suggestions
+- **Shipping just the 2 unblocked choices now: yes, clearly worth it.** Inbox thought and Flashcard candidate need no template file and are buildable today per the field tables above. For Anant, this converts "I have a thought mid-study-session" from a manual folder-and-frontmatter decision into one keystroke — the exact friction QuickAdd exists to remove, per this note's own One-Line Answer. Waiting for all six to be ready before building any of them means the highest-value, lowest-cost habit (frictionless capture) sits unused for no real reason.
+- **`enableRibbonIcon: false`: leave it off, not worth changing.** A ribbon icon adds a permanent visible button for something `Alt+Q` already reaches in one keystroke — for a hotkey-driven workflow like the rest of this vault (QuickAdd, Omnisearch, backlinks are all already hotkey-bound per [[Core Plugins Hotkeys and Defaults]]), a ribbon icon is redundant screen space, not missing discoverability. Only reconsider if `Alt+Q` itself stops being memorable in practice, which isn't the case now.
+- **Setting `templateFolderPath` to `30_Order/Templates`: worth it, but only once the Template-type choices are actually being built.** Doing it now, with zero Template choices configured, changes nothing observable — it's a precondition for the file picker being useful, not a standalone improvement. Bundle it into the same approval as building the four Template-type choices rather than a separate round-trip now.
 ## Sources
 - [QuickAdd docs](https://quickadd.obsidian.guide/docs/)
 - [QuickAdd Capture choice](https://quickadd.obsidian.guide/docs/Choices/CaptureChoice)

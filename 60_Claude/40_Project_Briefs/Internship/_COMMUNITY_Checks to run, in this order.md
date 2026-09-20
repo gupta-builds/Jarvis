@@ -14,7 +14,7 @@ members: 8
 - [[4. seen_ids.json  vault divergence]] - document - .claude/agents/loop-verifier.md
 - [[5. Auto-filed GitHub issues]] - document - .claude/agents/loop-verifier.md
 - [[Checks to run, in this order]] - document - .claude/agents/loop-verifier.md
-- [[Output format_1]] - document - .claude/agents/loop-verifier.md
+- [[Output format_2]] - document - .claude/agents/loop-verifier.md
 - [[loop-verifier]] - document - .claude/agents/loop-verifier.md
 
 ## Live Query (requires Dataview plugin)

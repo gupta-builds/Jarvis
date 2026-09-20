@@ -1,17 +1,17 @@
 ---
-source_file: ".cursor/skills/promote-dossier/SKILL.md"
+source_file: ".claude/skills/promote-dossier/SKILL.md"
 type: "document"
-community: "_fake_http_get"
-location: "L64"
+community: "/promote-dossier"
+location: "L63"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/_fake_http_get
+  - community//promote-dossier
 ---
 
 # What this skill does not do
 
 ## Connections
-- [[promote-dossier_1]] - `contains` [EXTRACTED]
+- [[promote-dossier]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/_fake_http_get
+#graphify/document #graphify/EXTRACTED #community//promote-dossier

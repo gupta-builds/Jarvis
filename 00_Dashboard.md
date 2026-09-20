@@ -8,12 +8,13 @@ tags:
   - daily
 cssclasses:
   - dashboard
-today_focus: Ship Jarvis's self-improving ingestion loop, log 5 LeetCode reps
-  (Amazon week), and open Arc's real scope
-today_80: Finish the ingestion so the toolkit executes inside Jarvis — a
-  functional self-improving loop in place
-today_20: Hivemind fixes + overview doc, Adx issues doc, sync .claude/ folders
-  across repos
+today_focus: Restart the daily floor after a 7-day gap — Main Cover Letter.md
+  is still the named blocker keeping Applied/ at 0, ten days after the
+  plan's own ship-the-first-batch week
+today_80: Build Main Cover Letter.md's evidence-tagged bullet bank, then
+  tailor and send the first application from Current/ to Applied/
+today_20: Confirm the AIIS 2026-09-10 deadline actually landed before
+  tomorrow's Kickoff, TIP103 + LeetCode reps, one Fall'26 class Week-2 note
 lc_today: 0
 study_today: 4
 wins_done: 4
@@ -113,9 +114,9 @@ wrap.innerHTML = `
 `;
 ```
 > [!todo] Habits — check off in today's note
-> - [ ] LeetCode ≥5
-> - [ ] CSCI 2033 (30–45 min)
-> - [ ] Course step (4041 / 2230 / 1103)
+> - [ ] Move ≥1 company Current/ → Applied/
+> - [ ] LeetCode/CodePath ≥5
+> - [ ] Fall'26 class step (4511W / 4061 / 5304 / 4521 / MGMT 3015 / ENGL 1004)
 > - [ ] Review — run /closeday
 
 ## Internship Pipeline
@@ -153,10 +154,10 @@ What each area is for, and where it stands right now. This is an area-level fiel
 
 | Area | Purpose | Current state |
 |------|---------|----------------|
-| [[Engineer Edge Roadmap\|Career]] | Internship pipeline, freelancing, business-income tracking (`Career/Finance/`, scoped to project/business money only — no personal finance here) | Internship tracker + freelancing offer not yet defined; Finance folder empty until real income lands |
-| [[10_Areas/Trading/Stocks Trading AI Hub\|Trading]] | TradingView project — treated as an engineering/evaluation build, not a promise to beat the market | Flagship candidate for the Bangalore ship loop; not started yet |
+| [[Engineer Edge Roadmap\|Career]] | Internship pipeline, freelancing, business-income tracking (`Career/Finance/`, scoped to project/business money only — no personal finance here) | 18 companies researched in tracker `Current/`, 0 in `Applied/` as of 2026-09-07 — the one number [[10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan\|Fall 2026 Plan]] exists to move; Finance folder empty until real income lands |
+| [[10_Areas/Trading/Stocks Trading AI Hub\|Trading]] | TradingView project — treated as an engineering/evaluation build, not a promise to beat the market | Month 1 (data ingestion foundation) real and in progress — Pydantic models, DuckDB storage, quality auditing, read API built; strategy/AI-analyst/dashboard phases gated behind it |
 | [[10_Areas/AI/Claude Code\|AI]] | Reference notes for the AI tools actually in use (Claude Code, Cursor, Kiro, Codex) | Stable reference, low-churn |
-| [[Daily Operating System\|Life]] | Execution only: Enumerate daily/weekly/monthly notes, Summer OS plans, operational habit boards, builder-identity Truths of Life. No personal-life content — that lives in The Plan. | Active — this is what `/startday` and `/closeday` read every day. As of 2026-07-27, read [[Final Month Plan (Jul 28 - Sep 1)\|Final Month Plan]] first — it's the one source of truth for the daily floor and real project status. |
+| [[Daily Operating System\|Life]] | Execution only: Enumerate daily/weekly/monthly notes, Fall 2026 plan, operational habit boards, builder-identity Truths of Life. No personal-life content — that lives in The Plan. | Active — this is what `/startday` and `/closeday` read every day. As of 2026-09-07, read [[10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan\|Fall 2026 Plan]] first (frame: [[10_Areas/Life/Plans/Fall 2026/Fall 2026 - The One Thing\|Fall 2026 - The One Thing]]) — it's the one source of truth for the daily floor and real project status. |
 | Notes | Raw course-era captures (F'25, Files, PDFs) awaiting distillation or archive | Not actively worked — candidate for a cleanup pass |
 
 Full folder definitions: [[40_Resources/Obsidian/Jarvis Vault Architecture]]. The Plan holds the personal-life equivalent of this table on its own dashboard.

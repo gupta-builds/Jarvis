@@ -27,32 +27,30 @@ Set `*Goal*:` to the primary objective — derived from 01 (4 wins) + 02 (day-of
 
 2–4 supporting tasks as checkboxes — academic minimums and secondary items only, not full expansion.
 
-**Anti-Drift** — last line under Morning Plan. Read `10_Areas/Life/Plans/Summer/08 - Anti-Drift Rules.md` → `## The "Do NOT do today" list` and copy today's specific exclusions. Keep the rules in that file; never hardcode them here.
+**Anti-Drift** — last line under Morning Plan. Read `10_Areas/Life/Plans/Fall 2026/Anti-Drift Rules.md` → `## The "Do NOT do today" list` and copy today's specific exclusions. Keep the rules in that file; never hardcode them here.
 
 ```
-**Do NOT do today:** [today's exclusions from 08 - Anti-Drift Rules]
+**Do NOT do today:** [today's exclusions from Fall 2026/Anti-Drift Rules]
 ```
 
-**Under `## Summer OS Checklist`:**
+**Under `## Fall Daily Wins`:**
 
-Fill the Win column with today's specific target per win (from 01 OS). Example: Project = "ship the auth endpoint", not just "work on project".
+Fill the Win column with today's specific target per win. Example: Project = "ship the auth endpoint", not just "work on project".
 
-**Under `## Academic Stack`:**
+**Under `## Fall Daily Floor`:**
 
 Fill the Topic column per row:
-- LeetCode: today's topic from the rotation in 05 + current weekly count
-- CSCI 4041: section/concept to review this week
-- CSCI 2033: unit/subtopic from the sequence in 06
-- MATH 2230: next board item (or "N/A")
-- HIST 1103: "N/A" unless something is due in 7 days, then the specific admin step
+- Application: which company from `Current/` is the target to move today, per [[10_Areas/Career/Internships/Tracker/Tracker|Tracker]]
+- LeetCode/CodePath: today's topic from `10_Areas/Life/Plans/Fall 2026/LeetCode & CodePath.md`'s unit/company rotation + current weekly count
+- Fall'26 class step: which of the six classes gets today's step, and what the step is (per that class's Board/Preparation note and any deadline inside 7 days)
 
-**Deadline alert** — immediately under Academic Stack if anything is due within 7 days:
+**Deadline alert** — immediately under the Fall Daily Floor table if anything is due within 7 days:
 
 ```
 > [!WARNING] Deadline: [Course] — [item] due [date]
 ```
 
-**Carryover** — after the Academic Stack if session history left open items:
+**Carryover** — after the Fall Daily Floor if session history left open items:
 
 ```
 ## Carryover from Previous Sessions
@@ -73,12 +71,10 @@ Goal: [one-line objective]
 80: [the one task]
 20: [list the supporting tasks]
 
-Academic minimums:
-- LeetCode: [topic] (at [current]/35 this week)
-- CSCI 4041: [block]
-- CSCI 2033: [subtopic]
-- MATH 2230: [next item or N/A]
-- HIST 1103: [step or N/A]
+Fall Daily Floor:
+- Application: [target company] (18 researched / [N] applied)
+- LeetCode/CodePath: [topic] (at [current]/35 this week)
+- Fall'26 class step: [class] — [step]
 
 [Deadline alert if any]
 [Carryover if any]

@@ -1,23 +1,18 @@
 ---
-source_file: "vault_writer/validate.py"
+source_file: ".claude/skills/promote-dossier/scripts/validate_note_trio.py"
 type: "code"
-community: "_fake_http_get_only_interndock"
-location: "L47"
+community: "validate_note_trio.py"
+location: "L57"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/_fake_http_get_only_interndock
+  - community/validate_note_triopy
 ---
 
 # check_required_fields()
 
 ## Connections
-- [[ValidationResult]] - `references` [EXTRACTED]
-- [[test_required_fields_pass()]] - `calls` [EXTRACTED]
-- [[test_required_fields_rejects_missing_company()]] - `calls` [EXTRACTED]
-- [[test_required_fields_rejects_missing_uid()]] - `calls` [EXTRACTED]
-- [[test_validate.py]] - `imports` [EXTRACTED]
-- [[validate()]] - `calls` [EXTRACTED]
-- [[validate.py]] - `contains` [EXTRACTED]
+- [[main()_1]] - `calls` [EXTRACTED]
+- [[validate_note_trio.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/_fake_http_get_only_interndock
+#graphify/code #graphify/EXTRACTED #community/validate_note_triopy

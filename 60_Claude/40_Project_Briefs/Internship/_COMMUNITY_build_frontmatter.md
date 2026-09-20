@@ -1,16 +1,17 @@
 ---
 type: community
-members: 30
+members: 31
 ---
 
 # build_frontmatter
 
-**Members:** 30 nodes
+**Members:** 31 nodes
 
 ## Members
 - [[Copy of the committed throwaway_vault skeleton in a scratch dir per test,     so]] - rationale - tests/test_writer.py
 - [[Fix 2, Prompt 5 review (2026-07-30) two dossiers with the identical     filenam]] - rationale - tests/test_writer.py
 - [[Moves a closed-posting dossier into Viewed instead of deleting it     (Internsh]] - rationale - vault_writer/writer.py
+- [[Path_3]] - code
 - [[Same role+company but a genuinely different uid must not overwrite —     only a]] - rationale - tests/test_writer.py
 - [[Writes an already-rendered, already-validated dossier into its     priority-buck]] - rationale - vault_writer/writer.py
 - [[Role - Company.md', Windows-unsafe chars stripped (the vault lives     on a]] - rationale - vault_writer/writer.py
@@ -47,17 +48,18 @@ SORT file.name ASC
 ```
 
 ## Connections to other communities
-- 15 edges to [[_COMMUNITY_writer.py_1]]
+- 14 edges to [[_COMMUNITY_writer.py_1]]
 - 11 edges to [[_COMMUNITY_render_dossier]]
-- 5 edges to [[_COMMUNITY_recheck.py]]
-- 3 edges to [[_COMMUNITY_write_dossier]]
+- 3 edges to [[_COMMUNITY_recheck.py]]
 - 2 edges to [[_COMMUNITY_normalize_simplify]]
-- 2 edges to [[_COMMUNITY_commit_and_push_with_retry_1]]
+- 2 edges to [[_COMMUNITY_commit_and_push_with_retry]]
+- 2 edges to [[_COMMUNITY_vault_root_1]]
+- 1 edge to [[_COMMUNITY_write_dossier]]
 - 1 edge to [[_COMMUNITY__fake_http_get_only_interndock]]
 
 ## Top bridge nodes
 - [[test_writer.py]] - degree 33, connects to 4 communities
 - [[move_dossier_to_viewed()]] - degree 13, connects to 4 communities
-- [[load_dossier_uids()]] - degree 9, connects to 4 communities
 - [[write_dossier()]] - degree 18, connects to 3 communities
-- [[save_dossier_uids()]] - degree 4, connects to 2 communities
+- [[load_dossier_uids()]] - degree 9, connects to 3 communities
+- [[dossier_filename()]] - degree 9, connects to 1 community

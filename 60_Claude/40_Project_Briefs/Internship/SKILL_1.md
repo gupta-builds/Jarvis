@@ -1,17 +1,18 @@
 ---
-source_file: ".claude/skills/review-loop-change/SKILL.md"
+source_file: ".claude/skills/generating-resume-docx/SKILL.md"
 type: "document"
-community: "What to check"
+community: "schema_drift.py"
 location: "L1"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/What_to_check
+  - community/schema_driftpy
 ---
 
 # SKILL.md
 
 ## Connections
-- [[review-loop-change]] - `contains` [EXTRACTED]
+- [[Generating a resume .docx]] - `contains` [EXTRACTED]
+- [[resume-reference]] - `references` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/What_to_check
+#graphify/document #graphify/EXTRACTED #community/schema_driftpy

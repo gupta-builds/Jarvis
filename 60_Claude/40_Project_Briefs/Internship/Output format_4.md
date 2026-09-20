@@ -1,17 +1,17 @@
 ---
-source_file: ".cursor/skills/loop-health-check/SKILL.md"
+source_file: ".claude/skills/generating-cover-letter-docx/SKILL.md"
 type: "document"
-community: "Checks to run, in this order"
-location: "L46"
+community: "dump_frontmatter"
+location: "L29"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/Checks_to_run_in_this_order
+  - community/dump_frontmatter
 ---
 
 # Output format
 
 ## Connections
-- [[loop-health-check]] - `contains` [EXTRACTED]
+- [[Generating a cover letter .docx]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/Checks_to_run_in_this_order
+#graphify/document #graphify/EXTRACTED #community/dump_frontmatter

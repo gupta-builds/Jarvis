@@ -6,7 +6,7 @@ created: 2026-01-21
 updated: 2026-04-17
 area:
   - "[[UMN Board]]"
-  - "[[Weekly Board]]"
+  - "[[40_Resources/UMN/Previous Classes/Weekly Board]]"
   - "[[BIOL Board]]"
   - "[[40_Resources/UMN/Previous Classes/Minor/MGMT 3001/MGMT 3001 Board]]"
   - "[[CSCI 4041 Board]]"

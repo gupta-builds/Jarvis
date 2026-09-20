@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_schema_drift.py"
 type: "code"
-community: "check_interndock_sitemap"
-location: "L522"
+community: "test_schema_drift.py"
+location: "L462"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/check_interndock_sitemap
+  - community/test_schema_driftpy
 ---
 
 # test_interndock_sitemap_detects_no_drop_shaped_candidates()
@@ -17,4 +17,4 @@ tags:
 - [[check_interndock_sitemap()]] - `calls` [EXTRACTED]
 - [[test_schema_drift.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/check_interndock_sitemap
+#graphify/code #graphify/EXTRACTED #community/test_schema_driftpy

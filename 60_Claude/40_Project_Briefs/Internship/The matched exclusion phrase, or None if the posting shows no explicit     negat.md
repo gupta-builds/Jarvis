@@ -1,12 +1,12 @@
 ---
 source_file: "ingestion/posting_page.py"
 type: "rationale"
-community: "plan_removals"
+community: "writer.py"
 location: "L106"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/plan_removals
+  - community/writerpy
 ---
 
 # The matched exclusion phrase, or None if the posting shows no explicit     negat
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[opt_exclusion()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/plan_removals
+#graphify/rationale #graphify/EXTRACTED #community/writerpy

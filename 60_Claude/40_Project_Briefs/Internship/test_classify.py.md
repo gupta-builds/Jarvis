@@ -26,6 +26,10 @@ tags:
 - [[test_classify_does_not_match_bare_threat_real_mosaic_safety_disclaimer()]] - `contains` [EXTRACTED]
 - [[test_classify_fullstack_from_real_vanshb03_fixture()]] - `contains` [EXTRACTED]
 - [[test_classify_other_from_real_zshah101_fixture()]] - `contains` [EXTRACTED]
+- [[test_classify_quant_finance_company_check_is_punctuation_insensitive()]] - `contains` [EXTRACTED]
+- [[test_classify_real_optiver_austin_swe_content_routes_to_cys_finance_with_company()]] - `contains` [EXTRACTED]
+- [[test_classify_real_optiver_phd_content_lands_in_ai_ml_without_company()]] - `contains` [EXTRACTED]
+- [[test_classify_real_optiver_phd_content_routes_to_cys_finance_with_company()]] - `contains` [EXTRACTED]
 - [[test_classify_still_matches_genuine_threat_intelligence_content()]] - `contains` [EXTRACTED]
 
 #graphify/code #graphify/EXTRACTED #community/test_write_dossier_creates_missing_dossiers_dir

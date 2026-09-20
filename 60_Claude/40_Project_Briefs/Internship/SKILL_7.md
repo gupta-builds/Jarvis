@@ -1,17 +1,18 @@
 ---
-source_file: ".cursor/skills/review-loop-change/SKILL.md"
+source_file: ".cursor/skills/contact-researcher/SKILL.md"
 type: "document"
-community: "What to check"
+community: "_fake_http_get"
 location: "L1"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/What_to_check
+  - community/_fake_http_get
 ---
 
 # SKILL.md
 
 ## Connections
-- [[review-loop-change_1]] - `contains` [EXTRACTED]
+- [[SKILL_10]] - `references` [EXTRACTED]
+- [[contact-researcher_1]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/What_to_check
+#graphify/document #graphify/EXTRACTED #community/_fake_http_get

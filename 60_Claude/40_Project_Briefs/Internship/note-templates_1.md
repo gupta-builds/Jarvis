@@ -12,7 +12,7 @@ tags:
 # note-templates.md
 
 ## Connections
-- [[SKILL_5]] - `references` [EXTRACTED]
+- [[SKILL_10]] - `references` [EXTRACTED]
 - [[promote-dossier note templates_1]] - `contains` [EXTRACTED]
 
 #graphify/document #graphify/EXTRACTED #community/_fake_http_get

@@ -2,7 +2,7 @@
 source_file: "tests/test_run_pipeline.py"
 type: "code"
 community: "normalize_simplify"
-location: "L23"
+location: "L30"
 tags:
   - graphify/code
   - graphify/EXTRACTED
@@ -13,6 +13,7 @@ tags:
 
 ## Connections
 - [[_fake_http_get()]] - `calls` [EXTRACTED]
+- [[_listing_for_bucket()]] - `calls` [EXTRACTED]
 - [[_listing_with_date()]] - `calls` [EXTRACTED]
 - [[_strip_case_keys()]] - `calls` [EXTRACTED]
 - [[test_build_matched_reason_per_source()]] - `calls` [EXTRACTED]
@@ -26,6 +27,7 @@ tags:
 - [[test_opt_exclusion_rejects_and_caches()]] - `calls` [EXTRACTED]
 - [[test_run_once_never_fetches_an_already_excluded_uid()]] - `calls` [INFERRED]
 - [[test_run_pipeline.py]] - `contains` [EXTRACTED]
+- [[test_run_reseed_end_to_end_merges_state_and_respects_seeded_opt_cache()]] - `calls` [INFERRED]
 - [[test_validate_and_write_happy_path()]] - `calls` [EXTRACTED]
 - [[test_validate_and_write_rejects_cross_source_duplicate()]] - `calls` [EXTRACTED]
 - [[test_validate_and_write_rejects_dead_url()]] - `calls` [EXTRACTED]

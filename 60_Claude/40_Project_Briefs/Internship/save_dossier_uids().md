@@ -12,7 +12,7 @@ tags:
 # save_dossier_uids()
 
 ## Connections
-- [[Path]] - `calls` [EXTRACTED]
+- [[Path_3]] - `calls` [EXTRACTED]
 - [[move_dossier_to_viewed()]] - `calls` [EXTRACTED]
 - [[write_dossier()]] - `calls` [EXTRACTED]
 - [[writer.py]] - `contains` [EXTRACTED]

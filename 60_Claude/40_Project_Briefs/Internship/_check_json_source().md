@@ -1,12 +1,12 @@
 ---
 source_file: "core/schema_drift.py"
 type: "code"
-community: "schema_drift.py"
+community: "test_schema_drift.py"
 location: "L118"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/schema_driftpy
+  - community/test_schema_driftpy
 ---
 
 # _check_json_source()
@@ -20,4 +20,4 @@ tags:
 - [[check_zshah101_schema()]] - `calls` [EXTRACTED]
 - [[schema_drift.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/schema_driftpy
+#graphify/code #graphify/EXTRACTED #community/test_schema_driftpy

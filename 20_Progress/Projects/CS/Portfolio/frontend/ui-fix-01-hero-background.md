@@ -152,6 +152,53 @@ Run pnpm typecheck && pnpm lint and paste the output. Do not deploy, do not comm
 If after implementing (1) and (2) the effect still doesn't read as volumetric to you, stop and report what you tried and why it fell short, rather than escalating to changing FORM_SCATTER_RADIUS, the durations, or the camera path — those are out of scope for this task and affect the mount intro too.
 ```
 
+### Refinement pass 2 (2026-09-05) — bias toward the camera, not just outward from the click
+
+**User verification of pass 1:** click effect is cleaner and the per-click origin/radius is "perfect," but it still doesn't read as 3D — description: particles should feel like they come out of the screen toward the viewer, then go back in, not scatter sideways.
+
+**Diagnosis, confirmed against the live code Cursor wrote:** the pass-1 bias (`ObsidianBackgroundCanvas.tsx` ~lines 576–600) blends the isotropic random offset with a vector pointing *outward from the click's hit point, in the sphere's own rest-position space* (`bx/by/bz = restPos - hitPoint`). That's a sideways/radial-across-the-surface direction, not a toward-or-away-from-camera direction. The depth-cue brightness pass added in pass 1 (lines ~830–836, ~932–963) correctly *sells* depth once particles are already moving through it, but nothing was pushing them toward the viewer in the first place.
+
+**Researched and rejected alternative:** switching the renderer from `THREE.Points`/`PointsMaterial` to instanced quad meshes (one source's stated technique for convincing toward/away-from-camera motion) — rejected because this file's entire performance model is one `Points` buffer geometry for 2,800+ desktop points, and `sizeAttenuation` already gives correct perspective scaling as points move through space. The missing piece is a direction vector, not a rendering primitive swap. `camera.position` is already read in this exact formation loop for the depth-cue pass — reuse it.
+
+**Fix:** blend a genuine toward-camera vector into the existing bias, without touching radius, timing, or the depth-cue pass:
+
+```
+Read this refinement section plus the original diagnosis above before editing — do not redo pass 1's work, it's already correct and shipped.
+
+CONTEXT: Pass 1 (already implemented) added depth-correlated brightness (formDepthCueEnabled, pDepth, formMinDepth2/formMaxDepth2, ~lines 830-836 and 932-963 — do not touch this, it's working and should stay exactly as-is) and a hit-point-biased scatter direction (FORM_CLICK_BIAS_STRENGTH = 0.82, FORM_CLICK_BIAS_RADIUS_SCALE = 1.4, ~lines 556-607). The user confirms the click radius and per-click origin behavior from pass 1 are correct — do not change FORM_CLICK_BIAS_RADIUS_SCALE, the smoothstep falloff, or which points get biased. What's missing: the bias direction points outward from the click location across the sphere's own surface, not toward the viewer. The user's exact ask: particles should look like they come out of the screen toward the viewer, then recede back in.
+
+TASK — change only the biased-direction computation inside the formRetrigger consumption block (~lines 576-600), nothing else:
+
+1. Add one new tuning constant near the other FORM_CLICK_* constants (~line 79-80): a camera-bias weight, e.g. `const FORM_CLICK_CAMERA_BIAS_WEIGHT = 0.65;` (a 0-1 blend weight, tune later by eye — 0.65 is a reasonable starting point that keeps some of the existing "poked at that spot" character while making the toward-camera pop dominant).
+
+2. Inside the per-point loop that currently computes `bx/by/bz` (outward from hit point) at ~lines 578-580, ALSO compute a vector from each point's rest position toward the camera: `const tcx = camera.position.x - restPos[i3]; const tcy = camera.position.y - restPos[i3 + 1]; const tcz = camera.position.z - restPos[i3 + 2];` and normalize it the same way `bx/by/bz` is already normalized (reuse the existing `bDist`-style length computation pattern, or compute a separate length for this vector — do not skip normalization, magnitudes must stay controlled by `randomLen` like the existing code does).
+
+3. Blend the two directions — outward-from-hit and toward-camera — using `FORM_CLICK_CAMERA_BIAS_WEIGHT` (e.g. `blendedX = lerpN(normalizedOutwardX, normalizedTowardCameraX, FORM_CLICK_CAMERA_BIAS_WEIGHT)`, then re-normalize the blended vector before scaling by `randomLen`) — then feed this blended, `randomLen`-scaled direction into the EXACT SAME `lerpN(ox, ..., biasT)` call that already exists at lines 588-590, replacing only the second argument (currently the pure outward-from-hit vector) with the new blended vector. Do not change `biasT`, the smoothstep falloff, or the radius gating (`bDist2 < biasRadius2`) — those stay exactly as pass 1 built them.
+
+4. `camera` is already in scope inside this useFrame closure (used elsewhere in this same file for the depth-cue pass and the camera scroll path) — do not add a new `useThree()` call or prop-drill it, just reference the existing binding.
+
+CONSTRAINTS:
+- Do not touch the depth-cue brightness/size pass (formDepthCueEnabled, pDepth, formMinDepth2, formMaxDepth2) — it's correct, leave it alone.
+- Do not change FORM_CLICK_BIAS_RADIUS_SCALE, FORM_CLICK_BIAS_STRENGTH, or the smoothstep falloff shape.
+- Do not change FORM_SCATTER_RADIUS, FORM_CLICK_OUT_DURATION, FORM_CLICK_IN_DURATION, or the reassemble/fly-apart lerp mechanics in the main per-point animation loop (~lines 800-826) — this fix only changes what direction `pScatter` points in, not how it's consumed afterward. The existing fly-apart-then-reassemble lerp will automatically produce the "toward viewer, then back" motion once the direction itself points at the camera — you should not need to touch that loop at all.
+- No new dependencies, no new per-frame allocations (reuse scratch scalars the way the surrounding code already does — this block already runs its own small loop only on the rare frame right after a click, matching the existing style).
+- Respect prefers-reduced-motion exactly as before (this block is already gated by `!reducedMotion` at the top of the formRetrigger consumption).
+
+VERIFY before reporting done, and state the result of each explicitly:
+(a) Click the sphere: particles within the local radius now visibly grow/brighten and appear to approach the viewer during the fly-apart leg, then visibly shrink/dim and recede back to the sphere during reassembly — this should read as "coming out of the screen and going back in," not a sideways scatter.
+(b) Clicking different points on the sphere still visibly originates from that specific location (the outward-from-hit component should still be perceptible, just no longer dominant) — the per-click radius/localization behavior from pass 1 must still look correct.
+(c) No particle visually overshoots past the camera, disappears, or clips oddly — FORM_SCATTER_RADIUS is unchanged so magnitude should already be safe, but confirm visually.
+(d) Mount-time intro on page load is unaffected (formHasClickHit is only ever true after a real click).
+(e) prefers-reduced-motion: unaffected, still fully static.
+Run pnpm typecheck && pnpm lint and paste the output. Do not deploy, do not commit.
+
+If the blend weight of 0.65 doesn't feel dominant enough or feels too dominant once you see it live, it's fine to nudge FORM_CLICK_CAMERA_BIAS_WEIGHT (report the value you land on) — but do not exceed the existing biasRadius/FORM_CLICK_BIAS_RADIUS_SCALE scope to compensate; if it still doesn't read as 3D after this, stop and report rather than expanding scope further.
+```
+
+#### External research consulted
+- [Varun Vachhar — Three ways to create 3D particle effects](https://varun.ca/three-js-particles/) — confirmed no camera-relative displacement technique is a "named" pattern; position animation is direct vector math, same approach used here.
+- [Tiger Abrodi — Particle systems in games with three.js and tricks to make them look good](https://tigerabrodi.blog/particle-systems-in-games-with-threejs-and-tricks-to-make-them-look-good) (2026-04) — confirmed depth-based size/opacity falloff as the standard depth illusion (already shipped); flagged instanced-mesh rendering as the alternative for convincing camera-relative motion, considered and rejected above with reasoning.
+- Three.js core API (`camera.position`, already used elsewhere in this file) — no new API surface needed; this is a vector-math composition, not a library or shader problem.
 ## Dependencies
 
 - None for this task.

@@ -21,6 +21,9 @@ tags:
 - [[test_applyguy_prefers_listing_url_over_tracking_url()]] - `calls` [EXTRACTED]
 - [[test_applyguy_should_match()]] - `calls` [EXTRACTED]
 - [[test_applyguy_should_reject()]] - `calls` [EXTRACTED]
+- [[test_build_matched_reason_applyguy_includes_term_and_category()]] - `calls` [EXTRACTED]
+- [[test_build_matched_reason_applyguy_not_specified_season_omits_bare_comma()]] - `calls` [EXTRACTED]
 - [[test_filter.py]] - `imports` [EXTRACTED]
+- [[test_run_pipeline.py]] - `imports` [EXTRACTED]
 
 #graphify/code #graphify/EXTRACTED #community/write_dossier

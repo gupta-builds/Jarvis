@@ -2,18 +2,25 @@
 type: project
 status: active
 created: 2026-07-19
-updated: 2026-09-04
+updated: 2026-09-06
 related_progress:
   - "[[Source of Truth]]"
   - "[[Phases Run]]"
   - "[[Internship Pipeline]]"
-  - "[[20_Progress/Internship/Building System/Runs/Discovery Step Postmortem — Write-Starvation Incident (2026-08-26)]]"
+  - "[[20_Progress/Internship/Building System/Runs/Discovery Step Postmortem —
+    Write-Starvation Incident (2026-08-26)]]"
   - "[[20_Progress/Internship/Building System/V0/Dossier Corrections]]"
+  - "[[Research Loop - Implementation Plan]]"
 tags:
   - internship
   - automation
   - system-design
-next: "URGENT: run.yml has been disabled_manually since 2026-08-29T09:33:51Z (confirmed live via gh api, 2026-09-04) — the write-starvation fix (commit e856e05, 2026-08-30) has shipped and sat unexercised for 6 days. Decide re-enable timing before anything else in # Plan below. Old Plan's Priority 1 (prove promotion works) is no longer the top blocker — 14 real promotions now exist (Prompts 26/27) — but 0 Applying notes still exist, so Reach Out/Apply remain the next unproven step once discovery is confirmed healthy again."
+next: "2026-09-06: added a codebase-depth diagnosis section
+  (precision-not-volume framing, the company-registry root-cause fix, and
+  confirmed scope exclusions) after a fresh from-code read — see the new section
+  right above # Old Plan. The actual execution sequence now lives in [[Research
+  Loop - Implementation Plan]]'s new Execution Plan section, not here. run.yml
+  re-enable timing is still the human's separate call, unchanged."
 ---
 # Research Loop — Improvement Plan
 ==The honest account of what's actually broken or missing. First written 2026-07-19 against the live repo and live vault; substantially updated 2026-07-25 after a live follow-up session that investigated real misses (a Google posting, four manually-clipped internships), checked real hit rates against Greenhouse/Lever/Ashby, and then built and tested four new ingestion sources plus a measured OPT-regex improvement. Priority 2 moved from "planned" to "built, tested, not yet pushed" in that session. Priority 1 has not moved — it is still the single most important thing not yet done.== [[Source of Truth]] states what the system was supposed to become; this note states what's still standing between here and there.
@@ -86,6 +93,30 @@ Current: 287 dossiers (134 AI/ML, 42 Fullstack, 50 CyS&Finance, 61 Other, 58 in 
 ## Open, Blocking Decisions (need your answer before any of the above ships)
 See the questions in this session's chat response — repeated here so they don't get lost in the note: run.yml re-enable timing, `MAX_NEW_WRITES_PER_RUN` scope, public-repo generalization scope, and the "5 dossiers/hour" target's exact definition (per-run cap vs. steady-state average).
 
+# Session 2026-09-06 — Codebase-Depth Diagnosis (Precision, Not Volume)
+==Written after a from-scratch read of this repo's live code (`core/classify.py`, `core/relevance.py`, `core/debate.py`, `core/schema_drift.py`, `core/filter.py`, `core/identity.py`, `vault_writer/validate.py`, `run_pipeline.py`, `.github/workflows/run.yml`, `requirements.txt`) — not just this vault's own notes — plus every prior Weekly/Monthly review, the write-starvation postmortem, and Dossier Corrections. One stale claim caught and corrected below, in the same spirit this repo already demands of itself. The actual execution sequence lives in [[Research Loop - Implementation Plan]]'s new Execution Plan section, not here — this note states diagnosis and priority, that one states the how.==
+
+## Correction: the "schema-drift covers only 5/11 sources" claim is stale
+The 2026-08-26 postmortem's Secondary Finding #1 says schema-drift checking covers only 5 of 11 sources. Read `core/schema_drift.py` directly, 2026-09-06: `check_all()` already runs a real check for all 11 (per-vendor spot-checks for Greenhouse/Ashby/Lever/Freehire, `check_ai_jobs_schema`, and a sitemap-shape check for InternDock) — fixed by `2fa8b76` (2026-08-31), the notes just never got updated after. Nothing to build here; filed as a correction, not silently dropped.
+
+## Five real, cited, still-open code items — verified live 2026-09-06
+1. **`core/classify.py` quant-firm bucket misordering** (lines 59-68) — first-match-wins regex order means the same quant-trading firm's postings land in different buckets depending on which pattern its text happens to trip first. Confirmed still live: Optiver/IMC/Chicago Trading Company split across `1 - AI & ML` and `3 - CyS & Finance` ([[20_Progress/Internship/Building System/V0/Dossier Corrections]] §2). Virtu's pure-trading-strategy dossier — a gate-conformance miss, not just a bucket miss — is still live 12+ days after being flagged (2026-W36 review).
+2. **`ingestion/posting_page.py` has no Microsoft-specific listing-shell reset** — `_LISTING_SHELL_RESET_RE` (line ~195) already resets on Google's and Zipline's sidebar/board-shell noise, not Microsoft's. Confirmed real: 6 genuine Microsoft SWE/AI dossiers false-positive on `stage1_reject` because a "related jobs" sidebar link (`[Supply Chain Program Management Intern\`) leaks into extracted content (2026-W36 review, read against real stored dossier text). Same bug class as the already-fixed Google case.
+3. **`core/debate.py`'s preference tier is a flat binary** (`_TIER_RANK = {"high": 0}`) — every preferred company ties at rank 0, so a fixed small per-bucket budget lets a burst of fresher preferred-company arrivals starve an older preferred-company posting (the 2026-08-21 Citadel incident, [[Source of Truth]]). The mechanism resolves correctly; the rank space is just too coarse.
+4. **`run_pipeline.py`'s `build_matched_reason()`** (lines 495-501, confirmed) special-cases only SimplifyJobs/Jose-Gael-Cruz-Lopez; the other 9 sources get the bare literal `"matched"`. 81/287 live dossiers (28%) carry it (2026-W36 corpus grep).
+5. **#1, #3, and #4 share one root cause.** Three separate, ad hoc, drifting-out-of-sync places hold company-level judgment — `profile.yaml`'s flat `preferred_companies` dict, `relevance.py`'s `_ADJACENT_FIELD_COMPANY_HINT_RE` company list (a hand-maintained regex fragment, not data), and `classify.py`'s implicit keyword-order bucket assignment. None knows about the other two — this is the 2026-08-26 postmortem's own self-diagnosis, restated precisely: *"Classification is whack-a-mole by design... there is no structural defense, only a growing denylist."*
+
+## The one most crucial thing, if only one thing happens
+Collapse items #1/#3/#4 into a single structured **company registry** (one data file + loader) read by `classify.py`, `debate.py`, and `relevance.py` alike, instead of three unsynchronized mechanisms. It's the same root-cause discipline this codebase already applies everywhere else (fix the shared function, not each caller) — applied to data. Full spec: [[Research Loop - Implementation Plan]], Track A Prompt 1.
+
+## What "100x" means here — confirmed, not re-litigated
+Precision, not volume, per explicit direction this session. `new_count` already ran ~30x the write ceiling at peak (34,499/week vs. ~1,680/week) before the write-starvation bug was even found — the five items above are what "100x" means in code: eliminate whack-a-mole classification, don't multiply sources.
+
+## Explicit scope, confirmed this session
+- **`.claude/` is out of scope this round** — under separate construction. Anything from `ai-job-search` ports as plain repo-side Python, never a `.claude/` skill, this round.
+- **`run.yml` re-enabling stays a human decision, deferred** — unchanged from every prior note; don't let a future session flip it as a side effect of other work.
+- **Vault dossier cleanup/dedup sweeps, the Applying-note gap, and promotion-note hygiene (Deepgram/Nuro/Uber/Western Digital's missing trio, HRT-Sophomore, Appian's stale reasoning) are explicitly NOT this session's task** — that material is a resource for a different, vault-side session, not this one's job; conflating the two was flagged and corrected earlier the same day this section was written. `CLAUDE.md`'s note-template contracts are already specific enough for that work.
+- **`Main Resume.md`/`Main Cover Letter.md`'s evidence-bank rebuild IS in scope** — the one named blocker for the entire downstream Application Bench, and unlike dossier cleanup it's a precondition, not a backlog. Track B Prompt 2 in the Implementation Plan.
 # Old Plan
 ## Priority 1 — Prove the promotion step works, on real data, this week
 Still not done. Pick 3-5 of the current real dossiers (Rippling, SIG, Optiver, Western Digital was one suggested mix, still live options as of 2026-07-25) and run Steps 2 through 5 of the Pipeline by hand, once, for real. This is still the single highest-leverage thing to do next, and it's more true now than it was on 2026-07-19: Priority 2's build below is about to roughly double or triple the weekly match volume, which makes an unproven promotion step an even bigger bottleneck than it already was.

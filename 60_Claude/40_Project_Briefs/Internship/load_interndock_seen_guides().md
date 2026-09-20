@@ -2,7 +2,7 @@
 source_file: "run_pipeline.py"
 type: "code"
 community: "recheck.py"
-location: "L249"
+location: "L331"
 tags:
   - graphify/code
   - graphify/EXTRACTED
@@ -12,7 +12,6 @@ tags:
 # load_interndock_seen_guides()
 
 ## Connections
-- [[Path]] - `calls` [INFERRED]
 - [[discover_interndock()]] - `calls` [EXTRACTED]
 - [[run_pipeline.py]] - `contains` [EXTRACTED]
 

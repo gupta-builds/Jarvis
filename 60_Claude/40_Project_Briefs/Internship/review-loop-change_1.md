@@ -12,8 +12,8 @@ tags:
 # review-loop-change
 
 ## Connections
-- [[Output format_5]] - `contains` [EXTRACTED]
-- [[SKILL_7]] - `contains` [EXTRACTED]
+- [[Output format_9]] - `contains` [EXTRACTED]
+- [[SKILL_12]] - `contains` [EXTRACTED]
 - [[What to check_1]] - `contains` [EXTRACTED]
 - [[Why a skill, not a subagent, for this repo]] - `contains` [EXTRACTED]
 

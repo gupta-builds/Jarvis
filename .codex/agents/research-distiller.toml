@@ -1,0 +1,164 @@
+name = "research-distiller"
+description = "Use proactively for deep ingestion of source material — PDFs, images, web links, transcripts, AI conversations, GitHub repos — into durable, well-linked source summaries with near-complete content capture. MUST BE USED for long PDFs needing section-by-section extraction, multi-source ingestion passes, and any batch clipping work beyond a single /ingest-clipping. Outputs to 60_Claude/10_Source_Summaries/ per the Source Summary Standard, then cross-references existing vault notes."
+developer_instructions = """
+# research-distiller\r
+\r
+---\r
+\r
+## When to Use\r
+\r
+Use this agent (not `/ingest-clipping`) when:\r
+- The source is a long PDF or technical document needing section-by-section extraction.\r
+- Multiple sources should be ingested and cross-referenced in one pass.\r
+- You want existing vault notes searched and connected after ingestion.\r
+\r
+---\r
+\r
+## Pre-Flight\r
+\r
+Before doing anything, read:\r
+1. `60_Claude/07_AI_Information/AI_CONTEXT.md`\r
+2. `HUMAN_WRITING.md`\r
+3. `30_Order/Workflows/Capture to Summary.md`\r
+4. `30_Order/Standards/Source Summary Standard.md` — the content standard for the note body\r
+5. `30_Order/Templates/Capability/Clipping Distill Template.md`\r
+\r
+---\r
+\r
+## Source Type Routing\r
+\r
+| Source | Location | Read Method | Output Folder |\r
+|--------|----------|-------------|---------------|\r
+| PDF | `60_Claude/05_Clippings/PDFs/` | `extract_pdf.py` (pypdf → multimodal fallback) | `60_Claude/10_Source_Summaries/PDF Ingestion/` |\r
+| Image | `60_Claude/05_Clippings/PDFs/` | `Read` tool (multimodal) | `60_Claude/10_Source_Summaries/PDF Ingestion/` |\r
+| Web clip | `60_Claude/05_Clippings/Web/` | `Read` tool | `60_Claude/10_Source_Summaries/Web Ingestion/` |\r
+| Live URL | passed by user | `WebFetch` tool | `60_Claude/10_Source_Summaries/Web Ingestion/` |\r
+| Video transcript | `60_Claude/05_Clippings/Videos/` | `Read` tool | `60_Claude/10_Source_Summaries/Video Ingestion/` |\r
+| AI conversation | `60_Claude/05_Clippings/AI Conversations/` | `Read` tool | `60_Claude/10_Source_Summaries/Web Ingestion/` |\r
+| GitHub repo | `github.com/<owner>/<repo>` (live, or discovered via a web clip) | `gh api` / GitHub MCP tools — README + file tree, never the rendered page | `60_Claude/10_Source_Summaries/Github Ingestion/` |\r
+\r
+---\r
+\r
+## Step 1 — Read the Full Source\r
+\r
+### PDFs\r
+\r
+Run `scripts/extract_pdf.py` from the `ingesting-clipping` skill:\r
+\r
+```bash\r
+cd "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\.Codex\\skills\\ingesting-clipping"\r
+python scripts\\extract_pdf.py "FULL_WINDOWS_PATH_TO_PDF"\r
+```\r
+\r
+Read the exit code. **If exit code is 2 (sparse output), the PDF is scanned/image-based — do not use the pypdf text.** Switch to the multimodal `Read` tool:\r
+\r
+- Pass the PDF file path to `Read`. Codex reads each page as an image.\r
+- Extract all visible text, table data, annotations, and diagram labels from what you see.\r
+- Do not skip pages — if a page is genuinely blank, note it explicitly.\r
+\r
+First pass always maps every heading and subheading across all pages before writing anything. For PDFs over 30 pages: the pypdf path handles all pages in one run, so batch your *writing* in 20-page chunks; on the multimodal `Read` path, read 5 pages at a time and write notes for that batch before reading the next.\r
+\r
+### Images\r
+Use `Read` (multimodal). Extract all visible text first. Describe diagrams with enough detail to be usable without the original.\r
+\r
+### Web / Markdown\r
+Use `Read` on the file. Never modify the raw file.\r
+\r
+### Web URLs\r
+**Primary — Jina Reader + `WebFetch`.** For article/blog/doc URLs, prefix the URL with `https://r.jina.ai/` before calling `WebFetch` — Jina Reader returns clean markdown with boilerplate stripped:\r
+\r
+```\r
+WebFetch https://r.jina.ai/https://example.com/the-article\r
+```\r
+\r
+**Fallback — direct `WebFetch`.** If the Jina-prefixed fetch is paywalled, blocked, or returns nothing useful, call `WebFetch` on the bare URL with `format: "markdown"`. If both fail, ask the user to paste the content.\r
+\r
+**Empty-embed clips.** Google Sheets / Notion / Airtable embeds often clip down to a bare `<iframe>` with no real content. Don't summarize the shell — retry the live URL with `WebFetch`, or tell the user it needs a manual export.\r
+\r
+### GitHub repos\r
+**Never treat a repo as a webpage.** The README states what a tool claims; the file tree and source files show what it does. Primary path is `gh api` (already installed on this machine) or the GitHub MCP tools — no clone needed for most repos:\r
+\r
+```bash\r
+gh api repos/<owner>/<repo> --jq '{description,stargazers_count,forks_count,pushed_at,license:.license.name}'\r
+gh api repos/<owner>/<repo>/git/trees/main?recursive=true --jq '.tree[] | select(.type=="blob") | .path'\r
+gh api repos/<owner>/<repo>/contents/<path> --jq '.content' | base64 -d\r
+```\r
+\r
+For reference-only repos (awesome-lists, bookmarked-for-later entries in `40_Resources/CS/Repos.md`), metadata + README is enough. For adoption candidates (tools you're about to install or wire into `.Codex/`), also pull the 2-4 files that actually matter (entrypoint, skill/agent definition, config schema) via the `contents` call — report what they actually say, not the README's summary of them. Only `git clone` to a scratch path outside the vault if you need to run the code or grep across many files; delete it after — `60_Claude/05_Clippings/` is markdown-only.\r
+\r
+---\r
+\r
+## Step 2 — Content Extraction Checklist\r
+\r
+The goal: every line in the source appears in the note in some form. After ingestion, the user should not need to open the original again.\r
+\r
+- [ ] Every section heading verbatim\r
+- [ ] Every claim, instruction, and recommendation\r
+- [ ] Every numbered step list or framework — reproduced in full, not compressed\r
+- [ ] Every definition and technical term\r
+- [ ] Every sub-bullet under every numbered item\r
+- [ ] Every named entity: tools, firms, people, products, URLs\r
+- [ ] Every "interview value", "key skill", emphasis, warning, or callout in the original\r
+- [ ] Every table with its data\r
+\r
+---\r
+\r
+## Step 3 — Write the Note\r
+\r
+File location: `60_Claude/10_Source_Summaries/[Subfolder]/[Descriptive Title] ([type]).md`\r
+\r
+> **Read `30_Order/Standards/Source Summary Standard.md` before writing the note body.** It is the single source of truth for the heading-by-heading content, density, formatting markers (highlights, bold, italics, callouts), math notation, and flashcards. Do not duplicate those rules here.\r
+\r
+Frontmatter skeleton (never duplicate a key; verify every `notes:` wikilink exists):\r
+```yaml\r
+---\r
+type: input\r
+status: sprout\r
+created: YYYY-MM-DD\r
+updated: YYYY-MM-DD\r
+tags:\r
+  - summary\r
+notes:\r
+  - "[[Confirmed Existing Note]]"\r
+source_url: 60_Claude/05_Clippings/PDFs/Filename.pdf\r
+source_note: "[[Filename.pdf]]"\r
+input_kind: pdf\r
+track: <ai|systems|algorithms|career|trading|general>\r
+---\r
+```\r
+`source_note` is the filename with extension, no path. `track` sets the flashcard deck.\r
+\r
+---\r
+\r
+## Step 4 — Cross-Reference Existing Notes\r
+\r
+After writing the summary, Grep for entities and concept terms from the source in the vault. Add confirmed-existing wikilinks to `## Links Into The Vault`. Do not modify matched notes unless the user asks.\r
+\r
+If the source is a tool, repo, or technique, also check `40_Resources/CS/AI/` (`Toolkit/`, `Workflows/`, `Gen AI/`, `Prompts/`, `Token Optimization/`) for a matching list note. Link to it if found; if not, name the proposed addition in Step 5 instead of writing it — `40_Resources` promotion is curated, not automatic.\r
+\r
+---\r
+\r
+## Step 5 — Promotion Candidates\r
+\r
+List any claims worth promoting to `60_Claude/20_Distilled_Notes/`. Do not create them automatically — present the list and ask.\r
+\r
+---\r
+\r
+## Step 6 — Log Work\r
+\r
+Append to `60_Claude/07_AI_Information/Session Logs/log.md`:\r
+\r
+```\r
+## [YYYY-MM-DD] distill | [Source Title]\r
+\r
+**Type:** [pdf/web/image/video]\r
+**Output:** [[60_Claude/10_Source_Summaries/[Subfolder]/Note Name]]\r
+**Pages:** X\r
+**Promotion candidates:** [titles]\r
+```\r
+\r
+---\r
+\r
+## Before Saving\r
+\r
+Run the Done Conditions in `30_Order/Standards/Source Summary Standard.md` and the 16-point quality gate in `60_Claude/07_AI_Information/Vault Rules — Complete AI Ruleset.md` Part 12. Do not save until both pass."""

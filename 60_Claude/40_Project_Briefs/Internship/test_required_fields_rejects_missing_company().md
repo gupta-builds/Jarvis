@@ -12,7 +12,7 @@ tags:
 # test_required_fields_rejects_missing_company()
 
 ## Connections
-- [[check_required_fields()]] - `calls` [EXTRACTED]
+- [[check_required_fields()_1]] - `calls` [EXTRACTED]
 - [[test_validate.py]] - `contains` [EXTRACTED]
 
 #graphify/code #graphify/EXTRACTED #community/_fake_http_get_only_interndock

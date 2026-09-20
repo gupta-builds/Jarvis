@@ -126,10 +126,15 @@ The correct example is a process, not a note: the repo at the start of this very
 ## Verified Open State
 - Is a `5`-minute auto-push cadence still safe while Claude, Cursor, Kiro, and Copilot all edit the vault? — *needs user decision; concurrent writers raise conflict risk*
 - Should agents ever be allowed to commit, or remain commit-free by default? — *current rule is commit-free; confirm it stays*
+## Suggestions
+- **The `5`-minute auto-push cadence question is already tracked** in [[Plugin Gaps Recommendations and Verification]] — do not re-decide it here. What this note adds: [[Cross-Laptop Sync - Build Roadmap]] plans a *separate* scheduled git-commit script for cross-laptop sync, and it is now live on both laptops (Build 6). Running Obsidian Git's own auto-push alongside that script means two independent processes both trying to push the same repo — this is no longer a future collision, it is a real one as of now. **Worth it: yes, decide this before the next session that touches git on either machine, not after a real push conflict happens.**
+- **Obsidian Git's own README and full docs (fetched directly, not assumed) never describe a documented "disable push, keep commit" setting** — the plugin bundles commit and push into one "commit-and-sync" operation in its published feature list ([Obsidian Git — Features](https://publish.obsidian.md/git-doc/Features)). But this vault's own `data.json` already shows a literal `Push disabled: false` key, confirmed by direct read, not by trusting undocumented behavior — so the setting is real in this installed version even though the public docs don't walk through it. **Worth it: yes, flip it to `true` once Build 6's scheduled script is confirmed working, so Obsidian Git keeps catching fast local commits but stops racing the script's own push.** Until then, leave it `false` — Obsidian Git is currently the only thing pushing Jarvis to GitHub.
+- **File Recovery's snapshot retention, confirmed from Obsidian's own help page:** snapshots save a minimum of 5 minutes apart and are kept for 7 days by default ([Obsidian Help — File Recovery](https://obsidian.md/help/plugins/file-recovery)). **Worth it: yes, worth writing down once** — "use File Recovery for a recent uncommitted version" now means "recent" = within the last week, checked every 5+ minutes, not an open-ended promise. Not worth changing the defaults; a week of snapshots at 5-minute granularity already covers every realistic single-session recovery case this vault has hit.
 ## Sources
 
-- [Obsidian Git docs - Features](https://publish.obsidian.md/git-doc/Features)
+- [Obsidian Git docs - Features](https://publish.obsidian.md/git-doc/Features) — confirms commit and push are bundled as "commit-and-sync" in the documented feature set, fetched 2026-09-19
 - [Obsidian Git README](https://github.com/Vinzent03/obsidian-git)
-- [Obsidian Help - File Recovery](https://obsidian.md/help/plugins/file-recovery)
+- [Obsidian Help - File Recovery](https://obsidian.md/help/plugins/file-recovery) — 5-minute minimum snapshot spacing, 7-day retention, fetched 2026-09-19
+- Direct read of this vault's Obsidian Git `data.json` — confirms a real `Push disabled` key exists, currently `false`
 - [[AI_CONTEXT]]
 - [[40_Resources/Obsidian/Vault Operating System]]

@@ -1,18 +1,18 @@
 ---
-source_file: ".cursor/skills/contact-researcher/SKILL.md"
+source_file: ".claude/skills/promote-dossier/SKILL.md"
 type: "document"
-community: "_fake_http_get"
+community: "/promote-dossier"
 location: "L1"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/_fake_http_get
+  - community//promote-dossier
 ---
 
 # SKILL.md
 
 ## Connections
-- [[SKILL_5]] - `references` [EXTRACTED]
-- [[contact-researcher_1]] - `contains` [EXTRACTED]
+- [[promote-dossier]] - `contains` [EXTRACTED]
+- [[worked-example]] - `references` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/_fake_http_get
+#graphify/document #graphify/EXTRACTED #community//promote-dossier

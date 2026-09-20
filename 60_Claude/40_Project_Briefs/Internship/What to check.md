@@ -2,7 +2,7 @@
 source_file: ".claude/skills/review-loop-change/SKILL.md"
 type: "document"
 community: "What to check"
-location: "L15"
+location: "L23"
 tags:
   - graphify/document
   - graphify/EXTRACTED

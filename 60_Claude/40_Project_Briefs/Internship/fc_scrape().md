@@ -14,6 +14,6 @@ tags:
 ## Connections
 - [[_fc()]] - `calls` [EXTRACTED]
 - [[enrich.py]] - `contains` [EXTRACTED]
-- [[main()]] - `calls` [EXTRACTED]
+- [[main()_3]] - `calls` [EXTRACTED]
 
 #graphify/code #graphify/EXTRACTED #community/test_enrichpy

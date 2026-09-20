@@ -1,12 +1,12 @@
 ---
 source_file: "tests/test_schema_drift.py"
 type: "code"
-community: "check_freehire_schema"
-location: "L441"
+community: "test_schema_drift.py"
+location: "L403"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/check_freehire_schema
+  - community/test_schema_driftpy
 ---
 
 # test_freehire_schema_detects_dropped_public_slug()
@@ -16,4 +16,4 @@ tags:
 - [[check_freehire_schema()]] - `calls` [EXTRACTED]
 - [[test_schema_drift.py]] - `contains` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/check_freehire_schema
+#graphify/code #graphify/EXTRACTED #community/test_schema_driftpy

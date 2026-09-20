@@ -1,12 +1,12 @@
 ---
 source_file: "ingestion/sources.py"
 type: "rationale"
-community: "write_dossier"
+community: "recheck.py"
 location: "L1"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/write_dossier
+  - community/recheckpy
 ---
 
 # Fetch raw listings from each source. Used both by the scheduled pipeline and (wi
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[sources.py]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/write_dossier
+#graphify/rationale #graphify/EXTRACTED #community/recheckpy

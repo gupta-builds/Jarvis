@@ -1,12 +1,12 @@
 ---
 source_file: "ingestion/sources.py"
 type: "code"
-community: "write_dossier"
+community: "recheck.py"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/write_dossier
+  - community/recheckpy
 ---
 
 # sources.py
@@ -37,4 +37,4 @@ tags:
 - [[schema_drift.py]] - `imports_from` [EXTRACTED]
 - [[test_schema_drift.py]] - `imports_from` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/write_dossier
+#graphify/code #graphify/EXTRACTED #community/recheckpy

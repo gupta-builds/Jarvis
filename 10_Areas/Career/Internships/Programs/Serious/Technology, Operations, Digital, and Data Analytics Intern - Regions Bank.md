@@ -3,21 +3,24 @@ name: Technology, Operations, Digital, and Data Analytics Intern at Regions Bank
 company: Regions Bank
 program_type: Technology / Data Analytics
 eligible_classes: []
-grad_year: null
+grad_year:
 role_type: internship
-wave: null
-opens_date: null
-deadline_posted: '2026-09-25'
-deadline_real: null
-pay_per_week: null
+wave:
+opens_date:
+deadline_posted: 2026-09-25
+deadline_real:
+pay_per_week:
 pay_currency: USD
-duration_weeks: null
-benefits: ["401K with Company Match", "Medical, Dental and Vision Benefits", "Paid Vacation/Sick Time"]
+duration_weeks:
+benefits:
+  - 401K with Company Match
+  - Medical, Dental and Vision Benefits
+  - Paid Vacation/Sick Time
 application_url: https://regions.wd5.myworkdayjobs.com/regions_careers/job/Hoover-AL---Riverchase-Operations-Center-Birmingham-AL/XMLNAME-2027-ETP-Intern---Technology--Operations--Digital--and-Data---Analytics_R105426
 careers_page: https://careers.regions.com/us/en/interns
 list_origin: "[[10_Areas/Career/Internships/List/Dossiers/Other/Technology, Operations, Digital, and Data Analytics Intern - Regions Bank]]"
-applying_note: null
-recruiter_contact: "[[10_Areas/Career/Internships/Contacts/Each One/Technology, Operations, Digital, and Data Analytics Intern - Regions Bank]]"
+applying_note:
+recruiter_contact: "[[10_Areas/Career/Internships/Contacts/Each One/Ongoing/Technology, Operations, Digital, and Data Analytics Intern - Regions Bank]]"
 tags:
   - internship
   - program

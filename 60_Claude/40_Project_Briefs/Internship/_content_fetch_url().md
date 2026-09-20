@@ -1,12 +1,12 @@
 ---
 source_file: "ingestion/posting_page.py"
 type: "code"
-community: "plan_removals"
+community: "writer.py"
 location: "L55"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/plan_removals
+  - community/writerpy
 ---
 
 # _content_fetch_url()
@@ -23,4 +23,4 @@ tags:
 - [[test_content_fetch_url_strips_ashby_application_suffix()]] - `calls` [EXTRACTED]
 - [[test_posting_page.py]] - `imports` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/plan_removals
+#graphify/code #graphify/EXTRACTED #community/writerpy

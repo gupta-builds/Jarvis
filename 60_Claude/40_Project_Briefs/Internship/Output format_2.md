@@ -1,17 +1,17 @@
 ---
-source_file: ".claude/skills/review-loop-change/SKILL.md"
+source_file: ".claude/agents/loop-verifier.md"
 type: "document"
-community: "What to check"
-location: "L41"
+community: "Checks to run, in this order"
+location: "L39"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/What_to_check
+  - community/Checks_to_run_in_this_order
 ---
 
 # Output format
 
 ## Connections
-- [[review-loop-change]] - `contains` [EXTRACTED]
+- [[loop-verifier]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/What_to_check
+#graphify/document #graphify/EXTRACTED #community/Checks_to_run_in_this_order

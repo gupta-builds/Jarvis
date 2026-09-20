@@ -2,7 +2,7 @@
 source_file: "core/debate.py"
 type: "code"
 community: "test_write_dossier_creates_missing_dossiers_dir"
-location: "L31"
+location: "L30"
 tags:
   - graphify/code
   - graphify/EXTRACTED
@@ -15,6 +15,7 @@ tags:
 - [[Standard cmp semantics negative if a should rank first, positive if     b shoul]] - `rationale_for` [EXTRACTED]
 - [[_preference_rank()]] - `calls` [EXTRACTED]
 - [[_prioritize_and_cap()]] - `calls` [EXTRACTED]
+- [[_select_exact_quota()]] - `calls` [EXTRACTED]
 - [[classify()]] - `calls` [EXTRACTED]
 - [[debate.py]] - `contains` [EXTRACTED]
 - [[run_pipeline.py]] - `imports` [EXTRACTED]

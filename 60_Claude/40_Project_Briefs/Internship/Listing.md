@@ -31,6 +31,8 @@ tags:
 - [[test_ashby_bare_year_real_ellipsis_labs_case_passes()]] - `calls` [EXTRACTED]
 - [[test_ashby_matches_literal_term_in_description()]] - `calls` [EXTRACTED]
 - [[test_ashby_matches_spring_2027_literal_term()]] - `calls` [EXTRACTED]
+- [[test_build_matched_reason_free_text_sources_report_real_matched_term()]] - `calls` [EXTRACTED]
+- [[test_build_matched_reason_freehire_real_google_fixture()]] - `calls` [EXTRACTED]
 - [[test_debate.py]] - `imports` [EXTRACTED]
 - [[test_debate_losses.py]] - `imports` [EXTRACTED]
 - [[test_filter.py]] - `imports` [EXTRACTED]
@@ -43,8 +45,10 @@ tags:
 - [[test_lever_bare_year_with_no_season_word_passes_permissively()]] - `calls` [EXTRACTED]
 - [[test_lever_matches_literal_term_in_description()]] - `calls` [EXTRACTED]
 - [[test_lever_rejects_explicit_wrong_year()]] - `calls` [EXTRACTED]
+- [[test_matched_term_in_free_text_agrees_with_bool_matcher()]] - `calls` [EXTRACTED]
 - [[test_missing_raw_id_raises()]] - `calls` [EXTRACTED]
 - [[test_run_once_files_issue_on_exclusion_spike()]] - `calls` [EXTRACTED]
+- [[test_run_pipeline.py]] - `imports` [EXTRACTED]
 - [[test_write_gate_failures.py]] - `imports` [EXTRACTED]
 
 #graphify/code #graphify/EXTRACTED #community/write_dossier

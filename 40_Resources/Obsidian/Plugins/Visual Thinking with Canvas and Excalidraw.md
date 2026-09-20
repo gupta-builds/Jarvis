@@ -44,6 +44,9 @@ Whichever tool you pick, the visual is embedded in or linked from a Markdown not
 - Do not expose Excalidraw AI credentials.
 - Do not replace searchable text with image-only diagrams.
 - Create visual files only when the user asks; otherwise write a Markdown scaffold with a labelled embed placeholder.
+## Suggestions
+- **Building one real example of each, worth it: yes, and cheaply so.** Anant is a UMN student whose actual coursework already produces exactly the raw material both tools want (concept notes, PDF figures). One MGMT 3001 concept-web Canvas and one annotated PDF-figure Excalidraw drawing would take under an hour combined and would replace two "no gold-standard example exists yet" sections with something he can copy the pattern from on the next course. The cost of *not* doing this isn't just a missing example — both tools stay at zero real usage indefinitely, since nothing forces a first attempt.
+- **Adding "existing image to annotate" as a third chooser row: yes, small fix, real gap.** The current table only distinguishes "existing notes" (Canvas) from "shapes/arrows/flows" (Excalidraw), which genuinely doesn't cover the third case Anant will hit constantly: a lecture-slide screenshot or textbook figure he wants to mark up, not redraw from scratch. Excalidraw's own README confirms image annotation is a first-class supported mode (embed an image, draw directly on top of it), not a workaround — so the fix is one row in this table, not new plugin capability.
 ## Sources
 - [Obsidian Help - Canvas](https://help.obsidian.md/plugins/canvas)
 - [Excalidraw plugin README](https://github.com/zsviczian/obsidian-excalidraw-plugin)

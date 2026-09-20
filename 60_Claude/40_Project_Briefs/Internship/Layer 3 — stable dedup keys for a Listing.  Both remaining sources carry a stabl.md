@@ -1,12 +1,12 @@
 ---
 source_file: "core/identity.py"
 type: "rationale"
-community: "test_render_dossier_shows_real_rendered_frontmatter_with_preference_match"
+community: "stage1_reject"
 location: "L1"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/test_render_dossier_shows_real_rendered_frontmatter_with_preference_match
+  - community/stage1_reject
 ---
 
 # Layer 3 — stable dedup keys for a Listing.  Both remaining sources carry a stabl
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[identity.py]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/test_render_dossier_shows_real_rendered_frontmatter_with_preference_match
+#graphify/rationale #graphify/EXTRACTED #community/stage1_reject

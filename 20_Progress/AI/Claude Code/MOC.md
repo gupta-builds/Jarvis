@@ -51,7 +51,7 @@ Every project folder under `20_Progress/AI/Claude Code/` now has a `Setup.md` th
 | Trading View | live-synced | 2026-08-10 | [[20_Progress/AI/Claude Code/Trading View/Setup\|Setup]] |
 | second-brain-claudekit | live-synced | 2026-08-10 | [[20_Progress/AI/Claude Code/second-brain-claudekit/Setup\|Setup]] |
 | internship-research-loop | live-synced | 2026-09-05 | [[20_Progress/AI/Claude Code/internship-research-loop/Setup\|Setup]] |
-| .claude_windows | live-synced | 2026-08-10 | [[20_Progress/AI/Claude Code/.claude_windows/Setup\|Setup]] |
+| .claude_windows | live-synced | 2026-09-05 | [[20_Progress/AI/Claude Code/.claude_windows/Setup\|Setup]] |
 | .claude_wsl | live-synced | 2026-08-10 | [[20_Progress/AI/Claude Code/.claude_wsl/Setup\|Setup]] |
 ## Needs Work
 ```dataview

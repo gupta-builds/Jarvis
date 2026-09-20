@@ -1,19 +1,17 @@
 ---
-source_file: ".cursor/skills/promote-dossier/SKILL.md"
+source_file: ".claude/skills/tailoring-application/SKILL.md"
 type: "document"
-community: "_fake_http_get"
+community: "Steps (once the block above has actually cleared)"
 location: "L1"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/_fake_http_get
+  - community/Steps_once_the_block_above_has_actually_cleared
 ---
 
 # SKILL.md
 
 ## Connections
-- [[SKILL_2]] - `references` [EXTRACTED]
-- [[note-templates_1]] - `references` [EXTRACTED]
-- [[promote-dossier_1]] - `contains` [EXTRACTED]
+- [[tailoring-application]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/_fake_http_get
+#graphify/document #graphify/EXTRACTED #community/Steps_once_the_block_above_has_actually_cleared

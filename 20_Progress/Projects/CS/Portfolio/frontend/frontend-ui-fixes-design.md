@@ -162,28 +162,29 @@ const handleCardClick = (i: number) => {
 
 > **2026-09-05 correction:** this section previously assumed auto-play was capped to indices 0–2 and didn't mention the existing GSAP `Draggable` swipe gesture, "tether flash" effect, or `useSpaceFloat` ambient drift already on all three visible cards. Full corrected diagnosis, target behavior, and implementation prompt: [[ui-fix-04-projects-section]]. **Auto-play scope resolved:** keep cycling through all projects (confirmed by the user) — the live code's behavior is correct, do not cap it.
 
-###### Timeline beats (unchanged shape, now scoped to a one-time pin-entry reveal — not the per-index transition)
+####### Timeline beats (unchanged shape, now scoped to a one-time pin-entry reveal — not the per-index transition)
 
 | Progress | Effect |
 |---|---|
-| 0.0 | Pin starts; card wrappers invisible (outer wrapper only, not the existing `AnimatePresence`/`slideVariants` layer) |
+| 0.0–0.35 | Pin starts; card wrappers invisible; background plays the "warp-out" flythrough (see Background sequence below) |
 | 0.2 | Center card wrapper fades in |
-| 0.5 | All three solid; auto-play continues exactly as it does today |
-| 0.5–1.0 | Edge loop active (new); side-card drift stays always-on as it is today |
+| 0.5 | All three solid; auto-play continues exactly as it does today; background has settled into its starfield hold |
+| 0.5–1.0 | Background holds settled starfield; side-card drift stays always-on as it is today |
+| (on leaving the pin) | One-shot "hyperspace-exit" background transition, not scroll-scrubbed — see Background sequence |
 
-###### Card emerge
+####### Card emerge
 
 - Fires once on pin-entry, on the cards' outer wrappers — deliberately separate from `ProjectsSlider.tsx`'s existing `slideVariants`/`AnimatePresence`, which already drives a ±200px `x` slide + opacity/scale on **every** index change (manual, drag, keyboard, auto-play) and must keep doing so unchanged after the emerge.
 - No added horizontal translate on the emerge itself.
 - Side cards animate opacity 0 → their existing resting `0.35` (not to 1).
 
-###### Border / edge effect
+####### Background sequence — supersedes the earlier "CSS edge-pulse" idea
 
-- Confirmed absent from `globals.css` — genuinely new CSS, no existing class to reuse or collide with.
-- Violet/indigo ~15% opacity, 4–6s loop, active during auto-play.
-- Optional: dispatch `background:mode projects-edge` — the consumer side of this event is explicitly deferred in [[ui-fix-01-hero-background]]; don't build it here either unless trivial.
+> **2026-09-05: new, user-dictated spec** — a three-beat background sequence on `ObsidianBackgroundCanvas.tsx` itself (a new `projects-edge` mode, not a CSS effect): (1) a fast first-person "warp-out" flythrough through a generic starfield/solar-system as the pin starts, with a few planet-like spheres passing by; (2) a settled deep-space backdrop for the rest of the pin — one bright central glowing object plus thousands of stars, motivating light on the front card; (3) a one-shot, ease-in-then-fast "hyperspace" zoom on leaving the pin, streaking stars into "shooting star" trails, ending framed close on one large bright star with the remaining stars at the screen edges. `background:mode: projects-edge` is now this sequence's real trigger, not an optional stretch goal.
 
-###### Side card drift
+Full precise beat-by-beat spec, architecture (reuse the existing canvas/starfield/`LineSegments` pattern, no second Three.js scene), and the ready-to-paste implementation prompt: [[ui-fix-04-projects-section]] §3.
+
+####### Side card drift
 
 - **Already exists** via `useSpaceFloat({radius: 4, rotate: 0.3})` on each side card (`src/hooks/use-space-float.ts`), always-on regardless of auto-play state — this matches the resolved auto-play scope, no gating change needed.
 - Read that hook before adding anything: if it writes a CSS `transform` on the wrapper, a second independent Framer `repeat: Infinity` transform animation on the same element will fight it. Only tune the existing hook's params if the emerge transition needs it.

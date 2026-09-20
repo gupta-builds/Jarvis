@@ -14,7 +14,7 @@ tags:
 ## Connections
 - [[grade()]] - `contains` [EXTRACTED]
 - [[keywords()]] - `contains` [EXTRACTED]
-- [[main()_1]] - `contains` [EXTRACTED]
+- [[main()_4]] - `contains` [EXTRACTED]
 - [[parse_bullets()]] - `contains` [EXTRACTED]
 - [[test_grade_resume.py]] - `imports_from` [EXTRACTED]
 

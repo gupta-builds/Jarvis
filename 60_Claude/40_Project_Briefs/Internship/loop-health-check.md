@@ -13,7 +13,7 @@ tags:
 
 ## Connections
 - [[Checks to run, in this order_1]] - `contains` [EXTRACTED]
-- [[Output format_4]] - `contains` [EXTRACTED]
-- [[SKILL_4]] - `contains` [EXTRACTED]
+- [[Output format_8]] - `contains` [EXTRACTED]
+- [[SKILL_9]] - `contains` [EXTRACTED]
 
 #graphify/document #graphify/EXTRACTED #community/Checks_to_run_in_this_order

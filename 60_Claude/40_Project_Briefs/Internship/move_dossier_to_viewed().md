@@ -13,11 +13,11 @@ tags:
 
 ## Connections
 - [[Moves a closed-posting dossier into Viewed instead of deleting it     (Internsh]] - `rationale_for` [EXTRACTED]
-- [[Path]] - `references` [EXTRACTED]
+- [[Path_3]] - `references` [EXTRACTED]
 - [[dossier_filename()]] - `calls` [EXTRACTED]
 - [[dump_frontmatter()]] - `calls` [EXTRACTED]
 - [[load_dossier_uids()]] - `calls` [EXTRACTED]
-- [[main()_2]] - `calls` [EXTRACTED]
+- [[main()_5]] - `calls` [EXTRACTED]
 - [[recheck.py]] - `imports` [EXTRACTED]
 - [[save_dossier_uids()]] - `calls` [EXTRACTED]
 - [[test_move_dossier_to_viewed_does_not_overwrite_filename_collision()]] - `calls` [EXTRACTED]

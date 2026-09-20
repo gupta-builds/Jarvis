@@ -13,7 +13,7 @@ tags:
 
 ## Connections
 - [[enrich.py]] - `contains` [EXTRACTED]
-- [[main()]] - `calls` [EXTRACTED]
+- [[main()_3]] - `calls` [EXTRACTED]
 - [[test_enrich.py]] - `imports` [EXTRACTED]
 - [[test_read_dossier_parses_frontmatter()]] - `calls` [EXTRACTED]
 - [[test_read_dossier_rejects_non_dossier()]] - `calls` [EXTRACTED]

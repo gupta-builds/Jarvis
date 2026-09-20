@@ -12,7 +12,7 @@ tags:
   - "#class"
   - "#Project"
 related:
-  - "[[Final Project|Final Project]]"
+  - "[[20_Progress/Degree/CSCI 4041/Final Project|Final Project]]"
   - "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 11|Week - 11]]"
   - "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 12|Week - 12]]"
   - "[[Chapter - 20|Chapter - 20]]"
@@ -44,7 +44,7 @@ Detailed implementation notes are in [[Maze Project Details|Maze Project Details
 ### Additional Concept Links
 - [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 13|Week - 13]] - shortest paths and Dijkstra.
 - [[Chapter - 22|Chapter - 22]] - single-source shortest paths and Dijkstra.
-- [[Final Project|Final Project]] - parent final project note.
+- [[20_Progress/Degree/CSCI 4041/Final Project|Final Project]] - parent final project note.
 ## Complexity
 | Algorithm | Time | Space |
 |---|---|---|

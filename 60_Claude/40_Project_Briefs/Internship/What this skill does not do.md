@@ -1,17 +1,17 @@
 ---
-source_file: ".claude/skills/promote-dossier/SKILL.md"
+source_file: ".claude/skills/generating-cover-letter-docx/SKILL.md"
 type: "document"
-community: "/promote-dossier"
-location: "L60"
+community: "dump_frontmatter"
+location: "L39"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community//promote-dossier
+  - community/dump_frontmatter
 ---
 
 # What this skill does not do
 
 ## Connections
-- [[promote-dossier]] - `contains` [EXTRACTED]
+- [[Generating a cover letter .docx]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community//promote-dossier
+#graphify/document #graphify/EXTRACTED #community/dump_frontmatter

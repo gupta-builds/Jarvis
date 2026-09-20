@@ -1,12 +1,12 @@
 ---
 source_file: "vault_writer/writer.py"
 type: "rationale"
-community: "commit_and_push_with_retry"
+community: "vault_root"
 location: "L158"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/commit_and_push_with_retry
+  - community/vault_root
 ---
 
 # Frontmatter dicts of every dossier file actually present in the vault     checko
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[scan_dossiers()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/commit_and_push_with_retry
+#graphify/rationale #graphify/EXTRACTED #community/vault_root

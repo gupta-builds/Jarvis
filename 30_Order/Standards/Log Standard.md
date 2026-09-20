@@ -10,11 +10,11 @@ notes:
   - "[[20_Progress/Projects/AI Use/Claude Kit/Log]]"
   - "[[20_Progress/AI/Claude Code/Write Log]]"
   - "[[60_Claude/07_AI_Information/Session Logs/log]]"
-  - "[[30_Order/Standards/Review Standard]]"
+  - "[[Review Standard]]"
 ---
 # Log Standard
 ==A log is a real, ongoing, dateable stream of events — not a one-time note wearing a log's frontmatter. Before creating one, name who is responsible for making entries land, the same way this vault already names a responsible mechanism for sync and capture.==
-This is the content and lifecycle standard for append-only logs in this vault (`## [YYYY-MM-DD] tag | title` entries, oldest-preserved, newest-first or newest-last by the file's own stated convention) — [[60_Claude/07_AI_Information/Session Logs/log|the main Session Log]], [[20_Progress/Projects/AI Use/Claude Kit/Log|Claude Kit/Log.md]], and any future log this vault creates. It governs a different question than [[30_Order/Standards/Review Standard|Review Standard]]: Review Standard says what a periodic *review* of a log must contain; this Standard says when a *log itself* is worth creating, when to extend one instead, and how to keep it from going silent without anyone noticing.
+This is the content and lifecycle standard for append-only logs in this vault (`## [YYYY-MM-DD] tag | title` entries, oldest-preserved, newest-first or newest-last by the file's own stated convention) — [[60_Claude/07_AI_Information/Session Logs/log|the main Session Log]], [[20_Progress/Projects/AI Use/Claude Kit/Log|Claude Kit/Log.md]], and any future log this vault creates. It governs a different question than [[Review Standard|Review Standard]]: Review Standard says what a periodic *review* of a log must contain; this Standard says when a *log itself* is worth creating, when to extend one instead, and how to keep it from going silent without anyone noticing.
 ## Why this Standard exists
 Written 2026-08-20, the first time this vault's actual logging reliability was checked systematically rather than assumed. Two real problems found in one pass: `Write Log.md` duplicated `Claude Kit/Log.md`'s exact heading convention and much of its subject matter, created without checking whether the job already had a home — then sat silent for 21 days because nothing was ever wired to write to it. `Session Logs Board.md` queried a folder that never existed, broken from the day it was created, never fixed because it had zero real dependents to force the question. Both are the same underlying mistake at different stages: creating a log-shaped note without first checking whether it duplicates an existing one, and without naming who or what keeps it fed.
 ## What makes a log worth creating

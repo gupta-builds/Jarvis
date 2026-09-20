@@ -1,12 +1,12 @@
 ---
 source_file: "ingestion/posting_page.py"
 type: "rationale"
-community: "dump_frontmatter"
+community: "writer.py"
 location: "L136"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/dump_frontmatter
+  - community/writerpy
 ---
 
 # The matched PhD-exclusivity phrase, or None if the posting shows no     explicit
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[phd_only_exclusion()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/dump_frontmatter
+#graphify/rationale #graphify/EXTRACTED #community/writerpy

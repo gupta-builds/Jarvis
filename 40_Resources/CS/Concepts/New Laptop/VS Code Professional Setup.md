@@ -2,7 +2,7 @@
 type: concept
 status: sprout
 created: 2026-08-26
-updated: 2026-08-26
+updated: 2026-09-11
 course: Life
 track:
   - laptop
@@ -19,6 +19,9 @@ related:
   - "[[WSL Session Briefing]]"
 ---
 # VS Code Professional Setup — Findings (not yet built)
+
+> [!IMPORTANT]
+> This note is research/backlog, not an executed setup. Use [[WSL New Laptop Master Plan — Verified 2026-09-11]] for the WSL installation and remote-editor gates.
 
 ## One-Line Answer
 

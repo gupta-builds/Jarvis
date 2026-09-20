@@ -89,6 +89,10 @@ These notes remain the first stop for agent behavior:
 
 This folder should not duplicate their short operating rules. It explains the plugin mechanics behind those rules.
 
+## App Settings, Not Plugin Settings
+
+The plugin folder documents plugin behavior. Core Obsidian settings that sit underneath plugins — file handling, link updating, the Properties type registry, the active theme, CSS snippets, core-plugin toggles, and custom hotkeys — live in a sibling folder instead: [[40_Resources/Obsidian/Settings/File Handling and Properties]], [[40_Resources/Obsidian/Settings/Appearance Theme and CSS Snippets]], and [[40_Resources/Obsidian/Settings/Core Plugins Hotkeys and Defaults]].
+
 ## Existing Source Notes
 
 These older notes are useful context and should be linked, not rewritten in place:

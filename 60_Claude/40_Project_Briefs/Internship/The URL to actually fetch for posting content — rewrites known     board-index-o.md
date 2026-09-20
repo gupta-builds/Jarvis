@@ -1,12 +1,12 @@
 ---
 source_file: "ingestion/posting_page.py"
 type: "rationale"
-community: "plan_removals"
+community: "writer.py"
 location: "L56"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/plan_removals
+  - community/writerpy
 ---
 
 # The URL to actually fetch for posting content — rewrites known     board-index-o
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[_content_fetch_url()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/plan_removals
+#graphify/rationale #graphify/EXTRACTED #community/writerpy

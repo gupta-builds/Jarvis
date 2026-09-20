@@ -1,12 +1,12 @@
 ---
 source_file: "ingestion/posting_page.py"
 type: "code"
-community: "plan_removals"
+community: "writer.py"
 location: "L105"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/plan_removals
+  - community/writerpy
 ---
 
 # opt_exclusion()
@@ -20,4 +20,4 @@ tags:
 - [[test_posting_page.py]] - `imports` [EXTRACTED]
 - [[validate_and_write()]] - `calls` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/plan_removals
+#graphify/code #graphify/EXTRACTED #community/writerpy

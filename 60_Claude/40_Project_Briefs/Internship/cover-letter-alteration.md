@@ -13,8 +13,8 @@ tags:
 
 ## Connections
 - [[Prerequisite — read this before running_1]] - `contains` [EXTRACTED]
-- [[SKILL_3]] - `contains` [EXTRACTED]
-- [[Steps_1]] - `contains` [EXTRACTED]
-- [[What this skill does not do_1]] - `contains` [EXTRACTED]
+- [[SKILL_8]] - `contains` [EXTRACTED]
+- [[Steps_7]] - `contains` [EXTRACTED]
+- [[What this skill does not do_6]] - `contains` [EXTRACTED]
 
 #graphify/document #graphify/EXTRACTED #community/Steps

@@ -1,23 +1,20 @@
 ---
-source_file: ".cursor/skills/resume-alteration/SKILL.md"
+source_file: ".claude/skills/generating-resume-docx/SKILL.md"
 type: "document"
-community: "Steps"
-location: "L27"
+community: "schema_drift.py"
+location: "L18"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/Steps
+  - community/schema_driftpy
 ---
 
 # Steps
 
 ## Connections
-- [[1. Take the input_3]] - `contains` [EXTRACTED]
-- [[2. Gather evidence_1]] - `contains` [EXTRACTED]
-- [[3. Propose the content plan — before writing anything_1]] - `contains` [EXTRACTED]
-- [[4. Humanizer gate_1]] - `contains` [EXTRACTED]
-- [[5. Write the file_1]] - `contains` [EXTRACTED]
-- [[6. Link back_1]] - `contains` [EXTRACTED]
-- [[resume-alteration]] - `contains` [EXTRACTED]
+- [[1. `python-docx` (low freedom)_1]] - `contains` [EXTRACTED]
+- [[2. Build the `ResumePlan` (medium freedom)]] - `contains` [EXTRACTED]
+- [[3. Generate, verify, report (low freedom)_1]] - `contains` [EXTRACTED]
+- [[Generating a resume .docx]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/Steps
+#graphify/document #graphify/EXTRACTED #community/schema_driftpy

@@ -12,7 +12,6 @@ tags:
 # load_profile()
 
 ## Connections
-- [[Path]] - `calls` [INFERRED]
 - [[filter.py]] - `contains` [EXTRACTED]
 - [[run_once()]] - `calls` [EXTRACTED]
 - [[run_pipeline.py]] - `imports` [EXTRACTED]

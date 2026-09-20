@@ -17,6 +17,7 @@ tags:
 - [[classify()]] - `imports` [EXTRACTED]
 - [[classify.py]] - `imports_from` [EXTRACTED]
 - [[company_matches_preference()]] - `imports` [EXTRACTED]
+- [[company_registry.py]] - `imports_from` [EXTRACTED]
 - [[compute_bucket_urgency()]] - `contains` [EXTRACTED]
 - [[debate_compare()]] - `contains` [EXTRACTED]
 - [[identity.py]] - `imports_from` [EXTRACTED]

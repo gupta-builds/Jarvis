@@ -14,7 +14,7 @@ tags:
 ## Connections
 - [[Idempotent a re-run replaces the previous Enrichment section.]] - `rationale_for` [EXTRACTED]
 - [[enrich.py]] - `contains` [EXTRACTED]
-- [[main()]] - `calls` [EXTRACTED]
+- [[main()_3]] - `calls` [EXTRACTED]
 - [[test_enrich.py]] - `imports` [EXTRACTED]
 - [[test_replace_enrichment_appends_then_replaces()]] - `calls` [EXTRACTED]
 

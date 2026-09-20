@@ -1,17 +1,17 @@
 ---
-source_file: ".claude/agents/loop-verifier.md"
+source_file: ".claude/agents/contact-researcher.md"
 type: "document"
-community: "Checks to run, in this order"
-location: "L39"
+community: "contact-researcher.md"
+location: "L56"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/Checks_to_run_in_this_order
+  - community/contact-researchermd
 ---
 
 # Output format
 
 ## Connections
-- [[loop-verifier]] - `contains` [EXTRACTED]
+- [[contact-researcher]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/Checks_to_run_in_this_order
+#graphify/document #graphify/EXTRACTED #community/contact-researchermd

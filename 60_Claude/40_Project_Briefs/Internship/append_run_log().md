@@ -12,7 +12,6 @@ tags:
 # append_run_log()
 
 ## Connections
-- [[Path]] - `calls` [INFERRED]
 - [[_commit_log()]] - `calls` [EXTRACTED]
 - [[recheck.py]] - `imports` [EXTRACTED]
 - [[run_log.py]] - `contains` [EXTRACTED]

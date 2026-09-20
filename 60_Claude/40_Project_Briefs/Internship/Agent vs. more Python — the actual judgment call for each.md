@@ -2,7 +2,7 @@
 source_file: "CLAUDE.md"
 type: "document"
 community: "internship-research-loop — Claude Code guidance"
-location: "L38"
+location: "L48"
 tags:
   - graphify/document
   - graphify/EXTRACTED

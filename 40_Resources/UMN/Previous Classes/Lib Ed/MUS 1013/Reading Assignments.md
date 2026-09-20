@@ -5,7 +5,7 @@ status: seed
 created: 2026-01-25
 updated:
 area:
-  - "[[Weekly Board]]"
+  - "[[40_Resources/UMN/Previous Classes/Weekly Board]]"
   - "[[MUS Board]]"
   - "[[50_Archive/Previous Classes/Lib Ed/MUS 1013/Week - 1|Week - 1]]"
 tags:

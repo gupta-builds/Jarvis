@@ -13,6 +13,7 @@ tags:
 
 ## Connections
 - [[Listing]] - `references` [EXTRACTED]
+- [[_listing_for_bucket()]] - `calls` [EXTRACTED]
 - [[_listing_with_date()]] - `calls` [EXTRACTED]
 - [[fetch_simplify()]] - `calls` [EXTRACTED]
 - [[listing()]] - `calls` [EXTRACTED]
@@ -33,8 +34,10 @@ tags:
 - [[test_opt_cache_short_circuits_before_fetch()]] - `calls` [EXTRACTED]
 - [[test_opt_exclusion_rejects_and_caches()]] - `calls` [EXTRACTED]
 - [[test_relevance.py]] - `imports` [EXTRACTED]
+- [[test_reseed.py]] - `imports` [EXTRACTED]
 - [[test_run_once_never_fetches_an_already_excluded_uid()]] - `calls` [EXTRACTED]
 - [[test_run_pipeline.py]] - `imports` [EXTRACTED]
+- [[test_run_reseed_end_to_end_merges_state_and_respects_seeded_opt_cache()]] - `calls` [EXTRACTED]
 - [[test_simplify_matches_spring_2027_only()]] - `calls` [EXTRACTED]
 - [[test_simplify_should_match()]] - `calls` [EXTRACTED]
 - [[test_simplify_should_reject()]] - `calls` [EXTRACTED]

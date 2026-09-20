@@ -14,8 +14,8 @@ members: 9
 - [[4. seen_ids.json  vault divergence_1]] - document - .cursor/skills/loop-health-check/SKILL.md
 - [[5. Auto-filed GitHub issues_1]] - document - .cursor/skills/loop-health-check/SKILL.md
 - [[Checks to run, in this order_1]] - document - .cursor/skills/loop-health-check/SKILL.md
-- [[Output format_4]] - document - .cursor/skills/loop-health-check/SKILL.md
-- [[SKILL_4]] - document - .cursor/skills/loop-health-check/SKILL.md
+- [[Output format_8]] - document - .cursor/skills/loop-health-check/SKILL.md
+- [[SKILL_9]] - document - .cursor/skills/loop-health-check/SKILL.md
 - [[loop-health-check]] - document - .cursor/skills/loop-health-check/SKILL.md
 
 ## Live Query (requires Dataview plugin)

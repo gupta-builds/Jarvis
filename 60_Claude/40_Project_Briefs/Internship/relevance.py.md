@@ -1,12 +1,12 @@
 ---
 source_file: "core/relevance.py"
 type: "code"
-community: "test_write_dossier_different_uid_same_role_company_gets_collision_suffix"
+community: "check_ai_jobs_schema"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/test_write_dossier_different_uid_same_role_company_gets_collision_suffix
+  - community/check_ai_jobs_schema
 ---
 
 # relevance.py
@@ -14,10 +14,12 @@ tags:
 ## Connections
 - [[Layer 2.5 — CSsoftware-relevance gate. Runs after matches() passes, before the]] - `rationale_for` [EXTRACTED]
 - [[_norm()_1]] - `contains` [EXTRACTED]
+- [[company_registry.py]] - `imports_from` [EXTRACTED]
 - [[revalidate.py]] - `imports_from` [EXTRACTED]
 - [[run_pipeline.py]] - `imports_from` [EXTRACTED]
 - [[stage1_reject()]] - `contains` [EXTRACTED]
 - [[stage2_confirm()]] - `contains` [EXTRACTED]
+- [[test_posting_page.py]] - `imports_from` [EXTRACTED]
 - [[test_relevance.py]] - `imports_from` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/test_write_dossier_different_uid_same_role_company_gets_collision_suffix
+#graphify/code #graphify/EXTRACTED #community/check_ai_jobs_schema

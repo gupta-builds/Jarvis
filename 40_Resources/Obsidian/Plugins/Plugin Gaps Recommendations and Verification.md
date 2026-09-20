@@ -2,7 +2,7 @@
 type: evergreen
 status: sprout
 created: 2026-05-15
-updated: 2026-05-15
+updated: 2026-09-19
 tags:
   - evergreen
   - system
@@ -25,7 +25,7 @@ Do not scatter recommendations across the plugin docs. Link here and keep one ca
 
 ### QuickAdd capture menu
 
-Current state: installed, lazy-loaded, hotkeyed with `Alt+Q`, but `choices` is empty.
+Current state: installed, lazy-loaded, hotkeyed with `Alt+Q`, but `choices` is empty. Exact UI steps and field values for building the six choices below (Capture: `Capture To`/`Capture format`; Template: `Template Path`/`File Name Format`/`New Note Location`) are now documented in [[QuickAdd Capture Menu]] — researched 2026-09-19. Two of the six (Inbox thought, Flashcard candidate) are Capture-type and buildable today; the other four are Template-type and blocked on `30_Order/Templates/` only having `MOC.md` so far. Building any of it still needs user approval (edits `data.json`).
 
 Recommended first choices:
 
@@ -40,9 +40,7 @@ Start without AI actions. Capture correctness matters more than clever macros.
 
 ### Tasks dashboard conventions
 
-Current state: Tasks is configured, but `00_Dashboard` still uses a Dataview `TASK` block for open tasks.
-
-Recommendation: keep Dataview where it is metadata-driven, but add canonical Tasks query examples for due soon, in progress, and high priority.
+Current state: resolved 2026-09-19, documented in [[Tasks Kanban and Project Tracking]]. `00_Dashboard`'s "Today's Priorities" block keeps its Dataview `TASK` block — checked against the live query, its filter is `file.day = date(today)`, a page-metadata property Dataview reads directly and the Tasks query language has no equivalent for. Tasks query examples for due-soon/in-progress/priority views were already added to that note.
 
 ### Spaced Repetition review cadence
 
@@ -52,7 +50,7 @@ Recommendation: add cards only after distillation, then connect `#cards`, `last_
 
 ### Excalidraw visual templates
 
-Current state: Excalidraw has folder, template, autosave, scripts folder, and wikilink embeds configured.
+Current state: Excalidraw has folder, template, autosave, scripts folder, and wikilink embeds configured. How-to guidance for building and applying templates (including how to offer two distinct templates, since the plugin only supports one default) is now documented in [[Excalidraw Diagrams and Annotation]] — researched 2026-09-18. The templates themselves are not yet built.
 
 Recommendation: create one or two templates after approval:
 
@@ -63,7 +61,7 @@ Recommendation: create one or two templates after approval:
 
 ### Local REST API security
 
-Current state: secure port `27124`, insecure port `27123`, insecure server enabled.
+Current state: secure port `27124`, insecure port `27123`, insecure server enabled. Researched 2026-09-18 and documented in [[AI Automation and Local Interfaces]]: `27123` still requires the API key — the gap is transport encryption (no TLS), not authentication. The plugin's own README frames it as a fallback for MCP clients that cannot trust the locally generated CA, not a general convenience. Whether `27123`'s default binding is localhost-only or LAN-reachable was not found in official docs and remains unverified.
 
 Decision needed: whether the insecure server should remain enabled and which local tools need it.
 
@@ -110,23 +108,26 @@ Decision needed: whether this cadence is still desirable while multiple AI tools
 
 ## Needs Verification
 
-- Effective plugin enabled state after Lazy Plugin Loader completes startup.
-- Why UI-visible community plugins exceed direct entries in `.obsidian/community-plugins.json`.
-- Lazy Plugin Loader references `excalibrain`, but no matching plugin folder was found.
-- `workspaces-plus` exists but has no readable manifest.
-- Whether `60_Claude/7_AI_Information` should get a Templater folder template.
-- Whether QuickAdd should be configured with capture choices.
-- Whether Omnisearch should enable PDF/image/Office indexing, likely with Text Extractor.
-- Whether Excalidraw auto-export should be enabled.
-- Whether Local REST API insecure server should remain enabled.
-- Preferred Tasks date conventions for coursework vs projects.
-- Preferred Tasks priority scale for coursework vs projects.
+- Effective plugin enabled state after Lazy Plugin Loader completes startup. — *mechanism now documented in [[Plugin Inventory and Configuration Map]]: `instant`-startup plugins are the only ones that persist to `community-plugins.json`; `short`/`long` plugins activate live via a non-persisting `enablePlugin()` call and never appear in that file.*
+- Whether Local REST API's insecure port `27123` binds to localhost only or is LAN-reachable — *resolved 2026-09-19: the plugin's server binds to a "Binding Host" setting whose documented default is `127.0.0.1` ("Setting this to `0.0.0.0` allows access from other devices on the network" — [Local REST API installation/configuration reference](https://deepwiki.com/coddingtonbear/obsidian-local-rest-api/1.1-installation-and-configuration)). This vault's `data.json` has no `bindingHost` override, so both the secure (`27124`) and insecure (`27123`) servers are running on the plugin's default, localhost-only. The `27123` risk is still transport encryption, not network exposure — see [[AI Automation and Local Interfaces]].*
+- `lazy-plugins` data.json references four plugins not yet in this vault's Community Plugins inventory table: `lean-terminal`, `homepage`, `obsidian-meta-bind-plugin`, `multi-column-markdown` — *resolved 2026-09-19: all four researched and given a home in [[Plugin Inventory and Configuration Map]]'s Community Plugins table, plus a workflow section each — [[AI Automation and Local Interfaces]] (Lean Terminal), [[Search Linking and Navigation]] (Homepage), [[Appearance Code Math and Reading Experience]] (Multi-Column Markdown), [[Dataview and Dashboards]] (Meta Bind).*
+- Lazy Plugin Loader references `excalibrain`, but no matching plugin folder was found. — *correction, 2026-09-19: this was wrong. `.obsidian/plugins/excalibrain/` contains `main.js`, `manifest.json` (v0.2.18), and `styles.css` — a fully installed plugin, not a missing one. The earlier claim was never checked directly against the filesystem. See [[Plugin Inventory and Configuration Map]].*
+- `workspaces-plus` exists but has no readable manifest. — *resolved 2026-09-19: the folder holds only three `.bak` files (`app.json.bak`, `appearance.json.bak`, `workspaces.json.bak`) — no `manifest.json`, no `main.js`. This is not an installed plugin; it is leftover settings-backup files sitting in a folder that happens to be named after one. Answers the "was Workspaces Plus intentionally removed" question below: functionally, yes — nothing here can activate.*
+- Whether `60_Claude/7_AI_Information` should get a Templater folder template. — *resolved 2026-09-19: no. That folder (`60_Claude/07_AI_Information/`) holds system/operating docs — `AI_CONTEXT.md`, `Vault Rules — Complete AI Ruleset.md`, `Jarvis OS — North Star.md` — not evergreen knowledge notes, so the existing `For Evergreen.md` template that other folder-template entries use would be the wrong shape here. No template is the correct state, not a gap.*
+- **New finding, 2026-09-19:** two of Templater's six `folder_templates` entries in `.obsidian/plugins/templater-obsidian/data.json` point at folders that do not exist and so silently never fire: `10_UMN` (the real folder is `10_Areas/UMN`) and `60_Claude/30_Source_Summaries` (the real folder is `60_Claude/10_Source_Summaries`). The other four entries (`20_Progress`, `40_Resources`, `60_Claude/20_Distilled_Notes`, `60_Claude/40_Project_Briefs`) all resolve correctly. Not fixed in this session — `.obsidian/plugins/*/data.json` is a "do not edit without explicit permission" file per this note's own Verification Checklist. Recommend the user re-point these two entries to the real folder names.
+- Whether QuickAdd should be configured with capture choices. — *how-to now documented in [[QuickAdd Capture Menu]] (2026-09-19); the yes/no decision itself is still open.*
+- Whether Recent Files and File Explorer++ overlap in function. — *resolved 2026-09-19 in [[Search Linking and Navigation]]: no overlap, checked against both plugins' READMEs. Recent Files is time-based (recently opened); File Explorer++ is structure-based (pin/hide filters), no recency concept. Keep both.*
+- Whether Omnisearch should enable PDF/image/Office indexing, likely with Text Extractor. — *tradeoffs researched 2026-09-19: confirmed current state directly in `.obsidian/plugins/omnisearch/data.json` — `PDFIndexing`, `officeIndexing`, `imagesIndexing`, and `aiImageIndexing` are all `false`. Text Extractor ([scambier/obsidian-text-extractor](https://github.com/scambier/obsidian-text-extractor)) is the plugin Omnisearch expects for this: OCR runs locally via Tesseract.js (no file content leaves the device), but it needs an internet connection once to download language files, does not work on mobile at all (falls back to cached JSON extracted elsewhere), and PDF extraction specifically is described by the plugin's own docs as frequently failing. The decision itself is still open — mobile-unusable and PDF-unreliable are real costs against searchable PDFs/screenshots as a benefit.*
+- Whether Excalidraw auto-export should be enabled. — *mechanism researched 2026-09-19: it creates a PNG and/or SVG copy of a drawing on every save, with an optional keep-in-sync mode so the exported file (not the `.excalidraw.md` source) is what gets embedded elsewhere — configurable per-file via an `excalidraw-autoexport: none|both|png|svg` frontmatter override ([Excalidraw plugin README](https://github.com/zsviczian/obsidian-excalidraw-plugin)). The tradeoff: every save writes an extra file next to the drawing, which is more Syncthing/git churn per diagram. The enable/disable decision itself is still open.*
+- Whether Local REST API insecure server should remain enabled. — *tradeoff now documented in [[AI Automation and Local Interfaces]] (2026-09-18); the decision itself is still open.*
+- Preferred Tasks date conventions for coursework vs projects. — *syntax documented 2026-09-19: 📅 due, ⏳ scheduled, 🛫 start (all manual), plus automatic ➕ created / ✅ done / ❌ cancelled, all in `YYYY-MM-DD` format ([Tasks — Dates](https://publish.obsidian.md/tasks/Getting+Started/Dates)). The official guidance is explicitly against over-engineering: "you don't have to use all available dates... don't over-engineer your task management." Coursework vs project split is still a preference decision, not a syntax gap.*
+- Preferred Tasks priority scale for coursework vs projects. — *syntax documented 2026-09-19: six levels, 🔺 Highest, ⏫ High, 🔼 Medium, no marker = default, 🔽 Low, ⏬ Lowest — tasks with no priority marker rank above tasks explicitly marked Low, by design, so low-effort filtering doesn't require marking everything ([Tasks — Priority](https://publish.obsidian.md/tasks/Getting+Started/Priority)). Coursework vs project scale is still a preference decision, not a syntax gap.*
 - Preferred Kanban lane names for future project boards.
-- Whether Calendar is installed or only referenced by old hotkeys.
-- Whether Excalibrain is intentionally absent or partially removed.
-- Whether Publish is actively used and what should be publishable.
-- Whether Bases should complement Dataview or remain experimental.
-- Whether Workspaces Plus was intentionally removed.
+- Whether Calendar is installed or only referenced by old hotkeys. — *resolved 2026-09-19: no `calendar` folder exists under `.obsidian/plugins/`. `hotkeys.json` still binds `calendar:show-calendar-view` to `Alt+C` — a dead hotkey left over from a plugin that is no longer installed. See [[Search Linking and Navigation]].*
+- Whether Excalibrain is intentionally absent or partially removed. — *resolved 2026-09-19: not absent. See the corrected `excalibrain` entry above — the plugin is fully installed and configured `long` in Lazy Plugin Loader.*
+- Whether Publish is actively used and what should be publishable. — *checked 2026-09-19: `core-plugins.json` has `publish: true`, but no `.obsidian/publish.json` (the file Obsidian writes once a publish site is configured) exists anywhere in the vault. No evidence of active use — reads as a default-on core toggle, not a live publish workflow. Still needs the user's own confirmation.*
+- Whether Bases should complement Dataview or remain experimental. — *resolved 2026-09-19: not experimental. `60_Claude/44_Indexes/Bases/` holds five real `.base` files (Capability Registry, Knowledge Enrichment Registry, Ops Reports, Output Pipeline, Question Triage) alongside `core-plugins.json`'s `bases: true`. Bases and Dataview are both in active use today, not a pending choice between them.*
+- Whether Workspaces Plus was intentionally removed. — *resolved 2026-09-19: see the corrected `workspaces-plus` entry above. No manifest, no main.js, only stale `.bak` files — nothing here can run as a plugin regardless of intent.*
 
 ## Verification Checklist
 
@@ -163,5 +164,10 @@ Otherwise, skip it.
 - [Omnisearch docs](https://publish.obsidian.md/omnisearch/Index)
 - [Excalidraw plugin README](https://github.com/zsviczian/obsidian-excalidraw-plugin)
 - [Local REST API README](https://github.com/coddingtonbear/obsidian-local-rest-api)
+- [Local REST API installation/configuration reference](https://deepwiki.com/coddingtonbear/obsidian-local-rest-api/1.1-installation-and-configuration) — Binding Host default and `0.0.0.0` LAN-exposure behavior
 - [Copilot docs](https://www.obsidiancopilot.com/en/docs)
 - [Obsidian Git docs](https://publish.obsidian.md/git-doc/Features)
+- [Tasks — Dates](https://publish.obsidian.md/tasks/Getting+Started/Dates)
+- [Tasks — Priority](https://publish.obsidian.md/tasks/Getting+Started/Priority)
+- [Text Extractor plugin](https://github.com/scambier/obsidian-text-extractor) — OCR mechanism, mobile limitation, local-only processing, fetched 2026-09-19
+- Direct read of `.obsidian/plugins/templater-obsidian/data.json` and `.obsidian/plugins/omnisearch/data.json` — this session, 2026-09-19

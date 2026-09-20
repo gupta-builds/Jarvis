@@ -15,7 +15,7 @@ notes:
   - "[[Humanizer]]"
   - "[[Resume Alteration Standard]]"
   - "[[Cover Letter Alteration Standard]]"
-  - "[[30_Order/Standards/Humanized Writing Standard]]"
+  - "[[Humanized Writing Standard]]"
   - "[[30_Order/Standards/Internship/Applying Standard]]"
   - "[[30_Order/Templates/Career/Internship/Cover Letter Template]]"
 next: Build the resume-alteration and cover-letter-alteration Cursor skills for real, once Main Resume.md and Main Cover Letter.md exist in their evidence-tagged shape.
@@ -76,5 +76,5 @@ None of the `draft` / `plan` / `humanize` / `write` steps are live — there is 
 - [[Internship Pipeline]] — the parent pipeline this slots into (Steps 5–7).
 - [[Resume Alteration]] / [[Resume Alteration Standard]] — resume-side rules.
 - [[Cover Letter Alteration]] / [[Cover Letter Alteration Standard]] — cover-letter-side rules.
-- [[Humanizer]] / [[30_Order/Standards/Humanized Writing Standard]] — the shared tone gate.
+- [[Humanizer]] / [[Humanized Writing Standard]] — the shared tone gate.
 - [[Applying Template]] — the note this sequence starts from.

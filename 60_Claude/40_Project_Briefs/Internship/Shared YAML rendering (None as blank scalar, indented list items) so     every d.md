@@ -1,12 +1,12 @@
 ---
 source_file: "vault_writer/writer.py"
 type: "rationale"
-community: "writer.py"
+community: "vault_root"
 location: "L97"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/writerpy
+  - community/vault_root
 ---
 
 # Shared YAML rendering (None as blank scalar, indented list items) so     every d
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[dump_frontmatter()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/writerpy
+#graphify/rationale #graphify/EXTRACTED #community/vault_root

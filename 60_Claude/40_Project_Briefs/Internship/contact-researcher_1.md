@@ -13,8 +13,8 @@ tags:
 
 ## Connections
 - [[Hard line (non-negotiable, inherited from enrich.py's own docstring)_1]] - `contains` [EXTRACTED]
-- [[Output format_3]] - `contains` [EXTRACTED]
-- [[SKILL_2]] - `contains` [EXTRACTED]
+- [[Output format_7]] - `contains` [EXTRACTED]
+- [[SKILL_7]] - `contains` [EXTRACTED]
 - [[The one rule that overrides everything else_1]] - `contains` [EXTRACTED]
 - [[What to look for, and how to report each_1]] - `contains` [EXTRACTED]
 - [[What you have available_1]] - `contains` [EXTRACTED]

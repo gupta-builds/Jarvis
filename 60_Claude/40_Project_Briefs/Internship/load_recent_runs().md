@@ -12,7 +12,6 @@ tags:
 # load_recent_runs()
 
 ## Connections
-- [[Path]] - `calls` [INFERRED]
 - [[datetime]] - `references` [EXTRACTED]
 - [[run_log.py]] - `contains` [EXTRACTED]
 - [[run_once()]] - `calls` [EXTRACTED]

@@ -1,17 +1,16 @@
 ---
 type: community
-members: 103
+members: 97
 ---
 
 # write_dossier
 
-**Members:** 103 nodes
+**Members:** 97 nodes
 
 ## Members
 - [[ApplyGuy's own literal placeholder on real entries with no season data     (782]] - rationale - tests/test_filter.py
 - [[Bare, year-less Spring stays ambiguous (could be excluded Spring 2026     or w]] - rationale - tests/test_filter.py
 - [[Does Not Offer Sponsorship' means no H-1B, not no OPT — same rule as     everywh]] - rationale - tests/test_filter.py
-- [[Fetch raw listings from each source. Used both by the scheduled pipeline and (wi]] - rationale - ingestion/sources.py
 - [[Guards against silent test evaporation pytest.mark.parametrize collects     zer]] - rationale - tests/test_filter.py
 - [[Layer 2 — pure field matching against each feed's own schema. No LLM, determinis]] - rationale - core/filter.py
 - [[Listing]] - code - ingestion/normalize.py
@@ -22,6 +21,7 @@ members: 103
 - [[Real case Marshall Wace's live 'Technology Intern - 2027' postings state     th]] - rationale - tests/test_filter.py
 - [[Real record, fetched 2026-07-25 Databricks 'Product Management Intern     (Summ]] - rationale - tests/test_filter.py
 - [[Regression for the _has_wrong_cycle_season bug a year-qualified season     (Sp]] - rationale - tests/test_filter.py
+- [[Same logic as _matches_free_text_source, but returns the actual     wanted-term]] - rationale - core/filter.py
 - [[The bare-city fallback added for 'London' alone must be an exact     whole-strin]] - rationale - tests/test_filter.py
 - [[_entry_is_us_or_remote()]] - code - core/filter.py
 - [[_has_wrong_cycle_season()]] - code - core/filter.py
@@ -37,18 +37,11 @@ members: 103
 - [[_strip_html()]] - code - ingestion/normalize.py
 - [[_target_years()]] - code - core/filter.py
 - [[_text_has_any()]] - code - core/filter.py
+- [[build_matched_reason()]] - code - run_pipeline.py
 - [[degrees_eligible()]] - code - core/filter.py
-- [[fetch_ai_jobs()]] - code - ingestion/sources.py
-- [[fetch_applyguy()]] - code - ingestion/sources.py
-- [[fetch_ashby()]] - code - ingestion/sources.py
-- [[fetch_greenhouse()]] - code - ingestion/sources.py
-- [[fetch_josegael()]] - code - ingestion/sources.py
-- [[fetch_lever()]] - code - ingestion/sources.py
-- [[fetch_simplify()]] - code - ingestion/sources.py
-- [[fetch_vanshb03()]] - code - ingestion/sources.py
-- [[fetch_zshah101()]] - code - ingestion/sources.py
 - [[filter.py]] - code - core/filter.py
 - [[location_eligible()]] - code - core/filter.py
+- [[matched_term_in_free_text()]] - code - core/filter.py
 - [[matches()]] - code - core/filter.py
 - [[normalize.py]] - code - ingestion/normalize.py
 - [[normalize_ai_jobs()]] - code - ingestion/normalize.py
@@ -59,8 +52,6 @@ members: 103
 - [[normalize_lever()]] - code - ingestion/normalize.py
 - [[normalize_vanshb03()]] - code - ingestion/normalize.py
 - [[normalize_zshah101()]] - code - ingestion/normalize.py
-- [[recheck.py]] - code - recheck.py
-- [[sources.py]] - code - ingestion/sources.py
 - [[test_active_false_rejects_any_source()]] - code - tests/test_filter.py
 - [[test_applyguy_not_specified_season_maps_to_no_term_data()]] - code - tests/test_filter.py
 - [[test_applyguy_prefers_listing_url_over_tracking_url()]] - code - tests/test_filter.py
@@ -69,6 +60,8 @@ members: 103
 - [[test_ashby_bare_year_real_ellipsis_labs_case_passes()]] - code - tests/test_filter.py
 - [[test_ashby_matches_literal_term_in_description()]] - code - tests/test_filter.py
 - [[test_ashby_matches_spring_2027_literal_term()]] - code - tests/test_filter.py
+- [[test_build_matched_reason_free_text_sources_report_real_matched_term()]] - code - tests/test_run_pipeline.py
+- [[test_build_matched_reason_freehire_real_google_fixture()]] - code - tests/test_run_pipeline.py
 - [[test_degrees_eligible()]] - code - tests/test_filter.py
 - [[test_filter.py]] - code - tests/test_filter.py
 - [[test_fixture_has_both_match_and_reject_cases()]] - code - tests/test_filter.py
@@ -92,6 +85,7 @@ members: 103
 - [[test_location_no_data_is_unrestricted()]] - code - tests/test_filter.py
 - [[test_location_one_us_entry_among_foreign_is_enough()]] - code - tests/test_filter.py
 - [[test_location_us_or_ambiguous_is_eligible()]] - code - tests/test_filter.py
+- [[test_matched_term_in_free_text_agrees_with_bool_matcher()]] - code - tests/test_filter.py
 - [[test_matches_rejects_foreign_only_listing_end_to_end()]] - code - tests/test_filter.py
 - [[test_normalize_ai_jobs_maps_fields_and_matches_real_intern_record()]] - code - tests/test_filter.py
 - [[test_normalize_ashby_maps_fields()]] - code - tests/test_filter.py
@@ -120,27 +114,24 @@ SORT file.name ASC
 ```
 
 ## Connections to other communities
-- 20 edges to [[_COMMUNITY_recheck.py]]
-- 13 edges to [[_COMMUNITY_normalize_simplify]]
-- 10 edges to [[_COMMUNITY_commit_and_push_with_retry_1]]
+- 26 edges to [[_COMMUNITY_recheck.py]]
+- 14 edges to [[_COMMUNITY_test_writer.py]]
+- 11 edges to [[_COMMUNITY_normalize_simplify]]
 - 9 edges to [[_COMMUNITY_test_write_dossier_creates_missing_dossiers_dir]]
 - 9 edges to [[_COMMUNITY_test_freehire.py]]
 - 6 edges to [[_COMMUNITY_test_render_dossier_shows_real_rendered_frontmatter_with_preference_match]]
 - 4 edges to [[_COMMUNITY_test_debate_losses.py]]
-- 3 edges to [[_COMMUNITY_test_writer.py]]
-- 3 edges to [[_COMMUNITY_commit_and_push_with_retry]]
+- 3 edges to [[_COMMUNITY_commit_and_push_with_retry_1]]
+- 3 edges to [[_COMMUNITY_interndock.py]]
 - 3 edges to [[_COMMUNITY_validate.py]]
-- 3 edges to [[_COMMUNITY_build_frontmatter]]
-- 2 edges to [[_COMMUNITY_interndock.py]]
-- 1 edge to [[_COMMUNITY_schema_drift.py]]
 - 1 edge to [[_COMMUNITY_test_write_dossier_different_uid_same_role_company_gets_collision_suffix]]
 - 1 edge to [[_COMMUNITY_render_dossier]]
-- 1 edge to [[_COMMUNITY_test_schema_drift.py]]
-- 1 edge to [[_COMMUNITY_writer.py_1]]
+- 1 edge to [[_COMMUNITY_build_frontmatter]]
+- 1 edge to [[_COMMUNITY__fake_http_get_only_interndock]]
 
 ## Top bridge nodes
-- [[normalize.py]] - degree 28, connects to 11 communities
-- [[Listing]] - degree 34, connects to 8 communities
-- [[filter.py]] - degree 23, connects to 6 communities
-- [[recheck.py]] - degree 25, connects to 5 communities
-- [[sources.py]] - degree 24, connects to 4 communities
+- [[normalize.py]] - degree 29, connects to 12 communities
+- [[Listing]] - degree 38, connects to 9 communities
+- [[filter.py]] - degree 24, connects to 6 communities
+- [[normalize_josegael()]] - degree 18, connects to 4 communities
+- [[normalize_vanshb03()]] - degree 14, connects to 3 communities

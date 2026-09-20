@@ -12,8 +12,8 @@ tags:
 # _text_has_any()
 
 ## Connections
-- [[_matches_free_text_source()]] - `calls` [EXTRACTED]
 - [[_norm()]] - `calls` [EXTRACTED]
 - [[filter.py]] - `contains` [EXTRACTED]
+- [[matched_term_in_free_text()]] - `calls` [EXTRACTED]
 
 #graphify/code #graphify/EXTRACTED #community/write_dossier

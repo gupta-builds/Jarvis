@@ -95,3 +95,9 @@ The Weekly review's own design could not have caught the write-starvation bug ev
 
 ## Status
 Not implemented this pass (by design — this is a postmortem, corrected and extended, not a fix). Options for the actual fix are: (a) raise `MAX_DEBATE_LOSSES` again as an immediate stopgap, (b) build the write-gate failure-memory fix (the real root cause), (c) go after the review-system tightening first. See the live `Claude Code Prompts.md` for what gets built next and in what order.
+
+## Correction (2026-09-06) — Schema-Drift Coverage Claim Now Stale
+
+**Secondary Finding #1 above ("Schema-drift coverage covers less than half the sources") and Recommendation #4 ("Extend schema-drift coverage...") are both stale, not current.** Verified directly against the live repo this session: `core/schema_drift.py`'s `check_all()` now calls `check_simplify_schema`, `check_josegael_schema`, `check_vanshb03_schema`, `check_zshah101_schema`, `check_applyguy_schema`, `check_greenhouse_schema`, `check_ashby_schema`, `check_lever_schema`, `check_freehire_schema`, `check_ai_jobs_schema`, and `check_interndock_sitemap` in sequence — all 11 sources, not the 5 named in the original finding. This landed in commit `2fa8b76` (2026-08-31), five days after this postmortem was written. `tests/test_schema_drift.py`'s own `test_check_all_passes_when_all_sources_are_healthy` asserts exactly 11 `http_get` calls, confirming the coverage at the test level too.
+
+Left in place, not rewritten in-line, per this note's own established pattern (see the 2026-08-27 "Correction + Fresh Numbers" section above) — the original finding was accurate when written and is useful history of the gap that got closed; only the currency of the claim has changed.

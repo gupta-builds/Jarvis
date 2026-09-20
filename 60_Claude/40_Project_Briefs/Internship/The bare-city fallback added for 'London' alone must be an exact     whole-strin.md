@@ -2,7 +2,7 @@
 source_file: "tests/test_filter.py"
 type: "rationale"
 community: "write_dossier"
-location: "L150"
+location: "L158"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED

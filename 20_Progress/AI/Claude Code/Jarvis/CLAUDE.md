@@ -133,6 +133,13 @@ When a user invokes an agent, read the corresponding file from `.claude/agents/`
 | `vault-curator` | Maintains links, deduplication, structure | `.claude/agents/vault-curator.md` |
 | `career-operator` | Handles career/internship/portfolio notes | `.claude/agents/career-operator.md` |
 | `anti-slop-editor` | Rewrites AI-sounding prose into human writing | `.claude/agents/anti-slop-editor.md` |
+| `learning-agent` | Drills concepts (spaced repetition) and answers vault-only topic research | `.claude/agents/learning-agent.md` |
+| `daily-operator` | Manages daily dashboard, plans, task rollover, schedules | `.claude/agents/daily-operator.md` |
+| `human-operator` | Default vault writer, humanizer-aware (scaffold) | `.claude/agents/human-operator.md` |
+| `ingestion` | Entry point for any source ingestion (YouTube/PDF/web/transcripts) | `.claude/agents/ingestion.md` |
+| `llm-council` | Isolated wrapper for the `/llm-council` 5-advisor skill | `.claude/agents/llm-council.md` |
+| `note-to-actions` | Isolated wrapper for the `/note-to-actions` skill | `.claude/agents/note-to-actions.md` |
+| `professor` | Coordinates per-course skills/commands/hooks | `.claude/agents/professor.md` |
 
 ---
 

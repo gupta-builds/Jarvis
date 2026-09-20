@@ -2,7 +2,7 @@
 source_file: "core/debate.py"
 type: "rationale"
 community: "test_write_dossier_creates_missing_dossiers_dir"
-location: "L32"
+location: "L31"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED

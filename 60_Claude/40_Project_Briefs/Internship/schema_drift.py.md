@@ -1,12 +1,12 @@
 ---
 source_file: "core/schema_drift.py"
 type: "code"
-community: "schema_drift.py"
+community: "test_schema_drift.py"
 location: "L1"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/schema_driftpy
+  - community/test_schema_driftpy
 ---
 
 # schema_drift.py
@@ -35,4 +35,4 @@ tags:
 - [[test_run_pipeline.py]] - `imports_from` [EXTRACTED]
 - [[test_schema_drift.py]] - `imports_from` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/schema_driftpy
+#graphify/code #graphify/EXTRACTED #community/test_schema_driftpy

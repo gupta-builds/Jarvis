@@ -1,12 +1,12 @@
 ---
 source_file: "core/schema_drift.py"
 type: "code"
-community: "check_all"
+community: "test_schema_drift.py"
 location: "L272"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/check_all
+  - community/test_schema_driftpy
 ---
 
 # check_all()
@@ -31,4 +31,4 @@ tags:
 - [[test_check_all_raises_on_first_failing_source()]] - `calls` [EXTRACTED]
 - [[test_schema_drift.py]] - `imports` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/check_all
+#graphify/code #graphify/EXTRACTED #community/test_schema_driftpy

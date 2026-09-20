@@ -1,21 +1,21 @@
 ---
-source_file: ".claude/skills/promote-dossier/SKILL.md"
+source_file: ".claude/agents/applying.md"
 type: "document"
-community: "/promote-dossier"
-location: "L33"
+community: "check_interndock_sitemap"
+location: "L25"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community//promote-dossier
+  - community/check_interndock_sitemap
 ---
 
 # Steps
 
 ## Connections
-- [[promote-dossier]] - `contains` [EXTRACTED]
-- [[1. Take the input]] - `contains` [EXTRACTED]
-- [[2. Ask two concrete questions]] - `contains` [EXTRACTED]
-- [[3. Invoke contact research and show findings — before writing anything]] - `contains` [EXTRACTED]
-- [[4. On explicit go-ahead only, write all three notes together]] - `contains` [EXTRACTED]
+- [[1. Read inputs]] - `contains` [EXTRACTED]
+- [[2. Draft]] - `contains` [EXTRACTED]
+- [[3. Plan]] - `contains` [EXTRACTED]
+- [[4. Stop for approval]] - `contains` [EXTRACTED]
+- [[applying]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community//promote-dossier
+#graphify/document #graphify/EXTRACTED #community/check_interndock_sitemap

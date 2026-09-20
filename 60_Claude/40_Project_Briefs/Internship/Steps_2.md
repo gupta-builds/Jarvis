@@ -1,21 +1,20 @@
 ---
-source_file: ".cursor/skills/promote-dossier/SKILL.md"
+source_file: ".claude/skills/generating-cover-letter-docx/SKILL.md"
 type: "document"
-community: "_fake_http_get"
-location: "L37"
+community: "dump_frontmatter"
+location: "L18"
 tags:
   - graphify/document
   - graphify/EXTRACTED
-  - community/_fake_http_get
+  - community/dump_frontmatter
 ---
 
 # Steps
 
 ## Connections
-- [[1. Take the input_2]] - `contains` [EXTRACTED]
-- [[2. Ask two concrete questions_1]] - `contains` [EXTRACTED]
-- [[3. Invoke contact research and show findings — before writing anything_1]] - `contains` [EXTRACTED]
-- [[4. On explicit go-ahead only, write all three notes together_1]] - `contains` [EXTRACTED]
-- [[promote-dossier_1]] - `contains` [EXTRACTED]
+- [[1. `python-docx` (low freedom)]] - `contains` [EXTRACTED]
+- [[2. Build the `ContentPlan` (medium freedom — shape fixed, wording is the approved content verbatim)]] - `contains` [EXTRACTED]
+- [[3. Generate, verify, report (low freedom)]] - `contains` [EXTRACTED]
+- [[Generating a cover letter .docx]] - `contains` [EXTRACTED]
 
-#graphify/document #graphify/EXTRACTED #community/_fake_http_get
+#graphify/document #graphify/EXTRACTED #community/dump_frontmatter

@@ -2,7 +2,7 @@
 source_file: "tests/test_run_pipeline.py"
 type: "code"
 community: "normalize_simplify"
-location: "L555"
+location: "L840"
 tags:
   - graphify/code
   - graphify/EXTRACTED
@@ -13,7 +13,7 @@ tags:
 
 ## Connections
 - [[_fake_http_head_all_live()]] - `indirect_call` [INFERRED]
-- [[_page_with()]] - `calls` [EXTRACTED]
+- [[_page_with()_1]] - `calls` [EXTRACTED]
 - [[_simplify_raw()]] - `calls` [EXTRACTED]
 - [[compute_uid()]] - `calls` [EXTRACTED]
 - [[normalize_simplify()]] - `calls` [EXTRACTED]

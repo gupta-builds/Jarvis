@@ -2,7 +2,7 @@
 type: evergreen
 status: sprout
 created: 2026-09-04
-updated: 2026-09-04
+updated: 2026-09-05
 tags:
   - internship
   - workflow
@@ -13,39 +13,45 @@ notes:
   - "[[Internship Loop Weekly Review Template]]"
   - "[[Internship Loop Monthly Review Template]]"
   - "[[20_Progress/Internship/Building System/System - Build Log]]"
-next: "Wire a codebase-side loop-verifier run into the Weekly Discovery Review's Gate/Resource-Limit sections once that agent exists in internship-research-loop/.claude/agents/ — see #The Codebase Half below."
+  - "[[Deadline and Intake Triage Standard]]"
+  - "[[10_Areas/Career/Internships/Tracker/Main Log]]"
+next: "The local crontab entries this note describes were installed 2026-09-05 (see System - Build Log's same-date entry for the exact commands). Re-verify they're still present after any machine restart or WSL reinstall — `crontab -l` — since nothing in this vault re-installs them automatically."
 ---
 # Internship Review System
-==The operational system that actually runs [[Internship Loop Review Standard]] — who triggers it, on what cadence, where the output lands, and what happens to what it finds.== That Standard states *what a review must contain, per heading*; this note states *how a review actually gets produced and closed out*, the same split [[Internship Tracking Workflow]] draws between a Standard's content rules and its own maintenance procedure.
+==The operational system that actually runs [[Internship Loop Review Standard]] — what triggers it, on what cadence, where the output lands, and what happens to what it finds.== That Standard states *what a review must contain, per heading*; this note states *how a review actually gets produced and closed out*, the same split [[Internship Tracking Workflow]] draws between a Standard's content rules and its own maintenance procedure.
 
-## Trigger — Manual, Human-Initiated, Not A Cron Job
-Per [[Internship Loop Review Standard]]'s own "Used By Workflow" line: no cron writes a review. A Weekly Discovery Review or Monthly Promotion Review starts when a person (or Claude, assisting one) opens the matching template and works it against real, current vault/repo state, in the same session or shortly after the period it covers. This is a deliberate choice, not a gap to eventually automate away — a review is exactly the kind of judgment-heavy synthesis [[20_Progress/Internship/Building System/Jarvis OS — North Star]]'s Part 5 governing principle assigns to "the agent owns content," not to unattended code.
-
+## Trigger — Local Cron, Headless Claude Code, Human-Owned Content
+**Changed 2026-09-05.** Through 2026-09-04 this section said reviews were deliberately manual/human-initiated, never a cron job — a considered decision, not a gap. That decision is reversed as of this rebuild, for a stated reason: two reviews in a row ran 12 days late against their own intended cadence, and the second of those two lateness incidents is what let a real, already-passed deadline (Castleton, 2026-09-01) sit undetected for 4 extra days. A review still needs a human's (or Claude's) judgment to write — that part doesn't change, and is exactly why this runs as a real Claude Code session, not a fixed script. What changes is *who presses go*.
+**Mechanism:** a local crontab entry on this machine invokes the Claude Code CLI headlessly (`claude -p`) at each scheduled time, with the same local MCP access (`jarvis`/`jarvis-fs`) an interactive session has — this only works because Obsidian's Local REST API plugin has to actually be running for the fire to succeed; per [[jarvis]]'s own rule, a `vault_list` failure means "not connected," not "empty vault," and a scheduled run that hits this should say so in its output rather than guessing. **This was a deliberate trade-off, not an oversight:** a cloud-scheduled routine (the `schedule` skill's mechanism) was considered first and rejected — cloud routines cannot reach a local Obsidian vault at all, only git-clonable repos and a fixed connector list, and routing review-writes through a second git-based writer against this same personal vault (alongside your own local Obsidian edits) reintroduces exactly the two-writer collision problem [[jarvis]] already warns against for a different mechanism. Local cron's real cost, stated honestly: **a fire is silently skipped if the machine is off or asleep at that exact moment** — there is no catch-up mechanism. Check `crontab -l` after any extended time away from the machine, and treat a gap in the Reviews MOC's Status table as the visible symptom if a fire was missed.
 ## Cadence
-- **Weekly Discovery Review** — every week, covering the prior 7 days of `List/Dossiers/` activity. Run it even in a week where nothing looks like it changed — per the general [[30_Order/Standards/Review Standard]]'s rule (which [[Internship Loop Review Standard]] inherits unchanged), "nothing to report" is a valid finding, not a reason to skip the review itself.
-- **Monthly Promotion Review** — every calendar month, covering Steps 2-9 (`Programs/`, `Contacts/`, `Tracker/`, `Applying/`, `Preperation/`). Lower cadence is intentional: as of this writing only one real promotion trio (Appian) plus three manual-web-find Program notes exist, so a weekly cadence here would mostly produce padding.
-
+- **Weekly Discovery Review — every Friday.** Chosen to match [[Internship Pipeline]]'s own pre-existing "Friday ritual" cadence (already used for `_This Week.md`) rather than invent a second weekly rhythm.
+- **Monthly Promotion Review — the 1st of every calendar month.**
+- **Deadline Sweep — every 3 days, standalone.** Per [[Internship Loop Review Standard]]'s "Why Two Review Types Plus A Standalone Sweep" section — this is not one of the two review types above, it's a fast, mechanical, corpus-wide check that feeds both of them (and the Main Log) as a citation, not a judgment-heavy review in its own right. Content spec: [[Deadline and Intake Triage Standard]].
+- Per the general [[Review Standard|Review Standard]]'s rule (inherited unchanged), "nothing to report" is a valid finding for any of the three — a fire that finds nothing new still produces a dated record, never gets skipped because it seems redundant.
 ## Where Output Lands
-`60_Claude/30_Reviews/Internship Loop/Scheduled/{Weekly,Monthly}/`, one file per period, from [[Internship Loop Weekly Review Template]] / [[Internship Loop Monthly Review Template]]. [[60_Claude/30_Reviews/Internship Loop/Internship Loop Reviews MOC]] is the index — a new review file should always get linked there in the same sitting it's written, not left to be discovered later by a folder listing.
-
+- Weekly/Monthly reviews: `60_Claude/30_Reviews/Internship Loop/Scheduled/{Weekly,Monthly}/`, one file per period, from the matching template, linked into [[60_Claude/30_Reviews/Internship Loop/Internship Loop Reviews MOC]] before it's considered filed.
+- Deadline Sweep: `10_Areas/Career/Internships/Tracker/Deadline Tracker.md`, re-anchored to the sweep's own run date each time, per [[Deadline and Intake Triage Standard]].
+- All three: a one-line pointer added to [[10_Areas/Career/Internships/Tracker/Main Log|Main Log]] in the same run, so the Log stays the single place to check "when was this last verified" without opening the Reviews MOC or the Tracker folder separately.
+## Escalation — What Happens To Immediate Actions
+==New 2026-09-05, closing the exact gap that let two real deadline misses sit unescalated on the day they were found.== A review or sweep whose output has a non-empty **Immediate Actions** section (Weekly/Monthly reviews) or a non-empty `Already Over`/`Soon` bucket with no matching Applying-note activity (Deadline Sweep) does not just get filed and wait for someone to open it:
+1. The run's own final message (in the headless session's output, captured by the cron invocation) states the Immediate Actions plainly, not buried under a general summary.
+2. The same content gets appended to [[10_Areas/Career/Internships/Tracker/Main Log|Main Log]]'s own outstanding-actions section in the same run — this is the mechanism that makes the Log the one place to check, instead of relying on the human to have read the specific review file.
+3. An Immediate Action is not closed by the review itself — per the general Review Standard's rule, a review surfacing a problem is not authorization to fix it. It stays open in the Main Log until a real, dated resolution lands (an application submitted, a Program moved to `Missed/` with a stated reason, a codebase Prompt filed) — the same discipline this note's "Closing Out A Review's Findings" section below already applies to Decided Fixes.
 ## Creating A New Period's File
-Copy the matching template, filled per [[Internship Loop Review Standard]]'s per-heading spec — the template already carries the section skeleton; this workflow adds only the mechanical steps the Standard doesn't state:
-1. Name the file consistently with the one real gold-standard example ([[60_Claude/30_Reviews/Internship Loop/Scheduled/Weekly/Internship Loop Weekly Review — 2026-W34]]'s own naming: `Internship Loop Weekly Review — YYYY-Www` / `Internship Loop Monthly Review — YYYY-MM`).
-2. Link it into the Reviews MOC before writing the content, not after — a review that exists but isn't indexed is functionally unfindable the next time someone asks "when was this last checked."
-3. Write the review per the Standard's per-heading spec, citing real files/counts throughout (per the Standard's own Gate/Standard Conformance warning: a fact answerable by one grep should be grepped, not sampled).
-
+1. Name the file consistently with the existing examples: `Internship Loop Weekly Review — YYYY-Www` / `Internship Loop Monthly Review — YYYY-MM`.
+2. Link it into the Reviews MOC before writing the content, not after.
+3. Write the review per [[Internship Loop Review Standard]]'s per-heading spec, citing real files/counts throughout.
+4. Update [[10_Areas/Career/Internships/Tracker/Main Log|Main Log]] per the Escalation section above.
 ## Closing Out A Review's Findings
-A review's own **Decided Fixes** section (only items at 100% clarity, per the general Review Standard) is not itself authorization to patch code or rewrite a note — it's a handoff:
-- **A codebase-side finding** (a filter/classify/relevance bug, a schema-drift gap, a resource-limit-code gap) becomes a new dated entry or prompt in [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]], the same handoff mechanism every prior codebase fix in this project has used — see [[20_Progress/Internship/Building System/System - Build Log]] for the pattern (a Build Log entry records what a review found; a Prompt entry is what actually gets run against the repo to fix it).
-- **A vault-side finding** (a stale note, a broken cross-link, a template gap) gets fixed directly in the same session, same as any other vault-hygiene finding, and the fix gets a one-line mention in [[60_Claude/07_AI_Information/Session Logs/log.md]].
-- **Open Questions** carry forward to the next period's review verbatim until actually resolved — don't let a question quietly disappear because nobody re-typed it into the next file.
-
+A review's own **Decided Fixes** section (only items at 100% clarity) is not itself authorization to patch code or rewrite a note — it's a handoff:
+- **A codebase-side finding** (a filter/classify/relevance bug, a schema-drift gap, a resource-limit-code gap) becomes a new dated entry in [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]] — see that file's Prompt 2 entry (2026-09-05, the Microsoft `stage1_reject` sidebar-link regression) for the current shape this should take.
+- **A vault-side finding** (a stale note, a broken cross-link, a template gap) gets fixed directly in the same session, and the fix gets a one-line mention in [[60_Claude/07_AI_Information/Session Logs/log.md]].
+- **Open Questions** carry forward to the next period's review verbatim until resolved, subject to [[Internship Loop Review Standard]]'s Carryover Escalation rule — two consecutive sightings promote a question to the next period's Immediate Actions automatically, it doesn't get a third quiet carry-forward.
 ## The Codebase Half — `loop-verifier`
-`internship-research-loop/.claude/agents/loop-verifier.md` is, by its own description, "the automated equivalent of the manual audits run on 2026-07-19 and 2026-07-25" — it already checks the test suite, scheduled-run history (`run.yml`/`recheck.yml`/`test.yml`), vault-vs-log dossier counts, `seen_ids.json`/vault divergence, and auto-filed GitHub issues, producing a dated HEALTHY/DEGRADED/BROKEN verdict. This is real, existing overlap with the Weekly Discovery Review's **Gate Conformance** and **Resource-Limit Health** sections — both ask essentially the same question ("is discovery actually working, cited to real evidence") from two different sides of the same system.
-**Not yet wired together.** Running `loop-verifier` is not currently a stated step of the Weekly Discovery Review, and the Review Standard's per-heading spec doesn't reference it. The two should not simply be merged — `loop-verifier` is read-only and code/infra-focused (tests, CI runs, state-file divergence); the Weekly Discovery Review also does content-quality sampling (priority classification accuracy, body-content spot checks) that no code-level check can do. The right integration is citing `loop-verifier`'s dated report as one input to the Weekly Discovery Review's Resource-Limit Health and Gate Conformance sections, not replacing either. Left as an open item here rather than decided unilaterally — see this note's own `next:` field.
-
+`internship-research-loop/.claude/agents/loop-verifier.md` already checks the test suite, scheduled-run history, vault-vs-log dossier counts, `seen_ids.json`/vault divergence, and auto-filed GitHub issues, producing a dated HEALTHY/DEGRADED/BROKEN verdict — real, existing overlap with the Weekly Discovery Review's **Gate Conformance** and **Resource-Limit Health** sections. **Still not formally wired together as of this rebuild** — the right integration remains citing `loop-verifier`'s dated report as one input to those sections, not merging the two (the Weekly review's content-quality sampling is work `loop-verifier`'s read-only, infra-focused checks can't do). Left as an open item, same as before this rebuild — see this note's own `next:` field for the concrete next step.
 ## Done When
-- Every calendar week and month has a review file, even a short one stating "nothing to report."
-- Every review file is linked from [[60_Claude/30_Reviews/Internship Loop/Internship Loop Reviews MOC]] before it's considered filed.
-- Every Decided Fix has a real, findable downstream artifact (a Claude Code Prompt entry, a direct vault fix with a session-log line) — a Decided Fix that never produced anything is itself a finding for the next review.
-- Open Questions are either resolved or explicitly carried forward — none silently dropped between periods.
+- Every Friday, every 1st-of-month, and every 3rd day has a corresponding Weekly, Monthly, or Deadline Sweep record — even a short one stating "nothing to report."
+- Every review file is linked from the Reviews MOC, and every run (review or sweep) is reflected in [[10_Areas/Career/Internships/Tracker/Main Log|Main Log]], before it's considered filed.
+- Every Decided Fix has a real, findable downstream artifact.
+- No Immediate Action sits unresolved in the Main Log without a dated reason it's still open.
+- Open Questions are either resolved or explicitly carried forward — none silently dropped, and none silently carried past the Carryover Escalation bar.

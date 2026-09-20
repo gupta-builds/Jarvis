@@ -8,19 +8,20 @@ eligible_classes:
   - Senior
 grad_year: 2027
 role_type: internship
-wave:
+wave: null
 opens_date: 2026-07-23
-deadline_posted:
-deadline_real:
-pay_per_hour:
+deadline_posted: null
+deadline_real: null
+pay_per_hour: null
 pay_currency: USD
-duration_weeks:
+duration_weeks: null
 benefits: []
 application_url: https://job-boards.greenhouse.io/nuro/jobs/7351061
 careers_page: https://www.nuro.ai/careers
 list_origin: manual-web-find (Anant, 2026-07-23 clip, promoted 2026-07-29)
-applying_note:
-recruiter_contact:
+applying_note: null
+recruiter_contact: "[[10_Areas/Career/Internships/Contacts/Each
+  One/Ongoing/Software Engineer, AI Platform Intern - Nuro]]"
 tags:
   - internship
   - program

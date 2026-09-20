@@ -1,11 +1,11 @@
 ---
 source_file: ""
 type: "code"
-community: "schema_drift.py"
+community: "commit_and_push_with_retry"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/schema_driftpy
+  - community/commit_and_push_with_retry
 ---
 
 # Exception
@@ -14,4 +14,4 @@ tags:
 - [[GitPushError]] - `inherits` [EXTRACTED]
 - [[SchemaDriftError]] - `inherits` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/schema_driftpy
+#graphify/code #graphify/EXTRACTED #community/commit_and_push_with_retry

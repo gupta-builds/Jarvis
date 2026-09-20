@@ -15,7 +15,7 @@ tags:
 - [[Bullets ranked by distinct-JD-keyword overlap (score, text, tags, matched).]] - `rationale_for` [EXTRACTED]
 - [[grade_resume.py]] - `contains` [EXTRACTED]
 - [[keywords()]] - `calls` [EXTRACTED]
-- [[main()_1]] - `calls` [EXTRACTED]
+- [[main()_4]] - `calls` [EXTRACTED]
 - [[parse_bullets()]] - `calls` [EXTRACTED]
 - [[test_grade_ranks_matching_bullet_first()]] - `calls` [EXTRACTED]
 - [[test_grade_resume.py]] - `imports` [EXTRACTED]

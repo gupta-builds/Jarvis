@@ -12,6 +12,8 @@ notes:
   - "[[Useful Repos - Shortlist]]"
   - "[[GitHub Ingestion Implementation]]"
   - "[[00_Execution#Github]]"
+  - "[[40_Resources/CS/AI/GBrain and gstack]]"
+  - "[[20_Progress/Projects/AI Use/Claude Kit/Tool Map]]"
 ---
 # Immediate Action
 What actually got installed, tested, and decided this session — real hands-on work in WSL (`gupta-builds/second-brain-claudekit` at `~/projects/ai/claude/second-brain-claudekit`), not a plan. Every verdict below is from a real clone and a real run, not a repo README. Split into three: **Global** (Jarvis + every project, WSL and Windows), **Project-based** (one repo/project only), **Unsure** (the rest of `40_Resources/CS/Repos.md` that never got a real decision this session — still starred, still undecided).

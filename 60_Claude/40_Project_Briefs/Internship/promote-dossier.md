@@ -14,8 +14,8 @@ tags:
 ## Connections
 - [[Note templates]] - `contains` [EXTRACTED]
 - [[Prerequisite — read this before running]] - `contains` [EXTRACTED]
-- [[SKILL]] - `contains` [EXTRACTED]
-- [[Steps]] - `contains` [EXTRACTED]
-- [[What this skill does not do]] - `contains` [EXTRACTED]
+- [[SKILL_2]] - `contains` [EXTRACTED]
+- [[Steps_4]] - `contains` [EXTRACTED]
+- [[What this skill does not do_2]] - `contains` [EXTRACTED]
 
 #graphify/document #graphify/EXTRACTED #community//promote-dossier

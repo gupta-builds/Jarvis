@@ -1,17 +1,21 @@
 ---
 type: community
-members: 4
+members: 8
 ---
 
 # check_all
 
-**Members:** 4 nodes
+**Members:** 8 nodes
 
 ## Members
-- [[Runs every check in order; raises SchemaDriftError from whichever     fails firs]] - rationale - core/schema_drift.py
-- [[check_all()]] - code - core/schema_drift.py
-- [[test_check_all_passes_when_all_sources_are_healthy()]] - code - tests/test_schema_drift.py
-- [[test_check_all_raises_on_first_failing_source()]] - code - tests/test_schema_drift.py
+- [[Hooks in this repo]] - document - .claude/rules/hooks.md
+- [[Jarvis MCP permission model]] - document - .claude/rules/mcp-permissions.md
+- [[Note-shape contracts]] - document - .claude/rules/jarvis.md
+- [[Reaching the Jarvis vault]] - document - .claude/rules/jarvis.md
+- [[The write itself is always consent-gated]] - document - .claude/rules/jarvis.md
+- [[hooks]] - document - .claude/rules/hooks.md
+- [[jarvis_1]] - document - .claude/rules/jarvis.md
+- [[mcp-permissions]] - document - .claude/rules/mcp-permissions.md
 
 ## Live Query (requires Dataview plugin)
 
@@ -19,20 +23,3 @@ members: 4
 TABLE source_file, type FROM #community/check_all
 SORT file.name ASC
 ```
-
-## Connections to other communities
-- 4 edges to [[_COMMUNITY_test_schema_drift.py]]
-- 3 edges to [[_COMMUNITY_schema_drift.py]]
-- 3 edges to [[_COMMUNITY_vault_root]]
-- 2 edges to [[_COMMUNITY_recheck.py]]
-- 1 edge to [[_COMMUNITY_check_greenhouse_schema]]
-- 1 edge to [[_COMMUNITY_check_ashby_schema]]
-- 1 edge to [[_COMMUNITY_check_lever_schema]]
-- 1 edge to [[_COMMUNITY_check_freehire_schema]]
-- 1 edge to [[_COMMUNITY_check_ai_jobs_schema]]
-- 1 edge to [[_COMMUNITY_check_interndock_sitemap]]
-
-## Top bridge nodes
-- [[check_all()]] - degree 18, connects to 10 communities
-- [[test_check_all_raises_on_first_failing_source()]] - degree 3, connects to 2 communities
-- [[test_check_all_passes_when_all_sources_are_healthy()]] - degree 2, connects to 1 community

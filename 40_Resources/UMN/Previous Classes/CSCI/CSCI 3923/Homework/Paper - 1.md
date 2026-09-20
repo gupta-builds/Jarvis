@@ -5,7 +5,7 @@ status: sprout
 created: 2026-02-11
 updated: 2026-02-18
 area:
-  - "[[Weekly Board]]"
+  - "[[40_Resources/UMN/Previous Classes/Weekly Board]]"
   - "[[Reading Assignment - 2]]"
   - "[[Reading Assignment - 3]]"
   - "[[Reading Assignment - 1]]"

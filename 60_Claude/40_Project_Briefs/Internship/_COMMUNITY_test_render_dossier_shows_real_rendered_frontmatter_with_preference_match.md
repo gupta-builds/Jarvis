@@ -1,17 +1,16 @@
 ---
 type: community
-members: 49
+members: 46
 ---
 
 # test_render_dossier_shows_real_rendered_frontmatter_with_preference_match
 
-**Members:** 49 nodes
+**Members:** 46 nodes
 
 ## Members
 - [[A sourceATS with no recognizable job id in its URL shape (e.g.     Freehire's T]] - rationale - tests/test_identity.py
 - [[Both remaining sources guarantee an id; a listing without one is a bug     (the]] - rationale - tests/test_identity.py
 - [[Fix 1, Prompt 5 review (2026-07-30) the Google pattern used to have no     doma]] - rationale - tests/test_identity.py
-- [[Layer 3 — stable dedup keys for a Listing.  Both remaining sources carry a stabl]] - rationale - core/identity.py
 - [[Real American Express board URL shape from the 2026-08-23     excluded-log audit]] - rationale - tests/test_identity.py
 - [[Real American Express duplicate the Oracle Cloud HCM job URL doesn't     embed]] - rationale - tests/test_identity.py
 - [[Real Aquatic vs Aquatic Capital Management same Greenhouse posting,     same UR]] - rationale - tests/test_identity.py
@@ -27,10 +26,8 @@ members: 49
 - [[The ATS-native job id embedded in url, or None if url is from a     sourceATS w]] - rationale - core/identity.py
 - [[The matched preference tier (e.g. 'high'), or None if company isn't in     prefe]] - rationale - core/identity.py
 - [[_load()_2]] - code - tests/test_identity.py
-- [[_norm_company()]] - code - core/identity.py
 - [[company_matches_preference()]] - code - core/identity.py
 - [[extract_ats_job_id()]] - code - core/identity.py
-- [[identity.py]] - code - core/identity.py
 - [[test_company_matches_preference_case_insensitive()]] - code - tests/test_identity.py
 - [[test_company_matches_preference_none_for_empty_preferred_dict()]] - code - tests/test_identity.py
 - [[test_company_matches_preference_none_for_unlisted_company()]] - code - tests/test_identity.py
@@ -66,18 +63,17 @@ SORT file.name ASC
 ```
 
 ## Connections to other communities
-- 11 edges to [[_COMMUNITY_normalize_simplify]]
-- 11 edges to [[_COMMUNITY__fake_http_get_only_interndock]]
+- 10 edges to [[_COMMUNITY_normalize_simplify]]
+- 9 edges to [[_COMMUNITY__fake_http_get_only_interndock]]
 - 6 edges to [[_COMMUNITY_write_dossier]]
-- 4 edges to [[_COMMUNITY_recheck.py]]
+- 4 edges to [[_COMMUNITY_stage1_reject]]
 - 3 edges to [[_COMMUNITY_test_write_dossier_creates_missing_dossiers_dir]]
-- 3 edges to [[_COMMUNITY_writer.py_1]]
-- 1 edge to [[_COMMUNITY_test_debate_losses.py]]
-- 1 edge to [[_COMMUNITY_test_writer.py]]
+- 2 edges to [[_COMMUNITY_recheck.py]]
+- 2 edges to [[_COMMUNITY_writer.py_1]]
 
 ## Top bridge nodes
-- [[identity.py]] - degree 13, connects to 7 communities
-- [[test_identity.py]] - degree 37, connects to 4 communities
-- [[company_matches_preference()]] - degree 14, connects to 3 communities
+- [[test_identity.py]] - degree 37, connects to 5 communities
+- [[company_matches_preference()]] - degree 14, connects to 4 communities
+- [[extract_ats_job_id()]] - degree 13, connects to 2 communities
 - [[test_josegael_uid_uses_upstream_id()]] - degree 4, connects to 2 communities
 - [[test_missing_raw_id_raises()]] - degree 4, connects to 2 communities

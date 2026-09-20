@@ -1,12 +1,12 @@
 ---
 source_file: "ingestion/posting_page.py"
 type: "rationale"
-community: "stage1_reject"
+community: "writer.py"
 location: "L150"
 tags:
   - graphify/rationale
   - graphify/EXTRACTED
-  - community/stage1_reject
+  - community/writerpy
 ---
 
 # Page markdown via Firecrawl (JS-rendered — ATS pages are SPAs).     Raises reque
@@ -14,4 +14,4 @@ tags:
 ## Connections
 - [[fetch_posting_markdown()]] - `rationale_for` [EXTRACTED]
 
-#graphify/rationale #graphify/EXTRACTED #community/stage1_reject
+#graphify/rationale #graphify/EXTRACTED #community/writerpy

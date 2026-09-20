@@ -1,17 +1,17 @@
 ---
 source_file: ""
 type: "code"
-community: "recheck.py"
+community: "interndock.py"
 tags:
   - graphify/code
   - graphify/EXTRACTED
-  - community/recheckpy
+  - community/interndockpy
 ---
 
 # datetime
 
 ## Connections
-- [[run_once()]] - `references` [EXTRACTED]
-- [[run_pipeline.py]] - `imports_from` [EXTRACTED]
+- [[reseed.py]] - `imports_from` [EXTRACTED]
+- [[run_reseed()]] - `references` [EXTRACTED]
 
-#graphify/code #graphify/EXTRACTED #community/recheckpy
+#graphify/code #graphify/EXTRACTED #community/interndockpy

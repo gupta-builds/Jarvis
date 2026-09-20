@@ -11,7 +11,7 @@ notes:
   - "[[60_Claude/30_Reviews/AI/Tools/Tool log]]"
   - "[[20_Progress/AI/Claude Code/_All-Projects-Sync-Log]]"
   - "[[20_Progress/AI/Claude Code/Write Log]]"
-  - "[[30_Order/Standards/Review Standard]]"
+  - "[[Review Standard]]"
 ---
 # AI Tools Weekly Review — 2026-W34
 ## Period Covered

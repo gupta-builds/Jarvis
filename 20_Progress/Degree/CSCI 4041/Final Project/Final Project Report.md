@@ -5,7 +5,7 @@ status: seed
 created: 2026-05-03
 updated: 2026-05-04
 area:
-  - "[[Final Project|Final Project]]"
+  - "[[20_Progress/Degree/CSCI 4041/Final Project|Final Project]]"
   - "[[Maze Project|Maze Project]]"
 tags:
   - "#class"

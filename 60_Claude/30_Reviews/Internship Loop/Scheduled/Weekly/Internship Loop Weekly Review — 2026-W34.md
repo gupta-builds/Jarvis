@@ -47,7 +47,7 @@ Current bucket counts (391 total excl. Viewed) are already past every threshold 
 4. **`company/<slug>` tag compliance: 69/392 (17.6%)** — same shape of gap.
 5. **Likely, lower-confidence classification miss** — AbbVie's BTS dossier in `1 - AI & ML` on an incidental "generative AI" mention, same bug class as prior Databricks/Mosaic misses.
 ## Decided Fixes
-None this pass. Every finding above is a real, cited defect, but fixing any of them means editing `gupta-builds/internship-research-loop`'s code — outside what a vault-side review can do, and the general [[30_Order/Standards/Review Standard|Review Standard]]'s rule is that a review surfacing a problem isn't itself authorization to fix it.
+None this pass. Every finding above is a real, cited defect, but fixing any of them means editing `gupta-builds/internship-research-loop`'s code — outside what a vault-side review can do, and the general [[Review Standard|Review Standard]]'s rule is that a review surfacing a problem isn't itself authorization to fix it.
 ## Open Questions
 - Is the `notes:`/company-tag write-time gap a reverted fix, an unpushed fix, or a fix that only ever landed in one source's writer path? Needs a direct repo check (`git log` / `git blame` on `vault_writer/writer.py`), not answerable from the vault side alone.
 - Should the two Virtu Frontend duplicates be manually merged/one discarded now, or left for the next `recheck.py` cross-source-dedup fix to catch structurally? Leaving it risks the same pair recurring on the next source pull if the underlying dedup key isn't fixed.

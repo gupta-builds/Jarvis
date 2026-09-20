@@ -3,7 +3,7 @@ kanban-plugin: board
 type: dashboard
 status: active
 created: 2026-05-07
-updated: 2026-05-07
+updated: 2026-09-15
 area:
   - life
 tags:
@@ -21,9 +21,9 @@ tags:
 
 ## Daily
 
-- [ ] leetcode-5 — ≥5 problems, topic logged ([[LeetCode & CSCI 4041]])
-- [ ] csci2033 — 30–45 min LA subtopic + output ([[ML Fundamentals (2033 + 2230)]])
-- [ ] course-step — MATH 2230 board next OR HIST admin step ([[Summer Courses Ops]])
+- [ ] application-floor — move ≥1 company `Current/` → `Applied/` ([[10_Areas/Career/Internships/Tracker/Tracker|Tracker]])
+- [ ] leetcode-codepath — ≥5 problems, topic logged ([[10_Areas/Life/Plans/Fall 2026/LeetCode & CodePath|LeetCode & CodePath]])
+- [ ] class-step — one step in 4511W / 4061 / 5304 / 4521 / MGMT 3015 / ENGL 1004
 - [ ] review-note — 5-min end-of-day note / closeday
 
 ## Weekly

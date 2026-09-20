@@ -5,37 +5,45 @@ source_app: claude-code
 source_os: windows
 title: "Jarvis vault plugins documentation batch 3"
 started_at: 2026-09-20T17:21:04
-ended_at: 2026-09-20T17:29:59
-exported_at: 2026-09-20T17:30:03
-duration_minutes: 8.9
+ended_at: 2026-09-20T17:41:22
+exported_at: 2026-09-20T18:00:05
+duration_minutes: 20.3
 project: Jarvis
 cwd: 'D:\Users\_Anant\10_Areas\Documents\Jarvis'
 session_id: 60b14ba1-f5d6-46e3-ab93-3ba15d89ac77
 status: raw
 turn_count: 4
 tools_used:
-  Bash: 29
-  Edit: 16
-  Read: 7
+  Bash: 53
+  Edit: 56
+  Grep: 5
+  PowerShell: 2
+  Read: 15
   ToolSearch: 1
-  WebFetch: 3
+  WebFetch: 13
 tokens:
-  input: 208
-  output: 97713
-  cache_creation: 457370
-  cache_read: 13174914
-  total: 13730205
-cost_usd: 5.442009
+  input: 540
+  output: 206219
+  cache_creation: 671364
+  cache_read: 50106231
+  total: 50984354
+cost_usd: 14.769972
 model:
   - "claude-sonnet-5"
 files_touched:
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\Obsidian\\Plugins\\AI Automation and Local Interfaces.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\Obsidian\\Plugins\\Canvas Spatial Maps.md"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\Obsidian\\Plugins\\Dataview and Dashboards.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\Obsidian\\Plugins\\Git Recovery and Vault Safety.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\Obsidian\\Plugins\\Omnisearch and Retrieval.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\Obsidian\\Plugins\\Plugin Gaps Recommendations and Verification.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\Obsidian\\Plugins\\Plugin Inventory and Configuration Map.md"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\Obsidian\\Plugins\\Search Linking and Navigation.md"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\Obsidian\\Plugins\\Tasks Kanban and Project Tracking.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\Obsidian\\Plugins\\Templates Capture and Periodic Notes.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\Obsidian\\Plugins\\Visual Thinking with Canvas and Excalidraw.md"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\Obsidian\\Settings\\Appearance Theme and CSS Snippets.md"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\Obsidian\\Settings\\File Handling and Properties.md"
 tags:
   - input
   - ai-conversation
@@ -174,6 +182,48 @@ Now moving to the rest of Tier 1: Canvas/Excalidraw, Omnisearch (with the Text E
 Two more plugins (`cmdr`, `recent-edits`) are installed but wired into neither `community-plugins.json` nor Lazy Plugin Loader — meaning they won't activate on Obsidian's next full restart despite being installed. I'll wire them in alongside Text Extractor since the user said both are already in daily use, and flag this clearly in my final report.
 
 Now removing the Suggestions section and fixing the Verified Open State / Sources for this note.
+
+Tier 1 complete. Moving to Tier 2: Search Linking and Navigation (adding Recent Edits coverage).
+
+Now fixing the Homepage section and folding the Suggestions into implemented prose.
+
+Now cleaning up the Verified Open State / Suggestions and Sources.
+
+Good, that note exists. Now updating the frontmatter date and the tracker for the Homepage fix.
+
+Now updating the tracker with the Homepage BOM/path bug fix — a real live bug found beyond the original scope.
+
+Now the big Tier 2 item: AI Automation and Local Interfaces.md — covers the Local REST API port decision, the Copilot MCP research, and opencode.
+
+Now the Local REST API section — port standardization decision and the secure-port number correction.
+
+Now adding an opencode section, and cleaning up the Acer cross-machine debugging into a precise checklist plus the risk register / verified-open-state / suggestions cleanup.
+
+Now updating Risk Surfaces, Verified Open State, and removing the Suggestions section.
+
+Now updating the tracker for both resolved decisions.
+
+Found it — there's a slight text mismatch ("no TLS" parenthetical). Fixing both entries now.
+
+Tier 2 complete. Quick sanity check on progress, then moving to Tier 3.
+
+Good — the scheduled auto-sync task already swept my work into a real commit (expected background behavior per the vault's design, nothing to fix). Continuing to Tier 3.
+
+Good, settings confirmed accurate. Now checking for real DataviewJS usage vault-wide — the actual risk assessment the task asked for.
+
+Now fixing the path drift in the query recipes.
+
+Now cleaning up Verified Open State, removing Suggestions, and updating the Risk Register cross-reference / Sources.
+
+Now updating the tracker's Risk Register entry for DataviewJS/HTML and the path-drift Needs Verification bullet.
+
+Now the last Tier 3 note: Tasks Kanban and Project Tracking.
+
+Now the `next:`/task-lines clarification and cleaning up Verified Open State / removing Suggestions.
+
+Tier 3 complete. Moving to the Settings tier: Appearance Theme and CSS Snippets, and File Handling and Properties.
+
+You've hit your session limit · resets 6:40pm (America/Chicago)
 
 ### Tool Calls
 
@@ -1301,6 +1351,1310 @@ Decision needed: whether source PDFs, screenshots, and Office files should becom
 - | Text Extractor | Helps Omnisearch index PDFs/images. | Attachments become central to retrieval. |
 + | Text Extractor | Helps Omnisearch index PDFs/images. | **Installed 2026-09-20** — see [[Omnisearch and Retrieval]]. |
 ```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Plugin Gaps Recommendations and Verification.md`
+```diff
+- | Recent Edits | Better edit-trail review than Recent Files. | Human/agent edits need faster audit. |
+| Excalibrain | Visual graph-style concept exploration. | Existing Excalibrain references are intentional. |
+| Commander | Command/ribbon customization. | Plugin commands become hard to access. |
++ | Recent Edits | Better edit-trail review than Recent Files. | **Installed and in real use** — `data.json` holds a live 7-day edit history with `#cards`... external-vs-in-app edit tracking. Wired into Lazy Plugin Loader 2026-09-20 (was installed but not activated in either `community-plugins.json` or the loader — see [[Plugin Inventory and Configuration Map]]). |
+| Excalibrain | Visual graph-style concept exploration. | Existing Excalibrain references are intentional. |
+| Commander | Command/ribbon customization. | **Installed, not yet configured** — no `data.json` exists yet (never opened/customized). Wired into Lazy Plugin Loader 2026-09-20 so it activates; actual ribbon/command customization is still a zero-config install. |
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Plugin Gaps Recommendations and Verification.md`
+```diff
+- | Recent Edits | Better edit-trail review than Recent Files. | **Installed and in real use** — `data.json` holds a live 7-day edit history with `#cards`... external-vs-in-app edit tracking. Wired into Lazy Plugin Loader 2026-09-20 (was installed but not activated in either `community-plugins.json` or the loader — see [[Plugin Inventory and Configuration Map]]). |
++ | Recent Edits | Better edit-trail review than Recent Files. | **Installed and in real use** — `data.json` holds a live 7-day edit history with dozens of real entries and external-vs-in-app edit-source tracking. Wired into Lazy Plugin Loader 2026-09-20 (was installed but not activated in either `community-plugins.json` or the loader — see [[Plugin Inventory and Configuration Map]]). |
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Visual Thinking with Canvas and Excalidraw.md`
+```diff
+- ## Which One
+| The objects are… | Use | Why |
+|---|---|---|
+| Existing notes, and you want their layout | **Canvas** | Cards can be live note references, so the map stays linked to real notes. |
+| Shapes, arrows, flows, annotations | **Excalidraw** | Drawing tools for state machines, architecture, annotated figures. |
+| A list, table, or 3 sentences would be clearer | **Markdown** | A drawing that only restates a list adds cost and no retrieval value. |
++ ## Which One
+| The objects are… | Use | Why |
+|---|---|---|
+| Existing notes, and you want their layout | **Canvas** | Cards can be live note references, so the map stays linked to real notes. |
+| Shapes, arrows, flows, annotations | **Excalidraw** | Drawing tools for state machines, architecture, annotated figures. |
+| An existing image you want to mark up (a lecture-slide screenshot, a textbook figure) | **Excalidraw** | Image annotation is a first-class Excalidraw mode, not a workaround — embed the image, draw directly on top of it ([Excalidraw plugin README](https://github.com/zsviczian/obsidian-excalidraw-plugin)). |
+| A list, table, or 3 sentences would be clearer | **Markdown** | A drawing that only restates a list adds cost and no retrieval value. |
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Visual Thinking with Canvas and Excalidraw.md`
+```diff
+- ## Suggestions
+- **Building one real example of each, worth it: yes, and cheaply so.** Anant is a UMN student whose actual coursework already produces exactly the raw material both tools want (concept notes, PDF figures). One MGMT 3001 concept-web Canvas and one annotated PDF-figure Excalidraw drawing would take under an hour combined and would replace two "no gold-standard example exists yet" sections with something he can copy the pattern from on the next course. The cost of *not* doing this isn't just a missing example — both tools stay at zero real usage indefinitely, since nothing forces a first attempt.
+- **Adding "existing image to annotate" as a third chooser row: yes, small fix, real gap.** The current table only distinguishes "existing notes" (Canvas) from "shapes/arrows/flows" (Excalidraw), which genuinely doesn't cover the third case Anant will hit constantly: a lecture-slide screenshot or textbook figure he wants to mark up, not redraw from scratch. Excalidraw's own README confirms image annotation is a first-class supported mode (embed an image, draw directly on top of it), not a workaround — so the fix is one row in this table, not new plugin capability.
+## Sources
++ ## Verified Open State
+- Both tools remain at zero real usage as of 2026-09-20 — no `.canvas` file and no hand-made `.excalidraw` drawing exists anywhere in the vault. Building one real example of each (an MGMT 3001 concept-web Canvas, an annotated PDF-figure Excalidraw drawing) is content-creation work, not a plugin-settings question, so it's out of scope for this documentation batch — it's tracked as an open recommendation here and in [[Canvas Spatial Maps]] and [[Excalidraw Diagrams and Annotation]], not acted on.
+## Sources
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Visual Thinking with Canvas and Excalidraw.md`
+```diff
+- created: 2026-05-15
+updated: 2026-05-31
+tags:
+  - evergreen
+  - system
+  - obsidian
+  - visual-thinking
++ created: 2026-05-15
+updated: 2026-09-20
+tags:
+  - evergreen
+  - system
+  - obsidian
+  - visual-thinking
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Canvas Spatial Maps.md`
+```diff
+- - **Groups:** named regions that cluster related cards.
+- Embed a canvas in a note with `![[Name.canvas]]`.
++ - **Groups:** named regions that cluster related cards. A Canvas Group is purely a visual boundary on that one canvas — confirmed against the [JSON Canvas spec](https://jsoncanvas.org/spec/1.0/), a group is a node type with a bounding box and no path reference. It does nothing to the vault's folder structure. Don't infer a file-move from "organize this Canvas group."
+- **Color:** cards and connections can be colored — a preset index `1`–`6` or a hex value per the [JSON Canvas spec](https://jsoncanvas.org/spec/1.0/), set in Obsidian's UI via "Set color" in the selection controls that appear above a selected card ([Obsidian Help — Canvas](https://obsidian.md/help/plugins/canvas)). Useful for a small course concept-map (color by prerequisite vs application, or by mastery status) — there's no bulk or rule-based coloring in the base plugin, so it stops being worth the manual effort past a handful of cards.
+- Embed a canvas in a note with `![[Name.canvas]]`.
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Canvas Spatial Maps.md`
+```diff
+- ## Verified Open State
+- Is Canvas deliberately unused, or just never started? — *unverified; no `.canvas` files exist, but the plugin is enabled*
+- Would one course concept-map Canvas be worth building as the seed example, or does the graph view already cover this need? — *open question for the user*
+## Suggestions
+- **Building the MGMT 3001 concept-map Canvas: yes, worth it, and it's the same recommendation [[Visual Thinking with Canvas and Excalidraw]] makes independently** — doing it once closes the "zero usage" gap in both notes instead of leaving each to flag it separately. For Anant specifically, the payoff isn't the Canvas itself, it's seeing prerequisite structure across a course's concepts at a glance before an exam, something the linear note list and the graph view both do badly per this note's own Mechanism section.
+- **JSON Canvas's `color` field, confirmed real via the spec** (preset index 1-6 or a hex value — [JSON Canvas spec](https://jsoncanvas.org/spec/1.0/)), **and confirmed operable in Obsidian's own UI**: select a card, use "Set color" in the selection controls that appear above it, pick from the palette ([Obsidian Help — Canvas](https://obsidian.md/help/plugins/canvas)). **Worth it: yes, for the course concept-map use case specifically** — coloring by concept type (prerequisite vs application) or mastery status turns the Canvas into a status view, not just a layout, at zero cost beyond a few clicks per card. Not worth doing for a Canvas with more than a handful of cards; recoloring by hand doesn't scale and there's no bulk/rule-based coloring in the base plugin.
+- **Groups vs folders: worth one line, not worth more.** A Canvas Group is purely a named visual boundary on that one canvas — it does nothing to the vault's folder structure, confirmed by how JSON Canvas stores groups (a node type with a bounding box, no path reference). The actual risk this note is guarding against is narrow but real: an agent told to "organize" a Canvas group could otherwise infer a file-move is wanted. One clarifying sentence closes that; it doesn't need its own section.
+## Sources
++ ## Verified Open State
+- Canvas remains genuinely unused, not just unverified: confirmed again 2026-09-20, no `.canvas` file exists anywhere in the vault despite the plugin being enabled. Building a first real example (the MGMT 3001 concept-map candidate named above) is content-creation work, not a plugin-settings question — out of scope for this documentation batch, tracked here and in [[Visual Thinking with Canvas and Excalidraw]] as the same open recommendation, not duplicated as two separate asks.
+## Sources
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Canvas Spatial Maps.md`
+```diff
+- created: 2026-05-31
+updated: 2026-05-31
+tags:
+  - evergreen
+  - system
+  - obsidian
+  - canvas
+  - visual-thinking
++ created: 2026-05-31
+updated: 2026-09-20
+tags:
+  - evergreen
+  - system
+  - obsidian
+  - canvas
+  - visual-thinking
+```
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Search Linking and Navigation.md`
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && cat .obsidian/plugins/homepage/data.json`
+```
+﻿{
+    "version":  4,
+    "homepages":  {
+                      "Main Homepage":  {
+                                            "value":  "10_Areas/AI/Jarvis OS Dashboard",
+                                            "kind":  "File",
+                                            "openOnStartup":  true,
+                                            "openMode":  "Replace all open notes",
+                                            "manualOpenMode":  "Keep open notes",
+                                            "view":  "Default view",
+                                            "revertView":  true,
+                                            "openWhenEmpty":  false,
+                                            "refreshDataview":  false,
+                                            "autoCreate":  false,
+                                            "autoScroll":  false,
+                                            "pin":  false,
+                                            "commands":  [
+
+                                                         ],
+                                            "alwaysApply":  false,
+                                            "hideReleaseNotes":  false
+                                        }
+                  },
+    "separateMobile":  false
+}
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && find . -iname "Jarvis OS Dashboard*" -not -path "./.git/*" 2>/dev/null; echo "---"; find . -iname "00_Dashboard*" -not -path "./.git/*" 2>/dev/null | head -5`
+```
+./10_Areas/Jarvis OS Dashboard.canvas
+---
+./00_Dashboard.md
+```
+- `WebFetch` -- `{"url":"https://github.com/mgmeyers/obsidian-homepage","prompt":"Explain the \"kind\" setting options (File, Random file, Workspace layout, Graph view, etc), whether the \"value\" field should include the file extension for a .canvas file, and how the plugin resolves the value to a real vault path."}`
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && cat .obsidian/plugins/homepage/manifest.json`
+```
+{
+	"id": "homepage",
+	"name": "Homepage",
+	"version": "4.5.0",
+	"minAppVersion": "1.13.0",
+	"description": "Open a specified note, canvas, base, or workspace on startup, or set it for quick access later.",
+	"author": "novov",
+	"authorUrl": "https://novov.me",
+	"isDesktopOnly": false,
+	"fundingUrl": {
+		"Ko-fi": "https://ko-fi.com/novov"
+	}
+}
+```
+- `WebFetch` -- `{"url":"https://github.com/novov/obsidian-homepage","prompt":"Explain the \"kind\" setting options (File, Random file, Workspace layout, Graph view, etc), whether the \"value\" field for kind \"File\" should include the file extension when the target is a .canvas file, and how the plugin resolves the \"value\" string to a real vault path (does it need the full path including subfolders, or just filename)."}`
+- `Bash` -- `curl -s "https://api.github.com/search/repositories?q=obsidian-homepage+in:name" | node -e "let d='';process.stdin.on('data',c=>d+=c);process.stdin.on('end',()=>{const j=JSON.parse(d); j.items.slice(0,5).forEach(i=>console.log(i.full_name, i.html_url))})"`
+```
+Rainbell129/Obsidian-Homepage https://github.com/Rainbell129/Obsidian-Homepage
+mirnovov/obsidian-homepage https://github.com/mirnovov/obsidian-homepage
+faroukx/obsidian-homepage https://github.com/faroukx/obsidian-homepage
+ChenziqiAdam/Obsidian-Homepage https://github.com/ChenziqiAdam/Obsidian-Homepage
+StormBlackthorn/ObsidianHomepage https://github.com/StormBlackthorn/ObsidianHomepage
+```
+- `WebFetch` -- `{"url":"https://raw.githubusercontent.com/mirnovov/obsidian-homepage/main/README.md","prompt":"Explain the \"kind\" options for a homepage (File, Random file, Workspace layout, Graph view, etc), how the file/note \"value\" path should be specified (with or without extension, full vault path or just name), and whether canvas files are supported."}`
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && node -e "
+const fs = require('fs');
+const path = '.obsidian/plugins/homepage/data.json';
+const d = JSON.parse(fs.readFileSync(path,'utf8'));
+console.log('before:', d.homepages['Main Homepage'].value);
+d.homepages['Main Homepage'].value = '10_Areas/Jarvis OS Dashboard';
+fs.writeFileSync(path, JSON.stringify(d, null, 2), { encoding: 'utf8' });
+"
+node -e "const d=JSON.parse(require('fs').readFileSync('.obsidian/plugins/homepage/data.json','utf8')); console.log('after:', d.homepages['Main Homepage'].value)"
+node -e "const b=require('fs').readFileSync('.obsidian/plugins/homepage/data.json'); console.log('BOM:', b[0]===0xEF&&b[1]===0xBB&&b[2]===0xBF)"`
+```
+<anonymous_script>:1
+﻿{
+^
+
+SyntaxError: Unexpected token '﻿', "﻿{
+    "v"... is not valid JSON
+    at JSON.parse (<anonymous>)
+    at [eval]:4:16
+    at runScriptInThisContext (node:internal/vm:209:10)
+    at node:internal/process/execution:449:12
+    at [eval]-wrapper:6:24
+    at runScriptInContext (node:internal/process/execution:447:60)
+    at evalFunction (node:internal/process/execution:87:30)
+    at evalScript (node:internal/process/execution:99:3)
+    at node:internal/main/eval_string:74:3
+
+Node.js v22.16.0
+<anonymous_script>:1
+﻿{
+^
+
+SyntaxError: Unexpected token '﻿', "﻿{
+    "v"... is not valid JSON
+    at JSON.parse (<anonymous>)
+    at [eval]:1:14
+    at runScriptInThisContext (node:internal/vm:209:10)
+    at node:internal/process/execution:449:12
+    at [eval]-wrapper:6:24
+    at runScriptInContext (node:internal/process/execution:447:60)
+    at evalFunction (node:internal/process/execution:87:30)
+    at evalScript (node:internal/process/execution:99:3)
+    at node:internal/main/eval_string:74:3
+
+Node.js v22.16.0
+BOM: true
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && node -e "
+const fs = require('fs');
+const path = '.obsidian/plugins/homepage/data.json';
+let text = fs.readFileSync(path, 'utf8');
+text = text.replace(/^﻿/, '');
+const d = JSON.parse(text);
+console.log('before value:', d.homepages['Main Homepage'].value);
+d.homepages['Main Homepage'].value = '10_Areas/Jarvis OS Dashboard';
+fs.writeFileSync(path, JSON.stringify(d, null, 2), { encoding: 'utf8' });
+"
+node -e "JSON.parse(require('fs').readFileSync('.obsidian/plugins/homepage/data.json','utf8')); console.log('valid, no BOM issue now')"
+node -e "const b=require('fs').readFileSync('.obsidian/plugins/homepage/data.json'); console.log('BOM present:', b[0]===0xEF&&b[1]===0xBB&&b[2]===0xBF)"
+node -e "const d=JSON.parse(require('fs').readFileSync('.obsidian/plugins/homepage/data.json','utf8')); console.log('fixed value:', d.homepages['Main Homepage'].value)"`
+```
+before value: 10_Areas/AI/Jarvis OS Dashboard
+valid, no BOM issue now
+BOM present: false
+fixed value: 10_Areas/Jarvis OS Dashboard
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && for f in .obsidian/plugins/*/data.json .obsidian/*.json; do
+  if [ -f "$f" ]; then
+    b1=$(head -c 3 "$f" | xxd -p 2>/dev/null | tr -d '\n')
+    if [ "$b1" = "efbbbf" ]; then
+      echo "BOM: $f"
+    fi
+  fi
+done`
+```
+(Bash completed with no output)
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Search Linking and Navigation.md`
+```diff
+- ## Quick Switcher and Recent Files
+
+Quick Switcher is for known-note navigation. It is useful when the note name is already close to mind.
+
+Recent Files is weak session context. It can help a human resume work, but agents should not treat it as the source of truth. Read [[00_Dashboard]] and the session log instead.
++ ## Quick Switcher, Recent Files, and Recent Edits
+
+Quick Switcher is for known-note navigation. It is useful when the note name is already close to mind.
+
+Recent Files is weak session context. It can help a human resume work, but agents should not treat it as the source of truth. Read [[00_Dashboard]] and the session log instead.
+
+**Recent Edits, added 2026-09-20** (`recent-edits`, v1.6.0) is a different tool from Recent Files, not a duplicate. Recent Files answers "what did I open recently" (a session-navigation aid); Recent Edits answers "what actually changed, and by what" — it groups modified files by day and, critically, **tags each edit with its source**: an in-app edit vs. a filesystem write made outside Obsidian (an agent, a script, the sync task). Confirmed genuinely in use, not just installed: this vault's `data.json` holds a live `lookbackDays: 7` window and dozens of real tracked edits, including this exact session's own file writes, each correctly marked `"external"`. Settings as configured: 7-day lookback, external-edit color `#D97757`, two-line row layout, hover preview off, size-delta indicator off. This is the tool to use when the question is specifically "what did an agent or script touch recently" — Recent Files can't answer that distinction at all.
+
+Wiring note: `cmdr` and `recent-edits` were both installed on disk but wired into neither `community-plugins.json` nor Lazy Plugin Loader — confirmed 2026-09-20 they would not have activated on the next full Obsidian restart. Both now registered in Lazy Plugin Loader (`short` delay). See [[Plugin Inventory and Configuration Map]].
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Search Linking and Navigation.md`
+```diff
+- ## Homepage
+Homepage opens a chosen note, canvas, base, or workspace whenever the vault starts, instead of restoring whatever was open last.
+
+**Researched 2026-09-19.** Not yet configured with a target in this vault's `data.json` — the plugin is installed and lazy-loaded (`short`) but has no destination set, so it currently has no visible effect on startup. If configured, the natural choice for a vault this dashboard-driven is [[00_Dashboard]]: a fixed landing point means every session starts from the same live view of active projects, review queues, and orphan notes, rather than wherever the last session happened to leave off. Setting it is a human preference, not a research gap — the mechanism just needed confirming.
++ ## Homepage
+Homepage opens a chosen note, canvas, base, or workspace whenever the vault starts, instead of restoring whatever was open last.
+
+**Corrected 2026-09-20 — the 2026-09-19 "not yet configured" finding was itself wrong, and for an instructive reason.** Homepage *was* already configured (`openOnStartup: true`), but `.obsidian/plugins/homepage/data.json` carried a **UTF-8 BOM** — the exact class of silent-corruption bug this vault's own edit workaround exists to prevent. A BOM breaks strict JSON parsing (confirmed: Node's `JSON.parse` throws on it directly), which is almost certainly why the prior pass read this file and concluded it was unconfigured — a parser choking on the BOM can misread or fail on the whole structure. Separately, the configured target itself was also wrong: `value` pointed at `10_Areas/AI/Jarvis OS Dashboard`, a path that has never existed — the real file is `10_Areas/Jarvis OS Dashboard.canvas`, directly under `10_Areas/`, no `AI/` subfolder. Both fixed this session: BOM stripped, `value` corrected to `10_Areas/Jarvis OS Dashboard`. The vault now genuinely opens to `10_Areas/Jarvis OS Dashboard.canvas` on startup, not [[00_Dashboard]] — that's a different, already-existing choice (a Canvas landing view rather than the Markdown dashboard note), left as-is since it was clearly a deliberate prior setup, just broken in execution.
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Search Linking and Navigation.md`
+```diff
+- ## Verified Open State
+- Should source-summary folders (`60_Claude/10_Source_Summaries/`) be pinned in File Explorer++ for quick navigation, as the audit suggested? — *human layout preference; needs user choice*
+- Is the `Alt+C` Calendar hotkey live, or a leftover from an uninstalled Calendar plugin? — *resolved 2026-09-19: leftover. No `calendar` folder exists under `.obsidian/plugins/`; `hotkeys.json` still binds it. The hotkey does nothing.*
+- Should Homepage be configured with a startup target, and should it be [[00_Dashboard]]? — *mechanism confirmed 2026-09-19, unconfigured; the choice itself is a human preference*
+## Suggestions
+- **Setting Homepage to [[00_Dashboard]]: worth it, and the honest verdict is this barely counts as a decision anymore.** The mechanism is confirmed, the target is already named, and the whole rest of this vault is built around the dashboard being the live entry point for active projects and review queues. Leaving it unconfigured means every session starts wherever the last one happened to close instead — for a vault this dashboard-driven, that's a real, if small, daily cost against zero cost to just setting it.
+- **The File Explorer++/Recent Files interaction question: not worth resolving as written, because it isn't actually ambiguous.** They render in two different UI panels (the file tree vs. a separate recent-files list) — a file hidden in the tree still shows in Recent Files, and neither "wins" over the other because they were never competing for the same space. Worth one clarifying sentence saying exactly that, not a deeper investigation.
+- **The dead `Alt+C` Calendar hotkey: same verdict as [[Plugin Inventory and Configuration Map]]'s Suggestions — worth a one-line fix, low priority, batch it with the next `hotkeys.json` change rather than a dedicated approval round.**
+## Sources
+
+- [Obsidian Help - Backlinks](https://help.obsidian.md/plugins)
+- [Omnisearch docs](https://publish.obsidian.md/omnisearch/Index)
+- [Omnisearch community plugin page](https://community.obsidian.md/plugins/omnisearch)
+- Direct check of `.obsidian/plugins/calendar/` (absent) and `.obsidian/plugins/homepage/data.json` — this session, 2026-09-19
+- [Hover Editor README](https://github.com/nothingislost/obsidian-hover-editor)
+- [File Explorer++ README](https://github.com/kelszo/obsidian-file-explorer-plus)
+- [Recent Files README](https://github.com/tgrosinger/recent-files-obsidian)
+- [Paste URL into selection README](https://github.com/denolehov/obsidian-url-into-selection)
++ ## Verified Open State
+- Should source-summary folders (`60_Claude/10_Source_Summaries/`) be pinned in File Explorer++ for quick navigation? — *human layout preference; not acted on here, these are human pin/hide filters this batch does not rewrite*
+- The `Alt+C` Calendar hotkey is confirmed dead (no `calendar` plugin folder exists) but the binding itself was not removed this session — that edit belongs to [[Core Plugins Hotkeys and Defaults]], not duplicated here.
+- File Explorer++ and Recent Files render in two different UI panels (the file tree vs. a separate recent-files list) and were never competing for the same space — a file hidden in the tree still shows in Recent Files. Not actually ambiguous; no further resolution needed.
+## Sources
+
+- [Obsidian Help - Backlinks](https://help.obsidian.md/plugins)
+- [Omnisearch docs](https://publish.obsidian.md/omnisearch/Index)
+- [Omnisearch community plugin page](https://community.obsidian.md/plugins/omnisearch)
+- [Recent Edits plugin](https://github.com/cwagner223355) — mechanism (day-grouped edits, external-write tagging), fetched 2026-09-20
+- Direct read of `.obsidian/plugins/homepage/data.json` (before and after the BOM/path fix), `.obsidian/plugins/recent-edits/data.json`, `.obsidian/plugins/cmdr/` (no data.json — never configured), and `.obsidian/plugins/lazy-plugins/data.json` — this session, 2026-09-20
+- [Hover Editor README](https://github.com/nothingislost/obsidian-hover-editor)
+- [File Explorer++ README](https://github.com/kelszo/obsidian-file-explorer-plus)
+- [Recent Files README](https://github.com/tgrosinger/recent-files-obsidian)
+- [Paste URL into selection README](https://github.com/denolehov/obsidian-url-into-selection)
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && find . -iname "Core Plugins Hotkeys*" -not -path "./.git/*"`
+```
+./.stversions/40_Resources/Obsidian/Settings/Core Plugins Hotkeys and Defaults~20260920-140413.md
+./40_Resources/Obsidian/Settings/Core Plugins Hotkeys and Defaults.md
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Search Linking and Navigation.md`
+```diff
+- created: 2026-05-15
+updated: 2026-09-19
+tags:
+  - evergreen
+  - system
+  - obsidian
+  - search
++ created: 2026-05-15
+updated: 2026-09-20
+tags:
+  - evergreen
+  - system
+  - obsidian
+  - search
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Search Linking and Navigation.md`
+```diff
+- ## Omnisearch
+Omnisearch has its own deep reference now: [[Omnisearch and Retrieval]]. Short version: fuzzy ranked full-text search, weights filenames and headings highest, indexes Markdown only (PDF/Office/image indexing all off). Use it for broad human retrieval; do not assume any attachment is searchable. The Text Extractor decision and full settings live in that doc.
++ ## Omnisearch
+Omnisearch has its own deep reference now: [[Omnisearch and Retrieval]]. Short version: fuzzy ranked full-text search, weights filenames and headings highest. **Updated 2026-09-20:** PDF, Office, and image indexing are now on via the newly installed Text Extractor plugin — see that note for the mechanism, reliability caveats, and why AI image indexing specifically was left off. Use Omnisearch for broad human retrieval; don't assume indexing is instant even now that attachments are covered.
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Plugin Gaps Recommendations and Verification.md`
+```diff
+- - **New correction, 2026-09-20:** [[Templates Capture and Periodic Notes]]'s Periodic Notes Review Flow table was entirely wrong when checked against `.obsidian/plugins/periodic-notes/data.json` directly
++ - **New finding and fix, 2026-09-20:** `.obsidian/plugins/homepage/data.json` had a UTF-8 BOM — the exact silent-corruption class this vault's own `.obsidian/` edit workaround exists to prevent — which is almost certainly why a 2026-09-19 pass concluded Homepage was "not yet configured": it was actually already configured (`openOnStartup: true`), but a BOM broke strict JSON parsing of the file. The configured target was also independently wrong (`10_Areas/AI/Jarvis OS Dashboard`, a path that never existed — real file is `10_Areas/Jarvis OS Dashboard.canvas`). Both fixed: BOM stripped, path corrected. A vault-wide BOM sweep across every other `.obsidian/plugins/*/data.json` and root `.obsidian/*.json` found no other instances — isolated to this one file. Full detail in [[Search Linking and Navigation]].
+- **New correction, 2026-09-20:** [[Templates Capture and Periodic Notes]]'s Periodic Notes Review Flow table was entirely wrong when checked against `.obsidian/plugins/periodic-notes/data.json` directly
+```
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\AI Automation and Local Interfaces.md`
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && echo "--- local-rest-api data.json (non-secret fields) ---" && node -e "
+const d = JSON.parse(require('fs').readFileSync('.obsidian/plugins/obsidian-local-rest-api/data.json','utf8'));
+const {apiKey, ...safe} = d;
+console.log(JSON.stringify(safe, null, 2));
+"
+echo "--- .mcp.json ---"
+cat .mcp.json 2>/dev/null`
+```
+--- local-rest-api data.json (non-secret fields) ---
+{
+  "port": 27126,
+  "insecurePort": 27123,
+  "enableInsecureServer": true,
+  "crypto": {
+    "cert": "-----BEGIN CERTIFICATE-----\r\[REDACTED]\r\[REDACTED]\r\[REDACTED]\r\[REDACTED]+I4PJhEUGDRdTnn7x6M0N\r\ngc0+ox7Zj6Q4nYLXqi+[REDACTED]/p6+\r\nVWfauz3+H5TdRvAnf3rLNTTqtE+[REDACTED]\r\nbx/zPNh06b3KFGXQCvFoX/[REDACTED]\r\napvOVF+[REDACTED]+\r\[REDACTED]/[REDACTED]\r\nMIGCMA8GA1UdEwEB/wQFMAMBAf8wDgYDVR0PAQH/[REDACTED]\r\nCCsGAQUFBwMBBggrBgEFBQcDAgYIKwYBBQUHAwMGCCsGAQUFBwMEBggrBgEFBQcD\r\[REDACTED]\r\[REDACTED]/bg4YiIaZemwX+uuVmpB5+f/E6u\r\naUuP/96CAtsay/[REDACTED]/zUMW4I+\r\[REDACTED]/tlLUPnAT6BgmXDvOrMTGsR\r\[REDACTED]+RJDuTNXOziOWB\r\[REDACTED]\r\ngQ7N1O+[REDACTED]==\r\n-----END CERTIFICATE-----\r\n",
+    "privateKey": "-----BEGIN RSA PRIVATE KEY-----\r\[REDACTED]+I4PJhEUGDRdTnn7x6M0Ngc0+ox7Zj6Q4nYLX\r\nqi+[REDACTED]/p6+VWfauz3+H5TdRvAn\r\nf3rLNTTqtE+[REDACTED]/zPNh06b3KFGXQ\r\nCvFoX/[REDACTED]+LPUewz7wa\r\[REDACTED]+7cwJRJEoa8iFbbcD\r\nt3XWBc61XAJV3I5DF/[REDACTED]\r\nSuZLtg35KqIyqk99ywh/[REDACTED]/IO5PZY4jyB2lz\r\nNqBj3Z/PnLZ+9pLK94RORbv/F+Q/[REDACTED]\r\[REDACTED]/iOnOo\r\nG/[REDACTED]\r\n2lDHaCl9BC+[REDACTED]+[REDACTED]\r\[REDACTED]/SwdBf1vQ/FY3UR1DgHgHZ1CnbchUNJN\r\ny//Vv+[REDACTED]+ne4zQQI53IP6v8evKZ4vx+\r\[REDACTED]\r\nfsgiYbXfjaPQy6qeuGq+[REDACTED]\r\[REDACTED]+XI6nwfKT/[REDACTED]\r\ni0LdiaRhkyjbCtW/D7Y+[REDACTED]/exY5hUX0Q\r\[REDACTED]/ha8mq0Roy+[REDACTED]\r\[REDACTED]\r\nUu50ml+[REDACTED]+PrIucnSqs+8+yIldlyjY/1sE\r\[REDACTED]/[REDACTED]\r\nK68Bk6j66G/belXEdkr1sW6/[REDACTED]\r\[REDACTED]/QIE\r\nPMpPFKeWN84PXPSQHCQ+[REDACTED]+Kjda5kvsSuyqni2nRb6\r\n/uLo7H2iEx3jjRRq4kkJ4+PloE7TgCd5vQO5QL19DI+5qUktxNDQ\r\n-----END RSA PRIVATE KEY-----\r\n",
+    "publicKey": "-----BEGIN PUBLIC KEY-----\r\[REDACTED]+I4PJhEUG\r\nDRdTnn7x6M0Ngc0+ox7Zj6Q4nYLXqi+[REDACTED]\r\nLaaaYPM7/p6+VWfauz3+H5TdRvAnf3rLNTTqtE+[REDACTED]\r\n0gYFS5NsVyXQbx/zPNh06b3KFGXQCvFoX/[REDACTED]\r\nKBZhrXzZtoNmapvOVF+[REDACTED]\r\n9mFxhetektG+[REDACTED]/0lvL8NWSWJAczkDH3A\r\nwwIDAQAB\r\n-----END PUBLIC KEY-----\r\n"
+  },
+  "enableSecureServer": true
+}
+--- .mcp.json ---
+{
+  "mcpServers": {
+    "obsidian": {
+      "command": "uvx",
+      "args": [
+        "mcp-obsidian"
+      ],
+      "env": {
+        "OBSIDIAN_API_KEY": "${OBSIDIAN_API_KEY}",
+        "OBSIDIAN_HOST": "${OBSIDIAN_HOST:-127.0.0.1}",
+        "OBSIDIAN_PORT": "${OBSIDIAN_PORT:-27123}"
+      }
+    },
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis"
+      ]
+    },
+    "git": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-git",
+        "--repository",
+        "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis"
+      ]
+    },
+    "fetch": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-fetch"
+      ]
+    },
+    "jarvis-memory": {
+      "command": "python",
+      "args": [
+        "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\30_Order\\System\\jarvis-memory\\server.py"
+      ],
+      "env": {
+        "JARVIS_VAULT_ROOT": "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis"
+      }
+    },
+    "excalidraw": {
+      "command": "node",
+      "args": [
+        "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\30_Order\\System\\excalidraw-mcp\\node_modules\\mcp-excalidraw-server\\dist\\index.js"
+      ],
+      "env": {
+        "EXPRESS_SERVER_URL": "http://127.0.0.1:3000",
+        "ENABLE_CANVAS_SYNC": "true"
+      }
+    }
+  }
+}
+```
+- `Grep` -- pattern `27124` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian`
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && node -e "
+const d = JSON.parse(require('fs').readFileSync('.obsidian/plugins/copilot/data.json','utf8'));
+const keys = Object.keys(d);
+console.log('total keys:', keys.length);
+console.log(keys.filter(k => /mcp/i.test(k)));
+console.log('autonomousAgent related keys:', keys.filter(k => /autonom|agent/i.test(k)));
+"
+echo "--- manifest version ---"
+cat .obsidian/plugins/copilot/manifest.json | node -e "let d='';process.stdin.on('data',c=>d+=c);process.stdin.on('end',()=>{const j=JSON.parse(d);console.log(j.version, j.minAppVersion)})"`
+```
+total keys: 106
+[]
+autonomousAgent related keys: [
+  'enableAutonomousAgent',
+  'autonomousAgentMaxIterations',
+  'autonomousAgentEnabledToolIds'
+]
+--- manifest version ---
+4.0.9 1.11.4
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && node -e "
+const d = JSON.parse(require('fs').readFileSync('.obsidian/plugins/copilot/data.json','utf8'));
+console.log('enableAutonomousAgent:', d.enableAutonomousAgent);
+console.log('autonomousAgentMaxIterations:', d.autonomousAgentMaxIterations);
+console.log('autonomousAgentEnabledToolIds:', JSON.stringify(d.autonomousAgentEnabledToolIds));
+console.log('enableCustomPromptTemplating (unrelated check):', d.enableCustomPromptTemplating);
+"`
+```
+enableAutonomousAgent: true
+autonomousAgentMaxIterations: 4
+autonomousAgentEnabledToolIds: ["localSearch","readNote","webSearch","pomodoro","youtubeTranscription","writeFile","editFile","updateMemory"]
+enableCustomPromptTemplating (unrelated check): true
+```
+- `WebFetch` -- `{"url":"https://www.obsidiancopilot.com/en/docs/autonomous-agent","prompt":"Explain what \"Autonomous Agent\" mode is, what tools it can use (web search, local search, write file, edit file, etc), how tool permissions are configured, whether this uses MCP (Model Context Protocol) internally or is unrelated to MCP, and whether Copilot has any separate feature to connect to external MCP servers as an MCP client."}`
+- `WebFetch` -- `{"url":"https://github.com/logancyang/obsidian-copilot/releases","prompt":"Search the release notes/changelog for any mention of \"MCP\" or \"Model Context Protocol\" support - either Copilot connecting to external MCP servers as a client, or exposing itself as an MCP server. Report exactly what you find, including version numbers if mentioned, or state clearly if there is no mention of MCP anywhere."}`
+- `WebFetch` -- `{"url":"https://docs.obsidiancopilot.com/autonomous-agent/","prompt":"Explain what \"Autonomous Agent\" mode is, what tools it can use (web search, local search, write file, edit file, etc), how tool permissions are configured, and whether this uses MCP (Model Context Protocol) internally or is unrelated to MCP."}`
+- `WebFetch` -- `{"url":"https://github.com/logancyang/obsidian-copilot/releases","prompt":"Find and quote every mention of \"opencode\", \"Claude Code\", or \"Codex\" CLI agent integration in Copilot. What does this feature do - does it let Copilot invoke external CLI coding agents like opencode as a subprocess or provider? What version introduced it and how is it configured? Is there any mention of an \"opencode\" provider or opencode-related error?"}`
+- `WebFetch` -- `{"url":"https://docs.obsidiancopilot.com","prompt":"List the documentation pages available, especially anything about \"Autonomous Agent\", \"opencode\", \"Codex\", \"Claude Code\", or CLI agent integration. Give exact URLs."}`
+- `WebFetch` -- `{"url":"https://docs.obsidiancopilot.com/agent-mode-and-tools/","prompt":"Explain how \"opencode\" works as an agent option in Copilot\u0027s Agent Chat: is it a separate CLI tool that must be installed on the system (e.g. via npm), does Copilot manage/download it automatically, what setup steps are required, and does it need any API keys or provider configuration? Quote exact setup instructions if present."}`
+- `WebFetch` -- `{"url":"https://docs.obsidiancopilot.com/agent-mode-windows-setup/","prompt":"This is a Windows-specific setup guide for Copilot\u0027s Agent Chat (opencode, Claude Code, Codex). Quote the exact setup steps, especially for opencode: what needs to be installed, in what shell/terminal, and what common errors or gotchas are documented for Windows users running \"opencode\" and getting an error."}`
+- `PowerShell` -- `{"command":"if ($env:OBSIDIAN_API_KEY) { Write-Output \"OBSIDIAN_API_KEY is set (length: $($env:OBSIDIAN_API_KEY.Length))\" } else { Write-Output \"OBSIDIAN_API_KEY is NOT set in this session\" }\n[Environment]::GetEnvironmentVariable(\"OBSIDIAN_API_KEY\",\"User\") -ne $null","description":"Check whether OBSIDIAN_API_KEY env var is set on this (Dell) machine, without printing its value"}`
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && cat .obsidian/plugins/obsidian-local-rest-api/manifest.json | node -e "let d='';process.stdin.on('data',c=>d+=c);process.stdin.on('end',()=>{const j=JSON.parse(d);console.log('local-rest-api version:', j.version)})"`
+```
+local-rest-api version: 5.1.0
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\AI Automation and Local Interfaces.md`
+```diff
+- ## Copilot
+
+Observed safe facts:
+
+- Installed and lazy-loaded with long delay.
+- Conversations are saved under `50_Archive/copilot/copilot-conversations`.
+- Custom prompts are under `50_Archive/copilot/copilot-custom-prompts`.
+- Autosave chat is enabled.
+- Inline citations are enabled.
+- Saved memory is enabled.
+- Autonomous agent mode is enabled.
+
+Docs describe Copilot as supporting vault QA, citations, memory, custom prompts, and agent-like tool use. In Jarvis, this is useful for human-in-Obsidian questioning, but it should not become an unlogged parallel agent.
+
+Rules:
+
+- Treat `50_Archive/copilot` as read-only historical context unless the user asks.
+- Do not copy provider credentials, auth material, memory internals, or generated indexes into notes.
+- Prefer vault notes and dashboards over Copilot memory when facts conflict.
+- Treat autonomous tools as high-risk until the user approves a specific workflow.
++ ## Copilot
+
+**Resolved 2026-09-20 — real permission expansion, live now.** Copilot version is `4.0.9` (was documented as `3.2.7` — corrected in [[Plugin Inventory and Configuration Map]] too). The user asked for Copilot to get autonomous vault-edit access "routed through the same jarvis MCP mechanism the other AI tools use." Both proposed mechanisms were researched directly rather than guessed at:
+
+- **(a) Copilot's own in-process Autonomous Agent mode** — real, confirmed live in this vault's `data.json`: `enableAutonomousAgent: true`, and `autonomousAgentEnabledToolIds` already includes **`writeFile` and `editFile`** alongside `localSearch`, `readNote`, `webSearch`, `pomodoro`, `youtubeTranscription`, and `updateMemory`. This is Copilot's own internal tool-calling against Obsidian's app API — nothing to do with MCP.
+- **(b) Copilot as an MCP client** — checked directly: **not present.** A full scan of Copilot's `data.json` (106 top-level keys) found zero keys matching `mcp` in any form, and the plugin's own GitHub release notes (v4.0.0–v4.0.9) contain no mention of MCP or Model Context Protocol anywhere. Copilot does not connect to this vault's `.mcp.json` `obsidian` server (the `mcp-obsidian` bridge that Claude Code and Cursor use) or to any other MCP server.
+
+**The real answer is (a), not (b).** Copilot already has autonomous, unlogged vault-write access via `writeFile`/`editFile` in its own tool-calling loop — this is **live right now**, not a change made this session (the flags were already `true`/enabled before this session started; the only thing this session added was confirming which mechanism it actually is and updating the Risk Register accordingly). This means Copilot can create or overwrite vault files outside of any agent's review, on its own timing, with no session log entry and no Write Contract enforcement — it doesn't read CLAUDE.md/AGENTS.md the way an agent invoked through Claude Code does.
+
+**Separately, this Copilot version also ships an unrelated "Agent Chat" feature** (Settings → Copilot → Basic → Agents) that can run **Claude Code, Codex, or opencode** natively inside Obsidian as one of three selectable coding-agent backends. This is not MCP either — it's Copilot shelling out to (or, for opencode/Codex, optionally auto-installing) each tool's own binary. See the opencode section below; this is very likely what the user's `opencode` install is actually for.
+
+Other observed facts:
+
+- Installed and lazy-loaded with long delay.
+- Conversations saved under `50_Archive/copilot/copilot-conversations`.
+- Custom prompts under `50_Archive/copilot/copilot-custom-prompts`.
+- Autosave chat, inline citations, and saved memory are all enabled.
+
+Rules:
+
+- Treat `50_Archive/copilot` as read-only historical context unless the user asks.
+- Do not copy provider credentials, auth material, memory internals, or generated indexes into notes.
+- Prefer vault notes and dashboards over Copilot memory when facts conflict.
+- **Autonomous vault-write access is no longer a hypothetical to flag — it is live.** If a note looks edited in a way no logged agent session accounts for, Copilot's autonomous agent is a real candidate, not just Copilot memory or manual edits. This doesn't change any agent's own behavior, but it changes what "unexplained edit" should make an agent suspect.
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\AI Automation and Local Interfaces.md`
+```diff
+- ## Local REST API
+
+Observed safe facts:
+
+- Secure port: `27124`.
+- Insecure port: `27123`.
+- Insecure server: enabled.
+- API credential material exists and must not be exposed.
+
+The plugin documentation describes local HTTP endpoints for vault file operations, search, commands, and note/block/heading style updates. In Jarvis, this is a possible bridge for external automation, but direct filesystem edits are easier to audit in Codex.
+
+Rules:
+
+- Do not call Local REST API unless the user explicitly asks.
+- Do not expose credential values.
+- Prefer filesystem edits for documentation work.
+- Treat insecure port `27123` as a risk surface and `needs verification`.
+- If an automation later uses the API, constrain it to exact paths and operations.
+
+**Researched 2026-09-18:** the plugin's own README frames the insecure port as a fallback, not a general convenience. Port `27124` serves HTTPS over a locally generated, name-constrained certificate authority — *"it can only vouch for `127.0.0.1`, `localhost`, your configured binding host, and the hostnames you list under Subject alternative names"* — and every request on either port still requires the API key as a bearer token. Port `27123` exists only because some HTTP clients (the README names MCP clients specifically) cannot be configured to trust a locally generated CA, so the plugin exposes the same authenticated API without TLS as a fallback ([Local REST API README](https://github.com/coddingtonbear/obsidian-local-rest-api)).
+
+**Resolved 2026-09-19:** the binding-host gap flagged below is closed. The plugin's server binds to a "Binding Host" setting whose documented default is `127.0.0.1` — *"Setting this to `0.0.0.0` allows access from other devices on the network"* ([Local REST API installation/configuration reference](https://deepwiki.com/coddingtonbear/obsidian-local-rest-api/1.[REDACTED])). This vault's `.obsidian/plugins/obsidian-local-rest-api/data.json` has no `bindingHost` key set, which means it is running on the plugin's default — localhost-only on both `27123` and `27124`. The real gap on `27123` is still transport encryption, not network exposure: an unencrypted request never leaves this machine, but anything else running locally that can reach `127.0.0.1:27123` (a browser tab, another process) sees the API key and payload in plaintext.
+
+Needs verification:
+
+- Which local tools are expected to use the insecure endpoint (the README's own use case is MCP clients that cannot trust a self-signed CA).
+- Whether command endpoints should be allowed for any AI workflow.
++ ## Local REST API
+
+**Resolved 2026-09-20 — standardized on the insecure port, by user decision.** This vault's `mcp-obsidian` bridge (both Claude Code and Cursor connect through it, via `.mcp.json`'s `obsidian` server) doesn't have a straightforward way to trust the plugin's self-signed HTTPS certificate authority. The plugin's own README frames the insecure port as exactly this fallback, not a general convenience — so `.mcp.json` is configured to default `OBSIDIAN_PORT` to `27123` (confirmed directly in this vault's `.mcp.json`), and this is the settled design, not a compromise pending a better fix.
+
+Observed safe facts (re-verified directly against `.obsidian/plugins/obsidian-local-rest-api/data.json` this session — **the secure port number was previously documented wrong**, see below):
+
+- Secure port: **`27126`** — corrected 2026-09-20; every prior note and the tracker said `27124`, which does not match the live config. Not a bug, just documentation drift (likely from a port regenerating at some point after a conflict); `27124` is stale everywhere it appears and has been corrected in this pass.
+- Insecure port: `27123` — this is the port actually in use for all MCP traffic (Claude Code, Cursor).
+- Insecure server: enabled (`enableInsecureServer: true`).
+- Secure server: also enabled (`enableSecureServer: true`) — left on, since nothing about standardizing MCP traffic on `27123` requires turning `27124`... `27126` off; a tool that *can* trust the CA still has the option.
+- API credential material exists (`crypto.privateKey`, `apiKey`) and must not be exposed — confirmed present, values never read or copied into any note.
+
+The plugin documentation describes local HTTP endpoints for vault file operations, search, commands, and note/block/heading style updates. In Jarvis, this is the bridge for *external* MCP-based automation; direct filesystem edits remain easier to audit for an agent already working in the vault.
+
+Rules:
+
+- Do not call Local REST API unless the user explicitly asks.
+- Do not expose credential values.
+- Prefer filesystem edits for documentation and note work — the REST API is for external tools that need HTTP, not a shortcut for an in-editor agent.
+- If an automation later uses the API, constrain it to exact paths and operations.
+
+**Binding host, resolved 2026-09-19, still true:** the plugin's server binds to a "Binding Host" setting whose documented default is `127.0.0.1` — *"Setting this to `0.0.0.0` allows access from other devices on the network"* ([Local REST API installation/configuration reference](https://deepwiki.com/coddingtonbear/obsidian-local-rest-api/1.[REDACTED])). This vault's `data.json` has no `bindingHost` override, so it runs on the plugin default — localhost-only on both ports. The `27123` gap is transport encryption within this one machine (a browser tab or another local process could technically read the plaintext request), not network exposure.
+
+Needs verification:
+
+- Whether command endpoints should be allowed for any AI workflow — none currently approved.
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\AI Automation and Local Interfaces.md`
+```diff
+- - Secure server: also enabled (`enableSecureServer: true`) — left on, since nothing about standardizing MCP traffic on `27123` requires turning `27124`... `27126` off; a tool that *can* trust the CA still has the option.
++ - Secure server: also enabled (`enableSecureServer: true`) — left on, since nothing about standardizing MCP traffic on `27123` requires turning `27126` off; a tool that *can* trust the CA still has the option.
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\AI Automation and Local Interfaces.md`
+```diff
+- ## Lean Terminal
++ ## opencode
+**Researched 2026-09-20, partially resolved.** The user installed `opencode` (the open-source AI coding CLI, supports free/open model providers) believing it was related to Obsidian Copilot, then hit an error running the `opencode` command in a terminal — exact error text not yet captured.
+
+What's confirmed from Copilot's own documentation (fetched this session, `docs.obsidiancopilot.com`): opencode genuinely is one of three real, first-class agent backends in Copilot's **Agent Chat** feature (Settings → Copilot → Basic → Agents), alongside Claude Code and Codex — described as "the best starting point" of the three. Setup has two paths:
+- **"Managed by Copilot"** → Download & install — Copilot downloads and manages its own opencode binary internally. The docs explicitly note this path **"does not require a PowerShell command or PATH changes"** — it never touches the system terminal or PATH at all.
+- **"My own binary"** → point Copilot at an existing install (auto-detect, or the full path to `opencode.exe`).
+
+**This strongly suggests the user's install is a separate, standalone `opencode` install** (e.g. via `npm install -g opencode-ai` or similar) made outside Copilot's managed flow — Copilot's own managed path wouldn't produce a terminal error at all, since it never runs `opencode` as a user-typed command. That lines up with the user's own second goal: using `opencode` **standalone**, independent of Copilot, for free/open-model work — that's inherently a system-PATH CLI install, not Copilot's internal managed one. The two may end up pointing at the same binary eventually (Copilot's "My own binary" option can target a standalone install), but they are functionally two different setup paths today.
+
+Still needed from the user before this can be fixed:
+- The exact error text `opencode` produced, and which terminal/shell it was run in (PowerShell, Git Bash, WSL — each has a different PATH and could be missing the binary independently).
+- Whether they want the standalone CLI working first (for free/open models on its own), the Copilot-managed integration, or both — the fix differs: standalone is a PATH/install check (`where opencode`, confirm the npm/install step actually completed, check for a Node version mismatch); Copilot-managed is a Settings → Copilot → Basic → Agents → opencode → Configure step inside Obsidian, no terminal involved.
+
+## Lean Terminal
+```
+- `PowerShell` -- `{"command":"Get-Command opencode -ErrorAction SilentlyContinue | Format-List Name, Source, Version\nif (-not (Get-Command opencode -ErrorAction SilentlyContinue)) { Write-Output \"opencode: NOT found on PowerShell PATH\" }\nnpm list -g opencode-ai --depth=0 2\u003e\u00261\nnpm list -g opencode --depth=0 2\u003e\u00261","description":"Check whether opencode CLI is on PATH and whether it\u0027s installed as a global npm package"}`
+- `Bash` -- `which opencode 2>&1 || echo "opencode: NOT found on Git Bash PATH"
+npm ls -g --depth=0 2>&1 | grep -i opencode || echo "no opencode in global npm list (bash view)"`
+```
+which: no opencode in (/c/Users/Anant Gupta/bin:/mingw64/bin:/usr/local/bin:/usr/bin:/bin:/mingw64/bin:/usr/bin:/c/Users/Anant Gupta/bin:/c/opamroot/opam-7cce36/default/bin:/c/opamroot/opam-7cce36/.cygwin/root/usr/x86_64-w64-mingw32/sys-root/mingw/bin:/c/Users/Anant Gupta/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand:/c/Users/Anant Gupta/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli:/c/Users/Anant Gupta/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/debugCommand:/c/Users/Anant Gupta/AppData/Roaming/Code/User/globalStorage/github.copilot-chat/copilotCli:/c/Python313/Scripts:/c/Python313:/c/WINDOWS/system32:/c/WINDOWS:/c/WINDOWS/System32/Wbem:/c/WINDOWS/System32/WindowsPowerShell/v1.0:/c/WINDOWS/System32/OpenSSH:/c/Program Files/nodejs:/c/ProgramData/chocolatey/bin:/c/Program Files/Docker/Docker/resources/bin:/c/Program Files/dotnet:/cmd:/c/Program Files/GitHub CLI:/c/Program Files/PowerToys/DSCModules:/c/Users/Anant Gupta/AppData/Local/hermes/hermes-agent/venv/Scripts:/c/Users/Anant Gupta/AppData/Local/hermes/bin:/c/Users/Anant Gupta/AppData/Local/Programs/Jan/resources/bin:/c/Users/Anant Gupta/AppData/Local/Microsoft/WindowsApps:/c/Users/Anant Gupta/AppData/Local/Programs/Microsoft VS Code/bin:/c/Program Files/JetBrains/IntelliJ IDEA 2024.3.3/bin:/c/Users/Anant Gupta/AppData/Roaming/npm:/c/Users/Anant Gupta/AppData/Local/spicetify:/c/Users/Anant Gupta/AppData/Local/Programs/mongosh:/c/Users/Anant Gupta/AppData/Local/Microsoft/WinGet/Packages/OCaml.opam_Microsoft.Winget.Source_8wekyb3d8bbwe:/c/Users/Anant Gupta/bin:/c/Users/Anant Gupta/AppData/Local/Programs/cursor/resources/app/bin:/c/Users/Anant Gupta/AppData/Local/Programs/Ollama:/c/Users/Anant Gupta/.local/bin:/c/Users/Anant Gupta/AppData/Local/Programs/Obsidian:/c/Users/Anant Gupta/AppData/Local/Programs/Kiro/bin:/c/Users/Anant Gupta/AppData/Local/Microsoft/WinGet/Packages/jqlang.jq_Microsoft.Winget.Source_8wekyb3d8bbwe:/c/Users/Anant Gupta/AppData/Local/Microsoft/WinGet/Packages/BurntSushi.ripgrep.MSVC_Microsoft.Winget.Source_8wekyb3d8bbwe/ripgrep-15.1.[REDACTED]:/c/Users/Anant Gupta/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-8.1.2-full_build/bin:/c/Users/Anant Gupta/.merget/bin:/usr/bin/vendor_perl:/usr/bin/core_perl:/c/Users/Anant Gupta/.claude/plugins/cache/claude-plugins-official/code-simplifier/1.0.0/bin:/c/Users/Anant Gupta/.merget/plugins/claude/merget/bin:/c/Users/Anant Gupta/.claude/plugins/synced/[REDACTED]/cowork-plugin-management/bin:/c/Users/Anant Gupta/.claude/plugins/synced/[REDACTED]/sp-global/bin:/c/Users/Anant Gupta/.claude/plugins/synced/[REDACTED]/zapier/bin:/c/Users/Anant Gupta/.claude/plugins/synced/[REDACTED]/miro~g2/bin)
+opencode: NOT found on Git Bash PATH
+no opencode in global npm list (bash view)
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\AI Automation and Local Interfaces.md`
+```diff
+- Still needed from the user before this can be fixed:
+- The exact error text `opencode` produced, and which terminal/shell it was run in (PowerShell, Git Bash, WSL — each has a different PATH and could be missing the binary independently).
+- Whether they want the standalone CLI working first (for free/open models on its own), the Copilot-managed integration, or both — the fix differs: standalone is a PATH/install check (`where opencode`, confirm the npm/install step actually completed, check for a Node version mismatch); Copilot-managed is a Settings → Copilot → Basic → Agents → opencode → Configure step inside Obsidian, no terminal involved.
++ **Checked directly on this machine (Dell), 2026-09-20:** `opencode` is not on PATH in either PowerShell (`Get-Command opencode` finds nothing) or Git Bash (`which opencode` finds nothing), and it is not installed as a global npm package under either `opencode` or `opencode-ai` (`npm list -g` shows neither). This means the most likely explanation is simply that `opencode` was never actually installed as a standalone CLI on this machine — the error the user saw was probably a plain "command not found" / "'opencode' is not recognized," not a deeper configuration problem. This doesn't rule out WSL (not checked from this session) or the possibility that it's only ever been set up through Copilot's own managed sandbox, which deliberately doesn't touch PATH.
+
+Still needed from the user before this can be fixed:
+- Confirmation of the exact error text and which terminal/shell it was run in (PowerShell, Git Bash, WSL) — to confirm it matches the "not installed" theory above rather than something else (a version mismatch, a permissions error, a corrupted partial install).
+- Whether they want the standalone CLI working first (`npm install -g opencode-ai`, for free/open models on its own, independent of Obsidian), the Copilot-managed integration (Settings → Copilot → Basic → Agents → opencode → Configure, inside Obsidian, no terminal), or both.
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\AI Automation and Local Interfaces.md`
+```diff
+- ## Risk Surfaces
+
+| Surface | Risk | Jarvis rule |
+|---|---|---|
+| Copilot autonomous tools | Parallel writes and hidden context drift. | Use only after workflow approval. |
+| Copilot memory | Stale or unreviewed facts. | Vault notes beat memory. |
+| Local REST API secure port `27124` | Programmatic writes. | Do not call unless asked. |
+| Local REST API insecure port `27123` | Still requires the API key — the gap is transport encryption, not authentication. Its own README frames it as an MCP-client fallback for clients that cannot trust a locally generated CA, not a general convenience. | Review whether it should remain enabled; verify its binding host is localhost-only. |
+| QuickAdd AI | Capture macros can mix raw and processed material. | Configure capture first, AI later. |
+| DataviewJS/HTML | Executable dashboard behavior. | Prefer plain Dataview. |
++ ## Risk Surfaces
+
+| Surface | Risk | Jarvis rule |
+|---|---|---|
+| Copilot autonomous tools | **Live, not hypothetical, as of this session's confirmation.** `writeFile`/`editFile` are enabled tool IDs — Copilot can edit vault notes on its own, unlogged, outside the Write Contract. | Vault notes beat Copilot memory when facts conflict. An unexplained edit is now a real candidate to check against Copilot's autonomous agent, not just manual edits. |
+| Copilot memory | Stale or unreviewed facts. | Vault notes beat memory. |
+| Local REST API secure port `27126` | Programmatic writes if called. | Do not call unless asked. |
+| Local REST API insecure port `27123` | **Resolved 2026-09-20 — standardized on, by design.** Still requires the API key; the gap is transport encryption within this one machine, not authentication or network exposure (binding host confirmed localhost-only). This is the port both Claude Code and Cursor's MCP bridge actually use. | Settled design, not a pending review — see the Local REST API section above. |
+| QuickAdd AI | Capture macros can mix raw and processed material. | Configure capture first, AI later. |
+| DataviewJS/HTML | Executable dashboard behavior. | Prefer plain Dataview. |
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\AI Automation and Local Interfaces.md`
+```diff
+- ## Verified Open State
+- Should the Local REST API insecure server on port `27123` remain enabled, and which local tool needs it? — *security decision; insecure server is currently on. `27123` skips TLS, not authentication — it exists for MCP clients that cannot trust the plugin's self-signed CA. Binding host resolved 2026-09-19: defaults to `127.0.0.1`, and this vault has no override, so it is localhost-only today.*
+- Should Copilot's autonomous agent mode be allowed to make vault edits, or stay human-facing Q&A? — *unresolved; high-risk until scoped*
+- Which, if any, AI workflow is approved to call command endpoints? — *none currently approved*
+- Should Lean Terminal's `persistBuffer` stay on, given it writes full session scrollback (and machine-specific `cwd` paths) to a plaintext `data.json`? — *unresolved; flagged 2026-09-19, mitigated for sync by excluding the file via `.stignore`, not by changing the plugin setting*
+## Suggestions
+- **Build 3's `.stignore` fix solves the sync-exposure problem but not the standing local one — this is the real remaining decision, not a footnote to the sync fix.** `persistBuffer: true` means every CLI session Anant runs through Lean Terminal (Claude Code, Codex, inside the vault workspace) has its full raw output sitting in a plaintext file on this one machine, whether or not it ever syncs anywhere. **Worth deciding: yes** — this is a local-machine question independent of cross-laptop sync, and it's currently framed as settled when only the sync half is.
+- **Local REST API's insecure-server decision and Copilot's autonomous-mode decision are both already tracked** in [[Plugin Gaps Recommendations and Verification]] — do not re-decide them here.
+- **Lowering `recentSessionsMax` from 10: worth it as a cheap partial mitigation, not a fix.** Fewer retained sessions shrinks the standing exposure window (less history sitting in plaintext at any moment) without touching whether `persistBuffer` itself is on — a reasonable middle ground if turning buffering off entirely would lose scrollback Anant actually wants to scroll back to mid-session. Not worth agonizing over the exact number; 3-5 sessions instead of 10 gets most of the benefit with no real workflow cost.
+## Sources
+
+- [Copilot docs](https://www.obsidiancopilot.com/en/docs)
+- [Copilot Vault QA](https://www.obsidiancopilot.com/en/docs/vault-qa)
+- [Local REST API README](https://github.com/coddingtonbear/obsidian-local-rest-api)
+- [Local REST API docs](https://coddingtonbear.github.io/obsidian-local-rest-api/)
+- [Local REST API installation/configuration reference](https://deepwiki.com/coddingtonbear/obsidian-local-rest-api/1.[REDACTED]) — Binding Host default
+- [QuickAdd docs](https://quickadd.obsidian.guide/docs/)
+- [QuickAdd Capture choice](https://quickadd.obsidian.guide/docs/Choices/CaptureChoice)
+- Direct read of `.obsidian/plugins/lean-terminal/data.json` — this session, 2026-09-19
+- [[AI_CONTEXT]]
+- [[Agent Operating Guide]]
++ ## Verified Open State
+- Which, if any, AI workflow is approved to call Local REST API command endpoints? — *none currently approved; the port/standardization decision is settled, command-endpoint usage is a separate, still-open question*
+- Should Lean Terminal's `persistBuffer` stay on, given it writes full session scrollback (and machine-specific `cwd` paths) to a plaintext `data.json`? — *unresolved; flagged 2026-09-19, mitigated for sync by excluding the file via `.stignore`, not by changing the plugin setting. Lowering `recentSessionsMax` from `10` to `3`-`5` would shrink the standing local exposure window without touching whether buffering itself is on — a cheap partial mitigation, not acted on without the user's say-so since it trades away scrollback they may actually use.*
+- opencode: exact error text, shell used, and standalone-vs-Copilot-managed intent — *see the opencode section above; this machine's own PATH/npm state was checked directly, the rest needs the user.*
+
+## Sources
+
+- [Copilot docs](https://www.obsidiancopilot.com/en/docs)
+- [Copilot Vault QA](https://www.obsidiancopilot.com/en/docs/vault-qa)
+- [Copilot — Autonomous Agent docs](https://docs.obsidiancopilot.com/autonomous-agent/) and [Agent Chat overview](https://docs.obsidiancopilot.com/agent-mode-and-tools/) — tool-calling mechanism, opencode/Claude Code/Codex agent backends, fetched 2026-09-20
+- [Copilot — Windows setup for Agent Chat](https://docs.obsidiancopilot.com/agent-mode-windows-setup/) — opencode Managed-by-Copilot install path, fetched 2026-09-20
+- [Copilot GitHub releases](https://github.com/logancyang/obsidian-copilot/releases) — checked for any MCP mention (none found) and opencode/Codex/Claude Code agent feature history, fetched 2026-09-20
+- [Local REST API README](https://github.com/coddingtonbear/obsidian-local-rest-api)
+- [Local REST API docs](https://coddingtonbear.github.io/obsidian-local-rest-api/)
+- [Local REST API installation/configuration reference](https://deepwiki.com/coddingtonbear/obsidian-local-rest-api/1.[REDACTED]) — Binding Host default
+- [QuickAdd docs](https://quickadd.obsidian.guide/docs/)
+- [QuickAdd Capture choice](https://quickadd.obsidian.guide/docs/Choices/CaptureChoice)
+- Direct read of `.obsidian/plugins/copilot/data.json` (non-secret keys only), `.obsidian/plugins/obsidian-local-rest-api/data.json` (non-secret keys only), `.mcp.json`, and `.obsidian/plugins/lean-terminal/data.json` — this session, 2026-09-20
+- `Get-Command opencode` / `which opencode` / `npm list -g` checked directly on this machine — this session, 2026-09-20
+- [[AI_CONTEXT]]
+- [[Agent Operating Guide]]
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\AI Automation and Local Interfaces.md`
+```diff
+- ## Gold-Standard Example
+The correct pattern is restraint, so the example is a boundary, not a feature: `50_Archive/copilot/copilot-conversations` is read-only historical context — an agent may read it for continuity but must not treat it as a write target or as authority over current notes. There is no approved automation workflow in the vault yet, which is itself the honest current state: the safe default is "filesystem edits, logged."
++ ## Gold-Standard Example
+The correct pattern is restraint, so the example is a boundary, not a feature: `50_Archive/copilot/copilot-conversations` is read-only historical context — an agent may read it for continuity but must not treat it as a write target or as authority over current notes. **Updated 2026-09-20:** Copilot's own autonomous vault-write access is now a real, approved exception to "no automation workflow yet" — but it's Copilot's own internal tool-calling, not something other agents gain access to, and it doesn't change the rule for any agent working through Claude Code or Cursor: the safe default there stays "filesystem edits, logged."
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\AI Automation and Local Interfaces.md`
+```diff
+- created: 2026-05-15
+updated: 2026-09-19
+tags:
+  - evergreen
+  - system
+  - obsidian
+  - ai-agents
+  - automation
++ created: 2026-05-15
+updated: 2026-09-20
+tags:
+  - evergreen
+  - system
+  - obsidian
+  - ai-agents
+  - automation
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Plugin Gaps Recommendations and Verification.md`
+```diff
+- ### Local REST API security
+
+Current state: secure port `27124`, insecure port `27123`, insecure server enabled. Researched 2026-09-18 and documented in [[AI Automation and Local Interfaces]]: `27123` still requires the API key — the gap is transport encryption, not authentication. The plugin's own README frames it as a fallback for MCP clients that cannot trust the locally generated CA, not a general convenience. Whether `27123`'s default binding is localhost-only or LAN-reachable was not found in official docs and remains unverified.
+
+Decision needed: whether the insecure server should remain enabled and which local tools need it.
++ ### Local REST API security
+
+**Resolved 2026-09-20 — user decision, implemented and documented.** Standardized on the insecure port (`27123`) for all MCP traffic — `.mcp.json`'s `OBSIDIAN_PORT` already defaults to it, confirmed directly. This is intentional: `mcp-obsidian` (the bridge Claude Code and Cursor both use) can't easily trust the plugin's self-signed CA, and the plugin's own docs frame `27123` as the correct fallback for exactly this case. Binding host confirmed localhost-only (no `bindingHost` override in `data.json`), so this is not a LAN-exposure risk — the remaining gap is transport encryption within this one machine only. **Correction found in the same pass:** the secure port was documented everywhere as `27124`; the live config actually reads `27126`. Fixed across [[AI Automation and Local Interfaces]] and this tracker.
+```
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Plugin Gaps Recommendations and Verification.md`
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Plugin Gaps Recommendations and Verification.md`
+```diff
+- ### Local REST API security
+
+Current state: secure port `27124`, insecure port `27123`, insecure server enabled. Researched 2026-09-18 and documented in [[AI Automation and Local Interfaces]]: `27123` still requires the API key — the gap is transport encryption (no TLS), not authentication. The plugin's own README frames it as a fallback for MCP clients that cannot trust the locally generated CA, not a general convenience. Whether `27123`'s default binding is localhost-only or LAN-reachable was not found in official docs and remains unverified.
+
+Decision needed: whether the insecure server should remain enabled and which local tools need it.
++ ### Local REST API security
+
+**Resolved 2026-09-20 — user decision, implemented and documented.** Standardized on the insecure port (`27123`) for all MCP traffic — `.mcp.json`'s `OBSIDIAN_PORT` already defaults to it, confirmed directly. This is intentional: `mcp-obsidian` (the bridge Claude Code and Cursor both use) can't easily trust the plugin's self-signed CA, and the plugin's own docs frame `27123` as the correct fallback for exactly this case. Binding host confirmed localhost-only (no `bindingHost` override in `data.json`), so this is not a LAN-exposure risk — the remaining gap is transport encryption within this one machine only. **Correction found in the same pass:** the secure port was documented everywhere as `27124`; the live config actually reads `27126`. Fixed across [[AI Automation and Local Interfaces]] and this tracker.
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Plugin Gaps Recommendations and Verification.md`
+```diff
+- ### Copilot autonomous tools
+
+Current state: Copilot autonomous agent mode and saved memory are enabled.
+
+Decision needed: whether Copilot can make vault edits, or whether it should stay as human-facing Q&A with citations.
++ ### Copilot autonomous tools
+
+**Resolved 2026-09-20 by user request.** Real mechanism researched rather than assumed: Copilot's autonomous agent mode is its own in-process tool-calling against Obsidian's app API, **not** an MCP client — confirmed no MCP-related keys exist anywhere in its `data.json` and no MCP mention exists in its GitHub release history. `writeFile` and `editFile` are already enabled tool IDs, meaning Copilot has real, live, unlogged vault-write access right now, independent of any agent working through Claude Code/Cursor. Full mechanism and the separate opencode/Claude Code/Codex "Agent Chat" feature documented in [[AI Automation and Local Interfaces]].
+```
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Plugin Gaps Recommendations and Verification.md`
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Plugin Gaps Recommendations and Verification.md`
+```diff
+- | Copilot autonomous tools | Copilot autonomous agent mode is enabled. | Vault notes beat Copilot memory; no unapproved parallel writes. |
++ | Copilot autonomous tools | **Confirmed live 2026-09-20**, not just enabled — `writeFile`/`editFile` are active tool IDs, own in-process mechanism, not MCP. See [[AI Automation and Local Interfaces]]. | Vault notes beat Copilot memory; an unexplained edit is now a real candidate for Copilot's autonomous agent. |
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Plugin Gaps Recommendations and Verification.md`
+```diff
+- - Whether Local REST API's insecure port `27123` binds to localhost only or is LAN-reachable — *resolved 2026-09-19: the plugin's server binds to a "Binding Host" setting whose documented default is `127.0.0.1` ("Setting this to `0.0.0.0` allows access from other devices on the network" — [Local REST API installation/configuration reference](https://deepwiki.com/coddingtonbear/obsidian-local-rest-api/1.[REDACTED])). This vault's `data.json` has no `bindingHost` override, so both the secure (`27124`) and insecure (`27123`) servers are running on the plugin's default, localhost-only. The `27123` risk is still transport encryption, not network exposure — see [[AI Automation and Local Interfaces]].*
++ - Whether Local REST API's insecure port `27123` binds to localhost only or is LAN-reachable — *resolved 2026-09-19: the plugin's server binds to a "Binding Host" setting whose documented default is `127.0.0.1` ("Setting this to `0.0.0.0` allows access from other devices on the network" — [Local REST API installation/configuration reference](https://deepwiki.com/coddingtonbear/obsidian-local-rest-api/1.[REDACTED])). This vault's `data.json` has no `bindingHost` override, so both the secure (`27126` — corrected 2026-09-20, was documented as `27124`) and insecure (`27123`) servers are running on the plugin's default, localhost-only. The `27123` risk is still transport encryption, not network exposure — see [[AI Automation and Local Interfaces]].*
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git status --short | grep -v "Sync-Log\|sweep-\|cursor-export\|Codex\|Statusline" `
+```
+ M .obsidian/plugins/homepage/data.json
+ M .obsidian/plugins/lazy-plugins/data.json
+ M .obsidian/plugins/omnisearch/data.json
+ M .obsidian/plugins/templater-obsidian/data.json
+ M "40_Resources/Obsidian/Plugins/AI Automation and Local Interfaces.md"
+ M "40_Resources/Obsidian/Plugins/Canvas Spatial Maps.md"
+ M "40_Resources/Obsidian/Plugins/Omnisearch and Retrieval.md"
+ M "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md"
+ M "40_Resources/Obsidian/Plugins/Search Linking and Navigation.md"
+ M "40_Resources/Obsidian/Plugins/Templates Capture and Periodic Notes.md"
+ M "40_Resources/Obsidian/Plugins/Visual Thinking with Canvas and Excalidraw.md"
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git status --short | grep "^??"`
+```
+(Bash completed with no output)
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git status --short --ignored .obsidian/plugins/text-extractor/ 2>&1; echo "---"; git check-ignore -v .obsidian/plugins/text-extractor/main.js 2>&1`
+```
+Exit code 1
+---
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git status --short --porcelain -- .obsidian/plugins/ 2>&1 | head -20
+echo "---does git track any files here already---"
+git ls-files .obsidian/plugins/text-extractor/ 2>&1
+echo "---gitignore check for .obsidian/plugins in general---"
+grep -n "obsidian/plugins" .gitignore 2>&1`
+```
+ M .obsidian/plugins/homepage/data.json
+ M .obsidian/plugins/lazy-plugins/data.json
+ M .obsidian/plugins/omnisearch/data.json
+ M .obsidian/plugins/templater-obsidian/data.json
+---does git track any files here already---
+.obsidian/plugins/text-extractor/main.js
+.obsidian/plugins/text-extractor/manifest.json
+---gitignore check for .obsidian/plugins in general---
+10:.obsidian/plugins/*/*.bak
+13:.obsidian/plugins/copilot/data.json
+14:.obsidian/plugins/quickadd/data.json
+15:.obsidian/plugins/obsidian-local-rest-api/data.json
+81:.obsidian/plugins/lean-terminal/node_modules/
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git log --oneline -5
+echo "---"
+git show --stat HEAD | head -20`
+```
+435817a9 Auto-sync: 2026-09-20 17:33,  34 files changed, 10285 insertions(+), 568 deletions(-)
+185b0388 Auto-sync: 2026-09-20 17:18,  12 files changed, 3125 insertions(+), 6 deletions(-)
+c68a4eae Write Batch 3 plugin/settings implementation prompt
+d120ed78 Remove remaining tracked sync-conflict debris
+f5642b43 Stop tracking .stversions, remove sync-conflict debris
+---
+commit [REDACTED]
+Author: Anant Gupta <gupt0479@umn.edu>
+Date:   Sun Sep 20 17:33:05 2026 -0500
+
+    Auto-sync: 2026-09-20 17:33,  34 files changed, 10285 insertions(+), 568 deletions(-)
+
+ .codex/config.toml                                 |    2 +-
+ .obsidian/plugins/homepage/data.json               |   48 +-
+ .obsidian/plugins/lazy-plugins/data.json           |    9 +
+ .obsidian/plugins/omnisearch/data.json             |    6 +-
+ .obsidian/plugins/templater-obsidian/data.json     |   14 +-
+ .obsidian/plugins/text-extractor/main.js           | 5523 ++++++++++++++++++++
+ .obsidian/plugins/text-extractor/manifest.json     |   14 +
+ 20_Progress/AI/Claude Code/CausalOps/Sync-Log.md   |   35 +-
+ 20_Progress/AI/Claude Code/Jarvis/Sync-Log.md      |   50 +-
+ 20_Progress/AI/Claude Code/OpsPilot/Sync-Log.md    |   35 +-
+ 20_Progress/AI/Claude Code/Portfolio/Sync-Log.md   |   30 +-
+ 20_Progress/AI/Claude Code/Resq/Sync-Log.md        |   30 +-
+ 20_Progress/AI/Claude Code/The Plan/Sync-Log.md    |   25 +-
+ .../AI/Claude Code/Trading View/Sync-Log.md        |   35 +-
+```
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Dataview and Dashboards.md`
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && node -e "
+const d = JSON.parse(require('fs').readFileSync('.obsidian/plugins/dataview/data.json','utf8'));
+console.log(JSON.stringify({
+  enableInlineDataview: d.enableInlineDataview,
+  enableInlineDataviewJS: d.enableInlineDataviewJS,
+  enableDataviewJs: d.enableDataviewJs,
+  renderHtml: d.renderHtml ?? d.allowHtml,
+  refreshInterval: d.refreshInterval,
+  warnOnEmptyResult: d.warnOnEmptyResult,
+  showResultCount: d.showResultCount,
+  taskCompletionTracking: d.taskCompletionTracking
+}, null, 2));
+console.log('--- all keys ---');
+console.log(Object.keys(d).filter(k=>/html|js|refresh|warn|count|task/i.test(k)));
+"`
+```
+{
+  "enableInlineDataview": true,
+  "enableDataviewJs": true,
+  "renderHtml": true,
+  "refreshInterval": 2500,
+  "warnOnEmptyResult": true,
+  "showResultCount": true,
+  "taskCompletionTracking": false
+}
+--- all keys ---
+[
+  'taskCompletionTracking',
+  'taskCompletionUseEmojiShorthand',
+  'taskCompletionText',
+  'taskCompletionDateFormat',
+  'recursiveSubTaskCompletion',
+  'warnOnEmptyResult',
+  'refreshEnabled',
+  'refreshInterval',
+  'showResultCount',
+  'allowHtml',
+  'inlineJsQueryPrefix',
+  'enableDataviewJs',
+  'enableInlineDataviewJs',
+  'dataviewJsKeyword'
+]
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && node -e "
+const d = JSON.parse(require('fs').readFileSync('.obsidian/plugins/dataview/data.json','utf8'));
+console.log('enableInlineDataviewJs:', d.enableInlineDataviewJs);
+console.log('allowHtml:', d.allowHtml);
+"`
+```
+enableInlineDataviewJs: true
+allowHtml: true
+```
+- `Grep` -- pattern ````dataviewjs` path `D:\Users\_Anant\10_Areas\Documents\Jarvis`
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && grep -n -A 15 '```dataviewjs' "00_Dashboard.md" | head -100`
+```
+41:```dataviewjs
+42-const curr = dv.current();
+43-const lc = curr.lc_today ?? 0;
+44-const wins = curr.wins_done ?? 0;
+45-const study = curr.study_today ?? 0;
+46-const lcClass = lc >= 5 ? 'green' : lc > 0 ? 'yellow' : '';
+47-const winsClass = wins >= 5 ? 'green' : wins >= 3 ? 'yellow' : '';
+48-const container = dv.el('div', '', {cls: 'stat-grid'});
+49-container.innerHTML = `
+50-  <div class="stat-tile ${lcClass}">
+51-    <div class="stat-label">LeetCode Today</div>
+52-    <div class="stat-value">${lc}</div>
+53-    <div class="stat-delta ${lc >= 5 ? 'positive' : 'neutral'}">target ≥5</div>
+54-  </div>
+55-  <div class="stat-tile ${winsClass}">
+56-    <div class="stat-label">5-Wins</div>
+--
+68:```dataviewjs
+69-const folder = '"10_Areas/Life/Enumerate/Daily"';
+70-const pages = dv.pages(folder).where(p => {
+71-  if (!p.file.day) return false;
+72-  const today = dv.date("today");
+73-  const monday = today.minus({days: today.weekday - 1});
+74-  return p.file.day >= monday && p.file.day <= today;
+75-});
+76-const lcTotal = pages.values.reduce((a,p) => a + (p.lc_count || 0), 0);
+77-const studyTotal = pages.values.reduce((a,p) => a + (p.study_today || 0), 0);
+78-const winsTotal = pages.values.reduce((a,p) => a + (p.wins_done || 0), 0);
+79-const clippings = dv.pages('"60_Claude/10_Source_Summaries"')
+80-  .where(p => {
+81-    const monday = dv.date("today").minus({days: dv.date("today").weekday - 1});
+82-    return p.file.ctime >= monday;
+83-  }).length;
+--
+103:```dataviewjs
+104-const todayStr = dv.date("today").toFormat("yyyy-MM-dd");
+105-const todayPage = dv.pages('"10_Areas/Life/Enumerate/Daily"')
+106-  .where(p => p.file.name === todayStr).first();
+107-const done = (todayPage && Array.isArray(todayPage.habits_done)) ? todayPage.habits_done.length : 0;
+108-const total = 5;
+109-const pct = Math.round((done / total) * 100);
+110-const wrap = dv.el('div', '', {cls: 'progress-wrap'});
+111-wrap.innerHTML = `
+112-  <div class="progress-label">${done} / ${total} complete · ${pct}%</div>
+113-  <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:${pct}%"></div></div>
+114-`;
+115-```
+116-> [!todo] Habits — check off in today's note
+117-> - [ ] Move ≥1 company Current/ → Applied/
+118-> - [ ] LeetCode/CodePath ≥5
+--
+130:```dataviewjs
+131-const remaining = dv.pages('"60_Claude/05_Clippings"')
+132-  .where(p => !p.file.name.includes("board") && !p.file.name.includes("README")).length;
+133-dv.paragraph(`**${remaining}** items awaiting distillation`);
+134-```
+135-## Vault Health
+136-```dataview
+137-TABLE file.folder AS Folder, file.mtime AS "Updated"
+138-FROM "10_Areas" OR "20_Progress" OR "40_Resources" OR "60_Claude"
+139-WHERE !type OR !status
+140-SORT file.mtime DESC
+141-LIMIT 8
+142-```
+143-=== end-multi-column
+144-
+145----
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && grep -n -B2 -A 20 '```dataviewjs' "10_Areas/Career/Internships/List/Dossiers MOC.md" | head -60`
+```
+16-## ⚠️ Capacity Notification
+17-Live-computed, not code-maintained — this section reads the real folder counts every time this note renders, so a bucket crossing its threshold shows up here without anyone having to push a change. See [[Internship Notes Standard]] §5: crossing 50 is a notification, never a silent write-refusal.
+18:```dataviewjs
+19-const buckets = ["1 - AI & ML", "2 - Fullstack", "3 - CyS & Finance", "Other"];
+20-const root = "10_Areas/Career/Internships/List/Dossiers";
+21-const rows = buckets.map(b => {
+22-  const count = dv.pages(`"${root}/${b}"`).length;
+23-  const flag = count >= 50 ? "🔴 AT/OVER CAP (50)" : count >= 40 ? "🟡 approaching (40+)" : "🟢 ok";
+24-  return [b, count, flag];
+25-});
+26-const total = rows.reduce((sum, r) => sum + r[1], 0);
+27-dv.table(["Bucket", "Count", "Status"], rows);
+28-dv.paragraph(`**Total (excl. Viewed/): ${total} / 201.** Design: [[10_Areas/Career/Internships/List/Dossiers/Dossiers-to-Create]].`);
+29-```
+30-## 1 — AI & ML
+31-```dataview
+32-TABLE company, title, terms, status, preference_tier
+33-FROM "10_Areas/Career/Internships/List/Dossiers/1 - AI & ML"
+34-SORT preference_tier DESC, company ASC
+35-```
+36-## 2 — Fullstack
+37-```dataview
+38-TABLE company, title, terms, status, preference_tier
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && ls "60_Claude/30_Reviews/" 2>/dev/null; echo "---"; find "60_Claude/30_Reviews" -iname "*board*" 2>/dev/null`
+```
+50_Reviews Board.md
+AI
+Internship Loop
+Jarvis Enrichment Phase 1 - 2026-04-24.md
+Monthly
+North Star Convergence — Change Report 2026-06-11.md
+Ops Reports
+Today - 2026-06-03.md
+Vault-Audit-2026-05-29.md
+Weekly Synthesis
+---
+60_Claude/30_Reviews/50_Reviews Board.md
+```
+- `Grep` -- pattern `^type: input` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\60_Claude\10_Source_Summaries`
+- `Grep` -- pattern `^source_status:` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\60_Claude\10_Source_Summaries`
+- `Grep` -- pattern `^source_url:` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\60_Claude\10_Source_Summaries`
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Dataview and Dashboards.md`
+```diff
+- ## Current Settings
+
+- Inline Dataview: enabled.
+- Inline DataviewJS: enabled.
+- DataviewJS blocks: enabled.
+- HTML rendering: enabled.
+- Refresh: enabled every `2500ms`.
+- Empty-result warnings: enabled.
+- Result counts: shown.
+- Task completion tracking: disabled.
+
+Because DataviewJS and HTML rendering are enabled, agents should prefer plain Dataview and treat scripts as code, not decoration.
++ ## Current Settings
+Re-verified directly against `.obsidian/plugins/dataview/data.json` 2026-09-20 — all values below confirmed accurate, no drift found.
+
+- Inline Dataview: enabled.
+- Inline DataviewJS: enabled.
+- DataviewJS blocks: enabled.
+- HTML rendering: enabled.
+- Refresh: enabled every `2500ms`.
+- Empty-result warnings: enabled.
+- Result counts: shown.
+- Task completion tracking: disabled.
+
+Because DataviewJS and HTML rendering are enabled, agents should prefer plain Dataview and treat scripts as code, not decoration.
+
+## DataviewJS/HTML Risk — actually assessed, 2026-09-20
+The Risk Register has carried "DataviewJS and HTML enabled" as a flag since this note's creation without anyone checking what the vault's real DataviewJS blocks actually do. They exist and are load-bearing: [[00_Dashboard]] uses four separate `dataviewjs` blocks (stat tiles for LeetCode/wins/study counts, a weekly rollup, a habit progress bar, a clippings-remaining count), and `10_Areas/Career/Internships/List/Dossiers MOC.md` uses one for live per-bucket capacity counts against a 50-item cap. Read every one directly. The verdict:
+
+- **All of them are pure read-and-render.** Each reads numeric/count fields from frontmatter (`lc_today`, `study_today`, `habits_done`, folder page counts) or computes an aggregate (a weekly sum, a percentage), then writes the result into the page via `dv.el`/`dv.table`/`dv.paragraph`. None calls `app.vault.modify`, writes a file, or makes a network request.
+- **The real risk is narrower than "JS execution" and specifically about `innerHTML`.** Several blocks build HTML strings with template literals and set them via `.innerHTML = \`...\`` (the stat-tile and progress-bar blocks in [[00_Dashboard]]). Today every interpolated value is a number (`?? 0` defaults, `Math.round` percentages), so there's nothing to inject. But this *is* the exact pattern that becomes a real injection risk the moment someone interpolates a string-typed frontmatter field into `innerHTML` without escaping it — a note title or a free-text property value containing `<img onerror=...>` would render, not just display as text.
+- **Practical rule, not a ban:** DataviewJS blocks that render computed numbers/counts into `innerHTML` are fine as-is. A new DataviewJS block that interpolates any string-typed frontmatter field into `innerHTML` needs `dv.el`'s text-content form (or manual escaping) instead — flag it in review if you see one.
+
+This replaces the old unexamined flag; the Risk Register entry below reflects it.
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Dataview and Dashboards.md`
+```diff
+- Source summaries needing links or synthesis:
+
+```dataview
+TABLE source_status, source_url, notes, file.mtime AS "Updated"
+FROM "60_Claude/30_Source_Summaries"
+WHERE type = "input"
+SORT file.mtime DESC
+LIMIT 20
+```
++ Source summaries needing links or synthesis:
+
+```dataview
+TABLE source_status, source_url, notes, file.mtime AS "Updated"
+FROM "60_Claude/10_Source_Summaries"
+WHERE type = "input"
+SORT file.mtime DESC
+LIMIT 20
+```
+*Path corrected 2026-09-20 — was `60_Claude/30_Source_Summaries`, a dead folder. Note `source_status` will return empty for every row: confirmed 2026-09-20, `0` of 139 real `type: input` notes have `source_status` set at all. It is not "inconsistently set," it has never been adopted — `source_url` is the field that's actually in use (confirmed populated on multiple notes). Drop `source_status` from this query or treat every result as unset until the field is either adopted or removed from the schema.*
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Dataview and Dashboards.md`
+```diff
+- Enrichment candidates:
+
+```dataview
+TABLE type, status, track, enrichment_status, file.mtime AS "Updated"
+FROM "10_UMN" OR "20_Progress" OR "40_Resources" OR "60_Claude/20_Distilled_Notes"
+WHERE (type = "concept" OR type = "evergreen" OR type = "project")
+AND (!enrichment_status OR enrichment_status != "enriched")
+SORT file.mtime ASC
+LIMIT 10
+```
+
+Course boards:
+
+```dataview
+TABLE WITHOUT ID file.link AS "Board", length(file.inlinks) AS "Linked Notes"
+FROM "10_UMN"
+WHERE contains(file.name, "Board")
+SORT file.name ASC
+```
+
+Recent reviews:
+
+```dataview
+TABLE file.folder AS "Folder", file.ctime AS "Created"
+FROM "60_Claude/50_Reviews"
+WHERE file.name != "50_Reviews Board"
+SORT file.ctime DESC
+LIMIT 8
+```
++ Enrichment candidates:
+
+```dataview
+TABLE type, status, track, enrichment_status, file.mtime AS "Updated"
+FROM "10_Areas/UMN" OR "20_Progress" OR "40_Resources" OR "60_Claude/20_Distilled_Notes"
+WHERE (type = "concept" OR type = "evergreen" OR type = "project")
+AND (!enrichment_status OR enrichment_status != "enriched")
+SORT file.mtime ASC
+LIMIT 10
+```
+
+Course boards:
+
+```dataview
+TABLE WITHOUT ID file.link AS "Board", length(file.inlinks) AS "Linked Notes"
+FROM "10_Areas/UMN"
+WHERE contains(file.name, "Board")
+SORT file.name ASC
+```
+*Path corrected 2026-09-20 (both recipes above) — was `10_UMN`, which has never existed as a vault folder. **This query currently returns nothing regardless of the path fix**: `10_Areas/UMN` itself doesn't exist in this vault yet either — real UMN coursework material lives outside the vault. This recipe is correctly written for when that folder exists, not a currently-working query.*
+
+Recent reviews:
+
+```dataview
+TABLE file.folder AS "Folder", file.ctime AS "Created"
+FROM "60_Claude/30_Reviews"
+WHERE file.name != "50_Reviews Board"
+SORT file.ctime DESC
+LIMIT 8
+```
+*Path corrected 2026-09-20 — was `60_Claude/50_Reviews`, a folder that doesn't exist. The real folder is `60_Claude/30_Reviews`, confirmed to exist and to actually contain a `50_Reviews Board.md` file (a naming leftover from before the folder was renumbered), so the `WHERE` filter was already correct — only the `FROM` path was wrong. This is a different folder from Periodic Notes' `10_Areas/Life/Enumerate/` — see [[Templates Capture and Periodic Notes]] for that distinction.*
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Dataview and Dashboards.md`
+```diff
+- ## Verified Open State
+- Several recipes above query `60_Claude/30_Source_Summaries`, but the live path is `60_Claude/10_Source_Summaries`. Are these recipes stale, and should they be repointed? — *known path drift; repair is tracked in the audit roadmap, out of scope for the current pass*
+- Is `source_status` actually populated on enough notes to query, or is it aspirational? — *the field is documented but inconsistently set*
+- Should DataviewJS/HTML stay enabled given the execution risk, or be restricted? — *risk noted; no change without user decision*
+- Should Meta Bind be wired into any existing dashboard or board, now that its mechanism is documented? — *unconfigured; a workflow decision, not a research gap*
+## Suggestions
+- **Fixing the path-drift bug once, everywhere: worth it, and the case is stronger than any single note made alone.** The same dead path (`60_Claude/30_Source_Summaries` vs the real `10_Source_Summaries`) breaks Templater's folder template, this note's own query recipes, and is independently logged in the gap tracker — three systems silently degraded by one typo. Fixing it as one repoint (find every reference, correct once, verify all three systems resolve afterward) costs the same as fixing it in isolation somewhere and finding the other two later. **Worth it: yes, and worth doing as one pass, not three.**
+- **Piloting Meta Bind on the `status:` dropdown: worth trying, low-risk by construction.** `status` is already a canonical field every dashboard reads, so wiring it as a click-to-set dropdown on one note type doesn't touch any query, only how the value gets written. If it doesn't earn its keep, reverting means deleting one Meta Bind block per note, not unwinding a schema change. **Worth it: yes, cheap to try, cheap to undo.**
+- **Running the `source_status` coverage audit: worth it, five-minute query, replaces a guess with a number.** "Documented but inconsistently set" is currently an impression, not a fact — `WHERE type = "input" AND !source_status` turns it into an actual count, which is the difference between "clean up five notes" and "this field never really got adopted." Cheap enough that there's no reason to keep operating on the impression instead.
+## Sources
+
+- [Dataview docs](https://blacksmithgu.github.io/obsidian-dataview/)
+- [Dataview query structure](https://blacksmithgu.github.io/obsidian-dataview/queries/structure/)
+- [Dataview metadata docs](https://blacksmithgu.github.io/obsidian-dataview/annotation/metadata-pages/)
+- [Meta Bind docs](https://www.moritzjung.dev/obsidian-meta-bind-plugin-docs/)
+- [Obsidian Help - Bases syntax](https://obsidian.md/help/bases/syntax)
+- Direct check of `60_Claude/44_Indexes/Bases/` (five `.base` files) and `.obsidian/core-plugins.json` — this session, 2026-09-19
+- [[00_Dashboard]]
+- [[40_Resources/Obsidian/Vault Operating System]]
++ ## Verified Open State
+- `source_status` is confirmed unadopted (`0`/139), not just under-used — either start setting it or drop it from the schema and this note's recipe. Not decided here; a human content-workflow choice.
+- Should Meta Bind be wired into any existing dashboard or board (e.g. `status:` as a dropdown), now that its mechanism is documented? — *unconfigured; a workflow decision, not a research gap. Low-risk if tried: it only changes how a value gets written, not any existing query, so reverting means deleting one block per note.*
+
+## Sources
+
+- [Dataview docs](https://blacksmithgu.github.io/obsidian-dataview/)
+- [Dataview query structure](https://blacksmithgu.github.io/obsidian-dataview/queries/structure/)
+- [Dataview metadata docs](https://blacksmithgu.github.io/obsidian-dataview/annotation/metadata-pages/)
+- [Meta Bind docs](https://www.moritzjung.dev/obsidian-meta-bind-plugin-docs/)
+- [Obsidian Help - Bases syntax](https://obsidian.md/help/bases/syntax)
+- Direct check of `60_Claude/44_Indexes/Bases/` (five `.base` files) and `.obsidian/core-plugins.json` — this session, 2026-09-19
+- Direct read of `.obsidian/plugins/dataview/data.json`, every real `dataviewjs` block in [[00_Dashboard]] and `Dossiers MOC.md`, and a vault-wide `source_status`/`source_url` field audit (139 `type: input` notes checked) — this session, 2026-09-20
+- [[00_Dashboard]]
+- [[40_Resources/Obsidian/Vault Operating System]]
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Dataview and Dashboards.md`
+```diff
+- created: 2026-05-15
+updated: 2026-09-19
+tags:
+  - evergreen
+  - system
+  - obsidian
+  - dataview
++ created: 2026-05-15
+updated: 2026-09-20
+tags:
+  - evergreen
+  - system
+  - obsidian
+  - dataview
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Plugin Gaps Recommendations and Verification.md`
+```diff
+- | DataviewJS and HTML enabled | Dataview settings allow both. | Prefer plain Dataview; document any JS near the block. |
++ | DataviewJS and HTML enabled | **Actually assessed 2026-09-20**, not just flagged: every real DataviewJS block in the vault ([[00_Dashboard]]'s four, `Dossiers MOC.md`'s one) is read-only — counts/aggregates rendered via `innerHTML`, no file writes, no network calls. The narrow real risk is unescaped string interpolation into `innerHTML`, not present today (every interpolated value is numeric). | Prefer plain Dataview; a new block interpolating a string-typed field into `innerHTML` needs escaping — flag it in review. See [[Dataview and Dashboards]]. |
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Plugin Gaps Recommendations and Verification.md`
+```diff
+- - **New correction, 2026-09-20:** [[Templates Capture and Periodic Notes]]'s Periodic Notes Review Flow table was entirely wrong when checked against `.obsidian/plugins/periodic-notes/data.json` directly
++ - **New fix, 2026-09-20:** [[Dataview and Dashboards]] had three query recipes with the same class of dead-path bug — `60_Claude/30_Source_Summaries` (real: `10_Source_Summaries`), `10_UMN` (real: `10_Areas/UMN`, which itself doesn't exist yet in-vault), and `60_Claude/50_Reviews` (real: `60_Claude/30_Reviews`). All three corrected. Also ran the `source_status` coverage check the note had flagged as unverified: `0` of 139 real `type: input` notes have it set — genuinely unadopted, not "inconsistently set."
+- **New correction, 2026-09-20:** [[Templates Capture and Periodic Notes]]'s Periodic Notes Review Flow table was entirely wrong when checked against `.obsidian/plugins/periodic-notes/data.json` directly
+```
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Tasks Kanban and Project Tracking.md`
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && echo "--- tasks plugin ---" && node -e "
+const d = JSON.parse(require('fs').readFileSync('.obsidian/plugins/obsidian-tasks-plugin/data.json','utf8'));
+console.log('taskFormat:', d.taskFormat);
+console.log('setDoneDate:', d.setDoneDate);
+console.log('setCancelledDate:', d.setCancelledDate);
+console.log('autoSuggestInEditor:', d.autoSuggestInEditor);
+console.log('globalQuery:', JSON.stringify(d.globalQuery));
+console.log('globalFilter:', JSON.stringify(d.globalFilter));
+"
+echo "--- kanban plugin ---" 
+node -e "
+const d = JSON.parse(require('fs').readFileSync('.obsidian/plugins/obsidian-kanban/data.json','utf8'));
+console.log(JSON.stringify(d, null, 2));
+"`
+```
+--- tasks plugin ---
+taskFormat: tasksPluginEmoji
+setDoneDate: true
+setCancelledDate: true
+autoSuggestInEditor: true
+globalQuery: ""
+globalFilter: ""
+--- kanban plugin ---
+{
+  "show-checkboxes": true,
+  "hide-card-count": true,
+  "full-list-lane-width": false,
+  "link-date-to-daily-note": true
+}
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Tasks Kanban and Project Tracking.md`
+```diff
+- ## Current Tasks Settings
+
+- Task format: `tasksPluginEmoji`.
++ ## Current Tasks Settings
+Re-verified directly against `.obsidian/plugins/obsidian-tasks-plugin/data.json` 2026-09-20 — accurate, no drift.
+
+- Task format: `tasksPluginEmoji`.
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Tasks Kanban and Project Tracking.md`
+```diff
+- Coursework due soon:
+
+````markdown
+```tasks
+not done
+path includes 10_UMN
+due before in 14 days
+sort by due
+short mode
+```
+````
++ Coursework due soon:
+
+````markdown
+```tasks
+not done
+path includes 10_Areas/UMN
+due before in 14 days
+sort by due
+short mode
+```
+````
+*Path corrected 2026-09-20 — was `10_UMN`, never a real vault folder. Note `10_Areas/UMN` itself doesn't exist in the vault yet either (real coursework material lives outside the vault) — this query is correctly written for when it does, not currently returning results.*
+
+Recurring task, worked example:
+
+```markdown
+- [ ] Weekly review 🔁 every week 📅 2026-09-26
+```
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Tasks Kanban and Project Tracking.md`
+```diff
+- Do not keep a different next action in prose, frontmatter, and a Kanban card. Pick one canonical current move and let dashboards surface it.
++ Do not keep a different next action in prose, frontmatter, and a Kanban card. Pick one canonical current move and let dashboards surface it. This doesn't mean an active note should have `next:` *or* task lines, never both — a project routinely has one current move in `next:` and a queue of further trackable actions behind it as task lines. The rule is about not letting the *same* step be described three different, possibly-drifting ways, not about picking only one mechanism.
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Tasks Kanban and Project Tracking.md`
+```diff
+- ## Verified Open State
+- Preferred priority scale for coursework vs projects (which of `🔺/⏫/🔼/🔽/⏬` maps to what)? — *unresolved; pick a convention before scaling Tasks usage*
+- Canonical lane names for future project boards (the doc offers four templates; none is yet declared the default)? — *needs user choice*
+- ~~Should `00_Dashboard`'s open-task block migrate from a Dataview `TASK` query to a native `tasks` query for emoji-date accuracy?~~ — *resolved 2026-09-19: no, see decision above. Its filter is page-metadata (`file.day`), which Dataview handles directly and Tasks cannot.*
+## Suggestions
+- **The priority scale and lane-name questions are both already tracked in [[Plugin Gaps Recommendations and Verification]]** — do not re-decide them here. **On WIP caps: checked the Kanban plugin's own README and publish docs directly and could not confirm a per-lane card-limit feature exists either way** — neither source documents one. Don't assume the feature is there and plan around it; if a hard forcing-function against overcommitment is actually wanted, the honest options are checking the in-app settings directly or accepting that lane discipline has to be a habit, not an enforced limit. Not worth further doc research — this needs a live check, not more citation-hunting.
+- **Adding one real recurring-task example: worth it, five-minute fix.** `🔁` is real, documented syntax the Tasks plugin supports, but it's currently a row in a table with no worked example — for a UMN student with genuinely recurring obligations (weekly review, recurring habit tracking), seeing `- [ ] Weekly review 🔁 every week 📅 2026-09-26` once is what turns "this exists" into "I know how to write it."
+- **Clarifying `next:` + task lines can coexist: worth one sentence, prevents a real misreading.** As written, "pick one canonical current move" could plausibly be read as "an active project note should have no task lines, only `next:`," which isn't what the rest of this doc actually means (the Integration Map already treats them as complementary — one thing now, a queue behind it). One sentence removes the ambiguity instead of relying on a careful reader connecting two sections.
+## Sources
+
+- [Tasks User Guide - Task formats](https://publish.obsidian.md/tasks/Reference/Task+Formats/About+Task+Formats)
+- [Tasks User Guide](https://publish.obsidian.md/tasks/)
+- [Kanban README](https://github.com/obsidian-community/obsidian-kanban)
+- [Kanban Publish docs](https://publish.obsidian.md/kanban/) — checked directly for WIP/lane-limit support, not confirmed either way, fetched 2026-09-19
+- [[40_Resources/Obsidian/Data View's/Tasks Plugin - Review and check your Statuses 2025-12-20 18-37-12]]
++ ## Verified Open State
+- **Preferred priority scale for coursework vs projects and canonical lane names for future project boards are both genuine open preferences, not settings gaps — deliberately not resolved here.** Both are the user's call, not something to guess at; the syntax and four candidate lane templates are documented above and ready whenever the choice is made.
+- Kanban WIP/lane card-limits: checked the plugin's own README and Publish docs directly — neither confirms a per-lane card-limit feature exists, one way or the other. Don't assume it's there and plan around it; a live in-app settings check would resolve this, not more doc research.
+- ~~Should `00_Dashboard`'s open-task block migrate from a Dataview `TASK` query to a native `tasks` query for emoji-date accuracy?~~ — *resolved 2026-09-19: no, see decision above. Its filter is page-metadata (`file.day`), which Dataview handles directly and Tasks cannot.*
+
+## Sources
+
+- [Tasks User Guide - Task formats](https://publish.obsidian.md/tasks/Reference/Task+Formats/About+Task+Formats)
+- [Tasks User Guide](https://publish.obsidian.md/tasks/)
+- [Kanban README](https://github.com/obsidian-community/obsidian-kanban)
+- [Kanban Publish docs](https://publish.obsidian.md/kanban/) — checked directly for WIP/lane-limit support, not confirmed either way, fetched 2026-09-19
+- Direct read of `.obsidian/plugins/obsidian-tasks-plugin/data.json` and `.obsidian/plugins/obsidian-kanban/data.json` — this session, 2026-09-20
+- [[40_Resources/Obsidian/Data View's/Tasks Plugin - Review and check your Statuses 2025-12-20 18-37-12]]
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Tasks Kanban and Project Tracking.md`
+```diff
+- created: 2026-05-15
+updated: 2026-09-19
+tags:
+  - evergreen
+  - system
+  - obsidian
+  - tasks
+  - kanban
++ created: 2026-05-15
+updated: 2026-09-20
+tags:
+  - evergreen
+  - system
+  - obsidian
+  - tasks
+  - kanban
+```
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Settings\Appearance Theme and CSS Snippets.md`
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Settings\File Handling and Properties.md`
 
 ## Actions Taken
 
@@ -1308,9 +2662,15 @@ Decision needed: whether source PDFs, screenshots, and Office files should becom
 _None_
 
 **Files modified:**
+- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\AI Automation and Local Interfaces.md`
+- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Canvas Spatial Maps.md`
+- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Dataview and Dashboards.md`
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Omnisearch and Retrieval.md`
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Plugin Gaps Recommendations and Verification.md`
+- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Search Linking and Navigation.md`
+- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Tasks Kanban and Project Tracking.md`
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Templates Capture and Periodic Notes.md`
+- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Visual Thinking with Canvas and Excalidraw.md`
 
 **Files deleted (heuristic, from Bash commands):**
 _None detected_
@@ -1431,5 +2791,115 @@ fs.writeFileSync(path, JSON.stringify(d, null, 2), { encoding: 'utf8' });
 "
 node -e "const d=JSON.parse(require('fs').readFileSync('.obsidian/plugins/omnisearch/data.json','utf8')); console.log('after:', JSON.stringify({PDFIndexing:d.PDFIndexing, officeIndexing:d.officeIndexing, imagesIndexing:d.imagesIndexing, aiImageIndexing:d.aiImageIndexing}))"
 node -e "const b=require('fs').readFileSync('.obsidian/plugins/omnisearch/data.json'); console.log('BOM:', b[0]===0xEF&&b[1]===0xBB&&b[2]===0xBF)"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && cat .obsidian/plugins/homepage/data.json`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && find . -iname "Jarvis OS Dashboard*" -not -path "./.git/*" 2>/dev/null; echo "---"; find . -iname "00_Dashboard*" -not -path "./.git/*" 2>/dev/null | head -5`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && cat .obsidian/plugins/homepage/manifest.json`
+- `curl -s "https://api.github.com/search/repositories?q=obsidian-homepage+in:name" | node -e "let d='';process.stdin.on('data',c=>d+=c);process.stdin.on('end',()=>{const j=JSON.parse(d); j.items.slice(0,5).forEach(i=>console.log(i.full_name, i.html_url))})"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && node -e "
+const fs = require('fs');
+const path = '.obsidian/plugins/homepage/data.json';
+const d = JSON.parse(fs.readFileSync(path,'utf8'));
+console.log('before:', d.homepages['Main Homepage'].value);
+d.homepages['Main Homepage'].value = '10_Areas/Jarvis OS Dashboard';
+fs.writeFileSync(path, JSON.stringify(d, null, 2), { encoding: 'utf8' });
+"
+node -e "const d=JSON.parse(require('fs').readFileSync('.obsidian/plugins/homepage/data.json','utf8')); console.log('after:', d.homepages['Main Homepage'].value)"
+node -e "const b=require('fs').readFileSync('.obsidian/plugins/homepage/data.json'); console.log('BOM:', b[0]===0xEF&&b[1]===0xBB&&b[2]===0xBF)"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && node -e "
+const fs = require('fs');
+const path = '.obsidian/plugins/homepage/data.json';
+let text = fs.readFileSync(path, 'utf8');
+text = text.replace(/^﻿/, '');
+const d = JSON.parse(text);
+console.log('before value:', d.homepages['Main Homepage'].value);
+d.homepages['Main Homepage'].value = '10_Areas/Jarvis OS Dashboard';
+fs.writeFileSync(path, JSON.stringify(d, null, 2), { encoding: 'utf8' });
+"
+node -e "JSON.parse(require('fs').readFileSync('.obsidian/plugins/homepage/data.json','utf8')); console.log('valid, no BOM issue now')"
+node -e "const b=require('fs').readFileSync('.obsidian/plugins/homepage/data.json'); console.log('BOM present:', b[0]===0xEF&&b[1]===0xBB&&b[2]===0xBF)"
+node -e "const d=JSON.parse(require('fs').readFileSync('.obsidian/plugins/homepage/data.json','utf8')); console.log('fixed value:', d.homepages['Main Homepage'].value)"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && for f in .obsidian/plugins/*/data.json .obsidian/*.json; do
+  if [ -f "$f" ]; then
+    b1=$(head -c 3 "$f" | xxd -p 2>/dev/null | tr -d '\n')
+    if [ "$b1" = "efbbbf" ]; then
+      echo "BOM: $f"
+    fi
+  fi
+done`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && find . -iname "Core Plugins Hotkeys*" -not -path "./.git/*"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && echo "--- local-rest-api data.json (non-secret fields) ---" && node -e "
+const d = JSON.parse(require('fs').readFileSync('.obsidian/plugins/obsidian-local-rest-api/data.json','utf8'));
+const {apiKey, ...safe} = d;
+console.log(JSON.stringify(safe, null, 2));
+"
+echo "--- .mcp.json ---"
+cat .mcp.json 2>/dev/null`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && node -e "
+const d = JSON.parse(require('fs').readFileSync('.obsidian/plugins/copilot/data.json','utf8'));
+const keys = Object.keys(d);
+console.log('total keys:', keys.length);
+console.log(keys.filter(k => /mcp/i.test(k)));
+console.log('autonomousAgent related keys:', keys.filter(k => /autonom|agent/i.test(k)));
+"
+echo "--- manifest version ---"
+cat .obsidian/plugins/copilot/manifest.json | node -e "let d='';process.stdin.on('data',c=>d+=c);process.stdin.on('end',()=>{const j=JSON.parse(d);console.log(j.version, j.minAppVersion)})"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && node -e "
+const d = JSON.parse(require('fs').readFileSync('.obsidian/plugins/copilot/data.json','utf8'));
+console.log('enableAutonomousAgent:', d.enableAutonomousAgent);
+console.log('autonomousAgentMaxIterations:', d.autonomousAgentMaxIterations);
+console.log('autonomousAgentEnabledToolIds:', JSON.stringify(d.autonomousAgentEnabledToolIds));
+console.log('enableCustomPromptTemplating (unrelated check):', d.enableCustomPromptTemplating);
+"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && cat .obsidian/plugins/obsidian-local-rest-api/manifest.json | node -e "let d='';process.stdin.on('data',c=>d+=c);process.stdin.on('end',()=>{const j=JSON.parse(d);console.log('local-rest-api version:', j.version)})"`
+- `which opencode 2>&1 || echo "opencode: NOT found on Git Bash PATH"
+npm ls -g --depth=0 2>&1 | grep -i opencode || echo "no opencode in global npm list (bash view)"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git status --short | grep -v "Sync-Log\|sweep-\|cursor-export\|Codex\|Statusline" `
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git status --short | grep "^??"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git status --short --ignored .obsidian/plugins/text-extractor/ 2>&1; echo "---"; git check-ignore -v .obsidian/plugins/text-extractor/main.js 2>&1`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git status --short --porcelain -- .obsidian/plugins/ 2>&1 | head -20
+echo "---does git track any files here already---"
+git ls-files .obsidian/plugins/text-extractor/ 2>&1
+echo "---gitignore check for .obsidian/plugins in general---"
+grep -n "obsidian/plugins" .gitignore 2>&1`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git log --oneline -5
+echo "---"
+git show --stat HEAD | head -20`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && node -e "
+const d = JSON.parse(require('fs').readFileSync('.obsidian/plugins/dataview/data.json','utf8'));
+console.log(JSON.stringify({
+  enableInlineDataview: d.enableInlineDataview,
+  enableInlineDataviewJS: d.enableInlineDataviewJS,
+  enableDataviewJs: d.enableDataviewJs,
+  renderHtml: d.renderHtml ?? d.allowHtml,
+  refreshInterval: d.refreshInterval,
+  warnOnEmptyResult: d.warnOnEmptyResult,
+  showResultCount: d.showResultCount,
+  taskCompletionTracking: d.taskCompletionTracking
+}, null, 2));
+console.log('--- all keys ---');
+console.log(Object.keys(d).filter(k=>/html|js|refresh|warn|count|task/i.test(k)));
+"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && node -e "
+const d = JSON.parse(require('fs').readFileSync('.obsidian/plugins/dataview/data.json','utf8'));
+console.log('enableInlineDataviewJs:', d.enableInlineDataviewJs);
+console.log('allowHtml:', d.allowHtml);
+"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && grep -n -A 15 '```dataviewjs' "00_Dashboard.md" | head -100`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && grep -n -B2 -A 20 '```dataviewjs' "10_Areas/Career/Internships/List/Dossiers MOC.md" | head -60`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && ls "60_Claude/30_Reviews/" 2>/dev/null; echo "---"; find "60_Claude/30_Reviews" -iname "*board*" 2>/dev/null`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && echo "--- tasks plugin ---" && node -e "
+const d = JSON.parse(require('fs').readFileSync('.obsidian/plugins/obsidian-tasks-plugin/data.json','utf8'));
+console.log('taskFormat:', d.taskFormat);
+console.log('setDoneDate:', d.setDoneDate);
+console.log('setCancelledDate:', d.setCancelledDate);
+console.log('autoSuggestInEditor:', d.autoSuggestInEditor);
+console.log('globalQuery:', JSON.stringify(d.globalQuery));
+console.log('globalFilter:', JSON.stringify(d.globalFilter));
+"
+echo "--- kanban plugin ---" 
+node -e "
+const d = JSON.parse(require('fs').readFileSync('.obsidian/plugins/obsidian-kanban/data.json','utf8'));
+console.log(JSON.stringify(d, null, 2));
+"`
 
 

@@ -86,6 +86,17 @@ Optional but present in the gold notes: `### Leadership link`, `### Entrepreneur
 - Objectives, key ideas, examples, and concept links are all real and verified.
 - `- [ ]` Tasks for takeaways; 3–5+ `#cards/[course]` cards.
 - Passes all 16 points of [[Vault Rules — Complete AI Ruleset]] Part 12.
+## 2026-09-20 Normative Production Addendum
+### Lifecycle
+Create the week note before lecture from the verified schedule, the landed textbook note, assigned slides/PDFs, notebooks or Python files, prior concepts, and relevant assignments. The goal is to be ahead of the lecture. During class, the user's live notes belong in the `## Lecture` section/header. Treat that capture as protected human source material: organize around it and add links, but do not delete, overwrite, silently paraphrase away uncertainty, or replace it with an imagined transcript.
+When no live lecture is happening, the same `## Lecture` area may contain pre-lecture slide/PDF/source notes. Label those as `Pre-lecture source notes` and keep later `Live lecture capture` distinguishable. Do not create a parallel temporary lecture note that can drift away from the weekly note.
+After lecture, reconcile the live capture with textbook, slides/PDFs, code, assignments, and concept notes. Carry forward what was actually emphasized or corrected into the textbook integration, concept notes, Board, assignment notes, and open questions. Preserve disagreements as source-attributed conflicts until verified.
+### Source map and strictness
+Before drafting, list the schedule row, textbook chapter/section, lecture date/capture, slides/PDF/notebook files, labs/projects/assignments, and concepts touched. Read every available source row for the target week; do not rely on a single existing note. Every example, number, code behavior, and claim needs a source anchor or an explicit `Inferred`/`Unresolved` label.
+### Density and exam use
+The Lecture section follows the actual lecture structure and retains mechanisms, derivations, code shape, edge cases, examples, and corrections. Textbook integration states the delta rather than repeating lecture. When an exam is near, make the concept layer rich and use this note to map retrieval and practice; do not turn the weekly note into a giant cram dump.
+### Final gate
+The week is complete only when pre-lecture preparation, protected live capture, post-lecture reconciliation, source-grounded links, real open questions, and mechanism/contrast flashcards are all accounted for. A stub with polished prose but no actual lecture/source reconciliation is not complete.
 ## Gold Standard Example
 - [[40_Resources/UMN/Previous Classes/Minor/MGMT 3001/Week - 9|Week - 9]] — power and influence; the cleanest synthesis section.
 - [[40_Resources/UMN/Previous Classes/Minor/MGMT 3001/Week - 4|Week - 4]] — corporate strategy; the strongest "textbook additions easy to miss" and domain-link sections.

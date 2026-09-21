@@ -48,5 +48,9 @@ What actually came out — a number, a passing test suite, a working build. Stat
 - Every real error hit has a Problem/Fix/Why entry, not just a Fix.
 - Goal is stated in your own words, not copied from the assignment.
 - No duplicate frontmatter keys; no `---` in the body; zero blank lines except after a callout.
+## 2026-09-20 Normative Production Addendum
+Create the lab note from the prompt, starter files, tests, relevant lecture/textbook material, and actual run output. Record enough command, configuration, interface, and test detail that the lab can be reproduced from the note alone. Separate required behavior from the student's chosen implementation.
+For every failure use `Problem / Fix / Why / Evidence`. `Problem` names the symptom and smallest reproduction; `Fix` names the actual change; `Why` explains the mechanism; `Evidence` states the test/output that proves the fix. Never claim tests passed without observed output. Include edge cases the tests expose and link the reusable mechanism to a concept note.
+After the lab, propagate durable discoveries to the relevant week and concept notes and add the lab to the exam/practice queue when its behavior is likely assessable. Preserve course collaboration/tool rules and do not paste a full solution merely to make the note look complete.
 ## Gold Standard Example
 None yet in the vault — this Standard is new this session. Update this line once a real lab note exists with a substantive Errors + Fixes section.

@@ -60,5 +60,15 @@ Verified wikilinks to notes where this concept actually appeared — a lecture, 
 - `evidence:` / Evidence section link real vault notes that prove the concept was used.
 - 3–8 mechanism/contrast flashcards on the correct deck.
 - Passes all 16 points of [[Vault Rules — Complete AI Ruleset]] Part 12.
+## 2026-09-20 Normative Production Addendum
+These rules are mandatory for current course work and operationalize the per-heading requirements above.
+### Creation timing and source coverage
+Create or update a concept when the scheduled topic is known and its textbook note/source has landed, preferably before lecture. A concept may be derived from a textbook, NotebookLM-derived textbook output, lecture slides, Python/notebook code, PDF/paper, lab, project, or repeated question. Search for an existing concept or alias first. After lecture, reconcile the pre-lecture note with the user's live capture and the actual emphasis or corrections.
+### Mechanism minimum
+The Mechanism section must state inputs/state, causal sequence, invariants/assumptions, output, complexity or limitations when relevant, a source-grounded example, and a failure boundary. Programming concepts additionally need code shape/types and test implications; math/AI concepts need conditions, representation, and decision procedure.
+### Provenance and exam enrichment
+Every claim must trace to a real source; label inference and unresolved questions. Verify every wikilink and keep `evidence:` empty rather than inventing a link. NotebookLM is an input for textbook-derived understanding, not an authority that permits unsupported claims. When an exam is near, deepen relevant concepts with derivations, worked examples, comparisons, common traps, and links to practice, then review and extend their mechanism/contrast flashcards.
+### Final gate
+A concept is not done if it only defines a term, has no real contrast/failure mode, points to unverified notes, or cannot support explaining and applying the mechanism without reopening the source.
 ## Gold Standard Example
 - [[Teams and Team Effectiveness]] — mechanism-dense (IPO breakdown), explicit contrasts (task vs relationship conflict, cohesion vs groupthink), six named traps, and real course examples. It predates the current template heading names but demonstrates the depth this Standard requires under each.

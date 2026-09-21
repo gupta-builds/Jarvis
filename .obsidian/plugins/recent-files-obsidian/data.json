@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "CSCI 4511W Board",
+      "path": "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md"
+    },
+    {
+      "basename": "Preparation",
+      "path": "20_Progress/Degree/CSCI 4511W/Preparation.md"
+    },
+    {
       "basename": "Tool log",
       "path": "60_Claude/30_Reviews/AI/Tools/Tool log.md"
     },
@@ -169,10 +177,6 @@
       "path": "20_Progress/Degree/CSCI 4511W/Weekly/Week - 1.md"
     },
     {
-      "basename": "Preparation",
-      "path": "20_Progress/Degree/CSCI 4511W/Preparation.md"
-    },
-    {
       "basename": "Textbook Map",
       "path": "20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "Weekly Board",
       "path": "20_Progress/Degree/MGMT 3015/Lecture/Weekly Board.md"
-    },
-    {
-      "basename": "MGMT 3015 Board",
-      "path": "20_Progress/Degree/MGMT 3015/MGMT 3015 Board.md"
     }
   ],
   "omittedPaths": [],

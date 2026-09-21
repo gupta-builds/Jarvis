@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "Problem Set 1",
+      "path": "20_Progress/Degree/CSCI 4511W/Assignments/Written/Problem Set 1.md"
+    },
+    {
       "basename": "Preparation Standard",
       "path": "30_Order/Standards/Courses/Preparation Standard.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "Sync-Log-Archive-2026-09-19",
       "path": "20_Progress/AI/Claude Code/Sync-Log-Archive-2026-09-19.md"
-    },
-    {
-      "basename": "Sync - Unison",
-      "path": "20_Progress/AI/Claude Code/Sync - Unison.md"
     }
   ],
   "omittedPaths": [],

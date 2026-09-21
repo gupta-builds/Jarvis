@@ -26,25 +26,19 @@ This vault is a personal knowledge system powered by Claude Code. The assistant 
 Do not duplicate shared workspace rules here unless they are Claude-specific.
 ## Folder Roles
 Full folder definitions: [[40_Resources/Obsidian/Jarvis Vault Architecture]]. Routing table for note placement: [[AGENTS.md]].
-
 ## Core Rules
-
+> [!IMPORTANT] Always go through the global .claude folder instructions and global toolkit laid out. Implement mcp's and plugins installed globally based on the detailed configuration listed.
 ### Editing Behavior
-
-1. **Prefer patching by heading** — Add content under existing headings instead of rewriting entire files.
+1. **Prefer patching by heading** - Add content under existing headings instead of rewriting entire files.
 2. **Preserve frontmatter** — Never remove or rename frontmatter keys unless explicitly asked.
 3. **Search before creating** — Use MCP search to check if a note already exists before creating a new one.
 4. **Respect maturity** — Notes with `status: tree` are stable; propose changes before modifying.
 5. **Read `HUMAN_WRITING.md` and `30_Order/` before writing** — `HUMAN_WRITING` governs voice; `30_Order/Templates/` and `30_Order/Workflows/` govern how each note type is shaped and filed. See [[40_Resources/Obsidian/Jarvis Vault Architecture]] for where each note goes.
 6. **Use `60_Claude/07_AI_Information/AI_CONTEXT.md` for continuity** — read the manifest, dashboard, and session log before assuming current project state. The wikilink `[[AI_CONTEXT]]` resolves to the same file.
 7. **Use context packs, not vault dumps** — follow [[Claude Pro Workflow]]: read the manifest, dashboard, session log tail, and task-specific notes instead of scanning the whole vault.
-
-6. **No personal-life content in Jarvis** — health, personal finance, relationships, and confessional journaling belong in The Plan (`00_Live/`), not here. `10_Areas/Life/Truths of Life/` is scoped narrowly to builder-identity evidence only. Full rule: [[AGENTS.md]] → Write Contract → Golden rules.
-
+8. **No personal-life content in Jarvis** — health, personal finance, relationships, and confessional journaling belong in The Plan (`00_Live/`), not here. `10_Areas/Life/Truths of Life/` is scoped narrowly to builder-identity evidence only. Full rule: [[AGENTS.md]] → Write Contract → Golden rules.
 ### Note Creation Conventions
-
 When creating new notes, use this frontmatter template:
-
 ```yaml
 ---
 type: evergreen      # or: input, concept, project, thought, brainstorm
@@ -58,7 +52,6 @@ notes:
 next: "[[Next Action]]"  # optional
 ---
 ```
-
 **Type guide:**
 - `evergreen` — Distilled, reusable knowledge (`60_Claude/20_Distilled_Notes/`, `40_Resources/`)
 - `input` — Raw captures, source summaries (`60_Claude/05_Clippings/`, `60_Claude/10_Source_Summaries/`); transcripts and briefs also use `input` — see [[Brief Standard]]

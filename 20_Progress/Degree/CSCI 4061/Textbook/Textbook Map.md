@@ -24,7 +24,7 @@ Covers Weeks 1-10, the systems-programming core of the course:
 - **Ch 11** - Week 7: Threads, basic synchronization.
 - **Ch 11, 12, 16** - Week 8: Advanced synchronization, start networking.
 - **Ch 16** - Week 9: Sockets, UDP/TCP, HTTP.
-None of these have an individual chapter note yet - each gets created as its week is actually covered, per [[Course Week Standard]].
+None of these have an individual chapter note yet - each gets created as its week is actually covered, per [[Weekly Standard]].
 ## Kleppmann — Designing Data-Intensive Applications (1st ed., 2017)
 Covers Weeks 11-13, the distributed-systems half:
 - **Ch 8, 4** - Week 11: Data serialization, intro distributed systems, RPC.

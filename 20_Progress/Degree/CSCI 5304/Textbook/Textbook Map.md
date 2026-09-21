@@ -14,7 +14,7 @@ next: "Create Chapter - 1.md once Lecture 1 (Matrix Action) is actually covered,
 # CSCI 5304 — Textbook Map
 ==Trefethen & Bau call their own chapters "Lectures," and this course's lecture numbering reuses that numbering directly - Lecture 24 in the schedule is Lecture 24 in the book, not a coincidence.== The course covers **Parts I-V (Lectures 1-31)** only; the book continues past that into further parts this course doesn't teach.
 ## Part-to-Schedule Map
-Cross-referenced against the Weekly Schedule table in [[CSCI 5304 Board]] - every lecture number below is both the book's chapter and the course's calendar slot. No individual chapter note exists yet; each gets created once that lecture is actually covered in class, per [[Course Week Standard]].
+Cross-referenced against the Weekly Schedule table in [[CSCI 5304 Board]] - every lecture number below is both the book's chapter and the course's calendar slot. No individual chapter note exists yet; each gets created once that lecture is actually covered in class, per [[Weekly Standard]].
 - **Part I: Fundamentals** - Lecture 1 (Matrix "Action") (to create).
 - **Part I continued** - Lectures 2-5: Orthogonality and Norms, Singular Value Decomposition, More on the SVD (to create).
 - **Part II: QR and Least Squares** - Lectures 6-11: Projection and QR, QR and Gram-Schmidt, Householder Triangularization, Least-Squares Problems (to create).

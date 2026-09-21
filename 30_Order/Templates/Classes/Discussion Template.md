@@ -11,10 +11,13 @@ tags:
   - "#Discussion"
 next:
 ---
-# Discussion
+# <% tp.file.title %>
 ## Pre-work
+<!-- Link or summarize the assigned paper, questions, or preparation task. -->
 - 
 ## Notes
+<!-- Capture claims, objections, examples, and corrections—not a transcript. -->
 - 
 ## Action items
-- [ ] 
+<!-- Use tasks only for concrete follow-up work created by the discussion. -->
+- [ ]

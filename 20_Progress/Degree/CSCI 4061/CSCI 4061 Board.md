@@ -113,7 +113,7 @@ Readings: "Stevens" = *Advanced Programming in the UNIX Environment*; "Kleppmann
 | 15 | Looking Ahead: Web, OS, Embedded | — | Quiz 12 due |
 Final exam per section is listed in Important Dates above, not repeated here.
 ## Standards Once Material Starts
-Week-by-week notes follow [[Course Week Standard]] once lectures actually begin - this Board stays the single-class deep source for grading detail, policy, and the full schedule; the spreadsheet cross-class view is `Fall'26 Semester Calendar.xlsx` (`10_Areas/UMN/Plan/In Semester Review/`).
+Week-by-week notes follow [[Weekly Standard]] once lectures actually begin - this Board stays the single-class deep source for grading detail, policy, and the full schedule; the spreadsheet cross-class view is `Fall'26 Semester Calendar.xlsx` (`10_Areas/UMN/Plan/In Semester Review/`).
 ## Common Mistakes
 None logged yet for this course specifically - add here the first time something costs real points, per the [[Fall'26 Syllabus]] convention.
 ## Verification Notes (2026-09-15 addendum)

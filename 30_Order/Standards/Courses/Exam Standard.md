@@ -49,5 +49,10 @@ Filled in only after the exam, ideally the same day, before the memory of what w
 - Study Plan has an actual day-by-day shape.
 - Post-Exam Reflection is filled in within a day or two of getting results back.
 - No duplicate frontmatter keys; no `---` in the body; zero blank lines except after a callout.
+## 2026-09-20 Normative Production Addendum
+Create the exam sheet as soon as the assessment is announced. Scope comes from the syllabus, instructor announcement, review sheet, or exam topics list—not "everything so far." Link exact weeks, textbook sections, concepts, assignments, and practice sources. Separate confirmed, unconfirmed, and out-of-scope material.
+Record assessment type, time limit, collaboration, permitted notes/tools, page limits, submission method, and late/makeup rules. If a rule is unknown, write `Unverified` and name the source to check. Assessment rules do not transfer between quizzes, exams, and courses: for example, CSCI 4511W short quizzes are open-resource/open-collaboration while long quizzes are individual, 45 minutes, and limited to two pages of personal notes.
+The study plan must work backward from the date through scope check, concept-note strengthening, flashcards, active problem solving, timed format-matched practice, and final error review. Before exams, use weekly notes, textbook integrations, assignment mistakes, concept notes, and planned questions; do not produce only a passive summary.
+After results, record each meaningful miss's question/topic, attempted approach, cause, evidence, correction, and next action. Distinguish content gaps from misreading, timing, confidence, and process errors. Link corrections back to the canonical concept or assignment note and create a targeted card only when the gap is reusable.
 ## Gold Standard Example
 None yet in the vault — this Standard is new this session, written before any exam under it has actually happened. Update this line once a real exam sheet exists with both halves filled in.

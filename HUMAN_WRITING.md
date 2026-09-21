@@ -13,7 +13,7 @@ related:
   - "[[Concept Standard]]"
   - "[[Project Standard]]"
   - "[[Evergreen Standard]]"
-  - "[[Course Week Standard]]"
+  - "[[Weekly Standard]]"
   - "[[Source Summary Standard]]"
 ---
 # Human Writing Standard

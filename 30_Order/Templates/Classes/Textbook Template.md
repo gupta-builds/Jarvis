@@ -2,8 +2,8 @@
 type: class
 input_kind: book
 status: seed
-created: <% tp.date.now("YYYY-MM-DD") %>
-updated: <% tp.date.now("YYYY-MM-DD") %>
+created:
+updated:
 area:
   - "[[UMN Board]]"
 tags:
@@ -11,44 +11,21 @@ tags:
   - "#Textbook"
 next:
 ---
-# Chapter - <% tp.file.title %>
-
-*Gold standard: see [[40_Resources/UMN/Previous Classes/Minor/MGMT 3001/Week - 4]] for a mature lecture note with full synthesis.*
-
+# <% tp.file.title %>
 ## Chapter Summary
-
-The one-sentence claim the chapter is making. ==Highlight the anchor concept for SR.== Then state the mechanism below.
-
-*Example:*
-==Transaction cost theory says firms exist because markets sometimes cost more to use than hierarchies.==
-*Mechanism:* When writing, enforcing, and monitoring market contracts is expensive, a firm internalizes the activity instead — substituting authority for negotiation.
-
+<!-- State the chapter's one-sentence claim and use exactly one ==highlight== anchor. -->
 == ==
 *Mechanism:*
-
+<!-- Explain how the chapter's claim works. -->
 ## Key Concepts
-
-One entry per concept. Bold the name. Add a brief definition and why the chapter treats it as important. If it gets its own flashcard, mark it.
-
-- **Concept:** Definition. Why it matters in context of this chapter.
-
-*Example:*
-- **Asset specificity:** Investments whose value collapses outside a specific relationship (a custom machine that can only run one firm's parts). High asset specificity → high holdup risk → internalize or contract carefully.
-
+<!-- Define each concept and explain why it matters here. Bold the concept name on first use. -->
+- **Concept:** 
 ## Examples Worth Keeping
-
-Concrete examples from the chapter — cases, scenarios, numbers, proofs. If the example is what makes the concept stick, put it here verbatim or close to it.
-
+<!-- Keep concrete examples, numbers, cases, or worked reasoning that makes the mechanism memorable. -->
 - 
-
 ## Connections
-
-Link outward: which lecture engaged with this material? Which concept notes does this feed?
-
-- Lecture: [[Week - ]]
-- Concept: [[Concept - ]]
-- 
-
+<!-- Link the matching lecture/week, course map, and only concept notes that actually exist or were created. -->
+- Lecture:
+- Concept:
 ## Flashcards
-
-#cards/[track]
+<!-- Add 3–8 atomic cards testing mechanisms and contrasts to #cards/<course-slug>. -->

@@ -27,7 +27,7 @@ In the order the course actually teaches them, not numerical order:
 - **Ch 9, 10 & 11** - Session 19, Wed 11/11, and Session 20, Mon 11/16: Financing, parts 1 and 2.
 - **Ch 7** - Session 23, Mon 11/30: The Venture Team.
 - **Ch 13** - Session 25, Mon 12/7: Growth.
-None of these have an individual chapter note yet - each gets created once its session is actually covered in lecture, per [[Course Week Standard]].
+None of these have an individual chapter note yet - each gets created once its session is actually covered in lecture, per [[Weekly Standard]].
 ## The One Session With No Chapter: Internationalization
 Session 22 (Mon 11/23) covers Internationalization using slides only ("to be posted here" per the Canvas module) - no chapter of the textbook is assigned for it. This is the one gap in an otherwise complete 1-13 chapter mapping; don't create a chapter note for it, since there's no chapter to map it to.
 ## Why the Out-of-Order Sequence Is Worth Noting

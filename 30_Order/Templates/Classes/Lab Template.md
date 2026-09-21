@@ -12,7 +12,6 @@ tags:
   - "#Lab"
 next:
 ---
-<!-- Create during or immediately after the lab. The reusable value is the specific error log, not a polished retelling. -->
 # <% tp.file.title %>
 ## Goal
 <!-- State the task in your own words, not the lab title. -->

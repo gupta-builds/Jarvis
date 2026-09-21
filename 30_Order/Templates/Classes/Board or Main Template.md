@@ -10,7 +10,6 @@ tags:
   - "#class"
 next:
 ---
-<!-- One note per course. Replace the generic area link with the course's real Board link. Use this note for stable course facts and routing, not weekly lecture capture. -->
 # <% tp.file.title %>
 ## Source of Truth
 <!-- Name the authoritative syllabus, Canvas page, source folder, or other live source. Record what was checked and when. -->

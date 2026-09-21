@@ -9,7 +9,6 @@ tags:
   - "#class"
 next:
 ---
-<!-- Use this for course-level preparation. Keep it tied to the Board's grading, schedule, and actual constraints. -->
 # <% tp.file.title %>
 ## Grading Leverage
 <!-- Identify the assessments and behaviors that most affect the grade, with verified weights. -->

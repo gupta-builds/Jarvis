@@ -11,7 +11,6 @@ tags:
   - "#Textbook"
 next:
 ---
-<!-- Use one note per chapter or assigned chapter section. Summarize the source, then connect it to lecture and usable concepts. -->
 # <% tp.file.title %>
 ## Chapter Summary
 <!-- State the chapter's one-sentence claim and use exactly one ==highlight== anchor. -->
@@ -26,7 +25,7 @@ next:
 - 
 ## Connections
 <!-- Link the matching lecture/week, course map, and only concept notes that actually exist or were created. -->
-- Lecture: 
-- Concept: 
+- Lecture:
+- Concept:
 ## Flashcards
 <!-- Add 3–8 atomic cards testing mechanisms and contrasts to #cards/<course-slug>. -->

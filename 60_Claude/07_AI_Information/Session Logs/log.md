@@ -1445,3 +1445,11 @@ Same-day follow-up. Anant asked for a complete pass through every course's real 
 Read Chapters 1–2 directly from `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4511W\CSCI 4511W Textbook.pdf`. Wrote self-contained study notes at `20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 1.md` and `Chapter - 2.md`, covering the source section order, key concepts, worked examples, course connections, open questions, and mechanism-focused flashcards. Updated `Textbook Map.md` with links and the next step. Chapter 2's lecture connection is explicitly left open because the 9/14 lecture note is not yet captured; no lecture content was invented.
 
 **Next:** Capture the 9/14 lecture and continue with the Chapter 3 search note when ready.
+
+## [2026-09-20] write | Course template layer repaired
+
+Audited all 12 files in `30_Order/Templates/Classes`. Added short hidden instructions for each heading, corrected dynamic Templater titles, removed malformed placeholders and empty wikilinks, aligned the Project and Week scaffolds with their existing standards, changed Concept `mastery_level` to a numeric field, made index `notes` fields explicit lists, and added the canonical `deadline:` field to exam, homework, lab, and project templates. The course-specific CSCI 4511W workflow and broader course standards were intentionally deferred to the later design pass.
+
+**Sync note:** Syncthing created five `*.sync-conflict-20260920-*.md` copies while the template edits were in progress. They were not deleted or overwritten; they need a later human/sync reconciliation pass.
+
+**Next:** Design the generic course systems, workflows, and standards together, then write the CSCI 4511W-specific workflow after the course weeks and first assignments are fully reviewed.

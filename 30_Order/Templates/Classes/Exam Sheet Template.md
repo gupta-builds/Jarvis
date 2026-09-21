@@ -11,11 +11,10 @@ tags:
   - "#Exam"
 next:
 ---
-<!-- Create this when the exam is announced. Fill the study half before the exam and the reflection half after grades return. -->
 # <% tp.file.title %>
 ## Topics Covered
 <!-- Link the exact weeks and chapters named by the syllabus or instructor. Do not use vague scope. -->
-- 
+-
 ## Format & Resources Allowed
 <!-- Record exam type, time limit, collaboration rules, notes, calculators, AI/tools, and every other stated restriction. -->
 - Format:

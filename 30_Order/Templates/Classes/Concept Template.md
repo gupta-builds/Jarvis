@@ -5,7 +5,7 @@ created:
 updated:
 course:
 track:
-mastery_level: 0
+mastery_level: "0"
 prerequisites: []
 used_in: []
 evidence: []
@@ -13,7 +13,6 @@ tags:
   - concept
 related: []
 ---
-<!-- One reusable concept per note. Set course, track, and real relational links before saving. -->
 # <% tp.file.title %>
 ## One-Line Answer
 <!-- Write one peer-level sentence and use exactly one ==highlight== anchor. -->

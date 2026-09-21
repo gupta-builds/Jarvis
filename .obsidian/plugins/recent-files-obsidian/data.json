@@ -1,8 +1,56 @@
 {
   "recentFiles": [
     {
-      "basename": "Untitled",
-      "path": "Untitled.md"
+      "basename": "Board or Main Template",
+      "path": "30_Order/Templates/Classes/Board or Main Template.md"
+    },
+    {
+      "basename": "Concept Template",
+      "path": "30_Order/Templates/Classes/Concept Template.md"
+    },
+    {
+      "basename": "Exam Sheet Template",
+      "path": "30_Order/Templates/Classes/Exam Sheet Template.md"
+    },
+    {
+      "basename": "Lab Template",
+      "path": "30_Order/Templates/Classes/Lab Template.md"
+    },
+    {
+      "basename": "Project Template",
+      "path": "30_Order/Templates/Classes/Project Template.md"
+    },
+    {
+      "basename": "Weekly Board Template",
+      "path": "30_Order/Templates/Classes/Weekly Board Template.md"
+    },
+    {
+      "basename": "Week Template",
+      "path": "30_Order/Templates/Classes/Week Template.md"
+    },
+    {
+      "basename": "Textbook Template",
+      "path": "30_Order/Templates/Classes/Textbook Template.md"
+    },
+    {
+      "basename": "Textbook Map Template",
+      "path": "30_Order/Templates/Classes/Textbook Map Template.md"
+    },
+    {
+      "basename": "Preparation Template",
+      "path": "30_Order/Templates/Classes/Preparation Template.md"
+    },
+    {
+      "basename": "Homework Template",
+      "path": "30_Order/Templates/Classes/Homework Template.md"
+    },
+    {
+      "basename": "Discussion Template",
+      "path": "30_Order/Templates/Classes/Discussion Template.md"
+    },
+    {
+      "basename": "Week - 1",
+      "path": "20_Progress/Degree/CSCI 4511W/Weekly/Week - 1.md"
     },
     {
       "basename": "Week - 2",
@@ -43,46 +91,6 @@
     {
       "basename": "Weekly Standard",
       "path": "30_Order/Standards/Courses/Weekly Standard.md"
-    },
-    {
-      "basename": "Weekly Board Template",
-      "path": "30_Order/Templates/Classes/Weekly Board Template.md"
-    },
-    {
-      "basename": "Week Template",
-      "path": "30_Order/Templates/Classes/Week Template.md"
-    },
-    {
-      "basename": "Textbook Map Template",
-      "path": "30_Order/Templates/Classes/Textbook Map Template.md"
-    },
-    {
-      "basename": "Project Template",
-      "path": "30_Order/Templates/Classes/Project Template.md"
-    },
-    {
-      "basename": "Preparation Template",
-      "path": "30_Order/Templates/Classes/Preparation Template.md"
-    },
-    {
-      "basename": "Exam Sheet Template",
-      "path": "30_Order/Templates/Classes/Exam Sheet Template.md"
-    },
-    {
-      "basename": "Discussion Template",
-      "path": "30_Order/Templates/Classes/Discussion Template.md"
-    },
-    {
-      "basename": "Lab Template",
-      "path": "30_Order/Templates/Classes/Lab Template.md"
-    },
-    {
-      "basename": "Board or Main Template",
-      "path": "30_Order/Templates/Classes/Board or Main Template.md"
-    },
-    {
-      "basename": "Homework Template",
-      "path": "30_Order/Templates/Classes/Homework Template.md"
     },
     {
       "basename": "Weekly Board",
@@ -179,26 +187,6 @@
     {
       "basename": "README",
       "path": "10_Areas/Career/Internships/README.md"
-    },
-    {
-      "basename": "2026-07 Found",
-      "path": "10_Areas/Career/Internships/List/2026-07 Found.md"
-    },
-    {
-      "basename": "Statusline Migration — Acer Prompt",
-      "path": "40_Resources/CS/Concepts/New Laptop/Statusline Migration — Acer Prompt.md"
-    },
-    {
-      "basename": "WSL Session Briefing",
-      "path": "40_Resources/CS/Concepts/New Laptop/Sync/WSL Session Briefing.md"
-    },
-    {
-      "basename": "Jarvis MCP and REST API Setup",
-      "path": "40_Resources/CS/Concepts/New Laptop/Sync/Jarvis MCP and REST API Setup.md"
-    },
-    {
-      "basename": "Google Drive Sync Policy",
-      "path": "40_Resources/CS/Concepts/New Laptop/Sync/Google Drive Sync Policy.md"
     }
   ],
   "omittedPaths": [],

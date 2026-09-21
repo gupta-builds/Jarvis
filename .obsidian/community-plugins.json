@@ -11,6 +11,7 @@
   "templater-obsidian",
   "url-into-selection",
   "obsidian-local-rest-api",
-  "cmdr",
-  "recent-edits"
+  "obsidian-spaced-repetition",
+  "excalibrain",
+  "copilot"
 ]

@@ -24,19 +24,23 @@ Clone this repository into WSL, install only its real runtime prerequisites, aut
 
 ## Current verified baseline — 2026-09-21
 
-The live WSL checkout was inspected directly:
+The current Acer WSL state is the source of truth for this build. The earlier
+baseline in this note described a different or planned checkout and must not be
+used as evidence:
 
 - WSL user: `anant_gupta`
-- WSL OS: Ubuntu 24.04
-- Repository path: `/home/anant_gupta/projects/ai/claude/second-brain-claudekit`
-- Remote: `https://github.com/gupta-builds/second-brain-claudekit.git`
-- Worktree: clean on `main`
-- Observed commit: `a0226a7` (`just one edit`)
-- Required tools present: Git, Git LFS, jq, flock, curl, tar, pwsh, gh, Node, pnpm, uv, and Unison
-- Jarvis mirror exists at `D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\20_Progress\\AI\\Claude Code\\second-brain-claudekit`
-- The configured mirror paths currently match the WSL source
+- WSL OS: Ubuntu 24.04, WSL 2, systemd enabled
+- Working area: `/home/anant_gupta/projects/ai`
+- Future repository path: `/home/anant_gupta/projects/ai/second-brain-claudekit`
+- Current checkout: absent by design; do not clone during the MCP/environment build
+- Tools confirmed in the live interactive shell: Git, Git LFS, jq, flock, curl, tar, gh, Node, pnpm, uv, Rust, Claude Code, Codex, Antigravity CLI, direnv, and supporting terminal tools
+- Not confirmed or absent in the live shell: Unison, `pwsh`, Bun, Kiro CLI, and Docker WSL integration
+- Jarvis MCP configuration exists in the WSL environment, but the next session must verify its actual connected tools and live Obsidian endpoint
+- Sync processes and scheduled sync tasks are paused; do not reopen them in this build
 
-The local `origin/main` ref matched the working HEAD during this inspection, but a fresh network fetch was not possible from this session. The source-laptop push gate below is therefore mandatory before treating the migration as backed up.
+The repository clone, dependencies, hooks, credentials, and mirror are all
+separate future gates. The source-laptop push gate below remains mandatory before
+any later migration is treated as backed up.
 
 ## What Git clone restores
 
@@ -106,6 +110,7 @@ The migration is complete only when all are true:
 
 ## Related
 
+- [[second-brain-claudekit-wsl-session-and-jarvis-mcp-build]]
 - [[second-brain-claudekit-git-clone-and-bootstrap]]
 - [[second-brain-claudekit-jarvis-unison-sync]]
 - [[second-brain-claudekit-ignored-state-and-sandbox]]

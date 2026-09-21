@@ -2,7 +2,7 @@
 type: evergreen
 status: sprout
 created: 2026-09-08
-updated: 2026-09-08
+updated: 2026-09-20
 tags:
   - system
   - workflow
@@ -15,6 +15,10 @@ Two separate passes on the same note, at two different times — build the study
 **Use when:** an exam is announced (create the note, start the study half) and again when results are returned (finish the note, write the reflection half).
 **Moves:** syllabus exam-scope info + the course's own week/chapter notes → `<Course>/Exam/` (or wherever the course files exams), one note per exam.
 **Template:** [[Exam Sheet Template]]
+## Normative procedure
+Create the exam note when the assessment is announced, not the night before. Read the scope from the syllabus, instructor announcement, review sheet, or exam topics list and link exact weeks, textbook sections, concepts, assignments, and practice sources. Record format, duration, collaboration, allowed resources/tools, page limits, submission process, and late/makeup rules. If any rule is unknown, mark it `Unverified` and name the source to check.
+Build the Study Plan backward from the date: scope inventory -> concept-note strengthening -> flashcards -> active questions/problems -> format-matched timed practice -> final error review. Use rich concept notes, assignment mistakes, and planned questions as the core study material. Match practice to the assessment: open-resource work still needs retrieval/navigation practice; individual limited-resource work needs practice without unavailable help.
+After the exam, wait for results if needed, then record each meaningful miss, its cause, evidence, correction, and next action. Distinguish content, reasoning, misreading, timing, confidence, and process errors. Link corrections to concepts and add targeted cards/practice only when reusable. Feed the resulting pattern into the next preparation plan.
 ## Steps
 1. Read [[Exam Standard]] before writing — it governs the note this workflow creates.
 2. As soon as an exam is announced, create the note from [[Exam Sheet Template]] and fill in Topics Covered and Format & Resources Allowed straight from the syllabus or the professor's review announcement — do not guess scope.

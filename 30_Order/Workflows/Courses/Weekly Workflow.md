@@ -2,7 +2,7 @@
 type: evergreen
 status: sprout
 created: 2026-09-08
-updated: 2026-09-08
+updated: 2026-09-20
 tags:
   - system
   - workflow
@@ -16,6 +16,9 @@ Create and link a new week note as each course's lectures happen, so a course's 
 **Use when:** a course's lecture(s) for a given week have happened and the material is fresh enough to write up.
 **Moves:** lecture + that week's textbook reading → `<Course>/Weekly/Week - N.md`, indexed from `<Course>/Weekly/Weekly Board.md`.
 **Template:** [[Week Template]]
+## Normative procedure
+Create the week note before lecture from the verified schedule, landed textbook note, assigned slides/PDFs, notebooks/Python, prior concepts, and relevant assignments. Put pre-lecture slide/source notes in the weekly note's `## Lecture` area and label them clearly. During lecture, the user writes live capture in that same area. Preserve human capture; agents may structure, link, and reconcile it afterward but may not delete, overwrite, or replace it with an imagined transcript.
+After lecture, reconcile actual capture with textbook, slides/PDFs, code, assignments, and concepts. Update the textbook delta, synthesis, concepts, Board, assignment notes, open questions, and cards only where evidence warrants it. Update the Weekly Board and Textbook Map after the week note's actual status is known. If the lecture differs from pre-lecture expectations, preserve the difference and label the source.
 ## Steps
 1. Read [[Weekly Standard]] before writing — it governs the note this workflow creates.
 2. Create `Week - N.md` in the course's `Weekly/` folder from [[Week Template]], filled in the same day as the lecture where possible.

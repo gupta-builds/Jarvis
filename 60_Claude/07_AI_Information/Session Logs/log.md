@@ -1453,3 +1453,11 @@ Audited all 12 files in `30_Order/Templates/Classes`. Added short hidden instruc
 **Sync note:** Syncthing created five `*.sync-conflict-20260920-*.md` copies while the template edits were in progress. They were not deleted or overwritten; they need a later human/sync reconciliation pass.
 
 **Next:** Design the generic course systems, workflows, and standards together, then write the CSCI 4511W-specific workflow after the course weeks and first assignments are fully reviewed.
+
+## [2026-09-20] write | PS1 written solutions (Problems 1-3) drafted
+
+Solved the paper portion of Problem Set 1 grounded in Chapter 2 (Intelligent Agents) and the 9/14-9/16 lecture slides (Lecture 02: Definitions/Agent Structure; Lecture 03: Problem-Solving Agents): classified the slippery 2x2 vacuum-world variant as partially observable, nondeterministic (stochastic), static, and discrete; designed the best possible Simple Reflex Agent (fixed cyclic if-dirty-suck-else-move rule, no way to stop moving once clean, approx. +700) and Model-Based Agent (same sweep plus internal state that lets it switch to Nop once all rooms are confirmed clean, approx. +750 to +780). Wrote the note at `20_Progress/Degree/CSCI 4511W/Assignments/Written/Problem Set 1.md` per [[Homework Standard]] and [[Homework Template]]. Problems 4-5 (code, ps1.py) remain untouched - written and coding portions are tracked separately per the Board.
+
+**Flag, not resolved:** the stated due date was 9/18; today is 9/20, so the late-work window from the Board needs checking before this gets submitted - not assumed either way.
+
+**Next:** Anant to review the written solutions and confirm the late-submission status, then start the ps1.py code portion (Problems 4-5).

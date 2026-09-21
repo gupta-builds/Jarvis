@@ -16,9 +16,9 @@ next: "Set up the csci-5304 conda environment (fix the missing scikit-learn depe
 ## Source of Truth
 > [!IMPORTANT] Read before trusting anything about this course
 > Real source folder:
-> - `D:\Users\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 5304`. 
+> - `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 5304`. 
 > - As of 2026-09-08 it holds: `Syllabus/` (the two PDFs this note is built from), `Lecture/`, `Midterm/`, `Textbook/` (all three currently empty, ready for material as it arrives), `.conda/` (a local conda environment already created), `environment.yml`, and `README.md` (environment setup instructions). 
-> - This Board note is the readable distillation - not a replacement for checking Canvas directly, especially given the three real date anomalies flagged in the Schedule section below (midterm date, Thanksgiving-week status). Desktop shortcut: `CSCI 5304.lnk` in `D:\Users\_Anant\Inbox\`.
+> - This Board note is the readable distillation - not a replacement for checking Canvas directly, especially given the three real date anomalies flagged in the Schedule section below (midterm date, Thanksgiving-week status). Desktop shortcut: `CSCI 5304.lnk` in `D:\_Anant\Inbox\`.
 ## Instructor & Logistics
 **Dr. Joy Upton-Azzam, PhD** (she/her/hers) - azzam@umn.edu - Lind Hall 300B - office hours Tuesday/Thursday 9:30-11:00 AM. The syllabus does not state the actual class meeting time anywhere in its text - only the day pattern is inferable from the schedule table (Tuesday and Thursday sessions, Wednesday reserved for homework due dates, no regular Wednesday class). Confirm the real meeting time via Canvas or registration records.
 ## Required Materials

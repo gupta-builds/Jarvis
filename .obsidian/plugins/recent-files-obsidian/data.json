@@ -1,6 +1,26 @@
 {
   "recentFiles": [
     {
+      "basename": "Profile of a Successful Entrepreneur",
+      "path": "20_Progress/Degree/MGMT 3015/Assignments/Profile of a Successful Entrepreneur.md"
+    },
+    {
+      "basename": "Repetitive Things",
+      "path": "20_Progress/Degree/Repetitive Things.md"
+    },
+    {
+      "basename": "Chapter - 3 & 4",
+      "path": "20_Progress/Degree/MGMT 3015/Textbook/Chapter - 3 & 4.md"
+    },
+    {
+      "basename": "Chapter - 1 & 2",
+      "path": "20_Progress/Degree/MGMT 3015/Textbook/Chapter - 1 & 2.md"
+    },
+    {
+      "basename": "CSCI 4511W Board",
+      "path": "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md"
+    },
+    {
       "basename": "second-brain-claudekit-wsl-session-and-jarvis-mcp-build",
       "path": "40_Resources/CS/Concepts/New Laptop/Codebases/second-brain-claudekit/second-brain-claudekit-wsl-session-and-jarvis-mcp-build.md"
     },
@@ -27,10 +47,6 @@
     {
       "basename": "Chapter - 1",
       "path": "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 1.md"
-    },
-    {
-      "basename": "Repetitive Things",
-      "path": "20_Progress/Degree/Repetitive Things.md"
     },
     {
       "basename": "Problem Set 1",
@@ -183,26 +199,14 @@
     {
       "basename": "Lab Workflow",
       "path": "30_Order/Workflows/Courses/Lab Workflow.md"
-    },
-    {
-      "basename": "Weekly Workflow",
-      "path": "30_Order/Workflows/Courses/Weekly Workflow.md"
-    },
-    {
-      "basename": "CSCI 4511W Board",
-      "path": "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md"
-    },
-    {
-      "basename": "Preparation",
-      "path": "20_Progress/Degree/CSCI 4511W/Preparation.md"
-    },
-    {
-      "basename": "Tool log",
-      "path": "60_Claude/30_Reviews/AI/Tools/Tool log.md"
     }
   ],
-  "omittedPaths": [],
-  "omittedTags": [],
-  "updateOn": "file-open",
-  "omitBookmarks": false
+  "omittedPaths": [
+    ""
+  ],
+  "omittedTags": [
+    ""
+  ],
+  "updateOn": "file-edit",
+  "omitBookmarks": true
 }

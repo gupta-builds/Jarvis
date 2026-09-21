@@ -12,10 +12,10 @@ tags:
 next: "Acquire all 8 required texts before the schedule catches up - Huckleberry Finn ch.s 1-6 are due 9/15, the first real reading deadline"
 ---
 # ENGL 1004 (003) — Banned Books
-Fall'26, replaces the dropped [[20_Progress/Degree/AMES 1201/AMES 1201 Board|AMES 1201]] as of 2026-09-09 - both close the same Lib Ed Literature sub-requirement; this one was picked as the easier fit, meeting twice weekly (TTh) same as AMES 1201 did (MW). Full syllabus read directly from `D:\Users\_Anant\10_Areas\UMN\Classes\Lib Eds & More\ENGL 1004\ENGL 1004-003 syllabus fall 2026.pdf`, 2026-09-09.
+Fall'26, replaces the dropped [[20_Progress/Degree/AMES 1201/AMES 1201 Board|AMES 1201]] as of 2026-09-09 - both close the same Lib Ed Literature sub-requirement; this one was picked as the easier fit, meeting twice weekly (TTh) same as AMES 1201 did (MW). Full syllabus read directly from `D:\_Anant\10_Areas\UMN\Classes\Lib Eds & More\ENGL 1004\ENGL 1004-003 syllabus fall 2026.pdf`, 2026-09-09.
 ## Source of Truth
 > [!IMPORTANT] Read before trusting anything about this course
-> Real source folder: `D:\Users\_Anant\10_Areas\UMN\Classes\Lib Eds & More\ENGL 1004` - syllabus, slides, readings, and any Canvas exports land there first. This Board note is the readable distillation of the real syllabus PDF (read in full 2026-09-09) - not a replacement for checking Canvas directly, especially for journal-entry deadlines and any simulation-role updates.
+> Real source folder: `D:\_Anant\10_Areas\UMN\Classes\Lib Eds & More\ENGL 1004` - syllabus, slides, readings, and any Canvas exports land there first. This Board note is the readable distillation of the real syllabus PDF (read in full 2026-09-09) - not a replacement for checking Canvas directly, especially for journal-entry deadlines and any simulation-role updates.
 > [!WARNING] Read this before enrolling attention gets assumed
 > The syllabus opens with its own content warning, stated directly: "it is likely that you will find one or more of the class texts offensive and almost certain that you will find one or more uncomfortable and difficult to read... If you will be triggered by difficult, graphic, or offensive material in a way that will prohibit your class participation or completion of assignments you SHOULD NOT enroll in this course." Not boilerplate - the reading list includes *The Handmaid's Tale*, *The Bluest Eye*, and *Maus*, among others actually challenged/banned in real school districts.
 ## What This Course Actually Covers

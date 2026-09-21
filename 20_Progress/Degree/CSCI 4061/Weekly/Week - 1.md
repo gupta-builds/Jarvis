@@ -11,7 +11,7 @@ tags:
   - "#Lecture"
 next: []
 ---
-# Untitled
+# Week - 1
 *Gold standard: [[40_Resources/UMN/Previous Classes/Minor/MGMT 3001/Week - 4]] — read it before filling this template.*
 ## What you must be able to do
 Outcomes you'd be tested on. Pull directly from the syllabus learning objectives or from what the professor emphasized. One item per bullet. If you can't state the outcome in one sentence, you don't understand the scope yet.

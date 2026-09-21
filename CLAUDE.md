@@ -26,12 +26,10 @@ This vault is a personal knowledge system powered by Claude Code. The assistant 
 Do not duplicate shared workspace rules here unless they are Claude-specific.
 ## Folder Roles
 Full folder definitions: [[40_Resources/Obsidian/Jarvis Vault Architecture]]. Routing table for note placement: [[AGENTS.md]].
-
 ## Core Rules
-
+> [IMPORTANT] Always go through the global .claude folder instructions and global toolkit laid out. Implement mcp's and plugins installed globally based on the detailed configuration listed out 
 ### Editing Behavior
-
-1. **Prefer patching by heading** — Add content under existing headings instead of rewriting entire files.
+1. **Prefer patching by heading** - Add content under existing headings instead of rewriting entire files.
 2. **Preserve frontmatter** — Never remove or rename frontmatter keys unless explicitly asked.
 3. **Search before creating** — Use MCP search to check if a note already exists before creating a new one.
 4. **Respect maturity** — Notes with `status: tree` are stable; propose changes before modifying.

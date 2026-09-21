@@ -1,8 +1,52 @@
 {
   "recentFiles": [
     {
+      "basename": "CLAUDE",
+      "path": "CLAUDE.md"
+    },
+    {
+      "basename": "Jarvis OS — North Star",
+      "path": "60_Claude/07_AI_Information/Jarvis OS — North Star.md"
+    },
+    {
       "basename": "Repetitive Things",
       "path": "20_Progress/Degree/Repetitive Things.md"
+    },
+    {
+      "basename": "Weekly Standard",
+      "path": "30_Order/Standards/Courses/Weekly Standard.md"
+    },
+    {
+      "basename": "Weekly Board Standard",
+      "path": "30_Order/Standards/Courses/Weekly Board Standard.md"
+    },
+    {
+      "basename": "Textbook Standard",
+      "path": "30_Order/Standards/Courses/Textbook Standard.md"
+    },
+    {
+      "basename": "Project Standard",
+      "path": "30_Order/Standards/Courses/Project Standard.md"
+    },
+    {
+      "basename": "Preparation Standard",
+      "path": "30_Order/Standards/Courses/Preparation Standard.md"
+    },
+    {
+      "basename": "Homework Standard",
+      "path": "30_Order/Standards/Courses/Homework Standard.md"
+    },
+    {
+      "basename": "Discussion Standard",
+      "path": "30_Order/Standards/Courses/Discussion Standard.md"
+    },
+    {
+      "basename": "Concept Standard",
+      "path": "30_Order/Standards/Courses/Concept Standard.md"
+    },
+    {
+      "basename": "Board Standard",
+      "path": "30_Order/Standards/Courses/Board Standard.md"
     },
     {
       "basename": "Fall'26 Syllabus",
@@ -69,40 +113,12 @@
       "path": "20_Progress/Degree/CSCI 4511W/Weekly/Week - 2.md"
     },
     {
-      "basename": "Homework Standard",
-      "path": "30_Order/Standards/Courses/Homework Standard.md"
-    },
-    {
-      "basename": "Textbook Standard",
-      "path": "30_Order/Standards/Courses/Textbook Standard.md"
-    },
-    {
-      "basename": "Concept Standard",
-      "path": "30_Order/Standards/Courses/Concept Standard.md"
-    },
-    {
-      "basename": "Board Standard",
-      "path": "30_Order/Standards/Courses/Board Standard.md"
-    },
-    {
       "basename": "Exam Standard",
       "path": "30_Order/Standards/Courses/Exam Standard.md"
     },
     {
       "basename": "Lab Standard",
       "path": "30_Order/Standards/Courses/Lab Standard.md"
-    },
-    {
-      "basename": "Preparation Standard",
-      "path": "30_Order/Standards/Courses/Preparation Standard.md"
-    },
-    {
-      "basename": "Project Standard",
-      "path": "30_Order/Standards/Courses/Project Standard.md"
-    },
-    {
-      "basename": "Weekly Standard",
-      "path": "30_Order/Standards/Courses/Weekly Standard.md"
     },
     {
       "basename": "Weekly Board",
@@ -183,22 +199,6 @@
     {
       "basename": "Sync - Unison",
       "path": "20_Progress/AI/Claude Code/Sync - Unison.md"
-    },
-    {
-      "basename": "excalibrain",
-      "path": "10_Areas/Excalidraw/excalibrain.md"
-    },
-    {
-      "basename": "Imagine 09-19.excalidraw",
-      "path": "10_Areas/Excalidraw/Imagine 09-19.excalidraw.md"
-    },
-    {
-      "basename": "Internships Hub",
-      "path": "10_Areas/Career/Internships/Internships Hub.md"
-    },
-    {
-      "basename": "README",
-      "path": "10_Areas/Career/Internships/README.md"
     }
   ],
   "omittedPaths": [],

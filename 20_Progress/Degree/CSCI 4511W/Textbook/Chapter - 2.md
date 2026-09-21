@@ -18,34 +18,57 @@ next: "Connect the Chapter 2 agent model to the captured 9/14 lecture, then cont
 **Read from:** `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4511W\CSCI 4511W Textbook.pdf`
 **Course role:** The formal starting point for CSCI 4511W's search units: define the agent's task, classify the environment, and choose the least fragile agent architecture that can make good decisions.
 ## Chapter Summary
-==An intelligent agent maps percept history to action, and rational agent design begins by specifying the performance measure, environment, actuators, and sensors that make that mapping meaningful.==
-*Mechanism:* Rationality is conditional, not a personality trait. The right action depends on the success criterion, prior knowledge, available actions, and percept sequence. The environment then determines what the agent must remember and reason about: partial observability calls for internal state, goals call for lookahead, conflicting or uncertain outcomes call for utility, and unknown conditions call for learning.
+A rational agent selects actions that maximize its expected performance measure based on its percept sequence and built-in knowledge, requiring agent designs to be tailored to specific task environment properties [8, 31, 36, 44, 50, 54, 58, 62, ==167==].
+*Mechanism:* Sensory inputs generate a percept sequence that the agent program maps to actuator commands via internal mechanisms—ranging from simple reflex rules to internal world models, explicit goals, utility functions, and learning elements—which operate across atomic, factored, or structured state representations to manage environmental complexity, uncertainty, and partial observability (p. 36–58).
 ## Key Concepts
-- **Agent:** Anything that can be viewed as perceiving an environment through sensors and acting through actuators. The definition is an analysis tool, not a claim that every calculator or artifact is usefully an agent.
-- **Percept:** The content currently received by the agent's sensors.
-- **Percept sequence:** The complete history of an agent's percepts. The abstract agent function may depend on this entire history.
-- **Agent function:** The mathematical mapping from every possible percept sequence to an action.
-- **Agent program:** The concrete implementation that receives the current percept and returns an action. It must remember relevant history if behavior depends on more than the current percept.
-- **Performance measure:** The external criterion used to evaluate the sequence of environment states produced by the agent. It should describe what should be achieved, not merely the designer's preferred procedure.
-- **Rational agent:** For each percept sequence, an agent that selects the action expected to maximize the performance measure given its evidence, knowledge, and available actions.
-- **Information gathering:** Acting to improve future percepts or knowledge, such as looking both ways before crossing or exploring an unknown building.
-- **Autonomy:** The degree to which behavior is based on the agent's own experience and learning rather than only on the designer's initial assumptions.
-- **PEAS:** A task-environment description consisting of **Performance**, **Environment**, **Actuators**, and **Sensors**. It is the first design artifact for a rational agent.
-- **Fully observable vs. partially observable:** A fully observable environment exposes all action-relevant state; a partially observable one hides state through missing or noisy sensors.
-- **Single-agent vs. multiagent:** An entity counts as another agent when modeling it as optimizing a performance measure that depends on the focal agent's behavior is useful.
-- **Deterministic vs. nondeterministic:** In a deterministic environment, the current state and action determine the next state; otherwise multiple outcomes are possible. **Stochastic** means those possibilities are assigned probabilities.
-- **Episodic vs. sequential:** In episodic tasks, each decision is independent of earlier actions; in sequential tasks, current actions change future decisions and outcomes.
-- **Static, dynamic, and semidynamic:** A dynamic environment changes while the agent deliberates; a static one does not; a semidynamic one stays physically fixed while the score changes with time.
-- **Discrete vs. continuous:** The distinction may apply to states, time, percepts, or actions. Chess is mostly discrete; taxi driving is continuous.
-- **Known vs. unknown:** This describes the agent's knowledge of the environment's transition rules or outcome probabilities, not a property of the environment independent of the agent.
-- **Agent architecture:** The hardware or platform that connects sensors to the program and the program to actuators.
-- **Simple reflex agent:** Chooses from the current percept using condition–action rules and ignores history.
-- **Model-based reflex agent:** Maintains internal state using a transition model of how the world changes and a sensor model of how the world appears.
-- **Goal-based agent:** Uses explicit goal information and a model to choose actions that eventually reach desirable states. Search and planning support this design.
-- **Utility-based agent:** Uses a utility function to rank outcomes and chooses actions that maximize expected utility, allowing explicit tradeoffs and uncertainty.
-- **Learning agent:** Separates action selection from improvement. Its learning element changes the performance element using feedback from a critic, while a problem generator proposes informative exploration.
-- **Atomic, factored, and structured representations:** Atomic states are indivisible; factored states use variables and values; structured states represent objects and relations. Greater expressiveness usually makes reasoning harder.
-- **Localist vs. distributed representation:** A localist representation maps a concept to one location; a distributed representation spreads concepts across locations, improving robustness to partial noise and loss.
+- **Agent**: Anything that perceives its environment through sensors and acts upon that environment through actuators (p. 36).
+- **Sensors**: Passive or active input mechanisms through which an agent receives sensory inputs from its environment (p. 36).
+- **Actuators**: Output mechanisms by which an agent executes actions upon its environment (p. 36).
+- **Percept**: The specific sensory content an agent's sensors perceive at a single moment in time (p. 36).
+- **Percept sequence**: The complete, cumulative history of everything the agent has ever perceived (p. 36).
+- **Agent function**: An abstract mathematical mapping \\(f: \mathcal{P}^* \to \mathcal{A}\\) specifying the action for every possible percept sequence (p. 36).
+- **Agent program**: The concrete computational implementation of an agent function running on an agent architecture (p. 37).
+- **State**: A unique physical or conceptual configuration of the agent and its environment at a given point in time (Lecture 02).
+- **Rational agent**: An agent that selects an action expected to maximize its performance measure given its percept sequence and prior knowledge (p. 39).
+- **Consequentialism**: The evaluation of behavior strictly by the desirability of the sequence of environment states produced by actions (p. 38).
+- **Performance measure**: An objective external criterion evaluating any given sequence of environment states (p. 38).
+- **Omniscience**: Perfect knowledge of the actual outcome of actions in advance, which is impossible in realistic environments (p. 40).
+- **Autonomy**: The property of an agent whose choices are guided by its own experience and learning rather than relying exclusively on designer prior knowledge (p. 42).
+- **Task environment**: The formal problem specification to which a rational agent is the solution, specified via PEAS (p. 42).
+- **PEAS**: The acronym defining Performance measure, Environment, Actuators, and Sensors (p. 42).
+- **Fully observable** / **Partially observable**: Fully observable environments provide sensors complete state access, whereas partially observable environments lack complete state data due to noisy or missing inputs (p. 44–45).
+- **Single-agent** / **Multiagent**: Single-agent environments involve one decision maker, whereas multiagent environments contain multiple entities whose decisions affect each other's performance (p. 45).
+- **Competitive** / **Cooperative**: Dynamics where maximizing one agent's performance minimizes another's vs. agents sharing performance objectives (p. 45).
+- **Deterministic** / **Nondeterministic** / **Stochastic**: Deterministic environments have next states completely determined by current state and action, whereas nondeterministic or stochastic environments involve outcome uncertainty or explicit probabilities (p. 45).
+- **Episodic** / **Sequential**: Episodic environments divide experience into independent episodes, whereas sequential actions have long-term consequences across time (p. 45).
+- **Static** / **Dynamic** / **Semidynamic**: Static environments do not change during deliberation; dynamic environments change continuously during deliberation; semidynamic environments decay score over time (p. 45).
+- **Discrete** / **Continuous**: Environments with finite/countable distinct states/actions vs. variables varying smoothly over continuous domains (p. 45).
+- **Known** / **Unknown**: Refers to the agent's knowledge of the environment's rules/physics rather than state observability (p. 45–46).
+- **Agent architecture**: The physical computing device, sensors, and actuators hosting the agent program (p. 46).
+- **Table-driven agent**: An agent program storing an explicit lookup table mapping percept sequences to actions (p. 47).
+- **Simple reflex agent**: An agent program selecting actions based strictly on the current percept, ignoring percept history (p. 48).
+- **Condition-action rules**: Explicit `if condition then action` mappings connecting state representations to actions (p. 48).
+- **Model-based reflex agent**: An agent program maintaining internal state updated by transition and sensor models to track unobserved world aspects (p. 50).
+- **Internal state**: Data structure stored within an agent representing unobserved aspects of the world based on percept history (p. 50).
+- **Transition model**: Knowledge of how the world evolves independently and how agent actions affect the state (p. 51).
+- **Sensor model**: Knowledge of how invisible physical world states are reflected in sensory percepts (p. 51).
+- **Goal-based agent**: An agent combining state descriptions with explicit goal descriptions to select action sequences achieving desirable situations (p. 52).
+- **Goal**: A formal description of desirable environment states or situations (p. 52).
+- **Utility-based agent**: An agent using a utility function to evaluate state desirability, enabling rational decision-making under goal conflicts and uncertainty (p. 53–54).
+- **Utility**: A real-valued measure indicating the degree of state desirability ("happiness") (p. 53).
+- **Utility function**: An internal mathematical function \\(U(s)\\) mapping world states to real numbers, internalizing the performance measure (p. 53).
+- **Expected utility**: The probability-weighted average utility of outcome states resulting from an action, maximized under uncertainty (p. 54).
+- **Model-free agent**: An agent that learns optimal actions directly without constructing an explicit transition model (p. 54–55).
+- **Learning agent**: An agent framework split into learning element, performance element, critic, and problem generator (p. 55).
+- **Learning element**: The component responsible for making structural improvements to internal agent knowledge based on feedback (p. 55).
+- **Performance element**: The decision-making component selecting external actions from percepts (p. 55).
+- **Critic**: The component evaluating agent behavior against a fixed external performance standard to generate feedback (p. 55).
+- **Problem generator**: The component suggesting exploratory actions yielding novel experiences (p. 55).
+- **Reward** / **Penalty**: Scalar feedback signals provided by the external performance standard (p. 55).
+- **Atomic representation**: State representation where each state is an indivisible black box identified only by its label (p. 56–57).
+- **Factored representation**: State representation splitting each state into a fixed vector of attribute variables with values (p. 57).
+- **Structured representation**: State representation explicitly encoding individual objects, attributes, and relationships among objects (p. 57–58).
+- ==**Expressiveness**==: The formal power of a representation language to compactly and flexibly capture complex world states and transition rules (p. 58).
 ## Full Reading Notes
 ### 2.1 Agents and Environments
 An **agent** is anything that can be viewed as perceiving its environment through **sensors** and acting upon that environment through **actuators** (p. 36). Human agents perceive via eyes, ears, and other organs, acting through hands, legs, and vocal tracts; robotic agents perceive via cameras and infrared range finders, acting through electric motors; softbots perceive via keystrokes, file contents, and network packets, acting by displaying text on screens, writing files, or sending network packets (p. 36). The environment encompasses that portion of the universe whose state affects what the agent perceives and is affected by the agent's actions (p. 36). A **percept** refers strictly to the content an agent's sensors are perceiving at a single moment in time (p. 36). A **percept sequence** is the complete history of everything the agent has ever perceived throughout its operational lifetime (p. 36). An agent's choice of action at any given instant depends on its built-in knowledge and its percept sequence observed to date, but never on unperceived aspects of the world (p. 36).
@@ -199,58 +222,6 @@ Agent program components represent world states along an axis of increasing **ex
 3. **Structured representation**: Explicitly encodes individual objects, their attributes, and explicit relationships among objects (first-order logic, relational databases, NLP) (p. 57–58).
 *Trade-off:* Expressive representations are far more compact (chess rules in 1 page vs. thousands in factored vs. \\(10^{38}\\) in atomic), but reasoning complexity increases (p. 58).
 *Memory Mapping:* **Localist representation** (1-to-1 concept to memory location mapping) vs. **distributed representation** (concepts spread across multidimensional space, providing noise robustness) (p. 58).
-## Chapter Summary
-A rational agent selects actions that maximize its expected performance measure based on its percept sequence and built-in knowledge, requiring agent designs to be tailored to specific task environment properties [8, 31, 36, 44, 50, 54, 58, 62, ==167==].
-*Mechanism:* Sensory inputs generate a percept sequence that the agent program maps to actuator commands via internal mechanisms—ranging from simple reflex rules to internal world models, explicit goals, utility functions, and learning elements—which operate across atomic, factored, or structured state representations to manage environmental complexity, uncertainty, and partial observability (p. 36–58).
-## Key Concepts
-- **Agent**: Anything that perceives its environment through sensors and acts upon that environment through actuators (p. 36).
-- **Sensors**: Passive or active input mechanisms through which an agent receives sensory inputs from its environment (p. 36).
-- **Actuators**: Output mechanisms by which an agent executes actions upon its environment (p. 36).
-- **Percept**: The specific sensory content an agent's sensors perceive at a single moment in time (p. 36).
-- **Percept sequence**: The complete, cumulative history of everything the agent has ever perceived (p. 36).
-- **Agent function**: An abstract mathematical mapping \\(f: \mathcal{P}^* \to \mathcal{A}\\) specifying the action for every possible percept sequence (p. 36).
-- **Agent program**: The concrete computational implementation of an agent function running on an agent architecture (p. 37).
-- **State**: A unique physical or conceptual configuration of the agent and its environment at a given point in time (Lecture 02).
-- **Rational agent**: An agent that selects an action expected to maximize its performance measure given its percept sequence and prior knowledge (p. 39).
-- **Consequentialism**: The evaluation of behavior strictly by the desirability of the sequence of environment states produced by actions (p. 38).
-- **Performance measure**: An objective external criterion evaluating any given sequence of environment states (p. 38).
-- **Omniscience**: Perfect knowledge of the actual outcome of actions in advance, which is impossible in realistic environments (p. 40).
-- **Autonomy**: The property of an agent whose choices are guided by its own experience and learning rather than relying exclusively on designer prior knowledge (p. 42).
-- **Task environment**: The formal problem specification to which a rational agent is the solution, specified via PEAS (p. 42).
-- **PEAS**: The acronym defining Performance measure, Environment, Actuators, and Sensors (p. 42).
-- **Fully observable** / **Partially observable**: Fully observable environments provide sensors complete state access, whereas partially observable environments lack complete state data due to noisy or missing inputs (p. 44–45).
-- **Single-agent** / **Multiagent**: Single-agent environments involve one decision maker, whereas multiagent environments contain multiple entities whose decisions affect each other's performance (p. 45).
-- **Competitive** / **Cooperative**: Dynamics where maximizing one agent's performance minimizes another's vs. agents sharing performance objectives (p. 45).
-- **Deterministic** / **Nondeterministic** / **Stochastic**: Deterministic environments have next states completely determined by current state and action, whereas nondeterministic or stochastic environments involve outcome uncertainty or explicit probabilities (p. 45).
-- **Episodic** / **Sequential**: Episodic environments divide experience into independent episodes, whereas sequential actions have long-term consequences across time (p. 45).
-- **Static** / **Dynamic** / **Semidynamic**: Static environments do not change during deliberation; dynamic environments change continuously during deliberation; semidynamic environments decay score over time (p. 45).
-- **Discrete** / **Continuous**: Environments with finite/countable distinct states/actions vs. variables varying smoothly over continuous domains (p. 45).
-- **Known** / **Unknown**: Refers to the agent's knowledge of the environment's rules/physics rather than state observability (p. 45–46).
-- **Agent architecture**: The physical computing device, sensors, and actuators hosting the agent program (p. 46).
-- **Table-driven agent**: An agent program storing an explicit lookup table mapping percept sequences to actions (p. 47).
-- **Simple reflex agent**: An agent program selecting actions based strictly on the current percept, ignoring percept history (p. 48).
-- **Condition-action rules**: Explicit `if condition then action` mappings connecting state representations to actions (p. 48).
-- **Model-based reflex agent**: An agent program maintaining internal state updated by transition and sensor models to track unobserved world aspects (p. 50).
-- **Internal state**: Data structure stored within an agent representing unobserved aspects of the world based on percept history (p. 50).
-- **Transition model**: Knowledge of how the world evolves independently and how agent actions affect the state (p. 51).
-- **Sensor model**: Knowledge of how invisible physical world states are reflected in sensory percepts (p. 51).
-- **Goal-based agent**: An agent combining state descriptions with explicit goal descriptions to select action sequences achieving desirable situations (p. 52).
-- **Goal**: A formal description of desirable environment states or situations (p. 52).
-- **Utility-based agent**: An agent using a utility function to evaluate state desirability, enabling rational decision-making under goal conflicts and uncertainty (p. 53–54).
-- **Utility**: A real-valued measure indicating the degree of state desirability ("happiness") (p. 53).
-- **Utility function**: An internal mathematical function \\(U(s)\\) mapping world states to real numbers, internalizing the performance measure (p. 53).
-- **Expected utility**: The probability-weighted average utility of outcome states resulting from an action, maximized under uncertainty (p. 54).
-- **Model-free agent**: An agent that learns optimal actions directly without constructing an explicit transition model (p. 54–55).
-- **Learning agent**: An agent framework split into learning element, performance element, critic, and problem generator (p. 55).
-- **Learning element**: The component responsible for making structural improvements to internal agent knowledge based on feedback (p. 55).
-- **Performance element**: The decision-making component selecting external actions from percepts (p. 55).
-- **Critic**: The component evaluating agent behavior against a fixed external performance standard to generate feedback (p. 55).
-- **Problem generator**: The component suggesting exploratory actions yielding novel experiences (p. 55).
-- **Reward** / **Penalty**: Scalar feedback signals provided by the external performance standard (p. 55).
-- **Atomic representation**: State representation where each state is an indivisible black box identified only by its label (p. 56–57).
-- **Factored representation**: State representation splitting each state into a fixed vector of attribute variables with values (p. 57).
-- **Structured representation**: State representation explicitly encoding individual objects, attributes, and relationships among objects (p. 57–58).
-- ==**Expressiveness**==: The formal power of a representation language to compactly and flexibly capture complex world states and transition rules (p. 58).
 ## Worked Example
 End-to-end trace of the automated taxi driver through Chapter 2 frameworks:
 1. *PEAS Formulation (p. 42):*
@@ -295,28 +266,3 @@ What structural advantage does a utility-based agent have over a goal-based agen
 What is the operational role of the critic versus the performance element in a learning agent?::The performance element chooses external actions based on percepts, while the critic evaluates actions against a fixed external performance standard to provide learning feedback (p. 55). #cards/ai
 How do atomic, factored, and structured representations contrast in expressive power?::Atomic representations treat states as indivisible black boxes; factored representations split states into attribute-value vectors; structured representations encode explicit objects and relationships (p. 56–58). #cards/ai
 ==Why must a learning agent's performance standard remain fixed outside the agent?==::Because if the agent could modify its performance standard, it could lower its standards to match poor behavior rather than learning to improve performance (p. 55). #cards/ai
-## Worked Example: Designing an Automated Taxi
-Start with PEAS before choosing an algorithm. If the performance measure rewards only arrival speed, the resulting agent will likely violate safety and comfort. If the sensor list omits camera, lidar, speed, or vehicle-health information, no amount of search can recover state the architecture cannot observe.
-
-Then classify the environment: it is partially observable because drivers and obstacles are hidden; multiagent because other drivers and passengers matter; nondeterministic because traffic and hardware can surprise the agent; sequential because a lane change affects future options; dynamic because the world changes while the agent computes; continuous because position and steering vary smoothly; and mostly known but never perfectly so.
-
-That classification predicts the architecture. A simple reflex rule handles immediate braking, a model-based component tracks hidden traffic, a goal-based component plans a route, a utility-based component trades time against safety and comfort, and a learning element improves models from feedback. The design is layered because the environment is layered.
-## Connections
-- **Lecture:** The course schedule assigns Chapter 2.1–2.4 to the 9/14 lecture under **Intelligent Agents**; the full lecture note has not yet been captured in the vault, so no lecture details are invented here. See [[CSCI 4511W Board#Schedule|the dated course schedule]].
-- **Previous lecture vocabulary:** [[20_Progress/Degree/CSCI 4511W/Weekly/Week - 1|Week - 1]] records Performance Measure, Environment, Actuators, Sensors, and Vacuum World; Chapter 2 supplies the formal definitions and design consequences.
-- **Next course move:** Chapter 3 (to create) will use the goal-based agent idea to formulate and solve search problems.
-- **Concept queue:** [[20_Progress/Degree/CSCI 4511W/Concepts/AI Concept Board|AI Concept Board]] and [[20_Progress/Degree/CSCI 4511W/Concepts/Definitions|Definitions]] are empty existing placeholders for future standalone notes on rationality, PEAS, environment properties, and agent architectures.
-## Open Questions
-- [ ] Write the PEAS description for a course-assignment assistant and identify at least two conflicting performance objectives.
-- [ ] Classify the vacuum world, chess, a defective-part classifier, and an automated taxi on all seven environment dimensions.
-- [ ] Explain why a known environment can still be partially observable and why an unknown environment can still be fully observable.
-- [ ] Compare simple reflex, model-based, goal-based, and utility-based agents on the same taxi scenario.
-- [ ] Explain why the table-driven agent is conceptually correct but physically unusable.
-## Flashcards
-What four factors determine whether an action is rational?::The performance measure, prior knowledge of the environment, available actions, and percept sequence so far. #cards/ai
-What does PEAS stand for, and why is it written before choosing an algorithm?::Performance, Environment, Actuators, Sensors; it defines what success means, what the agent can observe, and what it can change. #cards/ai
-What is the difference between fully observable and known?::Fully observable concerns whether the sensors reveal all action-relevant state; known concerns whether the agent knows the environment's rules or outcome probabilities. #cards/ai
-Why does a model-based reflex agent need both a transition model and a sensor model?::The transition model predicts how the world changes, while the sensor model explains how world states appear in percepts; together they update hidden state. #cards/ai
-Why are goals weaker than utilities?::Goals say whether a state is achieved, while utilities rank different achieved or partially achieved outcomes and express tradeoffs such as speed versus safety. #cards/ai
-What are the four parts of a learning agent?::Performance element, learning element, critic, and problem generator. #cards/ai
-What is the representation tradeoff between atomic, factored, and structured states?::Expressiveness and compactness increase from atomic to structured, but the complexity of reasoning and learning generally increases too. #cards/ai

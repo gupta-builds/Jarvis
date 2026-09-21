@@ -18,7 +18,7 @@ related_progress:
   - "[[HUMAN_WRITING]]"
 ---
 # CLAUDE.md — Vault Operating Contract
-This vault is a personal knowledge system powered by Claude Code. The assistant reads, writes, and maintains notes directly in Obsidian. For *why Jarvis exists, why it underperforms today, and the target state*, read [[Jarvis OS — North Star]] — the strategy spine. This file owns only Claude-specific workflow (skills, commands, session protocol); it should not restate the system philosophy or the routing tables that live in the North Star and [[40_Resources/Obsidian/Jarvis Vault Architecture]]. Shared vault context lives in:
+This vault is a personal knowledge system. The assistant(you) reads, writes, and maintains notes directly in Obsidian. For *why Jarvis exists, why it underperforms today, and the target state*, read [[Jarvis OS — North Star]] — the strategy spine. This file owns only Claude-specific workflow (skills, commands, session protocol); it should not restate the system philosophy or the routing tables that live in the North Star and [[40_Resources/Obsidian/Jarvis Vault Architecture]]. Shared vault context lives in:
 - [[Jarvis OS — North Star]]
 - [[AI_CONTEXT]]
 - [[AGENTS]]
@@ -26,10 +26,12 @@ This vault is a personal knowledge system powered by Claude Code. The assistant 
 Do not duplicate shared workspace rules here unless they are Claude-specific.
 ## Folder Roles
 Full folder definitions: [[40_Resources/Obsidian/Jarvis Vault Architecture]]. Routing table for note placement: [[AGENTS.md]].
+
 ## Core Rules
-> [IMPORTANT] Always go through the global .claude folder instructions and global toolkit laid out. Implement mcp's and plugins installed globally based on the detailed configuration listed out 
+
 ### Editing Behavior
-1. **Prefer patching by heading** - Add content under existing headings instead of rewriting entire files.
+
+1. **Prefer patching by heading** — Add content under existing headings instead of rewriting entire files.
 2. **Preserve frontmatter** — Never remove or rename frontmatter keys unless explicitly asked.
 3. **Search before creating** — Use MCP search to check if a note already exists before creating a new one.
 4. **Respect maturity** — Notes with `status: tree` are stable; propose changes before modifying.
@@ -93,52 +95,6 @@ At the end of each working session:
 ### Daily Operations Cadence
 
 Run `/startday` to open the day: reads your plans, loads session history, and fills today's periodic note at `10_Areas/Life/Enumerate/Daily/`. Work through the day. Run `/closeday` to close: verifies completions and writes the scorecard into the same note. Run `/ops health-check` for vault maintenance (not daily planning). See `.claude/skills/ops.md` for vault health operations.
-
-## Available Skills
-
-Skills are registered as slash commands via `.claude/commands/`. Type the command and the harness executes it — no prompt needed. Skill logic lives in `.claude/skills/` (edit there, not in commands).
-
-| Skill | Command | Logic file |
-|-------|---------|------------|
-| Ingest clipping | `/ingest-clipping "filename.md"` | `.claude/skills/ingest-clipping.md` |
-| Transcript to brief | `/transcript-to-brief` | `.claude/skills/transcript-to-brief.md` |
-| Note to actions | `/note-to-actions` | `.claude/skills/note-to-actions.md` |
-| Distill note | `/distill-note` | `.claude/skills/distill-note.md` |
-| Remove AI slop | `/remove-ai-slop` | `.claude/skills/remove-ai-slop.md` |
-| Get context | `/context` | `.claude/skills/context.md` |
-| Start day | `/startday` | `.claude/skills/startday.md` |
-| Trace topic | `/trace-topic "topic"` | `.claude/skills/trace-topic.md` |
-| Connect notes | `/connect-notes` | `.claude/skills/connect-notes.md` |
-| End of day | `/closeday` | `.claude/skills/closeday.md` |
-| Weekly review | `/weekly-review` | `.claude/skills/weekly-review.md` |
-| Lint Claude layer | `/lint-claude-layer` | `.claude/skills/lint-claude-layer.md` |
-| Daily vault ops | `/ops [operation]` | `.claude/skills/ops.md` |
-| Organize CSCI 2033 | `/organize-csci2033` | `.claude/skills/organize-csci2033.md` |
-| Excalidraw diagram | `/excalidraw-diagram` | `.claude/skills/excalidraw-diagram.md` |
-| Export AI session | `/export-ai-session` | **global** — `~/.claude/skills/export-ai-session/SKILL.md` (not project-local; writes into this vault regardless of invoking cwd) |
-| Pressure-test a belief/plan | `/challenge "belief or plan"` | `.claude/skills/challenge.md` |
-| Grounded idea report | `/ideas "domain"` | `.claude/skills/ideas.md` |
-| Strategy analysis (SWOT/WARGAME/PARETO/LEVERAGE) | `/strategy "decision"` | `.claude/skills/strategy.md` |
-| 5-advisor decision council | `/llm-council "question"` | `.claude/skills/llm-council.md` |
-
-## Available Agents
-When a user invokes an agent, read the corresponding file from `.claude/agents/` and follow its instructions.
-
-| Agent | Purpose | File |
-|-------|---------|------|
-| `research-distiller` | Turns sources into durable notes | `.claude/agents/research-distiller.md` |
-| `vault-curator` | Maintains links, deduplication, structure | `.claude/agents/vault-curator.md` |
-| `career-operator` | Handles career/internship/portfolio notes | `.claude/agents/career-operator.md` |
-| `anti-slop-editor` | Rewrites AI-sounding prose into human writing | `.claude/agents/anti-slop-editor.md` |
-| `learning-agent` | Drills concepts (spaced repetition) and answers vault-only topic research | `.claude/agents/learning-agent.md` |
-| `daily-operator` | Manages daily dashboard, plans, task rollover, schedules | `.claude/agents/daily-operator.md` |
-| `human-operator` | Default vault writer, humanizer-aware (scaffold) | `.claude/agents/human-operator.md` |
-| `ingestion` | Entry point for any source ingestion (YouTube/PDF/web/transcripts) | `.claude/agents/ingestion.md` |
-| `llm-council` | Isolated wrapper for the `/llm-council` 5-advisor skill | `.claude/agents/llm-council.md` |
-| `note-to-actions` | Isolated wrapper for the `/note-to-actions` skill | `.claude/agents/note-to-actions.md` |
-| `professor` | Coordinates per-course skills/commands/hooks | `.claude/agents/professor.md` |
-
----
 
 **Meta:** Keep this file under ~150 lines. Link to detailed notes instead of repeating information.
 

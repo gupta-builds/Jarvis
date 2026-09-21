@@ -1461,3 +1461,11 @@ Solved the paper portion of Problem Set 1 grounded in Chapter 2 (Intelligent Age
 **Flag, not resolved:** the stated due date was 9/18; today is 9/20, so the late-work window from the Board needs checking before this gets submitted - not assumed either way.
 
 **Next:** Anant to review the written solutions and confirm the late-submission status, then start the ps1.py code portion (Problems 4-5).
+
+## [2026-09-21] write | WSL session and Jarvis MCP build prompt
+
+Created `40_Resources/CS/Concepts/New Laptop/Codebases/second-brain-claudekit/second-brain-claudekit-wsl-session-and-jarvis-mcp-build.md` as the handoff prompt for the next WSL session. It explicitly keeps `~/projects/ai/` in planning mode: no clone, placeholder repository, dependency install, hook activation, or sync restart. It defines layered environments for WSL, Windows, AI workspace, codebases, sandboxes, Jarvis, and coding courses; uses reviewed `direnv` activation for future directories; and keeps secrets outside vault notes and repositories.
+
+The prompt also records the current MCP limitation discovered in this session: Jarvis status and keyword search were successfully called and reported 6,265 indexed notes, but the full read/write/patch/delete family was not exposed. It therefore requires a live tool-list and endpoint audit, limits the desired first contract to nine tools, treats `plan` as a workflow phase rather than an API function, prefers the Local REST API plugin's built-in MCP over duplicate wrappers, and requires human confirmation for destructive operations. Research links to the Local REST API documentation, MCP tool/security specifications, and Microsoft WSL configuration guidance are included in the note.
+
+**Next:** Run the prompt from a fresh WSL session and report the exact Jarvis MCP reachability, available tool schemas, live Obsidian endpoint, and remaining configuration gap before changing anything else.

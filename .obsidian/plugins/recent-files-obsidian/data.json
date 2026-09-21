@@ -1,6 +1,26 @@
 {
   "recentFiles": [
     {
+      "basename": "second-brain-claudekit-wsl-session-and-jarvis-mcp-build",
+      "path": "40_Resources/CS/Concepts/New Laptop/Codebases/second-brain-claudekit/second-brain-claudekit-wsl-session-and-jarvis-mcp-build.md"
+    },
+    {
+      "basename": "second-brain-claudekit-new-laptop-directive",
+      "path": "40_Resources/CS/Concepts/New Laptop/Codebases/second-brain-claudekit/second-brain-claudekit-new-laptop-directive.md"
+    },
+    {
+      "basename": "second-brain-claudekit-jarvis-unison-sync",
+      "path": "40_Resources/CS/Concepts/New Laptop/Codebases/second-brain-claudekit/second-brain-claudekit-jarvis-unison-sync.md"
+    },
+    {
+      "basename": "second-brain-claudekit-ignored-state-and-sandbox",
+      "path": "40_Resources/CS/Concepts/New Laptop/Codebases/second-brain-claudekit/second-brain-claudekit-ignored-state-and-sandbox.md"
+    },
+    {
+      "basename": "second-brain-claudekit-git-clone-and-bootstrap",
+      "path": "40_Resources/CS/Concepts/New Laptop/Codebases/second-brain-claudekit/second-brain-claudekit-git-clone-and-bootstrap.md"
+    },
+    {
       "basename": "Chapter - 2",
       "path": "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 2.md"
     },
@@ -179,26 +199,6 @@
     {
       "basename": "Tool log",
       "path": "60_Claude/30_Reviews/AI/Tools/Tool log.md"
-    },
-    {
-      "basename": "00 - Capture Health",
-      "path": "60_Claude/05_Clippings/AI Conversations/00 - Capture Health.md"
-    },
-    {
-      "basename": "Log",
-      "path": "20_Progress/Projects/AI Use/Claude Kit/Log.md"
-    },
-    {
-      "basename": "Build Map",
-      "path": "20_Progress/Projects/AI Use/Claude Kit/Build Map.md"
-    },
-    {
-      "basename": "System - Build Log",
-      "path": "20_Progress/Internship/Building System/System - Build Log.md"
-    },
-    {
-      "basename": "Claude OS Dashboard",
-      "path": "20_Progress/AI/Claude OS Dashboard.md"
     }
   ],
   "omittedPaths": [],

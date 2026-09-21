@@ -1,8 +1,16 @@
 {
   "recentFiles": [
     {
+      "basename": "Week Template",
+      "path": "30_Order/Templates/Classes/Week Template.md"
+    },
+    {
       "basename": "Textbook Template",
       "path": "30_Order/Templates/Classes/Textbook Template.md"
+    },
+    {
+      "basename": "Weekly Board Template",
+      "path": "30_Order/Templates/Classes/Weekly Board Template.md"
     },
     {
       "basename": "Textbook Map Template",
@@ -17,32 +25,32 @@
       "path": "30_Order/Templates/Classes/Preparation Template.md"
     },
     {
-      "basename": "Lab Template",
-      "path": "30_Order/Templates/Classes/Lab Template.md"
-    },
-    {
-      "basename": "Homework Template",
-      "path": "30_Order/Templates/Classes/Homework Template.md"
-    },
-    {
       "basename": "Exam Sheet Template",
       "path": "30_Order/Templates/Classes/Exam Sheet Template.md"
+    },
+    {
+      "basename": "Concept Template",
+      "path": "30_Order/Templates/Classes/Concept Template.md"
     },
     {
       "basename": "Discussion Template",
       "path": "30_Order/Templates/Classes/Discussion Template.md"
     },
     {
-      "basename": "Weekly Board",
-      "path": "40_Resources/UMN/Previous Classes/Weekly Board.md"
+      "basename": "Lab Template",
+      "path": "30_Order/Templates/Classes/Lab Template.md"
     },
     {
       "basename": "Board or Main Template",
       "path": "30_Order/Templates/Classes/Board or Main Template.md"
     },
     {
-      "basename": "Concept Template",
-      "path": "30_Order/Templates/Classes/Concept Template.md"
+      "basename": "Homework Template",
+      "path": "30_Order/Templates/Classes/Homework Template.md"
+    },
+    {
+      "basename": "Weekly Board",
+      "path": "40_Resources/UMN/Previous Classes/Weekly Board.md"
     },
     {
       "basename": "UMN Board",
@@ -191,14 +199,6 @@
     {
       "basename": "WSL New Laptop Master Plan — Verified 2026-09-11",
       "path": "40_Resources/CS/Concepts/New Laptop/WSL New Laptop Master Plan — Verified 2026-09-11.md"
-    },
-    {
-      "basename": "New Laptop Setup",
-      "path": "40_Resources/CS/Concepts/New Laptop/New Laptop Setup.md"
-    },
-    {
-      "basename": "Ubuntu - WSL",
-      "path": "40_Resources/CS/Concepts/New Laptop/Ubuntu - WSL.md"
     }
   ],
   "omittedPaths": [],

@@ -1,6 +1,30 @@
 {
   "recentFiles": [
     {
+      "basename": "second-brain-claudekit-wsl-session-and-jarvis-mcp-build",
+      "path": "40_Resources/CS/Concepts/New Laptop/Codebases/second-brain-claudekit/second-brain-claudekit-wsl-session-and-jarvis-mcp-build.md"
+    },
+    {
+      "basename": "second-brain-claudekit-git-clone-and-bootstrap",
+      "path": "40_Resources/CS/Concepts/New Laptop/Codebases/second-brain-claudekit/second-brain-claudekit-git-clone-and-bootstrap.md"
+    },
+    {
+      "basename": "second-brain-claudekit-ignored-state-and-sandbox",
+      "path": "40_Resources/CS/Concepts/New Laptop/Codebases/second-brain-claudekit/second-brain-claudekit-ignored-state-and-sandbox.md"
+    },
+    {
+      "basename": "second-brain-claudekit-jarvis-unison-sync",
+      "path": "40_Resources/CS/Concepts/New Laptop/Codebases/second-brain-claudekit/second-brain-claudekit-jarvis-unison-sync.md"
+    },
+    {
+      "basename": "second-brain-claudekit-new-laptop-directive",
+      "path": "40_Resources/CS/Concepts/New Laptop/Codebases/second-brain-claudekit/second-brain-claudekit-new-laptop-directive.md"
+    },
+    {
+      "basename": "Course Production Board — Fall'26",
+      "path": "20_Progress/Degree/Course Production Board — Fall'26.md"
+    },
+    {
       "basename": "Problem Set 1",
       "path": "20_Progress/Degree/CSCI 4511W/Assignments/Written/Problem Set 1.md"
     },
@@ -175,30 +199,6 @@
     {
       "basename": "Preparation",
       "path": "20_Progress/Degree/CSCI 4511W/Preparation.md"
-    },
-    {
-      "basename": "Textbook Map",
-      "path": "20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.md"
-    },
-    {
-      "basename": "Textbook Map",
-      "path": "20_Progress/Degree/CSCI 4511W/Textbook/Textbook Map.md"
-    },
-    {
-      "basename": "Lecture - 1",
-      "path": "20_Progress/Degree/MGMT 3015/Lecture/Lecture - 1.md"
-    },
-    {
-      "basename": "Textbook Map",
-      "path": "20_Progress/Degree/MGMT 3015/Textbook/Textbook Map.md"
-    },
-    {
-      "basename": "Entrepreneurship Concepts Board",
-      "path": "20_Progress/Degree/MGMT 3015/Concepts/Entrepreneurship Concepts Board.md"
-    },
-    {
-      "basename": "Weekly Board",
-      "path": "20_Progress/Degree/MGMT 3015/Lecture/Weekly Board.md"
     }
   ],
   "omittedPaths": [],

@@ -2,7 +2,7 @@
 type: evergreen
 status: sprout
 created: 2026-09-08
-updated: 2026-09-08
+updated: 2026-09-20
 tags:
   - system
   - workflow
@@ -15,6 +15,9 @@ Document every option a project offers before committing to one, then keep the n
 **Use when:** a multi-week course project gets assigned.
 **Moves:** the assignment's option list + the shared starter scaffold → `<Course>/<Project Name>.md` plus a matching working folder, per [[Project Standard]].
 **Template:** [[Project Template]]
+## Normative procedure
+Create the project note when assigned and before choosing an option. Read the full prompt/rubric, every file in the project folder, the shared scaffold, relevant lecture/textbook material, practice files, and any named papers or methods. Document every offered option with purpose, technique, starting files, constraints, evaluation, and references. Mark the selected option only after the choice is real.
+During the build, make `Chosen Project` precise enough to rebuild: data model, parameters, invariants, algorithm flow, test cases, outputs, and implementation decisions. Use Work Log entries for evidence-backed milestones and failures, not a plan written retroactively. Link only concepts/weeks/chapters actually used. Record submission and required reviews, then complete Post-Submit Reflection within a day or two and propagate recurring patterns to concepts and preparation.
 ## Steps
 1. Read [[Project Standard]] (the `Standards/Courses/` one, not the general `20_Progress/` Project Standard) before writing.
 2. As soon as the assignment is out, create the project note from [[Project Template]] and document every option offered under `## Project Options` — even the ones not being picked.

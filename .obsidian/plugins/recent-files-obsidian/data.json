@@ -1,6 +1,30 @@
 {
   "recentFiles": [
     {
+      "basename": "CSCI 4511W Workflow",
+      "path": "30_Order/Workflows/Courses/Per Class/CSCI 4511W Workflow.md"
+    },
+    {
+      "basename": "Textbook Workflow",
+      "path": "30_Order/Workflows/Courses/Textbook Workflow.md"
+    },
+    {
+      "basename": "Projects Workflow",
+      "path": "30_Order/Workflows/Courses/Projects Workflow.md"
+    },
+    {
+      "basename": "Exam Workflow",
+      "path": "30_Order/Workflows/Courses/Exam Workflow.md"
+    },
+    {
+      "basename": "Lab Workflow",
+      "path": "30_Order/Workflows/Courses/Lab Workflow.md"
+    },
+    {
+      "basename": "Weekly Workflow",
+      "path": "30_Order/Workflows/Courses/Weekly Workflow.md"
+    },
+    {
       "basename": "CSCI 4511W Board",
       "path": "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md"
     },
@@ -175,30 +199,6 @@
     {
       "basename": "Week - 1",
       "path": "20_Progress/Degree/CSCI 4511W/Weekly/Week - 1.md"
-    },
-    {
-      "basename": "Textbook Map",
-      "path": "20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.md"
-    },
-    {
-      "basename": "Textbook Map",
-      "path": "20_Progress/Degree/CSCI 4511W/Textbook/Textbook Map.md"
-    },
-    {
-      "basename": "Lecture - 1",
-      "path": "20_Progress/Degree/MGMT 3015/Lecture/Lecture - 1.md"
-    },
-    {
-      "basename": "Textbook Map",
-      "path": "20_Progress/Degree/MGMT 3015/Textbook/Textbook Map.md"
-    },
-    {
-      "basename": "Entrepreneurship Concepts Board",
-      "path": "20_Progress/Degree/MGMT 3015/Concepts/Entrepreneurship Concepts Board.md"
-    },
-    {
-      "basename": "Weekly Board",
-      "path": "20_Progress/Degree/MGMT 3015/Lecture/Weekly Board.md"
     }
   ],
   "omittedPaths": [],

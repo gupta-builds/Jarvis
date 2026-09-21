@@ -12,6 +12,7 @@ tags:
   - "#Textbook"
   - "#AI"
 next: "Use this framing with Chapter 2, then continue to Chapter 3 before the next search unit"
+---
 # Chapter - 1 — Introduction to Artificial Intelligence
 **Source:** Stuart Russell and Peter Norvig, *Artificial Intelligence: A Modern Approach*, 4th ed. (Pearson, 2020), Chapter 1, pp. 1–35.
 **Read from:** `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4511W\CSCI 4511W Textbook.pdf`

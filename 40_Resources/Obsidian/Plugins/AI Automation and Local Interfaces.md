@@ -91,9 +91,7 @@ Needs verification:
 - Whether command endpoints should be allowed for any AI workflow — none currently approved.
 
 ## opencode
-**Resolved 2026-09-20.** The user installed `opencode` (`anomalyco/opencode`, the open-source AI coding CLI, multi-model including free/open providers) believing it was related to Obsidian Copilot, then hit an error running the `opencode` command in a terminal. Confirmed the user wants the **standalone CLI** working, independent of Copilot, for free/open-model work.
-
-**Fixed:** `opencode` was genuinely never installed as a standalone CLI on this machine (confirmed directly — not on PATH in PowerShell or Git Bash, not a global npm package under either name) — the error was almost certainly a plain "not recognized"/"command not found," not a deeper config problem. Installed via the project's own official method: `npm i -g opencode-ai@latest`. Verified working in both PowerShell and Git Bash: `opencode --version` → `1.18.31`.
+**Researched 2026-09-20, partially resolved.** The user installed `opencode` (the open-source AI coding CLI, supports free/open model providers) believing it was related to Obsidian Copilot, then hit an error running the `opencode` command in a terminal — exact error text not yet captured.
 
 What's confirmed from Copilot's own documentation (fetched this session, `docs.obsidiancopilot.com`): opencode genuinely is one of three real, first-class agent backends in Copilot's **Agent Chat** feature (Settings → Copilot → Basic → Agents), alongside Claude Code and Codex — described as "the best starting point" of the three. Setup has two paths:
 - **"Managed by Copilot"** → Download & install — Copilot downloads and manages its own opencode binary internally. The docs explicitly note this path **"does not require a PowerShell command or PATH changes"** — it never touches the system terminal or PATH at all.
@@ -101,9 +99,11 @@ What's confirmed from Copilot's own documentation (fetched this session, `docs.o
 
 **This strongly suggests the user's install is a separate, standalone `opencode` install** (e.g. via `npm install -g opencode-ai` or similar) made outside Copilot's managed flow — Copilot's own managed path wouldn't produce a terminal error at all, since it never runs `opencode` as a user-typed command. That lines up with the user's own second goal: using `opencode` **standalone**, independent of Copilot, for free/open-model work — that's inherently a system-PATH CLI install, not Copilot's internal managed one. The two may end up pointing at the same binary eventually (Copilot's "My own binary" option can target a standalone install), but they are functionally two different setup paths today.
 
-Not yet done: signing in to a model provider (BYOK under `opencode auth login`, or a local endpoint like Ollama/LM Studio) — the CLI itself works, but hasn't been pointed at any free/open model yet. That's a follow-up the user can do directly since it involves their own provider/API-key choice. The Copilot-managed integration (Settings → Copilot → Basic → Agents → opencode → Configure) remains a separate, not-yet-set-up path if wanted later — the user chose standalone-first.
+**Checked directly on this machine (Dell), 2026-09-20:** `opencode` is not on PATH in either PowerShell (`Get-Command opencode` finds nothing) or Git Bash (`which opencode` finds nothing), and it is not installed as a global npm package under either `opencode` or `opencode-ai` (`npm list -g` shows neither). This means the most likely explanation is simply that `opencode` was never actually installed as a standalone CLI on this machine — the error the user saw was probably a plain "command not found" / "'opencode' is not recognized," not a deeper configuration problem. This doesn't rule out WSL (not checked from this session) or the possibility that it's only ever been set up through Copilot's own managed sandbox, which deliberately doesn't touch PATH.
 
-This machine's install state was not checked in WSL specifically (only PowerShell and Git Bash) — if the user also uses `opencode` from a WSL shell, that's a separate PATH to confirm.
+Still needed from the user before this can be fixed:
+- Confirmation of the exact error text and which terminal/shell it was run in (PowerShell, Git Bash, WSL) — to confirm it matches the "not installed" theory above rather than something else (a version mismatch, a permissions error, a corrupted partial install).
+- Whether they want the standalone CLI working first (`npm install -g opencode-ai`, for free/open models on its own, independent of Obsidian), the Copilot-managed integration (Settings → Copilot → Basic → Agents → opencode → Configure, inside Obsidian, no terminal), or both.
 
 ## Lean Terminal
 Lean Terminal embeds an `xterm.js` terminal panel inside Obsidian, so CLI agents (Claude Code, Codex) can run directly in the vault workspace instead of a separate window.
@@ -179,7 +179,7 @@ The correct pattern is restraint, so the example is a boundary, not a feature: `
 ## Verified Open State
 - Which, if any, AI workflow is approved to call Local REST API command endpoints? — *none currently approved; the port/standardization decision is settled, command-endpoint usage is a separate, still-open question*
 - Should Lean Terminal's `persistBuffer` stay on, given it writes full session scrollback (and machine-specific `cwd` paths) to a plaintext `data.json`? — *unresolved; flagged 2026-09-19, mitigated for sync by excluding the file via `.stignore`, not by changing the plugin setting. Lowering `recentSessionsMax` from `10` to `3`-`5` would shrink the standing local exposure window without touching whether buffering itself is on — a cheap partial mitigation, not acted on without the user's say-so since it trades away scrollback they may actually use.*
-- opencode: resolved — installed and verified working standalone. Provider/model sign-in is the user's own next step whenever they're ready to actually use it for free/open-model work.
+- opencode: exact error text, shell used, and standalone-vs-Copilot-managed intent — *see the opencode section above; this machine's own PATH/npm state was checked directly, the rest needs the user.*
 
 ## Sources
 
@@ -194,7 +194,6 @@ The correct pattern is restraint, so the example is a boundary, not a feature: `
 - [QuickAdd docs](https://quickadd.obsidian.guide/docs/)
 - [QuickAdd Capture choice](https://quickadd.obsidian.guide/docs/Choices/CaptureChoice)
 - Direct read of `.obsidian/plugins/copilot/data.json` (non-secret keys only), `.obsidian/plugins/obsidian-local-rest-api/data.json` (non-secret keys only), `.mcp.json`, and `.obsidian/plugins/lean-terminal/data.json` — this session, 2026-09-20
-- [opencode install docs](https://opencode.ai) / [anomalyco/opencode README](https://github.com/anomalyco/opencode) — official install methods, fetched 2026-09-20
-- `Get-Command opencode` / `which opencode` / `npm list -g` checked directly on this machine, then `npm i -g opencode-ai@latest` run and verified (`opencode --version` → `1.18.31` in both PowerShell and Git Bash) — this session, 2026-09-20
+- `Get-Command opencode` / `which opencode` / `npm list -g` checked directly on this machine — this session, 2026-09-20
 - [[AI_CONTEXT]]
 - [[Agent Operating Guide]]

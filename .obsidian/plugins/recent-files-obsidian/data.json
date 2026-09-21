@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "Dataview and Dashboards",
+      "path": "40_Resources/Obsidian/Plugins/Dataview and Dashboards.md"
+    },
+    {
       "basename": "Tool log",
       "path": "60_Claude/30_Reviews/AI/Tools/Tool log.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "Weekly Board",
       "path": "20_Progress/Degree/MGMT 3015/Lecture/Weekly Board.md"
-    },
-    {
-      "basename": "MGMT 3015 Board",
-      "path": "20_Progress/Degree/MGMT 3015/MGMT 3015 Board.md"
     }
   ],
   "omittedPaths": [],

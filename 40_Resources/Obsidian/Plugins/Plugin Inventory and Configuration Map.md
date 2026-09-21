@@ -2,7 +2,7 @@
 type: evergreen
 status: sprout
 created: 2026-05-15
-updated: 2026-09-19
+updated: 2026-09-20
 tags:
   - evergreen
   - system
@@ -68,8 +68,8 @@ Deep per-plugin references: [[QuickAdd Capture Menu]], [[Excalidraw Diagrams and
 | Plugin | ID / folder | Version | Directly enabled? | Lazy-loaded? | Main use in Jarvis | Config inspected? | Needs verification? |
 |---|---|---:|---:|---:|---|---:|---|
 | Code Styler | `code-styler` | 1.1.7 | yes | instant | Readable code examples. | yes | no |
-| Copilot | `copilot` | 3.2.7 | no | long | Vault QA, citations, saved chats, AI memory. | redacted | safety review |
-| Excalibrain | `excalibrain` | 0.2.18 | no | long | Visual graph-style concept exploration, hover-triggered (`Alt+M`); companion to Excalidraw, not a replacement for it. | yes | whether the hover view actually opens still needs an in-app click test |
+| Copilot | `copilot` | 4.0.9 (corrected 2026-09-20, was documented `3.2.7`) | no | long | Vault QA, citations, saved chats, AI memory, **live autonomous vault-write access (`writeFile`/`editFile` tool IDs enabled)**, and an "Agent Chat" feature that can run Claude Code/Codex/opencode natively. | yes | resolved — see [[AI Automation and Local Interfaces]] |
+| Excalibrain | `excalibrain` | 0.2.18 | no | long | Visual graph-style concept exploration, hover-triggered (`Alt+M`); companion to Excalidraw, not a replacement for it. | yes | **tested 2026-09-20** — `excalibrain:excalibrain-open-hover` run via the live `jarvis` MCP command interface, returned `OK` with no error. Confirms the command is real and executes; a full visual check (does the hover pane render well) still wants an actual in-app glance, but "does it open at all" is answered. |
 | Dataview | `dataview` | 0.5.68 | yes | instant | Dashboards and metadata queries. | yes | HTML/JS risk |
 | Excalidraw | `obsidian-excalidraw-plugin` | 2.21.2 | no | long | Diagrams, visual maps, PDF annotation. | redacted | template/scripts check |
 | File Explorer++ | `file-explorer-plus` | 1.3.1 | yes | instant | Pinned/hide filters for navigation. | yes | no |
@@ -78,7 +78,7 @@ Deep per-plugin references: [[QuickAdd Capture Menu]], [[Excalidraw Diagrams and
 | Kanban | `obsidian-kanban` | 2.0.51 | no | short | Lane-based project/habit/source workflows. | yes | lane names |
 | Latex Suite | `obsidian-latex-suite` | 1.11.0 | yes | instant | Faster math notation in course notes. | yes | snippet specifics |
 | Lazy Plugin Loader | `lazy-plugins` | 1.0.21 | yes | instant | Delays heavy plugins after startup. | yes | effective state |
-| Local REST API | `obsidian-local-rest-api` | 3.6.2 | yes | instant | Local automation interface. | redacted | insecure server |
+| Local REST API | `obsidian-local-rest-api` | 5.1.0 (corrected 2026-09-20, was documented `3.6.2`) | yes | instant | Local automation interface; standardized on insecure port `27123` for all MCP traffic — see [[AI Automation and Local Interfaces]]. | redacted | resolved — secure port corrected to `27126` (was documented `27124`) |
 | Ninja Cursor | `ninja-cursor` | 0.0.13 | yes | instant | Cursor visibility only. | yes | no |
 | Omnisearch | `omnisearch` | 1.28.2 | no | short | Better vault search. | yes | richer indexing |
 | Paste URL into selection | `url-into-selection` | 1.11.4 | yes | instant | Human link hygiene while pasting URLs. | yes | no |
@@ -90,6 +90,9 @@ Deep per-plugin references: [[QuickAdd Capture Menu]], [[Excalidraw Diagrams and
 | Tasks | `obsidian-tasks-plugin` | 7.23.1 | yes | instant | Searchable task lines and task queries. | yes | date conventions |
 | Templater | `templater-obsidian` | 2.18.1 | yes | instant | Folder templates and note creation. | yes | AI docs template |
 | Workspaces Plus | `workspaces-plus` | n/a | no | no | Folder holds only `.bak` settings backups — no `manifest.json`, no `main.js`. Not an installed plugin. | yes | no |
+| Commander | `cmdr` | 0.5.12 | no | short (wired 2026-09-20) | Ribbon/command customization. **Added 2026-09-20:** installed on disk but wired into neither `community-plugins.json` nor Lazy Plugin Loader — confirmed it would not have activated on the next full Obsidian restart. No `data.json` exists yet (never opened/configured). Now registered in Lazy Plugin Loader; still zero-config. | yes | ribbon/command setup itself, once used |
+| Recent Edits | `recent-edits` | 1.6.0 | no | short (wired 2026-09-20) | Day-grouped recent-edit trail with external-vs-in-app edit tagging — pairs with, doesn't duplicate, Recent Files. See [[Search Linking and Navigation]]. **Added 2026-09-20:** same wiring gap as Commander, fixed the same way. Genuinely in active use already — `data.json` holds a live 7-day history with dozens of real tracked edits. | yes | no |
+| Text Extractor | `text-extractor` | 0.7.0 | no | short (installed 2026-09-20) | OCR/PDF/Office text extraction, local-only, companion to Omnisearch's PDF/image/Office indexing. See [[Omnisearch and Retrieval]]. Repo is community-flagged as unmaintained; works today, no guaranteed future fixes. | yes | no |
 | Lean Terminal | `lean-terminal` | 1.4.0 | no | short | Embedded terminal panel for running CLI AI agents (Codex, Claude Code) without leaving Obsidian. | redacted | high churn / secrets risk |
 | Homepage | `homepage` | 4.4.4 | no | short | Opens a chosen note/workspace on vault startup. | yes | which note/workspace |
 | Meta Bind | `obsidian-meta-bind-plugin` | 1.5.1 | no | short | Interactive input fields and buttons bound to frontmatter, for dashboard-style notes. | yes | no |
@@ -100,7 +103,8 @@ Deep per-plugin references: [[QuickAdd Capture Menu]], [[Excalidraw Diagrams and
 - `enablePluginAndSave(id)` — enables the plugin **and** persists it to `community-plugins.json`. This is what Lazy Plugin Loader calls for every plugin configured as `instant` startup.
 - `enablePlugin(id)` — enables the plugin for the current session **only**, with no write to disk.
 For every plugin set to `short` or `long` delay, the loader's own code does this on startup: `disablePluginAndSave(pluginId)` first — so Obsidian's own core startup code will never auto-load it next launch — then, after the configured delay, `enablePlugin(pluginId)`, deliberately *without* `AndSave`. **The plugin activates fully and shows as enabled in Settings → Community Plugins for the rest of the session, but `community-plugins.json` never records it.** This is intentional, not a bug: the whole mechanism exists so Obsidian's normal startup path skips heavy plugins (keeping cold-start fast) while the same plugins still come alive a few seconds later, live, in the same session.
-`community-plugins.json`'s 12 entries are exactly the plugins configured as `instant` in this vault's `lazy-plugins` data.json (`code-styler`, `dataview`, `file-explorer-plus`, `obsidian-latex-suite`, `obsidian-local-rest-api`, `ninja-cursor`, `url-into-selection`, `obsidian-style-settings`, `obsidian-tasks-plugin`, `templater-obsidian`, `recent-files-obsidian`, plus `lazy-plugins` itself). Everything configured `short` or `long` — `copilot`, `excalibrain`, `obsidian-excalidraw-plugin`, `obsidian-hover-editor`, `obsidian-kanban`, `omnisearch`, `periodic-notes`, `quickadd`, `obsidian-spaced-repetition`, `obsidian-git`, `lean-terminal`, `homepage`, `obsidian-meta-bind-plugin`, `multi-column-markdown` — shows as enabled in the Settings UI once its delay elapses, without ever appearing in `community-plugins.json`. **Correction, 2026-09-19:** an earlier pass here claimed `excalibrain` fails silently because no matching plugin folder exists. That was never checked directly against disk. `.obsidian/plugins/excalibrain/` does exist and holds `main.js`, `manifest.json` (v0.2.18), and `styles.css` — a complete install, configured `long`. It activates on the same delayed path as every other `short`/`long` plugin; there is no gap here.
+`community-plugins.json`'s 12 entries are exactly the plugins configured as `instant` in this vault's `lazy-plugins` data.json (`code-styler`, `dataview`, `file-explorer-plus`, `obsidian-latex-suite`, `obsidian-local-rest-api`, `ninja-cursor`, `url-into-selection`, `obsidian-style-settings`, `obsidian-tasks-plugin`, `templater-obsidian`, `recent-files-obsidian`, plus `lazy-plugins` itself). Everything configured `short` or `long` — `copilot`, `excalibrain`, `obsidian-excalidraw-plugin`, `obsidian-hover-editor`, `obsidian-kanban`, `omnisearch`, `periodic-notes`, `quickadd`, `obsidian-spaced-repetition`, `obsidian-git`, `lean-terminal`, `homepage`, `obsidian-meta-bind-plugin`, `multi-column-markdown`, and, as of 2026-09-20, `text-extractor`, `cmdr`, `recent-edits` — shows as enabled in the Settings UI once its delay elapses, without ever appearing in `community-plugins.json`. **Correction, 2026-09-19:** an earlier pass here claimed `excalibrain` fails silently because no matching plugin folder exists. That was never checked directly against disk. `.obsidian/plugins/excalibrain/` does exist and holds `main.js`, `manifest.json` (v0.2.18), and `styles.css` — a complete install, configured `long`. It activates on the same delayed path as every other `short`/`long` plugin; there is no gap here.
+**Finding, 2026-09-20:** `text-extractor` (newly installed this session), `cmdr`, and `recent-edits` were all found with manifest files on disk but *absent from `lazy-plugins`' plugin list entirely* — not `instant`, not `short`, not `long`, just unregistered. Per the mechanism above, a plugin absent from both `community-plugins.json` and the loader's own config never gets an `enablePlugin()` call at all, so `cmdr` and `recent-edits` would not have activated on the next full Obsidian restart despite being installed and (for Recent Edits) already genuinely in use. All three now registered as `short`.
 ## Lazy Plugin Loader
 
 Desktop startup settings:
@@ -113,7 +117,7 @@ Desktop startup settings:
 
 Instant plugins include Dataview, Tasks, Templater, Local REST API, Style Settings, Code Styler, Latex Suite, File Explorer++, Paste URL into selection, Recent Files, and Ninja Cursor.
 
-Delayed plugins include Copilot, Excalidraw, Git, Hover Editor, Kanban, Omnisearch, Periodic Notes, QuickAdd, and Spaced Repetition.
+Delayed plugins include Copilot, Excalidraw, Git, Hover Editor, Kanban, Omnisearch, Periodic Notes, QuickAdd, Spaced Repetition, Lean Terminal, Homepage, Meta Bind, Multi-Column Markdown, and, as of 2026-09-20, Text Extractor, Commander, and Recent Edits.
 
 `excalibrain` is fully installed (`main.js`, `manifest.json`, `styles.css` present) and configured `long` — corrected 2026-09-19, see above.
 
@@ -128,7 +132,7 @@ Delayed plugins include Copilot, Excalidraw, Git, Hover Editor, Kanban, Omnisear
 | Editor: insert code block | `Alt+V` | Fast fenced-code creation. |
 | Omnisearch: show modal | `Alt+F` | Broad search before creating notes. |
 | QuickAdd: run QuickAdd | `Alt+Q` | Ready for capture menu, but choices are currently empty. |
-| Excalibrain: open hover | `Alt+M` | Corrected 2026-09-19: Excalibrain is installed (`main.js` present), not missing. Whether the hover view actually opens still needs an in-app click test. |
+| Excalibrain: open hover | `Alt+M` | Corrected 2026-09-19: Excalibrain is installed (`main.js` present), not missing. **Tested 2026-09-20** via `mcp__jarvis__command_execute("excalibrain:excalibrain-open-hover")` — executed cleanly, no error. |
 
 ## Appearance and Snippets
 
@@ -174,11 +178,9 @@ Document existence and behavior, not secret values.
 
 Read these files when needed. Do not use documentation work as a reason to change settings.
 
-## Suggestions
-- **Deleting `workspaces-plus`: worth it, purely hygiene, zero functional risk.** Three `.bak` files with no manifest and no `main.js` cannot activate as a plugin under any circumstance — Obsidian's plugin loader requires a `manifest.json` to even list a folder as installed. There's no scenario where keeping it helps and a small one where it confuses a future audit into re-asking "is this a plugin" a fourth time. Low priority, but genuinely free to fix whenever another `data.json`-adjacent approval is already happening.
-- **Turning the Calendar dead-hotkey finding into an actual task: worth doing, cheap.** The "what is it" question is fully answered three times over; the "what to do about it" question isn't recorded anywhere as an action. For Anant, the real decision is small either way — remove one line from `hotkeys.json`, or install Calendar if periodic-note navigation is a felt need (it isn't clearly one per the tracker's own Optional table) — so this is worth a one-line task entry, not a bigger discussion.
-- **Reconciling the `Needs verification` column against this session's corrections: worth doing, prevents the exact class of error Build 3 caught (excalibrain marked "missing" for months without anyone checking the filesystem).** A status column that says "needs verification" for something already verified elsewhere in the same document is worse than no column at all — it actively signals uncertainty that no longer exists and could send a future session back to re-research a closed question.
-- **Completeness check, this session: a real gap found and fixed.** Cross-checked all 27 folders under `.obsidian/plugins/` (26 real plugins plus `workspaces-plus`, already confirmed dead weight above) against every row in this table. Excalibrain was fully installed and discussed in this note's own prose (the Lazy Plugin Loader section, the `community-plugins.json` mismatch explanation, the hotkey table) but had no row in the Community Plugins table itself — added above. Every other installed plugin already had a row; no further gaps found.
+## Open Cleanup Item
+`workspaces-plus` (three `.bak` files, no `manifest.json`, no `main.js` — confirmed again 2026-09-20) cannot activate as a plugin under any circumstance and is safe to delete. **Attempted this session, blocked by the permission system** (classified as irreversible local destruction, requires explicit user approval this session didn't have standing authorization for). Left in place — a one-time manual delete of `.obsidian/plugins/workspaces-plus/` whenever convenient.
+
 ## Sources
 
 - [Obsidian Help - Core plugins](https://help.obsidian.md/plugins)
@@ -190,4 +192,4 @@ Read these files when needed. Do not use documentation work as a reason to chang
 - [Templater docs](https://silentvoid13.github.io/Templater/)
 - [Local REST API README](https://github.com/coddingtonbear/obsidian-local-rest-api)
 - Direct filesystem checks against `.obsidian/plugins/excalibrain/`, `.obsidian/plugins/workspaces-plus/`, and `.obsidian/plugins/calendar/` (absent) — 2026-09-19, this session
-- Full `.obsidian/plugins/` directory listing (27 folders) cross-checked against this table row-by-row, and `.obsidian/community-plugins.json`/`.obsidian/plugins/lazy-plugins/data.json` re-read directly — this session, 2026-09-19
+- Full `.obsidian/plugins/` directory listing cross-checked against this table row-by-row, and `.obsidian/community-plugins.json`/`.obsidian/plugins/lazy-plugins/data.json` re-read directly, including this session's `cmdr`/`recent-edits`/`text-extractor` additions — 2026-09-19 and 2026-09-20

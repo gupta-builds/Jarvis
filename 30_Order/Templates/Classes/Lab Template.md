@@ -12,16 +12,12 @@ tags:
 next:
 ---
 # Lab
-
 ## Goal
 - 
-
 ## Procedure / key steps
 - 
-
 ## Results
 - 
-
 ## Errors + fixes
 - Problem:
 - Fix:

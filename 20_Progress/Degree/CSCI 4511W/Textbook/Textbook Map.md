@@ -35,4 +35,4 @@ Due 12/14, inside its own module ("Modern Approaches: Vector Semantics"), with n
 ## Standard
 Each chapter note, once created, follows [[Textbook Template]] - one highlight anchor, bolded key concepts, a worked example, a connection back to the matching lecture, and flashcards.
 ## Status
-Two chapter notes are now written: Chapters 1–2 were reviewed directly from the local 4th-edition PDF on 2026-09-20. Chapter 1 is background rather than a dated Canvas reading; Chapter 2 is the first scheduled textbook unit. The notes are self-contained source-grounded study notes, while the weekly lecture-synthesis layer remains separate and should only be filled from actual lecture capture, per [[Course Week Standard]].
+Two chapter notes are now written: Chapters 1–2 were reviewed directly from the local 4th-edition PDF on 2026-09-20. Chapter 1 is background rather than a dated Canvas reading; Chapter 2 is the first scheduled textbook unit. The notes are self-contained source-grounded study notes, while the weekly lecture-synthesis layer remains separate and should only be filled from actual lecture capture, per [[Weekly Standard]].

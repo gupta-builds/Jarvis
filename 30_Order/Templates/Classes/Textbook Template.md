@@ -11,25 +11,22 @@ tags:
   - "#Textbook"
 next:
 ---
-# Chapter - <% tp.file.title %>
+<!-- Use one note per chapter or assigned chapter section. Summarize the source, then connect it to lecture and usable concepts. -->
+# <% tp.file.title %>
 ## Chapter Summary
-The one-sentence claim the chapter is making. ==Highlight the anchor concept for SR.== 
-*:*
-==.==
-*Mechanism:* 
-
+<!-- State the chapter's one-sentence claim and use exactly one ==highlight== anchor. -->
 == ==
 *Mechanism:*
+<!-- Explain how the chapter's claim works. -->
 ## Key Concepts
+<!-- Define each concept and explain why it matters here. Bold the concept name on first use. -->
 - **Concept:** 
-*:*
-- **Asset specificity:** 
 ## Examples Worth Keeping
+<!-- Keep concrete examples, numbers, cases, or worked reasoning that makes the mechanism memorable. -->
 - 
 ## Connections
-Link outward: which lecture engaged with this material? Which concept notes does this feed?
-- Lecture: [[Week - ]]
-- Concept: [[Concept - ]]
+<!-- Link the matching lecture/week, course map, and only concept notes that actually exist or were created. -->
+- Lecture: 
+- Concept: 
 ## Flashcards
-#cards/[track]
-1. 
+<!-- Add 3–8 atomic cards testing mechanisms and contrasts to #cards/<course-slug>. -->

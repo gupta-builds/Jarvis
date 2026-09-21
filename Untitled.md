@@ -11,7 +11,7 @@ tags:
   - "#Lecture"
 next:
 ---
-# <% tp.file.title %>
+# Untitled
 ## What you must be able to do
 - 
 - 

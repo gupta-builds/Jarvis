@@ -1,16 +1,56 @@
 {
   "recentFiles": [
     {
-      "basename": "Week Template",
-      "path": "30_Order/Templates/Classes/Week Template.md"
+      "basename": "Untitled",
+      "path": "Untitled.md"
     },
     {
-      "basename": "Textbook Template",
-      "path": "30_Order/Templates/Classes/Textbook Template.md"
+      "basename": "Week - 2",
+      "path": "20_Progress/Degree/CSCI 4511W/Weekly/Week - 2.md"
+    },
+    {
+      "basename": "Homework Standard",
+      "path": "30_Order/Standards/Courses/Homework Standard.md"
+    },
+    {
+      "basename": "Textbook Standard",
+      "path": "30_Order/Standards/Courses/Textbook Standard.md"
+    },
+    {
+      "basename": "Concept Standard",
+      "path": "30_Order/Standards/Courses/Concept Standard.md"
+    },
+    {
+      "basename": "Board Standard",
+      "path": "30_Order/Standards/Courses/Board Standard.md"
+    },
+    {
+      "basename": "Exam Standard",
+      "path": "30_Order/Standards/Courses/Exam Standard.md"
+    },
+    {
+      "basename": "Lab Standard",
+      "path": "30_Order/Standards/Courses/Lab Standard.md"
+    },
+    {
+      "basename": "Preparation Standard",
+      "path": "30_Order/Standards/Courses/Preparation Standard.md"
+    },
+    {
+      "basename": "Project Standard",
+      "path": "30_Order/Standards/Courses/Project Standard.md"
+    },
+    {
+      "basename": "Weekly Standard",
+      "path": "30_Order/Standards/Courses/Weekly Standard.md"
     },
     {
       "basename": "Weekly Board Template",
       "path": "30_Order/Templates/Classes/Weekly Board Template.md"
+    },
+    {
+      "basename": "Week Template",
+      "path": "30_Order/Templates/Classes/Week Template.md"
     },
     {
       "basename": "Textbook Map Template",
@@ -27,10 +67,6 @@
     {
       "basename": "Exam Sheet Template",
       "path": "30_Order/Templates/Classes/Exam Sheet Template.md"
-    },
-    {
-      "basename": "Concept Template",
-      "path": "30_Order/Templates/Classes/Concept Template.md"
     },
     {
       "basename": "Discussion Template",
@@ -163,42 +199,6 @@
     {
       "basename": "Google Drive Sync Policy",
       "path": "40_Resources/CS/Concepts/New Laptop/Sync/Google Drive Sync Policy.md"
-    },
-    {
-      "basename": "Cross-Laptop Sync - Rollback Procedure",
-      "path": "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Rollback Procedure.md"
-    },
-    {
-      "basename": "Cross-Laptop Sync - Build 5 Findings",
-      "path": "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build 5 Findings.md"
-    },
-    {
-      "basename": "Cross-Laptop Sync - Build Roadmap",
-      "path": "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build Roadmap.md"
-    },
-    {
-      "basename": "Cross-Laptop Sync - Build 4 Findings",
-      "path": "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build 4 Findings.md"
-    },
-    {
-      "basename": "Cross-Laptop Sync - Build 3 Findings",
-      "path": "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build 3 Findings.md"
-    },
-    {
-      "basename": "Cross-Laptop Sync - Build 1 Findings",
-      "path": "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build 1 Findings.md"
-    },
-    {
-      "basename": "Cross-Laptop Sync - Build 2 Findings",
-      "path": "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build 2 Findings.md"
-    },
-    {
-      "basename": "Session - 2 Problems Transcript",
-      "path": "20_Progress/Degree/_Courses/Technical Interview/Session - 2 Problems Transcript.md"
-    },
-    {
-      "basename": "WSL New Laptop Master Plan — Verified 2026-09-11",
-      "path": "40_Resources/CS/Concepts/New Laptop/WSL New Laptop Master Plan — Verified 2026-09-11.md"
     }
   ],
   "omittedPaths": [],

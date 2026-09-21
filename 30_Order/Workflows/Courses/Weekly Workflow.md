@@ -8,7 +8,7 @@ tags:
   - workflow
 notes:
   - "[[Week Standard]]"
-  - "[[Course Week Standard]]"
+  - "[[Weekly Standard]]"
   - "[[00_Workflows Index]]"
 ---
 # Weekly Workflow
@@ -17,7 +17,7 @@ Create and link a new week note as each course's lectures happen, so a course's 
 **Moves:** lecture + that week's textbook reading → `<Course>/Weekly/Week - N.md`, indexed from `<Course>/Weekly/Weekly Board.md`.
 **Template:** [[Week Template]]
 ## Steps
-1. Read [[Course Week Standard]] before writing — it governs the note this workflow creates.
+1. Read [[Weekly Standard]] before writing — it governs the note this workflow creates.
 2. Create `Week - N.md` in the course's `Weekly/` folder from [[Week Template]], filled in the same day as the lecture where possible.
 3. Read the matching textbook section and write the `## Lecture-to-textbook synthesis` section — this is the step most likely to get skipped under time pressure; do not skip it.
 4. Open the course's `Weekly Board.md` and add one Map sentence for the new week per [[Week Standard]] — same session, not batched for later.
@@ -31,6 +31,6 @@ status: seed
 next: "[[Week - N+1]]"
 ```
 ## Done when
-- The week note passes [[Course Week Standard]]'s Done Conditions, including the synthesis section.
+- The week note passes [[Weekly Standard]]'s Done Conditions, including the synthesis section.
 - `Weekly Board.md` has a new Map sentence, not just a new frontmatter list entry.
 - Any concept notes the week spawned actually exist, not just linked as stubs.

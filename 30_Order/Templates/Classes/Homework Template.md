@@ -5,7 +5,7 @@ status: seed
 created:
 updated:
 area:
-  - "[[40_Resources/UMN/Previous Classes/Weekly Board]]"
+  - "[[UMN Board]]"
 tags:
   - "#class"
   - "#Homework"

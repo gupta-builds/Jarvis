@@ -1,6 +1,58 @@
 {
   "recentFiles": [
     {
+      "basename": "Textbook Template",
+      "path": "30_Order/Templates/Classes/Textbook Template.md"
+    },
+    {
+      "basename": "Textbook Map Template",
+      "path": "30_Order/Templates/Classes/Textbook Map Template.md"
+    },
+    {
+      "basename": "Project Template",
+      "path": "30_Order/Templates/Classes/Project Template.md"
+    },
+    {
+      "basename": "Preparation Template",
+      "path": "30_Order/Templates/Classes/Preparation Template.md"
+    },
+    {
+      "basename": "Lab Template",
+      "path": "30_Order/Templates/Classes/Lab Template.md"
+    },
+    {
+      "basename": "Homework Template",
+      "path": "30_Order/Templates/Classes/Homework Template.md"
+    },
+    {
+      "basename": "Exam Sheet Template",
+      "path": "30_Order/Templates/Classes/Exam Sheet Template.md"
+    },
+    {
+      "basename": "Discussion Template",
+      "path": "30_Order/Templates/Classes/Discussion Template.md"
+    },
+    {
+      "basename": "Weekly Board",
+      "path": "40_Resources/UMN/Previous Classes/Weekly Board.md"
+    },
+    {
+      "basename": "Board or Main Template",
+      "path": "30_Order/Templates/Classes/Board or Main Template.md"
+    },
+    {
+      "basename": "Concept Template",
+      "path": "30_Order/Templates/Classes/Concept Template.md"
+    },
+    {
+      "basename": "UMN Board",
+      "path": "20_Progress/Degree/UMN Board.md"
+    },
+    {
+      "basename": "00_How This Folder Works",
+      "path": "30_Order/00_How This Folder Works.md"
+    },
+    {
       "basename": "CSCI 4511W Workflow",
       "path": "30_Order/Workflows/Courses/Per Class/CSCI 4511W Workflow.md"
     },
@@ -147,58 +199,6 @@
     {
       "basename": "Ubuntu - WSL",
       "path": "40_Resources/CS/Concepts/New Laptop/Ubuntu - WSL.md"
-    },
-    {
-      "basename": "Old Laptop Decommission Checklist",
-      "path": "40_Resources/CS/Concepts/New Laptop/Old Laptop Decommission Checklist.md"
-    },
-    {
-      "basename": "VS Code Professional Setup",
-      "path": "40_Resources/CS/Concepts/New Laptop/VS Code Professional Setup.md"
-    },
-    {
-      "basename": "Installations",
-      "path": "40_Resources/CS/Concepts/New Laptop/Installations.md"
-    },
-    {
-      "basename": "Acer Live State — 2026-09-16",
-      "path": "40_Resources/CS/Concepts/New Laptop/Acer Live State — 2026-09-16.md"
-    },
-    {
-      "basename": "Untitled",
-      "path": "20_Progress/Degree/Untitled.md"
-    },
-    {
-      "basename": "Fall'26 Syllabus",
-      "path": "20_Progress/Degree/Fall'26 Syllabus.md"
-    },
-    {
-      "basename": "Preparation",
-      "path": "20_Progress/Degree/CSCI 5304/Preparation.md"
-    },
-    {
-      "basename": "Anti-Drift Rules",
-      "path": "10_Areas/Life/Plans/Fall 2026/Anti-Drift Rules.md"
-    },
-    {
-      "basename": "Preparation",
-      "path": "20_Progress/Degree/ENGL 1004/Preparation.md"
-    },
-    {
-      "basename": "Preparation",
-      "path": "20_Progress/Degree/MGMT 3015/Preparation.md"
-    },
-    {
-      "basename": "CSCI 5304 Board",
-      "path": "20_Progress/Degree/CSCI 5304/CSCI 5304 Board.md"
-    },
-    {
-      "basename": "Fall 2026 - The One Thing",
-      "path": "10_Areas/Life/Plans/Fall 2026/Fall 2026 - The One Thing.md"
-    },
-    {
-      "basename": "Week - 1",
-      "path": "20_Progress/Degree/CSCI 4511W/Weekly/Week - 1.md"
     }
   ],
   "omittedPaths": [],

@@ -16,10 +16,13 @@ class P4:
         Call the run() method with the reflex agent and the trivial vac environment
         and return the environment status
         '''
-        agent = ReflexVacuumAgent()
+        # Wrap the agent in TraceAgent so every step's (percept, action) pair is
+        # printed, then run for exactly 20 steps as the assignment specifies
+        # (the default run() length is 1000, which is NOT what's asked for here).
+        agent = TraceAgent(ReflexVacuumAgent())
         environment = TrivialVacuumEnvironment()
         environment.add_thing(agent)
-        environment.run()
+        environment.run(20)
         return environment.status
 
     def problem_b(self):
@@ -27,10 +30,10 @@ class P4:
         Call the run() method with the model based agent and the trivial vac environment
         and return the environment status
         '''
-        agent = ModelBasedVacuumAgent()
+        agent = TraceAgent(ModelBasedVacuumAgent())
         environment = TrivialVacuumEnvironment()
         environment.add_thing(agent)
-        environment.run()
+        environment.run(20)
         return environment.status
 
     def problem_c(self):
@@ -38,10 +41,10 @@ class P4:
         Call the run() method with the random agent and the trivial vac environment
         and return the environment status
         '''
-        agent = RandomVacuumAgent()
+        agent = TraceAgent(RandomVacuumAgent())
         environment = TrivialVacuumEnvironment()
         environment.add_thing(agent)
-        environment.run()
+        environment.run(20)
         return environment.status
 
     def problem_d(self):

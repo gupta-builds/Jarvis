@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "Chapter - 2",
+      "path": "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 2.md"
+    },
+    {
+      "basename": "Repetitive Things",
+      "path": "20_Progress/Degree/Repetitive Things.md"
+    },
+    {
+      "basename": "Chapter - 1",
+      "path": "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 1.md"
+    },
+    {
       "basename": "Problem Set 1",
       "path": "20_Progress/Degree/CSCI 4511W/Assignments/Written/Problem Set 1.md"
     },
@@ -23,10 +35,6 @@
     {
       "basename": "Weekly Standard",
       "path": "30_Order/Standards/Courses/Weekly Standard.md"
-    },
-    {
-      "basename": "Repetitive Things",
-      "path": "20_Progress/Degree/Repetitive Things.md"
     },
     {
       "basename": "CLAUDE",
@@ -191,14 +199,6 @@
     {
       "basename": "Claude OS Dashboard",
       "path": "20_Progress/AI/Claude OS Dashboard.md"
-    },
-    {
-      "basename": "Write Log",
-      "path": "20_Progress/AI/Claude Code/Write Log.md"
-    },
-    {
-      "basename": "Sync-Log-Archive-2026-09-19",
-      "path": "20_Progress/AI/Claude Code/Sync-Log-Archive-2026-09-19.md"
     }
   ],
   "omittedPaths": [],

@@ -200,7 +200,19 @@ Dataview can render `TASK` queries, but Tasks understands Tasks-specific emoji m
 ## Meta Bind
 Meta Bind turns frontmatter fields into interactive widgets inside a note: text/number/toggle inputs, dropdowns bound to a property, progress bars, and buttons that run a command or JS snippet on click ([Meta Bind docs](https://www.moritzjung.dev/obsidian-meta-bind-plugin-docs/)).
 
-**Researched 2026-09-19.** Installed and lazy-loaded (`short`), not yet used anywhere in the vault. The fit is dashboard-adjacent but distinct from Dataview: Dataview *reads* frontmatter to build a view; Meta Bind lets a note *write* its own frontmatter through a UI control, without opening Properties. A concrete use here: a project note's `status` field (`seed`/`sprout`/`tree`) as a Meta Bind dropdown instead of hand-typing it, or a habit board's daily checkboxes as bound toggles instead of raw Tasks lines. Do not wire buttons to arbitrary JS without the user's approval — that is the same risk class as DataviewJS, just triggered by a click instead of a render.
+**Piloted for real, 2026-09-20.** Installed and lazy-loaded (`short`) since 2026-09-19, but a vault-wide search for its actual binding syntax (`INPUT[`, `VIEW[`, `BUTTON[`) found zero real uses anywhere — confirmed genuinely unused, not just under-documented. Piloting it now on exactly the `status` dropdown this note already recommended:
+
+```markdown
+INPUT[inlineSelect(option(seed), option(sprout), option(tree)):status]
+```
+
+Live below, bound to this note's own `status:` frontmatter field — changing it here rewrites the frontmatter directly, no Properties panel needed:
+
+Status: `INPUT[inlineSelect(option(seed), option(sprout), option(tree)):status]`
+
+Syntax confirmed against Meta Bind's own reference docs ([Select input field](https://www.moritzjung.dev/obsidian-meta-bind-plugin-docs/reference/inputfields/select/), [Inline Select input field](https://www.moritzjung.dev/obsidian-meta-bind-plugin-docs/reference/inputfields/inlineselect/)): `inlineSelect` is the compact dropdown variant meant for inline body use (versus the block-level `select`), `option(...)` defines each fixed choice, and the text after the colon is the bind target — the frontmatter property name it reads from and writes to. This is a plain bound dropdown, not a button running arbitrary JS, so it stays in the low-risk category already established for this plugin (a button wired to a command or script is the risk class that still needs explicit approval, not a value-selection input).
+
+This is a genuine second write path into frontmatter alongside hand-editing and Properties — Dataview *reads* frontmatter to build a view; Meta Bind lets a note *write* its own frontmatter through a UI control. The same pattern (`INPUT[inlineSelect(option(...), option(...)):fieldname]`) generalizes to any note with a small fixed-choice field — `type`, `track`, or a habit board's daily checkboxes as bound toggles instead of raw Tasks lines — once this pilot proves the mechanism out on one real note.
 
 ## DataviewJS Rule
 
@@ -248,7 +260,7 @@ Before changing a dashboard:
 [[00_Dashboard]] is the canonical live example: it drives enrichment candidates, active projects, projects missing `next`, the AI staging queue, clippings-to-distill, the flashcard queue, orphan notes, and metadata cleanup entirely from frontmatter. It is the proof that the field schema is worth keeping consistent — every block there breaks the moment a note's metadata drifts.
 ## Verified Open State
 - `source_status` is confirmed unadopted (`0`/139), not just under-used — either start setting it or drop it from the schema and this note's recipe. Not decided here; a human content-workflow choice.
-- Should Meta Bind be wired into any existing dashboard or board (e.g. `status:` as a dropdown), now that its mechanism is documented? — *unconfigured; a workflow decision, not a research gap. Low-risk if tried: it only changes how a value gets written, not any existing query, so reverting means deleting one block per note.*
+- ~~Should Meta Bind be wired into any existing dashboard or board (e.g. `status:` as a dropdown)?~~ — *resolved 2026-09-20: piloted on this note's own `status:` field, see the Meta Bind section above. Extending the pattern to more notes is now a copy-paste exercise, not a research question.*
 
 ## Sources
 
@@ -259,5 +271,6 @@ Before changing a dashboard:
 - [Obsidian Help - Bases syntax](https://obsidian.md/help/bases/syntax)
 - Direct check of `60_Claude/44_Indexes/Bases/` (five `.base` files) and `.obsidian/core-plugins.json` — this session, 2026-09-19
 - Direct read of `.obsidian/plugins/dataview/data.json`, every real `dataviewjs` block in [[00_Dashboard]] and `Dossiers MOC.md`, and a vault-wide `source_status`/`source_url` field audit (139 `type: input` notes checked) — this session, 2026-09-20
+- [Meta Bind — Select input field](https://www.moritzjung.dev/obsidian-meta-bind-plugin-docs/reference/inputfields/select/) and [Inline Select input field](https://www.moritzjung.dev/obsidian-meta-bind-plugin-docs/reference/inputfields/inlineselect/) — bind-target and `inlineSelect` syntax, fetched 2026-09-20
 - [[00_Dashboard]]
 - [[40_Resources/Obsidian/Vault Operating System]]

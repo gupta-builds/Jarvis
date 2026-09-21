@@ -2,7 +2,7 @@
 type: evergreen
 status: sprout
 created: 2026-05-15
-updated: 2026-09-19
+updated: 2026-09-20
 tags:
   - evergreen
   - system
@@ -32,17 +32,17 @@ Current appearance:
 Agents should document current behavior but not edit theme settings, Style Settings values, or snippets unless the user explicitly asks.
 
 ## CSS Snippets
+**Corrected 2026-09-20** against [[40_Resources/Obsidian/Settings/Appearance Theme and CSS Snippets]], which reads all five snippet files directly — two of the five are not vault-authored despite their names:
 
-Enabled snippets:
-
-| Snippet | Likely role | Agent rule |
+| Snippet | Actual role | Agent rule |
 |---|---|---|
-| `headerspace.css` | Heading spacing. | Write normal headings; do not compensate with blank-line hacks. |
-| `readingview.css` | Reading-view tweaks. | Keep notes readable in plain Markdown too. |
-| `rainbowfile_colors.css` | File explorer colors. | Do not store meaning only in folder color. |
-| `myedits.css` | Broad custom theme edits. | Needs verification before documenting exact visual effects. |
+| `headerspace.css` | Vault-authored. Heading spacing (Live Preview). | Write normal headings; do not compensate with blank-line hacks. |
+| `readingview.css` | Vault-authored. Reading-view heading spacing. | Keep notes readable in plain Markdown too. |
+| `dashboard.css` | Vault-authored. `.dashboard-grid`/`.card` layout for `00_Dashboard`-style notes. | The only one of the three worth editing if dashboard layout ever needs changing. |
+| `myedits.css` | **Not custom** — AnuPpuccin's own extended Style Settings schema (`AnuPpuccin Themes Extended`), 3,910 lines. | Never hand-edit; would be silently overwritten by a theme update. Not a vault file to document exact effects of. |
+| `rainbowfile_colors.css` | **Not custom** — third-party AnuPpuccin add-on (`AnuPpuccin Custom Rainbow Folder Colors`, AGPLv3, AnubisNekhet), 2,662 lines. File explorer folder coloring. | Do not store meaning only in folder color; not a file to preserve carefully if lost (re-downloadable from AnuPpuccin). |
 
-Do not modify snippets during documentation work.
+All three vault-authored files now open with a marker comment identifying them as hand-written (added 2026-09-20). Do not modify any of the five during documentation work.
 
 ## Code Styler
 
@@ -55,6 +55,8 @@ Current Code Styler facts:
 - Inline code styling: enabled.
 - Excluded languages: `ad-*`, `reference`.
 - Processed codeblock whitelist: `run-*`, `include`.
+
+Confirmed directly from Code Styler's own README ([Code Styler README](https://github.com/mayurankv/Obsidian-Code-Styler)): `ad-*` excludes Admonitions-plugin callout code fences from Code Styler's own decoration; `run-*` and `include` are whitelist entries for the Execute Code Plugin and File Include Plugin, respectively. **Neither of those two plugins is installed in this vault** — confirmed against the full `community-plugins.json`/Lazy Plugin Loader list. The `run-*`/`include` whitelist entries are inert settings, not active configuration; harmless to leave as-is.
 
 Use fenced code blocks for code, commands, queries, configuration examples, and exact syntax. Include a language whenever possible.
 
@@ -127,7 +129,7 @@ $$
 
 Course-note rule: explain the equation in prose. Math notation should compress a mechanism, not replace it.
 
-Needs verification: user-specific Latex Suite snippets and whether any custom snippets should be documented.
+**Resolved 2026-09-20:** no custom Latex Suite snippets exist. `.obsidian/plugins/obsidian-latex-suite/` has no `data.json` at all, meaning the plugin has never been configured beyond its shipped defaults — there is no vault-specific notation convention to document. If a course develops a real recurring need (probability/expectation notation, vector notation), that's when a custom snippet and this note both get updated — not before.
 
 ## Ninja Cursor
 
@@ -148,7 +150,7 @@ Right column content.
 === multi-column-end
 ```
 
-**Researched 2026-09-19.** Installed and lazy-loaded (`short`), not yet used anywhere in the vault. It is a reading-experience plugin, not a data plugin — it changes layout only, so it does not interact with Dataview, Tasks, or frontmatter. The natural fit here is dense comparison notes (contrast tables in [[HUMAN_WRITING]]'s "prefer contrast" pattern, or side-by-side before/after code) where a Markdown table would otherwise force short lines to wrap awkwardly. Do not reach for it as a default layout tool — most notes in this vault read better as a single column, per [[HUMAN_WRITING]]'s short-paragraph rule.
+**Corrected 2026-09-20:** genuinely in use, not unused as previously documented. A vault-wide search found 9 real notes using multi-column syntax, including `00_Dashboard` itself. It is a reading-experience plugin, not a data plugin — it changes layout only, so it does not interact with Dataview, Tasks, or frontmatter. Do not reach for it as a default layout tool — most notes in this vault read better as a single column, per [[HUMAN_WRITING]]'s short-paragraph rule; its real use stays concentrated in dense comparison/dashboard layouts where a Markdown table would otherwise force short lines to wrap awkwardly.
 
 ## Callouts and Reading View
 
@@ -193,13 +195,7 @@ The final test is still [[HUMAN_WRITING]]: the note should contain mechanism, co
 ## Gold-Standard Example
 [[HeapSort|HeapSort]] is the model for math + code in one note: inline `$O(n)$` vs `$O(n \log n)$` distinctions explained in prose, with the mechanism stated rather than the formula left to stand alone. Contrast the anti-pattern — spelling out "n log n" in words when the symbol is clearer, or pasting a full source file into an evergreen note.
 ## Verified Open State
-- Which Latex Suite snippets are active, and should any custom ones be documented as vault conventions (e.g. preferred notation for probability/expectation)? — *unverified; snippet config not yet read*
-- Does `myedits.css` change anything semantically relevant, or is it purely cosmetic? — *needs verification before relying on its effects*
-- Should Multi-Column Markdown be used anywhere yet? — *mechanism confirmed 2026-09-19, no current use; not a gap, just unconfigured*
-## Suggestions
-- **Correcting the CSS Snippets table: worth it, and it's a correction, not a suggestion — this note currently gives a weaker answer than one that already exists elsewhere in the vault.** [[40_Resources/Obsidian/Settings/Appearance Theme and CSS Snippets]] confirms `myedits.css` and `rainbowfile_colors.css` are AnuPpuccin's own files, not vault edits, while this table still labels them "Broad custom theme edits" / "File explorer colors" with agent rules implying they might be hand-edited. An agent reading only this table would get the wrong impression of what's safe to touch.
-- **Reading Latex Suite's actual configured snippets: worth doing before it matters, not urgently.** No course note has hit this gap yet, but the first one that needs a specific probability/expectation or vector notation convention will silently assume a snippet exists that may not — cheap to check now, more annoying to debug mid-note later.
-- **Code Styler's `ad-*`/`reference` exclusions and `run-*`/`include` whitelist, confirmed directly from the plugin's own README (not guessed):** `ad-*` excludes Admonitions-plugin callout code fences from getting Code Styler's own decoration; `run-*` and `include` are whitelist entries for the Execute Code Plugin and File Include Plugin respectively ([Code Styler README](https://github.com/mayurankv/Obsidian-Code-Styler)). **Worth noting, low priority: neither Execute Code Plugin nor File Include Plugin is installed in this vault** — confirmed against the 12-entry `community-plugins.json` and the lazy-loaded plugin list, neither appears. The `run-*`/`include` whitelist entries are currently inert settings carried over from somewhere else, not active configuration. Worth one line saying so; not worth removing them, since they cost nothing sitting unused.
+- `myedits.css`'s exact effects are documented in full in [[40_Resources/Obsidian/Settings/Appearance Theme and CSS Snippets]] (Style Settings configuration section) rather than duplicated here — it's cosmetic (AMOLED-leaning dark Catppuccin Mocha, lavender accents, Kanban decluttering), not semantically load-bearing.
 ## Sources
 
 - [Obsidian Help - Appearance](https://obsidian.md/help/appearance)
@@ -208,4 +204,5 @@ The final test is still [[HUMAN_WRITING]]: the note should contain mechanism, co
 - [Style Settings README](https://github.com/obsidian-community/obsidian-style-settings)
 - [Multi-Column Markdown README](https://github.com/ckRobinson/multi-column-markdown)
 - [Ninja Cursor README](https://github.com/vrtmrz/ninja-cursor)
+- Direct read of `.obsidian/plugins/obsidian-latex-suite/` (no `data.json` — no custom snippets), a vault-wide multi-column usage search (9 real files), and cross-check against [[40_Resources/Obsidian/Settings/Appearance Theme and CSS Snippets]] — this session, 2026-09-20
 - [[HUMAN_WRITING]]

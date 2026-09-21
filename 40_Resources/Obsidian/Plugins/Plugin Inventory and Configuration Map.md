@@ -69,7 +69,7 @@ Deep per-plugin references: [[QuickAdd Capture Menu]], [[Excalidraw Diagrams and
 |---|---|---:|---:|---:|---|---:|---|
 | Code Styler | `code-styler` | 1.1.7 | yes | instant | Readable code examples. | yes | no |
 | Copilot | `copilot` | 4.0.9 (corrected 2026-09-20, was documented `3.2.7`) | no | long | Vault QA, citations, saved chats, AI memory, **live autonomous vault-write access (`writeFile`/`editFile` tool IDs enabled)**, and an "Agent Chat" feature that can run Claude Code/Codex/opencode natively. | yes | resolved — see [[AI Automation and Local Interfaces]] |
-| Excalibrain | `excalibrain` | 0.2.18 | no | long | Visual graph-style concept exploration, hover-triggered (`Alt+M`); companion to Excalidraw, not a replacement for it. | yes | whether the hover view actually opens still needs an in-app click test |
+| Excalibrain | `excalibrain` | 0.2.18 | no | long | Visual graph-style concept exploration, hover-triggered (`Alt+M`); companion to Excalidraw, not a replacement for it. | yes | **tested 2026-09-20** — `excalibrain:excalibrain-open-hover` run via the live `jarvis` MCP command interface, returned `OK` with no error. Confirms the command is real and executes; a full visual check (does the hover pane render well) still wants an actual in-app glance, but "does it open at all" is answered. |
 | Dataview | `dataview` | 0.5.68 | yes | instant | Dashboards and metadata queries. | yes | HTML/JS risk |
 | Excalidraw | `obsidian-excalidraw-plugin` | 2.21.2 | no | long | Diagrams, visual maps, PDF annotation. | redacted | template/scripts check |
 | File Explorer++ | `file-explorer-plus` | 1.3.1 | yes | instant | Pinned/hide filters for navigation. | yes | no |
@@ -132,7 +132,7 @@ Delayed plugins include Copilot, Excalidraw, Git, Hover Editor, Kanban, Omnisear
 | Editor: insert code block | `Alt+V` | Fast fenced-code creation. |
 | Omnisearch: show modal | `Alt+F` | Broad search before creating notes. |
 | QuickAdd: run QuickAdd | `Alt+Q` | Ready for capture menu, but choices are currently empty. |
-| Excalibrain: open hover | `Alt+M` | Corrected 2026-09-19: Excalibrain is installed (`main.js` present), not missing. Whether the hover view actually opens still needs an in-app click test. |
+| Excalibrain: open hover | `Alt+M` | Corrected 2026-09-19: Excalibrain is installed (`main.js` present), not missing. **Tested 2026-09-20** via `mcp__jarvis__command_execute("excalibrain:excalibrain-open-hover")` — executed cleanly, no error. |
 
 ## Appearance and Snippets
 

@@ -76,6 +76,11 @@ Recent Files is weak session context. It can help a human resume work, but agent
 
 Wiring note: `cmdr` and `recent-edits` were both installed on disk but wired into neither `community-plugins.json` nor Lazy Plugin Loader — confirmed 2026-09-20 they would not have activated on the next full Obsidian restart. Both now registered in Lazy Plugin Loader (`short` delay). See [[Plugin Inventory and Configuration Map]].
 
+## Commander — active but not yet configured, needs manual setup
+**Confirmed live 2026-09-20**, in a real running Obsidian session via the `jarvis` MCP command list: `cmdr:open-commander-settings` is a registered command, meaning Commander is genuinely active now (the Lazy Plugin Loader fix worked). But `.obsidian/plugins/cmdr/` still has no `data.json` — zero commands added anywhere. This is the honest reason it isn't "in use" yet despite being called useful: it's a UI-configuration plugin with no queryable or scriptable setup path. Per its own README ([phibr0/obsidian-commander](https://github.com/phibr0/obsidian-commander)), adding a command is entirely an in-app action — Settings → Commander → add/remove/reorder/edit commands — for four supported locations: **ribbon** (the left sidebar icon bar), **editor toolbar**, **file menu**, and **status bar**. There is no documented `data.json` schema to author blindly from outside Obsidian; this genuinely needs Anant to open Settings → Commander himself and add the specific commands he wants one-click access to.
+
+**This is the general pattern for "plugin says it's useful but nothing to show for it":** an agent can install, enable, and wire a plugin's activation path, but a UI-configuration plugin's actual payoff only exists once a human uses its settings panel. Don't read "no data.json" as "not really wanted" for this class of plugin — it's the expected state right after activation, before the first real setup pass.
+
 ## File Explorer++
 
 File Explorer++ supports pinned and hidden navigation filters.

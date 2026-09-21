@@ -5,35 +5,41 @@ source_app: claude-code
 source_os: windows
 title: "Jarvis vault plugins documentation batch 3"
 started_at: 2026-09-20T17:21:04
-ended_at: 2026-09-20T18:51:56
-exported_at: 2026-09-20T19:00:05
-duration_minutes: 90.9
+ended_at: 2026-09-20T19:29:47
+exported_at: 2026-09-20T19:30:04
+duration_minutes: 128.7
 project: Jarvis
 cwd: 'D:\Users\_Anant\10_Areas\Documents\Jarvis'
 session_id: 60b14ba1-f5d6-46e3-ab93-3ba15d89ac77
 status: raw
-turn_count: 6
+turn_count: 8
 tools_used:
   AskUserQuestion: 1
-  Bash: 69
-  Edit: 74
-  Grep: 6
+  Bash: 84
+  Edit: 93
+  Grep: 16
+  mcp__jarvis__command_execute: 1
+  mcp__jarvis__command_list: 1
+  mcp__jarvis__open_file: 1
   PowerShell: 3
-  Read: 18
-  ToolSearch: 1
-  WebFetch: 14
+  Read: 21
+  ToolSearch: 2
+  WebFetch: 21
 tokens:
-  input: 708
-  output: 279211
-  cache_creation: 790884
-  cache_read: 76295973
-  total: 77366776
-cost_usd: 21.216257
+  input: 934
+  output: 363743
+  cache_creation: 935130
+  cache_read: 117773871
+  total: 119073678
+cost_usd: 30.934592
 model:
   - "claude-sonnet-5"
 files_touched:
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\10_Areas\\Excalidraw\\Imagine 09-19.excalidraw.md"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\Obsidian\\Jarvis Vault Architecture.md"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\Obsidian\\MCP-Hub-Index.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\Obsidian\\Plugins\\AI Automation and Local Interfaces.md"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\Obsidian\\Plugins\\Appearance Code Math and Reading Experience.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\Obsidian\\Plugins\\Canvas Spatial Maps.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\Obsidian\\Plugins\\Dataview and Dashboards.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\Obsidian\\Plugins\\Git Recovery and Vault Safety.md"
@@ -3269,13 +3275,435 @@ This machine's install state was not checked in WSL specifically (only PowerShel
  M "60_Claude/07_AI_Information/Session Logs/log.md"
 ```
 
+## You
+
+Delete the worskapces-plus notes, you have my permission. Forget about the mcp on that laptop for now. Note the plugin utilization in the notes of the plugins if they are not being utilized but need to be done manually such as commander. But meta bind is not in use? WHy is that? Put it in use in the next set of build based on the suggestion. Run the batch 4 now. After doing the last few clean ups from bactch 3. Make sure to do the implementations correctly for everything.
+
+## Claude
+
+Got it — let me work through these in order: delete `workspaces-plus`, drop the Acer/MCP checklist, document Commander's manual-setup gap properly, actually wire up Meta Bind, then move into Batch 4.
+
+Deleted. Now checking whether the `jarvis` MCP connection is live so I can actually test Excalibrain's hover view.
+
+Now implementing the Meta Bind pilot — a live `status:` dropdown on the note that documents it, proving the pattern works in place.
+
+Cleanup from Batch 3 is done. Now scoping Batch 4 — let me check the tracker for what's still genuinely open.
+
+Found it — one note in the whole Plugins/Settings tree still has an unconverted `## Suggestions` section. Reading it now.
+
+Now cleaning up Verified Open State, removing Suggestions, and fixing Sources.
+
+Cleaning up two stale/duplicate entries in the tracker that still read as open despite being resolved earlier this session.
+
+Let me verify one claim in the tracker that says the dead `Alt+C` hotkey was already removed — I never touched `hotkeys.json` this session, so I want to confirm that's actually true rather than stale.
+
+Let me do a final consistency sweep — checking for any remaining stale references across the vault before wrapping up.
+
+`Jarvis Vault Architecture.md` is the authoritative routing doc CLAUDE.md points agents to — that stale `60_Claude/50_Reviews/` reference is a real, load-bearing bug. Let me check the scope of drift in both files before fixing.
+
+That 27124 in the New Laptop files turned out to be a different vault's port (The Plan, not Jarvis) — correctly not a bug, left alone. But I found a real structural gap: `60_Claude/35_Outputs/` (named in CLAUDE.md's own routing table) doesn't exist, and `MCP-Hub-Index.md` and `Jarvis Vault Architecture.md` disagree with each other on the number (`45_Outputs` vs `35_Outputs`). That's a vault-architecture decision, not a plugin-doc fix, so I'm flagging it rather than guessing at a folder number. Let me finalize the session log and wrap up.
+
+### Tool Calls
+
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && rm -rf ".obsidian/plugins/workspaces-plus/" && ls .obsidian/plugins/ | grep -i workspace; echo "exit: $?"`
+```
+exit: 1
+```
+- `ToolSearch` -- `{"query":"jarvis command_list command_execute","max_results":5}`
+- `mcp__jarvis__command_list` -- `{}`
+- `Grep` -- pattern `excalibrain` path `C:\Users\Anant Gupta\.claude\projects\D--Users--Anant-10-Areas-Documents-Jarvis\60b14ba1-f5d6-46e3-ab93-3ba15d89ac77\tool-results\toolu_01YAwnzZnPRZvJvubeP9zah3.json`
+- `Grep` -- pattern `excalibrain` path `C:\Users\Anant Gupta\.claude\projects\D--Users--Anant-10-Areas-Documents-Jarvis\60b14ba1-f5d6-46e3-ab93-3ba15d89ac77\tool-results\toolu_01YAwnzZnPRZvJvubeP9zah3.json`
+- `Grep` -- pattern `excalibrain[a-z:_-]*` path `C:\Users\Anant Gupta\.claude\projects\D--Users--Anant-10-Areas-Documents-Jarvis\60b14ba1-f5d6-46e3-ab93-3ba15d89ac77\tool-results\toolu_01YAwnzZnPRZvJvubeP9zah3.json`
+- `Bash` -- `grep -o '"id": "excalibrain[^"]*"' "C:\Users\Anant Gupta\.claude\projects\D--Users--Anant-10-Areas-Documents-Jarvis\60b14ba1-f5d6-46e3-ab93-3ba15d89ac77\tool-results\toolu_01YAwnzZnPRZvJvubeP9zah3.json" -i`
+```
+(Bash completed with no output)
+```
+- `Bash` -- `grep -io "excalibrain[a-z0-9:_-]*" "C:\Users\Anant Gupta\.claude\projects\D--Users--Anant-10-Areas-Documents-Jarvis\60b14ba1-f5d6-46e3-ab93-3ba15d89ac77\tool-results\toolu_01YAwnzZnPRZvJvubeP9zah3.json" | sort -u`
+```
+ExcaliBrain
+ExcaliBrain:
+excalibrain:excalibrain-addChildField
+excalibrain:excalibrain-addHiddenField
+excalibrain:excalibrain-addLeftFriendField
+excalibrain:excalibrain-addNextField
+excalibrain:excalibrain-addParentField
+excalibrain:excalibrain-addPreviousField
+excalibrain:excalibrain-addRightFriendField
+excalibrain:excalibrain-open-hover
+excalibrain:excalibrain-selectOntology
+excalibrain:excalibrain-start
+excalibrain:excalibrain-start-popout
+```
+- `mcp__jarvis__command_execute` -- `{"commandId":"excalibrain:excalibrain-open-hover"}`
+- `Bash` -- `grep -io "cmdr[a-z0-9:_-]*" "C:\Users\Anant Gupta\.claude\projects\D--Users--Anant-10-Areas-Documents-Jarvis\60b14ba1-f5d6-46e3-ab93-3ba15d89ac77\tool-results\toolu_01YAwnzZnPRZvJvubeP9zah3.json" | sort -u | head -20`
+```
+cmdr:open-commander-settings
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && ls -la .obsidian/plugins/cmdr/ 2>&1`
+```
+total 177
+drwxr-xr-x 1 Anant Gupta 197121      0 Sep 20 16:57 .
+drwxr-xr-x 1 Anant Gupta 197121      0 Sep 20 19:22 ..
+-rw-r--r-- 1 Anant Gupta 197121 160504 Sep 20 16:57 main.js
+-rw-r--r-- 1 Anant Gupta 197121    359 Sep 20 16:57 manifest.json
+-rw-r--r-- 1 Anant Gupta 197121  10742 Sep 20 16:57 styles.css
+```
+- `WebFetch` -- `{"url":"https://github.com/phibr0/obsidian-commander","prompt":"Explain how to set up Commander: how do you add a command to the ribbon, editor toolbar, file menu, or status bar? What does the settings UI look like (Settings -\u003e Commander)? Is there a way to add commands via editing data.json directly, or does it require using the in-app UI?"}`
+- `WebFetch` -- `{"url":"https://raw.githubusercontent.com/phibr0/obsidian-commander/master/README.md","prompt":"Explain how to set up Commander: how do you add a command to the ribbon, editor toolbar, file menu, or status bar? What does the settings UI look like (Settings -\u003e Commander)? List the UI locations it supports."}`
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Search Linking and Navigation.md`
+```diff
+- Wiring note: `cmdr` and `recent-edits` were both installed on disk but wired into neither `community-plugins.json` nor Lazy Plugin Loader — confirmed 2026-09-20 they would not have activated on the next full Obsidian restart. Both now registered in Lazy Plugin Loader (`short` delay). See [[Plugin Inventory and Configuration Map]].
++ Wiring note: `cmdr` and `recent-edits` were both installed on disk but wired into neither `community-plugins.json` nor Lazy Plugin Loader — confirmed 2026-09-20 they would not have activated on the next full Obsidian restart. Both now registered in Lazy Plugin Loader (`short` delay). See [[Plugin Inventory and Configuration Map]].
+
+## Commander — active but not yet configured, needs manual setup
+**Confirmed live 2026-09-20**, in a real running Obsidian session via the `jarvis` MCP command list: `cmdr:open-commander-settings` is a registered command, meaning Commander is genuinely active now (the Lazy Plugin Loader fix worked). But `.obsidian/plugins/cmdr/` still has no `data.json` — zero commands added anywhere. This is the honest reason it isn't "in use" yet despite being called useful: it's a UI-configuration plugin with no queryable or scriptable setup path. Per its own README ([phibr0/obsidian-commander](https://github.com/phibr0/obsidian-commander)), adding a command is entirely an in-app action — Settings → Commander → add/remove/reorder/edit commands — for four supported locations: **ribbon** (the left sidebar icon bar), **editor toolbar**, **file menu**, and **status bar**. There is no documented `data.json` schema to author blindly from outside Obsidian; this genuinely needs Anant to open Settings → Commander himself and add the specific commands he wants one-click access to.
+
+**This is the general pattern for "plugin says it's useful but nothing to show for it":** an agent can install, enable, and wire a plugin's activation path, but a UI-configuration plugin's actual payoff only exists once a human uses its settings panel. Don't read "no data.json" as "not really wanted" for this class of plugin — it's the expected state right after activation, before the first real setup pass.
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && grep -rl "Excalibrain" "40_Resources/Obsidian/Plugins/" 2>/dev/null`
+```
+40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md
+40_Resources/Obsidian/Plugins/Plugin Inventory and Configuration Map.md
+40_Resources/Obsidian/Plugins/Tasks Kanban and Project Tracking.md
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && grep -n "Excalibrain" "40_Resources/Obsidian/Plugins/Plugin Inventory and Configuration Map.md"`
+```
+72:| Excalibrain | `excalibrain` | 0.2.18 | no | long | Visual graph-style concept exploration, hover-triggered (`Alt+M`); companion to Excalidraw, not a replacement for it. | yes | whether the hover view actually opens still needs an in-app click test |
+135:| Excalibrain: open hover | `Alt+M` | Corrected 2026-09-19: Excalibrain is installed (`main.js` present), not missing. Whether the hover view actually opens still needs an in-app click test. |
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Plugin Inventory and Configuration Map.md`
+```diff
+- | Excalibrain | `excalibrain` | 0.2.18 | no | long | Visual graph-style concept exploration, hover-triggered (`Alt+M`); companion to Excalidraw, not a replacement for it. | yes | whether the hover view actually opens still needs an in-app click test |
++ | Excalibrain | `excalibrain` | 0.2.18 | no | long | Visual graph-style concept exploration, hover-triggered (`Alt+M`); companion to Excalidraw, not a replacement for it. | yes | **tested 2026-09-20** — `excalibrain:excalibrain-open-hover` run via the live `jarvis` MCP command interface, returned `OK` with no error. Confirms the command is real and executes; a full visual check (does the hover pane render well) still wants an actual in-app glance, but "does it open at all" is answered. |
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Plugin Inventory and Configuration Map.md`
+```diff
+- | Excalibrain: open hover | `Alt+M` | Corrected 2026-09-19: Excalibrain is installed (`main.js` present), not missing. Whether the hover view actually opens still needs an in-app click test. |
++ | Excalibrain: open hover | `Alt+M` | Corrected 2026-09-19: Excalibrain is installed (`main.js` present), not missing. **Tested 2026-09-20** via `mcp__jarvis__command_execute("excalibrain:excalibrain-open-hover")` — executed cleanly, no error. |
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Plugin Gaps Recommendations and Verification.md`
+```diff
+- | Excalibrain | Installed, `long`-delay, fully functional per its manifest — but "whether the hover view (`Alt+M`) actually opens" has never been click-tested in any session's findings. No confirmed real use, also no confirmed dead state. | Keep provisionally; do an actual in-app click test before deciding either way. |
++ | Excalibrain | **Tested 2026-09-20** via the live `jarvis` MCP command interface — `excalibrain:excalibrain-open-hover` executes cleanly, no error. The command genuinely works; still no evidence of habitual real use (no session or note ever references pulling up the hover view for actual work). | Keep — command confirmed functional. Real adoption is a separate, human question. |
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Plugin Gaps Recommendations and Verification.md`
+```diff
+- | Commander (`cmdr`) | **Contradicts the user's own "extremely useful" framing:** no `data.json` exists at all on this machine — never opened, never configured, and (before this session) not even wired to activate on restart. | Worth asking directly: is this actually being used on the Acer and just hasn't synced/configured here, or was "extremely useful" based on limited use so far? Not a removal candidate given the user's stated intent, but the Dell-side evidence doesn't back "extremely useful" yet. |
++ | Commander (`cmdr`) | **Confirmed active 2026-09-20** via the live `jarvis` MCP command list (`cmdr:open-commander-settings` is registered) — the Lazy Plugin Loader fix worked. Still no `data.json`: zero commands added to any of its four supported locations (ribbon, editor toolbar, file menu, status bar) yet. Per its own README, adding a command is entirely an in-app Settings → Commander action, no scriptable/data.json path exists to do this from outside Obsidian. | Not a removal candidate. This is the expected state for a UI-configuration plugin right after activation — needs Anant's own manual setup pass in Settings → Commander, documented in [[Search Linking and Navigation]]. |
+```
+- `WebFetch` -- `{"url":"https://www.moritzjung.dev/obsidian-meta-bind-plugin-docs/guides/inline/","prompt":"Give the exact inline Meta Bind syntax for binding a dropdown/select input to a frontmatter property, showing the options as a fixed list (e.g. seed/sprout/tree). Show the exact INPUT[...] syntax with the correct input type name (inlineSelect or select), option() syntax, and how the bound field name is specified."}`
+- `WebFetch` -- `{"url":"https://www.moritzjung.dev/obsidian-meta-bind-plugin-docs/","prompt":"Find and list the documentation pages for input field types, especially \"select\" or \"inline select\" dropdown inputs bound to a frontmatter property. Give exact page URLs."}`
+- `WebFetch` -- `{"url":"https://www.moritzjung.dev/obsidian-meta-bind-plugin-docs/reference/inputfields/inlineselect/","prompt":"Give the exact inline syntax example for an inlineSelect input field bound to a frontmatter property, including the option() syntax for a fixed list of choices, and where in a note the `INPUT[...]` text is placed (in the body, referencing a frontmatter key)."}`
+- `WebFetch` -- `{"url":"https://www.moritzjung.dev/obsidian-meta-bind-plugin-docs/guides/bind-target/","prompt":"Give the exact syntax for specifying a bind target that points to a frontmatter property of the current note. Show a full worked example combining an input field type (like inlineSelect) with a bind target to a frontmatter key, e.g. binding to a \"status\" property."}`
+- `WebFetch` -- `{"url":"https://www.moritzjung.dev/obsidian-meta-bind-plugin-docs/reference/inputfields/select/","prompt":"Give a complete, full worked example of the INPUT[...] syntax for a select or inlineSelect field bound to a frontmatter property named \"status\" with options seed/sprout/tree. Show the exact colon-separated bind target syntax (e.g. INPUT[select(option(a), option(b)):propertyName]) if that is the mechanism."}`
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && head -5 "40_Resources/Obsidian/Plugins/Dataview and Dashboards.md"`
+```
+---
+type: evergreen
+status: sprout
+created: 2026-05-15
+updated: 2026-09-20
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Dataview and Dashboards.md`
+```diff
+- ## Meta Bind
+Meta Bind turns frontmatter fields into interactive widgets inside a note: text/number/toggle inputs, dropdowns bound to a property, progress bars, and buttons that run a command or JS snippet on click ([Meta Bind docs](https://www.moritzjung.dev/obsidian-meta-bind-plugin-docs/)).
+
+**Researched 2026-09-19.** Installed and lazy-loaded (`short`), not yet used anywhere in the vault. The fit is dashboard-adjacent but distinct from Dataview: Dataview *reads* frontmatter to build a view; Meta Bind lets a note *write* its own frontmatter through a UI control, without opening Properties. A concrete use here: a project note's `status` field (`seed`/`sprout`/`tree`) as a Meta Bind dropdown instead of hand-typing it, or a habit board's daily checkboxes as bound toggles instead of raw Tasks lines. Do not wire buttons to arbitrary JS without the user's approval — that is the same risk class as DataviewJS, just triggered by a click instead of a render.
++ ## Meta Bind
+Meta Bind turns frontmatter fields into interactive widgets inside a note: text/number/toggle inputs, dropdowns bound to a property, progress bars, and buttons that run a command or JS snippet on click ([Meta Bind docs](https://www.moritzjung.dev/obsidian-meta-bind-plugin-docs/)).
+
+**Piloted for real, 2026-09-20.** Installed and lazy-loaded (`short`) since 2026-09-19, but a vault-wide search for its actual binding syntax (`INPUT[`, `VIEW[`, `BUTTON[`) found zero real uses anywhere — confirmed genuinely unused, not just under-documented. Piloting it now on exactly the `status` dropdown this note already recommended:
+
+```markdown
+INPUT[inlineSelect(option(seed), option(sprout), option(tree)):status]
+```
+
+Live below, bound to this note's own `status:` frontmatter field — changing it here rewrites the frontmatter directly, no Properties panel needed:
+
+Status: `INPUT[inlineSelect(option(seed), option(sprout), option(tree)):status]`
+
+Syntax confirmed against Meta Bind's own reference docs ([Select input field](https://www.moritzjung.dev/obsidian-meta-bind-plugin-docs/reference/inputfields/select/), [Inline Select input field](https://www.moritzjung.dev/obsidian-meta-bind-plugin-docs/reference/inputfields/inlineselect/)): `inlineSelect` is the compact dropdown variant meant for inline body use (versus the block-level `select`), `option(...)` defines each fixed choice, and the text after the colon is the bind target — the frontmatter property name it reads from and writes to. This is a plain bound dropdown, not a button running arbitrary JS, so it stays in the low-risk category already established for this plugin (a button wired to a command or script is the risk class that still needs explicit approval, not a value-selection input).
+
+This is a genuine second write path into frontmatter alongside hand-editing and Properties — Dataview *reads* frontmatter to build a view; Meta Bind lets a note *write* its own frontmatter through a UI control. The same pattern (`INPUT[inlineSelect(option(...), option(...)):fieldname]`) generalizes to any note with a small fixed-choice field — `type`, `track`, or a habit board's daily checkboxes as bound toggles instead of raw Tasks lines — once this pilot proves the mechanism out on one real note.
+```
+- `mcp__jarvis__open_file` -- `{"path":"40_Resources/Obsidian/Plugins/Dataview and Dashboards.md"}`
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Plugin Gaps Recommendations and Verification.md`
+```diff
+- | Meta Bind | Has a `data.json` (442 bytes) but a vault-wide search for its actual binding syntax (`INPUT[`, `VIEW[`, `BUTTON[`) found **zero** real uses anywhere in the vault. | Genuinely unused. Either pilot it once on a real note (the `status:` dropdown idea in [[Dataview and Dashboards]]) or it's a reasonable removal candidate — user's call. |
++ | Meta Bind | **Piloted 2026-09-20**, by user request. A real bound `status:` dropdown (`INPUT[inlineSelect(option(seed), option(sprout), option(tree)):status]`) now lives in [[Dataview and Dashboards]], the note that recommended it. Was genuinely unused before this (`data.json` existed but no real `INPUT[`/`VIEW[`/`BUTTON[` syntax anywhere in the vault). | Keep, in genuine use now. Pattern is copy-pasteable to any other small fixed-choice field. |
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Dataview and Dashboards.md`
+```diff
+- - `source_status` is confirmed unadopted (`0`/139), not just under-used — either start setting it or drop it from the schema and this note's recipe. Not decided here; a human content-workflow choice.
+- Should Meta Bind be wired into any existing dashboard or board (e.g. `status:` as a dropdown), now that its mechanism is documented? — *unconfigured; a workflow decision, not a research gap. Low-risk if tried: it only changes how a value gets written, not any existing query, so reverting means deleting one block per note.*
++ - `source_status` is confirmed unadopted (`0`/139), not just under-used — either start setting it or drop it from the schema and this note's recipe. Not decided here; a human content-workflow choice.
+- ~~Should Meta Bind be wired into any existing dashboard or board (e.g. `status:` as a dropdown)?~~ — *resolved 2026-09-20: piloted on this note's own `status:` field, see the Meta Bind section above. Extending the pattern to more notes is now a copy-paste exercise, not a research question.*
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Dataview and Dashboards.md`
+```diff
+- - Direct read of `.obsidian/plugins/dataview/data.json`, every real `dataviewjs` block in [[00_Dashboard]] and `Dossiers MOC.md`, and a vault-wide `source_status`/`source_url` field audit (139 `type: input` notes checked) — this session, 2026-09-20
++ - Direct read of `.obsidian/plugins/dataview/data.json`, every real `dataviewjs` block in [[00_Dashboard]] and `Dossiers MOC.md`, and a vault-wide `source_status`/`source_url` field audit (139 `type: input` notes checked) — this session, 2026-09-20
+- [Meta Bind — Select input field](https://www.moritzjung.dev/obsidian-meta-bind-plugin-docs/reference/inputfields/select/) and [Inline Select input field](https://www.moritzjung.dev/obsidian-meta-bind-plugin-docs/reference/inputfields/inlineselect/) — bind-target and `inlineSelect` syntax, fetched 2026-09-20
+```
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Plugin Gaps Recommendations and Verification.md`
+- `Grep` -- pattern `^## Suggestions` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian`
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Appearance Code Math and Reading Experience.md`
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && node -e "
+const d = JSON.parse(require('fs').readFileSync('.obsidian/plugins/obsidian-latex-suite/data.json','utf8'));
+console.log('snippets (raw, truncated to 3000 chars):');
+console.log(JSON.stringify(d.snippets).slice(0, 3000));
+console.log('---');
+console.log('snippetsFileLoc:', d.snippetsFileLoc);
+console.log('loadSnippetsFromFile:', d.loadSnippetsFromFile);
+console.log('snippetsFileLocation:', d.snippetsFileLocation);
+console.log(Object.keys(d));
+"`
+```
+Exit code 1
+node:fs:442
+    return binding.readFileUtf8(path, stringToFlags(options.flag));
+                   ^
+
+Error: ENOENT: no such file or directory, open 'D:\Users\_Anant\10_Areas\Documents\Jarvis\.obsidian\plugins\obsidian-latex-suite\data.json'
+    at Object.readFileSync (node:fs:442:20)
+    at [eval]:2:36
+    at runScriptInThisContext (node:internal/vm:209:10)
+    at node:internal/process/execution:449:12
+    at [eval]-wrapper:6:24
+    at runScriptInContext (node:internal/process/execution:447:60)
+    at evalFunction (node:internal/process/execution:87:30)
+    at evalScript (node:internal/process/execution:99:3)
+    at node:internal/main/eval_string:74:3 {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\.obsidian\\plugins\\obsidian-latex-suite\\data.json'
+}
+
+Node.js v22.16.0
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && ls .obsidian/plugins/obsidian-latex-suite/ 2>&1`
+```
+main.js
+manifest.json
+styles.css
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Appearance Code Math and Reading Experience.md`
+```diff
+- ## CSS Snippets
+
+Enabled snippets:
+
+| Snippet | Likely role | Agent rule |
+|---|---|---|
+| `headerspace.css` | Heading spacing. | Write normal headings; do not compensate with blank-line hacks. |
+| `readingview.css` | Reading-view tweaks. | Keep notes readable in plain Markdown too. |
+| `rainbowfile_colors.css` | File explorer colors. | Do not store meaning only in folder color. |
+| `myedits.css` | Broad custom theme edits. | Needs verification before documenting exact visual effects. |
+
+Do not modify snippets during documentation work.
++ ## CSS Snippets
+**Corrected 2026-09-20** against [[40_Resources/Obsidian/Settings/Appearance Theme and CSS Snippets]], which reads all five snippet files directly — two of the five are not vault-authored despite their names:
+
+| Snippet | Actual role | Agent rule |
+|---|---|---|
+| `headerspace.css` | Vault-authored. Heading spacing (Live Preview). | Write normal headings; do not compensate with blank-line hacks. |
+| `readingview.css` | Vault-authored. Reading-view heading spacing. | Keep notes readable in plain Markdown too. |
+| `dashboard.css` | Vault-authored. `.dashboard-grid`/`.card` layout for `00_Dashboard`-style notes. | The only one of the three worth editing if dashboard layout ever needs changing. |
+| `myedits.css` | **Not custom** — AnuPpuccin's own extended Style Settings schema (`AnuPpuccin Themes Extended`), 3,910 lines. | Never hand-edit; would be silently overwritten by a theme update. Not a vault file to document exact effects of. |
+| `rainbowfile_colors.css` | **Not custom** — third-party AnuPpuccin add-on (`AnuPpuccin Custom Rainbow Folder Colors`, AGPLv3, AnubisNekhet), 2,662 lines. File explorer folder coloring. | Do not store meaning only in folder color; not a file to preserve carefully if lost (re-downloadable from AnuPpuccin). |
+
+All three vault-authored files now open with a marker comment identifying them as hand-written (added 2026-09-20). Do not modify any of the five during documentation work.
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Appearance Code Math and Reading Experience.md`
+```diff
+- - Excluded languages: `ad-*`, `reference`.
+- Processed codeblock whitelist: `run-*`, `include`.
++ - Excluded languages: `ad-*`, `reference`.
+- Processed codeblock whitelist: `run-*`, `include`.
+
+Confirmed directly from Code Styler's own README ([Code Styler README](https://github.com/mayurankv/Obsidian-Code-Styler)): `ad-*` excludes Admonitions-plugin callout code fences from Code Styler's own decoration; `run-*` and `include` are whitelist entries for the Execute Code Plugin and File Include Plugin, respectively. **Neither of those two plugins is installed in this vault** — confirmed against the full `community-plugins.json`/Lazy Plugin Loader list. The `run-*`/`include` whitelist entries are inert settings, not active configuration; harmless to leave as-is.
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Appearance Code Math and Reading Experience.md`
+```diff
+- Needs verification: user-specific Latex Suite snippets and whether any custom snippets should be documented.
++ **Resolved 2026-09-20:** no custom Latex Suite snippets exist. `.obsidian/plugins/obsidian-latex-suite/` has no `data.json` at all, meaning the plugin has never been configured beyond its shipped defaults — there is no vault-specific notation convention to document. If a course develops a real recurring need (probability/expectation notation, vector notation), that's when a custom snippet and this note both get updated — not before.
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Appearance Code Math and Reading Experience.md`
+```diff
+- **Researched 2026-09-19.** Installed and lazy-loaded (`short`), not yet used anywhere in the vault. It is a reading-experience plugin, not a data plugin — it changes layout only, so it does not interact with Dataview, Tasks, or frontmatter. The natural fit here is dense comparison notes (contrast tables in [[HUMAN_WRITING]]'s "prefer contrast" pattern, or side-by-side before/after code) where a Markdown table would otherwise force short lines to wrap awkwardly. Do not reach for it as a default layout tool — most notes in this vault read better as a single column, per [[HUMAN_WRITING]]'s short-paragraph rule.
++ **Corrected 2026-09-20:** genuinely in use, not unused as previously documented. A vault-wide search found 9 real notes using multi-column syntax, including `00_Dashboard` itself. It is a reading-experience plugin, not a data plugin — it changes layout only, so it does not interact with Dataview, Tasks, or frontmatter. Do not reach for it as a default layout tool — most notes in this vault read better as a single column, per [[HUMAN_WRITING]]'s short-paragraph rule; its real use stays concentrated in dense comparison/dashboard layouts where a Markdown table would otherwise force short lines to wrap awkwardly.
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Appearance Code Math and Reading Experience.md`
+```diff
+- ## Verified Open State
+- Which Latex Suite snippets are active, and should any custom ones be documented as vault conventions (e.g. preferred notation for probability/expectation)? — *unverified; snippet config not yet read*
+- Does `myedits.css` change anything semantically relevant, or is it purely cosmetic? — *needs verification before relying on its effects*
+- Should Multi-Column Markdown be used anywhere yet? — *mechanism confirmed 2026-09-19, no current use; not a gap, just unconfigured*
+## Suggestions
+- **Correcting the CSS Snippets table: worth it, and it's a correction, not a suggestion — this note currently gives a weaker answer than one that already exists elsewhere in the vault.** [[40_Resources/Obsidian/Settings/Appearance Theme and CSS Snippets]] confirms `myedits.css` and `rainbowfile_colors.css` are AnuPpuccin's own files, not vault edits, while this table still labels them "Broad custom theme edits" / "File explorer colors" with agent rules implying they might be hand-edited. An agent reading only this table would get the wrong impression of what's safe to touch.
+- **Reading Latex Suite's actual configured snippets: worth doing before it matters, not urgently.** No course note has hit this gap yet, but the first one that needs a specific probability/expectation or vector notation convention will silently assume a snippet exists that may not — cheap to check now, more annoying to debug mid-note later.
+- **Code Styler's `ad-*`/`reference` exclusions and `run-*`/`include` whitelist, confirmed directly from the plugin's own README (not guessed):** `ad-*` excludes Admonitions-plugin callout code fences from getting Code Styler's own decoration; `run-*` and `include` are whitelist entries for the Execute Code Plugin and File Include Plugin respectively ([Code Styler README](https://github.com/mayurankv/Obsidian-Code-Styler)). **Worth noting, low priority: neither Execute Code Plugin nor File Include Plugin is installed in this vault** — confirmed against the 12-entry `community-plugins.json` and the lazy-loaded plugin list, neither appears. The `run-*`/`include` whitelist entries are currently inert settings carried over from somewhere else, not active configuration. Worth one line saying so; not worth removing them, since they cost nothing sitting unused.
+## Sources
+
+- [Obsidian Help - Appearance](https://obsidian.md/help/appearance)
+- [Code Styler README](https://github.com/mayurankv/Obsidian-Code-Styler) — excluded-language and processed-codeblock whitelist mechanism, fetched 2026-09-19
+- [Latex Suite README](https://github.com/artisticat1/obsidian-latex-suite)
+- [Style Settings README](https://github.com/obsidian-community/obsidian-style-settings)
+- [Multi-Column Markdown README](https://github.com/ckRobinson/multi-column-markdown)
+- [Ninja Cursor README](https://github.com/vrtmrz/ninja-cursor)
+- [[HUMAN_WRITING]]
++ ## Verified Open State
+- `myedits.css`'s exact effects are documented in full in [[40_Resources/Obsidian/Settings/Appearance Theme and CSS Snippets]] (Style Settings configuration section) rather than duplicated here — it's cosmetic (AMOLED-leaning dark Catppuccin Mocha, lavender accents, Kanban decluttering), not semantically load-bearing.
+## Sources
+
+- [Obsidian Help - Appearance](https://obsidian.md/help/appearance)
+- [Code Styler README](https://github.com/mayurankv/Obsidian-Code-Styler) — excluded-language and processed-codeblock whitelist mechanism, fetched 2026-09-19
+- [Latex Suite README](https://github.com/artisticat1/obsidian-latex-suite)
+- [Style Settings README](https://github.com/obsidian-community/obsidian-style-settings)
+- [Multi-Column Markdown README](https://github.com/ckRobinson/multi-column-markdown)
+- [Ninja Cursor README](https://github.com/vrtmrz/ninja-cursor)
+- Direct read of `.obsidian/plugins/obsidian-latex-suite/` (no `data.json` — no custom snippets), a vault-wide multi-column usage search (9 real files), and cross-check against [[40_Resources/Obsidian/Settings/Appearance Theme and CSS Snippets]] — this session, 2026-09-20
+- [[HUMAN_WRITING]]
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Appearance Code Math and Reading Experience.md`
+```diff
+- created: 2026-05-15
+updated: 2026-09-19
+tags:
+  - evergreen
+  - system
+  - obsidian
+  - writing
++ created: 2026-05-15
+updated: 2026-09-20
+tags:
+  - evergreen
+  - system
+  - obsidian
+  - writing
+```
+- `Grep` -- pattern `^## Suggestions` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian`
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Plugin Gaps Recommendations and Verification.md`
+```diff
+- - Whether Omnisearch should enable PDF/image/Office indexing, likely with Text Extractor. — *tradeoffs researched 2026-09-19: confirmed current state directly in `.obsidian/plugins/omnisearch/data.json` — `PDFIndexing`, `officeIndexing`, `imagesIndexing`, and `aiImageIndexing` are all `false`. Text Extractor ([scambier/obsidian-text-extractor](https://github.com/scambier/obsidian-text-extractor)) is the plugin Omnisearch expects for this: OCR runs locally via Tesseract.js (no file content leaves the device), but it needs an internet connection once to download language files, does not work on mobile at all (falls back to cached JSON extracted elsewhere), and PDF extraction specifically is described by the plugin's own docs as frequently failing. The decision itself is still open — mobile-unusable and PDF-unreliable are real costs against searchable PDFs/screenshots as a benefit.*
+- Whether Excalidraw auto-export should be enabled. — *mechanism researched 2026-09-19: it creates a PNG and/or SVG copy of a drawing on every save, with an optional keep-in-sync mode so the exported file (not the `.excalidraw.md` source) is what gets embedded elsewhere — configurable per-file via an `excalidraw-autoexport: none|both|png|svg` frontmatter override ([Excalidraw plugin README](https://github.com/zsviczian/obsidian-excalidraw-plugin)). The tradeoff: every save writes an extra file next to the drawing, which is more Syncthing/git churn per diagram. The enable/disable decision itself is still open.*
+- Whether Local REST API insecure server should remain enabled. — *tradeoff now documented in [[AI Automation and Local Interfaces]] (2026-09-18); the decision itself is still open.*
++ - Whether Omnisearch should enable PDF/image/Office indexing, likely with Text Extractor. — *resolved 2026-09-20, see the Omnisearch and Text Extractor entry above. Enabled, by user decision.*
+- Whether Excalidraw auto-export should be enabled. — *mechanism researched 2026-09-19: it creates a PNG and/or SVG copy of a drawing on every save, with an optional keep-in-sync mode so the exported file (not the `.excalidraw.md` source) is what gets embedded elsewhere — configurable per-file via an `excalidraw-autoexport: none|both|png|svg` frontmatter override ([Excalidraw plugin README](https://github.com/zsviczian/obsidian-excalidraw-plugin)). The tradeoff: every save writes an extra file next to the drawing, which is more Syncthing/git churn per diagram. The enable/disable decision itself is still genuinely open — moot until a real drawing exists to test it against (see the Excalidraw row in the Plugin Utilization Audit).*
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Plugin Gaps Recommendations and Verification.md`
+```diff
+- | Local REST API insecure server | `enableInsecureServer` is true. | Review need; do not call REST endpoints without approval. |
++ | Local REST API insecure server | **Resolved 2026-09-20** — `enableInsecureServer` is true, by design, standardized on for all MCP traffic. See [[AI Automation and Local Interfaces]]. | No longer a pending review; still do not call REST endpoints for note-editing work without a specific reason (filesystem edits remain preferred for that). |
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Plugin Gaps Recommendations and Verification.md`
+```diff
+- | Commander | Command/ribbon customization. | **Installed, not yet configured** — no `data.json` exists yet (never opened/customized). Wired into Lazy Plugin Loader 2026-09-20 so it activates; actual ribbon/command customization is still a zero-config install. |
++ | Commander | Command/ribbon customization. | **Confirmed active 2026-09-20** (registered in the live Obsidian session), still zero-config — needs a manual Settings → Commander setup pass. Full explanation of why this needs a human, not an agent, in [[Search Linking and Navigation]]. |
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && grep -n "calendar" .obsidian/hotkeys.json -i`
+```
+(Bash completed with no output)
+```
+- `Grep` -- pattern `27124` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources`
+- `Grep` -- pattern `60_Claude/30_Source_Summaries|60_Claude/50_Reviews` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian`
+- `Grep` -- pattern `27124` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop`
+- `Grep` -- pattern `60_Claude/30_Source_Summaries|60_Claude/50_Reviews` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\MCP-Hub-Index.md`
+- `Grep` -- pattern `60_Claude/30_Source_Summaries|60_Claude/50_Reviews` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Jarvis Vault Architecture.md`
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\MCP-Hub-Index.md`
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Jarvis Vault Architecture.md`
+```diff
+- | A daily / weekly / monthly review                                       | `60_Claude/50_Reviews/`                                                                                                               |
++ | A daily / weekly / monthly review                                       | `10_Areas/Life/Enumerate/{Daily,Weekly,Monthly,Yearly}` (Periodic Notes cadence) or `60_Claude/30_Reviews/` (Capability Engine synthesis reviews) — corrected 2026-09-20, was `60_Claude/50_Reviews/`, a folder that doesn't exist |
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && ls -d 60_Claude/*Output* 60_Claude/35_Outputs 60_Claude/45_Outputs 2>&1`
+```
+Exit code 2
+ls: cannot access '60_Claude/*Output*': No such file or directory
+ls: cannot access '60_Claude/35_Outputs': No such file or directory
+ls: cannot access '60_Claude/45_Outputs': No such file or directory
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && ls 60_Claude/ | sort`
+```
+00_Inbox
+05_Clippings
+07_AI_Information
+10_Source_Summaries
+20_Distilled_Notes
+30_Reviews
+40_Project_Briefs
+44_Indexes
+Claude Board.md
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && cat >> "60_Claude/07_AI_Information/Session Logs/log.md" << 'EOF'
+
+## [2026-09-20] write | Batch 3 cleanup + Batch 4 — Meta Bind piloted, Commander documented, last research-only note converted
+
+Same-day follow-up to the Batch 3 entry above, per Anant's direct instructions.
+
+**Batch 3 cleanup, all by explicit permission:**
+- Deleted `.obsidian/plugins/workspaces-plus/` for real (blocked by the permission system in Batch 3; Anant granted explicit approval this round).
+- Dropped the Acer port-27123/MCP checklist per Anant's instruction ("forget about the mcp on that laptop for now") — not pursued further.
+- opencode resolved fully: Anant chose the standalone CLI. Installed via `npm i -g opencode-ai@latest`, verified working in both PowerShell and Git Bash (`opencode --version` → `1.18.31`). Provider/model sign-in left as Anant's own next step.
+
+**Meta Bind — answered "why isn't it in use" and implemented it, not just explained:** confirmed zero real `INPUT[`/`VIEW[`/`BUTTON[` syntax existed anywhere in the vault (had a `data.json` but never actually used). Piloted for real on [[Dataview and Dashboards]]'s own `status:` field — `INPUT[inlineSelect(option(seed), option(sprout), option(tree)):status]` — syntax confirmed against Meta Bind's own reference docs. Opened the note in the live Obsidian session via the `jarvis` MCP so Anant can see it render.
+
+**Commander — documented as "needs manual setup," not silently marked unused:** confirmed live and active via the `jarvis` MCP command list (`cmdr:open-commander-settings` registered — the Batch 3 Lazy Plugin Loader fix worked), but still zero commands configured. Its own README confirms there is no scriptable/data.json path to add ribbon/toolbar/file-menu/status-bar commands — genuinely requires Anant's own pass through Settings → Commander. Documented clearly in [[Search Linking and Navigation]] as the general pattern for "useful but nothing to show for it yet" plugins.
+
+**Excalibrain hover view — actually tested, not just flagged as unverified:** ran `excalibrain:excalibrain-open-hover` directly via the live `jarvis` MCP command interface. Executed cleanly, no error — confirms the command genuinely works; a full visual check is still worth Anant's own glance.
+
+**Converted the last remaining research-only note:** `Appearance Code Math and Reading Experience.md` was the only file left in the whole `40_Resources/Obsidian/` tree with an unconverted `## Suggestions` section (confirmed via a vault-wide search) — fixed its stale CSS-snippets table (cross-referenced against [[Appearance Theme and CSS Snippets]]'s real findings), confirmed Latex Suite has zero custom snippets (no `data.json` exists at all), corrected its Multi-Column Markdown "unused" claim (9 real files use it), and folded the Code Styler exclusion research into permanent prose.
+
+**Found and fixed several stale tracker entries during a full re-read:** two duplicate/contradictory "decision still open" bullets in [[Plugin Gaps Recommendations and Verification]] that actually contradicted their own already-resolved sections (Omnisearch/Text Extractor, Local REST API port) — corrected. Commander's Optional-table row updated to match its confirmed-active state.
+
+**Found and fixed one real bug outside the Plugins folder:** [[Jarvis Vault Architecture]] (the routing table CLAUDE.md itself points every agent to) listed reviews as going to `60_Claude/50_Reviews/`, a folder that has never existed — corrected to the two real destinations (`10_Areas/Life/Enumerate/` for Periodic Notes, `60_Claude/30_Reviews/` for Capability Engine synthesis reviews).
+
+**Found, deliberately not fixed — flagged for Anant's decision:** `60_Claude/35_Outputs/` (named in CLAUDE.md's own routing table) does not exist anywhere in the vault. Worse, [[MCP-Hub-Index]] and [[Jarvis Vault Architecture]] disagree with each other on the folder number (`45_Outputs` vs `35_Outputs`) — and separately, `MCP-Hub-Index.md` itself appears to be a stale orientation doc from 2026-05-29, using an entirely different, superseded folder-numbering scheme throughout (`60_Claude/10_Session_Logs/`, `30_Source_Summaries/`, `50_Reviews/`, `60_Indexes/`, `7_AI_Information/` — none of which are the real current paths), and its self-claimed role ("the orientation page... read before doing anything else") is directly superseded by [[60_Claude/07_AI_Information/Vault Map]], which AGENTS.md names as the actual current orientation doc. This is a real, separate cleanup project (does `MCP-Hub-Index.md` get rewritten, archived, or merged into Vault Map?) — out of scope for a plugin-documentation batch, surfaced here rather than guessed at.
+
+**Next:** Anant's own decision on `60_Claude/35_Outputs/` vs `45_Outputs/` (create the folder, pick the real number, update both docs to agree) and what happens to `MCP-Hub-Index.md`. Commander's manual Settings pass and opencode's provider sign-in remain Anant's own next actions whenever convenient.
+EOF
+echo "appended"`
+```
+appended
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git status --short | grep -v "Sync-Log\|sweep-\|cursor-export\|Codex\|Statusline\|capture-health\|git-auto-sync\|AI Conversations"`
+```
+ M .obsidian/app.json
+ M .obsidian/plugins/omnisearch/data.json
+ M .obsidian/plugins/recent-edits/data.json
+ M .obsidian/plugins/recent-files-obsidian/data.json
+ M .obsidian/snippets/dashboard.css
+ M .obsidian/snippets/headerspace.css
+ M .obsidian/snippets/readingview.css
+ M "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md"
+ M "40_Resources/Obsidian/Jarvis Vault Architecture.md"
+ M "40_Resources/Obsidian/Plugins/AI Automation and Local Interfaces.md"
+ M "40_Resources/Obsidian/Plugins/Appearance Code Math and Reading Experience.md"
+ M "40_Resources/Obsidian/Plugins/Dataview and Dashboards.md"
+ M "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md"
+ M "40_Resources/Obsidian/Plugins/Plugin Inventory and Configuration Map.md"
+ M "40_Resources/Obsidian/Plugins/Search Linking and Navigation.md"
+ M "40_Resources/Obsidian/Settings/Appearance Theme and CSS Snippets.md"
+ M "40_Resources/Obsidian/Settings/File Handling and Properties.md"
+ M "60_Claude/07_AI_Information/Session Logs/log.md"
+?? .obsidian/plugins/copilot/[REDACTED].json
+?? .obsidian/plugins/recent-edits/data.[REDACTED].json
+?? .obsidian/plugins/text-extractor/cache/
+?? .obsidian/plugins/text-extractor/data.json
+?? excalibrain.md
+```
+
 ## Actions Taken
 
 **Files created:**
 _None_
 
 **Files modified:**
+- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Jarvis Vault Architecture.md`
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\AI Automation and Local Interfaces.md`
+- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Appearance Code Math and Reading Experience.md`
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Canvas Spatial Maps.md`
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Dataview and Dashboards.md`
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Omnisearch and Retrieval.md`
@@ -3605,5 +4033,56 @@ echo "appended"`
 - `opencode --version 2>&1
 which opencode 2>&1`
 - `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git status --short | grep -v "Sync-Log\|sweep-\|cursor-export\|Codex\|Statusline\|capture-health\|git-auto-sync"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && rm -rf ".obsidian/plugins/workspaces-plus/" && ls .obsidian/plugins/ | grep -i workspace; echo "exit: $?"`
+- `grep -o '"id": "excalibrain[^"]*"' "C:\Users\Anant Gupta\.claude\projects\D--Users--Anant-10-Areas-Documents-Jarvis\60b14ba1-f5d6-46e3-ab93-3ba15d89ac77\tool-results\toolu_01YAwnzZnPRZvJvubeP9zah3.json" -i`
+- `grep -io "excalibrain[a-z0-9:_-]*" "C:\Users\Anant Gupta\.claude\projects\D--Users--Anant-10-Areas-Documents-Jarvis\60b14ba1-f5d6-46e3-ab93-3ba15d89ac77\tool-results\toolu_01YAwnzZnPRZvJvubeP9zah3.json" | sort -u`
+- `grep -io "cmdr[a-z0-9:_-]*" "C:\Users\Anant Gupta\.claude\projects\D--Users--Anant-10-Areas-Documents-Jarvis\60b14ba1-f5d6-46e3-ab93-3ba15d89ac77\tool-results\toolu_01YAwnzZnPRZvJvubeP9zah3.json" | sort -u | head -20`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && ls -la .obsidian/plugins/cmdr/ 2>&1`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && grep -rl "Excalibrain" "40_Resources/Obsidian/Plugins/" 2>/dev/null`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && grep -n "Excalibrain" "40_Resources/Obsidian/Plugins/Plugin Inventory and Configuration Map.md"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && head -5 "40_Resources/Obsidian/Plugins/Dataview and Dashboards.md"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && node -e "
+const d = JSON.parse(require('fs').readFileSync('.obsidian/plugins/obsidian-latex-suite/data.json','utf8'));
+console.log('snippets (raw, truncated to 3000 chars):');
+console.log(JSON.stringify(d.snippets).slice(0, 3000));
+console.log('---');
+console.log('snippetsFileLoc:', d.snippetsFileLoc);
+console.log('loadSnippetsFromFile:', d.loadSnippetsFromFile);
+console.log('snippetsFileLocation:', d.snippetsFileLocation);
+console.log(Object.keys(d));
+"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && ls .obsidian/plugins/obsidian-latex-suite/ 2>&1`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && grep -n "calendar" .obsidian/hotkeys.json -i`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && ls -d 60_Claude/*Output* 60_Claude/35_Outputs 60_Claude/45_Outputs 2>&1`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && ls 60_Claude/ | sort`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && cat >> "60_Claude/07_AI_Information/Session Logs/log.md" << 'EOF'
+
+## [2026-09-20] write | Batch 3 cleanup + Batch 4 — Meta Bind piloted, Commander documented, last research-only note converted
+
+Same-day follow-up to the Batch 3 entry above, per Anant's direct instructions.
+
+**Batch 3 cleanup, all by explicit permission:**
+- Deleted `.obsidian/plugins/workspaces-plus/` for real (blocked by the permission system in Batch 3; Anant granted explicit approval this round).
+- Dropped the Acer port-27123/MCP checklist per Anant's instruction ("forget about the mcp on that laptop for now") — not pursued further.
+- opencode resolved fully: Anant chose the standalone CLI. Installed via `npm i -g opencode-ai@latest`, verified working in both PowerShell and Git Bash (`opencode --version` → `1.18.31`). Provider/model sign-in left as Anant's own next step.
+
+**Meta Bind — answered "why isn't it in use" and implemented it, not just explained:** confirmed zero real `INPUT[`/`VIEW[`/`BUTTON[` syntax existed anywhere in the vault (had a `data.json` but never actually used). Piloted for real on [[Dataview and Dashboards]]'s own `status:` field — `INPUT[inlineSelect(option(seed), option(sprout), option(tree)):status]` — syntax confirmed against Meta Bind's own reference docs. Opened the note in the live Obsidian session via the `jarvis` MCP so Anant can see it render.
+
+**Commander — documented as "needs manual setup," not silently marked unused:** confirmed live and active via the `jarvis` MCP command list (`cmdr:open-commander-settings` registered — the Batch 3 Lazy Plugin Loader fix worked), but still zero commands configured. Its own README confirms there is no scriptable/data.json path to add ribbon/toolbar/file-menu/status-bar commands — genuinely requires Anant's own pass through Settings → Commander. Documented clearly in [[Search Linking and Navigation]] as the general pattern for "useful but nothing to show for it yet" plugins.
+
+**Excalibrain hover view — actually tested, not just flagged as unverified:** ran `excalibrain:excalibrain-open-hover` directly via the live `jarvis` MCP command interface. Executed cleanly, no error — confirms the command genuinely works; a full visual check is still worth Anant's own glance.
+
+**Converted the last remaining research-only note:** `Appearance Code Math and Reading Experience.md` was the only file left in the whole `40_Resources/Obsidian/` tree with an unconverted `## Suggestions` section (confirmed via a vault-wide search) — fixed its stale CSS-snippets table (cross-referenced against [[Appearance Theme and CSS Snippets]]'s real findings), confirmed Latex Suite has zero custom snippets (no `data.json` exists at all), corrected its Multi-Column Markdown "unused" claim (9 real files use it), and folded the Code Styler exclusion research into permanent prose.
+
+**Found and fixed several stale tracker entries during a full re-read:** two duplicate/contradictory "decision still open" bullets in [[Plugin Gaps Recommendations and Verification]] that actually contradicted their own already-resolved sections (Omnisearch/Text Extractor, Local REST API port) — corrected. Commander's Optional-table row updated to match its confirmed-active state.
+
+**Found and fixed one real bug outside the Plugins folder:** [[Jarvis Vault Architecture]] (the routing table CLAUDE.md itself points every agent to) listed reviews as going to `60_Claude/50_Reviews/`, a folder that has never existed — corrected to the two real destinations (`10_Areas/Life/Enumerate/` for Periodic Notes, `60_Claude/30_Reviews/` for Capability Engine synthesis reviews).
+
+**Found, deliberately not fixed — flagged for Anant's decision:** `60_Claude/35_Outputs/` (named in CLAUDE.md's own routing table) does not exist anywhere in the vault. Worse, [[MCP-Hub-Index]] and [[Jarvis Vault Architecture]] disagree with each other on the folder number (`45_Outputs` vs `35_Outputs`) — and separately, `MCP-Hub-Index.md` itself appears to be a stale orientation doc from 2026-05-29, using an entirely different, superseded folder-numbering scheme throughout (`60_Claude/10_Session_Logs/`, `30_Source_Summaries/`, `50_Reviews/`, `60_Indexes/`, `7_AI_Information/` — none of which are the real current paths), and its self-claimed role ("the orientation page... read before doing anything else") is directly superseded by [[60_Claude/07_AI_Information/Vault Map]], which AGENTS.md names as the actual current orientation doc. This is a real, separate cleanup project (does `MCP-Hub-Index.md` get rewritten, archived, or merged into Vault Map?) — out of scope for a plugin-documentation batch, surfaced here rather than guessed at.
+
+**Next:** Anant's own decision on `60_Claude/35_Outputs/` vs `45_Outputs/` (create the folder, pick the real number, update both docs to agree) and what happens to `MCP-Hub-Index.md`. Commander's manual Settings pass and opencode's provider sign-in remain Anant's own next actions whenever convenient.
+EOF
+echo "appended"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git status --short | grep -v "Sync-Log\|sweep-\|cursor-export\|Codex\|Statusline\|capture-health\|git-auto-sync\|AI Conversations"`
 
 

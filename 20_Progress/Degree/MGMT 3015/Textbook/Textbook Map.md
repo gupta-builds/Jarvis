@@ -3,13 +3,13 @@ type: class
 input_kind: textbook
 status: sprout
 created: 2026-09-09
-updated: 2026-09-09
+updated: 2026-09-21
 area:
   - "[[MGMT 3015 Board]]"
 tags:
   - "#class"
   - "#Textbook"
-next: "Create Chapter - 1 & 2.md once Session 2 (Mon 9/14) is actually covered"
+next: "Run the remaining three Gemini Notebook prompt parts (Ch 1&2 both parts, Ch 3&4 Part 2) from Repetitive Things.md (### MGMT 3015) — Chapter 3 alone has landed and been arranged to Textbook Standard shape"
 ---
 # MGMT 3015 — Textbook Map
 ==Every one of the textbook's 13 chapters gets a reading assignment somewhere in the semester - full coverage, no chapter skipped - but the course teaches them wildly out of numerical order, and one thematic session (Internationalization) uses slides instead of a chapter at all.== Cross-referenced against the full Schedule table in [[MGMT 3015 Board]], pasted from Canvas Modules 2026-09-09.
@@ -35,4 +35,4 @@ The Business Plan (Ch 8) is taught in Module 4, *before* Industry Analysis, Stra
 ## Standard
 Each chapter note, once created, follows [[Textbook Template]] - one highlight anchor, bolded key concepts, a worked example, a connection back to the matching session, and flashcards.
 ## Status
-Zero chapter notes written as of 2026-09-09 - the course has only reached Session 1 (Wed 9/9, pure introduction, no assigned chapter). This map plans the full chapter-to-session structure before any individual chapter note exists, instead of inventing it piecemeal as the semester goes.
+As of 2026-09-21: `Chapter - 1 & 2.md` has real Gemini-sourced content for both Chapter 1 and Chapter 2, arranged to full [[Textbook Standard]] shape (frontmatter, source header, Chapter Summary, Key Concepts, Worked Example, Connections, Open Questions, Flashcards). `Chapter - 3 & 4.md` has Chapter 3 only, also arranged, plus a real worked example added directly from the chapter's own ISlide case (pp. 95-101, used as the subject of [[20_Progress/Degree/MGMT 3015/Assignments/Profile of a Successful Entrepreneur|Profile of a Successful Entrepreneur]]) — Chapter 4 "Prototyping Your Ideas" and the whole-note wrap are still pending the Part 2 Gemini paste. Page ranges confirmed: Ch 1-2 = textbook pp. 1-69 / PDF pp. 23-91; Ch 3-4 = textbook pp. 70-119 / PDF pp. 92-141 (PDF offset = textbook page + 22).

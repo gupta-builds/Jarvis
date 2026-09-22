@@ -48,7 +48,7 @@ let nextChar () =
 - [[OCaml - Lazy Evaluation]]: laziness may hide computation timing; refs make state changes explicit.
 
 ## Where It Appears
-- Weekly notes: [[20_Progress/Degree/CSCI 4041/Week - 7]], [[20_Progress/Degree/CSCI 4041/Week - 10]], [[20_Progress/Degree/CSCI 4041/Week - 11]], [[20_Progress/Degree/CSCI 4041/Week - 12]], [[Week - 15]].
+- Weekly notes: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 7]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 10]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 11]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 12]], [[Week - 15]].
 - Labs: [[Lab - 6 Memoization]], [[Lab - 11 Lisp Evaluator]], [[Lab - 12 Lisp Integration]].
 - Projects: [[Project - 2 Lisp Parser]] uses scanner/parser cursor state.
 - Textbook: Hickey Ch. 7.

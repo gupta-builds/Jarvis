@@ -7,7 +7,7 @@ updated: 2026-03-22
 topics:
   - "[[40_Resources/UMN/Previous Classes/Minor/MGMT 3001/MGMT 3001 Board]]"
   - "[[40_Resources/UMN/Previous Classes/Minor/MGMT 3001/Textbook/Chapter - 12|Chapter - 12]]"
-  - "[[20_Progress/Degree/CSCI 4041/Textbook/Chapter - 13|Chapter - 13]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 13|Chapter - 13]]"
 related:
   - "[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 2]]"
   - "[[Personality, Locus of Control & Resilience|Personality, Locus of Control & Resilience]]"

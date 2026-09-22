@@ -60,7 +60,7 @@ and printingThings things =
 - Plain helper functions: if the helper is called only one direction, `and` may not be needed.
 
 ## Where It Appears
-- Weekly notes: [[20_Progress/Degree/CSCI 4041/Week - 10]], [[20_Progress/Degree/CSCI 4041/Week - 11]], [[Week - 15]].
+- Weekly notes: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 10]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 11]], [[Week - 15]].
 - Labs: [[Lab - 10 Lisp Printer]], [[Lab - 12 Lisp Integration]].
 - Projects: [[Project - 2 Lisp Parser]] uses `nextThings` and `nextThing`.
 - Textbook: Hickey Ch. 3.

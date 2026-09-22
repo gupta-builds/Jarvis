@@ -49,7 +49,7 @@ and printingThings things =
 - OCaml `printf "%s"` on constructors: not available for arbitrary ADTs; the course printer defines the display rules.
 
 ## Where It Appears
-- Weekly notes: [[20_Progress/Degree/CSCI 4041/Week - 11]], [[20_Progress/Degree/CSCI 4041/Week - 12]], [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 13]], [[Week - 15]].
+- Weekly notes: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 11]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 12]], [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 13]], [[Week - 15]].
 - Labs: [[Lab - 10 Lisp Printer]], [[Lab - 12 Lisp Integration]].
 - Projects: [[Project - 2 Lisp Parser]] output can be checked with the Lab 10 printer.
 - Textbook: Hickey Ch. 4, Ch. 6, Ch. 11-12.

@@ -43,7 +43,7 @@ type ('a, 'b) t =
 - OCaml maps/hash tables: more structured or efficient, but less directly tied to course source.
 
 ## Where It Appears
-- Weekly notes: [[20_Progress/Degree/CSCI 4041/Week - 8]], [[20_Progress/Degree/CSCI 4041/Week - 11]], [[20_Progress/Degree/CSCI 4041/Week - 12]], [[Week - 15]].
+- Weekly notes: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 8]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 11]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 12]], [[Week - 15]].
 - Labs: [[Lab - 8 Association Module]], [[Lab - 11 Lisp Evaluator]].
 - Projects: Project 2's `environment` type depends on `(string * thing) list`, though parser itself does not lookup names.
 - Textbook: Hickey Ch. 5 lists, Ch. 8 hash tables as contrast.

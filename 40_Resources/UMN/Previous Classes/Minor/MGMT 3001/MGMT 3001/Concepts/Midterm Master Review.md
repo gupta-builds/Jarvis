@@ -100,7 +100,7 @@ The leader's job is to **make the path from effort to valued reward clearer and 
 ---
 
 ## Chapter 13 — Personality, Locus of Control, Resilience
-**See:** [[Personality, Locus of Control & Resilience|Personality, Locus of Control & Resilience]] | [[20_Progress/Degree/CSCI 4041/Textbook/Chapter - 13|Chapter - 13]]
+**See:** [[Personality, Locus of Control & Resilience|Personality, Locus of Control & Resilience]] | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 13|Chapter - 13]]
 
 ### Big Five Personality Traits
 

@@ -26,6 +26,7 @@ This is the heaviest Fall'26 course by workload (~12 hours/week, per [[CSCI 4061
 ## Weekly Study Plan
 **~12 hours/week**, per [[CSCI 4061 Board]]'s own Workload section (university policy: 3 hrs/credit x 4 credits) - the heaviest of the six Fall'26 courses. A reasonable split, not itself stated in the syllabus beyond the class/lab time: ~2.5 hrs in the two weekly lectures, ~1 hr in the weekly lab, ~3-4 hrs reading Stevens/Kleppmann plus quiz prep, ~5-6 hrs of project coding and debugging - heavier in weeks a project is due, lighter in weeks one just released.
 Full week-by-week detail below, consolidated from [[CSCI 4061 Board]]'s Schedule and [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]] into one interlinked table.
+
 | Wk | Lecture Topics | Reading | Due This Week |
 |---|---|---|---|
 | 1 | Course Intro; System Calls, Process Management | Stevens Ch 1, 7, 8 | Quiz 1 & Entrance Survey released |

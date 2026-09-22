@@ -14,7 +14,7 @@ next: "[[20_Progress/Degree/MGMT 3015/Lecture/Lecture - 5|Lecture - 5]]"
 # Lecture - 4 — Session 4: Creativity and Idea Generation (Mon 9/21)
 Source: real slide deck `2026  f3015 S4 Idea Generation.pptx` (32 slides), read in full 2026-09-21 — today's session. Reading: Ch 3 & 4, per [[20_Progress/Degree/MGMT 3015/Textbook/Textbook Map|Textbook Map]]. **The Profile of a Successful Entrepreneur (5%) is due today** — see [[20_Progress/Degree/MGMT 3015/Assignments/Profile of a Successful Entrepreneur|Profile of a Successful Entrepreneur]].
 ## What you must be able to do
-- [[Chapter - 3 & 4]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 3 & 4]]
 - Name the three ideation methods (watch/listen for opportunity, use your networks, flash of insight) and give one concrete tactic for each.
 - Explain the strength-of-weak-ties finding (Granovetter 1973) and why affiliation networks underperform efficiency networks for innovation.
 - List the five named barriers to creativity and recognize the self-talk phrases the slide uses to illustrate each.
@@ -67,7 +67,7 @@ Opens with the Jobs "connecting things" quote (see Examples), then the left-brai
 Three ideation methods restated (watch/listen, networks via weak ties, creative combination/flash of insight) plus a fourth pointer: seek out entrepreneurship resources on campus, named contact — John Stavig, Program Director, Gary S. Holmes Center for Entrepreneurship, CSOM 2-212C.
 ## Textbook integration
 > [!IMPORTANT]
-> Main chapters: [[Chapter - 3 & 4]] (not yet written — blocked on the Gemini Notebook paste per [[Textbook Standard]]; prompt is ready in `Repetitive Things.md`)
+> Main chapters: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 3 & 4]] (not yet written — blocked on the Gemini Notebook paste per [[Textbook Standard]]; prompt is ready in `Repetitive Things.md`)
 Chapter 3's own table of contents is "From Glimmer to Action: How Do I Come Up with a Good Idea?," "Is Your Idea an Opportunity?," and "The Opportunity Checklist" — this maps almost one-to-one onto today's three ideation methods and the "idea vs. business concept" distinction. Chapter 4, "Prototyping Your Ideas," covers "What Is Prototyping?" and "Types of Prototyping" — territory the slide deck doesn't touch at all today (prototyping is absent from this session, likely reserved for Session 5 or a later Ch 3&4 session per the Textbook Map's "Session 5, Wed 9/23: Opportunities — Definition & Evaluation" continuation).
 ## Takeaways (questions to resolve)
 - [ ] The "2 things school does to promote/stifle creativity" slide (section 2) had no itemized content in the extracted text — check the original slide visuals or in-class discussion for what was actually shown.
@@ -78,7 +78,7 @@ Chapter 3's own table of contents is "From Glimmer to Action: How Do I Come Up w
 ==Idea generation runs through three concrete, teachable methods — watch/listen for unmet needs, mine weak-tie networks rather than close ones, and recognize a flash of insight as connecting existing pieces, not inventing from nothing.==
 *Mechanism:* Each method targets a different failure mode in how people normally look for ideas. Watching/listening counters the default of only noticing problems that directly inconvenience you. The weak-ties finding counters the instinct to brainstorm only with close friends, who tend to know the same things you do. The flash-of-insight method (Jobs's "connecting things") counters the myth that ideas need to be invented from scratch — the Macintosh example is literally two existing things combined, not a new invention.
 - Lecture example/scenario: the creative-combination team exercise (randomly assigned object + forced combination) operationalizes the flash-of-insight method under time pressure, the same way "Fix My Day" (Session 2) operationalized discovery.
-- Textbook connection: [[Chapter - 3 & 4]] — Chapter 3's "From Glimmer to Action" section should formalize today's three methods into the book's own named framework.
+- Textbook connection: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 3 & 4]] — Chapter 3's "From Glimmer to Action" section should formalize today's three methods into the book's own named framework.
 - Concept links: none yet (concepts out of scope this pass).
 > [!WARNING]
 > Don't treat "flash of insight" as evidence against the "entrepreneurship is learnable" claim from Session 1 — Jobs's own quote explicitly reframes insight as *connecting prior experience*, which is exactly why the deck pairs it with a journal (Method 1) and a network-building habit (Method 2). The three methods are meant to compound, not compete.

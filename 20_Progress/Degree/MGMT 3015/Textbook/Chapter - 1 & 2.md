@@ -1,23 +1,23 @@
 ---
 type: class
 input_kind: book
-status: seed
-created:
-updated:
+status: sprout
+created: 2026-09-09
+updated: 2026-09-21
 area:
-  - "[[UMN Board]]"
+  - "[[MGMT 3015 Board]]"
+  - "[[20_Progress/Degree/MGMT 3015/Textbook/Textbook Map|Textbook Map]]"
 tags:
   - "#class"
   - "#Textbook"
-next:
+  - "#MGMT"
+next: "Connect Chapter 2's Timmons Framework and Carol Moore process model to Session 2-3's lecture capture, then continue to the Chapter 3 & 4 note"
 ---
-# Chapter - 1 & 2
-## Chapter Summary
-<!-- State the chapter's one-sentence claim and use exactly one ==highlight== anchor. -->
-== ==
-*Mechanism:*
-<!-- Explain how the chapter's claim works. -->
-# Chapter 1: The Power of Entrepreneurship
+# Chapter - 1 & 2 — The Power of Entrepreneurship / The Entrepreneurial Process
+**Source:** Zacharakis, Bygrave & Corbett, *Entrepreneurship*, 5th ed. (Wiley, 2019), Chapters 1-2, pp. 1-69.
+**Read from:** `D:\_Anant\10_Areas\UMN\Classes\Minor\MGMT 3015\MGMT 3015 - Entrepreneurship, 5th Edition.pdf`
+**Course role:** Assigned for Session 2 (Mon 9/14, Ch 1 & 2) and Session 3 (Wed 9/16, Ch 2 cont'd) — the course's opening frame for what entrepreneurship is and what starts a venture, before Session 4 moves into idea generation.
+## Chapter 1: The Power of Entrepreneurship
 
 *Context:* Chapter 1 opening introduces the global impact of new ventures, opening with Airbnb founders Nathan Blecharczyk, Brian Chesky, and Joe Gebbia (p. 1-2). Hundreds of new businesses are born every hour of every working day in the United States (p. 2). New and emerging businesses create half of all new private-sector jobs in the U.S. (2018 data) and played a central role in economic recovery; a 2015 Small Business Administration (SBA) report indicates entrepreneurs created 7 of 11 million new jobs following the 2008 recession (p. 2).
 
@@ -186,7 +186,7 @@ next:
   5. India (6.2) — Low Income, East/South Asia
   6. United States (6.0) — High Income, Europe/North America (p. 28).
 - *Comparative Rankings:* Israel ranked 28th (5.1), United Kingdom 30th (4.9), Colombia 32nd (4.8), Egypt 34th (4.7), Mozambique 54th (3.2) (p. 28).
-# Chapter 2: The Entrepreneurial Process
+## Chapter 2: The Entrepreneurial Process
 
 *Context:* Chapter 2 provides an overview of the critical factors that give birth to new enterprises and drive their development from initial idea to sustainable growth (p. 41). An **entrepreneur** perceives an opportunity and creates an organization to pursue it, while the **entrepreneurial process** includes all functions, activities, and actions involved in perceiving opportunities and creating organizations (p. 41).
 
@@ -322,12 +322,3 @@ Question::What distinguishes a necessity-driven entrepreneur from an opportunity
 Question::Why is accounting profitability distinct from positive cash flow in a rapidly growing new business? Answer::Rapid sales growth drains cash into working capital, inventory, and accounts receivable, causing negative cash flow despite showing an accounting net profit (p. 56-57). #cards/MGMT
 Question::How do Bygrave's Nine Fs define the operational traits of successful new ventures? Answer::The **Nine Fs** state that successful ventures are led by first-class **Founders**, **Focused** on niches, **Fast**, **Flexible**, **Forever-innovating**, **Frugal**, **Friendly**, find work **Fun**, and achieve financial **Fortune** (p. 58). #cards/MGMT
 Question::Why do 80% of Inc. 500 high-potential founders start businesses in or near their current industry of employment? Answer::Founders leverage specialized technical know-how, established supplier/customer networks, and deep market insight gathered during prior employment (p. 44). #cards/MGMT
-## Examples Worth Keeping
-<!-- Keep concrete examples, numbers, cases, or worked reasoning that makes the mechanism memorable. -->
-- 
-## Connections
-<!-- Link the matching lecture/week, course map, and only concept notes that actually exist or were created. -->
-- Lecture:
-- Concept:
-## Flashcards
-<!-- Add 3–8 atomic cards testing mechanisms and contrasts to #cards/<course-slug>. -->

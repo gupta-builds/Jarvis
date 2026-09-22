@@ -47,7 +47,7 @@ let makeRelation op message =
 - Plain recursion: recursion calls itself; higher-order code receives or returns behavior.
 
 ## Where It Appears
-- Weekly notes: [[20_Progress/Degree/CSCI 4041/Week - 6]], [[20_Progress/Degree/CSCI 4041/Week - 7]], [[20_Progress/Degree/CSCI 4041/Week - 11]], [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 14]], [[Week - 15]].
+- Weekly notes: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 6]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 7]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 11]], [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 14]], [[Week - 15]].
 - Labs: Lab 5 (streams), Lab 6 (memoization), Lab 11 (evaluator primitives).
 - Projects: Project 2 indirectly through `Primitive` in shared `thing`.
 - Textbook: Hickey Ch. 3.

@@ -14,7 +14,7 @@ next: "[[20_Progress/Degree/MGMT 3015/Lecture/Lecture - 4|Lecture - 4]]"
 # Lecture - 3 — Session 3: The Entrepreneurial Personality (Wed 9/16)
 Source: real slide deck `2026 S3015 S3 Entrepreneurial Persoanlity.pptx` (25 slides), read in full 2026-09-21. Reading: Ch 2 continued, per [[20_Progress/Degree/MGMT 3015/Textbook/Textbook Map|Textbook Map]].
 ## What you must be able to do
-- [[Chapter - 1 & 2]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 1 & 2]]
 - Take the 7-question personality quiz and correctly classify your own dominant type (Explorer, Architect, Connector, Steward) plus its named risk.
 - List the six named entrepreneurial attributes (determination, motivation drivers, energy, desire for financial success, need to achieve, independence, support network) and give one line on why each matters.
 - Explain why "necessary but insufficient" is the right way to describe entrepreneurial personality, not "sufficient on its own."
@@ -55,7 +55,7 @@ A successful entrepreneur needs a support network — the more positive support 
 Two open prompts with no slide answer: "What do these entrepreneurs have in common?" and "Are there negative attributes for entrepreneurial personality? If so, what?" — the second question is a real pivot, since every attribute up to this point was framed positively.
 ## Textbook integration
 > [!IMPORTANT]
-> Main chapters: [[Chapter - 1 & 2]] (not yet written — blocked on the Gemini Notebook paste per [[Textbook Standard]]; prompt is ready in `Repetitive Things.md`)
+> Main chapters: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 1 & 2]] (not yet written — blocked on the Gemini Notebook paste per [[Textbook Standard]]; prompt is ready in `Repetitive Things.md`)
 This session's six named attributes (determination, motivation, energy, financial success, achievement, independence, support network) aren't broken out as their own subheading in Chapter 2's table of contents — the closest match is "Ingredients for a Successful New Business," which is likely where the book formalizes what the slides present as a bulleted list. The four motivation sub-factors (achievement, recognition, self-efficacy, locus of control) are named but undefined on the slide — this is exactly the kind of definitional gap the Gemini Notebook chapter note should close.
 ## Takeaways (questions to resolve)
 - [ ] Answer the closing question directly: what are the negative-side entrepreneurial attributes the deck never lists (overconfidence, disregard for others' time, tunnel vision)? The deck stops at positive traits only.
@@ -66,7 +66,7 @@ This session's six named attributes (determination, motivation, energy, financia
 ==Entrepreneurial personality is necessary but insufficient: the course names six real attributes (determination, motivation, energy, drive for financial success, need to achieve, independence, support network), but frames every one of them as a starting condition, not a guarantee.==
 *Mechanism:* The "necessary but insufficient" framing does real work — it explains why the course spends far more time later on process (opportunity evaluation, business models, financing) than on personality. Personality gets one session; execution gets the rest of the semester. The four-type quiz reinforces this by refusing to rank styles — Explorer, Architect, Connector, and Steward are all viable, each with a named failure mode, which only makes sense if personality is a starting style, not a success predictor.
 - Lecture example/scenario: the two Steve Jobs quotes are doing different jobs — the determination quote argues perseverance beats talent, the achievement quote argues purpose beats wealth. Together they push back against "wants financial success" being the deck's own primary framing two slides earlier — a real internal tension in the source, not resolved by the deck itself.
-- Textbook connection: [[Chapter - 1 & 2]] — "Ingredients for a Successful New Business" should be where the book gives the fuller, referenced version of these six attributes.
+- Textbook connection: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 1 & 2]] — "Ingredients for a Successful New Business" should be where the book gives the fuller, referenced version of these six attributes.
 - Concept links: none yet (concepts out of scope this pass).
 > [!WARNING]
 > Don't treat the four-type quiz (Explorer/Architect/Connector/Steward) as a validated psychometric instrument — it's a seven-question classroom exercise with no cited source or reliability data, unlike the Granovetter weak-ties research that Session 4 cites by name. Use it as a self-reflection prompt, not a fact.

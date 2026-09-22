@@ -7,7 +7,7 @@ title: "Codex configuration loading error"
 started_at: 2026-09-22T17:25:06
 ended_at: 2026-09-22T17:29:40
 duration_minutes: 5
-exported_at: 2026-09-22T12:45:01
+exported_at: 2026-09-22T15:15:01
 project: portfolio
 cwd: '/home/anant_gupta/projects/hub/portfolio'
 session_id: 0848443f-12ae-44f2-a212-898a10cc23e2

@@ -6,7 +6,7 @@ source_os: windows
 title: "Career fair notes compilation"
 started_at: 2026-09-22T11:56:45
 ended_at: 2026-09-22T12:21:34
-exported_at: 2026-09-22T13:00:03
+exported_at: 2026-09-22T15:00:02
 duration_minutes: 24.8
 project: The Plan
 cwd: 'D:\Users\_Anant\10_Areas\Documents\The Plan'

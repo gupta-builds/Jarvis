@@ -775,4 +775,498 @@ Consistently ranked among Engineering News-Record Top 500 Design Firms, HDR has 
 **Work Authorization**US work authorization is required, but the employer is willing to sponsor candidates
 
 Less
+
+# College of Science & Engineering Career Fair | Fall 2026
+
+SavedRegistered (2/2)
+
+![University of Minnesota](https://s3.amazonaws.com/handshake.production/app/public/assets/schools/570/original/hs-school-logo-data.?1521597917)
+
+University of Minnesota
+
+Organizer
+
+Tue, Sep 22 - Wed, Sep 23
+
+Happening today
+
+In Person
+
+[1901 4th Street Southeast, Minneapolis, Minnesota 55455, United States](https://www.google.com/maps/search/?api=1&query=1901%204th%20Street%20Southeast%2C%20Minneapolis%2C%20Minnesota%2055455%2C%20United%20States)
+
+[Details](https://app.joinhandshake.com/stu/career_fairs/66099)[Employers](https://app.joinhandshake.com/stu/career_fairs/66099/employers_list?page=1&per_page=25)[Jobs](https://app.joinhandshake.com/stu/career_fairs/66099/jobs)
+
+Filters1
+
+[![Idea Fund of La Crosse logo](https://joinhandshake-production.imgix.net/app/public/assets/institutions/209518/original/hs-emp-logo-data.?ixlib=rb-4.1.1&v=1548965590&s=3e55c69e622dd3d8edf9605d53c93740)](https://app.joinhandshake.com/e/209518)
+
+[Idea Fund of La Crosse](https://app.joinhandshake.com/e/209518)
+
+232 3rd St N, La Crosse, Wisconsin 54601, United States
+
+Follow
+
+[http://www.ideafundvc.com](http://www.ideafundvc.com/)
+
+Tuesday, Sep 22, 11:00 am - 4:00 pm CDT
+
+The Idea Fund is a seed stage venture capital firm that partners with outstanding Wisconsin-based entrepreneurs. The Idea Fund was established in 2016 to invest in pre-revenue and early stage revenue startup companies. The fund targets startups based in Western Wisconsin and invests statewide, and seeks to support portfolio company growth through exit within 3 – 5 yea
+
+...More
+
+1 session
+
+[![ISG logo](https://joinhandshake-production.imgix.net/app/public/assets/institutions/107284/original/hs-emp-logo-data.?ixlib=rb-4.1.1&v=1476283616&s=3648a0b9e94f33e68e6ef1c7e70fcc17)](https://app.joinhandshake.com/e/107284)
+
+[ISG](https://app.joinhandshake.com/e/107284)
+
+115 East Hickory Street, Suite 300 Mankato, MN 56001
+
+Follow
+
+[http://www.isginc.com](http://www.isginc.com/)
+
+Tuesday, Sep 22, 11:00 am - 4:00 pm CDT
+
+A multi-disciplinary architecture, engineering, environmental, and planning firm. We are 100% owned by our employees! ISG's Employee Stock Ownership Plan (ESOP) allows for broader ownership, and the ability to be directly connected to performance, our culture of a
+
+...More
+
+1 session
+
+[![Itasca Consulting Group logo](https://joinhandshake-production.imgix.net/app/public/assets/institutions/519070/original/hs-emp-logo-data.?ixlib=rb-4.1.1&v=1580840778&s=51ee6f856c08f11679a7f3abfad7a4cc)](https://app.joinhandshake.com/e/519070)
+
+[Itasca Consulting Group](https://app.joinhandshake.com/e/519070)
+
+111 3rd Ave S, Minneapolis, Minnesota 55401, United States
+
+Follow
+
+[https://www.itascacg.com/](https://www.itascacg.com/)
+
+Wednesday, Sep 23, 11:00 am - 4:00 pm CDT
+
+Itasca Consulting Group, Inc., (ICG) is an Itasca International, Inc., (III) company. III is an employee-owned, global, engineering-consulting and engineering software development and sales company headquartered in downtown Minneapolis on the Mississippi River, with subsidiary offices worldwide. It is one of the world leaders in geomechanics, solving problems in mining, civil
+
+...More
+
+1 session
+
+[![Johnson Screens logo](https://joinhandshake-production.imgix.net/app/public/assets/institutions/756928/original/hs-emp-logo-data.?ixlib=rb-4.1.1&v=1647359217&s=ee302b06505be31732a4a42a29d1d735)](https://app.joinhandshake.com/e/756928)
+
+[Johnson Screens](https://app.joinhandshake.com/e/756928)
+
+1950 Old Highway 8, New Brighton, Minnesota 55112, United States
+
+Follow
+
+[https://johnsonscreens.com/](https://johnsonscreens.com/)
+
+Tuesday, Sep 22, 11:00 am - 4:00 pm CDT
+
+We’re the leading global screen and auxiliary solutions provider, an innovator who understands the challenges of operations in the water well, environmental, energy, chemicals, food and beverage, mining and architectural industries.
+
+...More
+
+1 session
+
+[![Loram Maintenance of Way logo](https://joinhandshake-production.imgix.net/app/public/assets/institutions/19445/original/hs-emp-logo-data.?ixlib=rb-4.1.1&v=1610403643&s=9536991e91c0690d0f5ac12e9154a9d9)](https://app.joinhandshake.com/e/19445)
+
+[Loram Maintenance of Way](https://app.joinhandshake.com/e/19445)
+
+3900 Arrowhead Drive, Hamel, Minnesota 55340, United States of America
+
+Follow
+
+[http://www.loram.com](http://www.loram.com/)
+
+Tuesday, Sep 22, 11:00 am - 4:00 pm CDT
+
+Loram is a leading manufacturer of track maintenance equipment and provider of track maintenance and friction management services in North America and around the globe. We provide maintenance of way services to all Class I railroads and many short line, transit and commuter railroads. Loram has more than 250 machines and 2,300 friction management units located in
+
+...More
+
+1 session
+
+[![Marvell Technology - Custom Computing Solutions Business Unit logo](https://joinhandshake-production.imgix.net/app/public/assets/institutions/29356/original/hs-emp-logo-data.?ixlib=rb-4.1.1&v=1591742281&s=57a965da5539bd93ee303f6290f06526)](https://app.joinhandshake.com/e/29356)
+
+[Marvell Technology - Custom Computing Solutions Business Unit](https://app.joinhandshake.com/e/29356)
+
+5488 Marvell Ln, Santa Clara, CA 95054, USA
+
+Follow
+
+[https://www.marvell.com/company/careers/](https://www.marvell.com/company/careers/)
+
+Tuesday, Sep 22, 11:00 am - 4:00 pm CDT
+
+We develop and deliver semiconductor solutions that process, move, store and secure the world's data faster and more reliably than anyone else. Our engineers design and deployment of products that are powering infrastructure across 5G, the Cloud, Enterprise, and AI.
+
+...More
+
+1 session
+
+[![Menard USA logo](https://joinhandshake-production.imgix.net/app/public/assets/institutions/91937/original/hs-emp-logo-data.?ixlib=rb-4.1.1&v=1470943646&s=c5d5a9e33c469aba7071186828674662)](https://app.joinhandshake.com/e/91937)
+
+[Menard USA](https://app.joinhandshake.com/e/91937)
+
+150 East Main Street, Suite 500 Carnegie, PA 15106
+
+Follow
+
+[http://www.menardgroupusa.com](http://www.menardgroupusa.com/)
+
+Tuesday, Sep 22, 11:00 am - 4:00 pm CDT
+
+Menard is a design-build specialty geotechnical contractor offering expertise on ground improvement and economical solutions for ground improvement that can be attractive alternatives to deep (pile) foundations. As a member of the Soletanche-Freyssinet Group, we are part of a global network of geotechnical resources and expertise.
+
+...More
+
+1 session
+
+[![Micron Technology Inc. logo](https://joinhandshake-production.imgix.net/app/public/assets/institutions/33823/original/hs-emp-logo-micron-symbol-400x400.png?ixlib=rb-4.1.1&v=1760023676&s=5e2adfa2252e6ad9a91f9551f8d9210d)](https://app.joinhandshake.com/e/33823)
+
+[Micron Technology Inc.](https://app.joinhandshake.com/e/33823)
+
+8000 South Federal Way, Boise, Idaho 83716, United States
+
+Follow
+
+[http://www.micron.com/universityrecruiting](http://www.micron.com/universityrecruiting)
+
+Tuesday, Sep 22, 11:00 am - 4:00 pm CDT
+
+Micron powers the future with memory and storage solutions driving AI, 5G and next-gen tech. Our values—People, Innovation, Tenacity, Collaboration and Customer Focus—shape a culture where you thrive. With real projects, mentorship and flexibility, we help you grow and make an impact.
+
+...More
+
+1 session
+
+[![Minnesota Department of Transportation logo](https://joinhandshake-production.imgix.net/app/public/assets/institutions/217765/original/hs-emp-logo-data.png?ixlib=rb-4.1.1&v=1721688030&s=d3d387ee532b8b983204fdc4fc41ee47)](https://app.joinhandshake.com/e/217765)
+
+[Minnesota Department of Transportation](https://app.joinhandshake.com/e/217765)
+
+395 John Ireland Boulevard, Saint Paul, Minnesota 55101, United States
+
+Follow
+
+[http://www.mndot.gov/careers/job-openings.html](http://www.mndot.gov/careers/job-openings.html)
+
+Tuesday, Sep 22, 11:00 am - 4:00 pm CDT
+
+We are driven to find talented, innovative employees for Minnesota’s nationally recognized transportation system. We work to build the best team in the transportation industry to ensure that Minnesota thrives with a safe, sustainable and leading edge transportation system. You will be surrounded by a diverse community of experts, each driven by challenging work and motivated
+
+...More
+
+1 session
+
+[![Minnesota Pollution Control Agency logo](https://joinhandshake-production.imgix.net/app/public/assets/institutions/155638/original/hs-emp-logo-data.?ixlib=rb-4.1.1&v=1619713805&s=e7ee6161c517fbcc5ef9e1649c74969c)](https://app.joinhandshake.com/e/155638)
+
+[Minnesota Pollution Control Agency](https://app.joinhandshake.com/e/155638)
+
+520 Lafayette Road, Saint Paul, Minnesota 55155, United States
+
+Follow
+
+[http://www.pca.state.mn.us](http://www.pca.state.mn.us/)
+
+Tuesday, Sep 22, 11:00 am - 4:00 pm CDT
+
+The Minnesota Pollution Control Agency (MPCA) monitors environmental quality, offers technical and financial assistance, and enforces environmental regulations. The agency finds and cleans up spills or leaks that can affect our health and environment. Staff develop statewide policy, and support environmental education.
+
+...More
+
+1 session
+
+[![Missouri Department of Transportation logo](https://joinhandshake-production.imgix.net/app/public/assets/institutions/14910/original/hs-emp-logo-data.?ixlib=rb-4.1.1&v=1576257260&s=97d97989c79876df72b976a951c0332b)](https://app.joinhandshake.com/e/14910)
+
+[Missouri Department of Transportation](https://app.joinhandshake.com/e/14910)
+
+601 West Main Street, Jefferson City, Missouri 65101, United States
+
+Follow
+
+[http://www.modot.org/careers](http://www.modot.org/careers)
+
+Tuesday, Sep 22, 11:00 am - 4:00 pm CDT
+
+Our mission is to provide a world-class transportation system that is safe, innovative, reliable and dedicated to serving customers for a prosperous Missouri.
+
+**Job Titles**
+
+...More
+
+1 session
+
+[![Pace - Scientific Professional Services logo](https://joinhandshake-production.imgix.net/app/public/assets/institutions/104764/original/hs-emp-logo-data.?ixlib=rb-4.1.1&v=1658462375&s=e6275bf95ab1720b92974bf3f8f0c2d3)](https://app.joinhandshake.com/e/104764)
+
+[Pace - Scientific Professional Services](https://app.joinhandshake.com/e/104764)
+
+1800 Elm St SE, Minneapolis, Minnesota 55414, United States
+
+Follow
+
+[https://www.pacelabs.com/scientific-professional-services.html](https://www.pacelabs.com/scientific-professional-services.html)
+
+Wednesday, Sep 23, 11:00 am - 4:00 pm CDT
+
+At Pace®, we’re committed to continuously moving science forward to make an impact on the health and safety of our communities and lives. For decades, Pace® People have been committed to advancing the science of businesses, industries, consulting firms, government agencies, and more by providing local-level service backed by a national laboratory network. We
+
+...More
+
+1 session
+
+[![Rust-Oleum Corporation logo](https://joinhandshake-production.imgix.net/app/public/assets/institutions/52661/original/hs-emp-logo-data.?ixlib=rb-4.1.1&v=1592919140&s=3fcef26e52a6c5e21aa78173e6e1a22b)](https://app.joinhandshake.com/e/52661)
+
+[Rust-Oleum Corporation](https://app.joinhandshake.com/e/52661)
+
+11 E Hawthorn Pkwy, Vernon Hills, Illinois 60061, United States
+
+Follow
+
+[http://www.rustoleum.com](http://www.rustoleum.com/)
+
+Wednesday, Sep 23, 11:00 am - 4:00 pm CDT
+
+Rust-Oleum Corporation is a worldwide leader in protective paints and coatings for both home and industry. As a leading manufacturer of premium consumer and industrial paint and coating products, we are looking to be your employer of choice. At Rust-Oleum, we strive to keep you satisfied wit
+
+...More
+
+1 session
+
+[![Seagate Technology logo](https://joinhandshake-production.imgix.net/app/public/assets/institutions/37034/original/hs-emp-logo-data.?ixlib=rb-4.1.1&v=1599235172&s=5cc87155ef480213c397cc05207dce69)](https://app.joinhandshake.com/e/37034)
+
+[Seagate Technology](https://app.joinhandshake.com/e/37034)
+
+47488 Kato Rd, Fremont, CA 94538, United States
+
+Follow
+
+[http://www.seagate.com](http://www.seagate.com/)
+
+Wednesday, Sep 23, 11:00 am - 4:00 pm CDT
+
+Seagate was founded on the belief that data is potential. Our goal is to help humanity maximize that potential by harnessing the datasphere, which is all around us. For over 45 years, we have driven innovation with precision-engineered hard drives and technology solutions that have empowered billions of people and businesses to realize their tasks and their dreams. And
+
+...More
+
+1 session
+
+[![Stanley Consultants, Inc. logo](https://joinhandshake-production.imgix.net/app/public/assets/institutions/49076/original/hs-emp-logo-Stanley_logo_Powerpoint.png?ixlib=rb-4.1.1&v=1448929959&s=3d33de2663044addf03e00af79ed4a67)](https://app.joinhandshake.com/e/49076)
+
+[Stanley Consultants, Inc.](https://app.joinhandshake.com/e/49076)
+
+8000 South Chester Street, Suite 500 Centennial, Colorado 80112, United States of America
+
+Follow
+
+[http://www.stanleyconsultants.com](http://www.stanleyconsultants.com/)
+
+Tuesday, Sep 22, 11:00 am - 4:00 pm CDT
+
+With a mission to put our client’s needs first, we have been able to develop and maintain long-term relationships. This has allowed us to perform work in all 50 states, U.S. territories and in 103 countries. We are large enough to win high-profile projects, yet small enough to maintain a close company culture.
+
+...More
+
+1 session
+
+[![Starkey Hearing Technologies logo](https://joinhandshake-production.imgix.net/app/public/assets/institutions/31315/original/hs-emp-logo-data.?ixlib=rb-4.1.1&v=1680014889&s=61b01ad8e52bbeb4a9b50c8a1e6fabdf)](https://app.joinhandshake.com/e/31315)
+
+[Starkey Hearing Technologies](https://app.joinhandshake.com/e/31315)
+
+6700 Washington Ave S, Eden Prairie, Minnesota 55344, United States
+
+Follow
+
+[http://www.starkey.com/](http://www.starkey.com/)
+
+Tuesday, Sep 22, 11:00 am - 4:00 pm CDT
+
+At Starkey, we are in the business of connecting people and changing lives. As a world leader in the manufacturing and delivering of advanced hearing solutions, we go to work each day to ensure every person on the planet has the opportunity to hear their very best. Founded in 1967, Starkey is known for its innovative design, development and distribution of comprehensive dig
+
+...More
+
+1 session
+
+[![Swagelok Minnesota logo](https://joinhandshake-production.imgix.net/app/public/assets/institutions/326188/original/hs-emp-logo-data.?ixlib=rb-4.1.1&v=1534165323&s=1036d797226acc811164cad6f9a34cb0)](https://app.joinhandshake.com/e/326188)
+
+[Swagelok Minnesota](https://app.joinhandshake.com/e/326188)
+
+321 Lake Hazeltine Drive, Chaska, Minnesota 55318, United States
+
+Follow
+
+[https://minnesota.swagelok.com/](https://minnesota.swagelok.com/)
+
+Wednesday, Sep 23, 11:00 am - 4:00 pm CDT
+
+Swagelok Company is a privately held developer and provider of fluid system products, assemblies, training, and services for the oil and gas, chemical and petrochemical, semiconductor, transportation, and power industries. Headquartered in Ohio, Swagelok earns approximately $2B in annual revenues and serves customers through more than 200 sales and service centers i
+
+...More
+
+1 session
+
+[![Teleflex logo](https://joinhandshake-production.imgix.net/app/public/assets/institutions/79360/original/hs-emp-logo-teleflex-squareLogo-1718379523315.webp?ixlib=rb-4.1.1&v=1731100244&s=1d5599c6746c8a8b4b885ae327151ecb)](https://app.joinhandshake.com/e/79360)
+
+[Teleflex](https://app.joinhandshake.com/e/79360)
+
+3015 Carrington Mill Boulevard, Morrisville, North Carolina 27560, United States
+
+Follow
+
+[http://www.teleflex.com/](http://www.teleflex.com/)
+
+Wednesday, Sep 23, 11:00 am - 4:00 pm CDT
+
+Teleflex is a global provider of medical technologies designed to improve the health and quality of people’s lives. We apply purpose driven innovation – a relentless pursuit of identifying unmet clinical needs – to benefit patients and healthcare providers. Our portfolio is diverse, with solutions in the fields of vascular and interventional access, surgical, anesthesia, cardiac car
+
+...More
+
+1 session
+
+[![Terracon logo](https://joinhandshake-production.imgix.net/app/public/assets/institutions/98811/original/hs-emp-logo-data.?ixlib=rb-4.1.1&v=1642516291&s=45385f026a1e87a9962b3e2b8ce8b931)](https://app.joinhandshake.com/e/98811)
+
+[Terracon](https://app.joinhandshake.com/e/98811)
+
+10841 South Ridgeview Road, Olathe, Kansas 66061, United States of America
+
+Follow
+
+[http://www.terracon.com](http://www.terracon.com/)
+
+Wednesday, Sep 23, 11:00 am - 4:00 pm CDT
+
+Terracon is a place where you can innovate, explore career paths and be supported while doing so. We are a 100 percent employee-owned multidiscipline consulting firm comprised of more than 6,000 curious minds focused on solving engineering and technical challenges from more th
+
+...More
+
+1 session
+
+[![Tetra Pak - Interns logo](https://joinhandshake-production.imgix.net/app/public/assets/institutions/34846/original/hs-emp-logo-data.?ixlib=rb-4.1.1&v=1693483437&s=24a2ababc6fdebfa2c39c2eef2d8a253)](https://app.joinhandshake.com/e/34846)
+
+[Tetra Pak - Interns](https://app.joinhandshake.com/e/34846)
+
+3300 Airport Road, Denton, Texas 76207, United States
+
+Follow
+
+[http://www.tetrapak.com/](http://www.tetrapak.com/)
+
+Wednesday, Sep 23, 11:00 am - 4:00 pm CDT
+
+Tetra Pak is a world leading food processing and packaging solutions company. Working closely with our customers and suppliers, we innovate to provide access to safe, nutritious food for hundreds of millions of people in more than 160 countries, while striving to reduce our environmental footprint. Our motto, “PROTECTS WHAT’S GOOD “, reflects our vision to make food safe
+
+...More
+
+1 session
+
+[![The Toro Company logo](https://joinhandshake-production.imgix.net/app/public/assets/institutions/36886/original/hs-emp-logo-data.?ixlib=rb-4.1.1&v=1689946136&s=3861f523e86909a3693332dca8d9b616)](https://app.joinhandshake.com/e/36886)
+
+[The Toro Company](https://app.joinhandshake.com/e/36886)
+
+8111 Lyndale Avenue South, Bloomington, Minnesota 55420, United States
+
+Follow
+
+[https://jobs.thetorocompany.com/](https://jobs.thetorocompany.com/)
+
+Tuesday, Sep 22, 11:00 am - 4:00 pm CDT
+
+Wednesday, Sep 23, 11:00 am - 4:00 pm CDT
+
+The Toro Company (TTC) has delivered market-leading, innovative products and outstanding customer care for more than 100 years. With almost 10,000 employees worldwide, TTC is headquartered in Bloomington, Minnesota, USA.
+
+...More
+
+2 Sessions
+
+[![TSMC logo](https://joinhandshake-production.imgix.net/app/public/assets/institutions/111508/original/hs-emp-logo-data.?ixlib=rb-4.1.1&v=1681311197&s=8c7dfae8ca8af0b813e7a9bfe722e7d7)](https://app.joinhandshake.com/e/111508)
+
+[TSMC](https://app.joinhandshake.com/e/111508)
+
+8, Li-Hsin Rd. 6, Hsinchu Science Park, Hsinchu 300-096, Taiwan, R.O.C.
+
+Follow
+
+[https://www.tsmc.com/english](https://www.tsmc.com/english)
+
+Wednesday, Sep 23, 11:00 am - 4:00 pm CDT
+
+TSMC pioneered the pure-play foundry business model when it was founded in 1987, and has been the world’s leading dedicated semiconductor foundry ever since. The Company supports a thriving ecosystem of global customers and partners with the industry’s leading process technologies and portfolio of design enablement solutions to unleash innovation for the global se
+
+...More
+
+1 session
+
+[![VAA, LLC logo](https://joinhandshake-production.imgix.net/app/public/assets/institutions/317448/original/hs-emp-logo-data.?ixlib=rb-4.1.1&v=1680118214&s=6e5d42971178b7b9fe3737ed7d3b1b45)](https://app.joinhandshake.com/e/317448)
+
+[VAA, LLC](https://app.joinhandshake.com/e/317448)
+
+2300 Berkshire Lane North Suite 200 Plymouth, MN 55441
+
+Follow
+
+[http://www.vaaeng.com](http://www.vaaeng.com/)
+
+Tuesday, Sep 22, 11:00 am - 4:00 pm CDT
+
+VAA, headquartered in Plymouth, MN provides the opportunity to work in a fast-paced environment where every project is customer focused and every team member is a critical contributor. We are a civil, structural, electrical and mechanical engineering consulting firm with a history of exciting projects and a commitment to exceeding our client’s expectations.
+
+...More
+
+1 session
+
+[![VivaQuant, Inc. Rhythm Express logo](https://joinhandshake-production.imgix.net/app/public/assets/institutions/1053569/original/hs-emp-logo-Vivaquant_Logo_no_grid.jpg?ixlib=rb-4.1.1&v=1753983257&s=7eaf7950a441443e3bca718305f779ad)](https://app.joinhandshake.com/e/1053569)
+
+[VivaQuant, Inc. Rhythm Express](https://app.joinhandshake.com/e/1053569)
+
+1265 Grey Fox Road, Arden Hills, Minnesota 55112, United States
+
+Follow
+
+[http://www.rhythmexpressecg.com](http://www.rhythmexpressecg.com/)
+
+Tuesday, Sep 22, 11:00 am - 4:00 pm CDT
+
+We are a leading provider of remote cardiac monitoring services. Our RX-1 mini wearable is the smallest one-piece mobile cardiac telemetry (MCT) device on the market. We have been named by Inc. Magazine for 3 consecutive years as one of the fastest growing private companies in the US. We provide excellent benefits including medical, dental, and vision coverage and i
+
+...More
+
+1 session
+
+[![Williams AV logo](https://joinhandshake-production.imgix.net/app/public/assets/institutions/369985/original/hs-emp-logo-data.?ixlib=rb-4.1.1&v=1543355312&s=b94abe7d7492c350958af62e35fd7fa2)](https://app.joinhandshake.com/e/369985)
+
+[Williams AV](https://app.joinhandshake.com/e/369985)
+
+10300 Valley View Road, Eden Prairie, Minnesota 55344, United States
+
+Follow
+
+[http://www.williamsav.com](http://www.williamsav.com/)
+
+Wednesday, Sep 23, 11:00 am - 4:00 pm CDT
+
+Serving professional communication needs worldwide since 1976, Williams AV offers digital, FM, infrared and induction loop wireless audio, as well as video annotation and presentation systems. Our products are used in an array of commercial applications, including hearing assistance, language interpretation, tour, corporate, education, government and house of worship. Sy
+
+...More
+
+1 session
+
+[![Xcel Energy logo](https://joinhandshake-production.imgix.net/app/public/assets/institutions/33088/original/hs-emp-logo-anew_logo.png_1752087098?ixlib=rb-4.1.1&v=1752087127&s=f6ad7b222b28dc72c105488ef3bd5222)](https://app.joinhandshake.com/e/33088)
+
+[Xcel Energy](https://app.joinhandshake.com/e/33088)
+
+414 Nicollet Mall, Minneapolis, MN 55401, USA
+
+Follow
+
+[https://jobs.xcelenergy.com/](https://jobs.xcelenergy.com/)
+
+Wednesday, Sep 23, 11:00 am - 4:00 pm CDT
+
+We’re committed to delivering what matters most to our employees: work that makes a difference, a team you can count on, opportunities to grow, and rewards that help you thrive. Because this is a place where the work you do makes a difference for our neighbors, our communities and the future of energy. Most importantly, it means joining a team you can count on.
+
+...More
+
+1 session
 ```

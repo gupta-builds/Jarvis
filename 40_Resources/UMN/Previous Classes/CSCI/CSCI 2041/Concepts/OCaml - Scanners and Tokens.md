@@ -47,7 +47,7 @@ type token =
 - String splitting: the scanner has special cases for comments, parentheses, numbers, and EOF.
 
 ## Where It Appears
-- Weekly notes: [[20_Progress/Degree/CSCI 4041/Week - 10]], [[20_Progress/Degree/CSCI 4041/Week - 12]], [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 13]], [[Week - 15]].
+- Weekly notes: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 10]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 12]], [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 13]], [[Week - 15]].
 - Labs: [[Lab - 12 Lisp Integration]] includes scanner code.
 - Projects: [[Project - 2 Lisp Parser]] depends on `scanner.ml`.
 - Textbook: Hickey Ch. 10, Ch. 11, Ch. 12, Ch. 19.

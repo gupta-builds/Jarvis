@@ -27,6 +27,7 @@ Class Participation (20%) has no separate exam or rubric-graded deliverable behi
 ## Weekly Study Plan
 **6-8 hours/week outside class**, per [[MGMT 3015 Board]]'s own Time Commitment section - stated as its own figure, not a 3hrs/credit estimate. Add the ~3.3 hrs/week actually in the two class sessions (2:30-4:10pm, Mon/Wed) for a realistic total of **~9-11 hours/week**. Lighter weeks: reading, news-scanning, networking, idea-journal entries. Heavier weeks: case/quiz prep, venture planning, presentation and business-plan work - concentrate extra hours around the two Quiz weeks and the group-deliverable weeks (pitches, final presentation, written plan) below.
 Full 28-session schedule, consolidated from [[MGMT 3015 Board]]'s Schedule and [[20_Progress/Degree/MGMT 3015/Textbook/Textbook Map|Textbook Map]] into one interlinked table. The two flagged date anomalies (Sessions 6 and 16) are preserved here exactly as in the Board note, not silently corrected.
+
 | # | Date | Topic | Reading | Due |
 |---|---|---|---|---|
 | 1 | Wed 9/9 | Course Overview and Introduction | — | — |

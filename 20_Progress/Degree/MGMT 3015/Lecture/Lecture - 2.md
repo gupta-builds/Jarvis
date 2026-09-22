@@ -14,7 +14,7 @@ next: "[[20_Progress/Degree/MGMT 3015/Lecture/Lecture - 3|Lecture - 3]]"
 # Lecture - 2 — Session 2: What Does It Take to Be an Entrepreneur (Mon 9/14)
 Source: real slide deck `2026 f3015 S2 What does it take to be an entrepreneurs Final.pptx` (16 slides), read in full 2026-09-21. Reading: Ch 1 & 2, per [[20_Progress/Degree/MGMT 3015/Textbook/Textbook Map|Textbook Map]].
 ## What you must be able to do
-- [[Chapter - 1 & 2]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 1 & 2]]
 - Self-assess against the 10-statement entrepreneurial-mindset quiz and place your own score band honestly.
 - Name the five paradoxes Zahra uses to describe entrepreneurs and explain why each one is a real tension, not a contradiction to resolve.
 - Distinguish the four candidate explanations for "why some people are more entrepreneurial than others" (traits, resources, culture, cognitive biases, prior experience) instead of defaulting to "personality."
@@ -50,7 +50,7 @@ Answered with: networks (parents/family, role models, advisors, colleagues), geo
 Two open questions posed with no slide answer given: "Why do they do it?" and "What do they learn from experience?" — left as class-discussion prompts, not resolved in the deck itself.
 ## Textbook integration
 > [!IMPORTANT]
-> Main chapters: [[Chapter - 1 & 2]] (not yet written — blocked on the Gemini Notebook paste per [[Textbook Standard]]; prompt is ready in `Repetitive Things.md`)
+> Main chapters: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 1 & 2]] (not yet written — blocked on the Gemini Notebook paste per [[Textbook Standard]]; prompt is ready in `Repetitive Things.md`)
 Chapter 2's own table of contents runs "Critical Factors for Starting a New Enterprise," "Evaluating Opportunities for New Businesses," "Determining Resource Needs and Acquiring Resources," "Profit Potential," and "Ingredients for a Successful New Business" — the textbook's structured version of today's nature/nurture factor list (resources, prior experience) and the "ingredients" framing maps directly onto today's paradoxes and environment sections. Chapter 1 covers the broader "Entrepreneurial Revolution" and "Causes of the Entrepreneurial Revolution" material that underlies why environment/context matters as much as individual traits.
 ## Takeaways (questions to resolve)
 - [ ] Answer the class's own open question: what specifically do serial entrepreneurs learn from a failed or exited venture that a first-timer doesn't have access to?
@@ -60,7 +60,7 @@ Chapter 2's own table of contents runs "Critical Factors for Starting a New Ente
 ==Entrepreneurs operate inside five real paradoxes at once — risk-taking and risk-averse, overconfident and humble, independent and reliant on others — and this tension, not a fixed personality profile, is what nature-vs-nurture research and the course's own environment factors are trying to explain.==
 *Mechanism:* If entrepreneurship were a single stable trait, the nature/nurture question would have a clean answer. Instead the slide gives five co-existing factors (traits, resources, culture, cognitive bias, prior experience) precisely because the paradoxes mean no one trait dominates — someone can be risk-tolerant by personality but risk-averse by environment (limited resources), and the outcome depends on which factor is load-bearing in their specific case.
 - Lecture example/scenario: the "Fix My Day" exercise puts the discovery stage into practice under exactly this tension — groups are told to "encourage wild ideas, the goal is to think creatively, not realistically (yet)," then immediately forced into a realistic 1-minute pitch, enacting the dreamer-vs-realist paradox live.
-- Textbook connection: [[Chapter - 1 & 2]] — Chapter 2's "Ingredients for a Successful New Business" is the book's structured answer to the same "why some succeed" question the nature/nurture slide poses informally.
+- Textbook connection: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 1 & 2]] — Chapter 2's "Ingredients for a Successful New Business" is the book's structured answer to the same "why some succeed" question the nature/nurture slide poses informally.
 - Concept links: none yet (concepts out of scope this pass).
 > [!WARNING]
 > Don't read the mindset quiz's 0-4/5-7/8-10 bands as a real predictive instrument — the slide itself frames the lowest band as "entrepreneurship is a skill anyone can grow," explicitly refusing to gatekeep. Treating the score as diagnostic misses the point of the exercise.

@@ -46,7 +46,7 @@ end ;;
 - [[OCaml - Modules and Signatures]]: signatures expose exceptions that callers are allowed to know about.
 
 ## Where It Appears
-- Weekly notes: [[20_Progress/Degree/CSCI 4041/Week - 7]], [[20_Progress/Degree/CSCI 4041/Week - 8]], [[20_Progress/Degree/CSCI 4041/Week - 10]], [[20_Progress/Degree/CSCI 4041/Week - 11]], [[20_Progress/Degree/CSCI 4041/Week - 12]], [[Week - 15]].
+- Weekly notes: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 7]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 8]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 10]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 11]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 12]], [[Week - 15]].
 - Labs: [[Lab - 7 Lazy Lists]], [[Lab - 8 Association Module]], [[Lab - 11 Lisp Evaluator]], [[Lab - 12 Lisp Integration]].
 - Projects: [[Project - 1 Equation Solver]], [[Project - 2 Lisp Parser]].
 - Textbook: Hickey Ch. 9 exceptions.

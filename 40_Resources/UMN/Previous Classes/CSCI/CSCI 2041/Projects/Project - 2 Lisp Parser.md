@@ -17,7 +17,7 @@ next:
 ## Project Goal
 Project 2 tests the scanner/parser boundary in the Lisp interpreter. The goal is to read Lisp source text from a file, turn characters into tokens, and turn those tokens into nested `thing` values.
 
-This is the project version of [[OCaml - Recursive Descent Parsing]], [[OCaml - Scanners and Tokens]], [[OCaml - Lisp Thing Representation]], [[OCaml - Modules and Signatures]], [[OCaml - Mutual Recursion]], and [[OCaml - Exceptions and Error Boundaries]]. It is introduced in [[20_Progress/Degree/CSCI 4041/Week - 10]], continued in [[20_Progress/Degree/CSCI 4041/Week - 11]], and reviewed in [[Week - 15]].
+This is the project version of [[OCaml - Recursive Descent Parsing]], [[OCaml - Scanners and Tokens]], [[OCaml - Lisp Thing Representation]], [[OCaml - Modules and Signatures]], [[OCaml - Mutual Recursion]], and [[OCaml - Exceptions and Error Boundaries]]. It is introduced in [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 10]], continued in [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 11]], and reviewed in [[Week - 15]].
 
 ## File Map
 - `Labs/project-2/project2.ml`: defines `thing`, `environment`, `Parserish`, an embedded `Scanner` module, and `Parser : Parserish`.
@@ -241,9 +241,9 @@ This test defines `thingEqual`, builds the full expected factorial `thing`, pars
 - [[OCaml - Exceptions and Error Boundaries]]
 - [[OCaml - Algebraic Data Types and Structural Recursion]]
 - [[OCaml - Pattern Matching]]
-- [[20_Progress/Degree/CSCI 4041/Week - 10]]
-- [[20_Progress/Degree/CSCI 4041/Week - 11]]
-- [[20_Progress/Degree/CSCI 4041/Week - 12]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 10]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 11]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 12]]
 - [[Week - 15]]
 
 ## Common Mistakes

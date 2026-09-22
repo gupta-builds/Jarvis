@@ -42,7 +42,7 @@ related:
 - [[OCaml - Lisp Thing Representation]]: both represent symbolic structures; Project 1 uses a domain-specific `expression` type, while Lisp uses `thing`.
 
 ## Where It Appears
-- Weekly notes: [[20_Progress/Degree/CSCI 4041/Week - 7]], [[Week - 15]].
+- Weekly notes: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 7]], [[Week - 15]].
 - Labs: source lives under `Labs/project-1`; no numbered lab note yet.
 - Projects: [[Project - 1 Equation Solver]].
 - Textbook: Hickey Ch. 4 pattern matching, Ch. 6 unions.

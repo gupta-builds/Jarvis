@@ -15,6 +15,7 @@ next: "Capture the 9/14 lecture, then create the Chapter 3 search note before co
 ==Resolved 2026-09-15: the entire semester's reading list is one textbook, Russell & Norvig's *Artificial Intelligence: A Modern Approach* (4th ed.), Chapters 2-9 - the earlier "second uncited source for Chapter 7" concern was a scrambled-paste artifact, not a real gap.== Cross-referenced against the full Schedule section in [[CSCI 4511W Board]].
 ## Russell & Norvig — Artificial Intelligence: A Modern Approach (4th ed., Pearson 2020)
 Full real chapter-to-module-to-date mapping, from the complete Canvas Modules page pasted 2026-09-15:
+
 | Chapter | AIMA Topic | Canvas Module | Reading Due Dates |
 |---|---|---|---|
 | Ch 2.1-2.4 | Intelligent Agents | Intelligent Agents | 9/14 |

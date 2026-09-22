@@ -1,6 +1,46 @@
 {
   "recentFiles": [
     {
+      "basename": "Journal Entry - 1",
+      "path": "20_Progress/Degree/ENGL 1004/Asssignments/Journal Entry - 1.md"
+    },
+    {
+      "basename": "Profile of a Successful Entrepreneur",
+      "path": "20_Progress/Degree/MGMT 3015/Assignments/Profile of a Successful Entrepreneur.md"
+    },
+    {
+      "basename": "Preparation",
+      "path": "20_Progress/Degree/CSCI 4061/Preparation.md"
+    },
+    {
+      "basename": "Preparation",
+      "path": "20_Progress/Degree/ENGL 1004/Preparation.md"
+    },
+    {
+      "basename": "Preparation",
+      "path": "20_Progress/Degree/MGMT 3015/Preparation.md"
+    },
+    {
+      "basename": "MGMT 3015 Board",
+      "path": "20_Progress/Degree/MGMT 3015/MGMT 3015 Board.md"
+    },
+    {
+      "basename": "ENGL 1004 Board",
+      "path": "20_Progress/Degree/ENGL 1004/ENGL 1004 Board.md"
+    },
+    {
+      "basename": "CSCI 4521 Board",
+      "path": "20_Progress/Degree/CSCI 4521/CSCI 4521 Board.md"
+    },
+    {
+      "basename": "CSCI 4511W Board",
+      "path": "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md"
+    },
+    {
+      "basename": "Textbook Map",
+      "path": "20_Progress/Degree/CSCI 4511W/Textbook/Textbook Map.md"
+    },
+    {
       "basename": "Chapter - 3 & 4",
       "path": "20_Progress/Degree/MGMT 3015/Textbook/Chapter - 3 & 4.md"
     },
@@ -9,16 +49,8 @@
       "path": "20_Progress/Degree/MGMT 3015/Textbook/Chapter - 1 & 2.md"
     },
     {
-      "basename": "Profile of a Successful Entrepreneur",
-      "path": "20_Progress/Degree/MGMT 3015/Assignments/Profile of a Successful Entrepreneur.md"
-    },
-    {
       "basename": "Repetitive Things",
       "path": "20_Progress/Degree/Repetitive Things.md"
-    },
-    {
-      "basename": "CSCI 4511W Board",
-      "path": "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md"
     },
     {
       "basename": "second-brain-claudekit-wsl-session-and-jarvis-mcp-build",
@@ -167,38 +199,6 @@
     {
       "basename": "Lab Standard",
       "path": "30_Order/Standards/Courses/Lab Standard.md"
-    },
-    {
-      "basename": "Weekly Board",
-      "path": "40_Resources/UMN/Previous Classes/Weekly Board.md"
-    },
-    {
-      "basename": "UMN Board",
-      "path": "20_Progress/Degree/UMN Board.md"
-    },
-    {
-      "basename": "00_How This Folder Works",
-      "path": "30_Order/00_How This Folder Works.md"
-    },
-    {
-      "basename": "CSCI 4511W Workflow",
-      "path": "30_Order/Workflows/Courses/Per Class/CSCI 4511W Workflow.md"
-    },
-    {
-      "basename": "Textbook Workflow",
-      "path": "30_Order/Workflows/Courses/Textbook Workflow.md"
-    },
-    {
-      "basename": "Projects Workflow",
-      "path": "30_Order/Workflows/Courses/Projects Workflow.md"
-    },
-    {
-      "basename": "Exam Workflow",
-      "path": "30_Order/Workflows/Courses/Exam Workflow.md"
-    },
-    {
-      "basename": "Lab Workflow",
-      "path": "30_Order/Workflows/Courses/Lab Workflow.md"
     }
   ],
   "omittedPaths": [

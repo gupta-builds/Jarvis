@@ -37,18 +37,19 @@ A separate email arrives with the subject "Important Course Materials Info: Char
 ## Grading
 > [!WARNING] "Course assignments are not weighted" is a Canvas display artifact, not the real policy
 > The syllabus page itself states "Course assignments are not weighted" - this is Canvas's own generic disclaimer that the instructor didn't use Canvas's native weighted-assignment-groups feature, not a claim that grades are unweighted in practice. The actual percentage breakdown below comes from the separate "Course Overview and How This Course Works" page, which explicitly sums to 100% - treat that table, not the syllabus page's boilerplate line, as the real grading structure.
-| Component | Type | Weight | Due |
-|---|---|---|---|
-| Profile of a Successful Entrepreneur | Individual, 2 pages | 5% | 9/21 |
-| New Business Idea | Individual, 1 page | 5% | 9/25 |
-| Quiz 1 | Individual | 10% | 10/7 |
-| Business Idea Pitches | Group, 1 slide set per group | 10% | 11/4 & 11/9 |
-| Reflection on Idea Pitches | Individual, 2 pages | 5% | 11/11 |
-| Quiz 2 | Individual | 10% | 12/2 |
-| Final Presentation | Group, 1 slide set per group | 10% | 12/14 & 12/16 |
-| Written Business Plan | Group, 1 plan per group | 25% | 12/16 |
-| Class Participation | Individual | 20% | Entire semester |
-| **Total** | | **100%** | |
+
+| Component                            | Type                         | Weight   | Due             |
+| ------------------------------------ | ---------------------------- | -------- | --------------- |
+| Profile of a Successful Entrepreneur | Individual, 2 pages          | 5%       | 9/21            |
+| New Business Idea                    | Individual, 1 page           | 5%       | 9/25            |
+| Quiz 1                               | Individual                   | 10%      | 10/7            |
+| Business Idea Pitches                | Group, 1 slide set per group | 10%      | 11/4 & 11/9     |
+| Reflection on Idea Pitches           | Individual, 2 pages          | 5%       | 11/11           |
+| Quiz 2                               | Individual                   | 10%      | 12/2            |
+| Final Presentation                   | Group, 1 slide set per group | 10%      | 12/14 & 12/16   |
+| Written Business Plan                | Group, 1 plan per group      | 25%      | 12/16           |
+| Class Participation                  | Individual                   | 20%      | Entire semester |
+| **Total**                            |                              | **100%** |                 |
 Detailed guidelines and rubrics for the larger assignments get posted alongside each assignment in the Canvas modules, not in the syllabus itself.
 ## Quizzes
 Cover assigned readings and cases, course slides, and class discussions - format is short discussion questions plus true/false and multiple-choice. **Missing a quiz for a documented reason requires emailing the professor at least two weeks in advance** to schedule a make-up - this is not a same-week accommodation.
@@ -56,13 +57,11 @@ Cover assigned readings and cases, course slides, and class discussions - format
 **6-8 hours/week outside class**, averaged - lighter weeks: reading, scanning relevant news, networking, idea-journal entries; heavier weeks: case or quiz preparation, venture planning, and presentation/business-plan preparation. Against [[10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan|Fall 2026 Plan]]'s 80/20 split, this is a mid-weight Fall'26 course - heavier than [[20_Progress/Degree/ENGL 1004/ENGL 1004 Board|ENGL 1004]]'s ~8.5 hrs but lighter than [[20_Progress/Degree/CSCI 4061/CSCI 4061 Board|CSCI 4061]]'s ~12.
 ## Class Participation & Expectations
 In-person attendance is required by design, not merely encouraged. If a class must be missed: review the recording and lecture slides on Canvas, and coordinate with a classmate for notes - there's no separate excused-absence process described beyond this. Explicit behavioral expectations: come on time, stay the full session, "treat class like an important client meeting"; connect comments to actual reading/course concepts rather than general opinion; if speaking up in class is difficult, come to office hours to discuss strategies rather than staying silent all semester. Electronic devices are for class purposes only - anything not needed for the current activity gets muted and put away.
-## AI Policy
-> [!TIP] The most permissive AI policy of any Fall'26 course
-> "You are encouraged to use ChatGPT and similar tools," with three explicit caveats: (1) clearly credit any AI-generated material used; (2) you are personally responsible for the accuracy of whatever the tool produces; (3) **you may not use these tools to write your reports.** This is a real contrast with [[20_Progress/Degree/ENGL 1004/ENGL 1004 Board|ENGL 1004]]'s total ban and [[20_Progress/Degree/CSCI 4061/CSCI 4061 Board|CSCI 4061]]'s near-total one - here, AI is a sanctioned research/ideation tool, and the line is drawn only at the final-writing step, not at using AI at all.
 ## Schedule
 Full 28-session schedule, pasted directly from the Canvas Modules page 2026-09-09. Chapter references are to the 5th ed. textbook; per-chapter detail lives in [[20_Progress/Degree/MGMT 3015/Textbook/Textbook Map|Textbook Map]], not repeated here.
 > [!WARNING] Two dates break the course's own Mon/Wed pattern - verified against the real 2026 calendar, not assumed
 > Every other session date in the source matches its stated weekday exactly. Two don't: **Session 6 is dated 9/25, which is a Friday**, not Monday or Wednesday; **Session 16 is dated 10/31, which is a Saturday.** Neither is a plausible class day for this course. Session 16 almost certainly should be **Mon 11/2** - it sits exactly where the Mon/Wed pattern predicts between confirmed Wed 10/28 and confirmed Wed 11/4. Session 6 has no equally clean fix (the pattern predicts Mon 9/28, two days after confirmed Wed 9/23 and five before confirmed Wed 9/30) - it may be a genuine off-cycle informal session tied to the 9/25 assignment deadline, not a typo. Confirm both directly on Canvas before trusting them for planning.
+
 | # | Date | Module | Topic | Reading | Due |
 |---|---|---|---|---|---|
 | 1 | Wed 9/9 | Start Here | Course Overview and Introduction | — | — |

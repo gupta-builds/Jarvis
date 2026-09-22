@@ -155,7 +155,7 @@
         "name": "",
         "active": true,
         "type": "FILES",
-        "pattern": "20_Progress/Degree/CSCI 4041/Concepts/DSA.md",
+        "pattern": "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/DSA.md",
         "patternType": "STRICT"
       },
       {
@@ -954,6 +954,20 @@
         "active": true,
         "type": "FILES",
         "pattern": "20_Progress/Degree/Repetitive Things.md",
+        "patternType": "STRICT"
+      },
+      {
+        "name": "",
+        "active": true,
+        "type": "FILES",
+        "pattern": "20_Progress/Degree/CSCI 4061/Preparation.md",
+        "patternType": "STRICT"
+      },
+      {
+        "name": "",
+        "active": true,
+        "type": "FILES",
+        "pattern": "20_Progress/Degree/CSCI 4521/Preparation.md",
         "patternType": "STRICT"
       }
     ],

@@ -21,7 +21,7 @@ related:
 - Eager code does the work before handing you the value. Lazy code hands you a promise. You can carry that promise around, and only when you call `force` does OCaml do the work inside it.
 - A lazy Fibonacci list would not terminate if it tried to compute every Fibonacci number now. It works because each tail is a promise for the rest of the list, not the rest itself.
 - Textbook connection: Hickey Ch. 7 matters because evaluation order becomes visible when there are effects; the lab deliberately prints messages to show when work happens.
-- Lecture connection: [[20_Progress/Degree/CSCI 4041/Week - 7]] introduces lazy lists; [[20_Progress/Degree/CSCI 4041/Week - 8]] gives the eager-vs-lazy framing.
+- Lecture connection: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 7]] introduces lazy lists; [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 8]] gives the eager-vs-lazy framing.
 
 ```ocaml
 open Lazy ;;
@@ -52,7 +52,7 @@ let lazyHead list =
 - [[OCaml - References and Mutation]]: laziness is about timing of computation; mutation is about changing stored state.
 
 ## Where It Appears
-- Weekly notes: [[20_Progress/Degree/CSCI 4041/Week - 7]], [[20_Progress/Degree/CSCI 4041/Week - 8]], [[Week - 15]].
+- Weekly notes: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 7]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 8]], [[Week - 15]].
 - Labs: [[Lab - 7 Lazy Lists]] from `lab7.ml` and `tests7.ml`.
 - Projects: not a direct project requirement, but the "do only the demanded work" idea helps explain special forms in [[OCaml - Interpreter Primitives and Special Forms]].
 - Textbook: Hickey Ch. 7 for effects/evaluation order; Hickey Ch. 3 for functions used to delay work.

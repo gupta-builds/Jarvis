@@ -526,19 +526,19 @@ Created a lightweight Obsidian Kanban habit area under `10_Areas/Life/habits`.
 
 ## [2026-05-08] source map | CSCI 2041 notes
 
-Updated [[CSCI 2041 Note Production Plan]] as a source map only. Mapped lecture transcripts, professor note folders, labs, projects, practice files, and Hickey textbook sections to likely weeks from [[20_Progress/Degree/CSCI 4041/Week - 6]] through final review. Did not modify [[40_Resources/UMN/Previous Classes/Lib Ed/MUS 1013/Week - 1]] through [[40_Resources/UMN/Previous Classes/Lib Ed/BIOL 1012/Week - 5]].
+Updated [[CSCI 2041 Note Production Plan]] as a source map only. Mapped lecture transcripts, professor note folders, labs, projects, practice files, and Hickey textbook sections to likely weeks from [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 6]] through final review. Did not modify [[40_Resources/UMN/Previous Classes/Lib Ed/MUS 1013/Week - 1]] through [[40_Resources/UMN/Previous Classes/Lib Ed/BIOL 1012/Week - 5]].
 
-**Direction:** start note production at [[20_Progress/Degree/CSCI 4041/Week - 6]] using the plan's source rows, and verify the marked transcript/date uncertainties before drafting.
+**Direction:** start note production at [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 6]] using the plan's source rows, and verify the marked transcript/date uncertainties before drafting.
 
 ## [2026-05-08] rewrite | CSCI 2041 production contract
 
-Rewrote [[CSCI 2041 Note Production Plan]] into a stricter note-production contract. Added source-of-truth rules that limit factual claims to the local CSCI 2041 source folder, a very detailed content standard, concept-note primacy, exact source coverage requirements, a professor-note page ledger, week-by-week production details from [[20_Progress/Degree/CSCI 4041/Week - 6]] through final review, and stronger lab/project/concept backlink rules.
+Rewrote [[CSCI 2041 Note Production Plan]] into a stricter note-production contract. Added source-of-truth rules that limit factual claims to the local CSCI 2041 source folder, a very detailed content standard, concept-note primacy, exact source coverage requirements, a professor-note page ledger, week-by-week production details from [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 6]] through final review, and stronger lab/project/concept backlink rules.
 
 **Direction:** future CSCI 2041 note creation should treat concept notes as the durable source-of-truth layer and read every listed source file/page before drafting.
 
 ## [2026-05-08] build | CSCI 2041 Week 6-15 archive notes
 
-Created weekly notes [[20_Progress/Degree/CSCI 4041/Week - 6]] through [[Week - 15]] under `50_Archive/UMN/Classes/CSCI 2041`, plus [[CSCI 2041 Board]] in that archive folder. Notes synthesize the source-map transcripts, professor note folders, labs/projects/practice files, and Hickey textbook anchors. [[40_Resources/UMN/Previous Classes/Lib Ed/MUS 1013/Week - 1]] through [[40_Resources/UMN/Previous Classes/Lib Ed/BIOL 1012/Week - 5]] were not edited.
+Created weekly notes [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 6]] through [[Week - 15]] under `50_Archive/UMN/Classes/CSCI 2041`, plus [[CSCI 2041 Board]] in that archive folder. Notes synthesize the source-map transcripts, professor note folders, labs/projects/practice files, and Hickey textbook anchors. [[40_Resources/UMN/Previous Classes/Lib Ed/MUS 1013/Week - 1]] through [[40_Resources/UMN/Previous Classes/Lib Ed/BIOL 1012/Week - 5]] were not edited.
 
 **Direction:** next pass should create the linked concept/lab/project notes, then strengthen backlinks from weekly notes to concrete concept headings.
 
@@ -546,7 +546,7 @@ Created weekly notes [[20_Progress/Degree/CSCI 4041/Week - 6]] through [[Week - 
 
 Created 24 source-grounded concept notes under `50_Archive/UMN/Classes/CSCI 2041/Concepts` for the Week 6 onward material: streams, laziness, memoization, mutation, modules, ADTs, higher-order functions, recursion patterns, Project 1 expression solving, Lisp representation, scanner/parser/printer/evaluator architecture, environments/closures, primitives/special forms, REPL integration, continuations, if-normalized tautology checking, macros, association lists, and error boundaries.
 
-**Updated:** [[CSCI 2041 Board]] now links the concept layer. [[20_Progress/Degree/CSCI 4041/Week - 6]] through [[Week - 15]] now point at the actual concept note names for the created OCaml concepts. [[40_Resources/UMN/Previous Classes/Lib Ed/MUS 1013/Week - 1]] through [[40_Resources/UMN/Previous Classes/Lib Ed/BIOL 1012/Week - 5]] were not edited.
+**Updated:** [[CSCI 2041 Board]] now links the concept layer. [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 6]] through [[Week - 15]] now point at the actual concept note names for the created OCaml concepts. [[40_Resources/UMN/Previous Classes/Lib Ed/MUS 1013/Week - 1]] through [[40_Resources/UMN/Previous Classes/Lib Ed/BIOL 1012/Week - 5]] were not edited.
 
 **Direction:** create lab and project notes next, then add more precise backlinks from concepts into lab/project notes once those files exist.
 
@@ -582,7 +582,7 @@ Reworked the [[40_Resources/UMN/Previous Classes/Lib Ed/BIOL 1012/Week - 5]] lec
 
 ## [2026-05-12] update | CSCI 2041 weekly lecture source spines
 
-Enhanced the live `10_Areas/Degree/UMN/Classes/CSCI 2041` weekly notes with explicit source-grounded lecture maps. Added new lecture-map sections to [[40_Resources/UMN/Previous Classes/Lib Ed/MUS 1013/Week - 1]] through [[20_Progress/Degree/CSCI 4041/Week - 4]] and [[20_Progress/Degree/CSCI 4041/Week - 6]] through [[Week - 15]], preserving the existing lecture bodies; [[40_Resources/UMN/Previous Classes/Lib Ed/BIOL 1012/Week - 5]] already had the fuller lecture spine from the prior pass. The maps connect transcript numbers/dates, professor-note folders, labs/projects/practice files, and the core mechanism for each week. Also expanded the dated lecture headings in [[20_Progress/Degree/CSCI 4041/Week - 6]] through [[Week - 15]] with professor-transcript details about announcements, source-file mechanics, control-flow invariants, and final-exam distinctions.
+Enhanced the live `10_Areas/Degree/UMN/Classes/CSCI 2041` weekly notes with explicit source-grounded lecture maps. Added new lecture-map sections to [[40_Resources/UMN/Previous Classes/Lib Ed/MUS 1013/Week - 1]] through [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 4]] and [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 6]] through [[Week - 15]], preserving the existing lecture bodies; [[40_Resources/UMN/Previous Classes/Lib Ed/BIOL 1012/Week - 5]] already had the fuller lecture spine from the prior pass. The maps connect transcript numbers/dates, professor-note folders, labs/projects/practice files, and the core mechanism for each week. Also expanded the dated lecture headings in [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 6]] through [[Week - 15]] with professor-transcript details about announcements, source-file mechanics, control-flow invariants, and final-exam distinctions.
 
 **Verification:** all weekly notes now show `updated: 2026-05-12` and each has a `### Week N lecture map` heading in the `## Lecture` section. No writes were made to the old `50_Archive` CSCI 2041 path.
 

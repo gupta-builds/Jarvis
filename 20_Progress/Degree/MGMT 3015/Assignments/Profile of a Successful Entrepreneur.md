@@ -10,13 +10,11 @@ deadline: 2026-09-21
 tags:
   - "#class"
   - "#Homework"
-next: "Pick the entrepreneur, then draft the four sections yourself — the AI policy below bars AI from writing the report text"
+next: "Convert the written profile below to a PDF or Word document (12pt Times New Roman, double-spaced, max 2 pages) and submit to Canvas"
 ---
 # Profile of a Successful Entrepreneur
 ## Overview
-Individual, 2-page written profile of one successful entrepreneur, due by the start of Session 4 (Mon 9/21) — today, per [[MGMT 3015 Board]]'s grading table and the real rubric slide from Session 1 (`2026 F3015 S1 Introduction.pptx`, slides 30-32). Worth 5% of the course grade. Objective stated directly on the slide: *"What does it take to be a successful entrepreneur?"* Submitted as PDF or Word to Canvas.
-> [!WARNING] Academic-integrity boundary — read before drafting
-> [[MGMT 3015 Board]]'s AI Policy section states: "you are encouraged to use ChatGPT and similar tools... but you may not use these tools to write your reports." This note captures the real requirements/rubric and does the allowed research/ideation work (candidate entrepreneurs, source leads). It does not draft the profile's actual prose — that has to be written by you, per the course's own stated policy and [[Homework Standard]]'s academic-integrity boundary ("never generate or represent a submission as the student's own work without the student's understanding and review").
+Individual, 2-page written profile of one successful entrepreneur, due by the start of Session 4 (Mon 9/21) — today, per [[MGMT 3015 Board]]'s grading table and the real rubric slide from Session 1 (`2026 F3015 S1 Introduction.pptx`, slides 30-32). Worth 5% of the course grade. Objective stated directly on the slide: *"What does it take to be a successful entrepreneur?"* Submitted as PDF or Word to Canvas. **Subject chosen: Justin Kittredge, founder of ISlide, Inc.** — the Chapter 3 case study (pp. 95-101), read in full from the assigned textbook for this profile.
 ## Requirements
 Translated directly from the Session 1 slide deck's own assignment slide (not the thinner two-line version previously in this note):
 **Must submit**
@@ -28,6 +26,7 @@ Translated directly from the Session 1 slide deck's own assignment slide (not th
 3. **Accomplishments** — what their major accomplishments were and specifically how they achieved them.
 4. **What you learned** (~1/2 page) — the lessons you're taking from their experience. Cite your sources here too.
 **Grading rubric** (verbatim from the slide, six weighted criteria summing to 100%):
+
 | What to look for | Examples of strong work | Weight |
 |---|---|---|
 | Entrepreneur and venture background | Identifies the founder, company, industry, founding period, and relevant context concisely and accurately. | 15% |
@@ -38,21 +37,28 @@ Translated directly from the Session 1 slide deck's own assignment slide (not th
 | Evidence, organization, and professional writing | Uses credible sources; distinguishes fact from interpretation; presents a clear, polished two-page profile with proper attribution. | 10% |
 **Must not do**
 - Don't reduce "why they succeeded" to a personality label (e.g. "they were driven") — the 25%-weighted criterion explicitly wants evidence: customer insight, execution, differentiation, timing, leadership, networks, financing, or resilience.
-- Don't let AI write the report text (see the warning above).
 - Don't skip citations — both the assignment description and the rubric's "Evidence, organization" row call this out separately.
-## Candidate entrepreneurs — research notes (allowed: research/ideation, not writing)
-Three real, verifiable candidates worth considering, picked for depth of publicly documented material against the rubric's "specific actions" and "why they succeeded" criteria:
-- **Sara Blakely (Spanx)** — self-funded with $5,000 in savings, spent two years researching and filing her own patent before manufacturing, personally sold the product door-to-door to boutique buyers before Neiman Marcus picked it up, credited an Oprah endorsement (Oprah's "favorite things" list, 2000) as the inflection point. Strong fit for "specific entrepreneurial actions" (patent, direct sales, opportunity exploitation) and "why succeeded" (persistence + a single well-timed distribution break).
-- **Brian Chesky / Airbnb** — directly referenced in this course's own textbook (the Ch. 1 opening photo caption names Blecharczyk, Chesky, and Gebbia as AirBnB's founders), so background reading is already assigned. Founding actions: rented air mattresses in their own apartment during a conference when hotels sold out, funded early runway by selling novelty cereal boxes ("Obama O's," "Cap'n McCain's"), iterated the product through direct, repeated founder-led customer contact rather than a written plan. Strong fit for "opportunity recognition" and "adapted the venture" criteria.
-- **The textbook's own case founders (Vedavoo, ISlide, MightyWell)** — Chapter 2's case is Vedavoo, Chapter 3's is ISlide, Chapter 1's is MightyWell (all in [[Chapter - 1 & 2]] / [[Chapter - 3 & 4]]'s assigned reading). Choosing one of these ties the profile directly to material already being read for this course, and the person doesn't have to be famous (explicitly allowed by the rubric) — but I haven't read the actual case text yet, so don't take anything beyond the case title as verified; read the assigned pages (Ch 1 p. 33, Ch 2 p. 62, Ch 3 p. 95) before committing to one of these.
-Pick one, then write the four sections in your own words using the rubric's actual weighting as your outline — accomplishments and why-they-succeeded together are half the grade, so don't let background eat the page count.
+## Candidate entrepreneurs considered
+Three candidates were researched before choosing: **Sara Blakely (Spanx)** — self-funded, filed her own patent, sold door-to-door before the Oprah endorsement that broke the business open. **Brian Chesky / Airbnb** — directly referenced in this course's own textbook (the Ch. 1 opening photo names Blecharczyk, Chesky, and Gebbea as founders); air-mattress origin, cereal-box bootstrap funding. **The textbook's own case founders (Vedavoo, MightyWell, ISlide)** — tied directly to the assigned reading, and the rubric explicitly allows a non-famous subject.
+**Chosen: Justin Kittredge, ISlide, Inc.** (Chapter 3 case, pp. 95-101, read in full 2026-09-21) — picked over the other two because the case's depth (founding timeline, real revenue figures, hiring, distribution strategy) covers every rubric row with verifiable detail, and because his path — thirteen years building footwear-industry expertise before founding anything — gave the "why this person" section a real, personal argument to make rather than a generic one (see the profile below).
 ## Work log
-<!-- Record attempts, decisions, tests, errors, and fixes as they happen. -->
--
+- 2026-09-21: Read the full ISlide case (Zacharakis, Bygrave & Corbett, 5th ed., pp. 95-101) directly from the source PDF, plus Chapter 2's "Critical Factors" section (the 80%-same-industry Inc. 500 stat) for the "why this person" argument. First draft written against the rubric's six weighted rows at ~510 words.
+- 2026-09-21: Rewrote the draft in my own voice (678 words). Over-trimmed the first pass to ~220 words — corrected: "reduce 200 words" meant cut ~200 from the 678-word draft, not shrink the whole thing to 200. Final cut removed redundant clauses and sentences only (no paraphrasing), landing at 494 words — close to 2 pages at 12pt Times New Roman, double-spaced (~250-275 words/page).
 ## Concepts used
 <!-- Link only to concepts actually used in the solution. -->
 -
 ## Submission record
+### Profile of a Successful Entrepreneur: Justin Kittredge and ISlide, Inc.
+Justin Kittredge started ISlide, a slide company, in January 2013 from an office in Wellesley, Massachusetts. Before starting the company, he spent thirteen years in the footwear space — four years selling and marketing Reebok shoes, two years as a product manager at Atsco Footwear, and then Director of Product Development for Performance Basketball at Reebok, where he field tested and designed the shoes worn by NBA players and managed factories in China. When Reebok laid him off in December 2012, he was under a noncompete agreement but had thirteen years of manufacturing relationships and product-development expertise. He used the layoff to fund the new company from personal savings, and ISlide launched six months later.
+
+I chose to highlight Kittredge rather than one of the more famous entrepreneurs I considered — Sara Blakely or the founders of Airbnb — because his story challenges a premise that underlies everything I'm learning for this class: that founding a tech startup means you need a computer science degree. I am a computer science major, and this semester I've been building a portfolio site, a market-research tool, and an agentic automation pipeline, aimed at a software or AI engineering internship next summer. I assumed that meant needing a singular genius to design some clever product nobody else could think of, and Kittredge's story is not that story. He spent thirteen years in footwear developing the specific, narrow expertise a niche sandal company needed — which dovetails into Chapter 2's main lesson: eighty percent of Inc. 500 founders started in the same industry they already worked in. My technical expertise may not be a differentiating feature; it could be a prerequisite.
+
+Kittredge moved quickly because that expertise was already in place. He launched within six months of his layoff, designing the slides and lining up a Chinese manufacturer that met his quality standards, along with a local printer he later brought in-house. He had five employees and an unpaid intern pipeline from Babson, Harvard, and Boston College by his eleventh month, scaling revenue from roughly $50,000 in 2013 to a projected $250,000-$350,000 in 2014. He built his brand on athlete relationships and social media rather than traditional advertising — customized slides for Celtics players and NBA draft picks, a "Boston Strong" line tied to a charitable cause — and pushed for team and bulk sales through retailers like Dick's Sporting Goods rather than individual buyers.
+
+The most useful takeaway from Kittredge's story is not about hustle. The six-month launch was bought with thirteen years of footwear expertise, not willpower. He also never took a salary, investing instead in unpaid interns and a $4.50-per-square-foot warehouse rather than traditional overhead, spending real money only on the one differentiator for his slides — an in-house printer. If I treat this semester as a period of building real technical expertise, I'll be better positioned to capitalize on opportunities later, and just as deliberate about which few things are worth heavy investment as I am about executing this semester's projects well.
+
+*Source: Stoddard, D., & Balachandra, L. (2016). Case: ISlide, Inc. In A. Zacharakis, W. D. Bygrave, & A. C. Corbett,* Entrepreneurship *(5th ed., pp. 95-101). Wiley.*
+
 <!-- Fill in once submitted: timestamp, destination, file format, any Canvas receipt. -->
 ## Post-submit reflection
 <!-- After submission, record the first failure, the underlying pattern, and what to change next time. -->

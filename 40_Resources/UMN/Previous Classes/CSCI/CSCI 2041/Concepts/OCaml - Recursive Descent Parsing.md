@@ -51,7 +51,7 @@ and nextThing () =
 - **[[OCaml - Lisp Thing Representation]]**: parser output is a `thing` value.
 
 ## Where It Appears
-- Weekly notes: [[20_Progress/Degree/CSCI 4041/Week - 10]], [[20_Progress/Degree/CSCI 4041/Week - 11]], [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 13]], [[Week - 15]].
+- Weekly notes: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 10]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 11]], [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 13]], [[Week - 15]].
 - Labs: Lab 12 (`lab12.ml`).
 - Projects: [[Project - 2 Lisp Parser|Project - 2 Lisp Parser]].
 - Textbook: Hickey Ch. 4, Ch. 6, Ch. 11-12, Ch. 19.

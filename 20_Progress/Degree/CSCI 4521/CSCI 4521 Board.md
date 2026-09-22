@@ -54,9 +54,6 @@ Student-led: a short proposal, a presentation, and the coding work - **counts ap
 For a genuine special/life circumstance beyond the grace day, the instructor must be contacted **within 72 hours** of being able to do so (the syllabus's own example: losing a laptop means emailing within 72 hours of realizing it's lost, not 72 hours from the original deadline).
 ## Extra Credit
 Some assignments/activities offer small extra-credit opportunities, aimed at students who want to go deeper on a topic they're personally interested in - not a fixed, guaranteed category.
-## AI Policy
-> [!TIP] A three-tier, per-assignment AI policy - not one blanket rule
-> Every assignment gets an explicit color-coded AI designation: 🟢 **encouraged** (develop your AI skills), 🟡 **technically allowed but discouraged** (try it yourself first), or 🔴 **banned** (goes against that assignment's learning objectives). This is a genuinely different shape than any other Fall'26 course's AI policy - check each assignment's own color before assuming a blanket rule applies. Additional real caveats: you're fully responsible for verifying anything an AI tool outputs (they're not fact-checked or peer-reviewed); data security varies by tool - UMN provides a Copilot instance with enterprise data protection, but plain ChatGPT/ungated tools may retain whatever you paste in as future training data, which the syllabus explicitly calls out as an academic-integrity risk if course materials or others' copyrighted work gets uploaded to an unprotected model.
 ## Topics (5 Units, Per the Syllabus's Own Framing)
 The syllabus itself gives no dates against these five units - the real dated schedule that maps onto them is in the Schedule section below, sourced from the professor's own schedule spreadsheet, not this list.
 1. **ML Overview** - problem types (supervised/unsupervised, regression/classification), core tools (NumPy, Pandas, Scikit-Learn); topics include CSV/tabular data, KNN, classification metrics.
@@ -66,7 +63,6 @@ The syllabus itself gives no dates against these five units - the real dated sch
 5. **Neural Networks / Deep Learning** - non-linear models for complex, large-scale data; topics include Multi-Layer Perceptrons, loss functions (Cross Entropy, L1/L2), Convolutional Networks, and RNNs "if time permits."
 Every unit also touches ethics in ML, visualizing results, and ML in the news - and, depending on pacing/interest, may extend into generative AI models, pre-trained models, zero-shot learning, and LLMs.
 Loose mapping onto the Schedule's lecture numbers below (not stated explicitly anywhere, inferred only from topic match, safe to treat as approximate): Unit 1 ≈ lectures 0.1-1.5, Unit 2 ≈ 2.1-2.5 and 3.1-3.2 (clustering), Unit 3 ≈ 3.3-3.4 (regression/backprop), Unit 4 ≈ 4.1-4.4 (classification), Unit 5 ≈ 4.5-5.4 (neural nets/CNNs).
-
 ## Schedule
 > [!TIP] Real, dated, sourced from the professor's own course schedule spreadsheet (link above), pasted directly by the user 2026-09-15 - not inferred, not from the Fall-2025-dated syllabus PDF.
 > Meeting days are **Tuesday and Thursday**, per the syllabus's stated meeting time (2:30-3:45pm, Amundson Hall B75 - itself still unconfirmed for Fall'26, see the warning above). `LEC` = lecture number per the professor's own numbering; `QUIZ` = the six biweekly Thursday quizzes; readings are listed as they were given, by textbook.

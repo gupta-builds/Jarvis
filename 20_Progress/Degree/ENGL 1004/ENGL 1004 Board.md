@@ -50,11 +50,9 @@ Mandatory, with an escalating penalty structure: missing more than **one cumulat
 No use in class except when specifically invited. First violation gets a verbal warning; the **second violation is an automatic 0 for that day's participation grade** - stated as a deliberate policy, not an idle threat, with the instructor citing both anecdotal and research-based effects on retention.
 ## Final Exam
 One in-class exam on the last scheduled day (**2026-12-15**) - passage identification from the readings, then discussion connecting the passage to the larger work and to the semester's discussions.
-## AI Policy
-> [!DANGER] The strictest AI ban of any Fall'26 course
-> "Generative AI is NOT allowed for this class," stated in full caps in the syllabus itself - not a soft preference. The instructor's own reasoning: AI "spits out the most obvious takes only," including incorrect ones, simplifies and smooths over subtlety, and blocks the actual skill the course is teaching (working through a difficult text to your own opinion). The syllabus states a specific detection method - the instructor has tested the actual readings/assignments against AI models and predicts what AI-assisted work looks like: mediocre (low-B) class contributions, poor exam performance, a shallow simulation role, or a mismatch between real-time class performance and written work quality. **If AI use is suspected, the consequence is a standing requirement to discuss readings weekly and write journal entries during the instructor's office hours** - not a one-time penalty, an ongoing supervision arrangement. Separately, **plagiarism explicitly includes AI-generated submissions** and can fail the assignment or the course outright.
 ## Schedule
 The simulation block (10/8, 10/13, 10/20) has no separate reading beyond planning; specific journal-entry numbers are noted where the syllabus assigns them.
+
 | Date | Class | Reading/Assignment Due |
 |---|---|---|
 | 9/8 | Introduction | — |

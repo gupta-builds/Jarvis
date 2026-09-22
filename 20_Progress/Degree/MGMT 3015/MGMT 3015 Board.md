@@ -9,7 +9,7 @@ area:
   - "[[APAS]]"
 tags:
   - "#class"
-next: "Confirm Session 6 (stated 9/25, actually a Friday) and Session 16 (stated 10/31, actually a Saturday) on Canvas - both break the course's own Mon/Wed pattern"
+next: "Write the New Business Idea homework note before its Session 6 deadline (9/25, flagged Friday anomaly below); confirm both Session 6 and Session 16 dates on Canvas"
 ---
 # MGMT 3015 (001) — Introduction to Entrepreneurship
 Fall'26, 4 credits. Entrepreneurship Minor core course. Per [[APAS]] its 4 credits also count against the 6 remaining general Elective Credits, so this one class serves two requirement buckets at once. Full syllabus and a separate "Course Overview and How This Course Works" Canvas page both read in full, pasted 2026-09-09.

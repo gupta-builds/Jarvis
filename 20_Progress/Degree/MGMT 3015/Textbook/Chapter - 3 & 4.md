@@ -17,9 +17,7 @@ next:
 == ==
 *Mechanism:*
 <!-- Explain how the chapter's claim works. -->
-## Key Concepts
-<!-- Define each concept and explain why it matters here. Bold the concept name on first use. -->
-- **Concept:** 
+
 ## Examples Worth Keeping
 <!-- Keep concrete examples, numbers, cases, or worked reasoning that makes the mechanism memorable. -->
 - 

@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "_UI Fixes",
+      "path": "20_Progress/Projects/CS/Portfolio/frontend/_UI Fixes.md"
+    },
+    {
+      "basename": "Prompt",
+      "path": "20_Progress/Projects/CS/Portfolio/frontend/Prompt.md"
+    },
+    {
       "basename": "Transcript - OPT",
       "path": "20_Progress/Internship/Career Fair/Transcript - OPT.md"
     },
@@ -191,10 +199,6 @@
     {
       "basename": "Lecture - 1",
       "path": "20_Progress/Degree/MGMT 3015/Lecture/Lecture - 1.md"
-    },
-    {
-      "basename": "Textbook Map",
-      "path": "20_Progress/Degree/MGMT 3015/Textbook/Textbook Map.md"
     }
   ],
   "omittedPaths": [],

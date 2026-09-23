@@ -12,7 +12,7 @@ notes:
   - "[[frontend-ui-fixes-requirements]]"
   - "[[frontend-ui-fixes-design]]"
   - "[[frontend-ui-fixes-tasks]]"
-  - "[[UI Fixes]]"
+  - "[[_UI Fixes]]"
   - "[[claude-prompt-ui-fixes-analysis]]"
   - "[[claude-prompt-ui-fixes-audit-pass]]"
   - "[[claude-prompt-ui-fixes-pass-3]]"

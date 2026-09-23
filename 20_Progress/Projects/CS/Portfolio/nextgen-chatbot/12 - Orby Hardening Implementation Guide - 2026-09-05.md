@@ -225,4 +225,4 @@ This is already built, not something to invent. Confirmed in this pass: `.claude
 ## Related Notes
 
 - Extends: [[11 - Orby Security & Reliability Ground Truth - 2026-09-05]]
-- Does not touch: SEO/AEO discoverability ([[AEO & SEO/01 - SEO & AEO Discoverability Strategy]]) or frontend UI ([[frontend/UI Fixes]]) — separate sessions
+- Does not touch: SEO/AEO discoverability ([[AEO & SEO/01 - SEO & AEO Discoverability Strategy]]) or frontend UI ([[_UI Fixes]]) — separate sessions

@@ -11,7 +11,7 @@ tags:
 notes:
   - "[[frontend-ui-fixes-requirements]]"
   - "[[frontend-ui-fixes-tasks]]"
-  - "[[UI Fixes]]"
+  - "[[_UI Fixes]]"
 ---
 
 # Frontend UI Fixes — Design

@@ -2,9 +2,14 @@
 type: concept
 status: active
 updated: 2026-09-05
-tags: [portfolio, frontend, ui-fixes, portfolio-lab, chat]
+tags:
+  - portfolio
+  - frontend
+  - ui-fixes
+  - portfolio-lab
+  - chat
 notes:
-  - "[[UI Fixes]]"
+  - "[[_UI Fixes]]"
   - "[[frontend-ui-fixes-requirements]]"
   - "[[frontend-ui-fixes-design]]"
   - "[[frontend-ui-fixes-tasks]]"
@@ -14,7 +19,7 @@ notes:
 # UI Fix 07 — Portfolio Lab (Chat Input & Mobile Layout)
 
 > **Status:** partial (textarea + 3-line cap built; vertical centering open; mobile repro open; break-words already done)
-> **Ledger:** [[UI Fixes]] §6 | **Tasks:** 6.3, 7.1, 7.2
+> **Ledger:** [[_UI Fixes]] §6 | **Tasks:** 6.3, 7.1, 7.2
 > **2026-09-05 correction pass:** re-verified against `ChatInputBar.tsx`, `ChatThread.tsx`, `src/components/ui/sidebar.tsx` on `post-frontend`. One claim was stale — see Task 7.2 below, it's already shipped. Everything else in the old note checked out.
 
 ## Purpose

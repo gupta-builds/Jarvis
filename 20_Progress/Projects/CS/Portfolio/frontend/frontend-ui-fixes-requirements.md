@@ -11,14 +11,14 @@ tags:
 notes:
   - "[[frontend-ui-fixes-design]]"
   - "[[frontend-ui-fixes-tasks]]"
-  - "[[UI Fixes]]"
+  - "[[_UI Fixes]]"
   - "[[BUILD-STATUS]]"
 ---
 
 # Frontend UI Fixes — Requirements
 
 > **Updated:** 2026-09-05 from localhost walkthrough + screenshots.
-> Human ground truth: [[UI Fixes]] § Current Localhost Walkthrough.
+> Human ground truth: [[_UI Fixes]] § Current Localhost Walkthrough.
 > Companion docs: [[frontend-ui-fixes-design]], [[frontend-ui-fixes-tasks]].
 > Every file path below was verified against the live repo on branch with liquid-glass + GSAP additions.
 

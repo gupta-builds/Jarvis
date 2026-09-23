@@ -11,7 +11,7 @@ notes:
   - "[[frontend-ui-fixes-requirements]]"
   - "[[frontend-ui-fixes-design]]"
   - "[[frontend-ui-fixes-tasks]]"
-  - "[[UI Fixes]]"
+  - "[[_UI Fixes]]"
   - "[[claude-prompt-ui-fixes-audit-pass]]"
 ---
 # Claude Sonnet — UI Fixes Notes, Pass 3 (Deploy Sync + Orby Gaps)

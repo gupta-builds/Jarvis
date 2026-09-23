@@ -2,9 +2,14 @@
 type: concept
 status: active
 updated: 2026-09-05
-tags: [portfolio, frontend, ui-fixes, projects, gsap]
+tags:
+  - portfolio
+  - frontend
+  - ui-fixes
+  - projects
+  - gsap
 notes:
-  - "[[UI Fixes]]"
+  - "[[_UI Fixes]]"
   - "[[frontend-ui-fixes-requirements]]"
   - "[[frontend-ui-fixes-design]]"
   - "[[frontend-ui-fixes-tasks]]"
@@ -14,7 +19,7 @@ notes:
 # UI Fix 04 — Projects Section (Pinned Cinematic Lock)
 
 > **Status:** open (carousel exists and is more capable than previously documented; no pin/emerge/edge effect)
-> **Ledger:** [[UI Fixes]] §3 | **Tasks:** 4.1, 4.2
+> **Ledger:** [[_UI Fixes]] §3 | **Tasks:** 4.1, 4.2
 > **2026-09-05 correction pass:** re-verified line-by-line against `ProjectsSlider.tsx` (491 lines) and `PortfolioContent.tsx` on `post-frontend`. Several claims below were wrong or incomplete — corrected. Same correction applied to [[frontend-ui-fixes-design]] Fix 6 and [[frontend-ui-fixes-tasks]] Phase 4.
 
 ## Purpose

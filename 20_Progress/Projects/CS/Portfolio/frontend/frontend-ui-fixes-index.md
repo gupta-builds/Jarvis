@@ -8,7 +8,7 @@
 
 | Doc | Role |
 |---|---|
-| [[UI Fixes]] | Human walkthrough + status ledger (Sep 2026 ground truth) |
+| [[_UI Fixes]] | Human walkthrough + status ledger (Sep 2026 ground truth) |
 | [[frontend-ui-fixes-requirements]] | Success criteria per fix area |
 | [[frontend-ui-fixes-design]] | Architecture, GSAP patterns, animation matrix |
 | [[frontend-ui-fixes-tasks]] | Phased tasks + copy-paste agent prompts |

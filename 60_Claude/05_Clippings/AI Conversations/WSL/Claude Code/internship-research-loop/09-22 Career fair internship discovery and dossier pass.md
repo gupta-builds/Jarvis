@@ -7,7 +7,7 @@ title: "career-fair-employer-research"
 started_at: 2026-09-22T17:29:49
 ended_at: 2026-09-22T17:56:28
 duration_minutes: 27
-exported_at: 2026-09-22T22:45:01
+exported_at: 2026-09-22T23:45:01
 project: internship-research-loop
 cwd: '/home/anant_gupta/projects/work/internship-research-loop'
 session_id: 8734b31a-d3ae-415f-ad7c-100de88ad03f

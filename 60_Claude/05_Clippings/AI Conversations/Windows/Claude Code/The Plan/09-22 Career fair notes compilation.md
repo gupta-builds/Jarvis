@@ -5,32 +5,34 @@ source_app: claude-code
 source_os: windows
 title: "Career fair notes compilation"
 started_at: 2026-09-22T11:56:45
-ended_at: 2026-09-22T12:21:34
-exported_at: 2026-09-23T09:00:02
-duration_minutes: 24.8
+ended_at: 2026-09-23T10:06:55
+exported_at: 2026-09-23T11:00:02
+duration_minutes: 1330.2
 project: The Plan
 cwd: 'D:\Users\_Anant\10_Areas\Documents\The Plan'
 session_id: 8973a321-f041-4a50-bf66-6bf502cd59ba
 status: raw
-turn_count: 4
+turn_count: 6
 tools_used:
   AskUserQuestion: 1
   Bash: 11
-  Read: 6
-  Write: 4
+  Read: 9
+  Write: 5
 tokens:
-  input: 100
-  output: 72466
-  cache_creation: 321814
-  cache_read: 4144577
-  total: 4538957
-cost_usd: 2.841031
+  input: 118
+  output: 94952
+  cache_creation: 1060687
+  cache_read: 4995500
+  total: 6151257
+cost_usd: 6.191604
 model:
   - "claude-sonnet-5"
 files_touched:
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\20_Progress\\Internship\\Career Fair\\Transcript - Comp Sci.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\20_Progress\\Internship\\Career Fair\\Transcript - OPT.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\20_Progress\\Internship\\Career Fair\\Transcript - Sponsoring.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\The Plan\\20_Progress\\Career\\Career Fair\\Day - 1.md"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\The Plan\\20_Progress\\Career\\Career Fair\\Day - 2.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\The Plan\\20_Progress\\Career\\Career Fair\\OPT Companies.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\The Plan\\20_Progress\\Career\\Internship\\Companies giving OPT & CPT.md"
 tags:
@@ -654,10 +656,118 @@ Employers from [[OPT Companies]] attending today (all OPT/CPT-accepting or spons
 
 ```
 
+## You
+
+Land day - 2 now based on the upgraded OPT companies and day -1 listing. I want this note to consist of all the companies the companies that are coming on day - 2, should be mentioned in the transcripts: `
+
+<pasted_content id="1474">
+D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\Internship\Career Fair\Transcript - OPT.md
+</pasted_content id="1474">
+
+`, `
+
+<pasted_content id="1474">
+20_Progress/Internship/Career Fair/Transcript - Sponsoring
+</pasted_content id="1474">
+
+`. Go htrough the transcripts again since they were updated with more companies. Most of them did not qualify computer science requirements but were offering opt. So here is something that needs to different from day - 1. A new transcript is going to be uploaded inside jarvis that you need to review along with the other - 2. Exclusively - computer science and opt sponsoring. We mention those companies in a header computer science. The rest under OPT. I want all the companies that sponsor opt to be listed so that i can research on whether they have any software role at all or not. But everything based of the filter on computer science should be accurate. The new transcript has been crated here: `
+
+<pasted_content id="1474">
+D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\Internship\Career Fair\Transcript - Comp Sci.md
+</pasted_content id="1474">
+
+`. Go ahead and lay out the day - 2 based of these transcripts clearly.
+
+## Claude
+
+Login expired · Please run /login
+
+Let me re-read all three transcripts to check for updates and pull in the new Computer Science one.
+
+Now I have all three transcripts, including the authoritative **Computer Science major filter** transcript. Cross-referencing against Wednesday 9/23 (Day 2) sessions gives a clean split.
+
+**Computer Science filter (Transcript - Comp Sci)** confirms exactly 14 companies match "Computer Science" as a listed major AND accept OPT/CPT or sponsor. Of those, only **9 attend Wednesday 9/23**: 3M, Aagard, ALLETE Inc, Banner Engineering Corp., Blue Cross and Blue Shield of MN, Itasca Consulting Group, Seagate Technology, The Toro Company, Xcel Energy. (Allianz Life, City of Minneapolis - Public Works, Idea Fund of La Crosse, Micron, and Starkey are CS-major matches but only attend Tuesday, so they belong to Day 1, not Day 2.)
+
+The remaining **19 OPT/sponsor companies on Wednesday** don't list Computer Science as a major in the transcripts — going under the OPT header for you to research individually.
+
+## `Day - 2.md` created
+
+**28 companies attending Wednesday 9/23**, split into two headers:
+
+- **Computer Science (9)** — confirmed via Handshake's own CS-major filter (`Transcript - Comp Sci.md`), so this list is accurate, not inferred: 3M, Aagard, ALLETE Inc, Banner Engineering Corp., Blue Cross and Blue Shield of MN, Itasca Consulting Group, Seagate Technology, The Toro Company, Xcel Energy.
+- **OPT (19)** — every other OPT/CPT-accepting or sponsoring employer today, for you to individually check for software roles: Advanced Energy, ARCO, Bostik, Calyan Technologies, Cambrex, City of Saint Paul, Colder Products (CPC), Cretex Medical, DeZURIK, Felsburg Holt & Ullevig, GEOTEK, Pace, Rust-Oleum, Swagelok Minnesota, Teleflex, Terracon, Tetra Pak, TSMC, Williams AV.
+
+**One thing worth flagging:** five companies *do* show Computer Science as a major in the CS-filter transcript — Allianz Life, City of Minneapolis - Public Works, Idea Fund of La Crosse, Micron, Starkey — but they only have Tuesday sessions, so they're excluded from Day 2 (they belong on Day 1's CS list, which doesn't exist as a separate section yet — let me know if you want me to retrofit `Day - 1.md` with the same Computer Science / OPT split).
+
+### Tool Calls
+
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\Internship\Career Fair\Transcript - OPT.md`
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\Internship\Career Fair\Transcript - Sponsoring.md`
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\Internship\Career Fair\Transcript - Comp Sci.md`
+- `Write` -- `D:\Users\_Anant\10_Areas\Documents\The Plan\20_Progress\Career\Career Fair\Day - 2.md`
+```
+---
+type: project
+status: sprout
+created: 2026-09-23
+tags:
+  - career-fair
+  - opt
+related_progress:
+  - "[[OPT Companies]]"
+  - "[[Day - 1]]"
+next:
+---
+# Day 2 — Wednesday, Sep 23, 2026
+
+Employers from [[OPT Companies]] attending today, split by whether Handshake's own **Computer Science** major filter confirms the match (`Transcript - Comp Sci`) or not.
+
+## Computer Science
+Confirmed via Handshake's Computer Science major filter — accurate, not inferred.
+
+- [[OPT Companies#3M]]
+- [[OPT Companies#Aagard]]
+- [[OPT Companies#ALLETE Inc]]
+- [[OPT Companies#Banner Engineering Corp.]]
+- [[OPT Companies#Blue Cross and Blue Shield of Minnesota]]
+- [[OPT Companies#Itasca Consulting Group]]
+- [[OPT Companies#Seagate Technology]]
+- [[OPT Companies#The Toro Company]]
+- [[OPT Companies#Xcel Energy]]
+
+## OPT
+All OPT/CPT-accepting or sponsoring employers today whose listed majors did **not** include Computer Science in the transcripts. Worth checking individually for a software/CS-adjacent role that may not be reflected in their major tags.
+
+- [[OPT Companies#Advanced Energy]]
+- [[OPT Companies#ARCO (ARCO/Murray National Construction)]]
+- [[OPT Companies#Bostik, Inc.]]
+- [[OPT Companies#Calyan Technologies Inc]]
+- [[OPT Companies#Cambrex]]
+- [[OPT Companies#City of Saint Paul]]
+- [[OPT Companies#Colder Products Company (CPC)]]
+- [[OPT Companies#Cretex Medical]]
+- [[OPT Companies#DeZURIK, Inc.]]
+- [[OPT Companies#Felsburg Holt & Ullevig]]
+- [[OPT Companies#GEOTEK]]
+- [[OPT Companies#Pace - Scientific Professional Services]]
+- [[OPT Companies#Rust-Oleum Corporation]]
+- [[OPT Companies#Swagelok Minnesota]]
+- [[OPT Companies#Teleflex]]
+- [[OPT Companies#Terracon]]
+- [[OPT Companies#Tetra Pak - Interns]]
+- [[OPT Companies#TSMC]]
+- [[OPT Companies#Williams AV]]
+
+---
+28 companies total today · 9 Computer Science-confirmed + 19 OPT (research needed for software roles).
+
+```
+
 ## Actions Taken
 
 **Files created:**
 - `D:\Users\_Anant\10_Areas\Documents\The Plan\20_Progress\Career\Career Fair\Day - 1.md`
+- `D:\Users\_Anant\10_Areas\Documents\The Plan\20_Progress\Career\Career Fair\Day - 2.md`
 - `D:\Users\_Anant\10_Areas\Documents\The Plan\20_Progress\Career\Career Fair\OPT Companies.md`
 
 **Files modified:**

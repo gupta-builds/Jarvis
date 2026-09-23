@@ -5,36 +5,43 @@ source_app: claude-code
 source_os: wsl
 title: "career-fair-employer-research"
 started_at: 2026-09-22T17:29:49
-ended_at: 2026-09-23T15:38:37
-duration_minutes: 1329
-exported_at: 2026-09-23T11:15:02
+ended_at: 2026-09-23T17:16:54
+duration_minutes: 1427
+exported_at: 2026-09-23T13:15:02
 project: internship-research-loop
 cwd: '/home/anant_gupta/projects/work/internship-research-loop'
 session_id: 8734b31a-d3ae-415f-ad7c-100de88ad03f
 status: raw
-turn_count: 45
+turn_count: 47
 tools_used:
   Agent: 20
-  Bash: 2
+  AskUserQuestion: 1
+  Bash: 5
   ExitPlanMode: 1
   mcp__jarvis__vault_list: 10
   mcp__jarvis__vault_read: 2
   mcp__the-plan__vault_read: 8
   mcp__the-plan__vault_write: 3
+  Read: 5
   SendMessage: 1
   ToolSearch: 4
   Write: 2
 tokens:
-  input: 242
-  output: 557535
-  cache_creation: 1932130
-  cache_read: 22347440
-  total: 24837347
-cost_usd: 17.773842
+  input: 274
+  output: 615572
+  cache_creation: 3107935
+  cache_read: 26217608
+  total: 29941389
+cost_usd: 23.83153
 model:
   - claude-sonnet-5
 files_touched:
   - "/home/anant_gupta/.claude/plans/pasted-content-id-27f8-career-swirling-abelson.md"
+  - "/home/anant_gupta/projects/work/internship-research-loop/.claude/agents/promotion.md"
+  - "/home/anant_gupta/projects/work/internship-research-loop/.claude/agents/program-writer.md"
+  - "/home/anant_gupta/projects/work/internship-research-loop/.claude/agents/tracking.md"
+  - "/home/anant_gupta/projects/work/internship-research-loop/.claude/agents/contact-researcher.md"
+  - "/home/anant_gupta/projects/work/internship-research-loop/.claude/skills/promote-dossier/reference/note-templates.md"
 tags:
   - input
   - ai-conversation
@@ -1623,10 +1630,78 @@ Confirmed via read-back — all 51 companies correctly numbered 1–25 (Day 1) /
 - `mcp__the-plan__vault_read` — `{"path":"20_Progress/Career/Career Fair/Internships.md","targetType":"heading","target":["Ready to promote"]}`
 - `mcp__the-plan__vault_read` — `{"path":"20_Progress/Career/Career Fair/Internships.md"}`
 
+## You
+
+Promote the postings disovered through career fair entirely to serious program notes. Create the tracking note as well for each application. Search for employees to reach out and connect to overall. Find recommendations/refrences. Make sure to list out all the program notes correctly for the career fair inside a carewer fair folder (inside serious programs).
+
+## Claude
+
+This is a large, high-stakes task — writing real Program + Tracker notes into your personal vault for 10 companies, each needing contact research too. This repo has purpose-built machinery for exactly this (`promotion` agent, `program-writer`, `tracking`, `contact-researcher`, `/promote-manual-find` skill) with built-in consent gates I shouldn't bypass. Let me read those definitions first to execute this correctly rather than hand-rolling it.
+
+Per the hook's requirement before this session's first Bash call:
+1. **Current request**: Promote all 10 qualifying career-fair postings into real Program notes (in a new `Career Fair` subfolder under `Programs/Serious/`), with paired Tracker notes, contact research, and reference/connection-finding for each.
+2. **This command**: locates the `/promote-manual-find` skill's files so I can read its exact orchestration logic before invoking it at scale across 10 companies.
+
+Before I start writing real notes into your vault, let me lay out the batch plan and get one consolidated confirmation — this repo's `promotion` agent is designed to ask two setup questions (target folder, priority bucket) plus a final go/no-go for *each* company, which would mean ~30+ prompts across 11 postings. Since your instruction already covers the whole batch explicitly, I'll fold that into one confirmation instead of repeating it 11 times.
+
+**Plan**: 11 postings across 10 companies (Xcel Energy has 2), each promoted via the `promotion` agent → `contact-researcher` (find real people to reach out to) → `program-writer` (Program note) → Contact note → `tracking` (Tracker note). Xcel Energy gets one shared Contact note (company-level) but two Program/Tracker pairs (one per posting), per this repo's own convention.
+
+**Folder** (per your instruction): `10_Areas/Career/Internships/Programs/Serious/Career Fair/` — new subfolder, deviating from the vault's normal flat `Programs/Serious/` layout. I'll flag this to you now rather than silently deviate: this means `Programs/Programs MOC.md`'s existing views (which likely list `Serious/` flat) may not surface these unless it also recurses subfolders — worth a quick look afterward, not blocking.
+
+**Proposed bucket classification** (grounded in each posting's actual content):
+
+| Company | Role | Bucket |
+|---|---|---|
+| Barr Engineering | Internship - Data Science (Remote) | 1 - AI & ML |
+| Bracco Medical | Firmware Engineering Co-op | Other (embedded) |
+| Marvell | SRAM Software Engineer Intern | Other (EDA tooling) |
+| Micron | Intern - Software Engineer | 1 - AI & ML (AI/LLM productivity tooling) |
+| Toro | Embedded Software Engineering Intern | Other (embedded) |
+| 3M | 2027 Undergraduate IT Intern | Other (broad IT rotation) |
+| Teleflex | Software Engineering Intern | 2 - Fullstack |
+| Tetra Pak | IT Product Development Intern | Other |
+| TSMC | CIM Engineer Intern | 1 - AI & ML (real ML/web-dev content) |
+| Xcel Energy | Data Governance/Viz/Automation Intern | 1 - AI & ML |
+| Xcel Energy | Data Analyst Intern - TX | 1 - AI & ML |
+
+**Note on "references/recommendations"**: I'll fold this into `contact-researcher`'s existing scope — real recruiters, eng-blog bylines, GitHub org members, LinkedIn search-snippet hits per company. I don't have access to your personal network/connections (no LinkedIn API, and the repo has a hard no-scraping rule), so I can't find "people you already know" — only real, public, sourced contacts. I'll say so honestly per company rather than fabricate a warmer connection than what's real.
+
+**Tool calls:**
+
+- `Bash` — `find .claude/skills -iname "*promote-manual*" -o -iname "*promoting-manual*" 2>/dev/null`
+  ```
+PreToolUse:Bash hook error: [Fact-Forcing Gate]
+
+Before the first Bash command this session, present these facts:
+
+1. The current user request in one sentence
+2. What this specific command verifies or produces
+
+Present the facts, then retry the same operation.
+
+Narrow recovery: set `GATEGUARD_BASH_ROUTINE_DISABLED=1`; destructive Bash checks remain active.
+
+Recovery: if GateGuard is blocking setup or repair work, run this session with `ECC_GATEGUARD=off` or add `pre:bash:gateguard-fact-force` to `ECC_DISABLED_HOOKS`.
+  ```
+- `Read` — `/home/anant_gupta/projects/work/internship-research-loop/.claude/agents/promotion.md`
+- `Bash` — `find .claude/skills -iname "*promote-manual*" -o -iname "*promoting-manual*" 2>/dev/null`
+  ```
+.claude/skills/promoting-manual-find
+  ```
+- `Read` — `/home/anant_gupta/projects/work/internship-research-loop/.claude/agents/program-writer.md`
+- `Read` — `/home/anant_gupta/projects/work/internship-research-loop/.claude/agents/tracking.md`
+- `Read` — `/home/anant_gupta/projects/work/internship-research-loop/.claude/agents/contact-researcher.md`
+- `Bash` — `ls /home/anant_gupta/projects/work/internship-research-loop/.claude/skills/promoting-manual-find/`
+  ```
+SKILL.md
+  ```
+- `Read` — `/home/anant_gupta/projects/work/internship-research-loop/.claude/skills/promote-dossier/reference/note-templates.md`
+- `AskUserQuestion` — `{"questions":[{"question":"Confirm the batch plan above (folder = Programs/Serious/Career Fair/, bucket classifications as shown) and give the go-ahead to write all 11 Program+Contact+Tracker note trios now?","header":"Batch confirm","multiSelect":false,"options":[{"label":"Yes, proceed with all 11 as shown (Recommended)","description":"Write all 11 Program notes, 10 Contact notes, 11 Tracker notes now using the folder and bucket plan above."},{"label":"Let me adjust bucket classifications first","description":"Pause so you can tell me which companies should go in a different bucket before I write anything."},{"label":"Use standard Programs/Serious/ (no Career Fair subfolder)","description":"Keep the vault's normal flat layout instead of introducing a new subfolder."}]}]}`
+
 ## Actions Taken
 - Files created: /home/anant_gupta/.claude/plans/pasted-content-id-27f8-career-swirling-abelson.md
 - Files modified: (none)
 - Files deleted: (none)
-- Commands run: gh workflow enable run, gh workflow list --all
-- Tool call tally: Agent (20), Bash (2), ExitPlanMode (1), mcp__jarvis__vault_list (10), mcp__jarvis__vault_read (2), mcp__the-plan__vault_read (8), mcp__the-plan__vault_write (3), SendMessage (1), ToolSearch (4), Write (2)
+- Commands run: gh workflow enable run, gh workflow list --all, find .claude/skills -iname "*promote-manual*" -o -iname "*promoting-manual*" 2>/dev/null, ls /home/anant_gupta/projects/work/internship-research-loop/.claude/skills/promoting-manual-find/
+- Tool call tally: Agent (20), AskUserQuestion (1), Bash (5), ExitPlanMode (1), mcp__jarvis__vault_list (10), mcp__jarvis__vault_read (2), mcp__the-plan__vault_read (8), mcp__the-plan__vault_write (3), Read (5), SendMessage (1), ToolSearch (4), Write (2)
 

@@ -7,7 +7,7 @@ title: "Career fair day 1 internship research"
 started_at: 2026-09-22T16:58:26
 ended_at: 2026-09-23T15:18:31
 duration_minutes: 1340
-exported_at: 2026-09-23T16:45:02
+exported_at: 2026-09-23T18:45:02
 project: internship-research-loop
 cwd: '/home/anant_gupta/projects/work/internship-research-loop'
 session_id: 6db1b49e-f472-496e-ad59-e72dceac0d73

@@ -43,3 +43,4 @@ Use [[Weekly Synthesis Template]] to generate new review notes. The template inc
 |------|------|-------|
 | 2026-W17 | [[Weekly Synthesis — 2026-W17]] | Capability Engine seed — 24 notes enriched across 5 tracks |
 | 2026-W22 | [[Weekly Synthesis — 2026-W22]] | Claude Pro workflow wired in; three-month spine 30% complete, 4 weeks behind |
+| 2026-W39 | [[Weekly Synthesis — 2026-W39]] | First review since the Fall 2026 Plan started, 3 weeks late; internship applications still at zero, git sync broken 5 days |

@@ -1,6 +1,62 @@
 {
   "recentFiles": [
     {
+      "basename": "Orchestration",
+      "path": "30_Order/Standards/AI Loop/Orchestration.md"
+    },
+    {
+      "basename": "Per Project Review",
+      "path": "30_Order/Standards/AI Loop/Per Project Review.md"
+    },
+    {
+      "basename": "AI Weekly Review Template",
+      "path": "30_Order/Templates/AI Use/AI Weekly Review Template.md"
+    },
+    {
+      "basename": "Clipping Distill Template",
+      "path": "30_Order/Templates/AI Use/Clipping Distill Template.md"
+    },
+    {
+      "basename": "AI Monthly Review Template",
+      "path": "30_Order/Templates/AI Use/AI Monthly Review Template.md"
+    },
+    {
+      "basename": "Deep Dive Template",
+      "path": "30_Order/Templates/AI Use/Deep Dive Template.md"
+    },
+    {
+      "basename": "Capability Engine Guide",
+      "path": "40_Resources/Capability/Capability Engine Guide.md"
+    },
+    {
+      "basename": "Knowledge Noting",
+      "path": "30_Order/Standards/AI Loop/Knowledge Noting.md"
+    },
+    {
+      "basename": "Review System",
+      "path": "30_Order/Standards/AI Loop/Review System.md"
+    },
+    {
+      "basename": "Memory Management",
+      "path": "30_Order/Standards/AI Loop/Memory Management.md"
+    },
+    {
+      "basename": "Tool Calls",
+      "path": "30_Order/Standards/AI Loop/Tool Calls.md"
+    },
+    {
+      "basename": "Conversations",
+      "path": "30_Order/Standards/AI Loop/Conversations.md"
+    },
+    {
+      "basename": "Graphify",
+      "path": "40_Resources/CS/Concepts/Helpful Tools/Graphify.md"
+    },
+    {
+      "basename": "In depth Usage",
+      "path": "60_Claude/40_Project_Briefs/In depth Usage.md"
+    },
+    {
       "basename": "Graphify — Internship Research Loop Implementation",
       "path": "60_Claude/40_Project_Briefs/Graphify — Internship Research Loop Implementation.md"
     },
@@ -23,10 +79,6 @@
     {
       "basename": "Transcript - Sponsoring",
       "path": "20_Progress/Internship/Career Fair/Transcript - Sponsoring.md"
-    },
-    {
-      "basename": "Tool log",
-      "path": "60_Claude/30_Reviews/AI/Tools/Tool log.md"
     },
     {
       "basename": "00 - Capture Health",
@@ -139,66 +191,6 @@
     {
       "basename": "Ubuntu - WSL",
       "path": "40_Resources/CS/Concepts/New Laptop/Ubuntu - WSL.md"
-    },
-    {
-      "basename": "Old Laptop Decommission Checklist",
-      "path": "40_Resources/CS/Concepts/New Laptop/Old Laptop Decommission Checklist.md"
-    },
-    {
-      "basename": "VS Code Professional Setup",
-      "path": "40_Resources/CS/Concepts/New Laptop/VS Code Professional Setup.md"
-    },
-    {
-      "basename": "Installations",
-      "path": "40_Resources/CS/Concepts/New Laptop/Installations.md"
-    },
-    {
-      "basename": "Acer Live State — 2026-09-16",
-      "path": "40_Resources/CS/Concepts/New Laptop/Acer Live State — 2026-09-16.md"
-    },
-    {
-      "basename": "Fall'26 Syllabus",
-      "path": "20_Progress/Degree/Fall'26 Syllabus.md"
-    },
-    {
-      "basename": "Preparation",
-      "path": "20_Progress/Degree/CSCI 5304/Preparation.md"
-    },
-    {
-      "basename": "Anti-Drift Rules",
-      "path": "10_Areas/Life/Plans/Fall 2026/Anti-Drift Rules.md"
-    },
-    {
-      "basename": "Preparation",
-      "path": "20_Progress/Degree/ENGL 1004/Preparation.md"
-    },
-    {
-      "basename": "Preparation",
-      "path": "20_Progress/Degree/MGMT 3015/Preparation.md"
-    },
-    {
-      "basename": "CSCI 5304 Board",
-      "path": "20_Progress/Degree/CSCI 5304/CSCI 5304 Board.md"
-    },
-    {
-      "basename": "Fall 2026 - The One Thing",
-      "path": "10_Areas/Life/Plans/Fall 2026/Fall 2026 - The One Thing.md"
-    },
-    {
-      "basename": "Week - 1",
-      "path": "20_Progress/Degree/CSCI 4511W/Weekly/Week - 1.md"
-    },
-    {
-      "basename": "Preparation",
-      "path": "20_Progress/Degree/CSCI 4511W/Preparation.md"
-    },
-    {
-      "basename": "Textbook Map",
-      "path": "20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.md"
-    },
-    {
-      "basename": "Textbook Map",
-      "path": "20_Progress/Degree/CSCI 4511W/Textbook/Textbook Map.md"
     }
   ],
   "omittedPaths": [],

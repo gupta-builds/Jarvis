@@ -2,7 +2,7 @@
 type: index
 status: sprout
 created: 2026-08-26
-updated: 2026-09-24
+updated: 2026-09-26
 course: Life
 track:
   - laptop
@@ -21,18 +21,21 @@ related:
 notes:
   - "[[VS Code - Windows]]"
   - "[[VS Code - WSL]]"
+  - "[[VS Code - Terminal Environments]]"
+  - "[[VS Code - MCP and Secrets]]"
+  - "[[VS Code - Install Loop]]"
   - "[[Installations]]"
   - "[[second-brain-claudekit-new-laptop-directive]]"
-next: Turn on Settings Sync from the Acer only, then write the Install Loop note
+next: Give second-brain-claudekit its .vscode/ folder; keep every install
+  mirrored through the Install Loop
 ---
 # VS Code Professional Setup
 ## Purpose
 ==VS Code is the home base for every piece of work on the Acer, and this note is the map for how it is configured: what is shared across Windows and WSL, what exists twice, and which VS Code system owns which job.== Read this first, then go to the platform note for whichever side you are changing. The developer baseline (settings, keybindings, extensions on both sides, WSL Remote settings) was applied on 2026-09-24.
 ## Map
-The setup splits into two platform notes because VS Code genuinely runs two different installations on this laptop. [[VS Code - Windows]] covers the Windows home (`C:\Users\anant`), the client app, the user settings layer that every window inherits, the Windows-side extensions, and the log evidence for every failure found on this laptop so far (the `\\wsl.localhost` launches, the CSCI 4061 dev container, Pylance crashes, conda and uv environment problems). [[VS Code - WSL]] covers the WSL home (`/home/anant_gupta`), the VS Code Server inside Ubuntu, the Remote settings layer, and the Linux toolchain where the actual codebases live. Each platform note records its applied configuration and its remaining steps.
-
-This note holds everything that is the same on both sides: settings precedence, Workspace Trust, the `.vscode/` folder, the agent customization files, the Agents window and dev containers, approvals and sandboxing, profiles, and Settings Sync. When one of those systems behaves differently per platform, the difference is recorded in the platform note, not here.
-A third note, **VS Code - Install Loop** (to create), will own the recurring job of mirroring installs between the two sides: extensions, toolchains, agent CLIs, and dev container prerequisites. It gets written from the baseline applied on 2026-09-24, which is now known-good on both sides.
+The setup splits into two platform notes because VS Code genuinely runs two different installations on this laptop. [[VS Code - Windows]] covers the Windows home (`C:\Users\anant`), the client app, the user settings layer that every window inherits, the Windows environments (miniconda on `D:\conda`, standalone uv), the Settings Sync incident, and the log evidence for every failure found on this laptop so far. [[VS Code - WSL]] covers the WSL home (`/home/anant_gupta`), the VS Code Server inside Ubuntu, the Remote settings layer, and the Linux toolchain where the main codebases live. Windows is the side verified first; WSL copies it once Windows is confirmed in daily use.
+Three cross-cutting notes hold the systems both sides share. [[VS Code - Terminal Environments]] explains how every VS Code terminal loads a base environment plus the folder's `.vscode/env.ps1`, and what the home environment contains. [[VS Code - MCP and Secrets]] explains the global MCP registry and sync script, where secret values live, how WSL reaches Jarvis, and a six-month pre-mortem. [[VS Code - Install Loop]] owns the recurring job of keeping both sides aligned: the 40-extension limit and current list, mirror commands, and a check block with expected numbers.
+This note holds everything else that is the same on both sides: settings precedence, Workspace Trust, the `.vscode/` folder, the agent customization files, the Agents window and dev containers, approvals and sandboxing, profiles, and Settings Sync.
 Upstream, [[New Laptop Setup]] is the pinned index for the laptop, [[Installations]] records which drive each app landed on, and [[Ubuntu - WSL]] holds the WSL terminal tooling. The first real codebase to receive a `.vscode/` folder is `second-brain-claudekit`, documented in [[second-brain-claudekit-new-laptop-directive]].
 ## Where VS Code Keeps State
 VS Code's UI always runs on Windows. What changes between a local window and a WSL window is where code executes and which extensions run.
@@ -77,6 +80,8 @@ What syncs: user settings (minus machine-scoped ones), keybindings (per OS by de
 - *If a machine must be excluded partially:* `settingsSync.ignoredSettings` and `settingsSync.ignoredExtensions`. `settingsSync.keybindingsPerPlatform: false` makes Windows and any future Linux or Mac client share one keybinding set.
 - *Recovery:* `Settings Sync: Show Synced Data` keeps the latest 20 remote versions per category; `Settings Sync: Open Local Backups Folder` keeps 30 days locally.
 - *WSL is never covered:* WSL extensions stay a manual mirror, which is the reason the Install Loop note exists.
+
+*What actually happened (2026-09-25/26):* the cloud already held a copy from another machine. The first sign-in produced a settings conflict with an empty preview, local settings ended up as the remote's 2 keys, and the Dell's 9 extensions merged in. Settings were restored from backup and the extensions were audited; the cloud now holds this laptop's files. The full timeline is in [[VS Code - Windows]]. The rule stands: on a new device, choose Accept Local for settings and extensions, and check `settings.json` right after.
 ## Workspace Trust: the Base for Untrusted and Trusted Repos
 VS Code's defaults on this machine: `security.workspace.trust.enabled` is on, `startupPrompt` is `never` (new folders open in Restricted Mode with a banner rather than a dialog), `emptyWindow` is trusted, `untrustedFiles` prompts. ==Restricted Mode blocks agents, the terminal, tasks, debugging, workspace settings that point at executables, and extensions that have not declared trust support, so an untrusted clone cannot execute anything just by being opened.==
 Trust works best by location. Trusting a parent folder trusts everything under it, so the layout decides the policy:
@@ -233,16 +238,17 @@ The gain does not come from any single feature. It comes from making every repo 
 - The Agents window, harnesses, worktree and dev container isolation, sandboxing, and Claude-format customization support did not exist in the old note.
 - Settings Sync now also covers MCP servers, profiles, and prompts and instructions.
 ## Status
-| Item | State on 2026-09-24 |
+| Item | State on 2026-09-26 |
 |---|---|
-| VS Code version | 1.139.0, latest stable; WSL server updated to the same commit |
-| Windows user settings | applied (backup in `%APPDATA%\Code\User-backup-20260924\`), see [[VS Code - Windows]] |
-| Keybindings | applied, 7 `Ctrl+Alt` bindings |
-| Extensions | 36 on Windows, 33 on WSL, same developer set on both |
-| WSL Remote settings | applied, see [[VS Code - WSL]] |
-| Docker for dev containers | working from WSL (29.8.0), auto-start off by choice |
-| Settings Sync | off, turn on from the Acer only |
-| Profiles | Default only |
-| Install Loop note | to create |
+| VS Code version | 1.139.1 (self-updated), WSL server on the same commit |
+| User settings, keybindings, tasks, MCP | applied and synced; restored after the Sync incident (see [[VS Code - Windows]]) |
+| Settings Sync | on, from the Acer; cloud copy verified to hold this laptop's files |
+| Extensions | 39 on Windows (limit 40), 34 on WSL, same working set |
+| Terminal environments | Windows: every terminal loads base + `.vscode/env.ps1`; home environment live. WSL: pending port |
+| Environments | conda `jupyter-base` on both sides for notebook work, uv for everything else |
+| MCP | global registry + sync script on Windows; Jarvis global in Claude Code and VS Code; `the-plan` needs `THE_PLAN_API_KEY` |
+| Secrets | Claude Code read-deny on secret files, global git ignore, on-screen cloaking |
+| Terminal icons | fixed (font family name, Starship parity) |
+| Docker for dev containers | working from WSL, auto-start off by choice |
 ## Links
 Official sources used on 2026-09-24: [Settings](https://code.visualstudio.com/docs/configure/settings), [Settings Sync](https://code.visualstudio.com/docs/configure/settings-sync), [Profiles](https://code.visualstudio.com/docs/configure/profiles), [Workspace Trust](https://code.visualstudio.com/docs/editing/workspaces/workspace-trust), [WSL](https://code.visualstudio.com/docs/remote/wsl), [Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers), [Agents window](https://code.visualstudio.com/docs/agents/run/agents-window), [Agent harnesses](https://code.visualstudio.com/docs/agents/run/agent-harnesses), [Remote agent sessions](https://code.visualstudio.com/docs/agents/run/remote-agent-sessions), [Approvals](https://code.visualstudio.com/docs/agents/run/approvals), [Agent sandboxing](https://code.visualstudio.com/docs/agents/run/agent-sandboxing), [Custom instructions](https://code.visualstudio.com/docs/agent-customization/custom-instructions), [Agent skills](https://code.visualstudio.com/docs/agent-customization/agent-skills), [Custom agents](https://code.visualstudio.com/docs/agent-customization/custom-agents), [Hooks](https://code.visualstudio.com/docs/copilot/customization/hooks), [MCP servers](https://code.visualstudio.com/docs/copilot/customization/mcp-servers), [1.139 release notes](https://code.visualstudio.com/updates), [Claude Code in VS Code](https://code.claude.com/docs/en/vs-code), [Claude Code dev containers](https://code.claude.com/docs/en/devcontainer). Related vault notes: [[WSL Session Briefing]], [[Cross-Laptop Sync - Build Roadmap]], [[Jarvis MCP and REST API Setup]], [[Code Review & Eval Gap]].

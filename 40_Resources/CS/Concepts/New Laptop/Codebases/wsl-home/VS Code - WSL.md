@@ -2,7 +2,7 @@
 type: concept
 status: sprout
 created: 2026-09-24
-updated: 2026-09-24
+updated: 2026-09-26
 course: Life
 track:
   - laptop
@@ -13,52 +13,52 @@ tags:
 notes:
   - "[[VS Code Professional Setup]]"
   - "[[VS Code - Windows]]"
+  - "[[VS Code - Install Loop]]"
   - "[[Ubuntu - WSL]]"
   - "[[second-brain-claudekit-new-laptop-directive]]"
-next: "Record the mirror procedure in the Install Loop note"
+next: "Give second-brain-claudekit its .vscode/ folder"
 ---
 # VS Code - WSL
 ## One-Line Answer
-==A WSL window is the Windows VS Code UI driving a VS Code Server inside Ubuntu, so settings and keybindings come from Windows but every extension that runs code, every toolchain, and every agent config has to exist again on the Linux side.== The shared systems are in [[VS Code Professional Setup]]; this note records the WSL side's configured state.
+==A WSL window is the Windows VS Code UI driving a VS Code Server inside Ubuntu, so settings and keybindings come from Windows but every extension that runs code, every toolchain, every conda env and every Claude Code MCP entry has to exist again on the Linux side.== Main development happens here; installs are mirrored through [[VS Code - Install Loop]].
 ## How a WSL Window Works
-The WSL extension starts a **VS Code Server** under `~/.vscode-server/bin/<commit>/` and talks to it over a random local port (not SSH). UI extensions (themes, keymaps) stay on Windows. Workspace extensions (language servers, Python, Pylance, debugpy, Claude Code, Codex) run inside WSL and are installed there separately.
+The WSL extension starts a **VS Code Server** under `~/.vscode-server/bin/<commit>/` and talks to it over a random local port. UI extensions stay on Windows; workspace extensions (language servers, Python, Jupyter, Claude Code, Codex) run inside WSL and are installed there separately.
 - *Right way to open:* `code .` from a WSL shell, `Ctrl+Alt+W`, or `WSL: Connect to WSL`. The window title shows `[WSL: Ubuntu-24.04]`.
-- *Wrong way:* opening `\\wsl.localhost\Ubuntu-24.04\...` from a normal Windows window. That runs Windows extensions and Windows git over the 9P share. It happened three times before 2026-09-21 14:14 (evidence in [[VS Code - Windows]]).
-- *Where code lives:* the Linux filesystem (`~/projects/...`). Codebases here are their own clones, separate from any Windows clone, and meet the Windows side only through GitHub.
+- *Wrong way:* `\\wsl.localhost\...` from a Windows window, which runs Windows extensions and Windows git over 9P (happened three times before 2026-09-21 14:14).
+- *Where code lives:* the Linux filesystem (`~/projects/...`). Codebases here are their own clones and meet Windows clones only through GitHub.
 ## File Map
 | Path | What lives there |
 |---|---|
-| `~/.vscode-server/bin/<commit>/` | server build, matches the client commit |
-| `~/.vscode-server/extensions/` | WSL-side extensions |
-| `~/.vscode-server/data/Machine/settings.json` | Remote settings for this distro |
-| `~/.vscode-server/server-env-setup` | optional Bourne-shell script run before the server starts (not used) |
-| `~/.claude`, `~/.claude.json`, `~/.codex`, `~/.copilot` | WSL copies of agent user config |
+| `~/.vscode-server/bin/<commit>/` | server build, matches the client (1.139.1, `04c0d99`) |
+| `~/.vscode-server/extensions/` | WSL-side extensions (34) |
+| `~/.vscode-server/data/Machine/settings.json` | Remote settings (machine-scoped values) |
+| `~/.claude.json` | Claude Code user-scope MCP servers |
+| `~/miniconda3/`, `~/.condarc`, `~/conda/specs/` | conda install, config, env specs |
+| `~/.config/starship.toml` | prompt config, same file as Windows |
 | `~/projects/{ai,hub,hackathon,scratch,work}` | codebases |
-## Applied Configuration, 2026-09-24
-- *Server:* updated from `7debcd0` to `2242ebb` (matches the Windows client 1.139.0) during the extension install.
-- *Extensions (33):* the same developer set as Windows: Claude Code, Codex (`openai.chatgpt`), Python, Pylance, debugpy, Python Environments, Ruff, Jupyter pack, Biome, ESLint, the C/C++ pack, `rust-lang.rust-analyzer` (Rust is installed here), GitLens, GitHub PRs, GitHub Actions, YAML, TOML, markdownlint, Rainbow CSV, EditorConfig, ShellCheck, shell-format, Container Tools, ErrorLens. Installed with the WSL `code` shim (`code --install-extension <id>` run inside Ubuntu), which targets the server, not Windows.
-- *Remote settings:* `~/.vscode-server/data/Machine/settings.json` sets `terminal.integrated.defaultProfile.linux: bash`, `python-envs.terminal.autoActivationType: command`, and watcher excludes for `.venv`, `node_modules`, `target`. Everything else is inherited from the Windows user settings.
-- *Docker:* Docker Desktop's WSL integration for `Ubuntu-24.04` was already on and its data lives at `D:\WSL\DockerDesktopWSL`. With Docker Desktop running, `/usr/bin/docker` in WSL reports client and server 29.8.0 and ran a test container. Auto-start stays off, so start Docker Desktop before container work.
+## Configured State, 2026-09-26
+- *Extensions (34):* the shared working set plus `semgrep.semgrep` and `rust-lang.rust-analyzer`. Full list in [[VS Code - Install Loop]].
+- *Remote settings:* bash as the default terminal, Python Environments activation in terminals, `python.condaPath` at `~/miniconda3/bin/conda`, Jupyter hides `/usr/bin/python3`, `/bin/python3` and conda base, watcher excludes for `.venv`, `node_modules`, `target`. Everything else is inherited from Windows.
+- *Miniconda:* installed 2026-09-26 (conda 26.7.1) at `~/miniconda3`, conda-forge only, strict priority, `auto_activate` off, `changeps1` off, `conda init bash` added to `.bashrc`. Your decision puts miniconda wherever Jupyter runs, which replaces the WSL master plan's "Windows-only exception" line.
+- *`jupyter-base`:* identical to Windows (Python 3.12.14, numpy 2.5.3, pandas 3.0.6, scikit-learn 1.9.1, plus ipykernel, ipywidgets, pyarrow, scipy, matplotlib, seaborn). Spec at `~/conda/specs/jupyter-base.yml`.
+- *uv:* 0.12.17 in `~/.local/bin` for every non-notebook project.
+- *MCP for Claude Code:* `jarvis`, `the-plan`, `jarvis-fs` at user scope (they work from any directory, verified from `/tmp`). The old `~/.mcp.json` is backed up as `~/.mcp.json.bak-20260926` and removed; its deprecated `server-github` entry was dropped.
+- *Jarvis auth:* `JARVIS_API_KEY` reaches WSL through the Windows `WSLENV` variable. It applies to WSL shells started after 2026-09-26 14:05. The network path already worked (networking mode is mirrored), so the earlier failure was the missing key: HTTP 401 without it, 200 with it.
+- *Docker:* WSL integration on, data at `D:\WSL\DockerDesktopWSL`, auto-start off. Start Docker Desktop before container work.
 ## Toolchain State
 | Tool | State |
 |---|---|
-| `git` | installed, `core.autocrlf=false`, GitHub auth through `gh auth git-credential` |
-| `uv` | 0.12.17 in `~/.local/bin` |
-| `node` / `pnpm` | v24.21.0 via nvm, loaded by `.bashrc` in interactive shells (VS Code's terminal and environment resolution use it) |
-| `gh`, `direnv`, `claude`, `python3` | installed |
+| `git` | `core.autocrlf=false`, GitHub auth through `gh auth git-credential` |
+| `uv` | 0.12.17 |
+| `conda` | 26.7.1, `jupyter-base` env |
+| `node` / `pnpm` | v24.21.0 via nvm in interactive shells |
+| `gh`, `direnv`, `claude`, `semgrep`, `starship` 1.26.0 | installed |
 | `docker` | works when Docker Desktop runs |
-If an extension or task ever reports `node: not found`, the nvm init is only in `.bashrc`; moving it into `~/.profile` is the fix. `remote.WSL.useShellEnvironment` is on by default, which is why it works today.
-## Machine-Scoped Settings to Remember
-Settings with `machine` scope in Windows user settings do not reach this side. The ones that matter here: `python-envs.terminal.autoActivationType` (set in Remote settings), and Claude Code's `claudeCode.initialPermissionMode`, `environmentVariables`, `allowDangerouslySkipPermissions`. If any of those get set on Windows, set them in Remote settings too (`Preferences: Open Remote Settings (JSON) (WSL: Ubuntu-24.04)`).
 ## Trust Layout
 - *Trusted parents:* `~/projects/ai`, `~/projects/hub`, `~/projects/work`, `~/projects/hackathon`.
-- *Landing zone:* `~/projects/scratch` stays untrusted. Third-party clones go there first and open in Restricted Mode.
-- *Home:* `/home/anant_gupta` itself is not trusted as a parent.
+- *Landing zone:* `~/projects/scratch` stays untrusted.
+- *Home:* `/home/anant_gupta` is not trusted as a parent.
 ## Dev Containers From WSL
-WSL is the host for container work: the repo lives in WSL, Docker Desktop serves it through WSL integration, and the Agents window can run a session inside the container (`chat.agentHost.devContainer.enabled` is on). The step-by-step and a copyable `devcontainer.json` are in [[VS Code Professional Setup]]. Keep `~/.ssh` and `~/.config/gh` out of every mount.
+The repo lives in WSL, Docker Desktop serves it through WSL integration, and the Agents window can run a session inside the container. The step-by-step guide and a copyable `devcontainer.json` are in [[VS Code Professional Setup]]. Keep `~/.ssh` and `~/.config/gh` out of every mount.
 ## First Codebase: second-brain-claudekit
-`~/projects/ai/second-brain-claudekit`, clean on `main`, no `.vscode/` yet. It has no root `package.json` or `pyproject.toml`, so no build task. What it would use: a `tasks.json` wrapping its checks from [[second-brain-claudekit-git-clone-and-bootstrap]] (`jq empty` on the JSON configs, `bash -n` on every script). Its project `.claude/` (agents, commands, hooks) is read by the Claude Code extension now that the extension is installed on this side.
-## Remaining Steps on WSL
-1. `.vscode/` for `second-brain-claudekit`.
-2. First dev container on a scratch repo to prove Route A and Route B end to end.
-3. Write the Install Loop note (to create) with the exact mirror commands used today.
+`~/projects/ai/second-brain-claudekit`, clean on `main`, no `.vscode/` yet. No root `package.json` or `pyproject.toml`, so no build task; its checks from [[second-brain-claudekit-git-clone-and-bootstrap]] (`jq empty` on the JSON configs, `bash -n` on every script) are the natural `tasks.json`. Its project `.claude/` is read by the Claude Code extension on this side.

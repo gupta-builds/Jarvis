@@ -2,7 +2,7 @@
 type: concept
 status: sprout
 created: 2026-09-24
-updated: 2026-09-24
+updated: 2026-09-26
 course: Life
 track:
   - laptop
@@ -12,80 +12,85 @@ tags:
 notes:
   - "[[VS Code Professional Setup]]"
   - "[[VS Code - WSL]]"
+  - "[[VS Code - Install Loop]]"
   - "[[Installations]]"
   - "[[New Laptop Setup]]"
-next: "Turn on Settings Sync from the Acer only, then write the Install Loop note"
+next: "Keep Windows work to the UMN class folders and the vaults; mirror every install through [[VS Code - Install Loop]]"
 ---
 # VS Code - Windows
 ## One-Line Answer
-==The Windows side owns the one user settings layer every VS Code window inherits, including WSL windows, so this base sets editor behavior everywhere; it does not own code that runs inside WSL.== The shared systems are explained in [[VS Code Professional Setup]]; this note records what is configured on Windows and what went wrong before it was.
+==The Windows side owns the one user settings layer every VS Code window inherits, including WSL windows, and it is where course work under `D:\_Anant\10_Areas\UMN\Classes` runs; everything else runs in WSL.== The shared systems are explained in [[VS Code Professional Setup]]; installs are mirrored through [[VS Code - Install Loop]].
 ## What "Windows Home" Means Here
-`C:\Users\anant` is opened as a folder in VS Code and is where Claude Code home-directory sessions run, so the home directory is a workspace in its own right. One collision to remember: `C:\Users\anant\.vscode\` is VS Code's extensions and `argv.json` folder, and it would also be read as this workspace's `.vscode/`. User-wide settings go in `%APPDATA%\Code\User\settings.json`, never in `~\.vscode\`.
+`C:\Users\anant` is opened as a folder in VS Code and is where Claude Code home-directory sessions run, so the home directory is a workspace in its own right. `C:\Users\anant\.vscode\` is VS Code's extensions and `argv.json` folder and would also be read as this workspace's `.vscode/`. User-wide settings go in `%APPDATA%\Code\User\settings.json`, never in `~\.vscode\`.
 ## File Map
 | Path | What lives there |
 |---|---|
-| `D:\Apps\Microsoft VS Code\` | the app (user install, `code` CLI in `bin\`) |
-| `~\.vscode\argv.json` | runtime flags |
-| `~\.vscode\extensions\` | Windows-side extensions |
-| `%APPDATA%\Code\User\settings.json` | user settings, inherited by WSL windows |
-| `%APPDATA%\Code\User\keybindings.json` | custom `Ctrl+Alt` layer |
-| `%APPDATA%\Code\User\mcp.json` | user MCP servers (Context7, GitHub, Firecrawl; keys via inputs) |
+| `D:\Apps\Microsoft VS Code\` | the app (1.139.1 on 2026-09-26, self-updating) |
+| `~\.vscode\extensions\` | Windows-side extensions (39) |
+| `%APPDATA%\Code\User\settings.json` | user settings, inherited by WSL windows, synced |
+| `%APPDATA%\Code\User\keybindings.json` | custom `Ctrl+Alt` layer, synced |
+| `%APPDATA%\Code\User\tasks.json` | user tasks for env export and uv, synced |
+| `%APPDATA%\Code\User\mcp.json` | VS Code MCP servers, synced |
 | `%APPDATA%\Code\User\workspaceStorage\<hash>\workspace.json` | one file per folder ever opened, with its URI |
-| `%APPDATA%\Code\logs\<session>\` | per-session logs, the first place to look when something breaks |
-| `%APPDATA%\Code\User-backup-20260924\` | pre-change backup of settings, MCP, snippets and the extension list |
-## Applied Configuration, 2026-09-24
-==The user settings now carry a full developer baseline: format-on-save with one formatter per language, Ruff fix and import sorting on save, pytest on, Pylance kept out of `AppData` and conda trees, git hygiene, trust and task safety, and the agent settings.==
-- *Editor:* format on save, sticky scroll, no minimap, whitespace at boundaries, active bracket guides, linked editing, file nesting, no preview tabs, no startup editor.
-- *Files:* autosave on focus change, trim trailing whitespace and final newlines, LF for new files, caches hidden (`__pycache__`, `.pytest_cache`, `.ruff_cache`, `.mypy_cache`), `.venv`/`node_modules`/`target`/`.conda` excluded from watching and search.
-- *Formatters:* Ruff for Python (plus `source.fixAll.ruff` and `source.organizeImports.ruff`), Biome for JS/TS/JSON, cpptools for C/C++, rust-analyzer, shell-format, Even Better TOML, Red Hat YAML. Markdown does not format on save and wraps lines.
-- *Python:* Python Environments extension on (it uses `uv` for venvs when available), pytest enabled, `python.analysis.exclude` adds `**/AppData`, `**/miniconda3`, `**/.conda` to Pylance's defaults.
-- *Git:* autofetch with prune, fetch on pull, no sync confirmation, commit protection on `main` and `master`, whitespace-sensitive diffs, GitLens code lens off.
-- *Terminal:* Iosevka Nerd Font, PowerShell default (the `Ubuntu-24.04 (WSL)` profile is auto-detected in the `+` menu), 10,000 lines of scrollback, sticky scroll.
-- *Trust:* files outside a trusted folder open in a new Restricted window; `task.allowAutomaticTasks: off` so no repo runs a task on open unless turned on for that repo.
-- *Agents:* Claude harness on (`github.copilot.chat.claudeAgent.enabled`), Dev Container sessions on, session archive nudge and taskbar badge on, terminal auto-approve for read-only git, `uv run pytest|ruff`, and `pnpm|npm test|run lint`, Claude Code in a panel tab.
-- *Sync:* `settingsSync.keybindingsPerPlatform: false`, ready for when Sync is turned on.
-Every setting ID was checked against the 1.139 install or the extension's own `package.json` before writing.
-## Extensions (36)
-The same developer set is installed on the WSL side (see [[VS Code - WSL]]).
+| `%APPDATA%\Code\logs\<session>\` | per-session logs, including `userDataSync.log` |
+| `%APPDATA%\Code\User-backup-20260924\` | every pre-change backup from 2026-09-24 to 2026-09-26 |
+| `~\.condarc`, `D:\conda\envs`, `D:\conda\pkgs`, `D:\conda\specs` | conda config, environments, package cache, env specs |
+| `~\.config\starship.toml` | prompt config, same file as WSL since 2026-09-26 |
+| `D:\_Anant\20_Progress\Documents\WindowsPowerShell\` | PowerShell profiles (Documents is redirected to D:) |
+## Settings Sync Incident, 2026-09-25/26
+Sync was turned on while the cloud already held a copy from another machine, most likely the Dell. The first sign-in hit a settings conflict whose preview was an empty file. After it was resolved, local `settings.json` held only the remote's 2 keys (`claudeCode.hideOnboarding`, `editor.wordWrap`), and at 13:55 and 13:57 on 2026-09-26 that 2-key file was pushed back to the cloud. The extension merge also installed the Dell's 9 extensions (40 total).
+*Recovery:* settings restored from the pre-sync backup, keeping both remote keys. The Dell extensions were audited, and every restored file was confirmed pushed in `userDataSync.log` (MCP 14:12, extensions 14:14, settings and keybindings 14:21, tasks 14:22).
+> [!WARNING]
+> When Sync reports a conflict on a new device, choose **Accept Local** (or "Replace Remote") for settings and extensions, then check `settings.json` before doing anything else. The Dell must not sign in again unless it should receive this laptop's config.
 
-| Area | Extensions |
-|---|---|
-| Agents | `anthropic.claude-code`, `openai.chatgpt` (Codex, pulls in `openai.codex-audio`) |
-| Python and notebooks | `ms-python.python`, `vscode-pylance`, `debugpy`, `vscode-python-envs`, `charliermarsh.ruff`, `ms-toolsai.jupyter` (+ keymap, renderers, cell tags, slideshow) |
-| JS/TS | `biomejs.biome`, `dbaeumer.vscode-eslint` |
-| C/C++ | `ms-vscode.cpptools` pack (`cmake-tools`, `cpp-devtools`, themes) |
-| Git and GitHub | `eamodio.gitlens`, `github.vscode-pull-request-github`, `github.vscode-github-actions` |
-| Config and data formats | `redhat.vscode-yaml`, `tamasfe.even-better-toml`, `davidanson.vscode-markdownlint`, `mechatroner.rainbow-csv`, `editorconfig.editorconfig` |
-| Shell | `timonwong.shellcheck`, `foxundermoon.shell-format`, `ms-vscode.powershell` |
-| Environments | `ms-vscode-remote.remote-wsl`, `ms-vscode-remote.remote-containers`, `ms-azuretools.vscode-containers`, `ms-azuretools.vscode-docker` |
-| Diagnostics | `usernamehw.errorlens` |
+## Applied Configuration
+- *Editor:* format on save, sticky scroll, no minimap, whitespace at boundaries, active bracket guides, linked editing, word wrap, file nesting, no preview tabs, no startup editor.
+- *Files:* autosave on focus change, trimmed whitespace, LF for new files, caches hidden, `.venv`/`node_modules`/`target`/`.conda` out of watching and search.
+- *Formatters:* Ruff for Python (fix and organize imports on save), Biome for JS/TS/JSON, rust-analyzer, shell-format, Even Better TOML, Red Hat YAML. Markdown does not format on save.
+- *Python environments:* Python Environments extension with `venv` (uv) as the default manager, `python.condaPath` set, CSCI 5304 mapped to its conda env and CSCI 4511W to its `.venv` through `python-envs.pythonProjects` (fixes the test discovery failure). Pytest on. Unresolved imports are warnings. Pylance and Ruff skip `AppData`, miniconda and `.conda`.
+- *Jupyter:* base miniconda, the `~\.local\bin` shim and the two uv-managed CPythons are hidden from the kernel picker, so notebooks pick a named env. Line numbers, scrolling and word-wrapped output in notebooks.
+- *Git:* autofetch with prune, protected `main`/`master`, whitespace-sensitive diffs, GitLens code lens off.
+- *Terminal:* `'IosevkaTerm NFM', 'IosevkaTerm Nerd Font Mono', Consolas, monospace`, PowerShell default, 10,000 lines scrollback, sticky scroll.
+- *Diagnostics:* ErrorLens shows errors and warnings only; spelling issues are hints, so they never flood ErrorLens.
+- *Trust and agents:* untrusted files open in a Restricted window, no automatic tasks, Claude harness and dev container sessions on, read-only git and test/lint commands auto-approved, Claude Code in a panel tab.
+## Terminal Icons
+Two causes, both fixed on 2026-09-26:
+1. **Wrong font family name**
+	Windows registers the font as `IosevkaTerm NFM` (also `NF` and `NFP`), listed with `System.Drawing.Text.InstalledFontCollection`. The setting used `IosevkaTerm Nerd Font Mono`, which does not match a registered family, so VS Code fell back to a font without Nerd glyphs.
+2. **The setting was wiped** by the Sync incident above.
+Also cleaned up: `starship init powershell` ran twice in the PowerShell profile (one line removed), and the Windows `starship.toml` was the older untuned copy. It is now the WSL version (exit status, command duration, shell level, jobs, 500 ms scan timeout). `starship print-config` parses it cleanly.
+## Environments on Windows
+- *Miniconda:* base stays at `C:\Users\anant\miniconda3` (0.99 GB), but new envs and the package cache go to `D:\conda\envs` and `D:\conda\pkgs`, which is what [[Installations]] planned for `D:\conda`. Channels are conda-forge only with strict priority; Anaconda's `defaults` channels were removed from both `.condarc` files because conda 26 blocks them until their Terms of Service are accepted. `auto_activate` is off (every PowerShell used to start inside `base`), and `changeps1` is off because Starship shows the env.
+- *`jupyter-base`:* Python 3.12.14, ipykernel, ipywidgets, numpy 2.5.3, pandas 3.0.6, pyarrow, scipy, scikit-learn 1.9.1, matplotlib, seaborn. Spec at `D:\conda\specs\jupyter-base.yml`.
+- *uv:* standalone 0.12.19 in `~\.local\bin` (Astral installer), now first on the user PATH ahead of `D:\Apps\Hermes\bin`, so `uv self update` works and uv no longer depends on the Hermes bundle.
+> [!WARNING]
+> CSCI 5304's `environment.yml` still lists `defaults`. Rebuilding that env will stop at the Terms of Service prompt until the channel line is changed to `conda-forge`.
+
 ## Failures Found on This Laptop
-Logs only go back to the session of 2026-09-21 13:56 (older ones were rotated), and workspace history goes back to 2026-09-19. Each failure below was found from those files, not assumed.
+Logs go back to 2026-09-21; workspace history to 2026-09-19.
 1. **WSL home opened as a Windows path, three times**
-	*How it was found:* every folder VS Code opens gets a `workspaceStorage\<hash>\workspace.json` holding its URI. Three of them hold `file://wsl.localhost/Ubuntu-24.04/home/anant_gupta` (2026-09-19 19:33, 2026-09-21 10:42 and 12:59) before the first correct `vscode-remote://wsl+ubuntu-24.04/home/anant_gupta` at 2026-09-21 14:14. A `file://wsl.localhost` window runs Windows extensions and Windows git over the 9P share. `Ctrl+Alt+W` now opens WSL the right way.
+	Found in `workspaceStorage\<hash>\workspace.json`: `file://wsl.localhost/Ubuntu-24.04/home/anant_gupta` on 2026-09-19 19:33, 2026-09-21 10:42 and 12:59, before the first correct `vscode-remote://wsl+ubuntu-24.04/...` at 14:14. `Ctrl+Alt+W` opens WSL correctly.
 2. **CSCI 4061 dev container would not launch**
-	*Cause:* the Dev Containers log from 2026-09-24 04:51 ends with `failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine` and `Exit code 1`. The engine was not running. Docker Desktop's auto-start is off by choice, so it has to be started before any container work. With it running, `docker` works from WSL (29.8.0, verified with a test container).
+	Dev Containers log, 2026-09-24 04:51: `failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine`. Docker Desktop was not running (auto-start is off by choice).
 3. **Pylance crashed in the home workspace**
-	With `C:\Users\anant` open, Pylance enumerated 37,012 "source files" (all of `AppData`, miniconda, tool installs), logged `Enumeration of workspace source files is taking longer than 10 seconds` repeatedly, then crashed with exit codes `3221226091` and `1073807364` in every open window at once on 2026-09-22 00:56, ending with `Pylance has crashed 5 times in the last 3 minutes. Pylance will not be restarted.` The new `python.analysis.exclude` removes those trees from indexing.
-4. **Test discovery failed in two course projects**
-	`Python.log`: `Failed to create adapter ... No Python environment found for project` for CSCI 5304 and CSCI 4511W. Both folders set `python.defaultInterpreterPath` in their `.vscode/settings.json`, a legacy setting the Python Environments extension does not use to map a project to an environment. *Fix in each folder:* `Python Envs: Set Project Environment` (or `Ctrl+Alt+E`) once, which records the mapping.
-5. **Conda is only half wired**
-	`Python Environments.log` repeats `Conda environment manager is not available, using default conda activation paths`, and its shell check shows `conda init` has not run for bash, zsh, fish or pwsh. CSCI 5304 works around this with a hand-built terminal profile that runs the conda hook. The conda env itself (`.conda\csci-5304`) is discovered and resolved correctly.
-6. **Python interpreters are scattered**
-	Discovered: miniconda base (`C:\Users\anant\miniconda3`, first `python` on PATH), uv-managed CPython 3.12.14 and 3.14.7 under `%APPDATA%\uv\python\`, a `python3.14.exe` shim in `~\.local\bin`, and per-project `.venv` and `.conda` envs. The home workspace resolved to uv's 3.14.7. `uv` itself runs from the Hermes bundle (`D:\Apps\Hermes\bin\uv.exe`).
-7. **Copilot 403**
-	`not licensed to use Copilot` while the student entitlement is broken. Nothing to fix in VS Code.
-
-8. **Ruff failed to resolve config inside miniconda (2026-09-24 23:24)**
-	Right after Ruff was installed, its language server walked the home workspace and hit `c:\Users\anant\miniconda3\Tools\i18n\.ruff.toml` (and the same file in `pkgs\python-3.14.7...`). That file comes from CPython's source tree and `extend`s a parent `.ruff.toml` that conda never ships, so it logged `Failed to load extended configuration ... (os error 2)`. Harmless, since the workspace still registered, but noise every time the home folder opens. *Fix:* user-level `ruff.exclude` for `AppData`, `miniconda3`, `.conda` plus Ruff's usual skips. *Verified* by starting the bundled Ruff 0.16.9 server on `C:\Users\anant` with the same settings: 2 ERROR lines without the exclude, 0 with it, and no miniconda paths touched.
+	37,012 files enumerated, then exit codes `3221226091` / `1073807364` and `Pylance has crashed 5 times in the last 3 minutes`. Fixed by `python.analysis.exclude`.
+4. **Test discovery failed in CSCI 5304 and CSCI 4511W**
+	`No Python environment found for project`. Fixed by `python-envs.pythonProjects` in user settings.
+5. **Conda only half wired**
+	`Conda environment manager is not available`. `python.condaPath` is now set, and `conda init` exists in the Windows PowerShell 5.1 profile.
+6. **Scattered interpreters**
+	Miniconda base, two uv CPythons, a `~\.local\bin` shim, per-project envs. Now hidden from Jupyter except named envs; uv owns project venvs.
+7. **Copilot 403** while the student entitlement is broken.
+8. **Ruff config resolution errors in miniconda** (2026-09-24 23:24). CPython's `Tools\i18n\.ruff.toml` extends a file conda does not ship. Fixed by `ruff.exclude`; verified 2 errors to 0 against the bundled Ruff 0.16.9 server.
+9. **Settings Sync replaced local settings** (2026-09-25/26). See the incident section.
+### Terminal Environment and Home Workspace
+Every VS Code terminal on Windows loads `~/.config/vscode-env/init.ps1` from the PowerShell profile, then the folder's `.vscode/env.ps1`. The home folder has its own (`~/.vscode/env.ps1`: space, Jarvis and The Plan, agent memory files, tooling, `~\Scripts` on PATH) and privacy settings (`~/.vscode/settings.json`). Other folders get the default until you run `env: create workspace environment`. Design, test results and timings: [[VS Code - Terminal Environments]].
+### MCP and Secrets
+Global MCP servers come from `~/.config/mcp/mcp.json` via `sync-mcp.ps1`. Claude Code denies reads of secret files on every drive, `~/.config/git/ignore` keeps them out of every repo, and the dotenv extension cloaks them on screen. Details and the six-month pre-mortem: [[VS Code - MCP and Secrets]].
 ## Trust Layout
-- *Trusted parents:* `D:\_Anant\20_Progress\Documents` (the two vaults) and `D:\_Anant\10_Areas\UMN\Classes` (course code).
-- *Home:* `C:\Users\anant` stays trusted because Claude Code home sessions run there.
+- *Trusted parents:* `D:\_Anant\20_Progress\Documents` (vaults) and `D:\_Anant\10_Areas\UMN\Classes` (course code).
+- *Home:* `C:\Users\anant` stays trusted for Claude Code home sessions.
 - *Landing zone:* third-party clones go to WSL `~/projects/scratch`.
-Trust is granted from the Restricted Mode banner or `Workspaces: Manage Workspace Trust`, not from settings.json.
-## Remaining Steps on Windows
-1. Settings Sync on, from the Acer only (the Dell's first sign-in would merge its 28 extensions in).
-2. Set the project environment once in CSCI 5304 and CSCI 4511W.
-3. Decide on conda: run `conda init powershell` so the conda manager works, or keep the per-project terminal profile.
-4. Profiles, once there is more than one kind of Windows work.
-5. Write the Install Loop note (to create) from this baseline.
+## Remaining on Windows
+- Change `defaults` to `conda-forge` in CSCI 5304's `environment.yml` before its next rebuild.
+- Profiles, once there is more than one kind of Windows work.

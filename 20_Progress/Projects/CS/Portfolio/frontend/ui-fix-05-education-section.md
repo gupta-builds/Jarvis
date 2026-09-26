@@ -2,9 +2,15 @@
 type: concept
 status: active
 updated: 2026-09-05
-tags: [portfolio, frontend, ui-fixes, education, gsap, r3f]
+tags:
+  - portfolio
+  - frontend
+  - ui-fixes
+  - education
+  - gsap
+  - r3f
 notes:
-  - "[[UI Fixes]]"
+  - "[[_UI Fixes]]"
   - "[[frontend-ui-fixes-requirements]]"
   - "[[frontend-ui-fixes-design]]"
   - "[[frontend-ui-fixes-tasks]]"
@@ -14,7 +20,7 @@ notes:
 # UI Fix 05 — Education Section (Spring, Rope, Dot-Sync Deform)
 
 > **Status:** partial — more is already built than earlier drafts of this note claimed
-> **Ledger:** [[UI Fixes]] §4 | **Tasks:** 5.1–5.4
+> **Ledger:** [[_UI Fixes]] §4 | **Tasks:** 5.1–5.4
 > **2026-09-05 correction pass:** re-verified line-by-line against `src/components/EducationFlowchart.tsx` (536 lines) and `src/components/sections/EducationSection.tsx` (39 lines) on `post-frontend`. Two of the four tasks below turned out to be **already implemented or mostly implemented** — the previous draft asked Cursor to build a rope connector and a dot-sync deform from scratch when both already exist in some form. Building them "from scratch" as instructed would have duplicated working code or fought it. Corrected below; same correction applied to [[frontend-ui-fixes-design]] Fix 7b and [[frontend-ui-fixes-tasks]] Phase 5.
 
 ## Purpose

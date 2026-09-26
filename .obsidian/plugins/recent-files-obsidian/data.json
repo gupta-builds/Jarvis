@@ -1,8 +1,60 @@
 {
   "recentFiles": [
     {
+      "basename": "Chapter - 8",
+      "path": "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8.md"
+    },
+    {
+      "basename": "Chapter - 3",
+      "path": "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3.md"
+    },
+    {
+      "basename": "Chapter - 7",
+      "path": "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md"
+    },
+    {
+      "basename": "Textbook Map",
+      "path": "20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.md"
+    },
+    {
+      "basename": "Chapter - 1",
+      "path": "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md"
+    },
+    {
+      "basename": "Repetitive Things",
+      "path": "20_Progress/Degree/Repetitive Things.md"
+    },
+    {
+      "basename": "Hit or Miss - Miss",
+      "path": "20_Progress/Degree/Hit or Miss - Miss.md"
+    },
+    {
+      "basename": "Lab - 2",
+      "path": "20_Progress/Degree/CSCI 4061/Labs/Lab - 2.md"
+    },
+    {
+      "basename": "Transcript - OPT",
+      "path": "20_Progress/Internship/Career Fair/Transcript - OPT.md"
+    },
+    {
+      "basename": "Transcript - Sponsoring",
+      "path": "20_Progress/Internship/Career Fair/Transcript - Sponsoring.md"
+    },
+    {
+      "basename": "CSCI 4061 Board",
+      "path": "20_Progress/Degree/CSCI 4061/CSCI 4061 Board.md"
+    },
+    {
+      "basename": "Journal Entry - 2",
+      "path": "20_Progress/Degree/ENGL 1004/Asssignments/Journal Entry - 2.md"
+    },
+    {
       "basename": "Journal Entry - 1",
       "path": "20_Progress/Degree/ENGL 1004/Asssignments/Journal Entry - 1.md"
+    },
+    {
+      "basename": "Preparation",
+      "path": "20_Progress/Degree/ENGL 1004/Preparation.md"
     },
     {
       "basename": "Profile of a Successful Entrepreneur",
@@ -11,10 +63,6 @@
     {
       "basename": "Preparation",
       "path": "20_Progress/Degree/CSCI 4061/Preparation.md"
-    },
-    {
-      "basename": "Preparation",
-      "path": "20_Progress/Degree/ENGL 1004/Preparation.md"
     },
     {
       "basename": "Preparation",
@@ -47,10 +95,6 @@
     {
       "basename": "Chapter - 1 & 2",
       "path": "20_Progress/Degree/MGMT 3015/Textbook/Chapter - 1 & 2.md"
-    },
-    {
-      "basename": "Repetitive Things",
-      "path": "20_Progress/Degree/Repetitive Things.md"
     },
     {
       "basename": "second-brain-claudekit-wsl-session-and-jarvis-mcp-build",
@@ -155,50 +199,6 @@
     {
       "basename": "Project Template",
       "path": "30_Order/Templates/Classes/Project Template.md"
-    },
-    {
-      "basename": "Weekly Board Template",
-      "path": "30_Order/Templates/Classes/Weekly Board Template.md"
-    },
-    {
-      "basename": "Week Template",
-      "path": "30_Order/Templates/Classes/Week Template.md"
-    },
-    {
-      "basename": "Textbook Template",
-      "path": "30_Order/Templates/Classes/Textbook Template.md"
-    },
-    {
-      "basename": "Textbook Map Template",
-      "path": "30_Order/Templates/Classes/Textbook Map Template.md"
-    },
-    {
-      "basename": "Preparation Template",
-      "path": "30_Order/Templates/Classes/Preparation Template.md"
-    },
-    {
-      "basename": "Homework Template",
-      "path": "30_Order/Templates/Classes/Homework Template.md"
-    },
-    {
-      "basename": "Discussion Template",
-      "path": "30_Order/Templates/Classes/Discussion Template.md"
-    },
-    {
-      "basename": "Week - 1",
-      "path": "20_Progress/Degree/CSCI 4511W/Weekly/Week - 1.md"
-    },
-    {
-      "basename": "Week - 2",
-      "path": "20_Progress/Degree/CSCI 4511W/Weekly/Week - 2.md"
-    },
-    {
-      "basename": "Exam Standard",
-      "path": "30_Order/Standards/Courses/Exam Standard.md"
-    },
-    {
-      "basename": "Lab Standard",
-      "path": "30_Order/Standards/Courses/Lab Standard.md"
     }
   ],
   "omittedPaths": [

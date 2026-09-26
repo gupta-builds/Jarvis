@@ -33,3 +33,5 @@ Covers Weeks 11-13, the distributed-systems half:
 No chapter notes yet - same as above, created as covered.
 ## Status
 Zero chapter notes written as of 2026-09-08 - the course is in Week 1 (started 9/8). This map exists so the reading-to-week mapping is planned before individual chapter notes start getting created piecemeal.
+## Correction (2026-09-24, from reading Lec01-06 in full)
+The clean one-chapter-per-week mapping above is real for lecture *topic order* but not for what actually gets tested. Lec04 (the "Ch3 week" I/O lecture) also teaches file permission bits (chmod, octal notation, S_IRUSR/etc.) — that's APUE **§4.5-4.9**, not Ch3 — and stdio buffering (fully/line/unbuffered, fflush, fsync) — that's APUE **Chapter 5**, not Ch3. Lec06 (the second "Ch10 week" lecture) already previews the start of Ch4 (storage devices, i-nodes, paths, directories) a full week before Ch4's own scheduled week. See [[20_Progress/Degree/Repetitive Things|Repetitive Things]] for the Gemini Notebook prompts built around this, and the real lecture-by-lecture grounding behind each one.

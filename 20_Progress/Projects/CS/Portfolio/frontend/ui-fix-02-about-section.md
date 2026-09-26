@@ -2,9 +2,14 @@
 type: concept
 status: active
 updated: 2026-09-05
-tags: [portfolio, frontend, ui-fixes, about, gsap]
+tags:
+  - portfolio
+  - frontend
+  - ui-fixes
+  - about
+  - gsap
 notes:
-  - "[[UI Fixes]]"
+  - "[[_UI Fixes]]"
   - "[[frontend-ui-fixes-requirements]]"
   - "[[frontend-ui-fixes-design]]"
   - "[[frontend-ui-fixes-tasks]]"
@@ -15,7 +20,7 @@ notes:
 # UI Fix 02 — About Section (Pinned Scroll + Summary)
 
 > **Status:** open (no ScrollTrigger pin; bio expand button-only — both confirmed live 2026-09-05)
-> **Ledger:** [[UI Fixes]] §2 | **Tasks:** 3.0–3.2, 3.4
+> **Ledger:** [[_UI Fixes]] §2 | **Tasks:** 3.0–3.2, 3.4
 > **2026-09-05 verification pass:** re-checked every claim below against `AboutSection.tsx`, `AboutSectionClient.tsx`, `Providers.tsx`, `package.json` on `post-frontend`. Unlike [[ui-fix-01-hero-background]], this note had no phantom symbols — it was already close to correct. One real finding: **the GSAP ScrollSmoother-vs-native open question is already answered by existing code** (see below) — treat it as resolved, not open.
 
 ## Purpose

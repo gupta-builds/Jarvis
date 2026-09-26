@@ -1,8 +1,8 @@
 ---
-type: concept
+type: index
 status: sprout
 created: 2026-08-26
-updated: 2026-09-11
+updated: 2026-09-26
 course: Life
 track:
   - laptop
@@ -12,238 +12,240 @@ prerequisites:
 used_in: []
 evidence: []
 tags:
+  - moc
   - concept
 related:
   - "[[New Laptop Setup]]"
   - "[[Ubuntu - WSL]]"
   - "[[WSL Session Briefing]]"
+notes:
+  - "[[VS Code - Windows]]"
+  - "[[VS Code - WSL]]"
+  - "[[VS Code - Install Loop]]"
+  - "[[Installations]]"
+  - "[[second-brain-claudekit-new-laptop-directive]]"
+next: Give second-brain-claudekit its .vscode/ folder; keep every install
+  mirrored through the Install Loop
 ---
-# VS Code Professional Setup — Findings (not yet built)
+# VS Code Professional Setup
+## Purpose
+==VS Code is the home base for every piece of work on the Acer, and this note is the map for how it is configured: what is shared across Windows and WSL, what exists twice, and which VS Code system owns which job.== Read this first, then go to the platform note for whichever side you are changing. The developer baseline (settings, keybindings, extensions on both sides, WSL Remote settings) was applied on 2026-09-24.
+## Map
+The setup splits into two platform notes because VS Code genuinely runs two different installations on this laptop. [[VS Code - Windows]] covers the Windows home (`C:\Users\anant`), the client app, the user settings layer that every window inherits, the Windows environments (miniconda on `D:\conda`, standalone uv), the Settings Sync incident, and the log evidence for every failure found on this laptop so far. [[VS Code - WSL]] covers the WSL home (`/home/anant_gupta`), the VS Code Server inside Ubuntu, the Remote settings layer, and the Linux toolchain where the main codebases live. Windows work stays in the UMN class folders and the vaults; everything else runs in WSL.
+[[VS Code - Install Loop]] owns the recurring job of keeping the two sides aligned: the 40-extension limit and the current list with the reasons each beat its competitors, the MCP layout, the environment rule (conda for notebook and library work, uv for everything else), mirror commands, and a check block with expected numbers.
+This note holds everything that is the same on both sides: settings precedence, Workspace Trust, the `.vscode/` folder, the agent customization files, the Agents window and dev containers, approvals and sandboxing, profiles, and Settings Sync.
+Upstream, [[New Laptop Setup]] is the pinned index for the laptop, [[Installations]] records which drive each app landed on, and [[Ubuntu - WSL]] holds the WSL terminal tooling. The first real codebase to receive a `.vscode/` folder is `second-brain-claudekit`, documented in [[second-brain-claudekit-new-laptop-directive]].
+## Where VS Code Keeps State
+VS Code's UI always runs on Windows. What changes between a local window and a WSL window is where code executes and which extensions run.
 
-> [!IMPORTANT]
-> This note is research/backlog, not an executed setup. Use [[WSL New Laptop Master Plan — Verified 2026-09-11]] for the WSL installation and remote-editor gates.
+| Layer | Windows | WSL | Settings Sync | In git |
+|---|---|---|---|---|
+| App + runtime flags | `D:\Apps\Microsoft VS Code`, `~\.vscode\argv.json` | none (client is always Windows) | no | no |
+| User settings, keybindings, snippets, user tasks, MCP, profiles | `%APPDATA%\Code\User\` | inherited from Windows (same files) | yes | no |
+| Remote (machine) settings | n/a | `~/.vscode-server/data/Machine/settings.json` | no | no |
+| Extensions | `~\.vscode\extensions\` | `~/.vscode-server/extensions/` | Windows only | no |
+| VS Code Server binary | n/a | `~/.vscode-server/bin/<commit>/` | no | no |
+| Workspace config | `<repo>\.vscode\` | `<repo>/.vscode/` | no | yes |
+| Agent user config | `~\.claude`, `~\.codex`, `~\.copilot` | `~/.claude`, `~/.codex`, `~/.copilot` (separate copies) | no | no |
 
-## One-Line Answer
+> [!WARNING]
+> `C:\Users\anant\.vscode\` is the extensions and `argv.json` folder, not a user settings folder. But the Windows home is also opened as a workspace (it is in VS Code's workspace history), so any `settings.json` or `tasks.json` dropped into `~\.vscode\` becomes that one workspace's config. User-wide settings belong in `%APPDATA%\Code\User\settings.json`.
 
-==This machine's VS Code has a genuinely strong formatting/linting/typing baseline (Biome, Ruff, Pylance, GitLens, ErrorLens, the full Jupyter and Remote-Development extension packs) but uses almost none of the machinery that turns an editor into the single hub a professional AI developer actually works from all day — Tasks, Debugging, Testing, Profiles, multi-root workspaces, and Settings Sync are either empty or off, and this note is the fully-researched reference for what "done" looks like in each of them, built from VS Code's own official documentation.==
+## Settings Precedence
+==Later scopes override earlier ones: Default, then User, then Remote, then Workspace, then Workspace Folder, with language-specific overrides at each level and policy settings above everything.== Two consequences matter here:
+- *User settings reach WSL windows:* everything in `%APPDATA%\Code\User\settings.json` applies inside a WSL window too, except settings with `machine` or `machine-overridable` scope. So one user file covers editor behavior on both sides, and only machine-specific values (interpreter paths, Linux terminal profile) go in the WSL Remote settings file.
+- *Some settings refuse workspace scope:* `git.path` and `terminal.external.*Exec` are user-only, and VS Code ignores them in `.vscode/settings.json`. The Claude Code extension reads `claudeCode.initialPermissionMode` from user settings only, so a cloned repo cannot pre-set its own permission mode.
+Commands: `Preferences: Open User Settings (JSON)`, `Preferences: Open Remote Settings (JSON)`, `Preferences: Open Workspace Settings (JSON)`, `Preferences: Open Default Settings (JSON)`. In the Settings UI, `@modified` shows everything changed from default.
+## Parity Contract Between Windows and WSL
+==Anything about the editor is shared automatically because the UI is one Windows process; anything that executes code exists twice and must be mirrored by hand.==
 
-**Status: research and findings only, second pass (2026-08-26). Nothing in this note has been executed. Every section below describes what a mature, already-working setup looks like — the target state, written the way it would read if a professional had already built it — so a future session can implement piece by piece against a concrete spec instead of a vague idea.**
+| Thing | Shared? | How it stays aligned |
+|---|---|---|
+| Editor settings, keybindings, snippets, command palette, themes | shared | one user layer on Windows |
+| Workspace Trust decisions | shared store, but per folder URI | a WSL folder and the same folder opened via `\\wsl.localhost` are different URIs |
+| Codebases | separate clones | Windows and WSL work like two developers: each side has its own clone and they meet through GitHub. Only Jarvis syncs live (Syncthing) |
+| Repo `.vscode/` and agent files (`AGENTS.md`, `CLAUDE.md`, `.claude/`) | travel with the repo | git |
+| Extensions that run code (language servers, Claude Code, Python) | two installs, same set today | Install Loop (to create) |
+| Toolchains (`uv`, `node`, `gh`, `pwsh`, `docker`) | two installs | Install Loop (to create) |
+| Agent user config (`~/.claude`, `~/.codex`, `~/.copilot`) | two copies | fresh install per machine, per [[New Laptop Setup]] policy |
+| Remote settings (Linux shell, watchers) | WSL only | [[VS Code - WSL]] |
+Because each side owns its own clone, the different `core.autocrlf` values (Windows `true`, WSL `false`) are fine: git normalizes to LF in the repository either way. It only breaks if one working tree is edited from both sides.
 
-## Current state audit (verified on this machine, 2026-08-26)
+## Settings Sync and the Old Dell
+The worry is right, but for a different reason than expected. ==Settings Sync is tied to the account, not the machine: any VS Code that signs into the same GitHub or Microsoft account pulls and pushes the same cloud copy, and the first sign-in on a device merges local and cloud data automatically.== So if the Dell signs in, its 28 Windows-side extensions and its settings would merge into the Acer's cloud copy and then flow back down to the Acer.
+What syncs: user settings (minus machine-scoped ones), keybindings (per OS by default), snippets, user tasks, MCP server configs, UI state, extensions and their global enablement, up to 20 profiles, and user prompts and instructions. What never syncs: workspace tasks, machine-scoped settings, anything excluded, and every extension installed in a remote window (WSL, SSH, dev container).
+- *Decision for this laptop:* turn Sync on from the Acer only, and do not sign in on the Dell. The Dell is on the decommission path ([[Old Laptop Decommission Checklist]]), so there is nothing to gain from merging it.
+- *If a machine must be excluded partially:* `settingsSync.ignoredSettings` and `settingsSync.ignoredExtensions`. `settingsSync.keybindingsPerPlatform: false` makes Windows and any future Linux or Mac client share one keybinding set.
+- *Recovery:* `Settings Sync: Show Synced Data` keeps the latest 20 remote versions per category; `Settings Sync: Open Local Backups Folder` keeps 30 days locally.
+- *WSL is never covered:* WSL extensions stay a manual mirror, which is the reason the Install Loop note exists.
 
-**Extensions installed (28):** `anthropic.claude-code`, `biomejs.biome`, `bradlc.vscode-tailwindcss`, `charliermarsh.ruff`, `christian-kohler.npm-intellisense`, `davidanson.vscode-markdownlint`, `dbaeumer.vscode-eslint`, `eamodio.gitlens`, `mikestead.dotenv`, `ms-azuretools.vscode-containers`, `ms-azuretools.vscode-docker`, `ms-python.python`, `ms-python.vscode-pylance`, `ms-python.vscode-python-envs`, `ms-toolsai.jupyter` (+keymap, renderers, cell-tags), `ms-vscode-remote.remote-containers`, `ms-vscode-remote.remote-ssh(-edit)`, `ms-vscode-remote.remote-wsl`, `ms-vscode-remote.vscode-remote-extensionpack`, `ms-vscode.powershell`, `ms-vscode.remote-explorer`, `ms-vscode.remote-server`, `redhat.vscode-yaml`, `usernamehw.errorlens`.
+*What actually happened (2026-09-25/26):* the cloud already held a copy from another machine. The first sign-in produced a settings conflict with an empty preview, local settings ended up as the remote's 2 keys, and the Dell's 9 extensions merged in. Settings were restored from backup and the extensions were audited; the cloud now holds this laptop's files. The full timeline is in [[VS Code - Windows]]. The rule stands: on a new device, choose Accept Local for settings and extensions, and check `settings.json` right after.
+## Workspace Trust: the Base for Untrusted and Trusted Repos
+VS Code's defaults on this machine: `security.workspace.trust.enabled` is on, `startupPrompt` is `never` (new folders open in Restricted Mode with a banner rather than a dialog), `emptyWindow` is trusted, `untrustedFiles` prompts. ==Restricted Mode blocks agents, the terminal, tasks, debugging, workspace settings that point at executables, and extensions that have not declared trust support, so an untrusted clone cannot execute anything just by being opened.==
+Trust works best by location. Trusting a parent folder trusts everything under it, so the layout decides the policy:
+- *Trusted parents:* folders where only your own code lands. Proposed per platform in [[VS Code - Windows]] and [[VS Code - WSL]].
+- *Untrusted landing zone:* one folder where every third-party clone goes first, never trusted as a parent.
+Procedure for a new untrusted repo:
+1. Clone into the landing zone and open it. It opens in Restricted Mode.
+2. Read before trusting: `.vscode/tasks.json` (look for `runOn: folderOpen`), `.vscode/settings.json`, `.devcontainer/`, `.mcp.json` and `.vscode/mcp.json`, `.claude/settings.json` (hooks run shell commands), `.github/hooks/`, `AGENTS.md`/`CLAUDE.md` (prompt-injection surface), and `package.json` scripts.
+3. If it needs to run, run it in a dev container, not on the host.
+4. Move it to a trusted parent only once it is actually yours to work in.
+> [!WARNING]
+> Claude Code's own docs warn that with auto-edit on, the agent can modify `settings.json` or `tasks.json`, which VS Code may then execute. Keep untrusted work in Manual mode or inside a container.
 
-This is a genuinely good, opinionated baseline — nothing here needs to be removed.
+## The `.vscode` Folder and Its Neighbours
+Each repo carries its own environment contract. Add a file only when the project actually needs it.
 
-**What's empty or unused, confirmed by direct inspection (not assumption):**
-- `keybindings.json` — one custom binding total.
-- `%APPDATA%\Code\User\snippets\` — the folder does not exist. Zero user snippets.
-- No `tasks.json` anywhere under `D:\projects\*` or the Jarvis vault.
-- No `launch.json` anywhere — no configured debugger, no Test Explorer wiring.
-- No `.vscode/extensions.json` in any project.
-- Settings Sync is off (`globalStorage/ms-vscode.settings-sync` absent from disk).
-- Only the Default Profile exists.
-- No multi-root `.code-workspace` file exists for the four sibling `D:\projects\*` folders.
+| File | Job | Notes |
+|---|---|---|
+| `.vscode/settings.json` | workspace settings | interpreter, formatter, file excludes for this repo |
+| `.vscode/tasks.json` | named commands (`Ctrl+Shift+B` default build) | `runOn: folderOpen` needs trust and `task.allowAutomaticTasks` |
+| `.vscode/launch.json` | debug configs, `compounds` for multi-process | Python uses `type: debugpy` |
+| `.vscode/mcp.json` | workspace MCP servers (`servers`, `inputs`) | VS Code format |
+| `.mcp.json` (repo root) | portable MCP config (`mcpServers`) | read by VS Code and Claude Code, the better choice for shared repos |
+| `.vscode/*.code-snippets` | project snippets | |
+| `.vscode/extensions.json` | recommended extensions | out of scope for now |
+| `.devcontainer/devcontainer.json` | container environment | also enables Dev Container agent isolation |
 
-## Part 1 — Tasks: the professional's one-keystroke command layer
-
-A working setup never types `uv sync`, `ruff check --fix .`, or `pnpm dev` by hand more than once. [VS Code's Tasks system](https://code.visualstudio.com/docs/debugtest/tasks) — `Ctrl+Shift+P` → `Tasks: Run Task`, or `Ctrl+Shift+B` for the default build task — runs any shell command with a proper panel, output streaming, and problem-matcher parsing that turns compiler/linter output into clickable Problems-panel entries.
-
-**A finished `python-data` project's `.vscode/tasks.json`** (this is what "done" looks like, not a suggestion — every label below maps to a real, immediately-runnable command):
+Secrets never go in these files. MCP keys use `${input:id}` with `"password": true`, which the current user `mcp.json` already does for Context7 and Firecrawl.
+A corrected `tasks.json` for a WSL `uv` project (the first version of this note used Windows `.venv\Scripts` paths, which do not exist in Linux):
 ```jsonc
 {
   "version": "2.0.0",
   "tasks": [
-    {
-      "label": "uv: sync",
-      "type": "shell",
-      "command": "uv sync",
-      "group": { "kind": "build", "isDefault": true },
-      "runOptions": { "runOn": "folderOpen" }
-    },
-    { "label": "ruff: lint + fix", "type": "shell", "command": "uv run ruff check --fix .", "group": "test" },
-    { "label": "ruff: format", "type": "shell", "command": "uv run ruff format .", "group": "test" },
-    {
-      "label": "pytest",
-      "type": "shell",
-      "command": "uv run pytest",
-      "group": { "kind": "test", "isDefault": true },
-      "problemMatcher": []
-    },
-    {
-      "label": "jupyter: lab",
-      "type": "shell",
-      "command": "uv run jupyter lab",
-      "isBackground": true,
-      "presentation": { "reveal": "always", "panel": "dedicated" }
-    }
+    { "label": "uv: sync", "type": "shell", "command": "uv sync", "group": { "kind": "build", "isDefault": true } },
+    { "label": "ruff: check", "type": "shell", "command": "uv run ruff check --fix .", "problemMatcher": [] },
+    { "label": "pytest", "type": "shell", "command": "uv run pytest", "group": { "kind": "test", "isDefault": true }, "problemMatcher": [] }
   ]
 }
 ```
-A `web-js` project's equivalent adds a background dev-server task with a real problem matcher for the framework's compile-status output (the pattern most frameworks emit `compiling…` / `compiled` lines that VS Code's background-task detection can key off, exactly as documented in the Tasks reference).
-
-**The `runOn: folderOpen` line is the one piece of real automation in this note**, and it is explicitly gated by VS Code itself, not silent: the first time any workspace defines an auto-run task, the editor prompts *"Allow Automatic Tasks in this folder?"* and the choice persists per-workspace in `task.allowAutomaticTasks`. Automatic tasks never run in an untrusted workspace regardless of that setting. This is the same shape of automation already validated as acceptable in this workflow — manual, per-project, explicit opt-in — as opposed to a silent global hook, so it's worth adopting rather than avoiding on principle.
-
-Source: [Integrate with External Tools via Tasks](https://code.visualstudio.com/docs/debugtest/tasks) (official VS Code docs).
-
-## Part 2 — Debugging: replacing print-statement debugging entirely
-
-No `launch.json` exists anywhere on this machine today. A finished setup's `.vscode/launch.json` for a Python project:
+And the matching `launch.json`:
 ```jsonc
 {
   "version": "0.2.0",
   "configurations": [
-    {
-      "name": "Python: Current File",
-      "type": "debugpy",
-      "request": "launch",
-      "program": "${file}",
-      "console": "integratedTerminal",
-      "python": "${workspaceFolder}/.venv/Scripts/python.exe"
-    },
-    {
-      "name": "Python: Pytest (current file)",
-      "type": "debugpy",
-      "request": "launch",
-      "module": "pytest",
-      "args": ["${file}"],
-      "console": "integratedTerminal",
-      "python": "${workspaceFolder}/.venv/Scripts/python.exe"
-    }
-  ],
-  "compounds": [
-    {
-      "name": "Full stack: API + worker",
-      "configurations": ["Python: Current File", "Node: Attach"],
-      "stopAll": true
-    }
+    { "name": "Python: current file", "type": "debugpy", "request": "launch", "program": "${file}", "console": "integratedTerminal", "python": "${workspaceFolder}/.venv/bin/python" },
+    { "name": "Pytest: current file", "type": "debugpy", "request": "launch", "module": "pytest", "args": ["${file}"], "console": "integratedTerminal", "python": "${workspaceFolder}/.venv/bin/python" }
   ]
 }
 ```
-The explicit `python` key matters for the exact reason `defaultInterpreterPath` mattered globally: it forces the debugger onto the *same* `.venv/Scripts/python.exe` as everything else, so a debug session can never silently fall back to a global/base interpreter. **Compound configurations** (the `compounds` array) launch multiple debug sessions together with one keypress — the documented use case is exactly this machine's shape of work: a backend process and a frontend dev server started and stopped as one unit, with `stopAll` controlling whether killing one session kills the whole group.
+Tasks are also the agent contract: if `pytest` and `ruff` are named tasks, the agent and you run exactly the same command.
+## Agent Customization Layer
+==In 2026 VS Code reads Claude Code's own file conventions, so one set of repo files can steer Claude Code, VS Code's Claude harness, Copilot (once restored), and Codex at the same time.== Instruction sources are additive with no precedence rule, so conflicting instructions across files are a bug to avoid, not something VS Code resolves.
 
-Source: [VS Code debug configuration](https://code.visualstudio.com/docs/debugtest/debugging-configuration) (official docs — compound configs).
+| Type | Workspace location | User location | Controlling setting |
+|---|---|---|---|
+| Always-on instructions | `AGENTS.md` (root; nested files optional), `CLAUDE.md`, `.claude/CLAUDE.md`, `CLAUDE.local.md`, `.github/copilot-instructions.md` | `~/.claude/CLAUDE.md`, `~/.copilot/copilot-instructions.md` | `chat.useAgentsMdFile`, `chat.useNestedAgentsMdFiles` (off by default), `chat.useClaudeMdFile` |
+| File-scoped instructions | `.github/instructions/*.instructions.md` (`applyTo` glob), `.claude/rules/` (`paths`) | profile or agent host folders | `chat.includeApplyingInstructions` |
+| Skills | `.github/skills/`, `.claude/skills/`, `.agents/skills/` | `~/.copilot/skills/`, `~/.claude/skills/`, `~/.agents/skills/` | invoked with `/`; progressive disclosure |
+| Custom agents | `.github/agents/*.agent.md`, `.claude/agents/*.md` | `~/.copilot/agents`, `~/.claude/agents` | Claude format mapped to VS Code tools |
+| Hooks | `.github/hooks/*.json`, `.claude/settings.json` | `~/.copilot/hooks/*.json` | `chat.useHooks` (on), `chat.useClaudeHooks` (off) |
+| Prompt files | `*.prompt.md` | profile | deprecated for Agent Host sessions; migrate to skills |
 
-## Part 3 — Testing: Test Explorer, not ad-hoc `pytest` runs in a terminal
-
-The Python extension already installed on this machine (`ms-python.python`) ships full Test Explorer integration: once a test framework is configured (`Configure Python Tests` from the beaker icon in the Activity Bar, or the `pythonTestExplorer.testFramework` setting = `pytest`), every test in the project shows as a clickable, individually-runnable-and-debuggable tree, with pass/fail decorations inline in the editor gutter. For larger suites, `pytest-xdist` gives parallel test execution, and the Python extension auto-optimizes worker count when xdist is enabled with no explicit count specified. This entirely replaces "run `pytest` in a terminal and scroll for the failure."
-
-Source: [Python testing in Visual Studio Code](https://code.visualstudio.com/docs/python/testing) (official docs).
-
-## Part 4 — Jupyter / notebooks: now a confirmed near-term requirement
-
-Both this laptop and the new one will run Jupyter notebooks, and miniconda is explicitly being kept for this. The validated, official pattern (Astral's own docs, not a blog's guess) for keeping notebook kernels exactly as isolated as `.venv` already keeps scripts:
-```bash
-uv venv
-uv add --dev ipykernel jupyterlab
-uv run ipython kernel install --user --env VIRTUAL_ENV $(pwd)/.venv --name=<project-name>
+- *Hooks events (Local harness):* `SessionStart`, `UserPromptSubmit`, `PreToolUse`, `PostToolUse`, `PreCompact`, `SubagentStart`, `SubagentStop`, `Stop`. With `chat.useClaudeHooks` on, VS Code parses Claude-format hooks but ignores `matcher` values, so a Claude hook scoped to `Edit` would fire on every tool. Leave it off until that changes.
+- *Agent Host sessions* read user-level customizations from `~/.claude` and `~/.copilot`, not from VS Code's profile folder. On this laptop those folders exist twice (Windows and WSL), which is why they appear in the parity table.
+- *Skill frontmatter:* `name` (lowercase, hyphens, max 64), `description` (max 1024), optional `argument-hint`, `user-invocable`, `disable-model-invocation`, `context: fork`.
+## Agents Window, Harnesses, and Isolation
+The **Agents window** is a second, agent-first VS Code window for assigning tasks and tracking sessions across workspaces. Open it with `code --agents`, `Chat: Open Agents window`, or the taskbar jump list. `Ctrl+N` starts a session, `Ctrl+K Ctrl+N` a quick chat with no workspace.
+A session is a **harness** plus an **isolation mode**. ==The harness decides which agent runs the loop; the isolation mode decides where its edits and commands land.==
+- *Harnesses:* Local (VS Code's own, main editor only), Copilot, Claude (Anthropic's Claude Agent SDK, with Claude's slash commands and its Edit automatically / Request approval / Plan modes), Codex, and Cloud (GitHub-hosted, returns a PR). Claude sessions are toggled by `github.copilot.chat.claudeAgent.enabled`, now on.
+- *Folder:* edits land in the open workspace, including uncommitted files.
+- *New Worktree:* a separate git worktree from the last commit. Needs a repo with at least one commit, and permissions are fixed at Allow all. Worktrees isolate changes, not security.
+- *Dev Container (experimental):* the session runs inside the repo's container. Needs `chat.agentHost.devContainer.enabled` (now on), a `devcontainer.json` in `.devcontainer/` or the repo root, and Docker running on the machine that holds the folder. Since 1.139 that includes WSL, SSH and Tunnel hosts.
+- *Review:* the Changes panel shows diffs with range comments back to the agent, then Commit, Create PR, or Agent Merge (`chat.agentMerge.enabled`, experimental: watches the PR and fixes review feedback and CI failures).
+- *Limits:* multi-root workspaces are not supported in sessions yet; multiple chats per session work for Copilot and Claude only.
+Claude Code is the primary agent. Its agents, hooks, skills and settings live in `~/.claude/` and each repo's `.claude/`, which the extension, the CLI, and VS Code's Claude harness all read. Codex (`openai.chatgpt` extension, `codex` CLI) and Copilot are also available.
+## Running an Agent Inside a Dev Container, Step by Step
+This is the concrete path for "agents working inside dev containers". There are two routes to the same result: open the repo in the container and run Claude Code there, or start an Agents window session with Dev Container isolation.
+1. **Start Docker Desktop**
+	Docker Desktop's auto-start is off on purpose, so containers only run when needed. WSL integration for `Ubuntu-24.04` is already on and its disk lives at `D:\WSL\DockerDesktopWSL`. Once started, `docker version` inside WSL shows client and server 29.8.0 (verified 2026-09-24). The CSCI 4061 dev container failure on 2026-09-24 was exactly this step skipped: the log ends in `failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine`.
+2. **Add `.devcontainer/devcontainer.json` to the repo**
+	Minimal version with Claude Code and persisted login:
+```json
+{
+  "name": "project",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {},
+    "ghcr.io/anthropics/devcontainer-features/claude-code:1.0": {}
+  },
+  "remoteUser": "vscode",
+  "mounts": ["source=claude-code-config-${devcontainerId},target=/home/vscode/.claude,type=volume"],
+  "containerEnv": { "CLAUDE_CONFIG_DIR": "/home/vscode/.claude" },
+  "postCreateCommand": "curl -LsSf https://astral.sh/uv/install.sh | sh"
+}
 ```
-Then in VS Code: open a `.ipynb`, use the kernel picker (top-right) → the registered `<project-name>` kernel. **This is the decision point worth making explicit now that miniconda stays installed**: the recommendation is per-project `uv`-registered kernels as the default notebook workflow (matches every other isolation habit already established), with miniconda's `base` env reserved only for the narrow cases the source plan doc itself calls out — CUDA, or a conda-forge-only package. Nothing on this machine currently enforces that split; a stray notebook with no registered kernel could silently fall back to `base`.
+3. **Route A: Reopen in Container**
+	Open the repo in a WSL window, run `Dev Containers: Reopen in Container`, then run `claude` in the container terminal or use the Claude Code panel. Both run inside the container and share its `~/.claude` volume. Sign in once; the volume keeps the login across rebuilds.
+4. **Route B: Agents window session**
+	`chat.agentHost.devContainer.enabled` is already on. Open the Agents window, start a session on the repo, pick Dev Container isolation, then prompt.
+5. **Verify yourself**
+	Review the diff, then run the test task inside the container terminal. Do not trust the agent's own summary of test results.
+Hardening, only when running unattended:
+- Anthropic's reference container (`anthropics/claude-code/.devcontainer`) adds `init-firewall.sh`, which limits outbound traffic to an allowlist and needs `runArgs` with `NET_ADMIN` and `NET_RAW`.
+- `--dangerously-skip-permissions` is refused when running as root, so `remoteUser` must be non-root. Pair it with the firewall.
+- Never mount `~/.ssh` or cloud credential files. A bypassed session can still read and exfiltrate whatever is in the container, including the Claude credentials in `~/.claude`.
+## Approvals and Sandboxing
+Two separate layers. **Approvals** decide whether you are asked before a tool runs. **Sandboxing** decides what a terminal command can reach even when it runs without asking.
+- *Permission levels:* Manual (default, uses your approval rules), Assisted (experimental, an LLM judge reviews each call; `chat.assistedPermissions.enabled`), Allow all. Autopilot is Allow all plus automatic retry.
+- *Terminal rules:* `chat.tools.terminal.autoApprove` maps a command or `/regex/` to `true` or `false`. Built-in rules approve read-only commands and block `rm` and `del`. The applied rules approve read-only git, `uv run pytest|ruff`, and `pnpm|npm test|run lint`.
+- *Global switches to avoid:* `chat.tools.global.autoApprove` and the `/yolo` command approve everything everywhere. `Chat: Manage Tool Approval` and `Chat: Reset Tool Confirmations` undo saved approvals.
+- *Sandbox (enable when a use case needs it):* `chat.agent.sandbox.enabled` on Linux and WSL2 (install `bubblewrap` and `socat` first) and `chat.agent.sandbox.enabledWindows` (experimental). Filesystem rules per OS in `chat.agent.sandbox.fileSystem.linux|windows|mac`; network with `chat.agent.sandbox.allowNetwork`. It covers terminal commands and their children, not the agent's file-edit tools.
+- *Claude Code's own layer:* its permission modes (plan, acceptEdits, auto, bypass) and allow/deny rules live in `~/.claude/settings.json` and apply to the extension and the CLI together. A `Read` deny rule on `.env` also stops the IDE integration from sending a selected `.env` line as context.
+## Profiles
+A **profile** bundles settings, keybindings, snippets, tasks, MCP servers, extensions and UI state. Any category can be left out, in which case it falls back to the Default profile, and `Apply Setting to all Profiles` pushes one value into every profile. A profile is associated with the folder it was selected in and reactivates when that folder opens. Profiles live in `%APPDATA%\Code\User\profiles`, launch with `code <path> --profile "<name>"`, and export as `.code-profile` or a secret gist.
+- *Limit:* a profile controls which Windows-side extensions load, but it does not install anything into WSL.
+- *Proposed set:* keep Default lean (editor behavior only), then add `python-ai`, `web`, and `systems-c` (the C/C++ extensions exist for CSCI 4061). Built-in templates (Python, Data Science, Node.js, Doc Writer) are a starting point.
+## Claude Code Inside VS Code
+The extension (`anthropic.claude-code` 2.1.282, installed on both Windows and WSL) and the CLI share `~/.claude/settings.json`; the extension's own settings live under `claudeCode.*` in VS Code settings.
+- *IDE MCP server:* the extension runs a loopback-only MCP server named `ide` that the CLI joins automatically. The model sees two tools: `mcp__ide__getDiagnostics` (the Problems panel) and `mcp__ide__executeCode` (runs a notebook cell, always behind a VS Code confirmation).
+- *Checkpoints:* hover any message to rewind edits.
+- *Machine-scoped settings:* `claudeCode.initialPermissionMode`, `environmentVariables`, `allowDangerouslySkipPermissions` and `claudeProcessWrapper` are `machine` scope, so a value in Windows user settings does not reach WSL windows; set them in WSL Remote settings too if needed.
+- *Shortcuts:* `Ctrl+Esc` toggles focus between editor and Claude, `Ctrl+Shift+Esc` opens a new Claude tab, `Ctrl+Alt+C` (custom) reopens the last session, `Ctrl+Alt+F` toggles Focus view, `Alt+K` inserts an @-mention of the selection.
+## Daily Keyboard Layer
+Identical on both platforms because keybindings live on the client. Built in: `Ctrl+Shift+P` command palette (also shows each command's shortcut), `Ctrl+P` file jump, `` Ctrl+` `` terminal, `Ctrl+D` next occurrence, `Ctrl+F2` all occurrences, `Ctrl+Alt+Up/Down` add cursor, `Ctrl+Shift+B` default build task, `F5` debug.
+Custom layer in `keybindings.json`, all on `Ctrl+Alt`:
 
-Sources: [Using uv with Jupyter](https://docs.astral.sh/uv/guides/integration/jupyter/) (Astral official docs), [Manage Jupyter Kernels in VS Code](https://code.visualstudio.com/docs/datascience/jupyter-kernel-management) (official docs).
-
-**On `ms-python.vscode-python-envs`** (already installed, easy to overlook): this is Microsoft's newer unified environment/package manager UI — it auto-discovers environments across `venv`, `uv`, `conda`, `pyenv`, `poetry`, and `pipenv`, auto-activates the selected one in every new terminal, and — notably — **remembers which environment was selected per-project without hardcoding machine-specific paths**, which is exactly the portability property that matters for the new-laptop transition. Worth actively using its `Python Envs: Create New Project from Template` command rather than treating it as a passive extension.
-
-Source: [Python environments in VS Code](https://code.visualstudio.com/docs/python/environments) (official docs).
-
-## Part 5 — GitLens: what's actually installed vs. what's actually used
-
-GitLens is installed but nothing suggests its deeper features are in active use yet. What a professional actually reaches for daily:
-- **File Blame** — inline, per-line authorship annotations plus a status-bar summary of who last touched the current line, so "why is this line here" never requires a separate `git log` detour.
-- **Git Command Palette** — a guided, step-by-step way to run git commands without memorizing flags, alongside quick access to file/branch history and commit search.
-- **Search & Compare** — compare any two branches, tags, or commits, with results pinned for as long as needed — the tool for "what actually changed between this feature branch and main" without a manual `git diff` invocation.
-- **Commit Graph** — GitLens's own description calls this the central development workbench: commits, branches, working changes, worktrees, and upstream state in one connected view, which matters more once multi-root workspaces (Part 8) put several related repos in view at once.
-
-`gitlens.currentLine.enabled` and `gitlens.blame.highlight.enabled` are already on in the global settings — the baseline is there, the deeper navigation habits (Command Palette, Search & Compare, Commit Graph) are what's unused.
-
-Source: [GitLens Core Features](https://help.gitkraken.com/gitlens/gitlens-features/) (official GitKraken/GitLens docs).
-
-## Part 6 — Command Palette and multi-cursor fluency
-
-Not a settings change — a working-habit gap worth naming, since it's the actual daily-use difference between "knows VS Code" and "types slowly in VS Code." Confirmed from official docs and cross-referenced cheat sheets:
-- `Ctrl+Shift+P` — Command Palette. Every command in the editor is reachable here, and if a command has a keybinding it's shown in the results list — the Palette is also how you *discover* which shortcut to memorize next, not just a fallback when you've forgotten one.
-- `Ctrl+D` — select next occurrence of the current word (repeatable, builds up a multi-cursor selection incrementally); `Ctrl+U` undoes the last cursor added, for fine-tuning.
-- `Ctrl+F2` — select **all** occurrences of the current word at once (an instant project-wide-in-file rename without a formal refactor command).
-- `Ctrl+Alt+↓ / ↑` — add a cursor on the line below/above, for column-style edits.
-- `Alt`+click — place an extra cursor anywhere by hand.
-
-Source: [Visual Studio Code tips and tricks](https://code.visualstudio.com/docs/editing/tips-and-tricks) (official docs); [Keyboard shortcuts for Visual Studio Code](https://code.visualstudio.com/docs/configure/keybindings) (official docs).
-
-## Part 7 — VS Code Profiles: one profile currently doing three jobs
-
-[Profiles](https://code.visualstudio.com/docs/configure/profiles) scope settings, keybindings, snippets, UI state, and — critically — **which extensions load at all** — per profile, switchable via `Preferences: Switch Settings Profile`. Right now every extension loads in every window regardless of what that window is actually for. Candidate profiles for this exact machine:
-- **`ai-hub`** — Claude Code, GitLens, ErrorLens, PowerShell. For home-directory / general Claude Code sessions.
-- **`python-data`** — Python, Pylance, Ruff, the full Jupyter set, `python-envs`.
-- **`web-js`** — Biome, ESLint, Tailwind, npm-intellisense.
-
-Each profile can also carry its own theme, so which "mode" a given window is in is visually unambiguous at a glance — genuinely useful given how many windows tend to be open simultaneously on this machine (home dir, Jarvis vault, several `D:\projects\*` folders).
-
-Source: [Profiles in Visual Studio Code](https://code.visualstudio.com/docs/configure/profiles) (official docs).
-
-## Part 8 — Multi-root workspaces: for the sibling `D:\projects\*` folders
-
-A `.code-workspace` file is a JSON list of folder paths plus workspace-scoped settings, letting `D:\projects\{Assisto_website, boom, hackathon, portfolio}` open as one window with one sidebar instead of four separate windows. The one real constraint, confirmed in official docs: **only resource-level (file/folder) settings apply per-workspace — window-level settings are ignored inside a multi-root workspace** — so this complements Profiles rather than replacing them; a multi-root workspace still inherits whichever Profile the window is running under.
-
-Source: [Multi-root Workspaces](https://code.visualstudio.com/docs/editing/workspaces/multi-root-workspaces) (official docs).
-
-## Part 9 — Remote Development: what's actually happening under the hood
-
-`remote-wsl`, `remote-ssh`, and `remote-containers` are all installed (the full extension pack). Worth understanding the actual mechanism rather than treating it as a black box, since this machine leans on WSL remoting heavily:
-- Each remote extension installs a **VS Code Server** process on the remote side — independent of any local VS Code install — and every other extension in a Remote window runs *inside* that server, so the editor feels local even though execution is remote.
-- **SSH**: an authenticated SSH tunnel connects the local client to the server.
-- **WSL**: connects over a **random local port** (not SSH) — this is why WSL remoting feels instant compared to SSH, and also exactly why `~/.vscode-server/bin/<hash>/` accumulates old versions locally inside the distro (Sin 12 in [[WSL Session Briefing]]) — the server is a real, persistent, versioned install, not a stateless bridge.
-- **Containers**: communicates via Docker's own channel (`docker exec`).
-
-This also explains a real limitation already flagged for the new-laptop transition: **Settings Sync does not sync extensions inside a Remote window** — only the local/Windows-side extension set syncs through Settings Sync. WSL-side extensions have to be (re)installed once a WSL session actually opens a project there, separately from whatever Settings Sync restores on the Windows side.
-
-Source: [VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview) (official docs).
-
-## Part 10 — Settings Sync: the actual new-laptop lever
-
-Off on this machine (`globalStorage/ms-vscode.settings-sync` absent). This is the single highest-leverage unused feature for the stated goal: `Settings Sync: Turn On`, sign in with the personal GitHub account, and settings, keybindings, snippets, UI state, **and Profiles** all sync through the cloud — meaning once the setup described in this note is actually built, the new laptop inherits it at first sign-in instead of the source doc's current plan of manually copying `settings.json` by hand. Confirmed limitation (Part 9 above): Remote-window extensions are excluded from sync, so WSL/SSH/Container extension sets still need separate handling — this is a known, documented gap, not a bug to work around.
-
-Source: [VS Code Settings Sync](https://github.com/microsoft/vscode-docs/blob/main/docs/configure/settings-sync.md) (official docs).
-
-## Part 11 — Workspace-recommended extensions (`.vscode/extensions.json`)
-
-None exist in any project. This is the file that makes "clone repo → VS Code prompts to install the right extensions" work automatically for a collaborator (or future-you, on the new laptop, before Settings Sync has even run). Cheap, per-project, and pairs naturally with Profiles — a project's `extensions.json` and the Profile it's meant to be opened under should agree on the extension list.
-
-## Part 12 — Claude Code itself, as the primary AI surface
-
-Since Claude Code is the primary AI interface here (not Copilot, not a generic chat panel), worth being explicit about what the extension actually provides beyond the CLI: side-by-side diffs for proposed edits, `@`-mentions tied to the current text selection, an IDE-side MCP server so Claude Code can see editor state directly, checkpoints that let any prior state be rewound (hover any message → rewind), and the Normal-mode/Plan-mode toggle that mirrors exactly the plan-then-execute discipline already used across both this session and the sibling WSL session. `claudeCode.preferredLocation: panel` is already set globally — confirmed no keybinding conflicts with the current minimal `keybindings.json`.
-
-Source: research synthesis from public 2026 coverage of the Claude Code VS Code extension (Anthropic's own IDE-integration docs are the primary source; this section reflects publicly documented feature names — side-by-side diff, checkpoints/rewind, IDE MCP server, Plan mode — not this note's own testing).
-
-## Part 13 — Adjacent, not VS Code itself: Windows Task Scheduler
-
-The source plan doc's Part 9 "monthly maintenance" (VHDX compaction, Temp cleanup, npm/uv cache pruning) is currently just "a thing to remember." A real Task Scheduler job could run the safe, non-destructive parts unattended. **Flagging, not proposing to build automatically** — same category of decision as the archiving-pipeline precedent (manual/opt-in trigger preferred over silent automation even when the request sounds like "make it automatic"). Belongs in the same "ask before wiring up" bucket as `runOn: folderOpen` tasks above.
-
-## What this note is NOT proposing
-
-- Not proposing any new extension speculatively — every extension above is either already installed or framed as "add when the concrete need shows up" (snippets, `.code-workspace`, `extensions.json`).
-- Not proposing an automatic global hook of any kind. `runOn: folderOpen` tasks are per-project, VS-Code-gated opt-ins with an explicit consent prompt, not silent background automation.
-- Not touching `settings.json`, extensions, tasks, keybindings, or Profiles in this session, per instruction.
-
-## Suggested build order for the next VS Code session (for discussion, not started)
-
-1. Turn on Settings Sync first — everything after this becomes portable for free (modulo the Remote-extension limitation).
-2. Create the 2–3 Profiles (`ai-hub`, `python-data`, `web-js`) and assign the already-installed extensions to the right one.
-3. Add `tasks.json` + `launch.json` to the one Windows-native project that will need them first, as the copyable template.
-4. Build the `uv venv` + `ipykernel` registration habit into that same project as the first real notebook test case, resolving the miniconda-vs-uv-kernel question explicitly.
-5. Wire up Test Explorer for that project (`pythonTestExplorer.testFramework` = pytest).
-6. Only then: snippets, `.code-workspace` for the `D:\projects\*` sibling folders, `extensions.json` — polish, not blockers.
-
-## Sources consulted (official docs unless noted)
-- [Integrate with External Tools via Tasks](https://code.visualstudio.com/docs/debugtest/tasks)
-- [VS Code debug configuration](https://code.visualstudio.com/docs/debugtest/debugging-configuration)
-- [Python testing in Visual Studio Code](https://code.visualstudio.com/docs/python/testing)
-- [Using uv with Jupyter](https://docs.astral.sh/uv/guides/integration/jupyter/) (Astral)
-- [Manage Jupyter Kernels in VS Code](https://code.visualstudio.com/docs/datascience/jupyter-kernel-management)
-- [Python environments in VS Code](https://code.visualstudio.com/docs/python/environments)
-- [GitLens Core Features](https://help.gitkraken.com/gitlens/gitlens-features/) (GitKraken)
-- [Visual Studio Code tips and tricks](https://code.visualstudio.com/docs/editing/tips-and-tricks)
-- [Keyboard shortcuts for Visual Studio Code](https://code.visualstudio.com/docs/configure/keybindings)
-- [Profiles in Visual Studio Code](https://code.visualstudio.com/docs/configure/profiles)
-- [Multi-root Workspaces](https://code.visualstudio.com/docs/editing/workspaces/multi-root-workspaces)
-- [VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview)
-- [VS Code Settings Sync](https://github.com/microsoft/vscode-docs/blob/main/docs/configure/settings-sync.md)
+| Key | Command |
+|---|---|
+| `Ctrl+Alt+R` | Run Task |
+| `Ctrl+Alt+T` | Run Test Task |
+| `Ctrl+Alt+L` | Rerun Last Task |
+| `Ctrl+Alt+W` | Connect to WSL in a new window |
+| `Ctrl+Alt+E` | Select Python interpreter |
+| `Ctrl+Alt+M` | Maximize or restore the panel |
+| `Ctrl+Alt+C` | Open the last Claude Code session |
+## How the Pieces Multiply the Work
+The gain does not come from any single feature. It comes from making every repo self-describing so agents and you run the same environment and the same checks.
+1. **One repo, one environment contract**
+	WSL toolchain or a dev container, plus `.vscode/tasks.json` for the checks, plus `AGENTS.md`/`CLAUDE.md` for the rules.
+2. **Plan before edit**
+	Claude's plan mode or `/plan` in the Agents window, reviewed before any code changes.
+3. **Parallel sessions in worktrees**
+	Several Agents window sessions on separate worktrees, each reviewed through its Changes panel. The worktree keeps them from colliding.
+4. **Closed verification loop**
+	Named test and lint tasks, a `PostToolUse` formatter hook, and `mcp__ide__getDiagnostics` so the agent reads the same Problems panel you do.
+5. **Skills for repeated procedures**
+	Anything done three times becomes a skill in `.claude/skills/`, readable by Claude Code and VS Code alike.
+6. **Risky work in containers**
+	Untrusted repos and unattended runs go into a dev container with no host secrets mounted.
+## What Changed From the 2026-08-26 Version
+- The first version audited the Dell (28 extensions, `D:\projects\*`). The Acer has 15 extensions, a 4-key `settings.json`, and its codebases in WSL, so every Windows path example was wrong for real work.
+- `pythonTestExplorer.testFramework` is not a real setting. Pytest is enabled with `python.testing.pytestEnabled` or `Python: Configure Tests`.
+- Prompt files are deprecated for Agent Host sessions; skills replace them.
+- The Agents window, harnesses, worktree and dev container isolation, sandboxing, and Claude-format customization support did not exist in the old note.
+- Settings Sync now also covers MCP servers, profiles, and prompts and instructions.
+## Status
+| Item | State on 2026-09-26 |
+|---|---|
+| VS Code version | 1.139.1 (self-updated), WSL server on the same commit |
+| User settings, keybindings, tasks, MCP | applied and synced; restored after the Sync incident (see [[VS Code - Windows]]) |
+| Settings Sync | on, from the Acer; cloud copy verified to hold this laptop's files |
+| Extensions | 39 on Windows (limit 40), 34 on WSL, same working set |
+| Environments | conda `jupyter-base` on both sides for notebook work, uv for everything else |
+| MCP | Jarvis global in Claude Code (both sides) and VS Code; one GitHub server |
+| Terminal icons | fixed (font family name, Starship parity) |
+| Docker for dev containers | working from WSL, auto-start off by choice |
+| Install Loop | [[VS Code - Install Loop]] |
+## Links
+Official sources used on 2026-09-24: [Settings](https://code.visualstudio.com/docs/configure/settings), [Settings Sync](https://code.visualstudio.com/docs/configure/settings-sync), [Profiles](https://code.visualstudio.com/docs/configure/profiles), [Workspace Trust](https://code.visualstudio.com/docs/editing/workspaces/workspace-trust), [WSL](https://code.visualstudio.com/docs/remote/wsl), [Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers), [Agents window](https://code.visualstudio.com/docs/agents/run/agents-window), [Agent harnesses](https://code.visualstudio.com/docs/agents/run/agent-harnesses), [Remote agent sessions](https://code.visualstudio.com/docs/agents/run/remote-agent-sessions), [Approvals](https://code.visualstudio.com/docs/agents/run/approvals), [Agent sandboxing](https://code.visualstudio.com/docs/agents/run/agent-sandboxing), [Custom instructions](https://code.visualstudio.com/docs/agent-customization/custom-instructions), [Agent skills](https://code.visualstudio.com/docs/agent-customization/agent-skills), [Custom agents](https://code.visualstudio.com/docs/agent-customization/custom-agents), [Hooks](https://code.visualstudio.com/docs/copilot/customization/hooks), [MCP servers](https://code.visualstudio.com/docs/copilot/customization/mcp-servers), [1.139 release notes](https://code.visualstudio.com/updates), [Claude Code in VS Code](https://code.claude.com/docs/en/vs-code), [Claude Code dev containers](https://code.claude.com/docs/en/devcontainer). Related vault notes: [[WSL Session Briefing]], [[Cross-Laptop Sync - Build Roadmap]], [[Jarvis MCP and REST API Setup]], [[Code Review & Eval Gap]].

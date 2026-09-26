@@ -2,9 +2,14 @@
 type: concept
 status: active
 updated: 2026-09-05
-tags: [portfolio, frontend, ui-fixes, about, telemetry]
+tags:
+  - portfolio
+  - frontend
+  - ui-fixes
+  - about
+  - telemetry
 notes:
-  - "[[UI Fixes]]"
+  - "[[_UI Fixes]]"
   - "[[frontend-ui-fixes-requirements]]"
   - "[[frontend-ui-fixes-design]]"
   - "[[frontend-ui-fixes-tasks]]"
@@ -15,7 +20,7 @@ notes:
 # UI Fix 03 — About Telemetry (2 Cards, Glow Only)
 
 > **Status:** open — **SUPERSEDES July 4-card accordion spec**
-> **Ledger:** [[UI Fixes]] §2 | **Task:** 3.3
+> **Ledger:** [[_UI Fixes]] §2 | **Task:** 3.3
 > **2026-09-05 verification pass:** re-checked against `src/components/AboutTelemetry.tsx` and `src/sanity/schemaTypes/profile.ts` on `post-frontend`. This note was accurate — every line number and symbol below matched the live file. Only additions: the exact removal list and one existing-convention note worth preserving.
 
 ## Purpose

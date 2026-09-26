@@ -11,14 +11,14 @@ tags:
 notes:
   - "[[frontend-ui-fixes-requirements]]"
   - "[[frontend-ui-fixes-design]]"
-  - "[[UI Fixes]]"
+  - "[[_UI Fixes]]"
 ---
 
 # Frontend UI Fixes — Tasks & Build Prompts
 
 > **Updated:** 2026-09-05. Each task includes a **copy-paste implementation prompt** referencing [[frontend-ui-fixes-requirements]] and [[frontend-ui-fixes-design]].
 > Run `pnpm typecheck && pnpm lint` after each phase; `pnpm build` before marking phase done.
-> Master ledger: [[UI Fixes]].
+> Master ledger: [[_UI Fixes]].
 
 ## How To Use These Prompts
 

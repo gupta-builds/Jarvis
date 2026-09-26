@@ -11,7 +11,7 @@ notes:
   - "[[frontend-ui-fixes-requirements]]"
   - "[[frontend-ui-fixes-design]]"
   - "[[frontend-ui-fixes-tasks]]"
-  - "[[UI Fixes]]"
+  - "[[_UI Fixes]]"
 ---
 # Claude Sonnet — UI Fixes Notes Audit & Patch Pass
 

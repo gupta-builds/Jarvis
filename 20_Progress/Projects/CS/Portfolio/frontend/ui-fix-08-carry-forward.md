@@ -2,9 +2,16 @@
 type: concept
 status: active
 updated: 2026-09-05
-tags: [portfolio, frontend, ui-fixes, carry-forward, skills, orby, dark-mode]
+tags:
+  - portfolio
+  - frontend
+  - ui-fixes
+  - carry-forward
+  - skills
+  - orby
+  - dark-mode
 notes:
-  - "[[UI Fixes]]"
+  - "[[_UI Fixes]]"
   - "[[frontend-ui-fixes-requirements]]"
   - "[[frontend-ui-fixes-tasks]]"
   - "[[frontend-ui-fixes-index]]"
@@ -13,7 +20,7 @@ notes:
 # UI Fix 08 — Carry-Forward (July Items Still Valid)
 
 > **Status:** mixed partial/open
-> **Ledger:** [[UI Fixes]] §7 | **Tasks:** Phase 7 + 0.1, 8.1
+> **Ledger:** [[_UI Fixes]] §7 | **Tasks:** Phase 7 + 0.1, 8.1
 
 Items from July 2026 walkthrough **not superseded** by Sep pinned-section work. Implement after or parallel to core component fixes.
 

@@ -1,8 +1,8 @@
 ---
 type: evergreen
 status: tree
-created: <% tp.date.now("YYYY-MM-DD") %>
-updated: <% tp.date.now("YYYY-MM-DD") %>
+created:
+updated:
 tags:
   - evergreen
   - review
@@ -14,7 +14,7 @@ tags:
 <% tp.date.now("YYYY-MM-01") %> through <% tp.date.now("YYYY-MM-DD") %>
 ## Sources Reviewed
 - [ ] All four Weekly reviews from this month
-- [ ] [[60_Claude/30_Reviews/AI/Tools/Tool log|Tool log]] (full month)
+- [ ] [[60_Claude/30_Reviews/AI/Toolkit/Tool log|Tool log]] (full month)
 - [ ] [[20_Progress/AI/Claude Code/_All-Projects-Sync-Log|_All-Projects-Sync-Log]] (full month)
 - [ ] [[20_Progress/Projects/AI Use/Claude Kit/Log|Claude Kit/Log]] (full month)
 - [ ] [[20_Progress/Projects/AI Use/Claude Kit/Tool Map|Tool Map]]

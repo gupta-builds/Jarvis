@@ -8,7 +8,7 @@ tags:
   - review
   - claude-kit
 notes:
-  - "[[60_Claude/30_Reviews/AI/Tools/Tool log]]"
+  - "[[60_Claude/30_Reviews/AI/Toolkit/Tool log]]"
   - "[[20_Progress/AI/Claude Code/_All-Projects-Sync-Log]]"
   - "[[20_Progress/AI/Claude Code/Write Log]]"
   - "[[Review Standard]]"
@@ -17,7 +17,7 @@ notes:
 ## Period Covered
 2026-08-14 through 2026-08-20.
 ## Sources Reviewed
-- [x] [[60_Claude/30_Reviews/AI/Tools/Tool log|Tool log]] — read in full; one row exists, dated 2026-08-19, added this same pass (see Findings)
+- [x] [[60_Claude/30_Reviews/AI/Toolkit/Tool log|Tool log]] — read in full; one row exists, dated 2026-08-19, added this same pass (see Findings)
 - [x] [[20_Progress/AI/Claude Code/_All-Projects-Sync-Log|_All-Projects-Sync-Log]] — grepped for every line dated 2026-08-14 through 2026-08-20
 - [x] [[20_Progress/AI/Claude Code/Write Log|Write Log]] — read in full; no entries fall in this period
 - [x] Raw `AI Conversations/` session notes — read the 2026-08-19 second-brain-claudekit sync session in full (the Tool log's only source), plus spot-checked the most recent Windows and WSL Claude Code raw notes directly against `00 - Capture Health.md`'s claims

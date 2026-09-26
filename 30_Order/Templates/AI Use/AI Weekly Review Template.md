@@ -13,7 +13,7 @@ tags:
 ## Period Covered
 <% tp.date.now("YYYY-MM-DD", -6) %> through <% tp.date.now("YYYY-MM-DD") %>
 ## Sources Reviewed
-- [ ] [[60_Claude/30_Reviews/AI/Tools/Tool log|Tool log]]
+- [ ] [[60_Claude/30_Reviews/AI/Toolkit/Tool log|Tool log]]
 - [ ] [[20_Progress/AI/Claude Code/_All-Projects-Sync-Log|_All-Projects-Sync-Log]]
 - [ ] [[20_Progress/Projects/AI Use/Claude Kit/Log|Claude Kit/Log]]
 - [ ] Raw `AI Conversations/` session notes (only if the Tool log flags something)

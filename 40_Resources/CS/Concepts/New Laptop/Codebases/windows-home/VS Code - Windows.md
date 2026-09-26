@@ -83,6 +83,10 @@ Logs go back to 2026-09-21; workspace history to 2026-09-19.
 7. **Copilot 403** while the student entitlement is broken.
 8. **Ruff config resolution errors in miniconda** (2026-09-24 23:24). CPython's `Tools\i18n\.ruff.toml` extends a file conda does not ship. Fixed by `ruff.exclude`; verified 2 errors to 0 against the bundled Ruff 0.16.9 server.
 9. **Settings Sync replaced local settings** (2026-09-25/26). See the incident section.
+### Terminal Environment and Home Workspace
+Every VS Code terminal on Windows loads `~/.config/vscode-env/init.ps1` from the PowerShell profile, then the folder's `.vscode/env.ps1`. The home folder has its own (`~/.vscode/env.ps1`: space, Jarvis and The Plan, agent memory files, tooling, `~\Scripts` on PATH) and privacy settings (`~/.vscode/settings.json`). Other folders get the default until you run `env: create workspace environment`. Design, test results and timings: [[VS Code - Terminal Environments]].
+### MCP and Secrets
+Global MCP servers come from `~/.config/mcp/mcp.json` via `sync-mcp.ps1`. Claude Code denies reads of secret files on every drive, `~/.config/git/ignore` keeps them out of every repo, and the dotenv extension cloaks them on screen. Details and the six-month pre-mortem: [[VS Code - MCP and Secrets]].
 ## Trust Layout
 - *Trusted parents:* `D:\_Anant\20_Progress\Documents` (vaults) and `D:\_Anant\10_Areas\UMN\Classes` (course code).
 - *Home:* `C:\Users\anant` stays trusted for Claude Code home sessions.

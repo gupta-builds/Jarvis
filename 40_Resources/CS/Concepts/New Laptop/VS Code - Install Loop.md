@@ -53,14 +53,17 @@ next: "Run the check block after every install on either side"
 - *Semgrep:* the static-analysis backstop already decided in [[Code Review & Eval Gap]]; the extension surfaces it in the editor.
 - *Removed:* `npm-intellisense` (TypeScript already completes imports), `mikestead.dotenv` (replaced), `ms-azuretools.vscode-docker` 2.0.0 (a shim for Container Tools), `vscode-chat-customizations-evaluations` (niche, came from the Dell), `jupyter-cell-tags` and `jupyter-slideshow` (unused), and the C/C++ set (the CSCI 4061 dev container installs `ms-vscode.cpptools` inside itself).
 ## MCP Layout
-| Where | Servers | Config |
+Global servers come from one registry, `~/.config/mcp/mcp.json`, applied by `~/.config/mcp/sync-mcp.ps1` (task `mcp: sync registry to all tools`). Full design, test evidence and pre-mortem: [[VS Code - MCP and Secrets]].
+
+| Where | Servers | How it gets there |
 |---|---|---|
-| Claude Code, Windows, user scope | `jarvis`, `the-plan` | `~\.claude.json` via `claude mcp add-json --scope user` |
-| Claude Code, WSL, user scope | `jarvis`, `the-plan`, `jarvis-fs` | `~/.claude.json` via the same command |
-| VS Code, all windows | Context7, GitHub (official remote), Firecrawl, `jarvis`, `the-plan` | `%APPDATA%\Code\User\mcp.json`, synced |
-- *Auth:* headers reference `${JARVIS_API_KEY}` / `${THE_PLAN_API_KEY}` (VS Code uses `${env:...}`). The Windows user variable `WSLENV=JARVIS_API_KEY:THE_PLAN_API_KEY` passes them into WSL without writing them anywhere.
-- *GitHub:* one server only, GitHub's official remote MCP in VS Code, signed in through the VS Code GitHub account. The old `@modelcontextprotocol/server-github` was deprecated on npm and had no token set, so it was removed on both sides.
-- *No home `.mcp.json`:* user scope makes the servers work from any directory; project `.mcp.json` files are for repo-specific servers only.
+| Claude Code, Windows, user scope | `jarvis`, `the-plan` | sync script (`claude mcp add --scope user`) |
+| VS Code, all windows | `jarvis`, `the-plan` from the registry; Context7, GitHub (official remote), Firecrawl from the gallery | sync script plus the MCP gallery; synced by Settings Sync |
+| Codex | its own stdio `jarvis`, `github`, `cua_repl` | Codex config; registry servers reach it only when `codex` is in their `targets` |
+| Claude Code, WSL, user scope | `jarvis`, `the-plan`, `jarvis-fs` | added by hand 2026-09-26; WSL port of the sync script pending |
+- *Auth:* `${VAR}` references everywhere; values are user environment variables set with `sync-mcp.ps1 -SetSecret NAME`. `WSLENV=JARVIS_API_KEY/u:THE_PLAN_API_KEY/u` carries them into WSL.
+- *GitHub:* one server, the official remote in VS Code. The deprecated npm `server-github` is gone.
+- *No home `.mcp.json`:* it was Claude-only, asked for approval in every new project under home, missed `D:\`, and could shadow user scope. Project `.mcp.json` files remain for repo-specific servers.
 ## Environment Rule
 - *Notebook or library work:* a conda env, used through Jupyter cells. Shared default is `jupyter-base` (spec: `D:\conda\specs\jupyter-base.yml` on Windows, `~/conda/specs/jupyter-base.yml` in WSL). A course or project that needs its own set gets its own env and an `environment.yml` in the repo.
 - *Everything else:* a uv project (`pyproject.toml` + `uv.lock` + `.venv`).

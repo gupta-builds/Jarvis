@@ -113,7 +113,7 @@
     "30_Order/Standards/Courses/Weekly Board Standard.md": "external",
     "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md": "external",
     "20_Progress/Degree/CSCI 5304/Textbook/Textbook Map.md": "external",
-    "20_Progress/Degree/Repetitive Things.md": "external",
+    "20_Progress/Degree/Repetitive Things.md": "obsidian",
     "30_Order/Templates/Classes/Discussion Template.md": "external",
     "30_Order/Standards/Courses/Textbook Map Standard.md": "external",
     "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build Roadmap.md": "external",
@@ -333,7 +333,7 @@
     "20_Progress/Degree/Course Production Board — Fall'26.sync-conflict-20260925-161512-VYYX3J5.md": "external",
     "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.sync-conflict-20260925-161510-2D4OE4D.md": "external",
     "10_Areas/Career/Internships/Tracker/Each One/Current/IT Product Development Intern (req 100109) - Tetra Pak.md": "external",
-    "20_Progress/Degree/Repetitive Things.sync-conflict-20260925-161510-2D4OE4D.md": "external",
+    "20_Progress/Degree/Repetitive Things.sync-conflict-20260925-161510-2D4OE4D.md": "obsidian",
     "20_Progress/Degree/CSCI 4521/CSCI 4521 Board.sync-conflict-20260925-161510-2D4OE4D.md": "external",
     "60_Claude/30_Reviews/Weekly Synthesis/Logs/Log Review.md": "external",
     "10_Areas/Life/Enumerate/Weekly/2026-W39.md": "external",
@@ -381,7 +381,8 @@
     "30_Order/Standards/AI Loop/Orchestration.md": "obsidian",
     "10_Areas/Excalidraw/Imagine 09-26.excalidraw.md": "obsidian",
     "10_Areas/Excalidraw/Imagine 09-26_0.excalidraw.md": "obsidian",
-    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md": "obsidian"
+    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md": "obsidian",
+    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4.md": "obsidian"
   },
   "_editTimes": {
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-19 Merge conflicts from sync changes.md": 1789941602422,
@@ -401,7 +402,7 @@
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": 1790451185419,
     "60_Claude/05_Clippings/AI Conversations/00 - Capture Health.md": 1789954382957,
     "30_Order/System/claude-workflow/logs/capture-health-wsl.json": 1789953482257,
-    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 1790544780835,
+    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 1790546580851,
     "20_Progress/AI/Claude Code/The Plan/Sync-Log.md": 1789954487655,
     "20_Progress/AI/Claude Code/Trading View/Sync-Log.md": 1789956184041,
     "20_Progress/AI/Claude Code/internship-research-loop/Sync-Log.md": 1789956184041,
@@ -486,7 +487,7 @@
     "30_Order/Standards/Courses/Weekly Board Standard.md": 1790452085428,
     "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md": 1790497085393,
     "20_Progress/Degree/CSCI 5304/Textbook/Textbook Map.md": 1790495284979,
-    "20_Progress/Degree/Repetitive Things.md": 1790451185369,
+    "20_Progress/Degree/Repetitive Things.md": 1790546574487,
     "30_Order/Templates/Classes/Discussion Template.md": 1790497085443,
     "30_Order/Standards/Courses/Textbook Map Standard.md": 1790451185395,
     "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build Roadmap.md": 1790495285033,
@@ -706,7 +707,7 @@
     "20_Progress/Degree/Course Production Board — Fall'26.sync-conflict-20260925-161512-VYYX3J5.md": 1790452085396,
     "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.sync-conflict-20260925-161510-2D4OE4D.md": 1790452085391,
     "10_Areas/Career/Internships/Tracker/Each One/Current/IT Product Development Intern (req 100109) - Tetra Pak.md": 1790450285536,
-    "20_Progress/Degree/Repetitive Things.sync-conflict-20260925-161510-2D4OE4D.md": 1790451185370,
+    "20_Progress/Degree/Repetitive Things.sync-conflict-20260925-161510-2D4OE4D.md": 1790546552078,
     "20_Progress/Degree/CSCI 4521/CSCI 4521 Board.sync-conflict-20260925-161510-2D4OE4D.md": 1790450285549,
     "60_Claude/30_Reviews/Weekly Synthesis/Logs/Log Review.md": 1790452085480,
     "10_Areas/Life/Enumerate/Weekly/2026-W39.md": 1790452085380,
@@ -754,7 +755,8 @@
     "30_Order/Standards/AI Loop/Orchestration.md": 1790457032088,
     "10_Areas/Excalidraw/Imagine 09-26.excalidraw.md": 1790465688698,
     "10_Areas/Excalidraw/Imagine 09-26_0.excalidraw.md": 1790465692403,
-    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md": 1790541587743
+    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md": 1790546463145,
+    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4.md": 1790546361608
   },
   "_dismissedAt": {},
   "_editSizes": {
@@ -775,7 +777,7 @@
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": 26552,
     "60_Claude/05_Clippings/AI Conversations/00 - Capture Health.md": 1831,
     "30_Order/System/claude-workflow/logs/capture-health-wsl.json": 1888,
-    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 432920,
+    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 435082,
     "20_Progress/AI/Claude Code/The Plan/Sync-Log.md": 27016,
     "20_Progress/AI/Claude Code/Trading View/Sync-Log.md": 32322,
     "20_Progress/AI/Claude Code/internship-research-loop/Sync-Log.md": 38852,
@@ -860,7 +862,7 @@
     "30_Order/Standards/Courses/Weekly Board Standard.md": 2771,
     "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md": 1324,
     "20_Progress/Degree/CSCI 5304/Textbook/Textbook Map.md": 2391,
-    "20_Progress/Degree/Repetitive Things.md": 14088,
+    "20_Progress/Degree/Repetitive Things.md": 21434,
     "30_Order/Templates/Classes/Discussion Template.md": 478,
     "30_Order/Standards/Courses/Textbook Map Standard.md": 2991,
     "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build Roadmap.md": 20942,
@@ -1080,7 +1082,7 @@
     "20_Progress/Degree/Course Production Board — Fall'26.sync-conflict-20260925-161512-VYYX3J5.md": 33273,
     "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.sync-conflict-20260925-161510-2D4OE4D.md": 12028,
     "10_Areas/Career/Internships/Tracker/Each One/Current/IT Product Development Intern (req 100109) - Tetra Pak.md": 1328,
-    "20_Progress/Degree/Repetitive Things.sync-conflict-20260925-161510-2D4OE4D.md": 68976,
+    "20_Progress/Degree/Repetitive Things.sync-conflict-20260925-161510-2D4OE4D.md": 21434,
     "20_Progress/Degree/CSCI 4521/CSCI 4521 Board.sync-conflict-20260925-161510-2D4OE4D.md": 16246,
     "60_Claude/30_Reviews/Weekly Synthesis/Logs/Log Review.md": 14940,
     "10_Areas/Life/Enumerate/Weekly/2026-W39.md": 2047,
@@ -1128,10 +1130,13 @@
     "30_Order/Standards/AI Loop/Orchestration.md": 0,
     "10_Areas/Excalidraw/Imagine 09-26.excalidraw.md": 588,
     "10_Areas/Excalidraw/Imagine 09-26_0.excalidraw.md": 588,
-    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md": 10491
+    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md": 37173,
+    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4.md": 843
   },
   "_sizeDeltas": {
-    "20_Progress/AI/Claude Code/second-brain-claudekit/Sync-Log.md": "down"
+    "20_Progress/AI/Claude Code/second-brain-claudekit/Sync-Log.md": "down",
+    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md": "up",
+    "20_Progress/Degree/Repetitive Things.sync-conflict-20260925-161510-2D4OE4D.md": "down"
   },
   "_pinned": []
 }

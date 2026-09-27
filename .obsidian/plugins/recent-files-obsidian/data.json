@@ -1,8 +1,20 @@
 {
   "recentFiles": [
     {
+      "basename": "Repetitive Things",
+      "path": "20_Progress/Degree/Repetitive Things.md"
+    },
+    {
+      "basename": "Repetitive Things.sync-conflict-20260925-161510-2D4OE4D",
+      "path": "20_Progress/Degree/Repetitive Things.sync-conflict-20260925-161510-2D4OE4D.md"
+    },
+    {
       "basename": "Chapter - 10",
       "path": "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md"
+    },
+    {
+      "basename": "Chapter - 4",
+      "path": "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4.md"
     },
     {
       "basename": "Chapter - 3",
@@ -23,10 +35,6 @@
     {
       "basename": "Chapter - 1",
       "path": "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md"
-    },
-    {
-      "basename": "Repetitive Things",
-      "path": "20_Progress/Degree/Repetitive Things.md"
     },
     {
       "basename": "Hit or Miss - Miss",
@@ -191,14 +199,6 @@
     {
       "basename": "Concept Template",
       "path": "30_Order/Templates/Classes/Concept Template.md"
-    },
-    {
-      "basename": "Exam Sheet Template",
-      "path": "30_Order/Templates/Classes/Exam Sheet Template.md"
-    },
-    {
-      "basename": "Lab Template",
-      "path": "30_Order/Templates/Classes/Lab Template.md"
     }
   ],
   "omittedPaths": [

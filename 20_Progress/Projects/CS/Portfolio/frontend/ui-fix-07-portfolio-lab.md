@@ -10,10 +10,10 @@ tags:
   - chat
 notes:
   - "[[_UI Fixes]]"
-  - "[[frontend-ui-fixes-requirements]]"
-  - "[[frontend-ui-fixes-design]]"
-  - "[[frontend-ui-fixes-tasks]]"
-  - "[[frontend-ui-fixes-index]]"
+  - "[[ui-fixes-requirements]]"
+  - "[[ui-fixes-design]]"
+  - "[[ui-fixes-tasks]]"
+  - "[[ui-fixes-index]]"
 ---
 
 # UI Fix 07 — Portfolio Lab (Chat Input & Mobile Layout)

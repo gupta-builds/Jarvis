@@ -7,7 +7,7 @@ title: "Codebase migration to new laptop"
 started_at: 2026-09-26T20:07:32
 ended_at: 2026-09-26T20:51:18
 duration_minutes: 44
-exported_at: 2026-09-27T14:45:02
+exported_at: 2026-09-27T16:45:03
 project: internship-research-loop
 cwd: '/home/anant_gupta/projects/work/internship-research-loop'
 session_id: 5fda8f63-6988-454b-9ea5-6c6cb5a0c3aa

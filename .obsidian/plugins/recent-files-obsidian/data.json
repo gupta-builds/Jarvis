@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "_UI Fixes",
+      "path": "20_Progress/Projects/CS/Portfolio/frontend/_UI Fixes.md"
+    },
+    {
+      "basename": "ui-fix-01-hero-background",
+      "path": "20_Progress/Projects/CS/Portfolio/frontend/ui-fix-01-hero-background.md"
+    },
+    {
+      "basename": "Prompt",
+      "path": "20_Progress/Projects/CS/Portfolio/frontend/Prompt.md"
+    },
+    {
       "basename": "10 Deployment, Preview, and Operational Runbook",
       "path": "60_Claude/40_Project_Briefs/Portfolio/10 Deployment, Preview, and Operational Runbook.md"
     },
@@ -109,14 +121,6 @@
       "path": "20_Progress/Internship/Career Fair/Transcript - Comp Sci.md"
     },
     {
-      "basename": "_UI Fixes",
-      "path": "20_Progress/Projects/CS/Portfolio/frontend/_UI Fixes.md"
-    },
-    {
-      "basename": "Prompt",
-      "path": "20_Progress/Projects/CS/Portfolio/frontend/Prompt.md"
-    },
-    {
       "basename": "Transcript - OPT",
       "path": "20_Progress/Internship/Career Fair/Transcript - OPT.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "Cross-Laptop Sync - Rollback Procedure",
       "path": "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Rollback Procedure.md"
-    },
-    {
-      "basename": "Cross-Laptop Sync - Build 5 Findings",
-      "path": "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build 5 Findings.md"
     }
   ],
   "omittedPaths": [],

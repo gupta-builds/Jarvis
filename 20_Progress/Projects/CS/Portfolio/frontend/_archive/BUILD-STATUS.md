@@ -11,11 +11,11 @@ tags:
 notes:
   - "[[00 - Frontend Overhaul — Build Plan]]"
   - "[[10 - Codebase Reality & Confusion Clearance]]"
-  - "[[claude-code-setup/03 - Per-Phase Build Prompts]]"
+  - "[[03 - Per-Phase Build Prompts]]"
 ---
 # Frontend Build Status — What's Left, What's Broken, What Was Missed
 
-> **CORRECTION 2026-06-13:** The TL;DR status table below ("❌ Not done") is **stale and wrong** — Anant ran every prompt and the build largely shipped (capability graph, R3F education blobs, R3F projects carousel, achievements rail, centered headers, project summaries all render). Do **not** trust the status table. The real, current work is the `## UI Fixes` list (items 1–14) in this file, now formalised as the **R-phase refinement prompts** in [[claude-code-setup/03 - Per-Phase Build Prompts]] and the per-section notes (03–08, 14). Treat `## UI Fixes` as the live backlog; treat the phase tables below as historical.
+> **CORRECTION 2026-06-13:** The TL;DR status table below ("❌ Not done") is **stale and wrong** — Anant ran every prompt and the build largely shipped (capability graph, R3F education blobs, R3F projects carousel, achievements rail, centered headers, project summaries all render). Do **not** trust the status table. The real, current work is the `## UI Fixes` list (items 1–14) in this file, now formalised as the **R-phase refinement prompts** in [[03 - Per-Phase Build Prompts]] and the per-section notes (03–08, 14). Treat `## UI Fixes` as the live backlog; treat the phase tables below as historical.
 
 > Written 2026-06-12. Ground truth is [[10 - Codebase Reality & Confusion Clearance]] + the graphify codebase map (`../INDEX`, `../components`, `../data`).
 
@@ -422,7 +422,7 @@ Items not mentioned anywhere in the build plan notes but significant for impleme
 
 ## Sequencing Rules
 
-Per [[claude-code-setup/03 - Per-Phase Build Prompts]]:
+Per [[03 - Per-Phase Build Prompts]]:
 
 - **Phase 0 and Phase 1 are prerequisites.** Nothing in Phase 4 should start without both done.
 - **Phases 2 and 3** are independent — can run in parallel with Phase 0 and each other.
@@ -430,4 +430,4 @@ Per [[claude-code-setup/03 - Per-Phase Build Prompts]]:
 - **Phase 5** needs final section heights → runs after all Phase 4 sections complete.
 - **Phase 6** needs the finished page → runs absolutely last.
 
-Each phase should run in its own `/clear` session using the prompt from [[claude-code-setup/03 - Per-Phase Build Prompts]]. Every session ends with `pnpm typecheck` passing before the session closes.
+Each phase should run in its own `/clear` session using the prompt from [[03 - Per-Phase Build Prompts]]. Every session ends with `pnpm typecheck` passing before the session closes.

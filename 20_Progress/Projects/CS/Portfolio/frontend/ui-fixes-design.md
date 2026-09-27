@@ -9,15 +9,15 @@ tags:
   - ui-fixes
   - design
 notes:
-  - "[[frontend-ui-fixes-requirements]]"
-  - "[[frontend-ui-fixes-tasks]]"
+  - "[[ui-fixes-requirements]]"
+  - "[[ui-fixes-tasks]]"
   - "[[_UI Fixes]]"
 ---
 
 # Frontend UI Fixes — Design
 
-> **Updated:** 2026-09-05. Architecture companion to [[frontend-ui-fixes-requirements]].
-> Implementation steps: [[frontend-ui-fixes-tasks]].
+> **Updated:** 2026-09-05. Architecture companion to [[ui-fixes-requirements]].
+> Implementation steps: [[ui-fixes-tasks]].
 > Stack: Next.js 16 App Router, Tailwind v4 CSS-first, shadcn/Radix, Framer Motion, **GSAP + ScrollTrigger**, R3F + drei, Sanity, Biome, pnpm.
 
 ## Design Principles (Sep 2026)
@@ -334,4 +334,4 @@ Each design section maps to a detailed build note:
 | Fix 8 Logo/footer | [[ui-fix-06-logo-footer]] |
 | GSAP architecture | [[ui-fix-02-about-section]], [[ui-fix-04-projects-section]], [[ui-fix-05-education-section]] |
 
-Index: [[frontend-ui-fixes-index]]
+Index: [[ui-fixes-index]]

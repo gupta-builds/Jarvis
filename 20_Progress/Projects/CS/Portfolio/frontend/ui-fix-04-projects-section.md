@@ -10,17 +10,17 @@ tags:
   - gsap
 notes:
   - "[[_UI Fixes]]"
-  - "[[frontend-ui-fixes-requirements]]"
-  - "[[frontend-ui-fixes-design]]"
-  - "[[frontend-ui-fixes-tasks]]"
-  - "[[frontend-ui-fixes-index]]"
+  - "[[ui-fixes-requirements]]"
+  - "[[ui-fixes-design]]"
+  - "[[ui-fixes-tasks]]"
+  - "[[ui-fixes-index]]"
 ---
 
 # UI Fix 04 — Projects Section (Pinned Cinematic Lock)
 
 > **Status:** open (carousel exists and is more capable than previously documented; no pin/emerge/edge effect)
 > **Ledger:** [[_UI Fixes]] §3 | **Tasks:** 4.1, 4.2
-> **2026-09-05 correction pass:** re-verified line-by-line against `ProjectsSlider.tsx` (491 lines) and `PortfolioContent.tsx` on `post-frontend`. Several claims below were wrong or incomplete — corrected. Same correction applied to [[frontend-ui-fixes-design]] Fix 6 and [[frontend-ui-fixes-tasks]] Phase 4.
+> **2026-09-05 correction pass:** re-verified line-by-line against `ProjectsSlider.tsx` (491 lines) and `PortfolioContent.tsx` on `post-frontend`. Several claims below were wrong or incomplete — corrected. Same correction applied to [[ui-fixes-design]] Fix 6 and [[ui-fixes-tasks]] Phase 4.
 
 ## Purpose
 
@@ -32,7 +32,7 @@ Projects becomes a **pinned cinematic beat**: cards **emerge from translucent sp
 |---|---|
 | `src/components/three/ProjectsSlider.tsx` (491 lines) | Full carousel: prev/next buttons, dot pagination, keyboard arrows, GSAP `Draggable`+`InertiaPlugin` swipe gesture, auto-play, ambient float on all three visible cards, `CometCard` tilt on the center card, chat-nav slug jump. |
 | Section wrapper | `<section id="projects">` (kicker + `SplitHeading` + description) lives directly in `PortfolioContent.tsx` — **there is no separate `ProjectsSection.tsx` file.** `ProjectsSlider.tsx` renders its own nested `<section aria-label="Projects carousel">` inside that. Pin the outer `#projects` section. |
-| Auto-play (~line 277–284) | `setInterval` every `AUTO_PLAY_INTERVAL_MS` (5000ms) advances `(prev + 1) % safeProjects.length`. **This cycles through every project, not just indices 0–2** — the "auto-play first 3 only" claim in the old note and in [[frontend-ui-fixes-requirements]] does not match the code. Pauses on any interaction via `pauseAutoPlay()` for `AUTO_PLAY_RESUME_DELAY_MS` (10000ms). |
+| Auto-play (~line 277–284) | `setInterval` every `AUTO_PLAY_INTERVAL_MS` (5000ms) advances `(prev + 1) % safeProjects.length`. **This cycles through every project, not just indices 0–2** — the "auto-play first 3 only" claim in the old note and in [[ui-fixes-requirements]] does not match the code. Pauses on any interaction via `pauseAutoPlay()` for `AUTO_PLAY_RESUME_DELAY_MS` (10000ms). |
 | Slide transition (`slideVariants`, ~line 170) | Drives **every** index change — manual, drag, keyboard, and auto-play alike — via `AnimatePresence`: real ±200px horizontal `x` translate + opacity + scale (spring, stiffness 300 / damping 30). There is currently no separate "emerge-only" path distinct from this. |
 | Side cards | Not just static/faded: `opacity-35 scale-[0.88] blur-[1px] pointer-events-none`, each individually wrapped in `useSpaceFloat({radius: 4, rotate: 0.3})` (`src/hooks/use-space-float.ts`) for ambient drift. **Drift already exists today** — the old note's "no side-card oscillation" gap claim is wrong. It's just not the specific "±8–12px, active only during auto-play, pauses on interaction" spec — it's always-on regardless of auto-play state. |
 | Center card | `useSpaceFloat({radius: 2, rotate: 0.1})` + `CometCard rotateDepth={3} translateDepth={5}`. |
@@ -103,7 +103,7 @@ The existing `slideVariants` opacity/scale shape (0→1 opacity, 0.92→1 scale)
 
 ##### 5. Auto-play scope — RESOLVED 2026-09-05: keep current behavior
 
-User confirmed: **keep cycling through all projects** (the live behavior). The "0–2 only" language in [[frontend-ui-fixes-requirements]] Fix Area 6 is stale — do not implement a cap. No code change is needed for the auto-play index range itself; this section is closed.
+User confirmed: **keep cycling through all projects** (the live behavior). The "0–2 only" language in [[ui-fixes-requirements]] Fix Area 6 is stale — do not implement a cap. No code change is needed for the auto-play index range itself; this section is closed.
 
 ### 6. Document × card effects (brainstorm — pick 1–2, unchanged from before, still just a brainstorm)
 

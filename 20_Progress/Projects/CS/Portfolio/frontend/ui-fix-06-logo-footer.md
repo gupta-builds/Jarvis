@@ -11,17 +11,17 @@ tags:
   - branding
 notes:
   - "[[_UI Fixes]]"
-  - "[[frontend-ui-fixes-requirements]]"
-  - "[[frontend-ui-fixes-design]]"
-  - "[[frontend-ui-fixes-tasks]]"
-  - "[[frontend-ui-fixes-index]]"
+  - "[[ui-fixes-requirements]]"
+  - "[[ui-fixes-design]]"
+  - "[[ui-fixes-tasks]]"
+  - "[[ui-fixes-index]]"
 ---
 
 # UI Fix 06 — Logo & Footer
 
 > **Status:** open (footer sizing is a real, small gap; the "glow when Lab open" premise did not survive a repo check — see below)
 > **Ledger:** [[_UI Fixes]] §5 | **Tasks:** 6.1, 6.2
-> **2026-09-05 correction pass:** re-verified line-by-line against the live repo on `post-frontend`. Most of this note (the glyph asset, the fallback, the favicon sync) was already accurate. One load-bearing claim was not: there is no in-page component whose glow differs when the Lab sidebar is open vs closed, because the liquid-metal "A" (`HeaderLogo`) is **only rendered in `Footer.tsx`** — not in the header, not in the Lab panel. Same correction applied to [[frontend-ui-fixes-design]] Fix 8 and [[frontend-ui-fixes-tasks]] Tasks 6.1–6.2.
+> **2026-09-05 correction pass:** re-verified line-by-line against the live repo on `post-frontend`. Most of this note (the glyph asset, the fallback, the favicon sync) was already accurate. One load-bearing claim was not: there is no in-page component whose glow differs when the Lab sidebar is open vs closed, because the liquid-metal "A" (`HeaderLogo`) is **only rendered in `Footer.tsx`** — not in the header, not in the Lab panel. Same correction applied to [[ui-fixes-design]] Fix 8 and [[ui-fixes-tasks]] Tasks 6.1–6.2.
 
 ## Purpose
 

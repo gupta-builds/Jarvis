@@ -77,7 +77,7 @@ graphify affected "POST()" --depth 2
 > Generated during `pnpm knowledge:sync`. Edit the surrounding note, not this block.
 
 - Graph commit: `5f29675591f06f839442539f223ac151f78d9035`
-- Whole graph: **1181 nodes / 2139 edges**
+- Whole graph: **1147 nodes / 2163 edges**
 - This subsystem: **71 files / 202 nodes / 362 touching edges**
 - Leading communities: `vitest` (31), `biome.json` (26), `compilerOptions` (20), `orby-chat-nav.test.ts` (13), `HeaderLogoCanvas.useFrame.property.test.tsx` (12), `chat/__tests__/route.test.ts` (11)
 

@@ -72,9 +72,9 @@ rg -n "cosmic-card|float-btn|section-kicker|section-backdrop|orbit-chip" src/app
 > Generated during `pnpm knowledge:sync`. Edit the surrounding note, not this block.
 
 - Graph commit: `5f29675591f06f839442539f223ac151f78d9035`
-- Whole graph: **1181 nodes / 2139 edges**
+- Whole graph: **1147 nodes / 2163 edges**
 - This subsystem: **14 files / 52 nodes / 199 touching edges**
-- Leading communities: `cn` (16), `HeaderScrolling.tsx` (15), `comet-card.tsx` (7), `lucide-react` (3), `PortfolioContent.tsx` (3), `utils.ts` (3)
+- Leading communities: `cn` (17), `HeaderScrolling.tsx` (15), `comet-card.tsx` (7), `HeroContent.tsx` (3), `PortfolioContent.tsx` (3), `utils.ts` (3)
 
 ### High-connectivity symbols
 

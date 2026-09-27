@@ -83,9 +83,9 @@ graphify path "SKILLS_QUERY" "SkillsCapabilityGraph()"
 > Generated during `pnpm knowledge:sync`. Edit the surrounding note, not this block.
 
 - Graph commit: `5f29675591f06f839442539f223ac151f78d9035`
-- Whole graph: **1181 nodes / 2139 edges**
-- This subsystem: **21 files / 116 nodes / 376 touching edges**
-- Leading communities: `PortfolioContent.tsx` (41), `EducationFlowchart.tsx` (21), `SkillsCapabilityGraph.tsx` (18), `SkillsSectionClient.tsx` (15), `AboutTelemetry.tsx` (11), `lucide-react` (9)
+- Whole graph: **1147 nodes / 2163 edges**
+- This subsystem: **21 files / 116 nodes / 380 touching edges**
+- Leading communities: `EducationFlowchart.tsx` (21), `SkillsCapabilityGraph.tsx` (17), `PortfolioContent.tsx` (15), `AboutTelemetry.tsx` (12), `SkillsSectionClient.tsx` (10), `BlogSection.tsx` (9)
 
 ### High-connectivity symbols
 

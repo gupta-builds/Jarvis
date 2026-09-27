@@ -113,7 +113,7 @@
     "30_Order/Standards/Courses/Weekly Board Standard.md": "external",
     "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md": "external",
     "20_Progress/Degree/CSCI 5304/Textbook/Textbook Map.md": "external",
-    "20_Progress/Degree/Repetitive Things.md": "obsidian",
+    "20_Progress/Degree/Repetitive Things.md": "external",
     "30_Order/Templates/Classes/Discussion Template.md": "external",
     "30_Order/Standards/Courses/Textbook Map Standard.md": "external",
     "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build Roadmap.md": "external",
@@ -401,7 +401,7 @@
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": 1790451185419,
     "60_Claude/05_Clippings/AI Conversations/00 - Capture Health.md": 1789954382957,
     "30_Order/System/claude-workflow/logs/capture-health-wsl.json": 1789953482257,
-    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 1790546580851,
+    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 1790547480832,
     "20_Progress/AI/Claude Code/The Plan/Sync-Log.md": 1789954487655,
     "20_Progress/AI/Claude Code/Trading View/Sync-Log.md": 1789956184041,
     "20_Progress/AI/Claude Code/internship-research-loop/Sync-Log.md": 1789956184041,
@@ -486,7 +486,7 @@
     "30_Order/Standards/Courses/Weekly Board Standard.md": 1790452085428,
     "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md": 1790497085393,
     "20_Progress/Degree/CSCI 5304/Textbook/Textbook Map.md": 1790495284979,
-    "20_Progress/Degree/Repetitive Things.md": 1790546574487,
+    "20_Progress/Degree/Repetitive Things.md": 1790547621954,
     "30_Order/Templates/Classes/Discussion Template.md": 1790497085443,
     "30_Order/Standards/Courses/Textbook Map Standard.md": 1790451185395,
     "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build Roadmap.md": 1790495285033,
@@ -775,7 +775,7 @@
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": 26552,
     "60_Claude/05_Clippings/AI Conversations/00 - Capture Health.md": 1831,
     "30_Order/System/claude-workflow/logs/capture-health-wsl.json": 1888,
-    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 435082,
+    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 436252,
     "20_Progress/AI/Claude Code/The Plan/Sync-Log.md": 27016,
     "20_Progress/AI/Claude Code/Trading View/Sync-Log.md": 32322,
     "20_Progress/AI/Claude Code/internship-research-loop/Sync-Log.md": 38852,
@@ -860,7 +860,7 @@
     "30_Order/Standards/Courses/Weekly Board Standard.md": 2771,
     "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md": 1324,
     "20_Progress/Degree/CSCI 5304/Textbook/Textbook Map.md": 2391,
-    "20_Progress/Degree/Repetitive Things.md": 21434,
+    "20_Progress/Degree/Repetitive Things.md": 35577,
     "30_Order/Templates/Classes/Discussion Template.md": 478,
     "30_Order/Standards/Courses/Textbook Map Standard.md": 2991,
     "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build Roadmap.md": 20942,
@@ -1132,7 +1132,8 @@
   },
   "_sizeDeltas": {
     "20_Progress/AI/Claude Code/second-brain-claudekit/Sync-Log.md": "down",
-    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md": "up"
+    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md": "up",
+    "20_Progress/Degree/Repetitive Things.md": "up"
   },
   "_pinned": []
 }

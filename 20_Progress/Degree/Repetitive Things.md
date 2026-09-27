@@ -52,6 +52,131 @@ Return the entire note as a single fenced Markdown code block (```markdown ... `
 Before answering, silently verify: every numbered subsection in the scope has its own ### heading; every bolded term is actually defined; the highlight count per ## section is exactly one; the code block is the entire response.
 ```
 
+## CSCI 4521 — Textbook reading prompts (the real deliverable, rebuilt 2026-09-27)
+**Correction to the section below this one:** the 13 lecture-based prompts under "CSCI 4521 — Lecture prompts" (kept further down, still real and still useful for lecture-note continuity) are NOT what this course actually needs weekly — this course's real workload is the ISL/DLB/ENLP **textbook reading** assigned per week, per the professor's own [Course Schedule Sheet](https://docs.google.com/spreadsheets/d/1ykQFKSr-Afr5yO9nzXc8Xy9lBETWd8qw5iHGGMoErrk/edit?gid=0#gid=0). This section is the real one to run.
+
+**Two textbooks, two folders, notes filed by chapter — not by week.** ISL and DLB have their own independent chapter numbering, and a single chapter (e.g. ISL Ch2) gets assigned across multiple weeks in pieces, so notes accumulate at `Textbook/ISL/Chapter - [N].md` and `Textbook/DLB/Chapter - [N].md`, reconciled by chapter. Full reconciliation logic: [[20_Progress/Degree/CSCI 4521/Textbook/Textbook Map|Textbook Map]].
+
+> [!DANGER] Load-bearing discovery, 2026-09-27: the local "Secondary Textbook.pdf" is NOT the Deep Learning Book
+> Opened and searched directly with `pdftotext` this session: zero matches for "Capacity, Overfitting" or "Goodfellow" (both unmissable in real DLB), 125 matches for "word embedding," 38 for "Pilehvar." The file is actually ***Embeddings in Natural Language Processing*** (Pilehvar & Camacho-Collados) — this course's real **ENLP** reading, wrongly filed and wrongly assumed to be DLB by an earlier pass. **The real Deep Learning Book has no local copy anywhere in this course's folder.** Every DLB prompt below is marked BLOCKED — source the real file (free at deeplearningbook.org, or Canvas) before running them. Do not upload `Secondary Textbook.pdf` to a DLB prompt; it will produce ENLP content mislabeled as DLB, which is exactly the mistake this correction exists to prevent.
+
+**Scope: Weeks 1-3 only** (Sep 7, 14, 21) — everything actually covered as of today, 2026-09-27. Week 4 (Sep 28) hasn't happened yet.
+
+**Real per-week reading, from the professor's spreadsheet, cross-checked against the actual ISL PDF's table of contents 2026-09-27:**
+| Week | ISL | DLB |
+|---|---|---|
+| 1 (Sep 7) | 2.1, 2.3 | 2.1-2.8, 3.1-3.3, 5.1 |
+| 2 (Sep 14) | 2.1 (repeat), 2.2 | 5.1 (repeat), 5.2 |
+| 3 (Sep 21) | 2.2 (same section, more class time — no new reading) | *(none)* |
+
+ISL's real chapter 2 table of contents (confirmed by opening the PDF directly): **2.1** "What Is Statistical Learning?" (p.15) — 2.1.1 Why Estimate f?, 2.1.2 How Do We Estimate f?, 2.1.3 The Trade-Off Between Prediction Accuracy and Model Interpretability, 2.1.4 Supervised Versus Unsupervised Learning, 2.1.5 Regression Versus Classification Problems. **2.2** "Assessing Model Accuracy" (p.27) — 2.2.1 Measuring the Quality of Fit, 2.2.2 The Bias-Variance Trade-Off, 2.2.3 The Classification Setting. **2.3** "Lab: Introduction to Python" (p.40) — a hands-on coding lab, not conceptual content. Since Week 3 assigns no new ISL section (just more time on 2.2, already fully covered by Week 2's own prompt), **Week 3 gets no new prompt below** — padding one out would be busywork on content already captured.
+
+### Week 1, Prompt 1 of 3 — DLB Chapter 2, Linear Algebra (§2.1-2.8) — BLOCKED pending real file
+```
+<role>You are an expert ML teaching assistant for UMN CSCI 4521, teaching from the Deep Learning Book (Goodfellow, Bengio, Courville). Teach a genuine beginner: define every term on first use, explain the mechanism behind every claim.</role>
+<sources>PRIMARY: the real Deep Learning Book PDF, Chapter 2 "Linear Algebra." BLOCKED — this file does not exist locally as of 2026-09-27. Download the real, free PDF from deeplearningbook.org (or a Canvas-posted copy) before running this prompt. Do NOT upload the file currently named "Secondary Textbook.pdf" in this course's folder — it was verified this session to actually be a different book (Embeddings in Natural Language Processing).</sources>
+<process>Read the uploaded chapter fully once it is the real file. The section titles in scope below are recalled from the book's own well-known, permanently published structure — NOT verified against a local copy this session, since none exists yet. Confirm them against what you actually upload, and correct anything that differs rather than trusting this list blindly.</process>
+<scope>Sections 2.1-2.8 only: Scalars/Vectors/Matrices/Tensors, Multiplying Matrices and Vectors, Identity and Inverse Matrices, Linear Dependence and Span, Norms, Special Kinds of Matrices and Vectors, Eigendecomposition, Singular Value Decomposition. Do NOT cover 2.9-2.12 (Pseudoinverse, Trace, Determinant, the PCA example) — not assigned this week.</scope>
+<output_structure>
+# DLB Chapter 2 — Linear Algebra (§2.1-2.8)
+## Chapter Summary
+## Key Concepts
+## Full Reading Notes (### per real numbered section 2.1 through 2.8)
+## Worked Example (the book's own worked example for eigendecomposition or SVD, whichever it uses)
+## Connections (to ISL Ch2's own use of vectors/matrices, and to this course's real PCA/SVD lecture preview already captured elsewhere in this vault)
+## Open Questions
+## Flashcards (8-10)
+</output_structure>
+<formatting_rules>One blank line between blocks. Exactly one ==highlight== per ## section. **Bold** terms on first use only. No filler language. Cite real page numbers.</formatting_rules>
+<output_contract>Return the entire note as a single fenced markdown code block. Nothing outside it.</output_contract>
+```
+
+### Week 1, Prompt 2 of 3 — DLB Chapter 3 (§3.1-3.3) + Chapter 5 §5.1 — BLOCKED pending real file
+```
+<role>Same role as Prompt 1.</role>
+<sources>PRIMARY: the real DLB PDF, Chapter 3 "Probability and Information Theory" AND Chapter 5 "Machine Learning Basics," §5.1 only. Same BLOCKED status as Prompt 1 — source the real file first.</sources>
+<process>Same as Prompt 1: read fully, treat the section titles below as an unverified starting pointer, confirm against the real upload.</process>
+<scope>Chapter 3: 3.1 Why Probability?, 3.2 Random Variables, 3.3 Probability Distributions only (not 3.4 onward). Chapter 5, §5.1 "Learning Algorithms" only (not 5.2, which is a separate Week 2 prompt) — this section defines what a learning algorithm/task/performance measure/experience is, likely using a linear regression task as its running example.</scope>
+<output_structure>
+# DLB Chapter 3 — Probability and Information Theory (§3.1-3.3)
+## Chapter Summary
+## Key Concepts
+## Full Reading Notes (### 3.1, 3.2, 3.3)
+## Worked Example
+## Connections (to ISL's own probability-adjacent content, e.g. the Bayes classifier in ISL §2.2.3)
+## Open Questions
+## Flashcards (6-8)
+
+# DLB Chapter 5 — Machine Learning Basics (§5.1 only — §5.2 arrives next week)
+## Full Reading Notes (### 5.1, using the book's own real definition of task/performance-measure/experience and its running example)
+## Connections (to ISL Ch2's own supervised/unsupervised framing, covered the same week)
+## Open Questions
+## Flashcards (4-6)
+</output_structure>
+<formatting_rules>Identical to Prompt 1.</formatting_rules>
+<output_contract>Single fenced markdown code block — this one produces content for TWO separate note files (DLB/Chapter - 3.md and the start of DLB/Chapter - 5.md); split it into two files when saving, matching the two top-level # headings above.</output_contract>
+```
+
+### Week 1, Prompt 3 of 3 — ISL Chapter 2, Part 1 of 2 (§2.1 + §2.3)
+```
+<role>You are an expert statistics/ML teaching assistant for UMN CSCI 4521, teaching from An Introduction to Statistical Learning (James, Witten, Hastie, Tibshirani, Taylor). Teach a genuine beginner: define every term on first use.</role>
+<sources>PRIMARY: Textbook & Resources/Primary Textbook CSCI 4521.pdf — upload the file, or just pages 15-63 ("2 Statistical Learning") if your upload tool allows page ranges.</sources>
+<process>Read the uploaded pages fully before writing. This section's real running example is the Income/Education/Seniority wage-prediction data (Figures 2.1-2.7, including the real thin-plate-spline overfitting illustration in Figure 2.6) and the real clustering illustration in Figure 2.8 — reproduce these faithfully, don't substitute a generic example.</process>
+<scope>§2.1 "What Is Statistical Learning?" in full: 2.1.1 Why Estimate f?, 2.1.2 How Do We Estimate f? (parametric vs. non-parametric methods), 2.1.3 The Trade-Off Between Prediction Accuracy and Model Interpretability (the real Figure 2.7 method list: least squares, lasso, GAMs, trees, bagging/boosting, SVMs, deep learning, ranked by flexibility vs. interpretability), 2.1.4 Supervised Versus Unsupervised Learning (incl. semi-supervised learning), 2.1.5 Regression Versus Classification Problems. Also §2.3 "Lab: Introduction to Python" — a hands-on coding lab (Getting Started, Basic Commands, Intro to Numerical Python, Graphics, Sequences/Slicing, Indexing Data, Loading Data, For Loops, Additional Summaries) — summarize what skill each part teaches and its real function names, don't write it as conceptual prose. Do NOT cover §2.2 (Assessing Model Accuracy) — that is next week's prompt.</scope>
+<output_structure>
+# ISL Chapter 2 — Statistical Learning (Part 1 of 2: §2.1, §2.3)
+## Chapter Summary
+## Key Concepts
+## Full Reading Notes (### 2.1.1 through 2.1.5, then ### 2.3 with its own real subsections)
+## Worked Example (the real Income/Education/Seniority parametric-vs-non-parametric example, and the Figure 2.6 overfitting illustration)
+## Connections (to DLB Ch5 §5.1's own definition of a learning task, assigned the same week)
+## Open Questions
+## Flashcards (8-10)
+</output_structure>
+<formatting_rules>One blank line between blocks. Exactly one ==highlight== per ## section. **Bold** terms on first use. No filler language. Cite real page numbers for every claim.</formatting_rules>
+<output_contract>Single fenced markdown code block. This is Part 1 of the ISL Chapter 2 note — Part 2 (§2.2) runs next week and appends to the same note.</output_contract>
+```
+
+### Week 2, Prompt 1 of 2 — ISL Chapter 2, Part 2 of 2 (§2.2)
+```
+<role>Same role as Week 1's ISL prompt — same book, continuing the same note.</role>
+<sources>Same PDF as before — pages 27-40, §2.2 "Assessing Model Accuracy."</sources>
+<process>Read fully. This section's real running examples are Figures 2.9-2.12 — three synthetic datasets with different true functions f, each showing training-MSE-vs-test-MSE curves across flexibility levels — and the formal Bayes classifier definition that closes 2.2.3. Reproduce the real mean-squared-error formula, the real bias-variance decomposition equation, and the real Bayes-classifier ">0.5" two-class rule exactly as the book states them, not paraphrased.</process>
+<scope>2.2.1 Measuring the Quality of Fit (the MSE formula, training MSE vs. test MSE, the stock-price and diabetes-risk examples the book uses to explain why test error is what actually matters), 2.2.2 The Bias-Variance Trade-Off (the formal decomposition, what variance and bias each mean mechanically, why more flexible methods raise variance and lower bias), 2.2.3 The Classification Setting (training/test error rate, the Bayes classifier, the Bayes error rate). This is one of the two or three most load-bearing sections in the entire course — bias-variance is tested repeatedly.</scope>
+<output_structure>
+## Full Reading Notes — §2.2 (### 2.2.1, 2.2.2, 2.2.3) — append after Part 1's content, do not repeat Part 1's headings
+## Worked Example (the real Figures 2.9-2.11 comparison: three different true functions f, and how the training-vs-test-MSE curves differ between them)
+## Connections (to DLB §5.2 "Capacity, Overfitting and Underfitting," assigned this same week, and to this course's own lecture material on bias-variance already captured elsewhere in this vault)
+## Open Questions
+## Flashcards (8-10)
+</output_structure>
+<formatting_rules>Identical to Part 1.</formatting_rules>
+<output_contract>Single fenced markdown code block, appended to the same ISL Chapter 2 note as Part 1.</output_contract>
+```
+
+### Week 2, Prompt 2 of 2 — DLB Chapter 5, §5.2 (Capacity, Overfitting and Underfitting) — BLOCKED pending real file
+```
+<role>Same role as Week 1's DLB prompts.</role>
+<sources>PRIMARY: the real DLB PDF, Chapter 5 "Machine Learning Basics," §5.2 only. Same BLOCKED status — source the real file first (see Week 1, Prompt 1).</sources>
+<process>Read fully once it's the real file. This section is DLB's own version of ISL §2.2's bias-variance material — expect real overlap in concepts (capacity, overfitting, underfitting, the training/test error framing), but the book's own vocabulary and running examples will differ from ISL's; note where they diverge rather than merging the two into one voice.</process>
+<scope>§5.2 "Capacity, Overfitting and Underfitting" in full — the book's own real treatment of model capacity, the training-error-vs-generalization-error framing, and its own worked example (recalled as likely a polynomial-regression capacity example, unverified locally — confirm against the real upload).</scope>
+<output_structure>
+## Full Reading Notes — §5.2 (append to the DLB Chapter 5 note started in Week 1)
+## Worked Example (the section's own real capacity/overfitting example)
+## Connections (to ISL §2.2's own bias-variance trade-off, covered the same week — note explicitly where the two books' framings agree or diverge)
+## Open Questions
+## Flashcards (6-8)
+</output_structure>
+<formatting_rules>Identical to Week 1's DLB prompts.</formatting_rules>
+<output_contract>Single fenced markdown code block, appended to the DLB Chapter 5 note.</output_contract>
+```
+
+### Open flags for the textbook-reading prompts above
+- **DLB is the real blocker.** Three of the five prompts above cannot produce trustworthy output until the real Deep Learning Book PDF is sourced (deeplearningbook.org is free and official) and saved into `Textbook & Resources/`. Do this before Week 4 (2026-09-29), since DLB readings continue almost every week for the rest of the semester.
+- **ENLP is already available, just mislabeled.** Rename `Secondary Textbook.pdf` (or add a prominent note) so it isn't mistaken for DLB again — it's needed for real starting Week 4.
+- **All four chapter notes this produces:** `Textbook/ISL/Chapter - 2.md` (built across two prompts), `Textbook/DLB/Chapter - 2.md`, `Textbook/DLB/Chapter - 3.md`, `Textbook/DLB/Chapter - 5.md` (built across two prompts, will grow again in Week 4). Zero of these exist yet as of 2026-09-27 — running the prompts is the next real action.
+- **Week 3 produced no prompt on purpose** — its only assigned reading (ISL §2.2) is fully covered by Week 2's own prompt. Don't manufacture a Week 3 prompt just to have one.
+
 ## CSCI 4521 — Lecture prompts, rebuilt 2026-09-27 for real depth
 Rebuilt from scratch after the 2026-09-24 version turned out to be missing real material and one real claim in it (Lecture 1.1 "has no source") was flat wrong. This pass: (1) re-read every real file in `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Lectures\` including files not opened last time, (2) verified every date against `Fall_26 Semester Calendar.xlsx` directly via Excel (not inferred), (3) rewrote every prompt using Anthropic's own published prompt-engineering method for Claude (fetched live from `platform.claude.com/docs/en/build-with-claude/prompt-engineering/` — the Sonnet-5 guide and the general best-practices guide) — role framing, XML-tag structuring, an explicit "read before writing" step, and literal, non-inferred scope statements, since Sonnet 5's own guidance says the model (and by extension, this technique transfers to Gemini) does not silently generalize an instruction unless the scope is stated outright.
 

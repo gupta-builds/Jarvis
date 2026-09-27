@@ -404,7 +404,7 @@
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": 1790451185419,
     "60_Claude/05_Clippings/AI Conversations/00 - Capture Health.md": 1789954382957,
     "30_Order/System/claude-workflow/logs/capture-health-wsl.json": 1789953482257,
-    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 1790540280820,
+    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 1790541180860,
     "20_Progress/AI/Claude Code/The Plan/Sync-Log.md": 1789954487655,
     "20_Progress/AI/Claude Code/Trading View/Sync-Log.md": 1789956184041,
     "20_Progress/AI/Claude Code/internship-research-loop/Sync-Log.md": 1789956184041,
@@ -741,7 +741,7 @@
     "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-26 Codebase migration to new laptop.md": 1790495120496,
     "60_Claude/40_Project_Briefs/In depth Usage.md": 1790454206254,
     "40_Resources/CS/Concepts/New Laptop/Codebases/internship-research-loop/internship-research-loop-new-laptop-directive.md": 1790455024340,
-    "40_Resources/CS/Concepts/New Laptop/Codebases/internship-research-loop/internship-research-loop-git-clone-and-bootstrap.md": 1790455041158,
+    "40_Resources/CS/Concepts/New Laptop/Codebases/internship-research-loop/internship-research-loop-git-clone-and-bootstrap.md": 1790541849376,
     "40_Resources/CS/Concepts/New Laptop/Codebases/internship-research-loop/internship-research-loop-jarvis-vault-and-secrets.md": 1790455060100,
     "10_Areas/AI/Antigravity.md": 1790456175625,
     "10_Areas/AI/Setup/Review System.md": 1790457487473,
@@ -760,7 +760,7 @@
     "30_Order/Standards/AI Loop/Orchestration.md": 1790457032088,
     "10_Areas/Excalidraw/Imagine 09-26.excalidraw.md": 1790465688698,
     "10_Areas/Excalidraw/Imagine 09-26_0.excalidraw.md": 1790465692403,
-    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md": 1790539502465
+    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md": 1790541587743
   },
   "_dismissedAt": {},
   "_editSizes": {
@@ -781,7 +781,7 @@
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": 26552,
     "60_Claude/05_Clippings/AI Conversations/00 - Capture Health.md": 1831,
     "30_Order/System/claude-workflow/logs/capture-health-wsl.json": 1888,
-    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 427704,
+    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 428872,
     "20_Progress/AI/Claude Code/The Plan/Sync-Log.md": 27016,
     "20_Progress/AI/Claude Code/Trading View/Sync-Log.md": 32322,
     "20_Progress/AI/Claude Code/internship-research-loop/Sync-Log.md": 38852,
@@ -1118,7 +1118,7 @@
     "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-26 Codebase migration to new laptop.md": 138702,
     "60_Claude/40_Project_Briefs/In depth Usage.md": 0,
     "40_Resources/CS/Concepts/New Laptop/Codebases/internship-research-loop/internship-research-loop-new-laptop-directive.md": 7390,
-    "40_Resources/CS/Concepts/New Laptop/Codebases/internship-research-loop/internship-research-loop-git-clone-and-bootstrap.md": 3708,
+    "40_Resources/CS/Concepts/New Laptop/Codebases/internship-research-loop/internship-research-loop-git-clone-and-bootstrap.md": 3650,
     "40_Resources/CS/Concepts/New Laptop/Codebases/internship-research-loop/internship-research-loop-jarvis-vault-and-secrets.md": 5649,
     "10_Areas/AI/Antigravity.md": 0,
     "10_Areas/AI/Setup/Review System.md": 10899,
@@ -1137,7 +1137,7 @@
     "30_Order/Standards/AI Loop/Orchestration.md": 0,
     "10_Areas/Excalidraw/Imagine 09-26.excalidraw.md": 588,
     "10_Areas/Excalidraw/Imagine 09-26_0.excalidraw.md": 588,
-    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md": 844
+    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md": 10491
   },
   "_sizeDeltas": {
     "20_Progress/AI/Claude Code/second-brain-claudekit/Sync-Log.md": "down"

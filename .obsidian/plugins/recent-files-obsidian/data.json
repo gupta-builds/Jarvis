@@ -5,6 +5,10 @@
       "path": "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3.md"
     },
     {
+      "basename": "Chapter - 10",
+      "path": "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md"
+    },
+    {
       "basename": "Chapter - 8",
       "path": "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "Lab Template",
       "path": "30_Order/Templates/Classes/Lab Template.md"
-    },
-    {
-      "basename": "Project Template",
-      "path": "30_Order/Templates/Classes/Project Template.md"
     }
   ],
   "omittedPaths": [

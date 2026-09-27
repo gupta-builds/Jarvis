@@ -383,7 +383,8 @@
     "30_Order/Standards/AI Loop/Per Project Review.md": "obsidian",
     "30_Order/Standards/AI Loop/Orchestration.md": "obsidian",
     "10_Areas/Excalidraw/Imagine 09-26.excalidraw.md": "obsidian",
-    "10_Areas/Excalidraw/Imagine 09-26_0.excalidraw.md": "obsidian"
+    "10_Areas/Excalidraw/Imagine 09-26_0.excalidraw.md": "obsidian",
+    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md": "obsidian"
   },
   "_editTimes": {
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-19 Merge conflicts from sync changes.md": 1789941602422,
@@ -403,7 +404,7 @@
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": 1790451185419,
     "60_Claude/05_Clippings/AI Conversations/00 - Capture Health.md": 1789954382957,
     "30_Order/System/claude-workflow/logs/capture-health-wsl.json": 1789953482257,
-    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 1790539380820,
+    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 1790540280820,
     "20_Progress/AI/Claude Code/The Plan/Sync-Log.md": 1789954487655,
     "20_Progress/AI/Claude Code/Trading View/Sync-Log.md": 1789956184041,
     "20_Progress/AI/Claude Code/internship-research-loop/Sync-Log.md": 1789956184041,
@@ -732,7 +733,7 @@
     "copilot/skills/openartifacts-publish/SKILL.md": 1790453886176,
     "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md": 1790448643843,
     "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8.md": 1790452425599,
-    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3.md": 1790452549556,
+    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3.md": 1790540140968,
     "40_Resources/CS/Concepts/New Laptop/VS Code - Install Loop.md": 1790457487105,
     "40_Resources/CS/Concepts/New Laptop/VS Code - MCP and Secrets.md": 1790454785015,
     "40_Resources/CS/Concepts/New Laptop/VS Code - Terminal Environments.md": 1790457487109,
@@ -758,7 +759,8 @@
     "30_Order/Standards/AI Loop/Per Project Review.md": 1790457018564,
     "30_Order/Standards/AI Loop/Orchestration.md": 1790457032088,
     "10_Areas/Excalidraw/Imagine 09-26.excalidraw.md": 1790465688698,
-    "10_Areas/Excalidraw/Imagine 09-26_0.excalidraw.md": 1790465692403
+    "10_Areas/Excalidraw/Imagine 09-26_0.excalidraw.md": 1790465692403,
+    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md": 1790539502465
   },
   "_dismissedAt": {},
   "_editSizes": {
@@ -779,7 +781,7 @@
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": 26552,
     "60_Claude/05_Clippings/AI Conversations/00 - Capture Health.md": 1831,
     "30_Order/System/claude-workflow/logs/capture-health-wsl.json": 1888,
-    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 426623,
+    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 427704,
     "20_Progress/AI/Claude Code/The Plan/Sync-Log.md": 27016,
     "20_Progress/AI/Claude Code/Trading View/Sync-Log.md": 32322,
     "20_Progress/AI/Claude Code/internship-research-loop/Sync-Log.md": 38852,
@@ -1108,7 +1110,7 @@
     "copilot/skills/openartifacts-publish/SKILL.md": 7833,
     "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md": 27304,
     "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8.md": 29394,
-    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3.md": 9234,
+    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3.md": 31692,
     "40_Resources/CS/Concepts/New Laptop/VS Code - Install Loop.md": 8288,
     "40_Resources/CS/Concepts/New Laptop/VS Code - MCP and Secrets.md": 8002,
     "40_Resources/CS/Concepts/New Laptop/VS Code - Terminal Environments.md": 5933,
@@ -1134,7 +1136,8 @@
     "30_Order/Standards/AI Loop/Per Project Review.md": 0,
     "30_Order/Standards/AI Loop/Orchestration.md": 0,
     "10_Areas/Excalidraw/Imagine 09-26.excalidraw.md": 588,
-    "10_Areas/Excalidraw/Imagine 09-26_0.excalidraw.md": 588
+    "10_Areas/Excalidraw/Imagine 09-26_0.excalidraw.md": 588,
+    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md": 844
   },
   "_sizeDeltas": {
     "20_Progress/AI/Claude Code/second-brain-claudekit/Sync-Log.md": "down"

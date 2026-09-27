@@ -333,7 +333,6 @@
     "20_Progress/Degree/Course Production Board — Fall'26.sync-conflict-20260925-161512-VYYX3J5.md": "external",
     "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.sync-conflict-20260925-161510-2D4OE4D.md": "external",
     "10_Areas/Career/Internships/Tracker/Each One/Current/IT Product Development Intern (req 100109) - Tetra Pak.md": "external",
-    "20_Progress/Degree/Repetitive Things.sync-conflict-20260925-161510-2D4OE4D.md": "obsidian",
     "20_Progress/Degree/CSCI 4521/CSCI 4521 Board.sync-conflict-20260925-161510-2D4OE4D.md": "external",
     "60_Claude/30_Reviews/Weekly Synthesis/Logs/Log Review.md": "external",
     "10_Areas/Life/Enumerate/Weekly/2026-W39.md": "external",
@@ -707,7 +706,6 @@
     "20_Progress/Degree/Course Production Board — Fall'26.sync-conflict-20260925-161512-VYYX3J5.md": 1790452085396,
     "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.sync-conflict-20260925-161510-2D4OE4D.md": 1790452085391,
     "10_Areas/Career/Internships/Tracker/Each One/Current/IT Product Development Intern (req 100109) - Tetra Pak.md": 1790450285536,
-    "20_Progress/Degree/Repetitive Things.sync-conflict-20260925-161510-2D4OE4D.md": 1790546552078,
     "20_Progress/Degree/CSCI 4521/CSCI 4521 Board.sync-conflict-20260925-161510-2D4OE4D.md": 1790450285549,
     "60_Claude/30_Reviews/Weekly Synthesis/Logs/Log Review.md": 1790452085480,
     "10_Areas/Life/Enumerate/Weekly/2026-W39.md": 1790452085380,
@@ -1082,7 +1080,6 @@
     "20_Progress/Degree/Course Production Board — Fall'26.sync-conflict-20260925-161512-VYYX3J5.md": 33273,
     "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.sync-conflict-20260925-161510-2D4OE4D.md": 12028,
     "10_Areas/Career/Internships/Tracker/Each One/Current/IT Product Development Intern (req 100109) - Tetra Pak.md": 1328,
-    "20_Progress/Degree/Repetitive Things.sync-conflict-20260925-161510-2D4OE4D.md": 21434,
     "20_Progress/Degree/CSCI 4521/CSCI 4521 Board.sync-conflict-20260925-161510-2D4OE4D.md": 16246,
     "60_Claude/30_Reviews/Weekly Synthesis/Logs/Log Review.md": 14940,
     "10_Areas/Life/Enumerate/Weekly/2026-W39.md": 2047,
@@ -1135,8 +1132,7 @@
   },
   "_sizeDeltas": {
     "20_Progress/AI/Claude Code/second-brain-claudekit/Sync-Log.md": "down",
-    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md": "up",
-    "20_Progress/Degree/Repetitive Things.sync-conflict-20260925-161510-2D4OE4D.md": "down"
+    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md": "up"
   },
   "_pinned": []
 }

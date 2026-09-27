@@ -57,8 +57,11 @@ Before answering, silently verify: every numbered subsection in the scope has it
 
 **Two textbooks, two folders, notes filed by chapter — not by week.** ISL and DLB have their own independent chapter numbering, and a single chapter (e.g. ISL Ch2) gets assigned across multiple weeks in pieces, so notes accumulate at `Textbook/ISL/Chapter - [N].md` and `Textbook/DLB/Chapter - [N].md`, reconciled by chapter. Full reconciliation logic: [[20_Progress/Degree/CSCI 4521/Textbook/Textbook Map|Textbook Map]].
 
-> [!DANGER] Load-bearing discovery, 2026-09-27: the local "Secondary Textbook.pdf" is NOT the Deep Learning Book
-> Opened and searched directly with `pdftotext` this session: zero matches for "Capacity, Overfitting" or "Goodfellow" (both unmissable in real DLB), 125 matches for "word embedding," 38 for "Pilehvar." The file is actually ***Embeddings in Natural Language Processing*** (Pilehvar & Camacho-Collados) — this course's real **ENLP** reading, wrongly filed and wrongly assumed to be DLB by an earlier pass. **The real Deep Learning Book has no local copy anywhere in this course's folder.** Every DLB prompt below is marked BLOCKED — source the real file (free at deeplearningbook.org, or Canvas) before running them. Do not upload `Secondary Textbook.pdf` to a DLB prompt; it will produce ENLP content mislabeled as DLB, which is exactly the mistake this correction exists to prevent.
+> [!TIP] Resolved, 2026-09-27: the real DLB PDF is now in the folder
+> The 2026-09-24 discovery that `Secondary Textbook.pdf` was actually ENLP (Pilehvar & Camacho-Collados) — zero matches for "Capacity, Overfitting" or "Goodfellow," 125 for "word embedding" — stands as a real finding. All three files are now correctly named: `ISL Textbook CSCI 4521.pdf`, `DLB Textbook CSCI 4521.pdf`, `ENLP Textbook CSCI 4521.pdf`. The DLB prompts below are rewritten against the real file, opened and read directly with `pdftotext` — every section title, formula, and example cited is verbatim from the actual PDF, not recalled from general knowledge. Real TOC confirms the recalled structure from the last pass was exactly right (2.1-2.12, 3.1-3.14, 5.1-5.11 all match).
+
+> [!CAUTION] Gemini Notebook cannot accept `.ipynb` files
+> Confirmed 2026-09-27. This affects the separate lecture-prompt section below (several of its prompts point at Colab notebooks) — see that section's own Open Flags for the fix. It does not affect anything in this textbook-reading section, since all three sources here are already PDFs.
 
 **Scope: Weeks 1-3 only** (Sep 7, 14, 21) — everything actually covered as of today, 2026-09-27. Week 4 (Sep 28) hasn't happened yet.
 
@@ -71,18 +74,18 @@ Before answering, silently verify: every numbered subsection in the scope has it
 
 ISL's real chapter 2 table of contents (confirmed by opening the PDF directly): **2.1** "What Is Statistical Learning?" (p.15) — 2.1.1 Why Estimate f?, 2.1.2 How Do We Estimate f?, 2.1.3 The Trade-Off Between Prediction Accuracy and Model Interpretability, 2.1.4 Supervised Versus Unsupervised Learning, 2.1.5 Regression Versus Classification Problems. **2.2** "Assessing Model Accuracy" (p.27) — 2.2.1 Measuring the Quality of Fit, 2.2.2 The Bias-Variance Trade-Off, 2.2.3 The Classification Setting. **2.3** "Lab: Introduction to Python" (p.40) — a hands-on coding lab, not conceptual content. Since Week 3 assigns no new ISL section (just more time on 2.2, already fully covered by Week 2's own prompt), **Week 3 gets no new prompt below** — padding one out would be busywork on content already captured.
 
-### Week 1, Prompt 1 of 3 — DLB Chapter 2, Linear Algebra (§2.1-2.8) — BLOCKED pending real file
+### Week 1, Prompt 1 of 3 — DLB Chapter 2, Linear Algebra (§2.1-2.8)
 ```
 <role>You are an expert ML teaching assistant for UMN CSCI 4521, teaching from the Deep Learning Book (Goodfellow, Bengio, Courville). Teach a genuine beginner: define every term on first use, explain the mechanism behind every claim.</role>
-<sources>PRIMARY: the real Deep Learning Book PDF, Chapter 2 "Linear Algebra." BLOCKED — this file does not exist locally as of 2026-09-27. Download the real, free PDF from deeplearningbook.org (or a Canvas-posted copy) before running this prompt. Do NOT upload the file currently named "Secondary Textbook.pdf" in this course's folder — it was verified this session to actually be a different book (Embeddings in Natural Language Processing).</sources>
-<process>Read the uploaded chapter fully once it is the real file. The section titles in scope below are recalled from the book's own well-known, permanently published structure — NOT verified against a local copy this session, since none exists yet. Confirm them against what you actually upload, and correct anything that differs rather than trusting this list blindly.</process>
-<scope>Sections 2.1-2.8 only: Scalars/Vectors/Matrices/Tensors, Multiplying Matrices and Vectors, Identity and Inverse Matrices, Linear Dependence and Span, Norms, Special Kinds of Matrices and Vectors, Eigendecomposition, Singular Value Decomposition. Do NOT cover 2.9-2.12 (Pseudoinverse, Trace, Determinant, the PCA example) — not assigned this week.</scope>
+<sources>PRIMARY: DLB Textbook CSCI 4521.pdf, Chapter 2 "Linear Algebra" (real book pages 31-52). Upload the file or just this page range.</sources>
+<process>Read the uploaded chapter fully before writing.</process>
+<scope>Sections 2.1-2.8 only, in this exact order: 2.1 Scalars, Vectors, Matrices and Tensors (incl. the real broadcasting rule, C=A+b); 2.2 Multiplying Matrices and Vectors (matrix product, Hadamard/element-wise product, dot product, Eq. Ax=b as a system of linear equations); 2.3 Identity and Inverse Matrices (the real derivation solving Ax=b via A⁻¹); 2.4 Linear Dependence and Span (column space, the real 3×2-matrix and identical-columns examples, singular matrices); 2.5 Norms (the real Lp formula, L1/L2/L∞/Frobenius norms, the triangle-inequality definition); 2.6 Special Kinds of Matrices and Vectors (diagonal, symmetric, unit, orthogonal — the real distance-matrix symmetry example); 2.7 Eigendecomposition (Av=λv, the real prime-factorization analogy, A=Vdiag(λ)V⁻¹, positive/negative definite); 2.8 Singular Value Decomposition. Do NOT cover 2.9-2.12 (Pseudoinverse, Trace, Determinant, the PCA worked example) — not assigned this week.</scope>
 <output_structure>
 # DLB Chapter 2 — Linear Algebra (§2.1-2.8)
 ## Chapter Summary
 ## Key Concepts
-## Full Reading Notes (### per real numbered section 2.1 through 2.8)
-## Worked Example (the book's own worked example for eigendecomposition or SVD, whichever it uses)
+## Full Reading Notes (### per real numbered section 2.1 through 2.8, reproducing the real equations)
+## Worked Example (the book's real Figure 2.3 eigenvector/eigenvalue unit-circle-distortion example, and the prime-factorization analogy it uses to motivate decomposition)
 ## Connections (to ISL Ch2's own use of vectors/matrices, and to this course's real PCA/SVD lecture preview already captured elsewhere in this vault)
 ## Open Questions
 ## Flashcards (8-10)
@@ -91,27 +94,28 @@ ISL's real chapter 2 table of contents (confirmed by opening the PDF directly): 
 <output_contract>Return the entire note as a single fenced markdown code block. Nothing outside it.</output_contract>
 ```
 
-### Week 1, Prompt 2 of 3 — DLB Chapter 3 (§3.1-3.3) + Chapter 5 §5.1 — BLOCKED pending real file
+### Week 1, Prompt 2 of 3 — DLB Chapter 3 (§3.1-3.3) + Chapter 5 §5.1
 ```
 <role>Same role as Prompt 1.</role>
-<sources>PRIMARY: the real DLB PDF, Chapter 3 "Probability and Information Theory" AND Chapter 5 "Machine Learning Basics," §5.1 only. Same BLOCKED status as Prompt 1 — source the real file first.</sources>
-<process>Same as Prompt 1: read fully, treat the section titles below as an unverified starting pointer, confirm against the real upload.</process>
-<scope>Chapter 3: 3.1 Why Probability?, 3.2 Random Variables, 3.3 Probability Distributions only (not 3.4 onward). Chapter 5, §5.1 "Learning Algorithms" only (not 5.2, which is a separate Week 2 prompt) — this section defines what a learning algorithm/task/performance measure/experience is, likely using a linear regression task as its running example.</scope>
+<sources>PRIMARY: DLB Textbook CSCI 4521.pdf, Chapter 3 "Probability and Information Theory" (real pages 54-58, §3.1-3.3 only) AND Chapter 5 "Machine Learning Basics" §5.1 (real pages 99-109).</sources>
+<process>Read both ranges fully before writing.</process>
+<scope>Chapter 3: 3.1 Why Probability? (the three real sources of uncertainty: inherent stochasticity, incomplete observability via the real Monty Hall example, incomplete modeling; frequentist vs. Bayesian probability); 3.2 Random Variables (discrete vs. continuous); 3.3 Probability Distributions (PMF vs. PDF, the real uniform-distribution example, normalization). Stop before 3.4 Marginal Probability. Chapter 5 §5.1 "Learning Algorithms" in full: 5.1.1 The Task T (the real task list: classification, regression, transcription, machine translation, structured output, anomaly detection, synthesis/sampling, imputation, denoising, density estimation), 5.1.2 The Performance Measure P (accuracy/error rate, 0-1 loss), 5.1.3 The Experience E (supervised vs. unsupervised, the real Iris dataset example — 150 examples, 4 features, 3 species — and the design matrix concept), 5.1.4 Example: Linear Regression (the full real worked derivation: ŷ=wᵗx, MSE_test formula, the normal-equations derivation via ∇MSE_train=0 through w=(XᵗX)⁻¹Xᵗy). Do not cover §5.2 — that is next week's prompt.</scope>
 <output_structure>
 # DLB Chapter 3 — Probability and Information Theory (§3.1-3.3)
 ## Chapter Summary
 ## Key Concepts
 ## Full Reading Notes (### 3.1, 3.2, 3.3)
-## Worked Example
+## Worked Example (the real Monty Hall incomplete-observability example)
 ## Connections (to ISL's own probability-adjacent content, e.g. the Bayes classifier in ISL §2.2.3)
 ## Open Questions
 ## Flashcards (6-8)
 
-# DLB Chapter 5 — Machine Learning Basics (§5.1 only — §5.2 arrives next week)
-## Full Reading Notes (### 5.1, using the book's own real definition of task/performance-measure/experience and its running example)
+# DLB Chapter 5 — Machine Learning Basics (§5.1 — §5.2 arrives next week)
+## Full Reading Notes (### 5.1.1 through 5.1.4)
+## Worked Example (the real linear regression derivation in full: the normal equations w=(X^(train)ᵗX^(train))⁻¹X^(train)ᵗy^(train), and the real Iris design-matrix example)
 ## Connections (to ISL Ch2's own supervised/unsupervised framing, covered the same week)
 ## Open Questions
-## Flashcards (4-6)
+## Flashcards (6-8)
 </output_structure>
 <formatting_rules>Identical to Prompt 1.</formatting_rules>
 <output_contract>Single fenced markdown code block — this one produces content for TWO separate note files (DLB/Chapter - 3.md and the start of DLB/Chapter - 5.md); split it into two files when saving, matching the two top-level # headings above.</output_contract>
@@ -154,28 +158,29 @@ ISL's real chapter 2 table of contents (confirmed by opening the PDF directly): 
 <output_contract>Single fenced markdown code block, appended to the same ISL Chapter 2 note as Part 1.</output_contract>
 ```
 
-### Week 2, Prompt 2 of 2 — DLB Chapter 5, §5.2 (Capacity, Overfitting and Underfitting) — BLOCKED pending real file
+### Week 2, Prompt 2 of 2 — DLB Chapter 5, §5.2 (Capacity, Overfitting and Underfitting)
 ```
 <role>Same role as Week 1's DLB prompts.</role>
-<sources>PRIMARY: the real DLB PDF, Chapter 5 "Machine Learning Basics," §5.2 only. Same BLOCKED status — source the real file first (see Week 1, Prompt 1).</sources>
-<process>Read fully once it's the real file. This section is DLB's own version of ISL §2.2's bias-variance material — expect real overlap in concepts (capacity, overfitting, underfitting, the training/test error framing), but the book's own vocabulary and running examples will differ from ISL's; note where they diverge rather than merging the two into one voice.</process>
-<scope>§5.2 "Capacity, Overfitting and Underfitting" in full — the book's own real treatment of model capacity, the training-error-vs-generalization-error framing, and its own worked example (recalled as likely a polynomial-regression capacity example, unverified locally — confirm against the real upload).</scope>
+<sources>PRIMARY: DLB Textbook CSCI 4521.pdf, Chapter 5 §5.2 only (real pages 110-119).</sources>
+<process>Read fully. This section is DLB's own version of ISL §2.2's bias-variance material — real overlap in concepts (training/generalization error, overfitting/underfitting), but DLB's own vocabulary (capacity, hypothesis space, VC dimension, the No Free Lunch theorem) differs from ISL's (flexibility/interpretability, bias-variance decomposition). Note explicitly where the two books' framings agree and where they diverge — don't merge them into one voice.</process>
+<scope>§5.2 in full, including its two real named subsections: 5.2.1 The No Free Lunch Theorem (Wolpert 1996 — averaged over all data-generating distributions, every classifier has the same error rate on unseen points) and 5.2.2 Regularization (weight decay, the real J(w)=MSE_train+λwᵗw formula). Also cover: the training-error-small vs. training-test-gap-small framing; capacity and hypothesis space (the real degree-1/degree-2/degree-9 polynomial example, Figure 5.2's underfit/good-fit/overfit trio); the VC dimension; Bayes error as the oracle's irreducible error; nearest-neighbor regression as the book's own real non-parametric example; and Figure 5.4's real finding that training-set size shifts the optimal capacity.</scope>
 <output_structure>
-## Full Reading Notes — §5.2 (append to the DLB Chapter 5 note started in Week 1)
-## Worked Example (the section's own real capacity/overfitting example)
-## Connections (to ISL §2.2's own bias-variance trade-off, covered the same week — note explicitly where the two books' framings agree or diverge)
+## Full Reading Notes — §5.2 (### 5.2, 5.2.1, 5.2.2 — append to the DLB Chapter 5 note started in Week 1)
+## Worked Example (the real degree-1/2/9 polynomial capacity example from Figure 5.2, and the weight-decay example from Figure 5.5)
+## Connections (to ISL §2.2's own bias-variance trade-off, covered the same week — name explicitly where DLB's capacity/VC-dimension framing agrees or diverges from ISL's bias-variance decomposition)
 ## Open Questions
-## Flashcards (6-8)
+## Flashcards (8-10 — this section is dense: capacity, VC dimension, No Free Lunch, and regularization all in one place)
 </output_structure>
 <formatting_rules>Identical to Week 1's DLB prompts.</formatting_rules>
 <output_contract>Single fenced markdown code block, appended to the DLB Chapter 5 note.</output_contract>
 ```
 
 ### Open flags for the textbook-reading prompts above
-- **DLB is the real blocker.** Three of the five prompts above cannot produce trustworthy output until the real Deep Learning Book PDF is sourced (deeplearningbook.org is free and official) and saved into `Textbook & Resources/`. Do this before Week 4 (2026-09-29), since DLB readings continue almost every week for the rest of the semester.
-- **ENLP is already available, just mislabeled.** Rename `Secondary Textbook.pdf` (or add a prominent note) so it isn't mistaken for DLB again — it's needed for real starting Week 4.
-- **All four chapter notes this produces:** `Textbook/ISL/Chapter - 2.md` (built across two prompts), `Textbook/DLB/Chapter - 2.md`, `Textbook/DLB/Chapter - 3.md`, `Textbook/DLB/Chapter - 5.md` (built across two prompts, will grow again in Week 4). Zero of these exist yet as of 2026-09-27 — running the prompts is the next real action.
+- **All three source PDFs are confirmed real and correctly named as of 2026-09-27:** `ISL Textbook CSCI 4521.pdf`, `DLB Textbook CSCI 4521.pdf`, `ENLP Textbook CSCI 4521.pdf`, all in `Textbook & Resources/`. The DLB file was added by the user this session and its real TOC was opened and read directly — every section title used in the prompts above matches the real book exactly.
+- **All five prompts are ready to run now** — nothing is blocked. Every real equation, figure number, and named example cited in the DLB prompts (the normal equations, the degree-1/2/9 polynomial capacity example, the No Free Lunch theorem, the Iris design-matrix example) was pulled directly from the actual PDF text this session, not recalled from training knowledge.
+- **All four chapter notes this produces:** `Textbook/ISL/Chapter - 2.md` (built across two prompts), `Textbook/DLB/Chapter - 2.md`, `Textbook/DLB/Chapter - 3.md`, `Textbook/DLB/Chapter - 5.md` (built across two prompts, will grow again in Week 4 with §5.4-5.6). Zero of these exist yet as of 2026-09-27 — running the prompts is the next real action.
 - **Week 3 produced no prompt on purpose** — its only assigned reading (ISL §2.2) is fully covered by Week 2's own prompt. Don't manufacture a Week 3 prompt just to have one.
+- **Gemini Notebook rejects `.ipynb` uploads — confirmed 2026-09-27.** Every source in this textbook-reading section is already a PDF, so this doesn't block anything here. It does block several prompts in the separate lecture-prompt section below (0.1 Part 3, Lecture 1.1, 1.2 Part 2, 1.3 Part 2) — see that section's own Open Flags for the fix.
 
 ## CSCI 4521 — Lecture prompts, rebuilt 2026-09-27 for real depth
 Rebuilt from scratch after the 2026-09-24 version turned out to be missing real material and one real claim in it (Lecture 1.1 "has no source") was flat wrong. This pass: (1) re-read every real file in `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Lectures\` including files not opened last time, (2) verified every date against `Fall_26 Semester Calendar.xlsx` directly via Excel (not inferred), (3) rewrote every prompt using Anthropic's own published prompt-engineering method for Claude (fetched live from `platform.claude.com/docs/en/build-with-claude/prompt-engineering/` — the Sonnet-5 guide and the general best-practices guide) — role framing, XML-tag structuring, an explicit "read before writing" step, and literal, non-inferred scope statements, since Sonnet 5's own guidance says the model (and by extension, this technique transfers to Gemini) does not silently generalize an instruction unless the scope is stated outright.
@@ -239,8 +244,9 @@ PRIMARY: Week - 1\0.1 course logistics, intro to ML.pptx.pdf — upload this fil
 ```
 <role>Same role as Parts 1-2, now walking a beginner through real code cell by cell rather than slides.</role>
 <sources>
-PRIMARY: Week - 1\0.1 intro to colab, pandas, sns.ipynb — uses the real Wage.csv dataset (year, age, maritl, race, education, region, jobclass, health, health_ins, logwage, wage — 3000 rows). Upload this file.
-SECONDARY: Week - 1\Numpy Introduction — this file has no extension in the source folder; rename it to end in .ipynb before uploading. Uses the real iris.csv dataset (sepal.length, sepal.width, petal.length, petal.width, variety). Covers numpy array basics, indexing/slicing, and boolean-mask filtering (e.g. isolating all Setosa rows).
+PRIMARY: Week - 1\0.1 intro to colab, pandas, sns.ipynb — uses the real Wage.csv dataset (year, age, maritl, race, education, region, jobclass, health, health_ins, logwage, wage — 3000 rows).
+SECONDARY: Week - 1\Numpy Introduction — this file has no extension in the source folder; rename it to end in .ipynb before opening. Uses the real iris.csv dataset (sepal.length, sepal.width, petal.length, petal.width, variety). Covers numpy array basics, indexing/slicing, and boolean-mask filtering (e.g. isolating all Setosa rows).
+Gemini Notebook does not accept .ipynb uploads directly (confirmed 2026-09-27) — open each notebook in Colab, File → Print → Save as PDF (or File → Download → .pdf), then upload the resulting PDF instead.
 </sources>
 <process>Read every code cell and its real output in both notebooks before writing. Explain what each cell does AND why a beginner would want to do that — e.g. why .describe(include='all') is more useful than .describe() alone on mixed data types.</process>
 <scope>Walk through, in order: loading a CSV with pandas, .shape/.head()/.describe()/.value_counts()/.dtypes, boolean masking, then seaborn's histplot/scatterplot/regplot (linear vs. order=2 quadratic fit) and pairplot, all using the real Wage.csv columns. Then cover numpy basics from the second notebook: array vs. list behavior, len(), reshape, matrix indexing with slices/steps/negative indices, and converting a pandas dataframe to a numpy array plus boolean-array indexing on it. Mention `Week 1 - practice - Pandas Tutorial (Dimorphism).ipynb` (Bears.csv, melt/pivot_table, real dimorphism ratios like Polar bear 2.50x) in one sentence as optional extra practice — do not expand it into a full section, it is explicitly a self-study exercise, not lecture content.</scope>
@@ -261,6 +267,7 @@ SECONDARY: Week - 1\Numpy Introduction — this file has no extension in the sou
 <role>You are an expert ML teaching assistant for UMN CSCI 4521. Teach a genuine beginner who has never implemented a classifier before. Walk through real code, explaining the reasoning behind every function before showing what it outputs.</role>
 <sources>
 PRIMARY: Week - 1\1.1 Nearest Neighbor Classifier.ipynb — the only real source for this lecture (no slide deck exists for LEC 1.1; do not treat this as a gap, this notebook IS the lecture). Uses the real UCI Seeds dataset (Seeds.csv: area, perimeter, compactness, kernel_length, kernel_width, asymmetry, groove_length, wheat_type 1-3), reduced to just area and compactness for 2D visualization.
+Gemini Notebook does not accept .ipynb uploads directly (confirmed 2026-09-27) — open the notebook in Colab, File → Print → Save as PDF (or File → Download → .pdf), then upload the resulting PDF instead.
 </sources>
 <process>Read every cell and its real printed output before writing. This notebook has a specific narrative arc — a nearest-neighbor classifier gives two different answers to the same test point depending on whether the features are normalized first. Preserve that arc; do not flatten it into a generic "here is kNN" summary.</process>
 <scope>Cover: the squared-Euclidean distance_sq function and nn_classify_sample function exactly as defined in the notebook; the first worked classification (area=18, compactness=0.9); the real distance-heatmap visualization; the SECOND worked example (area=13, compactness=0.8) and the real fact that its predicted wheat type changes between the unnormalized and z-score-normalized versions of the data — reproduce the real mean/std values the notebook computes and explain in plain language why normalizing area (range ~10-22) against compactness (range ~0.78-0.92) changes which neighbor is "nearest."</scope>
@@ -304,7 +311,7 @@ SECONDARY: ISL 2.2 (assessing model accuracy), DLB 5.1-5.2 (capacity, overfittin
 ### Lecture 1.2 — Companion Notebook (Part 2 of 2: automating kNN)
 ```
 <role>Same role, now walking real code.</role>
-<sources>PRIMARY: Week - 2\1.2 NN Classifier.ipynb — reuses 1.1's Seeds.csv area/compactness features.</sources>
+<sources>PRIMARY: Week - 2\1.2 NN Classifier.ipynb — reuses 1.1's Seeds.csv area/compactness features. Gemini Notebook does not accept .ipynb uploads directly — export to PDF in Colab first (File → Print → Save as PDF), then upload that.</sources>
 <process>Read every cell and its real output, including the two real colored decision-boundary plots.</process>
 <scope>Cover: the nn_classify helper that vectorizes 1.1's single-point classifier over a whole grid; the color-mesh decision-boundary visualization, both BEFORE and AFTER z-score normalization is added to graphClassifier2D (the real point made explicit here: "units don't match — cm vs cm², and ranges are vastly different"); the leave-one-out classifier (nn_one_out_classify) and its real reported accuracy; the real train_test_split/shuffle_data functions and the real reported accuracy figure they produce (~95%).</scope>
 <output_structure>
@@ -348,6 +355,7 @@ SECONDARY: same Week 2 reading as 1.2 (ISL 2.1-2.2, DLB 5.1-5.2) — do not expe
 <sources>
 PRIMARY: Week - 2\1.3 kNN with SciKit-Learn.ipynb — real Seeds.csv, scikit-learn's KNeighborsClassifier.
 Note for context, do not expand into its own section: Week - 2\1.3 kNN Iris Classification.ipynb is a two-cell stub (loads iris.csv, displays it, nothing else) — not a worked example, mention this once in Open Questions as unfinished, do not treat it as if it has content it doesn't.
+Gemini Notebook does not accept .ipynb uploads directly — export the primary notebook to PDF in Colab first (File → Print → Save as PDF), then upload that.
 </sources>
 <process>Read every cell and every real printed accuracy number before writing. Do not round or approximate reported figures.</process>
 <scope>Cover: the notebook's own train_test_split reimplementation; the accuracy() and avg_accuracy() helper functions (200 repeated random splits); the real reported accuracy figures at k=2, k=5, and k=10; the sklearn KNeighborsClassifier wrapper pattern (knn_classifier(k) returning a closure); the k=1-to-90-step-3 sweep and its real accuracy list; and — the notebook's real payoff — the final plot comparing TRAINING accuracy vs. TEST accuracy across every k value, which is the bias-variance curve from Part 1 made concrete: training accuracy stays high as k shrinks (low bias, high variance / overfitting) while test accuracy peaks at a middle k and falls at both extremes.</scope>
@@ -459,7 +467,8 @@ Note: this deck's title slide reads "Fall 2025" (a recycled-slide leftover — n
 
 ### Open flags — read before running any of the above
 - **File naming:** save generated notes as `Textbook/Lecture - 0.1.md`, `Lecture - 1.1.md`, `Lecture - 1.2.md`, etc. — matching the professor's own LEC numbering, not `Chapter - N.md` (this course has no chapters). The Textbook folder currently has zero notes, so nothing collides.
-- **The extensionless "Numpy Introduction" file** must be renamed to add `.ipynb` before it can be uploaded to Gemini Notebook or opened normally — it is a valid Jupyter notebook, just saved without its extension in the source folder.
+- **The extensionless "Numpy Introduction" file** must be renamed to add `.ipynb` before it can be opened normally — it is a valid Jupyter notebook, just saved without its extension in the source folder.
+- **Gemini Notebook does not accept `.ipynb` uploads — confirmed 2026-09-27.** Every notebook-sourced prompt above (0.1 Part 3, Lecture 1.1, 1.2 Part 2, 1.3 Part 2) now says so in its own `<sources>` tag: open the real Colab notebook, `File → Print → Save as PDF` (or `File → Download → .pdf`), and upload the resulting PDF instead. Do this once per notebook before running its prompt — Gemini Notebook's real source pool for this course is lecture PDFs and the three textbook PDFs only, nothing else.
 - **Order of operations:** 0.1 (3 parts) is standalone, run anytime. 1.1 is standalone and short. 1.2 and 1.3 (2 parts each) share Week 2's reading — run them in the same or adjacent sessions so the bias-variance thread stays connected; each has a real companion notebook with real accuracy numbers, upload the deck AND the notebook to the same chat for the two-part sequence. 1.4 (2 parts) and 1.5 (3 parts) both belong to Week 3/4 content; 1.5 needs three parts given the real technical density (complexity, KD-trees, LSH, five real bias types).
 - **This file now has two courses ready to run in parallel** — CSCI 4061's own procedure above (already run once, its notes now live in `20_Progress/Degree/CSCI 4061/Textbook/`) and this CSCI 4521 rebuild — matching the intent of running two Gemini Notebook chats side by side.
 - **Still unconfirmed, unchanged from the Board's own warning:** the source syllabus PDF is dated "Fall 2025" and the instructor/TA roster/meeting-time details it gives have not been separately confirmed against Fall'26 Canvas — this doesn't affect the prompts above (all grounded in the real, dated, professor-authored schedule spreadsheet and the real lecture files themselves), but is worth knowing if anything about the roster ever seems off.

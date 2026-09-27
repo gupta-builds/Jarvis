@@ -7,8 +7,8 @@
   "obsidian-latex-suite",
   "obsidian-style-settings",
   "obsidian-tasks-plugin",
-  "recent-files-obsidian",
   "templater-obsidian",
   "url-into-selection",
-  "obsidian-local-rest-api"
+  "obsidian-local-rest-api",
+  "recent-files-obsidian"
 ]

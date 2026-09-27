@@ -1,0 +1,1 @@
+{"path":"10_Areas/Notes/F'25/Files/Pasted image 20251001145211.png","text":"p1.name char * printf(\"%s\" p1.name); p2->name char * printf(\"%s\", p2- >name) ; p1.name[2] char pl.name[2] = 'a'; p2->name[2] char p2->name[2] = 'a';","libVersion":"0.5.0","langs":"eng"}

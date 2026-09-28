@@ -96,7 +96,7 @@
     "30_Order/Standards/Courses/Weekly Board Standard.md": "external",
     "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md": "external",
     "20_Progress/Degree/CSCI 5304/Textbook/Textbook Map.md": "external",
-    "20_Progress/Degree/Repetitive Things.md": "obsidian",
+    "20_Progress/Degree/Repetitive Things.md": "external",
     "30_Order/Templates/Classes/Discussion Template.md": "external",
     "30_Order/Standards/Courses/Textbook Map Standard.md": "external",
     "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build Roadmap.md": "external",
@@ -398,7 +398,8 @@
     "20_Progress/Projects/CS/Portfolio/frontend/_archive/r-phase-execution-kit-2026-06/02 - Commands, Hooks & CSP Fix.md": "external",
     "20_Progress/Projects/CS/Portfolio/frontend/_archive/r-phase-execution-kit-2026-06/04 - Refinement Prerequisites & Deploy Checklist.md": "external",
     "20_Progress/Projects/CS/Portfolio/frontend/_archive/r-phase-execution-kit-2026-06/05 - Orby Final Polish Prompts.md": "external",
-    "20_Progress/Projects/CS/Portfolio/frontend/_archive/ui-fixes-prompt-passes-2026-07/claude-prompt-ui-fixes-implementation.md": "external"
+    "20_Progress/Projects/CS/Portfolio/frontend/_archive/ui-fixes-prompt-passes-2026-07/claude-prompt-ui-fixes-implementation.md": "external",
+    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/portfolio/09-26 Portfolio codebase comprehensive review.md": "external"
   },
   "_editTimes": {
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Home/00 - Session Index.md": 1790569802197,
@@ -412,7 +413,7 @@
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Session Index.md": 1790496002459,
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Tool Usage Rollup.md": 1790496002460,
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": 1790451185419,
-    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 1790569980824,
+    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 1790570881121,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-18 Jarvis sync process setup.md": 1790450285627,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-20 Jarvis vault plugins documentation batch 3.md": 1790496184241,
     "60_Claude/07_AI_Information/Session Logs/log.md": 1790452085479,
@@ -424,18 +425,18 @@
     "40_Resources/Obsidian/Settings/File Handling and Properties.md": 1790569084291,
     "40_Resources/CS/Concepts/New Laptop/Statusline Migration — Acer Prompt.md": 1790569084281,
     "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md": 1790452085391,
-    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/portfolio/00 - Session Index.md": 1790496935855,
-    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/portfolio/00 - Tool Usage Rollup.md": 1790568915568,
+    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/portfolio/00 - Session Index.md": 1790570715924,
+    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/portfolio/00 - Tool Usage Rollup.md": 1790570715994,
     "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/gupta-builds/00 - Session Index.md": 1790545533295,
     "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/gupta-builds/00 - Tool Usage Rollup.md": 1790545533383,
-    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/00 - Session Index.md": 1790568915791,
-    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/00 - Tool Usage Rollup.md": 1790568915862,
-    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/anant_gupta/00 - Session Index.md": 1790496934628,
-    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/anant_gupta/00 - Tool Usage Rollup.md": 1790568915718,
+    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/00 - Session Index.md": 1790570715783,
+    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/00 - Tool Usage Rollup.md": 1790570715858,
+    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/anant_gupta/00 - Session Index.md": 1790570716059,
+    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/anant_gupta/00 - Tool Usage Rollup.md": 1790570716130,
     "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/CausalOps/00 - Session Index.md": 1790451918481,
     "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/CausalOps/00 - Tool Usage Rollup.md": 1790451918564,
-    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/second-brain-claudekit/00 - Session Index.md": 1790568915347,
-    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/second-brain-claudekit/00 - Tool Usage Rollup.md": 1790496936415,
+    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/second-brain-claudekit/00 - Session Index.md": 1790570716197,
+    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/second-brain-claudekit/00 - Tool Usage Rollup.md": 1790570716255,
     "40_Resources/Obsidian/Plugins/Plugin Inventory and Configuration Map.md": 1790569084289,
     "40_Resources/Obsidian/Plugins/Dataview and Dashboards.md": 1790496184231,
     "40_Resources/Obsidian/Plugins/Appearance Code Math and Reading Experience.md": 1790569084287,
@@ -486,7 +487,7 @@
     "30_Order/Standards/Courses/Weekly Board Standard.md": 1790452085428,
     "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md": 1790569084194,
     "20_Progress/Degree/CSCI 5304/Textbook/Textbook Map.md": 1790569084200,
-    "20_Progress/Degree/Repetitive Things.md": 1790569444997,
+    "20_Progress/Degree/Repetitive Things.md": 1790569983640,
     "30_Order/Templates/Classes/Discussion Template.md": 1790497085443,
     "30_Order/Standards/Courses/Textbook Map Standard.md": 1790451185395,
     "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build Roadmap.md": 1790569084281,
@@ -731,7 +732,7 @@
     "40_Resources/CS/Concepts/New Laptop/VS Code - MCP and Secrets.md": 1790454785015,
     "40_Resources/CS/Concepts/New Laptop/VS Code - Terminal Environments.md": 1790542215483,
     "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/portfolio/09-26 VSCode task configuration errors.md": 1790455686504,
-    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-26 Codebase migration to new laptop.md": 1790495120496,
+    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-26 Codebase migration to new laptop.md": 1790570710757,
     "60_Claude/40_Project_Briefs/In depth Usage.md": 1790454206254,
     "40_Resources/CS/Concepts/New Laptop/Codebases/internship-research-loop/internship-research-loop-new-laptop-directive.md": 1790455024340,
     "40_Resources/CS/Concepts/New Laptop/Codebases/internship-research-loop/internship-research-loop-git-clone-and-bootstrap.md": 1790541849376,
@@ -788,7 +789,8 @@
     "20_Progress/Projects/CS/Portfolio/frontend/_archive/r-phase-execution-kit-2026-06/02 - Commands, Hooks & CSP Fix.md": 1790569084228,
     "20_Progress/Projects/CS/Portfolio/frontend/_archive/r-phase-execution-kit-2026-06/04 - Refinement Prerequisites & Deploy Checklist.md": 1790569084230,
     "20_Progress/Projects/CS/Portfolio/frontend/_archive/r-phase-execution-kit-2026-06/05 - Orby Final Polish Prompts.md": 1790569084230,
-    "20_Progress/Projects/CS/Portfolio/frontend/_archive/ui-fixes-prompt-passes-2026-07/claude-prompt-ui-fixes-implementation.md": 1790569084235
+    "20_Progress/Projects/CS/Portfolio/frontend/_archive/ui-fixes-prompt-passes-2026-07/claude-prompt-ui-fixes-implementation.md": 1790569084235,
+    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/portfolio/09-26 Portfolio codebase comprehensive review.md": 1790570707413
   },
   "_dismissedAt": {},
   "_editSizes": {
@@ -803,7 +805,7 @@
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Session Index.md": 381,
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Tool Usage Rollup.md": 980,
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": 26552,
-    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 462790,
+    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 470308,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-18 Jarvis sync process setup.md": 1062400,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-20 Jarvis vault plugins documentation batch 3.md": 365354,
     "60_Claude/07_AI_Information/Session Logs/log.md": 209838,
@@ -1179,12 +1181,12 @@
     "20_Progress/Projects/CS/Portfolio/frontend/_archive/r-phase-execution-kit-2026-06/02 - Commands, Hooks & CSP Fix.md": 3619,
     "20_Progress/Projects/CS/Portfolio/frontend/_archive/r-phase-execution-kit-2026-06/04 - Refinement Prerequisites & Deploy Checklist.md": 3436,
     "20_Progress/Projects/CS/Portfolio/frontend/_archive/r-phase-execution-kit-2026-06/05 - Orby Final Polish Prompts.md": 6673,
-    "20_Progress/Projects/CS/Portfolio/frontend/_archive/ui-fixes-prompt-passes-2026-07/claude-prompt-ui-fixes-implementation.md": 20990
+    "20_Progress/Projects/CS/Portfolio/frontend/_archive/ui-fixes-prompt-passes-2026-07/claude-prompt-ui-fixes-implementation.md": 20990,
+    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/portfolio/09-26 Portfolio codebase comprehensive review.md": 121671
   },
   "_sizeDeltas": {
     "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md": "up",
-    "10_Areas/Career/Internships/List/Dossiers/_Today/Manual Internship Listings.md": "up",
-    "20_Progress/Degree/Repetitive Things.md": "down"
+    "10_Areas/Career/Internships/List/Dossiers/_Today/Manual Internship Listings.md": "up"
   },
   "_pinned": []
 }

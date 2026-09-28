@@ -400,7 +400,8 @@
     "00_Dashboard.md": "external",
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-28 Weekly workflow setup 2026-W40.md": "external",
     "20_Progress/Degree/CSCI 4511W/Weekly/Week - 4.md": "obsidian",
-    "20_Progress/Degree/CSCI 5304/Weekly/Week - 2 & 3 (Prompts).md": "external"
+    "20_Progress/Degree/CSCI 5304/Weekly/Week - 2 & 3 (Prompts).md": "external",
+    "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.md": "obsidian"
   },
   "_editTimes": {
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Home/00 - Session Index.md": 1790577004469,
@@ -414,7 +415,7 @@
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Session Index.md": 1790577004491,
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Tool Usage Rollup.md": 1790577004493,
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": 1790451185419,
-    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 1790620381198,
+    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 1790621281264,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-18 Jarvis sync process setup.md": 1790450285627,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-20 Jarvis vault plugins documentation batch 3.md": 1790577186115,
     "60_Claude/07_AI_Information/Session Logs/log.md": 1790576285829,
@@ -425,7 +426,7 @@
     "40_Resources/Obsidian/Settings/Appearance Theme and CSS Snippets.md": 1790578086538,
     "40_Resources/Obsidian/Settings/File Handling and Properties.md": 1790569084291,
     "40_Resources/CS/Concepts/New Laptop/Statusline Migration — Acer Prompt.md": 1790578086528,
-    "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md": 1790452085391,
+    "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md": 1790620640485,
     "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/portfolio/00 - Session Index.md": 1790577935370,
     "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/portfolio/00 - Tool Usage Rollup.md": 1790577935444,
     "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/gupta-builds/00 - Session Index.md": 1790545533295,
@@ -448,8 +449,8 @@
     "40_Resources/Obsidian/Plugins/Canvas Spatial Maps.md": 1790577186087,
     "40_Resources/Obsidian/Plugins/Omnisearch and Retrieval.md": 1790577186088,
     "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 2.md": 1790448485366,
-    "20_Progress/Degree/CSCI 4511W/Textbook/Textbook Map.md": 1790451185359,
-    "30_Order/Workflows/Courses/Per Class/CSCI 4511W Workflow.md": 1790497085457,
+    "20_Progress/Degree/CSCI 4511W/Textbook/Textbook Map.md": 1790620662745,
+    "30_Order/Workflows/Courses/Per Class/CSCI 4511W Workflow.md": 1790620647949,
     "30_Order/Workflows/Courses/Textbook Workflow.md": 1790496184227,
     "30_Order/Templates/Classes/Board or Main Template.md": 1790496184221,
     "30_Order/Templates/Classes/Concept Template.md": 1790578086517,
@@ -487,8 +488,8 @@
     "20_Progress/Degree/CSCI 4511W/Weekly/Weekly Board.md": 1790577186030,
     "30_Order/Standards/Courses/Weekly Board Standard.md": 1790452085428,
     "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md": 1790569084194,
-    "20_Progress/Degree/CSCI 5304/Textbook/Textbook Map.md": 1790578086491,
-    "20_Progress/Degree/Repetitive Things.md": 1790619466641,
+    "20_Progress/Degree/CSCI 5304/Textbook/Textbook Map.md": 1790620589737,
+    "20_Progress/Degree/Repetitive Things.md": 1790620632812,
     "30_Order/Templates/Classes/Discussion Template.md": 1790497085443,
     "30_Order/Standards/Courses/Textbook Map Standard.md": 1790451185395,
     "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build Roadmap.md": 1790577186084,
@@ -792,7 +793,8 @@
     "00_Dashboard.md": 1790576285813,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-28 Weekly workflow setup 2026-W40.md": 1790575208954,
     "20_Progress/Degree/CSCI 4511W/Weekly/Week - 4.md": 1790618878572,
-    "20_Progress/Degree/CSCI 5304/Weekly/Week - 2 & 3 (Prompts).md": 1790619582760
+    "20_Progress/Degree/CSCI 5304/Weekly/Week - 2 & 3 (Prompts).md": 1790619582760,
+    "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.md": 1790621132061
   },
   "_dismissedAt": {},
   "_editSizes": {
@@ -807,7 +809,7 @@
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Session Index.md": 381,
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Tool Usage Rollup.md": 980,
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": 26552,
-    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 491203,
+    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 492609,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-18 Jarvis sync process setup.md": 1062400,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-20 Jarvis vault plugins documentation batch 3.md": 365354,
     "60_Claude/07_AI_Information/Session Logs/log.md": 214574,
@@ -818,7 +820,7 @@
     "40_Resources/Obsidian/Settings/Appearance Theme and CSS Snippets.md": 9176,
     "40_Resources/Obsidian/Settings/File Handling and Properties.md": 11976,
     "40_Resources/CS/Concepts/New Laptop/Statusline Migration — Acer Prompt.md": 23282,
-    "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md": 11488,
+    "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md": 11723,
     "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/portfolio/00 - Session Index.md": 467,
     "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/portfolio/00 - Tool Usage Rollup.md": 1069,
     "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/gupta-builds/00 - Session Index.md": 473,
@@ -841,8 +843,8 @@
     "40_Resources/Obsidian/Plugins/Canvas Spatial Maps.md": 6565,
     "40_Resources/Obsidian/Plugins/Omnisearch and Retrieval.md": 9977,
     "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 2.md": 37258,
-    "20_Progress/Degree/CSCI 4511W/Textbook/Textbook Map.md": 4007,
-    "30_Order/Workflows/Courses/Per Class/CSCI 4511W Workflow.md": 11418,
+    "20_Progress/Degree/CSCI 4511W/Textbook/Textbook Map.md": 4091,
+    "30_Order/Workflows/Courses/Per Class/CSCI 4511W Workflow.md": 12723,
     "30_Order/Workflows/Courses/Textbook Workflow.md": 2324,
     "30_Order/Templates/Classes/Board or Main Template.md": 1439,
     "30_Order/Templates/Classes/Concept Template.md": 948,
@@ -880,8 +882,8 @@
     "20_Progress/Degree/CSCI 4511W/Weekly/Weekly Board.md": 1659,
     "30_Order/Standards/Courses/Weekly Board Standard.md": 2771,
     "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md": 1324,
-    "20_Progress/Degree/CSCI 5304/Textbook/Textbook Map.md": 2391,
-    "20_Progress/Degree/Repetitive Things.md": 13025,
+    "20_Progress/Degree/CSCI 5304/Textbook/Textbook Map.md": 2364,
+    "20_Progress/Degree/Repetitive Things.md": 41628,
     "30_Order/Templates/Classes/Discussion Template.md": 478,
     "30_Order/Standards/Courses/Textbook Map Standard.md": 2991,
     "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build Roadmap.md": 23706,
@@ -1185,11 +1187,13 @@
     "00_Dashboard.md": 7404,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-28 Weekly workflow setup 2026-W40.md": 34686,
     "20_Progress/Degree/CSCI 4511W/Weekly/Week - 4.md": 1557,
-    "20_Progress/Degree/CSCI 5304/Weekly/Week - 2 & 3 (Prompts).md": 35168
+    "20_Progress/Degree/CSCI 5304/Weekly/Week - 2 & 3 (Prompts).md": 35168,
+    "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.md": 843
   },
   "_sizeDeltas": {
     "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md": "up",
-    "10_Areas/Career/Internships/List/Dossiers/_Today/Manual Internship Listings.md": "up"
+    "10_Areas/Career/Internships/List/Dossiers/_Today/Manual Internship Listings.md": "up",
+    "20_Progress/Degree/Repetitive Things.md": "up"
   },
   "_pinned": []
 }

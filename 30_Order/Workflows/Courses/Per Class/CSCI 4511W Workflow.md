@@ -2,7 +2,7 @@
 type: evergreen
 status: sprout
 created: 2026-09-20
-updated: 2026-09-20
+updated: 2026-09-28
 tags:
   - system
   - workflow
@@ -56,6 +56,8 @@ The user works directly in the weekly note's `## Lecture` header. Preserve this 
 3. Update `What you must be able to do`, short key ideas, examples, textbook integration, synthesis, questions, concept evidence, and flashcards.
 4. Update concept notes with actual emphasis, corrections, implementation details, contrasts, and failure modes. Do not duplicate the whole lecture into every concept.
 5. Route work to the correct assignment/discussion/project note and update the Board, Weekly Board, Textbook Map, and `next` only when the links/statuses are true.
+## Reading-ahead and prompt-execution cadence
+The course's filled prompts (not templates - real, dated, source-cited prompts ready to paste or run) live in one place: `20_Progress/Degree/Repetitive Things` under its `# CSCI 4511W — Chapter 3 & Weekly Note Prompts` header, added 2026-09-28. Two Gemini Notebook prompts per chapter (matching this course's real Chapter 1/2 split, and the char-limit split rule documented at the top of that file), one Chapter's worth landed at a time, run **at least one chapter ahead of the week it's due** whenever the schedule and source folder allow it - the goal stated in that file's intro is that a week's reading is done before the week starts, not during it. Four sequential `gpt-5.1-codex` prompts (A: Monday lecture + Short Quiz, B: Wednesday lecture, C: textbook integration, D: synthesis/concepts/flashcards/Board update) build one week note per week, run in that order rather than as a single pass, so the live Monday capture is checkpointed before Wednesday's class happens and the textbook cross-check in C never runs ahead of both lectures and the matching chapter note actually landing. When a new chapter's prompts are needed beyond what's already written, extend that same file's header rather than starting a second prompt library for this course.
 ## Textbook and concept production rule
 Textbook content should be landed before the lecture whenever the source is available. The textbook note explains the chapter's mechanism and what it adds; the weekly note explains the teaching arc and lecture-to-textbook delta; the concept note preserves the reusable mechanism. These are three layers, not three copies of the same prose.
 For AI topics, concept notes should capture representations, agent/environment assumptions, search states/actions/costs, algorithm steps, guarantees, complexity, heuristic/admissibility conditions, logical semantics, and failure cases when those are present in the source. Do not add standard AI knowledge merely because it sounds plausible; anchor it to the assigned source or label it as a question.

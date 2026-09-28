@@ -10,6 +10,7 @@
 .trash
 .obsidian/workspaces.json
 .obsidian/plugins/copilot/data.json
+.obsidian/plugins/copilot/data-*backup*.json
 .obsidian/plugins/quickadd/data.json
 .obsidian/plugins/obsidian-local-rest-api/data.json
 .obsidian/plugins/lean-terminal/data.json

@@ -51,6 +51,62 @@ function Get-CurrentBranch {
     (git rev-parse --abbrev-ref HEAD).Trim()
 }
 
+# Coordination with the local Syncthing instance, added after the Sep 2026 conflict-file
+# incident: this script's own pull/rebase/autostash writes to the working tree are, from
+# Syncthing's fs watcher, indistinguishable from a real edit. Running blind on a fixed
+# 15-minute clock, independently on each laptop, raced Syncthing's own live propagation
+# and manufactured .sync-conflict-* files on files nobody was actually editing. These
+# helpers make each run check Syncthing's own state first (skip rather than barge in while
+# a sync is still converging) and pause this machine's folder for the few seconds this
+# script is actually rewriting files, so Syncthing here never offers or accepts a write on
+# this folder mid-rebase. Best-effort: if Syncthing isn't installed/running, these no-op
+# rather than block git from working at all.
+function Get-SyncthingApiContext {
+    $configPath = Join-Path $env:LOCALAPPDATA "Syncthing\config.xml"
+    if (-not (Test-Path $configPath)) { return $null }
+    try {
+        [xml]$cfg = Get-Content $configPath
+        $apikey = $cfg.configuration.gui.apikey
+        if (-not $apikey) { return $null }
+        return @{ Headers = @{ "X-API-Key" = $apikey }; BaseUrl = "http://127.0.0.1:8384" }
+    } catch {
+        return $null
+    }
+}
+
+function Test-SyncthingIdle {
+    param([string]$FolderId = "jarvis")
+    $ctx = Get-SyncthingApiContext
+    if (-not $ctx) {
+        Write-SyncLog "Syncthing API not reachable, proceeding without coordination."
+        return $true
+    }
+    try {
+        $status = Invoke-RestMethod -Uri "$($ctx.BaseUrl)/rest/db/status?folder=$FolderId" -Headers $ctx.Headers -TimeoutSec 5
+        $idle = ($status.state -eq "idle") -and ($status.needBytes -eq 0) -and ($status.errors -eq 0)
+        if (-not $idle) {
+            Write-SyncLog "Syncthing not idle (state=$($status.state), needBytes=$($status.needBytes), errors=$($status.errors)), skipping this run."
+        }
+        return $idle
+    } catch {
+        Write-SyncLog "Syncthing status check failed ($($_.Exception.Message)), proceeding without coordination."
+        return $true
+    }
+}
+
+function Set-SyncthingFolderPaused {
+    param([bool]$Paused, [string]$FolderId = "jarvis")
+    $ctx = Get-SyncthingApiContext
+    if (-not $ctx) { return }
+    try {
+        $body = @{ paused = $Paused } | ConvertTo-Json
+        Invoke-RestMethod -Uri "$($ctx.BaseUrl)/rest/config/folders/$FolderId" -Headers $ctx.Headers -Method Patch -Body $body -ContentType "application/json" -TimeoutSec 5 | Out-Null
+        Write-SyncLog "Syncthing folder '$FolderId' paused=$Paused"
+    } catch {
+        Write-SyncLog "Could not set Syncthing folder paused=$Paused ($($_.Exception.Message))."
+    }
+}
+
 function Invoke-PullRebase {
     # --autostash: this runs before the commit step, so uncommitted changes
     # sitting in the working tree are the normal case, not an edge case.
@@ -132,9 +188,21 @@ function Invoke-GitAutoSync {
     }
     New-Item -ItemType File -Path $LockFile -Force | Out-Null
 
+    $pausedSyncthing = $false
     try {
         $branch = Get-CurrentBranch
         Write-SyncLog "=== git-auto-sync start (branch: $branch) ==="
+
+        if (-not (Test-SyncthingIdle)) {
+            Write-SyncLog "=== git-auto-sync end (deferred, Syncthing still converging) ==="
+            exit 0
+        }
+
+        # Pause this machine's Syncthing folder for the duration of our own working-tree
+        # writes (rebase checkout, autostash pop) so it never races an inbound or outbound
+        # transfer on the same files. Always resumed in the finally block below.
+        Set-SyncthingFolderPaused -Paused $true
+        $pausedSyncthing = $true
 
         if (-not (Invoke-PullRebase -Branch $branch)) {
             Write-SyncLog "CONFLICT: initial pull --rebase failed. Manual resolution needed."
@@ -155,6 +223,9 @@ function Invoke-GitAutoSync {
         Write-SyncLog "=== git-auto-sync end (success) ==="
         exit 0
     } finally {
+        if ($pausedSyncthing) {
+            Set-SyncthingFolderPaused -Paused $false
+        }
         Remove-Item $LockFile -Force -ErrorAction SilentlyContinue
     }
 }

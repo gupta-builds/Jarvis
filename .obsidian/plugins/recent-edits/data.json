@@ -368,9 +368,9 @@
     "20_Progress/Degree/CSCI 4521/Textbook/Textbook Map.md": "external",
     "10_Areas/Career/Internships/List/Dossiers/_Today/Manual Internship Listings.md": "obsidian",
     "20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 2.md": "obsidian",
-    "20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 3 & 5.md": "obsidian",
     "20_Progress/Degree/CSCI 4521/Textbook/ISL/Chapter - 2.md": "obsidian",
-    "20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 5.md": "obsidian"
+    "20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 5.md": "obsidian",
+    "20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 3.md": "obsidian"
   },
   "_editTimes": {
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Home/00 - Session Index.md": 1790496002447,
@@ -730,9 +730,9 @@
     "20_Progress/Degree/CSCI 4521/Textbook/Textbook Map.md": 1790550569256,
     "10_Areas/Career/Internships/List/Dossiers/_Today/Manual Internship Listings.md": 1790548654105,
     "20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 2.md": 1790561356828,
-    "20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 3 & 5.md": 1790561322460,
     "20_Progress/Degree/CSCI 4521/Textbook/ISL/Chapter - 2.md": 1790561828954,
-    "20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 5.md": 1790561857399
+    "20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 5.md": 1790562451348,
+    "20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 3.md": 1790561893212
   },
   "_dismissedAt": {},
   "_editSizes": {
@@ -1093,9 +1093,9 @@
     "20_Progress/Degree/CSCI 4521/Textbook/Textbook Map.md": 6480,
     "10_Areas/Career/Internships/List/Dossiers/_Today/Manual Internship Listings.md": 30715,
     "20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 2.md": 25091,
-    "20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 3 & 5.md": 30352,
     "20_Progress/Degree/CSCI 4521/Textbook/ISL/Chapter - 2.md": 37807,
-    "20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 5.md": 843
+    "20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 5.md": 28295,
+    "20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 3.md": 16177
   },
   "_sizeDeltas": {
     "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md": "up",

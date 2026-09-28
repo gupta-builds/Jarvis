@@ -8,6 +8,15 @@ Ran `/startday`: patched `10_Areas/Life/Enumerate/Daily/2026-09-28.md` (fixed `c
 
 **Next:** user to confirm with AIIS leadership whether the "Fall AI Convention w/ Nexus" is real (wrong date/mislabeled) or stale, then correct `Fall 2026 Plan.md`'s Week-by-week row in an actual `/weekly-review` pass, not ad hoc.
 
+## [2026-09-28] build | Sync follow-up — live recheck, 2min watcher delay, prevention note written
+Follow-up to the same day's Build 8 entry below, at direct request: took a live REST recheck rather than trusting the earlier report. Syncthing itself still clean (`errors: 0`, `needBytes: 0`, 100% completion), but the on-disk conflict count had risen 29 → 31. Two were old Sep 20-21 conflict copies just now delivered from the Dell (mtime updated, filename timestamp didn't); two were genuinely new, both from the Dell (`2D4OE4D`), at 01:33 and 01:48 today, on `.obsidian/plugins/file-explorer-plus/data.json` — the exact race Build 8 diagnosed, recurring from the one side (the Dell) that hasn't received its matching config fix yet. Expected, not a regression.
+
+Dialed `fsWatcherDelayS` from the 300s set in Build 8 down to **120s** (2 minutes) per direct instruction that 300 was too long — applied via REST, verified live, confirmed the transient `scanning` state settled back to `idle`/`errors: 0`. This value supersedes Build 8's 300s.
+
+Wrote [[Cross-Laptop Sync - Known Failure Modes and Prevention]] — a consolidated, durable reference covering all 6 failure patterns found across every build (platform-incompatible paths, reserved filenames, secrets left on disk, safety-net settings silently reverting, uncoordinated writers, the kanban plugin's full-file rewrites), each with root cause, fix, and prevention, plus a repeatable 6-step live-health-check recipe and the exact three pending manual actions (re-enable the health task via elevation, mirror the 120s + versioning fix onto the Dell, delete and rotate the leaked Copilot credentials backup on both machines).
+
+**Next:** user to run the three pending actions listed in the new note; the 31 (now more precisely accounted for) conflict files stay untouched until then.
+
 ## [2026-09-28] build | Sync conflict root cause found and fixed — Cross-Laptop Sync Build 8
 User flagged 29 live `.sync-conflict-*` files across the Degree Board notes and asked for a full root-cause pass, not another cleanup. Confirmed Syncthing itself is healthy (`errors: 0`, `needBytes: 0`, 100% completion both ways) — the conflicts are two independent, uncoordinated writers racing the same working tree: Syncthing's real-time sync and `Jarvis-GitAutoSync`'s own 15-minute `pull --rebase --autostash`, run independently on each laptop, whose rebase/autostash checkout looks like a real edit to Syncthing's watcher. Correlated directly: a same-minute conflict cluster across six-plus unrelated files at 23:31:22 on 2026-09-27, two minutes before a genuine 84-file auto-sync commit. `obsidian-kanban` confirmed installed, explaining why Board notes specifically keep colliding.
 

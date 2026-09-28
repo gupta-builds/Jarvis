@@ -3,7 +3,7 @@ type: class
 input_kind: board
 status: sprout
 created: 2026-09-07
-updated: 2026-09-15
+updated: 2026-09-28
 area:
   - "[[Fall'26 Syllabus]]"
   - "[[APAS]]"
@@ -91,6 +91,7 @@ Computed from the syllabus's own week labels, cross-checked against a calendar 2
 > 3. **"No Class, Holiday Break" sits on printed-Week-12's Thursday (11/19),** which isn't a recognized UMN holiday - while the real, confirmed UMN Thanksgiving Thursday (11/26) falls on printed-Week-13's Thursday, which the table instead shows as a normal lecture (Lecture 28).
 > All three point to the same likely cause: everything from Week 6 onward may be running one row "behind" its real calendar week, the same kind of leftover-template artifact caught earlier this session in TIP103's stale "Spring break" line. Dates marked * above are the ones this affects.
 > **Cross-verified 2026-09-15 against a live Canvas scrape** (`.firecrawl/syllabus.md` and `.firecrawl/schedule.md` in the source folder, pulled 2026-09-08) - all three anomalies are present there too, identically. This is not a PDF-copy or vault-ingestion artifact; it's baked into the professor's own Canvas page. **Confirm the real midterm date and the real Thanksgiving-week class status directly with the instructor or TA** - Canvas itself won't self-correct this.
+> **A fourth, live anomaly, confirmed 2026-09-28 from the lecture transcripts themselves:** Quiz #1 did **not** happen in class on Thu 9/17 as the printed schedule shows - the professor hadn't written it. It became an ungraded-cadence take-home, posted the morning of Tue 9/22 and due that same day at 11:59 PM. Treat the printed "every other Thursday in class" quiz cadence as the intent, not a guarantee - confirm each quiz actually happened in class before assuming the schedule table above is current.
 ## Environment Setup
 Already scaffolded in the source folder, confirmed 2026-09-08. Local conda environment at `.conda/csci-5304` inside the course folder (not a global conda env) - open a notebook in VS Code, pick the kernel **Python (csci-5304)**, run cells normally.
 *To recreate,* from the course folder in Anaconda Prompt or PowerShell:
@@ -106,6 +107,12 @@ conda run --prefix .\.conda\csci-5304 python -m ipykernel install --user --name 
 - Confirm the real midterm date and Thanksgiving-week status on Canvas (see schedule warning above).
 - Confirm the actual class meeting time - not stated anywhere in this syllabus.
 - Textbook part/chapter breakdown for Parts I-V - deferred by plan, to be filled in as each part is actually read.
+## Weekly Note-Building Workflow (repeatable, set up 2026-09-28)
+No lecture slides exist for this course at all - the only real lecture source is the raw transcript files in `Lecture/Transcripts/`, so both the textbook layer and the weekly synthesis layer have to be built by running two sets of AI prompts against them, in order, every week:
+1. **Notebook prompts** (Gemini Notebook, one per lecture, sometimes split into parts for length) - upload `Textbook & Resources/CSCI 5304 Textbook.pdf` plus that lecture's transcript excerpt, land the output as `Textbook/Lecture - N.md`.
+2. **Codex prompts** (`codex` CLI, one single prompt per week, not per lecture) - once that week's Lecture notes exist, run the week's prompt against the full transcript(s) plus the landed Lecture notes; it writes the finished week note directly into `Weekly/Week - N.md`.
+
+Both prompt sets' **reusable master templates** live in [[20_Progress/Degree/Repetitive Things|Repetitive Things]] (§ Notebook, § Codex) - written to be filled in for any future course, not just this one. The **filled-in, course-specific versions for Weeks 2-3** are staged in [[20_Progress/Degree/CSCI 5304/Weekly/Week - 2 & 3 (Prompts)|Week - 2 & 3 (Prompts)]], along with the real source manifest (which transcript covers which lecture, and which weeks/lectures don't have a transcript yet). Week 1 is skipped on purpose (nothing was captured for it); each future week should get its own manifest-plus-filled-prompts entry following that same file's shape rather than reinventing the process.
 ## Resources
 - Course text: Trefethen & Bau, *Numerical Linear Algebra* (25th Anniversary Ed.) - https://epubs.siam.org/doi/book/10.1137/1.9781611977165
 - Author's own site: https://people.maths.ox.ac.uk/trefethen/

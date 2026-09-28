@@ -399,7 +399,8 @@
     "10_Areas/Life/Enumerate/Daily/2026-09-28.md": "external",
     "00_Dashboard.md": "external",
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-28 Weekly workflow setup 2026-W40.md": "external",
-    "20_Progress/Degree/CSCI 4511W/Weekly/Week - 4.md": "obsidian"
+    "20_Progress/Degree/CSCI 4511W/Weekly/Week - 4.md": "obsidian",
+    "20_Progress/Degree/CSCI 5304/Weekly/Week - 2 & 3 (Prompts).md": "external"
   },
   "_editTimes": {
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Home/00 - Session Index.md": 1790577004469,
@@ -413,7 +414,7 @@
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Session Index.md": 1790577004491,
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Tool Usage Rollup.md": 1790577004493,
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": 1790451185419,
-    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 1790619481238,
+    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 1790620381198,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-18 Jarvis sync process setup.md": 1790450285627,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-20 Jarvis vault plugins documentation batch 3.md": 1790577186115,
     "60_Claude/07_AI_Information/Session Logs/log.md": 1790576285829,
@@ -495,7 +496,7 @@
     "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build 7 Findings.md": 1790494384021,
     "30_Order/Standards/Courses/Discussion Standard.md": 1790452085426,
     "30_Order/System/sync-workflow/scripts/check-syncthing-status.ps1": 1790577186067,
-    "20_Progress/Degree/CSCI 5304/Weekly/Weekly Board.md": 1790569084200,
+    "20_Progress/Degree/CSCI 5304/Weekly/Weekly Board.md": 1790619614335,
     "20_Progress/Degree/CSCI 4511W/Assignments/Code/ps1.py": 1790577186028,
     "20_Progress/Degree/CSCI 4061/CSCI 4061 Board.md": 1790448485361,
     "20_Progress/Degree/CSCI 4511W/Assignments/Written/Problem Set 1.md": 1790450285546,
@@ -521,7 +522,7 @@
     "20_Progress/Degree/MGMT 3015/Assignments/Profile of a Successful Entrepreneur.md": 1790452085398,
     "20_Progress/Degree/MGMT 3015/Textbook/Chapter - 1 & 2.md": 1790451185369,
     "20_Progress/Degree/MGMT 3015/Textbook/Chapter - 3 & 4.md": 1790452085401,
-    "20_Progress/Degree/CSCI 5304/CSCI 5304 Board.md": 1790452085394,
+    "20_Progress/Degree/CSCI 5304/CSCI 5304 Board.md": 1790619593504,
     "20_Progress/Degree/ENGL 1004/ENGL 1004 Board.md": 1790451185364,
     "20_Progress/Degree/CSCI 4521/CSCI 4521 Board.md": 1790569084198,
     "20_Progress/Degree/MGMT 3015/MGMT 3015 Board.md": 1790452085400,
@@ -790,7 +791,8 @@
     "10_Areas/Life/Enumerate/Daily/2026-09-28.md": 1790574586617,
     "00_Dashboard.md": 1790576285813,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-28 Weekly workflow setup 2026-W40.md": 1790575208954,
-    "20_Progress/Degree/CSCI 4511W/Weekly/Week - 4.md": 1790618878572
+    "20_Progress/Degree/CSCI 4511W/Weekly/Week - 4.md": 1790618878572,
+    "20_Progress/Degree/CSCI 5304/Weekly/Week - 2 & 3 (Prompts).md": 1790619582760
   },
   "_dismissedAt": {},
   "_editSizes": {
@@ -805,7 +807,7 @@
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Session Index.md": 381,
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Tool Usage Rollup.md": 980,
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": 26552,
-    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 489810,
+    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 491203,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-18 Jarvis sync process setup.md": 1062400,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-20 Jarvis vault plugins documentation batch 3.md": 365354,
     "60_Claude/07_AI_Information/Session Logs/log.md": 214574,
@@ -887,7 +889,7 @@
     "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build 7 Findings.md": 26070,
     "30_Order/Standards/Courses/Discussion Standard.md": 3260,
     "30_Order/System/sync-workflow/scripts/check-syncthing-status.ps1": 7114,
-    "20_Progress/Degree/CSCI 5304/Weekly/Weekly Board.md": 1344,
+    "20_Progress/Degree/CSCI 5304/Weekly/Weekly Board.md": 1694,
     "20_Progress/Degree/CSCI 4511W/Assignments/Code/ps1.py": 5570,
     "20_Progress/Degree/CSCI 4061/CSCI 4061 Board.md": 13713,
     "20_Progress/Degree/CSCI 4511W/Assignments/Written/Problem Set 1.md": 3832,
@@ -913,7 +915,7 @@
     "20_Progress/Degree/MGMT 3015/Assignments/Profile of a Successful Entrepreneur.md": 9044,
     "20_Progress/Degree/MGMT 3015/Textbook/Chapter - 1 & 2.md": 47617,
     "20_Progress/Degree/MGMT 3015/Textbook/Chapter - 3 & 4.md": 13942,
-    "20_Progress/Degree/CSCI 5304/CSCI 5304 Board.md": 15141,
+    "20_Progress/Degree/CSCI 5304/CSCI 5304 Board.md": 15647,
     "20_Progress/Degree/ENGL 1004/ENGL 1004 Board.md": 9558,
     "20_Progress/Degree/CSCI 4521/CSCI 4521 Board.md": 15434,
     "20_Progress/Degree/MGMT 3015/MGMT 3015 Board.md": 13555,
@@ -1182,7 +1184,8 @@
     "10_Areas/Life/Enumerate/Daily/2026-09-28.md": 4017,
     "00_Dashboard.md": 7404,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-28 Weekly workflow setup 2026-W40.md": 34686,
-    "20_Progress/Degree/CSCI 4511W/Weekly/Week - 4.md": 1557
+    "20_Progress/Degree/CSCI 4511W/Weekly/Week - 4.md": 1557,
+    "20_Progress/Degree/CSCI 5304/Weekly/Week - 2 & 3 (Prompts).md": 35168
   },
   "_sizeDeltas": {
     "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md": "up",

@@ -96,7 +96,7 @@
     "30_Order/Standards/Courses/Weekly Board Standard.md": "external",
     "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md": "external",
     "20_Progress/Degree/CSCI 5304/Textbook/Textbook Map.md": "external",
-    "20_Progress/Degree/Repetitive Things.md": "external",
+    "20_Progress/Degree/Repetitive Things.md": "obsidian",
     "30_Order/Templates/Classes/Discussion Template.md": "external",
     "30_Order/Standards/Courses/Textbook Map Standard.md": "external",
     "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build Roadmap.md": "external",
@@ -421,7 +421,7 @@
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Session Index.md": 1790577004491,
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Tool Usage Rollup.md": 1790577004493,
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": 1790451185419,
-    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 1790635681142,
+    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 1790636580845,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-18 Jarvis sync process setup.md": 1790450285627,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-20 Jarvis vault plugins documentation batch 3.md": 1790577186115,
     "60_Claude/07_AI_Information/Session Logs/log.md": 1790576285829,
@@ -495,7 +495,7 @@
     "30_Order/Standards/Courses/Weekly Board Standard.md": 1790452085428,
     "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md": 1790569084194,
     "20_Progress/Degree/CSCI 5304/Textbook/Textbook Map.md": 1790621312289,
-    "20_Progress/Degree/Repetitive Things.md": 1790625726194,
+    "20_Progress/Degree/Repetitive Things.md": 1790636567869,
     "30_Order/Templates/Classes/Discussion Template.md": 1790497085443,
     "30_Order/Standards/Courses/Textbook Map Standard.md": 1790451185395,
     "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build Roadmap.md": 1790577186084,
@@ -806,7 +806,7 @@
     "20_Progress/Degree/CSCI 5304/Textbook/Lecture - 5.md": 1790621496116,
     "30_Order/Workflows/Courses/Per Class/CSCI 5304 Workflow.md": 1790621543070,
     "20_Progress/Degree/MGMT 3015/Lecture/Lecture - 5.md": 1790626469136,
-    "20_Progress/Degree/MGMT 3015/Textbook/Chapter - 8.md": 1790627185855
+    "20_Progress/Degree/MGMT 3015/Textbook/Chapter - 8.md": 1790636393344
   },
   "_dismissedAt": {},
   "_editSizes": {
@@ -821,7 +821,7 @@
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Session Index.md": 381,
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Tool Usage Rollup.md": 980,
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": 26552,
-    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 511354,
+    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 512781,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-18 Jarvis sync process setup.md": 1062400,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-20 Jarvis vault plugins documentation batch 3.md": 365354,
     "60_Claude/07_AI_Information/Session Logs/log.md": 214574,
@@ -895,7 +895,7 @@
     "30_Order/Standards/Courses/Weekly Board Standard.md": 2771,
     "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md": 1324,
     "20_Progress/Degree/CSCI 5304/Textbook/Textbook Map.md": 8407,
-    "20_Progress/Degree/Repetitive Things.md": 60758,
+    "20_Progress/Degree/Repetitive Things.md": 42510,
     "30_Order/Templates/Classes/Discussion Template.md": 478,
     "30_Order/Standards/Courses/Textbook Map Standard.md": 2991,
     "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build Roadmap.md": 23706,
@@ -1206,12 +1206,11 @@
     "20_Progress/Degree/CSCI 5304/Textbook/Lecture - 5.md": 13275,
     "30_Order/Workflows/Courses/Per Class/CSCI 5304 Workflow.md": 9893,
     "20_Progress/Degree/MGMT 3015/Lecture/Lecture - 5.md": 15558,
-    "20_Progress/Degree/MGMT 3015/Textbook/Chapter - 8.md": 843
+    "20_Progress/Degree/MGMT 3015/Textbook/Chapter - 8.md": 14583
   },
   "_sizeDeltas": {
     "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md": "up",
-    "10_Areas/Career/Internships/List/Dossiers/_Today/Manual Internship Listings.md": "up",
-    "20_Progress/Degree/Repetitive Things.md": "up"
+    "10_Areas/Career/Internships/List/Dossiers/_Today/Manual Internship Listings.md": "up"
   },
   "_pinned": []
 }

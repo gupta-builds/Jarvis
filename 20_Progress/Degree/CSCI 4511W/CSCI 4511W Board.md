@@ -3,7 +3,7 @@ type: class
 input_kind: board
 status: sprout
 created: 2026-09-07
-updated: 2026-09-15
+updated: 2026-09-28
 area:
   - "[[Fall'26 Syllabus]]"
   - "[[APAS]]"
@@ -15,7 +15,7 @@ next: "Confirm the exact discussion-section meeting time on Canvas, and what (if
 Fall'26, replaces the dropped [[20_Progress/Degree/CSCI 3081W/CSCI 3081W Board|CSCI 3081W]] as of 2026-09-09. Full syllabus text pasted directly from Canvas, 2026-09-09. Degree-requirement impact of this swap - what's confirmed closed vs. now genuinely uncertain - is tracked in [[Fall'26 Syllabus]]'s Path to Graduation section, not repeated here.
 ## Source of Truth
 > [!IMPORTANT] Read before trusting anything about this course
-> Real source folder: `D:\Users\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4511W`. As of 2026-09-15 it holds the textbook PDF, `Discussion/turing.pdf` (the Discussion 1 reading, confirmed 2026-09-15), and empty `Lecture/` and `Pratice Problems/` folders. This Board note is the readable distillation of the real syllabus and Canvas Modules page (both pasted in full 2026-09-15) - not a replacement for checking Canvas directly when anything here seems stale. Save the actual syllabus PDF and future slides here as they arrive; nothing here should be trusted over a live Canvas check for anything time-sensitive.
+> Real source folder: `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4511W` (corrected 2026-09-28 - earlier text had a stale `D:\Users\_Anant\...` path that never existed on this machine). As of 2026-09-28 it holds the textbook PDF, `Discussion/turing.pdf` and `Discussion/Discussion 2.pdf`, `Lecture/CSCI4511W Lecture 02.pdf` through `Lecture 06.pdf` (Lecture 06, "Informed Search," landed 2026-09-28), and `Pratice Problems/` with `ps1.py`/`ps1.pdf` and the `aima-python` reference repo. This Board note is the readable distillation of the real syllabus and Canvas Modules page (both pasted in full 2026-09-15) - not a replacement for checking Canvas directly when anything here seems stale. Save the actual syllabus PDF and future slides here as they arrive; nothing here should be trusted over a live Canvas check for anything time-sensitive.
 ## Catalog Info
 Course number CSCI 4511W, **Introduction to Artificial Intelligence**, Fall 2026, two sections (001 and 010) sharing one Canvas site. Catalog description: "Agents. Problem-solving using search algorithms. Knowledge representation and inference using formal logic. Knowledge graphs. Planning. Introduction to machine learning."
 ## Learning Objectives

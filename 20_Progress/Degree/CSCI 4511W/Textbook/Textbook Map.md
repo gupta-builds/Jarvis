@@ -3,13 +3,13 @@ type: class
 input_kind: textbook
 status: sprout
 created: 2026-09-09
-updated: 2026-09-20
+updated: 2026-09-28
 area:
   - "[[CSCI 4511W Board]]"
 tags:
   - "#class"
   - "#Textbook"
-next: "Capture the 9/14 lecture, then create the Chapter 3 search note before continuing the course sequence"
+next: "Run the Chapter 3 (Parts 1-2) and Chapter 4 (Parts 1-2) Gemini Notebook prompts from [[20_Progress/Degree/Repetitive Things|Repetitive Things]] to land Chapter - 3.md and Chapter - 4.md"
 ---
 # CSCI 4511W — Textbook Map
 ==Resolved 2026-09-15: the entire semester's reading list is one textbook, Russell & Norvig's *Artificial Intelligence: A Modern Approach* (4th ed.), Chapters 2-9 - the earlier "second uncited source for Chapter 7" concern was a scrambled-paste artifact, not a real gap.== Cross-referenced against the full Schedule section in [[CSCI 4511W Board]].
@@ -36,4 +36,4 @@ Due 12/14, inside its own module ("Modern Approaches: Vector Semantics"), with n
 ## Standard
 Each chapter note, once created, follows [[Textbook Template]] - one highlight anchor, bolded key concepts, a worked example, a connection back to the matching lecture, and flashcards.
 ## Status
-Two chapter notes are now written: Chapters 1–2 were reviewed directly from the local 4th-edition PDF on 2026-09-20. Chapter 1 is background rather than a dated Canvas reading; Chapter 2 is the first scheduled textbook unit. The notes are self-contained source-grounded study notes, while the weekly lecture-synthesis layer remains separate and should only be filled from actual lecture capture, per [[Weekly Standard]].
+Two chapter notes are now written: Chapters 1–2 were reviewed directly from the local 4th-edition PDF on 2026-09-20. Chapter 1 is background rather than a dated Canvas reading; Chapter 2 is the first scheduled textbook unit. Chapter 3 (§3.1–3.6, spanning Weeks 2–4) and Chapter 4 (§4.1.1–4.4, spanning Weeks 5–6) have no notes yet but have real, source-cited, ready-to-run prompts as of 2026-09-28 in [[20_Progress/Degree/Repetitive Things|Repetitive Things]] under `# CSCI 4511W — Chapter 3 & Weekly Note Prompts`. The notes are self-contained source-grounded study notes, while the weekly lecture-synthesis layer remains separate and should only be filled from actual lecture capture, per [[Weekly Standard]].

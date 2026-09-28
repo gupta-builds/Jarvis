@@ -10,17 +10,17 @@ tags:
   - background
 notes:
   - "[[_UI Fixes]]"
-  - "[[frontend-ui-fixes-requirements]]"
-  - "[[frontend-ui-fixes-design]]"
-  - "[[frontend-ui-fixes-tasks]]"
-  - "[[frontend-ui-fixes-index]]"
+  - "[[ui-fixes-requirements]]"
+  - "[[ui-fixes-design]]"
+  - "[[ui-fixes-tasks]]"
+  - "[[ui-fixes-index]]"
 ---
 
 # UI Fix 01 — Hero & Background Sphere
 
 > **Status:** partial (scatter intro exists; click lacks perceptible depth; overlay gap needs repro)
-> **Ledger:** [[_UI Fixes]] §1 | **Task:** [[frontend-ui-fixes-tasks]] Phase 2 (2.1, 2.2)
-> **2026-09-05 correction pass:** the "Current code" section below was re-verified line-by-line against `ObsidianBackgroundCanvas.tsx` on `post-frontend`. The previous version of this note referenced symbols (`handleClick`, `burstActive`, `scatterBurstActive`, `BURST_DURATION`, `burstScale`) that **do not exist in the file** — they described an earlier or imagined implementation. The mechanism below is the real one. Same correction applied to [[frontend-ui-fixes-design]] Fix 1 and [[frontend-ui-fixes-tasks]] Task 2.1.
+> **Ledger:** [[_UI Fixes]] §1 | **Task:** [[ui-fixes-tasks]] Phase 2 (2.1, 2.2)
+> **2026-09-05 correction pass:** the "Current code" section below was re-verified line-by-line against `ObsidianBackgroundCanvas.tsx` on `post-frontend`. The previous version of this note referenced symbols (`handleClick`, `burstActive`, `scatterBurstActive`, `BURST_DURATION`, `burstScale`) that **do not exist in the file** — they described an earlier or imagined implementation. The mechanism below is the real one. Same correction applied to [[ui-fixes-design]] Fix 1 and [[ui-fixes-tasks]] Task 2.1.
 
 ## Purpose
 

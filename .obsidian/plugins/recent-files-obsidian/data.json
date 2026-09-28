@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "Week - 1 (Prompts)",
+      "path": "20_Progress/Degree/CSCI 4521/Weekly/Week - 1 (Prompts).md"
+    },
+    {
+      "basename": "Repetitive Things",
+      "path": "20_Progress/Degree/Repetitive Things.md"
+    },
+    {
       "basename": "Chapter - 5",
       "path": "20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 5.md"
     },
@@ -19,10 +27,6 @@
     {
       "basename": "Chapter - 4",
       "path": "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4.md"
-    },
-    {
-      "basename": "Repetitive Things",
-      "path": "20_Progress/Degree/Repetitive Things.md"
     },
     {
       "basename": "Manual Internship Listings",
@@ -195,10 +199,6 @@
     {
       "basename": "Concept Standard",
       "path": "30_Order/Standards/Courses/Concept Standard.md"
-    },
-    {
-      "basename": "Board Standard",
-      "path": "30_Order/Standards/Courses/Board Standard.md"
     }
   ],
   "omittedPaths": [

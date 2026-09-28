@@ -304,5 +304,5 @@ Verification performed read-only against repo at `/home/anant_gupta/projects/hub
 
 - Supersedes stale claims in: [[security/README]], [[05 - Model Layer, Rate Limiting & Abuse]], graphify `chatbot/02-model-router.md`
 - Implements reconciliation requested across: [[security/phase-1-auth-clerk]] through [[security/phase-5-monitoring]]
-- UX polish tracked separately: `frontend/UI Fixes.md`, [[frontend/BUILD-STATUS]]
+- UX polish tracked separately: `frontend/UI Fixes.md`, [[BUILD-STATUS]]
 - MCP deferral context: [[AEO & SEO/00 - Agent-Ready Infrastructure Build Plan]]

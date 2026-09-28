@@ -9,9 +9,9 @@ tags:
   - prompt
   - implementation
 notes:
-  - "[[frontend-ui-fixes-requirements]]"
-  - "[[frontend-ui-fixes-design]]"
-  - "[[frontend-ui-fixes-tasks]]"
+  - "[[ui-fixes-requirements]]"
+  - "[[ui-fixes-design]]"
+  - "[[ui-fixes-tasks]]"
   - "[[_UI Fixes]]"
   - "[[claude-prompt-ui-fixes-analysis]]"
   - "[[claude-prompt-ui-fixes-audit-pass]]"
@@ -19,7 +19,7 @@ notes:
 ---
 # Claude Sonnet 5 — UI Fixes Implementation Prompts (Phase-by-Phase)
 
-> **Supersedes the planning stage.** [[claude-prompt-ui-fixes-analysis]], [[claude-prompt-ui-fixes-audit-pass]], and [[claude-prompt-ui-fixes-pass-3]] were written for Sonnet 3.5 in Plan Mode — three passes just to produce and patch the requirements/design/tasks docs, with an explicit "do not write code yet" constraint each time. That work is done: [[frontend-ui-fixes-requirements]], [[frontend-ui-fixes-design]], and [[frontend-ui-fixes-tasks]] now include Pass 1 + Pass 2 + Pass 3's confirmed gaps (deploy-sync check, Orby walking/ground-anchoring — folded in 2026-07-13). Nothing here needs another documentation pass.
+> **Supersedes the planning stage.** [[claude-prompt-ui-fixes-analysis]], [[claude-prompt-ui-fixes-audit-pass]], and [[claude-prompt-ui-fixes-pass-3]] were written for Sonnet 3.5 in Plan Mode — three passes just to produce and patch the requirements/design/tasks docs, with an explicit "do not write code yet" constraint each time. That work is done: [[ui-fixes-requirements]], [[ui-fixes-design]], and [[ui-fixes-tasks]] now include Pass 1 + Pass 2 + Pass 3's confirmed gaps (deploy-sync check, Orby walking/ground-anchoring — folded in 2026-07-13). Nothing here needs another documentation pass.
 >
 > These six prompts are **implementation-ready**, written for Sonnet 5 running in Claude Code directly in the `gupta-builds/Portfolio` repo (not this vault). Sonnet 5 doesn't need the heavy plan/design/tasks ceremony 3.5 needed — it can read the tasks doc plus the live code in the same session and implement directly. Run them as separate sessions, one per phase, in order. Each prompt is self-contained: paste the fenced block into a fresh Claude Code session at the repo root.
 

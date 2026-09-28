@@ -10,10 +10,10 @@ tags:
   - gsap
 notes:
   - "[[_UI Fixes]]"
-  - "[[frontend-ui-fixes-requirements]]"
-  - "[[frontend-ui-fixes-design]]"
-  - "[[frontend-ui-fixes-tasks]]"
-  - "[[frontend-ui-fixes-index]]"
+  - "[[ui-fixes-requirements]]"
+  - "[[ui-fixes-design]]"
+  - "[[ui-fixes-tasks]]"
+  - "[[ui-fixes-index]]"
   - "[[ui-fix-03-about-telemetry]]"
 ---
 

@@ -2,16 +2,16 @@
 
 > **Folder:** `20_Progress/Projects/CS/Portfolio/frontend/`
 > **Updated:** 2026-09-05
-> Each linked note below is a **standalone, implementation-ready spec** for one fix area. Use with [[frontend-ui-fixes-tasks]] prompts.
+> Each linked note below is a **standalone, implementation-ready spec** for one fix area. Use with [[ui-fixes-tasks]] prompts.
 
 ## Master docs (read first)
 
 | Doc | Role |
 |---|---|
 | [[_UI Fixes]] | Human walkthrough + status ledger (Sep 2026 ground truth) |
-| [[frontend-ui-fixes-requirements]] | Success criteria per fix area |
-| [[frontend-ui-fixes-design]] | Architecture, GSAP patterns, animation matrix |
-| [[frontend-ui-fixes-tasks]] | Phased tasks + copy-paste agent prompts |
+| [[ui-fixes-requirements]] | Success criteria per fix area |
+| [[ui-fixes-design]] | Architecture, GSAP patterns, animation matrix |
+| [[ui-fixes-tasks]] | Phased tasks + copy-paste agent prompts |
 
 ## Per-component specs (build from these)
 

@@ -8,9 +8,9 @@ tags:
   - ui-fixes
   - prompt
 notes:
-  - "[[frontend-ui-fixes-requirements]]"
-  - "[[frontend-ui-fixes-design]]"
-  - "[[frontend-ui-fixes-tasks]]"
+  - "[[ui-fixes-requirements]]"
+  - "[[ui-fixes-design]]"
+  - "[[ui-fixes-tasks]]"
   - "[[_UI Fixes]]"
   - "[[claude-prompt-ui-fixes-audit-pass]]"
 ---

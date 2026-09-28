@@ -9,20 +9,20 @@ tags:
   - ui-fixes
   - tasks
 notes:
-  - "[[frontend-ui-fixes-requirements]]"
-  - "[[frontend-ui-fixes-design]]"
+  - "[[ui-fixes-requirements]]"
+  - "[[ui-fixes-design]]"
   - "[[_UI Fixes]]"
 ---
 
 # Frontend UI Fixes — Tasks & Build Prompts
 
-> **Updated:** 2026-09-05. Each task includes a **copy-paste implementation prompt** referencing [[frontend-ui-fixes-requirements]] and [[frontend-ui-fixes-design]].
+> **Updated:** 2026-09-05. Each task includes a **copy-paste implementation prompt** referencing [[ui-fixes-requirements]] and [[ui-fixes-design]].
 > Run `pnpm typecheck && pnpm lint` after each phase; `pnpm build` before marking phase done.
 > Master ledger: [[_UI Fixes]].
 
 ## How To Use These Prompts
 
-> **Per-component detailed specs:** [[frontend-ui-fixes-index]] — read the linked `ui-fix-*.md` note before each task.
+> **Per-component detailed specs:** [[ui-fixes-index]] — read the linked `ui-fix-*.md` note before each task.
 
 1. Complete tasks in phase order unless marked independent.
 2. Paste the **Prompt** block into a fresh agent session with repo access.

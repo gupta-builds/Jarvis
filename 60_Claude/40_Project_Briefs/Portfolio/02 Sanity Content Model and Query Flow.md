@@ -82,12 +82,13 @@ graphify affected "PROFILE_QUERY" --depth 3
 > Generated during `pnpm knowledge:sync`. Edit the surrounding note, not this block.
 
 - Graph commit: `5f29675591f06f839442539f223ac151f78d9035`
-- Whole graph: **1181 nodes / 2139 edges**
-- This subsystem: **22 files / 58 nodes / 203 touching edges**
-- Leading communities: `schemaTypes/index.ts` (24), `PortfolioContent.tsx` (16), `image.ts` (11), `chat-tools.ts` (4), `chat-context.ts` (2), `next` (1)
+- Whole graph: **1147 nodes / 2163 edges**
+- This subsystem: **22 files / 102 nodes / 294 touching edges**
+- Leading communities: `schemaTypes/index.ts` (35), `types/index.ts` (31), `queries.ts` (10), `PortfolioContent.tsx` (7), `sanityFetch` (5), `chat-tools.ts` (4)
 
 ### High-connectivity symbols
 
+- `types/index.ts` — `src/sanity/types/index.ts:L1` (degree 62)
 - `sanityFetch` — `src/sanity/lib/live.ts:L40` (degree 25)
 - `queries.ts` — `src/sanity/lib/queries.ts:L1` (degree 24)
 - `schemaTypes/index.ts` — `src/sanity/schemaTypes/index.ts:L1` (degree 22)
@@ -99,7 +100,6 @@ graphify affected "PROFILE_QUERY" --depth 3
 - `client.ts` — `src/sanity/lib/client.ts:L1` (degree 9)
 - `env.ts` — `src/sanity/env.ts:L1` (degree 8)
 - `getServerClient()` — `src/sanity/lib/server-client.ts:L14` (degree 6)
-- `dataset` — `src/sanity/env.ts:L4` (degree 5)
 
 ### Owned source files
 

@@ -12,9 +12,9 @@ tags:
   - dark-mode
 notes:
   - "[[_UI Fixes]]"
-  - "[[frontend-ui-fixes-requirements]]"
-  - "[[frontend-ui-fixes-tasks]]"
-  - "[[frontend-ui-fixes-index]]"
+  - "[[ui-fixes-requirements]]"
+  - "[[ui-fixes-tasks]]"
+  - "[[ui-fixes-index]]"
 ---
 
 # UI Fix 08 — Carry-Forward (July Items Still Valid)
@@ -130,7 +130,7 @@ Record: in-sync | out-of-sync | unable-to-verify.
 pnpm typegen && pnpm typecheck && pnpm lint && pnpm test && pnpm build
 ```
 
-Manual QA checklist: see [[frontend-ui-fixes-tasks]] Task 8.1
+Manual QA checklist: see [[ui-fixes-tasks]] Task 8.1
 
 Breakpoints: 320, 375, 768, 1280, 1440 + `prefers-reduced-motion: reduce`
 

@@ -9,8 +9,8 @@ tags:
   - ui-fixes
   - requirements
 notes:
-  - "[[frontend-ui-fixes-design]]"
-  - "[[frontend-ui-fixes-tasks]]"
+  - "[[ui-fixes-design]]"
+  - "[[ui-fixes-tasks]]"
   - "[[_UI Fixes]]"
   - "[[BUILD-STATUS]]"
 ---
@@ -19,7 +19,7 @@ notes:
 
 > **Updated:** 2026-09-05 from localhost walkthrough + screenshots.
 > Human ground truth: [[_UI Fixes]] § Current Localhost Walkthrough.
-> Companion docs: [[frontend-ui-fixes-design]], [[frontend-ui-fixes-tasks]].
+> Companion docs: [[ui-fixes-design]], [[ui-fixes-tasks]].
 > Every file path below was verified against the live repo on branch with liquid-glass + GSAP additions.
 
 ## Document History
@@ -268,7 +268,7 @@ Manual QA: 320px, 375px, 768px, 1280px, 1440px; `prefers-reduced-motion: reduce`
 
 ## Component spec cross-reference
 
-> **Detailed per-component notes:** [[frontend-ui-fixes-index]]
+> **Detailed per-component notes:** [[ui-fixes-index]]
 
 | Fix Area | Component spec | Primary files |
 |---|---|---|

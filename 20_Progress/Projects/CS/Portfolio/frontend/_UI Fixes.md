@@ -3,18 +3,18 @@ type: class
 input_kind: project
 status: active
 created: 2026-07-11
-updated: 2026-09-05
+updated: 2026-09-27
 area: portfolio/frontend
 tags:
   - "#class"
   - portfolio
   - frontend
   - ui-fixes
-next: "[[frontend-ui-fixes-requirements]]"
+next: "[[ui-fixes-requirements]]"
 notes:
-  - "[[frontend-ui-fixes-requirements]]"
-  - "[[frontend-ui-fixes-design]]"
-  - "[[frontend-ui-fixes-tasks]]"
+  - "[[ui-fixes-requirements]]"
+  - "[[ui-fixes-design]]"
+  - "[[ui-fixes-tasks]]"
 ---
 
 # UI Fixes — Master Note
@@ -23,7 +23,7 @@ notes:
 
 Each fix area has a **detailed standalone spec** with verified file paths, current vs target behavior, acceptance criteria, and copy-paste prompts:
 
-→ **Start here:** [[frontend-ui-fixes-index]]
+→ **Start here:** [[ui-fixes-index]]
 
 | Area | Spec |
 |---|---|
@@ -36,13 +36,13 @@ Each fix area has a **detailed standalone spec** with verified file paths, curre
 | Portfolio Lab input | [[ui-fix-07-portfolio-lab]] |
 | July carry-forward | [[ui-fix-08-carry-forward]] |
 
-Formal trio: [[frontend-ui-fixes-requirements]] · [[frontend-ui-fixes-design]] · [[frontend-ui-fixes-tasks]]
+Formal trio: [[ui-fixes-requirements]] · [[ui-fixes-design]] · [[ui-fixes-tasks]]
 
 ---
 
-> **Current source of truth:** the **Current Localhost Walkthrough (Sep 2026)** section below.
-> The July 2026 raw dump is preserved under **Historical Context** for reference only — several items there are superseded.
-> Formal spec lives in [[frontend-ui-fixes-requirements]], [[frontend-ui-fixes-design]], [[frontend-ui-fixes-tasks]].
+> **CORRECTION 2026-09-27:** The walkthrough table below is raw human dictation from session `2026-09-04` — it has **not** been re-verified against the live repo. [[ui-fixes-index]] and the 8 `ui-fix-0N-*` component specs (re-checked against the live repo on 2026-09-05, with exact file/line citations) are **more current and more reliable** than this table. Several rows below marked "open" are already built — corrected inline with a link to the spec that confirms it. **Start at [[ui-fixes-index]], not here**, when checking what's actually left to build.
+>
+> Formal spec: [[ui-fixes-requirements]], [[ui-fixes-design]], [[ui-fixes-tasks]].
 
 ---
 
@@ -67,7 +67,7 @@ Verified against localhost + screenshots from session `2026-09-04`. This is the 
 |---|---|---|
 | Profile image static | **partial** | Previously fixed from moving; must stay static at all times — no ambient drift after entrance |
 | Image hover overlay full cover | **open** | On hover, Open Portfolio Lab / Close tab overlay must cover the **entire** profile image. Current gap on left border and bottom border is visible |
-| Sphere click → 3D volumetric scatter | **open** | Clicking center of sphere triggers a **2D-feeling** effect today. Must become a true **3D volumetric scatter**: particles fly outward in depth, then reform. Same visual language as load-in scatter but spatial |
+| Sphere click → 3D volumetric scatter | **partial** *(corrected 09-27)* | The scatter math is already genuinely 3D and isotropic (`randomOffsetInSphere` is correct) — the "looks 2D" complaint is a rendering gap (no parallax, no depth stratification, scatter direction ignores click point), not a math gap. A first refinement pass already shipped; see [[ui-fix-01-hero-background]] for the remaining camera-bias fix |
 | Scroll-driven background upgrade | **open** | Scroll effect improved but needs next level — see About/Projects/Education pinned sections below |
 
 **Components:** `HeroContent.tsx`, `ProfileImage.tsx`, `ObsidianBackgroundCanvas.tsx`
@@ -89,7 +89,7 @@ Verified against localhost + screenshots from session `2026-09-04`. This is the 
 
 **Components:** `AboutSection.tsx`, `AboutSectionClient.tsx`, `AboutTelemetry.tsx`, `ObsidianBackgroundCanvas.tsx` (background sync)
 
-**GSAP:** ScrollTrigger pin required — see [[frontend-ui-fixes-design]] § Pinned Sections
+**GSAP:** ScrollTrigger pin required — see [[ui-fixes-design]] § Pinned Sections
 
 **Screenshots:** About collapsed (4 cards visible — target is 2), About expanded (full bio + 4 cards — target is 2 glow cards)
 
@@ -102,8 +102,8 @@ Verified against localhost + screenshots from session `2026-09-04`. This is the 
 | Pinned lock-screen on scroll | **open** | Similar to About: section pins when user reaches Projects |
 | Border/edge background effect | **open** | Soothing recurring effect on **outer borders/edges of screen** while auto-scroll runs — distinct from About's center scatter |
 | Cards emerge from space | **open** | On reaching scroll point, 3 project cards emerge from fully translucent → solid 3D-feeling cards that appear **in space** (not sliding around) |
-| Side card ambient drift | **open** | While auto-scroll + background effect run, the two translucent side cards drift subtly within a **designated bounded space** |
-| Auto-play scope | **partial** | July spec: auto-play indices 0–2 only. Still valid unless user changes — confirm during build |
+| Side card ambient drift | **done** *(corrected 09-27)* | Already exists via `useSpaceFloat`, always-on drift, independent of hover — confirmed in [[ui-fix-04-projects-section]] |
+| Auto-play scope | **done** *(corrected 09-27)* | Resolved — live code already cycles all 9 projects. The "0–2 only" cap was a stale July requirement, not a live bug; confirmed in [[ui-fixes-requirements]] |
 
 **Components:** `ProjectsSlider.tsx`, `ObsidianBackgroundCanvas.tsx`, section wrapper
 
@@ -121,9 +121,9 @@ Verified against localhost + screenshots from session `2026-09-04`. This is the 
 |---|---|---|
 | Pinned one-screen lock | **open** | Education fits one viewport on entry; spring entrance sequence plays inside pin |
 | Spring bounce entry sequence | **open** | Bachelor's sphere bounces up first, then High School, then Middle School — spring-like, not instant |
-| Rope connectors (not rigid lines) | **open** | Lines connecting spheres must look like **flexible bent rope**, extendable, not straight rigid arcs |
+| Rope connectors (not rigid lines) | **partial** *(corrected 09-27)* | Already built (`StretchingLine`, a live bent Bezier curve, not a rigid line) — only a loop-restart snap bug remains; see [[ui-fix-05-education-section]] |
 | Dot delay +0.5s | **open** | Travelling dot starts ~0.5s later than now so Bachelor's can return to rigid shape before next loop |
-| Bachelor's gradual deform with dot | **open** | Bachelor's starts as rigid circle. As dot **leaves** Bachelor's, deformity **gradually increases** until it matches Middle School level. As dot reaches Middle School, Bachelor's **subtly returns** to rigid. Loop repeats |
+| Bachelor's gradual deform with dot | **partial** *(corrected 09-27)* | Already built (`collegeDistortForT` ties deformity to dot travel timing) — same loop-restart snap bug as the rope connectors above; see [[ui-fix-05-education-section]] |
 | Reduce Education header padding | **open** | Header padding covers/obscures Bachelor's sphere — tighten so sphere is unobstructed |
 
 **Components:** `EducationSection.tsx`, `EducationFlowchart.tsx`, `globals.css` (section padding)
@@ -138,9 +138,9 @@ Verified against localhost + screenshots from session `2026-09-04`. This is the 
 
 | Fix | Status | Detail |
 |---|---|---|
-| Remove tab-open glow on logo | **open** | When Portfolio Lab tab is open, logo has bright glow that washes out letterforms (e.g. "e" invisible). Remove glow — **same logo in open and closed states** |
+| Remove tab-open glow on logo | **done** *(corrected 09-27)* | Closed, not a real bug — no code path ties any glow to sidebar/tab state. The actual complaint was about the static favicon, which has no glow mechanism at all; see [[ui-fix-06-logo-footer]] |
 | Thinner, more cursive "A" | **open** | Keep structure and alignment; refine the A to be thinner and more cursive within existing logo system |
-| Footer logo placement | **open** | Fixed logo renders **leftmost** in footer, **left of "Anant's Hub"**, same size as footer text characters. Only the fixed logo glyph — not the full "Anant." wordmark |
+| Footer logo placement | **partial** *(corrected 09-27)* | Placement already done (`Footer.tsx:43`) — only sizing is still open (currently 32px, spec wants `~1em` to match footer text size); see [[ui-fix-06-logo-footer]] |
 
 **Components:** Logo component (header + tab), `Footer.tsx`, `PortfolioLab.tsx` (tab state)
 
@@ -173,7 +173,7 @@ These remain open unless marked done in codebase:
 - Skills/Education section padding tighten (**partial**)
 - Dark mode toggle wiring + light tokens (**partial** — toggle may still be no-op)
 - Orby radio/wave/idle commentary/roaming (**partial**)
-- Chat bubble `break-words` (**partial**)
+- Chat bubble `break-words` (**done** *(corrected 09-27)* — already shipped, `ChatThread.tsx:162`)
 - Deploy sync verification (**open** — local HEAD may differ from production)
 
 ---
@@ -236,14 +236,14 @@ These remain open unless marked done in codebase:
 - [x] Phase 1 — Master ledger + localhost walkthrough (Sep 2026)
 - [x] Phase 2 — Update requirements / design / tasks trio + per-component specs
 - [ ] Phase 3 — GSAP research + About carousel architecture (separate engagement)
-- [ ] Phase 4 — Implementation via [[frontend-ui-fixes-tasks]] + [[frontend-ui-fixes-index]]
+- [ ] Phase 4 — Implementation via [[ui-fixes-tasks]] + [[ui-fixes-index]]
 
 ## Concepts used
-- [[frontend-ui-fixes-requirements]]
-- [[frontend-ui-fixes-design]]
-- [[frontend-ui-fixes-tasks]]
+- [[ui-fixes-requirements]]
+- [[ui-fixes-design]]
+- [[ui-fixes-tasks]]
 
-- [[frontend-ui-fixes-index]]
+- [[ui-fixes-index]]
 - [[ui-fix-01-hero-background]]
 - [[ui-fix-02-about-section]]
 - [[ui-fix-03-about-telemetry]]

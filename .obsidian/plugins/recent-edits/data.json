@@ -129,7 +129,7 @@
     "20_Progress/Degree/CSCI 4511W/Weekly/Week - 3.md": "external",
     "20_Progress/Degree/MGMT 3015/Assignments/Profile of a Successful Entrepreneur.md": "external",
     "20_Progress/Degree/MGMT 3015/Textbook/Chapter - 1 & 2.md": "external",
-    "20_Progress/Degree/MGMT 3015/Textbook/Chapter - 3 & 4.md": "external",
+    "20_Progress/Degree/MGMT 3015/Textbook/Chapter - 3 & 4.md": "obsidian",
     "20_Progress/Degree/CSCI 5304/CSCI 5304 Board.md": "external",
     "20_Progress/Degree/ENGL 1004/ENGL 1004 Board.md": "external",
     "20_Progress/Degree/CSCI 4521/CSCI 4521 Board.md": "external",
@@ -406,7 +406,8 @@
     "20_Progress/Degree/CSCI 5304/Textbook/Lecture - 4.md": "external",
     "20_Progress/Degree/CSCI 5304/Textbook/Lecture - 5.md": "external",
     "30_Order/Workflows/Courses/Per Class/CSCI 5304 Workflow.md": "external",
-    "20_Progress/Degree/MGMT 3015/Lecture/Lecture - 5.md": "external"
+    "20_Progress/Degree/MGMT 3015/Lecture/Lecture - 5.md": "external",
+    "20_Progress/Degree/MGMT 3015/Textbook/Chapter - 8.md": "obsidian"
   },
   "_editTimes": {
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Home/00 - Session Index.md": 1790577004469,
@@ -420,7 +421,7 @@
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Session Index.md": 1790577004491,
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Tool Usage Rollup.md": 1790577004493,
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": 1790451185419,
-    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 1790626681585,
+    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 1790630453190,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-18 Jarvis sync process setup.md": 1790450285627,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-20 Jarvis vault plugins documentation batch 3.md": 1790577186115,
     "60_Claude/07_AI_Information/Session Logs/log.md": 1790576285829,
@@ -527,7 +528,7 @@
     "20_Progress/Degree/CSCI 4511W/Weekly/Week - 3.md": 1790451185360,
     "20_Progress/Degree/MGMT 3015/Assignments/Profile of a Successful Entrepreneur.md": 1790452085398,
     "20_Progress/Degree/MGMT 3015/Textbook/Chapter - 1 & 2.md": 1790451185369,
-    "20_Progress/Degree/MGMT 3015/Textbook/Chapter - 3 & 4.md": 1790452085401,
+    "20_Progress/Degree/MGMT 3015/Textbook/Chapter - 3 & 4.md": 1790627123805,
     "20_Progress/Degree/CSCI 5304/CSCI 5304 Board.md": 1790621738774,
     "20_Progress/Degree/ENGL 1004/ENGL 1004 Board.md": 1790451185364,
     "20_Progress/Degree/CSCI 4521/CSCI 4521 Board.md": 1790569084198,
@@ -804,7 +805,8 @@
     "20_Progress/Degree/CSCI 5304/Textbook/Lecture - 4.md": 1790621443428,
     "20_Progress/Degree/CSCI 5304/Textbook/Lecture - 5.md": 1790621496116,
     "30_Order/Workflows/Courses/Per Class/CSCI 5304 Workflow.md": 1790621543070,
-    "20_Progress/Degree/MGMT 3015/Lecture/Lecture - 5.md": 1790626469136
+    "20_Progress/Degree/MGMT 3015/Lecture/Lecture - 5.md": 1790626469136,
+    "20_Progress/Degree/MGMT 3015/Textbook/Chapter - 8.md": 1790627185855
   },
   "_dismissedAt": {},
   "_editSizes": {
@@ -819,7 +821,7 @@
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Session Index.md": 381,
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Tool Usage Rollup.md": 980,
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": 26552,
-    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 501229,
+    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 502738,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-18 Jarvis sync process setup.md": 1062400,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-20 Jarvis vault plugins documentation batch 3.md": 365354,
     "60_Claude/07_AI_Information/Session Logs/log.md": 214574,
@@ -926,7 +928,7 @@
     "20_Progress/Degree/CSCI 4511W/Weekly/Week - 3.md": 5699,
     "20_Progress/Degree/MGMT 3015/Assignments/Profile of a Successful Entrepreneur.md": 9044,
     "20_Progress/Degree/MGMT 3015/Textbook/Chapter - 1 & 2.md": 47617,
-    "20_Progress/Degree/MGMT 3015/Textbook/Chapter - 3 & 4.md": 13942,
+    "20_Progress/Degree/MGMT 3015/Textbook/Chapter - 3 & 4.md": 31937,
     "20_Progress/Degree/CSCI 5304/CSCI 5304 Board.md": 17593,
     "20_Progress/Degree/ENGL 1004/ENGL 1004 Board.md": 9558,
     "20_Progress/Degree/CSCI 4521/CSCI 4521 Board.md": 15434,
@@ -1203,7 +1205,8 @@
     "20_Progress/Degree/CSCI 5304/Textbook/Lecture - 4.md": 12698,
     "20_Progress/Degree/CSCI 5304/Textbook/Lecture - 5.md": 13275,
     "30_Order/Workflows/Courses/Per Class/CSCI 5304 Workflow.md": 9893,
-    "20_Progress/Degree/MGMT 3015/Lecture/Lecture - 5.md": 15558
+    "20_Progress/Degree/MGMT 3015/Lecture/Lecture - 5.md": 15558,
+    "20_Progress/Degree/MGMT 3015/Textbook/Chapter - 8.md": 843
   },
   "_sizeDeltas": {
     "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md": "up",

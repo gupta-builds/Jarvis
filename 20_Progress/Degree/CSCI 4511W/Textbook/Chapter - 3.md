@@ -225,6 +225,279 @@ Why is the Traveling Salesperson Problem (TSP) categorized as a touring problem 
 
 ==Why is airline ticket optimization formally undecidable?==::Because convoluted airline fare structures, restrictions, and combination rules can be reduced to Diophantine decision problems, making optimal ticket search undecidable in the worst case (p. 71–72). #cards/csci4511w
 
+## Full Reading Notes (continued — ### 3.3, ### 3.4.1, ### 3.4.2)
+
+### 3.3 Search Algorithms
+Search algorithms construct a search tree superimposed over the underlying state space graph, beginning at a root node corresponding to the initial state (p. 73). Nodes are expanded by applying `Actions(s)` to generate child nodes via `Result(s, a)` (p. 73).
+
+#### 3.3.1 Best-first search
+**Best-first search** (Figure 3.7) is an instance of the general search framework where the node selected for expansion on each iteration is the one with the minimum value of an **evaluation function** \\(f(n)\\) (p. 73).
+
+```
+
+function BEST-FIRST-SEARCH(problem, f) returns a solution node or failure node <- NODE(STATE=problem.INITIAL) frontier <- a priority queue ordered by f, with node as an element reached <- a lookup table, with one entry with key problem.INITIAL and value node while not IS-EMPTY(frontier) do node <- POP(frontier) if problem.IS-GOAL(node.STATE) then return node for each child in EXPAND(problem, node) do s <- child.STATE if s is not in reached or child.PATH-COST < reached[s].PATH-COST then reached[s] <- child add child to frontier return failure
+
+function EXPAND(problem, node) yields nodes s <- node.STATE for each action in problem.ACTIONS(s) do s' <- problem.RESULT(s, action) cost <- node.PATH-COST + problem.ACTION-COST(s, action, s') yield NODE(STATE=s', PARENT=node, ACTION=action, PATH-COST=cost)
+
+```
+
+#### 3.3.2 Search data structures
+A **node** in the search tree is a concrete data structure containing four distinct fields (p. 75):
+- `node.STATE`: The state in the state space to which the node corresponds (p. 75).
+- `node.PARENT`: The parent node in the search tree that generated this node (p. 75).
+- `node.ACTION`: The action applied to the parent's state to generate this node (p. 75).
+- `node.PATH-COST`: The total path cost \\(g(n)\\) from the initial state to this node (p. 75).
+
+The **frontier** stores reached nodes that have not yet been expanded, acting as a boundary separating two regions of the state space graph (p. 74):
+- *Interior region:* States that have been expanded (p. 74).
+- *Exterior region:* States that have not yet been reached (p. 74).
+
+The frontier is implemented using queues supporting four operations: `Is-Empty(frontier)`, `Pop(frontier)`, `Top(frontier)`, and `Add(node, frontier)` (p. 75).
+- **Priority queue:** Pops the node with the minimum cost according to \\(f(n)\\) (used in best-first search) (p. 75).
+- **FIFO queue:** First-in-first-out queue popping the oldest generated node (used in breadth-first search) (p. 75).
+- **LIFO queue (stack):** Last-in-first-out queue popping the most recently generated node (used in depth-first search) (p. 75).
+
+The **reached** data structure is a lookup table (hash map) mapping state \\(s\\) to its corresponding node, enabling constant-time \\(O(1)\\) duplicate state detection (p. 75).
+
+#### 3.3.3 Redundant paths
+A **redundant path** occurs when the search algorithm reaches a state that has already been generated via an alternative path (p. 76).
+- **Graph search:** Tracks reached states in the `reached` table to discard redundant paths or update existing entries if a strictly cheaper path is found (p. 76).
+- **Tree-like search:** Ignores `reached` states to save memory space, risking exponential repeated work or infinite loops on cyclic graphs (p. 76).
+- *Cycle checking:* A middle-ground memory optimization where an algorithm follows parent pointers backward to verify whether a candidate state already exists on its current ancestral path (p. 76).
+
+#### 3.3.4 Measuring problem-solving performance
+Search algorithms are evaluated across four fundamental metrics (p. 77–79):
+- **Completeness:** Is the algorithm guaranteed to find a solution when one exists, and correctly report failure when no solution exists? (p. 77).
+- **Cost optimality:** Does the algorithm return a solution path with the lowest possible path cost \\(C^*\\) among all valid solutions? (p. 77).
+- **Time complexity:** How long (or how many generated/expanded nodes) does it take to find a solution? (p. 77).
+- **Space complexity:** How much memory is required to maintain the frontier and reached data structures during search? (p. 77).
+
+Complexity formulas rely on five key problem parameters (p. 77–79):
+- \\(b\\): **Branching factor**, the maximum or average number of successors for any node (p. 78).
+- \\(d\\): **Depth of shallowest goal**, the depth of the shallowest goal node in the search tree (p. 78).
+- \\(m\\): **Maximum depth**, the maximum path length of any state in the state space (p. 78).
+- \\(C^*\\): **Cost of optimal solution**, the numeric cost of the cheapest solution path (p. 79).
+- \\(\epsilon\\): **Step cost lower bound**, a strictly positive lower bound on action costs (\\(\epsilon > 0\\)) (p. 79).
+
+### 3.4.1 Breadth-first search
+**Breadth-first search** expands the shallowest unexpanded node first, proceeding level by level through the search tree (p. 79). While it can be implemented as Best-First Search with \\(f(n) = \text{depth}(n)\\), two efficiency modifications yield a faster algorithm (p. 79–80):
+1. Replacing the priority queue with a simple FIFO queue (p. 79).
+2. Using a set for `reached` rather than a node-mapping lookup table, enabling an ==early goal test== that evaluates whether a node satisfies the goal condition as soon as it is generated in `EXPAND` rather than waiting until it is popped from the frontier (p. 79–80).
+
+```
+
+function BREADTH-FIRST-SEARCH(problem) returns a solution node or failure node <- NODE(problem.INITIAL) if problem.IS-GOAL(node.STATE) then return node frontier <- a FIFO queue, with node as an element reached <- {problem.INITIAL} while not IS-EMPTY(frontier) do node <- POP(frontier) for each child in EXPAND(problem, node) do s <- child.STATE if problem.IS-GOAL(s) then return child if s is not in reached then add s to reached add child to frontier return failure
+
+```
+
+#### Performance Analysis of Breadth-First Search
+- **Completeness:** Complete on finite and infinite state spaces (provided the branching factor \\(b\\) is finite), because it systematically explores depth 0, depth 1, depth 2, ..., depth \\(d\\) without skipping levels (p. 80).
+- **Cost Optimality:** Cost-optimal if and only if all action costs are equal (e.g., unit cost \\(c=1\\)). If action costs vary, BFS finds the solution with the minimum number of actions, which is not necessarily the path with the minimum total cost (p. 80).
+- **Time Complexity:** \\(O(b^d)\\). The total number of nodes generated in a uniform tree of depth \\(d\\) is:
+  \\[1 + b + b^2 + b^3 + \dots + b^d = O(b^d)\\]
+- **Space Complexity:** \\(O(b^d)\\). Every generated node remains stored in either `reached` or `frontier`, making memory usage the main bottleneck (e.g., at \\(b=10\\) and \\(d=10\\), BFS requires 10 terabytes of memory) (p. 80).
+
+### 3.4.2 Dijkstra’s algorithm or uniform-cost search
+When actions have differing step costs, **uniform-cost search** (known as **Dijkstra's algorithm** in computer science) expands the node \\(n\\) with the lowest path cost \\(g(n) = \text{node.PATH-COST}\\) (p. 81). While BFS spreads out in waves of uniform depth, uniform-cost search spreads out in concentric waves of uniform path cost (p. 81).
+
+```
+
+function UNIFORM-COST-SEARCH(problem) returns a solution node, or failure return BEST-FIRST-SEARCH(problem, PATH-COST)
+
+```
+
+#### Critical Implementation Rule & Action Cost Constraint
+- **Late Goal Test Requirement:** Uniform-cost search MUST apply its goal test when a node is **popped** for expansion, NOT when it is generated (p. 82). Testing goals upon generation could return a suboptimal path if a goal state is generated early via an expensive edge before a cheaper path to that same goal is explored (p. 82).
+- **Strictly Positive Action Costs (\\(\epsilon > 0\\)):** Uniform-cost search requires that all action costs be bounded below by a positive constant \\(\epsilon > 0\\) (\\(c(s, a, s') \ge \epsilon > 0\\)) (p. 83). Without this lower bound, the algorithm could get trapped exploring an infinite sequence of zero-cost or infinitesimally small step costs without making progress toward \\(C^*\\) (p. 83).
+
+#### Performance Analysis of Uniform-Cost Search
+- **Completeness:** Complete provided all step costs satisfy \\(c(s, a, s') \ge \epsilon > 0\\) (p. 83).
+- **Cost Optimality:** Cost-optimal because nodes are popped in strictly non-decreasing order of path cost \\(g(n)\\). When a goal node is popped, all other nodes on the frontier have path costs \\(\ge C^*\\), guaranteeing no cheaper solution exists (p. 83).
+- **Time & Space Complexity:** \\(O(b^{1 + \lfloor C^* / \epsilon \rfloor})\\). In the worst case, the algorithm explores all paths with cost \\(\le C^*\\). When all step costs are equal (\\(c = \epsilon\\)), \\(\lfloor C^* / \epsilon \rfloor = d\\), and the complexity becomes \\(O(b^{d+1})\\) due to the late goal test (p. 83).
+
+## Worked Example
+
+End-to-end trace of **Uniform-Cost Search** on Figure 3.10 (getting from Sibiu to Bucharest) (p. 82):
+
+1. **Initial Setup:**
+   - Problem: Initial state = `Sibiu`, Goal = `Bucharest`.
+   - Initialize: `node` = `Sibiu` (\\(g=0\\)), `frontier` = `[Sibiu: 0]`, `reached` = `{"Sibiu": Sibiu_node}`.
+
+2. **Iteration 1:**
+   - Pop `Sibiu` (\\(g=0\\)). Goal test `Is-Goal("Sibiu")` = `False`.
+   - Expand `Sibiu`:
+     - Child `Rimnicu Vilcea`: \\(g = 0 + 80 = 80\\). Add to `reached` and `frontier`.
+     - Child `Fagaras`: \\(g = 0 + 99 = 99\\). Add to `reached` and `frontier`.
+   - `frontier` = `[Rimnicu Vilcea: 80, Fagaras: 99]`.
+
+3. **Iteration 2:**
+   - Pop `Rimnicu Vilcea` (\\(g=80\\)). Goal test `Is-Goal("Rimnicu Vilcea")` = `False`.
+   - Expand `Rimnicu Vilcea`:
+     - Child `Pitesti`: \\(g = 80 + 97 = 177\\). Add to `reached` and `frontier`.
+   - `frontier` = `[Fagaras: 99, Pitesti: 177]`.
+
+4. **Iteration 3:**
+   - Pop `Fagaras` (\\(g=99\\)). Goal test `Is-Goal("Fagaras")` = `False`.
+   - Expand `Fagaras`:
+     - Child `Bucharest`: \\(g = 99 + 211 = 310\\). Add to `reached` and `frontier`.
+   - *Crucial Observation:* `Bucharest` is generated and added to `frontier` with cost 310. Because UCS uses a ==late goal test==, it does NOT return `Bucharest` yet!
+
+5. **Iteration 4:**
+   - Pop `Pitesti` (\\(g=177\\)). Goal test `Is-Goal("Pitesti")` = `False`.
+   - Expand `Pitesti`:
+     - Child `Bucharest`: \\(g = 177 + 101 = 278\\).
+     - Compare with `reached["Bucharest"]` (cost 310): \\(278 < 310\\). Update `reached["Bucharest"]` to new node (\\(g=278\\)) and re-add/update `Bucharest` on `frontier`.
+   - `frontier` = `[Bucharest: 278]`.
+
+6. **Iteration 5:**
+   - Pop `Bucharest` (\\(g=278\\)). Goal test `Is-Goal("Bucharest")` = `True`.
+   - Return solution path: `Sibiu` \\(\to\\) `Rimnicu Vilcea` \\(\to\\) `Pitesti` \\(\to\\) `Bucharest` with optimal cost \\(C^* = 278\\).
+
+## Connections
+
+- **Lecture 04 (Sep 21, 2026):**
+  - *Unified Framework:* Lecture 04 abstracts all search algorithms into a ==single unified framework== `BestFirstSearch(problem, f)` operating on a `PriorityQueue(order=f)` and a `reached` dictionary mapping states to nodes.
+  - *Algorithm Derivation:* Lecture 04 derives Breadth-First Search by setting \\(f(n) = 0\\) (making the priority queue act like a FIFO queue) and Depth-First Search by setting \\(f(n) = -n.\text{path\_cost}\\) (making it act like a LIFO stack).
+  - *Divergence from Book:* The book presents BFS separately from Best-First Search in Section 3.4.1 to incorporate the early goal test optimization (checking goals during generation) and set-based `reached` tracking, achieving \\(O(b^d)\\) time/space complexity. In contrast, Lecture 04's single-framework derivation with \\(f(n)=0\\) uses a late goal test, resulting in \\(O(b^{d+1})\\) node generations.
+- **Textbook:**
+  - (pending Chapter 3 — search)
+
+## Open Questions
+
+- [ ] ==Why does applying an early goal test== in uniform-cost search break cost optimality when action costs are non-uniform, whereas it preserves cost optimality in breadth-first search with unit action costs?
+- [ ] How does the space complexity of graph-search BFS (\\(O(b^d)\\)) compare to tree-like search BFS on a state space containing high-density redundant cycles?
+- [ ] Under what conditions does uniform-cost search exhibit a worst-case time complexity of \\(O(b^{1 + \lfloor C^* / \epsilon \rfloor})\\) that significantly exceeds BFS's \\(O(b^d)\\)?
+- [ ] How can cycle-checking along parent pointers reduce memory overhead compared to maintaining a full `reached` lookup table in graph search?
+
+## Flashcards
+
+What are the four components stored within a search tree node data structure?::`node.STATE` (the state), `node.PARENT` (generating node), `node.ACTION` (applied action), and `node.PATH-COST` (\\(g(n)\\), cumulative cost from initial state) (p. 75). #cards/csci4511w
+
+Why does graph search maintain a `reached` table while tree-like search does not?::Graph search tracks reached states in a lookup table to prune redundant paths and cycles, whereas tree-like search omits this table to save memory at the cost of duplicate expansions (p. 76). #cards/csci4511w
+
+What two efficiency enhancements differentiate textbook Breadth-First Search from standard Best-First Search?::Textbook BFS uses a simple FIFO queue instead of a priority queue and performs an early goal test when nodes are generated rather than when popped (p. 79–80). #cards/csci4511w
+
+Why is the early goal test valid for Breadth-First Search with unit action costs?::Because when all action costs are equal, the first time a goal state is generated, it is guaranteed to be on a path with the minimum number of actions (p. 79). #cards/csci4511w
+
+Why must Uniform-Cost Search perform its goal test when a node is popped rather than generated?::Because a goal state might be generated early via a high-cost edge, but popping ensures all cheaper paths on the frontier have already been explored (p. 82). #cards/csci4511w
+
+==Why does Uniform-Cost Search require all step costs to satisfy \\(c(s, a, s') \ge \epsilon > 0\\)?==::To prevent the search from getting trapped in infinite paths of zero-cost or infinitely small step costs that never reach the optimal path cost \\(C^*\\) (p. 83). #cards/csci4511w
+
+What is the worst-case time and space complexity of Uniform-Cost Search?::\\(O(b^{1 + \lfloor C^* / \epsilon \rfloor})\\), where \\(C^*\\) is the optimal solution cost, \\(\epsilon\\) is the step cost lower bound, and \\(b\\) is the branching factor (p. 83). #cards/csci4511w
+
+## Full Reading Notes (continued — ### 3.4.3, ### 3.4.4)
+
+### 3.4.3 Depth-first search and the problem of memory
+**Depth-first search** always expands the deepest node in the frontier first (p. 83). While it can be framed as Best-First Search with evaluation function \\(f(n) = -\text{depth}(n)\\) using a LIFO queue (stack) for the frontier, it is usually implemented as a **tree-like search** that does not maintain a lookup table of reached states (p. 83).
+
+#### Algorithm Behavior & Failure Cases
+- *Exploration Pattern:* Search proceeds immediately down a single branch to the deepest level of the search tree where nodes have no successors, then "backs up" (backtracks) to the next deepest node with unexpanded successors (p. 83–84).
+- *Non-Cost-Optimality:* Depth-first search is not cost-optimal; it returns the first solution path it finds, even if that path is long and expensive while a shallow, cheap solution exists elsewhere in the tree (p. 83–84).
+- *Incompleteness:* On state spaces with infinite depth or cyclic paths, tree-like depth-first search can get trapped exploring an infinite non-goal path indefinitely without ever recovering to explore alternative branches (p. 84). On finite state spaces with cycles, it will loop endlessly unless explicit cycle checking is performed (p. 84). Consequently, depth-first search is incomplete (p. 84).
+
+#### Memory Advantage & Backtracking Variant
+- *Linear Space Complexity:* For a finite tree with branching factor \\(b\\) and maximum depth \\(m\\), depth-first tree-like search requires only \\(O(bm)\\) space (p. 84). While breadth-first search stores an entire expanding frontier boundary (\\(O(b^d)\\) or \\(O(b^m)\\)), depth-first search stores only a single path from the root to the leaf along with unexpanded sibling nodes at each depth level (p. 84).
+- *Time Complexity:* In the worst case, time complexity is \\(O(b^m)\\), as it may explore every state in a tree of depth \\(m\\) before finding a solution or exhausting the space (p. 84).
+- **Backtracking search**: A specialized variant of depth-first search used in memory-constrained domains (such as constraint satisfaction and logic programming) that reduces memory usage even further (p. 84–85).
+  - Generates only one child node at a time rather than all \\(b\\) successors simultaneously (p. 84).
+  - Modifies state representations directly in-place and reverses actions upon backtracking, reducing space requirements to just \\(O(m)\\) state variables and \\(O(1)\\) auxiliary space per level (p. 84–85).
+
+### 3.4.4 Depth-limited and iterative deepening search
+To prevent depth-first search from getting trapped along infinite paths, **depth-limited search** imposes a fixed depth limit \\(l\\), treating all nodes at depth \\(l\\) as if they have no successors (p. 85).
+
+```
+
+function DEPTH-LIMITED-SEARCH(problem, l) returns a node or failure or cutoff frontier <- a LIFO queue (stack) with NODE(problem.INITIAL) as an element result <- failure while not IS-EMPTY(frontier) do node <- POP(frontier) if problem.IS-GOAL(node.STATE) then return node if DEPTH(node) > l then result <- cutoff else if not IS-CYCLE(node) do for each child in EXPAND(problem, node) do add child to frontier return result
+
+```
+
+#### Properties of Depth-Limited Search
+- *Three Return Values:* Returns a solution `node`, `failure` (the entire state space was exhaustively explored within limit \\(l\\) without finding a solution), or `cutoff` (the depth limit \\(l\\) was reached with unexpanded branches remaining) (p. 85).
+- *Complexity:* Time complexity is \\(O(b^l)\\) and space complexity is \\(O(bl)\\) (p. 85).
+- *Incompleteness:* If the depth limit \\(l\\) is set smaller than the shallowest goal depth \\(d\\) (\\(l < d\\)), the algorithm fails to find a solution, making it incomplete (p. 85).
+- **Diameter**: The maximum shortest path length between any pair of states in a state-space graph (p. 85). On the map of Romania (\\(N=20\\) cities), a naive limit is \\(l=19\\), but the true graph diameter is \\(l=9\\), providing a far more efficient complete depth bound if known in advance (p. 85).
+
+#### Iterative Deepening Search
+==Iterative deepening search combines the linear space complexity of depth-first search (\\(O(bd)\\)) with the completeness and cost-optimality of breadth-first search for uniform action costs== (p. 85–86). It solves the problem of choosing an unknown depth limit \\(l\\) by systematically testing all limits (\\(l = 0, 1, 2, 3, \dots\\)) until a solution is found or depth-limited search returns `failure` without a `cutoff` (p. 85–86).
+
+```
+
+function ITERATIVE-DEEPENING-SEARCH(problem) returns a solution node or failure for depth = 0 to ∞ do result <- DEPTH-LIMITED-SEARCH(problem, depth) if result ≠ cutoff then return result
+
+```
+
+#### Re-generation Proof and Complexity Analysis
+While iterative deepening regenerates shallow nodes multiple times across iterations, the exponential growth of search trees ensures that bottom-level nodes dominate total time complexity (p. 86).
+- *Node Generation Formula:* In an iterative deepening search to depth \\(d\\), nodes at depth \\(d\\) are generated once, nodes at depth \\(d-1\\) are generated twice, and nodes at depth 1 (children of the root) are generated \\(d\\) times (p. 86):
+  \\[N(\text{IDDFS}) = (d)b^1 + (d-1)b^2 + (d-2)b^3 + \dots + (1)b^d = O(b^d)\\]
+- *Comparison with BFS:* In Breadth-First Search, total node generations are:
+  \\[N(\text{BFS}) = b^1 + b^2 + b^3 + \dots + b^d = O(b^d)\\]
+  For \\(b = 10\\) and solution depth \\(d = 5\\):
+  - \\(N(\text{BFS}) = 10 + 100 + 1,000 + 10,000 + 100,000 = 111,110\\)
+  - \\(N(\text{IDDFS}) = 5(10) + 4(100) + 3(1,000) + 2(10,000) + 1(100,000) = 123,450\\)
+  Iterative deepening generates only \\(\approx 11\%\\) more nodes than BFS while requiring only kilobytes of memory (\\(O(bd)\\)) instead of gigabytes or terabytes (\\(O(b^d)\\)) (p. 86).
+- *Preferred Method:* Iterative deepening is the preferred uninformed search strategy when the state space exceeds available memory and solution depth is unknown (p. 86).
+
+## Worked Example
+
+Trace of **Iterative Deepening Search (IDDFS)** on a uniform binary tree (\\(b=2\\)) where the initial state is \\(A\\) and the goal state \\(G\\) is located at depth \\(d=2\\):
+
+1. **Iteration \\(l = 0\\) (Depth Limit 0):**
+   - Call `DEPTH-LIMITED-SEARCH(problem, 0)`.
+   - Pop \\(A\\) (depth 0). Goal test `Is-Goal(A)` = `False`.
+   - `DEPTH(A) = 0`, but candidate children would be at depth 1 (\\(> l=0\\)). Return `cutoff`.
+
+2. **Iteration \\(l = 1\\) (Depth Limit 1):**
+   - Call `DEPTH-LIMITED-SEARCH(problem, 1)`.
+   - Pop \\(A\\) (depth 0). Expand to \$B, C\$ (depth 1).
+   - Pop \\(C\\) (depth 1). Goal test `Is-Goal(C)` = `False`. Children at depth 2 (\\(> l=1\\)). Trigger `cutoff`.
+   - Pop \\(B\\) (depth 1). Goal test `Is-Goal(B)` = `False`. Children at depth 2 (\\(> l=1\\)). Trigger `cutoff`.
+   - Return `cutoff`.
+
+3. **Iteration \\(l = 2\\) (Depth Limit 2):**
+   - Call `DEPTH-LIMITED-SEARCH(problem, 2)`.
+   - Pop \\(A\\) (depth 0). Expand to \$B, C\$ (depth 1).
+   - Pop \\(C\\) (depth 1). Expand to \\(F, G\\) (depth 2).
+   - Pop \\(G\\) (depth 2). Goal test `Is-Goal(G)` = `True`.
+   - Return solution node \\(G\\) with path \\(A \to C \to G\\).
+
+==Iterative deepening regenerates shallow nodes multiple times across iterations, but the exponential growth of the tree ensures that bottom-level nodes generated in the final iteration dominate total time complexity== (p. 86).
+
+## Connections
+
+- **Lecture 05 (Sep 23, 2026):**
+  - ==Lecture 05's completed analysis table for uninformed search algorithms matches the textbook's proven theoretical bounds exactly== (p. 87):
+    - *BFS:* Complete (Yes, for finite \\(b\\)), Cost-Optimal (Yes, for unit step costs), Time \\(O(b^d)\\), Space \\(O(b^d)\\).
+    - *DFS:* Complete (No / Complete only if no cycles and finite state space), Cost-Optimal (No), Time \\(O(b^m)\\), Space \\(O(mb)\\).
+    - *DLS:* Complete (No, fails when \\(l < d\\)), Cost-Optimal (No), Time \\(O(b^l)\\), Space \\(O(lb)\\).
+    - *IDDFS:* Complete (Yes, for finite \\(b\\) and cycle-checked graphs), Cost-Optimal (Yes, for unit step costs), Time \\(O(b^d)\\), Space \\(O(db)\\).
+  - *Algorithm Comparison:* Lecture 05 explicitly headlines IDDFS as "the winner" among uninformed search strategies for large memory-constrained spaces, directly echoing Russell & Norvig's recommendation on p. 86.
+- **Textbook:**
+  - (pending Chapter 3 — search)
+
+## Open Questions
+
+- [ ] ==Why does iterative deepening depth-first search exhibit an asymptotically identical time complexity to breadth-first search (\\(O(b^d)\\))== despite re-generating upper-level tree nodes on every iteration?
+- [ ] In what specific state-space graph structures does a tree-like depth-first search fail due to infinite loops, and how does path cycle-checking restore completeness?
+- [ ] How does knowledge of a state-space graph's diameter allow depth-limited search to guarantee completeness without resorting to iterative deepening?
+- [ ] Why is backtracking search preferred over standard depth-first search in large-state domains like robotic assembly sequencing?
+
+## Flashcards
+
+Why does depth-first search have a linear space complexity of \\(O(bm)\\) compared to breadth-first search's exponential space complexity of \\(O(b^d)\\)?::Because depth-first search stores only a single path from the root to the current leaf along with unexpanded sibling nodes at each level, rather than storing the entire expanding frontier (p. 84). #cards/csci4511w
+
+Under what conditions is depth-first tree-like search incomplete?::When the state space contains infinite-depth branches or cyclic paths, causing the algorithm to get trapped in an infinite non-goal branch (p. 84). #cards/csci4511w
+
+How does backtracking search achieve an \\(O(m)\\) space complexity?::By generating only one successor node at a time and modifying state representations in-place (undoing actions upon backtracking) rather than allocating memory for all children simultaneously (p. 84–85). #cards/csci4511w
+
+What is the diameter of a state-space graph, and how does it relate to depth-limited search?::The diameter is the maximum shortest path length between any two states; setting the depth limit \\(l\\) equal to the diameter guarantees depth-limited search completeness while minimizing depth (p. 85). #cards/csci4511w
+
+How does Iterative Deepening Search combine the advantages of BFS and DFS?::It retains DFS's modest linear space complexity (\\(O(bd)\\)) while recovering BFS's completeness and cost-optimality for uniform action costs by systematically increasing depth limits (p. 85–86). #cards/csci4511w
+
+==Why is the overhead of re-generating shallow nodes in Iterative Deepening Search computationally negligible in exponential trees?==::Because in exponential trees with branching factor \\(b\\), the vast majority of nodes reside in the deepest level (\\(b^d\\)), making the \\(O(b^d)\\) bottom level dominate total time complexity (p. 86). #cards/csci4511w
+
+How do Breadth-First, Depth-First, Depth-Limited, and Iterative-Deepening Search compare across completeness, cost-optimality, time complexity, and space complexity?::BFS is complete and cost-optimal for unit costs with \\(O(b^d)\\) time and \\(O(b^d)\\) space; DFS is incomplete on infinite/cyclic graphs and not cost-optimal with \\(O(b^m)\\) time and \\(O(bm)\\) space; DLS is incomplete if depth limit \\(l < d\\) and not cost-optimal with \\(O(b^l)\\) time and \\(O(bl)\\) space; IDDFS is complete and cost-optimal for unit costs with \\(O(b^d)\\) time and linear \\(O(bd)\\) space (p. 80–87). #cards/csci4511w
+
 ## Examples Worth Keeping
 <!-- Keep concrete examples, numbers, cases, or worked reasoning that makes the mechanism memorable. -->
 - 

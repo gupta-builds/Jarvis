@@ -6,7 +6,7 @@ source_os: windows
 title: "Portfolio notes organization and cleanup"
 started_at: 2026-09-27T16:08:32
 ended_at: 2026-09-27T16:25:09
-exported_at: 2026-09-27T17:30:02
+exported_at: 2026-09-28T00:30:02
 duration_minutes: 16.6
 project: Jarvis
 cwd: 'D:\Users\_Anant\10_Areas\Documents\Jarvis'

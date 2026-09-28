@@ -8,13 +8,13 @@ tags:
   - daily
 cssclasses:
   - dashboard
-today_focus: Restart the daily floor after a 7-day gap — Main Cover Letter.md
-  is still the named blocker keeping Applied/ at 0, ten days after the
-  plan's own ship-the-first-batch week
+today_focus: Break the Main Cover Letter blocker and move Appian from
+  Current/ to Applied/ — the same blocker since 2026-09-07, 21 days
+  running
 today_80: Build Main Cover Letter.md's evidence-tagged bullet bank, then
-  tailor and send the first application from Current/ to Applied/
-today_20: Confirm the AIIS 2026-09-10 deadline actually landed before
-  tomorrow's Kickoff, TIP103 + LeetCode reps, one Fall'26 class Week-2 note
+  move Appian from Current/ to Applied/
+today_20: AIIS Fun Social AI Night tomorrow 6:30pm (location unconfirmed),
+  LeetCode/CodePath ≥5 (Meta rotation), CSCI 4061 Chapter 4/10 reading
 lc_today: 0
 study_today: 4
 wins_done: 4

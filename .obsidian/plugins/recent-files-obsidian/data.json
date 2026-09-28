@@ -1,6 +1,18 @@
 {
   "recentFiles": [
     {
+      "basename": "2026-W40",
+      "path": "10_Areas/Life/Enumerate/Weekly/2026-W40.md"
+    },
+    {
+      "basename": "2026-09-28",
+      "path": "10_Areas/Life/Enumerate/Daily/2026-09-28.md"
+    },
+    {
+      "basename": "Untitled Kanban",
+      "path": "Untitled Kanban.md"
+    },
+    {
       "basename": "_UI Fixes",
       "path": "20_Progress/Projects/CS/Portfolio/frontend/_UI Fixes.md"
     },
@@ -187,18 +199,6 @@
     {
       "basename": "WSL Session Briefing",
       "path": "40_Resources/CS/Concepts/New Laptop/Sync/WSL Session Briefing.md"
-    },
-    {
-      "basename": "Jarvis MCP and REST API Setup",
-      "path": "40_Resources/CS/Concepts/New Laptop/Sync/Jarvis MCP and REST API Setup.md"
-    },
-    {
-      "basename": "Google Drive Sync Policy",
-      "path": "40_Resources/CS/Concepts/New Laptop/Sync/Google Drive Sync Policy.md"
-    },
-    {
-      "basename": "Cross-Laptop Sync - Rollback Procedure",
-      "path": "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Rollback Procedure.md"
     }
   ],
   "omittedPaths": [],

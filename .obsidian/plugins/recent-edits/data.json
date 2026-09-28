@@ -21,12 +21,8 @@
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-06/00 - Tool Usage Rollup.md": "external",
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Session Index.md": "external",
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Tool Usage Rollup.md": "external",
-    "30_Order/System/claude-workflow/logs/capture-health-windows.json": "external",
-    "20_Progress/AI/Claude Code/_All-Projects-Sync-Log.md": "external",
     "30_Order/System/cursor-workflow/logs/sweep-2026-09-20.log": "external",
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": "external",
-    "60_Claude/05_Clippings/AI Conversations/00 - Capture Health.md": "external",
-    "30_Order/System/claude-workflow/logs/capture-health-wsl.json": "external",
     "30_Order/System/claude-workflow/logs/git-auto-sync.log": "external",
     "20_Progress/AI/Claude Code/The Plan/Sync-Log.md": "external",
     "20_Progress/AI/Claude Code/Trading View/Sync-Log.md": "external",
@@ -381,7 +377,8 @@
     "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md": "obsidian",
     "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4.md": "obsidian",
     "20_Progress/Degree/CSCI 4521/Textbook/Textbook Map.md": "external",
-    "10_Areas/Career/Internships/List/Dossiers/_Today/Manual Internship Listings.md": "obsidian"
+    "10_Areas/Career/Internships/List/Dossiers/_Today/Manual Internship Listings.md": "obsidian",
+    "20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 2.md": "obsidian"
   },
   "_editTimes": {
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Home/00 - Session Index.md": 1790496002447,
@@ -394,13 +391,9 @@
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-06/00 - Tool Usage Rollup.md": 1790496002457,
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Session Index.md": 1790496002459,
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Tool Usage Rollup.md": 1790496002460,
-    "30_Order/System/claude-workflow/logs/capture-health-windows.json": 1789954204852,
-    "20_Progress/AI/Claude Code/_All-Projects-Sync-Log.md": 1789954383398,
     "30_Order/System/cursor-workflow/logs/sweep-2026-09-20.log": 1789956184043,
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": 1790451185419,
-    "60_Claude/05_Clippings/AI Conversations/00 - Capture Health.md": 1789954382957,
-    "30_Order/System/claude-workflow/logs/capture-health-wsl.json": 1789953482257,
-    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 1790559180846,
+    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 1790560980959,
     "20_Progress/AI/Claude Code/The Plan/Sync-Log.md": 1789954487655,
     "20_Progress/AI/Claude Code/Trading View/Sync-Log.md": 1789956184041,
     "20_Progress/AI/Claude Code/internship-research-loop/Sync-Log.md": 1789956184041,
@@ -752,9 +745,10 @@
     "10_Areas/Excalidraw/Imagine 09-26.excalidraw.md": 1790465688698,
     "10_Areas/Excalidraw/Imagine 09-26_0.excalidraw.md": 1790465692403,
     "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md": 1790546463145,
-    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4.md": 1790546361608,
+    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4.md": 1790560956615,
     "20_Progress/Degree/CSCI 4521/Textbook/Textbook Map.md": 1790550569256,
-    "10_Areas/Career/Internships/List/Dossiers/_Today/Manual Internship Listings.md": 1790548654105
+    "10_Areas/Career/Internships/List/Dossiers/_Today/Manual Internship Listings.md": 1790548654105,
+    "20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 2.md": 1790560907400
   },
   "_dismissedAt": {},
   "_editSizes": {
@@ -768,13 +762,9 @@
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-06/00 - Tool Usage Rollup.md": 980,
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Session Index.md": 381,
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Tool Usage Rollup.md": 980,
-    "30_Order/System/claude-workflow/logs/capture-health-windows.json": 1888,
-    "20_Progress/AI/Claude Code/_All-Projects-Sync-Log.md": 30691,
     "30_Order/System/cursor-workflow/logs/sweep-2026-09-20.log": 70303,
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": 26552,
-    "60_Claude/05_Clippings/AI Conversations/00 - Capture Health.md": 1831,
-    "30_Order/System/claude-workflow/logs/capture-health-wsl.json": 1888,
-    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 449958,
+    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 451823,
     "20_Progress/AI/Claude Code/The Plan/Sync-Log.md": 27016,
     "20_Progress/AI/Claude Code/Trading View/Sync-Log.md": 32322,
     "20_Progress/AI/Claude Code/internship-research-loop/Sync-Log.md": 38852,
@@ -1126,9 +1116,10 @@
     "10_Areas/Excalidraw/Imagine 09-26.excalidraw.md": 588,
     "10_Areas/Excalidraw/Imagine 09-26_0.excalidraw.md": 588,
     "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md": 37173,
-    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4.md": 843,
+    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4.md": 17155,
     "20_Progress/Degree/CSCI 4521/Textbook/Textbook Map.md": 6480,
-    "10_Areas/Career/Internships/List/Dossiers/_Today/Manual Internship Listings.md": 30715
+    "10_Areas/Career/Internships/List/Dossiers/_Today/Manual Internship Listings.md": 30715,
+    "20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 2.md": 843
   },
   "_sizeDeltas": {
     "20_Progress/AI/Claude Code/second-brain-claudekit/Sync-Log.md": "down",

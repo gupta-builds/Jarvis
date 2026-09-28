@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "Chapter - 4",
+      "path": "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4.md"
+    },
+    {
+      "basename": "Chapter - 2",
+      "path": "20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 2.md"
+    },
+    {
       "basename": "Repetitive Things",
       "path": "20_Progress/Degree/Repetitive Things.md"
     },
@@ -11,10 +19,6 @@
     {
       "basename": "Chapter - 10",
       "path": "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md"
-    },
-    {
-      "basename": "Chapter - 4",
-      "path": "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4.md"
     },
     {
       "basename": "Chapter - 3",
@@ -195,10 +199,6 @@
     {
       "basename": "Board or Main Template",
       "path": "30_Order/Templates/Classes/Board or Main Template.md"
-    },
-    {
-      "basename": "Concept Template",
-      "path": "30_Order/Templates/Classes/Concept Template.md"
     }
   ],
   "omittedPaths": [

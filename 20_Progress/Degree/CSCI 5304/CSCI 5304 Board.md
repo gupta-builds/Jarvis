@@ -9,7 +9,7 @@ area:
   - "[[APAS]]"
 tags:
   - "#class"
-next: "Set up the csci-5304 conda environment (fix the missing scikit-learn dependency first), then confirm the Week 6 date collision and midterm date on Canvas"
+next: "Run the two Codex prompts in Week - 2 & 3 (Prompts) to build Week - 2.md and Week - 3.md, now that Lecture - 2 & 3 / Lecture - 4 / Lecture - 5 are landed; fix the missing scikit-learn dependency and confirm the Week 6/midterm date anomalies on Canvas"
 ---
 # CSCI 5304 — Computational Aspects of Matrix Theory
 ==Full syllabus and schedule captured 2026-09-08 from the two PDFs in the source folder - this is now the single place everything about this course lives, per the source-of-truth path below.== This course runs a **zero-AI-tools policy** - stated plainly in the syllabus, not a general disclaimer - so read the Academic Integrity section before using this note, or any AI tool, anywhere near actual homework, quizzes, or exam work.
@@ -108,6 +108,8 @@ conda run --prefix .\.conda\csci-5304 python -m ipykernel install --user --name 
 - Confirm the actual class meeting time - not stated anywhere in this syllabus.
 - Textbook part/chapter breakdown for Parts I-V - deferred by plan, to be filled in as each part is actually read.
 ## Weekly Note-Building Workflow (repeatable, set up 2026-09-28)
+Full course-specific routing contract: [[30_Order/Workflows/Courses/Per Class/CSCI 5304 Workflow|CSCI 5304 Workflow]] - source hierarchy (a provided file beats the transcript, the transcript beats nothing), the concept-note discipline (at most 2/week, 1 per lecture, reserved for genuine depth), and the .ipynb-to-PDF conversion rule for when coding homework starts arriving. Summary below.
+
 No lecture slides exist for this course at all - the only real lecture source is the raw transcript files in `Lecture/Transcripts/`, so both the textbook layer and the weekly synthesis layer have to be built by running two sets of AI prompts against them, in order, every week:
 1. **Notebook prompts** (Gemini Notebook, one per lecture, sometimes split into parts for length) - upload `Textbook & Resources/CSCI 5304 Textbook.pdf` plus that lecture's transcript excerpt, land the output as `Textbook/Lecture - N.md`.
 2. **Codex prompts** (`codex` CLI, one single prompt per week, not per lecture) - once that week's Lecture notes exist, run the week's prompt against the full transcript(s) plus the landed Lecture notes; it writes the finished week note directly into `Weekly/Week - N.md`.

@@ -5,7 +5,14 @@ Gemini Notebook (the July 2026 rename of NotebookLM) runs on the Gemini 3.5 mode
 
 Workflow: fresh Gemini Notebook chat per chapter, upload that chapter's sources, paste the filled prompt below, save the output as the chapter note in `20_Progress/Degree/[COURSE]/Textbook/`. No chat memory carries over — if continuity with a prior chapter's terminology matters, upload that prior chapter's saved `.md` note as an extra source and say so in the prompt.
 
-**Character limit, confirmed 2026-09-21:** Gemini Notebook's paste box rejects the single-shot ~5,590-character prompt below the master template's full length. A ~3,798-character version (cutting FORMATTING RULES, VOCABULARY RECONCILIATION, OUTPUT CONTRACT, and the content-density mandate) went through, and the output was noticeably thinner for it. Do not cut instructions to fit — split the chapter into two or three prompts fed into the **same** Gemini Notebook chat instead, each kept under ~3,000 characters. Every rule stays in every part; only the section SCOPE shrinks.
+**Character limit, confirmed 2026-09-21 and reconfirmed 2026-09-28:** Gemini Notebook's paste box rejects the single-shot ~5,590-character prompt below the master template's full length; a real paste attempt on 2026-09-28 was cut off mid-sentence at ~3,900 characters. Treat **3,000 characters as the real target, not a soft suggestion** — measure the filled prompt's length before pasting (`(Get-Content -Raw file.txt).Length` in PowerShell, or `wc -c` on the raw text) and if it's over 3,000, split further rather than pasting and hoping. Do not cut FORMATTING RULES, OUTPUT CONTRACT, or any other instruction block to make room — a ~3,798-character version that cut those sections went through but produced noticeably thinner output. The only thing allowed to shrink is SCOPE, by splitting the chapter into more, narrower parts fed into the **same** Gemini Notebook chat.
+
+**How to get the best output within that budget, learned from the 2026-09-28 CSCI 4511W rebuild:**
+- **Split on the course's own reading-assignment boundaries, not an arbitrary half/third of the chapter.** A syllabus that assigns a chapter across five separate reading dates is handing you five natural, already-justified SCOPE boundaries — use them. A dense chapter legitimately needs four or five parts; that is not a failure of the two-or-three-part guideline, it is the guideline working (see the CSCI 4511W Chapter 3 prompts below for a worked example).
+- **Never restate an entire lecture in prose inside SOURCES.** The model reads the uploaded lecture PDF directly — a paragraph reconstructing everything the lecture said is redundant with the upload and is the single biggest source of wasted characters. SOURCES should name the file to upload and give one to two sentences pointing at what to emphasize or cross-check, not a summary the model doesn't need.
+- **Write SCOPE as a tight list of subsection + a short phrase, not full sentences per subsection.** "3.4.1: BFS's real mechanism and proof of its complete/cost-optimal conditions" does the job in one line; a paragraph explaining why doesn't add coverage, it adds characters.
+- **Keep OUTPUT_STRUCTURE headings as bare headings**, not headings with an explanatory sentence under each — the FORMATTING RULES block already governs how each section should read.
+- Every part still gets the full ROLE/PROCESS/FORMATTING_RULES/OUTPUT_CONTRACT scaffolding in full; only SOURCES and SCOPE get leaner as a discipline, never truncated by cutting a required section.
 
 ### Master prompt (reusable — fill the brackets each week, for any future course)
 ```
@@ -87,92 +94,147 @@ Fill every heading [[Week Template]] defines, in order, for real week number [N]
 ```
 
 # CSCI 4511W — Chapter 3 & Weekly Note Prompts
-Written 2026-09-28, Week 4 of the semester, after reading [[CSCI 4511W Board]]'s full schedule, the [[20_Progress/Degree/CSCI 4511W/Textbook/Textbook Map|Textbook Map]], both landed chapter notes ([[20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 1|Chapter 1]], [[20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 2|Chapter 2]]), [[Weekly Standard]], [[Textbook Standard]], [[Week Template]], and every real lecture PDF in the source folder (`D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4511W\Lecture\`) through Lecture 06 — including the new Lecture 06 (Sep 28, "Informed Search") that prompted this pass. Chapter 3 has no note yet; it covers the whole AIMA search unit across Weeks 2–4 (§3.1–3.6). Two prompts split it exactly on the Board's own reading-date boundary: Part 1 is everything assigned 9/16–9/23 (uninformed search), Part 2 is everything assigned 9/28–9/30 (informed/heuristic search). Two more prompts pre-build Chapter 4 (§4.1.1–4.4, Weeks 5–6) now, so the course stays read-ahead of the week it's due — matching the [[CSCI 4511W Workflow]] rule that textbook notes land before the lecture whenever the source is available. Chapter 4 has no matching lecture file yet (Lecture 07+ isn't released), so both of its prompts are textbook-only and flagged to re-run once a lecture PDF lands.
+Written 2026-09-28, Week 4 of the semester, after reading [[CSCI 4511W Board]]'s full schedule, the [[20_Progress/Degree/CSCI 4511W/Textbook/Textbook Map|Textbook Map]], both landed chapter notes ([[20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 1|Chapter 1]], [[20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 2|Chapter 2]]), [[Weekly Standard]], [[Textbook Standard]], [[Week Template]], and every real lecture PDF in the source folder (`D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4511W\Lecture\`) through Lecture 06 — including the new Lecture 06 (Sep 28, "Informed Search") that prompted this pass. Chapter 3 has no note yet; it covers the whole AIMA search unit across Weeks 2–4 (§3.1–3.6). **Revised 2026-09-28 after a real paste attempt hit the Gemini Notebook character limit documented in the Notebook section above:** the original 2-part split produced a 5,496-character Part 1, nearly double the safe budget. Chapter 3 is now five prompts, one per the Board's own reading-assignment row (§3.1–3.2 for 9/16, §3.3–3.4.2 for 9/21, §3.4.3–3.4.4 for 9/23, §3.5 for 9/28, §3.6 for 9/30) — every part measured under 3,000 characters before being written here. Two prompts pre-build Chapter 4 (§4.1.1–4.4, Weeks 5–6) the same way, so the course stays read-ahead of the week it's due — matching the [[CSCI 4511W Workflow]] rule that textbook notes land before the lecture whenever the source is available. Chapter 4 has no matching lecture file yet (Lecture 07+ isn't released), so both of its prompts are textbook-only and flagged to re-run once a lecture PDF lands.
 ## Textbook Reading Prompts (Gemini Notebook)
-Same workflow as the master Notebook prompt above: one fresh Gemini Notebook chat for Chapter 3 (both parts, same chat, same file, matching the char-limit split rule already documented above), a second fresh chat for Chapter 4. Upload the sources named in each `<sources>` block, paste the prompt, save the output as `20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.md` / `Chapter - 4.md`.
-### Chapter 3, Part 1 of 2 — Problem Formulation & Uninformed Search (AIMA §3.1–3.4.4)
+Same workflow as the master Notebook prompt above: one fresh Gemini Notebook chat for all of Chapter 3 (five parts, same chat, same growing file), a second fresh chat for Chapter 4 (two parts). Upload the sources named in each `<sources>` block, paste the prompt, save the output as `20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.md` / `Chapter - 4.md`. Every part below is written to the lean discipline in the Notebook section's character-limit guidance above: SOURCES points at what to upload rather than restating it, SCOPE is a tight list, and every part still carries the full FORMATTING RULES and OUTPUT CONTRACT.
+### Chapter 3, Part 1 of 5 — Problem-Solving Agents & Example Problems (AIMA §3.1–3.2)
 ```
-<role>You are an expert AI teaching assistant working through Russell & Norvig's AIMA 4th edition with a student who already has Chapter 2's agent vocabulary (PEAS, rational agent, agent program) but is new to search. Define every new term at first use and explain mechanism, not just label.</role>
+<role>Expert AI TA teaching AIMA 4th ed. to a student who has Chapter 2's agent vocabulary but is new to search. Define every new term at first use; explain mechanism, not label.</role>
 <sources>
-PRIMARY: `CSCI 4511W Textbook.pdf`, Chapter 3, sections 3.1 (Problem-Solving Agents), 3.2 (Example Problems), 3.3 (Search Algorithms), 3.4 (Uninformed Search Strategies: 3.4.1 breadth-first, 3.4.2 Dijkstra's/uniform-cost, 3.4.3 depth-first, 3.4.4 depth-limited & iterative-deepening) — upload this file. Scope stops at 3.4.4; ignore 3.4.5 bidirectional search and everything from 3.5 onward (that is Part 2, a separate prompt in this same chat).
-SECONDARY (what's actually been taught — upload if available, otherwise rely on the transcript below): Lecture 03 (Sep 16, "Problem-Solving Agents") introduces the problem-solving process (goal formulation → problem formulation → search → execution), the search-problem definitions State space / Initial state / Is-Goal(s) / Actions(s) / Result(s,a) / Action-Cost(s,a,s') / Path / Solution / Optimal Solution, the sliding-tile-puzzle example (3x3 grid, Start/Goal states), and Best-First Search pseudocode the slides label "Book figure 3.7" (Node class, frontier as a PriorityQueue(order=f), a reached dict, an expand() generator). Lecture 04 (Sep 21) derives Breadth-First Search from that same framework by setting f(n)=0 (PriorityQueue acts like a Queue), fixes an early-goal-test bug by moving the goal check inside the expand loop, defines the four evaluation metrics (Completeness, Cost-Optimality, Time Complexity, Space Complexity), then derives Depth-First Search by setting f(n)=-n.path_cost (acts like a Stack) and removing the reached dict so states can be revisited. Lecture 05 (Sep 23) fills in the analysis table — BFS: complete if finite state space, cost-optimal if action costs constant & positive, O(b^d) time and space; DFS: complete only if no cycles and finite, never cost-optimal, O(b^m) time, O(mb) space; DLS (depth-limited): never complete, never cost-optimal, O(b^l) time, O(lb) space; IDDFS: complete if finite, cost-optimal if constant costs, O(b^d) time, O(db) space (b=branching factor, d=depth of optimal solution, m=max path length, l=depth limit) — then introduces Uniform-Cost Search (f(n)=n.path_cost, assuming every action cost exceeds some ϵ>0), gives the real expand() function using Actions(s)/Result(s,a)/Action-Cost(s,a,s'), and a worked UCS tree example (nodes A-O with real edge weights).
-Cite both the book's own figure numbers/proofs AND the lecture's Python framing — flag explicitly anywhere the lecture's single-framework presentation (every algorithm = Best-First Search with a different f) simplifies or diverges from how the book presents each algorithm.
+PRIMARY: `CSCI 4511W Textbook.pdf`, Ch. 3, §3.1 (Problem-Solving Agents) and §3.2 (Example Problems) only — upload this file. Stop at the end of 3.2; later prompts in this chat cover 3.3 onward.
+SECONDARY: upload `Lecture 03.pdf` (Sep 16) if available. It frames the process as goal formulation → problem formulation → search → execution and works the sliding-tile puzzle as its own running example — use it only to flag whether that example differs from the book's own named examples.
 </sources>
-<process>Read the uploaded chapter fully before writing. Find the book's own real subsection numbers and titles from the PDF itself — verify they match the numbering given above and flag any mismatch rather than silently trusting either source.</process>
-<scope>Cover, in the book's own order: 3.1 the problem-solving agent's four-step process and the static/fully-observable/known/discrete/deterministic assumption it relies on; 3.2 the book's own formal problem definition (state space, initial state, actions, transition model, goal test, path cost) applied to the book's own named example problems — reproduce the book's actual examples (not only the lecture's sliding-tile one), and flag if the lecture's puzzle differs from the book's; 3.3 the book's Best-First-Search algorithm, its real figure number, the node data structure, frontier/reached, and the book's own definitions of completeness/cost-optimality/time/space complexity in terms of b, d, m; 3.4.1–3.4.4 each uninformed strategy's real mechanism plus the exact conditions under which it is complete/cost-optimal and its real time/space complexity as the book proves it — flag explicitly anywhere the lecture's completed table differs from what the book states.</scope>
+<process>Read the uploaded sections fully. Get the book's own real subsection numbers/titles from the PDF itself.</process>
+<scope>3.1: the four-step process and the environment assumptions it requires (static, fully observable, known, discrete, deterministic). 3.2: the book's formal problem definition (state space, initial state, actions, transition model, goal test, path cost) applied to every one of the book's own named example problems — reproduce them all.</scope>
 <output_structure>
-# Chapter - 3 — Solving Problems by Searching (Part 1: Uninformed Search)
+# Chapter - 3 — Solving Problems by Searching (Part 1 of 5: Problem-Solving Agents & Example Problems)
 ## Chapter Summary
 ## Key Concepts
-## Full Reading Notes (one ### per real book subsection: 3.1, 3.2, 3.3, 3.4.1, 3.4.2, 3.4.3, 3.4.4)
-## Worked Example (the book's own example problem worked end-to-end through one uninformed strategy)
-## Connections (state plainly: lecture used the sliding-tile puzzle and a from-scratch Python Best-First framework as its running vehicle; note every point where lecture's framing adds to, simplifies, or diverges from the book's own pseudocode/proofs)
-## Open Questions (3-5, testing exact complexity/completeness conditions)
+## Full Reading Notes (### 3.1, ### 3.2)
+## Worked Example (one book example worked end-to-end through the formal definition)
+## Connections (where Lecture 03's sliding-tile framing adds to or differs from the book's own examples)
+## Open Questions (3-5)
 ## Flashcards (6-8, #cards/csci4511w)
 </output_structure>
-<formatting_rules>One blank line between blocks. Exactly one ==highlight== per ## section, on the single most important definitional claim. **Bold** terms on first use only. *Label:* italics for sub-labels. Cite real page numbers for definitions/proofs. No filler or marketing language. Reproduce pseudocode as fenced code exactly as the book gives it.</formatting_rules>
-<output_contract>Return the entire note as one fenced markdown code block, nothing outside it. Before answering, verify: every real subsection 3.1-3.4.4 has its own ### heading; the highlight count per ## section is exactly one; the lecture-divergence note is present in Connections.</output_contract>
+<formatting_rules>One blank line between blocks. Exactly one ==highlight== per ## section. **Bold** terms on first use. Cite real page numbers. No filler language. Fenced code for any pseudocode.</formatting_rules>
+<output_contract>Return as one fenced markdown code block, nothing outside it. Verify: 3.1 and 3.2 each have their own ### heading; highlight count is exactly one per section.</output_contract>
 ```
-### Chapter 3, Part 2 of 2 — Informed (Heuristic) Search (AIMA §3.5–3.6)
+### Chapter 3, Part 2 of 5 — Search Algorithms, BFS & Uniform-Cost (AIMA §3.3–3.4.2)
 ```
-<role>Same role as Part 1 — same Gemini Notebook chat, continuing the same Chapter 3 note.</role>
+<role>Same role — same chat, continuing the same Chapter 3 note.</role>
 <sources>
-PRIMARY: `CSCI 4511W Textbook.pdf`, Chapter 3, sections 3.5 (Informed/Heuristic Search Strategies: 3.5.1 greedy best-first, 3.5.2 A* search including admissibility/consistency and the optimality proof, 3.5.3 search contours, 3.5.4 satisficing search/weighted A*, 3.5.5 memory-bounded search — IDA*, RBFS, SMA*, 3.5.6 bidirectional heuristic search) and 3.6 (Heuristic Functions: 3.6.1 effect of heuristic accuracy, 3.6.2 generating heuristics from relaxed problems, 3.6.3 pattern databases, 3.6.4 landmarks, 3.6.5-3.6.6 learning heuristics) — already uploaded in this chat.
-SECONDARY (emphasis — covers 3.5.1-3.5.2 only): Lecture 06 (Sep 28, "Informed Search") reviews BFS/IDDFS/UCS as "uninformed," defines a heuristic h(n) as an estimate of a node's distance to the goal, Greedy Best-First as f(n)=h(n), and A* as f(n)=g(n)+h(n) where g(n) is path cost. It works two full worked examples step-by-step (frontier/reached shown at every expand): a 15-node tree (A-O, labeled h(n) values) run once under Greedy and once under A*, reaching different goals/paths from the same tree; and a Minnesota-cities exercise (Crookston/Duluth/Morris/Minneapolis/St. Paul/Rochester, real road distances, straight-line-distance heuristic h_SLD to Rochester). It closes with unanswered discussion questions on A*'s completeness/cost-optimality conditions and its time/space complexity — treat these as genuinely open in the lecture, to be answered from the book's proofs, not from the lecture itself.
-No lecture file exists yet for 3.5.3-3.6.6 (Lecture 07, Sep 30, not yet in the source folder as of this prompt's writing) — cover that material from the book alone and say so plainly in Connections rather than inventing lecture emphasis.
+PRIMARY: same textbook, §3.3 (Search Algorithms) and §3.4.1-3.4.2 (breadth-first search; Dijkstra's algorithm/uniform-cost search) — already uploaded. Stop at the end of 3.4.2.
+SECONDARY: upload `Lecture 04.pdf` (Sep 21) if available. It gives a Best-First Search framework (node, frontier as a PriorityQueue(order=f), reached, expand()) and derives BFS by setting f(n)=0 — flag anywhere this single-framework presentation diverges from how the book presents these algorithms separately.
 </sources>
-<process>Read the full chapter before writing. Use the book's own real subsection numbers/titles, verified against the PDF.</process>
-<scope>Cover, in the book's order: 3.5.1-3.5.2 greedy best-first and A* exactly as the lecture introduced them, then the book's fuller treatment — admissibility, consistency, and the book's proof that A* with a consistent heuristic is cost-optimal (answer the lecture's own open discussion questions here, sourced from the proof, not guessed); 3.5.3-3.5.6 search contours, weighted A*/satisficing search, the memory-bounded variants (IDA*, RBFS, SMA*) and their real trade-offs, and bidirectional heuristic search; 3.6.1 how heuristic accuracy (effective branching factor, dominance) changes search performance; 3.6.2-3.6.4 generating heuristics from relaxed problems, pattern databases, and landmarks, each with the book's own worked example; 3.6.5-3.6.6 the book's brief treatment of learning heuristics.</scope>
+<process>Read the uploaded sections fully. Use the book's own real subsection numbers/titles.</process>
+<scope>3.3: the book's Best-First-Search algorithm, its real figure number, node/frontier/reached, and its own completeness/cost-optimality/time/space-complexity definitions (in terms of b, d). 3.4.1: BFS's mechanism and proof of its complete/cost-optimal conditions. 3.4.2: uniform-cost search's mechanism, its ϵ>0 assumption, and its proof.</scope>
 <output_structure>
-## Full Reading Notes (continued — one ### per real subsection: 3.5.1 through 3.5.6, 3.6.1 through 3.6.6; do not repeat Part 1's headings)
-## Worked Example (reproduce the lecture's own tree-example Greedy run AND A* run side by side — same tree, different f(n) — showing where they diverge; then note the Minnesota-cities exercise as a second real worked case)
-## Connections (answer the lecture's open A*-completeness/cost-optimality/complexity questions using the book's proof; flag that 3.5.3-3.6.6 currently has no matching lecture, pending Lecture 07)
+## Full Reading Notes (continued — ### 3.3, ### 3.4.1, ### 3.4.2; don't repeat Part 1's headings)
+## Worked Example (BFS or UCS traced through a small graph, the book's own if it gives one)
+## Connections (where Lecture 04's one-framework-for-everything framing simplifies the book's separate treatments)
 ## Open Questions (3-5)
-## Flashcards (6-8, #cards/csci4511w — at least one card per named heuristic-generation method)
+## Flashcards (6-8, #cards/csci4511w)
 </output_structure>
 <formatting_rules>Identical to Part 1.</formatting_rules>
-<output_contract>Return the continuation as one fenced markdown code block, nothing outside it, not repeating Part 1's headings. Verify every subsection 3.5.1-3.6.6 has its own ### heading and the A* discussion questions are answered with a real citation.</output_contract>
+<output_contract>Return as one fenced markdown code block, continuing Part 1, not repeating its headings.</output_contract>
+```
+### Chapter 3, Part 3 of 5 — Depth-First & Iterative-Deepening Search (AIMA §3.4.3–3.4.4)
+```
+<role>Same role, same chat.</role>
+<sources>
+PRIMARY: same textbook, §3.4.3 (depth-first search and the problem of memory) and §3.4.4 (depth-limited and iterative-deepening search) — already uploaded. Stop at the end of 3.4.4; §3.4.5 bidirectional search is not assigned in this course per [[CSCI 4511W Board]], skip it.
+SECONDARY: upload `Lecture 05.pdf` (Sep 23) if available. It fills in the real completeness/cost-optimality/complexity table for BFS/DFS/DLS/IDDFS (DFS: complete only if no cycles & finite, never cost-optimal, O(b^m) time, O(mb) space; DLS: never complete/cost-optimal, O(b^l) time, O(lb) space; IDDFS: complete/cost-optimal if finite & constant costs, O(b^d) time, O(db) space).
+</sources>
+<process>Read the uploaded sections fully. Use the book's own real subsection numbers/titles.</process>
+<scope>3.4.3: DFS's mechanism, why it isn't cost-optimal, its memory advantage over BFS, and the cycle/infinite-branch failure case. 3.4.4: depth-limited search's mechanism and incompleteness, then iterative-deepening's mechanism and proof that it recovers BFS's completeness/optimality at DFS's space cost.</scope>
+<output_structure>
+## Full Reading Notes (continued — ### 3.4.3, ### 3.4.4; don't repeat prior headings)
+## Worked Example (IDDFS traced through a small tree, showing the repeated shallow re-exploration)
+## Connections (whether Lecture 05's completed table matches the book's own proven bounds exactly)
+## Open Questions (3-5)
+## Flashcards (6-8, #cards/csci4511w — include the full BFS/DFS/DLS/IDDFS comparison as one card)
+</output_structure>
+<formatting_rules>Identical to prior parts.</formatting_rules>
+<output_contract>Return as one fenced markdown code block, continuing prior parts, not repeating their headings.</output_contract>
+```
+### Chapter 3, Part 4 of 5 — Informed Search: Greedy & A* (AIMA §3.5)
+```
+<role>Same role, same chat.</role>
+<sources>
+PRIMARY: same textbook, §3.5 (3.5.1 greedy best-first, 3.5.2 A* incl. admissibility/consistency and the optimality proof, 3.5.3 search contours, 3.5.4 weighted A*/satisficing search, 3.5.5 memory-bounded search — IDA*/RBFS/SMA*, 3.5.6 bidirectional heuristic search) — already uploaded. Stop at the end of 3.5; §3.6 is the next prompt.
+SECONDARY: upload `Lecture 06.pdf` (Sep 28, "Informed Search") if available. It defines h(n), Greedy as f(n)=h(n), A* as f(n)=g(n)+h(n), and works two examples step-by-step (a 15-node labeled tree under both; a Minnesota-cities exercise with real distances and a straight-line heuristic). It ends with open questions on A*'s completeness/cost-optimality/complexity conditions — answer these from the book's proof, not by guessing.
+</sources>
+<process>Read the uploaded section fully. Use the book's own real subsection numbers/titles.</process>
+<scope>3.5.1-3.5.2: greedy and A* as the lecture introduced them, then the book's admissibility/consistency conditions and its proof that A* with a consistent heuristic is cost-optimal — this answers the lecture's own open questions, cite the proof. 3.5.3-3.5.6: search contours, weighted A*, the memory-bounded variants and their trade-offs, bidirectional heuristic search.</scope>
+<output_structure>
+## Full Reading Notes (continued — ### 3.5.1 through ### 3.5.6)
+## Worked Example (the lecture's own tree example under both Greedy and A* side by side, showing where they diverge)
+## Connections (answer the lecture's open A* questions here, citing the book's proof)
+## Open Questions (3-5)
+## Flashcards (6-8, #cards/csci4511w)
+</output_structure>
+<formatting_rules>Identical to prior parts.</formatting_rules>
+<output_contract>Return as one fenced markdown code block, continuing prior parts.</output_contract>
+```
+### Chapter 3, Part 5 of 5 — Heuristic Functions (AIMA §3.6) — no lecture yet
+```
+<role>Same role, same chat. No lecture exists yet for this section — teach directly from the book.</role>
+<sources>
+PRIMARY: same textbook, §3.6 (3.6.1 effect of heuristic accuracy, 3.6.2 generating heuristics from relaxed problems, 3.6.3 pattern databases, 3.6.4 landmarks, 3.6.5-3.6.6 learning heuristics) — already uploaded. This closes Chapter 3.
+SECONDARY: none yet — Lecture 07 (Sep 30) isn't in the source folder as of this prompt's writing. Write the Connections line as "(pending Lecture 07 — re-run this chat once it lands and add the delta)."
+</sources>
+<process>Read the uploaded section fully. Use the book's own real subsection numbers/titles.</process>
+<scope>3.6.1: how heuristic accuracy (effective branching factor, dominance) changes performance, with the book's own numbers if given. 3.6.2-3.6.4: generating heuristics from relaxed problems, pattern databases, and landmarks, each with the book's own worked example. 3.6.5-3.6.6: the book's treatment of learning heuristics from experience.</scope>
+<output_structure>
+## Full Reading Notes (continued — ### 3.6.1 through ### 3.6.6)
+## Worked Example (the book's own relaxed-problem or pattern-database example)
+## Connections (the pending-lecture note above)
+## Open Questions (3-5)
+## Flashcards (6-8, #cards/csci4511w — one card per named heuristic-generation method)
+</output_structure>
+<formatting_rules>Identical to prior parts.</formatting_rules>
+<output_contract>Return as one fenced markdown code block, continuing prior parts. This closes Chapter 3 — verify every subsection 3.1 through 3.6.6 across all five parts has its own ### heading somewhere in the full note.</output_contract>
 ```
 ### Chapter 4, Part 1 of 2 — Local Search & Optimization (AIMA §4.1.1–4.2) — future chapter, no lecture yet
 ```
-<role>Same expert-AI-TA role as the Chapter 3 prompts. This is a pure textbook read-ahead — no lecture has happened yet, so teach directly from the book, precisely, without inventing what a professor might emphasize.</role>
+<role>Same expert-AI-TA role. Pure textbook read-ahead — no lecture has happened yet, so teach directly from the book without inventing what a professor might emphasize.</role>
 <sources>
-PRIMARY: `CSCI 4511W Textbook.pdf`, Chapter 4, sections 4.1 (Local Search and Optimization Problems: 4.1.1 hill-climbing search, 4.1.2 simulated annealing, 4.1.3 local beam search, 4.1.4 evolutionary/genetic algorithms) and 4.2 (Local Search in Continuous Spaces) — upload this file.
-SECONDARY: none available. Per [[CSCI 4511W Board]]'s schedule this is Week 5 reading (Mon 10/5 = §4.1.1-4.1.3, Wed 10/7 = §4.1.4-4.2); as of this prompt's writing (2026-09-28) no Lecture 07+ PDF exists in the source folder. Write the Connections section's lecture line as "(pending — no lecture PDF landed yet, re-run this chat once Week 5's lecture PDF is available and add the delta)" rather than guessing what will be emphasized.
+PRIMARY: `CSCI 4511W Textbook.pdf`, Ch. 4, §4.1 (4.1.1 hill-climbing, 4.1.2 simulated annealing, 4.1.3 local beam search, 4.1.4 evolutionary/genetic algorithms) and §4.2 (local search in continuous spaces) — upload this file.
+SECONDARY: none. Per [[CSCI 4511W Board]] this is Week 5 reading (Mon 10/5 = §4.1.1-4.1.3, Wed 10/7 = §4.1.4-4.2); no Lecture 07+ PDF exists as of 2026-09-28. Write the Connections line as "(pending — re-run once Week 5's lecture PDF lands)."
 </sources>
-<process>Read the full sections before writing. Use the book's own real subsection numbers/titles.</process>
-<scope>Cover, in the book's order: 4.1.1 hill-climbing and its real named failure modes (local maxima, ridges, plateaux/shoulders) and the standard fixes (random-restart, sideways moves); 4.1.2 simulated annealing's real mechanism (the temperature schedule, the probability of accepting a worse move) and why it can escape local maxima that hill-climbing cannot; 4.1.3 local beam search and how it differs from running k random-restart hill-climbs independently (shared information between the k states) plus its stochastic-beam-search variant; 4.1.4 evolutionary/genetic algorithms — population, fitness function, selection, crossover, mutation, and the book's own worked example (if it gives one, e.g. 8-queens); 4.2 local search in continuous state spaces — gradient ascent/descent, Newton-Raphson, and the added difficulty of constrained optimization.</scope>
+<process>Read the full sections fully. Use the book's own real subsection numbers/titles.</process>
+<scope>4.1.1: hill-climbing's real failure modes (local maxima, ridges, plateaux/shoulders) and the standard fixes. 4.1.2: simulated annealing's mechanism (temperature schedule, probability of accepting a worse move) and why it escapes local maxima hill-climbing can't. 4.1.3: local beam search vs. k independent random-restart hill-climbs, plus stochastic beam search. 4.1.4: genetic algorithms — population, fitness, selection, crossover, mutation, the book's own worked example if given. 4.2: gradient ascent/descent, Newton-Raphson, constrained optimization.</scope>
 <output_structure>
-# Chapter - 4 — Search in Complex Environments (Part 1: Local Search & Optimization)
+# Chapter - 4 — Search in Complex Environments (Part 1 of 2: Local Search & Optimization)
 ## Chapter Summary
 ## Key Concepts
-## Full Reading Notes (one ### per real subsection: 4.1.1, 4.1.2, 4.1.3, 4.1.4, 4.2)
-## Worked Example (the book's own worked example, most likely 8-queens under hill-climbing/genetic algorithms — reproduce it exactly, including any real numbers the book gives)
-## Connections (state plainly this chapter predates its own lecture; link forward to [[20_Progress/Degree/CSCI 4511W/Weekly/Week - 5|Week - 5]] once it exists, per the note above)
+## Full Reading Notes (### 4.1.1, 4.1.2, 4.1.3, 4.1.4, 4.2)
+## Worked Example (the book's own worked example, reproduced exactly with its real numbers)
+## Connections (the pending-lecture note above)
 ## Open Questions (3-5)
 ## Flashcards (6-8, #cards/csci4511w)
 </output_structure>
 <formatting_rules>Identical to the Chapter 3 prompts.</formatting_rules>
-<output_contract>Return the entire note as one fenced markdown code block, nothing outside it. Verify every subsection 4.1.1-4.2 has its own ### heading and the pending-lecture note is present in Connections.</output_contract>
+<output_contract>Return as one fenced markdown code block, nothing outside it. Verify every subsection 4.1.1-4.2 has its own ### heading and the pending-lecture note is present in Connections.</output_contract>
 ```
 ### Chapter 4, Part 2 of 2 — Nondeterministic & Partially Observable Search (AIMA §4.3–4.4) — future chapter, no lecture yet
 ```
-<role>Same role as Part 1 — same chat, continuing the same Chapter 4 note.</role>
+<role>Same role — same chat, continuing the same Chapter 4 note.</role>
 <sources>
-PRIMARY: `CSCI 4511W Textbook.pdf`, Chapter 4, sections 4.3 (Search with Nondeterministic Actions: 4.3.1 the erratic vacuum world, 4.3.2 AND-OR search trees, 4.3.3 "try, try again"/cyclic solutions) and 4.4 (Search in Partially Observable Environments: 4.4.1 sensorless/conformant search, 4.4.2 searching in partially observable environments, 4.4.3 solving partially observable problems, 4.4.4 an agent design for partially observable environments) — already uploaded in this chat.
-SECONDARY: none available. Per the Board this is the Week 6 Monday reading (10/12), and no matching lecture PDF exists yet as of 2026-09-28. Same pending-lecture note as Part 1.
+PRIMARY: same textbook, §4.3 (4.3.1 erratic vacuum world, 4.3.2 AND-OR search trees, 4.3.3 "try, try again"/cyclic solutions) and §4.4 (4.4.1 sensorless/conformant search, 4.4.2 searching with partial observations, 4.4.3 solving partially observable problems, 4.4.4 an agent design for partially observable environments) — already uploaded.
+SECONDARY: none. Per the Board this is Week 6 Monday reading (10/12); no matching lecture PDF exists yet. Same pending-lecture note as Part 1.
 </sources>
-<process>Read the full sections before writing. Use the book's own real subsection numbers/titles.</process>
-<scope>Cover, in the book's order: 4.3.1 the erratic vacuum world as the book's running nondeterministic example (why a single action can have multiple possible results); 4.3.2 AND-OR search trees — OR nodes (agent choices) vs. AND nodes (environment's possible outcomes) and how a solution becomes a subtree/contingency plan rather than a single path; 4.3.3 the "try, try again" idea for problems where no acyclic solution exists but a cyclic one does; 4.4.1 sensorless (conformant) search over belief states when the agent has no sensors at all; 4.4.2 searching when the agent has partial observations — how belief states update after both actions and percepts; 4.4.3 the book's method for turning a partially observable problem into a search over belief states; 4.4.4 the book's design for an agent that acts in a partially observable environment (interleaving search/planning with execution).</scope>
+<process>Read the full sections fully. Use the book's own real subsection numbers/titles.</process>
+<scope>4.3.1: the erratic vacuum world as the book's running nondeterministic example. 4.3.2: AND-OR trees — OR nodes (agent choices) vs. AND nodes (environment outcomes), and why a solution is a contingency subtree, not a path. 4.3.3: cyclic "try, try again" solutions. 4.4.1: sensorless/conformant search over belief states. 4.4.2: belief-state updates after both actions and percepts. 4.4.3: turning a partially observable problem into belief-state search. 4.4.4: the book's agent design for acting under partial observability.</scope>
 <output_structure>
-## Full Reading Notes (continued — one ### per real subsection: 4.3.1 through 4.3.3, 4.4.1 through 4.4.4; do not repeat Part 1's headings)
-## Worked Example (the book's erratic-vacuum-world AND-OR tree, reproduced with its real states/branches)
-## Connections (same pending-lecture note as Part 1; note the conceptual line from 4.3's AND-OR trees to 4.4's belief-state search)
+## Full Reading Notes (continued — ### 4.3.1 through 4.3.3, 4.4.1 through 4.4.4; don't repeat Part 1's headings)
+## Worked Example (the erratic-vacuum-world AND-OR tree, reproduced with its real states/branches)
+## Connections (same pending-lecture note as Part 1; the conceptual line from 4.3's AND-OR trees to 4.4's belief-state search)
 ## Open Questions (3-5)
 ## Flashcards (6-8, #cards/csci4511w)
 </output_structure>
 <formatting_rules>Identical to Part 1.</formatting_rules>
-<output_contract>Return the continuation as one fenced markdown code block, not repeating Part 1's headings. Verify every subsection 4.3.1-4.4.4 has its own ### heading.</output_contract>
+<output_contract>Return as one fenced markdown code block, not repeating Part 1's headings. Verify every subsection 4.3.1-4.4.4 has its own ### heading.</output_contract>
 ```
 ## Weekly Synthesis Prompts (gpt-5.1-codex CLI, reasoning effort medium)
 Reusable — fill the brackets each week. This splits the single Codex master prompt above into four sequential passes instead of one shot: each week has two lectures, a landed textbook chapter (or two, when a chapter spans the week boundary), a Monday short quiz to fold in, and a synthesis section that must not be rushed. Running it as A → B → C → D gives a real checkpoint between the two lectures (so Monday's live capture is safe before Wednesday's class even happens) and keeps the textbook cross-check honest (C can't run before both lectures and the matching Chapter note exist). Run A right after Monday's lecture, B right after Wednesday's, C once both lecture sections and the matching `Chapter - N.md` exist, D last, in the same or a following session.

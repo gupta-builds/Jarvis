@@ -405,7 +405,8 @@
     "20_Progress/Degree/CSCI 5304/Textbook/Lecture - 2 & 3.md": "external",
     "20_Progress/Degree/CSCI 5304/Textbook/Lecture - 4.md": "external",
     "20_Progress/Degree/CSCI 5304/Textbook/Lecture - 5.md": "external",
-    "30_Order/Workflows/Courses/Per Class/CSCI 5304 Workflow.md": "external"
+    "30_Order/Workflows/Courses/Per Class/CSCI 5304 Workflow.md": "external",
+    "20_Progress/Degree/MGMT 3015/Lecture/Lecture - 5.md": "external"
   },
   "_editTimes": {
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Home/00 - Session Index.md": 1790577004469,
@@ -419,7 +420,7 @@
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Session Index.md": 1790577004491,
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Tool Usage Rollup.md": 1790577004493,
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": 1790451185419,
-    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 1790625781633,
+    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 1790626681585,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-18 Jarvis sync process setup.md": 1790450285627,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-20 Jarvis vault plugins documentation batch 3.md": 1790577186115,
     "60_Claude/07_AI_Information/Session Logs/log.md": 1790576285829,
@@ -488,7 +489,7 @@
     "20_Progress/Degree/MGMT 3015/Textbook/Textbook Map.md": 1790577186036,
     "30_Order/Standards/Courses/Concept Standard.md": 1790577186041,
     "30_Order/Standards/Courses/Exam Standard.md": 1790578086496,
-    "20_Progress/Degree/MGMT 3015/Lecture/Weekly Board.md": 1790569084201,
+    "20_Progress/Degree/MGMT 3015/Lecture/Weekly Board.md": 1790626479276,
     "20_Progress/Degree/CSCI 4511W/Weekly/Weekly Board.md": 1790577186030,
     "30_Order/Standards/Courses/Weekly Board Standard.md": 1790452085428,
     "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md": 1790569084194,
@@ -802,7 +803,8 @@
     "20_Progress/Degree/CSCI 5304/Textbook/Lecture - 2 & 3.md": 1790621397011,
     "20_Progress/Degree/CSCI 5304/Textbook/Lecture - 4.md": 1790621443428,
     "20_Progress/Degree/CSCI 5304/Textbook/Lecture - 5.md": 1790621496116,
-    "30_Order/Workflows/Courses/Per Class/CSCI 5304 Workflow.md": 1790621543070
+    "30_Order/Workflows/Courses/Per Class/CSCI 5304 Workflow.md": 1790621543070,
+    "20_Progress/Degree/MGMT 3015/Lecture/Lecture - 5.md": 1790626469136
   },
   "_dismissedAt": {},
   "_editSizes": {
@@ -817,7 +819,7 @@
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Session Index.md": 381,
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Tool Usage Rollup.md": 980,
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": 26552,
-    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 499790,
+    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 501229,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-18 Jarvis sync process setup.md": 1062400,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-20 Jarvis vault plugins documentation batch 3.md": 365354,
     "60_Claude/07_AI_Information/Session Logs/log.md": 214574,
@@ -886,7 +888,7 @@
     "20_Progress/Degree/MGMT 3015/Textbook/Textbook Map.md": 4194,
     "30_Order/Standards/Courses/Concept Standard.md": 6812,
     "30_Order/Standards/Courses/Exam Standard.md": 5422,
-    "20_Progress/Degree/MGMT 3015/Lecture/Weekly Board.md": 1302,
+    "20_Progress/Degree/MGMT 3015/Lecture/Weekly Board.md": 1985,
     "20_Progress/Degree/CSCI 4511W/Weekly/Weekly Board.md": 1659,
     "30_Order/Standards/Courses/Weekly Board Standard.md": 2771,
     "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md": 1324,
@@ -1200,7 +1202,8 @@
     "20_Progress/Degree/CSCI 5304/Textbook/Lecture - 2 & 3.md": 14727,
     "20_Progress/Degree/CSCI 5304/Textbook/Lecture - 4.md": 12698,
     "20_Progress/Degree/CSCI 5304/Textbook/Lecture - 5.md": 13275,
-    "30_Order/Workflows/Courses/Per Class/CSCI 5304 Workflow.md": 9893
+    "30_Order/Workflows/Courses/Per Class/CSCI 5304 Workflow.md": 9893,
+    "20_Progress/Degree/MGMT 3015/Lecture/Lecture - 5.md": 15558
   },
   "_sizeDeltas": {
     "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md": "up",

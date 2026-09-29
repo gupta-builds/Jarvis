@@ -13,6 +13,14 @@ next: "Complete the Docker environment setup during Lab 1 (Mon 2026-09-14) - the
 ---
 # CSCI 4061 — Introduction to Operating Systems
 Fall'26, 4 credits, in person. Closes the Introduction to Operating Systems sub-requirement of the Computer Science Core — the last open CS Core sub-req per [[APAS]], so this class finishes CS Core outright. Real syllabus pasted in full by the user 2026-09-08, from the course's Canvas page.
+## Current Grade
+> [!DANGER] Estimated ceiling, not an earned grade — recompute once [[Hit or Miss - Miss]] gets the full Canvas pass
+> Computed 2026-09-24 from [[Hit or Miss - Miss]] against this course's own weights and drop policy. This is the **maximum grade still reachable** if everything remaining is aced, degraded only by weight already lost to misses logged so far — not a real transcript grade, since most of the semester's weight hasn't happened yet.
+- **Labs (10%, lowest 2 dropped):** Lab 1 and 2 both missed — exactly uses up both drops. 0% lost, but **zero buffer left**: the next missed lab costs real points.
+- **Quizzes (10%, lowest 2 dropped):** Quiz 1 missed — 1 of 2 drops used. 0% lost, 1 buffer remaining.
+- **Surveys (5%, 3 surveys, full credit for submitting, no drop):** Entrance Survey missed — 1 of 3 gone. **−1.67%.**
+- **Project 1 Quiz missed** — required individual per-project spec quiz, exact point value not stated anywhere captured. Flagged unresolved, not counted below; confirm on Gradescope/Canvas whether this zeroes part of the Project 1 grade outright.
+**Ceiling: ~98.3%**, plus one unresolved risk (Project 1 Quiz).
 ## Source of truth
 > [!IMPORTANT] Read before trusting anything about this course
 > Real source folder: `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061` — slides, PDFs, and any future Canvas exports land there first. This Board note is the readable distillation of the real syllabus (pasted in full 2026-09-08), not a replacement for checking Canvas directly when anything here seems stale, especially exam dates and project deadlines. Desktop shortcut: `CSCI 4061.lnk` in `D:\_Anant\`.
@@ -37,7 +45,7 @@ Primary instructor: **Jack Kolb** (jhkolb@umn.edu, 300F Lind Hall). Office hours
 Two sections run under this syllabus - confirm which one applies before trusting any date below.
 
 | Section | Lecture                             | Lab                                                    |
-| ------- | ----------------------------------- | ------------------------------------------------------ |
+| ------- | ------------------------------------ | ------------------------------------------------------ |
 | 001     | TuTh 1:00–2:15pm, 101 Tate Hall     | Labs 002–005, Mondays 9:05am–1:10pm, 1-250 Keller Hall |
 | 010     | TuTh 4:00–5:15pm, 3-210 Keller Hall | Labs 011–014, Mondays 1:25pm–5:30pm, 1-250 Keller Hall |
 ## Prerequisites

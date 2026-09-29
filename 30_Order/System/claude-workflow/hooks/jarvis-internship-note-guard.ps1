@@ -97,7 +97,7 @@ foreach ($field in $requiredFields) {
 
 # --- Log line (always, pass or fail) ---
 try {
-    $logDir = "D:\Users\_Anant\10_Areas\Documents\Jarvis\30_Order\System\claude-workflow\logs"
+    $logDir = "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\logs"
     if (-not (Test-Path -LiteralPath $logDir)) { New-Item -ItemType Directory -Path $logDir -Force | Out-Null }
     $logPath = Join-Path $logDir "internship-note-guard.jsonl"
     $entry = [ordered]@{

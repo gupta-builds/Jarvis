@@ -10,5 +10,5 @@ exitCode = sh.Run("wsl.exe -e bash -lc ""pwsh -ExecutionPolicy Bypass -File ~/.c
 ' (added 2026-08-19 - reliability gap fix, see the CoreCLR crash-in-pwsh
 ' investigation). Runs after the real work so it can never mask exitCode
 ' below; ignore its own exit status.
-sh.Run "powershell -NoProfile -ExecutionPolicy Bypass -File ""D:\Users\_Anant\10_Areas\Documents\Jarvis\30_Order\System\claude-workflow\scripts\update-capture-health.ps1"" -TaskLabel WSL -ExitCode " & exitCode, 0, True
+sh.Run "powershell -NoProfile -ExecutionPolicy Bypass -File ""D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\update-capture-health.ps1"" -TaskLabel WSL -ExitCode " & exitCode, 0, True
 WScript.Quit(exitCode)

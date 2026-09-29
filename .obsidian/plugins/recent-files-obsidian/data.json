@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "2026-09-29",
+      "path": "10_Areas/Life/Enumerate/Daily/2026-09-29.md"
+    },
+    {
       "basename": "2026-W40",
       "path": "10_Areas/Life/Enumerate/Weekly/2026-W40.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "Statusline Migration — Acer Prompt",
       "path": "40_Resources/CS/Concepts/New Laptop/Statusline Migration — Acer Prompt.md"
-    },
-    {
-      "basename": "WSL Session Briefing",
-      "path": "40_Resources/CS/Concepts/New Laptop/Sync/WSL Session Briefing.md"
     }
   ],
   "omittedPaths": [],

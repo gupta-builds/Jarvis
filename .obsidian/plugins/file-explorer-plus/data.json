@@ -904,13 +904,6 @@
         "name": "",
         "active": true,
         "type": "FILES",
-        "pattern": "20_Progress/Degree/MGMT 3015/Lecture/Weekly Board.md",
-        "patternType": "STRICT"
-      },
-      {
-        "name": "",
-        "active": true,
-        "type": "FILES",
         "pattern": "20_Progress/Degree/MGMT 3015/Concepts/Entrepreneurship Concepts Board.md",
         "patternType": "STRICT"
       },

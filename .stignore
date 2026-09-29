@@ -14,6 +14,7 @@
 .obsidian/plugins/obsidian-local-rest-api/data.json
 .obsidian/plugins/lean-terminal/data.json
 .obsidian/plugins/recent-files-obsidian/data.json
+.obsidian/plugins/file-explorer-plus/data.json
 .obsidian/copilot-index-*.json
 30_Order/System/jarvis-memory/*.sqlite*
 60_Claude/05_Clippings/AI Conversations/**/_raw_jsonl

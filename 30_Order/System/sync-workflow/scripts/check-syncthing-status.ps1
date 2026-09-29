@@ -101,8 +101,12 @@ if (-not $folderPath) {
     Write-Error "Folder '$FolderId' has no configured path."
     exit 1
 }
-$conflictFiles = @(Get-ChildItem -LiteralPath $folderPath -Force -Recurse -File -Filter "*.sync-conflict-*" -ErrorAction SilentlyContinue)
-$tempFiles = @(Get-ChildItem -LiteralPath $folderPath -Force -Recurse -File -Filter "~syncthing~*.tmp" -ErrorAction SilentlyContinue)
+# .stversions is Staggered File Versioning's own archive - it deliberately
+# keeps old sync-conflict copies as version history, not a live problem. A
+# recursive scan without this exclusion permanently flags every versioned
+# conflict copy as an active incident, defeating the point of the check.
+$conflictFiles = @(Get-ChildItem -LiteralPath $folderPath -Force -Recurse -File -Filter "*.sync-conflict-*" -ErrorAction SilentlyContinue | Where-Object { $_.FullName -notmatch '\\\.stversions\\' })
+$tempFiles = @(Get-ChildItem -LiteralPath $folderPath -Force -Recurse -File -Filter "~syncthing~*.tmp" -ErrorAction SilentlyContinue | Where-Object { $_.FullName -notmatch '\\\.stversions\\' })
 if ($conflictFiles.Count -gt 0) {
     Write-Error "Found $($conflictFiles.Count) Syncthing conflict copy/copies."
     $conflictFiles | Select-Object -First 20 -ExpandProperty FullName | ForEach-Object { Write-Error "  $_" }

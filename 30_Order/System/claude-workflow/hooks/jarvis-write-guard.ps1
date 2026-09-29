@@ -23,7 +23,7 @@ if ($tool -notin @("Write", "Edit", "MultiEdit")) { exit 0 }
 $filePath = [string]$payload.tool_input.file_path
 if ([string]::IsNullOrWhiteSpace($filePath)) { exit 0 }
 
-$root = "D:\Users\_Anant\10_Areas\Documents\Jarvis"
+$root = "D:\_Anant\20_Progress\Documents\Jarvis"
 $norm = ($filePath -replace '/', '\')
 $normLower = $norm.ToLowerInvariant()
 $rootLower = $root.ToLowerInvariant()

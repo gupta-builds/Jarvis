@@ -63,6 +63,7 @@
 
 // Proven machine-local state that caused recurring cross-device conflicts.
 .obsidian/plugins/recent-edits/data.json
+.obsidian/plugins/file-explorer-plus/data.json
 20_Progress/AI/Claude Code/_All-Projects-Sync-Log.md
 20_Progress/AI/Claude Code/**/Sync-Log.md
 30_Order/System/claude-workflow/logs/capture-health-*.json

@@ -55,7 +55,8 @@ This approach will succeed because the pain is quantified - CiteGuard can promis
 > [!NOTE] Word count and page-fit estimate
 > ~360 words (down from ~525) after the 2026-09-28 trim pass — cut for length by removing whole sentences/clauses from the original draft rather than rewriting surviving ones, per the user's explicit instruction. At ~250-275 words/page (12pt Times New Roman, double-spaced, per the [[20_Progress/Degree/MGMT 3015/Assignments/Profile of a Successful Entrepreneur|Profile]] assignment's own calibration), this should land right around 1.5 pages — comfortably under the 2-page hard cap. Not yet verified in an actual Word document.
 
-<!-- Fill in once submitted: timestamp, destination, file format, any Canvas receipt. -->
+### Submission
+Submitted as `Business Idea.pdf`, saved locally at `D:\_Anant\10_Areas\UMN\Classes\Minor\MGMT 3015\Assignments\Business Idea.pdf` (confirmed on disk 2026-09-29; exact Canvas upload timestamp not recorded this session). The submitted PDF carries a few small hand-edits from the final trimmed draft above (e.g. "is obliged to perform" instead of "owes", "arduous procedure" instead of "tedious, manual process", and the Lexis+/nexlaw.ai source line dropped) — not reconciled back into the note since the submission is final; the version above remains the working draft, the PDF is the record of what was actually turned in. The 60-90s elevator pitch for the Wed 9/30 presentation is now written in [[20_Progress/Degree/MGMT 3015/Weekly/Week - 4|Week - 4]] under "Elevator Pitch."
 ## Post-submit reflection
 <!-- After submission, record the first failure, the underlying pattern, and what to change next time. -->
 - What failed first?

@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "Chapter - 4",
+      "path": "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 4.md"
+    },
+    {
       "basename": "Chapter - 3",
       "path": "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "Weekly Standard",
       "path": "30_Order/Standards/Courses/Weekly Standard.md"
-    },
-    {
-      "basename": "CLAUDE",
-      "path": "CLAUDE.md"
     }
   ],
   "omittedPaths": [

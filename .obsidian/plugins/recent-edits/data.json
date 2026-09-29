@@ -800,7 +800,7 @@
     "10_Areas/Life/Enumerate/Weekly/2026-W40.md": 1790574342199,
     "Untitled Kanban.md": 1790573791027,
     "10_Areas/Life/Enumerate/Daily/2026-09-28.md": 1790622189719,
-    "00_Dashboard.md": 1790691484348,
+    "00_Dashboard.md": 1790692384449,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-28 Weekly workflow setup 2026-W40.md": 1790689685012,
     "20_Progress/Degree/CSCI 4511W/Weekly/Week - 4.md": 1790622786240,
     "20_Progress/Degree/CSCI 5304/Weekly/Week - 2 & 3 (Prompts).md": 1790659084675,
@@ -813,7 +813,7 @@
     "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Known Failure Modes and Prevention.md": 1790659084690,
     "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 4.md": 1790640053844,
     "20_Progress/Degree/Course Production Board — Fall'26.md": 1790646728394,
-    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-29 Internship loop research and gap analysis.md": 1790691484348,
+    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-29 Internship loop research and gap analysis.md": 1790692384453,
     "30_Order/System/sync-workflow/scripts/check-syncthing-status-silent.vbs": 1790647687704,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-28 Dell Syncthing and git-auto-sync verification cleanup.md": 1790688784427,
     "30_Order/System/claude-workflow/hooks/jarvis-write-guard.ps1": 1790651883138,
@@ -838,9 +838,9 @@
     "20_Progress/Degree/MGMT 3015/Weekly/Week - 2.md": 1790657022157,
     "20_Progress/Degree/MGMT 3015/Weekly/Week - 3.md": 1790657232466,
     "20_Progress/Degree/MGMT 3015/Weekly/Week - 4.md": 1790658016065,
-    "10_Areas/Life/Enumerate/Daily/2026-09-29.md": 1790691484348,
-    "30_Order/Standards/Ingestion/PDF Extraction Standard.md": 1790689225463,
-    "30_Order/Workflows/Ingestion/PDF Extraction.md": 1790689257463
+    "10_Areas/Life/Enumerate/Daily/2026-09-29.md": 1790692384449,
+    "30_Order/Standards/Ingestion/PDF Extraction Standard.md": 1790691887244,
+    "30_Order/Workflows/Ingestion/PDF Extraction.md": 1790691952092
   },
   "_dismissedAt": {},
   "_editSizes": {
@@ -1256,8 +1256,8 @@
     "20_Progress/Degree/MGMT 3015/Weekly/Week - 3.md": 30215,
     "20_Progress/Degree/MGMT 3015/Weekly/Week - 4.md": 3126,
     "10_Areas/Life/Enumerate/Daily/2026-09-29.md": 4530,
-    "30_Order/Standards/Ingestion/PDF Extraction Standard.md": 7550,
-    "30_Order/Workflows/Ingestion/PDF Extraction.md": 6663
+    "30_Order/Standards/Ingestion/PDF Extraction Standard.md": 8506,
+    "30_Order/Workflows/Ingestion/PDF Extraction.md": 10168
   },
   "_sizeDeltas": {
     "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md": "up",

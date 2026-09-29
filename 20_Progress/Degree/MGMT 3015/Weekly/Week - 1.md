@@ -1,16 +1,30 @@
 ---
 type: class
 input_kind: lecture
-status: sprout
-created: 2026-09-09
-updated: 2026-09-21
+status: seed
+created:
+updated:
 area:
-  - "[[MGMT 3015 Board]]"
+  - "[[UMN Board]]"
 tags:
   - "#class"
   - "#Lecture"
-next: "[[20_Progress/Degree/MGMT 3015/Lecture/Lecture - 2|Lecture - 2]]"
+next:
 ---
+# Week - 1
+## What you must be able to do
+<!-- Write four to eight testable abilities. Link the matching chapter first in the finished note. -->
+-
+-
+## Key ideas (short)
+<!-- Give three to six compressed claims; this is not the full lecture capture. -->
+-
+## Concepts created today
+<!-- Add links only for concept notes created from this lecture. -->
+-
+## Examples worth keeping
+<!-- Keep concrete lecture examples, cases, or numbers that made an idea click. -->
+-
 # Lecture - 1 — Session 1: Course Overview and Introduction (Wed 9/9)
 Source: real slide deck `2026 F3015 S1 Introduction.pptx` (34 slides, Zahra's own speaker notes included), read in full 2026-09-21. No chapter is assigned for this session — pure intro, per [[20_Progress/Degree/MGMT 3015/Textbook/Textbook Map|Textbook Map]].
 ## What you must be able to do
@@ -96,3 +110,26 @@ Idea vs. opportunity::An idea is a beginning; it becomes an opportunity only whe
 The three-stage entrepreneurial process::Opportunity Discovery → Opportunity Evaluation → Opportunity Exploitation, all situated inside a Context that shapes what's findable.
 Why "testing an assumption with a real customer" beats "writing a long plan first"::Entrepreneurial action converts assumptions into evidence; small real-world tests limit time/resources at risk compared to planning in a vacuum.
 MGMT 3015's AI policy boundary::AI is allowed for research, ideation, and acknowledged assistance — but the report itself must be the student's own writing; this is stricter than "no restriction" and looser than [[20_Progress/Degree/ENGL 1004/ENGL 1004 Board|ENGL 1004]]'s total ban.
+
+## Textbook integration
+<!-- State what the textbook adds beyond lecture. Link the actual chapter and name the missing framework or test. -->
+> [!IMPORTANT]
+> Main chapters:
+## Takeaways (questions to resolve)
+<!-- Use real follow-up questions that can be answered by reading or drilling. -->
+- [ ]
+- [ ]
+## Lecture-to-textbook synthesis
+<!-- Use one highlighted definition, then mechanism, lecture example, textbook link, concept links, warning, and summary. -->
+== ==
+*Mechanism:*
+- Lecture example/scenario:
+- Textbook connection:
+- Concept links:
+> [!WARNING]
+> Replace this with the common confusion or failure mode.
+
+> [!SUMMARY]
+> Replace this with what the week is really about in one sentence.
+## Flashcards
+<!-- Add 3–5+ cards to #cards/<course-slug>; test distinctions and mechanisms, not labels. -->

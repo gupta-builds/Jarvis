@@ -59,7 +59,7 @@ A **weighted norm** plugs a full-rank weight matrix W into the definition: ‖x�
 Take the unitary-matrix length/angle preservation proof itself as the worked example, since it is the section's real payoff: given any unitary Q and any vectors x, y, ‖Qx‖ = ‖x‖ and the angle between Qx and Qy equals the angle between x and y, both following from the single algebraic fact Q\*Q = I substituted into the inner-product definitions of length and angle. This is why the professor calls unitary matrices "just rotations and flips" - they are precisely the transformations that leave every length and every angle exactly where it started.
 
 ## Connections
-- Lecture: the 2026-09-15 session taught Lecture 2 (orthogonality) in full and started Lecture 3 (norms) through vector p-norms and weighted norms - it explicitly ran out of time before covering **induced/operator matrix norms**, which the professor picked back up at the start of the next class (2026-09-17). That recap-and-continuation is captured in [[Lecture - 4]] rather than here, matching where it was actually taught.
+- Lecture: the 2026-09-15 session taught Lecture 2 (orthogonality) in full and started Lecture 3 (norms) through vector p-norms and weighted norms - it explicitly ran out of time before covering **induced/operator matrix norms**, which the professor picked back up at the start of the next class (2026-09-17). That recap-and-continuation is captured in [[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 4]] rather than here, matching where it was actually taught.
 - Textbook: (pending a Notebook pass - see the Methodology warning above).
 
 ## Open Questions

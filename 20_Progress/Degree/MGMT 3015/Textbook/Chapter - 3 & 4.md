@@ -106,7 +106,7 @@ next: "Run Part 2 of the Gemini Notebook prompt (Chapter 4, 'Prototyping Your Id
 ## Examples Worth Keeping
 - **ISlide, Inc. — the chapter's own case study (pp. 95-101, read in full 2026-09-21):** Justin Kittredge founded ISlide (customizable athletic sandals) in January 2013 after thirteen years in the footwear industry, most of it at Reebok. Chapter 2's "80% of Inc. 500 founders start in their current industry" claim is exactly what this case demonstrates in practice — Kittredge's opportunity, and his ability to exploit it within six months, came directly from his manufacturing relationships in China and his product-development background, not a novel idea from outside the field. Used as the subject of [[20_Progress/Degree/MGMT 3015/Assignments/Profile of a Successful Entrepreneur|Profile of a Successful Entrepreneur]] — full profile written there, not duplicated here.
 ## Connections
-- Lecture: [[20_Progress/Degree/MGMT 3015/Lecture/Lecture - 4|Lecture - 4]] (Session 4, ideation methods) — see the > [!NOTE] callouts embedded in the Chapter 3 sections above for the direct lecture/textbook vocabulary comparison.
+- Lecture: [[20_Progress/Degree/MGMT 3015/Weekly/Week - 3|Week - 3]] (Session 4, ideation methods) — see the > [!NOTE] callouts embedded in the Chapter 3 sections above for the direct lecture/textbook vocabulary comparison.
 - Concept: none yet (concepts out of scope for this production pass per [[Course Production Board — Fall'26]]).
 ## Chapter 4: Prototyping Your Ideas
 

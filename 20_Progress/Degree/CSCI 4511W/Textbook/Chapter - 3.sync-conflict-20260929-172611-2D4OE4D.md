@@ -629,6 +629,97 @@ How does Recursive Best-First Search (RBFS) operate in linear space?::RBFS uses 
 ==Why is A* graph search guaranteed never to re-open or re-expand a state when using a consistent heuristic?==::Because consistency ensures the first time a state is expanded, it has been reached via an optimal path, making \\(f(n)\\) monotonically non-decreasing (p. 87). #cards/csci4511w
 
 How does Simplified Memory-Bounded A* (SMA*) handle running out of memory?::SMA* drops the worst leaf node with the highest \\(f\\)-value and backs up that \\(f\\)-value to its parent, regenerating the subtree only if all alternative paths look worse (p. 92–93). #cards/csci4511w 
+## Full Reading Notes (continued — ### 3.6.1 through ### 3.6.6)
+
+### 3.6.1 The effect of heuristic accuracy on performance
+**Effective branching factor** \\(b^*\\): An empirical measure of heuristic quality. If A* generates \\(N\\) total nodes for a solution at depth \\(d\\), \\(b^*\\) is the branching factor that a uniform tree of depth \\(d\\) would need to contain \\(N+1\\) nodes:
+\\[N + 1 = 1 + b^* + (b^*)^2 + \dots + (b^*)^d\\] (p. 98).
+- *Numerical Example:* If A* finds a solution at depth \\(d=5\\) using \\(N=52\\) nodes, the effective branching factor is \\(b^* = 1.92\\) (p. 98).
+- *Effective Depth Reduction:* Korf and Reid (1998) showed that a heuristic \\(h\\) reduces effective depth by a constant \\(k_h\\), yielding a search cost of \\(O(b^{d - k_h})\\) compared to \\(O(b^d)\\) for uninformed search (p. 98–99).
+- *8-Puzzle Empirical Results (Figure 3.26):* Averaged over 100 random instances across solution lengths 6 to 28 (p. 99):
+  - At \\(d=14\\): BFS generates 6,783 nodes (\\(b^*=1.77\\)), \\(A^*(h_1)\\) (misplaced tiles) generates 678 nodes (\\(b^*=1.47\\)), \\(A^*(h_2)\\) (Manhattan distance) generates 174 nodes (\\(b^*=1.31\\)) (p. 99).
+  - At \\(d=26\\): BFS generates 395,355 nodes (\\(b^*=1.58\\)), \\(A^*(h_1)\\) generates 110,372 nodes (\\(b^*=1.50\\)), \\(A^*(h_2)\\) generates 10,080 nodes (\\(b^*=1.35\\)) (p. 99).
+- **Domination**: If \\(h_2(n) \ge h_1(n)\\) for all nodes \\(n\\) (where both heuristics are consistent), \\(h_2\\) **dominates** \\(h_1\\). A* using \\(h_2\\) will never expand more nodes than A* using \\(h_1\\) (except for tie-breaking) because every node surely expanded by \\(h_2\\) (\\(f(n) < C^* \iff h(n) < C^* - g(n)\\)) is also surely expanded by \\(h_1\\) (p. 99–100).
+- **Composite heuristic**: Given admissible heuristics \\(h_1, \dots, h_m\\), setting \\(h(n) = \max\{h_1(n), \dots, h_m(n)\}\\) selects the most accurate estimate for each state, dominating all individual components while preserving admissibility and consistency (p. 101).
+
+### 3.6.2 Generating heuristics from relaxed problems
+- **Relaxed problem**: A simplified problem formed by removing restrictions on legal actions, creating a supergraph of the original state-space graph (p. 100).
+- *Core Theorem:* ==The cost of an optimal solution to a relaxed problem is an admissible and consistent heuristic for the original problem== because adding graph edges can only shorten or equal true optimal path lengths (p. 100).
+- *Automated Relaxation Example (8-Puzzle):*
+  - Original action rule: A tile can move from square X to square Y if X is adjacent to Y AND Y is blank (p. 100).
+  - Relaxed rule 1: Remove "Y is blank" \\(\to\\) A tile can move to any adjacent square \\(\to\\) derives **Manhattan distance** (\\(h_2\\)) (p. 100).
+  - Relaxed rule 2: Remove "X is adjacent to Y" and "Y is blank" \\(\to\\) A tile can move to any square in one action \\(\to\\) derives **misplaced tiles** (\\(h_1\\)) (p. 100).
+- *Requirement:* Relaxed problems must be solvable essentially without search (e.g., decomposing into independent subproblems) so computing \\(h(n)\\) remains fast (p. 100–101).
+
+### 3.6.3 Generating heuristics from subproblems: Pattern databases
+- **Subproblem**: A problem focusing on placing a subset of components into goal positions while ignoring others (p. 101).
+- **Pattern database**: A lookup table storing the exact optimal solution costs for every possible configuration of a subproblem (p. 101).
+  - *Construction:* Constructed once by searching backward from the goal state using dynamic programming to record exact costs for all patterns (p. 101–102).
+  - *8-Puzzle Example:* Storing exact solution costs for tiles 1, 2, 3, 4 and the blank requires \\(9 \times 8 \times 7 \times 6 \times 5 = 15,120\\) database entries (p. 101–102).
+  - *15-Puzzle Speedup:* Evaluating subproblem heuristics via pattern database lookups reduces node expansions on random 15-puzzles by a factor of 1,000 compared to Manhattan distance (p. 102).
+- **Disjoint pattern databases**: Sums subproblem costs across non-overlapping tile sets (e.g., 1-2-3-4 and 5-6-7-8) by counting only moves involving tiles in each specific pattern, preserving admissibility while achieving a 10,000x speedup for 15-puzzles and 1,000,000x speedup for 24-puzzles (p. 102).
+
+### 3.6.4 Generating heuristics with landmarks
+- **Landmark points** (pivots or anchors): Preselected reference vertices \\(L\\) in large spatial/route graphs (p. 102–103).
+- **Differential heuristic**: Uses precomputed exact path costs \\(C^*(v, L)\\) from all vertices \\(v\\) to landmarks \\(L\\) and applies the triangle inequality:
+  \\[h_{\text{DH}}(n) = \max_{L \in \text{Landmarks}} |C^*(n, L) - C^*(\text{goal}, L)|\\]
+  This heuristic is both efficient to compute and strictly admissible (p. 103).
+- *Selection:* Landmarks are placed around the graph perimeter (e.g., placing vertices farthest from the centroid across pie-shaped wedges) to maximize differential bound accuracy (p. 103–104).
+- **Shortcuts**: Artificial directed edges defining optimal multi-action paths between major landmarks (e.g., highways between major cities) to allow single-action long-distance traversals (p. 103).
+
+### 3.6.5 Learning to search better
+- **Metalevel state space**: A state space where each state captures the internal computational state of a search program executing inside an **object-level state space** (p. 104).
+- **Metalevel learning**: Machine learning methods that analyze search trees to learn rules that predict and avoid unpromising subtree expansions, minimizing total problem-solving time by balancing computation time against path cost (p. 104–105).
+
+### 3.6.6 Learning heuristics from experience
+- **Learning from experience**: Training an inductive learning model on thousands of solved problem instances (pairs of \\((n, g^*(n))\\) from optimal paths) to approximate the true cost-to-goal function \\(h(n)\\) (p. 105).
+- *Feature Combination:* Maps raw state representations into salient features (e.g., misplaced tiles, out-of-order pairs) and fits a linear or neural function \\(\hat{h}(n) = \sum w_i f_i(n)\\) to predict remaining path length (p. 105).
+
+## Worked Example
+
+Relaxed-problem derivation and heuristic calculation for the 8-puzzle start state (Figure 3.25):
+
+1. **Original Action Schema:**
+   - Action `Slide(t, s1, s2)` requires `On(t, s1)`, `Tile(t)`, `Blank(s2)`, and `Adjacent(s1, s2)` (p. 100).
+2. **Deriving Manhattan Distance (\\(h_2\\)):**
+   - Remove `Blank(s2)` precondition. Action allows sliding tile \\(t\\) to any adjacent square \\(s2\\) regardless of occupancy (p. 100).
+   - This decomposes the problem into 8 independent subproblems (one per tile).
+   - *Distance Calculation for Start State (Fig 3.25):*
+     - Tile 1 at (3,3), Goal (1,2) \\(\implies |3-1| + |3-2| = 3\\).
+     - Tile 2 at (1,2), Goal (1,3) \\(\implies |1-1| + |2-3| = 1\\).
+     - Tile 3 at (3,2), Goal (2,1) \\(\implies |3-2| + |2-1| = 2\\).
+     - Tile 4 at (1,3), Goal (2,2) \\(\implies |1-2| + |3-2| = 2\\).
+     - Tile 5 at (2,1), Goal (2,3) \\(\implies |2-2| + |1-3| = 2\\).
+     - Tile 6 at (2,3), Goal (3,3) \\(\implies |2-3| + |3-3| = 1\\).
+     - Tile 7 at (1,1), Goal (3,1) \\(\implies |1-3| + |1-1| = 2\\).
+     - Tile 8 at (3,1), Goal (3,2) \\(\implies |3-3| + |1-2| = 1\\).
+     - Total \\(h_2 = 3 + 1 + 2 + 2 + 2 + 1 + 2 + 1 = 14\\).
+3. **Deriving Misplaced Tiles (\\(h_1\\)):**
+   - Remove both `Blank(s2)` and `Adjacent(s1, s2)` preconditions. Action allows moving tile \\(t\\) directly to its goal square in 1 step (p. 100).
+   - All 8 tiles are out of place \\(\implies h_1 = 8\\).
+4. ==Relaxed problem costs are guaranteed to be admissible and consistent because removing action preconditions adds edges to the state-space graph== (p. 100).
+
+## Connections
+
+- ==This section closes Chapter 3 in the textbook; Lecture 07 content is pending insertion upon availability== (pending Lecture 07 — re-run this chat once it lands and add the delta).
+
+## Open Questions
+
+- [ ] How does Korf and Reid's effective depth reduction formula \\(O(b^{d - k_h})\\) explain why Manhattan distance achieves exponential node reductions over misplaced tiles?
+- [ ] ==Why does summing heuristics from disjoint pattern databases preserve admissibility== while summing heuristics from standard pattern databases violates admissibility?
+- [ ] How do differential heuristics using landmarks maintain consistency across directed road network graphs with one-way street constraints?
+- [ ] In what ways does metalevel learning trade off the computational expense of search deliberation against final solution path cost?
+
+## Flashcards
+
+What is the effective branching factor \\(b^*\\), and how is it calculated from total generated nodes \\(N\\) and solution depth \\(d\\)?::It is the branching factor of a uniform tree of depth \\(d\\) containing \\(N+1\\) nodes, defined by \\(N + 1 = 1 + b^* + (b^*)^2 + \dots + (b^*)^d\\) (p. 98). #cards/csci4511w
+What does it mean for a heuristic \\(h_2\\) to dominate \\(h_1\\), and what is the practical consequence for A* search?::\\(h_2\\) dominates \\(h_1\\) if \\(h_2(n) \ge h_1(n)\\) for all nodes \\(n\\); A* using \\(h_2\\) will never expand more nodes than A* using \\(h_1\\) (p. 99–100). #cards/csci4511w
+==How does the relaxed problem method generate admissible and consistent heuristics?==::By removing action preconditions to create a supergraph of the state space, ensuring optimal relaxed solution costs never exceed true costs (p. 100). #cards/csci4511w
+How does a pattern database compute admissible heuristics during search?::By looking up precomputed exact optimal solution costs for subproblems stored in a database constructed by searching backward from the goal (p. 101–102). #cards/csci4511w
+Why do disjoint pattern databases allow subproblem heuristic costs to be added together admissibility?::Because subproblems are partitioned so each action counts moves of only its own tile subset, preventing double-counting of physical actions (p. 102). #cards/csci4511w
+How does a landmark differential heuristic \\(h_{\text{DH}}(n)\\) compute admissible estimates?::By applying the triangle inequality \\(h_{\text{DH}}(n) = \max_L |C^*(n, L) - C^*(\text{goal}, L)|\\) using precomputed exact path costs to reference landmark vertices (p. 103). #cards/csci4511w
+What is a metalevel state space, and how does metalevel learning improve search efficiency?::It models the internal computational state of a search program, allowing learning algorithms to predict and avoid unpromising subtree expansions (p. 104–105). #cards/csci4511w
+How are heuristic functions learned inductively from problem-solving experience?::By training regression or machine learning models on solved \\((n, g^*(n))\\) state-cost pairs using state features like misplaced tiles (p. 105). #cards/csci4511w
 
 ## Examples Worth Keeping
 <!-- Keep concrete examples, numbers, cases, or worked reasoning that makes the mechanism memorable. -->

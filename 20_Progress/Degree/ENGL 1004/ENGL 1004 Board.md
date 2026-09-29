@@ -13,6 +13,12 @@ next: "Acquire all 8 required texts before the schedule catches up - Huckleberry
 ---
 # ENGL 1004 (003) — Banned Books
 Fall'26, replaces the dropped [[20_Progress/Degree/AMES 1201/AMES 1201 Board|AMES 1201]] as of 2026-09-09 - both close the same Lib Ed Literature sub-requirement; this one was picked as the easier fit, meeting twice weekly (TTh) same as AMES 1201 did (MW). Full syllabus read directly from `D:\_Anant\10_Areas\UMN\Classes\Lib Eds & More\ENGL 1004\ENGL 1004-003 syllabus fall 2026.pdf`, 2026-09-09.
+## Current Grade
+> [!DANGER] Estimated ceiling, not an earned grade — recompute once [[Hit or Miss - Miss]] gets the full Canvas pass
+> Computed 2026-09-24 from [[Hit or Miss - Miss]] against this course's own weights and policies. Maximum grade still reachable if everything remaining is aced — not a real transcript grade.
+- **Journal Entries (30%, 12 entries, 0–2 scale, 2.5% per entry at full 2 pts):** Journal 1 and 3 both submitted late — each drops from 2/2 to 1/2 on the rubric, costing half its share. **−2.5%** (1.25% × 2 entries).
+- **Attendance — the real threat, not a point deduction:** 2 cumulative weeks already missed. This course's own policy: **more than 1 cumulative week unexcused lowers the grade** (no stated numeric amount), and **3 cumulative weeks unexcused fails the course outright**. You are one missed week away from an automatic F, independent of every point total below.
+**Ceiling: ~97.5%** on points alone — but that number is close to meaningless while the attendance threshold sits one absence away from a hard override.
 ## Source of Truth
 > [!IMPORTANT] Read before trusting anything about this course
 > Real source folder: `D:\_Anant\10_Areas\UMN\Classes\Lib Eds & More\ENGL 1004` - syllabus, slides, readings, and any Canvas exports land there first. This Board note is the readable distillation of the real syllabus PDF (read in full 2026-09-09) - not a replacement for checking Canvas directly, especially for journal-entry deadlines and any simulation-role updates.

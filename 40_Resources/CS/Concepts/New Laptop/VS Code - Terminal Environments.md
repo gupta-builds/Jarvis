@@ -2,7 +2,7 @@
 type: concept
 status: sprout
 created: 2026-09-26
-updated: 2026-09-26
+updated: 2026-09-27
 course: Life
 track:
   - laptop
@@ -14,11 +14,14 @@ notes:
   - "[[VS Code - Windows]]"
   - "[[VS Code - Install Loop]]"
   - "[[VS Code - MCP and Secrets]]"
-next: "Port init.ps1 to init.sh for WSL once the Windows side is confirmed in daily use"
+next: Non-interactive task shells still do not get this environment (bash never
+  sources .bashrc for them); revisit only if a real task needs it, since the fix
+  (BASH_ENV) has real side effects on every non-interactive bash invocation on
+  the machine.
 ---
 # VS Code - Terminal Environments
 ## One-Line Answer
-==Every terminal VS Code opens loads the same base environment, then the folder's own `.vscode/env.ps1` if it has one, then prints one status line and any drift warnings; the home folder has its own `env.ps1` that shows space, knowledge, memory and tooling.== Built and tested on Windows on 2026-09-26; WSL gets the same design later.
+==Every terminal VS Code opens loads the same base environment, then the folder's own `.vscode/env.ps1` (Windows) or `.vscode/env.sh` (WSL) if it has one, then prints one status line and any drift warnings; the home folder has its own env file that shows space, knowledge, memory and tooling.== Built and tested on Windows on 2026-09-26. Ported to WSL and verified on 2026-09-27 (same machine, hostname gupta-builds): the bash port carries the same order, messages and warnings, adds negligible overhead (see the WSL measured-behaviour table below), and one thing does not carry over: non-interactive task shells never source `.bashrc` at all, so a VS Code task gets none of this by default.
 ## Why It Hooks From the Profile, Not From Terminal Args
 The obvious route is a terminal profile whose `args` run a script. VS Code's docs say shell integration activates by injecting its own arguments and may not activate in complex setups. That would lose command decorations, sticky scroll, cwd detection, and the Python Environments activation that relies on them. So the hook lives in the PowerShell profile behind `$env:TERM_PROGRAM -eq 'vscode'` (VS Code sets that in every terminal), and VS Code settings steer it:
 - `terminal.integrated.env.windows.VSCODE_WORKSPACE = ${workspaceFolder}` (user settings): the workspace root, even for terminals opened in a subfolder. The docs confirm variables resolve in terminal `env`.
@@ -41,6 +44,17 @@ Tasks run `powershell -Command` without `-NoExit`, so the script stays silent th
 | CSCI 4511W practice code | `.venv (no pyproject.toml)` | untracked `.venv`, cannot be rebuilt |
 | scratch uv project | `uv project` | no `.venv`, no `uv.lock` |
 Startup cost: 773 to 869 ms per terminal against a 734 ms baseline for plain PowerShell 5.1 with Starship, so the environment adds roughly 40 to 135 ms.
+## Measured Behaviour (WSL, 2026-09-27)
+Ported and tested on `gupta-builds` (WSL Ubuntu 24.04). Task shells use non-interactive bash, which never reads `.bashrc`, so the hook cannot reach them the way the PowerShell profile reaches Windows tasks; `VSCODE_WORKSPACE` itself still reaches a task because VS Code injects `terminal.integrated.env.linux` directly, but the header, warnings and `.vscode/env.sh` loading do not run there. Setting `BASH_ENV` would close that gap but fires on every non-interactive bash invocation on the machine, not just VS Code tasks, so it was rejected rather than adopted.
+
+| Folder | Status line | Warning |
+|---|---|---|
+| `/home/anant_gupta` | `env \| home \| .vscode/env.sh loaded` + home block | `! / below 30 GB free` (22 GB free at test time) |
+| internship-research-loop, before the uv conversion | `.venv (no pyproject.toml)` | untracked `.venv`, requirements.txt without pyproject.toml |
+| internship-research-loop, after the uv conversion | `uv project` | none |
+| scratch uv project (no `.venv`, no `uv.lock`) | `uv project` | no `.venv` yet |
+
+Startup cost: median 0.52 s with the hook active versus median 0.52 s with it disabled (`VSCODE_ENV_DISABLE=1`), 5 warm runs each, `bash -i -c 'exit'`. No measurable overhead: the hot path (project-type detection, header) uses only bash builtins and file tests, no subprocess spawns, matching the design goal.
 ## The Home Environment
 `C:\Users\anant` is the machine-management workspace, so its environment is about the base, not a language:
 - *No Python env activated.* Projects bring their own.
@@ -56,9 +70,10 @@ Folders start with the default: base plus detection. A folder gets its own envir
 ## Files
 | Path | Role |
 |---|---|
-| `~/.config/vscode-env/init.ps1` | shared entry, every VS Code terminal |
-| `~/.config/vscode-env/templates/env.ps1` | seed for a workspace's `env.ps1` |
-| `~/.vscode/env.ps1`, `~/.vscode/settings.json` | home workspace environment and privacy |
-| `%APPDATA%\Code\User\tasks.json` | `env: create workspace environment`, `mcp: sync registry to all tools`, conda and uv tasks |
+| `~/.config/vscode-env/init.ps1` (Windows), `~/.config/vscode-env/init.sh` (WSL) | shared entry, every VS Code terminal |
+| `~/.config/vscode-env/templates/env.ps1`, `templates/env.sh` | seed for a workspace's env file |
+| `~/.vscode/env.ps1` / `env.sh`, `~/.vscode/settings.json` | home workspace environment and privacy, one pair per OS side |
+| `%APPDATA%\Code\User\tasks.json` | `env: create workspace environment (.vscode/env.ps1 / env.sh)`, `mcp: sync registry to all tools`, conda and uv tasks; each has a `linux` command now, not just `windows` |
+| `%APPDATA%\Code\User\settings.json` | `terminal.integrated.env.windows` and `.linux` both set `VSCODE_WORKSPACE`, side by side |
 ## Sources
 [Terminal profiles](https://code.visualstudio.com/docs/terminal/profiles), [Shell integration](https://code.visualstudio.com/docs/terminal/shell-integration), [Variables reference](https://code.visualstudio.com/docs/reference/variables-reference), [Workspace Trust](https://code.visualstudio.com/docs/editing/workspaces/workspace-trust).

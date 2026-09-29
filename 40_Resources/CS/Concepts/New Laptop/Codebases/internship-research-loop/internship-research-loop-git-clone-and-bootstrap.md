@@ -40,15 +40,13 @@ git -C "$HOME/projects/work/internship-research-loop" remote -v
 
 ## 3. Python environment
 
-No `pyproject.toml`/`uv.lock` at the repo root — this repo pins Python 3.12 in every GitHub Actions workflow and uses a plain `requirements.txt`, not `uv`. Follow the repo's own convention rather than defaulting to `uv init`:
+This repo is now a uv project (converted 2026-09-27): `pyproject.toml` and `uv.lock` exist at the repo root, both committed. Python 3.12 is still pinned the same way as every GitHub Actions workflow, now also through `requires-python` in `pyproject.toml`.
 
 ```bash
-python3.12 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
+uv sync
 ```
 
-Pinned versions (`requirements.txt`, checked 2026-09-26): `requests==2.34.2`, `pyyaml==6.0.3`, `pytest==9.1.1`, `jinja2==3.1.6`, `python-docx==1.2.0`. `python-docx` backs the two docx-generation skills (`generating-resume-docx`, `generating-cover-letter-docx`); the rest are the pipeline's own runtime dependencies.
+`uv sync` reads `uv.lock` and creates or updates `.venv` with the exact resolved versions, replacing the old `python3.12 -m venv .venv && pip install -r requirements.txt` sequence. `requirements.txt` still exists in the repo for reference, but `uv.lock` is now the source of truth for installed versions.
 
 ## 4. Validate the checkout
 

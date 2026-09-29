@@ -2,7 +2,7 @@
 type: concept
 status: sprout
 created: 2026-09-24
-updated: 2026-09-26
+updated: 2026-09-27
 course: Life
 track:
   - laptop
@@ -16,7 +16,7 @@ notes:
   - "[[VS Code - Install Loop]]"
   - "[[Ubuntu - WSL]]"
   - "[[second-brain-claudekit-new-laptop-directive]]"
-next: "Give second-brain-claudekit its .vscode/ folder"
+next: Give second-brain-claudekit its .vscode/ folder
 ---
 # VS Code - WSL
 ## One-Line Answer
@@ -45,6 +45,16 @@ The WSL extension starts a **VS Code Server** under `~/.vscode-server/bin/<commi
 - *MCP for Claude Code:* `jarvis`, `the-plan`, `jarvis-fs` at user scope (they work from any directory, verified from `/tmp`). The old `~/.mcp.json` is backed up as `~/.mcp.json.bak-20260926` and removed; its deprecated `server-github` entry was dropped.
 - *Jarvis auth:* `JARVIS_API_KEY` reaches WSL through the Windows `WSLENV` variable. It applies to WSL shells started after 2026-09-26 14:05. The network path already worked (networking mode is mirrored), so the earlier failure was the missing key: HTTP 401 without it, 200 with it.
 - *Docker:* WSL integration on, data at `D:\WSL\DockerDesktopWSL`, auto-start off. Start Docker Desktop before container work.
+## Terminal Environment, Secrets and MCP Platforms, 2026-09-27
+The gap this note's own `next:` field named ("port init.ps1 to init.sh") and the one [[VS Code - MCP and Secrets]] named ("port the registry to WSL") are both closed now, verified by running commands rather than assumed:
+- *Terminal environment:* `~/.config/vscode-env/init.sh` is a bash port of `init.ps1`, same order (base, detect, header, workspace hook, warnings). Hooked from the end of `~/.bashrc`, guarded by `TERM_PROGRAM=vscode` and `VSCODE_ENV_DISABLE`. Detection uses only bash builtins and file tests on the hot path, no subprocess spawns, so it adds no measurable startup cost (median 0.52 s with or without it, 5 warm runs). A folder with `.envrc` is reported in the header and `.vscode/env.sh` is not also loaded, so direnv and this hook never fight over the same folder. Full measurements: [[VS Code - Terminal Environments]].
+- *Task shells:* bash never sources `.bashrc` for a non-interactive, non-login shell, so a VS Code task gets none of this by default; confirmed directly (`bash -c` shows empty `$-` interactive flag and an unset marker variable). `BASH_ENV` would close the gap but runs on every non-interactive bash invocation on the machine, not just VS Code tasks, so it stays undone on purpose rather than being forced in.
+- *Home workspace:* `~/.vscode/env.sh` and `~/.vscode/settings.json` are the Linux equivalents of the Windows home files: same status block (space on `/` and `/mnt/d`, Jarvis/The Plan reachability over a sub-200 ms TCP check, memory files, Docker socket, `~/projects` layout), same `mcp-sync`/`mcp-check`/`home-status` helper names, same secret-and-cache exclude lists adapted to Linux paths (`miniconda3`, `.vscode-server`, `.claude/projects`, in place of the Windows profile clutter). `~/.vscode` is not the WSL server's own folder (that is `~/.vscode-server`), so there is no extensions-folder collision the way there is on Windows.
+- *Claude Code deny rules:* `~/.claude/settings.json` denies the same file classes as Windows (`.env*`, `.mcp.env`, `.credentials.json`, `~/.ssh`, `~/.aws`, `~/.azure`, `~/.kube`, `~/.codex/auth.json`), in Linux path form, plus two WSL-specific entries replacing the Windows-only credential script: `~/.config/gh/hosts.yml` and `~/.git-credentials` (WSL authenticates through `gh auth git-credential`, so this is the actual secret surface here). Verified: a dummy `/tmp` `.env` was blocked, a normal file beside it was read.
+- *Global git ignore:* `~/.config/git/ignore` has the same eight patterns as the Windows file (`.env`, `.env.local`, `.env.*.local`, `.env.production`, `.mcp.env`, `.credentials.json`, `*.pem`, `*.key`). `core.excludesFile` stays unset on both sides; git's own default (`$HOME/.config/git/ignore`) picks it up with no config needed, confirmed with a scratch repo: `.env` and `.mcp.env` ignored, `.env.example` not.
+- *MCP registry gets a `platforms` field:* `targets` already said which tool (claude/vscode/codex); `platforms` now says which OS side (default both if omitted). `jarvis-fs` is in the registry for the first time, `platforms: ["wsl"]`, using the same `npx @modelcontextprotocol/server-filesystem` command already live in Claude Code's WSL config, so applying it reports "in sync", not "update". `sync-mcp.ps1` skips anything not for windows and still reports jarvis/the-plan in sync on both Claude Code and VS Code.
+- *WSL sync script:* `~/.config/mcp/sync-mcp.sh` reads the Windows registry directly through `/mnt/c` (never copies it) and applies to `claude` (`~/.claude.json` via `claude mcp add --scope user`) and `codex` (`codex mcp add --url --bearer-token-env-var`, http servers only, matching the Windows script's own limit). It refuses `vscode` (there is one VS Code user `mcp.json`, on Windows, read by both window types; writing it from WSL is how drift starts) and refuses `--set-secret` (secrets are set on Windows with `sync-mcp.ps1 -SetSecret` and reach WSL through `WSLENV`, already true for `JARVIS_API_KEY` and `THE_PLAN_API_KEY`). `cd /tmp && claude mcp list` shows `jarvis`, `the-plan` and `jarvis-fs` all connected.
+- *User tasks:* `env: create workspace environment (.vscode/env.ps1 / env.sh)` and `mcp: sync registry to all tools` both have real `linux` commands now instead of the earlier "Windows-only task" placeholders, edited as text in the synced `tasks.json` so the file's own comments survived untouched.
 ## Toolchain State
 | Tool | State |
 |---|---|

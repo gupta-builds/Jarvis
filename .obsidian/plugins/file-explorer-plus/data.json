@@ -955,13 +955,6 @@
         "type": "FILES",
         "pattern": "20_Progress/Projects/CS/Portfolio/frontend/Prompt.md",
         "patternType": "STRICT"
-      },
-      {
-        "name": "",
-        "active": true,
-        "type": "FILES",
-        "pattern": "20_Progress/Degree/Repetitive Things.md",
-        "patternType": "STRICT"
       }
     ],
     "frontMatter": [

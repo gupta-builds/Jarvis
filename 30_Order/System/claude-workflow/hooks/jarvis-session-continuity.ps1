@@ -15,7 +15,7 @@ try {
 
 $eventName = [string]$hookInput.hook_event_name
 $cwd = [string]$hookInput.cwd
-$jarvisRoot = "D:\Users\_Anant\10_Areas\Documents\Jarvis"
+$jarvisRoot = "D:\_Anant\20_Progress\Documents\Jarvis"
 
 function Test-IsInsideJarvis {
     param([string]$Path)
@@ -99,7 +99,7 @@ if ($eventName -eq "SessionEnd" -or $eventName -eq "Stop") {
     # a shared exported-claude-sessions.json index - so no index file to
     # read/write here at all.
     try {
-        $exportScript = "D:\Users\_Anant\10_Areas\Documents\Jarvis\30_Order\System\claude-workflow\scripts\export-claude-session.ps1"
+        $exportScript = "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\export-claude-session.ps1"
 
         if ($sessionId -and $transcriptPath -and (Test-Path -LiteralPath $transcriptPath)) {
             & $exportScript -TranscriptPath $transcriptPath -SessionId $sessionId -Cwd $cwd -SourceApp "ClaudeCode" | Out-Null
@@ -127,7 +127,7 @@ if ($eventName -eq "SessionEnd" -or $eventName -eq "Stop") {
     try {
         $coworkRoot = Join-Path $env:APPDATA "Claude\local-agent-mode-sessions"
         if (Test-Path -LiteralPath $coworkRoot) {
-            $exportScript = "D:\Users\_Anant\10_Areas\Documents\Jarvis\30_Order\System\claude-workflow\scripts\export-claude-session.ps1"
+            $exportScript = "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\export-claude-session.ps1"
 
             # Only top-level session transcripts (parent dir ends "-outputs") -
             # never .credentials.json/.claude.json siblings, never nested

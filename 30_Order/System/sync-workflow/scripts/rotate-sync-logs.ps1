@@ -15,7 +15,7 @@
 # isn't seconds old), to avoid a write racing this script's rewrite of the same file.
 
 param(
-    [string]$ClaudeCodeRoot = "D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\AI\Claude Code",
+    [string]$ClaudeCodeRoot = "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\AI\Claude Code",
     [int]$RetentionDays = 7,
     [switch]$Apply
 )

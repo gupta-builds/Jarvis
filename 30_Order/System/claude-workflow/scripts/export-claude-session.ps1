@@ -9,7 +9,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-$VaultRoot = "D:\Users\_Anant\10_Areas\Documents\Jarvis"
+$VaultRoot = "D:\_Anant\20_Progress\Documents\Jarvis"
 $OutRoot = Join-Path $VaultRoot "60_Claude\05_Clippings\AI Conversations\Windows"
 
 # ---------------------------------------------------------------------------

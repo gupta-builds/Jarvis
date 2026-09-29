@@ -6,7 +6,7 @@ $TaskName = "SecondBrainClaudekit-JarvisSync"
 
 # Prefer a Windows-local copy of the silent launcher so Task Scheduler does not
 # depend on \\wsl.localhost being awake at registration/run time for the .vbs itself.
-$WinLauncherDir = "D:\Users\_Anant\10_Areas\Documents\Jarvis\30_Order\System\claude-workflow\scripts"
+$WinLauncherDir = "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts"
 $WinLauncher = Join-Path $WinLauncherDir "sync-jarvis-silent.vbs"
 
 $RepoLauncher = "\\wsl.localhost\Ubuntu\home\anant_gupta\projects\ai\claude\second-brain-claudekit\50_Claude\scripts\sync-jarvis-silent.vbs"

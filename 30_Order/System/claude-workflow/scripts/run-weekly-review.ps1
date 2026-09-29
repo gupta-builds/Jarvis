@@ -1,5 +1,5 @@
 # Runs the /weekly-review skill headlessly via Claude Code's print mode.
-# Registered as the Jarvis-WeeklyReview Scheduled Task (Fridays), independently
+# Registered as the Jarvis-WeeklyReview Scheduled Task (Sundays 06:00), independently
 # on each laptop - the skill itself checks the Weekly Synthesis Index for this
 # week's entry before doing real work, so a duplicate fire from the other
 # laptop (both registered, both machines on) is a safe no-op, not an error.
@@ -8,7 +8,7 @@
 # into a stray quote and break string literals with cascading parse errors.
 
 $ErrorActionPreference = "Stop"
-$VaultRoot = "D:\Users\_Anant\10_Areas\Documents\Jarvis"
+$VaultRoot = "D:\_Anant\20_Progress\Documents\Jarvis"
 $LogFile = Join-Path $PSScriptRoot "..\logs\weekly-review.log"
 
 function Write-Log {
@@ -33,7 +33,13 @@ try {
     Set-Location $VaultRoot
     Write-Log "Starting headless /weekly-review run"
 
-    $output = & claude -p "/weekly-review" --permission-mode auto --output-format text 2>&1
+    $prompt = "/weekly-review`n`nThis is an unattended, headless run via the Jarvis-WeeklyReview scheduled task - no human is present. Per the skill's own headless rule for Step 7.5 (Log Maintenance): do not delete any log content even if a log is over its cap - only summarize and flag it in this week's synthesis note's Vault Health section for a human to trim later in an interactive session."
+    $claudeExe = "$env:USERPROFILE\.local\bin\claude.exe"
+    if (-not (Test-Path $claudeExe)) {
+        Write-Log "EXCEPTION  claude.exe not found at $claudeExe - Task Scheduler cannot rely on PATH resolution"
+        exit 1
+    }
+    $output = & $claudeExe -p $prompt --permission-mode auto --output-format text 2>&1
     $exitCode = $LASTEXITCODE
 
     if ($exitCode -eq 0) {

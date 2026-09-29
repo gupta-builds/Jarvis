@@ -63,7 +63,7 @@ if os.name == "nt":
     WORKSPACE_STORAGE = APPDATA / "Cursor" / "User" / "workspaceStorage"
     WIN_CURSOR_PROJECTS = USERPROFILE / ".cursor" / "projects"
     VAULT_CONV = Path(
-        r"D:\Users\_Anant\10_Areas\Documents\Jarvis"
+        r"D:\_Anant\20_Progress\Documents\Jarvis"
         r"\60_Claude\05_Clippings\AI Conversations"
     )
 else:

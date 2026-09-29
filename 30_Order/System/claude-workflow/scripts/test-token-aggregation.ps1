@@ -5,7 +5,7 @@
 
 $ErrorActionPreference = "Stop"
 
-$scriptPath = "D:\Users\_Anant\10_Areas\Documents\Jarvis\30_Order\System\claude-workflow\scripts\export-claude-session.ps1"
+$scriptPath = "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\export-claude-session.ps1"
 . $scriptPath   # dispatch is guarded off since no -TranscriptPath/-BackfillAll passed here
 
 $testOutRoot = Join-Path $env:TEMP "export-agg-test-$(Get-Random)"
@@ -14,7 +14,7 @@ New-Item -ItemType Directory -Path $testOutRoot -Force | Out-Null
 
 $fakeTranscript = "C:\Users\ANANTG~1\AppData\Local\Temp\claude\D--Users--Anant-10-Areas-Documents-Jarvis\5bae38bb-7118-4ab6-a0dd-091c5a2ac57c\scratchpad\fake-transcript.jsonl"
 
-$r = Export-Session -TranscriptPathIn $fakeTranscript -SessionIdIn "test-session-001" -CwdIn "D:\Users\_Anant\10_Areas\Documents\Jarvis" -SourceAppIn "ClaudeCode"
+$r = Export-Session -TranscriptPathIn $fakeTranscript -SessionIdIn "test-session-001" -CwdIn "D:\_Anant\20_Progress\Documents\Jarvis" -SourceAppIn "ClaudeCode"
 
 Write-Output "Export-Session status: $($r.Status)"
 Write-Output "Project dir: $($r.ProjectDir)"

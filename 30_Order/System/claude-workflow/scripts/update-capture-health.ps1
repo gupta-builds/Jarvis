@@ -20,7 +20,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-$repoRoot = "D:\Users\_Anant\10_Areas\Documents\Jarvis"
+$repoRoot = "D:\_Anant\20_Progress\Documents\Jarvis"
 $logsDir = Join-Path $repoRoot "30_Order\System\claude-workflow\logs"
 $notePath = Join-Path $repoRoot "60_Claude\05_Clippings\AI Conversations\00 - Capture Health.md"
 $maxHistory = 20

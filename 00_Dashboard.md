@@ -8,13 +8,15 @@ tags:
   - daily
 cssclasses:
   - dashboard
-today_focus: Break the Main Cover Letter blocker and move Appian from
-  Current/ to Applied/ — the same blocker since 2026-09-07, 21 days
-  running
-today_80: Build Main Cover Letter.md's evidence-tagged bullet bank, then
-  move Appian from Current/ to Applied/
-today_20: AIIS Fun Social AI Night tomorrow 6:30pm (location unconfirmed),
-  LeetCode/CodePath ≥5 (Meta rotation), CSCI 4061 Chapter 4/10 reading
+today_focus: Push every Career Fair application through the pipeline and
+  bring coursework current through Week 4, starting with CSCI 4061's
+  Project 1 (due 10/2)
+today_80: Apply to every Career Fair internship in Programs/Serious/Career
+  Fair/ and make real progress on Main Cover Letter.md's bullet bank
+  (still the named blocker, 22 days running)
+today_20: LeetCode/CodePath ≥5 (Meta rotation, TIP103 Unit 1), CSCI 4061
+  Project 1 progress (due 10/2), push professors for extra-credit/recompense
+  options
 lc_today: 0
 study_today: 4
 wins_done: 4

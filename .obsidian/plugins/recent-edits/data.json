@@ -428,7 +428,8 @@
     "blobs/ae/330bc20fdb753ae0abf374ed42b1dc1c7e390c6fbd5215f169edea550f6120": "external",
     "20_Progress/Degree/CSCI 4061/Weekly/Week - 2.md": "external",
     "20_Progress/Degree/CSCI 4061/Weekly/Week - 3.md": "external",
-    "20_Progress/Degree/CSCI 4061/Weekly/Week - 4.md": "external"
+    "20_Progress/Degree/CSCI 4061/Weekly/Week - 4.md": "external",
+    "20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md": "obsidian"
   },
   "_editTimes": {
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Home/00 - Session Index.md": 1790652603160,
@@ -442,7 +443,7 @@
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Session Index.md": 1790652603170,
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Tool Usage Rollup.md": 1790652603171,
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": 1790451185419,
-    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 1790708774043,
+    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 1790710143902,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-18 Jarvis sync process setup.md": 1790450285627,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-20 Jarvis vault plugins documentation batch 3.md": 1790689685006,
     "60_Claude/07_AI_Information/Session Logs/log.md": 1790659084693,
@@ -736,7 +737,7 @@
     "copilot/skills/openartifacts-publish/SKILL.md": 1790453886176,
     "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md": 1790708231132,
     "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8.md": 1790452425599,
-    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3.md": 1790651883137,
+    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3.md": 1790709317485,
     "40_Resources/CS/Concepts/New Laptop/VS Code - Install Loop.md": 1790457487105,
     "40_Resources/CS/Concepts/New Laptop/VS Code - MCP and Secrets.md": 1790454785015,
     "40_Resources/CS/Concepts/New Laptop/VS Code - Terminal Environments.md": 1790651883149,
@@ -848,7 +849,8 @@
     "blobs/ae/330bc20fdb753ae0abf374ed42b1dc1c7e390c6fbd5215f169edea550f6120": 1790707349474,
     "20_Progress/Degree/CSCI 4061/Weekly/Week - 2.md": 1790707641688,
     "20_Progress/Degree/CSCI 4061/Weekly/Week - 3.md": 1790707762398,
-    "20_Progress/Degree/CSCI 4061/Weekly/Week - 4.md": 1790708103525
+    "20_Progress/Degree/CSCI 4061/Weekly/Week - 4.md": 1790708103525,
+    "20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md": 1790709012732
   },
   "_dismissedAt": {},
   "_editSizes": {
@@ -863,7 +865,7 @@
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Session Index.md": 381,
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Tool Usage Rollup.md": 980,
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": 26552,
-    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 565315,
+    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 567285,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-18 Jarvis sync process setup.md": 1062400,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-20 Jarvis vault plugins documentation batch 3.md": 365354,
     "60_Claude/07_AI_Information/Session Logs/log.md": 228473,
@@ -1157,7 +1159,7 @@
     "copilot/skills/openartifacts-publish/SKILL.md": 7833,
     "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md": 33340,
     "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8.md": 29394,
-    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3.md": 31692,
+    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3.md": 28732,
     "40_Resources/CS/Concepts/New Laptop/VS Code - Install Loop.md": 8288,
     "40_Resources/CS/Concepts/New Laptop/VS Code - MCP and Secrets.md": 8002,
     "40_Resources/CS/Concepts/New Laptop/VS Code - Terminal Environments.md": 8163,
@@ -1269,7 +1271,8 @@
     "blobs/ae/330bc20fdb753ae0abf374ed42b1dc1c7e390c6fbd5215f169edea550f6120": 101472,
     "20_Progress/Degree/CSCI 4061/Weekly/Week - 2.md": 22591,
     "20_Progress/Degree/CSCI 4061/Weekly/Week - 3.md": 22254,
-    "20_Progress/Degree/CSCI 4061/Weekly/Week - 4.md": 5533
+    "20_Progress/Degree/CSCI 4061/Weekly/Week - 4.md": 5533,
+    "20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md": 668
   },
   "_sizeDeltas": {
     "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md": "up",

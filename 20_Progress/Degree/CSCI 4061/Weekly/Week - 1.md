@@ -8,6 +8,7 @@ area:
   - "[[CSCI 4061 Board]]"
   - "[[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]]"
   - "[[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]]"
+  - "[[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8|Chapter - 8]]"
 tags:
   - "#class"
   - "#Lecture"
@@ -30,7 +31,7 @@ next: "[[Week - 2]]"
 - **`exec()`** throws away everything about the calling process's code and replaces it in place, keeping the same PID and open files.
 - Programming with the **weakest possible assumptions** matters most right after `fork()`: there is no guarantee which process (parent or child) runs first.
 ## Concepts created today
-None created. This week's material - system calls, `fork`/`exec`/`wait`, memory layout, environment variables - is fully captured inside [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]]. A cross-cutting "process lifecycle" concept note (fork/exec/wait/zombie/orphan/daemon, spanning Chapters 1, 7, and 8) is a reasonable Build 2 candidate once [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8|Chapter - 8]] gets the same perfecting pass.
+None created. This week's material - system calls, `fork`/`exec`/`wait`, memory layout, environment variables - is fully captured inside [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]], [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]], and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8|Chapter - 8]], all three now source-checked. A cross-cutting "process lifecycle" concept note (fork/exec/wait/zombie/orphan/daemon, spanning all three) remains a reasonable future candidate, just not created this session.
 ## Examples worth keeping
 - The **three-program Hello World** (Lec01): `printf`, then raw `write(STDOUT_FILENO, ...)`, then hand-assembled x86-64 `syscall` with `%rax=1` (write), `%rdi=1` (stdout), `%rsi`=message address, `%rdx=14` (length) - same visible output, decreasing layers of convenience.
 - The **`fork()` "brain melting" exercises** (Lec02): three variants of a `for (i = 0; i < 3; i++) { fork(); ... }` loop (plain, `break` on child, `break` on parent) that produce wildly different process trees depending on where the `break` sits - a direct test of understanding "called once, returns twice."
@@ -58,7 +59,7 @@ Every process gets its own **environment**: a list of `name=value` configuration
 A process ends by returning from `main()` or by calling `exit(int status)` from anywhere - `0` means success, nonzero means an error occurred (`echo $?` shows the last command's exit code in bash). `abort()` bails out immediately with no chance to reach a clean stopping point. A parent collects that exit code with `pid_t wait(int *status);` (blocks until *any* child exits) or the more targeted `pid_t waitpid(pid_t pid, int *status, int opt);`, where the `WNOHANG` option lets the parent check without blocking - if the child isn't done yet, `waitpid` returns 0 and execution continues. This sets up Chapter 8's zombie/orphan/daemon vocabulary, previewed but not yet formally covered this week.
 ## Textbook integration
 > [!IMPORTANT]
-> Main chapters: [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]] (UNIX System Overview) and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]] (Process Environment); [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8|Chapter - 8]] (Process Control - `fork`/`exec`/`wait` in full) is assigned reading too but has not been through the same source-checking pass this session did for Chapters 1 and 7, so treat its citations below as provisional until Build 2.
+> Main chapters: [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]] (UNIX System Overview), [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7|Chapter - 7]] (Process Environment), and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8|Chapter - 8]] (Process Control - `fork`/`exec`/`wait` in full), all three now source-checked against the textbook PDF.
 Lec01 stays at orientation level and never walks Chapter 1 section by section - Chapter 1's own §1.3 (`/etc/passwd`), §1.4's directory APIs, §1.7 (`errno`), §1.8 (user/group IDs), §1.9 (`signal()`), and §1.10 (`time_t`/`clock_t`) have no matching slide anywhere in Lec01-06 and are textbook-only for this course so far. What lecture adds beyond Chapter 1: the referee/illusionist/glue framing itself isn't in the book at all - it's Lec01's own mental model laid on top of Chapter 1's plainer "kernel controls hardware, system calls are the interface" definition. Chapter 7 fills in what Lec02 only sketches: the full eight-way termination taxonomy (§7.3), the complete `malloc`/`calloc`/`realloc`/`free` picture (§7.8) versus Lec02's silence on memory allocation entirely, and two sections with zero lecture coverage at all - §7.10 (`setjmp`/`longjmp`) and §7.11 (`getrlimit`/`setrlimit`).
 ## Takeaways (questions to resolve)
 - [ ] Run the three `fork()` "brain melting" loop variants from Lec02 on the course container and confirm the process-tree predictions against real output.

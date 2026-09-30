@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "Week - 4",
+      "path": "20_Progress/Degree/MGMT 3015/Weekly/Week - 4.md"
+    },
+    {
+      "basename": "Profile of a Successful Entrepreneur",
+      "path": "20_Progress/Degree/MGMT 3015/Assignments/Profile of a Successful Entrepreneur.md"
+    },
+    {
       "basename": "CSCI 4041 Board",
       "path": "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/CSCI 4041 Board.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "Graphify — Internship Research Loop Implementation",
       "path": "60_Claude/40_Project_Briefs/Graphify — Internship Research Loop Implementation.md"
-    },
-    {
-      "basename": "Transcript - Comp Sci",
-      "path": "20_Progress/Internship/Career Fair/Transcript - Comp Sci.md"
-    },
-    {
-      "basename": "Transcript - OPT",
-      "path": "20_Progress/Internship/Career Fair/Transcript - OPT.md"
     }
   ],
   "omittedPaths": [],

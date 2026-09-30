@@ -435,7 +435,8 @@
     "20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.sync-conflict-20260929-172611-2D4OE4D.md": "external",
     "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.sync-conflict-20260929-172611-2D4OE4D.md": "external",
     "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.sync-conflict-20260929-172611-2D4OE4D.md": "external",
-    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.sync-conflict-20260929-172611-2D4OE4D.md": "external"
+    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.sync-conflict-20260929-172611-2D4OE4D.md": "external",
+    "blobs/50/348ad2c9fac20ceabc2da47b9033fdc4b454f4c959c4cb349fdf98613ce78a": "external"
   },
   "_editTimes": {
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Home/00 - Session Index.md": 1790652603160,
@@ -449,7 +450,7 @@
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Session Index.md": 1790652603170,
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Tool Usage Rollup.md": 1790652603171,
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": 1790451185419,
-    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 1790729280812,
+    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 1790730180797,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-18 Jarvis sync process setup.md": 1790450285627,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-20 Jarvis vault plugins documentation batch 3.md": 1790727491291,
     "60_Claude/07_AI_Information/Session Logs/log.md": 1790659084693,
@@ -549,7 +550,7 @@
     "40_Resources/CS/Concepts/New Laptop/Codebases/second-brain-claudekit/second-brain-claudekit-ignored-state-and-sandbox.md": 1790450285594,
     "40_Resources/CS/Concepts/New Laptop/Codebases/second-brain-claudekit/second-brain-claudekit-jarvis-unison-sync.md": 1790452085442,
     "40_Resources/CS/Concepts/New Laptop/Codebases/second-brain-claudekit/second-brain-claudekit-new-laptop-directive.md": 1790452085443,
-    "excalidraw.log": 1790724145524,
+    "excalidraw.log": 1790730628938,
     "40_Resources/CS/Concepts/New Laptop/Codebases/second-brain-claudekit/second-brain-claudekit-wsl-session-and-jarvis-mcp-build.md": 1790452085443,
     "10_Areas/Life/Enumerate/Daily/2026-09-21.md": 1790452085380,
     "20_Progress/Degree/CSCI 4511W/Weekly/Week - 3.md": 1790451185360,
@@ -862,7 +863,8 @@
     "20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.sync-conflict-20260929-172611-2D4OE4D.md": 1790719813541,
     "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.sync-conflict-20260929-172611-2D4OE4D.md": 1790729288570,
     "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.sync-conflict-20260929-172611-2D4OE4D.md": 1790706636722,
-    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.sync-conflict-20260929-172611-2D4OE4D.md": 1790708231132
+    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.sync-conflict-20260929-172611-2D4OE4D.md": 1790708231132,
+    "blobs/50/348ad2c9fac20ceabc2da47b9033fdc4b454f4c959c4cb349fdf98613ce78a": 1790730279904
   },
   "_dismissedAt": {},
   "_editSizes": {
@@ -877,7 +879,7 @@
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Session Index.md": 381,
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Tool Usage Rollup.md": 980,
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": 26552,
-    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 581786,
+    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 582935,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-18 Jarvis sync process setup.md": 1062400,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-20 Jarvis vault plugins documentation batch 3.md": 365354,
     "60_Claude/07_AI_Information/Session Logs/log.md": 228473,
@@ -977,7 +979,7 @@
     "40_Resources/CS/Concepts/New Laptop/Codebases/second-brain-claudekit/second-brain-claudekit-ignored-state-and-sandbox.md": 8913,
     "40_Resources/CS/Concepts/New Laptop/Codebases/second-brain-claudekit/second-brain-claudekit-jarvis-unison-sync.md": 5499,
     "40_Resources/CS/Concepts/New Laptop/Codebases/second-brain-claudekit/second-brain-claudekit-new-laptop-directive.md": 4568,
-    "excalidraw.log": 146101,
+    "excalidraw.log": 146360,
     "40_Resources/CS/Concepts/New Laptop/Codebases/second-brain-claudekit/second-brain-claudekit-wsl-session-and-jarvis-mcp-build.md": 17483,
     "10_Areas/Life/Enumerate/Daily/2026-09-21.md": 1866,
     "20_Progress/Degree/CSCI 4511W/Weekly/Week - 3.md": 5699,
@@ -1290,7 +1292,8 @@
     "20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.sync-conflict-20260929-172611-2D4OE4D.md": 5320,
     "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.sync-conflict-20260929-172611-2D4OE4D.md": 3192,
     "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.sync-conflict-20260929-172611-2D4OE4D.md": 71892,
-    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.sync-conflict-20260929-172611-2D4OE4D.md": 33340
+    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.sync-conflict-20260929-172611-2D4OE4D.md": 33340,
+    "blobs/50/348ad2c9fac20ceabc2da47b9033fdc4b454f4c959c4cb349fdf98613ce78a": 1770706
   },
   "_sizeDeltas": {
     "10_Areas/Career/Internships/List/Dossiers/_Today/Manual Internship Listings.md": "up",

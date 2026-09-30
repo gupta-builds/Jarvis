@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "Technical Interview",
+      "path": "20_Progress/Degree/_Courses/Technical Interview/Technical Interview.md"
+    },
+    {
       "basename": "2026-09-29",
       "path": "10_Areas/Life/Enumerate/Daily/2026-09-29.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "2026-07 Found",
       "path": "10_Areas/Career/Internships/List/2026-07 Found.md"
-    },
-    {
-      "basename": "Statusline Migration — Acer Prompt",
-      "path": "40_Resources/CS/Concepts/New Laptop/Statusline Migration — Acer Prompt.md"
     }
   ],
   "omittedPaths": [],

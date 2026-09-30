@@ -12,11 +12,11 @@ area:
 tags:
   - "#class"
   - "#Textbook"
-next: "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 8|Week - 8]]"
+next: "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 8|Week - 8]]"
 ---
 # Chapter 14 - Dynamic Programming
 ## Summary Links
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 9#Chapter 14 - Dynamic Programming, Fibonacci, and Knapsack|Week - 9]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 9#Chapter 14 - Dynamic Programming, Fibonacci, and Knapsack|Week - 9]]
 - [[Dynamic Programming#Definition|Dynamic Programming]]
 - [[Divide and Conquer#Definition|Divide and Conquer]]
 
@@ -272,7 +272,7 @@ def FibBottomUp(n):
 - `Lectures/Week - 9/Ch14_DynamicProgramming(Knapsack).ipynb` shows why brute force is bad and how the DP table over `(item index, slack)` preserves optimal choices.
 - `Ch14_DynamicProgramming(Knapsack)-Testing.ipynb` includes `re_construct`, which maps directly to the textbook idea of extended DP tables.
 - `Homework/Coding/CodingHW_6(chapter14-CLRS).ipynb` uses rod cutting with cut cost, rod-cut reconstruction, and LCS reconstruction.
-- Weekly/concept links: [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 9|Week - 9]], [[Dynamic Programming|Dynamic Programming]], [[Greedy Algorithms|Greedy Algorithms]].
+- Weekly/concept links: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 9|Week - 9]], [[Dynamic Programming|Dynamic Programming]], [[Greedy Algorithms|Greedy Algorithms]].
 
 ## Examples
 - Rod cutting: `r_n = max_{1 <= i <= n}(p_i + r_{n-i})`.
@@ -280,7 +280,7 @@ def FibBottomUp(n):
 - Knapsack: for each item and remaining capacity, compare "take item plus best leftover" against "skip item."
 
 ## Connections
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 9|Week - 9]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 9|Week - 9]]
 - [[Dynamic Programming|Dynamic Programming]]
 - [[Greedy Algorithms|Greedy Algorithms]]
 - Source homework read: `Homework/Coding/CodingHW_6(chapter14-CLRS).ipynb` and `Homework/Paper/Paper HW - 6 (Ch - 14).pdf`.

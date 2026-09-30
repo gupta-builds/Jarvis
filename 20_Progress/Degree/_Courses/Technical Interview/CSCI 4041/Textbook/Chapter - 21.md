@@ -12,7 +12,7 @@ area:
 tags:
   - "#class"
   - "#Textbook"
-next: "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 12|Week - 12]]"
+next: "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 12|Week - 12]]"
 ---
 # Chapter - 21
 In the design of electronic circuits, a common problem is to interconnect a set of pins using the least amount of wire. To model this, we use a **connected, undirected graph** G=(V,E).
@@ -60,14 +60,14 @@ As the algorithm proceeds, the graph GA​=(V,A) is a **forest** (a collection o
 
 These two algorithms are specific implementations of the generic greedy method.
 
-[[MST-KRUSKAL|Kruskal’s Algorithm]]
+MST-KRUSKAL
 
 Kruskal’s algorithm grows a forest. The safe edge added to A is always the lowest-weight edge in the entire graph that connects two distinct components.
 
 **Mechanics:**
 
 1. Initialize A to an empty set.
-2. Create ∣V∣ sets (one for each vertex) using a **disjoint-set data structure** (see [[Chapter 19: Data Structures for Disjoint Sets]]).
+2. Create ∣V∣ sets (one for each vertex) using a **disjoint-set data structure** (see Chapter 19: Data Structures for Disjoint Sets — no vault note yet, tracked as a gap).
 3. Sort all edges E in non-decreasing order by weight.
 4. For each edge (u,v) in sorted order:
     - If u and v belong to different sets (trees), add (u,v) to A and unite the two sets.
@@ -78,13 +78,13 @@ Kruskal’s algorithm grows a forest. The safe edge added to A is always the low
 - **Time Complexity:** O(ElgE), which is equivalent to O(ElgV) because ∣E∣<∣V∣2 and lg∣E∣=O(lgV).
 - Sorting takes O(ElgE) and disjoint-set operations take O(Eα(V)).
 
-[[MST-PRIM|Prim’s Algorithm]]
+MST-PRIM
 
 Prim’s algorithm grows a single tree from an arbitrary root vertex r. The tree A starts with only r and expands until it spans all vertices.
 
 **Mechanics:**
 
-1. All vertices not yet in the tree are stored in a **min-priority queue** Q (see [[Chapter 6: Heapsort]]).
+1. All vertices not yet in the tree are stored in a **min-priority queue** Q (see [[Chapter - 6 & 12#Chapter - 6 Heapsort|Chapter 6: Heapsort]]).
 2. Each vertex v has a `v.key` (minimum weight of an edge connecting v to the tree) and `v.π` (parent of v in the tree).
 3. Initialize all `v.key` to ∞ and `r.key` to 0.
 4. While Q is not empty:
@@ -276,7 +276,7 @@ While Chapter 21 itself is about MSTs, the lecture sequence links it back to the
 - **Tree size fact:** once `|V|-1` edges have been accepted without cycles, the result is a spanning tree.
 
 ## Summary Links
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 12#Chapter 21 - Minimum Spanning Trees|Week - 12 lecture reference]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 12#Chapter 21 - Minimum Spanning Trees|Week - 12 lecture reference]]
 - [[Minimum Spanning Trees#Definition|Minimum Spanning Trees concept]]
 - [[Chapter - 20#20.1 Representations of Graphs|Graph code base from Chapter 20]]
 
@@ -330,7 +330,7 @@ for e in Edges:
 - The same notebook implements Prim with `extract_min`, adjacency scans, and `decrease_key`.
 - `Lectures/Week - 12/Ch20(Graphs-CodeBase).ipynb` supplies the graph class used by MST code.
 - `Homework/Coding/CodingHW_9(chapter20-23-CLRS).ipynb` asks for a CLRS-style reimplementation of Joy's Kruskal using collection of sets / union-find ideas.
-- Weekly/concept links: [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 12|Week - 12]], [[Minimum Spanning Trees|Minimum Spanning Trees]], [[Graph Algorithms|Graph Algorithms]].
+- Weekly/concept links: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 12|Week - 12]], [[Minimum Spanning Trees|Minimum Spanning Trees]], [[Graph Algorithms|Graph Algorithms]].
 
 ## Examples
 - Kruskal accepts the next lightest edge only if it joins two different components.
@@ -338,7 +338,7 @@ for e in Edges:
 - A spanning tree on `|V|` vertices has exactly `|V|-1` edges.
 
 ## Connections
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 12|Week - 12]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 12|Week - 12]]
 - [[Minimum Spanning Trees|Minimum Spanning Trees]]
 - [[Graph Algorithms|Graph Algorithms]]
 - [[Maze Project|Maze Project]] uses spanning-tree ideas for maze generation according to the project note.

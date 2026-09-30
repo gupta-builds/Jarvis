@@ -948,6 +948,55 @@
         "type": "FILES",
         "pattern": "20_Progress/Projects/CS/Portfolio/frontend/Prompt.md",
         "patternType": "STRICT"
+      },
+      {
+        "name": "",
+        "active": true,
+        "type": "FILES",
+        "pattern": "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Introduction to Algorithms.md",
+        "patternType": "STRICT"
+      },
+      {
+        "name": "",
+        "active": true,
+        "type": "FILES",
+        "pattern": "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/CSCI 4041 Board.md",
+        "patternType": "STRICT"
+      },
+      {
+        "name": "",
+        "active": true,
+        "type": "FILES",
+        "pattern": "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Midterm Project/Midterm Project.md",
+        "patternType": "STRICT"
+      },
+      {
+        "name": "",
+        "active": true,
+        "type": "FILES",
+        "pattern": "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/DSA.md",
+        "patternType": "STRICT"
+      },
+      {
+        "name": "",
+        "active": true,
+        "type": "FILES",
+        "pattern": "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Weekly Set.md",
+        "patternType": "STRICT"
+      },
+      {
+        "name": "",
+        "active": true,
+        "type": "FILES",
+        "pattern": "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Final Project/Maze Project.md",
+        "patternType": "STRICT"
+      },
+      {
+        "name": "",
+        "active": true,
+        "type": "FILES",
+        "pattern": "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Weekly Board.md",
+        "patternType": "STRICT"
       }
     ],
     "frontMatter": [

@@ -10,12 +10,12 @@ topics:
   - "[[Chapter - 7 & 10]]"
   - "[[CSCI 4041 Board]]"
 related:
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 4|Week - 4]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 4|Week - 4]]"
 ---
 # [[Elementary Data Structures]]
 ## MOC
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 4#Jupyter Notebook Explanations|Week - 4]]
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 5#Jupyter Notebook Explanations|Week - 5]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 4#Jupyter Notebook Explanations|Week - 4]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 5#Jupyter Notebook Explanations|Week - 5]]
 - [[Chapter - 7 & 10#10.1 Simple Array-Based Data Structures|Chapter - 7 & 10 - Simple Array-Based Data Structures]]
 - [[Chapter - 6 & 12#Chapter - 12 Binary Search Trees|Chapter - 6 & 12 - Binary Search Trees]]
 

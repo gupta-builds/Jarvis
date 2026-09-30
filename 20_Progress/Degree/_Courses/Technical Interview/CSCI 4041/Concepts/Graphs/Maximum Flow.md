@@ -7,7 +7,7 @@ created: 2026-04-27
 topics:
   - "[[DSA]]"
   - "[[CSCI 4041 Board]]"
-  - "[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 14|Week - 14]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 14|Week - 14]]"
   - "[[Chapter - 24|Chapter - 24]]"
 related:
   - "[[Graph Algorithms|Graph Algorithms]]"
@@ -15,9 +15,9 @@ related:
 ---
 # [[Maximum Flow]]
 ## MOC
-- [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 14#Chapter 24 - Maximum Flow|Week - 14 - Lecture]]
-- [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 14#Ch20(Graphs-CodeBase)-NETWORK.ipynb|Week - 14 - Network Codebase]]
-- [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 14#Ch24_Maximum_Flow.ipynb|Week - 14 - Flow Notebook]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 14#Chapter 24 - Maximum Flow|Week - 14 - Lecture]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 14#Ch20(Graphs-CodeBase)-NETWORK.ipynb|Week - 14 - Network Codebase]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 14#Ch24_Maximum_Flow.ipynb|Week - 14 - Flow Notebook]]
 - [[Chapter - 24#24.1 Flow Networks|Chapter - 24 - Flow Networks]]
 - [[Chapter - 24#24.2 The Ford-Fulkerson Method|Chapter - 24 - Ford-Fulkerson]]
 - [[Graph Algorithms|Graph Algorithms]] (prerequisite: BFS for augmenting paths)

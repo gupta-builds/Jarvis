@@ -11,7 +11,7 @@ area:
 tags:
   - "#class"
   - "#Lecture"
-next: "[[Week - 3]]"
+next: "[[20_Progress/Degree/CSCI 4061/Weekly/Week - 3]]"
 ---
 # Week - 2
 ## What you must be able to do

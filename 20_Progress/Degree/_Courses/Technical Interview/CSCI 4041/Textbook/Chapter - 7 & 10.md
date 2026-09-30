@@ -12,11 +12,11 @@ area:
 tags:
   - "#class"
   - "#Textbook"
-next: "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 4|Week - 4]]"
+next: "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 4|Week - 4]]"
 ---
 # Chapter 7 - Quicksort
 ## Summary Links
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 4#Chapter 7 and Chapter 10 - Quicksort, Partitioning, and Elementary Data Structures|Week - 4]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 4#Chapter 7 and Chapter 10 - Quicksort, Partitioning, and Elementary Data Structures|Week - 4]]
 - [[QuickSort#Definition|QuickSort]]
 - [[Elementary Data Structures#Definition|Elementary Data Structures]]
 
@@ -288,7 +288,7 @@ def Partition(A,p,r):
 - `Ch10_Stacks_and_Queues.ipynb` makes overflow/underflow and circular queue wraparound explicit.
 - `Ch10_LinkedLists.ipynb` and `Ch10_BinaryTree.ipynb` ground textbook fields in Python node objects.
 - `Homework/Coding/CodingHW_3(chapter10-CLRS).ipynb` asks for two stacks in one array, an array deque, and a stack via singly linked list.
-- Weekly/concept links: [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 4|Week - 4]], [[QuickSort|QuickSort]], [[Elementary Data Structures|Elementary Data Structures]].
+- Weekly/concept links: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 4|Week - 4]], [[QuickSort|QuickSort]], [[Elementary Data Structures|Elementary Data Structures]].
 
 ## Examples
 - Partitioning `[2, 8, 7, 1, 3, 5, 6, 4]` with pivot `4` leaves all values `<=4` left of the pivot and all values `>4` right of it.
@@ -296,7 +296,7 @@ def Partition(A,p,r):
 - Reversing a singly linked list uses three references: previous, current, and next.
 
 ## Connections
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 4|Week - 4]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 4|Week - 4]]
 - [[QuickSort|QuickSort]]
 - [[Elementary Data Structures|Elementary Data Structures]]
 - Source homework read: `Homework/Coding/CodingHW_3(chapter10-CLRS).ipynb` and `Homework/Paper/Paper HW - 3 (Ch - 7 & 10).pdf`.

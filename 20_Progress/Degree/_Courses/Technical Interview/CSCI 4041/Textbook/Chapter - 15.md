@@ -11,7 +11,7 @@ area:
 tags:
   - "#class"
   - "#Textbook"
-next: "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 10|Week - 10]]"
+next: "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 10|Week - 10]]"
 ---
 # Chapter - 15
 Greedy algorithms are used for optimization problems. A greedy algorithm always makes the choice that looks best at the moment - a **locally optimal choice** - in the hope that this choice will lead to a **globally optimal solution**. Unlike [[60_Jarvis/20_Distilled_Notes/Dynamic Programming|dynamic programming]], greedy algorithms do not always yield optimal solutions, but for many problems they do.
@@ -280,7 +280,7 @@ This section applies greedy strategies to memory management.
 	- The furthest-in-future choice is safe and leads to an optimal offline strategy.
 
 ## Summary Links
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 10#Chapter 15 - Greedy Algorithms and Huffman Coding|Week - 10 lecture reference]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 10#Chapter 15 - Greedy Algorithms and Huffman Coding|Week - 10 lecture reference]]
 - [[Greedy Algorithms#Definition|Greedy Algorithms concept]]
 - [[Dynamic Programming#Definition|Dynamic Programming contrast]]
 
@@ -338,7 +338,7 @@ Q.insert(z)
 
 - `Lectures/Week - 10/Ch6_Ch12(required_for_Huffman).ipynb` is the heap prerequisite needed by the Huffman implementation.
 - `Homework/Coding/CodingHW_7(chapter15-CLRS).ipynb` grounds reverse greedy, room scheduling, and solution reconstruction practice.
-- Weekly/concept links: [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 10|Week - 10]], [[Greedy Algorithms|Greedy Algorithms]], [[Dynamic Programming|Dynamic Programming]].
+- Weekly/concept links: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 10|Week - 10]], [[Greedy Algorithms|Greedy Algorithms]], [[Dynamic Programming|Dynamic Programming]].
 
 ## Examples
 - Activity selection: choose the compatible activity with the earliest finish time, then recurse on activities starting after it.
@@ -346,7 +346,7 @@ Q.insert(z)
 - Offline caching: evict the cached item whose next use lies furthest in the future.
 
 ## Connections
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 10|Week - 10]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 10|Week - 10]]
 - [[Greedy Algorithms|Greedy Algorithms]]
 - [[Dynamic Programming|Dynamic Programming]]
 - [[HeapSort|HeapSort]] for the priority queue used by Huffman.

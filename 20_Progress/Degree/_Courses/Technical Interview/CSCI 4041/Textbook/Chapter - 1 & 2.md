@@ -13,7 +13,7 @@ area:
 tags:
   - "#class"
   - "#Textbook"
-next: "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 1 & 2|Week - 1 & 2]]"
+next: "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 1 & 2|Week - 1 & 2]]"
 ---
 # CLRS (Ch - 1 & 2)
 ## The Role of Algorithms in Computing
@@ -492,7 +492,7 @@ for i in range(1,n):
 - `Lectures/Week - 1 & 2/Ch2_Merge_Sort.ipynb` implements the textbook `merge`/`merge_sort` split. The important bridge is that the merge step is linear because each cursor only moves forward.
 - `ch2_Asymptotic_Analysis.ipynb` compares insertion sort and merge sort empirically, connecting measured timings to the asymptotic claims.
 - `ch2_Asymptotic_Analysis-FLOPS.ipynb` adds operation-counting variants such as `insertion_sort_cost` and `merge_sort_cost`; this is the lecture bridge from informal timing to cost-model analysis.
-- Weekly/concept links: [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 1 & 2|Week - 1 & 2]], [[Sorting Algorithms|Sorting Algorithms]], [[Time Complexity|Time Complexity]].
+- Weekly/concept links: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 1 & 2|Week - 1 & 2]], [[Sorting Algorithms|Sorting Algorithms]], [[Time Complexity|Time Complexity]].
 
 ## Examples
 - The textbook sorting example `31, 41, 59, 26, 41, 58` demonstrates the output-permutation requirement.
@@ -501,7 +501,7 @@ for i in range(1,n):
 - `CodingHW_1(chapter2-CLRS).ipynb` grounds the binary-addition exercise in arrays of bits and the carry invariant.
 
 ## Connections
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 1 & 2|Week - 1 & 2]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 1 & 2|Week - 1 & 2]]
 - [[Sorting Algorithms|Sorting Algorithms]]
 - [[Time Complexity|Time Complexity]]
 - Source homework read: `Homework/Coding/CodingHW_1(chapter2-CLRS).ipynb` and `Homework/Paper/Paper HW - 1 (Ch - 2).pdf`.

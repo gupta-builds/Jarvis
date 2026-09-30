@@ -13,12 +13,12 @@ area:
 tags:
   - "#class"
   - "#Textbook"
-next: "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 6|Week - 6]]"
+next: "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 6|Week - 6]]"
 ---
 # Chapter - 13 Red-Black Trees
 ## Summary Links
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 6#Chapter 13 and Chapter 18 - Balanced Trees, Rotations, and B-Trees|Week - 6]]
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 7#Chapter 13 and AVL Project Notes - Red-Black Trees and AVL Validation|Week - 7]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 6#Chapter 13 and Chapter 18 - Balanced Trees, Rotations, and B-Trees|Week - 6]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 7#Chapter 13 and AVL Project Notes - Red-Black Trees and AVL Validation|Week - 7]]
 - [[AVL Trees#Definition|AVL Trees]]
 - [[B-Trees#Definition|B-Trees]]
 
@@ -209,7 +209,7 @@ def left_rotate(self,x):
 - [[AVL Tree Project|AVL Tree Project]] confirms that AVL insertion/deletion, height updates, and validation were a project path.
 - [[Red Black Tree Project|Red Black Tree Project]] confirms the red-black/LLRB project path.
 - Supported course-emphasis statement: the textbook canonical structure is red-black trees, while the course implementation materials spend substantial time on rotations, AVL validation, and LLRB construction.
-- Weekly/concept links: [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 6|Week - 6]], [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 7|Week - 7]], [[AVL Trees|AVL Trees]].
+- Weekly/concept links: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 6|Week - 6]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 7|Week - 7]], [[AVL Trees|AVL Trees]].
 
 ## Examples
 - A left rotation around `x` makes `x.right` move up, `x` become the left child, and the moved subtree become `x.right`.
@@ -217,8 +217,8 @@ def left_rotate(self,x):
 - Red-black insertion often fixes a red-red violation by either recoloring the parent/uncle/grandparent or rotating when the uncle is black.
 
 ## Connections
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 6|Week - 6]]
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 7|Week - 7]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 6|Week - 6]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 7|Week - 7]]
 - [[AVL Trees|AVL Trees]]
 - [[AVL Tree Project|AVL Tree Project]]
 - [[Red Black Tree Project|Red Black Tree Project]]

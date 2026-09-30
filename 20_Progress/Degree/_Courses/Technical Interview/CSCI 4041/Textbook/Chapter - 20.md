@@ -12,7 +12,7 @@ area:
 tags:
   - "#class"
   - "#Textbook"
-next: "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 11|Week - 11]]"
+next: "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 11|Week - 11]]"
 ---
 # Chapter 20 - Graph Representations
 Searching a graph is the process of systematically following edges to visit the vertices of a graph. Graph-searching algorithms discover structural information and serve as the foundation for many more complex algorithms.
@@ -423,8 +423,8 @@ def Strongly_Connected_Components(G):
 The lecture's practical takeaway is that the first DFS is not finding SCCs directly. It is computing the finish-time order that makes the second DFS on the reversed graph work cleanly.
 
 ## Summary Links
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 11#Chapter 20 - Graph Representations, BFS, and DFS|Week - 11 lecture reference]]
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 12#Chapter 20 - Topological Sort and Strongly Connected Components|Week - 12 lecture reference]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 11#Chapter 20 - Graph Representations, BFS, and DFS|Week - 11 lecture reference]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 12#Chapter 20 - Topological Sort and Strongly Connected Components|Week - 12 lecture reference]]
 - [[Graph Algorithms#Definition|Graph Algorithms concept]]
 
 ---
@@ -481,7 +481,7 @@ while Q:
 - `Homework/Coding/CodingHW_8(chapter20-CLRS).ipynb` directly supports graph representation exercises.
 - `Homework/Coding/CodingHW_9(chapter20-23-CLRS).ipynb` extends Chapter 20 with alternative topological sort and component graph tasks.
 - [[Maze Project|Maze Project]] is supported by its project note: it models mazes as grid graphs and uses BFS/DFS.
-- Weekly/concept links: [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 11|Week - 11]], [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 12|Week - 12]], [[Graph Algorithms|Graph Algorithms]].
+- Weekly/concept links: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 11|Week - 11]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 12|Week - 12]], [[Graph Algorithms|Graph Algorithms]].
 
 ## Examples
 - BFS from a source in an unweighted graph computes shortest path length in number of edges.
@@ -490,8 +490,8 @@ while Q:
 - SCC uses the transpose graph; copying edges without reversing them breaks the algorithm.
 
 ## Connections
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 11|Week - 11]]
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 12|Week - 12]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 11|Week - 11]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 12|Week - 12]]
 - [[Graph Algorithms|Graph Algorithms]]
 - [[Maze Project|Maze Project]]
 - Source homework read: `Homework/Coding/CodingHW_8(chapter20-CLRS).ipynb`, `Homework/Coding/CodingHW_9(chapter20-23-CLRS).ipynb`, and `Homework/Paper/Paper HW - 8 (Ch - 20).pdf`.

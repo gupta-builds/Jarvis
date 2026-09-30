@@ -12,12 +12,12 @@ tags:
   - "#class"
   - "#Lecture"
 next:
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 9|Week - 9]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 9|Week - 9]]"
 ---
 # Entire Week
 ## What you must be able to do
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 11#11.2 Hash Tables|Chapter - 11 hash tables]], [[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 11#11.3 Hash Functions|hash functions]], and [[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 11#11.4 Open Addressing|open addressing]]: explain collisions, load factor, chaining, open addressing, and why hashing is average-case fast rather than worst-case fast.
-- [[Hashing#Core Ideas (Lecture)|Hashing - Core Ideas (Lecture)]], [[Hashing#Complexity + Tradeoffs|Hashing - Complexity + Tradeoffs]], and [[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 11#11.5 Practical Considerations|practical considerations]]: compare `chainhashmap`, `probehashmap`, and the CodingHW5 variants.
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 11#11.2 Hash Tables|Chapter - 11 hash tables]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 11#11.3 Hash Functions|hash functions]], and [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 11#11.4 Open Addressing|open addressing]]: explain collisions, load factor, chaining, open addressing, and why hashing is average-case fast rather than worst-case fast.
+- [[Hashing#Core Ideas (Lecture)|Hashing - Core Ideas (Lecture)]], [[Hashing#Complexity + Tradeoffs|Hashing - Complexity + Tradeoffs]], and [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 11#11.5 Practical Considerations|practical considerations]]: compare `chainhashmap`, `probehashmap`, and the CodingHW5 variants.
 - [[Hashing#Proof / Reasoning Toolkit|Hashing - Proof / Reasoning Toolkit]]: use load factor and independent uniform hashing assumptions correctly in explanations.
 - [[Hashing#Practice Map|Hashing - Practice Map]]: map/frequency/counting practice remains open.
 
@@ -30,7 +30,7 @@ next:
 
 ## Concepts created / updated today
 - [[Hashing#Definition|Hashing]]
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 11#11.5 Practical Considerations|Chapter - 11 - practical considerations]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 11#11.5 Practical Considerations|Chapter - 11 - practical considerations]]
 - [[Hashing#Canonical Examples (Max 5)|Hashing - Canonical Examples]]
 
 ## Lecture

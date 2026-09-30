@@ -11,7 +11,7 @@ area:
 tags:
   - "#class"
   - "#Textbook"
-next: "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 7|Week - 7]]"
+next: "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 7|Week - 7]]"
 ---
 # AVL Trees
 ## Overview
@@ -71,7 +71,7 @@ CLRS doesn’t teach AVL directly in Ch. 13, but it gives the exact rotation mec
 - Insert LR: [...]  
 - Insert RL: [...]  
 - Delete rebalance: [...]
-## Using this [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 5#Jupyter file explaination|BST file]] to implement AVL for the project
+## Using this [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 5#Jupyter Notebook Explanations|BST file]] to implement AVL for the project
 AVL insert/delete is: **BST insert/delete + rebalance**. What stays the same from this file:
 - The basic BST search path logic for insert and delete
 - The transplant helper idea (or a similar pointer-replace helper)

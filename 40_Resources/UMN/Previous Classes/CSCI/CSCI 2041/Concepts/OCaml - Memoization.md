@@ -56,7 +56,7 @@ let memyC n k =
 - **[[OCaml - Lazy Evaluation]]**: laziness *delays* work; memoization *avoids repeated* work.
 
 ## Where It Appears
-- Weekly notes: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 7]], [[Week - 15]].
+- Weekly notes: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 7]], [[Week - 15]].
 - Labs: Lab 6 (`lab6.ml`, `tests6.ml`).
 - Textbook: Hickey Ch. 7 (references/side effects), Ch. 8 (hash tables).
 

@@ -51,7 +51,7 @@ end ;;
 - **[[OCaml - Recursive Descent Parsing]]**: parser logic is hidden behind `Parserish`.
 
 ## Where It Appears
-- Weekly notes: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 8]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 9]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 10]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 11]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 12]], [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 13]], [[Week - 15]].
+- Weekly notes: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 8]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 9]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 10]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 11]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 12]], [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 13]], [[Week - 15]].
 - Labs: Lab 8 (`lab8.ml`, `tests8.ml`), Lab 11, Lab 12.
 - Projects: [[Project - 2 Lisp Parser|Project - 2 Lisp Parser]].
 - Textbook: Hickey Ch. 11-12.

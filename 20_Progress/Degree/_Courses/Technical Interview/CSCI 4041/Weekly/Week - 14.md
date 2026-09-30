@@ -44,7 +44,7 @@ This notebook walks through the Ford-Fulkerson method using the CLRS textbook ex
 The Ford-Fulkerson method (Edmonds-Karp variant) uses BFS to find the shortest augmenting path in the residual network at each step. BFS guarantees that the number of augmenting-path iterations is $O(VE)$, giving an overall complexity of $O(VE^2)$. The notebook shows each iteration's residual graph and the chosen augmenting path, making the algorithm's progress visible.
 
 #### Ch20(Graphs-CodeBase)-NETWORK.ipynb
-This notebook defines the `network` class that extends the base `graph` class from [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 11|Week - 11]]. The key extension is that each edge now stores both a `capacity` and a `flow` value, rather than just a weight.
+This notebook defines the `network` class that extends the base `graph` class from [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 11|Week - 11]]. The key extension is that each edge now stores both a `capacity` and a `flow` value, rather than just a weight.
 
 The `network` class uses the same adjacency-list structure as the base graph, but its `edge` inner class carries `capacity` and `flow` attributes instead of just a weight.
 
@@ -119,7 +119,7 @@ def residual_network(G):
 - This function is called at each iteration of Ford-Fulkerson to rebuild the residual graph from the current flow state.
 
 #### Ch20(Graphs-CodeBase)-2.ipynb
-This notebook extends the graph codebase with additional utility functions used by the maximum flow implementation. It includes the BFS-based path-finding used by the Edmonds-Karp variant of Ford-Fulkerson. The BFS finds the shortest (fewest-edge) augmenting path from source $s$ to sink $t$ in the residual network. The path is reconstructed using the `v.prev` predecessor chain (the same mechanism used in [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 11#Ch20_Graphs_and_BFS.ipynb|Week - 11 BFS]]). The bottleneck capacity is the minimum residual capacity along the path. After finding the path and bottleneck, the algorithm updates the flow on each edge: increase flow on forward edges, decrease flow on backward edges.
+This notebook extends the graph codebase with additional utility functions used by the maximum flow implementation. It includes the BFS-based path-finding used by the Edmonds-Karp variant of Ford-Fulkerson. The BFS finds the shortest (fewest-edge) augmenting path from source $s$ to sink $t$ in the residual network. The path is reconstructed using the `v.prev` predecessor chain (the same mechanism used in [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 11#Ch20_Graphs_and_BFS.ipynb|Week - 11 BFS]]). The bottleneck capacity is the minimum residual capacity along the path. After finding the path and bottleneck, the algorithm updates the flow on each edge: increase flow on forward edges, decrease flow on backward edges.
 
 ## Examples worth keeping
 - **CLRS textbook flow example**: the professor traces Ford-Fulkerson on the standard 6-vertex network from CLRS Figure 24.6. Each iteration shows the residual network, the BFS-chosen augmenting path, the bottleneck capacity, and the updated flow.

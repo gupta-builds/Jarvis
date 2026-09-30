@@ -8,15 +8,15 @@ topics:
   - "[[CSCI 4041 Board]]"
   - "[[DSA]]"
   - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Introduction to Algorithms]]"
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 14]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 14]]"
 related:
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 9|Week - 9]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 9|Week - 9]]"
 ---
 # [[Dynamic Programming]]
 ## MOC
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 9#Chapter 14 - Dynamic Programming|Week - 9]]
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 14#14.1 Rod Cutting|Chapter - 14 - Rod Cutting]]
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 14#14.4 Longest Common Subsequence (LCS)|Chapter - 14 - LCS]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 9#Chapter 14 - Dynamic Programming|Week - 9]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 14#14.1 Rod Cutting|Chapter - 14 - Rod Cutting]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 14#14.4 Longest Common Subsequence (LCS)|Chapter - 14 - LCS]]
 - [[Divide and Conquer#Definition|Divide and Conquer]]
 - [[Greedy Algorithms#Definition|Greedy Algorithms]]
 

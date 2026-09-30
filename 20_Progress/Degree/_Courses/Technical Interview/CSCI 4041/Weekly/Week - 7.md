@@ -12,13 +12,13 @@ tags:
   - "#class"
   - "#Lecture"
 next:
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 8|Week - 8]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 8|Week - 8]]"
 ---
 # Entire Week
 ## What you must be able to do
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 13#13.1 Properties of Red-Black Trees|Chapter - 13 red-black properties]], [[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 13#13.3 Insertion|RB insert]], and [[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 13#13.4 Deletion|RB delete]]: know the 5 properties, black-height idea, `T.nil`, and the high-level fix-up cases for insert/delete.
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 13#13.1 Properties of Red-Black Trees|Chapter - 13 red-black properties]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 13#13.3 Insertion|RB insert]], and [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 13#13.4 Deletion|RB delete]]: know the 5 properties, black-height idea, `T.nil`, and the high-level fix-up cases for insert/delete.
 - [[AVL Trees#Core Ideas (Lecture)|AVL Trees - Core Ideas (Lecture)]], [[AVL Trees#Canonical Examples (Max 5)|AVL Trees - Canonical Examples]], and [[AVL Trees#Proof / Reasoning Toolkit|AVL Trees - Proof / Reasoning Toolkit]]: explain the AVL project implementation, the four rotation triggers, and the validation checks.
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 6#Chapter 13 and Chapter 18 - Balanced Trees, Rotations, and B-Trees|Week - 6]] and [[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 13#AVL Notes Anchored to Chapter 13|Chapter - 13 - AVL notes anchored to Chapter 13]]: connect the red-black chapter invariants to the AVL project's stricter balance condition.
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 6#Chapter 13 and Chapter 18 - Balanced Trees, Rotations, and B-Trees|Week - 6]] and [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 13#AVL Notes Anchored to Chapter 13|Chapter - 13 - AVL notes anchored to Chapter 13]]: connect the red-black chapter invariants to the AVL project's stricter balance condition.
 - [[AVL Trees#Practice Map|AVL Trees - Practice Map]]: height-balanced checks, rotations, and validation drills remain open.
 
 ## Key ideas (textbook)
@@ -30,7 +30,7 @@ next:
 
 ## Concepts created / updated today
 - [[AVL Trees#Definition|AVL Trees]]
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 13#13.4 Deletion|Chapter - 13 - RB delete]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 13#13.4 Deletion|Chapter - 13 - RB delete]]
 - [[AVL Trees#Mini-test|AVL Trees - Mini-test]]
 
 ## Lecture

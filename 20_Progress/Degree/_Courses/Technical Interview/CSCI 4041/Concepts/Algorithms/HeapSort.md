@@ -10,13 +10,13 @@ topics:
   - "[[DSA]]"
   - "[[CSCI 4041 Board]]"
 related:
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 5|Week - 5]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 5|Week - 5]]"
   - "[[Sorting Algorithms]]"
   - "[[Elementary Data Structures]]"
 ---
 # [[HeapSort]]
 ## MOC
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 5#Jupyter Notebook Explanations|Week - 5]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 5#Jupyter Notebook Explanations|Week - 5]]
 - [[Chapter - 6 & 12#Chapter - 6 Heapsort|Chapter - 6 & 12 - Heapsort]]
 - [[Sorting Algorithms#Complexity + Tradeoffs|Sorting Algorithms - Complexity + Tradeoffs]]
 - [[Elementary Data Structures#Definition|Elementary Data Structures]]

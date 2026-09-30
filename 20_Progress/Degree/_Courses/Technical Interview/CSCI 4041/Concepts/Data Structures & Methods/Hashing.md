@@ -5,18 +5,18 @@ status: sprout
 mastery (1/10): 0
 created: 2026-03-16
 topics:
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 11]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 11]]"
   - "[[CSCI 4041 Board]]"
   - "[[DSA]]"
   - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Introduction to Algorithms]]"
 related:
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 8|Week - 8]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 8|Week - 8]]"
 ---
 # [[Hashing]]
 ## MOC
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 8#Jupyter Notebook Explanations|Week - 8]]
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 11#11.2 Hash Tables|Chapter - 11 - Hash Tables]]
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 11#11.4 Open Addressing|Chapter - 11 - Open Addressing]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 8#Jupyter Notebook Explanations|Week - 8]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 11#11.2 Hash Tables|Chapter - 11 - Hash Tables]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 11#11.4 Open Addressing|Chapter - 11 - Open Addressing]]
 - [[Elementary Data Structures#Definition|Elementary Data Structures]]
 
 ## Definition

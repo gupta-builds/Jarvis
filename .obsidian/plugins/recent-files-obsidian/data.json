@@ -1,6 +1,62 @@
 {
   "recentFiles": [
     {
+      "basename": "CSCI 4041 Board",
+      "path": "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/CSCI 4041 Board.md"
+    },
+    {
+      "basename": "Time Complexity",
+      "path": "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Time Complexity.md"
+    },
+    {
+      "basename": "Introduction to Algorithms",
+      "path": "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Introduction to Algorithms.md"
+    },
+    {
+      "basename": "DSA",
+      "path": "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/DSA.md"
+    },
+    {
+      "basename": "CSCI 4041 Relation",
+      "path": "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041 Relation.md"
+    },
+    {
+      "basename": "Chapter - 7 & 10",
+      "path": "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 7 & 10.md"
+    },
+    {
+      "basename": "Chapter - 3 & 4",
+      "path": "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 3 & 4.md"
+    },
+    {
+      "basename": "Weekly Board",
+      "path": "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Weekly Board.md"
+    },
+    {
+      "basename": "How to Solve Problems",
+      "path": "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/How to Solve Problems.md"
+    },
+    {
+      "basename": "Weekly Set",
+      "path": "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Weekly Set.md"
+    },
+    {
+      "basename": "HackerRank Practice Test Prompt",
+      "path": "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Competitive Coding/HackerRank Practice Test Prompt.md"
+    },
+    {
+      "basename": "Midterm Project",
+      "path": "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Midterm Project/Midterm Project.md"
+    },
+    {
+      "basename": "Preparation & Sources",
+      "path": "20_Progress/Degree/_Courses/Technical Interview/Preparation & Sources.md"
+    },
+    {
+      "basename": "Problems Solver",
+      "path": "20_Progress/Degree/_Courses/Technical Interview/Problems Solver.md"
+    },
+    {
       "basename": "Technical Interview",
       "path": "20_Progress/Degree/_Courses/Technical Interview/Technical Interview.md"
     },
@@ -143,62 +199,6 @@
     {
       "basename": "Transcript - OPT",
       "path": "20_Progress/Internship/Career Fair/Transcript - OPT.md"
-    },
-    {
-      "basename": "Transcript - Sponsoring",
-      "path": "20_Progress/Internship/Career Fair/Transcript - Sponsoring.md"
-    },
-    {
-      "basename": "00 - Capture Health",
-      "path": "60_Claude/05_Clippings/AI Conversations/00 - Capture Health.md"
-    },
-    {
-      "basename": "Log",
-      "path": "20_Progress/Projects/AI Use/Claude Kit/Log.md"
-    },
-    {
-      "basename": "Build Map",
-      "path": "20_Progress/Projects/AI Use/Claude Kit/Build Map.md"
-    },
-    {
-      "basename": "System - Build Log",
-      "path": "20_Progress/Internship/Building System/System - Build Log.md"
-    },
-    {
-      "basename": "Claude OS Dashboard",
-      "path": "20_Progress/AI/Claude OS Dashboard.md"
-    },
-    {
-      "basename": "Write Log",
-      "path": "20_Progress/AI/Claude Code/Write Log.md"
-    },
-    {
-      "basename": "Sync-Log-Archive-2026-09-19",
-      "path": "20_Progress/AI/Claude Code/Sync-Log-Archive-2026-09-19.md"
-    },
-    {
-      "basename": "Sync - Unison",
-      "path": "20_Progress/AI/Claude Code/Sync - Unison.md"
-    },
-    {
-      "basename": "excalibrain",
-      "path": "10_Areas/Excalidraw/excalibrain.md"
-    },
-    {
-      "basename": "Imagine 09-19.excalidraw",
-      "path": "10_Areas/Excalidraw/Imagine 09-19.excalidraw.md"
-    },
-    {
-      "basename": "Internships Hub",
-      "path": "10_Areas/Career/Internships/Internships Hub.md"
-    },
-    {
-      "basename": "README",
-      "path": "10_Areas/Career/Internships/README.md"
-    },
-    {
-      "basename": "2026-07 Found",
-      "path": "10_Areas/Career/Internships/List/2026-07 Found.md"
     }
   ],
   "omittedPaths": [],

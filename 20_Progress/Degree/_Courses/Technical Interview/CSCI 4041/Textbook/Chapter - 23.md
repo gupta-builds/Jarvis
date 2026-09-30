@@ -11,7 +11,7 @@ area:
 tags:
   - "#class"
   - "#Textbook"
-next: "[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 13|Week - 13]]"
+next: "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 13|Week - 13]]"
 ---
 # Chapter - 23 All-Pairs Shortest Paths
 The goal is to find the shortest-path weight $\delta(u, v)$ for every pair of vertices $u, v \in V$ in a weighted, directed graph $G = (V, E)$. The output is an $n \times n$ matrix $D = (d_{ij})$ where $d_{ij} = \delta(i, j)$.
@@ -119,7 +119,7 @@ Johnson's algorithm handles sparse graphs with negative weights (but no negative
 - Path reconstruction needs the matrix entry to remember the split/intermediate that caused the improvement.
 
 ## Connections
-- [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 13|Week - 13]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 13|Week - 13]]
 - [[Shortest Paths|Shortest Paths]]
 - [[Chapter - 22|Chapter - 22]]
 - [[Heuristic Pathfinding Project|Heuristic Pathfinding Project]] is related through weighted pathfinding but focuses on single-source/single-target A*.
@@ -141,7 +141,7 @@ Johnson's algorithm handles sparse graphs with negative weights (but no negative
 - [ ] Explain how path reconstruction is stored.
 
 ## Lecture Emphasis
-The professor's lecture ([[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 13|Week - 13]]) covers Sections 23.1 and 23.2 but skips Johnson's algorithm (Section 23.3). The key code artifacts are in `Ch23_All-Pairs_Shortest_Path.ipynb`:
+The professor's lecture ([[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 13|Week - 13]]) covers Sections 23.1 and 23.2 but skips Johnson's algorithm (Section 23.3). The key code artifacts are in `Ch23_All-Pairs_Shortest_Path.ipynb`:
 - `extend_shortest_paths(L_prev,W,L,n)` — the (min, +) matrix multiplication step.
 - `slow_apsp(W,L0,n)` — $O(n^4)$ variant calling `extend_shortest_paths` $n-1$ times.
 - `faster_apsp(W,n)` — $O(n^3 \lg n)$ variant using repeated squaring.

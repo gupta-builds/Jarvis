@@ -11,7 +11,7 @@ area:
 tags:
   - "#class"
   - "#Textbook"
-next: "[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 14|Week - 14]]"
+next: "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 14|Week - 14]]"
 ---
 # Chapter - 24 Maximum Flow
 ## 24.1 Flow Networks
@@ -110,7 +110,7 @@ A **bipartite graph** $G = (L \cup R, E)$ has edges only between $L$ and $R$. A 
 - In Edmonds-Karp, BFS chooses an augmenting path with fewest edges in the residual network.
 
 ## Connections
-- [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 14|Week - 14]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 14|Week - 14]]
 - [[Maximum Flow|Maximum Flow]]
 - [[Graph Algorithms|Graph Algorithms]]
 - [[Network Flow Project|Network Flow Project]]
@@ -132,12 +132,12 @@ A **bipartite graph** $G = (L \cup R, E)$ has edges only between $L$ and $R$. A 
 - [ ] Explain Edmonds-Karp's BFS path choice and complexity.
 
 ## Lecture Emphasis
-The professor's lecture ([[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 14|Week - 14]]) focuses on Sections 24.1 and 24.2, with emphasis on residual network construction and the Ford-Fulkerson iteration. Section 24.3 (bipartite matching) is not covered in lecture. The key code artifacts are in `Ch20(Graphs-CodeBase)-NETWORK.ipynb` and `Ch24_Maximum_Flow.ipynb`:
+The professor's lecture ([[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 14|Week - 14]]) focuses on Sections 24.1 and 24.2, with emphasis on residual network construction and the Ford-Fulkerson iteration. Section 24.3 (bipartite matching) is not covered in lecture. The key code artifacts are in `Ch20(Graphs-CodeBase)-NETWORK.ipynb` and `Ch24_Maximum_Flow.ipynb`:
 - `network` class — extends the adjacency-list `graph` class with `capacity` and `flow` on each edge.
 - `residual_network(G)` — constructs $G_f$ with forward edges (residual capacity $c - f$) and backward edges (residual capacity $f$).
 - BFS-based augmenting-path search — implements the Edmonds-Karp variant.
 
-The professor demonstrates the algorithm step by step on the CLRS textbook example (Figure 24.6), showing the residual network and augmenting path at each iteration. The `network` class reuses the same adjacency-list linked-list structure as the base `graph` class from [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 11|Week - 11]], with the `edge` inner class extended to store `capacity` and `flow`. The final project (`Final Project/Network Flow/`) applies this to distribution network optimization.
+The professor demonstrates the algorithm step by step on the CLRS textbook example (Figure 24.6), showing the residual network and augmenting path at each iteration. The `network` class reuses the same adjacency-list linked-list structure as the base `graph` class from [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 11|Week - 11]], with the `edge` inner class extended to store `capacity` and `flow`. The final project (`Final Project/Network Flow/`) applies this to distribution network optimization.
 
 The Ford-Fulkerson/Edmonds-Karp augmenting-path loop is the actual algorithm that uses the residual network. The professor's implementation uses BFS to find shortest augmenting paths (Edmonds-Karp variant):
 

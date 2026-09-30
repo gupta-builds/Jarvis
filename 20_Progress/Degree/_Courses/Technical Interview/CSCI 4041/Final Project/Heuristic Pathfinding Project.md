@@ -13,7 +13,7 @@ tags:
   - "#Project"
 related:
   - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Final Project|Final Project]]"
-  - "[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 13|Week - 13]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 13|Week - 13]]"
   - "[[Chapter - 22|Chapter - 22]]"
   - "[[Chapter - 23|Chapter - 23]]"
 ---
@@ -35,11 +35,11 @@ This project option implements A* and related heuristic search algorithms on gra
 - **Priority queue**: min-heap ordered by $f$-value drives the search frontier
 - **Dijkstra's algorithm**: the special case of A* where $h(n) = 0$ for all vertices
 ## Concept Links
-- [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 13|Week - 13]] — single-source and all-pairs shortest paths
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 13|Week - 13]] — single-source and all-pairs shortest paths
 - [[Chapter - 22|Chapter - 22]] — single-source shortest paths (Dijkstra, Bellman-Ford)
 - [[Chapter - 23|Chapter - 23]] — all-pairs shortest paths
 - [[Graph Algorithms|Graph Algorithms]] — graph representations, BFS, DFS
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 11|Week - 11]] — BFS and DFS (A* builds on BFS-style frontier expansion)
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 11|Week - 11]] — BFS and DFS (A* builds on BFS-style frontier expansion)
 ## Complexity
 | Algorithm | Time | Space |
 |---|---|---|

@@ -11,7 +11,7 @@ area:
 tags:
   - "#class"
   - "#Textbook"
-next: "[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 13|Week - 13]]"
+next: "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 13|Week - 13]]"
 ---
 # Chapter - 22 Single-Source Shortest Paths
 In a shortest-paths problem, we are given a weighted, directed graph $G = (V, E)$ and a weight function $w: E \to \mathbb{R}$. The weight of a path $p = \langle v_0, v_1, \ldots, v_k \rangle$ is $w(p) = \sum_{i=1}^{k} w(v_{i-1}, v_i)$. The shortest-path weight from $u$ to $v$ is $\delta(u, v) = \min\{w(p) : u \leadsto v\}$ if a path exists, and $\infty$ otherwise.
@@ -132,7 +132,7 @@ This section formalizes the relaxation properties used throughout the chapter:
 - Path reconstruction follows predecessor pointers backward from target to source.
 
 ## Connections
-- [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 13|Week - 13]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 13|Week - 13]]
 - [[Shortest Paths|Shortest Paths]]
 - [[Minimum Spanning Trees|Minimum Spanning Trees]] for the Prim/Dijkstra heap contrast.
 - [[Heuristic Pathfinding Project|Heuristic Pathfinding Project]]
@@ -154,11 +154,11 @@ This section formalizes the relaxation properties used throughout the chapter:
 - [ ] Prove correctness using the relaxation properties.
 
 ## Lecture Emphasis
-The professor's lecture ([[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 13|Week - 13]]) focuses on Bellman-Ford and Dijkstra, skipping Section 22.2 (DAG shortest paths) and Section 22.4 (difference constraints). The key code artifacts are in `Ch22_Single-Source_Shortest_Path.ipynb`:
+The professor's lecture ([[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 13|Week - 13]]) focuses on Bellman-Ford and Dijkstra, skipping Section 22.2 (DAG shortest paths) and Section 22.4 (difference constraints). The key code artifacts are in `Ch22_Single-Source_Shortest_Path.ipynb`:
 - `initialize_single_source(G,s)` and `relax(u,v,w_uv)` — the two foundational subroutines.
 - `bellman_ford(G,s)` — direct implementation of the textbook pseudocode with negative-cycle detection.
 - `print_path(G,s,v)` — recursive path reconstruction via the predecessor chain.
 - `initialize_single_source_dijkstra(G,s)` and `relax_dijkstra(Q,u,v,w_uv)` — modified versions that integrate with the min-heap priority queue.
-- `dijkstra(G,s)` — uses the same `minheap` class as Prim's algorithm from [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 12|Week - 12]].
+- `dijkstra(G,s)` — uses the same `minheap` class as Prim's algorithm from [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 12|Week - 12]].
 
 The professor emphasizes the structural similarity between Dijkstra and Prim: both use a min-heap with `extract_min` and `decrease_key`, but the key meaning differs (shortest-path estimate vs. lightest connecting edge). The professor also emphasizes that Dijkstra's greedy invariant breaks with negative edges — once a vertex is extracted, its distance must be final.

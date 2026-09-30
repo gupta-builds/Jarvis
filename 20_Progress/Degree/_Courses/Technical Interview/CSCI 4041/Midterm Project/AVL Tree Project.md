@@ -12,10 +12,10 @@ tags:
   - "#class"
   - "#Project"
 related:
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Midterm Project|Midterm Project]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Midterm Project|Midterm Project]]"
   - "[[AVL Trees|AVL Trees]]"
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 7|Week - 7]]"
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 13|Chapter - 13]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 7|Week - 7]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 13|Chapter - 13]]"
 ---
 # AVL Tree Project
 ## Overview
@@ -42,9 +42,9 @@ This was the user's chosen midterm project option. The project implements an AVL
 - **Validation suite**: inorder sorted check, AVL balance check, parent pointer check, stored height vs computed height check
 ## Concept Links
 - [[AVL Trees|AVL Trees]] — full concept note with textbook theory and lecture code
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 6|Week - 6]] — balanced trees, rotations, B-Trees lecture
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 7|Week - 7]] — red-black trees and AVL project work
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 13|Chapter - 13]] — red-black trees (rotation primitives shared with AVL)
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 6|Week - 6]] — balanced trees, rotations, B-Trees lecture
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 7|Week - 7]] — red-black trees and AVL project work
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 13|Chapter - 13]] — red-black trees (rotation primitives shared with AVL)
 ## Complexity
 | Operation | Average | Worst |
 |---|---|---|

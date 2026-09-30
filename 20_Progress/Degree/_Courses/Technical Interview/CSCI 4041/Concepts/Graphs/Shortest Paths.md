@@ -7,7 +7,7 @@ created: 2026-04-27
 topics:
   - "[[DSA]]"
   - "[[CSCI 4041 Board]]"
-  - "[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 13|Week - 13]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 13|Week - 13]]"
   - "[[Chapter - 22|Chapter - 22]]"
   - "[[Chapter - 23|Chapter - 23]]"
 related:
@@ -17,9 +17,9 @@ related:
 ---
 # [[Shortest Paths]]
 ## MOC
-- [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 13#Chapter 22 and Chapter 23 - Shortest Paths (Single-Source and All-Pairs)|Week - 13 - Lecture]]
-- [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 13#Ch22_Single-Source_Shortest_Path.ipynb|Week - 13 - SSSP Notebook]]
-- [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 13#Ch23_All-Pairs_Shortest_Path.ipynb|Week - 13 - APSP Notebook]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 13#Chapter 22 and Chapter 23 - Shortest Paths (Single-Source and All-Pairs)|Week - 13 - Lecture]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 13#Ch22_Single-Source_Shortest_Path.ipynb|Week - 13 - SSSP Notebook]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 13#Ch23_All-Pairs_Shortest_Path.ipynb|Week - 13 - APSP Notebook]]
 - [[Chapter - 22#22.1 The Bellman-Ford Algorithm|Chapter - 22 - Bellman-Ford]]
 - [[Chapter - 22#22.3 Dijkstra's Algorithm|Chapter - 22 - Dijkstra]]
 - [[Chapter - 23#23.1 Shortest Paths and Matrix Multiplication|Chapter - 23 - Matrix APSP]]

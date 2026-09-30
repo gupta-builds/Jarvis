@@ -7,14 +7,14 @@ created: 2026-04-16
 topics:
   - "[[DSA]]"
   - "[[CSCI 4041 Board]]"
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 12|Week - 12]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 12|Week - 12]]"
   - "[[Chapter - 21]]"
 related:
   - "[[Graph Algorithms]]"
 ---
 # [[Minimum Spanning Trees]]
 ## MOC
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 12#Chapter 21 - Minimum Spanning Trees|Week - 12]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 12#Chapter 21 - Minimum Spanning Trees|Week - 12]]
 - [[Chapter - 21#21.1 Growing a Minimum Spanning Tree|Chapter - 21 - Generic MST]]
 - [[Chapter - 21#21.2 The Algorithms of Kruskal and Prim|Chapter - 21 - Kruskal and Prim]]
 - [[Graph Algorithms#Definition|Graph Algorithms]]

@@ -12,8 +12,8 @@ tags:
   - "#class"
   - "#Project"
 related:
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Midterm Project|Midterm Project]]"
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 6|Week - 6]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Midterm Project|Midterm Project]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 6|Week - 6]]"
   - "[[Chapter - 18|Chapter - 18]]"
 ---
 # Multiway Search Tree Project
@@ -34,9 +34,9 @@ This project option implements a multiway search tree (2-3 tree variant). Multiw
 - **Search**: walk down the tree comparing the search key against the keys stored in each node
 - **Insertion**: search for the leaf, insert, and split upward if necessary
 ## Concept Links
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 6|Week - 6]] — B-Trees lecture and balanced tree context
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 6|Week - 6]] — B-Trees lecture and balanced tree context
 - [[Chapter - 18|Chapter - 18]] — B-Trees (CLRS)
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 13|Chapter - 13]] — red-black trees (alternative balancing strategy)
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 13|Chapter - 13]] — red-black trees (alternative balancing strategy)
 - [[AVL Trees|AVL Trees]] — comparison: binary vs multiway balancing
 ## Complexity
 | Operation | Average | Worst |

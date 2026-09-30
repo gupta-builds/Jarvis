@@ -12,11 +12,11 @@ area:
 tags:
   - "#class"
   - "#Textbook"
-next: "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 5|Week - 5]]"
+next: "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 5|Week - 5]]"
 ---
 # Chapter - 6 Heapsort
 ## Summary Links
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 5#Chapter 6 and Chapter 12 - Heaps, Priority Queues, and BST Operations|Week - 5]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 5#Chapter 6 and Chapter 12 - Heaps, Priority Queues, and BST Operations|Week - 5]]
 - [[HeapSort#Definition|HeapSort]]
 - [[Elementary Data Structures#Definition|Elementary Data Structures]]
 
@@ -295,7 +295,7 @@ def build_max_heap(self):
 - `Lectures/Week - 5/Ch6_Heaps-PriorityQueue.ipynb` extends the heap into a priority queue with `maximum`, `extract_max`, and insert/key-update behavior.
 - `Lectures/Week - 5/Ch12_BinarySearchTree.ipynb` implements the pointer-based BST. The most important bridge is that textbook `left`, `right`, and `p` fields become node references.
 - `Homework/Coding/CodingHW_4(chapter6_and_12-CLRS).ipynb` asks for a min-priority queue and BST predecessor/successor-style operations, directly matching this note.
-- Weekly/concept links: [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 5|Week - 5]], [[HeapSort|HeapSort]], [[Elementary Data Structures|Elementary Data Structures]].
+- Weekly/concept links: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 5|Week - 5]], [[HeapSort|HeapSort]], [[Elementary Data Structures|Elementary Data Structures]].
 
 ## Examples
 - In a 0-indexed heap array, children of `i` are `2*i+1` and `2*i+2`; this is the lecture translation of CLRS's 1-indexed formulas.
@@ -303,7 +303,7 @@ def build_max_heap(self):
 - If a BST node has two children, deletion usually copies/transplants the successor, because the successor is the smallest key larger than the deleted node.
 
 ## Connections
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 5|Week - 5]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 5|Week - 5]]
 - [[HeapSort|HeapSort]]
 - [[Elementary Data Structures|Elementary Data Structures]]
 - [[Chapter - 21|Chapter - 21]] and [[Chapter - 22|Chapter - 22]] reuse priority queues in Prim and Dijkstra.

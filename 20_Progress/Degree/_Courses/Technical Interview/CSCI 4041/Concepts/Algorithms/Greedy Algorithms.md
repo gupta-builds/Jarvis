@@ -7,17 +7,17 @@ created: 2026-04-16
 topics:
   - "[[DSA]]"
   - "[[CSCI 4041 Board]]"
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 10|Week - 10]]"
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 15]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 10|Week - 10]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 15]]"
 related:
   - "[[Dynamic Programming]]"
   - "[[HeapSort]]"
 ---
 # [[Greedy Algorithms]]
 ## MOC
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 10#Chapter 15 - Greedy Algorithms and Huffman Coding|Week - 10]]
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 15#15.1 An Activity-Selection Problem|Chapter - 15 - Activity Selection]]
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 15#15.3 Huffman Codes|Chapter - 15 - Huffman Codes]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 10#Chapter 15 - Greedy Algorithms and Huffman Coding|Week - 10]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 15#15.1 An Activity-Selection Problem|Chapter - 15 - Activity Selection]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 15#15.3 Huffman Codes|Chapter - 15 - Huffman Codes]]
 - [[Dynamic Programming#Definition|Dynamic Programming]]
 - [[HeapSort#Definition|HeapSort]]
 

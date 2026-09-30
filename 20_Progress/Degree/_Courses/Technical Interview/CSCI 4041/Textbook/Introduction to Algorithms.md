@@ -20,11 +20,11 @@ related:
 Linked entries point to textbook notes already written in this vault. Plain entries preserve the full CLRS textbook structure.
 ## Part 1: Foundations
 Part 1 builds the basic language of algorithmic thinking. *Chapter 1* explains why algorithms matter as a computing technology, *Chapter 2* introduces correctness and running-time analysis through elementary sorting, *Chapter 3* formalizes asymptotic notation, *Chapter 4* develops divide-and-conquer recurrences, and *Chapter 5* introduces probabilistic analysis and randomized algorithms.
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 1 & 2#The Role of Algorithms in Computing|Chapter 1: The Role of Algorithms in Computing]]
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 1 & 2#Getting Started|Chapter 2: Getting Started]]
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 3 & 4#Chapter - 3|Chapter 3: Characterizing Running Times]]
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 3 & 4#Chapter - 4 Divide & Co|Chapter 4: Divide-and-Conquer]]
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 3 & 4#Chapter - 5 Probabilistic Analysis and Randomized Algorithms|Chapter 5: Probabilistic Analysis and Randomized Algorithms]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 1 & 2#The Role of Algorithms in Computing|Chapter 1: The Role of Algorithms in Computing]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 1 & 2#Getting Started|Chapter 2: Getting Started]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 3 & 4#Chapter - 3|Chapter 3: Characterizing Running Times]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 3 & 4#Chapter - 4 Divide & Co|Chapter 4: Divide-and-Conquer]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 3 & 4#Chapter - 5 Probabilistic Analysis and Randomized Algorithms|Chapter 5: Probabilistic Analysis and Randomized Algorithms]]
 ## Part 2: Sorting and Order Statistics
 Part 2 studies how to arrange data and select ranked elements efficiently. *Chapter 6* introduces heaps and priority queues through heapsort, *Chapter 7* analyzes quicksort and randomized partitioning, *Chapter 8* explains when sorting can beat comparison lower bounds, and *Chapter 9* covers minimum, maximum, and selection algorithms.
 - [[Chapter - 6 & 12#Chapter - 6 Heapsort|Chapter 6: Heapsort]]
@@ -34,13 +34,13 @@ Part 2 studies how to arrange data and select ranked elements efficiently. *Chap
 ## Part 3: Data Structures
 Part 3 focuses on representing and maintaining data so that operations are efficient. *Chapter 10* covers arrays, stacks, queues, linked lists, and rooted trees, *Chapter 11* covers hashing and collision handling, *Chapter 12* covers binary search trees, and *Chapter 13* covers red-black trees as a balanced-search-tree structure.
 - [[Chapter - 7 & 10#Chapter - 10 Elementary Data Structures|Chapter 10: Elementary Data Structures]]
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 11#Chapter 11 - Hash Tables|Chapter 11: Hash Tables]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 11#Chapter 11 - Hash Tables|Chapter 11: Hash Tables]]
 - [[Chapter - 6 & 12#Chapter - 12 Binary Search Trees|Chapter 12: Binary Search Trees]]
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 13#Chapter - 13 Red-Black Trees|Chapter 13: Red-Black Trees]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 13#Chapter - 13 Red-Black Trees|Chapter 13: Red-Black Trees]]
 ## Part 4: Advanced Design and Analysis Techniques
 Part 4 develops reusable algorithm-design strategies beyond elementary divide-and-conquer. *Chapter 14* builds dynamic programming from optimal substructure and overlapping subproblems, *Chapter 15* explains greedy algorithms and exchange-style reasoning, and *Chapter 16* introduces amortized analysis for bounding sequences of operations.
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 14#Chapter 14 - Dynamic Programming|Chapter 14: Dynamic Programming]]
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 15#Chapter - 15|Chapter 15: Greedy Algorithms]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 14#Chapter 14 - Dynamic Programming|Chapter 14: Dynamic Programming]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 15#Chapter - 15|Chapter 15: Greedy Algorithms]]
 - Chapter 16: Amortized Analysis
 ## Part 5: Advanced Data Structures
 Part 5 extends core data-structure ideas to support richer queries and external-memory use cases. *Chapter 17* shows how to augment structures with extra information, *Chapter 18* covers B-trees for disk-oriented search, and *Chapter 19* covers disjoint-set data structures for maintaining partitions.

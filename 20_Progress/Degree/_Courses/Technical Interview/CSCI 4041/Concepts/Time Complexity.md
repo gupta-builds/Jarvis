@@ -8,17 +8,17 @@ topics:
   - "[[CSCI 4041 Board]]"
   - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Introduction to Algorithms]]"
   - "[[DSA]]"
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 1 & 2|Week - 1 & 2]]"
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 3|Week - 3]]"
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 1 & 2]]"
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 3 & 4]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 1 & 2|Week - 1 & 2]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 3|Week - 3]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 1 & 2]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 3 & 4]]"
 related:
   - "[[DSA]]"
 ---
 # Time Complexity Boxes
 ## MOC
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 1 & 2#Key ideas (textbook)|Week - 1 & 2]]
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 1 & 2#2.2 Analyzing Algorithms|Chapter - 1 & 2 - Analyzing Algorithms]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 1 & 2#Key ideas (textbook)|Week - 1 & 2]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 1 & 2#2.2 Analyzing Algorithms|Chapter - 1 & 2 - Analyzing Algorithms]]
 - [[Sorting Algorithms#Complexity + Tradeoffs|Sorting Algorithms - Complexity + Tradeoffs]]
 - [[Graph Algorithms#Complexity + Tradeoffs|Graph Algorithms - Complexity + Tradeoffs]]
 
@@ -65,7 +65,7 @@ For recurrences of the form $T(n) = aT(n/b) + f(n)$ where $a \geq 1$, $b > 1$:
 5. If induction fails, strengthen the hypothesis by subtracting a lower-order term.
 
 ## Complexity Reference Boxes
-### [[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 1 & 2#Getting Started|Chapter - 1 & 2]]
+### [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 1 & 2#Getting Started|Chapter - 1 & 2]]
 ### Linear Search
 > [!summary] Linear Search
 > - Best case: $Θ(1)$
@@ -130,7 +130,7 @@ For recurrences of the form $T(n) = aT(n/b) + f(n)$ where $a \geq 1$, $b > 1$:
 
 ## Core Ideas (Lecture)
 ### Cost-Counting Pattern from FLOPS Notebook
-The [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 1 & 2#ch2_Asymptotic_Analysis-FLOPS.ipynb|FLOPS notebook]] is really a cost-model notebook. It instruments sorting algorithms with explicit `cost` counters to make asymptotic predictions concrete.
+The [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 1 & 2#ch2_Asymptotic_Analysis-FLOPS.ipynb|FLOPS notebook]] is really a cost-model notebook. It instruments sorting algorithms with explicit `cost` counters to make asymptotic predictions concrete.
 
 The key insight is in `insertion_sort_python_cost`, where the professor toggles between two cost models using comments:
 

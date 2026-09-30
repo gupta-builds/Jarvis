@@ -9,13 +9,13 @@ topics:
   - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Introduction to Algorithms]]"
   - "[[Chapter - 7 & 10]]"
 related:
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 4|Week - 4]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 4|Week - 4]]"
   - "[[Sorting Algorithms]]"
   - "[[Divide and Conquer]]"
 ---
 # [[QuickSort]]
 ## MOC
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 4#Jupyter Notebook Explanations|Week - 4]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 4#Jupyter Notebook Explanations|Week - 4]]
 - [[Chapter - 7 & 10#7.1 Description of Quicksort|Chapter - 7 & 10 - Quicksort]]
 - [[Sorting Algorithms#Core Ideas (Lecture)|Sorting Algorithms - Core Ideas (Lecture)]]
 - [[Divide and Conquer#Proof / Reasoning Toolkit|Divide and Conquer - Proof / Reasoning Toolkit]]

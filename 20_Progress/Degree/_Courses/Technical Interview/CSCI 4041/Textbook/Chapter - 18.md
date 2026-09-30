@@ -12,11 +12,11 @@ area:
 tags:
   - "#class"
   - "#Textbook"
-next: "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 6|Week - 6]]"
+next: "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 6|Week - 6]]"
 ---
 # Chapter - 18 B-trees
 ## Summary Links
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 6#Chapter 13 and Chapter 18 - Balanced Trees, Rotations, and B-Trees|Week - 6]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 6#Chapter 13 and Chapter 18 - Balanced Trees, Rotations, and B-Trees|Week - 6]]
 - [[B-Trees#Definition|B-Trees]]
 - [[AVL Trees#Complexity + Tradeoffs|AVL Trees - Complexity + Tradeoffs]]
 
@@ -172,7 +172,7 @@ self.insert_nonfull(x.c[i],k)
 
 - The code corresponds to the textbook invariant "do not descend into a full child."
 - [[Multiway Search Tree Project|Multiway Search Tree Project]] supports the same multi-key search-tree idea through a 2-3 tree variant and is directly linked to this chapter.
-- Weekly/concept links: [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 6|Week - 6]], [[B-Trees|B-Trees]], [[Multiway Search Tree Project|Multiway Search Tree Project]].
+- Weekly/concept links: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 6|Week - 6]], [[B-Trees|B-Trees]], [[Multiway Search Tree Project|Multiway Search Tree Project]].
 
 ## Examples
 - For `t=2`, every non-root node has 1 to 3 keys; this is the 2-3-4 tree special case.
@@ -180,10 +180,10 @@ self.insert_nonfull(x.c[i],k)
 - Search in a node with keys `[20, 50, 80]` descends into one of four intervals: `<20`, `20..50`, `50..80`, or `>80`.
 
 ## Connections
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 6|Week - 6]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 6|Week - 6]]
 - [[B-Trees|B-Trees]]
 - [[Multiway Search Tree Project|Multiway Search Tree Project]]
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 13|Chapter - 13]] for binary balanced-tree contrast.
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 13|Chapter - 13]] for binary balanced-tree contrast.
 - TODO: source gap - the B-tree lecture code covers search/split/insert strongly; deletion is primarily textbook/PDF-grounded in the notes rather than fully implemented in the lecture notebook.
 
 ## Common Pitfalls

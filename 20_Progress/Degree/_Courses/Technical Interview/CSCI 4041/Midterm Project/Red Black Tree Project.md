@@ -12,9 +12,9 @@ tags:
   - "#class"
   - "#Project"
 related:
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Midterm Project|Midterm Project]]"
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 7|Week - 7]]"
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 13|Chapter - 13]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Midterm Project|Midterm Project]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 7|Week - 7]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 13|Chapter - 13]]"
 ---
 # Red Black Tree Project
 ## Overview
@@ -35,9 +35,9 @@ This project option implements a red-black tree variant based on Sedgewick's lef
 - **Insert fix-up**: recolor and rotate to restore the no-red-red-edge property
 - **Delete fix-up**: handle the "extra black" problem when a black node is removed
 ## Concept Links
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 7|Week - 7]] — red-black trees and AVL project lecture
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 6|Week - 6]] — balanced trees and rotation primitives
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 13|Chapter - 13]] — CLRS red-black tree chapter
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 7|Week - 7]] — red-black trees and AVL project lecture
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 6|Week - 6]] — balanced trees and rotation primitives
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 13|Chapter - 13]] — CLRS red-black tree chapter
 - [[AVL Trees|AVL Trees]] — comparison: stricter balance, explicit heights
 ## Complexity
 | Operation | Average | Worst |

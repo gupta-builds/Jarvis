@@ -8,16 +8,16 @@ topics:
   - "[[CSCI 4041 Board]]"
   - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Introduction to Algorithms]]"
   - "[[DSA]]"
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 3 & 4]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 3 & 4]]"
 related:
   - "[[Sorting Algorithms]]"
   - "[[Dynamic Programming|Dynamic Programming]]"
 ---
 # [[Divide and Conquer]]
 ## MOC
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 3#Chapter - 4 Divide & Conquer Algorithms (DnC)|Week - 3]]
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 3 & 4#4.0 Introduction to Divide-and-Conquer and Recurrences|Chapter - 3 & 4 - Recurrences]]
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 3 & 4#4.2 Strassen’s Algorithm|Chapter - 3 & 4 - Strassen]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 3#Chapter - 4 Divide & Conquer Algorithms (DnC)|Week - 3]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 3 & 4#4.0 Introduction to Divide-and-Conquer and Recurrences|Chapter - 3 & 4 - Recurrences]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 3 & 4#4.2 Strassen’s Algorithm|Chapter - 3 & 4 - Strassen]]
 - [[Sorting Algorithms#Definition|Sorting Algorithms]]
 - [[Dynamic Programming#Definition|Dynamic Programming]]
 

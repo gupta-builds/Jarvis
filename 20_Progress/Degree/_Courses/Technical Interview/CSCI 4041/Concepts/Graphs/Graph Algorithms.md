@@ -7,16 +7,16 @@ created: 2026-04-16
 topics:
   - "[[DSA]]"
   - "[[CSCI 4041 Board]]"
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 11|Week - 11]]"
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 12|Week - 12]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 11|Week - 11]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 12|Week - 12]]"
   - "[[Chapter - 20]]"
 related:
   - "[[Minimum Spanning Trees]]"
 ---
 # [[Graph Algorithms]]
 ## MOC
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 11#Chapter 20 - Graph Representations, BFS, and DFS|Week - 11]]
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 12#Chapter 20 - Topological Sort and Strongly Connected Components|Week - 12]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 11#Chapter 20 - Graph Representations, BFS, and DFS|Week - 11]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 12#Chapter 20 - Topological Sort and Strongly Connected Components|Week - 12]]
 - [[Chapter - 20#20.1 Representations of Graphs|Chapter - 20 - Representations]]
 - [[Chapter - 20#20.5 Strongly Connected Components (SCC)|Chapter - 20 - SCC]]
 ## Definition

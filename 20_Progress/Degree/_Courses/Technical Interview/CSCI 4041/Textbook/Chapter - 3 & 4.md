@@ -12,11 +12,11 @@ area:
 tags:
   - "#class"
   - "#Textbook"
-next: "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 3|Week - 3]]"
+next: "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 3|Week - 3]]"
 ---
 # Chapter - 3
 ## Summary Links
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 3#Chapter 3 and Chapter 4 - Asymptotic Notation, Recurrences, and Divide-and-Conquer|Week - 3]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 3#Chapter 3 and Chapter 4 - Asymptotic Notation, Recurrences, and Divide-and-Conquer|Week - 3]]
 - [[Divide and Conquer#Definition|Divide and Conquer]]
 - [[Time Complexity#Definition|Time Complexity]]
 
@@ -354,7 +354,7 @@ for i in range(n):
 ```
 
 - The lecture emphasis is that changing the recursion tree, not just rewriting loops recursively, is what changes the asymptotic result.
-- Weekly/concept links: [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 3|Week - 3]], [[Time Complexity|Time Complexity]], [[Divide and Conquer|Divide and Conquer]].
+- Weekly/concept links: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 3|Week - 3]], [[Time Complexity|Time Complexity]], [[Divide and Conquer|Divide and Conquer]].
 
 ## Examples
 - `7n^3 + 100n^2` is `Theta(n^3)` because the cubic term dominates after a large enough `n_0`.
@@ -362,7 +362,7 @@ for i in range(n):
 - Strassen is the canonical example where doing more clever combine/algebra work reduces the number of recursive calls.
 
 ## Connections
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 3|Week - 3]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 3|Week - 3]]
 - [[Time Complexity|Time Complexity]]
 - [[Divide and Conquer|Divide and Conquer]]
 - Source homework read: `Homework/Coding/CodingHW_2(chapter4-CLRS).ipynb` and `Homework/Paper/Paper HW - 2 (Ch - 3 & 4).pdf`.

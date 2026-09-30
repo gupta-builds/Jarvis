@@ -10,7 +10,7 @@ area:
   - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Introduction to Algorithms]]"
 tags:
 next:
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 12|Week - 12]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 12|Week - 12]]"
 ---
 # Entire Week
 ## What you must be able to do

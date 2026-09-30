@@ -13,9 +13,9 @@ tags:
   - "#Project"
 related:
   - "[[AVL Trees|AVL Trees]]"
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 6|Week - 6]]"
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 7|Week - 7]]"
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 13|Chapter - 13]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 6|Week - 6]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 7|Week - 7]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 13|Chapter - 13]]"
   - "[[Chapter - 18|Chapter - 18]]"
 ---
 # Midterm Project
@@ -41,7 +41,7 @@ The midterm project implements one of three balanced search tree variants. Each 
 - Source: `Midterm_Project/Multiway Search Tree/Ch12_MultiWayTree.ipynb`
 - Reference papers include the original 2-3 tree publication and Knuth's treatment
 ## Chosen Project: AVL Tree
-The AVL tree project was the most directly connected to the lecture material. [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 7|Week - 7]] covered both the CLRS red-black tree chapter and the AVL project implementation. The four rotation trigger sequences (`[30,20,10]` for LL, `[10,20,30]` for RR, `[30,10,20]` for LR, `[10,30,20]` for RL) are the core mechanical skill. The stress test in `Experiment.ipynb` used `random.seed(4041)`, 600 mixed insert/delete operations, key space 200, and 60% insert / 40% delete ratio.
+The AVL tree project was the most directly connected to the lecture material. [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 7|Week - 7]] covered both the CLRS red-black tree chapter and the AVL project implementation. The four rotation trigger sequences (`[30,20,10]` for LL, `[10,20,30]` for RR, `[30,10,20]` for LR, `[10,30,20]` for RL) are the core mechanical skill. The stress test in `Experiment.ipynb` used `random.seed(4041)`, 600 mixed insert/delete operations, key space 200, and 60% insert / 40% delete ratio.
 The validation suite checks four independent invariants:
 1. Inorder traversal produces sorted output (BST property)
 2. Every node's balance factor is in $\{-1, 0, 1\}$ (AVL property)
@@ -50,7 +50,7 @@ The validation suite checks four independent invariants:
 This multi-invariant approach is the right mental model for debugging any tree implementation.
 ## Concept Links
 - [[AVL Trees|AVL Trees]] — full concept note
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 6|Week - 6]] — balanced trees, rotations, B-Trees
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 7|Week - 7]] — red-black trees and AVL project
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Textbook/Chapter - 13|Chapter - 13]] — red-black trees (CLRS)
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 6|Week - 6]] — balanced trees, rotations, B-Trees
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 7|Week - 7]] — red-black trees and AVL project
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 13|Chapter - 13]] — red-black trees (CLRS)
 - [[Chapter - 18|Chapter - 18]] — B-Trees (CLRS)

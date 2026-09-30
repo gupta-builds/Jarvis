@@ -31,9 +31,9 @@ The maze option is broader than "write one solver." It asks for a small graph-al
 3. **Visualization**: show the maze and the path produced by the solvers.
 4. **Analysis**: explain correctness, runtime, and how behavior changes as maze size grows.
 
-The clean model is: **a maze is a sparse grid graph**. Each cell is a vertex. A possible move between neighboring cells is a candidate edge. An open passage is an edge that exists in the generated maze. A wall means the candidate edge is absent. This connects directly to [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 11|Week - 11]] and [[Chapter - 20|Chapter - 20]], where graph representations, BFS, DFS, predecessor pointers, and adjacency lists are the main tools.
+The clean model is: **a maze is a sparse grid graph**. Each cell is a vertex. A possible move between neighboring cells is a candidate edge. An open passage is an edge that exists in the generated maze. A wall means the candidate edge is absent. This connects directly to [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 11|Week - 11]] and [[Chapter - 20|Chapter - 20]], where graph representations, BFS, DFS, predecessor pointers, and adjacency lists are the main tools.
 
-A perfect maze is a useful special case: every cell is reachable, and there is exactly one simple path between any two cells. In graph terms, that means the passage graph is a spanning tree of the grid cells. This is why [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 12|Week - 12]] and [[Chapter - 21|Chapter - 21]] matter even though we are drawing mazes rather than computing a traditional MST.
+A perfect maze is a useful special case: every cell is reachable, and there is exactly one simple path between any two cells. In graph terms, that means the passage graph is a spanning tree of the grid cells. This is why [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 12|Week - 12]] and [[Chapter - 21|Chapter - 21]] matter even though we are drawing mazes rather than computing a traditional MST.
 
 ## Big design decision
 Use this implementation set:
@@ -45,15 +45,15 @@ Use this implementation set:
 
 This is the best low-risk set because each generator is visually and conceptually different, but none requires the more complex probability arguments behind Wilson or Aldous-Broder. Recursive backtracking is basically randomized DFS over the grid. Randomized Prim is a frontier-growth algorithm related to the spanning-tree intuition from Prim's algorithm. Recursive division is different because it starts with open space and adds walls rather than starting with walls and carving passages.
 
-The solver story is also clear. BFS is the baseline shortest-path solver for unit-weight mazes. DFS is the reachability contrast: it can find a valid path, but not necessarily the shortest path. Dijkstra is the nonnegative-weight shortest-path method from [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 13|Week - 13]] and [[Chapter - 22|Chapter - 22]]. On normal mazes where every passage has weight 1, BFS and Dijkstra should return the same path length. That equality is one of the best sanity checks in the whole project.
+The solver story is also clear. BFS is the baseline shortest-path solver for unit-weight mazes. DFS is the reachability contrast: it can find a valid path, but not necessarily the shortest path. Dijkstra is the nonnegative-weight shortest-path method from [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 13|Week - 13]] and [[Chapter - 22|Chapter - 22]]. On normal mazes where every passage has weight 1, BFS and Dijkstra should return the same path length. That equality is one of the best sanity checks in the whole project.
 
 ## What to study first
 Study in the order you will implement:
 
-1. **Graph representation**: Review adjacency lists in [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 11|Week - 11]] and [[Chapter - 20|Chapter - 20]]. A grid maze is sparse because each cell has at most four neighbors, so adjacency lists fit better than adjacency matrices.
+1. **Graph representation**: Review adjacency lists in [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 11|Week - 11]] and [[Chapter - 20|Chapter - 20]]. A grid maze is sparse because each cell has at most four neighbors, so adjacency lists fit better than adjacency matrices.
 2. **BFS and DFS**: Focus on colors, distances, predecessor fields, and path reconstruction. The project needs the final path, not just a true/false answer.
-3. **Spanning tree intuition**: Review [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 12|Week - 12]] and [[Chapter - 21|Chapter - 21]]. Recursive backtracking and randomized Prim both grow a connected acyclic passage graph by adding one new cell at a time.
-4. **Dijkstra**: Review relaxation, priority queues, and nonnegative weights in [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 13|Week - 13]] and [[Chapter - 22|Chapter - 22]].
+3. **Spanning tree intuition**: Review [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 12|Week - 12]] and [[Chapter - 21|Chapter - 21]]. Recursive backtracking and randomized Prim both grow a connected acyclic passage graph by adding one new cell at a time.
+4. **Dijkstra**: Review relaxation, priority queues, and nonnegative weights in [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 13|Week - 13]] and [[Chapter - 22|Chapter - 22]].
 5. **Maze-specific references**: Use Jamis Buck's maze pages for generator behavior and the local Lee/Hadlock/Soukup/Shannon papers for routing context. The exact citation set is in [[Maze Project Details#Citation Set|Maze Project Details > Citation Set]].
 
 ## Representation plan
@@ -215,9 +215,9 @@ The goal is not to write a giant encyclopedia. The goal is to make the professor
 - [ ] Write the final report using the structure above.
 
 ## Concepts used
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 11|Week - 11]]
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 12|Week - 12]]
-- [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 13|Week - 13]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 11|Week - 11]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 12|Week - 12]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 13|Week - 13]]
 - [[Chapter - 20|Chapter - 20]]
 - [[Chapter - 21|Chapter - 21]]
 - [[Chapter - 22|Chapter - 22]]

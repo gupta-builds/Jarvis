@@ -13,8 +13,8 @@ tags:
   - "#Project"
 related:
   - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Final Project|Final Project]]"
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 11|Week - 11]]"
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 12|Week - 12]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 11|Week - 11]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 12|Week - 12]]"
   - "[[Chapter - 20|Chapter - 20]]"
 ---
 # Maze Project
@@ -34,15 +34,15 @@ Detailed implementation notes are in [[Maze Project Details|Maze Project Details
 - **BFS maze solving**: finds the shortest path (fewest cells) from start to finish in an unweighted grid
 - **DFS maze solving**: finds a path (not necessarily shortest) by exploring as deep as possible before backtracking
 - **Maze generation via spanning tree**: remove walls to create a random spanning tree of the grid, ensuring exactly one path between any two cells
-- **Adjacency-list graph**: the course graph code base from [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 11|Week - 11]] and [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 12|Week - 12]] powers the implementation
+- **Adjacency-list graph**: the course graph code base from [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 11|Week - 11]] and [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 12|Week - 12]] powers the implementation
 ## Concept Links
 - [[Graph Algorithms|Graph Algorithms]] — BFS, DFS, graph representations
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 11|Week - 11]] — BFS and DFS introduction
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 12|Week - 12]] — topological sort, connected components, graph code base
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 11|Week - 11]] — BFS and DFS introduction
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 12|Week - 12]] — topological sort, connected components, graph code base
 - [[Chapter - 20|Chapter - 20]] — graph representations, BFS, DFS
 - [[Chapter - 21|Chapter - 21]] — minimum spanning trees (related to maze generation)
 ### Additional Concept Links
-- [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 13|Week - 13]] - shortest paths and Dijkstra.
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 13|Week - 13]] - shortest paths and Dijkstra.
 - [[Chapter - 22|Chapter - 22]] - single-source shortest paths and Dijkstra.
 - [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Final Project|Final Project]] - parent final project note.
 ## Complexity

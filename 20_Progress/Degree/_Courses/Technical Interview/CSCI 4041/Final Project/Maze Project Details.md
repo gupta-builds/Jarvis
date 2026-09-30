@@ -18,16 +18,16 @@ This is the technical companion for [[Final Project Report|Final Project Report]
 ## Navigation
 - Main approach: [[Final Project Report|Final Project Report]]
 - Compact project index: [[Maze Project|Maze Project]]
-- Graph traversal: [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 11|Week - 11]], [[Chapter - 20|Chapter - 20]]
-- Spanning trees / Prim: [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 12|Week - 12]], [[Chapter - 21|Chapter - 21]]
-- Dijkstra / shortest paths: [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 13|Week - 13]], [[Chapter - 22|Chapter - 22]]
+- Graph traversal: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 11|Week - 11]], [[Chapter - 20|Chapter - 20]]
+- Spanning trees / Prim: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 12|Week - 12]], [[Chapter - 21|Chapter - 21]]
+- Dijkstra / shortest paths: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 13|Week - 13]], [[Chapter - 22|Chapter - 22]]
 
 ## Source Files
 - `Final Project/Maze/Ch20(Graphs-CodeBase)-MAZE.ipynb` - professor graph code base and maze utilities.
 - `Final Project/Maze/Maze-Template.ipynb` - project scaffold and required implementation slots.
-- Local graph traversal notes from [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 11|Week - 11]].
-- Local MST notes from [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 12|Week - 12]].
-- Local shortest-path notes from [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 13|Week - 13]].
+- Local graph traversal notes from [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 11|Week - 11]].
+- Local MST notes from [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 12|Week - 12]].
+- Local shortest-path notes from [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 13|Week - 13]].
 
 ## Citation Set
 Use these when writing the final report or explaining implementation choices.

@@ -12,11 +12,11 @@ topics:
 related:
   - "[[AVL Trees]]"
   - "[[Elementary Data Structures]]"
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 6|Week - 6]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 6|Week - 6]]"
 ---
 # [[B-Trees]]
 ## MOC
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 6#Jupyter Notebook Explanations|Week - 6]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 6#Jupyter Notebook Explanations|Week - 6]]
 - [[Chapter - 18#18.1 Definition of B-Trees|Chapter - 18 - Definition of B-Trees]]
 - [[Chapter - 18#18.3 Deletion|Chapter - 18 - Deletion]]
 - [[AVL Trees#Complexity + Tradeoffs|AVL Trees - Complexity + Tradeoffs]]
@@ -86,7 +86,7 @@ The lecture emphasized that this is the opposite feel of BST insertion. The stru
 
 ## Professor Code From Lecture
 ### Ch18_B-Tree.ipynb — Full `Btree` Implementation
-The professor's complete B-tree class from [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 6|Week - 6]] (`Lectures/Week - 6/Ch18_B-Tree.ipynb`). This is a direct Python translation of the CLRS Chapter 18 pseudocode.
+The professor's complete B-tree class from [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 6|Week - 6]] (`Lectures/Week - 6/Ch18_B-Tree.ipynb`). This is a direct Python translation of the CLRS Chapter 18 pseudocode.
 
 ```python
 class Btree:

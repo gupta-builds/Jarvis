@@ -13,7 +13,7 @@ tags:
   - "#Project"
 related:
   - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Final Project|Final Project]]"
-  - "[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 14|Week - 14]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 14|Week - 14]]"
   - "[[Chapter - 24|Chapter - 24]]"
 ---
 # Network Flow Project
@@ -35,11 +35,11 @@ This project option implements a distribution network flow solver. The problem m
 - **Max-flow min-cut theorem**: the maximum flow equals the minimum cut capacity, connecting flow optimization to graph structure
 - **BFS for augmenting paths (Edmonds-Karp)**: using BFS to find shortest augmenting paths gives $O(VE^2)$ time
 ## Concept Links
-- [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 14|Week - 14]] — maximum flow lecture
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 14|Week - 14]] — maximum flow lecture
 - [[Chapter - 24|Chapter - 24]] — maximum flow (CLRS)
 - [[Graph Algorithms|Graph Algorithms]] — graph representations, BFS, DFS
-- [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 13|Week - 13]] — shortest paths (related: augmenting paths use BFS/DFS)
-- [[50_Archive/Previous Classes/CSCI/CSCI 4041/Week - 11|Week - 11]] — BFS and DFS foundations
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 13|Week - 13]] — shortest paths (related: augmenting paths use BFS/DFS)
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 11|Week - 11]] — BFS and DFS foundations
 ## Complexity
 | Algorithm | Time | Space |
 |---|---|---|

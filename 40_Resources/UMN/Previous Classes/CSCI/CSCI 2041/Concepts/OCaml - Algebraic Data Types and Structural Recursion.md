@@ -20,7 +20,7 @@ related:
 ## Teach It To A Beginner
 - If the data is a tree, the function should look like a tour of the tree. For `Var`, stop. For `Add (l, r)`, recurse on `l` and `r`. For `Cons (first, rest)`, handle the first item and recurse on the rest. The type tells you the cases you cannot ignore.
 - Textbook connection: Hickey Ch. 4 pattern matching and Ch. 6 unions are the backbone.
-- Lecture connection: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 7]] uses expression trees for Project 1; [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 9]] uses Lisp data; [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 14]] uses proposition trees.
+- Lecture connection: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 7]] uses expression trees for Project 1; [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 9]] uses Lisp data; [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 14]] uses proposition trees.
 
 ```ocaml
 type expression =
@@ -58,7 +58,7 @@ let rec isInside name expr =
 - [[OCaml - Tail Recursion and Internal Helpers]]: structural recursion is about shape; tail recursion is about call position and accumulator design.
 
 ## Where It Appears
-- Weekly notes: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 7]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 9]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 10]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 11]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 12]], [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 13]], [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 14]], [[Week - 15]].
+- Weekly notes: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 7]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 9]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 10]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 11]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 12]], [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 13]], [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 14]], [[Week - 15]].
 - Labs: [[Lab - 9 Lisp Data Recursion]], [[Lab - 10 Lisp Printer]], [[Lab - 11 Lisp Evaluator]], [[Lab - 12 Lisp Integration]].
 - Projects: [[Project - 1 Equation Solver]], [[Project - 2 Lisp Parser]].
 - Textbook: Hickey Ch. 4 and Ch. 6.

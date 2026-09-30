@@ -50,7 +50,7 @@ let rec take count stream =
 - **[[OCaml - Continuation Passing]]**: CPS sends results to a continuation; streams return a new stream state.
 
 ## Where It Appears
-- Weekly notes: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 6]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 8]], [[Week - 15]].
+- Weekly notes: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 6]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 8]], [[Week - 15]].
 - Labs: Lab 5 (`lab5.ml`, `tests5.ml`).
 - Textbook: Hickey Ch. 3 (functions/scoping); Ch. 14 (object-style comparison).
 

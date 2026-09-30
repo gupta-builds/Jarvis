@@ -54,7 +54,7 @@ primitive "or"
 - User closures: closures use `apply`; primitives run their stored OCaml function.
 
 ## Where It Appears
-- Weekly notes: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 11]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 12]], [[Week - 15]].
+- Weekly notes: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 11]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 12]], [[Week - 15]].
 - Labs: [[Lab - 11 Lisp Evaluator]], [[Lab - 12 Lisp Integration]].
 - Projects: Project 2 parser creates input structures that these primitives later evaluate.
 - Textbook: Hickey Ch. 3, Ch. 4, Ch. 9.

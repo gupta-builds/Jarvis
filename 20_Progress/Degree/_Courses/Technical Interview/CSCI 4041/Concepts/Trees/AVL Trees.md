@@ -12,12 +12,12 @@ topics:
 related:
   - "[[Elementary Data Structures]]"
   - "[[B-Trees]]"
-  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 6|Week - 6]]"
+  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 6|Week - 6]]"
 ---
 # [[AVL Trees]]
 ## MOC
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 6#Jupyter Notebook Explanations|Week - 6]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 7#Jupyter Notebook Explanations|Week - 7]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 6#Jupyter Notebook Explanations|Week - 6]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 7#Jupyter Notebook Explanations|Week - 7]]
 - [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 13#AVL Notes Anchored to Chapter 13|Chapter - 13 - AVL notes anchored to Chapter 13]]
 - [[Elementary Data Structures#BST Delete — 4 Cases|Elementary Data Structures - BST Delete — 4 Cases]]
 

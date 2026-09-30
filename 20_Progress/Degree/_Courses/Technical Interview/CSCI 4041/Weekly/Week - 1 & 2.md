@@ -11,7 +11,7 @@ area:
 tags:
   - "#class"
   - "#Lecture"
-next: "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 3|Week - 3]]"
+next: "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 3|Week - 3]]"
 ---
 # Entire Week
 ## What you must be able to do

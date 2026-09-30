@@ -19,7 +19,7 @@ next:
 ## Project Goal
 Represent equations as recursive OCaml trees, search for a target variable, and isolate it by applying inverse transformations. The skill tested is structural recursion over an ADT, not algebra by hand.
 
-Links: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 7]], [[Week - 15]], [[OCaml - Expression Trees and Equation Solving]], [[OCaml - Pattern Matching]], [[OCaml - Exceptions and Error Boundaries]].
+Links: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 7]], [[Week - 15]], [[OCaml - Expression Trees and Equation Solving]], [[OCaml - Pattern Matching]], [[OCaml - Exceptions and Error Boundaries]].
 
 ## File Map
 - `Labs/project-1/expression.ml`: defines the `expression` ADT. This is the clean data model source.
@@ -150,7 +150,7 @@ Important error cases:
 - [[OCaml - Exceptions and Error Boundaries]]
 - [[OCaml - Modules and Signatures]]
 - [[OCaml - References and Mutation]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 7]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 7]]
 - [[Week - 15]]
 
 ## Common Mistakes

@@ -53,7 +53,7 @@ let lookup env name =
 - **Dynamic scoping**: if body ran in the caller's environment instead of the closure's, that would be dynamic scoping. This course uses lexical.
 
 ## Where It Appears
-- Weekly notes: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 12]] (highest priority), [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 11]], [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 13]], [[Week - 15]].
+- Weekly notes: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 12]] (highest priority), [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 11]], [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 13]], [[Week - 15]].
 - Labs: Lab 11 (`lab11.ml`, `tests11.ml`), Lab 12 (`lab12.ml`).
 - Textbook: Hickey Ch. 3 (scoping/closures), Ch. 7 (mutation for `global`).
 

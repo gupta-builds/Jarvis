@@ -12,11 +12,11 @@ area:
 tags:
   - "#class"
   - "#Textbook"
-next: "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 8|Week - 8]]"
+next: "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 8|Week - 8]]"
 ---
 # Chapter 11 - Hash Tables
 ## Summary Links
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 8#Chapter 11 - Hash Tables, Collision Handling, and Homework Variants|Week - 8]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 8#Chapter 11 - Hash Tables, Collision Handling, and Homework Variants|Week - 8]]
 - [[Hashing#Definition|Hashing]]
 - [[Elementary Data Structures#Definition|Elementary Data Structures]]
 
@@ -169,7 +169,7 @@ while i < self.m:
 
 - `Ch11_ProbeHashMap-Analysis.ipynb` and `Ch11_ProbeHashMap-ProbeLengthDistribution.ipynb` measure probe distances and collision behavior.
 - `Homework/Coding/CodingHW_5(chapter11-CLRS).ipynb` supports dynamic sets with bit vectors, random key selection from chaining, and multiplicative hashing.
-- Weekly/concept links: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 8|Week - 8]], [[Hashing|Hashing]], [[Elementary Data Structures|Elementary Data Structures]].
+- Weekly/concept links: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 8|Week - 8]], [[Hashing|Hashing]], [[Elementary Data Structures|Elementary Data Structures]].
 
 ## Examples
 - If `m=11` and `h(k)=k mod 11`, keys `22`, `33`, and `44` all collide at slot 0.
@@ -177,7 +177,7 @@ while i < self.m:
 - In probing, deleting `33` must leave a tombstone so searching for `44` still continues past the old `33` position.
 
 ## Connections
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 8|Week - 8]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 8|Week - 8]]
 - [[Hashing|Hashing]]
 - [[Elementary Data Structures|Elementary Data Structures]]
 - Source homework read: `Homework/Coding/CodingHW_5(chapter11-CLRS).ipynb` and `Homework/Paper/Paper HW - 5 (Ch - 11).pdf`.

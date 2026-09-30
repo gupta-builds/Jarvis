@@ -46,7 +46,7 @@ let rec evaluating thing env =
 - **[[OCaml - Interpreter Primitives and Special Forms]]**: primitives supply built-in meanings; evaluator dispatches to them.
 
 ## Where It Appears
-- Weekly notes: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 11]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 12]], [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 13]], [[Week - 15]].
+- Weekly notes: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 11]], [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 12]], [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2041/Week - 13]], [[Week - 15]].
 - Labs: Lab 11 (`lab11.ml`, `tests11.ml`), Lab 12 (`lab12.ml`).
 - Textbook: Hickey Ch. 3, Ch. 4, Ch. 6, Ch. 9, Ch. 11-12.
 

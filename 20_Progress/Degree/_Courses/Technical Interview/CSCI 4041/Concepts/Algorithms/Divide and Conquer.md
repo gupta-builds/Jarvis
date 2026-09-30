@@ -15,7 +15,7 @@ related:
 ---
 # [[Divide and Conquer]]
 ## MOC
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 3#Chapter - 4 Divide & Conquer Algorithms (DnC)|Week - 3]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 3#Chapter - 4 Divide & Conquer Algorithms (DnC)|Week - 3]]
 - [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 3 & 4#4.0 Introduction to Divide-and-Conquer and Recurrences|Chapter - 3 & 4 - Recurrences]]
 - [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 3 & 4#4.2 Strassen’s Algorithm|Chapter - 3 & 4 - Strassen]]
 - [[Sorting Algorithms#Definition|Sorting Algorithms]]

@@ -12,7 +12,7 @@ area:
 tags:
   - "#class"
   - "#Textbook"
-next: "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 12|Week - 12]]"
+next: "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 12|Week - 12]]"
 ---
 # Chapter - 21
 In the design of electronic circuits, a common problem is to interconnect a set of pins using the least amount of wire. To model this, we use a **connected, undirected graph** G=(V,E).
@@ -276,7 +276,7 @@ While Chapter 21 itself is about MSTs, the lecture sequence links it back to the
 - **Tree size fact:** once `|V|-1` edges have been accepted without cycles, the result is a spanning tree.
 
 ## Summary Links
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 12#Chapter 21 - Minimum Spanning Trees|Week - 12 lecture reference]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 12#Chapter 21 - Minimum Spanning Trees|Week - 12 lecture reference]]
 - [[Minimum Spanning Trees#Definition|Minimum Spanning Trees concept]]
 - [[Chapter - 20#20.1 Representations of Graphs|Graph code base from Chapter 20]]
 
@@ -330,7 +330,7 @@ for e in Edges:
 - The same notebook implements Prim with `extract_min`, adjacency scans, and `decrease_key`.
 - `Lectures/Week - 12/Ch20(Graphs-CodeBase).ipynb` supplies the graph class used by MST code.
 - `Homework/Coding/CodingHW_9(chapter20-23-CLRS).ipynb` asks for a CLRS-style reimplementation of Joy's Kruskal using collection of sets / union-find ideas.
-- Weekly/concept links: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 12|Week - 12]], [[Minimum Spanning Trees|Minimum Spanning Trees]], [[Graph Algorithms|Graph Algorithms]].
+- Weekly/concept links: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 12|Week - 12]], [[Minimum Spanning Trees|Minimum Spanning Trees]], [[Graph Algorithms|Graph Algorithms]].
 
 ## Examples
 - Kruskal accepts the next lightest edge only if it joins two different components.
@@ -338,7 +338,7 @@ for e in Edges:
 - A spanning tree on `|V|` vertices has exactly `|V|-1` edges.
 
 ## Connections
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Week - 12|Week - 12]]
+- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 12|Week - 12]]
 - [[Minimum Spanning Trees|Minimum Spanning Trees]]
 - [[Graph Algorithms|Graph Algorithms]]
 - [[Maze Project|Maze Project]] uses spanning-tree ideas for maze generation according to the project note.

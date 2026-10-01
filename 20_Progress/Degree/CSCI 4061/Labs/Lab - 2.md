@@ -5,7 +5,6 @@ status: seed
 created: 2026-09-23
 updated: 2026-09-23
 area:
-  - "[[UMN Board]]"
   - "[[CSCI 4061 Board]]"
 deadline: 2026-09-23
 tags:

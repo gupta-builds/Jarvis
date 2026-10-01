@@ -2,14 +2,15 @@
 type: class
 input_kind: book
 status: seed
-created:
-updated:
+created: 2026-09-08
+updated: 2026-09-29
 area:
-  - "[[UMN Board]]"
+  - "[[CSCI 4061 Board]]"
+  - "[[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]]"
 tags:
   - "#class"
   - "#Textbook"
-next:
+next: "Feed this chapter into Week - 1's Textbook integration section"
 ---
 # Chapter - 7 — Process Environment
 **Source:** W. Richard Stevens and Stephen A. Rago, *Advanced Programming in the UNIX Environment*, 3rd ed. (Addison-Wesley, 2013), Chapter 7, pp. 197-226.

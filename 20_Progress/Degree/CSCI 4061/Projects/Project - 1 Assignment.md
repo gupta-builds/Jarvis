@@ -2,20 +2,25 @@
 type: class
 input_kind: project
 status: seed
-created:
-updated:
+created: 2026-09-15
+updated: 2026-10-01
 area:
-  - "[[UMN Board]]"
-deadline:
-related: []
+  - "[[CSCI 4061 Board]]"
+deadline: 2026-10-02
+related:
+  - "[[20_Progress/Degree/CSCI 4061/Weekly/Week - 1|Week - 1]]"
+  - "[[20_Progress/Degree/CSCI 4061/Weekly/Week - 2|Week - 2]]"
+  - "[[20_Progress/Degree/CSCI 4061/Weekly/Week - 3|Week - 3]]"
+  - "[[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3|Chapter - 3]]"
+  - "[[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8|Chapter - 8]]"
+  - "[[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter - 10]]"
 tags:
   - "#class"
-next:
+next: "Submit swish.c/swish_funcs.c via make zip to Gradescope before 11:59pm 2026-10-02, then sign up for the individual oral exam"
 ---
 # Project - 1 Assignment
 ## Overview
-<!-- State the deliverable, shared scaffold, and constraints in one to three sentences. -->
--
+==`swish` ("Simple Working Implementation Shell") is a from-scratch command-line shell built across seven tasks (0-6): tokenization, `cd`/`pwd`, `fork`/`exec`/`wait` command execution, `<`/`>`/`>>` redirection, foreground/background process-group management via `setpgid`/`tcsetpgrp`, stopped-job tracking, and background job control (`bg`, `wait-for`, `wait-all`).== Every task builds directly on Weeks 1-3's material: `fork`/`exec`/`wait` ([[20_Progress/Degree/CSCI 4061/Weekly/Week - 1|Week - 1]]), `open`/`dup2`/redirection ([[20_Progress/Degree/CSCI 4061/Weekly/Week - 2|Week - 2]]), and signals/process groups ([[20_Progress/Degree/CSCI 4061/Weekly/Week - 3|Week - 3]]) — there is no new systems-programming concept this project introduces that lecture hasn't already covered.
 Projects are to be completed **individually or with a partner. Collaboration outside of your project team is prohibited.** See our [syllabus](https://canvas.umn.edu/courses/579183/assignments/syllabus) for full academic integrity policies.
 
 **Starter Code:** [proj1-code.zip](https://csci4061-fa26.s3.amazonaws.com/proj1-code.zip)
@@ -319,11 +324,16 @@ You may also wish to review the late submission policy detailed in the [course 
 
 Please only submit **one** project per group. Gradescope has an option to add group members after an assignment has been submitted.
 ## Concept Links
-<!-- Link verified weeks, chapters, and concepts genuinely used by the chosen project. -->
-- 
+- [[20_Progress/Degree/CSCI 4061/Weekly/Week - 1|Week - 1]] — `fork`/`exec`/`wait`, the exact pattern Task 2's `run_command()` implements.
+- [[20_Progress/Degree/CSCI 4061/Weekly/Week - 2|Week - 2]] — `open()` flags, `dup2()` redirection mechanics Task 3 implements directly (`ls -l > out.txt` is literally the `dup2`-after-`fork` pattern from Lec04).
+- [[20_Progress/Degree/CSCI 4061/Weekly/Week - 3|Week - 3]] — `SIGINT`/`SIGTSTP`/`SIGCONT`, process groups, and job-control signals that Tasks 4-6 build on.
+- [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3|Chapter - 3]] — low-level I/O (`open`/`read`/`write`/`dup2`) behind Task 3's redirection.
+- [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8|Chapter - 8]] — `fork`/`exec`/`wait`/`waitpid` and the `WIFEXITED`/`WIFSTOPPED` status macros Tasks 2 and 5 depend on.
+- [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter - 10]] — job-control signals (§10.21: `SIGCHLD`, `SIGCONT`, `SIGSTOP`, `SIGTSTP`, `SIGTTIN`, `SIGTTOU`) behind Task 4's `tcsetpgrp`/`setpgid` foreground-group handoff.
+- [[20_Progress/Degree/CSCI 4061/Labs/Lab - 2|Lab - 2]] — `redirect_child.c`'s `open`/`dup2`/`close`-before-`exec` pattern is a smaller, already-solved version of Task 3.
 ## Work Log
 <!-- Record real progress, decisions, failures, and fixes as they happen. -->
-- 
+- Not yet started in this session — fill in as Tasks 0-6 are actually implemented against `proj1-code/swish.c` and `swish_funcs.c`.
 ## Post-Submit Reflection
 <!-- Complete shortly after submission. Name the first failure and the recurring pattern it reveals. -->
 - What failed first?

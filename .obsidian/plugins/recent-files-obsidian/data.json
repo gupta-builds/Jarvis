@@ -1,6 +1,26 @@
 {
   "recentFiles": [
     {
+      "basename": "Chapter - 1",
+      "path": "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md"
+    },
+    {
+      "basename": "Textbook Map",
+      "path": "20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.md"
+    },
+    {
+      "basename": "Chapter - 7",
+      "path": "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md"
+    },
+    {
+      "basename": "Weekly Board",
+      "path": "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md"
+    },
+    {
+      "basename": "Week - 1",
+      "path": "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.md"
+    },
+    {
       "basename": "Project - 1 Assignment",
       "path": "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Assignment.md"
     },
@@ -105,18 +125,6 @@
       "path": "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8.md"
     },
     {
-      "basename": "Chapter - 7",
-      "path": "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md"
-    },
-    {
-      "basename": "Textbook Map",
-      "path": "20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.md"
-    },
-    {
-      "basename": "Chapter - 1",
-      "path": "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md"
-    },
-    {
       "basename": "Hit or Miss - Miss",
       "path": "20_Progress/Degree/Hit or Miss - Miss.md"
     },
@@ -191,14 +199,6 @@
     {
       "basename": "second-brain-claudekit-new-laptop-directive",
       "path": "40_Resources/CS/Concepts/New Laptop/Codebases/second-brain-claudekit/second-brain-claudekit-new-laptop-directive.md"
-    },
-    {
-      "basename": "second-brain-claudekit-jarvis-unison-sync",
-      "path": "40_Resources/CS/Concepts/New Laptop/Codebases/second-brain-claudekit/second-brain-claudekit-jarvis-unison-sync.md"
-    },
-    {
-      "basename": "second-brain-claudekit-ignored-state-and-sandbox",
-      "path": "40_Resources/CS/Concepts/New Laptop/Codebases/second-brain-claudekit/second-brain-claudekit-ignored-state-and-sandbox.md"
     }
   ],
   "omittedPaths": [

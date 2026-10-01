@@ -11,37 +11,69 @@ tags:
   - "#Textbook"
 next:
 ---
-# Chapter - 7
+# Chapter - 7 — Process Environment
+**Source:** W. Richard Stevens and Stephen A. Rago, *Advanced Programming in the UNIX Environment*, 3rd ed. (Addison-Wesley, 2013), Chapter 7, pp. 197-226.
+**Read from:** `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061\Textbook\Advanced Programming in the UNIX Environment, 3rd Edition.pdf`
+**Course role:** Week 1-2 reading, the single-process picture that Chapter 8 (process control: `fork`/`exec`/`wait`) builds on. Lec02 (9/10) and Lec03 (9/15) supply the course framing for `main()`/`_start()`, memory layout, and environment variables; Sections 7.10 (`setjmp`/`longjmp`) and 7.11 (`getrlimit`/`setrlimit`) have **no matching lecture coverage anywhere in Lec01-06** - they are textbook-only for this course so far.
 ## Chapter Summary
-<!-- State the chapter's one-sentence claim and use exactly one ==highlight== anchor. -->
-== ==
-*Mechanism:*
-<!-- Explain how the chapter's claim works. -->
+A C process runs inside an environment the kernel and C runtime build for it before `main` ever executes, and that same environment - memory layout, command-line arguments, environment variables, resource limits - determines ==how the process can allocate memory, read configuration, and eventually terminate== (p. 197).
+*Mechanism:* When a process is launched via `exec`, the kernel loads its text and data segments into virtual memory, sets up the stack, and transfers control to a **C start-up routine** (`_start()`) rather than to `main` directly. `_start()` extracts `argc`/`argv` and the environment from what the kernel handed it, calls `main`, and - if `main` returns - passes its return value to `exit()`. Normal termination flushes standard I/O buffers and runs any registered `atexit` handlers; dynamic memory comes from the heap via `sbrk`/`malloc`; environment variables live in a heap-relocatable pointer array; and `setjmp`/`longjmp` let code jump back through several stack frames at once, bypassing the normal one-frame-at-a-time function return.
+## Key Concepts
+- **main**: The function a C program appears to start at, prototyped `int main(int argc, char *argv[])` (p. 197).
+- **argc**: Non-negative count of command-line arguments (p. 197).
+- **argv**: Array of pointers to null-terminated argument strings; POSIX/ISO C guarantee `argv[argc]` is `NULL` (p. 197, 203).
+- **C start-up routine** / **_start()**: The kernel-designated real entry point, which sets up arguments/environment and calls `main()` (p. 197; Lec02).
+- **exit**: ISO C function that flushes standard I/O buffers, runs `atexit` handlers, then returns to the kernel (p. 198-199).
+- **_exit** / **_Exit**: POSIX/ISO C functions that return to the kernel immediately, skipping cleanup and handlers (p. 198).
+- **exit status**: The integer argument to an exit function, retrievable by the parent process (p. 198).
+- **exit handler**: A function registered with `atexit()`, run in reverse registration order when `exit()` is called (p. 200).
+- **atexit**: ISO C function registering at least 32 exit handlers (p. 200).
+- **command-line arguments**: Strings passed to a program by whichever process called `exec` (p. 203).
+- **environment list** / **environ**: The array of `name=value` C strings passed to every process, reachable through the global `extern char **environ;` (p. 203-204).
+- **text segment**: Read-only, sharable machine instructions loaded from the executable (p. 204).
+- **initialized data segment**: Global/static variables explicitly given a value in source code (p. 204).
+- **uninitialized data segment** / **bss**: Global/static variables with no explicit initializer, zero-filled by `exec` at load time, never stored on disk (p. 204-205).
+- **heap**: Region for dynamic allocation, between bss and the stack, growing upward (p. 205).
+- **stack**: Region holding automatic variables and call frames, growing downward toward the heap (p. 205).
+- ==**stack overflow**==: What happens when the growing stack and growing heap collide in virtual address space (Lec02).
+- **ELF**: Executable and Linkable Format, the binary layout the OS loader reads into memory (Lec02).
+- **shared library**: Library code kept once in memory/disk and referenced by every process that links against it, instead of copied into each executable (p. 206).
+- **malloc** / **calloc** / **realloc** / **free**: The ISO C dynamic-memory functions - allocate uninitialized, allocate zeroed, resize, and release, respectively (p. 207-208).
+- **sbrk**: System call that grows or shrinks a process's heap boundary; what `malloc` is built on (p. 208).
+- **memory leak**: Allocated memory that is never `free`d, so the process's address space keeps growing (p. 209).
+- **alloca**: Allocates directly on the current function's stack frame, freed automatically on return (p. 210).
+- **getenv** / **setenv** / **putenv** / **unsetenv**: Library functions to read, add/replace, add, and remove a single environment variable (p. 210-212).
+- **setjmp** / **longjmp**: Nonlocal-goto functions that save and later restore stack/register state across multiple function-call frames (p. 213, 215).
+- **jmp_buf**: The opaque type `setjmp`/`longjmp` use to hold saved execution state (p. 216).
+- **volatile**: Type qualifier telling the compiler not to keep a variable only in a register across a `setjmp`/`longjmp` boundary (p. 219).
+- **resource limit**: A per-process ceiling (soft and hard) on things like open files, CPU time, or stack size, read/set with `getrlimit`/`setrlimit` (p. 220).
+- **soft limit** / **hard limit**: The currently enforced ceiling versus the maximum the soft limit can be raised to without superuser privilege (p. 221).
+## Full Reading Notes
 ### 7.1 Introduction
-An operating system process requires a structured environment before process control primitives can be invoked (p. 197). Chapter 7 examines how the **main** function is executed when a program starts, how **command-line arguments** and **environment variables** are passed, the typical **memory layout** of a process, methods for dynamic memory allocation, voluntary and involuntary **process termination**, non-local branching via **setjmp** and **longjmp**, and process **resource limits** (p. 197).
+Before Chapter 8's process-control primitives (`fork`/`exec`/`wait`), this chapter covers the environment a single process runs in: how `main` gets called, how command-line arguments and the environment reach it, the typical memory layout, dynamic memory allocation, the several ways a process can terminate, `setjmp`/`longjmp` nonlocal branching, and per-process resource limits (p. 197).
 ### 7.2 main Function
-*Function Prototype:* A C program starts execution with the `main` function, prototyped as `int main(int argc, char *argv[]);` where **argc** specifies the non-negative count of command-line arguments, and **argv** is an array of pointers to null-terminated argument strings (p. 197).
-*Execution Pipeline:* When a C program is executed by the kernel via an **exec** function, a special **C start-up routine** is called before `main` is invoked (p. 197). The executable file designates this routine as its starting address, which is configured by the **link editor** during compilation (p. 197). The start-up routine extracts argument lists and environment pointers from the kernel and sets up the call to `main` (p. 197).
-*Course Framing (Lec02):* Contrary to the common misconception that `main()` is the program entry point, Lec02 clarifies that `main()` is "just another C function" called by the C runtime. ==When a C program is executed by the kernel, a special C start-up routine (**_start()**) serves as the program's true entry point, taking command-line arguments and environment lists from the kernel to set up the runtime environment before calling main().== The compiler-provided `_start()` routine initializes stack/heap memory, executes a `call` instruction to `main()`, and handles post-`main()` cleanup (Lec02).
+Execution starts at `int main(int argc, char *argv[]);`, where `argc` is the argument count and `argv` points to the argument array (p. 197). When the kernel runs a program via one of the `exec` functions (Section 8.10), it does not call `main` directly - a special **start-up routine** runs first, set as the program's entry point by the link editor. This routine takes the raw command-line arguments and environment from the kernel and arranges the call to `main` (p. 197).
+*Course Framing (Lec02):* `main()` is "just another C function," not the true entry point. The real entry point is **`_start()`**, which the C runtime/compiler provides automatically (you can write your own, as in Lecture 1's assembly Hello World). `_start()` sets up the stack and heap, issues the `call` instruction into `main()`, and handles cleanup once `main` returns (Lec02). ==When a C program is executed by the kernel, `_start()` is the true entry point - it takes command-line arguments and the environment from the kernel, sets up the runtime, and only then calls `main()`.==
 ### 7.3 Process Termination
-*Termination Categories:* There are eight distinct ways for a process to terminate (p. 198). Normal termination occurs through five paths: (1) returning from `main`; (2) calling **exit**; (3) calling **_exit** or **_Exit**; (4) returning from the start routine of the last thread; or (5) calling **pthread_exit** from the last thread (p. 198). Abnormal termination occurs through three paths: (6) calling **abort**; (7) receiving a **signal**; or (8) responding to a cancellation request in the last thread (p. 198).
-*Exit Functions:* Three primary functions terminate a program normally:
-- `void exit(int status);` (ISO C, defined in `<stdlib.h>`): Performs a clean shutdown of the standard I/O library by calling **fclose** on all open streams (flushing output buffers), invokes all registered exit handlers, and returns to the kernel (p. 198–199).
-- `void _Exit(int status);` (ISO C, defined in `<stdlib.h>`): Returns to the kernel immediately without running exit handlers or signal handlers (p. 198).
-- `void _exit(int status);` (POSIX.1, defined in `<unistd.h>`): Returns directly to the kernel immediately; implemented as a system call on UNIX systems (p. 198).
-*Exit Status:* The `status` integer argument passed to `exit`, `_exit`, or `_Exit` defines the process **exit status** (p. 198). Returning an integer from `main` is functionally equivalent to calling `exit` with that value (e.g., the start-up routine executes `exit(main(argc, argv))`) (p. 198). Returning from `main` without an explicit return statement yields an undefined exit status in C89, whereas ISO C99 defaults the return status to 0 (p. 199–200).
-*Exit Handlers:* Under ISO C, a process can register up to at least 32 **exit handlers** via the **atexit** function, prototyped as `int atexit(void (*func)(void));` (returns 0 if OK, nonzero on error) (p. 200). Exit handlers take no parameters and return no values (p. 200). The `exit` function invokes registered exit handlers in reverse order of registration, calling a handler as many times as it was registered (p. 200–201).
-*Program Lifecycle Diagram:* The following diagram illustrates program startup and termination paths (p. 201):
+There are eight ways a process can terminate - five normal, three abnormal (p. 198):
+- Normal: (1) returning from `main`, (2) calling `exit`, (3) calling `_exit`/`_Exit`, (4) the last thread returning from its start routine, (5) the last thread calling `pthread_exit`.
+- Abnormal: (6) calling `abort`, (7) receiving a signal, (8) the last thread responding to a cancellation request.
+If the start-up routine were written in C, the call to `main` would effectively look like `exit(main(argc, argv));` (p. 198).
+*Exit Functions:* `exit` and `_Exit` are ISO C (`<stdlib.h>`); `_exit` is POSIX.1 (`<unistd.h>`). Historically `exit` performs a clean shutdown of the standard I/O library - `fclose` on every open stream, flushing buffered output - before returning to the kernel; `_exit`/`_Exit` return immediately with none of that cleanup (p. 198-199). All three take a single integer **exit status**. If that status is omitted, or `main` does a bare `return` with no value, or `main` isn't declared to return `int`, the exit status is undefined - **except** that ISO C99 specifically made an implicit fall-off-the-end-of-`main` exit status default to 0 (this was undefined before C99) (p. 199).
+```c
+#include <stdio.h>
+main() {
+    printf("hello, world\n");
+}
 ```
-Kernel ──exec──> C start-up routine ──call──> main() ──call──> User Functions │ │ │ │ └───return / exit()────┘ │ │ ▼ ▼ _exit / _Exit <───exit() ◄────────────┘ │ │ │ ├──> Exit Handlers (atexit) │ └──> Standard I/O Cleanup (fclose) ▼ Kernel (Process Terminates)
-```
-*Exit Handler Example Code:*
+Compiled and run the ordinary way, the exit code is whatever garbage happened to be in a register/stack slot - `echo $?` might print `13` (p. 199). Compiled with `gcc -std=c99 hello.c` instead, the same program prints `0` for `echo $?`, because C99's explicit fall-off-the-end rule now applies (p. 200).
+> [!NOTE]
+> This "hello, world with a random exit code" example is easy to misread as a compiler bug. It isn't - it's a direct, visible consequence of the ISO C89 vs C99 rule change described just above. Before C99, "falling off the end of `main`" left the exit status genuinely undefined (whatever garbage was sitting in the return-value register), so `echo $?` could print anything. C99 nailed this down to 0. The takeaway for this course: always give `main` an explicit `return 0;` (or call `exit(0);`) rather than relying on either behavior.
+*Exit Handlers:* ISO C guarantees at least 32 **exit handlers** via `atexit(void (*func)(void));` (returns 0 on success). `exit()` calls them in reverse order of registration, and a handler registered twice is called twice (p. 200-201).
 ```c
 #include "apue.h"
-
 static void my_exit1(void);
 static void my_exit2(void);
-
 int main(void) {
     if (atexit(my_exit2) != 0)
         err_sys("can't register my_exit2");
@@ -52,25 +84,15 @@ int main(void) {
     printf("main is done\n");
     return(0);
 }
-
-static void my_exit1(void) {
-    printf("first exit handler\n");
-}
-
-static void my_exit2(void) {
-    printf("second exit handler\n");
-}
+static void my_exit1(void) { printf("first exit handler\n"); }
+static void my_exit2(void) { printf("second exit handler\n"); }
 ```
-
-Program output: `main is done`, followed by `first exit handler`, `first exit handler`, and `second exit handler` (p. 201).
-
+Output: `main is done`, `first exit handler`, `first exit handler`, `second exit handler` - `my_exit1` runs twice because it was registered twice, and reverse order puts `my_exit1` before `my_exit2` (p. 201-202).
+*Program Lifecycle:* The only way a program starts is via one of the `exec` functions; the only way it voluntarily ends is `_exit`/`_Exit`, called either directly or implicitly through `exit`; a process can also be involuntarily ended by a signal (p. 202).
 ### 7.4 Command-Line Arguments
-
-_Argument Passing:_ When an executable is executed, the process calling `exec` passes command-line arguments to the new program image (p. 203). _Null Termination Guarantee:_ ISO C and POSIX.1 guarantee that `argv[argc]` is always a null pointer (`NULL`), allowing argument iteration loops to terminate on `argv[i] == NULL` without checking `argc` explicitly (p. 203). _Echo Example Code:_ The following program echoes all command-line arguments to standard output (p. 203):
-
-```
+Whichever process calls `exec` supplies the new program's command-line arguments (p. 203). ISO C and POSIX.1 guarantee `argv[argc]` is `NULL`, so an argument loop can stop on `argv[i] == NULL` without consulting `argc` at all (p. 203).
+```c
 #include "apue.h"
-
 int main(int argc, char *argv[]) {
     int i;
     for (i = 0; i < argc; i++)
@@ -78,52 +100,12 @@ int main(int argc, char *argv[]) {
     exit(0);
 }
 ```
-
-Executing `./echoarg arg1 TEST foo` outputs `argv: ./echoarg`, `argv: arg1`, `argv: TEST`, and `argv: foo` (p. 203).
-
-### 7.6 Memory Layout of a C Program
-
-_Memory Segments:_ Historically, a C program consists of five primary logical memory segments (p. 204–205):
-
-- **text segment**: Machine instructions executed by the CPU, read from the executable file by `exec`; marked read-only to prevent accidental modification and shared among processes executing the same binary (p. 204).
-- **initialized data segment**: Global and static variables explicitly initialized in C source code (e.g., `int val = 100;`), read from the executable file by `exec` (p. 204).
-- **uninitialized data segment** (or **bss**, "block started by symbol"): Global and static variables not explicitly initialized in C source code (e.g., `long array;`), initialized to zero by `exec` before execution; not stored on disk within the executable binary (p. 204–205).
-- **heap**: Memory region used for dynamic memory allocation via **malloc**, **calloc**, or **realloc**, located between the bss segment and the stack (p. 205).
-- **stack**: Region holding **automatic variables**, function call stack frames, parameters, and return addresses (p. 205). _Memory Layout Diagram:_ Typical logical arrangement of program memory segments (p. 206):
-
-```
-High Address  ┌─────────────────────────────────────────┐
-              │ Command-line arguments & environment   │
-              ├─────────────────────────────────────────┤
-              │ Stack (grows downward ──────────┐)      │
-              │                                 │       │
-              │                                 ▼       │
-              │                                         │
-              │                                 ▲       │
-              │                                 │       │
-              │ Heap (grows upward ─────────────┘)      │
-              ├─────────────────────────────────────────┤
-              │ Uninitialized data (bss) [zeroed]       │
-              ├─────────────────────────────────────────┤
-              │ Initialized data (Data)                 │
-              ├─────────────────────────────────────────┤
-Low Address   │ Text (read-only machine code)           │
-              └─────────────────────────────────────────┘
-```
-
-_Course Framing & Executable Inspection (Lec02):_ The **ELF** (Executable and Linkable Format) **loader** pipeline reads the executable from disk into memory (Lec02). The stack and heap grow toward each other; if they collide, a **stack overflow** error occurs (Lec02). The **size** utility (`size /usr/bin/cc /bin/sh`) measures byte sizes of text, data, and bss segments in disk binaries (p. 206). Standard process information queries include **getcwd** (current working directory), **getpid** (process ID), and **getppid** (parent process ID) (Lec02).
+`./echoarg arg1 TEST foo` prints each argument on its own line, `argv[0]` through `argv[3]` (p. 203).
 ### 7.5 Environment List
-*Definition & Structure:* Each program is passed an **environment list**, which is an array of character pointers where each pointer contains the address of a null-terminated C string (p. 203).
-*Global Variable:* The address of the array of pointers is stored in the global variable `environ`: `extern char **environ;` (p. 203–204).
-*Terminology:* The `environ` variable is called the **environment pointer**, the array of pointers is the environment list, and the strings pointed to are **environment strings** (p. 204).
-*Convention:* By convention, environment strings take the form `name=value` (p. 204).
-*Historical Third Argument:* Historically, UNIX systems provided a third argument to `main`: `int main(int argc, char *argv[], char *envp[]);` (p. 204). ISO C specifies `main` with two arguments, and POSIX.1 specifies using `environ` instead of `envp[]` because `envp` offers no benefit over the global variable (p. 204).
-*Access Methods:* Direct access to `environ` is required to iterate through the entire environment list, whereas accessing specific environment variables is normally done via `getenv` and `putenv`/`setenv` (p. 204).
+Each program receives an **environment list**: an array of character pointers, each pointing to a null-terminated `name=value` string (p. 203-204). The address of that array lives in the global `environ`: `extern char **environ;` (p. 203-204). Historically `main` took a third argument, `char *envp[]`, but ISO C only specifies two arguments and POSIX.1 says to use `environ` instead, since `envp` adds nothing `environ` doesn't already give (p. 204). Iterating the *entire* environment requires `environ` directly; reading one specific variable normally goes through `getenv`/`putenv`/`setenv` instead (Section 7.9) (p. 204).
 ```c
 #include "apue.h"
-
 extern char **environ;
-
 int main(void) {
     char **ptr;
     for (ptr = environ; *ptr != NULL; ptr++)
@@ -131,119 +113,165 @@ int main(void) {
     exit(0);
 }
 ```
-
+### 7.6 Memory Layout of a C Program
+A C program has historically been laid out in these pieces, low address to high (p. 204-206):
+- **text**: machine instructions, usually shareable and read-only.
+- **initialized data**: globals/statics with an explicit initializer (`int maxcount = 99;`), read from the executable file at load time.
+- **uninitialized data (bss)**: globals/statics with no initializer (`long sum[1000];`), zeroed by the kernel before the program runs - never actually stored on disk in the executable, only the text and initialized data are.
+- **heap**: dynamic allocation, sitting between bss and the stack, growing upward.
+- **stack**: automatic variables and call frames, growing downward toward the heap.
+On 32-bit Linux/x86, the text segment historically starts at `0x08048000` and the bottom of the stack starts just below `0xC0000000`, with a large unused virtual-address gap in between where the heap grows upward and the stack grows downward toward each other (p. 205).
+*Course Framing & Executable Inspection (Lec02):* The **ELF** loader pipeline reads the executable off disk into memory. If the growing stack and growing heap collide, that's a **stack overflow**. Process-info getters `getcwd()`, `getpid()`, `getppid()` round out this picture of "what a running process actually has" (Lec02).
+The `size(1)` command reports the byte sizes of the text/data/bss segments:
+```text
+$ size /usr/bin/cc /bin/sh
+   text    data     bss     dec     hex  filename
+ 346919    3576    6680  357175   57337  /usr/bin/cc
+ 102134    1776   11272  115182   1c1ee  /bin/sh
+```
+The `dec`/`hex` columns are just the total of the three sizes in decimal and hex (p. 206).
 ### 7.7 Shared Libraries
-
-_Purpose & Mechanism:_ **Shared libraries** remove common library routines from executable files on disk, maintaining a single copy of the library routine somewhere in memory that all processes reference (p. 206). _Advantages:_ Greatly reduces the disk file size of executables and allows library functions to be replaced or updated without relinking programs that use the library, provided function parameters remain unchanged (p. 206). _Trade-offs:_ Adds minor runtime overhead when a program is executed or when a shared library function is called for the first time (p. 206). _Executable Size Comparison Example:_
-
-- Statically linked binary (`gcc -static hello.c`): executable file size is 879,443 bytes; `size` command reports 787,775 bytes text, 6,128 bytes data, 11,272 bytes bss (p. 206–207).
-- Dynamically linked binary (`gcc hello.c` default with shared libraries): executable file size drops to 8,378 bytes; `size` command reports 1,176 bytes text, 504 bytes data, 16 bytes bss (p. 207).
-
+**Shared libraries** keep one copy of common library routines in memory/on disk that every linked process references, instead of copying the routine into every executable file - this shrinks executables dramatically and lets a library be patched without relinking every program that uses it, at the cost of a small load-time and first-call overhead (p. 206). Example on one system: a statically linked `hello.c` is 879,443 bytes on disk (787,775 text / 6,128 data / 11,272 bss); the same program dynamically linked drops to 8,378 bytes (1,176 text / 504 data / 16 bss) (p. 206-207).
 ### 7.8 Memory Allocation
-
-_ISO C Allocation Functions:_ ISO C defines three dynamic memory allocation functions in `<stdlib.h>` (p. 207):
-
-- `void *malloc(size_t size);`: Allocates `size` bytes of memory whose initial value is indeterminate (p. 207).
-- `void *calloc(size_t nobj, size_t size);`: Allocates space for `nobj` objects of size `size` bytes, initializing all bits to zero (p. 207).
-- `void *realloc(void *ptr, size_t newsize);`: Increases or decreases the size of a previously allocated block `ptr` to `newsize` bytes (p. 207). If `ptr` is `NULL`, `realloc` behaves like `malloc(newsize)` (p. 208).
-- All three return a non-null `void *` pointer if successful, or `NULL` on error (p. 207). _Deallocation:_ `void free(void *ptr);`: Deallocates the space pointed to by `ptr`, returning it to a pool of available memory for later allocation (p. 207–208). _Pointer Alignment:_ Pointers returned by `malloc`, `calloc`, and `realloc` are guaranteed to be suitably aligned for any data object (p. 207). _realloc Behavior Details:_ If adjacent space exists beyond the current block, `realloc` expands in place and returns `ptr`; otherwise, it allocates a new region elsewhere, copies existing data, frees the old block, and returns the new pointer (p. 208). Pointers into the old block become invalid if the region moves (p. 208). _System Call Primitive:_ Memory allocation routines are usually implemented using the **sbrk** system call, which expands or contracts the process heap (p. 208). Freed memory is kept in the user-level `malloc` pool rather than being returned to the kernel (p. 208). _Memory Errors & Leakage:_
-- **memory leak**: Occurs when a process calls `malloc` but fails to call `free`, causing address space size to continually increase over time (p. 209).
-- Fatal errors include freeing an already freed block, calling `free` with an unallocated pointer, or writing past array bounds (p. 208–209). _Stack Allocation:_ The **alloca** function allocates memory directly on the stack frame of the current function, automatically freeing memory upon return (p. 210). _Alternate Memory Allocators:_
-- **libmalloc**: SVR4 library providing `mallopt` (control variables) and `mallinfo` (statistics) (p. 209).
-- **vmalloc**: Allocates memory using different region-specific techniques (p. 209).
-- **quick-fit**: Maintains free lists of fixed buffer sizes; faster than best-fit or first-fit (p. 209).
-- **jemalloc**: Default FreeBSD 8.0 allocator, designed for multithreaded scalability on multiprocessor systems (p. 210).
-- **TCMalloc**: Google open-source thread-caching allocator using thread-local caches to eliminate locking overhead (p. 210).
-
+ISO C's three allocation functions (`<stdlib.h>`), all returning a non-null `void *` on success or `NULL` on error:
+```c
+void *malloc(size_t size);
+void *calloc(size_t nobj, size_t size);
+void *realloc(void *ptr, size_t newsize);
+void free(void *ptr);
+```
+`malloc` gives `size` bytes of indeterminate content; `calloc` zero-fills space for `nobj` objects of `size` bytes each; `realloc` grows or shrinks a previously allocated block, moving it (copying old contents, freeing the old block) only if there isn't room to extend in place - passing `ptr == NULL` to `realloc` makes it behave exactly like `malloc(newsize)` (p. 207-208). All three guarantee alignment suitable for any data type (p. 207). `free` returns a block to the process's own free-memory pool - not to the kernel - so most implementations of `malloc`/`free` never actually shrink the process (p. 208).
+These are usually built on the `sbrk(2)` system call, which grows/shrinks the heap directly (p. 208). Common, hard-to-debug mistakes: freeing an already-freed block, calling `free` on a pointer not obtained from one of the three alloc functions, and writing past the allocated region's bounds - the last of these can silently corrupt an unrelated object's record-keeping data or contents, with a crash that shows up much later and far from the actual bug (p. 208-209). A **memory leak** is simply `malloc` without a matching `free`, growing the process's address space and eventually degrading performance from paging overhead (p. 209).
+*Alternate Allocators:* **libmalloc** (SVR4/Solaris, `mallopt`/`mallinfo`), **vmalloc** (per-region allocation strategy), **quick-fit** (faster than best-fit/first-fit, more memory use - most modern allocators build on this idea), **jemalloc** (FreeBSD 8.0 default, multithreaded-scalable), **TCMalloc** (Google, thread-local caches to avoid lock contention) (p. 209-210).
+*alloca:* Same call signature as `malloc`, but allocates from the *current function's stack frame* instead of the heap - freed automatically on return, no `free` needed, but not universally supported and dangerous if the stack frame can't grow after the fact (p. 210).
 ### 7.9 Environment Variables
-
-_Format & Interpretation:_ Environment strings take the form `name=value`. The UNIX kernel never interprets environment strings; interpretation is performed entirely by applications and shells (p. 210). _Fetching Environment Variables:_ `char *getenv(const char *name);` (defined in `<stdlib.h>`): Returns a pointer to the `value` associated with `name`, or `NULL` if not found (p. 210–211). _Modifying Environment Variables:_
-
-- `int putenv(char *str);` (XSI): Places a `name=value` string into the environment list. If `name` exists, its old definition is removed. Passing a stack-allocated string is an error because stack memory is reused upon return (p. 212).
-- `int setenv(const char *name, const char *value, int rewrite);` (POSIX.1): Sets `name` to `value`. If `rewrite` is non-zero, existing definitions are replaced; if `0`, no change occurs. `setenv` allocates memory for the `name=value` string (p. 212).
-- `int unsetenv(const char *name);` (POSIX.1): Removes any definition of `name` (p. 212).
-- `clearenv()`: Removes all entries from the environment list (p. 212). _Environment Manipulation Mechanics:_
-- Initial environment lists and strings reside at the top of the process address space above the stack (p. 212–213).
-- Modifying existing variables: If the new `value` length \(\le\) old `value` length, copy in place; if larger, call `malloc` for new memory and update the pointer in the environment list (p. 213).
-- Adding new variables: Call `malloc` for the `name=value` string. When adding a variable for the first time, `malloc` a new pointer array on the heap, copy old pointers, append the new pointer and `NULL` sentinel, and set `environ` to point to the heap array (p. 213). Subsequent additions call `realloc` on the heap array (p. 213). _Inheritance & Fork/Exec Behavior (Lec02, Lec03, APUE):_ Each process maintains its own environment (Lec03). A child process inherits its parent's environment list during `fork()` (Lec03). During `exec()`, the environment is propagated to the new image (via `environ` or explicitly via `execve`/`execle`) (p. 203, 211; Lec03). Modifying an environment variable in a child process affects only that process and its future children, never its parent (p. 211).
-
-## Chapter Summary
-
-A C process executes within an operating system environment initialized by a C start-up routine, managed through virtual memory segment abstractions, and configured by environment variables inherited across process boundaries. _Mechanism:_ ==When a process is launched via exec, the kernel loads its text and data segments into virtual memory, sets up stack frames and environment lists, and transfers execution to the start-up routine (_start) which initializes the C runtime before calling main().== Normal process termination flushes standard I/O buffers and executes `atexit` handlers, while dynamic memory is allocated on the heap via `sbrk`/`malloc`, environment variables are modified by manipulating heap-relocated pointer lists, and nonlocal jumps (`setjmp`/`longjmp`) bypass standard stack frame returns.
-
-## Key Concepts
-
-- **main**: Program entry point function prototyped as `int main(int argc, char *argv[])` (p. 197).
-- **argc**: Non-negative integer count of command-line arguments (p. 197).
-- **argv**: Array of pointers to null-terminated command-line argument strings (p. 197).
-- **C start-up routine** / **_start()**: Kernel-designated entry point that sets up arguments and environment before calling `main()` (p. 197; Lec02).
-- **exit**: ISO C function performing standard I/O buffer cleanup and running `atexit` handlers before returning to kernel (p. 198).
-- **_exit** / **_Exit**: POSIX/ISO C functions returning immediately to kernel without running exit handlers or flushing I/O buffers (p. 198).
-- **exit status**: Integer parameter passed to exit functions indicating normal completion or error codes (p. 198).
-- **exit handler**: User function registered via `atexit()` invoked in reverse order during `exit()` (p. 200).
-- **atexit**: ISO C function registering up to 32 exit handlers (p. 200).
-- **command-line arguments**: Array of strings passed to a program by the process calling `exec` (p. 203).
-- **text segment**: Read-only, sharable CPU machine instructions loaded from binary (p. 204).
-- **initialized data segment**: Global and static variables explicitly initialized in source code (p. 204).
-- **uninitialized data segment** / **bss**: Global and static variables not explicitly initialized, zero-filled by `exec` (p. 204).
-- **heap**: Dynamic memory allocation region located between bss and stack, growing upward (p. 205).
-- **stack**: Region holding automatic variables, function stack frames, parameters, and return addresses, growing downward (p. 205).
-- ==**stack overflow**==: Error occurring when stack and heap grow toward each other and collide in virtual address space (Lec02).
-- **size**: Command utility reporting byte sizes of text, data, and bss segments in binaries (p. 206).
-- **ELF**: Executable and Linkable Format binary file standard loaded into memory by the OS loader pipeline (Lec02).
-- **environment list**: Array of character pointers containing addresses of null-terminated `name=value` strings (p. 203).
-- **environ**: Global environment pointer variable `extern char **environ;` pointing to environment list (p. 203).
-- **environment string**: C string formatted as `name=value` containing configuration settings (p. 204).
-- **getenv**: ISO C function searching environment list for a specific variable name (p. 210).
-- **setenv**: POSIX function allocating memory to set or rewrite an environment variable (p. 212).
-- **putenv**: XSI function placing a `name=value` string directly into the environment list (p. 212).
-- **unsetenv**: POSIX function removing an environment variable definition (p. 212).
-- **shared library**: Library routines held in a single memory location shared across all running processes to reduce binary disk size (p. 206).
-- **malloc**: Function allocating specified uninitialized bytes from heap (p. 207).
-- **calloc**: Function allocating zero-initialized memory for objects (p. 207).
-- **realloc**: Function resizing a previously allocated memory region (p. 207).
-- **free**: Function deallocating dynamic memory and returning it to malloc pool (p. 207–208).
-- **sbrk**: System call expanding or contracting process heap boundary (p. 208).
-- **memory leak**: Defect where allocated memory is not freed, expanding process address space over time (p. 209).
-- **alloca**: Function allocating temporary memory directly on the stack frame (p. 210).
-- **setjmp**: Function saving stack frame environment into `jmp_buf` for nonlocal branching (p. 213, 215).
-- **longjmp**: Function restoring saved stack frame state from `jmp_buf` and returning a non-zero value to `setjmp` (p. 213, 215).
-- **getrlimit** / **setrlimit**: Functions querying and modifying per-process resource limits (p. 220).
-
+Environment strings are `name=value`; the kernel never interprets them, only applications and shells do (p. 210). `getenv(const char *name)` returns the value for `name` or `NULL` (p. 210-211). To modify: `putenv(char *str)` (XSI - inserts a `name=value` string directly, removing any old definition of `name`; passing a stack-allocated string is a bug because that memory is reused on return), `setenv(const char *name, const char *value, int rewrite)` (POSIX.1 - allocates its own storage for the string, replaces only if `rewrite` is nonzero), `unsetenv(const char *name)`, and `clearenv()` (wipes the whole list) (p. 212).
+Mechanically: the initial environment array sits above the stack, where there's no room to grow. Changing an existing variable's value in place works only if the new value is no longer than the old one; otherwise `setenv` mallocs new storage and updates that one pointer. Adding a brand-new variable the first time requires mallocing an entirely new pointer array on the heap, copying the old pointers over, appending the new pointer and a `NULL` sentinel, and repointing `environ` at the new heap array; later additions just `realloc` that same heap array (p. 212-213).
+*Inheritance (Lec02, Lec03, APUE):* Each process has its own environment; a child inherits a copy from its parent at `fork()`, and `exec()` propagates it into the new program image (via `environ` or explicitly via `execve`/`execle`). Changing a variable in a child affects only that child and any processes it later creates - never its parent (p. 203, 211).
+*Course Framing - PATH and friends (Lec02, recapped at the start of Lec03):* Built-in-looking commands (`ls`, `make`) are ordinary programs, not shell magic - `which ls` reveals `/usr/bin/ls`. The **PATH** environment variable is what lets you type a bare command name: the shell splits `PATH` on `:` and searches each directory in order for a matching executable. `LD_PRELOAD` (force-load custom libraries first) and `LD_LIBRARY_PATH` (extra search directories) are sibling variables used by the dynamic linker/loader to find *shared libraries* rather than *programs* - a different search problem from `PATH`, solved the same way (Lec02).
+### 7.10 setjmp and longjmp Functions
+C's `goto` cannot jump into another function, so error handling that needs to unwind several stack frames at once (say, from `cmd_add`, two levels below `main`, but sometimes five or more levels down in real code) needs a different tool: **`setjmp`**/**`longjmp`**, a *nonlocal* goto that branches back through the call chain to a function still on the current call path (p. 213-215).
+```c
+#include <setjmp.h>
+int setjmp(jmp_buf env);      // Returns: 0 if called directly, nonzero if returning from longjmp
+void longjmp(jmp_buf env, int val);
+```
+`setjmp` is called from the point you want to return *to* (returns 0 there, since it's called directly); `longjmp(env, val)` is called later, from deep in the call chain, with the same `env` and a nonzero `val` that becomes `setjmp`'s *apparent* return value back at the original call site - a nonzero `val` argument lets one `setjmp` distinguish which of several possible `longjmp` sites triggered the jump (p. 215-217).
+```c
+#include "apue.h"
+#include <setjmp.h>
+jmp_buf jmpbuffer;
+main(void) {
+    if (setjmp(jmpbuffer) != 0)
+        printf("error");
+    while (fgets(line, MAXLINE, stdin) != NULL)
+        do_line(line);
+    exit(0);
+}
+...
+void cmd_add(void) {
+    int token = get_token();
+    if (token < 0)
+        longjmp(jmpbuffer, 1);
+    /* rest of processing */
+}
+```
+When `longjmp` fires, the stack is "unwound" straight back to `main`'s frame, discarding the `cmd_add` and `do_line` frames entirely, and `setjmp` in `main` returns as if it had just been called again - except this time with the value `1` (p. 216-217).
+*Automatic, Register, and Volatile Variables:* After a `longjmp`, what happens to `main`'s automatic and register variables? The standards only say their values are **indeterminate** - most implementations don't try to roll them back, but nothing guarantees it either way. Global and static variables are always left alone (unaffected) by `longjmp` (p. 217-218). A demonstration compiles the same program with and without optimization (p. 218-219):
+```c
+static jmp_buf jmpbuffer;
+static int globval;
+int main(void) {
+    int autoval; register int regival; volatile int volaval; static int statval;
+    globval=1; autoval=2; regival=3; volaval=4; statval=5;
+    if (setjmp(jmpbuffer) != 0) {
+        printf("after longjmp: globval=%d autoval=%d regival=%d volaval=%d statval=%d\n",
+               globval, autoval, regival, volaval, statval);
+        exit(0);
+    }
+    globval=95; autoval=96; regival=97; volaval=98; statval=99;
+    f1(autoval, regival, volaval, statval); /* calls f2(), which calls longjmp(jmpbuffer, 1) */
+}
+```
+Without optimization, all five variables print `95 96 97 98 99` after the jump - everything was actually stored in memory. **With** `-O` optimization on, only `globval`, `volaval`, and `statval` still show `95 98 99`; `autoval` and `regival` roll back to their pre-jump values `2` and `3`, because the optimizer moved them into CPU registers, and register contents get restored to their state at the time `setjmp` was called, while memory contents reflect their state at the time `longjmp` was called (p. 219).
+> [!NOTE]
+> This is the entire practical reason `volatile` exists in this chapter. If you need an automatic variable's *post-jump* value to reliably be whatever it was right before the `longjmp` (not rolled back to its pre-`setjmp` value), you must declare it `volatile` - otherwise an optimizing compiler is free to keep it in a register, and registers get restored to the `setjmp`-time snapshot, silently discarding whatever you did to that variable in between. This is exactly the kind of bug that only appears with optimization flags on, which makes it brutal to debug from lecture alone.
+*Potential Problem with Automatic Variables:* A related, more common bug: an automatic variable can never be referenced once the function that declared it has returned (p. 219-220).
+```c
+FILE *open_data(void) {
+    FILE *fp;
+    char databuf[BUFSIZ];      // on open_data's stack frame
+    if ((fp = fopen("datafile", "r")) == NULL)
+        return(NULL);
+    if (setvbuf(fp, databuf, _IOLBF, BUFSIZ) != 0)
+        return(NULL);
+    return(fp);
+}
+```
+`setvbuf` tells stdio to use `databuf` as `fp`'s buffer - but `databuf` lives on `open_data`'s stack frame, which is reclaimed the moment `open_data` returns. The next function called reuses that same stack space for its own frame, and stdio is still writing into what it thinks is `databuf`. The fix is to make `databuf` come from outside the stack entirely: `static`/`extern` storage, or one of the heap allocators (p. 220).
+Chapter 10 revisits `setjmp`/`longjmp` in the context of signal handlers, via their signal-safe variants `sigsetjmp`/`siglongjmp` (p. 219).
+### 7.11 getrlimit and setrlimit Functions
+Every process has a set of **resource limits**, queried/changed with:
+```c
+#include <sys/resource.h>
+int getrlimit(int resource, struct rlimit *rlptr);
+int setrlimit(int resource, const struct rlimit *rlptr);
+struct rlimit {
+    rlim_t rlim_cur;  /* soft limit: currently enforced */
+    rlim_t rlim_max;  /* hard limit: ceiling rlim_cur can be raised to */
+};
+```
+Limits are normally set up by process 0 at boot and inherited by every descendant process (p. 220-221). Three rules govern changing them: (1) a process may lower its own soft limit to anything up to its hard limit, (2) a process may lower its own hard limit, but that lowering is **irreversible** for a normal (non-superuser) process, and (3) only a superuser process may *raise* a hard limit (p. 221). `RLIM_INFINITY` marks "no limit."
+Selected resources: `RLIMIT_CORE` (max core-dump file size; 0 disables core dumps), `RLIMIT_CPU` (max CPU seconds - `SIGXCPU` on the soft limit), `RLIMIT_DATA` (max data-segment size: initialized + uninitialized data + heap, from Figure 7.6), `RLIMIT_FSIZE` (max file size a process may create - `SIGXFSZ` on the soft limit), `RLIMIT_NOFILE` (max open files per process), `RLIMIT_NPROC` (max child processes per real user ID), `RLIMIT_STACK` (max stack size) (p. 221-222). Shells expose these through built-ins (`ulimit` in Bourne/bash/Korn, `limit` in csh) since limits have to be set once and inherited by every future process the shell launches (p. 222).
+```c
+#include "apue.h"
+#include <sys/resource.h>
+static void pr_limits(char *, int);
+int main(void) {
+    pr_limits("RLIMIT_CORE", RLIMIT_CORE);
+    pr_limits("RLIMIT_CPU", RLIMIT_CPU);
+    pr_limits("RLIMIT_DATA", RLIMIT_DATA);
+    pr_limits("RLIMIT_NOFILE", RLIMIT_NOFILE);
+    pr_limits("RLIMIT_STACK", RLIMIT_STACK);
+    exit(0);
+}
+static void pr_limits(char *name, int resource) {
+    struct rlimit limit;
+    if (getrlimit(resource, &limit) < 0)
+        err_sys("getrlimit error for %s", name);
+    printf("%-14s ", name);
+    limit.rlim_cur == RLIM_INFINITY ? printf("(infinite) ") : printf("%10lld ", (long long)limit.rlim_cur);
+    limit.rlim_max == RLIM_INFINITY ? printf("(infinite)\n") : printf("%10lld\n", (long long)limit.rlim_max);
+}
+```
+Sample FreeBSD output shows most limits `(infinite)` except `RLIMIT_DATA` (536,870,912 bytes soft/hard) and `RLIMIT_NPROC`/`RLIMIT_NPTS` (3,520/1,760); sample Solaris output caps `RLIMIT_NOFILE` at 256 soft / 65,536 hard and `RLIMIT_STACK` at 8,388,608 soft / infinite hard (p. 223-224).
+> [!NOTE]
+> The soft/hard split is easy to blur together. The **soft limit** is what's actually enforced right now - hit it and you get an error or a signal (`SIGXCPU`, `SIGXFSZ`). The **hard limit** is just a ceiling on how high the soft limit is allowed to go without superuser privilege. A normal process can freely move its soft limit anywhere up to its hard limit (e.g. raise `RLIMIT_NOFILE`'s soft limit toward its hard limit to open more files), but it can never push the soft limit past the hard limit, and lowering its own hard limit is a one-way door.
+### 7.12 Summary
+Understanding a process's environment - startup, termination, argument/environment passing, memory layout, dynamic allocation, `setjmp`/`longjmp`, and resource limits - is the prerequisite for Chapter 8's process-control functions (p. 225).
 ## Worked Example
-
-The resolution of a bare command like `ls` follows a defined environment lookup sequence:
-
-1. _Shell Parsing:_ When a user types `ls` into a terminal, the shell parses the string and identifies that `ls` contains no slash (`/`) characters, distinguishing it from explicit pathnames like `./ls` or `/bin/ls`.
-2. _PATH Environment Lookup:_ The shell reads its `PATH` environment variable (e.g., `PATH=/usr/local/bin:/usr/bin:/bin`), which contains a colon-separated list of directory path prefixes.
-3. _Directory Iteration:_ The shell iterates through each directory prefix in order (`/usr/local/bin`, then `/usr/bin`), checking for an executable file named `ls`. Upon searching `/usr/bin`, it locates the binary at `/usr/bin/ls` and invokes `execve("/usr/bin/ls", ...)` to execute the program.
-4. _Contrast with Shared Library Lookup Variables:_ As Lec03 emphasizes, built-in commands are regular programs resolved via `PATH`. ==In contrast, `LD_PRELOAD` and `LD_LIBRARY_PATH` are sibling lookup variables used by the dynamic linker/loader during program execution to locate shared object libraries (`.so` files)—where `LD_PRELOAD` forces the loader to interpose custom library functions before standard libraries, and `LD_LIBRARY_PATH` specifies additional search directories for linking—rather than resolving executable program names.==
-
+Resolving a bare command name like `ls` at the shell, tracing through the environment/library concepts above:
+1. *Shell Parsing:* The shell sees `ls` has no `/` in it, unlike `./ls` or `/bin/ls`.
+2. *PATH Lookup:* It reads its own `PATH` environment variable (e.g. `PATH=/usr/local/bin:/usr/bin:/bin`), a colon-separated list of directories.
+3. *Directory Iteration:* It checks each directory in order for an executable named `ls`; finding it at `/usr/bin/ls`, it calls `execve("/usr/bin/ls", ...)`.
+4. *Contrast with library lookup:* ==`LD_PRELOAD` and `LD_LIBRARY_PATH` solve a different problem for the dynamic linker at load/link time - locating shared object (`.so`) files - not locating the executable program itself, which is entirely `PATH`'s job.==
 ## Connections
-
-_Lecture Framing:_ Lec02 and Lec03 frame process environments in systems programming:
-
-- Lec02 covers the compilation and linking pipeline (C source -> Assembly -> Object -> Linked Executable), the ELF loader pipeline, process memory layout (Text, Global/Data/BSS, Heap, Stack growing toward each other), `_start()` as the true compiler entry point calling `main()`, and process metadata getters `getcwd()`, `getpid()`, `getppid()`.
-- Lec03 details shell command execution, environment variable inheritance across `fork`/`exec`, and `PATH` folder search mechanics. _Term Provenance:_
-- _From Slides (Lec02/Lec03):_ `_start()`, `LD_PRELOAD`, `LD_LIBRARY_PATH`, `PATH` search mechanics, stack/heap collision stack overflow.
-- _From APUE Book Only:_ `environ` global variable declaration (`extern char **environ;`), `setenv()`/`putenv()`/`unsetenv()` detailed memory reallocation mechanics (moving pointer array to heap on first add), `atexit()` exit handlers, `setjmp()`/`longjmp()` nonlocal branching, `getrlimit()`/`setrlimit()` resource limits, and `alloca()`. _Textbook Connections:_ (pending Chapter 8).
-
+- **Lecture (Lec02, 9/10; Lec03, 9/15):** Lec02 covers the compile/link pipeline (source -> assembly -> object -> linked executable), the ELF loader, the process memory picture (text/data/bss/heap/stack, heap and stack growing toward each other), `_start()` as the real entry point calling `main()`, and process-info getters (`getcwd`, `getpid`, `getppid`). The `PATH`/`LD_PRELOAD`/`LD_LIBRARY_PATH`/environment-inheritance material actually first appears in Lec02 (lines covering "Environment Variables" and "The PATH Environment Variable"), then gets recapped at the start of Lec03 before Lec03 moves on to low-level I/O - both lectures cite the same slides, so either citation is defensible, but Lec02 is the primary source.
+- **Lecture coverage gaps:** Sections 7.3's full eight-termination-path list, 7.4's `argv[argc] == NULL` guarantee, 7.7 (shared libraries), 7.8's alternate allocators, 7.10 (`setjmp`/`longjmp`), and 7.11 (`getrlimit`/`setrlimit`) have no slide coverage in Lec01-06 - textbook-only for this course so far, and worth flagging if a quiz question draws only from lecture.
+- **Textbook (Chapter 1):** Chapter 1 introduces `main`, processes, and `malloc`/`sbrk` at a sketch level (Sections 1.6, 1.11); this chapter is where each of those gets its full mechanism - the real startup sequence, the concrete memory-segment layout, and the complete `malloc`/`calloc`/`realloc`/`free` picture.
+- **Forward (Chapter 8):** Chapter 8's `fork`/`exec`/`waitpid` rely directly on this chapter's termination taxonomy (Section 7.3) to define what a parent actually observes when a child exits normally vs. abnormally.
 ## Open Questions
-
-- [ ] Write a test C program using `setenv()` to add new environment variables and inspect `environ` pointer memory addresses before and after addition to observe heap relocation.
-- [ ] ==Verify how `atexit()` handlers interact with `exit()` versus `_exit()` by registering exit functions and terminating via both paths.==
-- [ ] Benchmark memory allocation overhead between standard `malloc()`/`free()` and `alloca()` on large recursive function calls.
-- [ ] Trace shared library loading for binaries compiled with `-static` vs default dynamic linking using `size` and `ldd`.
-
+- [ ] Write a test program that calls `setenv()` to add a new environment variable, and print the `environ` pointer's address before and after to actually observe the heap relocation described in 7.9.
+- [ ] ==Verify experimentally how `atexit()` handlers interact with `exit()` versus `_exit()` - register a handler, then terminate via both paths and compare.==
+- [ ] Reproduce the `-O` vs. no-optimization `setjmp`/`longjmp` variable-rollback example from 7.10 on the course's own container and confirm which variables actually change.
+- [ ] Run `ulimit -a` inside the course Docker container and compare the real soft/hard limits against the book's FreeBSD/Solaris sample output.
+- [ ] Why does declaring an automatic variable `volatile` fix the register-rollback problem in 7.10, but not the separate stack-lifetime bug in Figure 7.14?
 ## Flashcards
-
-What is the execution mechanism of the program entry point `_start()` before `main()` runs?::`_start()` is the compiler-provided entry point invoked by the ELF loader that extracts command-line arguments and environment pointers from the kernel, sets up stack and heap memory, calls `main(argc, argv)`, and passes `main`'s return status to `exit()`. #cards/ai How do `exit()` and `_exit()` differ in their execution mechanisms during process termination?::`exit()` performs standard I/O library buffer flushing (`fclose` on open streams) and executes registered `atexit()` handlers in reverse order before returning to the kernel, whereas `_exit()` immediately triggers the kernel system call to terminate the process without cleanup. #cards/ai ==What structural memory reallocation occurs when `setenv()` adds a new environment variable to a process for the first time?==::==Because initial environment arrays reside above the stack where space cannot expand, `setenv()` calls `malloc()` to allocate a new pointer array on the heap, copies the existing pointer list and new `name=value` string pointer into it, and updates global `environ` to point to the heap array.== #cards/ai How does the system resolve a bare command name like `ls` to an executable file location?::The shell or `execlp()` reads the `PATH` environment variable, splits it by colons into ordered directory prefixes, and sequentially searches each directory for an executable matching the command name until found. #cards/ai What happens inside `realloc()` when there is insufficient adjacent memory beyond an allocated block?::`realloc()` allocates a completely new memory region elsewhere on the heap, copies the existing data from the old block to the new region, frees the old block, and returns a pointer to the new address. #cards/ai How do `LD_PRELOAD` and `LD_LIBRARY_PATH` affect dynamic linking compared to `PATH`?::While `PATH` directs the OS where to search for executable binaries, `LD_PRELOAD` forces the dynamic linker to interpose custom shared library functions before standard libraries, and `LD_LIBRARY_PATH` specifies additional directory search paths for loading shared object libraries (`.so`). #cards/ai
-## Examples Worth Keeping
-<!-- Keep concrete examples, numbers, cases, or worked reasoning that makes the mechanism memorable. -->
-- 
-## Connections
-<!-- Link the matching lecture/week, course map, and only concept notes that actually exist or were created. -->
-- Lecture:
-- Concept:
-## Flashcards
-<!-- Add 3–8 atomic cards testing mechanisms and contrasts to #cards/<course-slug>. -->
+What is the real entry point of a C program, and what does it do before calling `main()`?::`_start()`, provided by the compiler/runtime, not `main()` itself. It takes `argc`/`argv` and the environment from the kernel, sets up the stack and heap, then calls `main()`, and passes `main`'s return value to `exit()` when it returns. #cards/csci4061
+How do `exit()` and `_exit()` differ in what they do before the process actually terminates?::`exit()` flushes standard I/O buffers (`fclose` on every open stream) and runs registered `atexit()` handlers in reverse order; `_exit()`/`_Exit()` return to the kernel immediately, skipping all of that. #cards/csci4061
+Why can `echo $?` print a different exit code for the exact same "hello, world" `main()` depending on the compiler standard used?::Before C99, falling off the end of `main` with no explicit `return` left the exit status genuinely undefined (whatever was in a register/stack slot); C99 specifically defines that case to be 0, so `-std=c99` changes the observed exit code from garbage to 0. #cards/csci4061
+What structural memory reallocation happens the first time `setenv()` adds a brand-new environment variable to a process?::The initial environment array sits just above the stack with no room to grow, so `setenv()` mallocs a whole new pointer array on the heap, copies the old pointers into it, appends the new pointer and a `NULL` sentinel, and repoints the global `environ` at that heap array. #cards/csci4061
+After a `longjmp`, why can an automatic variable's value differ between an unoptimized build and one compiled with `-O`?::The standard leaves automatic/register variable values after `longjmp` indeterminate. Without optimization, everything is stored in memory and reflects its state at `longjmp` time; with optimization, a variable the compiler moved into a register gets restored to its value at `setjmp` time instead - `volatile` is the fix, forcing memory storage. #cards/csci4061
+Why does returning a `FILE *` from a function that called `setvbuf(fp, databuf, ...)` on a local `char databuf[BUFSIZ]` corrupt output later?::`databuf` lives on that function's stack frame, which is reclaimed the instant the function returns; stdio keeps writing through a pointer into memory that the next function call's stack frame now owns. Fix: make the buffer `static`/`extern` or heap-allocated. #cards/csci4061
+What's the actual difference between a resource's soft limit and its hard limit?::The soft limit is what's enforced right now (exceeding it triggers an error or a signal like `SIGXCPU`); the hard limit is the ceiling the soft limit can be raised to. A normal process can move its soft limit anywhere up to the hard limit, but only a superuser process can raise the hard limit itself. #cards/csci4061
+How do `LD_PRELOAD`/`LD_LIBRARY_PATH` differ from `PATH` in what they help resolve?::`PATH` tells the shell where to find an executable *program* by bare name. `LD_PRELOAD`/`LD_LIBRARY_PATH` tell the dynamic linker/loader where to find *shared libraries* (`.so` files) a program depends on - a different search happening at a different stage (load/link time vs. shell command lookup). #cards/csci4061

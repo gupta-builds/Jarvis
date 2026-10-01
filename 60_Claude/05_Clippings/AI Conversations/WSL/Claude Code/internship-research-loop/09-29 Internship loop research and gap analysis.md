@@ -7,7 +7,7 @@ title: "Internship loop research and gap analysis"
 started_at: 2026-09-29T01:47:52
 ended_at: 2026-09-29T02:08:40
 duration_minutes: 21
-exported_at: 2026-10-01T10:15:02
+exported_at: 2026-10-01T12:15:02
 project: internship-research-loop
 cwd: '/home/anant_gupta/projects/work/internship-research-loop'
 session_id: d9e1002f-bcde-4ac4-ac31-6516312edb23

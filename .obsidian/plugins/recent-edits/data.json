@@ -439,7 +439,11 @@
     "20_Progress/Degree/_Courses/Technical Interview/Preparation & Sources.md": "external",
     "30_Order/Workflows/Courses/Per Class/Technical Interview Workflow.md": "external",
     "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-29 Internship loop research and gap analysis.sync-conflict-20260930-201814-2D4OE4D.md": "external",
-    "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.sync-conflict-20260929-172611-2D4OE4D.md": "external"
+    "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.sync-conflict-20260929-172611-2D4OE4D.md": "external",
+    "20_Progress/Degree/CSCI 4061/Concepts/Concepts Board.md": "obsidian",
+    "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Board.md": "obsidian",
+    "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Assignment.md": "obsidian",
+    "Pasted image 20261001130051.png": "external"
   },
   "_editTimes": {
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Home/00 - Session Index.md": 1790652603160,
@@ -453,7 +457,7 @@
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Session Index.md": 1790652603170,
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Tool Usage Rollup.md": 1790652603171,
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": 1790451185419,
-    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 1790875981910,
+    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 1790876881900,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-18 Jarvis sync process setup.md": 1790450285627,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-20 Jarvis vault plugins documentation batch 3.md": 1790822888670,
     "60_Claude/07_AI_Information/Session Logs/log.md": 1790738284504,
@@ -870,7 +874,11 @@
     "20_Progress/Degree/_Courses/Technical Interview/Preparation & Sources.md": 1790739184577,
     "30_Order/Workflows/Courses/Per Class/Technical Interview Workflow.md": 1790739184596,
     "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-29 Internship loop research and gap analysis.sync-conflict-20260930-201814-2D4OE4D.md": 1790822888648,
-    "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.sync-conflict-20260929-172611-2D4OE4D.md": 1790719909052
+    "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.sync-conflict-20260929-172611-2D4OE4D.md": 1790719909052,
+    "20_Progress/Degree/CSCI 4061/Concepts/Concepts Board.md": 1790877557823,
+    "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Board.md": 1790877543612,
+    "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Assignment.md": 1790877653990,
+    "Pasted image 20261001130051.png": 1790877651959
   },
   "_dismissedAt": {},
   "_editSizes": {
@@ -885,7 +893,7 @@
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Session Index.md": 381,
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Tool Usage Rollup.md": 980,
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": 26552,
-    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 663398,
+    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 664244,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-18 Jarvis sync process setup.md": 1062400,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-20 Jarvis vault plugins documentation batch 3.md": 365354,
     "60_Claude/07_AI_Information/Session Logs/log.md": 228529,
@@ -1302,7 +1310,11 @@
     "20_Progress/Degree/_Courses/Technical Interview/Preparation & Sources.md": 7106,
     "30_Order/Workflows/Courses/Per Class/Technical Interview Workflow.md": 8012,
     "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-29 Internship loop research and gap analysis.sync-conflict-20260930-201814-2D4OE4D.md": 201976,
-    "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.sync-conflict-20260929-172611-2D4OE4D.md": 17026
+    "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.sync-conflict-20260929-172611-2D4OE4D.md": 17026,
+    "20_Progress/Degree/CSCI 4061/Concepts/Concepts Board.md": 1392,
+    "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Board.md": 1395,
+    "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Assignment.md": 30112,
+    "Pasted image 20261001130051.png": 352383
   },
   "_sizeDeltas": {
     "10_Areas/Career/Internships/List/Dossiers/_Today/Manual Internship Listings.md": "up",

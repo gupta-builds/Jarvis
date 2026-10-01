@@ -1,14 +1,14 @@
 ---
 type: class
-status: archived
+status: sprout
 created: 2025-09-27
 updated: 2025-10-03
 area:
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 2021/Week - 2]]"
   - "[[C Language]]"
+  - "[[Week - 2]]"
 tags:
   - "#class"
-next: "[[50_Archive/Previous Classes/CSCI/CSCI 2021/Week - 2]]"
+next: "[[Week - 2]]"
 ---
 When you pass **any array** (static or dynamic) to a function, what actually gets passed is **just the base address** (pointer to element 0). The function gets a copy of the base address → `arr` points to the same heap block.
 ```

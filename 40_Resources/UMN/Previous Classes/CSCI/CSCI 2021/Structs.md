@@ -1,15 +1,17 @@
 ---
 type: class
-status: archived
+status: tree
 created: 2025-10-26
 updated: 2025-10-11
 area:
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 2021/Week - 3|Week - 3]]"
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 2021/Week - 11|Week - 11]]"
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 2021/Midterm - 1|Midterm - 1]]"
+  - "[[CSCI 2021 Board]]"
+  - "[[C Language]]"
+  - "[[Week - 3]]"
+  - "[[Week - 11]]"
+  - "[[Midterm - 1]]"
 tags:
   - "#class"
-next: "[[50_Archive/Previous Classes/CSCI/CSCI 2021/Week - 3|Week - 3]]"
+next: "No action needed — stable reference"
 ---
 # Defining a Struct type
 A struct type definition should appear _outside of any function_, typically near the top of the program’s `.c` file. The syntax (`struct` is a reserved keyword):

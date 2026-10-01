@@ -1,17 +1,18 @@
 ---
 type: class
-status: archived
+status: tree
 created: 2025-10-29
 updated: 2025-11-06
 area:
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 2021/Week - 1]]"
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 2021/Week - 2]]"
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 2021/Week - 3|Week - 3]]"
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 2021/Week - 4|Week - 4]]"
+  - "[[CSCI 2021 Board]]"
+  - "[[Week - 1]]"
+  - "[[Week - 2]]"
+  - "[[Week - 3]]"
+  - "[[Week - 4]]"
 tags:
   - "#class"
   - "#evergreen"
-next: "[[C Language]]"
+next: "No action needed — stable reference"
 ---
 ### Control Flow
 Data sizes, registers, instruction suffixes

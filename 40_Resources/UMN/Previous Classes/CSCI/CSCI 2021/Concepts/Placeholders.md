@@ -1,14 +1,14 @@
 ---
 type: class
-status: archived
+status: sprout
 created: 2025-10-17
 updated: 2025-10-18
 area:
   - "[[C Language]]"
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 2021/Midterm - 1|Midterm - 1]]"
+  - "[[Midterm - 1]]"
 tags:
   - "#class"
-next: "[[50_Archive/Previous Classes/CSCI/CSCI 2021/Week - 3|Week - 3]]"
+next: "No action needed — stable reference"
 ---
 ```c
 %f, %g: placeholders for a float or double value

@@ -1,14 +1,14 @@
 ---
 type: class
-status: archived
+status: tree
 created: 2025-09-19
 updated: 2025-09-20
 area:
   - "[[C Language]]"
-  - "[[50_Archive/Previous Classes/CSCI/CSCI 2021/Week - 2]]"
+  - "[[Week - 2]]"
 tags:
   - "#class"
-next: "[[50_Archive/Previous Classes/CSCI/CSCI 2021/Week - 2]]"
+next: "No action needed — stable reference"
 ---
 ```c
 #define COLS  (100)

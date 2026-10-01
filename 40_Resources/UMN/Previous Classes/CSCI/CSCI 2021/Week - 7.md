@@ -1,10 +1,10 @@
 ---
 type: class
-status: archived
+status: tree
 created: 2025-11-07
 updated: 2025-11-08
 area:
-  - "[[C Language]]"
+  - "[[CSCI 2021 Board]]"
 tags:
   - "#class"
   - "#Textbook"
@@ -12,7 +12,7 @@ tags:
   - "#Lecture"
   - "#Lab"
   - "#Homework"
-next: "[[50_Archive/Previous Classes/CSCI/CSCI 2021/Week - 8|Week - 8]]"
+next: "[[Week - 8]]"
 ---
 # #Textbook Textbook (CSAPP - 3.6 to 3.11)
 ## #CSAPP CSAPP
@@ -270,7 +270,7 @@ Writing too much → overwrite return address → CPU `ret` jumps to attacker-su
 
 # #Lab Lab - 6
 Assembly.
-[[50_Archive/Previous Classes/CSCI/CSCI 2021/Week - 6#Lab Lab - 5|Assembly Basics]]
+[[Week - 6#Lab Lab - 5|Assembly Basics]]
 
 ---
 

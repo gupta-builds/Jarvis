@@ -962,6 +962,13 @@
         "type": "FILES",
         "pattern": "20_Progress/Degree/Repetitive Things.md",
         "patternType": "STRICT"
+      },
+      {
+        "name": "",
+        "active": true,
+        "type": "FILES",
+        "pattern": "20_Progress/Degree/CSCI 4061/Concepts/C Refresher/C Language.md",
+        "patternType": "STRICT"
       }
     ],
     "frontMatter": [

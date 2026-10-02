@@ -10,6 +10,7 @@
 .trash
 .obsidian/workspaces.json
 .obsidian/plugins/copilot/data.json
+.obsidian/plugins/copilot/data-*backup*.json
 .obsidian/plugins/quickadd/data.json
 .obsidian/plugins/obsidian-local-rest-api/data.json
 .obsidian/plugins/lean-terminal/data.json
@@ -36,6 +37,40 @@
 30_Order/System/excalidraw-mcp/node_modules
 30_Order/System/cursor-workflow/scripts/__pycache__
 30_Order/System/jarvis-memory/__pycache__
+
+// Windows junction aliases. The canonical skill content lives under copilot/skills
+// and is synced there. These aliases cannot be materialized consistently by
+// Syncthing on Windows, so syncing them creates directory/type errors.
+/.claude/skills/copilot-fetch-x
+/.claude/skills/copilot-read-pdf
+/.claude/skills/copilot-web-fetch
+/.claude/skills/copilot-web-search
+/.claude/skills/copilot-youtube-transcript
+/.claude/skills/json-canvas
+/.claude/skills/obsidian-bases
+/.claude/skills/obsidian-cli
+/.claude/skills/obsidian-markdown
+/.claude/skills/openartifacts-publish
+/.opencode/skills/copilot-fetch-x
+/.opencode/skills/copilot-read-pdf
+/.opencode/skills/copilot-web-fetch
+/.opencode/skills/copilot-web-search
+/.opencode/skills/copilot-youtube-transcript
+/.opencode/skills/json-canvas
+/.opencode/skills/obsidian-bases
+/.opencode/skills/obsidian-cli
+/.opencode/skills/obsidian-markdown
+/.opencode/skills/openartifacts-publish
+
+// Proven machine-local state that caused recurring cross-device conflicts.
+.obsidian/plugins/recent-edits/data.json
+.obsidian/plugins/file-explorer-plus/data.json
+20_Progress/AI/Claude Code/_All-Projects-Sync-Log.md
+20_Progress/AI/Claude Code/**/Sync-Log.md
+30_Order/System/claude-workflow/logs/capture-health-*.json
+30_Order/System/cursor-workflow/cursor-export-state.json
+30_Order/System/cursor-workflow/logs/*.log
+60_Claude/05_Clippings/AI Conversations/00 - Capture Health.md
 
 
 // Platform-incompatibility exclusion (not secrets/churn/bloat) - Build 6, 2026-09-19:

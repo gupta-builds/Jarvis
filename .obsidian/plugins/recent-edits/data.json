@@ -717,7 +717,8 @@
     "30_Order/System/cursor-workflow/logs/sweep-2026-09-27.log": "external",
     "30_Order/System/cursor-workflow/logs/sweep-2026-09-28.log": "external",
     "30_Order/System/cursor-workflow/logs/sweep-2026-09-29.log": "external",
-    "30_Order/System/cursor-workflow/logs/sweep-2026-09-30.log": "external"
+    "30_Order/System/cursor-workflow/logs/sweep-2026-09-30.log": "external",
+    "20_Progress/Degree/ENGL 1004/Asssignments/Board Role.md": "obsidian"
   },
   "_editTimes": {
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Home/00 - Session Index.md": 1790917402485,
@@ -839,7 +840,7 @@
     "20_Progress/Degree/MGMT 3015/Textbook/Chapter - 1 & 2.md": 1790451185369,
     "20_Progress/Degree/MGMT 3015/Textbook/Chapter - 3 & 4.md": 1790659084676,
     "20_Progress/Degree/CSCI 5304/CSCI 5304 Board.md": 1790621738774,
-    "20_Progress/Degree/ENGL 1004/ENGL 1004 Board.md": 1790651883137,
+    "20_Progress/Degree/ENGL 1004/ENGL 1004 Board.md": 1790961174520,
     "20_Progress/Degree/CSCI 4521/CSCI 4521 Board.md": 1790569084198,
     "20_Progress/Degree/MGMT 3015/MGMT 3015 Board.md": 1790452085400,
     "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.md": 1790913786272,
@@ -1403,7 +1404,7 @@
     "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 10.md": 1790734120671,
     "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 1 & 2.md": 1790734105187,
     "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3.sync-conflict-20260929-172611-2D4OE4D.md": 1790913786270,
-    "20_Progress/Degree/ENGL 1004/Asssignments/Journal Entry - 3.md": 1790959685311,
+    "20_Progress/Degree/ENGL 1004/Asssignments/Journal Entry - 3.md": 1790960586223,
     "30_Order/System/claude-workflow/logs/capture-health-wsl.json": 1790917402413,
     "30_Order/System/claude-workflow/logs/capture-health-windows.json": 1790917402413,
     "30_Order/System/cursor-workflow/logs/sweep-2026-09-08.log": 1790917402416,
@@ -1426,7 +1427,8 @@
     "30_Order/System/cursor-workflow/logs/sweep-2026-09-27.log": 1790917402432,
     "30_Order/System/cursor-workflow/logs/sweep-2026-09-28.log": 1790917402433,
     "30_Order/System/cursor-workflow/logs/sweep-2026-09-29.log": 1790917402434,
-    "30_Order/System/cursor-workflow/logs/sweep-2026-09-30.log": 1790917402436
+    "30_Order/System/cursor-workflow/logs/sweep-2026-09-30.log": 1790917402436,
+    "20_Progress/Degree/ENGL 1004/Asssignments/Board Role.md": 1790960628720
   },
   "_dismissedAt": {},
   "_editSizes": {
@@ -1549,7 +1551,7 @@
     "20_Progress/Degree/MGMT 3015/Textbook/Chapter - 1 & 2.md": 47617,
     "20_Progress/Degree/MGMT 3015/Textbook/Chapter - 3 & 4.md": 31930,
     "20_Progress/Degree/CSCI 5304/CSCI 5304 Board.md": 17593,
-    "20_Progress/Degree/ENGL 1004/ENGL 1004 Board.md": 10629,
+    "20_Progress/Degree/ENGL 1004/ENGL 1004 Board.md": 10664,
     "20_Progress/Degree/CSCI 4521/CSCI 4521 Board.md": 15434,
     "20_Progress/Degree/MGMT 3015/MGMT 3015 Board.md": 13555,
     "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.md": 1684,
@@ -2136,7 +2138,8 @@
     "30_Order/System/cursor-workflow/logs/sweep-2026-09-27.log": 62817,
     "30_Order/System/cursor-workflow/logs/sweep-2026-09-28.log": 48252,
     "30_Order/System/cursor-workflow/logs/sweep-2026-09-29.log": 70926,
-    "30_Order/System/cursor-workflow/logs/sweep-2026-09-30.log": 79251
+    "30_Order/System/cursor-workflow/logs/sweep-2026-09-30.log": 79251,
+    "20_Progress/Degree/ENGL 1004/Asssignments/Board Role.md": 700
   },
   "_sizeDeltas": {
     "10_Areas/Career/Internships/List/Dossiers/_Today/Manual Internship Listings.md": "up",

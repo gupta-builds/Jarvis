@@ -62,10 +62,10 @@ The simulation block (10/8, 10/13, 10/20) has no separate reading beyond plannin
 | Date | Class | Reading/Assignment Due |
 |---|---|---|
 | 9/8 | Introduction | — |
-| 9/10 | Book-banning case law (*US v. One Book Called "Ulysses"*), MN law; in-class: FL/IA/TX laws and book lists | — |
+| 9/10 | Book-banning case law (*US v. One Book Called "Ulysses"*), MN law; in-class: other laws including Florida laws, Texas law and book list | — |
 | 9/15 | State laws | *Huckleberry Finn* ch. 1–6; Journal 1 |
-| 9/17 | *The Camp of the Saints* ch. 1–3, 6, 11 [Canvas]; state laws | — |
-| 9/22 | *The Camp of the Saints* ch. 13, 19; *Island Trees School District v. Pico* (in class) | Journal 2 |
+| 9/17 | *The Camp of the Saints* ch. 1–2 [Canvas]; state laws | — |
+| 9/22 | *The Camp of the Saints* ch. 5–6, 14 [Canvas]; *Island Trees School District v. Pico* (in class) | Journal 2 |
 | 9/24 | *Island Trees v. Pico* continued | Read *Melissa*; Journal 3 |
 | 9/29 | In-class role planning for simulation | Read *The Bluest Eye* |
 | 10/1 | *The Bluest Eye*, *And Tango Makes Three*, simulation planning | Revised role sketch due at class start |
@@ -94,3 +94,5 @@ The simulation block (10/8, 10/13, 10/20) has no separate reading beyond plannin
 Standard University policies apply (Student Conduct Code, disability accommodations via the DRC, Title IX/sexual misconduct reporting, mental health resources, academic freedom) - not reproduced here in full. Course-specific additions worth flagging: a **class masking request** if feeling under the weather (not mandatory, requested); the course is scheduled in-person but may shift to Zoom/recorded for extreme weather, instructor illness, or a significant number of ill students; no class recordings will be made "at the request of individual students." Full A-F grade scale: A 4.000 · A- 3.667 · B+ 3.333 · B 3.000 · B- 2.667 · C+ 2.333 · C 2.000 · C- 1.667 · D+ 1.333 · D 1.000 · S equivalent to C- or better.
 ## Verification Notes
 Full syllabus read from the source PDF, 2026-09-09 - every section above (schedule, grading, journal/role/simulation mechanics, attendance, electronics, AI policy, and standard policies) is captured directly from that document, not inferred. Not verified: whether this Fall'26 section's actual dates might shift from what's printed (no anomaly found on a quick pass, unlike some other Fall'26 syllabi this session), and whether office hours or the exact simulation role list have changed since the PDF was generated.
+> [!WARNING] Camp of the Saints chapters corrected 2026-10-02
+> The syllabus PDF's chapter numbers for 9/17 and 9/22 were wrong - corrected against the actual Canvas Week 2/Week 3 pages, pasted directly by the user on 2026-10-02: 9/17 assigns ch. 1–2, 9/22 assigns ch. 5–6, 14 (not 1–3,6,11 and 13,19 as the syllabus PDF had it). The synced `from The Camp of the Saints.pdf` happens to contain ch. I–III, V–VII, XIV–XV - a superset that covers both corrected assignments plus extra chapters (III, VII, XV) nobody was assigned. See [[20_Progress/Degree/ENGL 1004/Readings/Readings Log|Readings Log]] for the page-level breakdown. Treat Canvas's own week pages as the authoritative schedule over this syllabus PDF going forward where the two disagree.

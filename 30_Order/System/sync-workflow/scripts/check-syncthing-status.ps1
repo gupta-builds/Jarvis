@@ -5,6 +5,18 @@
 #
 # Usage: .\check-syncthing-status.ps1 [-FolderId jarvis] [-SyncthingUrl http://127.0.0.1:8384]
 # Exit code: 0 = fully synced (or no remote devices to check yet), 1 = not synced / error.
+#
+# Build 9 (2026-10-02): this script used to exit 1 and rely on whoever happened to
+# check Task Scheduler's LastTaskResult noticing. Build 8 found that guard silently
+# stale for a week; Build 9 found it correctly running and correctly exiting 1 for
+# three straight days (29-09 onward, 4 live conflict files) with nobody noticing —
+# a Task Scheduler exit code is not a warning if nothing surfaces it. This version
+# always reaches the alerting section at the bottom (no early `exit 1` before the
+# problem list is built), writes a self-clearing banner into 00_Dashboard.md (the
+# file this vault's own daily cadence already opens via /startday), and fires a
+# best-effort Windows toast so the warning reaches the user even without opening
+# Obsidian. Both are rate-limited via a small local state file so an unresolved
+# problem reminds hourly instead of spamming every 5-minute tick.
 
 param(
     [string]$FolderId = "jarvis",
@@ -12,20 +24,138 @@ param(
     [string]$ConfigPath = "$env:LOCALAPPDATA\Syncthing\config.xml"
 )
 
+$StateFile = Join-Path $PSScriptRoot ".sync-alert-state.json"
+$exitCode = 0
+$problems = [System.Collections.Generic.List[string]]::new()
+$folderPath = $null
+
+function Get-SyncAlertState {
+    param([string]$Path)
+    if (Test-Path $Path) {
+        try {
+            $raw = Get-Content -LiteralPath $Path -Raw | ConvertFrom-Json
+            return [pscustomobject]@{ consecutiveFailures = [int]$raw.consecutiveFailures }
+        } catch { }
+    }
+    return [pscustomobject]@{ consecutiveFailures = 0 }
+}
+
+function Save-SyncAlertState {
+    param([string]$Path, $State)
+    try { $State | ConvertTo-Json | Set-Content -LiteralPath $Path -Encoding utf8 } catch { }
+}
+
+function Send-SyncAlertToast {
+    # Best-effort only: a failed toast must never change this script's exit code
+    # or block the health check it exists to report on.
+    param([string]$Title, [string]$Message)
+    try {
+        [Windows.UI.Notifications.ToastNotificationManager, Windows.UI.Notifications, ContentType = WindowsRuntime] | Out-Null
+        [Windows.Data.Xml.Dom.XmlDocument, Windows.Data.Xml.Dom.XmlDocument, ContentType = WindowsRuntime] | Out-Null
+        $template = [Windows.UI.Notifications.ToastNotificationManager]::GetTemplateContent([Windows.UI.Notifications.ToastTemplateType]::ToastText02)
+        $textNodes = $template.GetElementsByTagName("text")
+        $textNodes.Item(0).AppendChild($template.CreateTextNode($Title)) | Out-Null
+        $textNodes.Item(1).AppendChild($template.CreateTextNode($Message)) | Out-Null
+        $toast = [Windows.UI.Notifications.ToastNotification]::new($template)
+        [Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier("Windows PowerShell").Show($toast)
+    } catch {
+        Write-Error "Toast notification failed, non-fatal ($_)."
+    }
+}
+
+#  Windows PowerShell 5.1's Get-Content/Set-Content, even with -Encoding utf8,
+#  mis-decodes a BOM-less UTF-8 file (falls back to the system codepage) and
+#  writes a BOM back out, corrupting every em dash/middot/smart-quote in the
+#  file (caught live testing this script: "Jarvis OS - North Star" became
+#  mojibake). Reading and writing through .NET's UTF8Encoding($false)
+#  directly bypasses both cmdlets' encoding guessing.
+$Utf8NoBom = New-Object System.Text.UTF8Encoding($false)
+function Read-Utf8NoBom { param([string]$Path) [System.IO.File]::ReadAllText($Path, $Utf8NoBom) }
+function Write-Utf8NoBom { param([string]$Path, [string]$Content) [System.IO.File]::WriteAllText($Path, $Content, $Utf8NoBom) }
+
+function Set-DashboardSyncBanner {
+    # Idempotent: replaces its own prior block if present, so repeated 5-minute
+    # runs never accumulate duplicate banners.
+    param([string]$DashboardPath, [string[]]$Problems)
+    if (-not $DashboardPath -or -not (Test-Path -LiteralPath $DashboardPath)) { return }
+    $beginMarker = "<!-- SYNC-ALERT:BEGIN -->"
+    $endMarker = "<!-- SYNC-ALERT:END -->"
+    $timestamp = Get-Date -Format 'yyyy-MM-dd HH:mm'
+    $problemLines = ($Problems | ForEach-Object { "> - $_" }) -join "`n"
+    $banner = "$beginMarker`n> [!danger] SYNC ALERT - content integrity at risk (detected $timestamp)`n> ``Jarvis-Syncthing-Health`` found a real problem. Do not assume notes are current until this clears on its own.`n$problemLines`n> Run ``check-syncthing-status.ps1`` for detail, or see [[Cross-Laptop Sync - Known Failure Modes and Prevention]].`n$endMarker`n`n"
+    $content = Read-Utf8NoBom -Path $DashboardPath
+    $blockPattern = "(?s)" + [regex]::Escape($beginMarker) + ".*?" + [regex]::Escape($endMarker) + "\r?\n\r?\n?"
+    if ($content -match $blockPattern) {
+        # A MatchEvaluator (not a replacement string) sidesteps $-substitution
+        # rules in Regex.Replace, since $banner itself may contain literal '$'.
+        $content = [regex]::Replace($content, $blockPattern, { param($m) $banner })
+    } else {
+        # No extra blank line before $banner here: $banner's own leading
+        # marker needs none, and Clear-DashboardSyncBanner's removal pattern
+        # only eats what comes from BEGIN onward, so any line added outside
+        # that range would survive a clear and accumulate as drift.
+        $content = [regex]::Replace($content, "(?s)^(---.*?---\r?\n)", { param($m) $m.Groups[1].Value + $banner })
+    }
+    Write-Utf8NoBom -Path $DashboardPath -Content $content
+}
+
+function Clear-DashboardSyncBanner {
+    param([string]$DashboardPath)
+    if (-not $DashboardPath -or -not (Test-Path -LiteralPath $DashboardPath)) { return }
+    $beginMarker = "<!-- SYNC-ALERT:BEGIN -->"
+    $endMarker = "<!-- SYNC-ALERT:END -->"
+    $content = Read-Utf8NoBom -Path $DashboardPath
+    $blockPattern = "(?s)" + [regex]::Escape($beginMarker) + ".*?" + [regex]::Escape($endMarker) + "\r?\n\r?\n?"
+    if ($content -match $blockPattern) {
+        $content = [regex]::Replace($content, $blockPattern, "")
+        Write-Utf8NoBom -Path $DashboardPath -Content $content
+    }
+}
+
+function Complete-HealthCheck {
+    param([int]$ExitCode, [string[]]$Problems, [string]$DashboardPath)
+    $state = Get-SyncAlertState -Path $StateFile
+    if ($ExitCode -ne 0) {
+        $state.consecutiveFailures = [int]$state.consecutiveFailures + 1
+        Set-DashboardSyncBanner -DashboardPath $DashboardPath -Problems $Problems
+        # Toast on first detection, then hourly (every 12th five-minute tick) while
+        # still broken — enough to stay noticeable without training the user to
+        # dismiss/ignore a toast every 5 minutes.
+        if ($state.consecutiveFailures -eq 1 -or ($state.consecutiveFailures % 12 -eq 0)) {
+            $msg = ($Problems | Select-Object -First 3) -join "`n"
+            Send-SyncAlertToast -Title "Jarvis sync problem detected" -Message $msg
+        }
+    } else {
+        if ([int]$state.consecutiveFailures -gt 0) {
+            Send-SyncAlertToast -Title "Jarvis sync recovered" -Message "Healthy again after $($state.consecutiveFailures) failed check(s)."
+        }
+        $state.consecutiveFailures = 0
+        Clear-DashboardSyncBanner -DashboardPath $DashboardPath
+    }
+    Save-SyncAlertState -Path $StateFile -State $state
+    Write-Output "`nOverall: $(if ($ExitCode -eq 0) { 'IN SYNC' } else { 'NOT IN SYNC' })"
+    exit $ExitCode
+}
+
 if (-not (Test-Path $ConfigPath)) {
     Write-Error "Syncthing config not found at $ConfigPath"
-    exit 1
+    # No config means no known vault path either - nothing to write a banner to.
+    Complete-HealthCheck -ExitCode 1 -Problems @("Syncthing config not found at $ConfigPath") -DashboardPath $null
 }
 
 [xml]$cfg = Get-Content $ConfigPath
 $apiKey = $cfg.configuration.gui.apikey
 if (-not $apiKey) {
     Write-Error "No apikey found in $ConfigPath"
-    exit 1
+    Complete-HealthCheck -ExitCode 1 -Problems @("No Syncthing apikey found in $ConfigPath") -DashboardPath $null
 }
 $headers = @{ "X-API-Key" = $apiKey }
 
-$exitCode = 0
+# Resolved from config directly (not from a live API call) so the dashboard path
+# is known even if the API below is unreachable - that case needs alerting too.
+$folderCfg = $cfg.configuration.folder | Where-Object { $_.id -eq $FolderId } | Select-Object -First 1
+$folderPath = $folderCfg.path
+$dashboardPath = if ($folderPath) { Join-Path $folderPath "00_Dashboard.md" } else { $null }
 
 # The GUI/API listener is the authoritative local process. Syncthing normally
 # uses a monitor process plus a child process, so process count alone is not a
@@ -50,34 +180,39 @@ try {
     if ($listeners.Count -ne 1) {
         Write-Error "Expected exactly one Syncthing GUI listener on port 8384; found $($listeners.Count)."
         $exitCode = 1
+        $problems.Add("Expected exactly one Syncthing GUI listener on port 8384; found $($listeners.Count).")
     } else {
         $listenerPid = $listeners[0].OwningProcess
         $matchingProcess = @(Get-Process -Id $listenerPid -ErrorAction SilentlyContinue)
         if ($matchingProcess.Count -ne 1 -or $matchingProcess[0].ProcessName -ne 'syncthing') {
             Write-Error "Port 8384 is not owned by exactly one Syncthing process."
             $exitCode = 1
+            $problems.Add("Port 8384 is not owned by exactly one Syncthing process.")
         }
     }
 } catch {
     Write-Error "Could not verify the Syncthing process/listener: $_"
     $exitCode = 1
+    $problems.Add("Could not verify the Syncthing process/listener.")
 }
 
 try {
     $myStatus = Invoke-RestMethod -Uri "$SyncthingUrl/rest/system/status" -Headers $headers -Method Get
+    $myId = $myStatus.myID
+    Write-Output "Local device ID: $myId"
 } catch {
     Write-Error "Could not reach Syncthing REST API at $SyncthingUrl : $_"
-    exit 1
+    $problems.Add("Syncthing REST API unreachable at $SyncthingUrl - Syncthing may not be running.")
+    Complete-HealthCheck -ExitCode 1 -Problems $problems -DashboardPath $dashboardPath
 }
-$myId = $myStatus.myID
-Write-Output "Local device ID: $myId"
 
 # Folder-level state on this machine.
 try {
     $folderStatus = Invoke-RestMethod -Uri "$SyncthingUrl/rest/db/status?folder=$FolderId" -Headers $headers -Method Get
 } catch {
     Write-Error "db/status failed for folder '$FolderId': $_"
-    exit 1
+    $problems.Add("db/status failed for folder '$FolderId' - Syncthing may not be running or the folder is misconfigured.")
+    Complete-HealthCheck -ExitCode 1 -Problems $problems -DashboardPath $dashboardPath
 }
 Write-Output "`nFolder '$FolderId' local state:"
 Write-Output "  state       : $($folderStatus.state)"
@@ -90,17 +225,16 @@ Write-Output "  errors      : $($folderStatus.errors)"
 if ($folderStatus.needFiles -gt 0 -or $folderStatus.needBytes -gt 0 -or $folderStatus.errors -gt 0) {
     Write-Output "  -> NOT fully synced locally."
     $exitCode = 1
+    $problems.Add("Folder not fully synced locally: needFiles=$($folderStatus.needFiles), needBytes=$($folderStatus.needBytes), errors=$($folderStatus.errors).")
 }
 
-# The database can briefly look complete while Syncthing has preserved a
-# conflict copy or left a transfer temp file on disk. Those are user-visible
-# integrity failures, so the guard checks the folder itself as well.
-$folderCfg = $cfg.configuration.folder | Where-Object { $_.id -eq $FolderId } | Select-Object -First 1
-$folderPath = $folderCfg.path
 if (-not $folderPath) {
     Write-Error "Folder '$FolderId' has no configured path."
-    exit 1
+    $exitCode = 1
+    $problems.Add("Folder '$FolderId' has no configured path in Syncthing's config.")
+    Complete-HealthCheck -ExitCode $exitCode -Problems $problems -DashboardPath $dashboardPath
 }
+
 # .stversions is Staggered File Versioning's own archive - it deliberately
 # keeps old sync-conflict copies as version history, not a live problem. A
 # recursive scan without this exclusion permanently flags every versioned
@@ -111,11 +245,13 @@ if ($conflictFiles.Count -gt 0) {
     Write-Error "Found $($conflictFiles.Count) Syncthing conflict copy/copies."
     $conflictFiles | Select-Object -First 20 -ExpandProperty FullName | ForEach-Object { Write-Error "  $_" }
     $exitCode = 1
+    $problems.Add("$($conflictFiles.Count) live .sync-conflict-* file(s) on disk - read each against its canonical counterpart before touching, never bulk-discard (see Known Failure Mode 6).")
 }
 if ($tempFiles.Count -gt 0) {
     Write-Error "Found $($tempFiles.Count) Syncthing transfer temp file(s)."
     $tempFiles | Select-Object -First 20 -ExpandProperty FullName | ForEach-Object { Write-Error "  $_" }
     $exitCode = 1
+    $problems.Add("$($tempFiles.Count) stuck Syncthing transfer temp file(s) on disk.")
 }
 
 try {
@@ -126,10 +262,12 @@ try {
             Write-Error "  $($_.path): $($_.error)"
         }
         $exitCode = 1
+        $problems.Add("Syncthing reports $($folderErrors.Count) folder error(s) via /rest/folder/errors.")
     }
 } catch {
     Write-Error "folder/errors failed for folder '$FolderId': $_"
     $exitCode = 1
+    $problems.Add("Could not query /rest/folder/errors for folder '$FolderId'.")
 }
 
 # Devices actually sharing this folder, other than ourselves.
@@ -150,6 +288,7 @@ if ($remoteDeviceIds.Count -eq 0) {
         } catch {
             Write-Error "db/completion failed for device $devId : $_"
             $exitCode = 1
+            $problems.Add("db/completion failed for remote device $devId.")
             continue
         }
         Write-Output "  device $devId"
@@ -159,9 +298,9 @@ if ($remoteDeviceIds.Count -eq 0) {
         if ($completion.completion -ne 100 -or $completion.needItems -gt 0 -or $completion.needBytes -gt 0) {
             Write-Output "    -> NOT fully synced against this device."
             $exitCode = 1
+            $problems.Add("Not fully synced against remote device $devId (completion=$($completion.completion)%, needBytes=$($completion.needBytes), needItems=$($completion.needItems)).")
         }
     }
 }
 
-Write-Output "`nOverall: $(if ($exitCode -eq 0) { 'IN SYNC' } else { 'NOT IN SYNC' })"
-exit $exitCode
+Complete-HealthCheck -ExitCode $exitCode -Problems $problems -DashboardPath $dashboardPath

@@ -29,6 +29,32 @@ Found 2 live `.sync-conflict-*` files still in the working tree (everything else
 
 **Next:** user to delete the Dell's copy of the credentials backup and rotate the underlying OpenAI/Copilot keys (same unresolved item as the Acer); consider whether `check-syncthing-status.ps1`'s `.stversions` fix should be verified on the Acer too, since that script is vault-synced and the bug wasn't specific to this machine.
 
+## [2026-10-02] distill | CSCI 4511W Chapter 3 and Chapter 4 textbook notes — structural merge, frontmatter fix, PDF fact-check
+
+**Type:** pdf (AIMA 4th ed.)
+**Output:** [[20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3]], [[20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 4]]
+**Pages verified:** Chapter 3 (PDF pp. 145–232), Chapter 4 (PDF pp. 232–270+)
+
+Merged five concatenated NotebookLM pastes (Ch.3) and two pastes (Ch.4) into single well-formed notes. Fixed broken frontmatter on both (blank dates, wrong area field). Deleted empty template blocks. Expanded Key Concepts and made Full Reading Notes sequential (§3.1–§3.6.6, §4.1.1–§4.4.4).
+
+PDF fact-check findings applied to Chapter 3:
+- Added §3.4.5 (Bidirectional Search, uninformed) and §3.4.6 (Comparing Uninformed Search Algorithms with Figure 3.15 table) — both were missing from the original notes.
+- Corrected lb formula in §3.5.6: original had `lb = gF+gB+h(nF,nB)` (wrong); real book says `lb(m,n) = max(gF(m)+gB(n), fF(m), fB(n))`.
+- Added h1=8 and h2=3+1+2+2+2+3+3+2=18 from Figure 3.25 to §3.6.2.
+- Added Bidirectional search to Key Concepts (uninformed and informed sections).
+- Added Bidirectional heuristic search Key Concept entry.
+
+PDF fact-check for Chapter 4:
+- Hill climbing stats (86%/14%, 94% with sideways moves, 22 and 25 step averages) confirmed correct.
+- Genetic algorithm trace (Figure 4.6: fitness 24/23/20/11, crossover at position 3) confirmed correct.
+- RESULTS(1, Suck) = {5,7}, coercion sequence [Right,Suck,Left,Suck], conditional plan form — all confirmed correct.
+- Predict/Update formulas confirmed correct.
+- Fixed §4.4.3 percept notation: "[A, Dirty]" → "[L, Dirty]" (L = Left, the book's actual label).
+
+Updated Textbook Map (links, status, next pointer, updated date).
+
+**Promotion candidates:** None — content is source-specific, not reusable distillations.
+
 ## [2026-09-28] build | Sync conflict reconciliation found real data loss, not just noise — 7 files restored, Copilot key deleted, Dell prompt handed off
 Follow-up to the earlier same-day sync-fix session. User confirmed steps 1-2 done on this laptop and reported the Dell's Syncthing GUI had no visible "File Watcher Delay" field, only "Full Rescan Interval" — flagged in the vault note rather than assumed equivalent, since the two are different mechanisms (real-time watcher vs. periodic full scan) and the Dell prompt now checks this directly via REST instead of guessing from the GUI.
 
@@ -1542,3 +1568,27 @@ Created `40_Resources/CS/Concepts/New Laptop/Codebases/second-brain-claudekit/se
 The prompt also records the current MCP limitation discovered in this session: Jarvis status and keyword search were successfully called and reported 6,265 indexed notes, but the full read/write/patch/delete family was not exposed. It therefore requires a live tool-list and endpoint audit, limits the desired first contract to nine tools, treats `plan` as a workflow phase rather than an API function, prefers the Local REST API plugin's built-in MCP over duplicate wrappers, and requires human confirmation for destructive operations. Research links to the Local REST API documentation, MCP tool/security specifications, and Microsoft WSL configuration guidance are included in the note.
 
 **Next:** Run the prompt from a fresh WSL session and report the exact Jarvis MCP reachability, available tool schemas, live Obsidian endpoint, and remaining configuration gap before changing anything else.
+
+## [2026-10-02] write | Cross-Laptop Sync Build 9 - root-caused the CSCI 4061 conflict incident, closed the "no one sees the warning" gap
+
+Investigated the user-reported CSCI 4061 sync-conflict incident (29-09-2026, 10 files, already individually recovered in a separate session) and traced it to the exact Failure Mode 5/6 race Build 8 already diagnosed (git-auto-sync's rebase/autostash racing Syncthing's watcher) - not a new bug, confirmed by timestamp correlation against `git-auto-sync.log`. Verified the prior session's CSCI 4061 recovery actually held (Lab 3's real `1.0/1.0` dev-container-verified version is live and committed).
+
+A whole-vault sweep found 4 more live `.sync-conflict-*` files from the same incident that the course-scoped recovery never saw. Compared each individually against canonical (Known Failure Mode 6 protocol): `CSCI 4511W/Textbook/Chapter - 3.md` was a genuine regression (canonical missing 91 lines of real content a rebase had silently dropped) and was restored; the other 3 (a duplicate AI-conversation export, an inconsequential spaced-repetition `buryDate`, a regenerated model-catalog cache) were confirmed safe and archived. All 4 moved to `D:\_Anant\99_Archive\Syncthing Conflict Reconciliation 2026-10-02\`, matching Build 8's archive convention. Live vault now has zero `.sync-conflict-*` files anywhere.
+
+The actual root cause of why this went unnoticed for three days: `Jarvis-Syncthing-Health` was not disabled this time (unlike Build 8's finding) - it was running correctly every 5 minutes and correctly exiting 1 the whole time. A Task Scheduler exit code has no path to a human's attention. Rewrote `check-syncthing-status.ps1` so every failure path writes a self-clearing `[!danger] SYNC ALERT` banner into `00_Dashboard.md` (the file `/startday` already opens) and fires a rate-limited, best-effort Windows toast. Verified live with an induced fake conflict file: banner appears with the exact problem list, then clears with a byte-for-byte zero diff on recovery. Found and fixed a real encoding bug while building this - Windows PowerShell 5.1's `Get-Content`/`Set-Content -Encoding utf8` corrupts a BOM-less UTF-8 file's em dashes and middots on every round-trip; fixed via .NET's `UTF8Encoding($false)` directly, caught before it touched the real vault. Full writeup: [[Cross-Laptop Sync - Build 9 Findings]]; new [[Cross-Laptop Sync - Known Failure Modes and Prevention]] entry, Failure Mode 12.
+
+**Next:** Confirm the Dell receives and runs the patched `check-syncthing-status.ps1` on its next scheduled tick (no separate Dell step needed, same mechanism as Build 8); periodically re-verify `Jarvis-Syncthing-Health`'s enabled state and Staggered Versioning haven't silently reverted again, per the Known Failure Modes verification recipe.
+
+## [2026-10-02] write | Cross-Laptop Sync Build 9 addendum - full workflow audit, cadence change, gitignore fix, autonomy reality-check
+
+Follow-up to the same-day Build 9 session. Audited all 425 logged `git-auto-sync` runs end to end: every `CONFLICT` entry outside the original 2026-09-20 bootstrap traced to a transient DNS/network blip (`Could not resolve host: github.com`), not a real rebase conflict - the git/GitHub workflow itself has been reliable the whole time. The actual content-loss race (Failure Mode 5/6) scales with how often the rebase/autostash checkout runs, not with those network blips, so `Jarvis-GitAutoSync`'s cadence was widened 15 -> 30 minutes (`register-git-auto-sync-task.ps1`, re-registered and verified live) to roughly halve that exposure.
+
+Found 18+ unreconciled `.sync-conflict-*` files already permanently committed to this public repo's history, because `git-auto-sync`'s `git add -A` had been sweeping them up before anyone reconciled them. Added `*.sync-conflict-*` to `.gitignore` (verified live via `git check-ignore`) so this stops going forward; did not rewrite existing history (would require a destructive force-push, not asked for).
+
+Revised `/weekly-review` Step 7.6: now opens with a Dashboard-banner check (the fastest signal, per Build 9's new alerting) and adds a first-of-month deep check running the full Known Failure Modes verification recipe, since that class of drift (a safety net silently disabled) leaves no file-level trace a weekly conflict scan would catch.
+
+Investigated whether a Claude Code cloud routine could run this autonomously instead of a manual session - it cannot: no network path to local Syncthing's REST API, no access to the gitignored local log, and a write-back routine would recreate the exact git race this build reduces. The correct mechanism is the already-local `Jarvis-WeeklyReview` Scheduled Task, which has never actually fired yet (registered 2026-09-28, next real Sunday slot 2026-10-04) - flagged explicitly rather than assumed working.
+
+Wrote `Cross-Laptop Sync - Operations Reference.md` as the new designated entry point for this whole system - what each piece does, a one-minute health check, the exact conflict-reconciliation procedure, and the cloud-routine limitation above - cross-linked from the Roadmap, Known Failure Modes, and Build 9 Findings notes.
+
+**Next:** Check `Jarvis-WeeklyReview`'s `LastRunTime`/`LastTaskResult` after 2026-10-04. Re-run `register-git-auto-sync-task.ps1` on the Dell (per-machine setting, not synced). Verify the Dell has received Build 9's `check-syncthing-status.ps1` patch.

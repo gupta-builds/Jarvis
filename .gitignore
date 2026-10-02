@@ -62,6 +62,20 @@ mcp.env
 # infinite self-referential loop. Found during Build 7 testing.
 30_Order/System/claude-workflow/logs/git-auto-sync.log
 30_Order/System/claude-workflow/scripts/.git-auto-sync.lock
+# Jarvis-Syncthing-Health's own alert-rate-limiting state (Build 9) — same
+# self-referential-diff reasoning as the git-auto-sync lock above, machine-local.
+30_Order/System/sync-workflow/scripts/.sync-alert-state.json
+
+# Syncthing's own conflict-copy naming pattern (Build 9, 2026-10-02) — found
+# 18+ of these already permanently committed to this repo's history before
+# anyone reconciled them, because git-auto-sync's `git add -A` swept them up
+# like any other file. A .sync-conflict-* file is, by definition, unreconciled
+# — it needs the Known Failure Mode 6 compare-then-archive protocol BEFORE it
+# becomes part of either side's history, not after. This is a public repo;
+# excluding the pattern here stops new ones from ever being auto-committed.
+# Does not touch Syncthing's own ability to create them (that's .stignore's
+# job, and they must stay creatable there — this only keeps git out of it).
+*.sync-conflict-*
 # AI tool internal state (sessions, history, creds) — never commit
 20_Progress/AI/Claude Code/.claude_wsl/
 20_Progress/AI/Claude Code/.claude_windows/

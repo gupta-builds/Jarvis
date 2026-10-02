@@ -692,7 +692,9 @@
     "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 8.md": "external",
     "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 11.md": "external",
     "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 10.md": "external",
-    "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 1 & 2.md": "external"
+    "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 1 & 2.md": "external",
+    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3.sync-conflict-20260929-172611-2D4OE4D.md": "external",
+    "20_Progress/Degree/ENGL 1004/Asssignments/Journal Entry - 3.md": "obsidian"
   },
   "_editTimes": {
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Home/00 - Session Index.md": 1790917402485,
@@ -704,6 +706,7 @@
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-06/00 - Session Index.md": 1790916486692,
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-06/00 - Tool Usage Rollup.md": 1790917402563,
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Session Index.md": 1790917402564,
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Tool Usage Rollup.md": 1790652603171,
     "30_Order/System/claude-workflow/logs/capture-health-windows.json": 1790916485633,
@@ -748,9 +751,11 @@
     "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/second-brain-claudekit/00 - Tool Usage Rollup.md": 1790952343008,
     "40_Resources/Obsidian/Plugins/Plugin Inventory and Configuration Map.md": 1790913786301,
 =======
+=======
+>>>>>>> Stashed changes
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Tool Usage Rollup.md": 1790917402565,
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": 1790917402083,
-    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 1790952482071,
+    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 1790955182072,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-18 Jarvis sync process setup.md": 1790450285627,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-20 Jarvis vault plugins documentation batch 3.md": 1790916486688,
     "60_Claude/07_AI_Information/Session Logs/log.md": 1790917402569,
@@ -762,20 +767,19 @@
     "40_Resources/Obsidian/Settings/File Handling and Properties.md": 1790913618960,
     "40_Resources/CS/Concepts/New Laptop/Statusline Migration — Acer Prompt.md": 1790913786294,
     "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md": 1790620640485,
-    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/portfolio/00 - Session Index.md": 1790952343230,
-    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/portfolio/00 - Tool Usage Rollup.md": 1790952343388,
+    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/portfolio/00 - Session Index.md": 1790954156462,
+    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/portfolio/00 - Tool Usage Rollup.md": 1790954156604,
     "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/gupta-builds/00 - Session Index.md": 1790545533295,
     "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/gupta-builds/00 - Tool Usage Rollup.md": 1790545533383,
-    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/00 - Session Index.md": 1790952343547,
-    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/00 - Tool Usage Rollup.md": 1790952343691,
-    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/anant_gupta/00 - Session Index.md": 1790952342442,
-    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/anant_gupta/00 - Tool Usage Rollup.md": 1790952342653,
+    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/00 - Session Index.md": 1790954155885,
+    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/00 - Tool Usage Rollup.md": 1790954156008,
+    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/anant_gupta/00 - Session Index.md": 1790954156167,
+    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/anant_gupta/00 - Tool Usage Rollup.md": 1790954156314,
     "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/CausalOps/00 - Session Index.md": 1790451918481,
     "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/CausalOps/00 - Tool Usage Rollup.md": 1790451918564,
-    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/second-brain-claudekit/00 - Session Index.md": 1790952342928,
-    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/second-brain-claudekit/00 - Tool Usage Rollup.md": 1790952343088,
+    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/second-brain-claudekit/00 - Session Index.md": 1790954156748,
+    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/second-brain-claudekit/00 - Tool Usage Rollup.md": 1790954156901,
     "40_Resources/Obsidian/Plugins/Plugin Inventory and Configuration Map.md": 1790913618949,
->>>>>>> Stashed changes
     "40_Resources/Obsidian/Plugins/Dataview and Dashboards.md": 1790913786298,
     "40_Resources/Obsidian/Plugins/Appearance Code Math and Reading Experience.md": 1790913618942,
     "40_Resources/Obsidian/Jarvis Vault Architecture.md": 1790913786298,
@@ -1391,6 +1395,7 @@
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-07 Fall '26 semester planning.md": 1790917402535,
     "60_Claude/05_Clippings/AI Conversations/WSL/Cursor/portfolio/09-05 Vault documentation and research.md": 1790917402480,
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Home/08-26 windows-python-env-setup.md": 1790917402488,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Home/08-30 MCP servers failing in Claude desktop app.md": 1790916486609,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/08-30 GitHub issue creation from three-week review.md": 1790916486652,
@@ -1410,6 +1415,8 @@
 <<<<<<< Updated upstream
     "30_Order/System/cursor-workflow/logs/sweep-2026-10-02.log": 1790951703422
 =======
+=======
+>>>>>>> Stashed changes
     "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-04 Remove recurring files from repo and add to gitignore.md": 1790917402112,
     "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/portfolio/09-05 Portfolio frontend UI fixes implementation.md": 1790917402466,
     "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/second-brain-claudekit/09-05 Second-brain-claudekit workspace cleanup and promotion pipeline.md": 1790917402469,
@@ -1426,8 +1433,8 @@
     "60_Claude/05_Clippings/AI Conversations/WSL/Cursor/portfolio/00 - Session Index.md": 1790917402474,
     "60_Claude/05_Clippings/AI Conversations/WSL/Cursor/portfolio/00 - Tool Usage Rollup.md": 1790917402475,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-06 Internship research loop optimization.md": 1790917402530,
-    "30_Order/System/cursor-workflow/cursor-export-state.json": 1790952483601,
-    "30_Order/System/cursor-workflow/logs/sweep-2026-10-02.log": 1790952483601,
+    "30_Order/System/cursor-workflow/cursor-export-state.json": 1790953383793,
+    "30_Order/System/cursor-workflow/logs/sweep-2026-10-02.log": 1790953383793,
     "40_Resources/UMN/Previous Classes/CSCI 2033/Week - 5.md": 1790913619011,
     "40_Resources/UMN/Previous Classes/CSCI 2033/Concepts_new/Week_10.md": 1790913618967,
     "40_Resources/UMN/Previous Classes/CSCI 2033/Concepts_new/Week_11_to_13.md": 1790913618968,
@@ -1472,10 +1479,16 @@
     "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 8.md": 1790734120636,
     "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 11.md": 1790734126360,
     "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 10.md": 1790734120671,
+<<<<<<< Updated upstream
     "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 1 & 2.md": 1790734105187
 >>>>>>> Stashed changes
 =======
     "30_Order/System/cursor-workflow/logs/sweep-2026-10-02.log": 1790953502624
+>>>>>>> Stashed changes
+=======
+    "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 1 & 2.md": 1790734105187,
+    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3.sync-conflict-20260929-172611-2D4OE4D.md": 1790913786270,
+    "20_Progress/Degree/ENGL 1004/Asssignments/Journal Entry - 3.md": 1790955006961
 >>>>>>> Stashed changes
   },
   "_dismissedAt": {},
@@ -1490,6 +1503,7 @@
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-06/00 - Tool Usage Rollup.md": 979,
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Session Index.md": 380,
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Tool Usage Rollup.md": 980,
     "30_Order/System/claude-workflow/logs/capture-health-windows.json": 2506,
     "20_Progress/AI/Claude Code/_All-Projects-Sync-Log.md": 31282,
@@ -1503,10 +1517,11 @@
     "20_Progress/AI/Claude Code/internship-research-loop/Sync-Log.md": 49435,
     "20_Progress/AI/Claude Code/second-brain-claudekit/Sync-Log.md": 46618,
 =======
+=======
+>>>>>>> Stashed changes
     "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Tool Usage Rollup.md": 979,
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": 26552,
-    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 786027,
->>>>>>> Stashed changes
+    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 789810,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-18 Jarvis sync process setup.md": 1062400,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-20 Jarvis vault plugins documentation batch 3.md": 365354,
     "60_Claude/07_AI_Information/Session Logs/log.md": 226985,
@@ -1518,20 +1533,6 @@
     "40_Resources/Obsidian/Settings/File Handling and Properties.md": 11976,
     "40_Resources/CS/Concepts/New Laptop/Statusline Migration — Acer Prompt.md": 23282,
     "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md": 11723,
-<<<<<<< Updated upstream
-    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/portfolio/00 - Session Index.md": 0,
-    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/portfolio/00 - Tool Usage Rollup.md": 0,
-    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/gupta-builds/00 - Session Index.md": 0,
-    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/gupta-builds/00 - Tool Usage Rollup.md": 0,
-    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/00 - Session Index.md": 0,
-    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/00 - Tool Usage Rollup.md": 0,
-    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/anant_gupta/00 - Session Index.md": 0,
-    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/anant_gupta/00 - Tool Usage Rollup.md": 0,
-    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/CausalOps/00 - Session Index.md": 0,
-    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/CausalOps/00 - Tool Usage Rollup.md": 0,
-    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/second-brain-claudekit/00 - Session Index.md": 0,
-    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/second-brain-claudekit/00 - Tool Usage Rollup.md": 0,
-=======
     "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/portfolio/00 - Session Index.md": 467,
     "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/portfolio/00 - Tool Usage Rollup.md": 1069,
     "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/gupta-builds/00 - Session Index.md": 473,
@@ -1544,7 +1545,6 @@
     "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/CausalOps/00 - Tool Usage Rollup.md": 1069,
     "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/second-brain-claudekit/00 - Session Index.md": 493,
     "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/second-brain-claudekit/00 - Tool Usage Rollup.md": 1095,
->>>>>>> Stashed changes
     "40_Resources/Obsidian/Plugins/Plugin Inventory and Configuration Map.md": 17785,
     "40_Resources/Obsidian/Plugins/Dataview and Dashboards.md": 16253,
     "40_Resources/Obsidian/Plugins/Appearance Code Math and Reading Experience.md": 9483,
@@ -2169,6 +2169,7 @@
     "60_Claude/05_Clippings/AI Conversations/WSL/Cursor/portfolio/00 - Tool Usage Rollup.md": 851,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-06 Internship research loop optimization.md": 157665,
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-07 Fall '26 semester planning.md": 636365,
     "60_Claude/05_Clippings/AI Conversations/WSL/Cursor/internship-research-loop/08-28 Cursor setup and documentation.md": 7867,
     "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/gupta-builds/08-27 gupta-builds profile README five fixes.md": 148682,
@@ -2183,8 +2184,10 @@
 <<<<<<< Updated upstream
     "30_Order/System/cursor-workflow/logs/sweep-2026-10-02.log": 29330
 =======
+=======
+>>>>>>> Stashed changes
     "30_Order/System/cursor-workflow/cursor-export-state.json": 110,
-    "30_Order/System/cursor-workflow/logs/sweep-2026-10-02.log": 29146,
+    "30_Order/System/cursor-workflow/logs/sweep-2026-10-02.log": 30043,
     "40_Resources/UMN/Previous Classes/CSCI 2033/Week - 5.md": 11868,
     "40_Resources/UMN/Previous Classes/CSCI 2033/Concepts_new/Week_10.md": 5310,
     "40_Resources/UMN/Previous Classes/CSCI 2033/Concepts_new/Week_11_to_13.md": 9489,
@@ -2229,8 +2232,9 @@
     "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 8.md": 8498,
     "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 11.md": 11168,
     "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 10.md": 12763,
-    "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 1 & 2.md": 16661
->>>>>>> Stashed changes
+    "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 1 & 2.md": 16661,
+    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3.sync-conflict-20260929-172611-2D4OE4D.md": 28732,
+    "20_Progress/Degree/ENGL 1004/Asssignments/Journal Entry - 3.md": 0
   },
   "_sizeDeltas": {
     "10_Areas/Career/Internships/List/Dossiers/_Today/Manual Internship Listings.md": "up",

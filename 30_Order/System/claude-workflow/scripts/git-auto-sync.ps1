@@ -177,6 +177,13 @@ function Invoke-PushWithRebaseRetry {
 function Invoke-GitAutoSync {
     Set-Location $VaultRoot
 
+    # Idempotent, cheap to set every run: without it, the pull --rebase/merge
+    # steps below compare raw stored blobs instead of EOL-normalized content,
+    # so a CRLF-vs-LF difference between the two laptops (e.g. one laptop's
+    # editor writes CRLF) looks like a full-file conflict even when the real
+    # text is identical. Self-configures both laptops without a manual step.
+    git config merge.renormalize true
+
     if (Test-Path $LockFile) {
         $lockAge = (Get-Date) - (Get-Item $LockFile).LastWriteTime
         if ($lockAge.TotalMinutes -lt $LockStaleMinutes) {

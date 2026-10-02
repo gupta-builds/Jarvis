@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "Textbook Map",
+      "path": "20_Progress/Degree/CSCI 4511W/Textbook/Textbook Map.md"
+    },
+    {
       "basename": "Writing 1 - Learn the Tools",
       "path": "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing 1 - Learn the Tools.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "Journal Entry - 2",
       "path": "20_Progress/Degree/ENGL 1004/Asssignments/Journal Entry - 2.md"
-    },
-    {
-      "basename": "Journal Entry - 1",
-      "path": "20_Progress/Degree/ENGL 1004/Asssignments/Journal Entry - 1.md"
     }
   ],
   "omittedPaths": [

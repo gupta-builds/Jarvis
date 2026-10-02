@@ -302,7 +302,7 @@ Second, `wait-all` will wait for all currently running background jobs. Comple
 You might find this diagram that (partially) details a job’s lifecycle helpful in trying to understand how to manage the shell’s job list. Note that, technically, a background job could also be suspended by receipt of `SIGSTOP` (not to be confused with `SIGTSTP`), e.g., from a `kill` command executed by the user. A real shell such as `bash` deals with this, but you don’t need to worry about this with the `swish` shell.
 
 ![A diagram showing the states of a terminal process](https://canvas.umn.edu/courses/579183/files/62492827/preview?)
-![[Pasted image 20261001130051.png]]
+![[Pasted image 20261002170339.png]]
 ## Hidden Tests
 
 The tests you are given with the starter code are not exhaustive. We will run additional “hidden” tests on your code when grading it. Therefore, you should plan to test out your code by running your `swish` shell on your own. Here are a few things to consider when testing out your code:

@@ -1,6 +1,14 @@
 {
   "recentFiles": [
     {
+      "basename": "Chapter - 15",
+      "path": "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 15.md"
+    },
+    {
+      "basename": "Repetitive Things",
+      "path": "20_Progress/Degree/Repetitive Things.md"
+    },
+    {
       "basename": "Chapter - 4",
       "path": "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 4.md"
     },
@@ -43,10 +51,6 @@
     {
       "basename": "Arrays and Strings",
       "path": "20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Arrays and Strings.md"
-    },
-    {
-      "basename": "Repetitive Things",
-      "path": "20_Progress/Degree/Repetitive Things.md"
     },
     {
       "basename": "Board Role",
@@ -195,10 +199,6 @@
     {
       "basename": "Preparation",
       "path": "20_Progress/Degree/CSCI 4061/Preparation.md"
-    },
-    {
-      "basename": "Preparation",
-      "path": "20_Progress/Degree/MGMT 3015/Preparation.md"
     }
   ],
   "omittedPaths": [

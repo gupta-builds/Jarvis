@@ -2,382 +2,333 @@
 type: class
 input_kind: book
 status: seed
-created:
-updated:
+created: 2026-09-28
+updated: 2026-10-02
 area:
-  - "[[UMN Board]]"
+  - "[[CSCI 4511W Board]]"
+  - "[[20_Progress/Degree/CSCI 4511W/Textbook/Textbook Map|Textbook Map]]"
 tags:
   - "#class"
   - "#Textbook"
-next:
+  - "#AI"
+next: "Connect to Week 5–6 lecture captures once lectures land"
 ---
-# Chapter - 4
+# Chapter - 4 — Search in Complex Environments
+**Source:** Stuart Russell and Peter Norvig, *Artificial Intelligence: A Modern Approach*, 4th ed. (Pearson, 2020), Chapter 4, pp. 110–134.
+**Read from:** `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4511W\CSCI 4511W Textbook.pdf`
+**Course role:** Weeks 5–6. Extends search to environments where standard offline search fails: state spaces too large to enumerate (local search), actions with uncertain outcomes (nondeterministic search), and sensors that don't show the full state (partial observability).
 ## Chapter Summary
-<!-- State the chapter's one-sentence claim and use exactly one ==highlight== anchor. -->
-== ==
-*Mechanism:*
-<!-- Explain how the chapter's claim works. -->
-# Chapter - 4 — Search in Complex Environments (Part 1 of 2: Local Search & Optimization)
-
-## Chapter Summary
-Local search algorithms evaluate and modify one or more current states using objective functions rather than maintaining search trees, trading path-tracking memory for the ability to find optimal or near-optimal solutions in vast state spaces (p. 110–111).
-*Mechanism:* By operating on complete-state formulations, local search algorithms navigate a state-space landscape using local gradient or objective evaluations—employing strategies like steepest-ascent hill climbing, stochastic temperature-controlled state acceptance in simulated annealing, multi-state parallel information sharing in local beam search, or population-based crossover and mutation in genetic algorithms—and can be extended to continuous domains via gradient calculus, line search, and Newton-Raphson optimization under optional convex or linear constraints [8, 31, 36, 44, 50, 54, 58, 62, ==167==] (p. 111–124).
-
+==Standard offline search assumes fully observable, deterministic environments; when those assumptions break, agents need local search for optimization, AND-OR contingency plans for nondeterministic actions, or belief-state search for partial observability.==
+*Mechanism:* Local search algorithms keep only the current state and its neighborhood in memory, trading completeness and optimality for the ability to search billion-state landscapes via hill climbing, simulated annealing, local beam search, and evolutionary algorithms. For nondeterministic environments, the transition function returns a *set* of possible outcomes; AND-OR search builds conditional plans whose AND nodes require solutions for every possible outcome. For partial observability, agents maintain a belief state — the set of physical states they might currently occupy — and update it online after each action and percept using a predict-then-update cycle.
 ## Key Concepts
-- **Local search**: Algorithms that operate using only the current state(s) and move to neighboring states without retaining search trees or path histories (p. 110).
-- **Optimization problem**: A problem where the objective is to find the best state according to an objective function, regardless of the path taken (p. 110).
-- **Objective function**: A real-valued function \\(f(s)\\) evaluating the quality or fitness of a state \\(s\\) in an optimization problem (p. 110).
-- **State-space landscape**: A topographical mapping of states to their objective function values, characterized by peaks, valleys, ridges, and plateaus (p. 110).
-- **Global maximum**: The highest peak in a state-space landscape corresponding to the state with the absolute highest objective function score (p. 111).
-- **Global minimum**: The lowest valley in a state-space landscape corresponding to the state with the absolute lowest cost (p. 111).
-- **Hill-climbing search**: A local search algorithm that continually moves in the direction of increasing objective value (steepest ascent) until no neighbor is higher (p. 111).
-- **Complete-state formulation**: A problem representation where every state contains all problem components, though some may violate constraints (p. 111).
-- **Local maximum**: A peak in the state-space landscape higher than all its neighboring states but lower than the global maximum (p. 113).
-- **Ridge**: A sequence of local maxima joined together in a landscape where available single-action moves lead downhill off the ridge (p. 113).
-- **Plateau**: A flat region of the state-space landscape where neighboring states have identical objective function values (p. 113).
-- **Shoulder**: A flat region of a state-space landscape from which an uphill exit exists (p. 113).
-- **Sideways move**: An action that transitions to a neighboring state with an equal objective value to navigate plateaus and shoulders (p. 113).
-- **Stochastic hill climbing**: A variant of hill climbing that selects randomly from among uphill moves, with probabilities proportional to steepness (p. 114).
-- **First-choice hill climbing**: A stochastic hill-climbing variant that generates successors randomly until one is found that is better than the current state (p. 114).
-- **Random-restart hill climbing**: A meta-algorithm that conducts a series of independent hill-climbing searches from randomly generated initial states until a goal is found (p. 114).
-- **Simulated annealing**: A local search algorithm combining hill climbing with a random walk, accepting downhill moves with a probability \\(e^{-\Delta E / T}\\) that decays with temperature \\(T\\) (p. 115).
-- **Cooling schedule**: A time-dependent function \\(T(t)\\) controlling the rate at which temperature decreases toward zero in simulated annealing (p. 115).
-- **Local beam search**: A local search algorithm that maintains \\(k\\) states, generating all successors of all \\(k\\) states and selecting the best \\(k\\) successors at each step (p. 116).
-- **Stochastic beam search**: A variant of local beam search that selects \\(k\\) successors with probability proportional to their objective values, maintaining population diversity (p. 117).
-- **Evolutionary algorithm**: A population-based local search method inspired by natural selection where fitter states produce offspring via recombination and mutation (p. 117).
-- **Genetic algorithm**: An evolutionary algorithm where states are represented as fixed-length strings over a finite alphabet (p. 117).
-- ==**Fitness function**==: A real-valued objective function \\(f(s)\\) measuring the quality or reproductive suitability of an individual in a genetic algorithm (p. 118).
-- **Recombination**: The process of combining parts of two or more parent state representations to form child offspring (p. 117).
-- **Crossover point**: A randomly selected position in parent strings where representations are split and swapped to produce offspring (p. 118).
-- **Mutation rate**: The independent probability with which each component or bit of a newly generated offspring string is randomly altered (p. 118).
-- **Elitism**: The practice of automatically preserving a small number of the highest-fitness individuals unchanged into the next generation (p. 118).
-- **Culling**: The practice of discarding all population individuals whose fitness falls below a fixed threshold (p. 118).
-- **Schema**: A substring pattern with wildcard asterisks representing a subset of states sharing specific component values (p. 119).
-- **Empirical gradient**: An approximation of a continuous objective function's gradient computed by evaluating fitness differences between nearby sampled points (p. 121).
-- **Step size**: A scalar parameter \\(\alpha\\) determining the distance moved along the gradient vector in continuous local search (p. 122).
-- **Line search**: An optimization technique that extends search along a gradient direction by repeatedly doubling \\(\alpha\\) until the objective value decreases (p. 122).
-- **Newton-Raphson method**: A second-order continuous optimization technique using the inverse Hessian matrix \\(\mathbf{H}_f^{-1}\\) to fit quadratic surfaces and step directly to local extrema (p. 122).
-- **Hessian matrix**: A matrix \\(\mathbf{H}_f\\) containing all second-order partial derivatives \\(\frac{\partial^2 f}{\partial x_i \partial x_j}\\) of a continuous objective function (p. 122).
-- **Constrained optimization**: The problem of maximizing or minimizing an objective function subject to hard inequality or equality constraints on variables (p. 123).
-- **Linear programming**: A constrained optimization problem with linear constraints forming a convex set and a linear objective function, solvable in polynomial time (p. 123).
-- **Convex set**: A set of points \\(S\\) where the line segment joining any two points in \\(S\\) lies entirely within \\(S\\) (p. 123).
-- **Convex optimization**: An optimization problem over a convex constraint set with a convex objective function, guaranteeing that any local minimum is a global minimum (p. 123).
-
+### Local Search and Optimization
+- **Local search**: Algorithms that maintain only the current state and move to neighboring states, without retaining a search tree or path history (p. 110).
+- **Optimization problem**: Goal is to find the best state according to an objective function, regardless of the path taken (p. 110).
+- **Objective function f(s)**: Real-valued function evaluating state quality in an optimization problem (p. 110).
+- **State-space landscape**: Topographical mapping of states to objective values, featuring peaks, valleys, ridges, and plateaus (p. 110).
+- **Global maximum / Global minimum**: The absolute highest peak or lowest valley in the landscape (p. 111).
+- **Complete-state formulation**: Every state contains all problem components (e.g., all 8 queens placed), though some may violate constraints (p. 111).
+- **Hill-climbing search**: Moves continually to the highest-valued neighbor until no neighbor is higher. No memory of past states; terminates at local maxima (p. 111).
+- **Local maximum**: A peak higher than all neighbors but not the global maximum; hill climbing gets stuck here (p. 113).
+- **Ridge**: A sequence of local maxima; available single-move neighbors all lead downhill even though the ridge rises toward a global peak (p. 113).
+- **Plateau / Shoulder**: A flat region of equal-valued neighbors. A plateau has no uphill exit; a shoulder does (p. 113).
+- **Sideways move**: Moving to a neighbor with equal objective value to escape a plateau or shoulder (p. 113).
+- **Stochastic hill climbing**: Selects randomly from uphill moves with probability proportional to steepness (p. 114).
+- **First-choice hill climbing**: Generates neighbors randomly until one is better than the current state; useful when the branching factor is large (p. 114).
+- **Random-restart hill climbing**: Meta-algorithm running independent hill-climbing searches from random initial states until a goal is found. Complete with probability 1; expected restarts = \\(1/p\\) where \\(p\\) is per-run success probability (p. 114).
+- **Simulated annealing**: Combines hill climbing with a random walk by accepting bad moves with probability \\(e^{\Delta E / T}\\), where \\(T\\) is a temperature that decreases over time according to a cooling schedule (p. 115).
+- **Cooling schedule**: Time-dependent function \\(T(t)\\) controlling the rate of temperature decrease. A slow-enough schedule guarantees finding the global optimum with probability approaching 1 (p. 115).
+- **Local beam search**: Maintains \\(k\\) states simultaneously. At each step, generates all successors of all \\(k\\) states and selects the best \\(k\\) overall. Information flows across threads, unlike parallel random restarts (p. 116).
+- **Stochastic beam search**: Selects \\(k\\) successors with probability proportional to objective values, maintaining population diversity and avoiding premature clustering (p. 117).
+- **Evolutionary algorithm**: Population-based local search where fitter individuals produce offspring via recombination and mutation (p. 117).
+- **Genetic algorithm**: Evolutionary algorithm where individuals are fixed-length strings over a finite alphabet; includes selection, crossover, mutation, and optional elitism (p. 117).
+- ==**Fitness function**==: Objective function measuring individual quality in a genetic algorithm; selection probability is proportional to fitness (p. 118).
+- **Crossover**: Two parent strings split at a random crossover point and their halves are swapped to produce offspring (p. 118).
+- **Mutation**: Each position in an offspring string is independently altered with a small probability (the mutation rate) (p. 118).
+- **Elitism**: Preserving the top-scoring individuals unchanged into the next generation, ensuring maximum fitness never decreases (p. 118).
+- **Schema**: A string pattern with wildcard positions representing a family of states. Above-average schema instances grow exponentially over generations if not disrupted by crossover (p. 119).
+### Continuous Local Search
+- **Empirical gradient**: Approximates the gradient by evaluating objective differences at nearby sampled points \\(\pm\delta\\) (p. 122).
+- **Gradient ascent step**: \\(\mathbf{x} \leftarrow \mathbf{x} + \alpha \nabla f(\mathbf{x})\\), where \\(\alpha\\) is the step size (p. 122).
+- **Line search**: Repeatedly doubles \\(\alpha\\) along the gradient direction until \\(f\\) begins to decrease; uses the peak as the new state (p. 122).
+- **Newton-Raphson method**: Second-order optimization using the Hessian \\(\mathbf{H}_f\\): \\(\mathbf{x} \leftarrow \mathbf{x} - \mathbf{H}_f^{-1}(\mathbf{x}) \nabla f(\mathbf{x})\\). Fits a local quadratic surface and jumps directly to its minimum. \\(O(n^3)\\) cost to invert the \\(n \times n\\) Hessian (p. 122).
+- **Constrained optimization**: Maximize or minimize an objective subject to hard inequality or equality constraints (p. 123).
+- **Linear programming**: Constrained optimization with linear constraints (forming a convex feasible region) and a linear objective; solvable in polynomial time (p. 123).
+- **Convex optimization**: Optimizes a convex function over a convex region. Any local minimum is a global minimum — gradient methods cannot get stuck (p. 123).
+### Nondeterministic and Partially Observable Search
+- **Nondeterministic action**: An action with more than one possible outcome state (p. 122).
+- **RESULTS(s, a)**: Set-valued transition function returning all possible outcome states for action \\(a\\) in state \\(s\\) (p. 123).
+- **Conditional plan / contingency plan**: A plan containing if-then-else branches, chosen based on runtime observations; needed when single action sequences cannot guarantee reaching a goal under nondeterminism (p. 123).
+- **AND-OR search tree**: Search structure for nondeterministic problems. OR nodes are agent choices (one action is selected); AND nodes are environment outcomes (all outcomes must be solved) (p. 123–124).
+- **OR node**: An agent decision point; the agent selects exactly one action to pursue (p. 123).
+- **AND node**: An environment outcome point; the plan must provide a solution for *every* possible outcome (p. 123).
+- **Cyclic solution**: A plan containing loops for environments where an action may fail and must be retried. Valid if every leaf is a goal and every node can reach a goal leaf (p. 125–126).
+- **Sensorless problem / conformant problem**: The agent has no sensors; it searches over belief states to find an action sequence that reaches the goal from any possible initial state (p. 126–127).
+- **Belief state**: The set of physical states the agent believes it might currently occupy (p. 127).
+- **Coercion**: Using a deterministic action sequence to force the world into a known target state regardless of initial physical state, without any sensing (p. 127).
+- **Predict stage**: Computes the predicted belief state \\(\hat{b}\\) after executing action \\(a\\): \\(\hat{b} = \bigcup_{s \in b} \text{RESULTS}(s, a)\\) (p. 129).
+- **Update stage**: Filters the predicted belief state to states consistent with received observation \\(o\\): \\(b_o = \{s : \text{PERCEPT}(s) = o, s \in \hat{b}\}\\) (p. 129).
+- **Monitoring / filtering / state estimation**: The online process of maintaining the current belief state as actions are executed and percepts arrive (p. 132).
+- **Recursive state estimator**: \\(b' = \text{UPDATE}(\text{PREDICT}(b, a), o)\\); updates belief state using only the current belief state, last action, and new percept — no history required (p. 131–132).
+- **Localization**: Robot problem of determining current position; belief state starts as all map locations and collapses as percepts arrive (p. 132–133).
 ## Full Reading Notes
-
-### 4.1.1 Hill-climbing search
-The **hill-climbing search** algorithm (Figure 4.2) keeps track of a single current state and continually moves to the neighboring state with the highest value—heading in the direction of steepest ascent (p. 111). It terminates when it reaches a peak where no neighbor has a higher value (p. 111). It uses no memory of past states and does not look ahead beyond immediate neighbors (p. 111).
-
-```
-
-function HILL-CLIMBING(problem) returns a state that is a local maximum current <- problem.INITIAL while true do neighbor <- a highest-valued successor state of current if VALUE(neighbor) <= VALUE(current) then return current current <- neighbor
+### 4.1.1 Hill-Climbing Search
+Hill climbing keeps a single current state and moves to the neighbor with the highest objective value (steepest ascent), stopping when no neighbor is better (p. 111).
 
 ```
-
-Hill climbing uses a **complete-state formulation** where every state has all problem components present (e.g., 8 queens on an \\(8 \times 8\\) board, one per column), and successors are generated by modifying one component (e.g., moving a single queen to another square in its column, yielding \\(8 \times 7 = 56\\) successors) (p. 111). The objective function \\(h\\) is defined as the number of attacking pairs of queens (where \\(h=0\\) for a solution) (p. 111).
-
-#### Failure Modes of Hill-Climbing Search
-1. **Local Maxima:** A peak higher than all neighboring states but lower than the global maximum (p. 113). The algorithm gets trapped because every move decreases the objective score (p. 113). In 8-queens, an \\(h=1\\) state where every single queen move increases attacking pairs is a local maximum (p. 113).
-2. **Ridges:** A sequence of local maxima where available single-component actions point downhill off the ridge, even though the ridge itself rises toward a peak (p. 113). Navigating ridges requires combining multiple actions simultaneously (p. 113).
-3. **Plateaus:** A flat area of the landscape where neighboring states have equal objective values (p. 113). It can be a flat local maximum (no uphill exit) or a **shoulder** (from which an uphill exit exists) (p. 113).
-
-#### Empirical Performance & Variants (8-Queens Benchmark)
-- *Steepest-Ascent (No Sideways Moves):* On an 8-queens state space of \\(8^8 \approx 17\text{ million}\\) states, steepest ascent gets stuck 86% of the time, solving only 14% of instances (p. 113). When it succeeds, it averages 4 steps; when stuck, it averages 3 steps (p. 113).
-- *Sideways Moves:* Allowing up to 100 consecutive **sideways moves** raises the success rate on 8-queens from 14% to 94% (p. 113–114). Successful runs average 21 steps; failures average 64 steps (p. 114).
-- **Stochastic hill climbing**: Selects at random from among uphill moves, with probability proportional to steepness (p. 114).
-- **First-choice hill climbing**: Generates successors randomly until one is found that is better than the current state (useful when states have thousands of successors) (p. 114).
-- **Random-restart hill climbing**: Conducts a series of independent hill-climbing searches from randomly generated initial states until a goal is found (p. 114).
-  - It is complete with probability 1 (p. 114).
-  - If each search has success probability \\(p\\), expected restarts = \\(1/p\\) (p. 114).
-  - For 8-queens without sideways moves (\\(p \approx 0.14\\)), expected restarts = \\(1/0.14 \approx 7\\), requiring roughly 22 total steps (p. 114).
-  - For 8-queens with sideways moves (\\(p \approx 0.94\\)), expected restarts = \\(1/0.94 \approx 1.06\\), requiring roughly 25 total steps (p. 114).
-
-### 4.1.2 Simulated annealing
-**Simulated annealing** combines hill climbing with a random walk to yield both efficiency and completeness (p. 115). Derived from metallurgy (cooling molten metal into low-energy crystalline states), it minimizes cost by allowing "bad" (downhill/cost-worsening) moves with a probability that decreases over time (p. 115).
-
+function HILL-CLIMBING(problem) returns a local maximum state
+  current <- problem.INITIAL
+  while true do
+    neighbor <- highest-valued successor of current
+    if VALUE(neighbor) <= VALUE(current) then return current
+    current <- neighbor
 ```
 
-function SIMULATED-ANNEALING(problem, schedule) returns a solution state current <- problem.INITIAL for t = 1 to ∞ do T <- schedule(t) if T = 0 then return current next <- a randomly selected successor of current ΔE <- VALUE(current) - VALUE(next) if ΔE > 0 then current <- next else current <- next only with probability e^(ΔE / T)
+Uses a **complete-state formulation**: every state places all 8 queens on the board (one per column), and the objective \\(h\\) = number of attacking pairs (goal: \\(h = 0\\)). Each state has \\(8 \times 7 = 56\\) successors (p. 111).
+
+**Failure modes (p. 113):**
+1. **Local maximum**: Every neighbor has worse \\(h\\). No escape without restarting.
+2. **Ridge**: Ridge rises toward the global peak but each single-column move goes downhill.
+3. **Plateau**: All neighbors equal. A shoulder has an uphill exit; a flat maximum does not.
+
+**Empirical results on 8-queens (p. 113–114):**
+- Steepest-ascent without sideways moves: 86% failure rate, 14% success (avg. 4 steps when successful, 3 steps when stuck).
+- Allowing up to 100 sideways moves: 94% success (avg. 21 steps success, 64 steps failure).
+- **Random-restart**: With \\(p \approx 0.14\\), expected restarts = \\(1/0.14 \approx 7\\), total ≈ 22 steps. With sideways moves (\\(p \approx 0.94\\)), expected restarts ≈ 1.06, total ≈ 25 steps.
+### 4.1.2 Simulated Annealing
+Simulated annealing escapes local maxima by accepting bad moves with decreasing probability (p. 115). Inspired by the physical process of cooling molten metal into low-energy crystal states.
 
 ```
-
-#### Acceptance Probability & Boltzmann Distribution
-- If a randomly selected successor improves the objective (\\(\Delta E > 0\\)), it is always accepted (p. 115).
-- If the move worsens the objective (\\(\Delta E \le 0\\)), it is accepted with probability:
-  \\[P(\text{accept}) = e^{\Delta E / T}\\]
-  where \\(\Delta E\\) is negative (measuring evaluation worsening) and \\(T > 0\\) is the current temperature (p. 115).
-- *Properties:*
-  1. As badness \\(|\Delta E|\\) increases, acceptance probability drops (p. 115).
-  2. As temperature \\(T\\) drops toward 0, bad moves become increasingly unlikely (p. 115).
-  3. If the **cooling schedule** \\(T(t)\\) lowers \\(T\\) to 0 slowly enough, the algorithm finds a global optimum with probability approaching 1 by the properties of the Boltzmann distribution \\(e^{\Delta E / T}\\) (p. 115).
-
-### 4.1.3 Local beam search
-**Local beam search** keeps track of \\(k\\) states rather than just one (p. 116).
-- *Algorithm Flow:* Begins with \\(k\\) randomly generated states (p. 116). At each step, all successors of all \\(k\\) states are generated (p. 116). If any successor is a goal, the algorithm halts (p. 116). Otherwise, it selects the \\(k\\) best successors from the complete list and repeats (p. 116).
-- *Beam Search vs. Parallel Random Restarts:* Unlike \\(k\\) independent random restarts, local beam search passes information among search threads: states with good successors recruit resources ("come over here, the grass is greener!"), abandoning unpromising paths (p. 116).
-- **Stochastic beam search**: Alleviates lack of diversity (where \\(k\\) states cluster in one region) by selecting \\(k\\) successors with probability proportional to their objective values, analogous to natural selection (p. 117).
-
-### 4.1.4 Evolutionary algorithms
-**Evolutionary algorithms** are variants of stochastic beam search motivated by natural selection, where a population of individuals (states) produces offspring (successor states) via **recombination** and mutation (p. 117).
-
-#### Genetic Algorithm Components
-1. **Population & Representation:** A set of \\(k\\) individuals. In **genetic algorithms**, each individual is a string over a finite alphabet (e.g., Boolean or digit strings) (p. 117). In **evolution strategies**, individuals are real vectors; in **genetic programming**, individuals are executable computer programs (p. 117).
-2. **Fitness Function:** Evaluates individual state quality (e.g., non-attacking pairs of queens, maximum \\(8 \times 7 / 2 = 28\\)) (p. 118).
-3. **Selection:** Parents are selected for mating with probability proportional to their fitness scores (roulette-wheel selection) or via tournament selection (randomly picking \\(n\\) individuals and selecting the most fit) (p. 118).
-4. **Recombination & Crossover:** Pairs of parents (mixing number \\(\rho = 2\\)) swap string segments at a randomly chosen **crossover point** to produce two children (p. 118).
-5. **Mutation:** Each position in an offspring string is randomly altered with an independent probability equal to the **mutation rate** (p. 118).
-6. ==**Elitism & Culling**==: Elitism preserves the top-scoring parents into the next generation so maximum fitness never decreases; culling discards individuals below a fixed fitness threshold (p. 118).
-
+function SIMULATED-ANNEALING(problem, schedule) returns a solution state
+  current <- problem.INITIAL
+  for t = 1 to ∞ do
+    T <- schedule(t)
+    if T = 0 then return current
+    next <- a randomly selected successor of current
+    ΔE <- VALUE(next) - VALUE(current)
+    if ΔE > 0 then current <- next
+    else current <- next with probability e^(ΔE / T)
 ```
 
-function GENETIC-ALGORITHM(population, fitness) returns an individual repeat weights <- WEIGHTED-BY(population, fitness) population2 <- empty list for i = 1 to SIZE(population) do parent1, parent2 <- WEIGHTED-RANDOM-CHOICES(population, weights, 2) child <- REPRODUCE(parent1, parent2) if (small random probability) then child <- MUTATE(child) add child to population2 population <- population2 until some individual is fit enough, or time elapsed return best individual in population
+Acceptance probability \\(P = e^{\Delta E / T}\\) for bad moves (\\(\Delta E < 0\\)):
+- As \\(|\Delta E|\\) grows, probability drops (worse moves are less likely to be accepted).
+- As \\(T \to 0\\), bad moves become vanishingly unlikely.
+- If \\(T(t)\\) decreases slowly enough (Boltzmann schedule), the algorithm finds the global optimum with probability approaching 1 (p. 115).
+### 4.1.3 Local Beam Search
+Local beam search maintains \\(k\\) states rather than one (p. 116).
+1. Start with \\(k\\) randomly generated states.
+2. Generate all successors of all \\(k\\) states.
+3. If any successor is a goal, halt.
+4. Otherwise, select the best \\(k\\) successors from the combined pool and repeat.
 
-function REPRODUCE(parent1, parent2) returns an individual n <- LENGTH(parent1) c <- random number from 1 to n return APPEND(SUBSTRING(parent1, 1, c), SUBSTRING(parent2, c + 1, n))
+The key advantage over \\(k\\) independent restarts: states with good successors recruit other states' search effort — information flows across threads. The risk: \\(k\\) states can cluster in one region (lack of diversity). **Stochastic beam search** fixes this by selecting \\(k\\) successors proportionally to fitness, analogous to natural selection (p. 117).
+### 4.1.4 Evolutionary Algorithms
+Evolutionary algorithms treat local beam search as a population of individuals and add **recombination** as a source of new variations (p. 117).
+
+**Genetic algorithm components (p. 117–119):**
+1. **Population**: \\(k\\) individuals, each a string over a finite alphabet.
+2. **Fitness function**: Evaluates individual quality; selection probability proportional to fitness.
+3. **Selection**: Parents chosen proportionally to fitness (roulette-wheel) or via tournament selection.
+4. **Crossover**: Two parents split at a random crossover point; halves swapped to produce two children.
+5. **Mutation**: Each offspring position independently altered with the mutation rate.
+6. **Elitism/culling**: Top individuals survive unchanged; below-threshold individuals are discarded.
 
 ```
+function GENETIC-ALGORITHM(population, fitness) returns an individual
+  repeat
+    weights <- WEIGHTED-BY(population, fitness)
+    population2 <- empty list
+    for i = 1 to SIZE(population) do
+      parent1, parent2 <- WEIGHTED-RANDOM-CHOICES(population, weights, 2)
+      child <- REPRODUCE(parent1, parent2)
+      if (small random probability) then child <- MUTATE(child)
+      add child to population2
+    population <- population2
+  until some individual is fit enough, or time elapsed
+  return best individual in population
 
-- **Schema Theory:** Explains crossover efficacy using a **schema** (a string pattern with wildcards, e.g., \$246*****\$). If schema instances have above-average fitness, the number of schema instances grows exponentially over generations (p. 119).
+function REPRODUCE(parent1, parent2) returns an individual
+  c <- random position in parent
+  return APPEND(parent1[1..c], parent2[c+1..n])
+```
 
-### 4.2 Local search in continuous spaces
-Continuous action spaces have an infinite branching factor, requiring continuous local search techniques (p. 121).
+**Schema theory (p. 119):** A **schema** is a string pattern with wildcard positions (e.g., `246*****`). If instances of a schema have above-average fitness, the number of schema instances grows exponentially across generations, provided crossover does not break them up. This explains why GAs work well when good partial solutions ("building blocks") can combine without destructive interference.
+### 4.2 Local Search in Continuous Spaces
+Continuous action spaces have infinite branching, so discrete neighbor enumeration is infeasible (p. 121).
 
-#### Discretization & Empirical Gradients
-- **Discretization:** Limits continuous variables to a grid with spacing \\(\delta\\), turning an infinite space into a discrete space with \\(2n\\) neighbors for \\(n\\) variables (p. 121–122).
-- **Empirical gradient**: Measures progress by evaluating objective function differences between nearby sampled points (\\(\pm \delta\\)), equivalent to steepest ascent on a discretized grid (p. 122).
-
-#### Calculus-Based Gradient Search
-For a differentiable continuous objective function \\(f(\mathbf{x})\\), the **gradient** vector \\(\nabla f(\mathbf{x})\\) gives the direction of steepest ascent (p. 122). Steepest-ascent updates follow:
+**Gradient ascent** uses calculus instead of enumeration (p. 122):
 \\[\mathbf{x} \leftarrow \mathbf{x} + \alpha \nabla f(\mathbf{x})\\]
-where \\(\alpha > 0\\) is the **step size** (p. 122).
-- If \\(\alpha\\) is too small, search converges too slowly; if \\(\alpha\\) is too large, search overshoots local maxima (p. 122).
-- **Line search**: Overcomes step-size choice by repeatedly doubling \\(\alpha\\) along the gradient direction until \\(f\\) begins to decrease, using that peak as the new state (p. 122).
+- If \\(\alpha\\) is too small: slow convergence. If too large: overshoots.
+- **Line search** overcomes step-size choice by doubling \\(\alpha\\) until \\(f\\) decreases, using the peak as the new state.
 
-#### Newton-Raphson Optimization
-The **Newton-Raphson method** finds roots \\(g(x) = 0\\) via \\(x \leftarrow x - g(x)/g'(x)\\) (p. 122). To find local extrema where \\(\nabla f(\mathbf{x}) = \mathbf{0}\\), it uses second derivatives via the **Hessian matrix** \\(\mathbf{H}_f(\mathbf{x})\\) (where \\(H_{ij} = \frac{\partial^2 f}{\partial x_i \partial x_j}\\)):
+**Newton-Raphson method (p. 122):** To find where \\(\nabla f(\mathbf{x}) = \mathbf{0}\\), apply:
 \\[\mathbf{x} \leftarrow \mathbf{x} - \mathbf{H}_f^{-1}(\mathbf{x}) \nabla f(\mathbf{x})\\]
-Newton-Raphson fits a local quadratic surface at \\(\mathbf{x}\\) and jumps directly to its minimum in one step (p. 122). However, computing and inverting the \\(n \times n\\) Hessian matrix takes \\(O(n^3)\\) operations per step (p. 122).
+where \\(\mathbf{H}_f\\) is the Hessian matrix of second partial derivatives. This fits a local quadratic surface and jumps to its minimum in one step. However, inverting the \\(n \times n\\) Hessian costs \\(O(n^3)\\) — prohibitive for high-dimensional problems.
 
-#### Constrained Optimization & Convexity
-- **Constrained optimization**: Optimization subject to hard variable constraints (p. 123).
-- **Linear programming**: Constrained optimization where constraints are linear inequalities forming a **convex set** and the objective function is linear, solvable in polynomial time (p. 123).
-- **Convex set & Convex function:** A set \\(S\\) is convex if line segments between any two points in \\(S\\) lie inside \\(S\\) (p. 123). A **convex optimization** problem optimizes a convex function over a convex region, guaranteeing that any local minimum is a global minimum (p. 123).
+**Constrained optimization (p. 123):**
+- **Linear programming**: Linear constraints + linear objective → convex feasible region; polynomial-time solvable.
+- **Convex optimization**: Convex objective on a convex region; every local minimum is global — local search methods find the global optimum.
+### 4.3.1 The Erratic Vacuum World
+When actions are nondeterministic, single action sequences cannot guarantee reaching the goal (p. 122). In the **erratic vacuum world**, `Suck` in a dirty square sometimes also cleans an adjacent square; in a clean square, it sometimes deposits dirt (p. 122–123).
 
-## Worked Example
-
-Trace of the 8-Queens **Genetic Algorithm** execution from Figure 4.6 (p. 118):
-
-1. **State Representation:** An 8-digit string where the \\(c\\)-th digit represents the row position of the queen in column \\(c\\) (p. 118).
-2. **Initial Population & Fitness Evaluation (Non-attacking pairs, max \\(= 28\\)):**
-   - String 1: `24748552` \\(\to\\) Fitness \\(= 24 \implies P(\text{select}) = 24 / 78 \approx 31\%\\)
-   - String 2: `32752411` \\(\to\\) Fitness \\(= 23 \implies P(\text{select}) = 23 / 78 \approx 29\%\\)
-   - String 3: `24415124` \\(\to\\) Fitness \\(= 20 \implies P(\text{select}) = 20 / 78 \approx 26\%\\)
-   - String 4: `32543213` \\(\to\\) Fitness \\(= 11 \implies P(\text{select}) = 11 / 78 \approx 14\%\\)
-   - Total sum of fitness scores \\(= 24 + 23 + 20 + 11 = 78\\) (p. 118).
-
-3. ==**Selection & Crossover Recombination Step**==:
-   - Pair 1 selected: `32752411` and `24748552`. Crossover point chosen after 3rd digit:
-     - Parent 1 (`327 | 52411`) + Parent 2 (`247 | 48552`)
-     - Child 1: `327` + `48552` \\(= \mathtt{32748552}\\)
-     - Child 2: `247` + `52411` \\(= \mathtt{24752411}\\)
-   - Pair 2 selected: `32752411` and `24415124`. Crossover point chosen after 5th digit:
-     - Parent 1 (`32752 | 411`) + Parent 2 (`24415 | 124`)
-     - Child 3: `32752` + `124` \\(= \mathtt{32752124}\\)
-     - Child 4: `24415` + `411` \\(= \mathtt{24415411}\\)
-
-4. **Random Mutation Step:**
-   - Child 1: 6th digit mutates \\(5 \to 1 \implies \mathtt{32748152}\\)
-   - Child 2: No digits mutate \\(\implies \mathtt{24752411}\\)
-   - Child 3: 3rd digit mutates \\(7 \to 2 \implies \mathtt{32252124}\\)
-   - Child 4: 8th digit mutates \\(1 \to 7 \implies \mathtt{24415417}\\)
-
-This yields the next generation of four modified state strings (p. 118).
-
-## Connections
-
-- ==This section covers Week 5 reading; lecture coverage is pending insertion upon availability== (pending — re-run once Week 5's lecture PDF lands).
-
-## Open Questions
-
-- [ ] How does simulated annealing's acceptance probability \\(e^{\Delta E / T}\\) guarantee convergence to a global optimum as \\(T \to 0\\), and why do steep cooling schedules cause convergence to local extrema?
-- [ ] In what structural landscapes does local beam search degrade into \\(k\\) parallel executions of slow hill climbing, and how does stochastic beam search prevent this collapse?
-- [ ] ==Why does the schema theorem require building block components to be contiguous== in genetic algorithm bit strings to avoid destructive crossover disruption?
-- [ ] What are the exact trade-offs in time complexity between computing empirical gradients versus inverting the Hessian matrix in high-dimensional continuous local search?
-
-## Flashcards
-
-How does steepest-ascent hill climbing differ from first-choice hill climbing?::Steepest-ascent evaluates all neighbors to pick the best move, whereas first-choice generates neighbors randomly and accepts the first one that improves on the current state (p. 111, 114). #cards/csci4511w
-
-What is the mathematical condition for accepting a bad move in simulated annealing?::A bad move worsening the objective score by \\(\Delta E \le 0\\) is accepted with probability \\(P = e^{\Delta E / T}\\), where \\(T\\) is the current temperature (p. 115). #cards/csci4511w
-
-Why is local beam search more effective than running \\(k\\) independent random restarts in parallel?::Local beam search passes information across threads by selecting the \\(k\\) best successors from the combined pool of all successors, allocating search effort to the most promising regions (p. 116). #cards/csci4511w
-
-How do crossover and mutation operate in a genetic algorithm?::Crossover splits two parent strings at a random crossover point and recombines their halves to form children; mutation independently alters individual string digits with a small probability (p. 118). #cards/csci4511w
-
-What is elitism in evolutionary algorithms, and why is it used?::Elitism preserves a small set of the top-performing individuals unchanged into the next generation, ensuring the maximum population fitness never decreases over time (p. 118). #cards/csci4511w
-
-==How does the Newton-Raphson method optimize continuous functions using second derivatives?==::It updates continuous states via \\(\mathbf{x} \leftarrow \mathbf{x} - \mathbf{H}_f^{-1}(\mathbf{x}) \nabla f(\mathbf{x})\\), fitting a local quadratic surface using the Hessian matrix \\(\mathbf{H}_f\\) and jumping directly to its minimum (p. 122). #cards/csci4511w
-
-Why does convex optimization guarantee that any local minimum found is also a global minimum?::Because convex functions defined over convex sets have no local minima distinct from global minima, ensuring local search methods cannot get trapped in suboptimal local extrema (p. 123). #cards/csci4511w 
-## Full Reading Notes (continued — ### 4.3.1 through 4.3.3, 4.4.1 through 4.4.4)
-
-### 4.3.1 The erratic vacuum world
-When actions are nondeterministic, an agent can no longer rely on single deterministic state outcomes (p. 122). In the **erratic vacuum world**, the `Suck` action behaves nondeterministically (p. 122–123):
-- When applied to a dirty square, it cleans the square and sometimes cleans an adjacent dirty square as well (p. 122).
-- When applied to a clean square, it sometimes deposits dirt onto the floor (p. 122–123).
-
-To model nondeterminism formally, the single-outcome transition function `RESULT(s, a)` is generalized to a set-valued transition function `RESULTS(s, a)` returning the set of all possible outcome states (p. 123). For example, in state 1 (agent in \\(A\\), \\(A\\) dirty, \\(B\\) dirty), executing `Suck` yields:
+The transition function becomes set-valued: \\(\text{RESULTS}(s, a)\\) returns all possible outcomes. For state 1 ([A dirty, B dirty]):
 \\[\text{RESULTS}(1, Suck) = \{5, 7\}\\]
-where state 5 is \\([A, \text{Clean}; B, \text{Dirty}]\\) and state 7 is \\([A, \text{Clean}; B, \text{Clean}]\\) (p. 123).
+where state 5 = [A clean, B dirty] and state 7 = [A clean, B clean].
 
-Because single action sequences cannot guarantee reaching a goal state under nondeterminism, a solution takes the form of a **conditional plan** (also called a **contingency plan** or **strategy**) containing `if-then-else` conditional branches (p. 123). For example, starting in state 1, the conditional plan is:
-\\[[Suck, \text{\textbf{if} } State = 5 \text{ \textbf{then} } [Right, Suck] \text{ \textbf{else} } []]\\]
-which branches dynamically based on runtime state observations (p. 123).
+Because the outcome is unknown, the solution must be a **conditional plan** that branches based on what actually happens:
+\\[[Suck,\ \textbf{if}\ \text{state} = 5\ \textbf{then}\ [Right, Suck]\ \textbf{else}\ []]\\]
+This plan covers both outcomes: if the environment lands in state 7, the empty branch applies; if state 5, move and suck again.
+### 4.3.2 AND-OR Search Trees
+Contingent plans are built by searching an **AND-OR tree** (p. 123–124):
+- **OR nodes** represent agent choices: the agent picks one action to pursue.
+- **AND nodes** represent environment outcomes: *every* outcome branch must be solved.
 
-### 4.3.2 AND–OR search trees
-Contingent solutions for nondeterministic problems are constructed using **AND–OR search trees** (p. 123–124).
-- **OR nodes**: Correspond to state nodes where the agent chooses an action (e.g., choosing between `Left`, `Right`, or `Suck`) (p. 123).
-- **AND nodes**: Correspond to action outcome nodes where the environment nondeterministically selects an outcome state from `RESULTS(s, a)` (p. 123). At an AND node, every possible outcome branch must be solved by the agent (p. 123).
-
-==A solution for an AND–OR search problem is a subtree of the complete search tree that specifies one action at each OR node and includes every outcome branch at each AND node, ending in goal nodes at every leaf== (p. 124).
-
-```
-
-function AND-OR-SEARCH(problem) returns a conditional plan, or failure return OR-SEARCH(problem, problem.INITIAL, [])
-
-function OR-SEARCH(problem, state, path) returns a conditional plan, or failure if problem.IS-GOAL(state) then return the empty plan if IS-CYCLE(path) then return failure for each action in problem.ACTIONS(state) do plan <- AND-SEARCH(problem, RESULTS(state, action), [state] + path) if plan ≠ failure then return [action] + plan return failure
-
-function AND-SEARCH(problem, states, path) returns a conditional plan, or failure for each s_i in states do plan_i <- OR-SEARCH(problem, s_i, path) if plan_i = failure then return failure return [if s_1 then plan_1 else if s_2 then plan_2 ... else plan_n]
+A **solution subtree** specifies one action at each OR node, includes all outcome branches at each AND node, and ends in goal nodes at every leaf (p. 124).
 
 ```
+function AND-OR-SEARCH(problem) returns plan or failure
+  return OR-SEARCH(problem, problem.INITIAL, [])
 
-Cycle handling in `OR-SEARCH` checks whether the current state appears on the path from the root; if a cycle is detected, that branch returns `failure` (p. 124). This guarantees termination in finite state spaces because every path must eventually hit a goal, a dead end, or a repeated state (p. 124–125).
+function OR-SEARCH(problem, state, path) returns plan or failure
+  if problem.IS-GOAL(state) then return []
+  if IS-CYCLE(path) then return failure
+  for each action in problem.ACTIONS(state) do
+    plan <- AND-SEARCH(problem, RESULTS(state, action), [state] + path)
+    if plan ≠ failure then return [action] + plan
+  return failure
 
-### 4.3.3 Try, try again
-In the **slippery vacuum world**, movement actions nondeterministically fail, leaving the agent in its current location (e.g., `Right` in state 1 leads to \\(\text{RESULTS}(1, Right) = \{1, 2\}\\)) (p. 125). Because movement can fail repeatedly, no acyclic solution exists (p. 125).
+function AND-SEARCH(problem, states, path) returns plan or failure
+  for each s_i in states do
+    plan_i <- OR-SEARCH(problem, s_i, path)
+    if plan_i = failure then return failure
+  return [if s_1 then plan_1 else if s_2 then plan_2 ... else plan_n]
+```
 
-To solve slippery environments, agents require a **cyclic solution** (a plan containing loops) (p. 125–126):
-\\[[Suck, \text{\textbf{while} } State = 5 \text{ \textbf{do} } Right, Suck]\\]
-or equivalently using labeled loop targets:
-\\[[Suck, L_1: Right, \text{\textbf{if} } State = 5 \text{ \textbf{then} } L_1 \text{ \textbf{else} } Suck]\\]
+Cycle checking in `OR-SEARCH` detects repeated states on the current path and returns `failure` for that branch. This guarantees termination in finite state spaces: every path must eventually hit a goal, a dead end, or a cycle (p. 124–125).
+### 4.3.3 Try, Try Again: Cyclic Solutions
+In the **slippery vacuum world**, movement can fail: \\(\text{RESULTS}(1, Right) = \{1, 2\}\\). Because failure can repeat, no acyclic solution exists (p. 125).
 
-A cyclic plan is a valid solution if every leaf node is a goal state and a goal leaf is reachable from every state in the plan (p. 125–126). Under the assumption that action failures occur independently at random, repeating an action sufficient times guarantees eventual success with probability 1 (p. 126).
+The fix is a **cyclic plan** with a loop:
+\\[[Suck,\ \textbf{while}\ \text{state} = 5\ \textbf{do}\ Right,\ Suck]\\]
 
-### 4.4.1 Searching with no observation
-When an agent has no sensors or receives no sensory information, it faces a **sensorless problem** (or **conformant problem**) (p. 126–127). The agent searches over a space of **belief states**—where a belief state \\(b\\) represents the set of all physical states the agent believes it could currently be in (p. 127).
+A cyclic plan is valid if: (1) every leaf is a goal state, and (2) from every state in the plan, a goal leaf is reachable. If action failures occur independently at random, repeating the action enough times guarantees eventual success with probability 1 (p. 125–126).
+### 4.4.1 Searching with No Observation: Sensorless Problems
+A **sensorless** (conformant) agent has no sensors and searches over **belief states** — sets of possible physical states — rather than individual states (p. 126–127).
 
-For an underlying problem \\(P\\) with \\(N\\) physical states, the belief-state space contains \\(2^N\\) possible belief states (p. 127).
+For an underlying problem \\(P\\) with \\(N\\) physical states, the belief-state space contains \\(2^N\\) possible belief states.
 
-#### Conformant Search Formulation
-- **States**: The set of all subsets of physical states in \\(P\\) (size \\(2^N\\)) (p. 127).
-- **Initial State**: The set of all physical states in \\(P\\) (representing complete initial ignorance, e.g., \\(\{1, 2, 3, 4, 5, 6, 7, 8\}\\)) (p. 127).
-- **Actions**: \\(\text{ACTIONS}(b) = \bigcup_{s \in b} \text{ACTIONS}_P(s)\\) (assuming illegal actions have no effect; or intersection if illegal actions are dangerous) (p. 127).
-- **Transition Model**: For deterministic actions, \\(b' = \text{RESULT}(b, a) = \{s' : s' = \text{RESULT}_P(s, a) \text{ and } s \in b\}\\); for nondeterministic actions, \\(b' = \text{RESULT}(b, a) = \bigcup_{s \in b} \text{RESULTS}_P(s, a)\\) (p. 128).
-- **Goal Test**: \\(\text{Is-Goal}(b)\\) returns true if *every* physical state \\(s \in b\\) satisfies \\(\text{Is-Goal}_P(s)\\) (necessarily achieving the goal) (p. 128).
+**Conformant search formulation (p. 127–128):**
+- **States**: Subsets of physical states (size \\(2^N\\)).
+- **Initial state**: The full set of all physical states (complete ignorance).
+- **Actions**: \\(\text{ACTIONS}(b) = \bigcup_{s \in b} \text{ACTIONS}_P(s)\\).
+- **Transition**: \\(b' = \{s' : s' = \text{RESULT}_P(s, a),\ s \in b\}\\) for deterministic actions.
+- **Goal test**: Every physical state in \\(b\\) satisfies the original goal.
 
-**Coercion**: A sensorless agent can coerce the world into a goal state without perceiving anything by executing an action sequence that collapses the belief state down to goal states (p. 127). In the deterministic vacuum world starting from complete ignorance \\(\{1..8\}\\), `Right` yields \\(\{2, 4, 6, 8\}\\), `[Right, Suck]` yields \\(\{4, 8\}\\), and `[Right, Suck, Left, Suck]` coerces the world to goal state \\(7\\) regardless of initial state (p. 127).
+**Coercion**: By executing a carefully chosen action sequence, a sensorless agent can force the belief state to collapse to a single goal state regardless of which physical state it started in (p. 127). In the deterministic vacuum world: `[Right, Suck, Left, Suck]` coerces the world to a fully clean state from any of the 8 possible initial states.
 
-*Pruning Rule:* If belief state \\(b_1 \subseteq b_2\\), the superset \\(b_2\\) can be pruned because any plan solving \\(b_2\\) also solves \\(b_1\\); solving the smaller set \\(b_1\\) is strictly easier (p. 128).
+**Pruning rule**: If \\(b_1 \subseteq b_2\\), any plan solving \\(b_2\\) also solves \\(b_1\\), so the larger belief state \\(b_2\\) can be pruned (p. 128).
+### 4.4.2 Searching in Partially Observable Environments
+With sensors, the agent knows its percept but not necessarily its physical state. The problem specification gains a `PERCEPT(s)` function (p. 128–129).
 
-### 4.4.2 Searching in partially observable environments
-In partially observable environments, the problem specification includes a `PERCEPT(s)` function (or `PERCEPTS(s)` for nondeterministic sensing) returning the sensory observation received in physical state \\(s\\) (p. 128–129).
+Belief-state transitions proceed in three stages (p. 129):
+1. **Predict**: \\(\hat{b} = \text{PREDICT}(b, a) = \bigcup_{s \in b} \text{RESULTS}_P(s, a)\\)
+2. **Possible percepts**: \\(\{o : o = \text{PERCEPT}(s),\ s \in \hat{b}\}\\)
+3. **Update**: \\(b_o = \{s : \text{PERCEPT}(s) = o,\ s \in \hat{b}\}\\)
 
-Transitions between belief states in partially observable environments proceed through three stages (p. 129):
-1. **Prediction stage**: Computes the predicted belief state \\(\hat{b}\\) resulting from action \\(a\\):
-   \\[\hat{b} = \text{PREDICT}(b, a) = \text{RESULT}(b, a) = \bigcup_{s \in b} \text{RESULTS}_P(s, a)\\]
-2. **Possible percepts stage**: Computes the set of all possible observations \\(o\\) that could be received in \\(\hat{b}\\):
-   \\[\text{POSSIBLE-PERCEPTS}(\hat{b}) = \{o : o = \text{PERCEPT}(s) \text{ and } s \in \hat{b}\}\\]
-3. **Update stage**: Filters \\(\hat{b}\\) for each possible percept \\(o\\) to keep only physical states consistent with observation \\(o\\):
-   \\[b_o = \text{UPDATE}(\hat{b}, o) = \{s : o = \text{PERCEPT}(s) \text{ and } s \in \hat{b}\}\\]
+Combining all three:
+\\[\text{RESULTS}(b, a) = \{b_o : b_o = \text{UPDATE}(\text{PREDICT}(b, a), o),\ o \in \text{POSSIBLE-PERCEPTS}(\text{PREDICT}(b, a))\}\\]
 
-Combining all three stages yields the nondeterministic belief-state transition function:
-\\[\text{RESULTS}(b, a) = \{b_o : b_o = \text{UPDATE}(\text{PREDICT}(b, a), o) \text{ and } o \in \text{POSSIBLE-PERCEPTS}(\text{PREDICT}(b, a))\}\\] (p. 129–130).
+Nondeterministic actions *expand* the belief state (predict stage); observations *shrink* it (update stage) (p. 129).
+### 4.4.3 Solving Partially Observable Problems
+By supplying the belief-state transition model \\(\text{RESULTS}(b, a)\\) to `AND-OR-SEARCH`, the agent directly solves partially observable problems (p. 130).
 
-Nondeterminism in physical actions expands the belief state during prediction, while observations shrink the belief state during update (p. 129).
+The search now operates over belief states. AND nodes correspond to different possible percepts (rather than different physical outcomes). For example, in the local-sensing vacuum world with initial percept [L, Dirty] (L = Left; belief state \\(\{1, 3\}\\)):
+\\[[Suck,\ Right,\ \textbf{if}\ Bstate = \{6\}\ \textbf{then}\ Suck\ \textbf{else}\ []]\\]
+The conditional tests the *belief state* at runtime, not the unobservable physical state (p. 130).
+### 4.4.4 An Agent for Partially Observable Environments
+In execution, the agent maintains its belief state online as percepts arrive (p. 131–132). This is called **monitoring**, **filtering**, or **state estimation**.
 
-### 4.4.3 Solving partially observable problems
-By supplying the belief-state transition model \\(\text{RESULTS}(b, a)\\) to `AND-OR-SEARCH`, an agent solves partially observable problems directly (p. 130).
+Given current belief state \\(b\\), executed action \\(a\\), and received percept \\(o\\), the **recursive state estimator** computes the new belief state:
+\\[b' = \text{UPDATE}(\text{PREDICT}(b, a), o)\\]
 
-Because search operates over belief states, `AND-OR-SEARCH` returns a conditional plan that tests belief states rather than unobservable physical states (p. 130–131). For example, in the local-sensing vacuum world starting with initial percept \\([A, \text{Dirty}]\\) (initial belief state \\(\{1, 3\}\\)), `AND-OR-SEARCH` returns:
-\\[[Suck, Right, \text{\textbf{if} } Bstate = \{6\} \text{ \textbf{then} } Suck \text{ \textbf{else} } []]\\] (p. 130).
+No history of past percepts is needed — the current belief state summarizes all relevant past information.
 
-### 4.4.4 An agent for partially observable environments
-An agent in a partially observable environment executes its conditional plan while maintaining its belief state online as new percepts arrive (p. 131–132). This process is called **monitoring**, **filtering**, or **state estimation** (p. 132).
+**Robot localization example (Figure 4.18, p. 132–133):** A robot with a map uses 4-bit sonar readings \\([N, E, S, W]\\) where 1 = obstacle:
+1. Initial belief state: all map locations (complete ignorance).
+2. Percept \\(E_1 = 1011\\) → `UPDATE` narrows to 4 candidate locations.
+3. Move Right → `PREDICT` expands belief state to adjacent locations.
+4. Percept \\(E_2 = 1010\\) → `UPDATE` collapses belief state to a *single unique location*.
 
-Given current belief state \\(b\\), executed action \\(a\\), and received percept \\(o\\), the new belief state \\(b'\\) is updated online using a **recursive state estimator**:
-\\[b' = \text{UPDATE}(\text{PREDICT}(b, a), o)\\] (p. 131–132).
-
-#### Robot Localization Example
-In robot **localization** (Figure 4.18), a robot with a map navigates a maze using 4-bit sonar distance sensors \\([N, E, S, W]\\) (where \\(1\\) indicates an obstacle) (p. 132–133):
-1. Initial belief state \\(b\\) contains all map locations (complete location ignorance) (p. 133).
-2. Percept \\(E_1 = 1011\\) arrives \\(\implies \text{UPDATE}(b, 1011)\\) narrows candidate locations down to 4 matching maze squares (p. 133).
-3. Nondeterministic move \\(a = Right \implies \text{PREDICT}(b, Right)\\) expands belief state \\(b_a\\) to all adjacent locations one step away (p. 133).
-4. Second percept \\(E_2 = 1010\\) arrives \\(\implies \text{UPDATE}(b_a, 1010)\\) collapses the belief state down to a single unique square (p. 133).
-
+This is the predict-update cycle running in real time, not as a planning step.
 ## Worked Example
+### I. 8-Queens Genetic Algorithm Trace (Figure 4.6, p. 118)
+State representation: 8-digit string, \\(c\\)th digit = row of queen in column \\(c\\). Fitness = non-attacking pairs (max = 28).
 
-Trace of the **Erratic Vacuum World AND–OR Search Tree** starting from state 1 (\\([A, \text{Dirty}; B, \text{Dirty}]\\)) (Figure 4.10) (p. 123–124):
+**Initial population and selection probabilities:**
 
-1. **Root (OR Node: State 1):**
-   - Agent evaluates actions \\(\{Suck, Right, Left\}\\) (p. 123–124).
-   - Candidate Choice: Action \\(Suck\\) (p. 124).
+| String | Fitness | P(select) |
+|---|---|---|
+| `24748552` | 24 | 24/78 ≈ 31% |
+| `32752411` | 23 | 23/78 ≈ 29% |
+| `24415124` | 20 | 20/78 ≈ 26% |
+| `32543213` | 11 | 11/78 ≈ 14% |
 
-2. **AND Node: \\(\text{RESULTS}(1, Suck)\\):**
-   - Environmental outcomes branch into two possible states: \\(\{5, 7\}\\) (p. 123–124).
-   - ==At an OR node the agent chooses a single action, while at an AND node every outcome branch must lead to a valid solution subtree== (p. 123–124).
-   - *Branch 1 (State 7: \\([A, \text{Clean}; B, \text{Clean}]\\)):*
-     - Goal test \\(\text{Is-Goal}(7) = \text{True} \implies\\) Leaf node! Empty plan \\([]\\) returned (p. 124).
-   - *Branch 2 (State 5: \\([A, \text{Clean}; B, \text{Dirty}]\\)):*
-     - Goal test \\(\text{Is-Goal}(5) = \text{False} \implies\\) OR Node (State 5) (p. 124).
+**Crossover (crossover point after position \\(c\\)):**
+- Pair 1 (`32752411`, `24748552`), \\(c=3\\): Child 1 = `327`+`48552` = `32748552`; Child 2 = `247`+`52411` = `24752411`
+- Pair 2 (`32752411`, `24415124`), \\(c=5\\): Child 3 = `32752`+`124` = `32752124`; Child 4 = `24415`+`411` = `24415411`
 
-3. **OR Node (State 5):**
-   - Agent evaluates actions \\(\{Suck, Right\}\\) (p. 124).
-   - Action \\(Suck \implies \text{RESULTS}(5, Suck) = \{5, 1\}\\). State 5 and State 1 both exist on current ancestral path \\(\implies \text{IS-CYCLE}\\) triggers `failure` (p. 124).
-   - Action \\(Right \implies \text{RESULTS}(5, Right) = \{6\}\\) (State 6: \\([B, \text{Clean}; B, \text{Dirty}]\\)) (p. 124).
+**Mutation (small random probability per digit):**
+- Child 1: position 6 mutates 5→1 → `32748152`
+- Child 2: no mutation → `24752411`
+- Child 3: position 3 mutates 7→2 → `32252124`
+- Child 4: position 8 mutates 1→7 → `24415417`
 
-4. **OR Node (State 6):**
-   - Action \\(Left \implies \text{RESULTS}(6, Left) = \{5\}\\). State 5 exists on current path \\(\implies \text{IS-CYCLE}\\) triggers `failure` (p. 124).
-   - Action \\(Suck \implies \text{RESULTS}(6, Suck) = \{8\}\\) (State 8: \\([B, \text{Clean}; B, \text{Clean}]\\)) (p. 124).
-   - Goal test \\(\text{Is-Goal}(8) = \text{True} \implies\\) Leaf node! Empty plan \\([]\\) returned (p. 124).
+The key observation: even Child 4 (`24415417`), produced from parents of fitness 23 and 20, has inherited partial solutions from both. Crossover at the right position can combine two good partial configurations faster than any hill-climbing variant could find them from scratch.
+### II. Erratic Vacuum World AND-OR Search Trace (Figure 4.10, p. 123–124)
+Start: state 1 = [A dirty, B dirty]. Goal: all squares clean.
 
-5. **Constructed Conditional Solution Subtree:**
-   - Assembles into Equation (4.3): \\([Suck, \text{\textbf{if} } State = 5 \text{ \textbf{then} } [Right, Suck] \text{ \textbf{else} } []]\\) (p. 123–124).
+```
+OR node — State 1:
+  Agent tries action Suck
+  → AND node: RESULTS(1, Suck) = {5, 7}
+      Branch 1 — State 7 = [A clean, B clean]: IS-GOAL = True → []
+      Branch 2 — State 5 = [A clean, B dirty]:
+        OR node — State 5:
+          Action Suck → RESULTS(5, Suck) = {5, 1}
+            State 5 on current path → IS-CYCLE → failure
+            State 1 on current path → IS-CYCLE → failure
+          Action Right → RESULTS(5, Right) = {6}
+            OR node — State 6 = [B, A dirty]:
+              Action Suck → RESULTS(6, Suck) = {8}
+                State 8 = [B clean, A clean]: IS-GOAL = True → []
+              ← plan: [Suck]
+            ← plan: [Right, Suck]
+          ← plan for State 5: [Right, Suck]
+      ← AND plan: if state=5 then [Right, Suck] else []
+  ← solution: [Suck, if state=5 then [Right, Suck] else []]
+```
 
+Key insight: at the AND node for `Suck` in state 1, *both* outcome branches must be solved. The plan for branch 7 is trivially the empty plan; the plan for branch 5 requires two more actions. The final conditional plan is assembled by the `AND-SEARCH` function combining both branch plans.
 ## Connections
-
-- **Lecture (CSCI 4511W Week 6):**
-  - This section covers Week 6 Monday reading (10/12); lecture coverage is pending insertion upon availability (pending — re-run once Week 6's lecture PDF lands).
-  - ==AND–OR search over physical states under nondeterminism directly generalizes to belief-state search under partial observability==, where AND branches correspond to possible percept observations rather than environmental action outcomes (p. 123–131).
-- **Textbook:**
-  - (pending Chapter 5 — adversarial search and games)
-
+- **Week 5 (10/5, 10/7):** §4.1.1–4.2 (local search and optimization). Lecture coverage pending — re-run this note once Week 5 lectures land.
+- **Week 6 (10/12):** §4.3–4.4 (nondeterministic and partially observable search). Lecture coverage pending.
+- ==AND-OR search over physical states under nondeterminism directly generalizes to belief-state search under partial observability==: AND branches that represent environment action outcomes (§4.3) become AND branches representing possible percept observations (§4.4) (p. 123–131).
+- **Textbook continuation:** [[20_Progress/Degree/CSCI 4511W/Textbook/Textbook Map|Textbook Map]] — Chapter 5 covers adversarial search.
 ## Open Questions
-
-- [ ] How does cycle checking along parent pointers in `AND-OR-SEARCH` guarantee termination in finite state spaces without pruning valid non-cyclic solutions?
-- [ ] ==Why does the size of the reachable belief-state space grow as \\(2^N\\) for \\(N\\) physical states==, and how do subset/superset pruning techniques reduce this complexity during search?
+- [ ] How does simulated annealing's acceptance probability \\(e^{\Delta E / T}\\) guarantee convergence to a global optimum as \\(T \to 0\\), and why do steep cooling schedules cause the algorithm to get trapped in local extrema?
+- [ ] In what landscape structures does local beam search degrade into \\(k\\) parallel slow hill climbs, and how does stochastic beam search prevent this collapse?
+- [ ] Why does the size of the reachable belief-state space grow as \\(2^N\\) for \\(N\\) physical states, and how do subset/superset pruning techniques reduce this during conformant search?
+- [ ] How does cycle checking along parent pointers in `AND-OR-SEARCH` guarantee termination in finite state spaces without cutting off valid non-cyclic solutions?
 - [ ] In what ways does sensorless coercion allow an agent to guarantee reaching a goal state without receiving any perceptual feedback?
-- [ ] How does a recursive state estimator update its belief state in real time using the prediction–observation–update cycle without needing the full history of past percepts?
-
+- [ ] How does a recursive state estimator update its belief state in real time using only the current belief state and the most recent action-percept pair, with no stored history?
 ## Flashcards
-
-What is the key difference between an OR node and an AND node in an AND–OR search tree?::An OR node represents the agent's decision among available actions, whereas an AND node represents the environment's nondeterministic outcomes for a chosen action (p. 123–124). #cards/csci4511w
-
-What defines a valid solution subtree for an AND–OR search problem?::A subtree that specifies exactly one action at each OR node, includes every outcome branch at each AND node, and has goal states at every leaf (p. 124). #cards/csci4511w
-
-Why is the solution to a sensorless (conformant) problem an action sequence rather than a conditional plan?::Because the agent receives no observations or percepts at runtime, making future percept-based branching impossible and contingencies unobservable (p. 126–127). #cards/csci4511w
-
-How does coercion allow a sensorless agent to solve problems from an unknown initial state?::Coercion uses a deterministic action sequence to force the environment into a known target state regardless of which physical state the agent started in (p. 127). #cards/csci4511w
-
-What three stages comprise a belief-state transition update in a partially observable environment?::The predict stage calculates the predicted belief state \\(\hat{b}\\), the possible-percepts stage finds candidate observations \\(o\\), and the update stage filters \\(\hat{b}\\) to states consistent with \\(o\\) (p. 128–129). #cards/csci4511w
-
-How does a recursive state estimator compute the new belief state \\(b'\\) without re-examining past percept history?::By applying \\(b' = \text{UPDATE}(\text{PREDICT}(b, a), o)\\) directly using only the current belief state \\(b\\), executed action \\(a\\), and newly received percept \\(o\\) (p. 131–132). #cards/csci4511w
-
-==Why does belief-state search treat observations as AND-node branches during contingent planning?==::Because at planning time the agent does not know which percept will actually be observed, requiring a contingent plan for every possible observation returned by the sensors (p. 130–131). #cards/csci4511w
-## Examples Worth Keeping
-<!-- Keep concrete examples, numbers, cases, or worked reasoning that makes the mechanism memorable. -->
-- 
-## Connections
-<!-- Link the matching lecture/week, course map, and only concept notes that actually exist or were created. -->
-- Lecture:
-- Concept:
-## Flashcards
-<!-- Add 3–8 atomic cards testing mechanisms and contrasts to #cards/<course-slug>. -->
+How does steepest-ascent hill climbing differ from first-choice hill climbing?::Steepest-ascent evaluates all neighbors to pick the best; first-choice generates neighbors randomly and accepts the first that improves on the current state — useful when branching factor is large (p. 111, 114). #cards/ai
+What is the mathematical condition for accepting a bad move in simulated annealing, and what two factors affect it?::A bad move (\\(\Delta E < 0\\)) is accepted with probability \\(e^{\Delta E / T}\\); probability drops as badness \\(|\Delta E|\\) increases and as temperature \\(T\\) decreases (p. 115). #cards/ai
+Why is local beam search more effective than \\(k\\) independent random restarts?::Local beam search selects the best \\(k\\) successors from the combined pool of all \\(k\\) states' successors, so promising threads recruit search effort away from dead ends; independent restarts share no information (p. 116). #cards/ai
+What is the difference between an OR node and an AND node in an AND-OR search tree?::An OR node represents the agent's choice of one action; an AND node represents the environment's nondeterministic outcomes — the plan must solve *every* branch at an AND node (p. 123–124). #cards/ai
+Why is the solution to a sensorless conformant problem an action sequence rather than a conditional plan?::The agent receives no observations at runtime, so it cannot branch on percepts; the solution must work regardless of which physical state the agent actually started in (p. 126–127). #cards/ai
+How does coercion allow a sensorless agent to solve a problem from an unknown initial state?::A carefully chosen action sequence forces the belief state to collapse to a single goal state by taking actions whose effects are useful in all possible physical starting states (p. 127). #cards/ai
+What three stages comprise a belief-state transition in a partially observable environment?::Predict computes the belief state after action \\(a\\); possible-percepts enumerates candidate observations; update filters the predicted belief state to states consistent with the received observation (p. 128–129). #cards/ai
+How does a recursive state estimator compute \\(b'\\) without examining past percept history?::It applies \\(b' = \text{UPDATE}(\text{PREDICT}(b, a), o)\\) using only the current belief state \\(b\\), the last action \\(a\\), and the new percept \\(o\\) — the current belief state summarizes all relevant history (p. 131–132). #cards/ai
+==Why does belief-state search treat observations as AND-node branches during contingent planning?==::At planning time the agent does not know which percept will be received, so the plan must handle every possible observation — each one becomes a branch at an AND node (p. 130–131). #cards/ai
+What structural advantage does convex optimization have over general local search?::A convex objective on a convex feasible region guarantees that any local minimum is also the global minimum, so gradient descent methods cannot get trapped (p. 123). #cards/ai

@@ -1,4 +1,13 @@
 # Session Log
+## [2026-10-02] build | CSCI 4511W Week 1 lecture-synthesis note
+
+**Type:** course note build (Week 1 of 4 in a sequential weekly-build sequence)
+**Output:** [[20_Progress/Degree/CSCI 4511W/Weekly/Week - 1|Week - 1]], [[20_Progress/Degree/CSCI 4511W/Discussion 1 — Turing 1950|Discussion 1 — Turing 1950]]
+**Sources read:** `turing.pdf` (22 pages, full), `Chapter - 1.md` (pre-landed), lecture folder (confirmed no Lecture 01 PDF — folder starts at Lecture 02 dated 9/14)
+**Concept note decision:** No new concept note created. The PEAS terms from the 9/9 intro lecture are a preview of Chapter 2's formal agent-design framework; a stub now would be superseded next week. Flagged as `Concept - PEAS Framework` and `Concept - Rational Agent` for creation after Week 2 lands.
+**Discussion Template:** exists at `30_Order/Templates/Classes/Discussion Template.md` — used to create the separate Turing discussion note. Live session capture does not exist; note records paper claims only.
+**Weekly Board:** updated Map (one real sentence for Week 1) and Status (0 → 1 of 15 weeks fully written).
+**Frontmatter fixes:** `area:` corrected from `[[UMN Board]]` placeholder to `[[CSCI 4511W Board]]` + `[[Chapter - 1]]`; `created`/`updated` dates set; `next:` pointing to Week 2.
 ## [2026-09-28] build | Terminal-popup root cause found (Codex upstream bug), hook errors traced to a stale path bug that turned out to affect 15 scripts, weekly review actually wired up for real
 Same-day follow-up. User reported random terminal popups whenever using Codex/Claude/terminal, plus hook errors seen during this build. Investigated both properly rather than guessing.
 
@@ -28,6 +37,32 @@ Found the leaked `data-v3-credentials-backup-843e8d02.json` present on this mach
 Found 2 live `.sync-conflict-*` files still in the working tree (everything else matching that glob was already inside `.stversions/`, Syncthing's own version archive, not a live conflict): `capture-health-windows` (rolling health-log snapshot, canonical clearly newer) and `sweep-2026-09-20.log` (conflict copy was a byte-identical prefix of canonical's first 783 lines — canonical is append-only and simply continued further). Read both against canonical before touching anything, per Failure Mode 6 — neither held unique content, unlike 7 of the Acer's 31. Archived both to this machine's own archive root, `D:\Users\_Anant\99_Archive\Syncthing Conflict Reconciliation 2026-09-28` (the Acer's `D:\_Anant\99_Archive` path doesn't exist on this machine — drive layouts differ between the two laptops). Verified after: 0 live conflict files, `db/status` `idle`/`errors: 0`/`needBytes: 0`, completion vs the Acer 100%.
 
 **Next:** user to delete the Dell's copy of the credentials backup and rotate the underlying OpenAI/Copilot keys (same unresolved item as the Acer); consider whether `check-syncthing-status.ps1`'s `.stversions` fix should be verified on the Acer too, since that script is vault-synced and the bug wasn't specific to this machine.
+
+## [2026-10-02] distill | CSCI 4511W Chapter 3 and Chapter 4 textbook notes — structural merge, frontmatter fix, PDF fact-check
+
+**Type:** pdf (AIMA 4th ed.)
+**Output:** [[20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3]], [[20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 4]]
+**Pages verified:** Chapter 3 (PDF pp. 145–232), Chapter 4 (PDF pp. 232–270+)
+
+Merged five concatenated NotebookLM pastes (Ch.3) and two pastes (Ch.4) into single well-formed notes. Fixed broken frontmatter on both (blank dates, wrong area field). Deleted empty template blocks. Expanded Key Concepts and made Full Reading Notes sequential (§3.1–§3.6.6, §4.1.1–§4.4.4).
+
+PDF fact-check findings applied to Chapter 3:
+- Added §3.4.5 (Bidirectional Search, uninformed) and §3.4.6 (Comparing Uninformed Search Algorithms with Figure 3.15 table) — both were missing from the original notes.
+- Corrected lb formula in §3.5.6: original had `lb = gF+gB+h(nF,nB)` (wrong); real book says `lb(m,n) = max(gF(m)+gB(n), fF(m), fB(n))`.
+- Added h1=8 and h2=3+1+2+2+2+3+3+2=18 from Figure 3.25 to §3.6.2.
+- Added Bidirectional search to Key Concepts (uninformed and informed sections).
+- Added Bidirectional heuristic search Key Concept entry.
+
+PDF fact-check for Chapter 4:
+- Hill climbing stats (86%/14%, 94% with sideways moves, 22 and 25 step averages) confirmed correct.
+- Genetic algorithm trace (Figure 4.6: fitness 24/23/20/11, crossover at position 3) confirmed correct.
+- RESULTS(1, Suck) = {5,7}, coercion sequence [Right,Suck,Left,Suck], conditional plan form — all confirmed correct.
+- Predict/Update formulas confirmed correct.
+- Fixed §4.4.3 percept notation: "[A, Dirty]" → "[L, Dirty]" (L = Left, the book's actual label).
+
+Updated Textbook Map (links, status, next pointer, updated date).
+
+**Promotion candidates:** None — content is source-specific, not reusable distillations.
 
 ## [2026-09-28] build | Sync conflict reconciliation found real data loss, not just noise — 7 files restored, Copilot key deleted, Dell prompt handed off
 Follow-up to the earlier same-day sync-fix session. User confirmed steps 1-2 done on this laptop and reported the Dell's Syncthing GUI had no visible "File Watcher Delay" field, only "Full Rescan Interval" — flagged in the vault note rather than assumed equivalent, since the two are different mechanisms (real-time watcher vs. periodic full scan) and the Dell prompt now checks this directly via REST instead of guessing from the GUI.

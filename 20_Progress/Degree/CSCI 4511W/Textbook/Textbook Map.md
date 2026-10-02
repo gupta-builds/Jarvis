@@ -3,13 +3,13 @@ type: class
 input_kind: textbook
 status: sprout
 created: 2026-09-09
-updated: 2026-09-28
+updated: 2026-10-02
 area:
   - "[[CSCI 4511W Board]]"
 tags:
   - "#class"
   - "#Textbook"
-next: "Run the Chapter 3 (Parts 1-2) and Chapter 4 (Parts 1-2) Gemini Notebook prompts from [[20_Progress/Degree/Repetitive Things|Repetitive Things]] to land Chapter - 3.md and Chapter - 4.md"
+next: "Run Chapter 5 Gemini Notebook prompts from [[20_Progress/Degree/Repetitive Things|Repetitive Things]] before Week 7 (10/19); add Lecture 07 connection to Chapter - 3 and Weeks 5–6 connections to Chapter - 4 once those lecture PDFs land"
 ---
 # CSCI 4511W — Textbook Map
 ==Resolved 2026-09-15: the entire semester's reading list is one textbook, Russell & Norvig's *Artificial Intelligence: A Modern Approach* (4th ed.), Chapters 2-9 - the earlier "second uncited source for Chapter 7" concern was a scrambled-paste artifact, not a real gap.== Cross-referenced against the full Schedule section in [[CSCI 4511W Board]].
@@ -31,9 +31,11 @@ Every module name matches its AIMA chapter's real subject exactly - this is a cl
 ## Chapter Notes
 - [[20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 1|Chapter 1 — Introduction to Artificial Intelligence]] — reviewed 2026-09-20; background framing, rational-agent approach, AI foundations/history, current capabilities, and risks.
 - [[20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 2|Chapter 2 — Intelligent Agents]] — reviewed 2026-09-20; agent functions, rationality, PEAS, environment dimensions, agent architectures, learning, and representations.
+- [[20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3|Chapter 3 — Solving Problems by Searching]] — reconciled 2026-10-02; covers §3.1–3.6: problem formulation, uninformed search (BFS/UCS/DFS/DLS/IDDFS), informed search (greedy/A*/weighted A*/memory-bounded), heuristic construction (relaxed problems, pattern databases, landmarks, learning).
+- [[20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 4|Chapter 4 — Search in Complex Environments]] — reconciled 2026-10-02; covers §4.1.1–4.4.4: local search (hill climbing, simulated annealing, beam search, GAs), continuous optimization, nondeterministic AND-OR search, and belief-state search for partial observability.
 ## Not Russell & Norvig: "Reading: Vector Semantics"
 Due 12/14, inside its own module ("Modern Approaches: Vector Semantics"), with no chapter number given anywhere - this is the one genuinely standalone reading of the semester, confirmed **not** part of AIMA (Russell & Norvig's real Chapter 7 is Logical Agents, not vector semantics - vector semantics/embeddings is standard NLP-textbook material, e.g. Jurafsky & Martin's *Speech and Language Processing*, but no such second text is named anywhere in the syllabus or Modules page). Treat this as a single supplementary paper/handout, not a chapter in any tracked textbook, until Canvas names its actual source.
 ## Standard
 Each chapter note, once created, follows [[Textbook Template]] - one highlight anchor, bolded key concepts, a worked example, a connection back to the matching lecture, and flashcards.
 ## Status
-Two chapter notes are now written: Chapters 1–2 were reviewed directly from the local 4th-edition PDF on 2026-09-20. Chapter 1 is background rather than a dated Canvas reading; Chapter 2 is the first scheduled textbook unit. Chapter 3 (§3.1–3.6, spanning Weeks 2–4) and Chapter 4 (§4.1.1–4.4, spanning Weeks 5–6) have no notes yet but have real, source-cited, ready-to-run prompts as of 2026-09-28 in [[20_Progress/Degree/Repetitive Things|Repetitive Things]] under `# CSCI 4511W — Chapter 3 & Weekly Note Prompts`. The notes are self-contained source-grounded study notes, while the weekly lecture-synthesis layer remains separate and should only be filled from actual lecture capture, per [[Weekly Standard]].
+Four chapter notes are now written. Chapters 1–2 were reviewed directly from the local 4th-edition PDF on 2026-09-20. Chapter 1 is background rather than a dated Canvas reading; Chapter 2 is the first scheduled textbook unit. Chapters 3 and 4 were generated from the NotebookLM prompts in [[20_Progress/Degree/Repetitive Things|Repetitive Things]] (prompts added 2026-09-28) and reconciled on 2026-10-02: merged from 5-part (Ch.3) and 2-part (Ch.4) concatenated fragments into single well-formed notes, fixed frontmatter, stripped garbled citation artifacts, and added Key Concepts for all sections. Lecture connections for Lectures 07 (Ch.3 §3.6) and Weeks 5–6 (Ch.4) remain pending until those lecture PDFs land. The notes are self-contained source-grounded study notes; the weekly lecture-synthesis layer remains separate, per [[Weekly Standard]].

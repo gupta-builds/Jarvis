@@ -1,0 +1,10 @@
+# Normalize line endings so the two laptops never diverge on CRLF vs LF for
+# the same unchanged content (root cause of spurious full-file conflicts
+# during cross-laptop auto-sync, see Build 7/8 findings).
+* text=auto eol=lf
+
+# Append-only auto-sync logs: both laptops write to these independently.
+# Union merge means simultaneous appends from both machines combine instead
+# of blocking the 15-minute git-auto-sync script on every run.
+**/Sync-Log.md merge=union
+**/logs/*.log merge=union

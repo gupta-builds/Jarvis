@@ -712,7 +712,7 @@
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": 1790917402439,
     "60_Claude/05_Clippings/AI Conversations/00 - Capture Health.md": 1790916485637,
     "30_Order/System/claude-workflow/logs/capture-health-wsl.json": 1790915585051,
-    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 1790952482796,
+    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 1790953382738,
     "20_Progress/AI/Claude Code/The Plan/Sync-Log.md": 1790913785289,
     "20_Progress/AI/Claude Code/Trading View/Sync-Log.md": 1790877807247,
     "20_Progress/AI/Claude Code/internship-research-loop/Sync-Log.md": 1790877807263,
@@ -720,7 +720,7 @@
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-18 Jarvis sync process setup.md": 1790452085474,
     "20_Progress/AI/Claude Code/CausalOps/Sync-Log.md": 1790913786260,
     "20_Progress/AI/Claude Code/Jarvis/Sync-Log.md": 1790913785279,
-    "30_Order/System/cursor-workflow/cursor-export-state.json": 1790951704176,
+    "30_Order/System/cursor-workflow/cursor-export-state.json": 1790953503567,
     "20_Progress/AI/Claude Code/Portfolio/Sync-Log.md": 1790916485289,
     "20_Progress/AI/Claude Code/Resq/Sync-Log.md": 1790913785284,
     "20_Progress/AI/Claude Code/OpsPilot/Sync-Log.md": 1790916485289,
@@ -1223,6 +1223,7 @@
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/The Plan/~syncthing~00 - Tool Usage Rollup.md.tmp": 1790877808785,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/~syncthing~09-28 Weekly workflow setup 2026-W40.md.tmp": 1790877808819,
     "10_Areas/Life/Enumerate/Daily/2026-10-01.md": 1790877807190,
+<<<<<<< Updated upstream
     "40_Resources/UMN/Previous Classes/CSCI/CSCI 2033/CSCI 2033 Board.md": 1790879136408,
     "20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Pointers and Addresses.md": 1790913787014,
     "20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Bitwise Operations and Integer Representation.md": 1790913787009,
@@ -1242,6 +1243,36 @@
     "40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 4.md": 1790913786326,
     "40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 6.md": 1790913786326,
     "40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 7.md": 1790913619035,
+=======
+    "30_Order/System/cursor-workflow/logs/sweep-2026-09-25.log": 1790916486517,
+    "30_Order/System/cursor-workflow/logs/sweep-2026-09-26.log": 1790916486519,
+    "20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Recursion.md": 1790881628322,
+    "20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Structs and Typedef.md": 1790881566402,
+    "20_Progress/Degree/CSCI 4061/Concepts/C Refresher/File IO in C.md": 1790881592720,
+    "40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 2.md": 1790881784034,
+    "40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 4.md": 1790881813789,
+    "40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 6.md": 1790881826548,
+    "20_Progress/Degree/CSCI 4061/Concepts/C Refresher/C Language.md": 1790913787009,
+    "30_Order/Workflows/Courses/Per Class/CSCI 4061 Workflow.md": 1790882118716,
+    "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Unknown/_raw_jsonl/4c7f2302-51d9-4193-8f96-2eac1444ee0d.jsonl": 1790954063356,
+    "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/_raw_jsonl/4c7f2302-51d9-4193-8f96-2eac1444ee0d.jsonl": 1790954063356,
+    "30_Order/System/cursor-workflow/logs/sweep-2026-09-21.log": 1790916486513,
+    "30_Order/System/cursor-workflow/logs/sweep-2026-09-22.log": 1790916486514,
+    "30_Order/System/cursor-workflow/logs/sweep-2026-09-23.log": 1790916486515,
+    "30_Order/System/cursor-workflow/logs/sweep-2026-09-24.log": 1790916486516,
+    "30_Order/System/cursor-workflow/logs/sweep-2026-09-27.log": 1790916486520,
+    "30_Order/System/cursor-workflow/logs/sweep-2026-09-28.log": 1790916486521,
+    "30_Order/System/cursor-workflow/logs/sweep-2026-09-29.log": 1790916486522,
+    "30_Order/System/cursor-workflow/logs/sweep-2026-09-30.log": 1790916486523,
+    "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/_raw_jsonl/4c7f2302-51d9-4193-8f96-2eac1444ee0d/tool-results/bavwa09gv.txt": 1790913584528,
+    "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Unknown/_raw_jsonl/4c7f2302-51d9-4193-8f96-2eac1444ee0d/tool-results/bavwa09gv.txt": 1790913584528,
+    "40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Concepts/Compilation system.md": 1790913787014,
+    "40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Concepts/Linked list.md": 1790913787014,
+    "40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Concepts/Static and dynamic.md": 1790913787014,
+    "40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/C Language.md": 1790913784996,
+    "40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/CSCI 2021 Board.md": 1790913784998,
+    "40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 7.md": 1790913786328,
+>>>>>>> Stashed changes
     "40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 8.md": 1790913786328,
     "40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 9.md": 1790913786328,
     "40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 11.md": 1790881933828,
@@ -1376,6 +1407,7 @@
     "40_Resources/Obsidian/Plugins/QuickAdd Capture Menu.md": 1790917402440,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Home/09-11 Acer Predator Helios Neo 16 AI setup.md": 1790917402492,
     "30_Order/Templates/Enumerate/Better Today.md": 1790917402437,
+<<<<<<< Updated upstream
     "30_Order/System/cursor-workflow/logs/sweep-2026-10-02.log": 1790951703422
 =======
     "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-04 Remove recurring files from repo and add to gitignore.md": 1790917402112,
@@ -1442,6 +1474,9 @@
     "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 10.md": 1790734120671,
     "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 1 & 2.md": 1790734105187
 >>>>>>> Stashed changes
+=======
+    "30_Order/System/cursor-workflow/logs/sweep-2026-10-02.log": 1790953502624
+>>>>>>> Stashed changes
   },
   "_dismissedAt": {},
   "_editSizes": {
@@ -1462,7 +1497,7 @@
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": 26371,
     "60_Claude/05_Clippings/AI Conversations/00 - Capture Health.md": 1998,
     "30_Order/System/claude-workflow/logs/capture-health-wsl.json": 3766,
-    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 3619315,
+    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 3620409,
     "20_Progress/AI/Claude Code/The Plan/Sync-Log.md": 50825,
     "20_Progress/AI/Claude Code/Trading View/Sync-Log.md": 40407,
     "20_Progress/AI/Claude Code/internship-research-loop/Sync-Log.md": 49435,
@@ -1964,12 +1999,35 @@
     "20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Structs and Typedef.md": 8992,
     "20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Arrays and Strings.md": 8644,
     "20_Progress/Degree/CSCI 4061/Concepts/C Refresher/File IO in C.md": 9550,
+<<<<<<< Updated upstream
     "20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Compilation and Linking.md": 10538,
     "20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Linked Data Structures.md": 9844,
     "20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Dynamic Memory.md": 10149,
     "20_Progress/Degree/CSCI 4061/Concepts/C Refresher/x86-64 and Memory Layout.md": 10303,
     "20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Recursion.md": 9386,
     "40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/CSCI 2021 Board.md": 453,
+=======
+    "40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 2.md": 18853,
+    "40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 4.md": 17940,
+    "40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 6.md": 34515,
+    "20_Progress/Degree/CSCI 4061/Concepts/C Refresher/C Language.md": 6783,
+    "30_Order/Workflows/Courses/Per Class/CSCI 4061 Workflow.md": 12058,
+    "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Unknown/_raw_jsonl/4c7f2302-51d9-4193-8f96-2eac1444ee0d.jsonl": 1629142,
+    "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/_raw_jsonl/4c7f2302-51d9-4193-8f96-2eac1444ee0d.jsonl": 1629142,
+    "30_Order/System/cursor-workflow/logs/sweep-2026-09-21.log": 83512,
+    "30_Order/System/cursor-workflow/logs/sweep-2026-09-22.log": 44642,
+    "30_Order/System/cursor-workflow/logs/sweep-2026-09-23.log": 73175,
+    "30_Order/System/cursor-workflow/logs/sweep-2026-09-24.log": 33907,
+    "30_Order/System/cursor-workflow/logs/sweep-2026-09-27.log": 62817,
+    "30_Order/System/cursor-workflow/logs/sweep-2026-09-28.log": 48252,
+    "30_Order/System/cursor-workflow/logs/sweep-2026-09-29.log": 70926,
+    "30_Order/System/cursor-workflow/logs/sweep-2026-09-30.log": 79251,
+    "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/_raw_jsonl/4c7f2302-51d9-4193-8f96-2eac1444ee0d/tool-results/bavwa09gv.txt": 36701,
+    "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Unknown/_raw_jsonl/4c7f2302-51d9-4193-8f96-2eac1444ee0d/tool-results/bavwa09gv.txt": 36701,
+    "40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Concepts/Compilation system.md": 4817,
+    "40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Concepts/Linked list.md": 1066,
+    "40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Concepts/Static and dynamic.md": 576,
+>>>>>>> Stashed changes
     "40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/C Language.md": 1151,
     "40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 1.md": 14395,
     "40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 2.md": 18945,
@@ -2122,6 +2180,7 @@
     "40_Resources/Obsidian/Plugins/QuickAdd Capture Menu.md": 10964,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Home/09-11 Acer Predator Helios Neo 16 AI setup.md": 80366,
     "30_Order/Templates/Enumerate/Better Today.md": 1866,
+<<<<<<< Updated upstream
     "30_Order/System/cursor-workflow/logs/sweep-2026-10-02.log": 29330
 =======
     "30_Order/System/cursor-workflow/cursor-export-state.json": 110,
@@ -2180,6 +2239,41 @@
     "20_Progress/Degree/MGMT 3015/Weekly/Week - 3.md": "up",
     "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.md": "down",
     "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.md": "down"
+=======
+    "30_Order/System/cursor-workflow/logs/sweep-2026-10-02.log": 31148
+  },
+  "_sizeDeltas": {
+    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/portfolio/_raw_jsonl/c675da59-c63c-4664-bd8e-e9e0a97d0d31.jsonl": "up",
+    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/portfolio/09-26 VSCode task configuration errors.md": "down",
+    "60_Claude/40_Project_Briefs/In depth Usage.md": "up",
+    "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/_raw_jsonl/bdabaa33-2d09-4e17-8931-ab78bd4af83e/subagents/agent-a7810091f7601b16f.jsonl": "up",
+    "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Unknown/_raw_jsonl/bdabaa33-2d09-4e17-8931-ab78bd4af83e/subagents/agent-a7810091f7601b16f.jsonl": "up",
+    "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Unknown/_raw_jsonl/bdabaa33-2d09-4e17-8931-ab78bd4af83e/subagents/agent-af0d2b0bd7e72e6d4.jsonl": "up",
+    "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/_raw_jsonl/bdabaa33-2d09-4e17-8931-ab78bd4af83e/subagents/agent-af0d2b0bd7e72e6d4.jsonl": "up",
+    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/_raw_jsonl/5fda8f63-6988-454b-9ea5-6c6cb5a0c3aa.jsonl": "up",
+    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/portfolio/_raw_jsonl/73fc0c9f-ad6c-40b6-bdb8-e3841161f317.jsonl": "up",
+    "20_Progress/Degree/Repetitive Things.md": "up",
+    "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Unknown/_raw_jsonl/8f60808c-1942-4b25-841a-195e7dda34c7/subagents/agent-a0e47672b46515897.jsonl": "up",
+    "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/_raw_jsonl/8f60808c-1942-4b25-841a-195e7dda34c7/subagents/agent-a0e47672b46515897.jsonl": "up",
+    "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/_raw_jsonl/8f60808c-1942-4b25-841a-195e7dda34c7/subagents/agent-a5576b9c16cd5c3da.jsonl": "up",
+    "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Unknown/_raw_jsonl/8f60808c-1942-4b25-841a-195e7dda34c7/subagents/agent-a5576b9c16cd5c3da.jsonl": "up",
+    "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3.md": "up",
+    "20_Progress/AI/Claude Code/CausalOps/Sync-Log.md": "down",
+    "20_Progress/AI/Claude Code/The Plan/Sync-Log.md": "up",
+    "20_Progress/AI/Claude Code/Trading View/Sync-Log.md": "down",
+    "20_Progress/AI/Claude Code/internship-research-loop/Sync-Log.md": "down",
+    "20_Progress/AI/Claude Code/second-brain-claudekit/Sync-Log.md": "down",
+    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/_raw_jsonl/d9e1002f-bcde-4ac4-ac31-6516312edb23.jsonl": "down",
+    "20_Progress/AI/Claude Code/Jarvis/Sync-Log.md": "up",
+    "20_Progress/AI/Claude Code/OpsPilot/Sync-Log.md": "down",
+    "20_Progress/AI/Claude Code/Portfolio/Sync-Log.md": "down",
+    "20_Progress/AI/Claude Code/Resq/Sync-Log.md": "up",
+    "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.md": "down",
+    "30_Order/System/cursor-workflow/logs/sweep-2026-09-20.log": "down",
+    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-29 Internship loop research and gap analysis.md": "up",
+    "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/_raw_jsonl/4c7f2302-51d9-4193-8f96-2eac1444ee0d.jsonl": "up",
+    "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Unknown/_raw_jsonl/4c7f2302-51d9-4193-8f96-2eac1444ee0d.jsonl": "up"
+>>>>>>> Stashed changes
   },
   "_pinned": []
 }

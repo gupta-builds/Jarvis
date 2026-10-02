@@ -9,7 +9,7 @@ area:
   - "[[APAS]]"
 tags:
   - "#class"
-next: "Complete the Docker environment setup during Lab 1 (Mon 2026-09-14) - the first real graded action in this course"
+next: "Submit Project 1 (swish) to Gradescope before 2026-10-02 11:59pm, then sign up for the oral exam slot - Week 4 is fully captured"
 ---
 # CSCI 4061 — Introduction to Operating Systems
 Fall'26, 4 credits, in person. Closes the Introduction to Operating Systems sub-requirement of the Computer Science Core — the last open CS Core sub-req per [[APAS]], so this class finishes CS Core outright. Real syllabus pasted in full by the user 2026-09-08, from the course's Canvas page.

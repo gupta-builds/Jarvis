@@ -1,10 +1,10 @@
 ---
 type: class
-status: tree
+status: archived
 created: 2025-11-26
 updated: 2025-11-28
 area:
-  - "[[CSCI 2021 Board]]"
+  - "[[C Language]]"
 tags:
   - "#class"
   - "#Textbook"

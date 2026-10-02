@@ -1,10 +1,10 @@
 ---
 type: class
-status: tree
+status: archived
 created: 2025-11-12
 updated: 2025-11-14
 area:
-  - "[[CSCI 2021 Board]]"
+  - "[[C Language]]"
 tags:
   - "#class"
   - "#Textbook"
@@ -12,7 +12,7 @@ tags:
   - "#Homework"
   - "#CSAPP"
   - "#Lecture"
-next: "[[Week - 9]]"
+next: "[[50_Archive/Previous Classes/CSCI/CSCI 2021/Week - 9|Week - 9]]"
 ---
 # #Textbook Textbook (CSAPP - 4.1 to 4.3)
 ## #CSAPP CSAPP

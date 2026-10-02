@@ -1,20 +1,20 @@
 ---
 type: class
-status: sprout
+status: archived
 created: 2025-12-24
 updated: 2025-12-25
 area:
   - "[[C Language]]"
-  - "[[Midterm - 1]]"
+  - "[[50_Archive/Previous Classes/CSCI/CSCI 2021/Midterm - 1|Midterm - 1]]"
 tags:
   - "#class"
-next: "No action needed — stable reference"
+next: "[[C Language]]"
 ---
 # Everything
 ```dataview
 TABLE created, status, area, next
-FROM "40_Resources/UMN/Previous Classes/CSCI/CSCI 2021"
-WHERE type = "class"
+FROM "50_Archive/Previous Classes/CSCI 2021"
+WHERE type = "class" and status = "archived"
 SORT created ASC
 ```
 # Map Of Contents(MOC)

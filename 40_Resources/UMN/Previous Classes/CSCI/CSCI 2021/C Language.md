@@ -2,12 +2,12 @@
 type: evergreen
 status: sprout
 created: 2025-09-24
-updated: 2026-10-01
 tags:
   - evergreen
   - "#class"
 notes:
-  - "[[Midterm - 1]]"
+  - "[[50_Archive/Previous Classes/CSCI/CSCI 2021/Midterm - 1|Midterm - 1]]"
+  - missing midterm - 2 and final
 ---
 # General
 **C is not an object-oriented language.**

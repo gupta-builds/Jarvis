@@ -62,6 +62,9 @@ mcp.env
 # infinite self-referential loop. Found during Build 7 testing.
 30_Order/System/claude-workflow/logs/git-auto-sync.log
 30_Order/System/claude-workflow/scripts/.git-auto-sync.lock
+# Jarvis-Syncthing-Health's own alert-rate-limiting state (Build 9) — same
+# self-referential-diff reasoning as the git-auto-sync lock above, machine-local.
+30_Order/System/sync-workflow/scripts/.sync-alert-state.json
 # AI tool internal state (sessions, history, creds) — never commit
 20_Progress/AI/Claude Code/.claude_wsl/
 20_Progress/AI/Claude Code/.claude_windows/

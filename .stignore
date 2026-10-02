@@ -89,3 +89,10 @@
 // record). Excluding the log and any conflict-copy variant, added 2026-09-20.
 30_Order/System/claude-workflow/logs/git-auto-sync.log
 30_Order/System/claude-workflow/logs/git-auto-sync.sync-conflict-*
+
+// .sync-alert-state.json (Build 9, 2026-10-02) is Jarvis-Syncthing-Health's own
+// per-machine alert-rate-limiting counter, rewritten every 5 minutes on each
+// laptop independently - same per-machine-artifact reasoning as git-auto-sync.log
+// above. Syncing it would manufacture a sync-conflict on this file roughly every
+// 5 minutes between two laptops both running the health check on their own clocks.
+30_Order/System/sync-workflow/scripts/.sync-alert-state.json

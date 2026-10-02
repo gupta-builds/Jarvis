@@ -723,7 +723,7 @@
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": 1790917402439,
     "60_Claude/05_Clippings/AI Conversations/00 - Capture Health.md": 1790916485637,
     "30_Order/System/claude-workflow/logs/capture-health-wsl.json": 1790915585051,
-    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 1790948882734,
+    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 1790949783283,
     "20_Progress/AI/Claude Code/The Plan/Sync-Log.md": 1790913785289,
     "20_Progress/AI/Claude Code/Trading View/Sync-Log.md": 1790877807247,
     "20_Progress/AI/Claude Code/internship-research-loop/Sync-Log.md": 1790877807263,
@@ -731,7 +731,7 @@
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-18 Jarvis sync process setup.md": 1790452085474,
     "20_Progress/AI/Claude Code/CausalOps/Sync-Log.md": 1790913786260,
     "20_Progress/AI/Claude Code/Jarvis/Sync-Log.md": 1790913785279,
-    "30_Order/System/cursor-workflow/cursor-export-state.json": 1790947203551,
+    "30_Order/System/cursor-workflow/cursor-export-state.json": 1790949002750,
     "20_Progress/AI/Claude Code/Portfolio/Sync-Log.md": 1790916485289,
     "20_Progress/AI/Claude Code/Resq/Sync-Log.md": 1790913785284,
     "20_Progress/AI/Claude Code/OpsPilot/Sync-Log.md": 1790916485289,
@@ -943,7 +943,7 @@
     "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md": 1790878603111,
     "copilot/skills/openartifacts-publish/SKILL.md": 1790453886176,
     "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8.md": 1790722984159,
-    "30_Order/System/claude-workflow/logs/weekly-review.log": 1790875089480,
+    "30_Order/System/claude-workflow/logs/weekly-review.log": 1790949601519,
     "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3.md": 1790720285179,
     "10_Areas/Career/Internships/Tracker/Each One/Current/Data Governance, Visualization and Automation Intern - Xcel Energy.md": 1790450285536,
     "10_Areas/Career/Internships/Tracker/Each One/Current/Embedded Software Engineering Intern - The Toro Company.md": 1790450285536,
@@ -1135,7 +1135,7 @@
     "30_Order/System/claude-workflow/logs/capture-health-windows.sync-conflict-20260920-193318-VYYX3J5.json": 1790651882595,
     "20_Progress/Degree/MGMT 3015/Assignments/Business Idea For A New Company.md": 1790659084157,
     "30_Order/System/claude-workflow/scripts/register-weekly-review-task.ps1": 1790658184077,
-    "30_Order/System/claude-workflow/scripts/run-weekly-review.ps1": 1790658184077,
+    "30_Order/System/claude-workflow/scripts/run-weekly-review.ps1": 1790659084683,
     "30_Order/System/cursor-workflow/scripts/export-cursor-sessions.py": 1790659084689,
     "30_Order/System/sync-workflow/scripts/rotate-sync-logs.ps1": 1790655483625,
     "30_Order/System/claude-workflow/hooks/jarvis-session-continuity.ps1": 1790658183584,
@@ -1400,7 +1400,7 @@
     "40_Resources/Obsidian/Plugins/QuickAdd Capture Menu.md": 1790917402440,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Home/09-11 Acer Predator Helios Neo 16 AI setup.md": 1790917402492,
     "30_Order/Templates/Enumerate/Better Today.md": 1790917402437,
-    "30_Order/System/cursor-workflow/logs/sweep-2026-10-02.log": 1790948102219
+    "30_Order/System/cursor-workflow/logs/sweep-2026-10-02.log": 1790949002230
   },
   "_dismissedAt": {},
   "_editSizes": {
@@ -1420,7 +1420,7 @@
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": 26371,
     "60_Claude/05_Clippings/AI Conversations/00 - Capture Health.md": 1998,
     "30_Order/System/claude-workflow/logs/capture-health-wsl.json": 3766,
-    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 3613607,
+    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 3614527,
     "20_Progress/AI/Claude Code/The Plan/Sync-Log.md": 50825,
     "20_Progress/AI/Claude Code/Trading View/Sync-Log.md": 40407,
     "20_Progress/AI/Claude Code/internship-research-loop/Sync-Log.md": 49435,
@@ -1640,7 +1640,7 @@
     "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md": 33134,
     "copilot/skills/openartifacts-publish/SKILL.md": 7833,
     "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8.md": 29394,
-    "30_Order/System/claude-workflow/logs/weekly-review.log": 93,
+    "30_Order/System/claude-workflow/logs/weekly-review.log": 213,
     "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3.md": 31692,
     "10_Areas/Career/Internships/Tracker/Each One/Current/Data Governance, Visualization and Automation Intern - Xcel Energy.md": 1508,
     "10_Areas/Career/Internships/Tracker/Each One/Current/Embedded Software Engineering Intern - The Toro Company.md": 1171,
@@ -2097,7 +2097,7 @@
     "40_Resources/Obsidian/Plugins/QuickAdd Capture Menu.md": 10964,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Home/09-11 Acer Predator Helios Neo 16 AI setup.md": 80366,
     "30_Order/Templates/Enumerate/Better Today.md": 1866,
-    "30_Order/System/cursor-workflow/logs/sweep-2026-10-02.log": 26541
+    "30_Order/System/cursor-workflow/logs/sweep-2026-10-02.log": 27450
   },
   "_sizeDeltas": {
     "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/portfolio/_raw_jsonl/c675da59-c63c-4664-bd8e-e9e0a97d0d31.jsonl": "up",

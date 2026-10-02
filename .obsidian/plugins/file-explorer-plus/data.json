@@ -176,13 +176,6 @@
         "name": "",
         "active": true,
         "type": "FILES",
-        "pattern": "40_Resources/UMN/Previous Classes/CSCI 2033/Concepts/Python.md",
-        "patternType": "STRICT"
-      },
-      {
-        "name": "",
-        "active": true,
-        "type": "FILES",
         "pattern": "00_Dashboard.md",
         "patternType": "STRICT"
       },

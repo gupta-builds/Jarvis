@@ -723,7 +723,7 @@
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": 1790917402439,
     "60_Claude/05_Clippings/AI Conversations/00 - Capture Health.md": 1790916485637,
     "30_Order/System/claude-workflow/logs/capture-health-wsl.json": 1790915585051,
-    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 1790934483292,
+    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 1790935382923,
     "20_Progress/AI/Claude Code/The Plan/Sync-Log.md": 1790913785289,
     "20_Progress/AI/Claude Code/Trading View/Sync-Log.md": 1790877807247,
     "20_Progress/AI/Claude Code/internship-research-loop/Sync-Log.md": 1790877807263,
@@ -731,7 +731,7 @@
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-18 Jarvis sync process setup.md": 1790452085474,
     "20_Progress/AI/Claude Code/CausalOps/Sync-Log.md": 1790913786260,
     "20_Progress/AI/Claude Code/Jarvis/Sync-Log.md": 1790913785279,
-    "30_Order/System/cursor-workflow/cursor-export-state.json": 1790933703068,
+    "30_Order/System/cursor-workflow/cursor-export-state.json": 1790934603742,
     "20_Progress/AI/Claude Code/Portfolio/Sync-Log.md": 1790916485289,
     "20_Progress/AI/Claude Code/Resq/Sync-Log.md": 1790913785284,
     "20_Progress/AI/Claude Code/OpsPilot/Sync-Log.md": 1790916485289,
@@ -1400,7 +1400,7 @@
     "40_Resources/Obsidian/Plugins/QuickAdd Capture Menu.md": 1790917402440,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Home/09-11 Acer Predator Helios Neo 16 AI setup.md": 1790917402492,
     "30_Order/Templates/Enumerate/Better Today.md": 1790917402437,
-    "30_Order/System/cursor-workflow/logs/sweep-2026-10-02.log": 1790933702423
+    "30_Order/System/cursor-workflow/logs/sweep-2026-10-02.log": 1790934602504
   },
   "_dismissedAt": {},
   "_editSizes": {
@@ -1420,7 +1420,7 @@
     "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md": 26371,
     "60_Claude/05_Clippings/AI Conversations/00 - Capture Health.md": 1998,
     "30_Order/System/claude-workflow/logs/capture-health-wsl.json": 3766,
-    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 3597509,
+    "30_Order/System/claude-workflow/logs/git-auto-sync.log": 3598544,
     "20_Progress/AI/Claude Code/The Plan/Sync-Log.md": 50825,
     "20_Progress/AI/Claude Code/Trading View/Sync-Log.md": 40407,
     "20_Progress/AI/Claude Code/internship-research-loop/Sync-Log.md": 49435,
@@ -2097,7 +2097,7 @@
     "40_Resources/Obsidian/Plugins/QuickAdd Capture Menu.md": 10964,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Home/09-11 Acer Predator Helios Neo 16 AI setup.md": 80366,
     "30_Order/Templates/Enumerate/Better Today.md": 1866,
-    "30_Order/System/cursor-workflow/logs/sweep-2026-10-02.log": 14421
+    "30_Order/System/cursor-workflow/logs/sweep-2026-10-02.log": 14979
   },
   "_sizeDeltas": {
     "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/portfolio/_raw_jsonl/c675da59-c63c-4664-bd8e-e9e0a97d0d31.jsonl": "up",

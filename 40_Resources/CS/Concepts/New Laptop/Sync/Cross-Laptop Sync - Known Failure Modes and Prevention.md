@@ -10,10 +10,12 @@ notes:
   - "[[Cross-Laptop Sync - Build Roadmap]]"
   - "[[Cross-Laptop Sync - Build 8 Findings]]"
   - "[[Cross-Laptop Sync - Build 9 Findings]]"
+  - "[[Cross-Laptop Sync - Operations Reference]]"
   - "[[Cross-Laptop Sync - Rollback Procedure]]"
-next: "[[Cross-Laptop Sync - Build Roadmap]]"
+next: "[[Cross-Laptop Sync - Operations Reference]]"
 ---
 # Cross-Laptop Sync - Known Failure Modes and Prevention
+**For day-to-day operation — what to check, how to clear a conflict file, why things are set up this way — see [[Cross-Laptop Sync - Operations Reference]] first.** This note is the detailed failure-mode-by-failure-mode history that reference pulls from; read it when the quick version doesn't cover what you're seeing.
 ## One-Line Answer
 Every conflict-file incident this sync setup has had, across Builds 1-8, traces to one of a handful of patterns: a platform/type mismatch Syncthing can't materialize identically on both machines, a secret that nearly or actually left the machine, a safety-net setting that silently reverted or got disabled without anyone noticing, two independent write mechanisms touching the same file without coordinating, pure UI-state churn that never needed to sync at all, or — found 2026-09-28, outside the sync system itself but by the exact same "documented as fixed, never actually was" pattern — a stale pre-migration path baked into 15 scripts and hooks across the vault's automation layer. This note is the checklist to run before assuming sync is healthy, and the list of what's already been fixed so the same root cause doesn't get re-diagnosed from scratch next time.
 ## Failure Mode 1: Platform-Incompatible Paths

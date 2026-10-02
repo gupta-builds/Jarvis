@@ -263,3 +263,11 @@
 [2026-10-02T06:35:03] composerHeaders: total=238 non-archived/non-subagent=147
 [2026-10-02T06:35:03] === Summary ===
 [2026-10-02T06:35:03] Projects touched: 0
+[2026-10-02T06:50:02] Running: C:\WINDOWS\py.exe D:\Users\_Anant\10_Areas\Documents\Jarvis\30_Order\System\cursor-workflow\scripts\export-cursor-sessions.py --sweep
+[2026-10-02T06:50:02] WSL distro: Ubuntu
+[2026-10-02T06:50:02] WSL projects root: \\wsl.localhost\Ubuntu\home\anant_gupta\.cursor\projects
+[2026-10-02T06:50:02] Windows projects root: C:\Users\Anant Gupta\.cursor\projects
+[2026-10-02T06:50:02] DB: C:\Users\Anant Gupta\AppData\Roaming\Cursor\User\globalStorage\state.vscdb
+[2026-10-02T06:50:02] composerHeaders: total=238 non-archived/non-subagent=147
+[2026-10-02T06:50:02] === Summary ===
+[2026-10-02T06:50:02] Projects touched: 0

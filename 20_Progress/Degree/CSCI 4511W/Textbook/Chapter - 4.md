@@ -218,7 +218,160 @@ What is elitism in evolutionary algorithms, and why is it used?::Elitism preserv
 ==How does the Newton-Raphson method optimize continuous functions using second derivatives?==::It updates continuous states via \\(\mathbf{x} \leftarrow \mathbf{x} - \mathbf{H}_f^{-1}(\mathbf{x}) \nabla f(\mathbf{x})\\), fitting a local quadratic surface using the Hessian matrix \\(\mathbf{H}_f\\) and jumping directly to its minimum (p. 122). #cards/csci4511w
 
 Why does convex optimization guarantee that any local minimum found is also a global minimum?::Because convex functions defined over convex sets have no local minima distinct from global minima, ensuring local search methods cannot get trapped in suboptimal local extrema (p. 123). #cards/csci4511w 
+## Full Reading Notes (continued — ### 4.3.1 through 4.3.3, 4.4.1 through 4.4.4)
 
+### 4.3.1 The erratic vacuum world
+When actions are nondeterministic, an agent can no longer rely on single deterministic state outcomes (p. 122). In the **erratic vacuum world**, the `Suck` action behaves nondeterministically (p. 122–123):
+- When applied to a dirty square, it cleans the square and sometimes cleans an adjacent dirty square as well (p. 122).
+- When applied to a clean square, it sometimes deposits dirt onto the floor (p. 122–123).
+
+To model nondeterminism formally, the single-outcome transition function `RESULT(s, a)` is generalized to a set-valued transition function `RESULTS(s, a)` returning the set of all possible outcome states (p. 123). For example, in state 1 (agent in \\(A\\), \\(A\\) dirty, \\(B\\) dirty), executing `Suck` yields:
+\\[\text{RESULTS}(1, Suck) = \{5, 7\}\\]
+where state 5 is \\([A, \text{Clean}; B, \text{Dirty}]\\) and state 7 is \\([A, \text{Clean}; B, \text{Clean}]\\) (p. 123).
+
+Because single action sequences cannot guarantee reaching a goal state under nondeterminism, a solution takes the form of a **conditional plan** (also called a **contingency plan** or **strategy**) containing `if-then-else` conditional branches (p. 123). For example, starting in state 1, the conditional plan is:
+\\[[Suck, \text{\textbf{if} } State = 5 \text{ \textbf{then} } [Right, Suck] \text{ \textbf{else} } []]\\]
+which branches dynamically based on runtime state observations (p. 123).
+
+### 4.3.2 AND–OR search trees
+Contingent solutions for nondeterministic problems are constructed using **AND–OR search trees** (p. 123–124).
+- **OR nodes**: Correspond to state nodes where the agent chooses an action (e.g., choosing between `Left`, `Right`, or `Suck`) (p. 123).
+- **AND nodes**: Correspond to action outcome nodes where the environment nondeterministically selects an outcome state from `RESULTS(s, a)` (p. 123). At an AND node, every possible outcome branch must be solved by the agent (p. 123).
+
+==A solution for an AND–OR search problem is a subtree of the complete search tree that specifies one action at each OR node and includes every outcome branch at each AND node, ending in goal nodes at every leaf== (p. 124).
+
+```
+
+function AND-OR-SEARCH(problem) returns a conditional plan, or failure return OR-SEARCH(problem, problem.INITIAL, [])
+
+function OR-SEARCH(problem, state, path) returns a conditional plan, or failure if problem.IS-GOAL(state) then return the empty plan if IS-CYCLE(path) then return failure for each action in problem.ACTIONS(state) do plan <- AND-SEARCH(problem, RESULTS(state, action), [state] + path) if plan ≠ failure then return [action] + plan return failure
+
+function AND-SEARCH(problem, states, path) returns a conditional plan, or failure for each s_i in states do plan_i <- OR-SEARCH(problem, s_i, path) if plan_i = failure then return failure return [if s_1 then plan_1 else if s_2 then plan_2 ... else plan_n]
+
+```
+
+Cycle handling in `OR-SEARCH` checks whether the current state appears on the path from the root; if a cycle is detected, that branch returns `failure` (p. 124). This guarantees termination in finite state spaces because every path must eventually hit a goal, a dead end, or a repeated state (p. 124–125).
+
+### 4.3.3 Try, try again
+In the **slippery vacuum world**, movement actions nondeterministically fail, leaving the agent in its current location (e.g., `Right` in state 1 leads to \\(\text{RESULTS}(1, Right) = \{1, 2\}\\)) (p. 125). Because movement can fail repeatedly, no acyclic solution exists (p. 125).
+
+To solve slippery environments, agents require a **cyclic solution** (a plan containing loops) (p. 125–126):
+\\[[Suck, \text{\textbf{while} } State = 5 \text{ \textbf{do} } Right, Suck]\\]
+or equivalently using labeled loop targets:
+\\[[Suck, L_1: Right, \text{\textbf{if} } State = 5 \text{ \textbf{then} } L_1 \text{ \textbf{else} } Suck]\\]
+
+A cyclic plan is a valid solution if every leaf node is a goal state and a goal leaf is reachable from every state in the plan (p. 125–126). Under the assumption that action failures occur independently at random, repeating an action sufficient times guarantees eventual success with probability 1 (p. 126).
+
+### 4.4.1 Searching with no observation
+When an agent has no sensors or receives no sensory information, it faces a **sensorless problem** (or **conformant problem**) (p. 126–127). The agent searches over a space of **belief states**—where a belief state \\(b\\) represents the set of all physical states the agent believes it could currently be in (p. 127).
+
+For an underlying problem \\(P\\) with \\(N\\) physical states, the belief-state space contains \\(2^N\\) possible belief states (p. 127).
+
+#### Conformant Search Formulation
+- **States**: The set of all subsets of physical states in \\(P\\) (size \\(2^N\\)) (p. 127).
+- **Initial State**: The set of all physical states in \\(P\\) (representing complete initial ignorance, e.g., \\(\{1, 2, 3, 4, 5, 6, 7, 8\}\\)) (p. 127).
+- **Actions**: \\(\text{ACTIONS}(b) = \bigcup_{s \in b} \text{ACTIONS}_P(s)\\) (assuming illegal actions have no effect; or intersection if illegal actions are dangerous) (p. 127).
+- **Transition Model**: For deterministic actions, \\(b' = \text{RESULT}(b, a) = \{s' : s' = \text{RESULT}_P(s, a) \text{ and } s \in b\}\\); for nondeterministic actions, \\(b' = \text{RESULT}(b, a) = \bigcup_{s \in b} \text{RESULTS}_P(s, a)\\) (p. 128).
+- **Goal Test**: \\(\text{Is-Goal}(b)\\) returns true if *every* physical state \\(s \in b\\) satisfies \\(\text{Is-Goal}_P(s)\\) (necessarily achieving the goal) (p. 128).
+
+**Coercion**: A sensorless agent can coerce the world into a goal state without perceiving anything by executing an action sequence that collapses the belief state down to goal states (p. 127). In the deterministic vacuum world starting from complete ignorance \\(\{1..8\}\\), `Right` yields \\(\{2, 4, 6, 8\}\\), `[Right, Suck]` yields \\(\{4, 8\}\\), and `[Right, Suck, Left, Suck]` coerces the world to goal state \\(7\\) regardless of initial state (p. 127).
+
+*Pruning Rule:* If belief state \\(b_1 \subseteq b_2\\), the superset \\(b_2\\) can be pruned because any plan solving \\(b_2\\) also solves \\(b_1\\); solving the smaller set \\(b_1\\) is strictly easier (p. 128).
+
+### 4.4.2 Searching in partially observable environments
+In partially observable environments, the problem specification includes a `PERCEPT(s)` function (or `PERCEPTS(s)` for nondeterministic sensing) returning the sensory observation received in physical state \\(s\\) (p. 128–129).
+
+Transitions between belief states in partially observable environments proceed through three stages (p. 129):
+1. **Prediction stage**: Computes the predicted belief state \\(\hat{b}\\) resulting from action \\(a\\):
+   \\[\hat{b} = \text{PREDICT}(b, a) = \text{RESULT}(b, a) = \bigcup_{s \in b} \text{RESULTS}_P(s, a)\\]
+2. **Possible percepts stage**: Computes the set of all possible observations \\(o\\) that could be received in \\(\hat{b}\\):
+   \\[\text{POSSIBLE-PERCEPTS}(\hat{b}) = \{o : o = \text{PERCEPT}(s) \text{ and } s \in \hat{b}\}\\]
+3. **Update stage**: Filters \\(\hat{b}\\) for each possible percept \\(o\\) to keep only physical states consistent with observation \\(o\\):
+   \\[b_o = \text{UPDATE}(\hat{b}, o) = \{s : o = \text{PERCEPT}(s) \text{ and } s \in \hat{b}\}\\]
+
+Combining all three stages yields the nondeterministic belief-state transition function:
+\\[\text{RESULTS}(b, a) = \{b_o : b_o = \text{UPDATE}(\text{PREDICT}(b, a), o) \text{ and } o \in \text{POSSIBLE-PERCEPTS}(\text{PREDICT}(b, a))\}\\] (p. 129–130).
+
+Nondeterminism in physical actions expands the belief state during prediction, while observations shrink the belief state during update (p. 129).
+
+### 4.4.3 Solving partially observable problems
+By supplying the belief-state transition model \\(\text{RESULTS}(b, a)\\) to `AND-OR-SEARCH`, an agent solves partially observable problems directly (p. 130).
+
+Because search operates over belief states, `AND-OR-SEARCH` returns a conditional plan that tests belief states rather than unobservable physical states (p. 130–131). For example, in the local-sensing vacuum world starting with initial percept \\([A, \text{Dirty}]\\) (initial belief state \\(\{1, 3\}\\)), `AND-OR-SEARCH` returns:
+\\[[Suck, Right, \text{\textbf{if} } Bstate = \{6\} \text{ \textbf{then} } Suck \text{ \textbf{else} } []]\\] (p. 130).
+
+### 4.4.4 An agent for partially observable environments
+An agent in a partially observable environment executes its conditional plan while maintaining its belief state online as new percepts arrive (p. 131–132). This process is called **monitoring**, **filtering**, or **state estimation** (p. 132).
+
+Given current belief state \\(b\\), executed action \\(a\\), and received percept \\(o\\), the new belief state \\(b'\\) is updated online using a **recursive state estimator**:
+\\[b' = \text{UPDATE}(\text{PREDICT}(b, a), o)\\] (p. 131–132).
+
+#### Robot Localization Example
+In robot **localization** (Figure 4.18), a robot with a map navigates a maze using 4-bit sonar distance sensors \\([N, E, S, W]\\) (where \\(1\\) indicates an obstacle) (p. 132–133):
+1. Initial belief state \\(b\\) contains all map locations (complete location ignorance) (p. 133).
+2. Percept \\(E_1 = 1011\\) arrives \\(\implies \text{UPDATE}(b, 1011)\\) narrows candidate locations down to 4 matching maze squares (p. 133).
+3. Nondeterministic move \\(a = Right \implies \text{PREDICT}(b, Right)\\) expands belief state \\(b_a\\) to all adjacent locations one step away (p. 133).
+4. Second percept \\(E_2 = 1010\\) arrives \\(\implies \text{UPDATE}(b_a, 1010)\\) collapses the belief state down to a single unique square (p. 133).
+
+## Worked Example
+
+Trace of the **Erratic Vacuum World AND–OR Search Tree** starting from state 1 (\\([A, \text{Dirty}; B, \text{Dirty}]\\)) (Figure 4.10) (p. 123–124):
+
+1. **Root (OR Node: State 1):**
+   - Agent evaluates actions \\(\{Suck, Right, Left\}\\) (p. 123–124).
+   - Candidate Choice: Action \\(Suck\\) (p. 124).
+
+2. **AND Node: \\(\text{RESULTS}(1, Suck)\\):**
+   - Environmental outcomes branch into two possible states: \\(\{5, 7\}\\) (p. 123–124).
+   - ==At an OR node the agent chooses a single action, while at an AND node every outcome branch must lead to a valid solution subtree== (p. 123–124).
+   - *Branch 1 (State 7: \\([A, \text{Clean}; B, \text{Clean}]\\)):*
+     - Goal test \\(\text{Is-Goal}(7) = \text{True} \implies\\) Leaf node! Empty plan \\([]\\) returned (p. 124).
+   - *Branch 2 (State 5: \\([A, \text{Clean}; B, \text{Dirty}]\\)):*
+     - Goal test \\(\text{Is-Goal}(5) = \text{False} \implies\\) OR Node (State 5) (p. 124).
+
+3. **OR Node (State 5):**
+   - Agent evaluates actions \\(\{Suck, Right\}\\) (p. 124).
+   - Action \\(Suck \implies \text{RESULTS}(5, Suck) = \{5, 1\}\\). State 5 and State 1 both exist on current ancestral path \\(\implies \text{IS-CYCLE}\\) triggers `failure` (p. 124).
+   - Action \\(Right \implies \text{RESULTS}(5, Right) = \{6\}\\) (State 6: \\([B, \text{Clean}; B, \text{Dirty}]\\)) (p. 124).
+
+4. **OR Node (State 6):**
+   - Action \\(Left \implies \text{RESULTS}(6, Left) = \{5\}\\). State 5 exists on current path \\(\implies \text{IS-CYCLE}\\) triggers `failure` (p. 124).
+   - Action \\(Suck \implies \text{RESULTS}(6, Suck) = \{8\}\\) (State 8: \\([B, \text{Clean}; B, \text{Clean}]\\)) (p. 124).
+   - Goal test \\(\text{Is-Goal}(8) = \text{True} \implies\\) Leaf node! Empty plan \\([]\\) returned (p. 124).
+
+5. **Constructed Conditional Solution Subtree:**
+   - Assembles into Equation (4.3): \\([Suck, \text{\textbf{if} } State = 5 \text{ \textbf{then} } [Right, Suck] \text{ \textbf{else} } []]\\) (p. 123–124).
+
+## Connections
+
+- **Lecture (CSCI 4511W Week 6):**
+  - This section covers Week 6 Monday reading (10/12); lecture coverage is pending insertion upon availability (pending — re-run once Week 6's lecture PDF lands).
+  - ==AND–OR search over physical states under nondeterminism directly generalizes to belief-state search under partial observability==, where AND branches correspond to possible percept observations rather than environmental action outcomes (p. 123–131).
+- **Textbook:**
+  - (pending Chapter 5 — adversarial search and games)
+
+## Open Questions
+
+- [ ] How does cycle checking along parent pointers in `AND-OR-SEARCH` guarantee termination in finite state spaces without pruning valid non-cyclic solutions?
+- [ ] ==Why does the size of the reachable belief-state space grow as \\(2^N\\) for \\(N\\) physical states==, and how do subset/superset pruning techniques reduce this complexity during search?
+- [ ] In what ways does sensorless coercion allow an agent to guarantee reaching a goal state without receiving any perceptual feedback?
+- [ ] How does a recursive state estimator update its belief state in real time using the prediction–observation–update cycle without needing the full history of past percepts?
+
+## Flashcards
+
+What is the key difference between an OR node and an AND node in an AND–OR search tree?::An OR node represents the agent's decision among available actions, whereas an AND node represents the environment's nondeterministic outcomes for a chosen action (p. 123–124). #cards/csci4511w
+
+What defines a valid solution subtree for an AND–OR search problem?::A subtree that specifies exactly one action at each OR node, includes every outcome branch at each AND node, and has goal states at every leaf (p. 124). #cards/csci4511w
+
+Why is the solution to a sensorless (conformant) problem an action sequence rather than a conditional plan?::Because the agent receives no observations or percepts at runtime, making future percept-based branching impossible and contingencies unobservable (p. 126–127). #cards/csci4511w
+
+How does coercion allow a sensorless agent to solve problems from an unknown initial state?::Coercion uses a deterministic action sequence to force the environment into a known target state regardless of which physical state the agent started in (p. 127). #cards/csci4511w
+
+What three stages comprise a belief-state transition update in a partially observable environment?::The predict stage calculates the predicted belief state \\(\hat{b}\\), the possible-percepts stage finds candidate observations \\(o\\), and the update stage filters \\(\hat{b}\\) to states consistent with \\(o\\) (p. 128–129). #cards/csci4511w
+
+How does a recursive state estimator compute the new belief state \\(b'\\) without re-examining past percept history?::By applying \\(b' = \text{UPDATE}(\text{PREDICT}(b, a), o)\\) directly using only the current belief state \\(b\\), executed action \\(a\\), and newly received percept \\(o\\) (p. 131–132). #cards/csci4511w
+
+==Why does belief-state search treat observations as AND-node branches during contingent planning?==::Because at planning time the agent does not know which percept will actually be observed, requiring a contingent plan for every possible observation returned by the sensors (p. 130–131). #cards/csci4511w
 ## Examples Worth Keeping
 <!-- Keep concrete examples, numbers, cases, or worked reasoning that makes the mechanism memorable. -->
 - 

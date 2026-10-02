@@ -4,8 +4,8 @@ status: sprout
 created: 2026-10-01
 updated: 2026-10-01
 course: "[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/CSCI 2021 Board|CSCI 2021 Board]]"
-track: "C Refresher"
-mastery_level: 0
+track: C Refresher
+mastery_level: "0"
 prerequisites:
   - "[[20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Pointers and Addresses|Pointers and Addresses]]"
 used_in:

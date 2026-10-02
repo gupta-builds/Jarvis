@@ -5,7 +5,7 @@ created:
 updated:
 course:
 track:
-mastery_level: "0"
+mastery_level: 0
 prerequisites: []
 used_in: []
 evidence: []

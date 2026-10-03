@@ -5,6 +5,10 @@
       "path": "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing 1 - Learn the Tools.md"
     },
     {
+      "basename": "Essay",
+      "path": "20_Progress/Degree/CSCI 4511W/Assignments/Written/Essay.md"
+    },
+    {
       "basename": "Writing - 1 Video Transcript",
       "path": "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 1 Video Transcript.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "Transcript - OPT",
       "path": "20_Progress/Internship/Career Fair/Transcript - OPT.md"
-    },
-    {
-      "basename": "Transcript - Sponsoring",
-      "path": "20_Progress/Internship/Career Fair/Transcript - Sponsoring.md"
     }
   ],
   "omittedPaths": [

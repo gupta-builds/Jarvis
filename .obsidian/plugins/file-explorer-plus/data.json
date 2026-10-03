@@ -1019,6 +1019,13 @@
         "type": "FILES_AND_DIRECTORIES",
         "pattern": "",
         "patternType": "WILDCARD"
+      },
+      {
+        "name": "",
+        "active": true,
+        "type": "FILES",
+        "pattern": "20_Progress/Internship/Building System/Runs/Codex Prompts.md",
+        "patternType": "STRICT"
       }
     ],
     "frontMatter": [

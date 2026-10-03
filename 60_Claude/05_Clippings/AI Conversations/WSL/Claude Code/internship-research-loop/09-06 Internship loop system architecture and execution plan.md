@@ -822,8 +822,8 @@ related_progress:
   - "[[Source of Truth]]"
   - "[[20_Progress/Internship/Building System/Research Loop - Improvement Plan]]"
   - "[[Internship Notes Standard]]"
-  - "[[20_Progress/Internship/Building System/Runs/Claude Code Prompts — Archive]]"
-  - "[[20_Progress/Internship/Building System/Runs/Prompt 1 Reboot — Building System Refresh Session (2026-09-04)]]"
+  - "[[Claude Code Prompts - Archive]]"
+  - "[[Prompt 1 Reboot - Building System Refresh Session (2026-09-04)]]"
 tags:
   - internship
   - automation
@@ -831,7 +831,7 @@ tags:
 next: "Prompt 1 (Company Registry) ran clean 2026-09-06 (444→453 pytest, 0 regressions, confirmed independently) and is now archived in full in Claude Code Prompts — Archive. Prompt 2 (Extraction fix + matched_reason completion + test/doc housekeeping) is written below, not yet run — do not execute until the human confirms the approach."
 ---
 # Claude Code Prompts — Internship Research Loop
-This file holds the next prompt(s) to run, and only that — it gets wiped and rewritten every build cycle, not accumulated. When a prompt finishes and its result is reviewed, its full text and result move into [[20_Progress/Internship/Building System/Runs/Claude Code Prompts — Archive]] and get deleted from here.
+This file holds the next prompt(s) to run, and only that — it gets wiped and rewritten every build cycle, not accumulated. When a prompt finishes and its result is reviewed, its full text and result move into [[Claude Code Prompts - Archive]] and get deleted from here.
 
 ## Prompting Guide In Use
 [Prompting Claude Sonnet 5](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/[REDACTED]) — re-apply on every prompt.
@@ -851,7 +851,7 @@ This file holds the next prompt(s) to run, and only that — it gets wiped and r
 
 # Vault
 ## Second Reset, 2026-09-06
-Prompts 1-2 of the 2026-09-04 era are closed out (Task D of old Prompt 1 was genuinely done; everything else was never run) — full accounting in [[20_Progress/Internship/Building System/Runs/Claude Code Prompts — Archive]]. This file restarted numbering for a v0.1 pass at the two diagnosis notes written 2026-09-06: [[20_Progress/Internship/Building System/Research Loop - Improvement Plan]] (the why/priority) and [[20_Progress/Internship/Building System/Research Loop - Implementation Plan]] (the how). **Prompt 1 (Company Registry) ran clean and is archived** — see [[20_Progress/Internship/Building System/Runs/Claude Code Prompts — Archive]] for the full plan and execution report. Estimated total for this pass: 6 known prompts, realistically 7-9 once execution surfaces sibling findings (already happened once — Prompt 1's 3→8 company undercount). Only Prompt 2 is written below; each further prompt is written one at a time after the prior one's approach is confirmed — nothing here runs unplanned.
+Prompts 1-2 of the 2026-09-04 era are closed out (Task D of old Prompt 1 was genuinely done; everything else was never run) — full accounting in [[Claude Code Prompts - Archive]]. This file restarted numbering for a v0.1 pass at the two diagnosis notes written 2026-09-06: [[20_Progress/Internship/Building System/Research Loop - Improvement Plan]] (the why/priority) and [[20_Progress/Internship/Building System/Research Loop - Implementation Plan]] (the how). **Prompt 1 (Company Registry) ran clean and is archived** — see [[Claude Code Prompts - Archive]] for the full plan and execution report. Estimated total for this pass: 6 known prompts, realistically 7-9 once execution surfaces sibling findings (already happened once — Prompt 1's 3→8 company undercount). Only Prompt 2 is written below; each further prompt is written one at a time after the prior one's approach is confirmed — nothing here runs unplanned.
 
 ### Prompt 2 — Extraction Fix + `matched_reason` Completion + Test/Doc Housekeeping
 Bundles the remaining Track A mechanical items (old Prompt 2/3/4 in [[20_Progress/Internship/Building System/Research Loop - Implementation Plan]]'s Execution Plan) into one session — three independent, non-conflicting-file tasks, none needing Prompt 1's Plan-Mode gate. **Run at `effort: high`** (this repo's default) — none of these three carries Prompt 1's cross-cutting behavioral risk, but each still touches a real data path, so don't skip verification to move faster.

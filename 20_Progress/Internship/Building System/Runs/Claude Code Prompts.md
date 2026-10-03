@@ -7,16 +7,16 @@ related_progress:
   - "[[Source of Truth]]"
   - "[[20_Progress/Internship/Building System/Research Loop - Improvement Plan]]"
   - "[[Internship Notes Standard]]"
-  - "[[20_Progress/Internship/Building System/Runs/Claude Code Prompts — Archive]]"
-  - "[[20_Progress/Internship/Building System/Runs/Prompt 1 Reboot — Building System Refresh Session (2026-09-04)]]"
+  - "[[Claude Code Prompts - Archive]]"
+  - "[[Prompt 1 Reboot - Building System Refresh Session (2026-09-04)]]"
 tags:
   - internship
   - automation
   - prompts
-next: "Prompts 1-7 all done and archived (444→499 pytest across the run, 0 regressions; Prompts 6 and 7 both got fully clean independent reviews). 4 clean local commits exist on top of 96261d8, unpushed, diverged 5 ahead / 4 behind origin/master (4 daily recheck.yml auto-commits touching only logs/rechecks.jsonl and state/dossier_uids.json — zero file overlap with local commits, confirmed 2026-09-08). Prompt 8 (below) reconciles the divergence via rebase and re-verifies — still does NOT push, that stays a separate human decision."
+next: Prompts 1-7 all done and archived (444→499 pytest across the run, 0 regressions; Prompts 6 and 7 both got fully clean independent reviews). 4 clean local commits exist on top of 96261d8, unpushed, diverged 5 ahead / 4 behind origin/master (4 daily recheck.yml auto-commits touching only logs/rechecks.jsonl and state/dossier_uids.json — zero file overlap with local commits, confirmed 2026-09-08). Prompt 8 (below) reconciles the divergence via rebase and re-verifies — still does NOT push, that stays a separate human decision.
 ---
 # Claude Code Prompts — Internship Research Loop
-This file holds the next prompt(s) to run, and only that — it gets wiped and rewritten every build cycle, not accumulated. When a prompt finishes and its result is reviewed, its full text and result move into [[20_Progress/Internship/Building System/Runs/Claude Code Prompts — Archive]] and get deleted from here.
+This file holds the next prompt(s) to run, and only that — it gets wiped and rewritten every build cycle, not accumulated. When a prompt finishes and its result is reviewed, its full text and result move into [[Claude Code Prompts - Archive]] and get deleted from here.
 
 ## Prompting Guide In Use
 [Prompting Claude Sonnet 5](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-sonnet-5) — re-apply on every prompt.
@@ -42,7 +42,7 @@ This file holds the next prompt(s) to run, and only that — it gets wiped and r
 
 # Vault
 ## Second Reset, 2026-09-06
-Prompts 1-7 are done and archived (444→499 `pytest` across all seven, 0 regressions) — see [[20_Progress/Internship/Building System/Runs/Claude Code Prompts — Archive]] for full plans/reports. Prompts 6 and 7 both got fully clean independent reviews — the session has stabilized. 4 clean local commits sit on top of `96261d8`, unpushed, now diverged from `origin/master`.
+Prompts 1-7 are done and archived (444→499 `pytest` across all seven, 0 regressions) — see [[Claude Code Prompts - Archive]] for full plans/reports. Prompts 6 and 7 both got fully clean independent reviews — the session has stabilized. 4 clean local commits sit on top of `96261d8`, unpushed, now diverged from `origin/master`.
 
 ### Prompt 8 — Reconcile The Divergence With `origin/master` (Still No Push)
 **Run at `effort: high`.** Low risk, mechanical — the file-overlap check is already done (see ground truth), this is confirmation and execution, not a design decision.

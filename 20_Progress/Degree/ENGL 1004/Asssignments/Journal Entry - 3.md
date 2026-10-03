@@ -29,11 +29,11 @@ Sources read before drafting: 9/22-24 lecture (`ENGL 1004/Lecture/9_22-24.pdf` -
 
 Draft to copy by hand:
 
-Pico finally tests the thread I've been pulling since Journal 1. Brennan's opinion turns on motive: a board can remove a book for vulgarity, not to suppress "the ideas or social perspectives discussed in them." Blackmun narrows that further: removal is only unconstitutional if the purpose is disapproving the idea itself. Minnesota's Subdivision 1 sets a lower bar than either: removal "based solely on" viewpoint is banned outright, no motive test required.
+Pico finally tests the thread I've been pulling since Journal 1. Brennan's opinion turns on motive; a board can't remove a book for vulgarity, but it could remove Huck Finn for its racist caricatures that are used to promote hate. Blackmun narrows this to only those books whose removal is done with the specific purpose of disapproving the idea within. Minnesota's Subdivision 1 goes even further; removals "based solely on" viewpoint are forbidden without even considering motive.
 
-Melissa is the cleanest case yet. Huck Finn had a slur to isolate; Camp of the Saints had a whole argument to indict. Melissa has neither. A fourth grader wants to play Charlotte in the school play and her teacher won't let her audition, because the roster lists her as a boy. There's no passage to flag for vulgarity, because there isn't one. Every objection to this book is an objection to the character existing, which is precisely the "narrowly partisan" suppression Brennan warned about and precisely what Subdivision 1 forbids.
+Melissa is the cleanest case yet. Huck Finn has a slur to be excised, Camp of the Saints has an argument to be indicted, but Melissa has neither. Fourth grade Melissa wants to play Charlotte in the school play but her teacher won't let her audition because the roster lists her as a boy. There's no passage in the book to be taken umbrage at since there isn't one. Any objection to this book is an objection to the existence of this character (which is why it's exactly the sort of "narrowly partisan" suppression Brennan warned about and why exactly it is prohibited by Subdivision 1).
 
-So it's the most challenged of the three. The law gets more protective exactly where the appetite to ban gets strongest. That doesn't feel like a coincidence to me anymore.
+So it is the most challenged of the three. The law is more protective exactly where the urge to ban is greatest. That doesn't seem like a coincidence to me anymore.
 
 (~191 words.)
 ## Concepts used

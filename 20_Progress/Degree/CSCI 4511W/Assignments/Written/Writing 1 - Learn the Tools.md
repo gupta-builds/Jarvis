@@ -124,7 +124,8 @@ Bring a draft back any time for a grammar pass or critique of what you've alread
 
 ## Requirements
 **Must submit:** compiled PDF titled "Writing #1" (or "Writing #1: Feedback Requested"), built from the template above with your real name; intro/body/conclusion; at least one citation in a reasonable format; AI-use disclosure if applicable.
-**Must not:** submit with a mismatched `\cite{}`/`.bib` key (renders as `[?]` — check before submitting); 
+**Must not:** submit with a mismatched `\cite{}`/`.bib` key (renders as `[?]` — check before submitting); let AI draft the essay content.
+
 ### Rubric
 - Proper LaTeX usage — 3 pts (template used, fields filled in correctly)
 - Citation format — 1 pt (real in-text citation, reasonable format)

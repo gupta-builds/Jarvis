@@ -2,7 +2,7 @@
 type: reference
 status: tree
 created: 2026-08-22
-updated: 2026-09-04
+updated: 2026-10-03
 related_progress:
   - "[[Source of Truth]]"
   - "[[20_Progress/Internship/Building System/Research Loop - Improvement Plan]]"
@@ -770,3 +770,42 @@ Full prompt text lived in [[20_Progress/Internship/Building System/Runs/Claude C
 
 ## Independent Review (2026-09-08)
 Confirmed directly: `git log --oneline -6` matches exactly; `git show --stat` on all 4 commits matches the claimed file sets and line counts exactly (241/362/140/369+28); `pytest` re-run independently shows 499 passed; `git status` shows only the `.claude/` files, unchanged. Each commit carries a proper `Co-Authored-By: Claude Sonnet 5` + `Claude-Session` trailer. Confirmed the flagged divergence is real (`git status -sb`: "ahead 5, behind 4") and checked what origin's 4 extra commits actually touch: `logs/rechecks.jsonl` and `state/dossier_uids.json` only — zero file overlap with any local commit, so a rebase should be mechanically conflict-free. Second fully clean independent review in a row.
+
+# Prompt 8 — Reconcile The Divergence With `origin/master` (Still No Push) (written 2026-09-08, run unknown — see note below)
+Full prompt text lived in [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]] — a mechanical, low-risk rebase-and-verify prompt: commit the then-fresh `run.yml` notify-step diff, `git fetch` + `git rebase origin/master` (not a merge), re-run `pytest`, confirm `.claude/`'s file set stayed exactly unchanged, and explicitly still not push.
+
+```
+Run at effort: high. Low risk, mechanical — the file-overlap check is already done (see ground truth), this is confirmation and execution, not a design decision.
+
+Ground truth, confirmed directly 2026-09-08 — re-verify before trusting, this can change if anything else touches the tree in the meantime (it already has once, mid-session, see below):
+- git status -sb shows master...origin/master [ahead 5, behind 4]. The 5 ahead are 96261d8 (pre-existing) plus the 4 commits Prompt 7 made (8186ea7, 193d5a5, 775dbd2, bee5146). The 4 behind are origin/master's own 5bdc7c7/401ad53/334cc62/6b174d8 — daily recheck.yml auto-commits.
+- git diff --name-only 24ce10a origin/master shows those 4 origin commits touch only logs/rechecks.jsonl and state/dossier_uids.json.
+- git diff --name-only 24ce10a HEAD shows the local commits touch a completely disjoint file set — zero overlap with origin's 4 commits, so a rebase should apply cleanly with no manual conflict resolution needed.
+- New since Prompt 7's commits landed: .github/workflows/run.yml now has a fresh, real, uncommitted change on top of what bee5146 already committed — a "Notify if new dossiers are ready to promote" step, added by other work happening in this same repo, not by any prompt in this session. It looks sound on inspection (best-effort || true, reuses the already-granted issues: write permission, well-commented) — this prompt does not revert or question it, only commits it.
+- This matters mechanically, not just tidily: git rebase needs a clean working tree. run.yml is touched by bee5146, one of the commits being replayed — an uncommitted change sitting on top of it will very likely block the rebase outright. Commit it first, before attempting the rebase.
+
+Non-negotiable rules:
+- Full pytest green before starting (confirm yourself, don't trust any number in this file).
+- Read the actual current git diff .github/workflows/run.yml yourself before committing it — if it's changed again, or if anything looks actually wrong (not just new), stop and report rather than committing on the strength of this file's own description.
+- git fetch origin first, then git rebase origin/master (not a merge) — only after the working tree is clean.
+- If the rebase reports any conflict at all, stop immediately, do not resolve it, report exactly which file(s) and what the conflict markers show.
+- Full pytest green again after the rebase completes.
+- Still do not push. This prompt only gets the local branch clean and fast-forward-able — the actual push remains a separate, explicit human decision.
+- Don't touch, stage, or comment on the .claude/ files beyond confirming their set is unchanged.
+
+Task:
+1. Confirm the run.yml diff still looks like the notify-step addition described above, commit it on its own.
+2. git fetch origin.
+3. git rebase origin/master.
+4. Confirm git status -sb now shows ahead N, behind 0 (N should be 6).
+5. Re-run the full pytest suite; report the count.
+6. Confirm .claude/'s file set is still exactly unchanged, and confirm run.yml no longer shows as modified.
+
+Report back: the run.yml diff you committed and the commit message you used, git status -sb before and after the rebase, git log --oneline -10 showing the new linear history, the post-rebase pytest count, and confirmation the .claude/ file set is untouched. If a conflict occurred, that's the entire report — stop there.
+```
+
+## Result — Reconstructed, Not Contemporaneous
+**No execution report was ever written back into [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]] before that file moved on to its next content — this is the exact gap the 2026-10-03 status session named explicitly ("the vault's build notes stop at 2026-09-08 and the repo runs to 09-26").** This entry is reconstructed from indirect evidence, not a contemporaneous independent review like Prompts 1-7 above all got. Treat it as plausible, not confirmed:
+- The 2026-10-03 status reply states directly: "All 499 tests pass, local master matches origin, and PR #12 is merged" — consistent with this rebase having succeeded and the branch later reaching a merged PR.
+- No real session transcript or `git reflog`/`git log` evidence was checked against this specific prompt's exact steps (the commit-the-notify-step-then-rebase sequence) before writing this entry.
+**Standing task for the next session that touches this history** (folded into [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]]'s next prompt, Task 9): confirm directly — via `git log` showing the actual rebase-era commits, or via the real session transcript if one was exported — whether Prompt 8 ran as written, and correct this entry with real evidence instead of the inference above.

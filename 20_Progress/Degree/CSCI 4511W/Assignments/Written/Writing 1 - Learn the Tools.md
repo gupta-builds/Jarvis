@@ -37,8 +37,7 @@ https://youtu.be/a8Bo2DHrrow?si=RMWejTCypDBrWeaC
 An example of overleaf document. 
 https://www.overleaf.com/read/fvpwwtftyjhj#11eb9d
 
-London prepared this useful doc for how to cite in latex. 
-https://docs.google.com/document/d/1pnu_dtyPjDywA8JWnqg72TcjgnjqlMhrSW955oyR63Q/edit?tab=t.0#heading=h.r3iw8lcgnbqm
+
 ## Requirements
 <!-- Translate the prompt into a checklist of deliverables and constraints. -->
 For this assignment, consume the media (i.e. read an article, paper, or watch a video) provided by your TA. Then respond to it, using one of the prompts that you talked about in your discussion.

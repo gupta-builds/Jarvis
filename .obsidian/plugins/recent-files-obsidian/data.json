@@ -5,6 +5,10 @@
       "path": "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing 1 - Learn the Tools.md"
     },
     {
+      "basename": "Week - 1",
+      "path": "20_Progress/Degree/CSCI 4511W/Weekly/Week - 1.md"
+    },
+    {
       "basename": "Textbook Map",
       "path": "20_Progress/Degree/CSCI 4511W/Textbook/Textbook Map.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "CSCI 4061 Board",
       "path": "20_Progress/Degree/CSCI 4061/CSCI 4061 Board.md"
-    },
-    {
-      "basename": "Journal Entry - 2",
-      "path": "20_Progress/Degree/ENGL 1004/Asssignments/Journal Entry - 2.md"
     }
   ],
   "omittedPaths": [

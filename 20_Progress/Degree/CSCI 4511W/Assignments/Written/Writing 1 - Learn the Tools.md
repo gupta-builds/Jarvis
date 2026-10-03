@@ -45,17 +45,18 @@ Two files, both complete. Formatting: 12pt font, 1 inch margins on all sides, do
 
 ### `main.tex`
 ```latex
-\documentclass{article}
+\documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{geometry}
 \geometry{
  letterpaper,
  margin=1in,
 }
-\setlength{\headheight}{12.5pt}
+\setlength{\headheight}{14.5pt}
 \usepackage{titling}
 \usepackage{xurl}
 \usepackage{tikz}
+\usepackage{float}
 \usepackage{setspace}
 \doublespacing
 \usepackage{caption}
@@ -87,15 +88,15 @@ Two files, both complete. Formatting: 12pt font, 1 inch margins on all sides, do
 
 \maketitle
 
-In the Google DeepMind episode \emph{Introducing Gemini Robotics 2}, the host asks the robotics team if anyone can claim general intelligence without a body. One of the researchers responds, ``You cannot reach AGI until you solve physical AGI'' \cite{gemini_robotics_2}. I believe we will find that physical intelligence is the limiting factor on the road to AGI, and that this means the hardest problem is acting reliably where humans cannot jump in to assist.
+In the Google DeepMind episode \emph{Introducing Gemini Robotics 2}, the host asks the robotics team whether anyone can claim general intelligence without a body. One of the researchers responds, ``You cannot reach AGI until you solve physical AGI'' \cite{gemini_robotics_2}. I believe that physical intelligence is the limiting factor on the road to AGI, and that the hardest problem is acting reliably where humans cannot jump in to assist.
 
-Prior to this discussion, a researcher states that their estimates for general-purpose robots entering the world have shrunk from ``probably beyond my lifetime'' (three years ago), to ``maybe ten years'' (two years ago) and now ``between five to ten years'' \cite{gemini_robotics_2}. The host asks if general intelligence can be claimed without ``this embodied characteristic'' \cite{gemini_robotics_2}, and the response is that a robot asked to ``do anything that I could do'' should be able to do it, and that physical AGI ``will land after the digital AGI thing has happened'' \cite{gemini_robotics_2}. I would note that the researchers do not belittle language models; they are saying the digital half of intelligence is coming first, and the physical half is the bigger challenge. This problem is called Moravec's paradox: ``things that are really easy for humans are very difficult for robots'' \cite{gemini_robotics_2}. An AI has ``passed the bar exam,'' but ``cannot cook you eggs, or flip a burger'' \cite{gemini_robotics_2}.
+Prior to this discussion, a researcher explains that their estimate for when general-purpose robots will enter daily life has shrunk from ``probably beyond my lifetime'' (three years ago) to ``maybe ten years'' (two years ago), and now to ``between five to ten years'' \cite{gemini_robotics_2}. The host then asks whether general intelligence can be claimed without ``this embodied characteristic'' \cite{gemini_robotics_2}. The response is that a robot asked to ``do anything that I could do'' should be able to do it, and that physical AGI ``will land after the digital AGI thing has happened'' \cite{gemini_robotics_2}. Notably, the researchers do not belittle language models; they are saying that the digital half of intelligence is arriving first, and that the physical half is the bigger challenge. This gap is known as Moravec's paradox: ``things that are really easy for humans are very difficult for robots'' \cite{gemini_robotics_2}. An AI has ``passed the bar exam,'' but it ``cannot cook you eggs, or flip a burger'' \cite{gemini_robotics_2}.
 
-In the context of this course, this observation is the distinction between planning in a clean symbolic state space and perceiving and learning in a noisy continuous state space. This is because manipulation is ``very contact-rich,'' requiring a hand with ``over twenty degrees of freedom'' to coordinate \cite{gemini_robotics_2}. In an earlier segment, another speaker notes the reason the gap is a challenge: while a human teleoperator can rescue a small robot, ``as the robots get bigger, get more capable, gain more degrees of freedom \ldots\ it's harder and harder for somebody to jump in and help'' \cite{gemini_robotics_2}. Teleoperation data is the most accurate but least scalable form (see Figure~\ref{fig:datapyramid}), so robots inevitably have to learn from their mistakes.
+In the context of this course, this observation reflects the distinction between planning in a clean, symbolic state space and perceiving and learning in a noisy, continuous one. In an earlier segment, another speaker explains why the gap is hard to close: while a human teleoperator can rescue a small robot, ``as the robots get bigger, get more capable, gain more degrees of freedom \ldots\ it's harder and harder for somebody to jump in and help'' \cite{gemini_robotics_2}. Teleoperation data is the most precise but least scalable source of training data (see Figure~\ref{fig:datapyramid}), so robots will inevitably have to learn from their own mistakes.
 
-The video makes no mention of Mars, so this is an extrapolation on my part. A Mars rover is the ultimate expression of the teleoperation problem: since it takes three to twenty-two minutes for a signal to travel between the planets, no one on the ground can ``jump in and help'' \cite{gemini_robotics_2} in real time. If physical AGI is five to ten years away, I would offer a delayed intervention test: give a robot a multi-step task (such as cooking a simple recipe), add a twenty-minute delay to any human correction, and observe how often the robot can correct itself. A robot that passes this test would be able to perform the tasks described by the researchers at Google DeepMind. In my opinion, such a robot would be a more convincing step towards proving the capacity for AGI (and ultimately ASI) than another examination of a language model.
+The video makes no mention of Mars, so this is an extrapolation on my part. A Mars rover is the ultimate expression of the teleoperation problem: since a signal takes three to twenty-two minutes to travel between the planets, no one on the ground can ``jump in and help'' \cite{gemini_robotics_2} in real time. If physical AGI is five to ten years away, I would propose a delayed-intervention test: give a robot a multi-step task (such as cooking a simple recipe), add a twenty-minute delay to every human correction, and observe how often the robot corrects itself. A robot that passes this test would demonstrate the kind of physical intelligence the Google DeepMind researchers describe. In my opinion, such a robot would be more convincing evidence of progress toward AGI (and ultimately ASI) than another exam passed by a language model.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
     \centering
     \begin{tikzpicture}
         \draw[fill=blue!15] (0,0) rectangle (10,1);
@@ -111,7 +112,10 @@ The video makes no mention of Mars, so this is an extrapolation on my part. A Ma
     \label{fig:datapyramid}
 \end{figure}
 
-The video's thesis is that intelligence is not merely what a system can say, but what it can do. Moravec's paradox implies that the last leg of the journey towards AGI will be made not in the realm of language, but of motion, and I believe we will find that systems that can do things without requiring a human safety net will be the ones to arrive first.
+The video's thesis is that intelligence is not merely what a system can say, but what it can do. Moravec's paradox implies that the last leg of the journey toward AGI will be traveled not in the realm of language but in the realm of motion, and I believe the systems that can act without a human safety net will be the ones to arrive first.
+
+\section*{AI Use Disclosure}
+I used Claude (Anthropic) to draft this essay from my notes and verified quotes from the video transcript. I reviewed and edited the final text.
 
 \nocite{*}
 \bibliographystyle{plainurl}
@@ -124,7 +128,7 @@ Create this as a **new file** in your Overleaf project (File menu â†’ New File â
 ```bibtex
 @misc{gemini_robotics_2,
       title = {Introducing {Gemini} {Robotics} 2},
-      url = {https://youtu.be/-rYFDefcq3k?si=V_8kt7WwdQnjHR0w},
+      url = {https://www.youtube.com/watch?v=-rYFDefcq3k},
       abstract = {Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.},
       urldate = {2026-10-03},
       journal = {YouTube},

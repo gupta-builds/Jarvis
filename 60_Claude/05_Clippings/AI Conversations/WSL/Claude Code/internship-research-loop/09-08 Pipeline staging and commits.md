@@ -75,7 +75,7 @@ Pipeline work (this session's Prompts 1-6 — yours to stage and commit):
 3. Ready-to-screen report — `screen_report.py`, `tests/test_screen_report.py`.
 4. Exact-quota + hard-pause — `.github/workflows/run.yml`, `run_pipeline.py`, `tests/test_run_pipeline.py`, `tests/test_write_gate_failures.py`.
 
-Each commit message should state what changed and why in one or two sentences (real reasoning, not a file list) — pull the "why" straight from that work's own Archive entry in [[20_Progress/Internship/Building System/Runs/Claude Code Prompts — Archive]] rather than re-deriving it.
+Each commit message should state what changed and why in one or two sentences (real reasoning, not a file list) — pull the "why" straight from that work's own Archive entry in [[Claude Code Prompts - Archive]] rather than re-deriving it.
 
 **Done when:** 4 clean local commits exist, `git status` shows only the `.claude/` files remaining (modified/untracked, unchanged from before this prompt ran), full `pytest` still green on the final `HEAD`, and nothing has been pushed.
 

@@ -659,7 +659,7 @@ Same scope boundary, same discipline, same report-back shape as Prompt 26.
 Full original text of both, preserved verbatim below since neither actually finished (the vault's normal archive-on-completion rule doesn't quite fit an unrun prompt, but silently dropping real text isn't this vault's practice either):
 
 ##### Original Prompt 1 — Building System Refresh (as it stood in Claude Code Prompts.md, 2026-09-04)
-See [[20_Progress/Internship/Building System/Runs/Prompt 1 Reboot — Building System Refresh Session (2026-09-04)]] for the full prompt — ground truth, non-negotiable rules, and Task A through E. Do not run Tasks C or D until their `[PLACEHOLDER]`s in that note are resolved. Task A is a status check only — re-enabling `run.yml` is explicitly reserved for the human and is not part of this or any prompt until said so directly.
+See [[Prompt 1 Reboot - Building System Refresh Session (2026-09-04)]] for the full prompt — ground truth, non-negotiable rules, and Task A through E. Do not run Tasks C or D until their `[PLACEHOLDER]`s in that note are resolved. Task A is a status check only — re-enabling `run.yml` is explicitly reserved for the human and is not part of this or any prompt until said so directly.
 
 ##### Original Prompt 2 — Fix Microsoft `stage1_reject` Sidebar-Link Content Bleed (as it stood in Claude Code Prompts.md, 2026-09-04/05)
 Handoff from [[60_Claude/30_Reviews/Internship Loop/Scheduled/Weekly/Internship Loop Weekly Review — 2026-W36]]'s Gate & Priority-Classification Conformance finding, per [[30_Order/Workflows/Internship/Internship Review System]]'s "Closing Out A Review's Findings" rule — a codebase-side finding becomes a Prompt entry here, not a hand-edit to the affected dossiers.

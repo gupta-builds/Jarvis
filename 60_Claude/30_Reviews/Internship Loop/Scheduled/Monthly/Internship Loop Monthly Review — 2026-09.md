@@ -11,7 +11,7 @@ notes:
   - "[[30_Order/Standards/Internship Loop Review Standard]]"
   - "[[30_Order/Workflows/Internship Pipeline]]"
   - "[[60_Claude/30_Reviews/Internship Loop/Scheduled/Monthly/Internship Loop Monthly Review — 2026-08]]"
-  - "[[20_Progress/Internship/Building System/Runs/Claude Code Prompts — Archive]]"
+  - "[[Claude Code Prompts - Archive]]"
 next: "URGENT: Castleton Commodities International's deadline (2026-09-01) has already passed with applying_note still null — check today whether either Castleton Program note was actually applied to outside this pipeline's tracking, or whether it was genuinely missed. KeyBank's Data Intern deadline is 2026-09-04 — today."
 ---
 # Internship Loop Monthly Review — 2026-09
@@ -23,7 +23,7 @@ next: "URGENT: Castleton Commodities International's deadline (2026-09-01) has a
 - [x] `Contacts/Each One/` (full listing, all subfolders)
 - [x] `Tracker/Each One/` (full listing, all subfolders)
 - [x] `20_Progress/Internship/Applying/Now.md`, `Applied/`, and the 3 reference-stub files in that folder
-- [x] [[20_Progress/Internship/Building System/Runs/Claude Code Prompts — Archive]]'s Prompts 26/27 entries — the only record of what those two prompts actually intended
+- [x] [[Claude Code Prompts - Archive]]'s Prompts 26/27 entries — the only record of what those two prompts actually intended
 - [ ] `Preperation/Interviews/` — not opened; nothing has reached that stage
 ## Pipeline Checklist
 _Against [[30_Order/Workflows/Internship Pipeline]]'s own `Done When` list._
@@ -57,7 +57,7 @@ Still graded against current templates/Pipeline prose only, per the Standard's d
 3. **Carryover, unaddressed a second review in a row**: Deepgram/Nuro/Uber/Western Digital's missing Contacts/Tracker notes, HRT-Sophomore's orphaned status, and Appian's stale "no rush" reasoning. Per the last review's own stated bar, a second consecutive sighting confirms these are discipline gaps, not oversights.
 
 > [!IMPORTANT]
-> **Correction, 2026-09-05 — Finding #2 above ("Batch B never landed") was true when written, not after.** Later the same session this review was written, [[20_Progress/Internship/Building System/Runs/Prompt 1 Reboot — Building System Refresh Session (2026-09-04)]] recorded that all 7 Batch B dossiers were promoted that same day, reusing Prompt 27's existing contact research. Confirmed live 2026-09-05, file-by-file, not from a report: all 7 (Castleton Data Engineering, KeyBank Analytics and Quantitative Modeling, Genentech Machine Learning, LPL Financial Software Engineer, Regions Bank, DTCC, GE Vernova) have real Program+Contact+Tracker trios. Original finding left as written above, per this vault's dated-correction convention — it accurately describes the state at the moment this review ran.
+> **Correction, 2026-09-05 — Finding #2 above ("Batch B never landed") was true when written, not after.** Later the same session this review was written, [[Prompt 1 Reboot - Building System Refresh Session (2026-09-04)]] recorded that all 7 Batch B dossiers were promoted that same day, reusing Prompt 27's existing contact research. Confirmed live 2026-09-05, file-by-file, not from a report: all 7 (Castleton Data Engineering, KeyBank Analytics and Quantitative Modeling, Genentech Machine Learning, LPL Financial Software Engineer, Regions Bank, DTCC, GE Vernova) have real Program+Contact+Tracker trios. Original finding left as written above, per this vault's dated-correction convention — it accurately describes the state at the moment this review ran.
 >
 > **A separate, more serious problem surfaced by the correction: 4 of those 7 Batch B programs, plus one Batch A program, already had a passed `deadline_posted` at creation time** — the promotion session backfilled research for postings that had closed days earlier, and neither this review nor the one before it caught it, because the Per-Program Trace's deadline table above was built by hand from the 3 dossiers already known, not by scanning every Program note's `deadline_posted` field. A comprehensive sweep run 2026-09-05 found **5 total** Program notes with a passed deadline: Castleton DS/ML (2026-09-01, already named above), Castleton Full-Stack (2026-09-01, missed entirely by this review), Castleton Data Engineering (2026-09-01, part of the "never landed" batch), KeyBank Data Intern/Key Tech & Services (2026-09-04, already named above), and KeyBank Analytics & Quantitative Modeling (2026-09-04, missed entirely). All 5 moved to a new `Programs/{Serious,Considering}/Missed/` subfolder 2026-09-05 (distinct from `Ended/`, which per [[Internship Pipeline]] means applied) — see each note's own dated Outcome section. This is the concrete case for why the rebuilt Review Standard adds a comprehensive, corpus-wide deadline sweep on its own fast cadence instead of relying on a review's hand-built deadline table.
 ## Decided Fixes

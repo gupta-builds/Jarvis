@@ -43,7 +43,7 @@ Real counts as of 2026-09-05, by direct folder listing:
 - **Considering, active:** 3 (Appian, American Express, LPL Financial [Data Engineer]).
 - **Contact notes with zero real outreach logged (`last_contact_date: null`): 15 of 15 active programs.** Every single active program is still pre-outreach — this is the concrete, current version of the "0 Applying notes" finding every prior review has stated in the abstract.
 - **Not yet researched into a Program (screened pass, no Program note):** not counted this pass — MCP query timeouts blocked the corpus-wide check; owed by the next Monthly review.
-- **Dossier corpus:** last confirmed count 287 live + 58 Viewed (2026-09-04, per [[20_Progress/Internship/Building System/Runs/Prompt 1 Reboot — Building System Refresh Session (2026-09-04)]]), now 286 live + 59 Viewed after this session's Virtu removal — not re-counted exhaustively this pass; the first real Deadline Sweep owes a fresh corpus-wide count.
+- **Dossier corpus:** last confirmed count 287 live + 58 Viewed (2026-09-04, per [[Prompt 1 Reboot - Building System Refresh Session (2026-09-04)]]), now 286 live + 59 Viewed after this session's Virtu removal — not re-counted exhaustively this pass; the first real Deadline Sweep owes a fresh corpus-wide count.
 
 ## Cadence Log
 The three recurring processes and when they last actually ran — update this table every run, don't let it silently go stale (the exact failure mode that let two reviews land 12 days late before this rebuild):

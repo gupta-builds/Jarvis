@@ -41,25 +41,29 @@ https://www.overleaf.com/read/fvpwwtftyjhj#11eb9d
 https://docs.google.com/document/d/1pnu_dtyPjDywA8JWnqg72TcjgnjqlMhrSW955oyR63Q/edit?tab=t.0#heading=h.r3iw8lcgnbqm
 
 ## Files to submit
-Two files. The essay is filled in; the only field left is `\author{}`, which needs your real name. No separate image file is needed: the figure is drawn directly in LaTeX (TikZ), so there's nothing extra to upload for it.
+Two files, both complete. Formatting: 12pt font, 1 inch margins on all sides, double-spaced text (`setspace`), the figure pinned in place after the Mars paragraph (`float`, `[H]`) so it can never split a paragraph across pages, and centered figure captions with an italic "Figure 1:" label (`caption`). No separate image file is needed: the figure is drawn directly in LaTeX (TikZ), so there's nothing extra to upload for it.
 
 ### `main.tex`
 ```latex
-\documentclass{article}
+\documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{geometry}
 \geometry{
  letterpaper,
- left=20mm,
- top=20mm,
+ margin=1in,
 }
-\setlength{\headheight}{12.5pt}
+\setlength{\headheight}{14.5pt}
 \usepackage{titling}
 \usepackage{xurl}
 \usepackage{tikz}
+\usepackage{float}
+\usepackage{setspace}
+\doublespacing
+\usepackage{caption}
+\captionsetup{labelfont=it, justification=centering}
 
 \title{Writing \#1}
-\author{[Your real name]}
+\author{Anant Gupta}
 
 \usepackage{fancyhdr}
 \fancypagestyle{plain}{%
@@ -84,31 +88,31 @@ Two files. The essay is filled in; the only field left is `\author{}`, which nee
 
 \maketitle
 
-In the Google DeepMind episode \emph{Introducing Gemini Robotics 2}, the host asks the robotics team whether anyone can claim general intelligence without a body. One researcher answers immediately: ``You cannot reach AGI until you solve physical AGI'' \cite{gemini_robotics_2}. I will argue that physical intelligence is the real bottleneck on the road to AGI, and that the hardest part is acting reliably where no human can step in to help.
+In the Google DeepMind episode \emph{Introducing Gemini Robotics 2}, the host asks the robotics team whether anyone can claim general intelligence without a body. One of the researchers responds, ``You cannot reach AGI until you solve physical AGI'' \cite{gemini_robotics_2}. I believe that physical intelligence is the limiting factor on the road to AGI, and that the hardest problem is acting reliably where humans cannot jump in to assist.
 
-Just before this exchange, a researcher describes how their estimate for general-purpose robots entering daily life has shrunk: ``probably beyond my lifetime'' three years ago, ``maybe ten years'' two years ago, and now ``between five to ten years'' \cite{gemini_robotics_2}. The host then asks whether general intelligence can be claimed without ``this embodied characteristic.'' The answer is that a robot asked to ``do anything that I could do'' should be able to do it, and that physical AGI ``will land after the digital AGI thing has happened'' \cite{gemini_robotics_2}. What stood out to me is that the team is not dismissing language models. They are saying the digital half of intelligence is arriving first, and the physical half is the harder test.
+Prior to this discussion, a researcher explains that their estimate for when general-purpose robots will enter daily life has shrunk from ``probably beyond my lifetime'' (three years ago) to ``maybe ten years'' (two years ago), and now to ``between five to ten years'' \cite{gemini_robotics_2}. The host then asks whether general intelligence can be claimed without ``this embodied characteristic'' \cite{gemini_robotics_2}. The response is that a robot asked to ``do anything that I could do'' should be able to do it, and that physical AGI ``will land after the digital AGI thing has happened'' \cite{gemini_robotics_2}. Notably, the researchers do not belittle language models; they are saying that the digital half of intelligence is arriving first, and that the physical half is the bigger challenge. This gap is known as Moravec's paradox: ``things that are really easy for humans are very difficult for robots'' \cite{gemini_robotics_2}. An AI has ``passed the bar exam,'' but it ``cannot cook you eggs, or flip a burger'' \cite{gemini_robotics_2}.
 
-The researcher names this Moravec's paradox: ``things that are really easy for humans are very difficult for robots.'' An AI has ``passed the bar exam,'' yet it ``cannot cook you eggs, or flip a burger'' \cite{gemini_robotics_2}. In course terms, this is the gap between planning in a clean symbolic state space and perceiving and learning in a noisy, continuous world. Earlier, another speaker explains why the gap is hard to close: a human teleoperator can rescue a small robot, but ``as the robots get bigger, get more capable, gain more degrees of freedom \ldots\ it's harder and harder for somebody to jump in and help'' \cite{gemini_robotics_2}. Teleoperation data is the most precise but least scalable source (Figure~\ref{fig:datapyramid}), so robots must eventually learn from their own mistakes.
+In the context of this course, this observation reflects the distinction between planning in a clean, symbolic state space and perceiving and learning in a noisy, continuous one. In an earlier segment, another speaker explains why the gap is hard to close: while a human teleoperator can rescue a small robot, ``as the robots get bigger, get more capable, gain more degrees of freedom \ldots\ it's harder and harder for somebody to jump in and help'' \cite{gemini_robotics_2}. Teleoperation data is the most precise but least scalable source of training data (see Figure~\ref{fig:datapyramid}), so robots will inevitably have to learn from their own mistakes.
 
-The speakers never mention Mars, so this extension is my own. A Mars robot is the extreme version of the teleoperation problem: signals from Earth take three to twenty-two minutes to arrive, so no one can ``jump in and help'' in real time. If physical AGI is five to ten years away, I would propose a delayed-intervention test. Give a robot a multi-step task, such as cooking a simple meal, add a twenty-minute delay to every human correction, and measure how often it recovers on its own. A robot that passes would show the physical intelligence the team describes. In my view, that is a stronger sign of progress toward AGI, and eventually ASI, than another exam score.
+The video makes no mention of Mars, so this is an extrapolation on my part. A Mars rover is the ultimate expression of the teleoperation problem: since a signal takes three to twenty-two minutes to travel between the planets, no one on the ground can ``jump in and help'' \cite{gemini_robotics_2} in real time. If physical AGI is five to ten years away, I would propose a delayed-intervention test: give a robot a multi-step task (such as cooking a simple recipe), add a twenty-minute delay to every human correction, and observe how often the robot corrects itself. A robot that passes this test would demonstrate the kind of physical intelligence the Google DeepMind researchers describe. In my opinion, such a robot would be more convincing evidence of progress toward AGI (and ultimately ASI) than another exam passed by a language model.
 
-\begin{figure}[htbp]
+\begin{figure}[H]
     \centering
     \begin{tikzpicture}
-        \draw[fill=blue!15] (0,0) rectangle (4,1);
-        \node[right] at (4.2,0.5) {\small Egocentric human video: most scalable, least precise};
+        \draw[fill=blue!15] (0,0) rectangle (10,1);
+        \node at (5,0.5) {\small Egocentric human video: most scalable, least precise};
 
-        \draw[fill=blue!30] (0,1) rectangle (4,2);
-        \node[right] at (4.2,1.5) {\small Wearable-device data};
+        \draw[fill=blue!30] (0,1) rectangle (10,2);
+        \node at (5,1.5) {\small Wearable-device data};
 
-        \draw[fill=blue!50] (0,2) rectangle (4,3);
-        \node[right] at (4.2,2.5) {\small Teleoperation data: most precise, least scalable};
+        \draw[fill=blue!50] (0,2) rectangle (10,3);
+        \node at (5,2.5) {\small Teleoperation data: most precise, least scalable};
     \end{tikzpicture}
-    \caption{The robot-training data sources described in the video, from most scalable but least precise (bottom) to most precise but least scalable (top) \cite{gemini_robotics_2}.}
+    \caption{The robot-training data sources described in the video \cite{gemini_robotics_2}, from most scalable but least precise (bottom) to most precise but least scalable (top). The data-pyramid framing is adapted from NVIDIA's GR00T N1 report \cite{nvidia_gr00t_n1}.}
     \label{fig:datapyramid}
 \end{figure}
 
-The video's central claim is that intelligence is not only something a system can say, but something it can do. Moravec's paradox suggests the last steps toward AGI will happen in the physical world, and I think robots that can act without a human safety net will get us there.
+The video's thesis is that intelligence is not merely what a system can say, but what it can do. Moravec's paradox implies that the last leg of the journey toward AGI will be traveled not in the realm of language but in the realm of motion, and I believe the systems that can act without a human safety net will be the ones to arrive first.
 
 \section*{AI Use Disclosure}
 I used Claude (Anthropic) to draft this essay from my notes and verified quotes from the video transcript. I reviewed and edited the final text.
@@ -130,16 +134,26 @@ Create this as a **new file** in your Overleaf project (File menu â†’ New File â
       journal = {YouTube},
       author = {{Google for Developers}},
 }
+
+@misc{nvidia_gr00t_n1,
+      title = {{GR00T} {N1}: An Open Foundation Model for Generalist Humanoid Robots},
+      author = {{NVIDIA}},
+      year = {2025},
+      howpublished = {arXiv preprint arXiv:2503.14734},
+      url = {https://arxiv.org/abs/2503.14734},
+      urldate = {2026-10-03},
+}
 ```
+The second entry is the source for the figure's data-pyramid idea. The speaker at [00:12:21] says "people usually talk about this data pyramid" without naming a source. NVIDIA's GR00T N1 paper (arXiv:2503.14734, March 2025) is the published origin of that framing: web and human video at the base, synthetic data in the middle, real robot data at the top. The figure's three layers (egocentric video, wearable devices, teleoperation) follow the video, not the paper, which is why the caption says "adapted from."
 This follows `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4511W\Homework\How to Cite in LaTeX (Citation Guide).pdf` exactly: `.bib` file named `citations.bib` (not Zotero's default), `\bibliographystyle{plainurl}` + `\nocite{*}` + `\bibliography{citations}` at the end of `main.tex` (already included above), and `\usepackage{xurl}` in the preamble so the URL renders cleanly (already included).
 
 > [!WARNING] Not test-compiled
 > No LaTeX engine (pdflatex/xelatex/tectonic) is installed on this machine, so this hasn't been compiled, only checked against standard, common patterns. Compile it in Overleaf; if anything errors, paste the error back.
 
 ## Essay
-Drafted and finalized in [[Essay]] (the **Full Essay** section, ~477 words). That text is what sits in the body of `main.tex` above. If you change the essay, change it in both places.
+Finalized in [[Essay]] (the **Full Essay** section, ~537 words). That text is what sits in the body of `main.tex` above. If you change the essay, change it in both places.
 
-Source: [[Writing - 1 Video Transcript]]. Every quote in the essay was checked word for word against the transcript. The Mars paragraph is labeled in the essay itself as your own extension, since the video never mentions Mars.
+Source: [[Writing - 1 Video Transcript]]. Every quote in the essay was checked word for word against the transcript, and every quote carries `\cite{gemini_robotics_2}` before the sentence's period, as the citation guide requires. The Mars paragraph is labeled in the essay itself as your own extension, since the video never mentions Mars.
 
 ## Requirements
 **Must submit:** compiled PDF titled "Writing #1" (or "Writing #1: Feedback Requested"), built from the template above with your real name; intro/body/conclusion; at least one citation in a reasonable format; AI-use disclosure if applicable.

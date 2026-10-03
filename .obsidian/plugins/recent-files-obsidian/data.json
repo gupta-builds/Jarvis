@@ -5,6 +5,10 @@
       "path": "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing 1 - Learn the Tools.md"
     },
     {
+      "basename": "Writing - 1 Video Transcript",
+      "path": "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 1 Video Transcript.md"
+    },
+    {
       "basename": "Week - 1",
       "path": "20_Progress/Degree/CSCI 4511W/Weekly/Week - 1.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "Transcript - Sponsoring",
       "path": "20_Progress/Internship/Career Fair/Transcript - Sponsoring.md"
-    },
-    {
-      "basename": "CSCI 4061 Board",
-      "path": "20_Progress/Degree/CSCI 4061/CSCI 4061 Board.md"
     }
   ],
   "omittedPaths": [

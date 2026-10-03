@@ -25,15 +25,15 @@ A ~500-word reflection essay, written and compiled in LaTeX (Overleaf recommende
 ### The 7 TA-suggested videos
 TA's framing (verbatim): "For Writing 1 you can choose any of the videos we watched today or anything else you find relevant." Titles/channels confirmed via YouTube's own metadata (not guessed):
 
-| # | Video | Channel | Confirmed in Discussion 3? |
-|---|---|---|---|
-| 1 | [Introducing Gemini Robotics 2](https://youtu.be/-rYFDefcq3k) | Google for Developers | Not directly named, but same robotics line as #4 |
-| 2 | [Project Ace](https://youtu.be/FrGq8ltb-_E) | Sony AI | Not referenced in Discussion 3 — subject unconfirmed beyond title |
-| 3 | [Genie 3: Creating dynamic worlds that you can navigate in real-time](https://youtu.be/PDKhUknuQDg) | Google DeepMind | **Yes** — "Play Genie 3 (2:23)," and used as Discussion 3's own worked citation example |
-| 4 | [Tough dexterity tasks with Gemini Robotics 2](https://youtu.be/wYVHxw2-DP4) | Google DeepMind | **Yes** — "Play the dexterity showcase (2:19)" |
-| 5 | [Tracing the thoughts of a large language model](https://youtu.be/Bj9BD2D3DzA) | Anthropic | Not referenced in Discussion 3 |
-| 6 | [Reverse Turing Test Experiment with AIs](https://youtu.be/MxTWLm9vT_o) | Tamulur | Not referenced in Discussion 3 |
-| 7 | [AI teaches itself to drive in Trackmania](https://youtu.be/a8Bo2DHrrow) | Yosh | Not referenced in Discussion 3 |
+| #   | Video                                                                                               | Channel               | Confirmed in Discussion 3?                                                              |
+| --- | --------------------------------------------------------------------------------------------------- | --------------------- | --------------------------------------------------------------------------------------- |
+| 1   | [Introducing Gemini Robotics 2](https://youtu.be/-rYFDefcq3k)                                       | Google for Developers | Not directly named, but same robotics line as #4                                        |
+| 2   | [Project Ace](https://youtu.be/FrGq8ltb-_E)                                                         | Sony AI               | Not referenced in Discussion 3 — subject unconfirmed beyond title                       |
+| 3   | [Genie 3: Creating dynamic worlds that you can navigate in real-time](https://youtu.be/PDKhUknuQDg) | Google DeepMind       | **Yes** — "Play Genie 3 (2:23)," and used as Discussion 3's own worked citation example |
+| 4   | [Tough dexterity tasks with Gemini Robotics 2](https://youtu.be/wYVHxw2-DP4)                        | Google DeepMind       | **Yes** — "Play the dexterity showcase (2:19)"                                          |
+| 5   | [Tracing the thoughts of a large language model](https://youtu.be/Bj9BD2D3DzA)                      | Anthropic             | Not referenced in Discussion 3                                                          |
+| 6   | [Reverse Turing Test Experiment with AIs](https://youtu.be/MxTWLm9vT_o)                             | Tamulur               | Not referenced in Discussion 3                                                          |
+| 7   | [AI teaches itself to drive in Trackmania](https://youtu.be/a8Bo2DHrrow)                            | Yosh                  | Not referenced in Discussion 3                                                          |
 
 Only #3 (Genie 3) and #4 (dexterity showcase) are confirmed as videos actually watched in that day's discussion (Discussion 3 also played a third video, SIMA 2, which isn't on the TA's 7-link list — so "watched today" isn't identical to "on this list," and the TA's own wording allows "anything else you find relevant" beyond all of these). Pick whichever genuinely gives you something to say — that choice is yours, not something I should make for you.
 

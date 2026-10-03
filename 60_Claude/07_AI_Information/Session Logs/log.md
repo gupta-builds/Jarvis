@@ -1,13 +1,4 @@
 # Session Log
-## [2026-10-02] build | CSCI 4511W Week 1 lecture-synthesis note
-
-**Type:** course note build (Week 1 of 4 in a sequential weekly-build sequence)
-**Output:** [[20_Progress/Degree/CSCI 4511W/Weekly/Week - 1|Week - 1]], [[20_Progress/Degree/CSCI 4511W/Discussion 1 — Turing 1950|Discussion 1 — Turing 1950]]
-**Sources read:** `turing.pdf` (22 pages, full), `Chapter - 1.md` (pre-landed), lecture folder (confirmed no Lecture 01 PDF — folder starts at Lecture 02 dated 9/14)
-**Concept note decision:** No new concept note created. The PEAS terms from the 9/9 intro lecture are a preview of Chapter 2's formal agent-design framework; a stub now would be superseded next week. Flagged as `Concept - PEAS Framework` and `Concept - Rational Agent` for creation after Week 2 lands.
-**Discussion Template:** exists at `30_Order/Templates/Classes/Discussion Template.md` — used to create the separate Turing discussion note. Live session capture does not exist; note records paper claims only.
-**Weekly Board:** updated Map (one real sentence for Week 1) and Status (0 → 1 of 15 weeks fully written).
-**Frontmatter fixes:** `area:` corrected from `[[UMN Board]]` placeholder to `[[CSCI 4511W Board]]` + `[[Chapter - 1]]`; `created`/`updated` dates set; `next:` pointing to Week 2.
 ## [2026-09-28] build | Terminal-popup root cause found (Codex upstream bug), hook errors traced to a stale path bug that turned out to affect 15 scripts, weekly review actually wired up for real
 Same-day follow-up. User reported random terminal popups whenever using Codex/Claude/terminal, plus hook errors seen during this build. Investigated both properly rather than guessing.
 

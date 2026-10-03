@@ -25,6 +25,13 @@ notes:
   - "[[AGENTS.md]]"
   - "[[Jarvis OS — North Star]]"
 ---
+<!-- SYNC-ALERT:BEGIN -->
+> [!danger] SYNC ALERT - content integrity at risk (detected 2026-10-02 20:31)
+> `Jarvis-Syncthing-Health` found a real problem. Do not assume notes are current until this clears on its own.
+> - 2 live .sync-conflict-* file(s) on disk - read each against its canonical counterpart before touching, never bulk-discard (see Known Failure Mode 6).
+> Run `check-syncthing-status.ps1` for detail, or see [[Cross-Laptop Sync - Known Failure Modes and Prevention]].
+<!-- SYNC-ALERT:END -->
+
 # Jarvis — `$= moment().format("dddd, D MMMM YYYY")`
 > [!focus] CURRENT FOCUS
 > **`INPUT[text:today_focus]`**

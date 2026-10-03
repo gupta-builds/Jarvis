@@ -3,13 +3,13 @@ type: class
 input_kind: board
 status: sprout
 created: 2026-09-07
-updated: 2026-09-28
+updated: 2026-10-02
 area:
   - "[[Fall'26 Syllabus]]"
   - "[[APAS]]"
 tags:
   - "#class"
-next: "Run the two Codex prompts in Week - 2 & 3 (Prompts) to build Week - 2.md and Week - 3.md, now that Lecture - 2 & 3 / Lecture - 4 / Lecture - 5 are landed; fix the missing scikit-learn dependency and confirm the Week 6/midterm date anomalies on Canvas"
+next: "Build Week - 5 once Lecture 10 (Householder) actually lands a transcript; confirm the real Quiz #2/Homework #2 dates once posted; fix the missing scikit-learn dependency and confirm the Week 6/midterm date anomalies on Canvas"
 ---
 # CSCI 5304 — Computational Aspects of Matrix Theory
 ==Full syllabus and schedule captured 2026-09-08 from the two PDFs in the source folder - this is now the single place everything about this course lives, per the source-of-truth path below.== This course runs a **zero-AI-tools policy** - stated plainly in the syllabus, not a general disclaimer - so read the Academic Integrity section before using this note, or any AI tool, anywhere near actual homework, quizzes, or exam work.
@@ -92,6 +92,7 @@ Computed from the syllabus's own week labels, cross-checked against a calendar 2
 > All three point to the same likely cause: everything from Week 6 onward may be running one row "behind" its real calendar week, the same kind of leftover-template artifact caught earlier this session in TIP103's stale "Spring break" line. Dates marked * above are the ones this affects.
 > **Cross-verified 2026-09-15 against a live Canvas scrape** (`.firecrawl/syllabus.md` and `.firecrawl/schedule.md` in the source folder, pulled 2026-09-08) - all three anomalies are present there too, identically. This is not a PDF-copy or vault-ingestion artifact; it's baked into the professor's own Canvas page. **Confirm the real midterm date and the real Thanksgiving-week class status directly with the instructor or TA** - Canvas itself won't self-correct this.
 > **A fourth, live anomaly, confirmed 2026-09-28 from the lecture transcripts themselves:** Quiz #1 did **not** happen in class on Thu 9/17 as the printed schedule shows - the professor hadn't written it. It became an ungraded-cadence take-home, posted the morning of Tue 9/22 and due that same day at 11:59 PM. Treat the printed "every other Thursday in class" quiz cadence as the intent, not a guarantee - confirm each quiz actually happened in class before assuming the schedule table above is current.
+> **A fifth anomaly, confirmed 2026-10-02 from the transcripts, repeating the exact same pattern:** Quiz #2 also did **not** happen in class on Thu 10/1 as printed - the professor announced on 9/29 it would instead be a take-home, SVD-focused, posted Thursday and due by Sunday or Monday ("Thursday to Monday, but I'm fairly confident"). **Homework #2 was also not yet assigned as of 10/1**, despite the printed Wed 10/7 due date - the professor stated directly they hadn't created it yet and owed it, promising two weeks from whenever it actually posts. A personal family emergency was cited as the reason for the general pacing slip this week - noted here only as the stated cause, not elaborated further. Both anomalies are logged in full in [[20_Progress/Degree/CSCI 5304/Weekly/Week - 4|Week - 4]].
 ## Environment Setup
 Already scaffolded in the source folder, confirmed 2026-09-08. Local conda environment at `.conda/csci-5304` inside the course folder (not a global conda env) - open a notebook in VS Code, pick the kernel **Python (csci-5304)**, run cells normally.
 *To recreate,* from the course folder in Anaconda Prompt or PowerShell:
@@ -107,14 +108,16 @@ conda run --prefix .\.conda\csci-5304 python -m ipykernel install --user --name 
 - Confirm the real midterm date and Thanksgiving-week status on Canvas (see schedule warning above).
 - Confirm the actual class meeting time - not stated anywhere in this syllabus.
 - Textbook part/chapter breakdown for Parts I-V - deferred by plan, to be filled in as each part is actually read.
-## Weekly Note-Building Workflow (repeatable, set up 2026-09-28)
-Full course-specific routing contract: [[30_Order/Workflows/Courses/Per Class/CSCI 5304 Workflow|CSCI 5304 Workflow]] - source hierarchy (a provided file beats the transcript, the transcript beats nothing), the concept-note discipline (at most 2/week, 1 per lecture, reserved for genuine depth), and the .ipynb-to-PDF conversion rule for when coding homework starts arriving. Summary below.
+## Weekly Note-Building Workflow (repeatable, set up 2026-09-28; textbook-notebook dependency dropped 2026-10-02)
+Full course-specific routing contract: [[30_Order/Workflows/Courses/Per Class/CSCI 5304 Workflow|CSCI 5304 Workflow]] - source hierarchy (a provided file beats the transcript, the transcript beats nothing), the concept-note discipline (at most 2/week, 1 per lecture, reserved for genuine depth), and the .ipynb-to-PDF conversion rule for when coding homework starts arriving.
 
-No lecture slides exist for this course at all - the only real lecture source is the raw transcript files in `Lecture/Transcripts/`, so both the textbook layer and the weekly synthesis layer have to be built by running two sets of AI prompts against them, in order, every week:
-1. **Notebook prompts** (Gemini Notebook, one per lecture, sometimes split into parts for length) - upload `Textbook & Resources/CSCI 5304 Textbook.pdf` plus that lecture's transcript excerpt, land the output as `Textbook/Lecture - N.md`.
-2. **Codex prompts** (`codex` CLI, one single prompt per week, not per lecture) - once that week's Lecture notes exist, run the week's prompt against the full transcript(s) plus the landed Lecture notes; it writes the finished week note directly into `Weekly/Week - N.md`.
+No lecture slides exist for this course at all - the only real lecture source is the raw transcript files in `Lecture/Transcripts/`. **As of 2026-10-02, the textbook layer no longer depends on Gemini Notebook at all.** A full MinerU extraction of the textbook (`Textbook & Resources/CSCI 5304 Textbook (MinerU full extraction).md`, 12,654 lines) solved the local-PDF-extraction problem Notebook existed to work around - every `Textbook/Lecture - N.md` note is now built directly against real page-cited text grepped out of that extraction, no `.ipynb` round-trip needed. The two-pass workflow is now:
+1. Build/rebuild `Textbook/Lecture - N.md` directly from the MinerU extraction plus that lecture's real transcript excerpt.
+2. Once that week's Lecture notes exist, build `Weekly/Week - N.md` from the full transcript(s) plus the landed Lecture notes, per [[Weekly Standard]].
 
-Both prompt sets' **reusable master templates** live in [[20_Progress/Degree/Repetitive Things|Repetitive Things]] (§ Notebook, § Codex) - written to be filled in for any future course, not just this one. The **filled-in, course-specific versions for Weeks 2-3** are staged in [[20_Progress/Degree/CSCI 5304/Weekly/Week - 2 & 3 (Prompts)|Week - 2 & 3 (Prompts)]], along with the real source manifest (which transcript covers which lecture, and which weeks/lectures don't have a transcript yet). Week 1 is skipped on purpose (nothing was captured for it); each future week should get its own manifest-plus-filled-prompts entry following that same file's shape rather than reinventing the process.
+Lectures 2-8 are landed this way as of 2026-10-02 (Lecture 8 explicitly flagged as only partially lectured; Lecture 9 is the one intentional MATLAB skip; Lecture 10 has no transcript yet and is not started). Weeks 2, 3, and 4 are written in full - see [[20_Progress/Degree/CSCI 5304/Weekly/Weekly Board|Weekly Board]] for current status.
+
+[[20_Progress/Degree/CSCI 5304/Weekly/Week - 2 & 3 (Prompts)|Week - 2 & 3 (Prompts)]] is the historical staging file for this workflow's original Notebook-and-Codex-prompt form - its real source manifest (which transcript covers which lecture, and which weeks/lectures don't have a transcript yet) is still the right pattern to extend week to week, but its Notebook-prompt section is now superseded by the direct-MinerU-extraction approach above; its Codex-prompt section's underlying template still applies. Week 1 is skipped on purpose (nothing was captured for it); each future week's manifest should extend that file's shape rather than inventing a new one.
 ## Resources
 - Course text: Trefethen & Bau, *Numerical Linear Algebra* (25th Anniversary Ed.) - https://epubs.siam.org/doi/book/10.1137/1.9781611977165
 - Author's own site: https://people.maths.ox.ac.uk/trefethen/

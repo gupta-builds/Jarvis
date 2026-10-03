@@ -43,7 +43,7 @@ No new concept note this week. The PEAS terms from the 9/9 lecture (Performance 
 *(heading present in capture but content not recorded during lecture — see Examples worth keeping above for the full example from Chapter 1)*
 ### Discussion 9/11/2026 — Turing 1950
 Reading: A. M. Turing, "Computing Machinery and Intelligence," *Mind* 49 (1950): 433–460 (`turing.pdf` in course source folder)
-No live discussion-section capture exists for this session. Key claims from the paper are recorded in [[20_Progress/Degree/CSCI 4511W/Discussion 1 — Turing 1950|Discussion 1 — Turing 1950]].
+No live discussion-section capture exists for this session. Key claims from the paper are recorded in [[20_Progress/Degree/CSCI 4511W/Discussion/Discussion 1 — Turing 1950|Discussion 1 — Turing 1950]].
 ## Textbook integration
 > [!IMPORTANT]
 > Main chapters: [[20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 1|Chapter 1]] (background framing; not a dated Canvas reading — Chapter 2 begins the formal course sequence)

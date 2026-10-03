@@ -61,12 +61,14 @@ Chapter 1 is conceptual motivation, not the PEAS specification tutorial. What it
 - [ ] Is the consciousness objection (Jefferson 1949) actually answered by the Imitation Game, or does Turing only show that accepting it leads to solipsism — which is a different argumentative move?
 ## Lecture-to-textbook synthesis
 ==Rational agents and PEAS are not a vocabulary to memorize but an engineering choice: the course is organized this way because "acting rationally" is the only AI target that gives mathematically grounded design criteria.==
+
 *Mechanism:* Chapter 1 eliminates three of the four historical AI definitions as viable engineering targets. Acting humanly has no clean criterion — human behavior is inconsistent and contested. Thinking humanly requires a verified cognitive model that is never fully available. Thinking rationally (logicism) breaks down when knowledge is incomplete or inference does not automatically produce useful action. Acting rationally survives because expected utility is computable and gives a general criterion across search, probability, and learning. The intro lecture's PEAS vocabulary is where that target lands in practice: the Performance measure is the utility function; Environment is the state space the agent does not control; Actuators define the available action set; Sensors define the observation interface.
 - Lecture example/scenario: Vacuum World — Performance = clean rooms minus excess moves; Environment = two rooms with independent dirt states; Actuators = MoveLeft, MoveRight, Suck; Sensors = current room + dirty/clean. The whole PEAS spec fits on one line.
 - Textbook connection: [[20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 1|Chapter 1]] §1.1.4 explains why rational action beats logicism when knowledge is partial, and the worked taxi example shows why a badly specified performance measure produces instrumentally harmful behavior regardless of agent capability.
 - Concept links: (pending Week 2) PEAS Framework, Rational Agent
 > [!WARNING]
 > The intro lecture's "Performance Measure" and Chapter 2's formal PEAS spec are at different precision levels. The lecture gave the vocabulary; Chapter 2 gives the checklist: task environment type (fully observable? deterministic? episodic? static?), time horizon, agent architecture. A student who memorizes only the four PEAS words will miss the actual design work Chapter 2 assigns.
+
 > [!SUMMARY]
 > Week 1 establishes the vocabulary (PEAS) and engineering philosophy (rational agents) that every later topic — search, logic, constraint satisfaction, learning — builds on. Turing 1950 shows the behavioral criterion that motivates why we care about agents that can act rationally at all; the nine-objection structure is how Turing clears the philosophical ground before the engineering begins.
 ## Flashcards

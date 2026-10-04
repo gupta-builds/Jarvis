@@ -1,212 +1,24 @@
 {
   "recentFiles": [
     {
-      "basename": "DSA",
-      "path": "20_Progress/Degree/_Courses/Technical Interview/DSA.md"
+      "basename": "Codebase Sync Decision and Logging Failure Audit — 2026-10-04",
+      "path": "60_Claude/40_Project_Briefs/Codebase Sync Decision and Logging Failure Audit — 2026-10-04.md"
     },
     {
-      "basename": "Concepts Board",
-      "path": "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Concepts Board.md"
+      "basename": "Codex Prompts",
+      "path": "20_Progress/Internship/Building System/Runs/Codex Prompts.md"
     },
     {
-      "basename": "Writing 1 - Learn the Tools",
-      "path": "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing 1 - Learn the Tools.md"
+      "basename": "Old Laptop Rebuild - Prompt 1 WSL",
+      "path": "40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild/Old Laptop Rebuild - Prompt 1 WSL.md"
     },
     {
-      "basename": "Board Role",
-      "path": "20_Progress/Degree/ENGL 1004/Asssignments/Board Role.md"
-    },
-    {
-      "basename": "Essay",
-      "path": "20_Progress/Degree/CSCI 4511W/Assignments/Written/Essay.md"
-    },
-    {
-      "basename": "Writing - 1 Video Transcript",
-      "path": "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 1 Video Transcript.md"
-    },
-    {
-      "basename": "Week - 1",
-      "path": "20_Progress/Degree/CSCI 4511W/Weekly/Week - 1.md"
-    },
-    {
-      "basename": "Textbook Map",
-      "path": "20_Progress/Degree/CSCI 4511W/Textbook/Textbook Map.md"
-    },
-    {
-      "basename": "Repetitive Things",
-      "path": "20_Progress/Degree/Repetitive Things.md"
-    },
-    {
-      "basename": "Project - 1 Code",
-      "path": "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Code.md"
-    },
-    {
-      "basename": "Project - 1 Assignment",
-      "path": "20_Progress/Degree/CSCI 4061/Projects/Project - 1 Assignment.md"
-    },
-    {
-      "basename": "Chapter - 15",
-      "path": "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 15.md"
-    },
-    {
-      "basename": "Chapter - 4",
-      "path": "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 4.md"
-    },
-    {
-      "basename": "x86-64 and Memory Layout",
-      "path": "20_Progress/Degree/CSCI 4061/Concepts/C Refresher/x86-64 and Memory Layout.md"
-    },
-    {
-      "basename": "Structs and Typedef",
-      "path": "20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Structs and Typedef.md"
-    },
-    {
-      "basename": "Recursion",
-      "path": "20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Recursion.md"
-    },
-    {
-      "basename": "Pointers and Addresses",
-      "path": "20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Pointers and Addresses.md"
-    },
-    {
-      "basename": "Linked Data Structures",
-      "path": "20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Linked Data Structures.md"
-    },
-    {
-      "basename": "File IO in C",
-      "path": "20_Progress/Degree/CSCI 4061/Concepts/C Refresher/File IO in C.md"
-    },
-    {
-      "basename": "Compilation and Linking",
-      "path": "20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Compilation and Linking.md"
-    },
-    {
-      "basename": "Dynamic Memory",
-      "path": "20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Dynamic Memory.md"
-    },
-    {
-      "basename": "Bitwise Operations and Integer Representation",
-      "path": "20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Bitwise Operations and Integer Representation.md"
-    },
-    {
-      "basename": "Arrays and Strings",
-      "path": "20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Arrays and Strings.md"
-    },
-    {
-      "basename": "Chapter - 1",
-      "path": "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1.md"
-    },
-    {
-      "basename": "Textbook Map",
-      "path": "20_Progress/Degree/CSCI 4061/Textbook/Textbook Map.md"
-    },
-    {
-      "basename": "Chapter - 7",
-      "path": "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 7.md"
-    },
-    {
-      "basename": "Weekly Board",
-      "path": "20_Progress/Degree/CSCI 4061/Weekly/Weekly Board.md"
-    },
-    {
-      "basename": "Week - 1",
-      "path": "20_Progress/Degree/CSCI 4061/Weekly/Week - 1.md"
-    },
-    {
-      "basename": "Lab - 3",
-      "path": "20_Progress/Degree/CSCI 4061/Labs/Lab - 3.md"
-    },
-    {
-      "basename": "Chapter - 3",
-      "path": "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3.md"
-    },
-    {
-      "basename": "Week - 4",
-      "path": "20_Progress/Degree/MGMT 3015/Weekly/Week - 4.md"
-    },
-    {
-      "basename": "Week - 3",
-      "path": "20_Progress/Degree/MGMT 3015/Weekly/Week - 3.md"
-    },
-    {
-      "basename": "Week - 2",
-      "path": "20_Progress/Degree/MGMT 3015/Weekly/Week - 2.md"
-    },
-    {
-      "basename": "Week - 1",
-      "path": "20_Progress/Degree/MGMT 3015/Weekly/Week - 1.md"
-    },
-    {
-      "basename": "Business Idea For A New Company",
-      "path": "20_Progress/Degree/MGMT 3015/Assignments/Business Idea For A New Company.md"
-    },
-    {
-      "basename": "Chapter - 8",
-      "path": "20_Progress/Degree/MGMT 3015/Textbook/Chapter - 8.md"
-    },
-    {
-      "basename": "Chapter - 3 & 4",
-      "path": "20_Progress/Degree/MGMT 3015/Textbook/Chapter - 3 & 4.md"
-    },
-    {
-      "basename": "2026-09-28",
-      "path": "10_Areas/Life/Enumerate/Daily/2026-09-28.md"
-    },
-    {
-      "basename": "Week - 4",
-      "path": "20_Progress/Degree/CSCI 4511W/Weekly/Week - 4.md"
-    },
-    {
-      "basename": "Week - 1 (Prompts)",
-      "path": "20_Progress/Degree/CSCI 4521/Weekly/Week - 1 (Prompts).md"
-    },
-    {
-      "basename": "Chapter - 5",
-      "path": "20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 5.md"
-    },
-    {
-      "basename": "Chapter - 3",
-      "path": "20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 3.md"
-    },
-    {
-      "basename": "Chapter - 2",
-      "path": "20_Progress/Degree/CSCI 4521/Textbook/ISL/Chapter - 2.md"
-    },
-    {
-      "basename": "Chapter - 2",
-      "path": "20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 2.md"
-    },
-    {
-      "basename": "Chapter - 4",
-      "path": "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4.md"
-    },
-    {
-      "basename": "Manual Internship Listings",
-      "path": "10_Areas/Career/Internships/List/Dossiers/_Today/Manual Internship Listings.md"
-    },
-    {
-      "basename": "Chapter - 10",
-      "path": "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10.md"
-    },
-    {
-      "basename": "Chapter - 3",
-      "path": "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 3.md"
-    },
-    {
-      "basename": "Chapter - 8",
-      "path": "20_Progress/Degree/CSCI 4061/Textbook/Chapter - 8.md"
-    },
-    {
-      "basename": "Hit or Miss - Miss",
-      "path": "20_Progress/Degree/Hit or Miss - Miss.md"
+      "basename": "Claude Code Prompts",
+      "path": "20_Progress/Internship/Building System/Runs/Claude Code Prompts.md"
     }
   ],
-  "omittedPaths": [
-    ""
-  ],
-  "omittedTags": [
-    ""
-  ],
-  "updateOn": "file-edit",
-  "omitBookmarks": true
+  "omittedPaths": [],
+  "omittedTags": [],
+  "updateOn": "file-open",
+  "omitBookmarks": false
 }

@@ -30,9 +30,7 @@ Retroactive deadline backfill for all 278 dossiers in the four priority buckets.
 - [[10_Areas/Career/Internships/List/Dossiers/1 - AI & ML/AI Operations Intern - Naukr AI - Acds]] — own deadline
 - [[10_Areas/Career/Internships/List/Dossiers/1 - AI & ML/AI Operations Intern-Caddell Reynolds - Acds]] — own deadline
 - [[10_Areas/Career/Internships/List/Dossiers/1 - AI & ML/AI-First Engineering Intern - Xsolla]] — own deadline
-- [[10_Areas/Career/Internships/List/Dossiers/1 - AI & ML/AIML Intern - Artificial IntelligenceMachine Learning - Kodiak Robotics]] — own deadline
 - [[10_Areas/Career/Internships/List/Dossiers/1 - AI & ML/AIML Research Intern - DRW]] — own deadline
-- [[10_Areas/Career/Internships/List/Dossiers/1 - AI & ML/Applications Intern - AI and Machine Learning - TMEIC Corporation Americas]] — own deadline
 - [[10_Areas/Career/Internships/List/Dossiers/1 - AI & ML/Applied AI Engineer Intern - Millennium]] — own deadline
 - [[10_Areas/Career/Internships/List/Dossiers/1 - AI & ML/Applied Machine Learning Production Engineer Intern - ByteDance]] — own deadline
 - [[10_Areas/Career/Internships/List/Dossiers/1 - AI & ML/Artificial Intelligence Co-op Intern - Mosaic]] — own deadline

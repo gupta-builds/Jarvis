@@ -12,10 +12,13 @@ date_posted: '2026-08-24'
 date_found: '2026-08-24'
 own_deadline: 2026-10-11
 matched_reason: Winter 2027, AI/ML/Data
-status: unreviewed
+status: removed
+removed_date: 2026-10-04
+removed_reason: "Stored posting URL redirected to the Kodiak jobs index with error=true; the specific requisition was absent."
 next:
 notes:
   - '[[10_Areas/Career/Internships/List/Dossiers MOC]]'
+  - '[[10_Areas/Career/Internships/List/Dossiers/Viewed/Removed Dossiers MOC]]'
 preference_tier:
 tags:
   - internship

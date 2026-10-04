@@ -1,23 +1,4 @@
 # Session Log
-## [2026-10-04] review | Weekly Synthesis 2026-W40 — first real unattended fire, live sync outage caught mid-review
-
-First real unattended fire of the `Jarvis-WeeklyReview` Scheduled Task (confirmed via `LastRunTime` matching this session) — the trigger fix from 2026-09-28 held. Found and partly resolved a live incident while running Step 7.6: Syncthing had been down on this machine for roughly 21 hours (`.sync-alert-state.json`: 255 consecutive health-check failures; no process, no listener, REST refused), generating 14 live `.sync-conflict-*` files outside `.stversions/`. Read every one against canonical individually — 10 were successive auto-generated Dashboard sync-alert-banner timestamps with no unique content, two (CSCI 4511W Weekly Board, Writing 1) were strictly older than canonical, one was a tool cache blob, and **one was real data loss**: `log.md` was missing its entire 2026-10-02 "CSCI 4511W Week 1 lecture-synthesis note" entry, restored from the conflict copy. All 14 archived to `D:\_Anant\99_Archive\Syncthing Conflict Reconciliation 2026-10-04`. Syncthing itself was not restarted — no auto-start mechanism exists on this machine, and starting background infra blind in an unattended run isn't this skill's call to make; flagged as next week's Priority 1 instead.
-
-Closed a 2026-09-28 carryover task with a live check instead of leaving it open again: confirmed via Google Calendar and Gmail search that "Fall AI Convention w/ Nexus" never existed (zero matching events or threads) — corrected `Fall 2026 Plan.md`'s week-of-09-28 row in place.
-
-Fall Execution Audit otherwise shows a stalled week: internship tracker flat at 29 `Current/` / 0 `Applied/` (unchanged from 2026-09-25), LeetCode/CodePath daily log still zero rows, and only 3 of the last 7 days have any daily note at all. `Jarvis-GitAutoSync` (last week's top priority) is fixed — clean run at 02:03 today. Per this run's explicit headless instruction, every over-cap log (10 per-project Sync-Logs, the combined log, `git-auto-sync.log`, cursor sweep logs, two leftover one-time-cleanup archive files) was flagged in [[60_Claude/30_Reviews/Weekly Synthesis/Logs/Log Review]] but nothing was deleted. Full detail: [[60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis — 2026-W40]].
-
-**Next:** a human needs to start Syncthing and find out why it stopped (no auto-restart exists); build `Main Cover Letter.md` for real; recover the daily-note cadence.
-
-## [2026-10-02] build | CSCI 4511W Week 1 lecture-synthesis note
-
-**Type:** course note build (Week 1 of 4 in a sequential weekly-build sequence)
-**Output:** [[20_Progress/Degree/CSCI 4511W/Weekly/Week - 1|Week - 1]], [[20_Progress/Degree/CSCI 4511W/Discussion 1 — Turing 1950|Discussion 1 — Turing 1950]]
-**Sources read:** `turing.pdf` (22 pages, full), `Chapter - 1.md` (pre-landed), lecture folder (confirmed no Lecture 01 PDF — folder starts at Lecture 02 dated 9/14)
-**Concept note decision:** No new concept note created. The PEAS terms from the 9/9 intro lecture are a preview of Chapter 2's formal agent-design framework; a stub now would be superseded next week. Flagged as `Concept - PEAS Framework` and `Concept - Rational Agent` for creation after Week 2 lands.
-**Discussion Template:** exists at `30_Order/Templates/Classes/Discussion Template.md` — used to create the separate Turing discussion note. Live session capture does not exist; note records paper claims only.
-**Weekly Board:** updated Map (one real sentence for Week 1) and Status (0 → 1 of 15 weeks fully written).
-**Frontmatter fixes:** `area:` corrected from `[[UMN Board]]` placeholder to `[[CSCI 4511W Board]]` + `[[Chapter - 1]]`; `created`/`updated` dates set; `next:` pointing to Week 2.
 ## [2026-09-28] build | Terminal-popup root cause found (Codex upstream bug), hook errors traced to a stale path bug that turned out to affect 15 scripts, weekly review actually wired up for real
 Same-day follow-up. User reported random terminal popups whenever using Codex/Claude/terminal, plus hook errors seen during this build. Investigated both properly rather than guessing.
 

@@ -26,10 +26,9 @@ notes:
   - "[[Jarvis OS — North Star]]"
 ---
 <!-- SYNC-ALERT:BEGIN -->
-> [!danger] SYNC ALERT - content integrity at risk (detected 2026-10-04 10:25)
+> [!danger] SYNC ALERT - content integrity at risk (detected 2026-10-04 12:26)
 > `Jarvis-Syncthing-Health` found a real problem. Do not assume notes are current until this clears on its own.
-> - 14 live .sync-conflict-* file(s) on disk - read each against its canonical counterpart before touching, never bulk-discard (see Known Failure Mode 6).
-> - Not fully synced against remote device VYYX3J5-IWWXLM5-7PQTGPY-QHHEITT-F3E65MZ-HCLAJYF-JRRK325-WBE4QQ7 (completion=99.88282499262053%, needBytes=427172, needItems=12).
+> - 9 live .sync-conflict-* file(s) on disk - read each against its canonical counterpart before touching, never bulk-discard (see Known Failure Mode 6).
 > Run `check-syncthing-status.ps1` for detail, or see [[Cross-Laptop Sync - Known Failure Modes and Prevention]].
 <!-- SYNC-ALERT:END -->
 

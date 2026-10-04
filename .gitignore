@@ -62,6 +62,31 @@ mcp.env
 # infinite self-referential loop. Found during Build 7 testing.
 30_Order/System/claude-workflow/logs/git-auto-sync.log
 30_Order/System/claude-workflow/scripts/.git-auto-sync.lock
+# Jarvis-WeeklyReview's own log — same reasoning as git-auto-sync.log above,
+# plus it's written independently by each laptop's own Scheduled Task, so
+# a single shared git-tracked copy is a second uncoordinated-writer path on
+# top of the first. Found 2026-10-04: this file was the 7th live conflict in
+# today's incident, one git-auto-sync.log never has because it already had
+# this exact exclusion.
+30_Order/System/claude-workflow/logs/weekly-review.log
+
+# Proven machine-local state that caused recurring cross-device conflicts —
+# every one of these already lived in .stignore (Syncthing-side) since Build
+# 9 or earlier, but was never added here, so git-auto-sync's own pull/rebase
+# kept trying to reconcile divergent per-machine content on the git side
+# regardless. Found 2026-10-04 while root-causing why recent-edits/data.json
+# had silently blocked every git-auto-sync run for two days straight (the
+# live incident this fix resolves) — the same gap affects all 14 paths below,
+# not just that one file. Excluding a file from Syncthing and excluding it
+# from git are two separate lists; one being fixed never fixes the other.
+.obsidian/plugins/recent-edits/data.json
+.obsidian/plugins/file-explorer-plus/data.json
+20_Progress/AI/Claude Code/_All-Projects-Sync-Log.md
+20_Progress/AI/Claude Code/**/Sync-Log.md
+30_Order/System/claude-workflow/logs/capture-health-*.json
+30_Order/System/cursor-workflow/cursor-export-state.json
+30_Order/System/cursor-workflow/logs/*.log
+60_Claude/05_Clippings/AI Conversations/00 - Capture Health.md
 # Jarvis-Syncthing-Health's own alert-rate-limiting state (Build 9) — same
 # self-referential-diff reasoning as the git-auto-sync lock above, machine-local.
 30_Order/System/sync-workflow/scripts/.sync-alert-state.json

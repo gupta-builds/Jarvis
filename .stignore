@@ -89,3 +89,11 @@
 // record). Excluding the log and any conflict-copy variant, added 2026-09-20.
 30_Order/System/claude-workflow/logs/git-auto-sync.log
 30_Order/System/claude-workflow/logs/git-auto-sync.sync-conflict-*
+
+// weekly-review.log is the same per-machine artifact as git-auto-sync.log above,
+// same reasoning - each laptop's own Jarvis-WeeklyReview Scheduled Task writes to
+// it independently. Found 2026-10-04: it was a live conflict in today's incident
+// because it had never gotten this exclusion. Added alongside the matching
+// .gitignore fix.
+30_Order/System/claude-workflow/logs/weekly-review.log
+30_Order/System/claude-workflow/logs/weekly-review.sync-conflict-*

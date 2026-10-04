@@ -8,7 +8,7 @@
 # into a stray quote and break string literals with cascading parse errors.
 
 $ErrorActionPreference = "Stop"
-$VaultRoot = "D:\_Anant\20_Progress\Documents\Jarvis"
+$VaultRoot = Resolve-Path (Join-Path $PSScriptRoot "..\..\..\..")
 $LogFile = Join-Path $PSScriptRoot "..\logs\weekly-review.log"
 
 function Write-Log {

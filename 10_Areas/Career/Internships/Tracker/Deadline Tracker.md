@@ -193,7 +193,6 @@ Retroactive deadline backfill for all 278 dossiers in the four priority buckets.
 - [[10_Areas/Career/Internships/List/Dossiers/3 - CyS & Finance/Information Security Engineer Intern - Appian]] — own deadline
 - [[10_Areas/Career/Internships/List/Dossiers/3 - CyS & Finance/Infrastructure Engineer Intern [2027 Intern Program] - DTCC]] — own deadline
 - [[10_Areas/Career/Internships/List/Dossiers/3 - CyS & Finance/Intern - Hudson River Trading]] — own deadline
-- [[10_Areas/Career/Internships/List/Dossiers/3 - CyS & Finance/Investment Data Science Intern - Walleye Capital]] — own deadline
 - [[10_Areas/Career/Internships/List/Dossiers/3 - CyS & Finance/Linux Engineer Intern - Jane Street]] — own deadline
 - [[10_Areas/Career/Internships/List/Dossiers/3 - CyS & Finance/Network Engineer Intern - Jane Street]] — own deadline
 - [[10_Areas/Career/Internships/List/Dossiers/3 - CyS & Finance/Platform Engineer Intern, Summer 2027 - Akuna Capital]] — own deadline
@@ -203,7 +202,6 @@ Retroactive deadline backfill for all 278 dossiers in the four priority buckets.
 - [[10_Areas/Career/Internships/List/Dossiers/3 - CyS & Finance/Quantitative Technologist Intern, C++ - Radix Trading]] — own deadline
 - [[10_Areas/Career/Internships/List/Dossiers/3 - CyS & Finance/Quantitative Trading Intern - Belvedere Trading]] — own deadline
 - [[10_Areas/Career/Internships/List/Dossiers/3 - CyS & Finance/Quantitative Trading Intern - Winter Quarter 2027 - Belvedere Trading]] — own deadline
-- [[10_Areas/Career/Internships/List/Dossiers/3 - CyS & Finance/Risk Technology Analyst Intern - Walleye Capital]] — own deadline
 - [[10_Areas/Career/Internships/List/Dossiers/3 - CyS & Finance/Software Engineer Intern - Aquatic Capital Management]] — own deadline
 - [[10_Areas/Career/Internships/List/Dossiers/3 - CyS & Finance/Software Engineer Intern - C# .NET Desktop, Summer 2027 - Akuna Capital]] — own deadline
 - [[10_Areas/Career/Internships/List/Dossiers/3 - CyS & Finance/Software Engineer Intern - C++ or Python - Hudson River Trading]] — own deadline
@@ -221,7 +219,6 @@ Retroactive deadline backfill for all 278 dossiers in the four priority buckets.
 - [[10_Areas/Career/Internships/List/Dossiers/3 - CyS & Finance/Summer 2027 Systems Engineering Intern - PDT Partners]] — own deadline
 - [[10_Areas/Career/Internships/List/Dossiers/3 - CyS & Finance/Summer Intern 2027 - Software Developer - Five Rings]] — own deadline
 - [[10_Areas/Career/Internships/List/Dossiers/3 - CyS & Finance/Technology Intern - New York - 2027 - Marshall Wace Internship Programmes]] — own deadline
-- [[10_Areas/Career/Internships/List/Dossiers/3 - CyS & Finance/Technology Intern - Walleye Capital]] — own deadline
 - [[10_Areas/Career/Internships/List/Dossiers/3 - CyS & Finance/Tools and Compilers Research and Development Intern - Jane Street]] — own deadline
 - [[10_Areas/Career/Internships/List/Dossiers/3 - CyS & Finance/Trading Automation and Operations Intern (Summer 2027) - Optiver]] — own deadline
 - [[10_Areas/Career/Internships/List/Dossiers/3 - CyS & Finance/Trading Desk Operations Engineer Intern - Jane Street]] — own deadline
@@ -307,8 +304,6 @@ Retroactive deadline backfill for all 278 dossiers in the four priority buckets.
 
 # Already Over
 - [[10_Areas/Career/Internships/List/Dossiers/1 - AI & ML/Quantic – Quantitative Developer Intern (Summer 2027) - Walleye Capital Internships]] — deadline was 2026-07-31
-- [[10_Areas/Career/Internships/List/Dossiers/3 - CyS & Finance/Investment Data Science Intern - Walleye Capital]] — deadline was 2026-07-31
-- [[10_Areas/Career/Internships/List/Dossiers/3 - CyS & Finance/Risk Technology Analyst Intern - Walleye Capital]] — deadline was 2026-07-31
 - [[10_Areas/Career/Internships/List/Dossiers/Other/Intern, Software Engineering - Moog]] — deadline was 2026-07-29
 - [[10_Areas/Career/Internships/List/Dossiers/2 - Fullstack/Software Engineering Intern - Google]] — deadline was 2026-07-24
 - [[10_Areas/Career/Internships/List/Dossiers/2 - Fullstack/Software Engineering Intern, MS, Summer 2027 - Google]] — deadline was 2026-07-24

@@ -14,7 +14,7 @@ related:
   - "[[Ubuntu - WSL]]"
   - "[[Installations]]"
   - "[[Old Laptop Rebuild - Prompt 1 WSL]]"
-next: Run Prompt 1 in Codex from the WSL home directory
+next: Approve the Build 1 WSL removal and execution manifest
 ---
 # Old Laptop Rebuild - Index
 
@@ -22,7 +22,7 @@ next: Run Prompt 1 in Codex from the WSL home directory
 ==The old Dell (Latitude 5530) gets rebuilt to match the Acer in sessions run one layer at a time, WSL first, and every session logs what it measured and the rule that stops the same growth from returning.==
 
 ## Status
-Prompt 1 (WSL) and Prompt 2 ([[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]]) written 2026-10-04, not yet run. Run Prompt 2's read-only Phase 1 alongside Prompt 1 if wanted, and its Phase 2 after Prompt 1's host script has run.
+Build 1 WSL audit complete 2026-10-04 ([[Old Laptop Rebuild - Build 1 WSL Findings]]); repair-in-place recommended, no cleanup/config/install executed, awaiting approval of the removal and execution manifest. Prompt 2 ([[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]]) can run its read-only Phase 1 now and its Phase 2 after Build 1's host script has run.
 
 ## Two-laptop workflow (locked direction, 2026-10-04)
 The Dell is the canonical host: one checkout per shared repo on its WSL ext4 disk. The Acer connects through VS Code Remote-SSH over Tailscale (both installed inside WSL). GitHub stays the backup and PR channel, parallel tasks use git worktrees with `<machine>/<topic>` branches, and no sync daemon touches code. Cost: the Dell must be awake and on the tailnet. Fallback when it is off: the Acer pushes a branch from its own clone. Reasoning: a single copy cannot drift, which is the property the Jarvis sync could not give without constant repair ([[Cross-Laptop Sync - Known Failure Modes and Prevention]]). Network exposure (Tailscale, sshd) needs the user's approval inside the session.

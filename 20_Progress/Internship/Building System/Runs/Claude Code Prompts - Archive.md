@@ -817,3 +817,52 @@ Report back: the run.yml diff you committed and the commit message you used, git
 - The `run.yml` notify step was **not** committed before the rebase: it landed afterwards as `c89b5c3` (now `d6bf5ca`, "Notify via GitHub issue when new dossiers are ready to promote", 2026-09-26 15:21:11). Prompt 8's expected "ahead 6, behind 0" count was never observed.
 - Final state matches the prompt's *goal* (local linear history on top of origin, 499 tests, `.claude/` content landed — in PR #12 rather than left untouched) but not its sequence or its "no push" constraint, which the migration PR superseded.
 Status: closed as **superseded by the 2026-09-26 migration session**; the earlier "Standing task" is discharged.
+
+# Session 1 — Truth-Up & Deep Codebase Audit (written 2026-10-03, run 2026-10-03/04, archived 2026-10-04)
+Full prompt text lived in [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]] — ten tasks, `effort: high`, built on a pasted 2026-10-03 status-check reply, with explicit standing non-negotiable rules against re-enabling `run.yml`, deciding tiers/hard-pause/mirrors, or committing anything bundled with the parallel Codex vault sweep's work.
+
+## Result — Reconstructed From The Session's Own Chat Report, Not A File-Written Report
+**This file was never updated by the session itself** — the exact same gap this file's own lessons-learned list already names for Prompt 8 (a session's report existing only in chat, not written back here) recurred, even after being named as a standing lesson. The report below is reconstructed verbatim from what the session told the human in conversation, not independently re-verified by this archiving pass. Treat every number as session-reported, not archive-confirmed, until a future session re-checks it directly.
+
+**Tasks 1-10: all reported done.** `pytest` 499 → 528, both green. Nothing pushed; nothing committed either — the session deliberately stayed on `master` because a separate, legitimate Codex session was simultaneously editing `AGENTS.md`, adding `docs/codex/`, and the human had independently deleted every `.agents/skills/*` file by hand. **Confirmed by the human directly, 2026-10-04: both of those changes are valid and intentional** (the `.agents` deletion was the human's own action; the `AGENTS.md`/`docs/codex/` edits are a separate, approved Codex mirror-consolidation session) — nothing needs restoring, and this is not a collision to resolve, only a commit to sequence cleanly in [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]]'s next prompt.
+
+**Task 3 (Graphify):** confirmed still a pure structural mirror, no source text, pinned to `bee5146b`. Every spot-checked function sits at its cited line (`_select_exact_quota` L188, `plan_removals` L63). Constants still have no nodes (consistent with Prompt 11's 2026-08-23 finding); the `.claude` scripts are missing from the mirror — new, not previously flagged.
+
+**Task 4:** local `master` = `origin/master`, PR #12 merged, suite was at 499 before this session's own changes.
+
+**Task 5 (discovery/cron):** no sign of it running. Actions API reports zero runs for every workflow; `logs/runs.jsonl` ends 2026-08-29; last bot commits 09-20 (repo) / 09-17 (vault repo). The workflow's own last-updated timestamp (2026-09-22) suggests something re-enabled it that day, but the session calls this an inference, not a fact — genuinely can't tell whether run history was deleted, the cron stopped firing, or `JARVIS_PUSH_TOKEN` expired. **No dispatch was run**, per the standing rule — the session explicitly asks the human to say if they want one run.
+
+**Task 6 (vault recount):** 278 dossiers (Fullstack 41, CyS & Finance 48, Other 59 counted directly by this session; AI/ML 130 taken from the parallel Codex sweep's own count); Viewed 67; `_Career Fair` 11; no `Applying/` note exists yet.
+
+**Task 7 — the deadline-field write-time rule, done.** `extract_deadline()` added to `ingestion/posting_page.py`: reads four real phrasings (Walleye, Castleton, LPL, Moog), resolves a year-less date to the occurrence nearest `date_found`, takes the earliest of several stated dates. `build_frontmatter()` sets `own_deadline = date_found + 7 days` when no deadline is stated. Both fields added to `REQUIRED_FRONTMATTER_FIELDS`; the write gate now rejects a dossier where both or neither are set. Mutation-tested (confirmed the tests catch a deliberately broken version). **§8 landed in [[Internship Notes Standard]] — confirmed directly by this archiving pass, 2026-10-04: one coherent section exists, citing both this session's code-level detail and the Codex sweep's own retroactive reconciliation by name. The "expect a collision" the session itself flagged did not become real damage — whichever write landed second absorbed the first's content rather than clobbering it.** (§1's required-field list, just above §8, is still stale — doesn't yet include `preference_tier` or match §8's own stated current field order. Not fixed by this session; queued below.)
+
+**Task 8, done:** `grade_resume.py` now reads `$JARVIS_DIR` or `--resume`, exits with a clear message if neither is set. Three tests added; the session ran the CLI both ways.
+
+**Task 9, done** for README, PRD, [[Source of Truth]], [[System - Build Log]], `.cursor/skills/resume-alteration`, and the Archive's Prompt 8 entry (see the correction directly above this entry, confirmed real).
+
+**Task 10, resolved:** Humanized Writing Standard is checklist-only with no tooling (mechanical parts — filler phrases, repeated openers, em-dash density — flagged as a future deterministic-lint candidate; judgment parts stay human). Reviews/Postmortem/Resources confirmed as the earlier reply described; the Resources note is itself stale (still calls ApplyGuy "not evaluated" and Prompt 17 "not yet run"; `dreamworkhq/Tech-Internships-2027` still never evaluated after three deferrals). The Plan vault and career-fair Day 1/2 notes were left untouched, as instructed.
+
+**Corrections to the 2026-10-03 reply, confirmed by this session:** company registry tier-rank still one grade (`TIER_RANK = {"high": 0}`, `company_registry.py:47`), per-company schema never built. Microsoft fix shipped in code but the 6 old dossiers still fail (predate the fix). Duplicate pairs, the Montenson typo, and the quant-firm bucket split all confirmed live. `preference_tier` backfill: not done — the four older dossiers checked lack `preference_tier`, `notes`, and the `company/` tag. Company cache confirmed unwired (nothing imports it but its own tests).
+
+## Coverage-Pass Findings (reported, not filtered — confidence/severity as given)
+1. **Quota shortfall drives mass exclusion** — High confidence (code + reproduced), **High severity once `run.yml` is live**. When a bucket's candidate pool is short of its quota, every candidate that run is deferred and charged a debate loss; 48 such runs excludes them permanently with nothing ever written. Reproduced directly against the real functions.
+2. `recheck.py` never covers ApplyGuy, Freehire, or InternDock — High confidence, Medium severity. ApplyGuy is the highest-yield source.
+3. Quota enforced at selection, not at write — High confidence, Medium severity. Later rejections (dead link, OPT, relevance) mean fewer than quota can land even when selection looked full.
+4. Fixes never reach dossiers written before them; `revalidate.py` can flag but not re-extract — High confidence, Medium severity.
+5. `count_dossiers_by_bucket` ignores `_Career Fair/`, so the 300 hard-pause undercounts — High confidence, Low severity.
+6. `company_matches_preference` is exact-name match — "Google LLC" or "Citadel Securities" won't match a preferred company — Medium confidence, Medium severity.
+7. The job-id dedup key has no ATS/tenant prefix — Workday-style ids could collide across companies — Medium confidence, Medium severity.
+8. `reseed.yml` interpolates the `confirm` input directly into a shell `echo` — High confidence, Low severity per the session's own label (**this archiving pass notes it should be treated as a real GitHub Actions command-injection pattern and fixed via `env:` indirection regardless of that low label — cheap, mechanical, removes real attack surface**).
+9. Greenhouse/Ashby/Lever title triage uses a substring match on "intern" — "Internal" and "International" both match — High confidence, Low severity.
+10. Weekly rollup fires only in the 23:00 UTC hour — a skipped cron slot loses it entirely — Medium confidence, Low severity.
+11. `.cursor/cover-letter-alteration` still has stale vault paths — only the resume skill got fixed (Task 9) — High confidence, Low severity.
+12. `.agents/skills` carried the same stale resume-path line — moot now per the human's 2026-10-04 confirmation that `.agents` was deleted intentionally.
+
+## Decisions Still Needing The Human (session's own recommendation only, nothing decided)
+1. Re-enable `run.yml` — the session recommends a dispatch test first to learn why nothing has run, and fixing the quota-shortfall hazard (Finding 1) before leaving it unattended.
+2. Quota-shortfall fix shape — don't count shortfall-caused deferrals as debate losses (the smaller change), or fall back to writing what's available (the larger change). Session recommends the smaller one.
+3. Tiers — needs the human's judgment on which companies matter more; session suggests at most two or three grades plus a `preference_tier` backfill job.
+4. Hard-pause at 300 — fine at the current ~278, but should count `_Career Fair/` toward it (Finding 5).
+5. Mirrors — **resolved independently, 2026-10-04**: the human deleted `.agents` directly; a separate Codex session is handling `AGENTS.md`/`docs/codex/`. Not an open decision anymore.
+
+Follow-up: [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]]'s next prompt (Session 2) commits this session's own changes cleanly (separately from the human's `.agents` deletion and the parallel Codex session's `AGENTS.md`/`docs/codex/` work), fixes Finding 1 (quota-shortfall) and Finding 8 (`reseed.yml` injection) as the two safety-relevant items worth doing now, patches §1's stale field list, and explicitly leaves Findings 2-7/9-11 and every Decision above untouched for a later, separately-scoped pass.

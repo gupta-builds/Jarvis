@@ -1,6 +1,10 @@
 {
   "recentFiles": [
     {
+      "basename": "DSA",
+      "path": "20_Progress/Degree/_Courses/Technical Interview/DSA.md"
+    },
+    {
       "basename": "Concepts Board",
       "path": "20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Concepts Board.md"
     },
@@ -195,10 +199,6 @@
     {
       "basename": "Hit or Miss - Miss",
       "path": "20_Progress/Degree/Hit or Miss - Miss.md"
-    },
-    {
-      "basename": "Lab - 2",
-      "path": "20_Progress/Degree/CSCI 4061/Labs/Lab - 2.md"
     }
   ],
   "omittedPaths": [

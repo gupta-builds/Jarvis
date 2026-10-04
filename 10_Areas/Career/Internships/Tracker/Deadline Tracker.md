@@ -138,8 +138,6 @@ Retroactive deadline backfill for all 278 dossiers in the four priority buckets.
 - [[10_Areas/Career/Internships/List/Dossiers/1 - AI & ML/Software Engineering Internship - Deepgram]] — own deadline
 - [[10_Areas/Career/Internships/List/Dossiers/1 - AI & ML/Software Engineering- Internship (Fall 2026-Summer 2027) - Deepgram]] — own deadline
 - [[10_Areas/Career/Internships/List/Dossiers/1 - AI & ML/Visual Generation & Multimodal Evaluation Machine Learning Engineer Intern - Aml-Ark - ByteDance]] — own deadline
-- [[10_Areas/Career/Internships/List/Dossiers/2 - Fullstack/2027 North America Software Engineering Internship - The Trade Desk]] — own deadline
-- [[10_Areas/Career/Internships/List/Dossiers/2 - Fullstack/2027 Software Engineering Internship - Uber]] — own deadline
 - [[10_Areas/Career/Internships/List/Dossiers/2 - Fullstack/Data Engineering Intern - Castleton Commodities International]] — own deadline
 - [[10_Areas/Career/Internships/List/Dossiers/2 - Fullstack/Data Engineering Intern-Co-op - Marmon Holdings]] — own deadline
 - [[10_Areas/Career/Internships/List/Dossiers/2 - Fullstack/DevOps Engineering Intern - Copart]] — own deadline
@@ -160,7 +158,6 @@ Retroactive deadline backfill for all 278 dossiers in the four priority buckets.
 - [[10_Areas/Career/Internships/List/Dossiers/2 - Fullstack/Software Engineer Intern - Backend Focused - Rippling]] — own deadline
 - [[10_Areas/Career/Internships/List/Dossiers/2 - Fullstack/Software Engineer Intern - Full Stack - Sage]] — own deadline
 - [[10_Areas/Career/Internships/List/Dossiers/2 - Fullstack/Software Engineer Intern - Global Payment - ByteDance]] — own deadline
-- [[10_Areas/Career/Internships/List/Dossiers/2 - Fullstack/Software Engineer Intern - Hyperlight]] — own deadline
 - [[10_Areas/Career/Internships/List/Dossiers/2 - Fullstack/Software Engineer Intern - NHRC - Teledyne]] — own deadline
 - [[10_Areas/Career/Internships/List/Dossiers/2 - Fullstack/Software Engineer Intern - Western Digital]] — own deadline
 - [[10_Areas/Career/Internships/List/Dossiers/2 - Fullstack/Software Engineer Intern - Winter 2027 - Figma]] — own deadline
@@ -255,7 +252,6 @@ Retroactive deadline backfill for all 278 dossiers in the four priority buckets.
 - [[10_Areas/Career/Internships/List/Dossiers/Other/Software Development Intern - American Fidelity]] — own deadline
 - [[10_Areas/Career/Internships/List/Dossiers/Other/Software Development Intern - Spring 2027 - Mujin]] — own deadline
 - [[10_Areas/Career/Internships/List/Dossiers/Other/Software Development Internship - Summer 2027 - Conagra Brands]] — own deadline
-- [[10_Areas/Career/Internships/List/Dossiers/Other/Software Engineer Intern - Atoms]] — own deadline
 - [[10_Areas/Career/Internships/List/Dossiers/Other/Software Engineer Intern - Databricks]] — own deadline
 - [[10_Areas/Career/Internships/List/Dossiers/Other/Software Engineer Intern - Distributed NoSQL Database Systems - ByteDance]] — own deadline
 - [[10_Areas/Career/Internships/List/Dossiers/Other/Software Engineer Intern - Garda Capital Partners]] — own deadline

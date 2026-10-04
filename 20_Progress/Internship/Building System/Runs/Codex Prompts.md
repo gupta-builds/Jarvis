@@ -43,37 +43,47 @@ This file holds the next prompt for a Codex (GPT-5.6 Sol) session to run **insid
 ---
 
 # Vault
-## Prompt 3 — Freshness Recheck, Per-Item, Prioritized By Urgency (written 2026-10-04)
-The deadline half of the original three-part ask is done (Prompt 2: 278/278). This prompt closes the remaining piece: confirming which of those 278 postings are actually still open, using the one fetch path Prompt 2 proved works some of the time, attempted honestly on every item rather than gated by a small sample.
+## Prompt 3 — Freshness Recheck, Per-Item, Prioritized By Urgency (written and run 2026-10-04)
+### Result
+The pre-run recount was exactly **278 dossiers**: `1 - AI & ML` 130, `2 - Fullstack` 41, `3 - CyS & Finance` 48, and `Other` 59. `_Career Fair/`, `Viewed/`, and the codebase repository were excluded. The stray diff marker was present as `+# Current sweep — 2026-10-04`; it is now `# Current sweep — 2026-10-04`. No other tracker content was changed except removing the nine dossiers confirmed closed in this pass from active deadline buckets.
 
-### Scope
-Unchanged from Prompts 1-2: the 278 dossiers across the four priority buckets (recount yourself before starting — it was 130/41/48/59 as of 2026-10-04). `_Career Fair/`, `Viewed/`, and the codebase repo remain out of scope, for the same reasons stated in Prompt 1.
+Every stored URL was attempted individually. Final coverage across all 278 was **85 open, 9 confirmed closed, and 184 ambiguous/blocked**. The three `Already Over` dossiers were all attempted first and all remained ambiguous, so the remaining 275 produced **94 real verdicts** (85 open + 9 closed) and **181 ambiguous/blocked**. Ambiguous means the reader returned an inaccessible/blocked URL, HTTP 403/406/503, a zero-line or empty HTML response, a JavaScript-only shell, or a generic careers page/redirect with no affirmative closed signal. Those were left in place.
 
-### Task Order
-1. **Recount the live scope** and state the real number before starting.
-2. **Fix the stray `+` in `10_Areas/Career/Internships/Tracker/Deadline Tracker.md`.** Prompt 2's own new "Current sweep — 2026-10-04" section opens with a stray leading `+` on its first heading line (a leaked diff-hunk marker) — read the file, confirm the defect is still there, remove the stray character, change nothing else in the file.
-3. **Prioritize the 3 `Already Over` dossiers first** (per `Deadline Tracker.md`'s own current "Already Over" bucket: the Moog, Regions Bank, and Manhattan Associates dossiers, each with a posting-stated deadline already in the past as of today). These are the smallest, highest-value set to resolve — a posting past its own stated deadline is the single most likely real-world case to actually be closed. Attempt a live fetch on all 3 individually, per Non-Negotiable Rule 1. For any confirmed closed (Rule 2's affirmative-signal bar): apply [[Internship Notes Standard]] §4's removal protocol by hand exactly as Prompt 1 specified — move to `Viewed/`, append the Removed Dossiers MOC link to `notes:`, set `status: removed` + `removed_date` + `removed_reason`, and record the move in a running old-path → new-path manifest. **You still cannot touch `state/dossier_uids.json`** — that manifest is the handoff to [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]].
-4. **Attempt the remaining 275 dossiers individually**, in batches of 25-30, logging status/evidence per dossier to a scratch file as you go. For each: closed (Rule 2) → apply the same §4 removal protocol and manifest entry; ambiguous/blocked → leave in place, record the specific reason (blocked, timeout, empty response, generic redirect); open → leave in place, no action needed. Report running coverage as you go rather than only at the end, so an interrupted run still leaves honest, usable partial progress.
-5. **Update `Tracker/Deadline Tracker.md`** to reflect any dossier actually moved to `Viewed/` this pass (remove it from the active buckets it's currently listed under) — this is a small, targeted edit on top of Prompt 2's existing section, not a rewrite of it.
-6. **Write the final report directly into this file**, replacing this prompt's own body, same convention as Prompts 1-2.
+### Already Over — first three attempts
+- **Moog — ambiguous, left active.** The [stored Workday URL](https://moog.wd5.myworkdayjobs.com/moog_external_career_site/job/Buffalo-NY/Intern--Software-Engineering_R-26-18885-1) returned an empty HTML response with zero lines; that is not an affirmative closure signal.
+- **Regions Bank — ambiguous, left active.** The [stored Workday URL](https://regions.wd5.myworkdayjobs.com/regions_careers/job/Hoover-AL---Riverchase-Operations-Center-Birmingham-AL/XMLNAME-2027-ETP-Intern---Technology--Operations--Digital--and-Data---Analytics_R105426) was reported inaccessible by the reader.
+- **Manhattan Associates — ambiguous, left active.** The [stored Workday URL](https://manh.wd5.myworkdayjobs.com/campus/job/US---Home-Office/AI-Developer-Co-Op--Boston--MA-_16931) was reported inaccessible by the reader.
 
-### Report Back
-- The real recounted scope before starting.
-- Confirmation the stray `+` is fixed.
-- The `Already Over` 3-dossier result, each with its cited evidence and verdict.
-- Running/final coverage across the remaining 275: how many attempted, how many succeeded in returning a real verdict (open or closed), how many landed ambiguous/blocked and why.
-- The complete old-path → new-path manifest for every dossier moved to `Viewed/` this pass (likely small, possibly empty — report honestly either way), each with its cited closed-signal.
-- Confirmation `Deadline Tracker.md` reflects any moves.
+### Running coverage — remaining 275
+| Pass | Attempted | Open | Closed | Ambiguous | Cumulative attempted, including Already Over |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Batch 1 | 25 | 6 | 2 | 17 | 28/278 |
+| Batch 2 | 25 | 0 | 0 | 25 | 53/278 |
+| Batch 2 catch-up | 2 | 0 | 0 | 2 | 55/278 |
+| Batch 3 | 25 | 8 | 0 | 17 | 80/278 |
+| Batch 4 | 25 | 7 | 0 | 18 | 105/278 |
+| Batch 5 | 25 | 8 | 0 | 17 | 130/278 |
+| Batch 6 | 25 | 4 | 3 | 18 | 155/278 |
+| Batch 7 | 25 | 9 | 0 | 16 | 180/278 |
+| Batch 8 | 25 | 18 | 2 | 5 | 205/278 |
+| Batch 9 | 25 | 14 | 1 | 10 | 230/278 |
+| Batch 10 | 25 | 2 | 1 | 22 | 255/278 |
+| Batch 11 | 23 | 9 | 0 | 14 | 278/278 |
 
-### Grading Rubric
-Scored out of 10 against:
-- Every one of the 278 dossiers was actually attempted — no batch-level abstention based on an aggregate failure rate.
-- Every closed verdict cites a real, affirmative signal — zero guesses.
-- The stray `+` is fixed and nothing else in `Deadline Tracker.md` was disturbed.
-- The `Already Over` 3 were resolved first and specifically, not buried in a generic batch pass.
-- Coverage numbers (attempted/succeeded/ambiguous) are reported honestly, including if the real-world success rate turns out close to Prompt 2's 60% sample.
-- The handoff manifest, however large or small, is complete and directly usable by the Claude Code session.
-- [[Internship Notes Standard]] §§1/8 were not touched.
+The two-item catch-up was deliberate: after the first two moves, directory offsets shifted. The original 275-item roster was reconstructed and the skipped original positions 26–27 were attempted before continuing. The scratch record is [[20_Progress/Internship/Building System/Runs/Prompt 3 Freshness Sweep Scratch]].
+
+### Confirmed-closed move manifest
+- `10_Areas/Career/Internships/List/Dossiers/1 - AI & ML/AIML Intern - Artificial IntelligenceMachine Learning - Kodiak Robotics.md` → `10_Areas/Career/Internships/List/Dossiers/Viewed/AIML Intern - Artificial IntelligenceMachine Learning - Kodiak Robotics.md` — [stored URL](https://job-boards.greenhouse.io/kodiak/jobs/4377407009) redirected to `https://job-boards.greenhouse.io/kodiak?error=true`, and the specific requisition was absent.
+- `10_Areas/Career/Internships/List/Dossiers/1 - AI & ML/Applications Intern - AI and Machine Learning - TMEIC Corporation Americas.md` → `10_Areas/Career/Internships/List/Dossiers/Viewed/Applications Intern - AI and Machine Learning - TMEIC Corporation Americas.md` — [stored URL](https://apply.workable.com/tmeic-corporation-americas/j/6FDBF2FD32/apply) redirected to `https://apply.workable.com/tmeic-corporation-americas/?not_found=true`.
+- `10_Areas/Career/Internships/List/Dossiers/2 - Fullstack/2027 North America Software Engineering Internship - The Trade Desk.md` → `10_Areas/Career/Internships/List/Dossiers/Viewed/2027 North America Software Engineering Internship - The Trade Desk.md` — [stored URL](https://job-boards.greenhouse.io/thetradedesk/jobs/5187605007) redirected to `https://job-boards.greenhouse.io/thetradedesk?error=true`; the returned current-openings list did not contain the requisition.
+- `10_Areas/Career/Internships/List/Dossiers/2 - Fullstack/2027 Software Engineering Internship - Uber.md` → `10_Areas/Career/Internships/List/Dossiers/Viewed/2027 Software Engineering Internship - Uber.md` — the [stored Uber URL](https://jobs.uber.com/en/jobs/300697/) returned a genuine HTTP 404.
+- `10_Areas/Career/Internships/List/Dossiers/2 - Fullstack/Software Engineer Intern - Hyperlight.md` → `10_Areas/Career/Internships/List/Dossiers/Viewed/Software Engineer Intern - Hyperlight.md` — [stored URL](https://apply.workable.com/hyperlight/j/5581EA0668/) redirected to `https://apply.workable.com/hyperlight/?not_found=true`.
+- `10_Areas/Career/Internships/List/Dossiers/3 - CyS & Finance/Investment Data Science Intern - Walleye Capital.md` → `10_Areas/Career/Internships/List/Dossiers/Viewed/Investment Data Science Intern - Walleye Capital.md` — [stored URL](https://job-boards.greenhouse.io/walleyecapital-external-students/jobs/4676587006) redirected to the Walleye listings page with `error=true` and no requisition.
+- `10_Areas/Career/Internships/List/Dossiers/3 - CyS & Finance/Risk Technology Analyst Intern - Walleye Capital.md` → `10_Areas/Career/Internships/List/Dossiers/Viewed/Risk Technology Analyst Intern - Walleye Capital.md` — [stored URL](https://job-boards.greenhouse.io/walleyecapital-external-students/jobs/4679224006) redirected to the Walleye listings page with `error=true` and no requisition.
+- `10_Areas/Career/Internships/List/Dossiers/3 - CyS & Finance/Technology Intern - Walleye Capital.md` → `10_Areas/Career/Internships/List/Dossiers/Viewed/Technology Intern - Walleye Capital.md` — [stored URL](https://job-boards.greenhouse.io/walleyecapital-external-students/jobs/4681002006) redirected to the Walleye listings page with `error=true` and no requisition.
+- `10_Areas/Career/Internships/List/Dossiers/Other/Software Engineer Intern - Atoms.md` → `10_Areas/Career/Internships/List/Dossiers/Viewed/Software Engineer Intern - Atoms.md` — [stored URL](https://job-boards.greenhouse.io/cssmerge/jobs/8687896002) redirected to the ATOMS careers page with `error=true`; the specific requisition was absent.
+
+All nine destination files carry `status: removed`, `removed_date: 2026-10-04`, a signal-specific `removed_reason`, the original Dossiers MOC link, and the Removed Dossiers MOC link. `state/dossier_uids.json` was not touched. `Deadline Tracker.md` no longer lists these nine as active. [[Internship Notes Standard]] §1 and §8 were not edited.
 
 ---
 

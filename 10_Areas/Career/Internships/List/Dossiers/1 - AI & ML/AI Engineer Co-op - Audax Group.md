@@ -11,6 +11,7 @@ locations:
 target_year: []
 date_posted: '2026-08-24'
 date_found: '2026-08-24'
+own_deadline: 2026-10-11
 matched_reason: Spring 2027, Winter 2027, AI/ML/Data
 status: unreviewed
 next:

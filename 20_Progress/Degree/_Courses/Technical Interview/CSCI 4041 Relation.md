@@ -10,16 +10,16 @@ tags:
 notes:
   - "[[20_Progress/Degree/_Courses/Technical Interview/Technical Interview|Technical Interview]]"
   - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/CSCI 4041 Board|CSCI 4041 Board]]"
-  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/DSA|DSA]]"
+  - "[[DSA|DSA]]"
   - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Introduction to Algorithms|Textbook: Introduction to Algorithms]]"
   - "[[20_Progress/Degree/_Courses/Technical Interview/Problems Solver|Problems Solver]]"
   - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Weekly Board|Weekly Board]]"
   - "[[20_Progress/Degree/_Courses/Technical Interview/Preparation & Sources|Preparation & Sources]]"
-next: "Cross-check the live unit number against the CodePath portal/University LMS, then start filling Weekly Set for a real week and give solved-problem notes a real destination folder"
+next: Cross-check the live unit number against the CodePath portal/University LMS, then start filling Weekly Set for a real week and give solved-problem notes a real destination folder
 ---
 # CSCI 4041 Relation — TIP103 Revision Map
 ==TIP103 sets the pace; this folder's completed Spring'26 CSCI 4041 material is what gets revised one unit ahead of it.==
-[[20_Progress/Degree/_Courses/Technical Interview/Technical Interview|Technical Interview]] (CodePath TIP103) supplies problems and a schedule but no textbook of its own. This note maps each of TIP103's nine syllabus topics onto the matching week, textbook chapter, and concept note already written for the completed Spring'26 [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/CSCI 4041 Board|CSCI 4041]] course, so a revision pass has something concrete to stand on before the LeetCode/HackerRank problem-solving starts. It maps what already exists — it does not restate TIP103's own schedule, which stays in [[20_Progress/Degree/_Courses/Technical Interview/Technical Interview|Technical Interview]]. [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/DSA|DSA]] already carries a week-by-week skeleton (`## LeetCode / Weekly Plan`, Week 1&2 through Week 15) that this map builds directly on top of.
+[[20_Progress/Degree/_Courses/Technical Interview/Technical Interview|Technical Interview]] (CodePath TIP103) supplies problems and a schedule but no textbook of its own. This note maps each of TIP103's nine syllabus topics onto the matching week, textbook chapter, and concept note already written for the completed Spring'26 [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/CSCI 4041 Board|CSCI 4041]] course, so a revision pass has something concrete to stand on before the LeetCode/HackerRank problem-solving starts. It maps what already exists — it does not restate TIP103's own schedule, which stays in [[20_Progress/Degree/_Courses/Technical Interview/Technical Interview|Technical Interview]]. [[DSA|DSA]] already carries a week-by-week skeleton (`## LeetCode / Weekly Plan`, Week 1&2 through Week 15) that this map builds directly on top of.
 > [!WARNING]
 > Two notes share the exact name "Introduction to Algorithms": [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Introduction to Algorithms|Concepts' shorter version]] (Parts 1-5 only) and [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Introduction to Algorithms|Textbook's fuller version]] (Parts 1-7 plus the Appendix, `status: tree`). Always link the full path — a bare `[[Introduction to Algorithms]]` is ambiguous between them.
 ## 1. Technical Interview Skills — UMPIRE, Communication, Big O
@@ -60,7 +60,7 @@ The [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Midterm Project|
 ## Links
 - [[20_Progress/Degree/_Courses/Technical Interview/Technical Interview|Technical Interview]] — TIP103's syllabus, schedule, and grading rules
 - [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/CSCI 4041 Board|CSCI 4041 Board]] — what this folder is and where its source material came from
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/DSA|DSA]] — the week-by-week LeetCode/weekly-plan skeleton this map builds on
+- [[DSA|DSA]] — the week-by-week LeetCode/weekly-plan skeleton this map builds on
 - [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Introduction to Algorithms|Textbook: Introduction to Algorithms]] — the fuller CLRS chapter map
 - [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Competitive Coding/HackerRank Practice Test Prompt|HackerRank Practice Test Prompt]]
 - [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Weekly Board|Weekly Board]] — chronological index of all 13 week notes

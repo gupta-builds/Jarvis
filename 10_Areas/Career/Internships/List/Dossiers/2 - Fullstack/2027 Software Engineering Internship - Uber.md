@@ -12,6 +12,7 @@ locations:
 target_year: []
 date_posted: '2026-07-20'
 date_found: '2026-07-23'
+own_deadline: 2026-10-11
 matched_reason: manual-find (Anant) — promoted to Programs/Serious/2027-Uber-SWE-CareerPrep on 2026-07-29
 status: promoted
 next: "[[10_Areas/Career/Internships/Programs/Serious/2027-Uber-SWE-CareerPrep]]"

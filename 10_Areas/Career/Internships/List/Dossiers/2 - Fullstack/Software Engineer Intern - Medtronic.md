@@ -30,6 +30,7 @@ locations:
 target_year: []
 date_posted: '2026-08-01'
 date_found: '2026-08-01'
+deadline_posted: 2026-10-16
 matched_reason: Summer 2027, Software
 status: unreviewed
 next:

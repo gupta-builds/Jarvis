@@ -10,6 +10,7 @@ locations:
 target_year: []
 date_posted: '2026-08-20'
 date_found: '2026-08-20'
+deadline_posted: 2026-10-09
 matched_reason: matched
 status: unreviewed
 next:

@@ -6,7 +6,7 @@ created: 2026-02-16
 updated: 2026-04-16
 area:
   - "[[CSCI 4041 Board]]"
-  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/DSA|DSA]]"
+  - "[[DSA|DSA]]"
   - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Introduction to Algorithms|Introduction to Algorithms]]"
 tags:
   - "#class"

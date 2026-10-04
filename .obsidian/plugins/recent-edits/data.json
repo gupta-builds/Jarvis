@@ -606,7 +606,6 @@
     "20_Progress/Internship/Building System/Runs/~syncthing~Claude Code Prompts - Archive.md.tmp": "external",
     "20_Progress/Internship/Building System/Runs/~syncthing~Codex Prompts - Archive.md.tmp": "external",
     "20_Progress/Internship/Building System/Source of Truth.md": "external",
-    "00_Dashboard.sync-conflict-20261003-233705-VYYX3J5.md": "external",
     "00_Dashboard.sync-conflict-20261003-234201-VYYX3J5.md": "external",
     "00_Dashboard.sync-conflict-20261004-000307-2D4OE4D.md": "external",
     "00_Dashboard.sync-conflict-20261004-001158-VYYX3J5.md": "external",
@@ -615,7 +614,8 @@
     "00_Dashboard.sync-conflict-20261004-013709-VYYX3J5.md": "external",
     "00_Dashboard.sync-conflict-20261004-014700-VYYX3J5.md": "external",
     "00_Dashboard.sync-conflict-20261004-015206-VYYX3J5.md": "external",
-    "00_Dashboard.sync-conflict-20261004-015706-VYYX3J5.md": "external"
+    "00_Dashboard.sync-conflict-20261004-015706-VYYX3J5.md": "external",
+    "00_Dashboard.sync-conflict-20261004-020314-2D4OE4D.md": "external"
   },
   "_editTimes": {
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Home/00 - Session Index.md": 1790917402485,
@@ -842,7 +842,7 @@
     "10_Areas/Life/Enumerate/Weekly/2026-W40.md": 1790574342199,
     "Untitled Kanban.md": 1790573791027,
     "10_Areas/Life/Enumerate/Daily/2026-09-28.md": 1790622189719,
-    "00_Dashboard.md": 1791097310063,
+    "00_Dashboard.md": 1791097910217,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-28 Weekly workflow setup 2026-W40.md": 1790913786342,
     "20_Progress/Degree/CSCI 4511W/Weekly/Week - 4.md": 1791006484500,
     "20_Progress/Degree/CSCI 5304/Weekly/Week - 2 & 3 (Prompts).md": 1790991184531,
@@ -855,7 +855,7 @@
     "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Known Failure Modes and Prevention.md": 1790983985929,
     "20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 4.md": 1790983985918,
     "20_Progress/Degree/Course Production Board — Fall'26.md": 1790646728394,
-    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-29 Internship loop research and gap analysis.md": 1791096484481,
+    "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop/09-29 Internship loop research and gap analysis.md": 1791097384548,
     "30_Order/System/sync-workflow/scripts/check-syncthing-status-silent.vbs": 1790647687704,
     "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-28 Dell Syncthing and git-auto-sync verification cleanup.md": 1790913786342,
     "30_Order/System/claude-workflow/hooks/jarvis-write-guard.ps1": 1790651883138,
@@ -1213,7 +1213,6 @@
     "20_Progress/Internship/Building System/Runs/~syncthing~Claude Code Prompts - Archive.md.tmp": 1791071554917,
     "20_Progress/Internship/Building System/Runs/~syncthing~Codex Prompts - Archive.md.tmp": 1791071554917,
     "20_Progress/Internship/Building System/Source of Truth.md": 1791076682472,
-    "00_Dashboard.sync-conflict-20261003-233705-VYYX3J5.md": 1791088515155,
     "00_Dashboard.sync-conflict-20261003-234201-VYYX3J5.md": 1791088814115,
     "00_Dashboard.sync-conflict-20261004-000307-2D4OE4D.md": 1791090108537,
     "00_Dashboard.sync-conflict-20261004-001158-VYYX3J5.md": 1791090615441,
@@ -1222,7 +1221,8 @@
     "00_Dashboard.sync-conflict-20261004-013709-VYYX3J5.md": 1791095716507,
     "00_Dashboard.sync-conflict-20261004-014700-VYYX3J5.md": 1791096322312,
     "00_Dashboard.sync-conflict-20261004-015206-VYYX3J5.md": 1791096617040,
-    "00_Dashboard.sync-conflict-20261004-015706-VYYX3J5.md": 1791096915758
+    "00_Dashboard.sync-conflict-20261004-015706-VYYX3J5.md": 1791096915758,
+    "00_Dashboard.sync-conflict-20261004-020314-2D4OE4D.md": 1791097310063
   },
   "_dismissedAt": {},
   "_editSizes": {
@@ -1821,7 +1821,6 @@
     "20_Progress/Internship/Building System/Runs/~syncthing~Claude Code Prompts - Archive.md.tmp": 143869,
     "20_Progress/Internship/Building System/Runs/~syncthing~Codex Prompts - Archive.md.tmp": 4280,
     "20_Progress/Internship/Building System/Source of Truth.md": 21778,
-    "00_Dashboard.sync-conflict-20261003-233705-VYYX3J5.md": 8020,
     "00_Dashboard.sync-conflict-20261003-234201-VYYX3J5.md": 8020,
     "00_Dashboard.sync-conflict-20261004-000307-2D4OE4D.md": 8020,
     "00_Dashboard.sync-conflict-20261004-001158-VYYX3J5.md": 8020,
@@ -1830,7 +1829,8 @@
     "00_Dashboard.sync-conflict-20261004-013709-VYYX3J5.md": 8020,
     "00_Dashboard.sync-conflict-20261004-014700-VYYX3J5.md": 8020,
     "00_Dashboard.sync-conflict-20261004-015206-VYYX3J5.md": 8020,
-    "00_Dashboard.sync-conflict-20261004-015706-VYYX3J5.md": 8020
+    "00_Dashboard.sync-conflict-20261004-015706-VYYX3J5.md": 8020,
+    "00_Dashboard.sync-conflict-20261004-020314-2D4OE4D.md": 8020
   },
   "_sizeDeltas": {
     "10_Areas/Career/Internships/List/Dossiers/_Today/Manual Internship Listings.md": "up",

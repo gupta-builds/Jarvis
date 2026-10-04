@@ -104,3 +104,11 @@
 // above. Syncing it would manufacture a sync-conflict on this file roughly every
 // 5 minutes between two laptops both running the health check on their own clocks.
 30_Order/System/sync-workflow/scripts/.sync-alert-state.json
+
+// Sync Alert Banner.md (Build 11, 2026-10-04) - same per-machine reasoning,
+// rewritten every 5 minutes on each laptop independently. This is the fix
+// for Known Failure Mode 15 (the Dashboard banner itself was a permanent,
+// by-design conflict source) - 00_Dashboard.md now only ever holds a single
+// static ![[...]] embed of this file, so the literal alert text never has
+// to be identical bytes across machines again.
+30_Order/System/sync-workflow/Sync Alert Banner.md

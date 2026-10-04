@@ -73,41 +73,67 @@ $Utf8NoBom = New-Object System.Text.UTF8Encoding($false)
 function Read-Utf8NoBom { param([string]$Path) [System.IO.File]::ReadAllText($Path, $Utf8NoBom) }
 function Write-Utf8NoBom { param([string]$Path, [string]$Content) [System.IO.File]::WriteAllText($Path, $Content, $Utf8NoBom) }
 
+# Build 11 (2026-10-04): this used to write the live banner text directly into
+# 00_Dashboard.md - a file both laptops' health-check runs legitimately need to
+# keep syncing for its OTHER content. Since each machine rewrites the banner
+# independently every 5 minutes, that made the banner itself a permanent,
+# by-design conflict source (Known Failure Mode 15) - one single reconciliation
+# session hit 15+ Dashboard sync-conflicts from this alone. Fix: the live,
+# divergent text now goes in $BannerFilePath, a small per-machine file excluded
+# from both .gitignore and .stignore (same shape as .sync-alert-state.json).
+# 00_Dashboard.md itself only ever gets ONE static line inserted, once, that
+# embeds that file via Obsidian's ![[...]] transclusion - identical bytes on
+# both machines forever after, so this mechanism can never conflict again.
+# Obsidian re-reads an embed's target live on every view, so the embedded
+# content still updates in real time; it just never has to be the same bytes
+# across machines.
+$BannerFilePath = Join-Path $PSScriptRoot "..\Sync Alert Banner.md"
+
 function Set-DashboardSyncBanner {
-    # Idempotent: replaces its own prior block if present, so repeated 5-minute
-    # runs never accumulate duplicate banners.
+    # Ensures the static embed line exists in 00_Dashboard.md (idempotent,
+    # only actually writes the file the first time this runs on a given
+    # machine) and writes the live, divergent content into the per-machine
+    # banner file every call - this second write is the one that happens
+    # every 5 minutes and it never touches a synced file.
     param([string]$DashboardPath, [string[]]$Problems)
-    if (-not $DashboardPath -or -not (Test-Path -LiteralPath $DashboardPath)) { return }
     $beginMarker = "<!-- SYNC-ALERT:BEGIN -->"
     $endMarker = "<!-- SYNC-ALERT:END -->"
     $timestamp = Get-Date -Format 'yyyy-MM-dd HH:mm'
-    $problemLines = ($Problems | ForEach-Object { "> - $_" }) -join "`n"
-    $banner = "$beginMarker`n> [!danger] SYNC ALERT - content integrity at risk (detected $timestamp)`n> ``Jarvis-Syncthing-Health`` found a real problem. Do not assume notes are current until this clears on its own.`n$problemLines`n> Run ``check-syncthing-status.ps1`` for detail, or see [[Cross-Laptop Sync - Known Failure Modes and Prevention]].`n$endMarker`n`n"
-    $content = Read-Utf8NoBom -Path $DashboardPath
-    $blockPattern = "(?s)" + [regex]::Escape($beginMarker) + ".*?" + [regex]::Escape($endMarker) + "\r?\n\r?\n?"
-    if ($content -match $blockPattern) {
-        # A MatchEvaluator (not a replacement string) sidesteps $-substitution
-        # rules in Regex.Replace, since $banner itself may contain literal '$'.
-        $content = [regex]::Replace($content, $blockPattern, { param($m) $banner })
-    } else {
-        # No extra blank line before $banner here: $banner's own leading
-        # marker needs none, and Clear-DashboardSyncBanner's removal pattern
-        # only eats what comes from BEGIN onward, so any line added outside
-        # that range would survive a clear and accumulate as drift.
-        $content = [regex]::Replace($content, "(?s)^(---.*?---\r?\n)", { param($m) $m.Groups[1].Value + $banner })
-    }
-    Write-Utf8NoBom -Path $DashboardPath -Content $content
+    $problemLines = ($Problems | ForEach-Object { "- $_" }) -join "`n"
+    $bannerFileContent = "> [!danger] SYNC ALERT - content integrity at risk (detected $timestamp)`n> ``Jarvis-Syncthing-Health`` found a real problem. Do not assume notes are current until this clears on its own.`n$problemLines`n> Run ``check-syncthing-status.ps1`` for detail, or see [[Cross-Laptop Sync - Known Failure Modes and Prevention]].`n"
+    Write-Utf8NoBom -Path $BannerFilePath -Content $bannerFileContent
+    Ensure-DashboardEmbed -DashboardPath $DashboardPath -BeginMarker $beginMarker -EndMarker $endMarker
 }
 
 function Clear-DashboardSyncBanner {
+    # Healthy state: blank the per-machine banner file (Obsidian renders an
+    # empty embed as nothing visible) and leave 00_Dashboard.md's static
+    # embed line in place - it never needs removing, only inserting once.
     param([string]$DashboardPath)
+    Write-Utf8NoBom -Path $BannerFilePath -Content ""
+    Ensure-DashboardEmbed -DashboardPath $DashboardPath -BeginMarker "<!-- SYNC-ALERT:BEGIN -->" -EndMarker "<!-- SYNC-ALERT:END -->"
+}
+
+function Ensure-DashboardEmbed {
+    param([string]$DashboardPath, [string]$BeginMarker, [string]$EndMarker)
     if (-not $DashboardPath -or -not (Test-Path -LiteralPath $DashboardPath)) { return }
-    $beginMarker = "<!-- SYNC-ALERT:BEGIN -->"
-    $endMarker = "<!-- SYNC-ALERT:END -->"
     $content = Read-Utf8NoBom -Path $DashboardPath
-    $blockPattern = "(?s)" + [regex]::Escape($beginMarker) + ".*?" + [regex]::Escape($endMarker) + "\r?\n\r?\n?"
+    $embedLine = "![[30_Order/System/sync-workflow/Sync Alert Banner]]"
+    $staticBlock = "$BeginMarker`n$embedLine`n$EndMarker`n`n"
+    # Matches either the old dynamic banner (Build 9/10, any content between
+    # the markers) or an already-current static block - either way collapses
+    # to exactly one copy of the static block, so a machine still carrying
+    # the pre-Build-11 dynamic banner self-heals on its next run instead of
+    # needing a manual one-time migration.
+    $blockPattern = "(?s)" + [regex]::Escape($BeginMarker) + ".*?" + [regex]::Escape($EndMarker) + "\r?\n\r?\n?"
     if ($content -match $blockPattern) {
-        $content = [regex]::Replace($content, $blockPattern, "")
+        if ($content -notmatch [regex]::Escape($embedLine)) {
+            $content = [regex]::Replace($content, $blockPattern, { param($m) $staticBlock })
+            Write-Utf8NoBom -Path $DashboardPath -Content $content
+        }
+        # Already the current static block - no write needed, no churn.
+    } else {
+        $content = [regex]::Replace($content, "(?s)^(---.*?---\r?\n)", { param($m) $m.Groups[1].Value + $staticBlock })
         Write-Utf8NoBom -Path $DashboardPath -Content $content
     }
 }

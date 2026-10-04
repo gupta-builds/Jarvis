@@ -16,7 +16,7 @@ related:
 - *Textbook*: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Introduction to Algorithms|Introduction to Algorithms]]
 - *Main File*: [[DSA]]
 ### Concepts
-1. [[Sorting Algorithms#Definition|Sorting Algorithms]]
+1. [[Sorting Algorithms#Definition|Sorting Algorithms]] 
 2. [[Time Complexity#Definition|Time Complexity]]
 3. [[Divide and Conquer#Definition|Divide and Conquer]]
 4. [[QuickSort#Definition|QuickSort]]

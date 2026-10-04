@@ -1,5 +1,5 @@
 
-+# Current sweep — 2026-10-04
+# Current sweep — 2026-10-04
 
 Retroactive deadline backfill for all 278 dossiers in the four priority buckets. Cutoffs are anchored to today: **Soon** = through 2026-10-11; **Next Week** = 2026-10-12–2026-10-18; **Next Month** = 2026-10-19–2026-11-18; **Later** = after 2026-11-18. Dates before today are **Already Over**. Every dossier now carries exactly one of `deadline_posted` or `own_deadline`; `own_deadline` is the one-time 2026-10-11 forcing date.
 

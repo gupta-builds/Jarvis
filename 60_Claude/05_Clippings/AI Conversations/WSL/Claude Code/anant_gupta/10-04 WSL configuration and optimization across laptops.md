@@ -5,9 +5,9 @@ source_app: claude-code
 source_os: wsl
 title: "WSL configuration and optimization across laptops"
 started_at: 2026-10-04T17:14:52
-ended_at: 2026-10-04T18:23:19
-duration_minutes: 68
-exported_at: 2026-10-04T13:23:18
+ended_at: 2026-10-04T18:26:27
+duration_minutes: 72
+exported_at: 2026-10-04T14:45:04
 project: anant_gupta
 cwd: '/home/anant_gupta'
 session_id: 5930fd7b-ba5c-4680-9d37-9228411f4470

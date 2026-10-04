@@ -14,8 +14,13 @@ date_posted: '2026-07-20'
 date_found: '2026-07-23'
 own_deadline: 2026-10-11
 matched_reason: manual-find (Anant) — promoted to Programs/Serious/2027-Uber-SWE-CareerPrep on 2026-07-29
-status: promoted
+status: removed
+removed_date: 2026-10-04
+removed_reason: "Stored posting URL returned HTTP 404 Not Found."
 next: "[[10_Areas/Career/Internships/Programs/Serious/2027-Uber-SWE-CareerPrep]]"
+notes:
+  - '[[10_Areas/Career/Internships/List/Dossiers MOC]]'
+  - '[[10_Areas/Career/Internships/List/Dossiers/Viewed/Removed Dossiers MOC]]'
 tags:
   - internship
   - manual-find

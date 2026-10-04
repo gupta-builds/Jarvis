@@ -1,6 +1,6 @@
 ---
 type: project
-status: active
+status: complete
 created: 2026-10-04
 updated: 2026-10-04
 tags:
@@ -9,7 +9,7 @@ tags:
 notes:
   - "[[20_Progress/Internship/Building System/Runs/Codex Prompts]]"
   - "[[10_Areas/Career/Internships/Tracker/Deadline Tracker]]"
-next: "Attempt every remaining in-scope dossier URL and replace Prompt 3 with the final report."
+next:
 ---
 # Prompt 3 Freshness Sweep Scratch
 ## Scope recount
@@ -84,3 +84,34 @@ next: "Attempt every remaining in-scope dossier URL and replace Prompt 3 with th
 - Attempted: 2; open: 0; closed: 0; ambiguous: 2; cumulative attempted including Already Over: 55/278.
 - `Campus AI Research Engineer (Intern) - Jump Trading.md` — ambiguous; the URL returned generic Jump careers chrome with an empty `Open Position` area and no exact requisition title.
 - `Campus Graduate Masters Summer Internship Program - 2027 AI Engineer I, Enterprise Technology Services- Phoenix, AZ - American Express.md` — ambiguous; empty response.
+## Remaining batch ledger
+The individual URL calls for the rest of the roster were executed in the original sorted order. Each open count below required the exact requisition title/posting or application surface; each closed count required HTTP 404, `error=true`, or `not_found=true`. Everything else stayed ambiguous.
+
+| Pass | Original roster positions | Attempted | Open | Closed | Ambiguous | Cumulative with Already Over |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| Batch 3 | 53–77 | 25 | 8 | 0 | 17 | 80/278 |
+| Batch 4 | 78–102 | 25 | 7 | 0 | 18 | 105/278 |
+| Batch 5 | 103–127 | 25 | 8 | 0 | 17 | 130/278 |
+| Batch 6 | 128–152 | 25 | 4 | 3 | 18 | 155/278 |
+| Batch 7 | 153–177 | 25 | 9 | 0 | 16 | 180/278 |
+| Batch 8 | 178–202 | 25 | 18 | 2 | 5 | 205/278 |
+| Batch 9 | 203–227 | 25 | 14 | 1 | 10 | 230/278 |
+| Batch 10 | 228–252 | 25 | 2 | 1 | 22 | 255/278 |
+| Batch 11 | 253–275 | 23 | 9 | 0 | 14 | 278/278 |
+
+## Final totals
+- All 278: 85 open; 9 closed; 184 ambiguous.
+- Already Over first: 0 open; 0 closed; 3 ambiguous.
+- Remaining 275: 85 open; 9 closed; 181 ambiguous.
+- Ambiguous evidence classes: URL inaccessible/blocked; HTTP 403, 406, or 503; empty or zero-line HTML; JavaScript-only shell; generic careers page or redirect without an explicit closed signal.
+
+## Complete move manifest
+- `10_Areas/Career/Internships/List/Dossiers/1 - AI & ML/AIML Intern - Artificial IntelligenceMachine Learning - Kodiak Robotics.md` → `10_Areas/Career/Internships/List/Dossiers/Viewed/AIML Intern - Artificial IntelligenceMachine Learning - Kodiak Robotics.md` — Greenhouse `error=true` redirect.
+- `10_Areas/Career/Internships/List/Dossiers/1 - AI & ML/Applications Intern - AI and Machine Learning - TMEIC Corporation Americas.md` → `10_Areas/Career/Internships/List/Dossiers/Viewed/Applications Intern - AI and Machine Learning - TMEIC Corporation Americas.md` — Workable `not_found=true` redirect.
+- `10_Areas/Career/Internships/List/Dossiers/2 - Fullstack/2027 North America Software Engineering Internship - The Trade Desk.md` → `10_Areas/Career/Internships/List/Dossiers/Viewed/2027 North America Software Engineering Internship - The Trade Desk.md` — Greenhouse `error=true` redirect.
+- `10_Areas/Career/Internships/List/Dossiers/2 - Fullstack/2027 Software Engineering Internship - Uber.md` → `10_Areas/Career/Internships/List/Dossiers/Viewed/2027 Software Engineering Internship - Uber.md` — HTTP 404.
+- `10_Areas/Career/Internships/List/Dossiers/2 - Fullstack/Software Engineer Intern - Hyperlight.md` → `10_Areas/Career/Internships/List/Dossiers/Viewed/Software Engineer Intern - Hyperlight.md` — Workable `not_found=true` redirect.
+- `10_Areas/Career/Internships/List/Dossiers/3 - CyS & Finance/Investment Data Science Intern - Walleye Capital.md` → `10_Areas/Career/Internships/List/Dossiers/Viewed/Investment Data Science Intern - Walleye Capital.md` — Greenhouse `error=true` redirect.
+- `10_Areas/Career/Internships/List/Dossiers/3 - CyS & Finance/Risk Technology Analyst Intern - Walleye Capital.md` → `10_Areas/Career/Internships/List/Dossiers/Viewed/Risk Technology Analyst Intern - Walleye Capital.md` — Greenhouse `error=true` redirect.
+- `10_Areas/Career/Internships/List/Dossiers/3 - CyS & Finance/Technology Intern - Walleye Capital.md` → `10_Areas/Career/Internships/List/Dossiers/Viewed/Technology Intern - Walleye Capital.md` — Greenhouse `error=true` redirect.
+- `10_Areas/Career/Internships/List/Dossiers/Other/Software Engineer Intern - Atoms.md` → `10_Areas/Career/Internships/List/Dossiers/Viewed/Software Engineer Intern - Atoms.md` — Greenhouse `error=true` redirect.

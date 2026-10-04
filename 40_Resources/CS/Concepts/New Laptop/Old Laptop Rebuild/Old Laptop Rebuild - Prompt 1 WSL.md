@@ -48,6 +48,7 @@ Notes can be stale or contradict each other. The live machine wins. Verify a cla
 - These repos had unpushed or uncommitted work on 2026-08-26. Re-check them: second-brain-claudekit (22 ahead), internship-research-loop (25 behind), portfolio, Assisto_website, tradingview, GymMangment_app_demo, DNA_BJJ_APP, Resq, adx-worktree-throwaway-test.
 - The Jarvis and The Plan MCP servers are Obsidian on Windows at 127.0.0.1:27123 and :27124. WSL reaches them only because networking is mirrored. Keep mirrored. The CheckConnection log noise is a known side effect to measure, not a reason to switch to NAT.
 - sudo needs a password you cannot type. Put every sudo step in a script for me to run, and do not stall on it or work around it.
+- A parallel session (Build 2) configures VS Code on the WSL side. Do not modify ~/.vscode-server extensions, data or settings, ~/.vscode, ~/.config/vscode-env, or the global git and Claude Code config. Build 2 may ask you to apply .wslconfig keys it records for an always-on SSH host (vmIdleTimeout and similar).
 - Do not run wsl --shutdown or anything else that restarts WSL. It would kill this session. Windows-host steps go in a .ps1 file that I run.
 
 # Target state

@@ -22,7 +22,13 @@ next: Run Prompt 1 in Codex from the WSL home directory
 ==The old Dell (Latitude 5530) gets rebuilt to match the Acer in sessions run one layer at a time, WSL first, and every session logs what it measured and the rule that stops the same growth from returning.==
 
 ## Status
-Prompt 1 (WSL) written 2026-10-04, not yet run.
+Prompt 1 (WSL) and Prompt 2 ([[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]]) written 2026-10-04, not yet run. Run Prompt 2's read-only Phase 1 alongside Prompt 1 if wanted, and its Phase 2 after Prompt 1's host script has run.
+
+## Two-laptop workflow (locked direction, 2026-10-04)
+The Dell is the canonical host: one checkout per shared repo on its WSL ext4 disk. The Acer connects through VS Code Remote-SSH over Tailscale (both installed inside WSL). GitHub stays the backup and PR channel, parallel tasks use git worktrees with `<machine>/<topic>` branches, and no sync daemon touches code. Cost: the Dell must be awake and on the tailnet. Fallback when it is off: the Acer pushes a branch from its own clone. Reasoning: a single copy cannot drift, which is the property the Jarvis sync could not give without constant repair ([[Cross-Laptop Sync - Known Failure Modes and Prevention]]). Network exposure (Tailscale, sshd) needs the user's approval inside the session.
+
+## Settings Sync is live on the Dell
+The Acer's cloud copy has landed on the Dell's Windows VS Code, with Acer-only paths in the synced `settings.json`. Anything written to a Windows user-level VS Code file on the Dell reaches the Acer. Build 2 stays out of those files and records findings for the Windows-side build.
 
 ## Facts (WizTree scans plus live queries, 2026-10-04)
 | Item | Value |
@@ -31,6 +37,7 @@ Prompt 1 (WSL) written 2026-10-04, not yet run.
 | Disk | One Samsung PM9A1 1 TB NVMe. C: 251.9 GB (28.6 GB free), D: 700 GB (about 366 GB free) |
 | C: biggest | Users 128 GB (AppData 100 GB: Local 67.8, Roaming 32.2), Windows 39 GB, pagefile.sys 25.6 GB, Program Files 26 GB |
 | Roaming heavy | Claude 10.7 GB, Code 3.4, Jan 3.3, Cursor 2.8, Kiro 2.6, npm 1.8 |
+| Local heavy | Programs 15 GB, Spotify 6.2, Vivaldi 5.8, Microsoft 5.0, superwhisper 4.9, npm-cache 4.5 (redirect to D: missed), Packages 3.8, Temp 3.6, hermes 2.3, WisprFlow 1.9, ms-playwright 1.4. `Local/Google` reports a bogus size (Drive virtual files), so skip it when measuring |
 | Home folders on C: | vscode-remote-wsl 6.3 GB, miniconda3 7.1 GB, .vscode 4.3, .codex 2.5, codex-cleanup-quarantine-2026-09-20 2.3, .cache 1.4 |
 | D: biggest | WSL 176 GB (Ubuntu vhdx 105.4, Installers/wsl-ubuntu.tar 36.7), Docker vhdx 33.8, Games 86 (Elden Ring rar 67), $RECYCLE.BIN 32.5 (about 21 GB of Rust target dirs), ollama-models 9.2 |
 | WSL | Kernel 5.15.167.4 (old). .wslconfig: mirrored, 16 GB, 8 CPUs, no swap setting |

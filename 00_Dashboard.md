@@ -26,16 +26,9 @@ notes:
   - "[[Jarvis OS — North Star]]"
 ---
 <!-- SYNC-ALERT:BEGIN -->
-<<<<<<< Updated upstream
-> [!danger] SYNC ALERT - content integrity at risk (detected 2026-10-04 12:55)
+> [!danger] SYNC ALERT - content integrity at risk (detected 2026-10-04 13:31)
 > `Jarvis-Syncthing-Health` found a real problem. Do not assume notes are current until this clears on its own.
-> - 4 live .sync-conflict-* file(s) on disk - read each against its canonical counterpart before touching, never bulk-discard (see Known Failure Mode 6).
-> - 1 stuck Syncthing transfer temp file(s) on disk.
-=======
-> [!danger] SYNC ALERT - content integrity at risk (detected 2026-10-04 13:01)
-> `Jarvis-Syncthing-Health` found a real problem. Do not assume notes are current until this clears on its own.
-> - Folder not fully synced locally: needFiles=8, needBytes=74205, errors=0.
->>>>>>> Stashed changes
+> - 5 live .sync-conflict-* file(s) on disk - read each against its canonical counterpart before touching, never bulk-discard (see Known Failure Mode 6).
 > Run `check-syncthing-status.ps1` for detail, or see [[Cross-Laptop Sync - Known Failure Modes and Prevention]].
 <!-- SYNC-ALERT:END -->
 

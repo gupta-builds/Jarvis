@@ -87,6 +87,7 @@ mcp.env
 30_Order/System/cursor-workflow/cursor-export-state.json
 30_Order/System/cursor-workflow/logs/*.log
 60_Claude/05_Clippings/AI Conversations/00 - Capture Health.md
+.obsidian/plugins/recent-files-obsidian/data.json
 # Jarvis-Syncthing-Health's own alert-rate-limiting state (Build 9) — same
 # self-referential-diff reasoning as the git-auto-sync lock above, machine-local.
 30_Order/System/sync-workflow/scripts/.sync-alert-state.json

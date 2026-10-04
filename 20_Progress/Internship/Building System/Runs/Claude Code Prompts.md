@@ -81,3 +81,33 @@ Run at **`effort: high`**.
 - §1 and §8 of [[Internship Notes Standard]] agree with each other and with the real code.
 - Nothing from the explicitly-out-of-scope list (Findings 2-7/9-11, any Decision) was touched.
 - Full `pytest` green before and after, both counts reported honestly.
+
+##### Execution Report (run 2026-10-04, written into this file by the session itself)
+
+**Task 1 — tree state: matches the human's description, nothing unexpected.** `git status` showed exactly: 21 `.agents/skills/*` deletions; `M AGENTS.md` plus untracked `docs/codex/` (`ACCESS.md`, `ARCHITECTURE.md`, `BUILD_PLAYBOOK.md`); and Session 1's own 14 files (`ingestion/posting_page.py`, `vault_writer/writer.py`, `vault_writer/validate.py`, `run_pipeline.py`, `grade_resume.py`, `README.md`, `PRD.md`, `.cursor/skills/resume-alteration/SKILL.md`, five test files). No other file was modified. Not re-litigated.
+
+**Baseline `pytest`: 528 passed.**
+
+**Task 2 — Session 1's commits (3, disjoint from the `.agents`/`AGENTS.md`/`docs/codex` groups, which were never staged; explicit paths only). `pytest` re-run after each: 528 passed.**
+- `06c7c5d` — "Stamp every new dossier with deadline_posted or a 7-day own_deadline": `ingestion/posting_page.py`, `vault_writer/writer.py`, `vault_writer/validate.py`, `run_pipeline.py`, `tests/test_posting_page.py`, `tests/test_run_pipeline.py`, `tests/test_validate.py`, `tests/test_writer.py`.
+- `a3cf111` — "grade_resume: resolve Main Resume via JARVIS_DIR instead of a hardcoded path": `grade_resume.py`, `tests/test_grade_resume.py`.
+- `f022822` — "Truth-up README, PRD and resume-alteration skill against live state (2026-10-03)": `README.md`, `PRD.md`, `.cursor/skills/resume-alteration/SKILL.md`.
+
+**Task 3 — Finding 1 fixed: `ee5da85` "Don't charge a debate loss to candidates held back by a quota shortfall".**
+- *Cause (re-read, not trusted):* `_select_exact_quota`'s shortfall branch returned `list(new_listings)` as `deferred`; `update_debate_losses` charged every one a loss each run; 48 such runs excluded them permanently with nothing ever written.
+- *Fix (`run_pipeline.py`):* one return path now. `deferred` = candidates NOT in any quota bucket's selected slice (ranked below their bucket's cut, or in a bucket absent from quota — identical to a non-shortfall run). `this_run` is `[]` when there is a shortfall. Candidates that would have been selected — including every candidate of the short bucket — are held back and not charged. A real comparison loser is still charged during a shortfall run; the non-shortfall path is byte-for-byte the same behavior.
+- *Tests (`tests/test_run_pipeline.py`):* updated `..._reports_shortfall_and_returns_nothing...` (`deferred == []`, was `== items`); new `test_select_exact_quota_shortfall_defers_only_real_losers` (AI/ML short, Other has 3 for quota 2 → only the oldest Other is deferred); `test_run_once_all_or_nothing_short_bucket_writes_nothing` now asserts `deferred_count == 0` and `load_debate_losses(state_dir) == {}` (the end-to-end hazard: a short-pool run charging losses).
+- *Before/after:* with the old `run_pipeline.py` restored, exactly those 3 tests fail (`3 failed, 64 passed`); with the fix, all pass. Full suite **529 passed** (528 + 1 new).
+- *Side effect to know about:* `record["deferred_count"]` in a shortfall run now means "lost a comparison" (0 in that test), not "everything unwritten". `quota_shortfall` in the same record still says why nothing was written. `PRD.md`'s "not yet fixed" bullet was updated to "fixed 2026-10-04" in the same commit.
+
+**Task 4 — Finding 8 fixed: `10d3402` "reseed.yml: pass the confirm input via env instead of interpolating it into shell".**
+- *Confirmed against the real file first:* the "Require explicit confirmation" step's `run:` contained `echo "... (got '${{ github.event.inputs.confirm }}') ..."` — the raw workflow_dispatch input spliced into shell source (a `"` or `$(...)` in the input would execute).
+- *Diff:* added `env: CONFIRM: ${{ github.event.inputs.confirm }}` to that step; the echo now reads `(got '$CONFIRM')`. The step's `if: ${{ github.event.inputs.confirm != 'yes-drain-budget' }}` is an expression, not shell, so it is unchanged and the gate behaves identically (still aborts with `exit 1` before checkout/spend unless the input is exactly `yes-drain-budget`). Workflow parses as valid YAML (`yaml.safe_load` checked the step). Not exercised via a real `workflow_dispatch` — deliberately not run (it would drain the budget path only if confirmed, but I did not trigger it).
+
+**Task 5 — Internship Notes Standard §1 patched (vault, only §1's first paragraph).** Real `build_frontmatter()` output, printed directly: `company, title, url, source, terms, locations, target_year, date_posted, date_found, deadline_posted, own_deadline, matched_reason, status, next, notes, preference_tier, tags`. §8's stated order already matched it; §1 already had the two deadline fields but was missing `preference_tier` (between `notes` and `tags`). Added it; no other section touched. §1, §8 and the code now agree.
+
+**Final `pytest`: 529 passed** (HEAD `10d3402`).
+
+**State left behind:** 5 new commits on local `master`, **not pushed**. Still uncommitted and untouched: the 21 `.agents/skills/*` deletions, `AGENTS.md`, `docs/codex/`. Not touched: Findings 2-7 and 9-11, every Decisions-list item, `run.yml`, tiers, hard-pause threshold, the mirror question. Note: CLAUDE.md's two-laptop convention says never commit directly to `master`; this prompt's own instruction was to commit locally, so I did, on `master` — worth moving to a `dell-latitude/<topic>` branch before any push.
+
+**Not done:** moving this prompt + report into [[Claude Code Prompts - Archive]] — the prompt says "once reviewed", so it stays here for review first.

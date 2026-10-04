@@ -1,0 +1,35 @@
+---
+type: concept
+status: sprout
+created: 2026-10-04
+tags:
+  - concept
+  - laptop
+  - ai-infrastructure
+notes:
+  - "[[Cross-Laptop Sync - Build Roadmap]]"
+  - "[[Cross-Laptop Sync - Build 10 Findings]]"
+  - "[[Cross-Laptop Sync - Known Failure Modes and Prevention]]"
+  - "[[Cross-Laptop Sync - Build 11 Prompt]]"
+next: "[[Cross-Laptop Sync - Build 11 Prompt]] - run on the Acer to close this out on both machines"
+---
+# Cross-Laptop Sync - Build 11 Findings
+## One-Line Answer
+A second 10-conflict notification arrived roughly 2.5 hours after Build 10 closed. All 10 (and every one generated during this session's own work - 21 total) were `00_Dashboard.md` sync-conflicts, and every single one was exactly Build 10's Failure Mode 15, which that build explicitly flagged but did not fix: the sync-alert banner was written directly into a file both laptops' health checks rewrite independently every 5 minutes, so it was a permanent, by-design conflict generator, not noise that would settle down. This build actually fixes it - the live banner text now lives in a small per-machine file (`Sync Alert Banner.md`, excluded from both `.gitignore` and `.stignore`), and `00_Dashboard.md` holds one permanent, byte-identical-forever `![[...]]` embed line instead of the dynamic text. Verified live, both paths (problem detected / problem cleared), on this machine. **Not yet verified on the Acer** - that is this build's one open item, and [[Cross-Laptop Sync - Build 11 Prompt]] exists to close it.
+## Part 1: Confirmed - Every One Of These 21 Conflicts Was Failure Mode 15, Nothing Else
+Read each individually against canonical (never bulk-discarded, per Known Failure Mode 6). 10 were already-archived leftovers from the moment this session started; 11 more were generated live while resolving them and building the fix - an average of one new conflict every 10-12 minutes this session was active, which is itself direct evidence of how fast this specific failure mode compounds once both laptops are online near the same time. Every single diff, without exception, was confined to the banner's timestamp/count line inside the `<!-- SYNC-ALERT:BEGIN/END -->` block - zero of the 21 touched any other content in the file. This is the cleanest possible confirmation that Build 10's root-cause diagnosis (Part 4 of that build's findings) was correct, and that fixing the 14-file `.gitignore` gap did its job - it stopped *that* source of conflicts completely; this is a fully independent, second source that happened to surface right after.
+## Part 2: A Live, Direct Demonstration Of Why Both Machines Need The Fix
+While verifying the new mechanism, the Acer's own still-old health check fired mid-session and overwrote this machine's just-fixed `00_Dashboard.md` twice in a row via Syncthing's real-time channel - once reverting the embed line back to the old dynamic banner text (its old `Set-DashboardSyncBanner` logic doesn't know the embed line should be preserved), and once stripping the `<!-- SYNC-ALERT:BEGIN/END -->` block out entirely (its old `Clear-DashboardSyncBanner` deletes the whole block on a healthy result, which is correct behavior for the *old* design but wrong now that the block is meant to be permanent). Both were caught immediately (diffed against the archived conflict copy each time, confirmed banner-only, re-applied the fix) and are expected, self-resolving churn - **but they will keep happening on every one of the Acer's 5-minute ticks until the Acer is actually running this build's updated `check-syncthing-status.ps1`**, not just until the file bytes have synced over. Syncthing delivering the new script to disk and Task Scheduler actually re-reading and re-executing it are two different events separated by whatever's left of the Acer's current 5-minute cycle.
+## Part 3: The Fix, Mechanically
+`check-syncthing-status.ps1`: `Set-DashboardSyncBanner`/`Clear-DashboardSyncBanner` no longer write banner text into `00_Dashboard.md` at all. A new `$BannerFilePath` (`30_Order/System/sync-workflow/Sync Alert Banner.md`) gets the live, divergent content every single call - danger-banner text on a problem, an empty string when healthy (Obsidian renders an empty embed as nothing visible, so "self-clearing" still holds). A new `Ensure-DashboardEmbed` function checks whether `00_Dashboard.md` already contains the static `![[30_Order/System/sync-workflow/Sync Alert Banner]]` line between the existing `BEGIN`/`END` markers; if yes, it does not touch the file at all (confirmed live: a healthy re-run after the fix left the Dashboard's `md5sum` unchanged); if the file still has the old pre-Build-11 dynamic banner, or no block at all, it replaces/inserts the static line once. This means a machine migrates itself automatically the first time it runs the new script, with no manual steps - which matters here specifically because the Acer can't be driven interactively from this session.
+No filename starts with a dot (`Sync Alert Banner.md`, not `.sync-alert-banner.md`) deliberately - Obsidian's embed resolution needs the file indexed and resolvable by its vault-relative path, and several Obsidian configurations exclude dot-prefixed files from that index. `.sync-alert-state.json` (the pre-existing per-machine rate-limiting counter this script also writes) keeps its dot-prefix since nothing ever needs to embed or link to it.
+## Part 4: What's Confirmed Vs. What Isn't Yet
+**Confirmed live, this machine, this session:**
+- A simulated failure (`touch`-created fake conflict file) produced the danger banner in `Sync Alert Banner.md` while `00_Dashboard.md` byte-for-byte did not change.
+- Clearing the simulated failure reset `Sync Alert Banner.md` to empty and still left `00_Dashboard.md` untouched.
+- `Overall: IN SYNC` / `Overall: NOT IN SYNC` both reported correctly throughout.
+**Not confirmed - genuinely unverified, don't repeat as settled until it is:**
+- Whether the Acer's own `Jarvis-Syncthing-Health` task, once it has pulled/received this build's script, actually stops writing to `00_Dashboard.md` the way this machine's does. [[Cross-Laptop Sync - Build 11 Prompt]] exists specifically to check this from the Acer's own side.
+- Whether `git push` on this machine's `infra/cross-laptop-sync` branch succeeded - a permission denial blocked it mid-session (classified as "Out-of-Place Publication"). The actual vault files (script, Dashboard.md, the new banner file, `.gitignore`/`.stignore`) are already correct on disk and will still reach the Acer via Syncthing's independent real-time channel regardless of git's state, but the commit history itself may not be pushed yet - check `git status --branch` for an `ahead N` count against `origin/infra/cross-laptop-sync` before assuming this session's commits are backed up on GitHub.
+## Links
+[[Cross-Laptop Sync - Known Failure Modes and Prevention]] (Failure Mode 15, now marked fixed) · [[Cross-Laptop Sync - Build 10 Findings]] · [[Cross-Laptop Sync - Build 11 Prompt]] · [[Cross-Laptop Sync - Build Roadmap]]

@@ -62,6 +62,15 @@ mcp.env
 # infinite self-referential loop. Found during Build 7 testing.
 30_Order/System/claude-workflow/logs/git-auto-sync.log
 30_Order/System/claude-workflow/scripts/.git-auto-sync.lock
+# Sync Alert Banner.md (Build 11, 2026-10-04) - the live, per-machine half of
+# the Dashboard sync-alert mechanism, embedded into 00_Dashboard.md via
+# ![[...]] rather than written inline. Each laptop's health check rewrites
+# this file independently every 5 minutes; tracking it would recreate the
+# exact Dashboard-banner conflict storm (Known Failure Mode 15) this split
+# exists to eliminate. 00_Dashboard.md's own static embed line is the only
+# part of this mechanism that's shared, and it never changes after its first
+# insert, so it never conflicts.
+30_Order/System/sync-workflow/Sync Alert Banner.md
 # Jarvis-WeeklyReview's own log — same reasoning as git-auto-sync.log above,
 # plus it's written independently by each laptop's own Scheduled Task, so
 # a single shared git-tracked copy is a second uncoordinated-writer path on

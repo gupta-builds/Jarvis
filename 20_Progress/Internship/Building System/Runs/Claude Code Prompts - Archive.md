@@ -2,7 +2,7 @@
 type: reference
 status: tree
 created: 2026-08-22
-updated: 2026-10-03
+updated: 2026-10-04
 related_progress:
   - "[[Source of Truth]]"
   - "[[20_Progress/Internship/Building System/Research Loop - Improvement Plan]]"
@@ -866,3 +866,24 @@ Full prompt text lived in [[20_Progress/Internship/Building System/Runs/Claude C
 5. Mirrors — **resolved independently, 2026-10-04**: the human deleted `.agents` directly; a separate Codex session is handling `AGENTS.md`/`docs/codex/`. Not an open decision anymore.
 
 Follow-up: [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]]'s next prompt (Session 2) commits this session's own changes cleanly (separately from the human's `.agents` deletion and the parallel Codex session's `AGENTS.md`/`docs/codex/` work), fixes Finding 1 (quota-shortfall) and Finding 8 (`reseed.yml` injection) as the two safety-relevant items worth doing now, patches §1's stale field list, and explicitly leaves Findings 2-7/9-11 and every Decision above untouched for a later, separately-scoped pass.
+
+# Session 2 — Commit Cleanly, Fix The Two Safety-Relevant Findings, One Small Standard Cleanup (written 2026-10-04, run 2026-10-04, archived 2026-10-04)
+Full prompt text lived in [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]] — deliberately narrow scope (commit + 2 findings + 1 doc cleanup), explicit non-negotiable rule to write the report into the file itself this time, after Session 1 reported only in chat.
+
+## Result — Written Into The File By The Session Itself (first full compliance since Prompt 7)
+**Task 1:** tree state matched the human's 2026-10-04 confirmation exactly — 21 `.agents/skills/*` deletions, `AGENTS.md` modified, untracked `docs/codex/` (3 files), plus Session 1's own 14 files. Nothing else. Not re-litigated, as instructed.
+
+**Task 2 — 3 commits, disjoint from the other two groups, `pytest` 528 after each:** `06c7c5d` (the deadline-field rule + 4 test files), `a3cf111` (`grade_resume.py` → `$JARVIS_DIR`/`--resume`), `f022822` (README/PRD/resume-skill truth-up).
+
+**Task 3 — Finding 1 fixed, `ee5da85`.** Root cause confirmed by direct re-read (not trusted from Session 1's citation): `_select_exact_quota`'s shortfall branch returned every new candidate as `deferred`, and `update_debate_losses` charged all of them a loss — 48 such runs permanently excluded a candidate that never lost a real comparison, only sat behind a temporarily-short bucket. Fix: a shortfall run's `deferred` set is now only candidates who'd have lost an actual ranking comparison (identical logic to a non-shortfall run); a shortfall still writes nothing (`this_run = []`), but charges nothing extra either. One new test (`test_select_exact_quota_shortfall_defers_only_real_losers`) plus two tightened existing ones prove both directions: reverting the fix fails exactly those 3 tests, the fix passes all of them. Full suite: **529 passed** (528 + 1 net new). Side effect flagged plainly: `deferred_count` in a shortfall run now means "lost a comparison" (can be 0), not "everything unwritten" — `PRD.md`'s stale "not yet fixed" bullet was updated in the same commit.
+
+**Task 4 — Finding 8 fixed, `10d3402`.** Confirmed the real `reseed.yml` first (not assumed from the citation): the confirm-gate step's `run:` spliced `${{ github.event.inputs.confirm }}` directly into a shell `echo`. Fixed via `env: CONFIRM: ${{ github.event.inputs.confirm }}` + `$CONFIRM` in the shell string — the standard fix for this GitHub Actions injection class. The `if:` gate itself is a workflow expression, not shell, so the confirm-or-abort behavior is byte-identical; only the injection surface closed. YAML re-parsed valid; no real `workflow_dispatch` was triggered.
+
+**Task 5 — [[Internship Notes Standard]] §1 patched.** Real `build_frontmatter()` output printed directly and compared against both sections: §8 already matched it; §1 was missing `preference_tier` (added between `notes` and `tags`). §1, §8, and the code now agree. No other section touched.
+
+**Final `pytest`: 529 passed.** 5 new local commits on `master`, not pushed. The two already-approved groups (`.agents` deletion, `AGENTS.md`/`docs/codex/`) remain untouched and uncommitted by this session, as instructed.
+
+## A Real Process Flag, Correctly Raised Rather Than Silently Resolved
+**The session committed directly to local `master`, per this prompt's own explicit instruction — but flagged, unprompted, that the repo's `CLAUDE.md` states a two-laptop convention against ever committing straight to `master`.** It did not resolve this tension itself (reasonably — a branch policy is a repo-governance question, not a code-correctness one) and recommended moving the 5 commits to a `dell-latitude/<topic>` branch before any push. **This file's own prompt told it to commit locally — that instruction is the thing that needs correcting, not the session's compliance with it.** Carried into Session 3's Task 1 below.
+
+**Also correctly not done:** moving this prompt + report into the Archive — the live prompt said "once reviewed," and the session read that literally rather than self-archiving. This archiving pass is that review.

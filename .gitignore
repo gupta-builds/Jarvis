@@ -71,6 +71,14 @@ mcp.env
 # part of this mechanism that's shared, and it never changes after its first
 # insert, so it never conflicts.
 30_Order/System/sync-workflow/Sync Alert Banner.md
+# internship-note-guard.jsonl - jarvis-internship-note-guard.ps1's own per-write
+# diagnostic log, appended on every Write/Edit/MultiEdit under the internship
+# tree on whichever machine the edit happened on. Same per-machine-writer
+# shape as git-auto-sync.log; found 2026-10-04 (Build 12) while functionally
+# testing the hook after its path fix - never excluded before since the hook
+# was silently broken (wrong path) the entire time this file could exist.
+30_Order/System/claude-workflow/logs/internship-note-guard.jsonl
+
 # Jarvis-WeeklyReview's own log — same reasoning as git-auto-sync.log above,
 # plus it's written independently by each laptop's own Scheduled Task, so
 # a single shared git-tracked copy is a second uncoordinated-writer path on
@@ -111,6 +119,15 @@ mcp.env
 # Does not touch Syncthing's own ability to create them (that's .stignore's
 # job, and they must stay creatable there — this only keeps git out of it).
 *.sync-conflict-*
+
+# Vault-root-rule safety net (Build 11, 2026-10-04) — a session on the Acer
+# wrote its conflict-reconciliation archive to a vault-relative 99_Archive/
+# instead of this machine's own real, outside-the-vault archive root, and it
+# synced in. AGENTS.md's golden rule #1 already says this folder should never
+# exist inside the vault; this just stops the mistake from reaching GitHub or
+# the other laptop if it happens again. Matching .stignore entry added too.
+/99_Archive
+
 # AI tool internal state (sessions, history, creds) — never commit
 20_Progress/AI/Claude Code/.claude_wsl/
 20_Progress/AI/Claude Code/.claude_windows/

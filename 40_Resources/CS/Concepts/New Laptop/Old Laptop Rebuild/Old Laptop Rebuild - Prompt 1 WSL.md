@@ -110,3 +110,52 @@ Also add one line to 60_Claude/07_AI_Information/Session Logs/log.md and update 
 # Final message
 Lead with the result in a few lines: GB reclaimed (measured), what changed, what is waiting for me, and the host script path. List open decisions as short bullets. Do not paste the notes back.
 ~~~
+
+## Follow-up 1: execute the approved plan (2026-10-04, after the audit checkpoint)
+
+Send this to the same Codex session that returned the audit. It answers each open decision from the checkpoint, adds the two idle-timeout keys that the original target list missed (see [[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]], Decision 3), and turns every step that sandbox or sudo blocks into a script with exact commands. Pasting it approves the project-artifact deletions in item 4, so delete that item first if you want a smaller set.
+
+~~~text
+Your audit checkpoint is accepted. Below are my answers to your open decisions. Execute Phase 3 now, one numbered step at a time, verifying each step before starting the next. Re-read your own Build 1 WSL Findings note first, and read the "Decision 3" section of Codebases/Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem (same vault folder tree, 40_Resources/CS/Concepts/New Laptop/). It changes one thing in your plan: this laptop becomes an always-on SSH host for Build 2.
+
+# Approved
+1. .wslconfig: apply your exact diff, plus two keys you did not have. The final file must contain, under [wsl2]: networkingMode=mirrored, firewall=true, memory=20GB, processors=10, swap=8GB, swapfile=D:\\WSL\\swap.vhdx, vmIdleTimeout=-1. Under [general]: instanceIdleTimeout=-1. Under [experimental]: autoMemoryReclaim=gradual, sparseVhd=true. Confirm each key name and section against the current Microsoft WSL configuration reference and against the WSL version that exists after `wsl --update`. If the updated WSL does not recognize a key, tell me instead of guessing. Both idle keys are required together: vmIdleTimeout alone does not keep the distro alive past the 15-second instanceIdleTimeout. This means the VM never auto-shuts down. That is deliberate, and autoMemoryReclaim keeps memory in check.
+2. Cache cleanup: npm, pnpm store, pip, cargo, uv, using each tool's own cleanup command. Record sizes before and after.
+3. Toolchain parity: install everything on your "missing or incomplete" list in user space, plus Antigravity (agy), and update uv, rustup and Kiro CLI if their installers support it. Prefer GitHub release binaries over `cargo install` (delta, lazygit, yazi, sesh, zoxide, atuin, starship, win32yank), because compiling creates new cache. Verify each tool with its own --version right after installing it. Build configs "from notes, not from Acer" and label them. Add shell hooks only after the binary is verified. fd and bat need the `fdfind` and `batcat` symlinks in ~/.local/bin. For wslu: re-test after the WSL update. If wslview is still broken because of WSLInterop-late, set a BROWSER wrapper in the shell block that uses powershell.exe or cmd.exe to open URLs, and log it. Do not patch system files.
+4. Project artifacts: delete the verified Git-ignored, regenerable directories from your manifest, with these rules:
+   - Re-verify each path at deletion time with `git check-ignore`, and require a lockfile or manifest that can rebuild it (package-lock, pnpm-lock, yarn.lock, uv.lock, pyproject, requirements, Cargo.lock).
+   - Skip both gstack copies and both gbrain copies. They are installed tools whose dist and node_modules are used at runtime.
+   - Skip any path referenced by an MCP config, an agent or hook config, a systemd unit or a cron entry (search ~/.claude.json, ~/.claude/settings.json, ~/.codex/config.toml, ~/.mcp.json, ~/.config/systemd and crontab). Skip any directory with an open file or a running process.
+   - Hold the 1.03 GiB no-enclosing-repo project and ai/claude/claude-ai/node_modules.
+   - Write the manifest of what you actually deleted into the findings note, with sizes. Delete largest first and measure free space after each group.
+   - umn/boom/target is approved even though it is the largest.
+5. Hold, do nothing: ~/.codex-archive, ~/.claude, ~/.codex, all git operations, and the C: items. Editor servers (.vscode-server, .cursor-server, .vscode-remote-containers) and Miniconda go to Build 2. Docker, vscode-remote-wsl, the old quarantine, %TEMP%\wsl-crashes and the ConversationCapture-Backfill-WSL scheduled task go to the Windows-host session. Record each with its current numbers as handoffs.
+
+# Order of work
+1. Preflight: confirm no VS Code or Cursor server process is attached, and record C: and D: free space and both VHDX sizes.
+2. Item 3 installs, with --version checks and a log line per tool.
+3. Item 3 configs.
+4. Item 4 project artifact deletion.
+5. Item 2 cache cleanup (last, so install caches are included).
+6. Write the sudo script, then the .wslconfig edit, then the host scripts (details below).
+7. Finish all vault logging before you hand me the host script. The WSL restart ends this session.
+
+# Where something is blocked
+Do not retry a blocked command and do not look for a workaround. If the sandbox or sudo blocks a step, write the exact commands to a script file and give me the one command to run it.
+- /mnt/d/WSL/ops/build1-sudo-step.sh: `apt install -y fd-find bat ncdu direnv`, any other apt package parity needs, and `fstrim -av` as the last line. Begin with `set -euo pipefail` and print each step. I run it with `sudo bash /mnt/d/WSL/ops/build1-sudo-step.sh`.
+- .wslconfig: back up the existing file, write the new one from bash, and read it back. If the write is blocked, save the full file as /mnt/d/WSL/ops/wslconfig.new and give me the one PowerShell command that backs up and replaces it.
+- D:\WSL\ops\wsl-host-step.ps1 (I run it from PowerShell after closing every editor and other WSL session): print sizes, `wsl --update`, `wsl --shutdown`, wait, then `wsl --manage Ubuntu --set-sparse true`. If updated WSL refuses to convert the existing disk, stop and print the documented manual compaction commands for my decision. Never use an unsafe override. Then start the distro, and print the verification block: `wsl -l -v`, `wsl --status`, `free -h`, `nproc`, `swapon --show`, `Get-Item D:\WSL\swap.vhdx`, the Ubuntu VHDX length, and the CheckConnection count for the first minutes.
+- D:\WSL\ops\wsl-idle-test.ps1: after the host script, start the distro with a command that exits at once, wait 60 seconds, then run `wsl -l -v` and print PASS if the distro is still Running and FAIL if not. The test is valid only when no other WSL terminal, VS Code window or Codex session is open, so print that precondition first.
+Give me the exact run order in your final message: sudo script, close everything, host script, idle test.
+
+# Logging
+Update "Old Laptop Rebuild - Build 1 WSL Findings" in place by heading: a measured "after" table, the manifest of what was deleted, each install with its version, the final .wslconfig, every error and its root cause, and the handoffs to Build 2 and to the Windows-host session. Update the Index status line and add one line to Session Logs/log.md. Record that Build 2's prompt was rewritten around the Locked Decisions note.
+
+# Stop rules
+- If anything you are about to delete is not what the manifest says, skip it and log why.
+- If one step fails twice for the same reason, stop and report the cause.
+- Do not touch anything on the hold list.
+
+# Final message
+Lead with the measured reclaim (GiB, per category), what changed, and the exact commands I must run, in order. Then list anything you skipped and why.
+~~~

@@ -62,10 +62,7 @@ if os.name == "nt":
     DEFAULT_DB = APPDATA / "Cursor" / "User" / "globalStorage" / "state.vscdb"
     WORKSPACE_STORAGE = APPDATA / "Cursor" / "User" / "workspaceStorage"
     WIN_CURSOR_PROJECTS = USERPROFILE / ".cursor" / "projects"
-    VAULT_CONV = Path(
-        r"D:\_Anant\20_Progress\Documents\Jarvis"
-        r"\60_Claude\05_Clippings\AI Conversations"
-    )
+    VAULT_CONV = SCRIPT_DIR.parent.parent.parent.parent / "60_Claude" / "05_Clippings" / "AI Conversations"
 else:
     DEFAULT_DB = Path(
         "/mnt/c/Users/Anant Gupta/AppData/Roaming/Cursor/User/globalStorage/state.vscdb"

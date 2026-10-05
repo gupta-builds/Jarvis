@@ -15,7 +15,7 @@
 # isn't seconds old), to avoid a write racing this script's rewrite of the same file.
 
 param(
-    [string]$ClaudeCodeRoot = "D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\AI\Claude Code",
+    [string]$ClaudeCodeRoot = (Join-Path (Resolve-Path (Join-Path $PSScriptRoot "..\..\..\..")).Path "20_Progress\AI\Claude Code"),
     [int]$RetentionDays = 7,
     [switch]$Apply
 )

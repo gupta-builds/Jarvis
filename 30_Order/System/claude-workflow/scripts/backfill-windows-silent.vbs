@@ -5,11 +5,14 @@
 ' hooks are the primary capture mechanism, this just closes the gap when a
 ' hook doesn't fire (crash, forced close, machine sleep mid-session).
 Option Explicit
-Dim sh, exitCode
+Dim sh, exitCode, scriptDir, exportScript, healthScript
 Set sh = CreateObject("WScript.Shell")
-exitCode = sh.Run("powershell -NoProfile -ExecutionPolicy Bypass -File ""D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\export-claude-session.ps1"" -BackfillAll", 0, True)
+scriptDir = CreateObject("Scripting.FileSystemObject").GetParentFolderName(WScript.ScriptFullName)
+exportScript = scriptDir & "\export-claude-session.ps1"
+healthScript = scriptDir & "\update-capture-health.ps1"
+exitCode = sh.Run("powershell -NoProfile -ExecutionPolicy Bypass -File """ & exportScript & """ -BackfillAll", 0, True)
 ' Records this run's honest exit code to the Capture Health dashboard note
 ' (added 2026-08-19 - reliability gap fix). Runs after the real work so it
 ' can never mask exitCode below; ignore its own exit status.
-sh.Run "powershell -NoProfile -ExecutionPolicy Bypass -File ""D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\scripts\update-capture-health.ps1"" -TaskLabel Windows -ExitCode " & exitCode, 0, True
+sh.Run "powershell -NoProfile -ExecutionPolicy Bypass -File """ & healthScript & """ -TaskLabel Windows -ExitCode " & exitCode, 0, True
 WScript.Quit(exitCode)

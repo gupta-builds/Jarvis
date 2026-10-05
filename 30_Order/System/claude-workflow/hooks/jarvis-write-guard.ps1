@@ -23,7 +23,7 @@ if ($tool -notin @("Write", "Edit", "MultiEdit")) { exit 0 }
 $filePath = [string]$payload.tool_input.file_path
 if ([string]::IsNullOrWhiteSpace($filePath)) { exit 0 }
 
-$root = "D:\_Anant\20_Progress\Documents\Jarvis"
+$root = (Resolve-Path (Join-Path $PSScriptRoot "..\..\..\..")).Path
 $norm = ($filePath -replace '/', '\')
 $normLower = $norm.ToLowerInvariant()
 $rootLower = $root.ToLowerInvariant()
@@ -86,7 +86,7 @@ foreach ($toolDir in @(".cursor\", ".kiro\", ".git\")) {
 
 # Root-level path (no backslash in the relative path) => sits directly at vault root.
 if ($rel -notmatch '\\') {
-    $allowedRoot = @("00_dashboard.md", "agents.md", "claude.md", "human_writing.md", ".gitignore")
+    $allowedRoot = @("00_dashboard.md", "agents.md", "claude.md", "human_writing.md", ".gitignore", ".stignore")
     if ($allowedRoot -notcontains $relLower) {
         Deny "Write Contract golden rule #1: never create files at the vault root. If unsure where this belongs, write it to 60_Claude/00_Inbox/. See AGENTS.md."
     }

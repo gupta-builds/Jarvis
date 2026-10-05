@@ -1,0 +1,15 @@
+https://apply.codepath.org/organizations/codepathorg/application/oneapp-tip103-fall-2026/versions/general/status
+https://github.com/settings/education/benefits
+https://hub.codepath.org/home
+https://courses.codepath.org/snippets/tip103/syllabus
+https://docs.google.com/document/d/1Pr73gUvmz9wEkMH9fHmE-3DV8zegyTtfE87P3OdnLVo/edit?tab=t.0
+https://courses.codepath.org/courses/tip103/unit/3#!overview
+https://gist.github.com/jamjamgobambam/6e9b9c2a564054f3d684175d8b1f2c06#file-tip103_fuel_stop_optimizer-md
+https://www.hackerrank.com/test-v2/112dotj2hnm/298704aaf78680f5fc557899e4765196
+https://www.hackerrank.com/test-v2/b9e2tiacf92/4494e01c6e3e0a6338cfb8239de2d9a2
+https://www.hackerrank.com/test-v2/peo3aknmjs/4df49a2a30e79c364be2daff1e8b5f1a
+https://www.hackerrank.com/test-v2/8gjljt1ccjl/31204660412026622118a34796ba3d1b
+https://www.hackerrank.com/test-v2/cq69majh0cj/5e83ee73d006a2785b95f4c5dab960aa
+https://www.hackerrank.com/test-v2/18l2g953oqm/b0428fd446203f2151c946954f73f19f
+https://sharepad.io/live/kZ08ET2
+https://leetcode.com/problem-list/2yvx2ha6/

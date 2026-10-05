@@ -7,13 +7,13 @@ tags:
   - ingestion
   - interview-prep
   - leetcode
-source_url: https://github.com/liquidslr/interview-company-wise-problems
+source_url: https://github.com/liquidslr/leetcode-company-wise-problems
 notes:
   - "[[40_Resources/CS/Repos]]"
 ---
 # Interview Company-wise Problems
 
-**GitHub:** [liquidslr/interview-company-wise-problems](https://github.com/liquidslr/interview-company-wise-problems) | **Stars:** 25.8k | **Updated:** Jun 25, 2026
+**GitHub:** [liquidslr/leetcode-company-wise-problems](https://github.com/liquidslr/leetcode-company-wise-problems) | **Stars:** 31.1k | **Updated:** Jun 25, 2026 (confirmed 2026-10-04: `interview-company-wise-problems` was this repo's old name, now redirects here)
 
 ## What it is
 One folder per company, each containing a CSV of LeetCode problem IDs tagged to that company by LeetCode's own company-tag system. Covers AMD, AQR, Accenture, Accolite, and dozens of others alphabetically — a scraped and cleaned version of what LeetCode Premium shows behind a paywall.

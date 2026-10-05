@@ -8,15 +8,12 @@ tags:
   - daily
 cssclasses:
   - dashboard
-today_focus: Push every Career Fair application through the pipeline and
-  bring coursework current through Week 4, starting with CSCI 4061's
-  Project 1 (due 10/2)
-today_80: Apply to every Career Fair internship in Programs/Serious/Career
-  Fair/ and make real progress on Main Cover Letter.md's bullet bank
-  (still the named blocker, 22 days running)
-today_20: LeetCode/CodePath ≥5 (Meta rotation, TIP103 Unit 1), CSCI 4061
-  Project 1 progress (due 10/2), push professors for extra-credit/recompense
-  options
+today_focus: Close the Main Cover Letter.md blocker and send the first
+  real application; CSCI 4061 Midterm 1 is Thursday 10/8
+today_80: Build Main Cover Letter.md's bullet bank for real and move
+  Uber - 2027 SWE Intern from Current/ to Applied/
+today_20: LeetCode/CodePath ≥5 (Google rotation, TIP103 Unit 1), start
+  CSCI 4061 Midterm 1 review (due 10/8), run /closeday
 lc_today: 0
 study_today: 4
 wins_done: 4

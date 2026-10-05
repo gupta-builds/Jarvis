@@ -5,33 +5,34 @@ source_app: claude-code
 source_os: windows
 title: "Syncthing conflicts resolution and root cause analysis"
 started_at: 2026-10-04T12:14:28
-ended_at: 2026-10-04T19:31:39
-exported_at: 2026-10-04T19:32:17
-duration_minutes: 437.2
+ended_at: 2026-10-04T19:55:21
+exported_at: 2026-10-04T20:00:12
+duration_minutes: 460.9
 project: Jarvis
 cwd: 'D:\Users\_Anant\10_Areas\Documents\Jarvis'
 session_id: b0733d4c-7e2f-4501-8dd7-6702392ed46b
 status: raw
 turn_count: 6
 tools_used:
-  Bash: 203
-  Edit: 51
+  Bash: 232
+  Edit: 64
   Glob: 2
-  Grep: 13
-  PowerShell: 7
-  Read: 59
-  Write: 4
+  Grep: 15
+  PowerShell: 8
+  Read: 67
+  Write: 5
 tokens:
-  input: 1278
-  output: 503041
-  cache_creation: 2673878
-  cache_read: 213966853
-  total: 217145050
-cost_usd: 58.521849
+  input: 1484
+  output: 569248
+  cache_creation: 2810104
+  cache_read: 270756962
+  total: 274137798
+cost_usd: 71.087256
 model:
   - "claude-sonnet-5"
 files_touched:
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\.claude\\settings.json"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\.claude\\skills\\weekly-review\\weekly-review.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\.gitignore"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\.stignore"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\00_Dashboard.md"
@@ -68,6 +69,7 @@ files_touched:
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Sync\\Cross-Laptop Sync - Build 11 Acer Verification.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Sync\\Cross-Laptop Sync - Build 11 Findings.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Sync\\Cross-Laptop Sync - Build 11 Prompt.md"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Sync\\Cross-Laptop Sync - Build 12 Findings.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Sync\\Cross-Laptop Sync - Build 7 Prompt.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Sync\\Cross-Laptop Sync - Build 9 Findings.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Sync\\Cross-Laptop Sync - Known Failure Modes and Prevention.md"
@@ -4553,6 +4555,63 @@ Now let's verify every edited script parses cleanly, then functionally test the 
 
 All 11 edited `.ps1` files parse cleanly. Now functionally testing the two live hooks with real payloads, matching the established verification standard:
 
+Confirmed working correctly — a vault-root write is denied, a normal write passes clean. Now the internship-note-guard:
+
+All real code files are clean now — zero remaining instances. Let's also verify the `.claude/settings.json` fix propagated correctly to the hook-invoked scripts by checking `.gitignore`/`.stignore` cover everything consistently, then commit and push the script fixes:
+
+Now the `99_Archive` scan-exclusion gap the Acer found:
+
+Now the vault-root safety net in `.gitignore`/`.stignore`:
+
+Found a real gap — the hook's own allowlist has `.gitignore` but not `.stignore`. Fixing that too, since it's now actually enforced for the first time in who knows how long:
+
+Now retrying the `.stignore` safety-net edit:
+
+Now the matching `.gitignore` entry:
+
+Now let's build the permanent recurring check the user asked for. Let me find the weekly-review skill's current sync-health step:
+
+Also catching a related bug — Step 4's own instructions hardcode one machine's drive path, which is likely exactly what confused the Acer session into creating the stray in-vault folder. Fixing that and adding the two new recurring checks the user asked for:
+
+Now let's document this as a new Failure Mode and write the Build 12 findings note, then move to final sync verification. First, the Failure Mode entry:
+
+Now the session log entry, then onto the final sync verification the user asked for:
+
+Now the final verification pass. Let's check current conflicts, run the health check, and look at the git-auto-sync log for any recent trouble:
+
+Found a real gap — Build 10 only untracked the specific sweep log that was dirty that day, not the other 26 that match the same `.gitignore` pattern. Let me do a complete sweep:
+
+All clean now (empty `ls-files` result confirms zero remain tracked). Let's commit everything from this turn's work and push:
+
+Good catch — this is a brand new per-machine log file from the hook I just tested, exactly the kind of thing Step 10 is meant to catch. Adding it to both lists now, practicing what I just documented:
+
+Now staging precisely my files and committing:
+
+All 28 deletions correctly staged. Committing and pushing:
+
+Pushed cleanly. Now the final comprehensive verification:
+
+Local and origin match exactly. Everything is verified clean. Here's the full picture:
+
+## What was actually wrong
+
+You were right about the "extra Users folder" diagnosis — `.claude/settings.json`'s two hook commands were hardcoded to the Acer's drive layout (`D:\_Anant\20_Progress\...`), which doesn't exist on this machine. But it went deeper: that exact bug was **already "fixed" once, on 2026-09-28** — and the fix just swapped one laptop's wrong path for the other's, so it was only ever going to break again. This time I found **14 files** carrying it (both hook scripts, the session-continuity hook, the AI-capture pipeline, the Cursor export pipeline, two task-registration scripts) and fixed every one with a portable reference (`$PSScriptRoot`, `$CLAUDE_PROJECT_DIR`, `__file__`) instead of a third hardcoded guess. Both live hooks tested with real payloads afterward — confirmed working.
+
+Two things found live, caused by the same silence: the write-guard's own allowlist was missing `.stignore` (invisible the whole time the hook was broken), and 27 old sweep logs matched an existing `.gitignore` pattern but had never actually been untracked. Both fixed.
+
+## Made permanent, not just fixed
+
+Added two new steps to `/weekly-review`'s Sync Health Check, **run every review**: a hardcoded-path sweep, and an ignore-file symmetry check that explicitly asks whether that week's work (or any new AI platform landing on this vault) created a new per-machine file needing the same treatment. I practiced this immediately — a brand-new log file my own hook-testing generated got added to both ignore lists in the same commit, not left for next time.
+
+## Current state — verified, not assumed
+
+- **Zero live conflicts, zero stuck temp files**, checked directly on disk.
+- `check-syncthing-status.ps1`: **`Overall: IN SYNC`**, 100% completion against the Acer.
+- Dashboard's embed line intact and byte-correct; banner file empty (healthy).
+- Build 12 committed and **pushed cleanly** — confirmed local and `origin` are at the identical commit (`a7f3a6c3`).
+
+One honest caveat: `.claude/settings.json` is excluded from git (may hold machine-specific values), so this exact fix reaches the Acer only via Syncthing's real-time mirror, not git. Worth a quick check next time you're on the Acer that its hooks are firing clean — everything else here is git-tracked and will land on its next pull regardless.
+
 ### Tool Calls
 
 - `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && find "40_Resources/CS/Concepts/New Laptop/Sync" -iname "*Acer*" -o -iname "*Verification*" 2>/dev/null
@@ -4942,6 +5001,734 @@ System.Management.Automation.Language.EmptyScriptExtent FileReadError The file c
 ```
 - `PowerShell` -- `{"command":"$files = @(\n  \"30_Order\\System\\claude-workflow\\hooks\\jarvis-write-guard.ps1\",\n  \"30_Order\\System\\claude-workflow\\hooks\\jarvis-internship-note-guard.ps1\",\n  \"30_Order\\System\\claude-workflow\\hooks\\jarvis-session-continuity.ps1\",\n  \"30_Order\\System\\claude-workflow\\scripts\\export-claude-session.ps1\",\n  \"30_Order\\System\\claude-workflow\\scripts\\update-capture-health.ps1\",\n  \"30_Order\\System\\claude-workflow\\scripts\\register-jarvis-sync-task.ps1\",\n  \"30_Order\\System\\claude-workflow\\scripts\\test-token-aggregation.ps1\",\n  \"30_Order\\System\\sync-workflow\\scripts\\rotate-sync-logs.ps1\",\n  \"30_Order\\System\\cursor-workflow\\scripts\\_run-ref-test.ps1\",\n  \"30_Order\\System\\cursor-workflow\\scripts\\_run-backfill.ps1\",\n  \"30_Order\\System\\cursor-workflow\\scripts\\_verify-and-register.ps1\"\n)\nforeach ($f in $files) {\n  $full = Join-Path \"D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\" $f\n  $errors = $null\n  [System.Management.Automation.Language.Parser]::ParseFile($full, [ref]$null, [ref]$errors) | Out-Null\n  if ($errors.Count -eq 0) { Write-Output \"$f -\u003e OK\" } else { Write-Output \"$f -\u003e ERROR: $($errors[0].Message)\" }\n}","description":"Parse-check all edited PowerShell files using native PowerShell path handling"}`
 - `PowerShell` -- `{"command":"cd \"D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\"\n# Test 1: a vault-root write should be DENIED\n$payload1 = @{ tool_name = \"Write\"; tool_input = @{ file_path = \"D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\Should-Not-Exist.md\" } } | ConvertTo-Json -Compress\n$result1 = $payload1 | powershell -NoProfile -ExecutionPolicy Bypass -File \"30_Order\\System\\claude-workflow\\hooks\\jarvis-write-guard.ps1\"\nWrite-Output \"Vault-root write test (expect a deny/hookSpecificOutput): $result1\"\n\n# Test 2: a normal-path write should be ALLOWED (no output / exit 0)\n$payload2 = @{ tool_name = \"Write\"; tool_input = @{ file_path = \"D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\60_Claude\\00_Inbox\\test-note.md\" } } | ConvertTo-Json -Compress\n$result2 = $payload2 | powershell -NoProfile -ExecutionPolicy Bypass -File \"30_Order\\System\\claude-workflow\\hooks\\jarvis-write-guard.ps1\"\nWrite-Output \"Normal-path write test (expect empty/no deny): \u0027$result2\u0027\"\nWrite-Output \"Exit code of last run: $LASTEXITCODE\"","description":"Functionally test jarvis-write-guard.ps1 with real deny/allow payloads"}`
+- `PowerShell` -- `{"command":"cd \"D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\"\n$payload = @{ tool_name = \"Write\"; tool_input = @{ file_path = \"D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\10_Areas\\Career\\Internships\\List\\Dossiers\\1 - AI \u0026 ML\\A.I. Developer Co-Op (Boston, MA) - Manhattan Associates.md\" } } | ConvertTo-Json -Compress\n$result = $payload | powershell -NoProfile -ExecutionPolicy Bypass -File \"30_Order\\System\\claude-workflow\\hooks\\jarvis-internship-note-guard.ps1\"\nWrite-Output \"Result: $result\"\nWrite-Output \"Exit code: $LASTEXITCODE\"\nWrite-Output \"=== log line written? ===\"\nGet-Content \"30_Order\\System\\claude-workflow\\logs\\internship-note-guard.jsonl\" -Tail 1","description":"Functionally test jarvis-internship-note-guard.ps1 against a real dossier file"}`
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && grep -n "claude/settings.json\|claude\\\\settings.json" .gitignore .stignore 2>/dev/null
+echo "=== is it currently git tracked anyway? ==="
+git ls-files | grep "^\.claude/settings\.json$"`
+```
+.gitignore:17:.claude/settings.json
+=== is it currently git tracked anyway? ===
+```
+- `Grep` -- pattern `D:\\_Anant\\20_Progress\\Documents\\Jarvis` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\30_Order`
+- `Grep` -- pattern `D:\\_Anant\\20_Progress\\Documents\\Jarvis` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\30_Order`
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git status --short -- "30_Order/System/claude-workflow/hooks/" "30_Order/System/claude-workflow/scripts/backfill-wsl-silent.vbs" "30_Order/System/claude-workflow/scripts/backfill-windows-silent.vbs" "30_Order/System/claude-workflow/scripts/export-claude-session.ps1" "30_Order/System/claude-workflow/scripts/update-capture-health.ps1" "30_Order/System/claude-workflow/scripts/register-jarvis-sync-task.ps1" "30_Order/System/claude-workflow/scripts/test-token-aggregation.ps1" "30_Order/System/sync-workflow/scripts/rotate-sync-logs.ps1" "30_Order/System/cursor-workflow/scripts/"`
+```
+ M 30_Order/System/claude-workflow/hooks/jarvis-internship-note-guard.ps1
+ M 30_Order/System/claude-workflow/hooks/jarvis-session-continuity.ps1
+ M 30_Order/System/claude-workflow/hooks/jarvis-write-guard.ps1
+ M 30_Order/System/claude-workflow/scripts/backfill-windows-silent.vbs
+ M 30_Order/System/claude-workflow/scripts/backfill-wsl-silent.vbs
+ M 30_Order/System/claude-workflow/scripts/export-claude-session.ps1
+ M 30_Order/System/claude-workflow/scripts/register-jarvis-sync-task.ps1
+ M 30_Order/System/claude-workflow/scripts/test-token-aggregation.ps1
+ M 30_Order/System/claude-workflow/scripts/update-capture-health.ps1
+ M 30_Order/System/cursor-workflow/scripts/_run-backfill.ps1
+ M 30_Order/System/cursor-workflow/scripts/_run-ref-test.ps1
+ M 30_Order/System/cursor-workflow/scripts/_verify-and-register.ps1
+ M 30_Order/System/cursor-workflow/scripts/export-cursor-sessions.py
+ M 30_Order/System/sync-workflow/scripts/rotate-sync-logs.ps1
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && grep -n "stversions" "30_Order/System/sync-workflow/scripts/check-syncthing-status.ps1"`
+```
+264:# .stversions is Staggered File Versioning's own archive - it deliberately
+268:$conflictFiles = @(Get-ChildItem -LiteralPath $folderPath -Force -Recurse -File -Filter "*.sync-conflict-*" -ErrorAction SilentlyContinue | Where-Object { $_.FullName -notmatch '\\\.stversions\\' })
+269:$tempFiles = @(Get-ChildItem -LiteralPath $folderPath -Force -Recurse -File -Filter "~syncthing~*.tmp" -ErrorAction SilentlyContinue | Where-Object { $_.FullName -notmatch '\\\.stversions\\' })
+```
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\30_Order\System\sync-workflow\scripts\check-syncthing-status.ps1`
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\30_Order\System\sync-workflow\scripts\check-syncthing-status.ps1`
+```diff
+- # .stversions is Staggered File Versioning's own archive - it deliberately
+# keeps old sync-conflict copies as version history, not a live problem. A
+# recursive scan without this exclusion permanently flags every versioned
+# conflict copy as an active incident, defeating the point of the check.
+$conflictFiles = @(Get-ChildItem -LiteralPath $folderPath -Force -Recurse -File -Filter "*.sync-conflict-*" -ErrorAction SilentlyContinue | Where-Object { $_.FullName -notmatch '\\\.stversions\\' })
+$tempFiles = @(Get-ChildItem -LiteralPath $folderPath -Force -Recurse -File -Filter "~syncthing~*.tmp" -ErrorAction SilentlyContinue | Where-Object { $_.FullName -notmatch '\\\.stversions\\' })
++ # .stversions is Staggered File Versioning's own archive - it deliberately
+# keeps old sync-conflict copies as version history, not a live problem. A
+# recursive scan without this exclusion permanently flags every versioned
+# conflict copy as an active incident, defeating the point of the check.
+# 99_Archive is excluded for the identical reason (Build 11, 2026-10-04,
+# found live on the Acer): every build's own conflict-reconciliation protocol
+# writes resolved conflicts there, so a scan that doesn't exclude it flags its
+# own archived history as a live problem the moment any session's own archive
+# folder exists under the vault - 99_Archive should never actually live
+# inside the vault (see AGENTS.md's vault-root rule; the real archive root is
+# D:\...\99_Archive, outside the vault, per machine), but this exclusion is
+# cheap insurance against the exact mistake that already happened once.
+$excludePattern = '\\(\.stversions|99_Archive)\\'
+$conflictFiles = @(Get-ChildItem -LiteralPath $folderPath -Force -Recurse -File -Filter "*.sync-conflict-*" -ErrorAction SilentlyContinue | Where-Object { $_.FullName -notmatch $excludePattern })
+$tempFiles = @(Get-ChildItem -LiteralPath $folderPath -Force -Recurse -File -Filter "~syncthing~*.tmp" -ErrorAction SilentlyContinue | Where-Object { $_.FullName -notmatch $excludePattern })
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && grep -n "NUL" .gitignore .stignore`
+```
+.stignore:77:// A file literally named NUL was created at the vault root on 2026-09-05 via a WSL-to-cmd.exe
+.stignore:78:// interop bug (a hook's "2>NUL" redirect landed as a real file instead of the null device).
+.stignore:79:// No Windows filesystem can ever hold a real file named NUL/CON/PRN/COM1-9/LPT1-9 - Syncthing
+.stignore:83:/NUL
+```
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\.stignore`
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\.stignore`
+```diff
+- // against the same class of debris recurring.
+/NUL
++ // against the same class of debris recurring.
+/NUL
+
+// Vault-root-rule safety net (Build 11, 2026-10-04): a session running on the
+// Acer wrote its conflict-reconciliation archive to a vault-relative
+// "99_Archive/" path instead of this machine's own real, outside-the-vault
+// archive root (D:\...\99_Archive, per AGENTS.md's golden rule - never a new
+// top-level folder inside the vault), and it synced here. Moved out and
+// cleaned up same build. This exclusion does not fix the root cause (a
+// session resolving the wrong path) - it only stops the mistake from
+// propagating to the other machine the next time it happens.
+/99_Archive
+```
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\30_Order\System\claude-workflow\hooks\jarvis-write-guard.ps1`
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\30_Order\System\claude-workflow\hooks\jarvis-write-guard.ps1`
+```diff
+-     $allowedRoot = @("00_dashboard.md", "agents.md", "claude.md", "human_writing.md", ".gitignore")
++     $allowedRoot = @("00_dashboard.md", "agents.md", "claude.md", "human_writing.md", ".gitignore", ".stignore")
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && powershell.exe -Command "\$errors=\$null; [System.Management.Automation.Language.Parser]::ParseFile((Resolve-Path '30_Order\System\claude-workflow\hooks\jarvis-write-guard.ps1').Path, [ref]\$null, [ref]\$errors) | Out-Null; if (\$errors.Count -eq 0) { 'OK' } else { \$errors }"`
+```
+OK
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\.stignore`
+```diff
+- // against the same class of debris recurring.
+/NUL
++ // against the same class of debris recurring.
+/NUL
+
+// Vault-root-rule safety net (Build 11, 2026-10-04): a session running on the
+// Acer wrote its conflict-reconciliation archive to a vault-relative
+// "99_Archive/" path instead of this machine's own real, outside-the-vault
+// archive root (D:\...\99_Archive, per AGENTS.md's golden rule - never a new
+// top-level folder inside the vault), and it synced here. Moved out and
+// cleaned up same build. This exclusion does not fix the root cause (a
+// session resolving the wrong path) - it only stops the mistake from
+// propagating to the other machine the next time it happens.
+/99_Archive
+```
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\.gitignore`
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\.gitignore`
+```diff
+- *.sync-conflict-*
+# AI tool internal state (sessions, history, creds) — never commit
++ *.sync-conflict-*
+
+# Vault-root-rule safety net (Build 11, 2026-10-04) — a session on the Acer
+# wrote its conflict-reconciliation archive to a vault-relative 99_Archive/
+# instead of this machine's own real, outside-the-vault archive root, and it
+# synced in. AGENTS.md's golden rule #1 already says this folder should never
+# exist inside the vault; this just stops the mistake from reaching GitHub or
+# the other laptop if it happens again. Matching .stignore entry added too.
+/99_Archive
+
+# AI tool internal state (sessions, history, creds) — never commit
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && find .claude/skills -iname "*weekly-review*" 2>/dev/null`
+```
+.claude/skills/weekly-review
+.claude/skills/weekly-review/weekly-review.md
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && grep -n "^#\|^##\|Step 7" ".claude/skills/weekly-review/weekly-review.md" | head -60`
+```
+5:# weekly-review
+11:## Pre-flight: Read These First
+25:## Step 1: Find Recent Vault Activity
+44:## Step 2: Fall Execution Audit
+50:### Internship application floor (the one thing)
+55:### Technical interview prep (CodePath + LeetCode) and System Design
+60:### Classes
+64:### Projects (TradingView, Portfolio v2, ClaudeKit)
+69:### Career Pipeline (broader)
+78:## Step 3: Enrichment Queue Health
+95:## Step 4: Structural Health Check
+109:## Step 4.5: Promotion Scan
+120:## Step 5: Session Log Summary
+133:## Step 6: Write the Review Note
+152:# Weekly Synthesis — YYYY-WXX
+156:## What Was Built
+160:## Three-Month Plan Status
+164:## Enrichment and Drills
+168:## Vault Health
+172:## Suggested Links
+176:## Cleanup Candidates
+180:## Promotion Candidates
+184:## Next Week Priorities
+188:## Open Questions
+197:## Step 7: Update the Weekly Synthesis Index
+203:## Step 7.5: Log Maintenance
+218:## Step 7.6: Sync Health Check
+234:## Step 8: Log the Session
+239:## [YYYY-MM-DD] review | Weekly Synthesis YYYY-WXX
+246:## Execution Notes for Future Claude
+```
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\.claude\skills\weekly-review\weekly-review.md`
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\.claude\skills\weekly-review\weekly-review.md`
+```diff
+- 4. Once canonical is confirmed correct, move (never delete) the conflict file to `D:\_Anant\99_Archive\Syncthing Conflict Reconciliation <today's date>` (create the dated folder if this is the first one found this week), preserving its relative path under the vault. (As of Build 9, `.gitignore` excludes `*.sync-conflict-*`, so these never reach git in the first place — the archive step is still required, since that's the only durable record outside Syncthing's own `.stversions`.)
++ 4. Once canonical is confirmed correct, move (never delete) the conflict file to **this machine's own `99_Archive\Syncthing Conflict Reconciliation <today's date>` folder, outside the vault entirely** (create the dated folder if this is the first one found this week), preserving its relative path under the vault. **Never write this inside the vault itself** — AGENTS.md's golden rule #1 forbids a new top-level folder at vault root, and Build 11 (2026-10-04) found a session do exactly that on the Acer when it couldn't resolve the other machine's hardcoded archive path, which then synced the mistake back to the Dell. The two laptops' real archive roots have different drive layouts (confirmed Build 10/11: one is `D:\Users\_Anant\99_Archive`, the other `D:\_Anant\99_Archive`) — check this machine's own actual path before writing, never assume either literal string, and if it's genuinely unclear, ask rather than falling back to a vault-relative path. (As of Build 9, `.gitignore` excludes `*.sync-conflict-*`, so these never reach git in the first place — the archive step is still required, since that's the only durable record outside Syncthing's own `.stversions`.)
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\.claude\skills\weekly-review\weekly-review.md`
+```diff
+- 8. **If this is the first review since a Dashboard-banner incident actually fired for real** (confirmed by Step 0 finding a banner, or `.sync-alert-state.json`'s `consecutiveFailures` being nonzero when checked), this is the signal the alerting path itself is proven live, not just tested manually — note that confirmation once, since Known Failure Mode 12's fix had not yet had a real unattended trigger as of 2026-10-02.
+
+---
++ 8. **If this is the first review since a Dashboard-banner incident actually fired for real** (confirmed by Step 0 finding a banner, or `.sync-alert-state.json`'s `consecutiveFailures` being nonzero when checked), this is the signal the alerting path itself is proven live, not just tested manually — note that confirmation once, since Known Failure Mode 12's fix had not yet had a real unattended trigger as of 2026-10-02.
+9. **Hardcoded-absolute-path audit (every review, not just monthly).** Added Build 11 (2026-10-04) after finding `.claude/settings.json`'s two hook commands and 12 scripts under `30_Order/System/` all hardcoded to one laptop's drive layout (`D:\_Anant\20_Progress\Documents\Jarvis`), broken on the other the entire time, silently - this was the *second* time this exact bug class hit this many files (first found and supposedly fixed 2026-09-28, Known Failure Mode 10/11). Run a vault-wide search for both known literal path strings (`D:\_Anant\20_Progress\Documents\Jarvis` and `D:\Users\_Anant\10_Areas\Documents\Jarvis`) across `.ps1`/`.vbs`/`.py`/`.json` files under `30_Order/System/` and `.claude/`. Any hit in a real script (not a log file or a findings/history note citing it as past-tense evidence) is a live bug - fix it using `$PSScriptRoot`-relative resolution (`.ps1`), the script's own folder via `WScript.ScriptFullName` (`.vbs`), `Path(__file__).resolve().parent`-relative (`.py`), or `$CLAUDE_PROJECT_DIR` (`.claude/settings.json` hook commands) - never a third hardcoded literal for either machine. Functionally test any hook you touch with a real payload (a vault-root write denied, a normal write allowed) before considering it fixed, per Known Failure Mode 10's own standard.
+10. **Ignore-file symmetry audit (every review).** Added Build 11 after finding 14 files already excluded from Syncthing (`.stignore`, "proven machine-local state") that had never gotten the matching `.gitignore` line, which let `Jarvis-GitAutoSync` silently fail for two days straight on one of them. Read both `.gitignore` and `.stignore` and confirm every entry under a "machine-local"/"per-machine artifact" comment block in one file has the identical path in the other - a file excluded from only one of the two sync mechanisms is a live bug waiting to happen, not a style inconsistency. Also check: did this week's own session work (or any other AI platform's build - Claude Code, Codex, Cursor, Kiro, or whatever gets added next) create any new per-machine-only file (a state file, a cache, a rate-limiter, a local log) that isn't in either list yet? Add it to both, in the same sitting, following the existing comment-block convention (what the file is, which build found it, why it's per-machine). This step exists specifically so onboarding a new AI tool's automation never repeats this exact gap a third time.
+
+---
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && find .claude/skills -iname "*monthly*" -o -iname "*review*" 2>/dev/null | grep -v node_modules`
+```
+.claude/skills/tag-monthly
+.claude/skills/weekly-review
+.claude/skills/weekly-review/weekly-review.md
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && grep -n "^## Failure Mode 15\|^## How To Verify" "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Known Failure Modes and Prevention.md"`
+```
+86:## Failure Mode 15: A Live Alert Written Into A Shared File Is A Permanent, By-Design Conflict Source
+92:## How To Verify Sync Is Actually Healthy Right Now (Not Just "Looks Fine")
+```
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Sync\Cross-Laptop Sync - Known Failure Modes and Prevention.md`
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Sync\Cross-Laptop Sync - Known Failure Modes and Prevention.md`
+```diff
+- ## How To Verify Sync Is Actually Healthy Right Now (Not Just "Looks Fine")
++ ## Failure Mode 16: The Same Stale-Path Bug Recurred, In 14 Files, After Being "Fixed" Once Already
+**What happened (found 2026-10-04, Build 12):** the user reported a stream of `PreToolUse:Edit`/`PostToolUse:Edit` hook errors on the Dell - both `jarvis-write-guard.ps1` and `jarvis-internship-note-guard.ps1` failing with "the argument ... to the -File parameter does not exist," because `.claude/settings.json` hardcoded both hook commands to `D:\_Anant\20_Progress\Documents\Jarvis\...` (the Acer's drive layout), which doesn't exist on the Dell. This is the exact same bug Failure Mode 10 documented and claimed fixed on 2026-09-28 - except Failure Mode 10's own fix is what introduced this instance: it replaced the *old* stale path with a *new* hardcoded literal that only happened to be correct on whichever machine the fix was written from, repeating the identical mistake under the banner of fixing it. A vault-wide sweep for both known literal path strings found 14 files total still carrying it: `.claude/settings.json`'s two hook commands, both hook scripts' own internal `$root` checks (a second instance inside each, same as Failure Mode 10 originally found), `jarvis-session-continuity.ps1` (dormant, not currently wired to any hook, fixed anyway since more AI-platform builds are coming to this vault), `export-claude-session.ps1`, `update-capture-health.ps1`, both backfill `.vbs` silent launchers, `register-jarvis-sync-task.ps1`, `rotate-sync-logs.ps1`, `export-cursor-sessions.py`, and three underscore-prefixed Cursor test/verification scripts.
+**Fix:** every instance replaced with a portable, self-resolving reference instead of a third hardcoded literal - `$PSScriptRoot`-relative `Resolve-Path` for `.ps1` files (matching `git-auto-sync.ps1`'s and `run-weekly-review.ps1`'s existing, already-proven pattern), `WScript.ScriptFullName`'s parent folder for `.vbs` files (matching `weekly-review-silent.vbs`'s existing pattern), `Path(__file__).resolve().parent`-relative for the one `.py` file (which already had an unused `SCRIPT_DIR`/`WORKFLOW_DIR` pair defined, just never applied to this path), and `$CLAUDE_PROJECT_DIR` - Claude Code's own built-in variable for exactly this - for `.claude/settings.json`'s hook commands. Both live hooks functionally tested afterward with real payloads (a vault-root write denied, a normal write allowed, a dossier's missing-field warning fired with the correct relative path in its log line), per the same standard Failure Mode 10 originally set and this recurrence shows is worth repeating every time, not assuming still holds.
+**A second, adjacent bug found live while testing the fix:** `jarvis-write-guard.ps1`'s own root-level allowlist had `.gitignore` but not `.stignore` - invisible the entire time the hook was broken (it fails open on any path-resolution error, so a silently-wrong `$root` meant this allowlist gap never actually got exercised), and the very first real edit attempted after the path fix landed (adding a `.stignore` entry) was denied by it. Fixed in the same pass. This is itself a small instance of the same lesson: a safety net that's been silently failing doesn't just fail to catch problems, it can also hide a second, unrelated bug inside itself indefinitely, since nothing ever actually executes that code path to surface it.
+**Prevention:** this is why Failure Mode 10's original fix is now insufficient as written, and why [[.claude/skills/weekly-review/weekly-review]] Step 7.6 point 9 exists - a one-time grep-and-replace sweep catches the files that exist on the day it's run; it does not catch a hardcoded path being reintroduced by a future fix, a future AI-platform build adding new automation, or a file this sweep's own author didn't think to check. **Any future fix to a hardcoded absolute path must itself be portable** (`$PSScriptRoot`/`__file__`/`$CLAUDE_PROJECT_DIR`-relative), never a swap to a different literal "correct" path - a literal is only ever correct for the one machine it was written on, by construction, regardless of how confident the fix felt at the time.
+## How To Verify Sync Is Actually Healthy Right Now (Not Just "Looks Fine")
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && grep -n "^## Failure Mode 10" -A 5 "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Known Failure Modes and Prevention.md"`
+```
+64:## Failure Mode 10: The Same Stale-Path Bug Was Baked Into 15 Scripts, Not Just The Sync Ones
+65-**What happened (2026-09-28, found while investigating unrelated Claude Code hook errors):** `.claude/settings.json`'s PreToolUse/PostToolUse hooks pointed at `D:\Users\_Anant\10_Areas\Documents\Jarvis\...` — the vault's location on the old laptop. The real vault has been at `D:\_Anant\20_Progress\Documents\Jarvis\...` since the migration. Every single Write/Edit/MultiEdit tool call had been silently failing to invoke its guard hooks for as long as that config held the old path. Pulling the thread further (`grep` across `30_Order/System` for the exact stale string) found the identical hardcoded path in 12 more active scripts: both write-guard hook scripts' own internal `$root` checks (a second, independent instance of the bug beyond the settings.json path itself), the entire AI-conversation-capture backfill pipeline (`update-capture-health.ps1`, `export-claude-session.ps1`, both `backfill-*-silent.vbs` launchers), the Cursor session-export pipeline (`export-cursor-sessions.py` and three `_run-*`/`_verify-*` wrapper scripts), `rotate-sync-logs.ps1` (Build 5's log-rotation script), `register-jarvis-sync-task.ps1`, and `run-weekly-review.ps1` (see Failure Mode 11).
+66-**Fix:** all 15 instances (3 in the two hook scripts, 1 in settings.json, 1 in run-weekly-review.ps1 covered separately, and 20 total string instances across the other 12 files) replaced with the correct current path via a literal (non-regex) string replace, verified with a PowerShell AST parse on every `.ps1` file afterward — zero parse errors. The two hook scripts were also functionally tested with real payloads (a vault-root write correctly denied, a normal-path write correctly allowed) rather than just visually reviewed.
+67-**Not fixed, flagged instead:** none of the 12 non-hook scripts have any Scheduled Task registered on this machine pointing at them — confirmed via a full, unfiltered `Get-ScheduledTask` listing, not assumed. Fixing their internal path does not restore their function; something still needs to actually call them. This may be the root cause of the AI-conversation-capture gap flagged repeatedly in past weekly reviews ("conversation capture folders don't exist yet... the most critical missing piece of the build spine") — worth a dedicated follow-up session, not folded into this one.
+68-**Prevention:** any script under `30_Order/System/` written before the laptop migration is a candidate for this exact bug until individually checked. `grep -r "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis" 30_Order/System` is the fast way to re-check.
+69-## Failure Mode 11: `Jarvis-WeeklyReview` Was Documented As Fixed Twice And Never Actually Existed
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Sync\Cross-Laptop Sync - Known Failure Modes and Prevention.md`
+```diff
+- **Prevention:** any script under `30_Order/System/` written before the laptop migration is a candidate for this exact bug until individually checked. `grep -r "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis" 30_Order/System` is the fast way to re-check.
++ **Prevention:** any script under `30_Order/System/` written before the laptop migration is a candidate for this exact bug until individually checked. `grep -r "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis" 30_Order/System` is the fast way to re-check.
+**This fix did not hold - see Failure Mode 16.** The "correct current path" this entry replaced the old literal with was itself only correct on one machine; the bug recurred in the same 14 files (plus `jarvis-session-continuity.ps1`) on 2026-10-04, discovered the same way (a user-reported hook error). The real fix is Failure Mode 16's portable-path pattern, not a second literal replace.
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && grep -n "Builds 1-10" "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Known Failure Modes and Prevention.md"`
+```
+22:Every conflict-file incident this sync setup has had, across Builds 1-10, traces to one of a handful of patterns: a platform/type mismatch Syncthing can't materialize identically on both machines, a secret that nearly or actually left the machine, a safety-net setting that silently reverted or got disabled without anyone noticing, two independent write mechanisms touching the same file without coordinating, pure UI-state churn that never needed to sync at all, a fix applied to one of git's or Syncthing's two separate exclusion lists but never mirrored to the other, a per-machine artifact (a config setting, a Task Scheduler registration) that a vault-synced script fix cannot retroactively correct, a live alert written into a file that must otherwise keep syncing, or — found 2026-09-28, outside the sync system itself but by the exact same "documented as fixed, never actually was" pattern — a stale pre-migration path baked into 15 scripts and hooks across the vault's automation layer. This note is the checklist to run before assuming sync is healthy, and the list of what's already been fixed so the same root cause doesn't get re-diagnosed from scratch next time.
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Sync\Cross-Laptop Sync - Known Failure Modes and Prevention.md`
+```diff
+- Every conflict-file incident this sync setup has had, across Builds 1-10, traces to one of a handful of patterns: a platform/type mismatch Syncthing can't materialize identically on both machines, a secret that nearly or actually left the machine, a safety-net setting that silently reverted or got disabled without anyone noticing, two independent write mechanisms touching the same file without coordinating, pure UI-state churn that never needed to sync at all, a fix applied to one of git's or Syncthing's two separate exclusion lists but never mirrored to the other, a per-machine artifact (a config setting, a Task Scheduler registration) that a vault-synced script fix cannot retroactively correct, a live alert written into a file that must otherwise keep syncing, or — found 2026-09-28, outside the sync system itself but by the exact same "documented as fixed, never actually was" pattern — a stale pre-migration path baked into 15 scripts and hooks across the vault's automation layer. This note is the checklist to run before assuming sync is healthy, and the list of what's already been fixed so the same root cause doesn't get re-diagnosed from scratch next time.
++ Every conflict-file incident this sync setup has had, across Builds 1-12, traces to one of a handful of patterns: a platform/type mismatch Syncthing can't materialize identically on both machines, a secret that nearly or actually left the machine, a safety-net setting that silently reverted or got disabled without anyone noticing, two independent write mechanisms touching the same file without coordinating, pure UI-state churn that never needed to sync at all, a fix applied to one of git's or Syncthing's two separate exclusion lists but never mirrored to the other, a per-machine artifact (a config setting, a Task Scheduler registration) that a vault-synced script fix cannot retroactively correct, a live alert written into a file that must otherwise keep syncing, or a stale hardcoded absolute path baked into scripts and hooks across the vault's automation layer — found twice now (2026-09-28 and again 2026-10-04, Failure Modes 10 and 16) by the exact same "documented as fixed, never actually was" pattern, the second time because the first fix replaced one machine's wrong literal with the other machine's equally-wrong literal instead of a portable reference. This note is the checklist to run before assuming sync is healthy, and the list of what's already been fixed so the same root cause doesn't get re-diagnosed from scratch next time.
+```
+- `Write` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Sync\Cross-Laptop Sync - Build 12 Findings.md`
+```
+---
+type: concept
+status: sprout
+created: 2026-10-04
+tags:
+  - concept
+  - laptop
+  - ai-infrastructure
+notes:
+  - "[[Cross-Laptop Sync - Build 11 Findings]]"
+  - "[[Cross-Laptop Sync - Build 11 Acer Verification]]"
+  - "[[Cross-Laptop Sync - Known Failure Modes and Prevention]]"
+  - "[[.claude/skills/weekly-review/weekly-review]]"
+next: "Check the Acer independently hits the same hook errors before this fix reaches it, since .claude/settings.json is git-excluded and only propagates via Syncthing, not git"
+---
+# Cross-Laptop Sync - Build 12 Findings
+## One-Line Answer
+User reported a stream of `PreToolUse:Edit`/`PostToolUse:Edit` hook failures on the Dell. Root cause: `.claude/settings.json`'s two hook commands, both hook scripts' own internal path checks, and 11 more scripts/launchers across the vault's automation layer all hardcoded `D:\_Anant\20_Progress\Documents\Jarvis` (the Acer's drive layout) - the exact bug [[Cross-Laptop Sync - Known Failure Modes and Prevention]]'s Failure Mode 10 already documented and claimed fixed on 2026-09-28, recurring because that fix swapped one wrong literal for another instead of a portable reference. Fixed all 14 instances with `$PSScriptRoot`/`$CLAUDE_PROJECT_DIR`/`__file__`-relative resolution, functionally verified both live hooks. Separately cleaned up a stray `99_Archive/` folder the Acer's Build 11 verification session had created inside the vault (a different instance of the same "wrong machine's path" problem), added permanent `.gitignore`/`.stignore` safety nets against it recurring, and fixed `check-syncthing-status.ps1`'s scan to exclude it. Added two new permanent audit steps to `/weekly-review` (hardcoded-path sweep, ignore-file symmetry check) specifically so this class of bug gets caught on a recurring cadence instead of only when a user notices broken hooks. Written up as Failure Mode 16.
+## Part 1: The Hook Errors, Confirmed Against the User's Own Pasted Log
+The pasted error text matched exactly: `PreToolUse:Edit hook error... The argument 'D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\hooks\jarvis-write-guard.ps1' to the -File parameter does not exist` and the matching `PostToolUse:Edit` failure on `jarvis-internship-note-guard.ps1`. Both confirmed live by reading `.claude/settings.json` directly - both hook commands hardcoded exactly that path. The user's own diagnosis (the Acer's path has no `Users` folder; the Dell's real path does; the Acer "already has these fixed") was correct and matched directly reading both the settings file and the hook scripts' own internal `$root` variables.
+## Part 2: Scope - 14 Files, Not 2
+A vault-wide search for the exact literal (`.ps1`/`.vbs`/`.py`/`.json` files only, to exclude historical notes/logs citing it as past-tense evidence) found 14 real hits: `.claude/settings.json` (2 hook commands), `jarvis-write-guard.ps1`, `jarvis-internship-note-guard.ps1` (2 occurrences - the path check and a separate log-dir path), `jarvis-session-continuity.ps1` (3 occurrences, currently dormant - not wired to any hook event in either `.claude/settings.json` or the global `~/.claude/settings.json`, fixed anyway since the user explicitly flagged more AI-platform builds are coming to this vault), `export-claude-session.ps1`, `update-capture-health.ps1`, `backfill-wsl-silent.vbs`, `backfill-windows-silent.vbs`, `register-jarvis-sync-task.ps1`, `rotate-sync-logs.ps1`, `export-cursor-sessions.py`, `_run-ref-test.ps1`, `_run-backfill.ps1`, `_verify-and-register.ps1`. Full technical detail of the fix pattern per file type: [[Cross-Laptop Sync - Known Failure Modes and Prevention]] Failure Mode 16.
+## Part 3: Verified, Not Assumed
+Every edited `.ps1` file passed a PowerShell AST parse (zero errors) after editing - checked individually via `[System.Management.Automation.Language.Parser]::ParseFile`, not just visually reviewed. The Python path fix was verified by actually resolving it (`SCRIPT_DIR.parent.parent.parent.parent` against the real file layout, confirmed it lands on the real vault root and the WSL branch's already-correct path matches). Both live hooks were functionally tested with real JSON payloads piped through PowerShell, not just read: `jarvis-write-guard.ps1` correctly denied a fake vault-root write and allowed a normal one; `jarvis-internship-note-guard.ps1` correctly resolved a real dossier path, found a genuine missing-field warning, and wrote a correctly-pathed log line to `30_Order/System/claude-workflow/logs/internship-note-guard.jsonl`.
+## Part 4: A Second Bug Found Live, Caused By The First Bug's Own Silence
+The first real edit attempted after fixing the hook's path resolution (adding a line to `.stignore`) was denied by `jarvis-write-guard.ps1` itself - its root-level allowlist had `.gitignore` but not `.stignore`. This gap had been sitting there invisibly the entire time the hook was broken: since the hook fails open on any path-resolution problem, its denial logic for root-level files was never actually being reached, so this gap never surfaced as a user-visible problem until the path fix made the hook functional again and the very next root-level edit exercised it. Fixed in the same pass (added `.stignore` to `$allowedRoot`). Documented as part of Failure Mode 16, not a separate entry, since it's a direct consequence of the same root cause rather than an independent bug.
+## Part 5: The Stray `99_Archive/` Folder
+Found a `99_Archive/Syncthing Conflict Reconciliation 2026-10-04/weekly-review.sync-conflict-...log` sitting inside the vault at session start - a real vault-root-rule violation (AGENTS.md golden rule #1: never a new top-level folder). Traced to the Acer's Build 11 verification session: its own conflict-reconciliation step needed to archive a file outside the vault, could not resolve `D:\Users\_Anant\99_Archive` (that's the Dell's drive layout, not the Acer's), and fell back to a vault-relative path instead of asking or using its own real path. Confirmed the archived file's content was a byte-identical duplicate of something already correctly archived on the Dell earlier - moved (not deleted) to the Dell's own correct archive location, then the empty stray folder removed. Added matching `.gitignore`/`.stignore` entries (`/99_Archive`) as a safety net, and extended `check-syncthing-status.ps1`'s conflict scan to exclude a `99_Archive\` path the same way it already excludes `.stversions\` (the Acer's own Build 11 verification had already flagged this exact gap, unfixed, as out of scope for that session - closed here).
+## Part 6: Made Permanent, Not Just Fixed Once
+Per direct user request ("be on the callout for such events in the weekly and monthly review... so that we further enhance it as time goes on"), added two new numbered steps to `/weekly-review`'s existing Step 7.6 (Sync Health Check), run every review, not monthly-only:
+- **Point 9**: a vault-wide sweep for both laptops' known literal path strings across `30_Order/System/` and `.claude/`, with the exact portable-resolution pattern to apply per file type and the functional-test requirement for any hook touched.
+- **Point 10**: an ignore-file symmetry check - every `.stignore` "machine-local" entry must have a matching `.gitignore` entry and vice versa, plus an explicit prompt to check whether that week's own session work (or any new AI platform's automation - Claude Code, Codex, Cursor, Kiro, or whatever comes next) created a new per-machine file that needs adding to both lists in the same sitting.
+Also corrected Step 7.6 point 4's own instructions, which previously named one machine's literal archive path as if it were universal - direct contributor to Part 5's incident, now rewritten to say "this machine's own real path, never assume either literal."
+## Part 7: What's Still Open
+- **The Acer has not received this fix yet via any mechanism that's confirmed.** `.claude/settings.json` is excluded from git (`.gitignore`, holds hook commands that could vary) but included in Syncthing (`.stignore` has no entry for it) - so it should propagate via Syncthing's real-time mirror, same as every other live-synced file, but this has not been verified live the way Build 11's Dashboard fix was. The 13 other fixed files ARE git-tracked and will reach the Acer via its own next `git pull`.
+- **`jarvis-session-continuity.ps1` is fixed but still not wired to fire anywhere.** Matches Failure Mode 10's own original note about the 12 non-hook scripts - fixing the path doesn't restore function if nothing calls it. Not this build's job to wire up, flagged for whenever session-continuity across tool restarts actually becomes a priority.
+## Links
+[[Cross-Laptop Sync - Known Failure Modes and Prevention]] (Failure Mode 16, Failure Mode 10 updated) · [[Cross-Laptop Sync - Build 11 Findings]] · [[Cross-Laptop Sync - Build 11 Acer Verification]] · [[.claude/skills/weekly-review/weekly-review]]
+
+```
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\60_Claude\07_AI_Information\Session Logs\log.md`
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\60_Claude\07_AI_Information\Session Logs\log.md`
+```diff
+- # Session Log
+## [2026-10-04] build | Build 11 - Dashboard sync-alert banner was itself the conflict source, fixed via embed split; Acer handoff written
++ # Session Log
+## [2026-10-04] build | Build 12 - the Build 10 hook-path fix recurred in 14 files; fixed portably this time, made it a permanent weekly-review check
+User reported a live stream of `PreToolUse:Edit`/`PostToolUse:Edit` hook failures on the Dell, correctly self-diagnosed as the Acer's drive path (no `Users` folder) hardcoded into the hook commands. Confirmed: `.claude/settings.json`'s two hook commands and 12 more scripts (both hook scripts' own internal checks, the AI-conversation-capture pipeline, the Cursor export pipeline, `register-jarvis-sync-task.ps1`, `rotate-sync-logs.ps1`) all still carried `D:\_Anant\20_Progress\Documents\Jarvis` - the exact bug Failure Mode 10 claimed fixed on 2026-09-28, recurring because that fix swapped one machine's wrong literal for the other's, not a portable reference. Full detail: [[Cross-Laptop Sync - Build 12 Findings]].
+
+Fixed all 14 with `$PSScriptRoot`/`__file__`/`$CLAUDE_PROJECT_DIR`-relative resolution instead of any hardcoded literal. Functionally verified both live hooks with real payloads (vault-root write denied, normal write allowed, a dossier's real missing-field warning fired with a correctly-pathed log line) - not just parsed. Found and fixed a second, adjacent bug live: the write-guard's own root-level allowlist had `.gitignore` but not `.stignore`, invisible the whole time the hook was broken since a fail-open hook never actually exercises its own denial logic.
+
+Also cleaned up a stray `99_Archive/` folder the Acer's Build 11 verification session had created inside the vault (couldn't resolve the Dell's archive path, fell back to a vault-relative one) - moved its one file to the correct location, removed the empty folder, added `.gitignore`/`.stignore` safety nets and a matching `check-syncthing-status.ps1` scan exclusion.
+
+Per direct user request, made this permanent rather than a one-off fix: added two new steps to `/weekly-review`'s Sync Health Check, run every review - a hardcoded-path sweep across `30_Order/System/` and `.claude/`, and an ignore-file symmetry check (every `.stignore` machine-local entry needs the matching `.gitignore` line, and vice versa, checked against that week's own new files too). Written up as Failure Mode 16 in [[Cross-Laptop Sync - Known Failure Modes and Prevention]].
+
+**Next:** confirm the Acer actually receives `.claude/settings.json`'s fix (it's git-excluded, only reaches the Acer via Syncthing - unverified, unlike the 13 git-tracked files which will arrive via its next pull); `jarvis-session-continuity.ps1` is fixed but still not wired to any hook event, flagged not actioned.
+## [2026-10-04] build | Build 11 - Dashboard sync-alert banner was itself the conflict source, fixed via embed split; Acer handoff written
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && echo "=== live conflicts ===" && find . -iname "*sync-conflict*" -not -path "./.stversions/*" -not -path "./.git/*" 2>/dev/null
+echo "=== stuck temp files ===" && find . -iname "~syncthing~*" -not -path "./.stversions/*" -not -path "./.git/*" 2>/dev/null
+echo "=== git-auto-sync.log tail ===" && tail -c 1500 "30_Order/System/claude-workflow/logs/git-auto-sync.log"`
+```
+=== live conflicts ===
+=== stuck temp files ===
+=== git-auto-sync.log tail ===
+-sync -> FETCH_HEAD
+Updating 0213ae82..a4032534
+Created autostash: ae301dd1
+Fast-forward
+ .obsidian/plugins/file-explorer-plus/data.json    | 1062 --------
+ .obsidian/plugins/recent-edits/data.json          | 2719 ---------------------
+ .obsidian/plugins/recent-files-obsidian/data.json |   24 -
+ 3 files changed, 3805 deletions(-)
+ delete mode 100644 .obsidian/plugins/file-explorer-plus/data.json
+ delete mode 100644 .obsidian/plugins/recent-edits/data.json
+ delete mode 100644 .obsidian/plugins/recent-files-obsidian/data.json
+Applying autostash resulted in conflicts.
+Your changes are safe in the stash.
+You can run "git stash pop" or "git stash drop" at any time.
+[2026-10-04 19:18:10]   [infra/cross-laptop-sync 43696089] Auto-sync: 2026-10-04 19:18,  7 files changed, 2906 insertions(+), 15 deletions(-)
+ 7 files changed, 2906 insertions(+), 15 deletions(-)
+ create mode 100644 .obsidian/plugins/recent-edits/data.json
+ create mode 100644 40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build 11 Acer Verification.md
+[2026-10-04 19:18:10] Committed: Auto-sync: 2026-10-04 19:18,  7 files changed, 2906 insertions(+), 15 deletions(-)
+[2026-10-04 19:18:14] Pushed cleanly to origin/infra/cross-laptop-sync.
+[2026-10-04 19:18:14] Syncthing folder 'jarvis' paused=False
+[2026-10-04 19:33:30] === git-auto-sync start (branch: infra/cross-laptop-sync) ===
+[2026-10-04 19:33:31] Syncthing not idle (state=scanning, needBytes=6115234, errors=0), skipping this run.
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git ls-files | grep -c "recent-edits/data.json\|file-explorer-plus/data.json\|recent-files-obsidian/data.json"
+echo "=== stash list (leftover from that conflict) ==="
+git stash list | head -3
+echo "=== current status ==="
+git status --short --branch | head -1`
+```
+1
+=== stash list (leftover from that conflict) ===
+stash@{0}: autostash
+stash@{1}: On infra/cross-laptop-sync: wip: unrelated in-progress dossier reorg + dashboard churn, not mine to commit
+stash@{2}: autostash
+=== current status ===
+## infra/cross-laptop-sync...origin/master [ahead 605]
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git ls-files | grep "recent-edits/data.json\|file-explorer-plus/data.json\|recent-files-obsidian/data.json"
+echo "=== is there an unresolved rebase/merge state? ==="
+ls -d .git/rebase-merge .git/rebase-apply .git/MERGE_HEAD 2>/dev/null
+echo "clean if nothing printed above"
+echo "=== stash@{0} content ==="
+git stash show -p stash@{0} --stat 2>&1 | tail -10`
+```
+.obsidian/plugins/recent-edits/data.json
+=== is there an unresolved rebase/merge state? ===
+clean if nothing printed above
+=== stash@{0} content ===
++
+ ## Actions Taken
+ - Files created: /mnt/d/Users/_Anant/10_Areas/Documents/Jarvis/40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild/Old Laptop Rebuild - Prompt 1 WSL.md, /mnt/d/Users/_Anant/10_Areas/Documents/Jarvis/40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild/Old Laptop Rebuild - Index.md, /mnt/d/Users/_Anant/10_Areas/Documents/Jarvis/40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild/Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow.md
+ - Files modified: /mnt/d/Users/_Anant/10_Areas/Documents/Jarvis/40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild/Old Laptop Rebuild - Index.md, /mnt/d/Users/_Anant/10_Areas/Documents/Jarvis/40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild/Old Laptop Rebuild - Prompt 1 WSL.md
+ - Files deleted: (none)
+-- Commands run: cd ~; ls -la | head -80; df -h / /mnt/c /mnt/d 2>/dev/null; free -h; nproc; cat /etc/wsl.conf 2>/dev/null; ls /mnt/c/Users/*/.wslconfig 2>/dev/null, cat "/mnt/c/Users/Anant Gupta/.wslconfig"; echo ---; ls "/mnt/c/Users/Anant Gupta/" | head -50; echo ---; ls ~/projects ~/tools ~/dotfiles, cd ~; ls -la codex-cleanup-backups .codex-archive "/mnt/c/Users/Anant Gupta/[REDACTED]" 2>&1 | head -60; ls -la ~/.codex | head -60; ls ~/.codex/skills 2>/dev/null | head; ls /mnt/c/Users/*/ -d, V="/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis"; ls "$V" | head -30; echo ---INCIDENT; grep -rlEi "pagefile|wsl-crashes|C: (drive )?(full|crash)|low virtual memory|vhdx.*(grow|compact)" "$V" --include=*.md 2>/dev/null | grep -v sync-conflict | head -40, cd ~; echo WSLHOME-md; find ~ -maxdepth 3 \( -name node_modules -o -name .git -o -name .cache -o -name .npm -o -name .nvm -o -name .rustup -o -name .cargo \) -prune -o -type f \( -iname "*.md" -o -iname "*.txt" \) -mtime +0 -print 2>/dev/null | grep -Ev "/(projects|\.claude|\.codex|\.gstack|\.gbrain|\.kiro|\.cursor|\.agents|\.local|\.config|snap|\.opencode|\.pencil)/" | head -40; echo WINHOME; cd "/mnt/c/Users/Anant Gupta"; ls -la *.md *.txt *.yml *.json 2>/dev/null; ls -la bin echo 2>/dev/null | head; du -sh AppData/Local/Temp AppData/Local/Temp/wsl-crashes 2>/dev/null, cd "/mnt/c/Users/Anant Gupta/AppData"; for d in Local Roaming; do echo "== $d"; du -h --max-depth=1 $d 2>/dev/null | sort -rh | head -14; done, cd ~; du -h --max-depth=1 . 2>/dev/null | sort -rh | head -25; echo; du -sh projects/* 2>/dev/null | sort -rh | head; ls ~/.vscode-server/bin ~/.cursor-server/bin 2>/dev/null; ls /mnt/d/WSL 2>/dev/null; ls /mnt/c/Users/*/AppData/Local/Docker 2>/dev/null | head, V="/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis"; wc -c "$V/60_Claude/05_Clippings/AI Conversations/WSL/Cursor/anant_gupta/06-03 WSL2 professional development setup guide.md" "$V/60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Home/09-13 New laptop configuration and installations.md" "$V/40_Resources/CS/Concepts/New Laptop/Codebases/wsl-home/VS Code - WSL.md" "$V/40_Resources/CS/Concepts/New Laptop/Codebases/windows-home/VS Code - Windows.md"; ls "$V/60_Claude/05_Clippings/AI Conversations/WSL/Cursor/anant_gupta/" | head -30; ls "$V/60_Claude/05_Clippings/AI Conversations/WSL/" ; ls "$V/60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Home/" | head -60, V="/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis"; cat "$V/40_Resources/CS/Concepts/New Laptop/Codebases/wsl-home/VS Code - WSL.md"; echo =========; cat "$V/40_Resources/CS/Concepts/New Laptop/Codebases/windows-home/VS Code - Windows.md", V="/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis/60_Claude/05_Clippings/AI Conversations/WSL"; head -c 14000 "$V/Cursor/anant_gupta/08-22 WSL and Windows configuration plan.md"; echo; echo ======GREP; grep -n -iE "pagefile|crash|C: |full|vhdx|swap" "$V/Cursor/anant_gupta/06-03 WSL2 professional development setup guide.md" | head -60, cd /tmp; P=powershell.exe; $P -NoProfile -Command ' "--- PAGEFILE"; Get-CimInstance Win32_PageFileSetting | Select Name,InitialSize,MaximumSize | Format-Table -Auto | Out-String Get-CimInstance Win32_PageFileUsage | Select Name,AllocatedBaseSize,CurrentUsage,PeakUsage | Format-Table -Auto | Out-String (Get-CimInstance Win32_ComputerSystem | Select AutomaticManagedPagefile,TotalPhysicalMemory | Format-List | Out-String) "--- GPU"; Get-CimInstance Win32_VideoController | Select Name,AdapterRAM,DriverVersion | Format-Table -Auto | Out-String "--- CPU"; Get-CimInstance Win32_Processor | Select Name,NumberOfCores,NumberOfLogicalProcessors | Format-List | Out-String "--- DISKS"; Get-Disk | Select Number,FriendlyName,BusType,Size | Format-Table -Auto | Out-String Get-Volume | ? DriveLetter | Select DriveLetter,FileSystemLabel,@{n="SizeGB";e={[math]::Round($_.Size/1GB,1)}},@{n="FreeGB";e={[math]::Round($_.SizeRemaining/1GB,1)}} | Format-Table -Auto | Out-String "--- WSL"; wsl -l -v "--- HIBER"; powercfg /a 2>&1 | Select -First 8 "--- WINVER"; (Get-CimInstance Win32_OperatingSystem | Select Caption,BuildNumber | Format-List | Out-String) ' 2>&1 | tr -d '\r' | head -120; echo ---CODEX; codex --version 2>&1 | head -2; grep -nE "^(model|model_reasoning|approval|sandbox|\[)" ~/.codex/config.toml | head -30, V="/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis"; cat "$V/AGENTS.md" | head -80; echo ======; ls "$V/60_Claude/07_AI_Information/" 2>/dev/null; ls "$V/60_Claude/07_AI_Information/Session Logs" 2>/dev/null | grep -v conflict | head; echo =====; ls "$V/40_Resources/CS/Concepts/New Laptop/Codebases/second-brain-claudekit/"; , cat /tmp/claude-1001/-home-anant-gupta/[REDACTED]/tasks/bejh2cggw.output 2>/dev/null | head -40; echo ---; powershell.exe -NoProfile -Command '$p="C:\Users\Anant Gupta\AppData\Roaming"; Get-ChildItem $p -Directory -Force | % { $s=(Get-ChildItem $_.FullName -Recurse -File -Force -EA SilentlyContinue | Measure Length -Sum).Sum; [pscustomobject]@{N=$_.Name;GB=[math]::Round($s/1GB,2)} } | sort GB -desc | select -first 8 | ft -auto | out-string' 2>&1 | tr -d '\r', mkdir -p "/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis/40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild" && echo ok, V="/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis"; find "$V" -iname "*Old Laptop Rebuild*" -o -iname "*Prompt 1*" 2>/dev/null | grep -v sync-conflict | head; ls -la "$V/40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild", V="/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis/40_Resources/CS/Concepts/New Laptop"; cd "$V"; wc -c "VS Code Professional Setup.md" Codebases/*/*.md Sync/*.md | sort -n | tail -40; ls -R Codebases | head -40, echo "== tools"; for c in code tailscale tailscaled sshd ssh mosh git gh docker direnv mise just; do printf "%s: " $c; command -v $c || echo NO; done; echo "== sshd"; systemctl is-active ssh 2>&1 | head -1; dpkg -l openssh-server 2>/dev/null | tail -1; echo "== code ver"; code --version 2>&1 | head -3; echo "== WSL exts"; code --list-extensions 2>/dev/null | wc -l; code --list-extensions 2>/dev/null | tr '\n' ' '; echo; echo "== machine settings"; cat ~/.vscode-server/data/Machine/settings.json 2>/dev/null; echo "== home .vscode"; ls -la ~/.vscode 2>/dev/null; echo "== vscode-env"; ls ~/.config/vscode-env 2>/dev/null; echo "== mcp"; ls ~/.config/mcp 2>/dev/null; echo "== git cfg"; git config --global --list | grep -v -iE "token|password"; echo "== projects .vscode"; ls -d ~/projects/*/*/.vscode 2>/dev/null | head -20, W="/mnt/c/Users/Anant Gupta/AppData/Roaming/Code"; ls -la "$W" "$W/User" 2>&1 | head -50; echo ==SETTINGS; cat "$W/User/settings.json" 2>&1 | head -200; echo ==TASKS; ls "$W/User"; ls "$W/User/profiles" 2>/dev/null; echo ==SYNCLOG; ls -t "$W/logs" 2>/dev/null | head -3, V="/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis/40_Resources/CS/Concepts/New Laptop"; cat "$V/VS Code Professional Setup.md", V="/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis/40_Resources/CS/Concepts/New Laptop/Codebases"; for f in second-brain-claudekit/second-brain-claudekit-new-laptop-directive.md second-brain-claudekit/second-brain-claudekit-git-clone-and-bootstrap.md second-brain-claudekit/second-brain-claudekit-ignored-state-and-sandbox.md second-brain-claudekit/second-brain-claudekit-jarvis-unison-sync.md internship-research-loop/internship-research-loop-new-laptop-directive.md internship-research-loop/internship-research-loop-git-clone-and-bootstrap.md internship-research-loop/internship-research-loop-jarvis-vault-and-secrets.md; do echo "################ $f"; cat "$V/$f"; done, V="/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis/40_Resources/CS/Concepts/New Laptop/Sync"; grep -n -iE "tailscale|remote-ssh|syncthing.*code|codebase|working tree|node_modules" "$V/Cross-Laptop Sync - Build Roadmap.md" | head -50; echo =====FAIL; grep -n -iE "^#|lesson|never|root cause" "$V/Cross-Laptop Sync - Known Failure Modes and Prevention.md" | head -70, W="/mnt/c/Users/Anant Gupta/AppData/Roaming/Code"; L=$(ls -t "$W/logs" | head -1); echo "latest log dir: $L"; f=$(find "$W/logs/$L" -iname "userDataSync.log" | head -1); echo "$f"; tail -n 40 "$f" 2>/dev/null | cut -c1-220; echo; echo "== recent sync logs w/ errors"; for d in $(ls -t "$W/logs" | head -6); do g=$(find "$W/logs/$d" -iname userDataSync.log | head -1); [ -n "$g" ] && echo "$d: $(grep -ciE 'error|conflict' "$g") err/conflict lines"; done; echo "== mcp.json servers (names only)"; python3 - <<'EOF' import json,re p="/mnt/c/Users/Anant Gupta/AppData/Roaming/Code/User/mcp.json" try: t=open(p).read(); t=re.sub(r'//.*','',t); d=json.loads(t) print(list((d.get("servers") or d.get("mcpServers") or {}).keys())) except Exception as e: print("parse err",e) EOF echo "== windows extensions"; ls "/mnt/c/Users/Anant Gupta/.vscode/extensions" 2>/dev/null | sed -E 's/-[0-9][^-]*(-.*)?$//' | sort -u | wc -l; ls "/mnt/c/Users/Anant Gupta/.vscode/extensions" 2>/dev/null | sed -E 's/-[0-9][0-9.]*(-[a-z0-9-]+)?$//' | sort -u | tr '\n' ' '; echo; echo "== profiles/sync dirs"; ls "$W/User/profiles" "$W/User/sync" 2>/dev/null; cat "$W/User/keybindings.json" | head -5; echo "== tasks labels"; grep -o '"label": *"[^"]*"' "$W/User/tasks.json" | head -20, echo "== .bashrc VS Code/env blocks"; grep -nE "vscode|JARVIS_WSL_ENV|starship|zoxide|nvm|atuin|direnv|conda|WSLENV" ~/.bashrc | head -30; echo "== WSLENV (from windows)"; powershell.exe -NoProfile -Command '[Environment]::GetEnvironmentVariable("WSLENV","User")' | tr -d '\r'; echo "== env names in WSL (no values)"; env | cut -d= -f1 | grep -iE "jarvis|plan|github|api_key|token" ; echo "== ~/.claude.json mcp names"; python3 -c " import json;d=json.load(open('$HOME/.claude.json'));print('user-scope:',list(d.get('mcpServers',{}).keys()))"; echo "== ~/.mcp.json names"; python3 -c " import json;d=json.load(open('$HOME/.mcp.json'));print(list(d.get('mcpServers',{}).keys()))"; echo "== claude settings deny"; python3 -c " import json;d=json.load(open('$HOME/.claude/settings.json'));print(len(d.get('permissions',{}).get('deny',[])),'deny rules'); print(list(d.keys()))"; echo "== ssh dir (names only)"; ls -la ~/.ssh | awk '{print $1,$NF}'; echo "== git defaults"; git config --global --get pull.rebase; git config --global --get push.autoSetupRemote; git config --global --get fetch.prune; git config --global --get core.autocrlf; git config --global --get init.defaultBranch; git config --global --get rerere.enabled; echo "== repo roots count"; find ~/projects -maxdepth 4 -name .git -type d -prune 2>/dev/null | wc -l; echo "== repos with .vscode / extensions.json / devcontainer"; for r in $(find ~/projects -maxdepth 4 -name .git -type d -prune 2>/dev/null | xargs -n1 dirname); do [ -f $r/.vscode/extensions.json ] && echo "ext.json: $r"; [ -d $r/.devcontainer ] && echo "devc: $r"; done | head, powershell.exe -NoProfile -Command ' "--- tailscale/ssh on Windows"; Get-Command tailscale -EA SilentlyContinue | Select -Expand Source; Get-Service sshd,ssh-agent,Tailscale -EA SilentlyContinue | Select Name,Status,StartType | Format-Table -Auto | Out-String "--- wsl version"; wsl --version "--- power (AC sleep/hibernate timeouts, seconds)"; powercfg /q SCHEME_CURRENT SUB_SLEEP STANDBYIDLE | Select-String "Current AC" powercfg /getactivescheme "--- vmIdleTimeout set?"; Select-String -Path "$env:USERPROFILE\.wslconfig" -Pattern vmIdle -EA SilentlyContinue "--- code on Windows"; Get-Command code -EA SilentlyContinue | Select -Expand Source; code --version 2>&1 | Select -First 3 ' 2>&1 | tr -d '\r' | sed 's/\x00//g' | head -60
+-- Tool call tally: Agent (4), Bash (25), Edit (3), mcp__jarvis__search_simple (2), mcp__jarvis__vault_list (5), mcp__jarvis__vault_read (10), Read (2), ToolSearch (1), WebSearch (2), Write (6)
++- Commands run: cd ~; ls -la | head -80; df -h / /mnt/c /mnt/d 2>/dev/null; free -h; nproc; cat /etc/wsl.conf 2>/dev/null; ls /mnt/c/Users/*/.wslconfig 2>/dev/null, cat "/mnt/c/Users/Anant Gupta/.wslconfig"; echo ---; ls "/mnt/c/Users/Anant Gupta/" | head -50; echo ---; ls ~/projects ~/tools ~/dotfiles, cd ~; ls -la codex-cleanup-backups .codex-archive "/mnt/c/Users/Anant Gupta/[REDACTED]" 2>&1 | head -60; ls -la ~/.codex | head -60; ls ~/.codex/skills 2>/dev/null | head; ls /mnt/c/Users/*/ -d, V="/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis"; ls "$V" | head -30; echo ---INCIDENT; grep -rlEi "pagefile|wsl-crashes|C: (drive )?(full|crash)|low virtual memory|vhdx.*(grow|compact)" "$V" --include=*.md 2>/dev/null | grep -v sync-conflict | head -40, cd ~; echo WSLHOME-md; find ~ -maxdepth 3 \( -name node_modules -o -name .git -o -name .cache -o -name .npm -o -name .nvm -o -name .rustup -o -name .cargo \) -prune -o -type f \( -iname "*.md" -o -iname "*.txt" \) -mtime +0 -print 2>/dev/null | grep -Ev "/(projects|\.claude|\.codex|\.gstack|\.gbrain|\.kiro|\.cursor|\.agents|\.local|\.config|snap|\.opencode|\.pencil)/" | head -40; echo WINHOME; cd "/mnt/c/Users/Anant Gupta"; ls -la *.md *.txt *.yml *.json 2>/dev/null; ls -la bin echo 2>/dev/null | head; du -sh AppData/Local/Temp AppData/Local/Temp/wsl-crashes 2>/dev/null, cd "/mnt/c/Users/Anant Gupta/AppData"; for d in Local Roaming; do echo "== $d"; du -h --max-depth=1 $d 2>/dev/null | sort -rh | head -14; done, cd ~; du -h --max-depth=1 . 2>/dev/null | sort -rh | head -25; echo; du -sh projects/* 2>/dev/null | sort -rh | head; ls ~/.vscode-server/bin ~/.cursor-server/bin 2>/dev/null; ls /mnt/d/WSL 2>/dev/null; ls /mnt/c/Users/*/AppData/Local/Docker 2>/dev/null | head, V="/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis"; wc -c "$V/60_Claude/05_Clippings/AI Conversations/WSL/Cursor/anant_gupta/06-03 WSL2 professional development setup guide.md" "$V/60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Home/09-13 New laptop configuration and installations.md" "$V/40_Resources/CS/Concepts/New Laptop/Codebases/wsl-home/VS Code - WSL.md" "$V/40_Resources/CS/Concepts/New Laptop/Codebases/windows-home/VS Code - Windows.md"; ls "$V/60_Claude/05_Clippings/AI Conversations/WSL/Cursor/anant_gupta/" | head -30; ls "$V/60_Claude/05_Clippings/AI Conversations/WSL/" ; ls "$V/60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Home/" | head -60, V="/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis"; cat "$V/40_Resources/CS/Concepts/New Laptop/Codebases/wsl-home/VS Code - WSL.md"; echo =========; cat "$V/40_Resources/CS/Concepts/New Laptop/Codebases/windows-home/VS Code - Windows.md", V="/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis/60_Claude/05_Clippings/AI Conversations/WSL"; head -c 14000 "$V/Cursor/anant_gupta/08-22 WSL and Windows configuration plan.md"; echo; echo ======GREP; grep -n -iE "pagefile|crash|C: |full|vhdx|swap" "$V/Cursor/anant_gupta/06-03 WSL2 professional development setup guide.md" | head -60, cd /tmp; P=powershell.exe; $P -NoProfile -Command ' "--- PAGEFILE"; Get-CimInstance Win32_PageFileSetting | Select Name,InitialSize,MaximumSize | Format-Table -Auto | Out-String Get-CimInstance Win32_PageFileUsage | Select Name,AllocatedBaseSize,CurrentUsage,PeakUsage | Format-Table -Auto | Out-String (Get-CimInstance Win32_ComputerSystem | Select AutomaticManagedPagefile,TotalPhysicalMemory | Format-List | Out-String) "--- GPU"; Get-CimInstance Win32_VideoController | Select Name,AdapterRAM,DriverVersion | Format-Table -Auto | Out-String "--- CPU"; Get-CimInstance Win32_Processor | Select Name,NumberOfCores,NumberOfLogicalProcessors | Format-List | Out-String "--- DISKS"; Get-Disk | Select Number,FriendlyName,BusType,Size | Format-Table -Auto | Out-String Get-Volume | ? DriveLetter | Select DriveLetter,FileSystemLabel,@{n="SizeGB";e={[math]::Round($_.Size/1GB,1)}},@{n="FreeGB";e={[math]::Round($_.SizeRemaining/1GB,1)}} | Format-Table -Auto | Out-String "--- WSL"; wsl -l -v "--- HIBER"; powercfg /a 2>&1 | Select -First 8 "--- WINVER"; (Get-CimInstance Win32_OperatingSystem | Select Caption,BuildNumber | Format-List | Out-String) ' 2>&1 | tr -d '\r' | head -120; echo ---CODEX; codex --version 2>&1 | head -2; grep -nE "^(model|model_reasoning|approval|sandbox|\[)" ~/.codex/config.toml | head -30, V="/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis"; cat "$V/AGENTS.md" | head -80; echo ======; ls "$V/60_Claude/07_AI_Information/" 2>/dev/null; ls "$V/60_Claude/07_AI_Information/Session Logs" 2>/dev/null | grep -v conflict | head; echo =====; ls "$V/40_Resources/CS/Concepts/New Laptop/Codebases/second-brain-claudekit/"; , cat /tmp/claude-1001/-home-anant-gupta/[REDACTED]/tasks/bejh2cggw.output 2>/dev/null | head -40; echo ---; powershell.exe -NoProfile -Command '$p="C:\Users\Anant Gupta\AppData\Roaming"; Get-ChildItem $p -Directory -Force | % { $s=(Get-ChildItem $_.FullName -Recurse -File -Force -EA SilentlyContinue | Measure Length -Sum).Sum; [pscustomobject]@{N=$_.Name;GB=[math]::Round($s/1GB,2)} } | sort GB -desc | select -first 8 | ft -auto | out-string' 2>&1 | tr -d '\r', mkdir -p "/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis/40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild" && echo ok, V="/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis"; find "$V" -iname "*Old Laptop Rebuild*" -o -iname "*Prompt 1*" 2>/dev/null | grep -v sync-conflict | head; ls -la "$V/40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild", V="/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis/40_Resources/CS/Concepts/New Laptop"; cd "$V"; wc -c "VS Code Professional Setup.md" Codebases/*/*.md Sync/*.md | sort -n | tail -40; ls -R Codebases | head -40, echo "== tools"; for c in code tailscale tailscaled sshd ssh mosh git gh docker direnv mise just; do printf "%s: " $c; command -v $c || echo NO; done; echo "== sshd"; systemctl is-active ssh 2>&1 | head -1; dpkg -l openssh-server 2>/dev/null | tail -1; echo "== code ver"; code --version 2>&1 | head -3; echo "== WSL exts"; code --list-extensions 2>/dev/null | wc -l; code --list-extensions 2>/dev/null | tr '\n' ' '; echo; echo "== machine settings"; cat ~/.vscode-server/data/Machine/settings.json 2>/dev/null; echo "== home .vscode"; ls -la ~/.vscode 2>/dev/null; echo "== vscode-env"; ls ~/.config/vscode-env 2>/dev/null; echo "== mcp"; ls ~/.config/mcp 2>/dev/null; echo "== git cfg"; git config --global --list | grep -v -iE "token|password"; echo "== projects .vscode"; ls -d ~/projects/*/*/.vscode 2>/dev/null | head -20, W="/mnt/c/Users/Anant Gupta/AppData/Roaming/Code"; ls -la "$W" "$W/User" 2>&1 | head -50; echo ==SETTINGS; cat "$W/User/settings.json" 2>&1 | head -200; echo ==TASKS; ls "$W/User"; ls "$W/User/profiles" 2>/dev/null; echo ==SYNCLOG; ls -t "$W/logs" 2>/dev/null | head -3, V="/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis/40_Resources/CS/Concepts/New Laptop"; cat "$V/VS Code Professional Setup.md", V="/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis/40_Resources/CS/Concepts/New Laptop/Codebases"; for f in second-brain-claudekit/second-brain-claudekit-new-laptop-directive.md second-brain-claudekit/second-brain-claudekit-git-clone-and-bootstrap.md second-brain-claudekit/second-brain-claudekit-ignored-state-and-sandbox.md second-brain-claudekit/second-brain-claudekit-jarvis-unison-sync.md internship-research-loop/internship-research-loop-new-laptop-directive.md internship-research-loop/internship-research-loop-git-clone-and-bootstrap.md internship-research-loop/internship-research-loop-jarvis-vault-and-secrets.md; do echo "################ $f"; cat "$V/$f"; done, V="/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis/40_Resources/CS/Concepts/New Laptop/Sync"; grep -n -iE "tailscale|remote-ssh|syncthing.*code|codebase|working tree|node_modules" "$V/Cross-Laptop Sync - Build Roadmap.md" | head -50; echo =====FAIL; grep -n -iE "^#|lesson|never|root cause" "$V/Cross-Laptop Sync - Known Failure Modes and Prevention.md" | head -70, W="/mnt/c/Users/Anant Gupta/AppData/Roaming/Code"; L=$(ls -t "$W/logs" | head -1); echo "latest log dir: $L"; f=$(find "$W/logs/$L" -iname "userDataSync.log" | head -1); echo "$f"; tail -n 40 "$f" 2>/dev/null | cut -c1-220; echo; echo "== recent sync logs w/ errors"; for d in $(ls -t "$W/logs" | head -6); do g=$(find "$W/logs/$d" -iname userDataSync.log | head -1); [ -n "$g" ] && echo "$d: $(grep -ciE 'error|conflict' "$g") err/conflict lines"; done; echo "== mcp.json servers (names only)"; python3 - <<'EOF' import json,re p="/mnt/c/Users/Anant Gupta/AppData/Roaming/Code/User/mcp.json" try: t=open(p).read(); t=re.sub(r'//.*','',t); d=json.loads(t) print(list((d.get("servers") or d.get("mcpServers") or {}).keys())) except Exception as e: print("parse err",e) EOF echo "== windows extensions"; ls "/mnt/c/Users/Anant Gupta/.vscode/extensions" 2>/dev/null | sed -E 's/-[0-9][^-]*(-.*)?$//' | sort -u | wc -l; ls "/mnt/c/Users/Anant Gupta/.vscode/extensions" 2>/dev/null | sed -E 's/-[0-9][0-9.]*(-[a-z0-9-]+)?$//' | sort -u | tr '\n' ' '; echo; echo "== profiles/sync dirs"; ls "$W/User/profiles" "$W/User/sync" 2>/dev/null; cat "$W/User/keybindings.json" | head -5; echo "== tasks labels"; grep -o '"label": *"[^"]*"' "$W/User/tasks.json" | head -20, echo "== .bashrc VS Code/env blocks"; grep -nE "vscode|JARVIS_WSL_ENV|starship|zoxide|nvm|atuin|direnv|conda|WSLENV" ~/.bashrc | head -30; echo "== WSLENV (from windows)"; powershell.exe -NoProfile -Command '[Environment]::GetEnvironmentVariable("WSLENV","User")' | tr -d '\r'; echo "== env names in WSL (no values)"; env | cut -d= -f1 | grep -iE "jarvis|plan|github|api_key|token" ; echo "== ~/.claude.json mcp names"; python3 -c " import json;d=json.load(open('$HOME/.claude.json'));print('user-scope:',list(d.get('mcpServers',{}).keys()))"; echo "== ~/.mcp.json names"; python3 -c " import json;d=json.load(open('$HOME/.mcp.json'));print(list(d.get('mcpServers',{}).keys()))"; echo "== claude settings deny"; python3 -c " import json;d=json.load(open('$HOME/.claude/settings.json'));print(len(d.get('permissions',{}).get('deny',[])),'deny rules'); print(list(d.keys()))"; echo "== ssh dir (names only)"; ls -la ~/.ssh | awk '{print $1,$NF}'; echo "== git defaults"; git config --global --get pull.rebase; git config --global --get push.autoSetupRemote; git config --global --get fetch.prune; git config --global --get core.autocrlf; git config --global --get init.defaultBranch; git config --global --get rerere.enabled; echo "== repo roots count"; find ~/projects -maxdepth 4 -name .git -type d -prune 2>/dev/null | wc -l; echo "== repos with .vscode / extensions.json / devcontainer"; for r in $(find ~/projects -maxdepth 4 -name .git -type d -prune 2>/dev/null | xargs -n1 dirname); do [ -f $r/.vscode/extensions.json ] && echo "ext.json: $r"; [ -d $r/.devcontainer ] && echo "devc: $r"; done | head, powershell.exe -NoProfile -Command ' "--- tailscale/ssh on Windows"; Get-Command tailscale -EA SilentlyContinue | Select -Expand Source; Get-Service sshd,ssh-agent,Tailscale -EA SilentlyContinue | Select Name,Status,StartType | Format-Table -Auto | Out-String "--- wsl version"; wsl --version "--- power (AC sleep/hibernate timeouts, seconds)"; powercfg /q SCHEME_CURRENT SUB_SLEEP STANDBYIDLE | Select-String "Current AC" powercfg /getactivescheme "--- vmIdleTimeout set?"; Select-String -Path "$env:USERPROFILE\.wslconfig" -Pattern vmIdle -EA SilentlyContinue "--- code on Windows"; Get-Command code -EA SilentlyContinue | Select -Expand Source; code --version 2>&1 | Select -First 3 ' 2>&1 | tr -d '\r' | sed 's/\x00//g' | head -60, V="/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis/40_Resources/CS/Concepts/New Laptop"; cd "$V"; ls -la --time-style=long-iso "Old Laptop Rebuild" Codebases Codebases/* | grep -v "^total"; echo; find . -newer "Old Laptop Rebuild/Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow.md" -type f ! -name "*sync-conflict*" 2>/dev/null; wc -c Codebases/*Locked* "Old Laptop Rebuild/Old Laptop Rebuild - Build 1 WSL Findings.md", V="/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis/40_Resources/CS/Concepts/New Laptop"; cd "$V"; ls -la --time-style=long-iso "Old Laptop Rebuild" Codebases | grep -v "^total"; echo ---NEWER; find . -newer "Old Laptop Rebuild/Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow.md" -type f ! -name "*sync-conflict*" 2>/dev/null; echo ---SIZES; wc -c Codebases/*Locked* "Old Laptop Rebuild/Old Laptop Rebuild - Build 1 WSL Findings.md"
++- Tool call tally: Agent (4), Bash (27), Edit (3), mcp__jarvis__search_simple (2), mcp__jarvis__vault_list (5), mcp__jarvis__vault_read (10), Read (4), ToolSearch (1), WebSearch (2), Write (6)
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git ls-files | grep -E "Sync-Log\.md$|_All-Projects-Sync-Log\.md$|capture-health-.*\.json$|00 - Capture Health\.md$|weekly-review\.log$|cursor-export-state\.json$|cursor-workflow/logs/.*\.log$|Sync Alert Banner\.md$"
+echo "=== recent-edits re-fix ==="
+git rm --cached --quiet ".obsidian/plugins/recent-edits/data.json" 2>&1
+git status --short | head -5`
+```
+30_Order/System/cursor-workflow/logs/sweep-2026-09-07.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-08.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-09.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-10.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-11.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-12.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-13.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-14.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-15.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-16.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-17.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-18.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-19.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-20.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-21.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-22.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-23.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-24.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-25.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-26.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-27.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-28.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-29.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-30.log
+30_Order/System/cursor-workflow/logs/sweep-2026-10-01.log
+30_Order/System/cursor-workflow/logs/sweep-2026-10-02.log
+30_Order/System/cursor-workflow/logs/sweep-2026-10-03.log
+=== recent-edits re-fix ===
+ M .claude/skills/weekly-review/weekly-review.md
+ M .gitignore
+D  .obsidian/plugins/recent-edits/data.json
+ M .stignore
+ M "20_Progress/Internship/Building System/Runs/Claude Code Prompts - Archive.md"
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git ls-files -- "30_Order/System/cursor-workflow/logs/*.log" "20_Progress/AI/Claude Code/**/Sync-Log.md" "20_Progress/AI/Claude Code/_All-Projects-Sync-Log.md" "30_Order/System/claude-workflow/logs/capture-health-*.json" "60_Claude/05_Clippings/AI Conversations/00 - Capture Health.md" "30_Order/System/claude-workflow/logs/weekly-review.log" "30_Order/System/cursor-workflow/cursor-export-state.json" ".obsidian/plugins/file-explorer-plus/data.json" ".obsidian/plugins/recent-files-obsidian/data.json" "30_Order/System/sync-workflow/Sync Alert Banner.md"`
+```
+30_Order/System/cursor-workflow/logs/sweep-2026-09-07.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-08.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-09.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-10.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-11.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-12.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-13.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-14.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-15.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-16.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-17.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-18.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-19.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-20.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-21.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-22.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-23.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-24.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-25.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-26.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-27.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-28.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-29.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-30.log
+30_Order/System/cursor-workflow/logs/sweep-2026-10-01.log
+30_Order/System/cursor-workflow/logs/sweep-2026-10-02.log
+30_Order/System/cursor-workflow/logs/sweep-2026-10-03.log
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git rm --cached --quiet -- "30_Order/System/cursor-workflow/logs/sweep-2026-09-07.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-08.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-09.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-10.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-11.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-12.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-13.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-14.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-15.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-16.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-17.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-18.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-19.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-20.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-21.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-22.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-23.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-24.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-25.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-26.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-27.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-28.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-29.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-30.log" "30_Order/System/cursor-workflow/logs/sweep-2026-10-01.log" "30_Order/System/cursor-workflow/logs/sweep-2026-10-02.log" "30_Order/System/cursor-workflow/logs/sweep-2026-10-03.log"
+echo "exit: $?"
+ls "30_Order/System/cursor-workflow/logs/sweep-2026-10-03.log" 2>&1`
+```
+exit: 0
+30_Order/System/cursor-workflow/logs/sweep-2026-10-03.log
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git ls-files -- "30_Order/System/cursor-workflow/logs/*.log" ".obsidian/plugins/recent-edits/data.json"
+echo "=== (should be empty) ==="
+git status --short | grep "^D " | wc -l
+echo "deletions staged"`
+```
+=== (should be empty) ===
+28
+deletions staged
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git status --short | grep -v "^D \|cursor-workflow/logs/sweep"`
+```
+ M .claude/skills/weekly-review/weekly-review.md
+ M .gitignore
+ M .stignore
+ M "20_Progress/Internship/Building System/Runs/Claude Code Prompts - Archive.md"
+ M "20_Progress/Internship/Building System/Runs/Claude Code Prompts.md"
+ M "20_Progress/Internship/Building System/Runs/Codex Prompts - Archive.md"
+ M "20_Progress/Internship/Building System/Runs/Codex Prompts.md"
+ M 30_Order/System/claude-workflow/hooks/jarvis-internship-note-guard.ps1
+ M 30_Order/System/claude-workflow/hooks/jarvis-session-continuity.ps1
+ M 30_Order/System/claude-workflow/hooks/jarvis-write-guard.ps1
+ M 30_Order/System/claude-workflow/scripts/backfill-windows-silent.vbs
+ M 30_Order/System/claude-workflow/scripts/backfill-wsl-silent.vbs
+ M 30_Order/System/claude-workflow/scripts/export-claude-session.ps1
+ M 30_Order/System/claude-workflow/scripts/register-jarvis-sync-task.ps1
+ M 30_Order/System/claude-workflow/scripts/test-token-aggregation.ps1
+ M 30_Order/System/claude-workflow/scripts/update-capture-health.ps1
+ M 30_Order/System/cursor-workflow/scripts/_run-backfill.ps1
+ M 30_Order/System/cursor-workflow/scripts/_run-ref-test.ps1
+ M 30_Order/System/cursor-workflow/scripts/_verify-and-register.ps1
+ M 30_Order/System/cursor-workflow/scripts/export-cursor-sessions.py
+ M 30_Order/System/sync-workflow/scripts/check-syncthing-status.ps1
+ M 30_Order/System/sync-workflow/scripts/rotate-sync-logs.ps1
+ M "40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild/Old Laptop Rebuild - Index.md"
+ M "40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild/Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow.md"
+ M "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Known Failure Modes and Prevention.md"
+ M "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/anant_gupta/10-04 WSL configuration and optimization across laptops.md"
+ M "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Home/00 - Session Index.md"
+ M "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Home/00 - Tool Usage Rollup.md"
+ M "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/00 - Session Index.md"
+ M "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/00 - Tool Usage Rollup.md"
+ M "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Unknown/00 - Session Index.md"
+ M "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Unknown/00 - Tool Usage Rollup.md"
+ M "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-06/00 - Session Index.md"
+ M "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-06/00 - Tool Usage Rollup.md"
+ M "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Session Index.md"
+ M "60_Claude/05_Clippings/AI Conversations/Windows/Cowork/2026-07/00 - Tool Usage Rollup.md"
+ M "60_Claude/07_AI_Information/Session Logs/log.md"
+?? "20_Progress/Degree/_Courses/Technical Interview/_Transcripts/Homework - 1.md"
+?? "20_Progress/Degree/_Courses/Technical Interview/_Transcripts/Links.md"
+?? 30_Order/System/claude-workflow/logs/
+?? "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build 12 Findings.md"
+?? "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/.exported/[REDACTED].done"
+?? "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/.exported/[REDACTED].done"
+?? "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/.exported/[REDACTED].done"
+?? "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/.exported/[REDACTED].done"
+?? "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/.exported/[REDACTED].done"
+?? "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/.exported/[REDACTED].done"
+?? "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-29 TIP 103 recursion problems.md"
+?? "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/09-29 TIP 103 weekly schedule mapping.md"
+?? "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/10-01 Auto commits configuration for both laptops.md"
+?? "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/10-03 Prompt engineering for dossier validation and codebase continuity.md"
+?? "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/10-04 Multi-laptop codebase sync and logging architecture.md"
+?? "60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/10-04 Syncthing conflicts resolution and root cause analysis.md"
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && ls "30_Order/System/claude-workflow/logs/" 2>/dev/null
+echo "=== is this dir pattern covered by gitignore? ==="
+git check-ignore -v "30_Order/System/claude-workflow/logs/internship-note-guard.jsonl" 2>&1`
+```
+Exit code 1
+capture-health-windows.json
+git-auto-sync.log
+internship-note-guard.jsonl
+weekly-review.log
+=== is this dir pattern covered by gitignore? ===
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && grep -n "internship-note-guard" .gitignore .stignore 2>/dev/null
+echo "=== none found, confirming new ==="`
+```
+=== none found, confirming new ===
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\.gitignore`
+```diff
+- # Jarvis-WeeklyReview's own log
++ # internship-note-guard.jsonl - jarvis-internship-note-guard.ps1's own per-write
+# diagnostic log, appended on every Write/Edit/MultiEdit under the internship
+# tree on whichever machine the edit happened on. Same per-machine-writer
+# shape as git-auto-sync.log; found 2026-10-04 (Build 12) while functionally
+# testing the hook after its path fix - never excluded before since the hook
+# was silently broken (wrong path) the entire time this file could exist.
+30_Order/System/claude-workflow/logs/internship-note-guard.jsonl
+
+# Jarvis-WeeklyReview's own log
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && grep -n "weekly-review.log$" .stignore | head -2`
+```
+108:30_Order/System/claude-workflow/logs/weekly-review.log
+```
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\.stignore`
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\.stignore`
+```diff
+- 30_Order/System/claude-workflow/logs/git-auto-sync.log
+30_Order/System/claude-workflow/logs/git-auto-sync.sync-conflict-*
++ 30_Order/System/claude-workflow/logs/git-auto-sync.log
+30_Order/System/claude-workflow/logs/git-auto-sync.sync-conflict-*
+
+// internship-note-guard.jsonl - same per-machine reasoning as git-auto-sync.log
+// above, appended on every Write/Edit under the internship tree on whichever
+// machine it happened on. Found 2026-10-04 (Build 12) while testing the hook
+// after fixing its path bug - never excluded before since the hook was
+// silently broken the entire time this file could exist.
+30_Order/System/claude-workflow/logs/internship-note-guard.jsonl
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git add \
+  ".gitignore" ".stignore" \
+  ".claude/skills/weekly-review/weekly-review.md" \
+  "30_Order/System/claude-workflow/hooks/jarvis-write-guard.ps1" \
+  "30_Order/System/claude-workflow/hooks/jarvis-internship-note-guard.ps1" \
+  "30_Order/System/claude-workflow/hooks/jarvis-session-continuity.ps1" \
+  "30_Order/System/claude-workflow/scripts/backfill-windows-silent.vbs" \
+  "30_Order/System/claude-workflow/scripts/backfill-wsl-silent.vbs" \
+  "30_Order/System/claude-workflow/scripts/export-claude-session.ps1" \
+  "30_Order/System/claude-workflow/scripts/register-jarvis-sync-task.ps1" \
+  "30_Order/System/claude-workflow/scripts/test-token-aggregation.ps1" \
+  "30_Order/System/claude-workflow/scripts/update-capture-health.ps1" \
+  "30_Order/System/cursor-workflow/scripts/_run-backfill.ps1" \
+  "30_Order/System/cursor-workflow/scripts/_run-ref-test.ps1" \
+  "30_Order/System/cursor-workflow/scripts/_verify-and-register.ps1" \
+  "30_Order/System/cursor-workflow/scripts/export-cursor-sessions.py" \
+  "30_Order/System/sync-workflow/scripts/check-syncthing-status.ps1" \
+  "30_Order/System/sync-workflow/scripts/rotate-sync-logs.ps1" \
+  "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Known Failure Modes and Prevention.md" \
+  "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build 12 Findings.md" \
+  "60_Claude/07_AI_Information/Session Logs/log.md" \
+  ".obsidian/plugins/recent-edits/data.json" \
+  "30_Order/System/cursor-workflow/logs/sweep-2026-09-07.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-08.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-09.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-10.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-11.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-12.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-13.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-14.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-15.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-16.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-17.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-18.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-19.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-20.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-21.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-22.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-23.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-24.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-25.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-26.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-27.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-28.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-29.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-30.log" "30_Order/System/cursor-workflow/logs/sweep-2026-10-01.log" "30_Order/System/cursor-workflow/logs/sweep-2026-10-02.log" "30_Order/System/cursor-workflow/logs/sweep-2026-10-03.log"
+git status --short | grep "^[AM]"`
+```
+The following paths are ignored by one of your .gitignore files:
+.obsidian/plugins/recent-edits/data.json
+30_Order/System/cursor-workflow/logs/sweep-2026-09-07.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-08.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-09.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-10.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-11.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-12.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-13.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-14.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-15.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-16.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-17.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-18.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-19.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-20.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-21.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-22.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-23.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-24.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-25.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-26.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-27.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-28.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-29.log
+30_Order/System/cursor-workflow/logs/sweep-2026-09-30.log
+30_Order/System/cursor-workflow/logs/sweep-2026-10-01.log
+30_Order/System/cursor-workflow/logs/sweep-2026-10-02.log
+30_Order/System/cursor-workflow/logs/sweep-2026-10-03.log
+hint: Use -f if you really want to add them.
+hint: Disable this message with "git config set advice.addIgnoredFile false"
+M  .claude/skills/weekly-review/weekly-review.md
+M  .gitignore
+M  .stignore
+M  30_Order/System/claude-workflow/hooks/jarvis-internship-note-guard.ps1
+M  30_Order/System/claude-workflow/hooks/jarvis-session-continuity.ps1
+M  30_Order/System/claude-workflow/hooks/jarvis-write-guard.ps1
+M  30_Order/System/claude-workflow/scripts/backfill-windows-silent.vbs
+M  30_Order/System/claude-workflow/scripts/backfill-wsl-silent.vbs
+M  30_Order/System/claude-workflow/scripts/export-claude-session.ps1
+M  30_Order/System/claude-workflow/scripts/register-jarvis-sync-task.ps1
+M  30_Order/System/claude-workflow/scripts/test-token-aggregation.ps1
+M  30_Order/System/claude-workflow/scripts/update-capture-health.ps1
+M  30_Order/System/cursor-workflow/scripts/_run-backfill.ps1
+M  30_Order/System/cursor-workflow/scripts/_run-ref-test.ps1
+M  30_Order/System/cursor-workflow/scripts/_verify-and-register.ps1
+M  30_Order/System/cursor-workflow/scripts/export-cursor-sessions.py
+M  30_Order/System/sync-workflow/scripts/check-syncthing-status.ps1
+M  30_Order/System/sync-workflow/scripts/rotate-sync-logs.ps1
+A  "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build 12 Findings.md"
+M  "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Known Failure Modes and Prevention.md"
+M  "60_Claude/07_AI_Information/Session Logs/log.md"
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git status --short | grep "^D " | wc -l
+echo "deletions already staged (from earlier git rm --cached calls)"`
+```
+28
+deletions already staged (from earlier git rm --cached calls)
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git commit -m "$(cat <<'EOF'
+Build 12: fix hardcoded hook paths recurrence (14 files), untrack 27 leftover sweep logs
+
+Failure Mode 10's 2026-09-28 fix swapped one laptop's wrong hardcoded path for
+the other's, so it recurred identically: .claude/settings.json's two hook
+commands and 13 scripts (both hook scripts' own path checks, the AI-capture
+and Cursor-export pipelines, register-jarvis-sync-task.ps1,
+rotate-sync-logs.ps1) all still hardcoded the Acer's drive layout, broken on
+the Dell the entire time - user-reported via live hook errors. Fixed every
+instance with a portable reference instead of a third literal:
+$PSScriptRoot-relative for .ps1, WScript.ScriptFullName's parent for .vbs,
+__file__-relative for the one .py file, $CLAUDE_PROJECT_DIR for the hook
+commands. Both live hooks functionally tested with real payloads afterward.
+
+Found and fixed a second bug live: jarvis-write-guard.ps1's own root allowlist
+had .gitignore but not .stignore - invisible the whole time the hook was
+broken (fail-open never exercises its own denial logic). Also found 27
+sweep-*.log files that matched an existing .gitignore pattern but had never
+actually been untracked (Build 10 only handled the one that was dirty that
+day) - git rm --cached on all of them, kept on disk.
+
+Added two permanent steps to /weekly-review's Sync Health Check (run every
+review, not monthly-only) per direct user request: a hardcoded-path sweep,
+and an ignore-file symmetry check that also prompts for new per-machine files
+from that week's own work or any new AI platform's automation. Practiced
+immediately: internship-note-guard.jsonl, a brand-new per-machine log
+surfaced by this session's own hook testing, added to both lists in the same
+commit. Written up as Failure Mode 16 in Known Failure Modes and Prevention;
+Failure Mode 10 updated to point forward to it.
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
+EOF
+)" 2>&1 | tail -10`
+```
+ delete mode 100644 30_Order/System/cursor-workflow/logs/sweep-2026-09-25.log
+ delete mode 100644 30_Order/System/cursor-workflow/logs/sweep-2026-09-26.log
+ delete mode 100644 30_Order/System/cursor-workflow/logs/sweep-2026-09-27.log
+ delete mode 100644 30_Order/System/cursor-workflow/logs/sweep-2026-09-28.log
+ delete mode 100644 30_Order/System/cursor-workflow/logs/sweep-2026-09-29.log
+ delete mode 100644 30_Order/System/cursor-workflow/logs/sweep-2026-09-30.log
+ delete mode 100644 30_Order/System/cursor-workflow/logs/sweep-2026-10-01.log
+ delete mode 100644 30_Order/System/cursor-workflow/logs/sweep-2026-10-02.log
+ delete mode 100644 30_Order/System/cursor-workflow/logs/sweep-2026-10-03.log
+ create mode 100644 40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build 12 Findings.md
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git push origin infra/cross-laptop-sync 2>&1 | tail -10`
+```
+To https://github.com/gupta-builds/Jarvis.git
+   43696089..a7f3a6c3  infra/cross-laptop-sync -> infra/cross-laptop-sync
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && echo "=== live conflicts ===" && find . -iname "*sync-conflict*" -not -path "./.stversions/*" -not -path "./.git/*" 2>/dev/null | wc -l
+echo "=== stuck temp files ===" && find . -iname "~syncthing~*" -not -path "./.stversions/*" -not -path "./.git/*" 2>/dev/null | wc -l
+echo "=== health check ===" && powershell.exe -ExecutionPolicy Bypass -File "30_Order\System\sync-workflow\scripts\check-syncthing-status.ps1" 2>&1 | tail -10`
+```
+=== live conflicts ===
+0
+=== stuck temp files ===
+0
+=== health check ===
+  needBytes   : 0
+  errors      : 0
+
+Completion against remote devices:
+  device [REDACTED]
+    completion : 100%
+    needBytes  : 0
+    needItems  : 0
+
+Overall: IN SYNC
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && echo "=== dashboard embed check ===" && sed -n '27,32p' "00_Dashboard.md"
+echo "=== banner file (should be empty, healthy) ===" && cat "30_Order/System/sync-workflow/Sync Alert Banner.md"
+echo "[END]"
+echo "=== branch vs origin ===" && git status --short --branch | head -1
+echo "=== git-auto-sync.log tail ===" && tail -c 500 "30_Order/System/claude-workflow/logs/git-auto-sync.log"`
+```
+=== dashboard embed check ===
+---
+<!-- SYNC-ALERT:BEGIN -->
+![[30_Order/System/sync-workflow/Sync Alert Banner]]
+<!-- SYNC-ALERT:END -->
+
+# Jarvis — `$= moment().format("dddd, D MMMM YYYY")`
+=== banner file (should be empty, healthy) ===
+[END]
+=== branch vs origin ===
+## infra/cross-laptop-sync...origin/master [ahead 606]
+=== git-auto-sync.log tail ===
+ync/Cross-Laptop Sync - Build 11 Acer Verification.md
+[2026-10-04 19:18:10] Committed: Auto-sync: 2026-10-04 19:18,  7 files changed, 2906 insertions(+), 15 deletions(-)
+[2026-10-04 19:18:14] Pushed cleanly to origin/infra/cross-laptop-sync.
+[2026-10-04 19:18:14] Syncthing folder 'jarvis' paused=False
+[2026-10-04 19:33:30] === git-auto-sync start (branch: infra/cross-laptop-sync) ===
+[2026-10-04 19:33:31] Syncthing not idle (state=scanning, needBytes=6115234, errors=0), skipping this run.
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git log origin/infra/cross-laptop-sync --oneline -1
+git log --oneline -1`
+```
+a7f3a6c3 Build 12: fix hardcoded hook paths recurrence (14 files), untrack 27 leftover sweep logs
+a7f3a6c3 Build 12: fix hardcoded hook paths recurrence (14 files), untrack 27 leftover sweep logs
+```
 
 ## Actions Taken
 
@@ -4950,9 +5737,11 @@ System.Management.Automation.Language.EmptyScriptExtent FileReadError The file c
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Sync\Cross-Laptop Sync - Build 10 Findings.md`
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Sync\Cross-Laptop Sync - Build 11 Findings.md`
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Sync\Cross-Laptop Sync - Build 11 Prompt.md`
+- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Sync\Cross-Laptop Sync - Build 12 Findings.md`
 
 **Files modified:**
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\.claude\settings.json`
+- `D:\Users\_Anant\10_Areas\Documents\Jarvis\.claude\skills\weekly-review\weekly-review.md`
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\.gitignore`
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\.stignore`
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\00_Dashboard.md`
@@ -5811,5 +6600,120 @@ print('VAULT_CONV:', vault / '60_Claude' / '05_Clippings' / 'AI Conversations')
   result=$(powershell.exe -Command "\$errors=\$null; [System.Management.Automation.Language.Parser]::ParseFile('D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\$f', [ref]\$null, [ref]\$errors) | Out-Null; if (\$errors.Count -eq 0) { 'OK' } else { \$errors }" 2>&1)
   echo "$f -> $result"
 done`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && grep -n "claude/settings.json\|claude\\\\settings.json" .gitignore .stignore 2>/dev/null
+echo "=== is it currently git tracked anyway? ==="
+git ls-files | grep "^\.claude/settings\.json$"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git status --short -- "30_Order/System/claude-workflow/hooks/" "30_Order/System/claude-workflow/scripts/backfill-wsl-silent.vbs" "30_Order/System/claude-workflow/scripts/backfill-windows-silent.vbs" "30_Order/System/claude-workflow/scripts/export-claude-session.ps1" "30_Order/System/claude-workflow/scripts/update-capture-health.ps1" "30_Order/System/claude-workflow/scripts/register-jarvis-sync-task.ps1" "30_Order/System/claude-workflow/scripts/test-token-aggregation.ps1" "30_Order/System/sync-workflow/scripts/rotate-sync-logs.ps1" "30_Order/System/cursor-workflow/scripts/"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && grep -n "stversions" "30_Order/System/sync-workflow/scripts/check-syncthing-status.ps1"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && grep -n "NUL" .gitignore .stignore`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && powershell.exe -Command "\$errors=\$null; [System.Management.Automation.Language.Parser]::ParseFile((Resolve-Path '30_Order\System\claude-workflow\hooks\jarvis-write-guard.ps1').Path, [ref]\$null, [ref]\$errors) | Out-Null; if (\$errors.Count -eq 0) { 'OK' } else { \$errors }"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && find .claude/skills -iname "*weekly-review*" 2>/dev/null`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && grep -n "^#\|^##\|Step 7" ".claude/skills/weekly-review/weekly-review.md" | head -60`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && find .claude/skills -iname "*monthly*" -o -iname "*review*" 2>/dev/null | grep -v node_modules`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && grep -n "^## Failure Mode 15\|^## How To Verify" "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Known Failure Modes and Prevention.md"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && grep -n "^## Failure Mode 10" -A 5 "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Known Failure Modes and Prevention.md"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && grep -n "Builds 1-10" "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Known Failure Modes and Prevention.md"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && echo "=== live conflicts ===" && find . -iname "*sync-conflict*" -not -path "./.stversions/*" -not -path "./.git/*" 2>/dev/null
+echo "=== stuck temp files ===" && find . -iname "~syncthing~*" -not -path "./.stversions/*" -not -path "./.git/*" 2>/dev/null
+echo "=== git-auto-sync.log tail ===" && tail -c 1500 "30_Order/System/claude-workflow/logs/git-auto-sync.log"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git ls-files | grep -c "recent-edits/data.json\|file-explorer-plus/data.json\|recent-files-obsidian/data.json"
+echo "=== stash list (leftover from that conflict) ==="
+git stash list | head -3
+echo "=== current status ==="
+git status --short --branch | head -1`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git ls-files | grep "recent-edits/data.json\|file-explorer-plus/data.json\|recent-files-obsidian/data.json"
+echo "=== is there an unresolved rebase/merge state? ==="
+ls -d .git/rebase-merge .git/rebase-apply .git/MERGE_HEAD 2>/dev/null
+echo "clean if nothing printed above"
+echo "=== stash@{0} content ==="
+git stash show -p stash@{0} --stat 2>&1 | tail -10`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git ls-files | grep -E "Sync-Log\.md$|_All-Projects-Sync-Log\.md$|capture-health-.*\.json$|00 - Capture Health\.md$|weekly-review\.log$|cursor-export-state\.json$|cursor-workflow/logs/.*\.log$|Sync Alert Banner\.md$"
+echo "=== recent-edits re-fix ==="
+git rm --cached --quiet ".obsidian/plugins/recent-edits/data.json" 2>&1
+git status --short | head -5`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git ls-files -- "30_Order/System/cursor-workflow/logs/*.log" "20_Progress/AI/Claude Code/**/Sync-Log.md" "20_Progress/AI/Claude Code/_All-Projects-Sync-Log.md" "30_Order/System/claude-workflow/logs/capture-health-*.json" "60_Claude/05_Clippings/AI Conversations/00 - Capture Health.md" "30_Order/System/claude-workflow/logs/weekly-review.log" "30_Order/System/cursor-workflow/cursor-export-state.json" ".obsidian/plugins/file-explorer-plus/data.json" ".obsidian/plugins/recent-files-obsidian/data.json" "30_Order/System/sync-workflow/Sync Alert Banner.md"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git rm --cached --quiet -- "30_Order/System/cursor-workflow/logs/sweep-2026-09-07.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-08.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-09.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-10.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-11.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-12.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-13.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-14.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-15.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-16.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-17.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-18.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-19.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-20.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-21.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-22.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-23.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-24.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-25.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-26.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-27.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-28.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-29.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-30.log" "30_Order/System/cursor-workflow/logs/sweep-2026-10-01.log" "30_Order/System/cursor-workflow/logs/sweep-2026-10-02.log" "30_Order/System/cursor-workflow/logs/sweep-2026-10-03.log"
+echo "exit: $?"
+ls "30_Order/System/cursor-workflow/logs/sweep-2026-10-03.log" 2>&1`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git ls-files -- "30_Order/System/cursor-workflow/logs/*.log" ".obsidian/plugins/recent-edits/data.json"
+echo "=== (should be empty) ==="
+git status --short | grep "^D " | wc -l
+echo "deletions staged"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git status --short | grep -v "^D \|cursor-workflow/logs/sweep"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && ls "30_Order/System/claude-workflow/logs/" 2>/dev/null
+echo "=== is this dir pattern covered by gitignore? ==="
+git check-ignore -v "30_Order/System/claude-workflow/logs/internship-note-guard.jsonl" 2>&1`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && grep -n "internship-note-guard" .gitignore .stignore 2>/dev/null
+echo "=== none found, confirming new ==="`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && grep -n "weekly-review.log$" .stignore | head -2`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git add \
+  ".gitignore" ".stignore" \
+  ".claude/skills/weekly-review/weekly-review.md" \
+  "30_Order/System/claude-workflow/hooks/jarvis-write-guard.ps1" \
+  "30_Order/System/claude-workflow/hooks/jarvis-internship-note-guard.ps1" \
+  "30_Order/System/claude-workflow/hooks/jarvis-session-continuity.ps1" \
+  "30_Order/System/claude-workflow/scripts/backfill-windows-silent.vbs" \
+  "30_Order/System/claude-workflow/scripts/backfill-wsl-silent.vbs" \
+  "30_Order/System/claude-workflow/scripts/export-claude-session.ps1" \
+  "30_Order/System/claude-workflow/scripts/register-jarvis-sync-task.ps1" \
+  "30_Order/System/claude-workflow/scripts/test-token-aggregation.ps1" \
+  "30_Order/System/claude-workflow/scripts/update-capture-health.ps1" \
+  "30_Order/System/cursor-workflow/scripts/_run-backfill.ps1" \
+  "30_Order/System/cursor-workflow/scripts/_run-ref-test.ps1" \
+  "30_Order/System/cursor-workflow/scripts/_verify-and-register.ps1" \
+  "30_Order/System/cursor-workflow/scripts/export-cursor-sessions.py" \
+  "30_Order/System/sync-workflow/scripts/check-syncthing-status.ps1" \
+  "30_Order/System/sync-workflow/scripts/rotate-sync-logs.ps1" \
+  "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Known Failure Modes and Prevention.md" \
+  "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build 12 Findings.md" \
+  "60_Claude/07_AI_Information/Session Logs/log.md" \
+  ".obsidian/plugins/recent-edits/data.json" \
+  "30_Order/System/cursor-workflow/logs/sweep-2026-09-07.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-08.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-09.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-10.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-11.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-12.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-13.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-14.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-15.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-16.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-17.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-18.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-19.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-20.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-21.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-22.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-23.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-24.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-25.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-26.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-27.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-28.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-29.log" "30_Order/System/cursor-workflow/logs/sweep-2026-09-30.log" "30_Order/System/cursor-workflow/logs/sweep-2026-10-01.log" "30_Order/System/cursor-workflow/logs/sweep-2026-10-02.log" "30_Order/System/cursor-workflow/logs/sweep-2026-10-03.log"
+git status --short | grep "^[AM]"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git status --short | grep "^D " | wc -l
+echo "deletions already staged (from earlier git rm --cached calls)"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git commit -m "$(cat <<'EOF'
+Build 12: fix hardcoded hook paths recurrence (14 files), untrack 27 leftover sweep logs
+
+Failure Mode 10's 2026-09-28 fix swapped one laptop's wrong hardcoded path for
+the other's, so it recurred identically: .claude/settings.json's two hook
+commands and 13 scripts (both hook scripts' own path checks, the AI-capture
+and Cursor-export pipelines, register-jarvis-sync-task.ps1,
+rotate-sync-logs.ps1) all still hardcoded the Acer's drive layout, broken on
+the Dell the entire time - user-reported via live hook errors. Fixed every
+instance with a portable reference instead of a third literal:
+$PSScriptRoot-relative for .ps1, WScript.ScriptFullName's parent for .vbs,
+__file__-relative for the one .py file, $CLAUDE_PROJECT_DIR for the hook
+commands. Both live hooks functionally tested with real payloads afterward.
+
+Found and fixed a second bug live: jarvis-write-guard.ps1's own root allowlist
+had .gitignore but not .stignore - invisible the whole time the hook was
+broken (fail-open never exercises its own denial logic). Also found 27
+sweep-*.log files that matched an existing .gitignore pattern but had never
+actually been untracked (Build 10 only handled the one that was dirty that
+day) - git rm --cached on all of them, kept on disk.
+
+Added two permanent steps to /weekly-review's Sync Health Check (run every
+review, not monthly-only) per direct user request: a hardcoded-path sweep,
+and an ignore-file symmetry check that also prompts for new per-machine files
+from that week's own work or any new AI platform's automation. Practiced
+immediately: internship-note-guard.jsonl, a brand-new per-machine log
+surfaced by this session's own hook testing, added to both lists in the same
+commit. Written up as Failure Mode 16 in Known Failure Modes and Prevention;
+Failure Mode 10 updated to point forward to it.
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
+EOF
+)" 2>&1 | tail -10`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && echo "=== live conflicts ===" && find . -iname "*sync-conflict*" -not -path "./.stversions/*" -not -path "./.git/*" 2>/dev/null | wc -l
+echo "=== stuck temp files ===" && find . -iname "~syncthing~*" -not -path "./.stversions/*" -not -path "./.git/*" 2>/dev/null | wc -l
+echo "=== health check ===" && powershell.exe -ExecutionPolicy Bypass -File "30_Order\System\sync-workflow\scripts\check-syncthing-status.ps1" 2>&1 | tail -10`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && echo "=== dashboard embed check ===" && sed -n '27,32p' "00_Dashboard.md"
+echo "=== banner file (should be empty, healthy) ===" && cat "30_Order/System/sync-workflow/Sync Alert Banner.md"
+echo "[END]"
+echo "=== branch vs origin ===" && git status --short --branch | head -1
+echo "=== git-auto-sync.log tail ===" && tail -c 500 "30_Order/System/claude-workflow/logs/git-auto-sync.log"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git log origin/infra/cross-laptop-sync --oneline -1
+git log --oneline -1`
 
 

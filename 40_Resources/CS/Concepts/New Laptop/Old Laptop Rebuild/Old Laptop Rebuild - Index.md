@@ -14,7 +14,7 @@ related:
   - "[[Ubuntu - WSL]]"
   - "[[Installations]]"
   - "[[Old Laptop Rebuild - Prompt 1 WSL]]"
-next: Approve the Build 1 WSL removal and execution manifest
+next: Run Build 1 sudo/host/idle scripts, then continue Build 2 around the locked SSH-host decisions
 ---
 # Old Laptop Rebuild - Index
 
@@ -22,7 +22,7 @@ next: Approve the Build 1 WSL removal and execution manifest
 ==The old Dell (Latitude 5530) gets rebuilt to match the Acer in sessions run one layer at a time, WSL first, and every session logs what it measured and the rule that stops the same growth from returning.==
 
 ## Status
-Build 1 WSL audit complete 2026-10-04 ([[Old Laptop Rebuild - Build 1 WSL Findings]]); repair-in-place recommended, no cleanup/config/install executed, awaiting approval of the removal and execution manifest. Follow-up 1 in [[Old Laptop Rebuild - Prompt 1 WSL]] (2026-10-04) executes the approved plan and adds the two idle-timeout keys the original target missed. Prompt 2 ([[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]]) is rewritten as v2 around [[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]]. It can run its read-only Phase 1 now, its Phase 2 after Build 1's host script has run, and Phase 4 only after the idle test passes.
+Build 1 WSL Phase 3 executed 2026-10-04 ([[Old Laptop Rebuild - Build 1 WSL Findings]]): repair-in-place retained, 36.424 GiB of verified project artifacts plus 5.304 GiB of native caches reclaimed inside ext4, user-space parity/config applied, and `.wslconfig` backed up/aligned with both idle timers disabled for the always-on SSH-host decision. The sudo, Windows host restart/sparse/swap verification, and idle test scripts are ready under `D:\WSL\ops`; run those before Build 2's mutation phases. Prompt 2 ([[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]]) is rewritten as v2 around [[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]]. It can run its read-only Phase 1 now, its Phase 2 after Build 1's host script has run, and Phase 4 only after the idle test passes.
 
 ## Two-laptop workflow (locked direction, 2026-10-04)
 The Dell is the canonical host: one checkout per shared repo on its WSL ext4 disk. The Acer connects through VS Code Remote-SSH over Tailscale (both installed inside WSL). GitHub stays the backup and PR channel, parallel tasks use git worktrees with `<machine>/<topic>` branches, and no sync daemon touches code. Cost: the Dell must be awake and on the tailnet. Fallback when it is off: the Acer pushes a branch from its own clone. Reasoning: a single copy cannot drift, which is the property the Jarvis sync could not give without constant repair ([[Cross-Laptop Sync - Known Failure Modes and Prevention]]). Network exposure (Tailscale, sshd) needs the user's approval inside the session.

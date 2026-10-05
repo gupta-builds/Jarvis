@@ -273,3 +273,123 @@ print(sum_positives([-2, -4, -6]))       # Output: 0
 print(sum_positives([10, 20, 30]))       # Output: 60
 print(sum_positives([]))                 # Output: 0
 ```
+
+---
+
+## Question 6: Code Output Snippet — Palindrome Check
+
+### Problem Description
+What is the output of the following code snippet?
+```python
+def mystery_function(word):
+    start = 0
+    end = len(word) - 1
+    
+    while start < end:
+        if word[start] != word[end]:
+            return False
+        start += 1
+        end -= 1
+    return True
+
+word = "kayak"
+result = mystery_function(word)
+print(result)
+```
+
+**Options:**
+- `True`
+- `False`
+- `Throws an error because strings don't support slicing.`
+- `Causes an infinite loop, causing the program to crash`
+
+### Answer
+**`True`**
+
+### Step-by-Step Trace & Explanation
+The function implements the classic two-pointer algorithm to test if a string is a palindrome (reads identically forwards and backwards):
+- `word = "kayak"` has length 5.
+- Pointers initialize to `start = 0` (pointing to `'k'`) and `end = 4` (pointing to `'k'`).
+- **Iteration 1 (`start = 0`, `end = 4`):**
+  - Condition `start < end` ($0 < 4$) is True.
+  - `word[0]` (`'k'`) == `word[4]` (`'k'`). They match.
+  - `start` advances to `1`, `end` decrements to `3`.
+- **Iteration 2 (`start = 1`, `end = 3`):**
+  - Condition `start < end` ($1 < 3$) is True.
+  - `word[1]` (`'a'`) == `word[3]` (`'a'`). They match.
+  - `start` advances to `2`, `end` decrements to `2`.
+- **Loop Termination:**
+  - Condition `start < end` ($2 < 2$) evaluates to False. The `while` loop terminates.
+- Returns **`True`**, which `print(result)` outputs to stdout.
+
+### Complexity & Analysis of Options
+- **Time Complexity:** $O(L)$ where $L$ is `len(word)`. The loop runs at most $\lfloor L/2 \rfloor$ times.
+- **Space Complexity:** $O(1)$ auxiliary space.
+- **Why other options are incorrect:**
+  - **`False`:** `"kayak"` is a valid palindrome; every mirrored pair of characters matches.
+  - **`Throws an error because strings don't support slicing.`:** The code performs direct character indexing (`word[start]`, `word[end]`), not slicing. Moreover, Python strings fully support both indexing and slicing.
+  - **`Causes an infinite loop, causing the program to crash`:** `start` increments and `end` decrements on every iteration, guaranteeing termination.
+
+---
+
+## Question 7: Find the Bug! (`sum_matrix`)
+
+### Problem Description
+The provided code incorrectly implements the function `sum_matrix`. Given a 2D list of integers `matrix`, `sum_matrix` should return the sum of all elements in `matrix`.
+
+Identify any bug(s) within the given implementation and correct the code so that it successfully passes the provided test cases.
+
+```python
+def sum_matrix(matrix):
+    row_length = len(matrix[0])
+    for row in matrix:
+        for j in range(row_length):
+            total += row[j]
+    return total
+```
+
+### Bug Diagnosis
+1. **Uninitialized Accumulator Variable:** `total` was never initialized before the loops. Attempting `total += row[j]` triggers an `UnboundLocalError` (or `NameError`). `total = 0` must be initialized at the top of the function.
+2. **Empty Matrix Crash (`IndexError`):** `len(matrix[0])` will crash with an `IndexError: list index out of range` if `matrix = []` or if empty sublists exist.
+3. **Fragile Row Length Assumption:** Using `range(row_length)` assumes all rows have the exact same length as row 0. Directly iterating over elements with `for val in row:` is cleaner, safer, handles any matrix dimension, and matches Prof. Joy Upton-Azzam's matrix traversal style.
+
+### Professor's Method & Corrected Code
+```python
+def sum_matrix(matrix):
+    """
+    Computes and returns the sum of all elements in the 2D list matrix.
+    """
+    total = 0
+    for row in matrix:
+        for val in row:
+            total += val
+    return total
+```
+
+### Complexity
+- **Time Complexity:** $O(R \times C)$ where $R$ is the number of rows and $C$ is the number of columns, visiting each cell once.
+- **Space Complexity:** $O(1)$ auxiliary space.
+
+### Test Cases
+```python
+# Standard case
+matrix1 = [
+    [1, 2, 3],
+    [4, 5, 6]
+]
+print(sum_matrix(matrix1))  # Output: 21
+
+# Matrix with negative numbers
+matrix2 = [
+    [10, -2],
+    [-3, 5],
+    [4, 8]
+]
+print(sum_matrix(matrix2))  # Output: 22
+
+# Edge case: Empty matrix
+print(sum_matrix([]))       # Output: 0
+
+# Edge case: Empty rows
+print(sum_matrix([[], []])) # Output: 0
+```

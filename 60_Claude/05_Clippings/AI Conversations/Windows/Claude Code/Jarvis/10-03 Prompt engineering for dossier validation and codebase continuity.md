@@ -6,7 +6,7 @@ source_os: windows
 title: "Prompt engineering for dossier validation and codebase continuity"
 started_at: 2026-10-03T18:19:23
 ended_at: 2026-10-04T19:30:24
-exported_at: 2026-10-04T20:30:03
+exported_at: 2026-10-04T21:30:03
 duration_minutes: 1511
 project: Jarvis
 cwd: 'D:\Users\_Anant\10_Areas\Documents\Jarvis'

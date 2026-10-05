@@ -82,3 +82,45 @@ Run at **`effort: high`**.
 - Task 3 is a real investigation with file:line citations and an honest cost estimate — not a confident-sounding guess.
 - Nothing from Task 3's investigation turned into executed code or a live fetch batch this session.
 - Full `pytest` green before and after Tasks 1-2, both counts reported honestly.
+
+### Result — Session 3 (run 2026-10-04, effort: high)
+
+#### Task 1 — Branch hygiene (done)
+- CLAUDE.md read fresh (lines 78-79, "Two-laptop workflow, added 2026-09-26"): confirms "never commit directly to `master`... branch named `<machine>/<topic>`, merge via PR." Matches Session 2's paraphrase.
+- Branch: **`dell-latitude/deadline-quota-and-reseed-fixes`** (machine prefix per convention; topic = the deadline_posted/own_deadline stamp + the quota-shortfall debate-loss fix, plus the reseed.yml env hardening).
+- The 5 commits (06c7c5d..10d3402) are on it, unpushed. Local `master` moved with `git branch -f master origin/master` (NOT `reset --hard` — the working tree had uncommitted `.agents/` deletions + an `AGENTS.md` edit that a hard reset would have destroyed; they carried over untouched and remain uncommitted).
+- `git rev-parse master origin/master` → both `dc5edc1edbc98e052d965778fec6edc7d28e3af6`. I ran `git fetch` first: origin/master had 5 new commits the local ref didn't know about (Adopt uv, remove .agents mirror, two-laptop workflow...), so Session 2's "ahead 5" was really "ahead 5, behind 5". **The new branch is based on the OLD master and needs a rebase onto origin/master before its PR** (likely conflicts with the uncommitted `.agents/` deletions, which origin already removed). Not done this session.
+- pytest: 529 passed before, 529 passed on the new branch after.
+
+#### Task 2 — dossier_uids.json reconciliation (partial by necessity; premise partly wrong)
+Read the 9-item move manifest from [[20_Progress/Internship/Building System/Runs/Prompt 3 Freshness Sweep Scratch]] ("Complete move manifest"; Codex Prompts no longer carries it). Only **3 of the 9** have an entry in `state/dossier_uids.json`; updated those:
+
+| uid | old → new |
+|---|---|
+| SimplifyJobs:21abe7e3-285d-4817-a48a-557228cb2228 | 1 - AI & ML/AIML Intern - ...Kodiak Robotics.md → Viewed/ (same name) |
+| SimplifyJobs:6a24db4e-df46-4cfb-94c1-a7709787033d | 1 - AI & ML/Applications Intern - AI and Machine Learning - TMEIC...md → Viewed/ |
+| vanshb03:b2edd378-9d95-4295-a2b7-849e12c932aa | Other/Software Engineer Intern - Atoms.md → Viewed/ |
+
+The other 6 — Trade Desk, Uber, Hyperlight, and the 3 Walleye (Investment Data Science / Risk Technology Analyst / Technology Intern) — are **absent from dossier_uids.json under any path** (same class `recheck.py:63-69` documents: "unknown means leave alone"). I did not invent uids. Consequence: nothing to repoint for them, and they can never be auto-rechecked by uid.
+
+Edit done via the repo's own `load_dossier_uids`/`save_dossier_uids`; 3 lines changed, 384 entries before and after, no other entry touched. Committed on **`dell-latitude/deadline-quota-and-reseed-fixes`** as 74a894d. pytest 529 after.
+
+#### Task 3 — Investigation only (nothing executed, no real URL fetched)
+**revalidate.py does NOT re-fetch.** `revalidate.py:2-5` docstring ("already-stored frontmatter/content — no re-fetch, no network call beyond `gh issue create`"); `:36-43` `extract_posting_content` reads the stored `## Posting (fetched ...)` section from disk; `:46-61` `check_dossier` runs only `location_eligible`/`stage1_reject`/`stage2_confirm` on that text; `:83-110` only files a digest issue.
+
+**recheck.py doesn't either:** it matches dossier uids against 8 source feeds (`recheck.py:48-57`, `:63-94`), skipping uid-less dossiers (`:84-85`). `vault_writer/validate.py:51-62` `check_url_live` is a plain `requests.head` (timeout 10), write-time only — a bot-walled ATS would give the same 403/406/503 Codex saw.
+
+**The only page fetch is `ingestion/posting_page.py:215-226` `fetch_posting_markdown`** (Firecrawl `/v1/scrape`, `waitFor: 8000`, `FETCH_TIMEOUT=120`; used at `run_pipeline.py:1063-1069`, `reseed.py:149-155`). It JS-renders ATS SPAs (stored Workday dossiers like Moog and LPL prove it). Limitation: returns only `data.markdown`, discarding status code/final URL — exactly the signals Codex's 9 "closed" verdicts used (404; redirect to `?error=true`/`?not_found=true`).
+
+**Smallest addition:** a new standalone sibling (~60-80 lines, e.g. `freshness_check.py`), manual CLI like `enrich.py` so it stays outside the unattended path (convention 1; zero-LLM). Reads url/title from each active dossier's frontmatter; calls Firecrawl via a small variant returning `metadata.statusCode`/final `sourceURL` (documented in the v1 response per my background knowledge — **verify on one real call; not done**); classifies with Codex's rule — closed only on 404 or final URL with `error=true`/`not_found=true`; open only on exact title/application form; else ambiguous, left open (convention 2); writes a verdict JSONL, never moves dossiers. Cite the 9 real closed examples in rule comments (convention 4). Not in revalidate.py — different job and failure modes.
+
+**Gap:** the scratch note itemises per-URL results only for batches 1-2; batches 3-11 are counts only, so the exact 184 URLs **can't be reconstructed from the vault notes**. Either re-sweep all ~269 active dossiers or keep an itemised verdict file this time.
+
+**Cost:** `logs/runs.jsonl` holds feed fetch counts only (no Firecrawl calls/latency); `docs/PIPELINE_CONTRACT.md` and PRD state no per-fetch cost/time (PRD.md:87: "no in-repo monitoring exists" for Firecrawl). So this is a scale estimate: ≥8s render per URL → serially ~25-60 min plausible, ceiling 184×120s ≈ 6.1h. Firecrawl bills ~1 credit/scrape (background knowledge, unverified — check the dashboard). The real cost is **shared quota**: the same `FIRECRAWL_API_KEY` feeds hourly discovery; PRD.md:87 flags exhaustion silently degrading new dossiers to thin.
+
+**Expected resolution (rough):** most of the 184 are Workday/Amex/Vanguard-class, which Firecrawl's render should handle → **~60-70% (≈110-130) get a real verdict**, range 45-80%; ByteDance/Jump/Honeywell-class may stay ambiguous. But Codex's closed rate among resolved was 9/94 ≈ 10% → only **~10-15 new closures**. The rest resolve "open" and change nothing (already treated open).
+
+**Recommendation:** worth it only as a staged pilot, not a 184 batch: (1) build the ~70-line script; (2) pilot ~15-20 URLs incl. the Already-Over trio (Moog/Regions/Manhattan, real passed deadlines), 2 known-closed controls from the 9, 2 known-open; confirm statusCode/final-URL come back and controls classify right; (3) only then decide on the rest, off-hours to protect discovery quota. Leaving them as-is is also defensible (permissive default; ~10% stale; human screens at Step 2). Needs the human's go before any live fetch.
+
+#### Flags
+- Branch needs rebase on origin/master. Nothing pushed anywhere. run.yml, tiers, hard-pause threshold, mirror untouched.

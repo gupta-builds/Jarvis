@@ -6,10 +6,10 @@ updated: 2025-09-12
 area:
   - "[[C Language]]"
   - "[[Week - 3]]"
-  - "[[Midterm - 1]]"
+  - "[[40_Resources/UMN/Previous Classes/CSCI 2033/Midterm - 1]]"
 tags:
   - "#class"
-next: "No action needed — stable reference"
+next: No action needed — stable reference
 ---
 ### Standard and File I/O Functions in `stdio.h`
 The C `stdio.h` library has many functions for reading and writing to files and to the standard file-like streams (`stdin`, `stdout`, and `stderr`).

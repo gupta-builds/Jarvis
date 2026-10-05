@@ -6,7 +6,7 @@ created: 2025-10-17
 source_url: CSAPP
 related_progress:
   - "[[Week - 1]]"
-  - "[[Midterm - 1]]"
+  - "[[40_Resources/UMN/Previous Classes/CSCI 2033/Midterm - 1]]"
   - "[[C Language]]"
 tags:
   - input

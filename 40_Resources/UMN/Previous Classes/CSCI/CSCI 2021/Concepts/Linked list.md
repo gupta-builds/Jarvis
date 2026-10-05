@@ -5,7 +5,7 @@ status: sprout
 created: 2025-09-30
 source_url: DIS
 related_progress:
-  - "[[Midterm - 1]]"
+  - "[[40_Resources/UMN/Previous Classes/CSCI 2033/Midterm - 1]]"
   - "[[C Language]]"
 tags:
   - input

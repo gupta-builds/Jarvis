@@ -3,6 +3,7 @@ type: reference
 status: tree
 created: 2026-10-03
 updated: 2026-10-04
+
 related_progress:
   - "[[Source of Truth]]"
   - "[[Internship Notes Standard]]"
@@ -65,3 +66,24 @@ Written directly into [[20_Progress/Internship/Building System/Runs/Codex Prompt
 Direct inspection of `Tracker/Deadline Tracker.md` after this prompt found a stray leading `+` character on the new section's own first heading line (`+# Current sweep — 2026-10-04`) — almost certainly a unified-diff hunk marker that leaked into the written content rather than being stripped. Cosmetic, not a data-integrity issue (every dossier entry beneath it reads correctly), but real and uncorrected as of this archiving pass. Queued as a one-line fix in [[20_Progress/Internship/Building System/Runs/Codex Prompts]]'s next prompt.
 
 Follow-up: [[20_Progress/Internship/Building System/Runs/Codex Prompts]]'s next prompt (Prompt 3) fixes the stray `+`, then finishes the one piece of the original three-part ask still outstanding — the freshness recheck — using a corrected, non-binary methodology: attempt every dossier individually rather than gating the whole batch on a 5-sample pass/fail verdict, prioritizing the 3 already-`Already Over` dossiers first since they're the smallest, highest-value set to resolve.
+
+## Prompt 3 — Freshness Recheck, Per-Item, Prioritized By Urgency (written and run 2026-10-04, archived 2026-10-04)
+
+```
+[Full text: see this file's own Prompt 1/2 entries above for the unchanged scope/rules — the one real addition was Non-Negotiable Rule 1 (attempt every dossier individually, no 5-sample batch-level gate) and the explicit priority order: fix the stray '+' in Deadline Tracker.md first, then the 3 Already Over dossiers, then the remaining 275 in batches of 25-30 with running coverage reported as the pass went, not only at the end.]
+```
+
+### Result — 278/278 Attempted, Real Partial Coverage Delivered
+Written directly into [[20_Progress/Internship/Building System/Runs/Codex Prompts]] by the session itself — second file-written report in a row.
+
+- **Recount confirmed:** 278 (130/41/48/59), matching Prompts 1-2 exactly.
+- **Stray `+` fixed** in `Tracker/Deadline Tracker.md`'s "Current sweep" heading; nothing else in that file touched beyond removing the 9 dossiers this pass confirmed closed.
+- **Already Over trio (Moog, Regions Bank, Manhattan Associates): all 3 attempted first, all 3 came back ambiguous** (one empty-HTML response, two reported inaccessible) — correctly left active rather than guessed closed, exactly per the permissive-by-default rule, even though all 3 have a real passed posting-stated deadline.
+- **Full-corpus result: 85 open, 9 confirmed closed, 184 ambiguous/blocked** — a real ~34% confirmed-verdict rate (94/278), consistent with Prompt 2's small-sample 60% estimate landing closer to a true rate once run at scale. The session logged 11 batches of real per-item attempts (scratch record: [[20_Progress/Internship/Building System/Runs/Prompt 3 Freshness Sweep Scratch]]), with a deliberate, disclosed 2-item catch-up pass after a directory-offset slip mid-run — handled transparently rather than silently absorbed into a later batch's count.
+- **9 dossiers moved to `Viewed/`**, each citing a real affirmative signal (a genuine 404, or a redirect to an `?error=true`/`?not_found=true` listings page with the specific requisition absent) — no guesses. Full old-path → new-path manifest with per-dossier evidence written into the report. All 9 carry `status: removed`, `removed_date`, a signal-specific `removed_reason`, and both MOC links. `state/dossier_uids.json` confirmed untouched (correctly, per standing rule — that's the codebase session's job). [[Internship Notes Standard]] §§1/8 confirmed untouched, per this prompt's own explicit instruction not to re-collide with them.
+- **Active dossier count now 269** (278 − 9).
+
+### What The ~66% Ambiguous Rate Actually Means
+Not a process failure — a real, now well-characterized structural limit of this sandbox's one working fetch path (`web__run`). The ambiguous reasons cited are systematic, not transient: HTTP 403/406/503 (bot detection), zero-line/empty HTML (JS-only rendering this tool can't execute), and generic blocked/inaccessible responses. A same-tool retry on the same 184 URLs would very likely reproduce the same result, not improve it — this is the ceiling of what this environment can resolve, not a gap to close with more attempts. The real remaining 184 need either a genuinely different fetch capability (the codebase repo's own production Firecrawl access, which the pipeline already depends on and which plainly handles cases this tool can't) or a human eyeball pass; re-running this same sweep a third time is not the right next move.
+
+Follow-up: [[20_Progress/Internship/Building System/Runs/Codex Prompts]]'s next prompt (Prompt 4) does not repeat the freshness attempt. It builds the "ready to screen" prioritized view ([[20_Progress/Internship/Building System/Research Loop - Improvement Plan]] §4(b) — scoped back on 2026-09-04, never built), using the real data now on hand: 85 confirmed-open + 184 still-live-but-unconfirmed dossiers, each with a real deadline-urgency bucket from `Deadline Tracker.md`. [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]]'s next session separately investigates whether the codebase's own Firecrawl-backed tooling can resolve some of the 184 — that's an investigate-then-plan task there, not repeated here.

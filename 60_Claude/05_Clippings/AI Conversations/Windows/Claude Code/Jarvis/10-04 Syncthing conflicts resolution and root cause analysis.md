@@ -6,7 +6,7 @@ source_os: windows
 title: "Syncthing conflicts resolution and root cause analysis"
 started_at: 2026-10-04T12:14:28
 ended_at: 2026-10-04T19:55:21
-exported_at: 2026-10-05T14:30:06
+exported_at: 2026-10-05T16:30:05
 duration_minutes: 460.9
 project: Jarvis
 cwd: 'D:\Users\_Anant\10_Areas\Documents\Jarvis'

@@ -57,7 +57,7 @@ The book adds real depth beyond what landed live: the continuous-function QR fac
 - [ ] Work through Theorem 5.8's full contradiction proof by hand - the note in [[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 5|Lecture - 5]] gives the sketch only.
 - [ ] Exercise 6.3: prove $A^*A$ nonsingular $\iff$ $A$ full rank - used without proof in the generalized-projector derivation.
 - [ ] Confirm from the professor directly whether the full modified Gram-Schmidt algorithm, its flop count, and the triangular-orthogonalization framing will actually be covered live in a future session, or stay textbook-only for this course's pacing.
-- [ ] Track when the real Quiz #2 (take-home, SVD-focused) is actually posted and due - confirm against the professor's own "Thursday to Monday" framing once it lands.
+- [x] Quiz #2 (take-home, SVD-focused, Exercise 4.4 - unitary equivalence and singular values) worked and solved: see [[20_Progress/Degree/CSCI 5304/Quiz/Quiz - 2|Quiz - 2]], grounded in [[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 4|Lecture - 4]] Thm 4.1 (SVD existence/uniqueness) and the orthogonal-matrix facts from [[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 2 & 3|Lecture - 2 & 3]].
 ## Lecture-to-textbook synthesis
 ==A projector is the algebraic object behind "best approximation" at every scale in this course - from a single rank-one truncation of the SVD, to QR factorization's successive orthogonalization, to (not yet covered) least squares' normal equations.==
 *Mechanism:* $P^2=P$ forces every vector already in range$(P)$ to be a fixed point; the orthogonal case $P=\hat Q\hat Q^*$ or $P=A(A^*A)^{-1}A^*$ turns "best approximation within a subspace" into a single matrix formula, reused identically by Gram-Schmidt's own subtraction steps.

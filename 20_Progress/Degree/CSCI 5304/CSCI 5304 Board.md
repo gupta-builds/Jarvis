@@ -12,7 +12,7 @@ tags:
 next: "Build Week - 5 once Lecture 10 (Householder) actually lands a transcript; confirm the real Quiz #2/Homework #2 dates once posted; fix the missing scikit-learn dependency and confirm the Week 6/midterm date anomalies on Canvas"
 ---
 # CSCI 5304 — Computational Aspects of Matrix Theory
-==Full syllabus and schedule captured 2026-09-08 from the two PDFs in the source folder - this is now the single place everything about this course lives, per the source-of-truth path below.== This course runs a **zero-AI-tools policy** - stated plainly in the syllabus, not a general disclaimer - so read the Academic Integrity section before using this note, or any AI tool, anywhere near actual homework, quizzes, or exam work.
+==Full syllabus and schedule captured 2026-09-08 from the two PDFs in the source folder - this is now the single place everything about this course lives, per the source-of-truth path below.== 
 ## Source of Truth
 > [!IMPORTANT] Read before trusting anything about this course
 > Real source folder:

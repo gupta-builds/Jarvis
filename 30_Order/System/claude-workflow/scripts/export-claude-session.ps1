@@ -9,7 +9,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-$VaultRoot = "D:\_Anant\20_Progress\Documents\Jarvis"
+$VaultRoot = (Resolve-Path (Join-Path $PSScriptRoot "..\..\..\..")).Path
 $OutRoot = Join-Path $VaultRoot "60_Claude\05_Clippings\AI Conversations\Windows"
 
 # ---------------------------------------------------------------------------

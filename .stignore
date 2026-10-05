@@ -82,6 +82,16 @@
 // against the same class of debris recurring.
 /NUL
 
+// Vault-root-rule safety net (Build 11, 2026-10-04): a session running on the
+// Acer wrote its conflict-reconciliation archive to a vault-relative
+// "99_Archive/" path instead of this machine's own real, outside-the-vault
+// archive root (D:\...\99_Archive, per AGENTS.md's golden rule - never a new
+// top-level folder inside the vault), and it synced here. Moved out and
+// cleaned up same build. This exclusion does not fix the root cause (a
+// session resolving the wrong path) - it only stops the mistake from
+// propagating to the other machine the next time it happens.
+/99_Archive
+
 // git-auto-sync.log is a per-machine artifact - each laptop's own scheduled task writes to its
 // own local copy independently and rapidly (every 15 min). Syncing it via Syncthing produces
 // constant .sync-conflict-* churn between the Dell and Acer for no value (nobody reads the other
@@ -89,6 +99,13 @@
 // record). Excluding the log and any conflict-copy variant, added 2026-09-20.
 30_Order/System/claude-workflow/logs/git-auto-sync.log
 30_Order/System/claude-workflow/logs/git-auto-sync.sync-conflict-*
+
+// internship-note-guard.jsonl - same per-machine reasoning as git-auto-sync.log
+// above, appended on every Write/Edit under the internship tree on whichever
+// machine it happened on. Found 2026-10-04 (Build 12) while testing the hook
+// after fixing its path bug - never excluded before since the hook was
+// silently broken the entire time this file could exist.
+30_Order/System/claude-workflow/logs/internship-note-guard.jsonl
 
 // weekly-review.log is the same per-machine artifact as git-auto-sync.log above,
 // same reasoning - each laptop's own Jarvis-WeeklyReview Scheduled Task writes to

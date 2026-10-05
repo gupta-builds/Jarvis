@@ -265,8 +265,17 @@ if (-not $folderPath) {
 # keeps old sync-conflict copies as version history, not a live problem. A
 # recursive scan without this exclusion permanently flags every versioned
 # conflict copy as an active incident, defeating the point of the check.
-$conflictFiles = @(Get-ChildItem -LiteralPath $folderPath -Force -Recurse -File -Filter "*.sync-conflict-*" -ErrorAction SilentlyContinue | Where-Object { $_.FullName -notmatch '\\\.stversions\\' })
-$tempFiles = @(Get-ChildItem -LiteralPath $folderPath -Force -Recurse -File -Filter "~syncthing~*.tmp" -ErrorAction SilentlyContinue | Where-Object { $_.FullName -notmatch '\\\.stversions\\' })
+# 99_Archive is excluded for the identical reason (Build 11, 2026-10-04,
+# found live on the Acer): every build's own conflict-reconciliation protocol
+# writes resolved conflicts there, so a scan that doesn't exclude it flags its
+# own archived history as a live problem the moment any session's own archive
+# folder exists under the vault - 99_Archive should never actually live
+# inside the vault (see AGENTS.md's vault-root rule; the real archive root is
+# D:\...\99_Archive, outside the vault, per machine), but this exclusion is
+# cheap insurance against the exact mistake that already happened once.
+$excludePattern = '\\(\.stversions|99_Archive)\\'
+$conflictFiles = @(Get-ChildItem -LiteralPath $folderPath -Force -Recurse -File -Filter "*.sync-conflict-*" -ErrorAction SilentlyContinue | Where-Object { $_.FullName -notmatch $excludePattern })
+$tempFiles = @(Get-ChildItem -LiteralPath $folderPath -Force -Recurse -File -Filter "~syncthing~*.tmp" -ErrorAction SilentlyContinue | Where-Object { $_.FullName -notmatch $excludePattern })
 if ($conflictFiles.Count -gt 0) {
     Write-Error "Found $($conflictFiles.Count) Syncthing conflict copy/copies."
     $conflictFiles | Select-Object -First 20 -ExpandProperty FullName | ForEach-Object { Write-Error "  $_" }

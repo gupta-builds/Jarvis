@@ -34,7 +34,7 @@ $filePath = [string]$payload.tool_input.file_path
 if ([string]::IsNullOrWhiteSpace($filePath)) { exit 0 }
 if (-not $filePath.ToLowerInvariant().EndsWith(".md")) { exit 0 }
 
-$root = "D:\_Anant\20_Progress\Documents\Jarvis"
+$root = (Resolve-Path (Join-Path $PSScriptRoot "..\..\..\..")).Path
 $norm = ($filePath -replace '/', '\')
 $normLower = $norm.ToLowerInvariant()
 $rootLower = $root.ToLowerInvariant()
@@ -97,7 +97,7 @@ foreach ($field in $requiredFields) {
 
 # --- Log line (always, pass or fail) ---
 try {
-    $logDir = "D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\claude-workflow\logs"
+    $logDir = Join-Path $root "30_Order\System\claude-workflow\logs"
     if (-not (Test-Path -LiteralPath $logDir)) { New-Item -ItemType Directory -Path $logDir -Force | Out-Null }
     $logPath = Join-Path $logDir "internship-note-guard.jsonl"
     $entry = [ordered]@{

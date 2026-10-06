@@ -3,7 +3,7 @@ type: class
 input_kind: lecture
 status: seed
 created: 2026-09-08
-updated: 2026-09-08
+updated: 2026-10-05
 area:
   - "[[UMN Board]]"
 tags:
@@ -367,3 +367,68 @@ Note: this deck's title slide reads "Fall 2025" (a recycled-slide leftover — n
 - **Order of operations:** 0.1 (3 parts) is standalone, run anytime. 1.1 is standalone and short. 1.2 and 1.3 (2 parts each) share Week 2's reading — run them in the same or adjacent sessions so the bias-variance thread stays connected; each has a real companion notebook with real accuracy numbers, upload the deck AND the notebook to the same chat for the two-part sequence. 1.4 (2 parts) and 1.5 (3 parts) both belong to Week 3/4 content; 1.5 needs three parts given the real technical density (complexity, KD-trees, LSH, five real bias types).
 - **This file now has two courses ready to run in parallel** — CSCI 4061's own procedure above (already run once, its notes now live in `20_Progress/Degree/CSCI 4061/Textbook/`) and this CSCI 4521 rebuild — matching the intent of running two Gemini Notebook chats side by side.
 - **Still unconfirmed, unchanged from the Board's own warning:** the source syllabus PDF is dated "Fall 2025" and the instructor/TA roster/meeting-time details it gives have not been separately confirmed against Fall'26 Canvas — this doesn't affect the prompts above (all grounded in the real, dated, professor-authored schedule spreadsheet and the real lecture files themselves), but is worth knowing if anything about the roster ever seems off.
+## CSCI 4521 — bounded course-production builds (GPT-5.6 Terra, medium)
+Run one build per fresh Codex session with `gpt-5.6-terra` and reasoning effort `medium`. These are execute-in-place prompts: Terra should edit the workspace, then return only the requested verification report. Their scope is deliberately Weeks 1–2, then Weeks 3–4; neither prompt authorizes a whole-semester rewrite.
+These builds supersede the older Gemini-specific file-naming flag above: textbook notes belong in their canonical book/chapter paths under `Textbook/`; lecture synthesis belongs in `Weekly/Week - N.md`. The older `Textbook/Lecture - N.md` instruction and its claim that the Textbook folder is empty are stale.
+### Build 1 — Weeks 1–2: repair the existing textbook layer and land the weekly synthesis
+```markdown
+# Identity
+You are the course-production editor for the Jarvis vault. Carry out this bounded local build now; do not stop at a plan, outline, or proposed prose.
+# Goal
+Make CSCI 4521's Weeks 1–2 textbook and weekly layer source-grounded, navigable, and usable for review. Repair canonical notes that already exist; do not make duplicate chapter notes.
+# Read before editing
+Read, in this order: `AGENTS.md`; `HUMAN_WRITING.md`; `60_Claude/07_AI_Information/Jarvis Writing and Formatting.md`; `30_Order/Workflows/Courses/Course Production Workflow.md`; `30_Order/Standards/Courses/Textbook Standard.md`; `30_Order/Workflows/Courses/Textbook Workflow.md`; `30_Order/Templates/Classes/Textbook Template.md`; `30_Order/Standards/Courses/Textbook Map Standard.md`; `30_Order/Workflows/Courses/Textbook Map Workflow.md`; `30_Order/Templates/Classes/Textbook Map Template.md`; `30_Order/Standards/Courses/Weekly Standard.md`; `30_Order/Workflows/Courses/Weekly Workflow.md`; `30_Order/Templates/Classes/Week Template.md`; `30_Order/Standards/Courses/Weekly Board Standard.md`; `30_Order/Workflows/Courses/Weekly Board Workflow.md`; `30_Order/Templates/Classes/Weekly Board Template.md`; `20_Progress/Degree/CSCI 4521/CSCI 4521 Board.md`; `20_Progress/Degree/CSCI 4521/Textbook/Textbook Map.md`; `20_Progress/Degree/CSCI 4521/Weekly/Weekly Board.md`; and every CSCI 4521 textbook or weekly note you will touch.
+# Source boundary
+Use only real local course material under `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\`. Before drafting, verify the exact book edition, source file, and assigned section boundary. The Week 1–2 textbook scope is ISL Chapter 2 §§2.1–2.3; DLB Chapter 2 §§2.1–2.8; DLB Chapter 3 §§3.1–3.3; and DLB Chapter 5 §§5.1–5.2. Read the matching Week 1–2 lecture sources before producing weekly notes. `1.1 Nearest Neighbor Classifier.ipynb` is a primary lecture source, not a missing deck. The prompt note and existing chapter notes are navigation aids, never factual substitutes for the PDFs, decks, or notebooks.
+# Allowed edits
+Edit only these files plus the continuity log:
+- `20_Progress/Degree/CSCI 4521/Textbook/ISL/Chapter - 2.md`
+- `20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 2.md`
+- `20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 3.md`
+- `20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 5.md`
+- Create or repair `20_Progress/Degree/CSCI 4521/Weekly/Week - 1.md` and `Week - 2.md`
+- `20_Progress/Degree/CSCI 4521/Textbook/Textbook Map.md`
+- `20_Progress/Degree/CSCI 4521/Weekly/Weekly Board.md`
+- Append one concise entry to `60_Claude/07_AI_Information/Session Logs/log.md`.
+Do not edit `Week - 1 (Prompts).md`, raw source material, the course Board's facts, settings, another course, or any folder under `50_Archive/`. Do not create a concept-note batch. Link only existing notes; write `None created in this build` where the weekly template asks for concepts.
+# Textbook-note requirements
+Repair the four canonical chapter notes in place. Remove template residue, duplicate headings, duplicate sections, duplicate frontmatter keys, unsupported claims, and repeated flashcards, but never remove a source-grounded claim merely for being detailed. Every finished note must have valid `type: class`, `input_kind: book`, real dates, `area` links to the CSCI 4521 Board and Textbook Map, `#class` / `#Textbook` tags, a concrete `next`, and one clear book-and-chapter title. Use this shape: `## Chapter Summary`, `## Key Concepts`, `## Examples Worth Keeping`, `## Connections`, `## Open Questions`, and `## Flashcards`; retain source-title `###` headings only when they preserve the source's logic.
+Use exactly one `==highlight==`, in `## Chapter Summary`. State the central mechanism: problem, entities or assumptions, procedure/model, result, and limit. Define each key concept in context and name the condition or contrast that prevents misuse. Preserve equations and code semantics; use only source-grounded examples. Open questions use `- [ ]` task syntax. Add 3–8 atomic mechanism/contrast cards under `#cards/csci4521`. Do not make a raw PDF export or fill a gap from general ML knowledge.
+# Weekly-note requirements
+Create the Week 1 and Week 2 notes from the Week Template and actual course sources. In `## Lecture`, distinguish `Pre-lecture source notes` from any protected human capture; do not fabricate a transcript, quiz content, code outputs, or lecture emphasis. In `## Textbook integration`, state the textbook delta rather than repeat the lecture. The required `## Lecture-to-textbook synthesis` has exactly one definition highlight, then `*Mechanism:*`, one real lecture example/scenario, textbook connection, real concept links or `None created in this build`, a WARNING callout, and a one-sentence SUMMARY callout. Add source-grounded objectives, key ideas, examples, open questions, and mechanism/contrast cards.
+# Map, status, and uncertainty
+Repair the Textbook Map into a navigation and coverage ledger, not a chapter summary: valid `type: index` frontmatter, `## Purpose`, `## Map`, `## Status`, and the correct bottom Dataview query for `input_kind: book`. Add or update the Week 1–2 assigned-section entries with the canonical path-qualified note, matching week, verified reading date when available, and an honest status. Preserve later-course material and source gaps without guessing. Update the Weekly Board with one concise chronological Map entry per completed weekly note and an honest status/next action.
+If a needed source file is inaccessible, missing, ambiguous, or conflicts with the Board, do not invent content. Mark that exact section `needs review` in the Map or weekly note, preserve any existing source-grounded material, and name the concrete next verification action.
+# Validation and final response
+Before finishing, check every edited or created note for: no duplicate YAML keys or body `---`; no blank line after frontmatter or headings; no empty template comments; no dangling wikilinks; correct week/section mapping; source-grounded claims only; valid task/card syntax; exactly one required Chapter Summary highlight per textbook note; and no duplicate chapter or §2.2 coverage. Then return only a terse execution report with `Files changed`, `Source gaps`, and `Validation`. Do not paste note contents into chat.
+```
+### Build 2 — Weeks 3–4: reconcile the continuation and extend the source layer
+```markdown
+# Identity
+You are the course-production editor for the Jarvis vault. Carry out this bounded local build now; do not stop at a plan, outline, or proposed prose.
+# Goal
+Complete CSCI 4521's Weeks 3–4 textbook and weekly layer without duplicating the Weeks 1–2 work. Week 3 continues ISL §2.2; Week 4 adds DLB §§5.4–5.6 and ENLP §§1.1–1.3 and §§7.1.1–7.1.2.
+# Read before editing
+Read, in this order: `AGENTS.md`; `HUMAN_WRITING.md`; `60_Claude/07_AI_Information/Jarvis Writing and Formatting.md`; `30_Order/Workflows/Courses/Course Production Workflow.md`; `30_Order/Standards/Courses/Textbook Standard.md`; `30_Order/Workflows/Courses/Textbook Workflow.md`; `30_Order/Templates/Classes/Textbook Template.md`; `30_Order/Standards/Courses/Textbook Map Standard.md`; `30_Order/Workflows/Courses/Textbook Map Workflow.md`; `30_Order/Templates/Classes/Textbook Map Template.md`; `30_Order/Standards/Courses/Weekly Standard.md`; `30_Order/Workflows/Courses/Weekly Workflow.md`; `30_Order/Templates/Classes/Week Template.md`; `30_Order/Standards/Courses/Weekly Board Standard.md`; `30_Order/Workflows/Courses/Weekly Board Workflow.md`; `30_Order/Templates/Classes/Weekly Board Template.md`; `20_Progress/Degree/CSCI 4521/CSCI 4521 Board.md`; `20_Progress/Degree/CSCI 4521/Textbook/Textbook Map.md`; `20_Progress/Degree/CSCI 4521/Weekly/Weekly Board.md`; and every CSCI 4521 textbook or weekly note you will touch.
+# Source boundary
+Use only real local course material under `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\`. Verify the DLB and ENLP PDFs, exact assigned boundaries, and Week 3–4 lecture sources before drafting. Read the actual Week 3 `1.4` deck and Week 4 `1.5` deck. Read a `2.1` deck or notebook only if it exists. The absence of a 2.1 source is a gap to record, not permission to synthesize that lecture from general knowledge.
+# Allowed edits
+Edit only these files plus the continuity log:
+- Repair `20_Progress/Degree/CSCI 4521/Textbook/ISL/Chapter - 2.md` for the Week 3 §2.2 connection; do not duplicate §2.2.
+- Extend `20_Progress/Degree/CSCI 4521/Textbook/DLB/Chapter - 5.md` with §§5.4–5.6. Preserve correct §§5.1–5.2 material; repair only structural or source-grounding defects encountered.
+- Create `20_Progress/Degree/CSCI 4521/Textbook/ENLP/Chapter - 1.md` and `Chapter - 7.md` only after verifying the local ENLP PDF and those exact sections.
+- Create or repair `20_Progress/Degree/CSCI 4521/Weekly/Week - 3.md` and `Week - 4.md`.
+- `20_Progress/Degree/CSCI 4521/Textbook/Textbook Map.md`
+- `20_Progress/Degree/CSCI 4521/Weekly/Weekly Board.md`
+- Append one concise entry to `60_Claude/07_AI_Information/Session Logs/log.md`.
+Do not edit `Week - 1 (Prompts).md`, raw source material, the course Board's facts, settings, another course, or any folder under `50_Archive/`. Do not create a concept-note batch. Link only existing notes; write `None created in this build` where the weekly template asks for concepts.
+# Textbook-note requirements
+Follow the Textbook Template and Standard, not the source PDF's visual layout. Each edited or created note has valid `type: class`, `input_kind: book`, real dates, `area` links to the CSCI 4521 Board and Textbook Map, `#class` / `#Textbook` tags, a concrete `next`, and one clear book-and-chapter title. Use `## Chapter Summary`, `## Key Concepts`, `## Examples Worth Keeping`, `## Connections`, `## Open Questions`, and `## Flashcards`; keep source-title `###` headings only when they preserve source logic. Remove only stale template residue, duplicate headings, duplicate frontmatter keys, unsupported material, or duplicate cards.
+Use exactly one `==highlight==`, in `## Chapter Summary`. Explain mechanism and limits, retain equations/code semantics correctly, use source-grounded examples only, write open questions as `- [ ]` tasks, and add 3–8 atomic mechanism/contrast cards under `#cards/csci4521`. Never create ENLP prose from its title, the schedule, or general NLP knowledge.
+# Weekly-note requirements
+Create Week 3 and Week 4 from the Week Template. Do not fabricate quiz content or live lecture capture. Include only source-backed lecture material, label pre-lecture preparation, and preserve protected human capture. In `## Textbook integration`, state what the textbook adds beyond the deck/notebook instead of summarizing each twice. In `## Lecture-to-textbook synthesis`, use the exact six-part Weekly Standard shape: one highlighted definition, mechanism, actual lecture example, textbook connection, real concept links or `None created in this build`, WARNING, and SUMMARY. Week 4 must distinguish documented 1.5 material from unresolved 2.1 material.
+# Map, status, and uncertainty
+Update the Textbook Map as an honest coverage ledger for Week 3's ISL continuation, Week 4's DLB extension, and verified ENLP mappings. Update the Weekly Board with one chronological Map sentence per completed weekly note plus accurate status and next action. If ENLP or Lecture 2.1 is unavailable or ambiguous, do not create guessed prose: add a specifically named `needs review` entry and concrete next verification action.
+# Validation and final response
+Before finishing, check every edited or created note for: no duplicate YAML keys or body `---`; no blank line after frontmatter or headings; no empty template comments; no dangling wikilinks; no duplicate §2.2 coverage; correct week/section status; source-grounded claims only; valid task/card syntax; and exactly one required Chapter Summary highlight per textbook note. Then return only a terse execution report with `Files changed`, `Source gaps`, and `Validation`. Do not paste note contents into chat.
+```

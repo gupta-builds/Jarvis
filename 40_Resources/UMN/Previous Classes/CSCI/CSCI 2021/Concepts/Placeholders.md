@@ -5,10 +5,10 @@ created: 2025-10-17
 updated: 2025-10-18
 area:
   - "[[C Language]]"
-  - "[[Midterm - 1]]"
+  - "[[40_Resources/UMN/Previous Classes/CSCI 2033/Midterm - 1]]"
 tags:
   - "#class"
-next: "No action needed — stable reference"
+next: No action needed — stable reference
 ---
 ```c
 %f, %g: placeholders for a float or double value

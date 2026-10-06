@@ -5,11 +5,11 @@ status: tree
 created: 2025-09-18
 source_url: CSAPP
 related_progress:
-  - "[[Midterm - 1]]"
+  - "[[40_Resources/UMN/Previous Classes/CSCI 2033/Midterm - 1]]"
   - "[[C Language]]"
 tags:
   - input
-next: "No action needed — stable reference"
+next: No action needed — stable reference
 ---
 To understand what's happening under the hood, we need a basic model of the hardware.
 

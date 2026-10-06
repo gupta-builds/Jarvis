@@ -57,6 +57,24 @@ Both required: *Advanced Programming in the UNIX Environment*, 3rd ed., Stevens 
 ## Computing Environment
 > [!WARNING] Docker setup is not optional and not extendable
 > Every assignment gets graded inside a standardized Docker Linux environment - this gets set up in the first lab (Mon 2026-09-14). Environment problems are explicitly **not** grounds for a deadline extension, and neither is data loss - back up work regularly. Setup guidance lives in the course's Programming Environment Guide on Canvas, not reproduced here yet.
+
+### Resources
+1. C Programming Resources
+	Prerequisite review material, ranked by the course itself: **Dive Into Systems** (first few chapters, free online) is the top recommendation. Others if more depth is needed: the C Programming Wikibook, Beej's Guide to C Programming (informal, complete, ad-free), the GNU C Programming Tutorial (Burgess & Hale-Evans, a bit scattered), Learn C from ProgramIz (ad-heavy but example-rich), Burgess's 1999 C tutorial (dated but complete, single page), and Modern C (long, comprehensive, reflects current idiom).
+	- Probably the best resource is the first few chapters of the [Dive Into SystemsLinks to an external site.](https://diveintosystems.org/book/) textbook, which is freely available online.
+	If you are looking for more resources, you might try some of the following:
+	- [Wikibook on C ProgrammingLinks to an external site.](https://en.wikibooks.org/wiki/C_Programming): Basic to advanced concepts with some pictures to address tricky concepts like arrays and pointers.
+	- [Beej’s Guide to C ProgrammingLinks to an external site.](https://beej.us/guide/bgc/html/multi/index.html): Humorous, irreverent, reasonably complete, and ad-free.
+	- The GNU C Programming Tutorial by Mark Burgess and Ron Hale-Evans, as [PDFLinks to an external site.](http://www.it.uc3m.es/pbasanta/asng/course_notes/ctut.pdf) or [HTMLLinks to an external site.](http://www.crasseux.com/books/ctutorial/index.html). A bit scattered but decent.
+	- [Learn C Programming from ProgramIZLinks to an external site.](https://www.programiz.com/c-programming): Decent and many examples, but lots of ads.
+	- [C Programming Tutorial by Mark Burgess, circa 1999Links to an external site.](http://markburgess.org/CTutorial/CTutorial.html): A bit dated and questionable code style, but fairly complete and comes as a single web page.
+	- [Modern CLinks to an external site.](https://gustedt.gitlabpages.inria.fr/modern-c/): Very long and comprehensive, but as the title implies it reflects very up-to-date ideas on how to write C.
+2. GDB Guide
+	- https://ccrma.stanford.edu/~jos/stkintro/Useful_commands_gdb.html
+	- https://sourceware.org/gdb/current/onlinedocs/gdb/TUI.html
+	- Other gdb Guides
+		- [Beej’s Quick Guide to GDBLinks to an external site.](http://beej.us/guide/bggdb/): Beej’s guides are accurate, short, and usually funny
+		- [Official GDB ManualLinks to an external site.](https://sourceware.org/gdb/current/onlinedocs/gdb/): Long and thorough, go here if you need more information
 ## Important Dates
 Start of semester / first lecture: **Tue 2026-09-08**. First lab meetings: **Mon 2026-09-14**. Midterm 1: **Thu 2026-10-08**, in class, 75 min. Midterm 2: **Thu 2026-11-12**, in class, 75 min. Final exam - Section 001: **Mon 2026-12-21, 8:00–10:00am**, location TBD. Final exam - Section 010: **Thu 2026-12-17, 4:00–6:00pm**, location TBD.
 ## Course Tools
@@ -97,8 +115,6 @@ Two 75-minute midterms during normal lecture time, one 120-minute cumulative fin
 No extra credit opportunities exist in this course. Withdrawal without special approval is only guaranteed through the end of Week 4 - after that, only the college administration can approve one, and only in extraordinary circumstances. Incompletes are instructor-discretion only, and only with a substantial, timely portion of the work already done.
 ## Workload
 Per university policy, ~3 hours/week per credit - this is a 4-credit course, so budget **~12 hours/week** against [[10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan|Fall 2026 Plan]]'s 80/20 daily split. That is the heaviest single-class load among the six Fall'26 courses and should be weighted accordingly when the week's One Hard Thing competes with a project deadline.
-## C Programming Resources
-Prerequisite review material, ranked by the course itself: **Dive Into Systems** (first few chapters, free online) is the top recommendation. Others if more depth is needed: the C Programming Wikibook, Beej's Guide to C Programming (informal, complete, ad-free), the GNU C Programming Tutorial (Burgess & Hale-Evans, a bit scattered), Learn C from ProgramIz (ad-heavy but example-rich), Burgess's 1999 C tutorial (dated but complete, single page), and Modern C (long, comprehensive, reflects current idiom).
 ## Schedule
 Readings: "Stevens" = *Advanced Programming in the UNIX Environment*; "Kleppmann" = *Designing Data-Intensive Applications*.
 

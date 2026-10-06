@@ -369,6 +369,7 @@ Note: this deck's title slide reads "Fall 2025" (a recycled-slide leftover — n
 - **Still unconfirmed, unchanged from the Board's own warning:** the source syllabus PDF is dated "Fall 2025" and the instructor/TA roster/meeting-time details it gives have not been separately confirmed against Fall'26 Canvas — this doesn't affect the prompts above (all grounded in the real, dated, professor-authored schedule spreadsheet and the real lecture files themselves), but is worth knowing if anything about the roster ever seems off.
 ## CSCI 4521 — bounded course-production builds (GPT-5.6 Terra, medium)
 Run one build per fresh Codex session with `gpt-5.6-terra` and reasoning effort `medium`. These are execute-in-place prompts: Terra should edit the workspace, then return only the requested verification report. Their scope is deliberately Weeks 1–2, then Weeks 3–4; neither prompt authorizes a whole-semester rewrite.
+These builds supersede the older Gemini-specific file-naming flag above: textbook notes belong in their canonical book/chapter paths under `Textbook/`; lecture synthesis belongs in `Weekly/Week - N.md`. The older `Textbook/Lecture - N.md` instruction and its claim that the Textbook folder is empty are stale.
 ### Build 1 — Weeks 1–2: repair the existing textbook layer and land the weekly synthesis
 ```markdown
 # Identity

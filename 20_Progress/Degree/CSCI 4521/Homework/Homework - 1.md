@@ -175,16 +175,17 @@ This exposes a weakness: adding a couple of social media links costs an attacker
 AI assistants (OpenAI Codex and Anthropic Claude Code) were used to help organize the analysis, write plotting code, and draft parts of this report. I ran the notebook, checked every number and figure, and I am responsible for all submitted work.
 
 ## Word assembly
-1. New blank Word document. Layout: Letter, 1-inch margins. Font: Cambria or Latin Modern 11 pt (closest to the sample's LaTeX look), line spacing 1.0 to 1.15.
-2. Insert, Header, Blank (Three Columns): `CSCI 4521` | `Anant Gupta` | `October 6, 2026`. Add a bottom border to the header paragraph so it matches the sample's rule. Insert, Page Number, Bottom of Page, centered.
-3. Title block centered: **HW 1** (14 pt), then name, then `October 2026`, then a horizontal line (type `---` and press Enter).
-4. Add the section headings as a numbered list exactly as in Report Content: `1 and 2` summary, `3. Data Analysis`, `4. Model Evaluation`, `5. Applying the Model`. Use (a), (b), (c) sub-items for Q4 and Q5 like the sample.
-5. Images: Insert, Pictures, This Device, from `Code\Homework\figures\`. Set each to *In Line with Text*. Widths: Figure 1 at 6.0 in; Figures 3, 7, 8 at 4.5 to 5.0 in; Figures 2, 4, 5, 6 at full text width (6.5 in). Center them.
-6. Captions: right-click each image, *Insert Caption*, label `Figure`, position *Below selected item*, and paste the caption text. Word numbers them automatically, so insert them in order 1 to 8.
-7. Tables: Insert, Table with the column counts shown, paste the values, style *Plain Table 1* or *Table Grid*, 10 pt, centered. Add the table caption above each table (*Insert Caption*, label `Table`, *Above selected item*).
-8. Keep each figure next to the paragraph that cites it. Use Home, Paragraph, Line and Page Breaks, *Keep with next* on captions so a caption never splits from its image.
-9. Proofread every number against the notebook's saved outputs, then File, Save As, PDF (`CSCI4521_HW1_Report.pdf`). Open the PDF and check every figure and table rendered.
-Length: the assignment sets no word or page limit, and asks for many figures. Expect about 6 to 8 pages with all 8 figures and 4 tables.
+A tested reference layout exists at `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Homework\SAMPLE - HW1 Report Layout.docx` (generated from this note, for comparison only; build your own).
+1. New blank Word document. Layout: Letter, 1-inch margins. Font: Cambria 11 pt (closest to the sample's LaTeX look), line spacing 1.0 to 1.15, 6 pt after paragraphs.
+2. Double-click the header area and type `CSCI 4521`, Tab, `Anant Gupta`, Tab, `October 6, 2026` (the Header style already has center and right tab stops). Home, Borders, *Bottom Border* draws the rule like the sample.
+3. Title block centered: **HW 1** (14 pt), then name, then `October 2026`, then a bottom border on that last line.
+4. Section headings (Heading 2): `1. Data Preparation and 2. Data Visualization`, `3. Data Analysis`, `4. Model Evaluation`, `5. Applying the Model`, `AI use`. Inside Q4 and Q5, start each part with its bold label, (a) to (e) and (a) to (c), so every answer is clearly tied to its question.
+5. Images: Insert, Pictures, This Device, from `Code\Homework\figures\`, *In Line with Text*, centered. Tested widths: Figure 1 5.5 in, Figure 2 5.5 in, Figure 3 4.2 in, Figure 4 6.0 in, Figure 5 6.3 in, Figure 6 6.5 in, Figures 7 and 8 4.2 in.
+6. Captions: right-click each image, *Insert Caption*, label `Figure`, *Below selected item*, then type the caption text after the number. Word numbers them automatically, so insert them in order 1 to 8.
+7. Tables: Insert, Table, style *Table Grid*, 9.5 pt, bold header row, centered. Table captions go **above** the table (*Insert Caption*, label `Table`, *Above selected item*).
+8. Select every image and every caption above a table, then Paragraph, Line and Page Breaks, *Keep with next*, so a caption never separates from its figure or table.
+9. Proofread every number against the notebook's saved outputs, then File, Save As, PDF (`CSCI4521_HW1_Report.pdf`). Open the PDF and check every figure and table.
+Length: the assignment sets no word or page limit and rewards many figures. The tested layout is 9 pages and about 2,400 words with 8 figures and 5 tables.
 ## Work log
 1. **2026-10-05 - prompt and course alignment recorded**
 	The assignment maps to Unit 1 (CSV data, KNN, classification metrics). The supplied 777-row CSV is the data source; the full ZIP dataset is out of scope.

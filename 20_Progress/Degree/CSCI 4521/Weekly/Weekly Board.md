@@ -1,24 +1,26 @@
 ---
 type: index
-status: seed
+status: active
 created: 2026-09-15
-updated: 2026-09-15
+updated: 2026-10-05
 tags:
   - moc
 notes:
   - "[[CSCI 4521 Board]]"
-next: "Fill Week - 1.md for real - LEC 0.1 (syllabus/intro) and LEC 1.1 (classification, kNN, normalization) have both already happened"
+next: "Add protected Week 1–2 live capture and verify the unreadable Week 1–2 PDF decks before reconciling either week."
 ---
 # CSCI 4521 — Weekly Board
-Index of this course's week-by-week synthesis notes. [[CSCI 4521 Board]] is the full syllabus, grading, and schedule source - this note tracks only the weekly-note layer as it fills in over the semester.
+## Purpose
+Chronological index for the course’s weekly synthesis notes. Detailed notebook/deck evidence, protected live capture, textbook delta, open questions, and cards live in each week; [[CSCI 4521 Board]] remains the schedule and policy source.
 ## Map
-`Week - 1.md` exists but has almost no real content yet (one line: "AI is allowed anyway possibly... Solve it However way you Want" from the intro lecture). It's now 2026-09-15 (Week 2), so Week 1's two real lectures (LEC 0.1 and LEC 1.1, per [[CSCI 4521 Board]]'s Schedule) and Week 2's Tuesday lecture (LEC 1.2) are all real gaps, not future work. Each week from here follows [[Weekly Standard]] - given the instructor teaches live in Google Colab rather than from slides (see [[20_Progress/Degree/CSCI 4521/Preparation|Preparation]]'s Real Traps section), the Lecture section should capture what was actually built/run in class, not a slide outline.
+- [[20_Progress/Degree/CSCI 4521/Weekly/Week - 1|Week 1]] — pre-lecture source notes cover Wage-table inspection and a normalized one-nearest-neighbor Seeds classifier; source capture is present, but live capture and Week 1 deck verification are pending.
+- [[20_Progress/Degree/CSCI 4521/Weekly/Week - 2|Week 2]] — pre-lecture source notes cover leave-one-out and shuffled-split accuracy plus a $K$ scan for Seeds; live capture and the 1.2/1.3 deck verification are pending.
 ## Status
-0 of 16 weeks fully written as of 2026-09-15. Week numbering follows the Board note's Schedule table exactly - Tuesday and Thursday are both lecture days for this course.
+The weekly layer is behind reconciliation: Weeks 1–2 have source-grounded notebook preparation and textbook integration, not confirmed live-lecture capture. The earliest incomplete work is to add any protected Week 1 capture and verify the Week 1 PDF deck; do not infer either from the notebooks.
 ## Dataview
 ```dataview
-TABLE status, updated
+TABLE status, next
 FROM "20_Progress/Degree/CSCI 4521/Weekly"
-WHERE type = "class" AND input_kind = "lecture"
+WHERE input_kind = "lecture"
 SORT file.name ASC
 ```

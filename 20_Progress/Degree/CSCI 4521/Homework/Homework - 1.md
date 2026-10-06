@@ -2,60 +2,83 @@
 type: class
 input_kind: homework
 status: active
-created:
-updated: 2026-10-05
+created: 2026-10-05
+updated: 2026-10-06
 area:
   - "[[CSCI 4521 Board]]"
-deadline:
+deadline: 2026-10-05
 tags:
   - "#class"
   - "#Homework"
-next: "Build the Windows Jupyter environment, run the notebook end to end on the supplied CSV, then replace all draft result placeholders with verified outputs."
+next: "Restart and Run All in the notebook, build the 3 page Word report from the Report Content section, export to PDF, then submit the PDF and the notebook on Canvas inside the 24-hour grace window."
 ---
 # Homework - 1
 ## Overview
-HW1 is a five-question applied classification assignment built around the supplied 777-row PhiUSIIL phishing-URL CSV. Questions 1–2 belong in a documented Jupyter notebook; Questions 3–5 belong in a concise PDF report. The exact Canvas due date and submission destination have not been verified here.
-## Requirements
-*Must submit*
-- [ ] A Jupyter notebook (`.ipynb`) containing the work for Q1–Q2, with executed cells, readable figures, and enough Markdown to make the analysis reproducible.
-- [ ] A PDF report answering Q3–Q5. It must interpret the actual notebook output rather than describe expected results.
-- [ ] Use `PhiUSIIL_HW1_777.csv` as the assignment data. Do not replace it with the separate full dataset from `phiusiil+phishing+url+dataset.zip`.
-*Must demonstrate*
-- [ ] **Q1 — data audit:** load the CSV, inspect its structure and missing values, report the class balance, and explain why class balance changes the meaning of accuracy. Retain the original `Label`; use one documented binary target convention throughout. The planned convention is `phishing = 1` when `Label == 0`.
-- [ ] **Q2 — feature exploration:** select four features from evidence in the data and show their pairwise relationship to the phishing label with a labeled pairplot or equivalent documented visualization.
-- [ ] **Q3 — analysis:** explain what the selected-feature visualizations show, including overlap, separation, and any relationship that supports a concrete phishing-warning recommendation. Do not treat correlation as causation.
-- [ ] **Q4 — model comparison:** use the same four features and one reproducible train/test split to compare a small-$k$ KNN classifier, a larger-$k$ KNN classifier, an always-phishing baseline, and a never-phishing baseline. Fit any scaler on training features only, apply it to both partitions, and state the split/seed and feature order.
-- [ ] **Q4 — evaluation:** report precision, recall, accuracy, and F1 for phishing as the positive class on both training and held-out test data. Include tables/plots and test-set confusion matrices; explain generalization, the small-$k$/large-$k$ bias-variance contrast, and the cost of phishing false negatives before making a real-world recommendation.
-- [ ] **Q5 — application:** state the expected label for the hypothetical page before modelling it, then transform its feature vector with the fitted training scaler and obtain the chosen KNN prediction. Explain whether the result agrees with the pre-model expectation. If completing extra credit, define “smallest change” before searching for one and state the distance/constraint used.
-*Academic-integrity and presentation constraints*
-- [ ] Use AI only within the course policy and cite its actual use prominently, as required by the syllabus. The disclosure must name the tool and describe the assistance truthfully; it must not claim that unreviewed AI output was personally derived.
-- [ ] Personally inspect each result, source every number/claim from the executed notebook, and keep the report consistent with the final notebook.
-- [ ] Confirm the Canvas deadline, filenames, upload locations, and any submission-specific instructions before submitting; none are asserted in this note.
-## Work log
-1. **2026-10-05 — prompt and course alignment recorded**
-	The assignment is mapped to the course's early classification material: feature exploration, KNN, held-out evaluation, and classification metrics. The supplied 777-row CSV is the assignment source; the downloaded ZIP is a different, full dataset and is out of scope for the analysis unless the instructor explicitly says otherwise.
-2. **2026-10-05 — draft deliverables generated, not validated**
-	A draft notebook and report content have been generated for the Windows course workspace, but neither has been executed in a Windows Jupyter environment. There are no verified figures, counts, metric values, predictions, test results, or submission artifacts yet. *Diagnosis:* the Windows environment build and end-to-end execution are still pending. *Next action:* install/verify the kernel and dependencies, run the notebook from a clean kernel, then replace every draft result with captured output.
-3. **2026-10-05 — evaluation design fixed before execution**
-	The comparison will use one stratified, seeded train/test split; a scaler fit only on training features; and phishing as the positive class. This prevents feature-order drift, test-set leakage, and metric ambiguity across the four required models.
-## Concepts used
-- [[20_Progress/Degree/CSCI 4521/Textbook/ISL/Chapter - 2|Supervised binary classification]] — the `Label` response is predicted from URL/page features.
-- [[20_Progress/Degree/CSCI 4521/Textbook/ISL/Chapter - 2|K-nearest neighbors]] — the two KNN models differ only in neighborhood size, exposing the flexibility trade-off.
-- [[20_Progress/Degree/CSCI 4521/Textbook/ISL/Chapter - 2|Train/test generalization and the bias-variance trade-off]] — training scores alone cannot choose a model; the held-out set tests whether the selected $k$ transfers beyond the training rows.
-- [[CSCI 4521 Board|Precision, recall, F1, and confusion matrices]] — phishing is the positive class, so a false negative has a materially different operational cost from a false positive.
-## AI-use provenance
-The course permits AI use, but the syllabus requires it to be cited prominently. This homework used **Codex (GPT-5)** to organize the assignment plan, draft notebook/report scaffolding, and explain code choices. Before submission, add a visible disclosure in both deliverables that accurately states the final tools and assistance actually used. The student remains responsible for running the code, checking every result, understanding the reasoning, and correcting any error.
+HW1 (KNN, classification, metrics) on the supplied 777-row `PhiUSIIL_HW1_777.csv`. Two deliverables: the notebook (Q1 dataframe and Q2 pairplot must run) and a PDF report answering Q3, Q4 and Q5 with figures. The assignment PDF says due Monday Oct 05. The syllabus gives an automatic 24-hour zero-penalty grace period and nothing after it, so confirm the exact cutoff on Canvas.
+## Files
+- Notebook (submit): `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Code\Homework\CSCI4521_HW1.ipynb` (about 0.25 MB, kernel Python (CSCI 4521))
+- Report figures: `...\Code\Homework\figures\` (`fig1_pairplot.png`, `fig2_f1_vs_k.png`, `fig3_metrics.png`)
+- Assignment and sample report: `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521\Homework\homework 1.docx.pdf` and `hw1ML.pdf`
+## Report Content
+HW 1
+Anant Gupta
+October 2026
+
+Figure 1: Pairwise scatter plots of the four chosen features, colored by phishing (orange = phishing, blue = legitimate).
+
+1-2. Data Preparation and Visualization
+The notebook loads PhiUSIIL_HW1_777.csv and adds a phishing column (1 when Label = 0). 333 of 777 pages (42.9%) are phishing, so always guessing legitimate is already 57.1% accurate while catching no phishing; Q4 therefore also uses precision, recall and F1. Figure 1 plots the four features most correlated with phishing (HasSocialNet r = -0.78, SpecialCharRatioInURL r = 0.62, DomainTitleMatchScore r = -0.59, NoOfJS r = -0.57).
+
+3. Data Analysis
+Figure 1 shows clear trends. HasSocialNet separates the classes best: 80.0% of legitimate pages link to social networks but only 1.2% of phishing pages do. DomainTitleMatchScore is nearly all or nothing (phishing mean 13.9, legitimate mean 72.7), phishing pages load far fewer scripts (NoOfJS mean 1.2 vs 17.6), and they have a higher special character ratio (0.090 vs 0.047). The classes still overlap and these are correlations, not causes, so no single feature is a perfect rule; a rigid rule would have high bias, so a flexible but smooth model such as KNN with a middle k is a good choice. A company should check first whether a page links to social networks, whether its title matches its domain, and whether its URL has an unusually high share of special characters, and flag pages with several of these together. HTTPS alone should not be trusted: every legitimate page uses it, but so do 58.6% of phishing pages.
+
+4. Model Evaluation
+I shuffled the data once into 520 training pages (two thirds) and 257 testing pages (one third) with no overlap, and z-score normalized the features using the training mean and standard deviation (also applied to the test pages), since DomainTitleMatchScore (0 to 100) would otherwise dominate SpecialCharRatioInURL (0 to 0.18). Phishing is the positive class.
+
+(a) I used the same four features as Figure 1: they have the strongest correlation with phishing and measure different parts of a page. Figure 2 averages F1 over 100 random splits for each odd k; I chose small k = 3 and large k = 151.
+
+Figure 2: Average training and testing F1-score of KNN over 100 random splits for each odd k.
+
+(b) KNN with k = 3 scored (precision, recall, accuracy, F1) 0.957, 0.969, 0.967, 0.963 on training and 0.936, 0.990, 0.969, 0.963 on testing. KNN with k = 151 scored 0.890, 0.917, 0.913, 0.903 on training and 0.887, 0.904, 0.914, 0.895 on testing. All phishing scored 0.440, 1.000, 0.440, 0.611 on training and 0.405, 1.000, 0.405, 0.576 on testing. No phishing scored 0, 0, 0.560, 0 on training and 0, 0, 0.595, 0 on testing (precision is 0/0, reported as 0).
+
+Figure 3: Precision, recall, accuracy and F1 of the four classifiers (phishing is the positive class).
+
+(c) On training data, KNN k = 3 is best on precision (0.957), accuracy (0.967) and F1 (0.963), all phishing is best on recall (1.000), no phishing is worst on precision, recall and F1 (0), and all phishing is worst on accuracy (0.440). Every training page is its own nearest neighbor, so small k nearly memorizes the data (k = 1 reaches a training F1 of 0.995) while k = 151 smooths over the class boundary. The constant classifiers ignore the features: all phishing flags everything (perfect recall, but precision and accuracy equal the 44% phishing share) and no phishing flags nothing.
+
+(d) On testing data the ranking is the same: KNN k = 3 is best on precision (0.936), accuracy (0.969) and F1 (0.963), all phishing is best on recall (1.000, with k = 3 close at 0.990), no phishing is worst on precision, recall and F1, and all phishing is worst on accuracy (0.405). Averaged over 100 splits (Figure 2), k = 3 falls from a training F1 of 0.967 to a testing F1 of 0.950 and k = 1 from 0.995 to 0.940 (the variance of a flexible model), while k = 151 scores about the same on both (0.904 and 0.905) but lower (the bias of a smooth model).
+
+(e) I recommend KNN with a small k. A missed phishing page (false negative) is the costly error, so recall matters most, but all phishing has perfect recall and is useless (precision 0.405), and accuracy is misleading (no phishing scores 0.595 while catching nothing). KNN k = 3 has the best F1 and on the test data missed 1 of 104 phishing pages with 7 false alarms among 153 legitimate pages.
+
+5. Applying the Model
+(a) I expect phishing. The page has no social network links, a title match score of 0 and only 4 scripts, which fit the phishing means (0.012, 13.9, 1.2) far better than the legitimate means (0.800, 72.7, 17.6), and its special character ratio of 0.146 is well above the legitimate mean of 0.047. HTTPS and a favicon point to legitimate, but 58.6% of phishing pages also use HTTPS.
+
+(b) Yes, KNN predicts phishing (Label = 0). I used k = 7, the odd k with the best average testing F1 (0.955) over 100 random splits (Figure 2): big enough to avoid the overfitting of k = 1 (test F1 0.940) and small enough to avoid the underfitting of k = 151 (0.905). I used the same four features as Q4, z-score normalized with the mean and standard deviation of all 777 pages (the final model uses every page since k was already chosen), and normalized the new page the same way. All 7 nearest neighbors are phishing, so I believe this page is phishing.
+
+(c) Extra credit: I define a small change as changing one feature, measured in standard deviations of that feature (the distance KNN uses after normalization). Searching each feature over its observed range, the smallest flip is adding social network links (HasSocialNet 0 to 1, 2.01 standard deviations), which makes the prediction legitimate. The only other flip is raising NoOfJS from 4 to about 54 (3.45 standard deviations). Social links are cheap to add, so a real detector should not rely on this feature alone.
+
+AI use: OpenAI Codex and Anthropic Claude Code helped with the analysis and code. I ran the notebook, checked every result, and am responsible for this work.
+## Word Assembly
+Copy `## Report Content` from source mode (Ctrl+E in Obsidian), because reading mode strips list-looking numbers like "3.". In Word use Paste Special, Unformatted Text. The report has no math markup, so nothing needs LaTeX.
+1. Whole document: Times New Roman 12 pt, Letter, 1-inch margins, single line spacing, 6 pt after paragraphs, body justified.
+2. Header: `CSCI 4521`, Tab, `Anant Gupta`, Tab, `October 6, 2026` (same font), with a bottom border like the sample.
+3. First three lines (`HW 1`, name, `October 2026`) centered, with a bottom border under the last one.
+4. Section titles (`1-2.`, `3.`, `4.`, `5.`) in bold.
+5. Insert each image from `Code\Homework\figures\` directly above its caption line, centered, In Line with Text. Widths: Figure 1 5.0 in, Figure 2 3.4 in, Figure 3 5.4 in. Center the caption lines.
+6. Check the page count is 3 (tested in Word with these settings, last page about half an inch from full). If it spills, set space after to 0 pt or shrink Figure 2 and Figure 3 slightly. Then File, Save As, PDF.
+## Notebook
+Follows the lecture style: `train_test_split` with `np.random.permutation`, the `knn_classifier(k)` closure and the 100-split averaging loop from lecture 1.3, z-score normalization from lecture 1.1 (training data only), `sns.pairplot` and `pd.melt` plus `sns.lineplot` from lectures 0.1 and 1.3. Seed is fixed (`np.random.seed(4521)`), so Restart and Run All reproduces every number above (about 1 minute).
 ## Submission checklist
-- [ ] Start from a clean kernel and run every notebook cell in order without errors or hidden state.
-- [ ] Verify row count, column names, label mapping, missing-value treatment, four selected features, feature order, split seed, and scaler fit scope.
-- [ ] Check that every metric table, plot, confusion matrix, and Q5 prediction in the PDF matches the saved notebook output.
-- [ ] Add the truthful, prominent AI-use disclosure to the notebook and PDF.
-- [ ] Export the final report PDF; reopen both deliverables to confirm figures, labels, and text render correctly.
-- [ ] Verify Canvas's exact due date, destination, and required filenames immediately before upload.
-- [ ] Submit both files and record the receipt/time here.
+- [ ] Confirm the Canvas cutoff
+- [ ] Notebook: Restart and Run All, confirm the numbers match this note, save
+- [ ] Word report: build, check 3 pages, export PDF, reopen to check
+- [ ] Upload the PDF and `CSCI4521_HW1.ipynb`, record the time below
 ## Submission
-Not submitted. No Canvas receipt, timestamp, deadline, or final artifact filename has been verified.
+Not submitted yet.
+## Work log
+- 2026-10-05: Codex build replaced (sklearn pipelines, hidden plots, report PDF unlike the sample, MKL crash misdiagnosed as a package pin problem).
+- 2026-10-06: Notebook rebuilt in the lecture style and trimmed to 3 report figures. Environment fixed by switching the conda BLAS from MKL to OpenBLAS. Report cut to 3 pages. Codex `artifacts/` deleted.
+## Concepts used
+[[20_Progress/Degree/CSCI 4521/Textbook/ISL/Chapter - 2|KNN, train/test error and the bias-variance trade-off]], and [[CSCI 4521 Board|precision, recall and F1]] with phishing as the positive class.
 ## Post-submit reflection
-Complete after grading or substantive feedback.
 - What failed first?
 - What pattern repeats?

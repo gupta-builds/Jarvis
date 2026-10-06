@@ -1,7 +1,7 @@
 ---
 type: class
 input_kind: book
-status: needs-review
+status: sprout
 created: 2026-10-05
 updated: 2026-10-05
 area:

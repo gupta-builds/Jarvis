@@ -172,11 +172,20 @@ function Get-ConflictMarkerFiles {
     # and flagging on mere presence would re-trigger every time any of those files
     # changes for an unrelated reason. A real autostash-pop conflict always INSERTS
     # new marker lines relative to HEAD, so this stays precise for the real case.
+    # Requires the <<<<<<< opening marker specifically, not just any one of the
+    # three in isolation. Caught live 2026-10-07: a live-appended AI-conversation
+    # export (WSL/Claude Code/10-07 Wsl-host-step.ps1 sparse VHD failure.md) added a
+    # bare "=======" line as part of its own genuine content (no accompanying
+    # <<<<<<</>>>>>>> anywhere in the file) and tripped this check on every tick for
+    # 30+ minutes straight, blocking real commits over a non-conflict. A real
+    # autostash-pop conflict always inserts <<<<<<< first - nothing in ordinary
+    # prose, code, or transcripts does - so anchoring on that marker alone stays
+    # precise for the real case while dropping this false-positive shape entirely.
     $dirtyFiles = @(git diff --name-only 2>$null | Where-Object { $_ })
     $hits = [System.Collections.Generic.List[string]]::new()
     foreach ($f in $dirtyFiles) {
         if (-not (Test-Path -LiteralPath $f)) { continue }
-        $addedMarkerLine = git diff -- "$f" 2>$null | Where-Object { $_ -match '^\+(<{7}( |$)|={7}$|>{7}( |$))' }
+        $addedMarkerLine = git diff -- "$f" 2>$null | Where-Object { $_ -match '^\+<{7}( |$)' }
         if ($addedMarkerLine) { $hits.Add($f) }
     }
     return $hits

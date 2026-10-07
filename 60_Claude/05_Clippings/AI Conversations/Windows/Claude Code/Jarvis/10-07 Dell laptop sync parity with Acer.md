@@ -6,7 +6,7 @@ source_os: windows
 title: "Dell laptop sync parity with Acer"
 started_at: 2026-10-07T14:07:48
 ended_at: 2026-10-07T14:38:03
-exported_at: 2026-10-07T15:00:03
+exported_at: 2026-10-07T16:30:02
 duration_minutes: 30.2
 project: Jarvis
 cwd: 'D:\Users\_Anant\10_Areas\Documents\Jarvis'

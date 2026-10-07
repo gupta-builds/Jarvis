@@ -7,7 +7,7 @@ title: "WSL configuration and optimization across laptops"
 started_at: 2026-10-04T17:14:52
 ended_at: 2026-10-05T02:45:40
 duration_minutes: 571
-exported_at: 2026-10-07T14:15:06
+exported_at: 2026-10-07T16:15:01
 project: anant_gupta
 cwd: '/home/anant_gupta'
 session_id: 5930fd7b-ba5c-4680-9d37-9228411f4470

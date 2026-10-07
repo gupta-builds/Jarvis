@@ -2,7 +2,7 @@
 type: ai
 status: sprout
 created: 2026-03-19
-updated: 2026-06-07
+updated: 2026-10-07
 tags:
   - "#ai"
   - "#evergreen"
@@ -73,6 +73,8 @@ Every agent follows this, regardless of which tool is driving. Full version: [[4
 - `.obsidian/`, `.claude/`, `.cursor/`, `.kiro/`, `.codex`, `.git/` — settings and tooling only, never notes.
 
 ## Working Rules
+- **Codex model routing:** use the global `base` profile for bounded, routine work with explicit inputs and acceptance criteria. Use `deep` before consequential architecture, hard debugging, security or code review, cross-source synthesis, important decisions, or difficult coursework. If base work becomes cross-cutting or difficult to verify, stop and ask to continue in `deep`; do not silently change model behavior.
+- **Codex output:** never use an em dash. Use complete sentences with proper grammar; do not omit words that carry meaning.
 - Search before creating a note. Prefer extending an existing canonical note over making duplicates.
 - Preserve frontmatter and use the vault schema fields consistently. Update `updated:` when a note changes meaningfully.
 - Prefer Obsidian wikilinks for internal references.

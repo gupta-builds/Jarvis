@@ -4,6 +4,12 @@
 .obsidian/cache
 .trash/
 
+# Copilot plugin's model-catalog cache (2026-10-07) - a 5MB+ regenerated blob,
+# refreshed independently whenever Copilot checks for model updates on either
+# laptop, same per-machine-churn shape as Failure Mode 9's file-explorer-plus -
+# found live generating a real .sync-conflict-* on this exact file.
+.copilot/model-catalog-cache.json
+
 # Volatile Obsidian state (churns constantly, inflates every commit)
 .obsidian/graph.json
 .obsidian/workspaces.json

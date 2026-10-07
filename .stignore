@@ -18,6 +18,14 @@
 // the full incident.
 (?d).obsidian/plugins/copilot/data.json
 (?d).obsidian/plugins/copilot/data-*backup*.json
+
+// Copilot plugin's model-catalog cache (2026-10-07) - a 5MB+ regenerated blob,
+// refreshed independently on each laptop, found live generating a real
+// .sync-conflict-* on this exact file. (?d)-prefixed per Failure Mode 17: this
+// is the ONLY file in .copilot/, so excluding it makes that directory 100%
+// ignored content - exactly the shape that caused the cursor-workflow/logs/
+// delete-dir deadlock.
+(?d).copilot/model-catalog-cache.json
 (?d).obsidian/plugins/quickadd/data.json
 (?d).obsidian/plugins/obsidian-local-rest-api/data.json
 (?d).obsidian/plugins/lean-terminal/data.json

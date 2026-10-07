@@ -7,6 +7,7 @@
   "fontSize": 14,
   "fontFamily": "Menlo, Monaco, 'Courier New', monospace",
   "lineHeight": 1,
+  "minimumContrastRatio": 4.5,
   "theme": "auto",
   "backgroundColor": "",
   "cursorBlink": true,
@@ -146,5 +147,8 @@
   "wikiLinkAutocomplete": false,
   "wikiLinkInsertMode": "wikilink",
   "clickableFilePaths": true,
-  "readlineShortcuts": true
+  "readlineShortcuts": true,
+  "keepFocusOnEscape": true,
+  "showUpdateNotice": true,
+  "lastSeenVersion": "1.5.0"
 }

@@ -365,4 +365,44 @@ if ($remoteDeviceIds.Count -eq 0) {
     }
 }
 
+# Known Failure Mode (2026-10-07): git pull --rebase --autostash can report
+# success while its own autostash-pop conflicts underneath it, leaving an
+# un-dropped stash entry behind every time. Neither git-auto-sync.ps1 nor any
+# human process ever checked `git stash list` on its own, so these piled up
+# invisibly for weeks (7 found live 2026-10-07, 23 found 2026-10-04) until a
+# corrupted note or a direct manual audit surfaced them. Checked here so a
+# pileup is visible same-day, not three weeks later - same lesson as Known
+# Failure Mode 12, applied to a second script.
+if ($folderPath -and (Test-Path (Join-Path $folderPath ".git"))) {
+    try {
+        $stashList = @(git -C $folderPath stash list 2>$null | Where-Object { $_ })
+        if ($stashList.Count -gt 0) {
+            Write-Error "$($stashList.Count) leftover git stash entries in the Jarvis repo."
+            $exitCode = 1
+            $problems.Add("$($stashList.Count) leftover 'git stash' entries - each is a prior autostash-pop conflict never reviewed. Read each with 'git stash show -p stash@{N}' before dropping (Known Failure Mode 6's discipline) - never bulk-clear blind.")
+        }
+    } catch {
+        Write-Error "Could not check git stash list: $_"
+    }
+
+    # Surfaces git-auto-sync.ps1's own CONFLICT/FAILED outcome the same way - a
+    # log line nobody reads is Known Failure Mode 12 all over again for a second
+    # script. Only the most recent completed run's own end-marker line counts,
+    # so an earlier failure that a later successful run already superseded
+    # does not keep alerting.
+    try {
+        $syncLogPath = Join-Path $folderPath "30_Order\System\claude-workflow\logs\git-auto-sync.log"
+        if (Test-Path -LiteralPath $syncLogPath) {
+            $lastEnd = Get-Content -LiteralPath $syncLogPath -Tail 80 -ErrorAction SilentlyContinue | Where-Object { $_ -match '=== git-auto-sync end' } | Select-Object -Last 1
+            if ($lastEnd -and $lastEnd -match 'FAILED') {
+                Write-Error "git-auto-sync.log's most recent run ended FAILED: $lastEnd"
+                $exitCode = 1
+                $problems.Add("git-auto-sync's most recent run ended FAILED - tail 30_Order/System/claude-workflow/logs/git-auto-sync.log for detail.")
+            }
+        }
+    } catch {
+        Write-Error "Could not check git-auto-sync.log: $_"
+    }
+}
+
 Complete-HealthCheck -ExitCode $exitCode -Problems $problems -DashboardPath $dashboardPath

@@ -123,6 +123,48 @@ function Invoke-PullRebase {
     return $true
 }
 
+function Get-ConflictMarkerFiles {
+    # Only ever checks files currently DIRTY against HEAD (git diff --name-only) -
+    # never the whole tree. A whole-tree `git grep` false-positives on any file that
+    # legitimately contains conflict-marker-shaped text as documented/example
+    # content - this vault has several: obsidian-git's own shipped main.js embeds a
+    # literal <<<<<<< HEAD / >>>>>>> origin/main example string in its own
+    # conflict-help text, and multiple AI-conversation clippings quote past
+    # incidents verbatim. Caught live 2026-10-07: this guard's first real run
+    # flagged 11 files, 10 of which were this exact false positive, which would
+    # have permanently blocked every future sync (those files never change) -
+    # worse than the corruption bug this guard exists to catch. Restricting to
+    # currently-dirty files keeps the real case (an autostash-pop conflict always
+    # leaves the conflicted file modified-but-uncommitted) while dropping clean,
+    # already-committed files from consideration entirely.
+    # Checks what the current diff itself ADDS (lines prefixed +), not whether the
+    # file contains marker-shaped text anywhere - several vault files legitimately
+    # have pre-existing lines like this (quoted history) untouched by today's edit,
+    # and flagging on mere presence would re-trigger every time any of those files
+    # changes for an unrelated reason. A real autostash-pop conflict always INSERTS
+    # new marker lines relative to HEAD, so this stays precise for the real case.
+    $dirtyFiles = @(git diff --name-only 2>$null | Where-Object { $_ })
+    $hits = [System.Collections.Generic.List[string]]::new()
+    foreach ($f in $dirtyFiles) {
+        if (-not (Test-Path -LiteralPath $f)) { continue }
+        $addedMarkerLine = git diff -- "$f" 2>$null | Where-Object { $_ -match '^\+(<{7}( |$)|={7}$|>{7}( |$))' }
+        if ($addedMarkerLine) { $hits.Add($f) }
+    }
+    return $hits
+}
+
+function Test-WorkingTreeHasConflictMarkers {
+    # pull --rebase --autostash can report success on the rebase itself while its own
+    # autostash-pop step conflicts underneath it - git writes literal <<<<<<< Updated
+    # upstream / ======= / >>>>>>> Stashed changes markers into the working tree file
+    # in that case, but does not fail the wrapping command's exit code, so
+    # Invoke-PullRebase never saw it. The incident this guards against is the
+    # Pointers and Addresses.md corruption, 2026-10-06: three separate auto-sync
+    # runs each committed one more nested layer of markers because nothing between
+    # the pull and the commit ever looked at actual file content.
+    return (Get-ConflictMarkerFiles).Count -gt 0
+}
+
 function Test-HasRealChanges {
     git add -A | Out-Null
     git diff --cached --quiet
@@ -174,6 +216,20 @@ function Invoke-PushWithRebaseRetry {
     return $false
 }
 
+function Test-GitIndexLocked {
+    # obsidian-git runs real `git` child processes from inside Obsidian itself
+    # (status poll every 7s, auto-commit every 2min, via the simple-git library -
+    # confirmed in .obsidian/plugins/obsidian-git/main.js), completely uncoordinated
+    # with this script. If that poll or auto-commit is mid-flight when this script's
+    # own pull --rebase starts, the two git processes race .git/index.lock - at best
+    # one fails cleanly, at worst obsidian-git's own error handling for "another git
+    # process is running" is the thing that has been taking the whole Jarvis Obsidian
+    # window down to a blank render (2026-10-07 incident). Checking for the lock
+    # before touching anything costs nothing and avoids starting that race at all.
+    param([string]$VaultRoot)
+    return (Test-Path (Join-Path $VaultRoot ".git\index.lock"))
+}
+
 function Invoke-GitAutoSync {
     Set-Location $VaultRoot
 
@@ -200,6 +256,12 @@ function Invoke-GitAutoSync {
         $branch = Get-CurrentBranch
         Write-SyncLog "=== git-auto-sync start (branch: $branch) ==="
 
+        if (Test-GitIndexLocked -VaultRoot $VaultRoot) {
+            Write-SyncLog "git's own index.lock is held (most likely obsidian-git's own background commit/status poll mid-operation), deferring to next tick rather than racing it."
+            Write-SyncLog "=== git-auto-sync end (deferred, git index locked) ==="
+            exit 0
+        }
+
         if (-not (Test-SyncthingIdle)) {
             Write-SyncLog "=== git-auto-sync end (deferred, Syncthing still converging) ==="
             exit 0
@@ -213,6 +275,12 @@ function Invoke-GitAutoSync {
 
         if (-not (Invoke-PullRebase -Branch $branch)) {
             Write-SyncLog "CONFLICT: initial pull --rebase failed. Manual resolution needed."
+            exit 1
+        }
+
+        $conflictFiles = Get-ConflictMarkerFiles
+        if ($conflictFiles.Count -gt 0) {
+            Write-SyncLog "CONFLICT: pull --rebase --autostash reported success but left unresolved merge markers in currently-dirty file(s): $($conflictFiles -join ', '). This is a failed autostash pop, not a clean rebase - refusing to commit broken content. The conflicting stash is preserved in 'git stash list' for manual resolution."
             exit 1
         }
 

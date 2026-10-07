@@ -1,4 +1,6 @@
 # Session Log
+## [2026-10-07] write | MGMT 3015 remaining textbook build prompts
+Audited the MGMT 3015 Board, Textbook Map, landed Chapter 1–2/3/8 notes, weekly layer, and course Textbook/Weekly standards and workflows. Appended a Notebook prompt package to [[20_Progress/Degree/Repetitive Things]] for the unwritten textbook layer: Chapter 4 completion plus Chapters 5–7 and 9–13, with the under-3,000-character prompt rule, verified course mapping, source-gap placeholders, and landing/verification contract. No course notes were overwritten; Internationalization remains correctly treated as slides-only.
 ## [2026-10-06] build | Technical Interview Homework - 3 Solutions & CSCI 4041 Algorithmic Synthesis
 Solved all 7 questions for CodePath TIP103 Homework 3 patterned after Prof. Joy Upton-Azzam's CSCI 4041 methods (CLRS Ch 10 Stacks & Queues, Ch 4 Tree Recursion, Ch 6 Heaps, two-pointer invariants). Resolved clipboard upload duplication by verifying physical screenshots in `D:\_Anant\Pictures\Screenshots\` (captured 22:37:25 to 22:38:33). Wrote full solutions, traces, complexity analysis, and test suites into `[[20_Progress/Degree/_Courses/Technical Interview/_Transcripts/Homework - 3|Homework - 3]]`.
 

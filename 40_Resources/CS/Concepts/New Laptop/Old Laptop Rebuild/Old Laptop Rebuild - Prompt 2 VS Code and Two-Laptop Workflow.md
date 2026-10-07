@@ -29,6 +29,7 @@ Run in Codex (gpt-5.6-sol, medium effort) from `/home/anant_gupta` on the old la
   - The WSL idle-timeout fix moved into [[Old Laptop Rebuild - Prompt 1 WSL]] (Follow-up 1). Prompt 2 now gates its network phase on a passed idle test.
   - Added: retire the Acer's old clones, a superseded-by note on one repo's completion gate, the vault scope line, the worktree dependency settings, key expiry, a tested Tunnels fallback, and Build 1's corrected repo and disk facts.
 - **v2.1 (2026-10-04), decided by the user:** Tailscale runs inside WSL on the Dell and on the Windows side only on the Acer, never both on one machine. This amends Decision 1 of the locked note (which said never on either Windows side) and replaces v2's open question about the Acer's client path. Why: Tailscale's SSH server component is Linux and macOS only, so the Dell's node must live in WSL next to the code; Tailscale's WSL2 page recommends the Windows host alone for ordinary use and warns only about running both on the same machine; and VS Code Remote-SSH on the Acer uses the Windows `ssh.exe`, which needs a Windows-side tailnet route. Tailscale on Windows moves no code or tooling out of WSL. Q1 now asks Codex to confirm the plain route works, not to choose between routes.
+- **v2.2 (2026-10-07)** adds Follow-up 1 (below the main prompt): diagnose the Build 1 gate output. The prompt itself is unchanged. The host script's sparse step was fatal, and the idle test's PASS check depended on how `wsl -l -v` is decoded; both are covered by the follow-up.
 
 ## Prompt
 
@@ -157,4 +158,61 @@ Write under 40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild/, following t
 
 # Final message
 Lead with the result in a few lines: what changed, the measured numbers, what is waiting for me, and the script paths. List open decisions as short bullets. Do not paste the notes back.
+~~~
+
+## Follow-up 1: diagnose the Build 1 host-step and idle-test output (2026-10-07)
+
+Send this to the same Codex session that stopped at the Build 1 gate ("Before I continue, please..."). If that session is gone, paste it into a fresh `codex -m gpt-5.6-sol -c model_reasoning_effort=medium` session in `/home/anant_gupta`. It carries its own evidence, so nothing else needs pasting.
+
+What it is built on:
+- **Official guidance used.** OpenAI's "Prompting guidance for GPT-5.6 Sol" (developers.openai.com/api/docs/guides/prompt-guidance-gpt-5p6), checked 2026-10-07. It asks for outcome-first prompts with short sections (Role, Goal, Success criteria, Constraints, Tools, Output, Stop rules), one place that says what each kind of request authorizes, absolutes only for real invariants, each rule stated once, and a fix to the prompt's missing success criteria or verification loop before raising effort. Medium effort is the sanctioned starting point, so this prompt stays on medium. The Codex plugin's GPT-5.4 block recipe (task, output contract, follow-through, verification, grounding) was folded in as plain sections instead of XML. The guide's wording is also on the page "Using GPT-6", which describes the next generation; the 5.6 page is the one that applies here.
+- **Evidence.** Everything marked "verified by the master session" was probed on 2026-10-07 from a read-only PowerShell/WSL session, not inferred from the paste.
+- **Scope.** It repairs two Build 1 scripts and finishes Build 1's host verification. It does not start Phase 2, and it makes no C: changes.
+
+~~~text
+You are the Build 2 Codex session, paused at the Build 1 gate on the Dell (Windows 11 Pro, distro "Ubuntu", WSL2). I ran your three gate commands. The sudo step passed. The host script stopped partway, and the idle test printed FAIL twice. Your job in this run is to explain both results from evidence, repair the scripts, and finish the host verification that never ran, so Phase 2 can resume. This run does not start Phase 2.
+
+# Goal
+Leave me with (1) a root cause for each result, (2) corrected scripts in D:\WSL\ops that I can run once each, (3) a measured answer to whether the host is healthy after the WSL update, and (4) a decision paper on shrinking the Ubuntu VHDX.
+
+# Evidence I am giving you
+Host script, D:\WSL\ops\wsl-host-step.ps1, ran 2026-10-06 22:33:
+- Step 1: Ubuntu VHDX 107.575 GiB at D:\WSL\Ubuntu\ext4.vhdx. Swap VHDX MISSING at D:\WSL\swap.vhdx.
+- Step 3: `wsl --update` moved WSL to 3.0.1.0, kernel 6.18.40.1-1, WSLg 1.0.79. Before it, Build 1 had WSL 2.4.13.0 on kernel 5.15.167.4.
+- Step 5: `wsl --manage Ubuntu --set-sparse true` printed "Sparse VHD support is currently disabled due to potential data corruption. To force a distribution to use a sparse VHD, please run: wsl.exe --manage <DistributionName> --set-sparse true --allow-unsafe. Error code: Wsl/Service/E_INVALIDARG". The script then printed its STOP text and exited, so steps 6 to 8 (start check, wslview retest, verification block, CheckConnection count) never ran.
+- The em dash in the script's size lines printed as "â€”".
+Idle test, D:\WSL\ops\wsl-idle-test.ps1, ran twice with the same result. `wsl -l -v` printed "* Ubuntu  Running  2" and "docker-desktop  Stopped  2", with a blank line between every row, then "FAIL: Ubuntu was not Running after 60 seconds."
+
+Verified by the master session on 2026-10-07 (re-check anything you rely on; each check is cheap):
+- Windows PowerShell 5.1 decodes `wsl.exe -l -v` as UTF-16 read through the OEM code page. Every line contained NUL bytes, and the blank lines are the NULs around CR/LF. The idle test's regex `^\s*\*?\s*Ubuntu\s+` returned False on the raw output and True once `$env:WSL_UTF8 = '1'` was set before the call. So Ubuntu really was Running and the FAIL came from the script.
+- wsl-host-step.ps1 and wsl-idle-test.ps1 have no UTF-8 BOM (first bytes 24 45 72), and the host script contains two literal em dashes. Windows PowerShell 5.1 reads a BOM-less file as ANSI.
+- The live VM matches .wslconfig: 19 GiB total memory, 10 processors, 8 GiB swap on /dev/sdc, and D:\WSL\swap.vhdx now exists. `fsutil sparse queryflag` says ext4.vhdx is NOT sparse. `wslview --version` now works, and ~/.config/wsl/browser-fallback-enabled does not exist.
+- `Get-Command Optimize-VHD` is True (Hyper-V module present). C: is 93% used with about 20 GiB free. D: has about 364 GiB free. C:\pagefile.sys is 31.49 GiB.
+- `journalctl --since '-30 min' | grep -c CheckConnection` returned 135 on the new WSL. Build 1 measured 5 in an hour on the old one. This is a single reading, not a trend.
+
+# Success criteria
+1. For each result you give a root cause that cites a line of script text and a line of output. The sparse refusal is Microsoft's data-corruption safeguard working as designed; say whether anything in the script design made it fatal when it should have been a recorded skip.
+2. Both scripts are corrected and parse cleanly, after a dated backup of each. The idle test must not depend on how `wsl -l -v` is decoded, and its PASS must show the VM stayed up through a wait longer than the 60-second default VM timer, not merely that Ubuntu is listed. Both scripts must be safe to read in Windows PowerShell 5.1 (ASCII text or a BOM).
+3. The host-step work that never ran is done or scripted: the start check for .wslconfig key errors, the wslview retest, the verification block, and a CheckConnection count measured over a window you state. Do whatever of it you can from this session read-only. Anything that needs WSL shut down or every session closed goes into a script, and I get the run order.
+4. You answer these with evidence, or mark them unknown:
+   - Did WSL 3.0.1 accept every .wslconfig key, in particular `[experimental] sparseVhd=true`, `vmIdleTimeout=-1`, `[general] instanceIdleTimeout=-1` and `autoMemoryReclaim=gradual`? Check Microsoft's current WSL configuration reference and the microsoft/WSL 3.0.x release notes.
+   - Does mirrored networking behave the same on 3.0.1? Are the Obsidian endpoints 127.0.0.1:27123 and :27124 still reachable from WSL? Is the CheckConnection rate a real change? Treat any cause as a hypothesis until measured.
+   - Is the `--set-sparse` refusal specific to this build or a standing policy? What does `wsl --manage --help` list?
+5. The VHDX decision paper has a table of the options with measured numbers (ext4 used space versus the 107.58 GiB file, D: free space, elevation needed, whether WSL must be shut down, reversibility, data risk): do nothing, `Optimize-VHD -Mode Full`, diskpart `compact vdisk`, `wsl --export` first as a backup, and `--allow-unsafe` shown only so I can see why it is not recommended. End with one recommendation. Many repos under ~/projects hold uncommitted work, so say what protects them.
+6. Build 1's findings note has the corrections, by heading, and the Index status line is current.
+
+# What each kind of action needs
+Without asking: reading anything; read-only `wsl.exe`, `powershell.exe` and `fsutil` queries from WSL; editing the two scripts and adding new ones under /mnt/d/WSL/ops after a dated backup; editing the Build 1 findings note, the Index status line and Session Logs/log.md.
+Needs my confirmation, and goes into a script I run when it changes system state: anything that shuts down or restarts WSL (you never run `wsl --shutdown` yourself, it ends this session); Optimize-VHD, diskpart, `wsl --export` or any VHDX change; `--allow-unsafe`; any edit to .wslconfig or /etc/wsl.conf (Build 1 owns them, so propose a diff instead); the pagefile, scheduled tasks, or any deletion on C:; Windows-side VS Code files; Tailscale or any network exposure.
+
+# C: drive context
+C: is the drive that keeps filling. Read "C Drive Bloat - Failure Log and Prevention Rules" in the Old Laptop Rebuild vault folder before you write the Build 1 handoff, and add a dated line to the handoffs with the numbers you measured. This run does not fix C:.
+
+# Output
+Lead with a short verdict per result: root cause, evidence line, status. Then: the script paths and the exact run order for me, stating which steps need everything closed; the VHDX table and recommendation; answers to the four questions with PASS, FAIL or unknown; and what is waiting on me. Keep it compact and do not paste the notes back.
+
+# Stop rules
+- Trust the machine when it contradicts this prompt, and log the difference.
+- If a step fails twice for the same reason, stop and report the cause and the smallest next check.
+- If you find yourself re-reading the same files without progress, stop and summarize.
 ~~~

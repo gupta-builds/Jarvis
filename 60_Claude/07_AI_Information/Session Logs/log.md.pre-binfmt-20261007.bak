@@ -1,6 +1,4 @@
 # Session Log
-## [2026-10-07] verify | systemd-binfmt failure narrowed to likely duplicate registration
-Read-only inspection found `/usr/lib/binfmt.d/python3.12.conf` is the only binfmt rule, and `/proc/sys/fs/binfmt_misc/python3.12` is already registered with that exact interpreter and magic. This makes duplicate registration the leading explanation for the failed `systemd-binfmt.service`, but the unit's boot-time journal has rotated away, so it remains unconfirmed. `/proc/sys/fs/binfmt_misc/WSLInterop` is also active. No service restart or config change was made; details are in [[Old Laptop Rebuild - Build 1 WSL Findings]].
 ## [2026-10-07] verify | Post-update WSL systemd health caveat
 Added a final read-only health check after the host verifier: `systemctl is-system-running` is `degraded`, with only `systemd-binfmt.service` failed. Its journal detail has rotated away, so the failure cause is unknown; `/proc/sys/fs/binfmt_misc/WSLInterop` exists, `wslview` succeeds, and the kernel scan found no ext4/I/O/OOM/panic matches. Added systemd status to the verification script and logged the unresolved failure in [[Old Laptop Rebuild - Build 1 WSL Findings]] and [[Old Laptop Rebuild - Index]]. The always-on idle gate is still pending the user's closed-sessions run.
 ## [2026-10-07] verify | Build 1 WSL host-gate false failures and VHDX decision

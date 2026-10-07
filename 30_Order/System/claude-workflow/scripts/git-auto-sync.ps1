@@ -114,8 +114,37 @@ function Invoke-PullRebase {
     # "You have unstaged changes") - hit for real on this script's first
     # live run, see Build 7 Findings.
     param([string]$Branch)
-    git pull --rebase --autostash origin $Branch 2>&1 | Out-String | ForEach-Object { $_.Trim() } | Where-Object { $_ } | ForEach-Object { Write-SyncLog "  $_" }
+    $output = git pull --rebase --autostash origin $Branch 2>&1 | Out-String
+    $output.Trim() -split "`r?`n" | Where-Object { $_ } | ForEach-Object { Write-SyncLog "  $_" }
     if ($LASTEXITCODE -ne 0) {
+        # "untracked working tree files would be overwritten" happens when a note
+        # was created locally (by Obsidian, Claude Code, anything) but never
+        # committed, and the OTHER laptop independently created and already pushed
+        # a commit touching that exact path - git refuses to silently clobber an
+        # untracked local file. Observed live 2026-10-06/07: this aborted three
+        # runs in a row (22:03/22:33/23:03) before silently resolving itself only
+        # because obsidian-git's own 2-minute auto-commit happened to absorb the
+        # untracked file into a real commit in between - a dependency that no
+        # longer exists now that auto-commit is intentionally disabled (see
+        # Failure Mode 5's 2026-10-07 update). Fix: commit the untracked local
+        # file(s) as their own real commit first, then retry the pull once -
+        # exactly what obsidian-git was accidentally doing, done deliberately and
+        # logged instead of relying on luck and a second process's timing.
+        if ($output -match 'untracked working tree files would be overwritten') {
+            Write-SyncLog "Untracked local file(s) collide with an incoming commit - committing them locally first, then retrying the pull once."
+            git rebase --abort 2>&1 | Out-Null
+            git add -A | Out-Null
+            git diff --cached --quiet
+            if ($LASTEXITCODE -ne 0) {
+                git commit -m "Auto-sync: pre-pull commit of untracked file(s) colliding with an incoming change" 2>&1 | Out-String | ForEach-Object { $_.Trim() } | Where-Object { $_ } | ForEach-Object { Write-SyncLog "  $_" }
+                $retry = git pull --rebase --autostash origin $Branch 2>&1 | Out-String
+                $retry.Trim() -split "`r?`n" | Where-Object { $_ } | ForEach-Object { Write-SyncLog "  $_" }
+                if ($LASTEXITCODE -eq 0) { return $true }
+                Write-SyncLog "Retry after untracked-file commit still failed (exit $LASTEXITCODE)."
+            } else {
+                Write-SyncLog "Expected untracked files to stage but none did - unexpected state, falling through to normal failure handling."
+            }
+        }
         Write-SyncLog "pull --rebase failed (exit $LASTEXITCODE), aborting rebase to avoid leaving the repo mid-rebase."
         git rebase --abort 2>&1 | Out-Null
         return $false

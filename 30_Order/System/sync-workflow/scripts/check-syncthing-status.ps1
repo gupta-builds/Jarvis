@@ -25,6 +25,7 @@ param(
 )
 
 $StateFile = Join-Path $PSScriptRoot ".sync-alert-state.json"
+$ExePathCacheFile = Join-Path $PSScriptRoot ".syncthing-exe-path.txt"
 $exitCode = 0
 $problems = [System.Collections.Generic.List[string]]::new()
 $folderPath = $null
@@ -216,16 +217,41 @@ try {
         # to actually restart the process, not just report it missing.
         Write-Error "No Syncthing GUI listener on port 8384 - attempting to start it."
         $problems.Add("Syncthing was not running - a start was attempted by this health check. Verify on the next run.")
-        try {
-            $syncthingExe = ((Get-ScheduledTask -TaskName "Syncthing" -ErrorAction Stop).Actions | Select-Object -First 1).Execute
-            if ($syncthingExe -and (Test-Path -LiteralPath $syncthingExe)) {
+        # Resolution order, most to least reliable - a live crash-and-recover test on
+        # the Acer 2026-10-07 found the original Scheduled-Task-only lookup had been
+        # silently non-functional here the entire time: Failure Mode 18 found and
+        # fixed this on the Dell, where a Task Scheduler entry literally named
+        # "Syncthing" exists, but that task was never confirmed to exist on every
+        # machine before the fix shipped vault-wide - it simply doesn't exist on the
+        # Acer, so every self-heal attempt here threw "No MSFT_ScheduledTask objects
+        # found" and started nothing, invisibly, until this was actually exercised
+        # for real instead of only reviewed. The cache file below is written any time
+        # Syncthing is confirmed running further down this script, so a machine only
+        # needs to have been healthy once for self-heal to work from then on,
+        # regardless of how that machine happens to autostart it.
+        $syncthingExe = $null
+        if (Test-Path -LiteralPath $ExePathCacheFile) {
+            $cached = (Get-Content -LiteralPath $ExePathCacheFile -Raw -ErrorAction SilentlyContinue).Trim()
+            if ($cached -and (Test-Path -LiteralPath $cached)) { $syncthingExe = $cached }
+        }
+        if (-not $syncthingExe) {
+            try {
+                $taskExe = ((Get-ScheduledTask -TaskName "Syncthing" -ErrorAction Stop).Actions | Select-Object -First 1).Execute
+                if ($taskExe -and (Test-Path -LiteralPath $taskExe)) { $syncthingExe = $taskExe }
+            } catch {
+                # No "Syncthing" Scheduled Task on this machine - not an error in
+                # itself, just means this resolution path doesn't apply here.
+            }
+        }
+        if ($syncthingExe) {
+            try {
                 Start-Process -FilePath $syncthingExe -ArgumentList "serve", "--no-console", "--no-browser" -WindowStyle Hidden
                 $problems.Add("Started: $syncthingExe")
-            } else {
-                $problems.Add("Could not resolve the Syncthing executable from the 'Syncthing' Scheduled Task's own action - started nothing.")
+            } catch {
+                $problems.Add("Attempted self-heal start failed: $_")
             }
-        } catch {
-            $problems.Add("Attempted self-heal start failed: $_")
+        } else {
+            $problems.Add("Could not resolve the Syncthing executable from either the cached path or a 'Syncthing' Scheduled Task - started nothing. Once Syncthing is started manually once, the cache will make this self-heal automatically from then on.")
         }
         $exitCode = 1
     } elseif ($listeners.Count -ne 1) {
@@ -241,6 +267,16 @@ try {
             Write-Error "Port 8384 is not owned by exactly one Syncthing process."
             $exitCode = 1
             $problems.Add("Port 8384 is not owned by exactly one Syncthing process.")
+        } else {
+            # Confirmed healthy and running - cache its real exe path so a future
+            # self-heal on this specific machine doesn't depend on a Scheduled Task
+            # existing at all (see the self-heal block above).
+            try {
+                $exePath = $matchingProcess[0].Path
+                if ($exePath -and (Test-Path -LiteralPath $exePath)) {
+                    Set-Content -LiteralPath $ExePathCacheFile -Value $exePath -Encoding utf8 -NoNewline
+                }
+            } catch { }
         }
     }
 } catch {

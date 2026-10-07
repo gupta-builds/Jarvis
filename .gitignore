@@ -109,6 +109,13 @@ mcp.env
 # self-referential-diff reasoning as the git-auto-sync lock above, machine-local.
 30_Order/System/sync-workflow/scripts/.sync-alert-state.json
 
+# Per-machine cache of Syncthing's real executable path, written whenever the
+# health check confirms it running (2026-10-07) — a live test found the
+# self-heal path depended on a Scheduled Task name that only exists on one
+# laptop; this cache makes self-heal work per-machine without that assumption.
+# Syncing it would be meaningless (and wrong) across two different install paths.
+30_Order/System/sync-workflow/scripts/.syncthing-exe-path.txt
+
 # Syncthing's own conflict-copy naming pattern (Build 9, 2026-10-02) — found
 # 18+ of these already permanently committed to this repo's history before
 # anyone reconciled them, because git-auto-sync's `git add -A` swept them up

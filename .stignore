@@ -141,6 +141,11 @@
 // 5 minutes between two laptops both running the health check on their own clocks.
 (?d)30_Order/System/sync-workflow/scripts/.sync-alert-state.json
 
+// Per-machine cache of Syncthing's real executable path (2026-10-07) - same
+// per-machine reasoning as the state file above, and syncing it across two
+// different install paths would actively break the other machine's self-heal.
+(?d)30_Order/System/sync-workflow/scripts/.syncthing-exe-path.txt
+
 // Sync Alert Banner.md (Build 11, 2026-10-04) - same per-machine reasoning,
 // rewritten every 5 minutes on each laptop independently. This is the fix
 // for Known Failure Mode 15 (the Dashboard banner itself was a permanent,

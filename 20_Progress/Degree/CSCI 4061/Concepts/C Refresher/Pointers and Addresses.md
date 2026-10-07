@@ -2,7 +2,7 @@
 type: concept
 status: sprout
 created: 2026-10-01
-updated: 2026-10-01
+updated: 2026-10-06
 course: "[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/CSCI 2021 Board|CSCI 2021 Board]]"
 track: C Refresher
 mastery_level: "0"
@@ -21,10 +21,16 @@ related:
 # Pointers and Addresses
 ## One-Line Answer
 ==A pointer is just a variable whose value happens to be a memory address, and dereferencing it (`*p`) means "go to that address and read or write what's there" instead of using the value directly.==
+## Start Here
+Read these declarations as a ladder: `int x = 7; int *p = &x; int **pp = &p;`. `x` stores `7`; `p` stores the address of `x`, so `*p` reaches `x`; `pp` stores the address of pointer `p`, so `**pp` reaches `x` through two address lookups. Always ask whether an expression is a **value** or an **address**: `p` is an address, `*p` is the pointed-to value, and `&p` is the address of the pointer variable itself.
+
+This is the same idea as `waitpid(child_pid, &status, flags)`: `status` is an `int` owned by the caller, and `&status` gives `waitpid` a valid place to write its result. C is still pass-by-value; the copied value happens to be an address.
 ## Mechanism
-Every running program's memory is one giant array of byte-addressable cells. A normal variable (`int x = 16;`) reserves a cell and gives it a name the compiler resolves to an address at compile time. A **pointer variable** (`int *p;`) reserves a cell too, but the value stored in that cell is itself an address - specifically, the address of some other cell. Three operators do all the real work:
-- **`&`** (address-of): `&x` evaluates to the address where `x` lives. This is the only way to get a pointer value to a non-heap variable.
-- **`*`** in a declaration (`int *p;`): says "`p` is a pointer to an `int`" - the type matters, because it tells the compiler how many bytes to read/write and how far to move for pointer arithmetic (see [[20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Arrays and Strings|Arrays and Strings]]).
+> Every running program's memory is one giant array of byte-addressable cells. 
+
+A normal variable (`int x = 16;`) reserves a cell and gives it a name the compiler resolves to an address at compile time. A **pointer variable** (`int *p;`) *reserves* a cell too, but the value stored in that cell is itself an address - specifically, the address of some other cell. Three operators do all the real work:
+- **`&`** (==address-of==): `&x` evaluates to the address where `x` lives. This is the only way to get a pointer value to a non-heap variable.
+- **`*`** in a declaration (`int *p;`): says "`p` ==is a pointer to an== `int`" - the *type* matters, because it tells the compiler how many bytes to read/write and how far to move for pointer arithmetic (see [[20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Arrays and Strings|Arrays and Strings]]).
 - **`*`** in an expression (`*p`): the dereference operator, "follow the pointer." `*p = 8;` does not touch `p`'s own value (the address) - it writes `8` into the cell `p` points at.
 **Causal sequence for pass-by-pointer** (CSCI 2021 Week 1's canonical `swap` example, verified against the actual week note): C is strictly pass-by-value - a function parameter always gets a *copy* of whatever was passed. `void swap(int a, int b)` therefore cannot modify the caller's variables: `a` and `b` are copies, and swapping copies changes nothing the caller sees. The fix passes addresses instead of values: `void swap(int *a, int *b) { int tmp = *a; *a = *b; *b = tmp; }`, called as `swap(&x, &y);`. Now `a` and `b` are still copies - but copies of *addresses*, so dereferencing them (`*a`, `*b`) reaches the exact same memory cells `x` and `y` live in. Pass-by-value never stops being true; pointers just make "the value being copied" an address instead of data.
 **Pointers as the gateway to raw memory**, a pattern that shows up constantly once code moves past simple variables: CSCI 2021's `lab10-code/email_lookup.c` reads a binary file with `mmap()` into a raw `char *file_bytes`, then reinterprets those bytes as a real struct with a single cast: `file_header_t *header = (file_header_t *) file_bytes;`. No data is copied or parsed byte-by-byte - the cast just tells the compiler "treat this address as the start of a `file_header_t`," and every field access (`header->num_contacts`) becomes pointer arithmetic under the hood. The same file then walks a packed array of records with `contact_t *contacts = (contact_t *) (file_bytes + depts_arr[i].offset);` - plain pointer-plus-integer arithmetic, scaled automatically by `sizeof(char)` since `file_bytes` is a `char *`.

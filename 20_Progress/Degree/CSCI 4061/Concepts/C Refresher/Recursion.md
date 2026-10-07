@@ -2,7 +2,7 @@
 type: concept
 status: sprout
 created: 2026-10-01
-updated: 2026-10-01
+updated: 2026-10-06
 course: "[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/CSCI 2021 Board|CSCI 2021 Board]]"
 track: C Refresher
 mastery_level: "0"
@@ -21,6 +21,10 @@ related:
 # Recursion
 ## One-Line Answer
 ==A recursive function is an ordinary function that calls itself on a smaller version of its own problem, and the only thing making that safe is a base case that eventually stops the calls — mechanically, each call just pushes one more frame onto the same call stack an ordinary function call would use.==
+## Start Here
+Recursion is an ordinary function call whose next call happens to use the same function name. For a list `A -> B -> NULL`, `print(A)` prints A then calls `print(B)`; `print(B)` prints B then calls `print(NULL)`; the `NULL` call hits the base case and returns; then the earlier calls return in reverse order. Each call owns a separate stack frame and its own parameter value.
+
+The base case is not decoration. It is the condition that prevents one more call. Before reading a recursive function, identify (1) the smaller input passed to the next call and (2) the exact base case that stops the chain.
 ## Mechanism
 There is nothing special in C's syntax for recursion — a function `f` calling `f` again is exactly as legal, and exactly as expensive, as `f` calling any other function. What makes it *recursion* and not infinite looping is the **base case**: a condition checked before the recursive call that stops the chain. The Ultimate C Handbook's own framing (its functions/recursion chapter, roughly pp. 560-566) states this directly: every recursive function needs an explicit stopping condition, and omitting one produces unbounded recursion rather than a clean error.
 *The mechanism is the call stack, made visible.* Every function call — recursive or not — pushes a new stack frame holding that call's local variables, parameters, and a return address; returning pops it. A recursive function calling itself n times deep has n stack frames alive simultaneously, not one frame being reused n times. Lab02's `node_print_all(node_t *cur, int index)` is a clean worked example: `if (cur == NULL) { return; }` is the base case (end of the list), and the recursive step `node_print_all(cur->next, index + 1);` moves strictly closer to that base case on every call, since `cur->next` is always one node nearer to `NULL` than `cur`. The same file's `node_insert()` is a richer example — it recurses *down* to find the insertion point, then does real work (relinking `cur->next`) on the way *back up* as each call returns, which is only possible because each stack frame still holds its own `cur` after the recursive call beneath it returns.

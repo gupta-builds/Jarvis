@@ -2,7 +2,7 @@
 type: concept
 status: sprout
 created: 2026-10-01
-updated: 2026-10-01
+updated: 2026-10-06
 course: "[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/CSCI 2021 Board|CSCI 2021 Board]]"
 track: C Refresher
 mastery_level: "0"
@@ -22,6 +22,17 @@ related:
 # File IO in C
 ## One-Line Answer
 ==C has two genuinely different ways to move file data in and out of a program - text mode, which converts between on-disk characters and in-memory values through a format string, and binary mode, which copies raw bytes straight into a struct's memory layout with no conversion at all.==
+## Start Here
+Do not collapse two different I/O layers. A `FILE *` is C's buffered stdio handle, used with `fopen`, `fclose`, `fprintf`, and `fscanf`. An `int` file descriptor is Unix's lower-level handle, used with `open`, `close`, `read`, `write`, and `dup2`. Both reach files, but they have different APIs and buffering behavior.
+
+| Buffered C stdio | Low-level Unix I/O used in CSCI 4061 |
+|---|---|
+| `fopen(path, "r")` | `open(path, O_RDONLY)` |
+| `fclose(stream)` | `close(fd)` |
+| `fprintf(stream, ...)` | `write(fd, buffer, count)` |
+| `stdin` / `stdout` streams | descriptors 0 / 1 |
+
+Project 1 redirection uses `open` and `dup2`, not `fopen`, because it must rewire descriptor 0 or 1 before `execvp` runs another program.
 ## Mechanism
 A C file stream starts as a `FILE *` handle returned by `fopen(path, mode)` - `"r"`/`"w"`/`"a"` for text, `"rb"`/`"wb"` for binary. `fopen` returns `NULL` on failure (missing file, bad permissions), so the very first line after every `fopen` call has to be a null check - this isn't optional cleanup, it's the only way the program finds out the open actually worked.
 **Text mode** reads and writes through a *format string*: `fscanf(fh, "%d %d", &w, &h)` parses whitespace-separated tokens into their typed destinations; `fprintf(fh, "%d\n", x)` does the reverse. The file on disk is human-readable ASCII the whole time - `cat` shows you real numbers, not garbage. CSCI 2021's Lab 3 `treasuremap_load_text` is the canonical worked example: `fscanf(file_handle, "%d %d", &tmap->height, &tmap->width);` reads the header, then a loop reads each treasure's `row`/`col`/`description` with `fscanf(file_handle, "%127s", tmap->locations[i].description);` - the `%127s` width limit is load-bearing, not decoration, since an unbounded `%s` would let the file overflow `description[128]`.

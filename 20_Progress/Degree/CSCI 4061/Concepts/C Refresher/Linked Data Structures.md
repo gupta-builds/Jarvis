@@ -2,7 +2,7 @@
 type: concept
 status: sprout
 created: 2026-10-01
-updated: 2026-10-01
+updated: 2026-10-06
 course: "[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/CSCI 2021 Board|CSCI 2021 Board]]"
 track: C Refresher
 mastery_level: "0"
@@ -23,6 +23,10 @@ related:
 # Linked Data Structures
 ## One-Line Answer
 ==A linked data structure is a chain of heap-allocated nodes that each hold their own data plus a pointer to the next node(s) in the chain — the structure's shape lives entirely in those pointers, not in contiguous memory like an array.==
+## Start Here
+A singly linked list is either empty (`head == NULL`) or begins at one node whose `next` field leads to another node. `head` holds only the first node's address; it is not the whole list. To walk, start with `current = head`, stop at `current == NULL`, and advance with `current = current->next`.
+
+To free safely, save or advance to the next node **before** freeing the current one. After `free(current)`, reading `current->next` is use-after-free.
 ## Mechanism
 A linked list node is a **self-referential struct**: a struct containing a pointer to its own type. CSCI 2021's own definition states it plainly: `struct node { int data; struct node *next; };` — nothing recursive about the *type* itself (the struct's size is fixed and known at compile time, since it only stores a pointer to the next node, not another whole node by value), only about how instances of it get chained together at runtime.
 *Building the chain:* each node is `malloc`'d individually. A brand-new list is `head = NULL` (the empty-list invariant — always check for it before dereferencing). Inserting at the front is three steps in order: allocate the new node, point its `next` at the current head, then repoint `head` at the new node — reversing steps 2 and 3 loses the rest of the list. Lab02's `list.h`/`list_funcs.c` implements this as a sorted singly linked list: `typedef struct node { char data[128]; struct node *next; } node_t;` plus a wrapper `list_t { node_t *head; int size; }` that tracks length separately rather than walking the whole chain to count it.

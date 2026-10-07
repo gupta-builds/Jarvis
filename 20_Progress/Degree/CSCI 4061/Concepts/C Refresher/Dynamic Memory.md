@@ -2,7 +2,7 @@
 type: concept
 status: sprout
 created: 2026-10-01
-updated: 2026-10-01
+updated: 2026-10-06
 course: "[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/CSCI 2021 Board|CSCI 2021 Board]]"
 track: C Refresher
 mastery_level: "0"
@@ -22,6 +22,10 @@ related:
 # Dynamic Memory
 ## One-Line Answer
 ==`malloc`/`free` let a program claim and release heap memory at runtime instead of being stuck with fixed, compile-time storage — and the allocator granting that memory is itself just an ordinary C program tracking which bytes are free.==
+## Start Here
+Learn ownership before allocator internals: a successful `malloc` gives one part of the program responsibility for one live heap block; that owner must arrange exactly one `free` when no valid use remains. `malloc` can return `NULL`, so dereference comes only after checking it. After `free(p)`, the bytes no longer belong to the program through `p`; `p` is dangling even if it still prints the same numeric address.
+
+The supplied `strvec_t` and `job_list_t` APIs own their internal allocations. Project 1 should call `strvec_clear` and `job_list_free`, not manually free private fields it did not allocate itself.
 ## Mechanism
 **The basic contract.** `void *malloc(size_t size);` asks the heap for `size` contiguous bytes and returns a `void *` pointing at the start of them (or `NULL` on failure) — the standard pattern is `arr = malloc(sizeof(int) * 20);`, using `sizeof` rather than a hand-counted byte literal so the request stays correct if the element type ever changes. `free(void *ptr)` returns that memory to the allocator once it's no longer needed; CSCI 2021's own [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 2|Week - 2]] note flags the good-practice habit of setting the pointer to `NULL` immediately after freeing it, specifically so a later accidental use of that pointer crashes loudly (dereferencing `NULL`) instead of silently corrupting memory that something else may have since reused.
 **Why dynamic allocation exists at all.** A **stack**-allocated local array is fixed in size at compile time and vanishes the instant its function returns. The **heap** solves both problems: its size is chosen at runtime (from a value only known once the program is running — user input, a file's length), and a pointer to heap memory can be returned from the allocating function and used long after that function's own stack frame is gone, because heap memory isn't scoped to any function call.

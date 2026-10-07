@@ -2,7 +2,7 @@
 type: concept
 status: sprout
 created: 2026-10-01
-updated: 2026-10-01
+updated: 2026-10-06
 course: "[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/CSCI 2021 Board|CSCI 2021 Board]]"
 track: C Refresher
 mastery_level: "0"
@@ -22,6 +22,15 @@ related:
 # Structs and Typedef
 ## One-Line Answer
 ==A struct bundles differently-typed fields under one name at fixed byte offsets, and `typedef` just gives that type a shorter alias — neither changes how the fields are stored or accessed.==
+## Start Here
+Treat a struct as one labeled block of memory. If `job` has type `job_t`, write `job.status`. If `job` has type `job_t *`, it holds an address, so write `job->status`, shorthand for `(*job).status`.
+
+```c
+job_t *job = job_list_get(&jobs, 0);
+job->status = BACKGROUND;
+```
+
+The first line obtains a pointer to a stored job node; the second changes that exact node in place. It does not create a copy. `typedef` only gives a type a convenient name; it does not allocate memory or create a pointer.
 ## Mechanism
 **Definition and declaration.** A struct type is defined outside any function, usually near the top of a `.c` file: `struct studentT { char name[64]; int age; float gpa; };` creates the type `struct studentT` — note the `struct` keyword has to prefix every use of that type name unless a `typedef` removes the need: `typedef struct studentT { ... } student_t;` gives the same layout a plain alias `student_t`, so `student_t s;` works without writing `struct`. These are purely naming conveniences; the actual memory layout is identical either way.
 **Access: `.` vs `->`.** A struct *value* (not a pointer) uses dot notation: `student1.age = 18 + 2;`. A pointer to a struct must be dereferenced first before a field can be reached — `(*sptr).age = 19;` — and C provides `->` as sugar for exactly that: `sptr->age = 19;` is identical to `(*sptr).age = 19;`. CSCI 2021's own [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Structs|Structs]] note and the Lab 03 `treasuremap_t` walkthrough in [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Week - 3|Week - 3]] both drill this exact substitution rule; the chained form `&tmap->locations[i].row` reads left to right as **(pointer deref) → (array index) → (field select) → (address-of)** — four distinct operations collapsed into one expression.

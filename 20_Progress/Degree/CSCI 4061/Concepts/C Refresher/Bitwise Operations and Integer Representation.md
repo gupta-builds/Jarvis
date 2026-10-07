@@ -2,7 +2,7 @@
 type: concept
 status: sprout
 created: 2026-10-01
-updated: 2026-10-01
+updated: 2026-10-06
 course: "[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/CSCI 2021 Board|CSCI 2021 Board]]"
 track: C Refresher
 mastery_level: "0"
@@ -20,6 +20,17 @@ related:
 # Bitwise Operations and Integer Representation
 ## One-Line Answer
 ==An integer in C is just a fixed-width pattern of bits, two's complement for signed values, and the bitwise operators (`& | ^ ~ << >>`) let you read or rewrite individual bits directly without touching the number's arithmetic meaning at all.==
+## Start Here
+For an 8-bit value, positions have place values `128 64 32 16 8 4 2 1`. The pattern `00101010` means `32 + 8 + 2 = 42`. A mask is another pattern chosen to select or change a position: `00001000` has only bit 3 set.
+
+| Bits `a`, `b` | `a & b` | `a | b` | `a ^ b` |
+|---|---:|---:|---:|
+| 0, 0 | 0 | 0 | 0 |
+| 0, 1 | 0 | 1 | 1 |
+| 1, 0 | 0 | 1 | 1 |
+| 1, 1 | 1 | 1 | 0 |
+
+Read `&` as "keep only positions set in both," `|` as "set positions present in either," and `^` as "keep differences." These are bit-level operators, not the short-circuit logical operators `&&` and `||`.
 ## Mechanism
 **The six operators, by what they actually do to bits, not numbers:** `&` (AND) keeps a bit only where both operands have a 1 - this is how you *read* or *clear* bits. `|` (OR) sets a bit where either operand has a 1 - this is how you *set* bits. `^` (XOR) flips a bit exactly where the operands differ - toggling. `~` (NOT) flips every bit in one operand. `<<`/`>>` shift the whole pattern left or right by N positions, discarding bits that fall off the end.
 **Two named patterns do almost all the real work:**

@@ -32,7 +32,11 @@ A normal variable (`int x = 16;`) reserves a cell and gives it a name the compil
 - **`&`** (==address-of==): `&x` evaluates to the address where `x` lives. This is the only way to get a pointer value to a non-heap variable.
 - **`*`** in a declaration (`int *p;`): says "`p` ==is a pointer to an== `int`" - the *type* matters, because it tells the compiler how many bytes to read/write and how far to move for pointer arithmetic (see [[20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Arrays and Strings|Arrays and Strings]]).
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 - **`*`** in an expression (`*p`): the dereference operator, "follow the pointer." `*p = 8;` does not touch `p`'s own value (the address) - it writes `8` into the cell `p` points at.
+=======
+- **`*`** in an expression (`*p`): the **dereference operator**, "==follow the pointer.==" `*p = 8;` does not touch `p`'s own value (the address) - it writes `8` into the cell `p` points at.
+>>>>>>> Stashed changes
 =======
 - **`*`** in an expression (`*p`): the **dereference operator**, "==follow the pointer.==" `*p = 8;` does not touch `p`'s own value (the address) - it writes `8` into the cell `p` points at.
 >>>>>>> Stashed changes

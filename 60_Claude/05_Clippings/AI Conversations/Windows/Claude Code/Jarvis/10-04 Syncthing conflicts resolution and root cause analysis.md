@@ -5,29 +5,29 @@ source_app: claude-code
 source_os: windows
 title: "Syncthing conflicts resolution and root cause analysis"
 started_at: 2026-10-04T12:14:28
-ended_at: 2026-10-06T21:29:44
-exported_at: 2026-10-06T21:30:11
-duration_minutes: 3435.3
+ended_at: 2026-10-06T21:35:38
+exported_at: 2026-10-06T22:00:07
+duration_minutes: 3441.2
 project: Jarvis
 cwd: 'D:\Users\_Anant\10_Areas\Documents\Jarvis'
 session_id: b0733d4c-7e2f-4501-8dd7-6702392ed46b
 status: raw
 turn_count: 8
 tools_used:
-  Bash: 286
-  Edit: 72
+  Bash: 292
+  Edit: 73
   Glob: 2
   Grep: 15
   PowerShell: 9
-  Read: 73
-  Write: 5
+  Read: 74
+  Write: 6
 tokens:
-  input: 1778
-  output: 693995
-  cache_creation: 4127306
-  cache_read: 364382881
-  total: 369205960
-cost_usd: 96.329306
+  input: 1818
+  output: 710885
+  cache_creation: 4152225
+  cache_read: 378235044
+  total: 383099972
+cost_usd: 99.368395
 model:
   - "claude-sonnet-5"
 files_touched:
@@ -70,6 +70,7 @@ files_touched:
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Sync\\Cross-Laptop Sync - Build 11 Findings.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Sync\\Cross-Laptop Sync - Build 11 Prompt.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Sync\\Cross-Laptop Sync - Build 12 Findings.md"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Sync\\Cross-Laptop Sync - Build 13 Findings.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Sync\\Cross-Laptop Sync - Build 7 Prompt.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Sync\\Cross-Laptop Sync - Build 9 Findings.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Sync\\Cross-Laptop Sync - Known Failure Modes and Prevention.md"
@@ -5780,6 +5781,33 @@ Now updating the frontmatter notes list and the One-Line Answer summary:
 
 Now updating the weekly-review skill's Step 10 to include the directory-emptiness check I referenced:
 
+Now the Build 13 Findings note:
+
+Let me verify the `recent-edits` regression I mentioned and fix it if still present:
+
+Now the session log entry:
+
+Now let's commit and push, then do the final comprehensive verification:
+
+Pushed cleanly. Now the final comprehensive verification — this was explicitly the goal to "wrap this session up":
+
+## Session wrap-up — sync process verified clean
+
+**Both symptoms, one root cause, confirmed and fixed.** Syncthing's own log named it exactly: `cursor-workflow/logs/` had become a directory made entirely of files already excluded in `.stignore` (Build 10's own work). Once the Acer emptied and deleted its side of that folder, Syncthing on the Dell refused to follow — it won't delete a directory that still holds locally-ignored files — and retried every 32 minutes for 9 hours straight. That's the Dell's "out of sync" and the Acer's stuck-at-95% completion, both from the same deadlock viewed from opposite sides. Fixed by adding Syncthing's `(?d)` ("deletable") prefix to **every** per-machine `.stignore` pattern from Builds 9–13, not just the one that broke — `claude-workflow/logs/` was in the identical all-ignored state and was next in line. Confirmed live: a `Deleted directory` success line appeared in the log within a minute of the fix landing.
+
+**Was Build 10–12 strictly followed? Yes — measured, not assumed.** I audited `git-auto-sync.log` directly rather than taking it on faith: zero conflicts for **53 straight hours** (10-04 15:48 → 10-06 21:18) before this new, unrelated issue surfaced. That's the real number behind "have we reduced conflicts" — a dramatic drop from the sub-30-minute cadence Build 10 found and fixed.
+
+**Syncthing-on-startup — yes, one already exists, but it's unreliable.** There's a logon-triggered Scheduled Task named `Syncthing`, already enabled — but logon triggers don't reliably fire on laptop sleep/resume, and its `LastRunTime` was 3 days stale while Syncthing had actually been started manually. Rather than fight that trigger type, I made the **existing 5-minute health check self-healing**: it now detects zero listeners on port 8384 and starts Syncthing itself. Any future crash recovers within 5 minutes without anyone noticing it was down first. (Not yet tested against a real live outage — Syncthing stayed up throughout this session.)
+
+**Also found and handled:**
+- One regression (`recent-edits/data.json` re-tracked by git again) — re-fixed.
+- A separate, real bug **outside this build's scope**: a WSL-side Cursor-export path-duplication bug producing 148+ redundant files under `AI Conversations/WSL/WSL/...`. Unblocked the stuck git-auto-sync without deleting anything, flagged it clearly, did not chase the fix — that's a different system's bug and needs its own session.
+- The Build 10–12 archive folder (`99_Archive/Syncthing Conflict Reconciliation 2026-10-04/`) is gone from disk — outside the vault, outside sync entirely, most likely routine cleanup, not a sync defect, but worth knowing the detailed historical record of those three builds no longer exists outside this vault's own write-ups.
+
+**Final state, verified right now:** zero live conflicts, zero stuck temp files, `errors: 0`, **100% completion**, `Overall: IN SYNC`. Local and GitHub are at the identical commit. Written up as Failure Modes 17–18, and a new permanent Step 11 was added to `/weekly-review` so this exact class of bug (an ignore pattern that empties a whole directory) gets checked every review going forward, not just fixed once.
+
+One honest gap: I can't verify the Acer's 95%-stuck completion actually cleared from here — the mechanism and fix are identical and `.stignore` reaches it via Syncthing's real-time sync regardless of git, but that's inference, not a direct check. Worth confirming next time you're on it.
+
 ### Tool Calls
 
 - `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && echo "=== Dashboard banner ===" && sed -n '27,33p' "00_Dashboard.md"
@@ -6987,6 +7015,145 @@ Overall: IN SYNC
 + 10. **Ignore-file symmetry audit (every review).** Added Build 12 after finding 14 files already excluded from Syncthing (`.stignore`, "proven machine-local state") that had never gotten the matching `.gitignore` line, which let `Jarvis-GitAutoSync` silently fail for two days straight on one of them. Read both `.gitignore` and `.stignore` and confirm every entry under a "machine-local"/"per-machine artifact" comment block in one file has the identical path in the other - a file excluded from only one of the two sync mechanisms is a live bug waiting to happen, not a style inconsistency. Also check: did this week's own session work (or any other AI platform's build - Claude Code, Codex, Cursor, Kiro, or whatever gets added next) create any new per-machine-only file (a state file, a cache, a rate-limiter, a local log) that isn't in either list yet? Add it to both, in the same sitting, following the existing comment-block convention (what the file is, which build found it, why it's per-machine). This step exists specifically so onboarding a new AI tool's automation never repeats this exact gap a third time.
 11. **Directory-emptiness check on `.stignore`'s per-machine patterns (every review).** Added Build 13 (2026-10-06) after a directory holding only `.stignore`-excluded files (`cursor-workflow/logs/`) got deleted on one machine and Syncthing refused to follow suit on the other - "directory has been deleted on a remote device but contains ignored files" - retrying every 32 minutes for 9 hours straight before anyone noticed, the direct cause of a Dashboard-invisible "out of sync" state and a stuck sub-100% completion percentage on the other laptop. For every directory any `.stignore` pattern excludes files from, `ls` it and confirm: (a) it still holds at least one normally-synced file, in which case it is not at risk, or (b) every file in it is individually `.stignore`-excluded, in which case every one of those patterns needs the `(?d)` "deletable" prefix (`(?d)path/to/pattern`, not just `path/to/pattern`) - check this explicitly, don't assume a pattern added in an earlier build already got it. Any brand-new per-machine exclusion found via Step 10 gets `(?d)` from the moment it's added if its directory could plausibly end up holding only ignored files, not retroactively after the first incident.
 ```
+- `Write` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Sync\Cross-Laptop Sync - Build 13 Findings.md`
+```
+---
+type: concept
+status: sprout
+created: 2026-10-06
+tags:
+  - concept
+  - laptop
+  - ai-infrastructure
+notes:
+  - "[[Cross-Laptop Sync - Build 12 Findings]]"
+  - "[[Cross-Laptop Sync - Known Failure Modes and Prevention]]"
+  - "[[.claude/skills/weekly-review/weekly-review]]"
+next: "Confirm the Acer's own stuck-at-95%% completion clears once it receives this build's .stignore fix via Syncthing"
+---
+# Cross-Laptop Sync - Build 13 Findings
+## One-Line Answer
+Two days after Build 12 closed with a verified, clean, zero-conflict state, the user reported the Dell showing "out of sync" and the Acer stuck at 95% completion. Root cause, confirmed directly in Syncthing's own log: `cursor-workflow/logs/` had become a directory made entirely of `.stignore`-excluded files (Build 10's own fix), and once the Acer's side of that directory emptied out and got deleted, Syncthing on the Dell refused to follow - "directory has been deleted on a remote device but contains ignored files (see ignore documentation for (?d) prefix)," retried every 32 minutes for 9 hours. This is a **new, distinct failure mode** (17), not a recurrence of 10-16. Fixed by adding Syncthing's `(?d)` prefix to every per-machine `.stignore` pattern, confirmed by a live "Deleted directory" success log line within minutes of the fix landing. Also found and fixed the deeper reason Syncthing was down long enough to cause this at all: a logon-triggered restart task exists but doesn't reliably fire on sleep/resume (Failure Mode 18) - the 5-minute health check now self-heals by starting Syncthing directly when it finds zero listeners. Separately audited the record since Build 12 closed: the fixes held completely - **zero `git-auto-sync` conflicts for 53 straight hours** (2026-10-04 15:48 to 2026-10-06 21:18), a dramatic, measured improvement over the sub-30-minute conflict cadence Build 10 found.
+## Part 1: Was Builds 10-12 Strictly Followed? Yes - Measured, Not Assumed
+Audited `30_Order/System/claude-workflow/logs/git-auto-sync.log` directly for every `CONFLICT` entry since Build 12 closed (2026-10-04, ~15:48). Finding: **the next `CONFLICT` entry in the entire log is 2026-10-06 21:18:07** - a 53-hour gap, versus the sub-30-minute recurrence rate Build 10 found and fixed. This is the first time in this sync project's history that a build's "this should reduce conflicts" claim has been checked against a real elapsed-time measurement rather than just "no new conflicts found this session." The 21:18 entry that ends the streak is unrelated to Builds 10-12's fixes - see Part 3.
+One real regression found during this audit, not caused by anything in this build: `.obsidian/plugins/recent-edits/data.json` had been re-tracked by git again (confirmed via `git ls-files`), the same oscillation Build 11/12 already flagged as a residual risk when Obsidian is actively writing to a file while an automated merge is resolving a conflict on it. Re-applied `git rm --cached` once more this build. The 27 Cursor sweep logs and the other 13 files from Build 10/12 were confirmed still correctly untracked - no further regression found there.
+A separate, non-sync observation: the `D:\Users\_Anant\99_Archive\Syncthing Conflict Reconciliation 2026-10-04\` folder - which held the full archived record of Builds 10, 11, and 12's reconciled conflict files - no longer exists on disk. This folder lives outside the vault and outside Syncthing/git entirely, so nothing in the sync system could have touched it; most likely explanation is routine manual cleanup of what looked like disposable backup files. Not a sync-process defect, but worth knowing the detailed historical audit trail for those three builds is gone - this note and the Known Failure Modes entries are what remains of that record.
+## Part 2: The New Issue - Confirmed Mechanism, Not Inference
+`grep -c "directory has been deleted on a remote device" syncthing.log` returned 143 occurrences, first at 2026-10-06 12:32:40 (the exact minute Syncthing's process was started that day, per `Get-Process`), repeating every ~32 minutes since - consistent with Syncthing's own folder-error backoff/retry interval. The error is unambiguous and self-documenting: Syncthing's own message names the `(?d)` prefix as the fix. Checked whether other directories were in the same latent state before assuming this was a one-off: `30_Order/System/claude-workflow/logs/` currently holds exactly 5 files (`capture-health-windows.json`, `capture-health-wsl.json`, `git-auto-sync.log`, `internship-note-guard.jsonl`, `weekly-review.log`), all 5 already `.stignore`-excluded - 100% ignored content, the identical precondition that broke `cursor-workflow/logs/`. Fixed both, plus every other per-machine pattern from Builds 9-13 (the plugin `data.json` files, `Sync-Log.md` files, `capture-health-*.json`, `cursor-export-state.json`, `git-auto-sync.log`, `internship-note-guard.jsonl`, `weekly-review.log`, `.sync-alert-state.json`, `Sync Alert Banner.md`), not just the two already confirmed broken.
+**Both reported symptoms trace to this one mechanism:** the Dell's "out of sync" is `check-syncthing-status.ps1` correctly reporting `db/status`'s `errors: 1` (a real Syncthing-level sync error, distinct from the simpler `needBytes`/`needFiles` gap). The Acer's stuck-at-95% completion is the same deadlock viewed from the other side - Syncthing's completion percentage accounts for pending delete operations, and a delete that retries forever every 32 minutes never contributes its share. Both should clear once each machine's own copy of `cursor-workflow/logs/` (and now pre-emptively `claude-workflow/logs/`) finishes reconciling under the corrected `.stignore` - confirmed live on the Dell (`Deleted directory` logged 2026-10-06 21:14:05, ~1 minute after the fix was committed and had time to reach Syncthing's own file watcher), **not yet independently confirmed on the Acer** since this session has no direct access to it. `.stignore` is a normal git-tracked and Syncthing-synced file (not per-machine-excluded), so it reaches the Acer via Syncthing's real-time channel regardless of git push/pull timing - the fix should land there within one rescan cycle of this session's work, but treat "confirmed" as pending until actually checked from that machine.
+## Part 3: Syncthing's Own Reliability - Why It Was Down Long Enough For This To Matter
+A Scheduled Task named `Syncthing` (logon trigger, `Enabled: True`, `State: Ready`) already existed - a mechanism the user asked about directly ("is there a way to turn on syncthing upon startup") without knowing one was already half-built. Checked live rather than assuming the trigger worked because it existed: `Get-ScheduledTaskInfo` showed `LastRunTime: 2026-10-03 12:25:43`, `LastTaskResult: 4` (non-zero) - three days stale at the time of this check, while the actual running Syncthing process had `StartTime: 2026-10-06 12:32:34`, meaning a human started it manually that day, not the task. A logon trigger fires on an actual Windows sign-in; a laptop driven mostly by sleep/wake and lock/unlock, not full logoff/logon cycles, can go days between those events - exactly matching a 2026-10-04/05 daily note's own independent observation ("Syncthing has no auto-restart anywhere on this machine... down ~21h").
+**Fix:** `check-syncthing-status.ps1`'s existing listener check (port 8384) now treats zero listeners as a trigger to actually start Syncthing, not just report it missing - resolved live from the `Syncthing` Scheduled Task's own registered action (`(Get-ScheduledTask -TaskName "Syncthing").Actions[0].Execute`), never a new hardcoded path. Two listeners or more still only reports (a genuine duplicate-instance problem, never auto-resolved). This closes the actual gap: this health check already runs every 5 minutes regardless of logon state, so any future Syncthing crash or unclean shutdown self-heals within 5 minutes instead of requiring a human to notice and restart it by hand. **Not exercised against a real outage this session** - Syncthing was running throughout, so the start-up code path was written and parse-checked but not proven against a live crash-and-recover cycle. Confirm this the next time Syncthing is actually found down.
+## Part 4: A Separate, Unrelated Bug Flagged, Not Fixed
+While unblocking a stuck `git-auto-sync` pull, found 148+ files under a duplicate-path folder (`60_Claude/05_Clippings/AI Conversations/WSL/WSL/...` and a second variant, `.../WSL/Windows/...`) - the WSL-side Cursor-export pipeline double-prefixing an existing path segment, producing redundant copies of already-correctly-placed capture files. Confirmed some content differs between the duplicate and the correct copy (not purely identical junk), and that some of this duplicate content had already been committed by an earlier automated `git-auto-sync` run (`0e61a278`). Staged and committed as-is to unblock the pending sync merge rather than leaving an indefinite untracked-file collision risk against every future pull - **not investigated or fixed**, since it is a content-generation bug in a different system (the AI-conversation-capture pipeline), outside this build's scope. Needs its own dedicated session: find where `export-cursor-sessions.py`'s WSL invocation (or a wrapping script) duplicates the `WSL`/`Windows` path segment, and decide whether the already-committed duplicate content should be cleaned up from history.
+## Links
+[[Cross-Laptop Sync - Known Failure Modes and Prevention]] (Failure Modes 17-18) · [[Cross-Laptop Sync - Build 12 Findings]] · [[.claude/skills/weekly-review/weekly-review]] (Step 7.6 point 11)
+
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git ls-files | grep -c "recent-edits/data.json"`
+```
+0
+```
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\60_Claude\07_AI_Information\Session Logs\log.md`
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\60_Claude\07_AI_Information\Session Logs\log.md`
+```diff
+- # Session Log
+## [2026-10-04] build | Build 12 - the Build 10 hook-path fix recurred in 14 files; fixed portably this time, made it a permanent weekly-review check
++ # Session Log
+## [2026-10-06] build | Build 13 - new root cause (Syncthing (?d) deadlock + unreliable restart), Build 10-12's fixes measured and confirmed holding
+User reported the Dell showing "out of sync" and the Acer stuck at 95% completion, two days after Build 12 closed clean. Audited `git-auto-sync.log` directly before assuming anything was newly broken: **zero conflicts for 53 straight hours** (2026-10-04 15:48 to 2026-10-06 21:18) - Builds 10-12's fixes held completely; this is a genuinely new, distinct issue. Full detail: [[Cross-Laptop Sync - Build 13 Findings]].
+
+Root cause, confirmed directly in Syncthing's own log: `cursor-workflow/logs/` had become a directory made entirely of `.stignore`-excluded files (Build 10's own fix), and once the Acer emptied and deleted its side, Syncthing on the Dell refused to follow - "directory has been deleted on a remote device but contains ignored files," retried every 32 minutes for 9 hours. Fixed by adding Syncthing's `(?d)` ("deletable") prefix to every per-machine `.stignore` pattern from Builds 9-13, not just the one that broke - `claude-workflow/logs/` was found in the identical all-ignored state, fixed pre-emptively. Confirmed live: `Deleted directory` logged within a minute of the fix landing. Both reported symptoms (Dell "out of sync," Acer stuck at 95%) trace to this one mechanism - Acer-side clearing not yet independently confirmed.
+
+Also answered the user's direct question ("is there a way to turn on syncthing upon startup"): a logon-triggered Scheduled Task already exists for exactly this, but doesn't reliably fire on sleep/resume (3-day-stale `LastRunTime` while a daily note recorded Syncthing down ~21h). Made the existing 5-minute health check self-healing instead - it now starts Syncthing directly when it finds zero listeners on port 8384, resolving the exe path live from the existing Task's own action. Not yet exercised against a real live outage.
+
+Found and re-fixed one regression (`recent-edits/data.json` re-tracked again, same residual oscillation risk Build 11/12 flagged) and flagged, without fixing, a separate real bug outside this build's scope: a WSL-side Cursor-export path-duplication bug producing 148+ redundant files under `AI Conversations/WSL/WSL/...` and `.../WSL/Windows/...`, some already swept into git history by an earlier auto-sync commit. Written up as Failure Modes 17-18 in [[Cross-Laptop Sync - Known Failure Modes and Prevention]]; added Step 7.6 point 11 to `/weekly-review` (directory-emptiness check on every `.stignore` pattern).
+
+**Next:** confirm the Acer's stuck-at-95% actually clears; confirm the self-heal restart code against a real outage, not just a parse-check; the WSL/WSL duplicate-path bug needs its own dedicated session.
+## [2026-10-04] build | Build 12 - the Build 10 hook-path fix recurred in 14 files; fixed portably this time, made it a permanent weekly-review check
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git status --short | grep -v "^?? \"60_Claude\|^ M \"60_Claude\|^ M \"10_Areas/Career\|^ M \"20_Progress"`
+```
+ M .claude/skills/weekly-review/weekly-review.md
+ M "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Known Failure Modes and Prevention.md"
+?? "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build 13 Findings.md"
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git status --short -- "60_Claude/07_AI_Information/Session Logs/log.md"`
+```
+ M "60_Claude/07_AI_Information/Session Logs/log.md"
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git add \
+  ".claude/skills/weekly-review/weekly-review.md" \
+  "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Known Failure Modes and Prevention.md" \
+  "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build 13 Findings.md" \
+  "60_Claude/07_AI_Information/Session Logs/log.md"
+git status --short | grep "^[AM]" | grep -v "^?? \"60_Claude\|^ M \"60_Claude\|^ M \"10_Areas/Career\|^ M \"20_Progress"`
+```
+M  .claude/skills/weekly-review/weekly-review.md
+A  "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build 13 Findings.md"
+M  "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Known Failure Modes and Prevention.md"
+M  "60_Claude/07_AI_Information/Session Logs/log.md"
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git commit -m "$(cat <<'EOF'
+Document Build 13: Syncthing (?d)-prefix deadlock and self-heal restart
+
+Adds Cross-Laptop Sync - Build 13 Findings.md, Failure Modes 17-18 in Known
+Failure Modes and Prevention, Step 7.6 point 11 in /weekly-review, and the
+matching session log entry - written up alongside the fix (prior commits
+e62d1c40, 0683927c) documenting both the new directory-deletion deadlock
+root cause and the measured confirmation that Builds 10-12 held (zero
+git-auto-sync conflicts for 53 hours before this new, unrelated issue).
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
+EOF
+)" 2>&1 | tail -5
+git push origin infra/cross-laptop-sync 2>&1 | tail -10`
+```
+[infra/cross-laptop-sync 153f13ef] Document Build 13: Syncthing (?d)-prefix deadlock and self-heal restart
+ 4 files changed, 54 insertions(+), 2 deletions(-)
+ create mode 100644 40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build 13 Findings.md
+To https://github.com/gupta-builds/Jarvis.git
+   0683927c..153f13ef  infra/cross-laptop-sync -> infra/cross-laptop-sync
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && echo "=== FINAL VERIFICATION ===" 
+echo "--- live conflicts ---" && find . -iname "*sync-conflict*" -not -path "./.stversions/*" -not -path "./.git/*" 2>/dev/null | wc -l
+echo "--- stuck temp files ---" && find . -iname "~syncthing~*" -not -path "./.stversions/*" -not -path "./.git/*" 2>/dev/null | wc -l
+echo "--- health check ---"
+powershell.exe -ExecutionPolicy Bypass -File "30_Order\System\sync-workflow\scripts\check-syncthing-status.ps1" 2>&1 | tail -12
+echo "--- git state ---"
+git status --short --branch | head -1
+git log origin/infra/cross-laptop-sync --oneline -1
+git log --oneline -1
+echo "--- recent syncthing errors ---"
+grep "directory has been deleted\|ERR \|FATAL" "/c/Users/Anant Gupta/AppData/Local/Syncthing/syncthing.log" | tail -3`
+```
+=== FINAL VERIFICATION ===
+--- live conflicts ---
+0
+--- stuck temp files ---
+0
+--- health check ---
+  globalFiles : 11842
+  needFiles   : 0
+  needBytes   : 0
+  errors      : 0
+
+Completion against remote devices:
+  device [REDACTED]
+    completion : 100%
+    needBytes  : 0
+    needItems  : 0
+
+Overall: IN SYNC
+--- git state ---
+## infra/cross-laptop-sync...origin/master [ahead 668]
+153f13ef Document Build 13: Syncthing (?d)-prefix deadlock and self-heal restart
+153f13ef Document Build 13: Syncthing (?d)-prefix deadlock and self-heal restart
+--- recent syncthing errors ---
+2026-10-06 21:03:03 WRN Failed to sync (path=30_Order\System\cursor-workflow\logs error="syncing: delete dir: directory has been deleted on a remote device but contains ignored files (see ignore documentation for (?d) prefix)" folder.label=Jarvis folder.id=jarvis folder.type=sendreceive log.pkg=model)
+2026-10-06 21:03:14 INF Failed to delete directory (folder.label=Jarvis folder.id=jarvis folder.type=sendreceive dir.name=30_Order\System\cursor-workflow\logs dir.permissions=0755 error="directory has been deleted on a remote device but contains ignored files (see ignore documentation for (?d) prefix)" log.pkg=model)
+2026-10-06 21:03:14 WRN Failed to sync (path=30_Order\System\cursor-workflow\logs error="syncing: delete dir: directory has been deleted on a remote device but contains ignored files (see ignore documentation for (?d) prefix)" folder.label=Jarvis folder.id=jarvis folder.type=sendreceive log.pkg=model)
+```
 
 ## Actions Taken
 
@@ -6996,6 +7163,7 @@ Overall: IN SYNC
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Sync\Cross-Laptop Sync - Build 11 Findings.md`
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Sync\Cross-Laptop Sync - Build 11 Prompt.md`
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Sync\Cross-Laptop Sync - Build 12 Findings.md`
+- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Sync\Cross-Laptop Sync - Build 13 Findings.md`
 
 **Files modified:**
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\.claude\settings.json`
@@ -8177,5 +8345,39 @@ echo "=== current time ===" && date`
 echo "=== live conflicts ===" && find . -iname "*sync-conflict*" -not -path "./.stversions/*" -not -path "./.git/*" 2>/dev/null | wc -l`
 - `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && grep -n "^## Failure Mode 16\|^## How To Verify" "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Known Failure Modes and Prevention.md"`
 - `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && grep -n "^10\. \*\*Ignore-file symmetry" ".claude/skills/weekly-review/weekly-review.md"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git ls-files | grep -c "recent-edits/data.json"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git status --short | grep -v "^?? \"60_Claude\|^ M \"60_Claude\|^ M \"10_Areas/Career\|^ M \"20_Progress"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git status --short -- "60_Claude/07_AI_Information/Session Logs/log.md"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git add \
+  ".claude/skills/weekly-review/weekly-review.md" \
+  "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Known Failure Modes and Prevention.md" \
+  "40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build 13 Findings.md" \
+  "60_Claude/07_AI_Information/Session Logs/log.md"
+git status --short | grep "^[AM]" | grep -v "^?? \"60_Claude\|^ M \"60_Claude\|^ M \"10_Areas/Career\|^ M \"20_Progress"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git commit -m "$(cat <<'EOF'
+Document Build 13: Syncthing (?d)-prefix deadlock and self-heal restart
+
+Adds Cross-Laptop Sync - Build 13 Findings.md, Failure Modes 17-18 in Known
+Failure Modes and Prevention, Step 7.6 point 11 in /weekly-review, and the
+matching session log entry - written up alongside the fix (prior commits
+e62d1c40, 0683927c) documenting both the new directory-deletion deadlock
+root cause and the measured confirmation that Builds 10-12 held (zero
+git-auto-sync conflicts for 53 hours before this new, unrelated issue).
+
+Co-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>
+EOF
+)" 2>&1 | tail -5
+git push origin infra/cross-laptop-sync 2>&1 | tail -10`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && echo "=== FINAL VERIFICATION ===" 
+echo "--- live conflicts ---" && find . -iname "*sync-conflict*" -not -path "./.stversions/*" -not -path "./.git/*" 2>/dev/null | wc -l
+echo "--- stuck temp files ---" && find . -iname "~syncthing~*" -not -path "./.stversions/*" -not -path "./.git/*" 2>/dev/null | wc -l
+echo "--- health check ---"
+powershell.exe -ExecutionPolicy Bypass -File "30_Order\System\sync-workflow\scripts\check-syncthing-status.ps1" 2>&1 | tail -12
+echo "--- git state ---"
+git status --short --branch | head -1
+git log origin/infra/cross-laptop-sync --oneline -1
+git log --oneline -1
+echo "--- recent syncthing errors ---"
+grep "directory has been deleted\|ERR \|FATAL" "/c/Users/Anant Gupta/AppData/Local/Syncthing/syncthing.log" | tail -3`
 
 

@@ -1,4 +1,7 @@
 # Session Log
+## [2026-10-06] build | Technical Interview Homework - 3 Solutions & CSCI 4041 Algorithmic Synthesis
+Solved all 7 questions for CodePath TIP103 Homework 3 patterned after Prof. Joy Upton-Azzam's CSCI 4041 methods (CLRS Ch 10 Stacks & Queues, Ch 4 Tree Recursion, Ch 6 Heaps, two-pointer invariants). Resolved clipboard upload duplication by verifying physical screenshots in `D:\_Anant\Pictures\Screenshots\` (captured 22:37:25 to 22:38:33). Wrote full solutions, traces, complexity analysis, and test suites into `[[20_Progress/Degree/_Courses/Technical Interview/_Transcripts/Homework - 3|Homework - 3]]`.
+
 ## [2026-10-06] build | Build 13 - new root cause (Syncthing (?d) deadlock + unreliable restart), Build 10-12's fixes measured and confirmed holding
 User reported the Dell showing "out of sync" and the Acer stuck at 95% completion, two days after Build 12 closed clean. Audited `git-auto-sync.log` directly before assuming anything was newly broken: **zero conflicts for 53 straight hours** (2026-10-04 15:48 to 2026-10-06 21:18) - Builds 10-12's fixes held completely; this is a genuinely new, distinct issue. Full detail: [[Cross-Laptop Sync - Build 13 Findings]].
 

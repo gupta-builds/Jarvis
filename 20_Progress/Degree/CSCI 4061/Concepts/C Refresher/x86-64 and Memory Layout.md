@@ -2,7 +2,7 @@
 type: concept
 status: sprout
 created: 2026-10-01
-updated: 2026-10-01
+updated: 2026-10-06
 course: "[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/CSCI 2021 Board|CSCI 2021 Board]]"
 track: C Refresher
 mastery_level: "0"
@@ -21,6 +21,10 @@ related:
 # x86-64 and Memory Layout
 ## One-Line Answer
 ==A running C program is just a block of memory split into fixed regions (text/globals/heap/stack) plus a small set of CPU registers, and the x86-64 calling convention is nothing more than an agreed contract for which registers hold a function's arguments and where its local variables live on the stack.==
+## Start Here
+Start at the C level. A local such as `int x = 3;` normally lives in the current function's stack frame and becomes invalid when that function returns. `int *p = malloc(sizeof *p);` stores a stack-local pointer, but the allocated `*p` lives on the heap and remains live until `free(p)`. Global/static objects exist for the program's entire run. The pointer and the pointed-to object can therefore have different locations and lifetimes.
+
+This gives the useful first memory map: code/text holds instructions; global/static data holds long-lived named objects; heap holds explicitly allocated objects; stack holds active function-call state. Learn this map before register names or assembly syntax.
 ## Mechanism
 **The calling convention (System V AMD64 ABI), as this course's own Lab 06 drills it:** the first six integer/pointer arguments to a function go in `%rdi`, `%rsi`, `%rdx`, `%rcx`, `%r8`, `%r9` in that order (32-bit versions: `%edi`, `%esi`, etc.); the return value comes back in `%rax`/`%eax`. `order3`'s own assembly in this course's Lab 07 shows this directly: `order3(a, b, c)` receives its three pointer arguments in `%rdi`, `%rsi`, `%rdx` and reads/writes through them with `movl (%rdi), %eax`-style indirect addressing - the same dereference-through-a-register pattern C's `*a` compiles down to.
 **The stack frame and 16-byte alignment rule.** Every `call` pushes an 8-byte return address, and the ABI requires `%rsp` to be a multiple of 16 *at the instant a `call` executes* - not an arbitrary convenience, a real contract the callee is allowed to assume. Lab 07's `order3_asm.s` makes this concrete: `main` needs 36 bytes of local-variable space (nine 4-byte `int`s: `r t v q e d i j k`), but the real code does `subq $56, %rsp`, not `subq $36, %rsp` - the extra bytes are alignment padding so every later `call order3`/`call printf@PLT` inside `main` still lands on a 16-byte-aligned `%rsp`. Locals are then addressed as offsets from `%rsp` (`movl $17, 0(%rsp)`, `leaq 4(%rsp), %rsi` to take `&t`) - `leaq` computes an address without dereferencing, which is exactly how C's `&variable` compiles.

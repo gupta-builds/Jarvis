@@ -2,7 +2,7 @@
 type: concept
 status: sprout
 created: 2026-10-01
-updated: 2026-10-01
+updated: 2026-10-06
 course: "[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/CSCI 2021 Board|CSCI 2021 Board]]"
 track: C Refresher
 mastery_level: "0"
@@ -18,6 +18,14 @@ related: []
 # Compilation and Linking
 ## One-Line Answer
 ==Turning a `.c` file into a runnable program is four separate, inspectable stages - preprocessor, compiler, assembler, linker - and nearly every confusing build error is really a complaint from exactly one of those four stages, not a vague "it didn't compile."==
+## Start Here
+Keep one build picture in mind:
+
+```text
+.c + .h → preprocessed C → .s assembly → .o object file → executable
+```
+
+A header supplies **declarations**—enough information for the compiler to check a call. A `.c` file supplies **definitions**—the actual function bodies. In Project 1, `make` compiles `swish.c`, `swish_funcs.c`, `string_vector.c`, and `job_list.c` separately into `.o` files, then links them into one `swish` executable. `swish_funcs.h` lets `swish.c` call `tokenize` even though its body lives in another source file.
 ## Mechanism
 *Inputs/state:* one or more `.c` source files, their `#include`d headers, and (for anything beyond a single file) a set of already-compiled `.o` object files or `.a`/`.so` libraries to link against.
 *Causal sequence (`gcc source.c -o program` run end to end, per CSAPP Ch. 7):*

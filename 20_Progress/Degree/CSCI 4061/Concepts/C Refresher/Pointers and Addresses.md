@@ -2,7 +2,7 @@
 type: concept
 status: sprout
 created: 2026-10-01
-updated: 2026-10-01
+updated: 2026-10-06
 course: "[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/CSCI 2021 Board|CSCI 2021 Board]]"
 track: C Refresher
 mastery_level: "0"
@@ -21,6 +21,10 @@ related:
 # Pointers and Addresses
 ## One-Line Answer
 ==A pointer is just a variable whose value happens to be a memory address, and dereferencing it (`*p`) means "go to that address and read or write what's there" instead of using the value directly.==
+## Start Here
+Read these declarations as a ladder: `int x = 7; int *p = &x; int **pp = &p;`. `x` stores `7`; `p` stores the address of `x`, so `*p` reaches `x`; `pp` stores the address of pointer `p`, so `**pp` reaches `x` through two address lookups. Always ask whether an expression is a **value** or an **address**: `p` is an address, `*p` is the pointed-to value, and `&p` is the address of the pointer variable itself.
+
+This is the same idea as `waitpid(child_pid, &status, flags)`: `status` is an `int` owned by the caller, and `&status` gives `waitpid` a valid place to write its result. C is still pass-by-value; the copied value happens to be an address.
 ## Mechanism
 Every running program's memory is one giant array of byte-addressable cells. A normal variable (`int x = 16;`) reserves a cell and gives it a name the compiler resolves to an address at compile time. A **pointer variable** (`int *p;`) reserves a cell too, but the value stored in that cell is itself an address - specifically, the address of some other cell. Three operators do all the real work:
 - **`&`** (address-of): `&x` evaluates to the address where `x` lives. This is the only way to get a pointer value to a non-heap variable.

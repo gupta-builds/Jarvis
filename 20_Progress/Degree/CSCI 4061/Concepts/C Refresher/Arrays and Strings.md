@@ -2,7 +2,7 @@
 type: concept
 status: sprout
 created: 2026-10-01
-updated: 2026-10-01
+updated: 2026-10-06
 course: "[[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/CSCI 2021 Board|CSCI 2021 Board]]"
 track: C Refresher
 mastery_level: "0"
@@ -22,6 +22,10 @@ related:
 # Arrays and Strings
 ## One-Line Answer
 ==A C array is a block of same-type elements laid out contiguously in memory with no bounds information attached, so indexing (`arr[i]`) is really just pointer arithmetic from the array's base address, and a "string" is nothing more than a `char` array that uses a `'\0'` byte as an end-of-data marker instead of carrying its own length.==
+## Start Here
+With `int a[3] = {10, 20, 30};`, `a` names the first element's address in most expressions, `a + 1` is the second `int`'s address, and `a[1]` is exactly `*(a + 1)`, therefore `20`. Only indices 0, 1, and 2 are valid; C does not check that boundary.
+
+A string adds one rule: it ends at the first zero byte. `char s[4] = {'c', 'a', 't', '\0'};` is a valid three-character string. The terminator uses real space, so `char s[3] = "cat";` is not room for a valid C string.
 ## Mechanism
 A statically declared array (`int arr[10];`) reserves one contiguous block of `10 * sizeof(int)` bytes at a fixed location (stack or global, chosen at compile time), and the array's name evaluates to the address of its first element. Indexing `arr[i]` is defined to mean `*(arr + i)` - the compiler adds `i` scaled by `sizeof(int)` to the base address and dereferences the result. This is why, per CSCI 2021's own Week 2 note, "arrays and pointers are closely related" but not identical: an array's storage location is fixed by the compiler for its whole lifetime, while a pointer variable can be reassigned to point anywhere.
 **Array decay in function calls:** all C arguments are pass-by-value, but for arrays "the value being passed is just the address of the first element" (verified directly from Week 2). `void print_array(int arr[], int size)` receives a pointer, not a copy of the whole array - which is exactly why modifying `arr[i]` inside the function changes the caller's original array, while reassigning the local parameter `arr` itself (or `size`) only affects the function's own copy of that one variable.

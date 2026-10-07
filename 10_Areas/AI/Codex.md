@@ -2,7 +2,7 @@
 type: evergreen
 status: sprout
 created: 2026-07-03
-updated: 2026-07-03
+updated: 2026-10-07
 tags:
   - ai
   - tool-guide
@@ -57,3 +57,16 @@ The retained setup is the internship-research-loop project skills and agents, th
 ### Marketplace
 
 Use OpenAI's curated plugin marketplace: [https://github.com/openai/plugins](https://github.com/openai/plugins). In Codex, run `/plugins`, open `Marketplaces`, choose `Add marketplace`, paste the link, and confirm. The local catalog currently shows GitHub installed and enabled; install other plugins only when a concrete workflow needs them. If the UI requires a Git URL, use `https://github.com/openai/plugins.git`.
+
+## Two-profile operating model — 2026-10-07
+
+Codex uses two deliberate modes, not a default strong model for every prompt.
+
+| Profile | Model and effort | Use it for |
+| --- | --- | --- |
+| `base` | `gpt-6-luna` at `medium` | The routine 80 percent: bounded PKM maintenance, retrieval, tagging, explicit note transforms, small code edits, tests, triage, and well-specified coursework tasks. The prompt must state inputs, scope, constraints, acceptance criteria, and verification. |
+| `deep` | `gpt-6.1-sol` at `high` | The consequential 20 percent: architecture, hard debugging, review, cross-source synthesis, important technical decisions, and difficult coursework. |
+
+The user chooses the profile at session start: `codex --profile base` or `codex --profile deep`. Base is the global default. A task that becomes cross-cutting, ambiguous, or hard to verify should stop and request a `deep` session rather than silently spending more model capacity.
+
+Both profiles are defined in the Windows Codex home, `C:\Users\anant\.codex\{base,deep}.config.toml`. The global `C:\Users\anant\.codex\AGENTS.md` is read before each session and enforces this routing, evidence-first execution, complete grammar, and no em dashes. Jarvis `AGENTS.md` carries the vault-local mirror.

@@ -9,14 +9,21 @@
 .obsidian/workspace-mobile.json
 .trash
 .obsidian/workspaces.json
-.obsidian/plugins/copilot/data.json
-.obsidian/plugins/copilot/data-*backup*.json
-.obsidian/plugins/quickadd/data.json
-.obsidian/plugins/obsidian-local-rest-api/data.json
-.obsidian/plugins/lean-terminal/data.json
-.obsidian/plugins/recent-files-obsidian/data.json
-.obsidian/plugins/file-explorer-plus/data.json
-.obsidian/copilot-index-*.json
+// (?d)-prefixed (Build 13, 2026-10-06): each of these is one file inside a
+// plugin folder that otherwise holds normally-synced content (main.js,
+// manifest.json, styles.css) - if that plugin is ever uninstalled on one
+// machine (folder deleted) while this file still exists locally on the
+// other, Syncthing hits the identical "contains ignored files" deadlock
+// found live on cursor-workflow/logs/ this build. See that block below for
+// the full incident.
+(?d).obsidian/plugins/copilot/data.json
+(?d).obsidian/plugins/copilot/data-*backup*.json
+(?d).obsidian/plugins/quickadd/data.json
+(?d).obsidian/plugins/obsidian-local-rest-api/data.json
+(?d).obsidian/plugins/lean-terminal/data.json
+(?d).obsidian/plugins/recent-files-obsidian/data.json
+(?d).obsidian/plugins/file-explorer-plus/data.json
+(?d).obsidian/copilot-index-*.json
 30_Order/System/jarvis-memory/*.sqlite*
 60_Claude/05_Clippings/AI Conversations/**/_raw_jsonl
 60_Claude/05_Clippings/AI Conversations/**/_raw_composer
@@ -63,14 +70,26 @@
 /.opencode/skills/openartifacts-publish
 
 // Proven machine-local state that caused recurring cross-device conflicts.
-.obsidian/plugins/recent-edits/data.json
-.obsidian/plugins/file-explorer-plus/data.json
-20_Progress/AI/Claude Code/_All-Projects-Sync-Log.md
-20_Progress/AI/Claude Code/**/Sync-Log.md
-30_Order/System/claude-workflow/logs/capture-health-*.json
-30_Order/System/cursor-workflow/cursor-export-state.json
-30_Order/System/cursor-workflow/logs/*.log
-60_Claude/05_Clippings/AI Conversations/00 - Capture Health.md
+// All given the (?d) "deletable" prefix (Build 13, 2026-10-06) - without it,
+// if a directory holding only these ignored files is ever deleted on one
+// machine (e.g. a per-project folder's Sync-Log.md was its only content
+// left, or cursor-workflow/logs/ once every file inside it was already
+// ignored), Syncthing refuses to delete the now-ignored-only directory on
+// the other machine and retries forever: "directory has been deleted on a
+// remote device but contains ignored files." Confirmed live, 2026-10-06,
+// exactly this error on cursor-workflow/logs/ - 143 failed retries over 9
+// hours, the direct cause of "out of sync" on the Dell and the Acer's sync
+// completion stuck under 100%. (?d) tells Syncthing these files don't block
+// a directory deletion; it does not change whether the files themselves
+// sync (they still never do).
+(?d).obsidian/plugins/recent-edits/data.json
+(?d).obsidian/plugins/file-explorer-plus/data.json
+(?d)20_Progress/AI/Claude Code/_All-Projects-Sync-Log.md
+(?d)20_Progress/AI/Claude Code/**/Sync-Log.md
+(?d)30_Order/System/claude-workflow/logs/capture-health-*.json
+(?d)30_Order/System/cursor-workflow/cursor-export-state.json
+(?d)30_Order/System/cursor-workflow/logs/*.log
+(?d)60_Claude/05_Clippings/AI Conversations/00 - Capture Health.md
 
 
 // Platform-incompatibility exclusion (not secrets/churn/bloat) - Build 6, 2026-09-19:
@@ -97,30 +116,30 @@
 // constant .sync-conflict-* churn between the Dell and Acer for no value (nobody reads the other
 // machine's log through Syncthing; git commit history already carries the real cross-machine
 // record). Excluding the log and any conflict-copy variant, added 2026-09-20.
-30_Order/System/claude-workflow/logs/git-auto-sync.log
-30_Order/System/claude-workflow/logs/git-auto-sync.sync-conflict-*
+(?d)30_Order/System/claude-workflow/logs/git-auto-sync.log
+(?d)30_Order/System/claude-workflow/logs/git-auto-sync.sync-conflict-*
 
 // internship-note-guard.jsonl - same per-machine reasoning as git-auto-sync.log
 // above, appended on every Write/Edit under the internship tree on whichever
 // machine it happened on. Found 2026-10-04 (Build 12) while testing the hook
 // after fixing its path bug - never excluded before since the hook was
 // silently broken the entire time this file could exist.
-30_Order/System/claude-workflow/logs/internship-note-guard.jsonl
+(?d)30_Order/System/claude-workflow/logs/internship-note-guard.jsonl
 
 // weekly-review.log is the same per-machine artifact as git-auto-sync.log above,
 // same reasoning - each laptop's own Jarvis-WeeklyReview Scheduled Task writes to
 // it independently. Found 2026-10-04: it was a live conflict in today's incident
 // because it had never gotten this exclusion. Added alongside the matching
 // .gitignore fix.
-30_Order/System/claude-workflow/logs/weekly-review.log
-30_Order/System/claude-workflow/logs/weekly-review.sync-conflict-*
+(?d)30_Order/System/claude-workflow/logs/weekly-review.log
+(?d)30_Order/System/claude-workflow/logs/weekly-review.sync-conflict-*
 
 // .sync-alert-state.json (Build 9, 2026-10-02) is Jarvis-Syncthing-Health's own
 // per-machine alert-rate-limiting counter, rewritten every 5 minutes on each
 // laptop independently - same per-machine-artifact reasoning as git-auto-sync.log
 // above. Syncing it would manufacture a sync-conflict on this file roughly every
 // 5 minutes between two laptops both running the health check on their own clocks.
-30_Order/System/sync-workflow/scripts/.sync-alert-state.json
+(?d)30_Order/System/sync-workflow/scripts/.sync-alert-state.json
 
 // Sync Alert Banner.md (Build 11, 2026-10-04) - same per-machine reasoning,
 // rewritten every 5 minutes on each laptop independently. This is the fix
@@ -128,4 +147,4 @@
 // by-design conflict source) - 00_Dashboard.md now only ever holds a single
 // static ![[...]] embed of this file, so the literal alert text never has
 // to be identical bytes across machines again.
-30_Order/System/sync-workflow/Sync Alert Banner.md
+(?d)30_Order/System/sync-workflow/Sync Alert Banner.md

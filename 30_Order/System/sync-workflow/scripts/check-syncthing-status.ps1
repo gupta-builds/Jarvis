@@ -203,7 +203,34 @@ try {
             }
         })
     }
-    if ($listeners.Count -ne 1) {
+    if ($listeners.Count -eq 0) {
+        # Self-heal (Build 13, 2026-10-06): a Logon-triggered Scheduled Task
+        # named "Syncthing" already exists to start it at sign-in, but a
+        # logon trigger only fires on an actual Windows logon - it does not
+        # re-fire on sleep/resume, which is how a laptop is actually used
+        # most days. Confirmed live: that task's LastRunTime was 3 days
+        # stale while Syncthing had been down long enough for a daily note
+        # to record it ("down ~21h, no auto-restart exists", 2026-10-04/05).
+        # This 5-minute health check is the one mechanism that reliably
+        # re-runs regardless of logon/sleep state, so it is the right place
+        # to actually restart the process, not just report it missing.
+        Write-Error "No Syncthing GUI listener on port 8384 - attempting to start it."
+        $problems.Add("Syncthing was not running - a start was attempted by this health check. Verify on the next run.")
+        try {
+            $syncthingExe = ((Get-ScheduledTask -TaskName "Syncthing" -ErrorAction Stop).Actions | Select-Object -First 1).Execute
+            if ($syncthingExe -and (Test-Path -LiteralPath $syncthingExe)) {
+                Start-Process -FilePath $syncthingExe -ArgumentList "serve", "--no-console", "--no-browser" -WindowStyle Hidden
+                $problems.Add("Started: $syncthingExe")
+            } else {
+                $problems.Add("Could not resolve the Syncthing executable from the 'Syncthing' Scheduled Task's own action - started nothing.")
+            }
+        } catch {
+            $problems.Add("Attempted self-heal start failed: $_")
+        }
+        $exitCode = 1
+    } elseif ($listeners.Count -ne 1) {
+        # More than one listener is a different, more serious problem (two
+        # competing instances) - never auto-start into that, only report it.
         Write-Error "Expected exactly one Syncthing GUI listener on port 8384; found $($listeners.Count)."
         $exitCode = 1
         $problems.Add("Expected exactly one Syncthing GUI listener on port 8384; found $($listeners.Count).")

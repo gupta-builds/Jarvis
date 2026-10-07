@@ -20,11 +20,11 @@ next: "Drill the #cards/csci2021 deck across all 10 notes before Project 1's ora
 ---
 # C Language
 ## Purpose
-This is the advanced refresher hub for CSCI 4061's C prerequisite — the C-fundamentals half of CSCI 2021, rebuilt as ten detailed concept notes instead of the short pointer-level note at [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/C Language|C Language]]. CSCI 4061's own Board is explicit that "solid C is essential, not optional" before Week 1, and this course does not re-teach it — this hub exists so that gap gets closed from real CSCI 2021 evidence (lab/homework/project source, the course's own textbooks, and its existing week notes) rather than from memory.
-## Start Here — Read C Without Guessing
+This is the advanced refresher hub for CSCI 4061's C prerequisite - the C-fundamentals half of CSCI 2021, rebuilt as ten detailed concept notes instead of the short pointer-level note at [[40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/C Language|C Language]]. CSCI 4061's own Board is explicit that "solid C is essential, not optional" before Week 1, and this course does not re-teach it - this hub exists so that gap gets closed from real CSCI 2021 evidence (lab/homework/project source, the course's own textbooks, and its existing week notes) rather than from memory.
+## Start Here - Read C Without Guessing
 A C program is a collection of definitions: variables reserve storage, functions name reusable instructions, `struct`s name record layouts, and headers publish declarations so another `.c` file can call a function safely. Read unfamiliar code by locating four things: its **type**, its **name**, the **value or address** it uses, and its **lifetime/owner**.
 
-For example, `job->status = BACKGROUND;` says: `job` has type `job_t *`, so it stores an address; `->status` means "follow that address, then select the `status` field"; and `=` writes the enum value `BACKGROUND` into that field. It is the same operation as `(*job).status = BACKGROUND`.
+For example, `job->status = BACKGROUND;` says: `job` has type `job_t *`, so it stores an address; `->status` means "follow that address, then select the `status` field"; and = writes the enum value `BACKGROUND` into that field. It is the same operation as `(*job).status = BACKGROUND`.
 
 | Form | Read it as | Concrete consequence |
 |---|---|---|

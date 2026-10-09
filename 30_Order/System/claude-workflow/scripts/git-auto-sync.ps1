@@ -312,13 +312,28 @@ function Invoke-GitAutoSync {
         $pausedSyncthing = $true
 
         if (-not (Invoke-PullRebase -Branch $branch)) {
+            # Found 2026-10-08: this path, and the one below it, were the only two
+            # exit paths in this whole function that never wrote a matching
+            # "=== git-auto-sync end ===" line - every other path does. Because
+            # check-syncthing-status.ps1's own FAILED-detector (added 2026-10-07)
+            # only checks the most recent "=== git-auto-sync end" line, a failure
+            # on either of these two paths was completely invisible to it: this
+            # exact rebase conflict repeated every 30 minutes for roughly 25 hours
+            # straight (69 occurrences across this log's full history) with
+            # consecutiveFailures staying at 0 and the Dashboard banner empty the
+            # entire time. The missing log line, not the detector's regex, was the
+            # actual gap - fixed here so any future failure path added to this
+            # function stays visible by construction, not by remembering to extend
+            # a regex somewhere else every time.
             Write-SyncLog "CONFLICT: initial pull --rebase failed. Manual resolution needed."
+            Write-SyncLog "=== git-auto-sync end (FAILED, pull --rebase conflict) ==="
             exit 1
         }
 
         $conflictFiles = Get-ConflictMarkerFiles
         if ($conflictFiles.Count -gt 0) {
             Write-SyncLog "CONFLICT: pull --rebase --autostash reported success but left unresolved merge markers in currently-dirty file(s): $($conflictFiles -join ', '). This is a failed autostash pop, not a clean rebase - refusing to commit broken content. The conflicting stash is preserved in 'git stash list' for manual resolution."
+            Write-SyncLog "=== git-auto-sync end (FAILED, autostash-pop conflict markers) ==="
             exit 1
         }
 

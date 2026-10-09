@@ -14,8 +14,7 @@ next:
 **Captured:** 2026-10-08
 **Source:**
 
-## Raw Transcript
-
+## Session - 1
 Paste the untouched transcript below, inside the fence. Do not edit, clean, or summarize here — this file is the raw capture. Summarization happens in the linked brief once `/transcript-to-brief` runs.
 
 ````
@@ -459,5 +458,516 @@ Example Output:
 
 ```
 Carp -> Dace -> Cherry Salmon -> Rainbow Trout
+```
+````
+## Session - 2
+
+````
+## Unit 4: Session 2
+
+### Binary Trees & BST | Binary Trees
+
+Students are introduced to foundational and complex tasks involving binary trees. They will engage in constructing trees, manipulating tree structures, traversing trees, and understanding tree properties through a variety of exercises. This session aims to deepen students' understanding of tree algorithms, enhancing their ability to analyze and implement data structures efficiently.
+
+You can find session recordings and more on the [resources tab](https://courses.codepath.org/courses/tip103/unit/4#!resources). Session slide decks are available on the [overview tab](https://courses.codepath.org/courses/tip103/unit/4#!overview).
+
+---
+
+### 🎢 Part 1: Instructor Led Session
+
+We'll spend the first portion of the synchronous class time in large groups, where the instructor will lead class instruction for 30-45 minutes.
+
+### 🧑‍💻 Part 2: Breakout Session
+
+In breakout sessions, we will explore and collaboratively solve problem sets in small groups. Here, the **collaboration, conversation, and approach** are just as important as “solving the problem” - please engage warmly, clearly, and plentifully in the process!
+
+In breakout rooms you will:
+
+- Screen-share the problem/s, and verbally review them together
+- Screen-share an interactive coding environment, and talk through the steps of a solution approach
+    - ProTip: - An Integrated Development Environment (IDE) is a fancy name for a tool you could use for shared writing of code - like VSCode, PyCharm, Replit.com, Collabed.it, CodePen.io, or other - your staff team will specify which tool to use for this class!
+- Screen-share an implementation of your proposed solution
+- Independently follow-along, or create an implementation, in your own IDE.
+
+Your program leader/s will indicate which code sharing tool/s to use as a group, and will help break down or provide specific scaffolding with the main concepts above.
+
+**Note on Expectations**
+
+---
+
+### 🔎 Problem Solving Approach
+
+We will approach problems using the six steps in the UMPIRE approach.
+
+**UMPIRE: Understand, Match, Plan, Implement, Review, Evaluate.**
+
+We’ll apply these six steps to the problems we’ll see in the first half of the course.
+
+We will learn to:
+
+- **Understand** the problem
+- **Match** identifies common approaches you've seen/used before
+- **Plan** a solution step-by-step, and
+- **Implement** the solution
+- **Review** your solution
+- **Evaluate** your solution's time and space complexity and think critically about the advantages and disadvantages of your chosen approach.
+
+---
+
+ℹ️ **Note: Testing your Binary Tree (Printing)**
+
+To keep the amount of starter code manageable, we have chosen not to include a function to print a binary tree as part of each relevant problem statement. You may instead copy the function in the drop-down below `print_tree()` and use it as needed while you complete the problem sets.
+
+Print Binary Tree Function
+
+Accepts the root of a binary tree and prints out the values of each node level by level from left to right. Values of `None` are used to indicate a null child node between non-null children on the same level. Prints `"Empty"` for an empty tree.
+
+```
+from collections import deque 
+
+# Tree Node class
+class TreeNode:
+    def __init__(self, value, left=None, right=None):
+        self.val = value
+        self.left = left
+        self.right = right
+
+def print_tree(root):
+    if not root:
+        return "Empty"
+    result = []
+    queue = deque([root])
+    while queue:
+        node = queue.popleft()
+        if node:
+            result.append(node.val)
+            queue.append(node.left)
+            queue.append(node.right)
+        else:
+            result.append(None)
+    while result and result[-1] is None:
+        result.pop()
+    print(result)
+
+```
+
+Example Usage:
+
+```
+"""
+          1
+        /   \
+       2     3
+      /     / \
+     4     5   6
+"""
+
+root = Node(1, Node(2, Node(4)), Node(3, Node(5), Node(6)))
+
+print_tree(root)
+print_tree(None)
+```
+
+Example Output:
+
+```
+[1, 2, 3, 4, None, 5, 6]
+'Empty'
+```
+
+---
+
+### Problem Set Version 1
+
+Problem 1: Ivy Cutting
+
+You have a trailing ivy plant represented by a binary tree. You want to take a cutting to start a new plant using the rightmost vine in the plant. Given the `root` of the plant, return a list with the value of each node in the path from the `root` node to the rightmost leaf node. _**If there is no right child, return only the root node value (the rightmost path in this case is just the root node).**_
+
+Evaluate the time and space complexity of your function. Define your variables and provide a rationale for why you believe your solution has the stated time and space complexity. Assume the input tree is balanced when calculating time and space complexity.
+
+```
+class TreeNode:
+    def __init__(self, value, left=None, right=None):
+        self.val = value
+        self.left = left
+        self.right = right
+
+def right_vine(root):
+  pass
+```
+
+Example Usage:
+
+```
+"""
+        Root
+      /      \
+    Node1    Node2
+  /         /    \
+Leaf1    Leaf2  Leaf3
+"""
+ivy1 = TreeNode("Root", 
+                TreeNode("Node1", TreeNode("Leaf1")),
+                TreeNode("Node2", TreeNode("Leaf2"), TreeNode("Leaf3")))
+
+"""
+      Root
+      /  
+    Node1
+    /
+  Leaf1  
+"""
+ivy2 = TreeNode("Root", TreeNode("Node1", TreeNode("Leaf1")))
+
+print(right_vine(ivy1))
+print(right_vine(ivy2))
+```
+
+Example Output:
+
+```
+['Root', 'Node2', 'Leaf3']
+['Root']
+```
+
+✨ AI Hint: Binary Trees
+
+[](https://courses.codepath.org/courses/tip103/unit/4#!cheatsheet)
+
+Problem 2: Ivy Cutting II
+
+If you implemented `right_vine()` iteratively in the previous problem, implement it recursively. If you implemented it recursively, implement it iteratively.
+
+Evaluate the time and space complexity of your function. Define your variables and provide a rationale for why you believe your solution has the stated time and space complexity. Assume the input tree is balanced when calculating time and space complexity.
+
+```
+class TreeNode:
+    def __init__(self, value, left=None, right=None):
+        self.val = value
+        self.left = left
+        self.right = right
+
+def right_vine(root):
+  pass
+```
+
+Example Usage:
+
+```
+"""
+        Root
+      /      \
+    Node1    Node2
+  /         /    \
+Leaf1    Leaf2  Leaf3
+"""
+ivy1 = TreeNode("Root", 
+                TreeNode("Node1", TreeNode("Leaf1")),
+                TreeNode("Node2", TreeNode("Leaf2"), TreeNode("Leaf3")))
+
+"""
+      Root
+      /  
+    Node1
+    /
+  Leaf1  
+"""
+ivy2 = TreeNode("Root", TreeNode("Node1", TreeNode("Leaf1")))
+
+print(right_vine(ivy1))
+print(right_vine(ivy2))
+```
+
+Example Output:
+
+```
+['Root', 'Node2', 'Leaf3']
+['Root']
+```
+Problem 3: Pruning Plans
+
+You have a large overgrown Magnolia tree that's in desperate need of some pruning. Before you can prune the tree, you need to do a full survey of the tree to evaluate which sections need to be pruned.
+
+Given the `root` of a binary tree representing the magnolia, return a list of the values of each node using a postorder traversal. In a postorder traversal, you explore the left subtree first, then the right subtree, and finally the root. Postorder traversals are often used when deleting nodes from a tree.
+
+Evaluate the time and space complexity of your function. Define your variables and provide a rationale for why you believe your solution has the stated time and space complexity. Assume the input tree is balanced when calculating time and space complexity.
+
+```
+class TreeNode:
+    def __init__(self, value, left=None, right=None):
+        self.val = value
+        self.left = left
+        self.right = right
+
+def survey_tree(root):
+    pass
+```
+
+Example Usage:
+
+```
+"""
+        Root
+      /      \
+    Node1    Node2
+  /         /    \
+Leaf1    Leaf2  Leaf3
+"""
+
+magnolia = TreeNode("Root", 
+                TreeNode("Node1", TreeNode("Leaf1")),
+                        TreeNode("Node2", TreeNode("Leaf2"), TreeNode("Leaf3")))
+
+print(survey_tree(magnolia))
+```
+
+Example Output:
+
+```
+['Leaf1', 'Node1', 'Leaf2', 'Leaf3', 'Node2', 'Root']
+```
+
+✨ AI Hint: Traversing Trees
+
+_Key Skill: Use AI to explain code concepts_
+
+This problem requires you to traverse a binary tree. For a refresher on this topic, check out the Tree Traversal section of the [Unit 4 Cheatsheet](https://courses.codepath.org/courses/tip103/unit/4#!cheatsheet).
+
+Still have questions? Try asking an AI tool like ChatGPT or GitHub Copilot to explain the different types of binary tree traversal. You can use the following prompt as a starting point:
+
+_"You're an expert computer science tutor. Please explain the different types of binary tree traversal, and show me how they would each work on an example tree."_
+
+Hint: Be sure to learn about "preorder", "postorder", and "inorder" traversals!
+
+Problem 4: Sum Inventory
+
+A local flower shop stores its inventory in a binary tree, where each node represents their current stock of a flower variety. Given the root of a binary tree `inventory`, return the sum of all the flower stock in the store.
+
+Evaluate the time and space complexity of your function. Define your variables and provide a rationale for why you believe your solution has the stated time and space complexity. Assume the input tree is balanced when calculating time and space complexity.
+
+```
+class TreeNode:
+    def __init__(self, value, left=None, right=None):
+        self.val = value
+        self.left = left
+        self.right = right
+
+def sum_inventory(inventory):
+    pass
+```
+
+Example Usage:
+
+```
+"""
+     40
+    /  \
+   5   10
+  /   /  \
+20   1   30
+"""
+
+inventory = TreeNode(40, 
+                    TreeNode(5, TreeNode(20)),
+                            TreeNode(10, TreeNode(1), TreeNode(30)))
+
+print(sum_inventory(inventory))
+```
+
+Example Output:
+
+```
+106
+```
+Problem 5: Calculating Yield II
+
+You have a fruit tree represented as a binary tree. Given the `root` of the tree, evaluate the amount of fruit your tree will yield this year. The tree has the following form:
+
+- **Leaf nodes** have an integer value.
+- **Non-leaf nodes** have a string value of either `"+"`, `"-"`, `"*"`, or `"/"`.
+
+The **yield** of the tree is calculated as follows:
+
+- If the node is a leaf node, the yield is the **value** of the node.
+- Otherwise evaluate the node's two children and apply the mathematical operation of its value with the children's evaluations.
+
+Return the result of evaluating the `root` node.
+
+Evaluate the time and space complexity of your function. Define your variables and provide a rationale for why you believe your solution has the stated time and space complexity. Assume the input tree is balanced when calculating time and space complexity.
+
+```
+class TreeNode:
+    def __init__(self, value, left=None, right=None):
+        self.val = value
+        self.left = left
+        self.right = right
+
+def calculate_yield(root):
+  pass
+```
+
+Example Usage:
+
+```
+"""
+      +
+     / \ 
+    /   \
+   -     *
+  / \   / \
+ 4   2 10  2
+"""
+
+root = TreeNode("+")
+root.left = TreeNode("-")
+root.right = TreeNode("*")
+root.left.left = TreeNode(4)
+root.left.right = TreeNode(2)
+root.right.left = TreeNode(10)
+root.right.right = TreeNode(2)
+
+print(calculate_yield(root))
+```
+
+Example Output:
+
+```
+22
+Explanation:
+- 4 - 2 = 2
+- 10 * 2 = 20
+- 2 + 20 = 22
+```
+Problem 6: Plant Classifications
+
+Given the `root` of a binary tree used to classify plants where each level of the tree represents a higher degree of speficity, return an array with the most specific plant classification categories (aka the leaf node values). Leaf nodes are nodes with no children.
+
+Evaluate the time and space complexity of your function. Define your variables and provide a rationale for why you believe your solution has the stated time and space complexity. Assume the input tree is balanced when calculating time and space complexity.
+
+```
+class TreeNode:
+    def __init__(self, value, left=None, right=None):
+        self.val = value
+        self.left = left
+        self.right = right
+
+def get_most_specific(taxonomy):
+    pass
+```
+
+Example Usage:
+
+```
+"""
+           Plantae
+          /       \
+         /         \
+        /           \ 
+Non-flowering     Flowering
+   /      \       /        \
+Mosses   Ferns Gymnosperms Angiosperms
+                             /     \
+                        Monocots  Dicots
+"""
+plant_taxonomy = TreeNode("Plantae", 
+                          TreeNode("Non-flowering", TreeNode("Mosses"), TreeNode("Ferns")),
+                                  TreeNode("Flowering", TreeNode("Gymnosperms"), 
+                                          TreeNode("Angiosperms", TreeNode("Monocots"), TreeNode("Dicots"))))
+
+print(get_most_specific(plant_taxonomy))
+```
+
+Example Output:
+
+```
+['Mosses', 'Ferns', 'Gymnosperms', 'Monocots', 'Dicots']
+```
+Problem 7: Count Old Growth Trees
+
+Given the `root` of a binary tree where each node represents the age of a tree in a forest, write a function `count_old_growth()` that returns the number of old growth trees in the forest. A tree is considered old growth if it has age greater than `threshold`.
+
+Evaluate the time and space complexity of your function. Define your variables and provide a rationale for why you believe your solution has the stated time and space complexity. Assume the input tree is balanced when calculating time and space complexity.
+
+```
+class TreeNode:
+    def __init__(self, value, left=None, right=None):
+        self.val = value
+        self.left = left
+        self.right = right
+
+def count_old_growth(root, threshold):
+    pass 
+```
+
+Example Usage:
+
+```
+"""
+     100
+     /  \
+    /    \
+  1200  1500
+  /     /  \
+20    700  2600
+"""
+
+forest = TreeNode(100, 
+                  TreeNode(1200, TreeNode(20))
+                          TreeNode(1500, TreeNode(700), TreeNode(2600)))
+
+print(count_old_growth(forest, 1000))
+```
+
+Example Output:
+
+```
+3
+```
+Problem 8: Twinning Trees
+
+Given the roots of two trees `root1` and `root2`, return `True` if the trees have identical structures and values and `False` otherwise.
+
+Evaluate the time and space complexity of your function. Define your variables and provide a rationale for why you believe your solution has the stated time and space complexity. Assume the input tree is balanced when calculating time and space complexity.
+
+```
+class TreeNode:
+    def __init__(self, value, left=None, right=None):
+        self.val = value
+        self.left = left
+        self.right = right
+
+def is_identical(root1, root2):
+    pass 
+```
+
+Example Usage:
+
+```
+"""
+      1                1
+     / \              / \
+    2   3            2   3  
+"""
+root1 = TreeNode(1, TreeNode(2), TreeNode(3))
+root2 = TreeNode(1, TreeNode(2), TreeNode(3))
+
+"""
+      1                1
+     /                  \
+    2                    2  
+"""
+
+root3 = TreeNode(1, TreeNode(2))
+root4 = TreeNode(1, None, TreeNode(2))
+
+print(is_identical(root1, root2))
+print(is_identical(root3, root4))
+```
+
+Example Output:
+
+```
+True
+False
 ```
 ````

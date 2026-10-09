@@ -15,7 +15,353 @@ next:
 ## Session - 1
 Paste the untouched transcript below, inside the fence. Do not edit, clean, or summarize here — this file is the raw capture. Summarization happens in the linked brief once `/transcript-to-brief` runs.
 ````
+## Unit 1: Session 1
 
+### Course Structure | Strings & Arrays
+
+Students will be introduced to the foundational concepts of strings and arrays in Python, which are essential for solving common coding problems. They will also learn about the UPI method, a structured approach to planning and solving technical interview questions. The lesson will cover basic operations like accessing, iterating over, and modifying lists, as well as performing advanced string manipulation.
+
+You can find session recordings and more on the [resources tab](https://courses.codepath.org/courses/tip103/unit/1#!resources). Session slide decks are available on the [overview tab](https://courses.codepath.org/courses/tip103/unit/1#!overview).
+
+---
+
+### 🎢 Part 1: Instructor Led Session
+
+We'll spend the first portion of the synchronous class time in large groups, where the instructor will lead class instruction for 30-45 minutes.
+
+### 🧑‍💻 Part 2: Breakout Session
+
+In breakout sessions, we will explore and collaboratively solve problem sets in small groups. Here, the **collaboration, conversation, and approach** are just as important as “solving the problem” - please engage warmly, clearly, and plentifully in the process!
+
+In breakout rooms you will:
+
+- Screen-share the problem/s, and verbally review them together
+- Screen-share an interactive coding environment, and talk through the steps of a solution approach
+    - ProTip: - An Integrated Development Environment (IDE) is a fancy name for a tool you could use for shared writing of code - like VSCode, PyCharm, Replit.com, Collabed.it, CodePen.io, or other - your staff team will specify which tool to use for this class!
+- Screen-share an implementation of your proposed solution
+- Independently follow-along, or create an implementation, in your own IDE.
+
+Your program leader/s will indicate which code sharing tool/s to use as a group, and will help break down or provide specific scaffolding with the main concepts above.
+
+**Note on Expectations**
+
+---
+
+### 🔎 Problem Solving Approach
+
+To build a long-term organized approach to problem solving, we’ll start with three main steps. We’ll refer to them as **UPI: Understand, Plan, and Implement**.
+
+We’ll apply these three steps to most of the problems we’ll see in the first half of the course.
+
+We will learn to:
+
+- **Understand** the problem,
+- **Plan** a solution step-by-step, and
+- **Implement** the solution
+
+Comment on UPI
+
+UPI Example
+
+[![Example UPI](https://courses.codepath.org/course_images/tip103/upi.png "Example UPI")](https://courses.codepath.org/course_images/tip103/upi.png)
+
+---
+
+### Problem Set Version 1
+
+Problem 1: Hunny Hunt
+
+Write a function `linear_search()` to help Winnie the Pooh locate his lost items. The function accepts a list `items` and a `target` value as parameters. The function should return the first index of `target` in `items`, and `-1` if `target` is not in `items`. Do not use any built-in functions.
+
+```
+def linear_search(items, target):
+	pass
+```
+
+Example Usage:
+
+```
+items = ['haycorn', 'haycorn', 'haycorn', 'hunny', 'haycorn']
+target = 'hunny'
+linear_search(items, target)
+
+items = ['bed', 'blue jacket', 'red shirt', 'hunny']
+target = 'red balloon'
+linear_search(items, target)
+```
+
+Example Output:
+
+```
+3
+-1
+```
+
+💡Hint: Python Basics
+
+Problem 2: Bouncy, Flouncy, Trouncy, Pouncy
+
+Tigger has developed a new programming language Tiger with only **four** operations and **one** variable `tigger`.
+
+- `bouncy` and `flouncy` both **increment** the value of the variable `tigger` by `1`.
+- `trouncy` and `pouncy` both **decrement** the value of the variable `tigger` by `1`.
+
+Initially, the value of `tigger` is `1` because he's the only tigger around! Given a list of strings `operations` containing a list of operations, return the **final** value of `tigger` after performing all the operations.
+
+```
+def final_value_after_operations(operations):
+	pass
+```
+
+Example Usage:
+
+```
+operations = ["trouncy", "flouncy", "flouncy"]
+final_value_after_operations(operations)
+
+operations = ["bouncy", "bouncy", "flouncy"]
+final_value_after_operations(operations)
+```
+
+Example Output:
+
+```
+2
+4
+```
+Problem 3: T-I-Double Guh-Er II
+
+T-I-Double Guh-Er: That spells Tigger! Write a function `tiggerfy()` that accepts a string `word` and returns a new string that removes any substrings `t`, `i`, `gg`, and `er` from `word`. The function should be case insensitive.
+
+```
+def tiggerfy(word):
+	pass
+```
+
+Example Usage:
+
+```
+word = "Trigger"
+tiggerfy(word)
+
+word = "eggplant"
+tiggerfy(word)
+
+word = "Choir"
+tiggerfy(word)
+```
+
+Example Output:
+
+```
+"r"
+"eplan"
+"chor"
+```
+
+  
+
+💡Hint: String Methods
+
+When working with strings, it's very common to need to process the string to convert all characters to upper or lower case, remove punctuation, handle whitespace, etc. Luckily, Python has several built-in string methods for common string operations. Practice your research skills by looking up common string methods to find one that will help you implement this function, or check out the Unit 1 cheatsheet for the most essential ones.
+
+Problem 4: Non-decreasing Array
+
+Given an array `nums` with `n` integers, write a function `non_decreasing()` that checks if `nums` could become non-decreasing by modifying **at most one element**.
+
+We define an array is non-decreasing if `nums[i] <= nums[i + 1]` holds for every `i` (**0-based**) such that (`0 <= i <= n - 2`).
+
+```
+def non_decreasing(nums):
+	pass
+```
+
+Example Usage:
+
+```
+nums = [4, 2, 3]
+non_decreasing(nums)
+
+nums = [4, 2, 1]
+non_decreasing(nums)
+```
+
+Example Output:
+
+```
+True
+False
+```
+Problem 5: Missing Clues
+
+Christopher Robin set up a scavenger hunt for Pooh, but it's a blustery day and several hidden clues have blown away. Write a function `find_missing_clues()` to help Christopher Robin figure out which clues he needs to remake. The function accepts two integers `lower` and `upper` and a unique integer array `clues`. All elements in `clues` are within the inclusive range `[lower, upper]`.
+
+A clue `x` is considered missing if `x` is in the range `[lower, upper]` and `x` is not in `clues`.
+
+Return the shortest sorted list of ranges that exactly covers all the missing numbers. That is, no element of `clues` is included in any of the ranges, and each missing number is covered by one of the ranges.
+
+```
+def find_missing_clues(clues, lower, upper):
+	pass
+```
+
+Example Usage:
+
+```
+clues = [0, 1, 3, 50, 75]
+lower = 0
+upper = 99
+find_missing_clues(clues, lower, upper)
+
+clues = [-1]
+lower = -1
+upper = -1
+find_missing_clues(clues, lower, upper)
+```
+
+Example Output:
+
+```
+[[2, 2], [4, 49], [51, 74], [76, 99]]
+[]
+```
+
+✨ AI Hint: Nested Lists
+
+[](https://courses.codepath.org/courses/tip103/unit/1#!cheatsheet)
+
+💡Hint: String Methods
+
+When working with strings, it's very common to need to process the string to convert all characters to upper or lower case, remove punctuation, handle whitespace, etc. Luckily, Python has several built-in string methods for common string operations. Practice your research skills by looking up common string methods to find one that will help you implement this function, or check out the Unit 1 cheatsheet for the most essential ones.
+
+Problem 6: Vegetable Harvest
+
+Rabbit is collecting carrots from his garden to make a feast for Pooh and friends. Write a function `harvest()` that accepts a 2D `n x m` matrix `vegetable_patch` and returns the number of carrots that are ready to harvest in the vegetable patch. A carrot is ready to harvest if `vegetable_patch[i][j]` has value `'c'`.
+
+Assume `n = len(vegetable_patch)` and `m = len(vegetable_patch[0])`. `0 <= i < n` and `0 <= j < m`.
+
+```
+def harvest(vegetable_patch):
+	pass
+```
+
+Example Usage:
+
+```
+vegetable_patch = [
+	['x', 'c', 'x'],
+	['x', 'x', 'x'],
+	['x', 'c', 'c'],
+	['c', 'c', 'c']
+]
+harvest(vegetable_patch)
+```
+
+Example Output:
+
+```
+6
+```
+
+**✍️ Write this down:** once your function works, run `harvest()` on this patch and write down what it returns:
+
+```
+vegetable_patch = [
+	['c', 'x', 'c', 'x', 'c'],
+	['x', 'c', 'x', 'c', 'x'],
+	['c', 'c', 'x', 'c', 'c'],
+	['x', 'x', 'c', 'x', 'c']
+]
+```
+
+You'll need it for the special activity at the end of today's session.
+
+✨ AI Hint: Nested Loops
+
+_Key Skill: Use AI to explain code concepts_
+
+This problem may benefit from an understanding of nested loops. For a refresher, check out the Advanced section of the [Unit 1 Cheatsheet](https://courses.codepath.org/courses/tip103/unit/1#!cheatsheet).
+
+Want to dive deeper? Ask an AI tool like ChatGPT or GitHub Copilot to show you examples of how to work with nested loops in Python.
+
+Problem 7: Eeyore's House
+
+Eeyore has collected two piles of sticks to rebuild his house and needs to choose pairs of sticks whose lengths are the right proportion. Write a function `good_pairs()` that accepts two integer arrays `pile1` and `pile2` where each integer represents the length of a stick. The function also accepts a positive integer `k`. The function should return the number of **good** pairs.
+
+A pair `(i, j)` is called **good** if `pile1[i]` is divisible by `pile2[j] * k`. Assume `0 <= i <= len(pile1) - 1` and `0 <= j <= len(pile2) - 1`.
+
+```
+def good_pairs(pile1, pile2, k):
+	pass
+```
+
+Example Usage:
+
+```
+pile1 = [1, 3, 4]
+pile2 = [1, 3, 4]
+k = 1
+good_pairs(pile1, pile2, k)
+
+pile1 = [1, 2, 4, 12]
+pile2 = [2, 4]
+k = 3
+good_pairs(pile1, pile2, k)
+```
+
+Example Output:
+
+```
+5
+2
+```
+
+💡 Remainders with Modulus Division
+
+This problem requires you to know how to find the remainder of a division operation. We can do this with something called modulus division. If you are unfamiliar with how to do this in Python, checkout the Unit 1 cheatsheet or do your own research.
+
+Problem 8: Local Maximums
+
+Write a function `local_maximums()` that accepts an `n x n` integer matrix `grid` and returns an integer matrix `local_maxes` of size `(n - 2) x (n - 2)` such that:
+
+- `local_maxes[i][j]` is equal to the largest value of the `3 x 3` matrix in `grid` centered around row `i + 1` and column `j + 1`.
+
+In other words, we want to find the largest value in every contiguous `3 x 3` matrix in `grid`.
+
+```
+def local_maximums(grid):
+	pass
+```
+
+[![4x4 matrix with cells numbered according to Example 1 input next to 2x2 matrix numbered according Example 1 output](https://courses.codepath.org/course_images/tip103/unit1_session1/local_maxes_ex1.png "4x4 matrix with cells numbered according to Example 1 input next to 2x2 matrix numbered according Example 1 output")](https://courses.codepath.org/course_images/tip103/unit1_session1/local_maxes_ex1.png)
+
+Example Usage:
+
+```
+grid = [
+	[9, 9, 8, 1],
+	[5, 6, 2, 6],
+	[8, 2, 6, 4],
+	[6, 2, 2, 2]
+]
+local_maximums(grid)
+
+grid = [
+	[1, 1, 1, 1, 1],
+	[1, 1, 1, 1, 1],
+	[1, 1, 2, 1, 1],
+	[1, 1, 1, 1, 1],
+	[1, 1, 1, 1, 1]
+]
+local_maximums(grid)
+```
+
+Example Output:
+
+```
+[[9, 9], [8, 6]]
+[[2, 2, 2], [2, 2, 2], [2, 2, 2]]
+```
 ````
 ## Session - 2
 Paste the untouched transcript below, inside the fence. Do not edit, clean, or summarize here — this file is the raw capture. Summarization happens in the linked brief once `/transcript-to-brief` runs.

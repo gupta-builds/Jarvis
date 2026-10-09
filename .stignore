@@ -26,6 +26,17 @@
 // ignored content - exactly the shape that caused the cursor-workflow/logs/
 // delete-dir deadlock.
 (?d).copilot/model-catalog-cache.json
+
+// community-plugins.json and lazy-plugins' own data.json (2026-10-08) - same
+// reasoning as .gitignore's entry: lazy-plugins actively rewrites
+// community-plugins.json as part of normal operation (temporarily removing a
+// plugin, re-adding it after a delay), and Syncthing's real-time watcher has
+// no way to tell that apart from a real, intended change - it would propagate
+// whatever transient mid-cycle state it catches to the other laptop
+// instantly, same corruption risk as the git side, just faster. Both excluded
+// here too - per-machine plugin-enablement state, not shared content.
+.obsidian/community-plugins.json
+.obsidian/plugins/lazy-plugins/data.json
 (?d).obsidian/plugins/quickadd/data.json
 (?d).obsidian/plugins/obsidian-local-rest-api/data.json
 (?d).obsidian/plugins/lean-terminal/data.json

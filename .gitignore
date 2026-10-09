@@ -10,6 +10,21 @@
 # found live generating a real .sync-conflict-* on this exact file.
 .copilot/model-catalog-cache.json
 
+# community-plugins.json and lazy-plugins' own data.json (2026-10-08) - NOT
+# ordinary churn, a genuine Obsidian-stability bug. lazy-plugins manipulates
+# community-plugins.json as its normal operating mechanism: it temporarily
+# REMOVES a plugin from this list, then re-adds it after its configured delay,
+# to control load order. git-auto-sync.ps1's blind `git add -A` has no way to
+# know this is a transient, mid-cycle state - it captured "dataview" missing
+# from this list and permanently committed it, broadcasting a random snapshot
+# of lazy-plugins' internal sequencing to the other laptop. Confirmed live:
+# this is a directly plausible cause of Obsidian's own plugin-load state
+# getting corrupted on startup (community-plugins.json and lazy-plugins'
+# internal bookkeeping disagreeing about what should be enabled), not just a
+# sync-conflict nuisance. Both files are per-machine state now, full stop.
+.obsidian/community-plugins.json
+.obsidian/plugins/lazy-plugins/data.json
+
 # Volatile Obsidian state (churns constantly, inflates every commit)
 .obsidian/graph.json
 .obsidian/workspaces.json

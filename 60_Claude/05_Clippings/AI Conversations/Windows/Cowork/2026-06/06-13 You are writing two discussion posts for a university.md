@@ -4,9 +4,9 @@ input_kind: ai-conversation
 source_app: cowork
 source_os: windows
 title: "You are writing two discussion posts for a university"
-started_at: 2026-06-13T20:03:05
-ended_at: 2026-06-27T19:12:34
-exported_at: 2026-07-31T21:03:53
+started_at: 2026-06-13T09:33:05
+ended_at: 2026-06-27T08:42:34
+exported_at: 2026-10-08T21:01:47
 duration_minutes: 20109.5
 project: 2026-06
 session_id: 75d74fcc-5244-44ac-ba25-be1eb9c7863f

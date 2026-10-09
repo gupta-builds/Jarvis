@@ -6,7 +6,7 @@ source_os: windows
 title: "TIP 103 weekly schedule mapping"
 started_at: 2026-09-29T20:36:46
 ended_at: 2026-09-29T22:10:08
-exported_at: 2026-10-04T19:31:40
+exported_at: 2026-10-08T21:01:00
 duration_minutes: 93.4
 project: Jarvis
 cwd: 'D:\Users\_Anant\10_Areas\Documents\Jarvis'

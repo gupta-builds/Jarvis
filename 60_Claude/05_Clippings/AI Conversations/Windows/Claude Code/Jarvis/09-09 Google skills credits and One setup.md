@@ -6,7 +6,7 @@ source_os: windows
 title: "Google skills credits and One setup"
 started_at: 2026-09-09T09:58:40
 ended_at: 2026-09-09T20:10:10
-exported_at: 2026-09-10T12:00:03
+exported_at: 2026-10-08T21:00:18
 duration_minutes: 611.5
 project: Jarvis
 cwd: 'D:\Users\_Anant\10_Areas\Documents\Jarvis'

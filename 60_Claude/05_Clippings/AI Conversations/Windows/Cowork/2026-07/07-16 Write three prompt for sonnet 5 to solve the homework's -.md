@@ -4,9 +4,9 @@ input_kind: ai-conversation
 source_app: cowork
 source_os: windows
 title: "Write three prompt for sonnet 5 to solve the homework's -"
-started_at: 2026-07-16T12:49:33
-ended_at: 2026-07-16T12:50:17
-exported_at: 2026-07-31T21:03:48
+started_at: 2026-07-16T02:19:33
+ended_at: 2026-07-16T02:20:17
+exported_at: 2026-10-08T21:01:41
 duration_minutes: 0.7
 project: 2026-07
 session_id: 92c286df-ca07-4d4a-96c0-30ded3906545

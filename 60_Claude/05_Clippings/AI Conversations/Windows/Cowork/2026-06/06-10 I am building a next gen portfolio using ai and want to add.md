@@ -4,9 +4,9 @@ input_kind: ai-conversation
 source_app: cowork
 source_os: windows
 title: "I am building a next gen portfolio using ai and want to add"
-started_at: 2026-06-10T14:40:46
-ended_at: 2026-06-18T01:03:08
-exported_at: 2026-07-31T21:03:59
+started_at: 2026-06-10T04:10:46
+ended_at: 2026-06-17T14:33:08
+exported_at: 2026-10-08T21:01:56
 duration_minutes: 10702.4
 project: 2026-06
 session_id: ad5b48fc-df9a-49c9-95eb-b23f6b362390

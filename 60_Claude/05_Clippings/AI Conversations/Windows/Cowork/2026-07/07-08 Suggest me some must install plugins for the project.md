@@ -1,12 +1,12 @@
----
+﻿---
 type: input
 input_kind: ai-conversation
 source_app: cowork
 source_os: windows
 title: "Suggest me some must install plugins for the project"
-started_at: 2026-07-08T22:49:31
-ended_at: 2026-07-08T22:50:34
-exported_at: 2026-07-31T21:03:57
+started_at: 2026-07-08T12:19:31
+ended_at: 2026-07-08T12:20:34
+exported_at: 2026-10-08T21:01:53
 duration_minutes: 1
 project: 2026-07
 session_id: c630a283-7c33-4ae3-9dd4-47ae7949fc0e

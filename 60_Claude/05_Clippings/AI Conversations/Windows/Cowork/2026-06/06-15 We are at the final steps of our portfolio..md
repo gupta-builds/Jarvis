@@ -4,9 +4,9 @@ input_kind: ai-conversation
 source_app: cowork
 source_os: windows
 title: "We are at the final steps of our portfolio."
-started_at: 2026-06-15T17:20:44
-ended_at: 2026-06-16T14:10:10
-exported_at: 2026-07-31T21:03:44
+started_at: 2026-06-15T06:50:44
+ended_at: 2026-06-16T03:40:10
+exported_at: 2026-10-08T21:01:30
 duration_minutes: 1249.4
 project: 2026-06
 session_id: 057d8e68-94d6-4b88-b29d-e34188a4aa91

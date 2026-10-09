@@ -4,9 +4,9 @@ input_kind: ai-conversation
 source_app: cowork
 source_os: windows
 title: "We are going to solve the practice quiz correctly, here are"
-started_at: 2026-06-15T22:47:38
-ended_at: 2026-06-30T01:21:52
-exported_at: 2026-07-31T21:03:59
+started_at: 2026-06-15T12:17:38
+ended_at: 2026-06-29T14:51:52
+exported_at: 2026-10-08T21:01:57
 duration_minutes: 20314.2
 project: 2026-06
 session_id: f3e63c8b-0233-4934-a601-413e7fd489b0

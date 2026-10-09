@@ -4,9 +4,9 @@ input_kind: ai-conversation
 source_app: cowork
 source_os: windows
 title: "I have two vaults."
-started_at: 2026-06-07T16:33:48
-ended_at: 2026-06-07T17:25:17
-exported_at: 2026-07-31T21:03:46
+started_at: 2026-06-07T06:03:48
+ended_at: 2026-06-07T06:55:17
+exported_at: 2026-10-08T21:01:33
 duration_minutes: 51.5
 project: 2026-06
 session_id: 73e3c757-f38d-48ea-a204-8807d8f6a3f7

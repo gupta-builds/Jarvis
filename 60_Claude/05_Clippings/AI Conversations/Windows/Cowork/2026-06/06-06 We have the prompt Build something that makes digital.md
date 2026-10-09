@@ -4,9 +4,9 @@ input_kind: ai-conversation
 source_app: cowork
 source_os: windows
 title: "We have the prompt Build something that makes digital"
-started_at: 2026-06-06T22:01:11
-ended_at: 2026-06-06T23:49:52
-exported_at: 2026-07-31T21:03:48
+started_at: 2026-06-06T11:31:11
+ended_at: 2026-06-06T13:19:52
+exported_at: 2026-10-08T21:01:39
 duration_minutes: 108.7
 project: 2026-06
 session_id: 126f6737-fc0a-49a0-a8ad-4c27ee962374

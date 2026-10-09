@@ -1,12 +1,12 @@
----
+﻿---
 type: input
 input_kind: ai-conversation
 source_app: cowork
 source_os: windows
 title: "We are going to working inside"
-started_at: 2026-07-19T14:31:35
-ended_at: 2026-07-19T14:35:34
-exported_at: 2026-07-31T21:03:50
+started_at: 2026-07-19T04:01:35
+ended_at: 2026-07-19T04:05:34
+exported_at: 2026-10-08T21:01:44
 duration_minutes: 4
 project: 2026-07
 session_id: bd027e47-3b5c-4349-a928-083c773e5c5f

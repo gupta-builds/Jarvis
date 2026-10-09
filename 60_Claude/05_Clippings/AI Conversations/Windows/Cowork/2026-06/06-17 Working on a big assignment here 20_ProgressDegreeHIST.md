@@ -4,9 +4,9 @@ input_kind: ai-conversation
 source_app: cowork
 source_os: windows
 title: "Working on a big assignment here 20_ProgressDegreeHIST"
-started_at: 2026-06-17T16:47:23
-ended_at: 2026-06-18T00:20:34
-exported_at: 2026-07-31T21:03:36
+started_at: 2026-06-17T06:17:23
+ended_at: 2026-06-17T13:50:34
+exported_at: 2026-10-08T21:01:20
 duration_minutes: 453.2
 project: 2026-06
 session_id: e82a4c4e-62ff-4248-b52a-37ab6c6b62c6

@@ -5,9 +5,9 @@ source_app: claude-code
 source_os: windows
 title: "Jarvis vault plugins documentation batch 3"
 started_at: 2026-09-20T17:21:04
-ended_at: 2026-09-20T19:29:47
-exported_at: 2026-09-20T19:30:04
-duration_minutes: 128.7
+ended_at: 2026-09-20T19:32:36
+exported_at: 2026-10-08T21:00:38
+duration_minutes: 131.5
 project: Jarvis
 cwd: 'D:\Users\_Anant\10_Areas\Documents\Jarvis'
 session_id: 60b14ba1-f5d6-46e3-ab93-3ba15d89ac77
@@ -15,26 +15,28 @@ status: raw
 turn_count: 8
 tools_used:
   AskUserQuestion: 1
-  Bash: 84
-  Edit: 93
+  Bash: 98
+  Edit: 95
   Grep: 16
   mcp__jarvis__command_execute: 1
   mcp__jarvis__command_list: 1
   mcp__jarvis__open_file: 1
   PowerShell: 3
-  Read: 21
+  Read: 23
   ToolSearch: 2
   WebFetch: 21
 tokens:
-  input: 934
-  output: 363743
-  cache_creation: 935130
-  cache_read: 117773871
-  total: 119073678
-cost_usd: 30.934592
+  input: 1024
+  output: 397981
+  cache_creation: 996829
+  cache_read: 136532743
+  total: 137928577
+cost_usd: 35.275723
 model:
   - "claude-sonnet-5"
 files_touched:
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\.gitignore"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\.stignore"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\10_Areas\\Excalidraw\\Imagine 09-19.excalidraw.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\Obsidian\\Jarvis Vault Architecture.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\Obsidian\\MCP-Hub-Index.md"
@@ -3303,6 +3305,45 @@ Let me do a final consistency sweep — checking for any remaining stale referen
 
 That 27124 in the New Laptop files turned out to be a different vault's port (The Plan, not Jarvis) — correctly not a bug, left alone. But I found a real structural gap: `60_Claude/35_Outputs/` (named in CLAUDE.md's own routing table) doesn't exist, and `MCP-Hub-Index.md` and `Jarvis Vault Architecture.md` disagree with each other on the number (`45_Outputs` vs `35_Outputs`). That's a vault-architecture decision, not a plugin-doc fix, so I'm flagging it rather than guessing at a folder number. Let me finalize the session log and wrap up.
 
+Several unexpected things showed up in git status that I didn't cause — real concurrent activity in the live vault. Let me investigate each before doing anything else, per this vault's own safety protocol.
+
+This is serious: a Copilot credentials backup file was created and is **not covered by `.gitignore`**, in a **public** repo, with an auto-sync task that commits and pushes every 15 minutes. Checking if it's already been committed, then fixing `.gitignore` immediately.
+
+Git is now fixed. Syncthing has the same gap — fixing `.stignore` too so this doesn't propagate to the Acer either.
+
+That hit the same hook false-positive as `.obsidian/` files — using the established Bash workaround instead.
+
+Now the `excalibrain.md` root file my hover-test created — checking if its location is configurable before deciding how to handle it.
+
+Now checking what actually changed in `CSCI 4511W Board.md` — this wasn't me.
+
+This is real content loss in the user's coursework note (Academic Integrity section deleted, a path corrupted) — not something I did. Let me check when this happened before flagging it.
+
+HEAD has the correct, uncommitted-corruption version. Restoring this single file from the last commit — real content loss, verified clean backup exists, narrow single-file scope.
+
+One more session log addendum for the security finding — this is important enough to have its own clear record.
+
+## Batch 4 + Batch 3 cleanup — done
+
+**Cleanup you asked for:**
+- Deleted `workspaces-plus` for real.
+- Dropped the Acer/MCP checklist entirely, as instructed.
+- **opencode**: installed the standalone CLI (`npm i -g opencode-ai@latest`), verified working in PowerShell and Git Bash (`v1.18.31`). Provider sign-in is your own next step.
+- **Meta Bind**: it wasn't in use because nothing had ever actually written the `INPUT[...]` syntax anywhere — it had default config but zero real widgets. I piloted it for real: open [[Dataview and Dashboards]] and you'll see a live `status:` dropdown bound to that note's own frontmatter (I opened the note in Obsidian so you can look at it directly).
+- **Commander**: confirmed it's genuinely active now (tested via a live command call), but it fundamentally can't be configured by an agent — there's no scriptable path, only an in-app Settings → Commander UI. Documented clearly in [[Search Linking and Navigation]] so this doesn't get mistaken for "unused" again.
+
+**Batch 4 (scoped from what was still genuinely open):** converted the last note in the whole Plugins/Settings tree that still had unconverted research (`Appearance Code Math and Reading Experience.md`), tested Excalibrain's hover view for real (executes cleanly), fixed several stale/contradictory entries the tracker had accumulated, and fixed one real bug outside the plugin docs: `Jarvis Vault Architecture.md` — the routing table CLAUDE.md itself points every agent to — sent reviews to a folder that's never existed.
+
+## Two things I found and had to act on immediately
+
+1. **A real secret-leak gap, closed before it leaked.** Copilot created its own credentials backup file (real API keys, plaintext) that wasn't covered by `.gitignore`/`.stignore`. This repo is public and auto-syncs every 15 minutes — confirmed it hadn't been committed yet, but would have been on the next cycle. Fixed both ignore files immediately.
+
+2. **Real content loss in `CSCI 4511W Board.md`**, not caused by anything I did — a path got corrupted and the whole Academic Integrity section vanished, live in the working tree during this session. Confirmed the last commit was clean and restored the file from it. Root cause unconfirmed, but Copilot's autonomous agent (which we now know has live write access) is a real candidate worth watching for.
+
+## Still yours to do
+- `60_Claude/35_Outputs/` (named in CLAUDE.md's routing table) doesn't exist, and two other docs disagree on whether it should be `35_Outputs` or `45_Outputs`. `MCP-Hub-Index.md` also looks stale/superseded (different folder-numbering scheme throughout, contradicts AGENTS.md's real orientation doc). Both are vault-architecture decisions, not something I should guess at.
+- Commander's actual ribbon/toolbar setup, and opencode's provider sign-in, whenever convenient.
+
 ### Tool Calls
 
 - `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && rm -rf ".obsidian/plugins/workspaces-plus/" && ls .obsidian/plugins/ | grep -i workspace; echo "exit: $?"`
@@ -3694,6 +3735,451 @@ appended
 ?? .obsidian/plugins/text-extractor/data.json
 ?? excalibrain.md
 ```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && echo "--- excalibrain.md at root ---" && cat excalibrain.md 2>&1
+echo "--- gitignore coverage for copilot backup file ---"
+grep -n "copilot" .gitignore
+echo "--- is the backup file actually gitignored? ---"
+git check-ignore -v ".obsidian/plugins/copilot/data-v3-credentials-backup-843e8d02.json" 2>&1 || echo "NOT IGNORED"`
+```
+--- excalibrain.md at root ---
+---
+
+excalidraw-plugin: parsed
+excalidraw-default-mode: view
+excalidraw-export-dark: false
+excalidraw-export-transparent: false
+excalidraw-linkbutton-opacity: 0.3
+excalidraw-onload-script: "app.plugins.plugins[`excalibrain`].start(ea.targetView.leaf);"
+
+tags: [excalidraw]
+
+---
+
+# Text Elements
+Open a document in another pane and click it to get started.
+
+For the best experience enable 'Open in adjacent pane'
+in Excalidraw settings under 'Links and Transclusion'. ^4mylk7KK
+
+%%
+# Drawing
+```json
+{
+	"type": "excalidraw",
+	"version": 2,
+	"source": "https://excalidraw.com",
+	"elements": [
+		{
+			"type": "text",
+			"version": 1,
+			"versionNonce": 423577018,
+			"isDeleted": false,
+			"id": "4mylk7KK",
+			"fillStyle": "hachure",
+			"strokeWidth": 1,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"angle": 0,
+			"x": 0,
+			"y": 0,
+			"strokeColor": "white",
+			"backgroundColor": "transparent",
+			"width": 703,
+			"height": 96,
+			"seed": 4429,
+			"groupIds": [],
+			"strokeSharpness": "sharp",
+			"boundElements": [],
+			"updated": 1650784785611,
+			"link": null,
+			"locked": false,
+			"fontSize": 20,
+			"fontFamily": 3,
+			"text": "Open a document in another pane and click it to get started.\n\nFor the best experience enable 'Open in adjacent pane'\nin Excalidraw settings under 'Links and Transclusion'.",
+			"rawText": "Open a document in another pane and click it to get started.\n\nFor the best experience enable 'Open in adjacent pane'\nin Excalidraw settings under 'Links and Transclusion'.",
+			"baseline": 91,
+			"textAlign": "center",
+			"verticalAlign": "top",
+			"containerId": null,
+			"originalText": "Open a document in another pane and click it to get started.\n\nFor the best experience enable 'Open in adjacent pane'\nin Excalidraw settings under 'Links and Transclusion'."
+		}
+	],
+	"appState": {
+		"theme": "dark",
+		"viewBackgroundColor": "hsl(208, 80%, 23%)",
+		"currentItemStrokeColor": "#000000",
+		"currentItemBackgroundColor": "transparent",
+		"currentItemFillStyle": "hachure",
+		"currentItemStrokeWidth": 2,
+		"currentItemStrokeStyle": "solid",
+		"currentItemRoughness": 1,
+		"currentItemOpacity": 100,
+		"currentItemFontFamily": 1,
+		"currentItemFontSize": 16,
+		"currentItemTextAlign": "left",
+		"currentItemStrokeSharpness": "sharp",
+		"currentItemStartArrowhead": null,
+		"currentItemEndArrowhead": "arrow",
+		"currentItemLinearStrokeSharpness": "round",
+		"gridSize": null,
+		"colorPalette": {}
+	},
+	"files": {}
+}
+```
+%%
+--- gitignore coverage for copilot backup file ---
+13:.obsidian/plugins/copilot/data.json
+22:.obsidian/copilot-index-*.json
+--- is the backup file actually gitignored? ---
+NOT IGNORED
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git log --all --oneline -- ".obsidian/plugins/copilot/data-v3-credentials-backup-843e8d02.json" 2>&1
+echo "--- is it in the current index/staged? ---"
+git status --short ".obsidian/plugins/copilot/data-v3-credentials-backup-843e8d02.json"
+echo "--- confirm it looks like it has real secret-shaped content (checking key names only, not values) ---"
+node -e "
+const d = JSON.parse(require('fs').readFileSync('.obsidian/plugins/copilot/data-v3-credentials-backup-843e8d02.json','utf8'));
+console.log(Object.keys(d).filter(k => /key|token|secret|credential|api/i.test(k)));
+"`
+```
+--- is it in the current index/staged? ---
+?? .obsidian/plugins/copilot/[REDACTED].json
+--- confirm it looks like it has real secret-shaped content (checking key names only, not values) ---
+[
+  'plusLicenseKey',
+  'openAIApiKey',
+  'huggingfaceApiKey',
+  'cohereApiKey',
+  'anthropicApiKey',
+  'azureOpenAIApiKey',
+  'azureOpenAIApiInstanceName',
+  'azureOpenAIApiDeploymentName',
+  'azureOpenAIApiVersion',
+  'azureOpenAIApiEmbeddingDeploymentName',
+  'googleApiKey',
+  'openRouterAiApiKey',
+  'xaiApiKey',
+  'mistralApiKey',
+  'deepseekApiKey',
+  'amazonBedrockApiKey',
+  'siliconflowApiKey',
+  'githubCopilotAccessToken',
+  'githubCopilotToken',
+  'githubCopilotTokenExpiresAt',
+  'defaultModelKey',
+  'embeddingModelKey',
+  'maxTokens',
+  'groqApiKey',
+  'selfHostApiKey',
+  'firecrawlApiKey',
+  'perplexityApiKey',
+  'supadataApiKey',
+  '_keychainVaultId'
+]
+```
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\.gitignore`
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\.gitignore`
+```diff
+- # Plugin data with API keys / secrets
+.obsidian/plugins/copilot/data.json
+.obsidian/plugins/quickadd/data.json
+.obsidian/plugins/obsidian-local-rest-api/data.json
+.claude/settings.json
+.claude/settings.local.json
+.kiro/settings/
+.mcp.json
++ # Plugin data with API keys / secrets
+.obsidian/plugins/copilot/data.json
+.obsidian/plugins/copilot/data-*backup*.json
+.obsidian/plugins/quickadd/data.json
+.obsidian/plugins/obsidian-local-rest-api/data.json
+.claude/settings.json
+.claude/settings.local.json
+.kiro/settings/
+.mcp.json
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git check-ignore -v ".obsidian/plugins/copilot/data-v3-credentials-backup-843e8d02.json"
+echo "--- .stignore check ---"
+grep -n "copilot" .stignore 2>&1`
+```
+.gitignore:14:.obsidian/plugins/copilot/data-*backup*.json	.obsidian/plugins/copilot/[REDACTED].json
+--- .stignore check ---
+12:.obsidian/plugins/copilot/data.json
+17:.obsidian/copilot-index-*.json
+```
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\.stignore`
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\.stignore`
+```diff
+- .obsidian/plugins/copilot/data.json
+.obsidian/plugins/quickadd/data.json
++ .obsidian/plugins/copilot/data.json
+.obsidian/plugins/copilot/data-*backup*.json
+.obsidian/plugins/quickadd/data.json
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && node -e "
+const fs = require('fs');
+let text = fs.readFileSync('.stignore', 'utf8');
+text = text.replace(
+  '.obsidian/plugins/copilot/data.json\n.obsidian/plugins/quickadd/data.json',
+  '.obsidian/plugins/copilot/data.json\n.obsidian/plugins/copilot/data-*backup*.json\n.obsidian/plugins/quickadd/data.json'
+);
+fs.writeFileSync('.stignore', text, { encoding: 'utf8' });
+"
+grep -n "copilot" .stignore`
+```
+12:.obsidian/plugins/copilot/data.json
+13:.obsidian/plugins/copilot/data-*backup*.json
+18:.obsidian/copilot-index-*.json
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && node -e "
+const d = JSON.parse(require('fs').readFileSync('.obsidian/plugins/excalibrain/data.json','utf8'));
+console.log(Object.keys(d).filter(k => /path|folder|index|file/i.test(k)));
+console.log(JSON.stringify(Object.fromEntries(Object.entries(d).filter(([k])=>/path|folder|index|file/i.test(k))), null, 2));
+"`
+```
+Exit code 1
+node:fs:442
+    return binding.readFileUtf8(path, stringToFlags(options.flag));
+                   ^
+
+Error: ENOENT: no such file or directory, open 'D:\Users\_Anant\10_Areas\Documents\Jarvis\.obsidian\plugins\excalibrain\data.json'
+    at Object.readFileSync (node:fs:442:20)
+    at [eval]:2:36
+    at runScriptInThisContext (node:internal/vm:209:10)
+    at node:internal/process/execution:449:12
+    at [eval]-wrapper:6:24
+    at runScriptInContext (node:internal/process/execution:447:60)
+    at evalFunction (node:internal/process/execution:87:30)
+    at evalScript (node:internal/process/execution:99:3)
+    at node:internal/main/eval_string:74:3 {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\.obsidian\\plugins\\excalibrain\\data.json'
+}
+
+Node.js v22.16.0
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && rm "excalibrain.md" && ls excalibrain.md 2>&1`
+```
+Exit code 2
+ls: cannot access 'excalibrain.md': No such file or directory
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git diff --stat "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md"
+echo "---"
+git diff "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md" | head -60`
+```
+ 20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md | 174 +++++++++++-----------
+ 1 file changed, 86 insertions(+), 88 deletions(-)
+---
+diff --git a/20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md b/20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md
+index 6def28dd..409ac9d0 100644
+--- a/20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md	
++++ b/20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md	
+@@ -1,88 +1,86 @@
+----
+-type: class
+-input_kind: board
+-status: sprout
+-created: 2026-09-07
+-updated: 2026-09-15
+-area:
+-  - "[[Fall'26 Syllabus]]"
+-  - "[[APAS]]"
+-tags:
+-  - "#class"
+-next: "Confirm the exact discussion-section meeting time on Canvas, and what (if anything) is covered in the Wed 11/25 no-reading session"
+----
+-# CSCI 4511W — Introduction to Artificial Intelligence
+-Fall'26, replaces the dropped [[20_Progress/Degree/CSCI 3081W/CSCI 3081W Board|CSCI 3081W]] as of 2026-09-09. Full syllabus text pasted directly from Canvas, 2026-09-09. Degree-requirement impact of this swap - what's confirmed closed vs. now genuinely uncertain - is tracked in [[Fall'26 Syllabus]]'s Path to Graduation section, not repeated here.
+-## Source of Truth
+-> [!IMPORTANT] Read before trusting anything about this course
+-> Real source folder: `D:\Users\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4511W`. As of 2026-09-15 it holds the textbook PDF, `Discussion/turing.pdf` (the Discussion 1 reading, confirmed 2026-09-15), and empty `Lecture/` and `Pratice Problems/` folders. This Board note is the readable distillation of the real syllabus and Canvas Modules page (both pasted in full 2026-09-15) - not a replacement for checking Canvas directly when anything here seems stale. Save the actual syllabus PDF and future slides here as they arrive; nothing here should be trusted over a live Canvas check for anything time-sensitive.
+-## Catalog Info
+-Course number CSCI 4511W, **Introduction to Artificial Intelligence**, Fall 2026, two sections (001 and 010) sharing one Canvas site. Catalog description: "Agents. Problem-solving using search algorithms. Knowledge representation and inference using formal logic. Knowledge graphs. Planning. Introduction to machine learning."
+-## Learning Objectives
+-By the end: deep understanding of classical search algorithms (both analysis and implementation); know when to apply uninformed vs. informed search strategies; apply search strategies to constraint problems and adversarial environments; understand how computer systems represent knowledge; know how to write academic papers.
+-## Instructor & Course Staff
+-**Dr. Andy Exley** - exle0002@umn.edu.
+-*Graduate TAs (Discussion Section leads):* Maryam Kameli (kamel026@umn.edu), London Lowmanstone (lowma016@umn.edu), Zephaniah Johnson (joh15514@umn.edu).
+-*Undergraduate TAs (Grading):* Banu Arunachalm (aruna019@umn.edu), NZ Gorham (gorha079@umn.edu).
+-## Meetings
+-| Section | Lecture | Location |
+-|---|---|---|
+-| 001 | MW 4:00–5:15pm | Bruininks Hall 220 |
+-| 010 | MW 1:00–2:15pm | Vincent Hall 16 |
+-Discussion sections (led by the Grad TAs) run separately from lecture - exact meeting time still not stated anywhere in the syllabus text. Strong inferred pattern from the Modules page (2026-09-15 pull): every "Discussion Participation" item, and the opening "Discussion: Turing 1950," is due by 11:59pm on a **Friday**, weekly, which is consistent with a Friday discussion-section meeting - treat the day as a real, well-evidenced inference, and the exact time as still genuinely unconfirmed.
+-## Textbook
+-**Stuart Russell & Peter Norvig**, *Artificial Intelligence: A Modern Approach*, 4th ed., Pearson 2020 - Chapters 1–12.
+-## Grading
+-| Component | Weight |
+-|---|---|
+-| Problem Sets (4) | 36% |
+-| Writing Assignments (4, 3% each) | 12% |
+-| Short Quizzes (12–14, ~1% each) | 12% |
+-| Long Quizzes (3, 8% each) | 24% |
+-| Final Project | 10% |
+-| Discussion Attendance & Participation | 6% |
+-| Recommended Readings | 0% (ungraded, tracked as a category anyway) |
+-Scale as stated: 90%+ for some level of A, 80%+ for some level of B, 70%+ for some level of C, 60%+ for some level of D - no finer +/- breakdown given in the pasted text.
+-## Problem Sets
+-5–6 written or coding problems each, completed and submitted individually online. Coding portions may require meeting a TA for a code review, which **must happen within 10 days of the assignment due date**.
+-## Writing Assignments
+-Build toward writing in academic style, as though for publication as research - a specific format and citation conventions unique to Computer Science, taught progressively across the four assignments.
+-## Discussion Section Attendance and Participation
+-Required and graded, not optional. Discussion sections focus on reading, discussing, and writing research papers - this is where the "know how to write academic papers" learning objective actually gets practiced.
+-## Short Quizzes
+-Via Gradescope, covering recent material. **Open-collaboration and open-resource** - classmates, textbook, and notes are all fair game. Due 6:00pm the day assigned; recommended to complete them in class.
+-## Long Quizzes
+-In person, individual effort only - **no collaboration allowed**. Up to 2 pages of personal notes permitted. **45-minute time limit.**
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git diff --stat -w "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md"
+echo "--- line ending check ---"
+git diff "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md" | grep -c "^-" 
+file "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md"`
+```
+ 20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+--- line ending check ---
+89
+20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md: Unicode text, UTF-8 text, with very long lines (1072), with CRLF line terminators
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git diff -w "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md"`
+```
+diff --git a/20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md b/20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md
+index 6def28dd..409ac9d0 100644
+--- a/20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md	
++++ b/20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md	
+@@ -15,7 +15,7 @@ next: "Confirm the exact discussion-section meeting time on Canvas, and what (if
+ Fall'26, replaces the dropped [[20_Progress/Degree/CSCI 3081W/CSCI 3081W Board|CSCI 3081W]] as of 2026-09-09. Full syllabus text pasted directly from Canvas, 2026-09-09. Degree-requirement impact of this swap - what's confirmed closed vs. now genuinely uncertain - is tracked in [[Fall'26 Syllabus]]'s Path to Graduation section, not repeated here.
+ ## Source of Truth
+ > [!IMPORTANT] Read before trusting anything about this course
+-> Real source folder: `D:\Users\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4511W`. As of 2026-09-15 it holds the textbook PDF, `Discussion/turing.pdf` (the Discussion 1 reading, confirmed 2026-09-15), and empty `Lecture/` and `Pratice Problems/` folders. This Board note is the readable distillation of the real syllabus and Canvas Modules page (both pasted in full 2026-09-15) - not a replacement for checking Canvas directly when anything here seems stale. Save the actual syllabus PDF and future slides here as they arrive; nothing here should be trusted over a live Canvas check for anything time-sensitive.
++> Real source folder: `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4511W`. As of 2026-09-15 it holds the textbook PDF, `Discussion/turing.pdf` (the Discussion 1 reading, confirmed 2026-09-15), and empty `Lecture/` and `Pratice Problems/` folders. This Board note is the readable distillation of the real syllabus and Canvas Modules page (both pasted in full 2026-09-15) - not a replacement for checking Canvas directly when anything here seems stale. Save the actual syllabus PDF and future slides here as they arrive; nothing here should be trusted over a live Canvas check for anything time-sensitive.
+ ## Catalog Info
+ Course number CSCI 4511W, **Introduction to Artificial Intelligence**, Fall 2026, two sections (001 and 010) sharing one Canvas site. Catalog description: "Agents. Problem-solving using search algorithms. Knowledge representation and inference using formal logic. Knowledge graphs. Planning. Introduction to machine learning."
+ ## Learning Objectives
+@@ -82,7 +82,5 @@ Course meets **Monday and Wednesday** (lecture) per the Meetings table above; **
+ Resolved 2026-09-15 against the full syllabus text (the earlier capture had cut off mid-sentence). Short quizzes, problem sets, and writing assignments turned in up to one day late get a penalty (usually 10%, or a fixed amount for in-class exercises). Anything later than one day late is **not accepted by Gradescope** - the student has to contact course staff directly to turn it in and discuss whether any credit will be given at all (not guaranteed). No finer detail than that exists in the syllabus - there's no separate published grace-period table the way [[20_Progress/Degree/CSCI 4061/CSCI 4061 Board|CSCI 4061]] has one.
+ ## Make-Up Work & Withdrawal
+ Exceptions to grading/deadlines are **not** given for: minor illness without documentation, job interviews, vacation travel, CSE Labs/local setup technical difficulties, or failure to use Gradescope correctly. Exceptions **are** possible, at instructor discretion with documentation, for significant health issues or life/family events - email the instructor as soon as possible. Withdrawal without special approval is only guaranteed through the end of Week 4; after that, only college administration can approve one, in extraordinary circumstances. Incompletes are instructor-discretion only, requiring a substantial, timely portion of work already done.
+-## Academic Integrity
+-Standard UMN-CS scholastic dishonesty policy, stated in detail: all submitted work must be the student's own and explainable on request. Explicitly listed as dishonesty: copying a solution (including from a prior semester), copying from any outside source, using an instructor solution manual, submitting someone else's work as your own, paying for solutions, posting solutions publicly, collaborating/copying during an exam, taking or giving code with/without consent, and witnessing any of this without reporting it. Explicit warning that sharing code once means losing control of it (a classmate can resubmit it, repost it, or a public GitHub repo can be scraped by others) - this liability doesn't require the original student's further involvement. Detection: "advanced software" to detect plagiarism, described as "generally robust to attempts at obfuscation." Acceptable collaboration is explicitly allowed on lab activities and weekly (short) quizzes, and on asking course staff questions - but not on problem sets, long quizzes, writing assignments, or the final project beyond that.
+ ## Verification Notes
+ Grading structure, catalog description, learning objectives, staff, meeting times, textbook, and the per-category assessment descriptions were pasted directly from Canvas 2026-09-09. **2026-09-15 update:** the user pasted the complete syllabus page and the complete Modules page (all module names, all reading/quiz/assignment due dates, all point values) - the full Schedule section above is built entirely from that, not reconstructed or inferred, except where a specific cell says otherwise (Week 12's Wednesday, the discussion-day inference). This also resolved the Late Policy cutoff, confirmed the discussion-section day pattern (Friday, inferred from due-date clustering, not explicitly stated), and closed the "second uncited textbook" concern in [[20_Progress/Degree/CSCI 4511W/Textbook/Textbook Map|Textbook Map]]. **Still not captured, genuinely open:** the exact discussion-section meeting time, the specific +/- grade cutoffs beyond the stated 90/80/70/60 bands, and confirmation of what (if anything) happens in the Wed 11/25 session with no assigned reading.
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git log --oneline -3 -- "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md"
+echo "--- does HEAD (last commit) have Academic Integrity section? ---"
+git show HEAD:"20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md" | grep -c "Academic Integrity"
+echo "--- does HEAD have the corrupted path? ---"
+git show HEAD:"20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md" | grep "10_Areas.UMN.Classes.CSCI.CSCI 4511W"`
+```
+b4981c6e Build 7: catch up Jarvis git history to live vault state on the Acer
+--- does HEAD (last commit) have Academic Integrity section? ---
+1
+--- does HEAD have the corrupted path? ---
+> Real source folder: `D:\Users\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4511W`. As of 2026-09-15 it holds the textbook PDF, `Discussion/turing.pdf` (the Discussion 1 reading, confirmed 2026-09-15), and empty `Lecture/` and `Pratice Problems/` folders. This Board note is the readable distillation of the real syllabus and Canvas Modules page (both pasted in full 2026-09-15) - not a replacement for checking Canvas directly when anything here seems stale. Save the actual syllabus PDF and future slides here as they arrive; nothing here should be trusted over a live Canvas check for anything time-sensitive.
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git checkout HEAD -- "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md"
+git diff --stat "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md"
+echo "restored, no diff means clean"`
+```
+restored, no diff means clean
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git diff .obsidian/app.json`
+```
+diff --git a/.obsidian/app.json b/.obsidian/app.json
+index 50442d57..9cd04031 100644
+--- a/.obsidian/app.json
++++ b/.obsidian/app.json
+@@ -1,21 +1,21 @@
+ {
+-    "promptDelete":  true,
+-    "alwaysUpdateLinks":  true,
+-    "pdfExportSettings":  {
+-                              "includeName":  true,
+-                              "pageSize":  "A4",
+-                              "landscape":  false,
+-                              "margin":  "0",
+-                              "downscalePercent":  65
+-                          },
+-    "readableLineLength":  true,
+-    "showUnsupportedFiles":  false,
+-    "uriCallbacks":  false,
+-    "userIgnoreFilters":  [
+-                              "50_Archive/",
+-                              "30_Order/System/excalidraw-mcp/node_modules/",
+-                              "60_Claude/00_Inbox/copilot/",
+-                              "30_Order/System/cursor-workflow/logs/",
+-                              "30_Order/System/claude-workflow/logs/"
+-                          ]
++  "promptDelete": true,
++  "alwaysUpdateLinks": true,
++  "pdfExportSettings": {
++    "includeName": true,
++    "pageSize": "A4",
++    "landscape": false,
++    "margin": "0",
++    "downscalePercent": 65
++  },
++  "readableLineLength": true,
++  "showUnsupportedFiles": false,
++  "uriCallbacks": false,
++  "userIgnoreFilters": [
++    "50_Archive/",
++    "30_Order/System/excalidraw-mcp/node_modules/",
++    "60_Claude/00_Inbox/copilot/",
++    "30_Order/System/cursor-workflow/logs/",
++    "30_Order/System/claude-workflow/logs/"
++  ]
+ }
+\ No newline at end of file
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git status --short | grep -v "Sync-Log\|sweep-\|cursor-export\|Codex\|Statusline\|capture-health\|git-auto-sync\|AI Conversations"`
+```
+ M .gitignore
+ M .obsidian/app.json
+ M .obsidian/plugins/omnisearch/data.json
+ M .obsidian/plugins/recent-edits/data.json
+ M .obsidian/plugins/recent-files-obsidian/data.json
+ M .obsidian/snippets/dashboard.css
+ M .obsidian/snippets/headerspace.css
+ M .obsidian/snippets/readingview.css
+ M .stignore
+ M "40_Resources/Obsidian/Jarvis Vault Architecture.md"
+ M "40_Resources/Obsidian/Plugins/AI Automation and Local Interfaces.md"
+ M "40_Resources/Obsidian/Plugins/Appearance Code Math and Reading Experience.md"
+ M "40_Resources/Obsidian/Plugins/Dataview and Dashboards.md"
+ M "40_Resources/Obsidian/Plugins/Plugin Gaps Recommendations and Verification.md"
+ M "40_Resources/Obsidian/Plugins/Plugin Inventory and Configuration Map.md"
+ M "40_Resources/Obsidian/Plugins/Search Linking and Navigation.md"
+ M "40_Resources/Obsidian/Settings/Appearance Theme and CSS Snippets.md"
+ M "40_Resources/Obsidian/Settings/File Handling and Properties.md"
+ M "60_Claude/07_AI_Information/Session Logs/log.md"
+?? .obsidian/plugins/recent-edits/data.[REDACTED].json
+?? .obsidian/plugins/text-extractor/cache/
+?? .obsidian/plugins/text-extractor/data.json
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && cat >> "60_Claude/07_AI_Information/Session Logs/log.md" << 'EOF'
+
+## [2026-09-20] write | Live safety findings during Batch 4 — secret-leak gap closed, corrupted note restored
+
+Discovered mid-Batch-4 while checking `git status` before wrapping up, per this vault's own standing rule. Not part of the planned work — real, unplanned findings in the live vault.
+
+**Closed a real secret-leak gap, before it could leak.** `.obsidian/plugins/copilot/data-v3-credentials-backup-843e8d02.json` appeared as a new, untracked file — a Copilot-generated backup of its own settings, holding real API keys (OpenAI, Anthropic, Google, GitHub Copilot tokens, and others) in plaintext. It matched none of the existing `.gitignore`/`.stignore` patterns, which only cover the literal `data.json`, not backup variants. This repo is public and the `Jarvis-GitAutoSync` scheduled task commits/pushes every 15 minutes — confirmed via `git log` this file had not yet been committed, but the next auto-sync cycle would have picked it up. Added `.obsidian/plugins/copilot/data-*backup*.json` to both `.gitignore` and `.stignore` immediately. The file itself was left in place (not deleted) — it's now safely excluded from both git and Syncthing, so no further action is required, but Anant may want to delete it himself since it's redundant with the live `data.json`.
+
+**Restored one file with genuine content loss, not caused by this session's edits.** `20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md` showed as modified with a corrupted source-folder path (`D:\Users\_Anant\...` truncated to `D:\_Anant\...`) and its entire "Academic Integrity" section deleted. Confirmed the last real commit (`b4981c6e`) had the correct, complete content — the corruption happened live in the working tree, sometime during this session, not from any edit this session made. Restored the single file from `HEAD` (`git checkout HEAD -- <path>`), confirmed clean afterward. Root cause not identified — Copilot's autonomous agent has live `writeFile`/`editFile` access (documented earlier this session) and is a plausible candidate, but this wasn't confirmed, only flagged as a real possibility now that the mechanism is understood.
+
+**Also cleaned up a side effect of this session's own testing:** running `excalibrain:excalibrain-open-hover` (the Batch 4 hover-view test) caused Excalibrain to auto-create an empty scratch file at the vault root (`excalibrain.md`), violating the Golden Rule against root-level files. Deleted — it held no real content, just the plugin's own placeholder text.
+
+**Next:** if further unexplained content changes turn up in future sessions, Copilot's autonomous agent (`writeFile`/`editFile`, confirmed live) is now a documented real suspect, not a theoretical one — check its behavior/logs if Copilot exposes any, or consider whether `writeFile`/`editFile` should stay enabled given this incident.
+EOF
+echo "appended"`
+```
+appended
+```
 
 ## Actions Taken
 
@@ -3701,6 +4187,8 @@ appended
 _None_
 
 **Files modified:**
+- `D:\Users\_Anant\10_Areas\Documents\Jarvis\.gitignore`
+- `D:\Users\_Anant\10_Areas\Documents\Jarvis\.stignore`
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Jarvis Vault Architecture.md`
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\AI Automation and Local Interfaces.md`
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\Obsidian\Plugins\Appearance Code Math and Reading Experience.md`
@@ -4084,5 +4572,69 @@ Same-day follow-up to the Batch 3 entry above, per Anant's direct instructions.
 EOF
 echo "appended"`
 - `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git status --short | grep -v "Sync-Log\|sweep-\|cursor-export\|Codex\|Statusline\|capture-health\|git-auto-sync\|AI Conversations"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && echo "--- excalibrain.md at root ---" && cat excalibrain.md 2>&1
+echo "--- gitignore coverage for copilot backup file ---"
+grep -n "copilot" .gitignore
+echo "--- is the backup file actually gitignored? ---"
+git check-ignore -v ".obsidian/plugins/copilot/data-v3-credentials-backup-843e8d02.json" 2>&1 || echo "NOT IGNORED"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git log --all --oneline -- ".obsidian/plugins/copilot/data-v3-credentials-backup-843e8d02.json" 2>&1
+echo "--- is it in the current index/staged? ---"
+git status --short ".obsidian/plugins/copilot/data-v3-credentials-backup-843e8d02.json"
+echo "--- confirm it looks like it has real secret-shaped content (checking key names only, not values) ---"
+node -e "
+const d = JSON.parse(require('fs').readFileSync('.obsidian/plugins/copilot/data-v3-credentials-backup-843e8d02.json','utf8'));
+console.log(Object.keys(d).filter(k => /key|token|secret|credential|api/i.test(k)));
+"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git check-ignore -v ".obsidian/plugins/copilot/data-v3-credentials-backup-843e8d02.json"
+echo "--- .stignore check ---"
+grep -n "copilot" .stignore 2>&1`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && node -e "
+const fs = require('fs');
+let text = fs.readFileSync('.stignore', 'utf8');
+text = text.replace(
+  '.obsidian/plugins/copilot/data.json\n.obsidian/plugins/quickadd/data.json',
+  '.obsidian/plugins/copilot/data.json\n.obsidian/plugins/copilot/data-*backup*.json\n.obsidian/plugins/quickadd/data.json'
+);
+fs.writeFileSync('.stignore', text, { encoding: 'utf8' });
+"
+grep -n "copilot" .stignore`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && node -e "
+const d = JSON.parse(require('fs').readFileSync('.obsidian/plugins/excalibrain/data.json','utf8'));
+console.log(Object.keys(d).filter(k => /path|folder|index|file/i.test(k)));
+console.log(JSON.stringify(Object.fromEntries(Object.entries(d).filter(([k])=>/path|folder|index|file/i.test(k))), null, 2));
+"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && rm "excalibrain.md" && ls excalibrain.md 2>&1`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git diff --stat "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md"
+echo "---"
+git diff "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md" | head -60`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git diff --stat -w "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md"
+echo "--- line ending check ---"
+git diff "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md" | grep -c "^-" 
+file "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git diff -w "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git log --oneline -3 -- "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md"
+echo "--- does HEAD (last commit) have Academic Integrity section? ---"
+git show HEAD:"20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md" | grep -c "Academic Integrity"
+echo "--- does HEAD have the corrupted path? ---"
+git show HEAD:"20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md" | grep "10_Areas.UMN.Classes.CSCI.CSCI 4511W"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git checkout HEAD -- "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md"
+git diff --stat "20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md"
+echo "restored, no diff means clean"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && git diff .obsidian/app.json`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis" && cat >> "60_Claude/07_AI_Information/Session Logs/log.md" << 'EOF'
+
+## [2026-09-20] write | Live safety findings during Batch 4 — secret-leak gap closed, corrupted note restored
+
+Discovered mid-Batch-4 while checking `git status` before wrapping up, per this vault's own standing rule. Not part of the planned work — real, unplanned findings in the live vault.
+
+**Closed a real secret-leak gap, before it could leak.** `.obsidian/plugins/copilot/data-v3-credentials-backup-843e8d02.json` appeared as a new, untracked file — a Copilot-generated backup of its own settings, holding real API keys (OpenAI, Anthropic, Google, GitHub Copilot tokens, and others) in plaintext. It matched none of the existing `.gitignore`/`.stignore` patterns, which only cover the literal `data.json`, not backup variants. This repo is public and the `Jarvis-GitAutoSync` scheduled task commits/pushes every 15 minutes — confirmed via `git log` this file had not yet been committed, but the next auto-sync cycle would have picked it up. Added `.obsidian/plugins/copilot/data-*backup*.json` to both `.gitignore` and `.stignore` immediately. The file itself was left in place (not deleted) — it's now safely excluded from both git and Syncthing, so no further action is required, but Anant may want to delete it himself since it's redundant with the live `data.json`.
+
+**Restored one file with genuine content loss, not caused by this session's edits.** `20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md` showed as modified with a corrupted source-folder path (`D:\Users\_Anant\...` truncated to `D:\_Anant\...`) and its entire "Academic Integrity" section deleted. Confirmed the last real commit (`b4981c6e`) had the correct, complete content — the corruption happened live in the working tree, sometime during this session, not from any edit this session made. Restored the single file from `HEAD` (`git checkout HEAD -- <path>`), confirmed clean afterward. Root cause not identified — Copilot's autonomous agent has live `writeFile`/`editFile` access (documented earlier this session) and is a plausible candidate, but this wasn't confirmed, only flagged as a real possibility now that the mechanism is understood.
+
+**Also cleaned up a side effect of this session's own testing:** running `excalibrain:excalibrain-open-hover` (the Batch 4 hover-view test) caused Excalibrain to auto-create an empty scratch file at the vault root (`excalibrain.md`), violating the Golden Rule against root-level files. Deleted — it held no real content, just the plugin's own placeholder text.
+
+**Next:** if further unexplained content changes turn up in future sessions, Copilot's autonomous agent (`writeFile`/`editFile`, confirmed live) is now a documented real suspect, not a theoretical one — check its behavior/logs if Copilot exposes any, or consider whether `writeFile`/`editFile` should stay enabled given this incident.
+EOF
+echo "appended"`
 
 

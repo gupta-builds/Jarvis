@@ -1,12 +1,12 @@
----
+﻿---
 type: input
 input_kind: ai-conversation
 source_app: cowork
 source_os: windows
 title: "Solve MATH 2230 (Devore Statistics) problems from"
-started_at: 2026-07-19T21:35:34
-ended_at: 2026-07-19T21:56:38
-exported_at: 2026-07-31T21:04:05
+started_at: 2026-07-19T11:05:34
+ended_at: 2026-07-19T11:26:38
+exported_at: 2026-10-08T21:02:05
 duration_minutes: 21.1
 project: 2026-07
 session_id: 4835b2a1-f4f3-4244-b1a7-d374d1dd9510

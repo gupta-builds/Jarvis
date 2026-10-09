@@ -6,7 +6,7 @@ source_os: windows
 title: "Obsidian vault cross-laptop sync Build 2"
 started_at: 2026-09-19T00:06:18
 ended_at: 2026-09-19T00:49:47
-exported_at: 2026-09-19T01:30:09
+exported_at: 2026-10-08T21:00:13
 duration_minutes: 43.5
 project: Jarvis
 cwd: 'D:\Users\_Anant\10_Areas\Documents\Jarvis'

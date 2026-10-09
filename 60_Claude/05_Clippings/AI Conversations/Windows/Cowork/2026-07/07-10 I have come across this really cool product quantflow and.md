@@ -4,9 +4,9 @@ input_kind: ai-conversation
 source_app: cowork
 source_os: windows
 title: "I have come across this really cool product quantflow and"
-started_at: 2026-07-10T19:56:37
-ended_at: 2026-07-10T20:07:46
-exported_at: 2026-07-31T21:04:05
+started_at: 2026-07-10T09:26:37
+ended_at: 2026-07-10T09:37:46
+exported_at: 2026-10-08T21:02:06
 duration_minutes: 11.1
 project: 2026-07
 session_id: 5a3e6c43-c73d-4b1f-971c-6686543c5044

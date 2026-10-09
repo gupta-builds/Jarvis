@@ -440,7 +440,7 @@ No paid SEO. Leverage vault-documented assets:
 
 | Channel | Vault / repo anchor | Action |
 |---------|---------------------|--------|
-| **GitHub README** | `https://github.com/anantgupta129`; profile work in [[60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/gupta-builds/08-27 gupta-builds profile README five fixes\|gupta-builds README session]] | Pin portfolio repo; README bullets: live URL, Orby demo GIF, stack, link to `/api/chat` architecture note in vault |
+| **GitHub README** | `https://github.com/anantgupta129`; profile work in [[08-27 gupta-builds profile README five fixes\|gupta-builds README session]] | Pin portfolio repo; README bullets: live URL, Orby demo GIF, stack, link to `/api/chat` architecture note in vault |
 | **LinkedIn** | [[10_Areas/Career/Internships/Cheats/Resume Tailoring, LinkedIn Search & Outreach Discovery\|LinkedIn cheats]]; profile refresh sessions in vault | Featured link: `anantgupta.dev`; About section mirrors `Person` schema facts; post at deploy milestones |
 | **Hackathons / Devpost** | [[10_Areas/Career/Hackathon/Hackathons\|Hackathons]] playbook — post-hackathon: Loom, case study, GitHub, LinkedIn with judge tags | Each hackathon project README links to `anantgupta.dev` as “full portfolio” |
 | **Sanity schema social fields** | `profile.socialLinks`: github, linkedin, devto, medium | Fill empty URLs in CMS → flows to footer + `sameAs` in JSON-LD |

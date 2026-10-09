@@ -1,12 +1,12 @@
----
+﻿---
 type: input
 input_kind: ai-conversation
 source_app: cowork
 source_os: windows
 title: "# Task Reconcile CausalOps vault notes (both folders are"
-started_at: 2026-07-02T14:34:11
-ended_at: 2026-07-02T14:35:21
-exported_at: 2026-07-31T21:04:02
+started_at: 2026-07-02T04:04:11
+ended_at: 2026-07-02T04:05:21
+exported_at: 2026-10-08T21:02:00
 duration_minutes: 1.2
 project: 2026-07
 session_id: e670cc2c-1f22-4eb3-a377-1dbfd20820a2

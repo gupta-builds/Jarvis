@@ -4,9 +4,9 @@ input_kind: ai-conversation
 source_app: cowork
 source_os: windows
 title: "Continue the TradingView research."
-started_at: 2026-06-25T13:00:46
-ended_at: 2026-06-25T17:33:05
-exported_at: 2026-07-31T21:03:38
+started_at: 2026-06-25T02:30:46
+ended_at: 2026-06-25T07:03:05
+exported_at: 2026-10-08T21:01:22
 duration_minutes: 272.3
 project: 2026-06
 session_id: 249f300b-97d5-4a9f-9e8f-a149927747ff

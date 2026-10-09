@@ -1,12 +1,12 @@
----
+﻿---
 type: input
 input_kind: ai-conversation
 source_app: cowork
 source_os: windows
 title: "# MISSION"
-started_at: 2026-07-07T18:35:59
-ended_at: 2026-07-07T19:25:37
-exported_at: 2026-07-31T21:04:05
+started_at: 2026-07-07T08:05:59
+ended_at: 2026-07-07T08:55:37
+exported_at: 2026-10-08T21:02:04
 duration_minutes: 49.6
 project: 2026-07
 session_id: b214ea0a-3103-420e-868e-196bc326d8cf

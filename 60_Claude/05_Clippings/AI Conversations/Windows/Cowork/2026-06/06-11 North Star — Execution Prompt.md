@@ -4,9 +4,9 @@ input_kind: ai-conversation
 source_app: cowork
 source_os: windows
 title: "North Star — Execution Prompt"
-started_at: 2026-06-11T19:54:47
-ended_at: 2026-06-11T20:21:18
-exported_at: 2026-07-31T21:03:46
+started_at: 2026-06-11T09:24:47
+ended_at: 2026-06-11T09:51:18
+exported_at: 2026-10-08T21:01:35
 duration_minutes: 26.5
 project: 2026-06
 session_id: 42776e64-2ae9-4d90-9c41-fcbf7472475a

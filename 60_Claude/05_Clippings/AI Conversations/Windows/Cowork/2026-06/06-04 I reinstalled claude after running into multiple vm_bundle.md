@@ -1,12 +1,12 @@
----
+﻿---
 type: input
 input_kind: ai-conversation
 source_app: cowork
 source_os: windows
 title: "I reinstalled claude after running into multiple vm_bundle"
-started_at: 2026-06-04T22:08:57
-ended_at: 2026-06-05T12:53:28
-exported_at: 2026-07-31T21:03:50
+started_at: 2026-06-04T11:38:57
+ended_at: 2026-06-05T02:23:28
+exported_at: 2026-10-08T21:01:43
 duration_minutes: 884.5
 project: 2026-06
 session_id: 3a333e33-5f92-4982-889b-c445ad9bcddc

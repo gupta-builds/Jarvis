@@ -4,9 +4,9 @@ input_kind: ai-conversation
 source_app: cowork
 source_os: windows
 title: "You are writing a final exam for HIST 1103 (Contemporary"
-started_at: 2026-06-30T12:36:48
-ended_at: 2026-06-30T13:01:08
-exported_at: 2026-07-31T21:04:02
+started_at: 2026-06-30T02:06:48
+ended_at: 2026-06-30T02:31:08
+exported_at: 2026-10-08T21:02:00
 duration_minutes: 24.3
 project: 2026-06
 session_id: 824dd392-40b7-41c8-a3f8-83e44d5090ea

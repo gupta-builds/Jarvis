@@ -4,9 +4,9 @@ input_kind: ai-conversation
 source_app: cowork
 source_os: windows
 title: "We are working on this course right now from MIT Data or"
-started_at: 2026-06-05T21:08:01
-ended_at: 2026-06-05T21:43:04
-exported_at: 2026-07-31T21:04:06
+started_at: 2026-06-05T10:38:01
+ended_at: 2026-06-05T11:13:04
+exported_at: 2026-10-08T21:02:07
 duration_minutes: 35
 project: 2026-06
 session_id: 3d957daa-ec99-49ca-b5e0-ba8c31629a7b

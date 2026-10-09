@@ -5,7 +5,7 @@ status: sprout
 created: 2026-08-20
 source_app: claude-code
 source_os: windows
-source_note: "[[60_Claude/05_Clippings/AI Conversations/Windows/Claude Code/Jarvis/08-19 Second-brain-claudekit Jarvis notes sync]]"
+source_note: "[[08-19 Second-brain-claudekit Jarvis notes sync]]"
 project: Jarvis
 decision_count: 7
 action_count: 5

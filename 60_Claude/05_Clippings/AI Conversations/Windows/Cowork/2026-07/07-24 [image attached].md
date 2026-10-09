@@ -1,12 +1,12 @@
----
+﻿---
 type: input
 input_kind: ai-conversation
 source_app: cowork
 source_os: windows
 title: "[image attached]"
-started_at: 2026-07-24T23:23:43
-ended_at: 2026-07-24T23:25:47
-exported_at: 2026-07-31T21:04:01
+started_at: 2026-07-24T12:53:43
+ended_at: 2026-07-24T12:55:47
+exported_at: 2026-10-08T21:01:59
 duration_minutes: 2.1
 project: 2026-07
 session_id: 22aad72d-35f3-47c8-95f4-a303843a0ecf

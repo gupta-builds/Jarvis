@@ -4,9 +4,9 @@ input_kind: ai-conversation
 source_app: cowork
 source_os: windows
 title: "markdown"
-started_at: 2026-06-06T16:01:26
-ended_at: 2026-06-06T18:11:02
-exported_at: 2026-07-31T21:03:51
+started_at: 2026-06-06T05:31:26
+ended_at: 2026-06-06T07:41:02
+exported_at: 2026-10-08T21:01:45
 duration_minutes: 129.6
 project: 2026-06
 session_id: 5f60afc2-26c2-4bd1-81d8-1201dd5d9d2c

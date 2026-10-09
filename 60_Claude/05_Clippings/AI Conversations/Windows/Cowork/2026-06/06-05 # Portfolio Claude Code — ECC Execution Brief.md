@@ -1,12 +1,12 @@
----
+﻿---
 type: input
 input_kind: ai-conversation
 source_app: cowork
 source_os: windows
 title: "# Portfolio Claude Code — ECC Execution Brief"
-started_at: 2026-06-05T14:14:25
-ended_at: 2026-06-05T14:22:57
-exported_at: 2026-07-31T21:03:38
+started_at: 2026-06-05T03:44:25
+ended_at: 2026-06-05T03:52:57
+exported_at: 2026-10-08T21:01:23
 duration_minutes: 8.5
 project: 2026-06
 session_id: 42781d55-af48-4ee6-b13a-9c65a4181873

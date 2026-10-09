@@ -6,7 +6,7 @@ source_os: windows
 title: "Fall 2026 semester organization and syllabus setup"
 started_at: 2026-09-07T19:40:08
 ended_at: 2026-09-08T16:53:13
-exported_at: 2026-09-08T23:00:03
+exported_at: 2026-10-08T21:00:34
 duration_minutes: 1273.1
 project: Jarvis
 cwd: 'D:\Users\_Anant\10_Areas\Documents\Jarvis'

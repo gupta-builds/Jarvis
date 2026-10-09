@@ -4,9 +4,9 @@ input_kind: ai-conversation
 source_app: cowork
 source_os: windows
 title: "[image attached]"
-started_at: 2026-06-14T22:03:30
-ended_at: 2026-06-14T22:07:22
-exported_at: 2026-07-31T21:03:47
+started_at: 2026-06-14T11:33:30
+ended_at: 2026-06-14T11:37:22
+exported_at: 2026-10-08T21:01:38
 duration_minutes: 3.9
 project: 2026-06
 session_id: af288156-98ab-4dd0-a676-75740301b0bd

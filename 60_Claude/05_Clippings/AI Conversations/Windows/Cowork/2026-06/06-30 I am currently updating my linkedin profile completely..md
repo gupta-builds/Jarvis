@@ -1,12 +1,12 @@
----
+﻿---
 type: input
 input_kind: ai-conversation
 source_app: cowork
 source_os: windows
 title: "I am currently updating my linkedin profile completely."
-started_at: 2026-06-30T17:06:00
-ended_at: 2026-06-30T17:09:33
-exported_at: 2026-07-31T21:03:37
+started_at: 2026-06-30T06:36:00
+ended_at: 2026-06-30T06:39:33
+exported_at: 2026-10-08T21:01:20
 duration_minutes: 3.5
 project: 2026-06
 session_id: 40d5e7fa-b985-4cd2-82f7-a330b77a44be

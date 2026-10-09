@@ -6,7 +6,7 @@ source_os: windows
 title: "Personal introduction"
 started_at: 2026-09-09T15:42:14
 ended_at: 2026-09-09T15:43:36
-exported_at: 2026-09-09T16:28:02
+exported_at: 2026-10-08T21:00:21
 duration_minutes: 1.4
 project: Jarvis
 cwd: 'D:\Users\_Anant\10_Areas\Documents\Jarvis'

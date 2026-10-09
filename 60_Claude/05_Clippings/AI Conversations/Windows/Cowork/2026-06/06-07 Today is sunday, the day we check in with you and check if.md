@@ -4,9 +4,9 @@ input_kind: ai-conversation
 source_app: cowork
 source_os: windows
 title: "Today is sunday, the day we check in with you and check if"
-started_at: 2026-06-07T19:31:04
-ended_at: 2026-06-11T19:53:29
-exported_at: 2026-07-31T21:03:45
+started_at: 2026-06-07T09:01:04
+ended_at: 2026-06-11T09:23:29
+exported_at: 2026-10-08T21:01:32
 duration_minutes: 5782.4
 project: 2026-06
 session_id: 24bcd150-9daa-4086-8d2f-6a8d9c647099

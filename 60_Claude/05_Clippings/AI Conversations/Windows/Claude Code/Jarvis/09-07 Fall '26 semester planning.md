@@ -6,7 +6,7 @@ source_os: windows
 title: "Fall '26 semester planning"
 started_at: 2026-09-07T11:47:38
 ended_at: 2026-09-10T13:19:26
-exported_at: 2026-09-11T12:35:08
+exported_at: 2026-10-08T21:00:56
 duration_minutes: 4411.8
 project: Jarvis
 cwd: 'D:\Users\_Anant\10_Areas\Documents\Jarvis'

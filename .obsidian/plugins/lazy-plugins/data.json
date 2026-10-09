@@ -16,7 +16,7 @@
         "startupType": "long"
       },
       "dataview": {
-        "startupType": "instant"
+        "startupType": "short"
       },
       "excalibrain": {
         "startupType": "long"

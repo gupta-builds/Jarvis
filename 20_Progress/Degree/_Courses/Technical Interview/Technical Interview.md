@@ -2,7 +2,7 @@
 type: class
 status: sprout
 created: 2026-09-07
-updated: 2026-09-08
+updated: 2026-10-08
 tags:
   - class
   - fall2026
@@ -11,14 +11,16 @@ tags:
 notes:
   - "[[20_Progress/Degree/_Courses/_Courses Board|_Courses Board]]"
   - "[[10_Areas/Life/Plans/Fall 2026/Fall 2026 - The One Thing|Fall 2026 - The One Thing]]"
-next: "First real session is the week of 2026-09-14 (Tue/Thu 7-9pm) - confirm the exact final-session date once known"
+next: "Use the downloaded CodePath TIP103 syllabus as the authority; verify its course-specific schedule and assessment details before treating the older pasted syllabus text as current"
 ---
 # Technical Interview — CodePath TIP103
 ==This is the track standing between an application and an offer - every other Fall'26 study track produces a credential, this one produces the skill that survives a live 45-minute technical screen.==
 ## What This Is
-CodePath's **TIP103: Advanced Technical Interview Prep**, University Partnership Students edition - the real syllabus, pasted in full 2026-09-07, confirms this is the university-partnered version, not the Direct-to-Student one the old note guessed at. **Course description:** an advanced course that refines technical interview mastery through complex Python challenges involving advanced data structures and algorithms, using an adaptive learning model that customizes pace to the student. The vault has been informally calling this "the CSCI 4041 track," but that name conflates two different things: `20_Progress/Degree/CSCI 4041/` is a **different, already-completed UMN class** (Algorithms and Data Structures, Spring'26, grade A, `status: archived`, explicitly "Not part of Fall'26"). The overlap is topical (sorting, trees, graphs, DP), not structural - treat the old CSCI 4041 material as a refresher resource, not this course's syllabus.
+This note tracks CodePath TIP103 interview-preparation course material and links to the completed UMN CSCI 4041 material used as a study resource. The downloaded course-specific syllabus at `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4041\Technical Interview\CodePath TIP103 Syllabus.pdf` is the intended syllabus authority. The syllabus text pasted into this note on 2026-09-07 is from the University Partnership Students edition. It is a different version and must not be treated as the governing syllabus for this plan. Until the downloaded PDF is extracted and checked, the schedule, grading, and policy details below that came from the pasted text remain provisional.
+
+The UMN CSCI 4041 course is separate and already completed. Its notes are topical study resources for interview preparation, not TIP103 course records or evidence of TIP103 completion.
 > [!WARNING]
-> CodePath's own syllabus repeats one caveat under nearly every section: your specific university section may vary in schedule, pacing, or policy, and when university policy differs from this syllabus, university policy applies. Everything below is CodePath's standard design - cross-check it against the actual University LMS (CRN, instructor, exact dates) before treating any date here as final.
+> The detail sections below were copied from a different University Partnership Students syllabus edition. The user has identified the locally downloaded `CodePath TIP103 Syllabus.pdf` as the correct source for this course. Until its contents are transcribed into this note, do not use the copied schedule, grading, course topics, or policies as governing facts for the course or interview-prep plan.
 ## Why This One
 [[10_Areas/Life/Plans/Fall 2026/Fall 2026 - The One Thing|Fall 2026 - The One Thing]] is explicit that GitHub Foundations, AI Associate Engineer, ML Engineer, and ML Ops each prove something about *credentialing*. This track is different: it's the only one that determines whether an application that already landed actually converts. A resume gets an interview; LeetCode fluency and CodePath's structured practice are what get through the interview itself.
 ## Course Goals
@@ -31,7 +33,7 @@ By the end of the course, per the syllabus:
 ## Prerequisites & Setup
 *Prior knowledge expected:* completed introductory programming in C++, Java, or another OOP language; comfortable with loops, conditionals, arrays, data types, functions; able to identify and solve problems using lists, dictionaries, linked lists, and trees plus common algorithms; pursuing a CS-or-software course of study.
 *Software/platform:* Visual Studio Code, 8 GB RAM minimum (16 GB recommended), at least 10 GB free disk space, and a free GitHub account for the CodePath platform.
-## Topics Covered
+## Topics Covered - Older Syllabus Copy, Unverified
 1. **Technical Interview Skills** - UMPIRE strategy, communication, Big O analysis.
 2. **Core Data Structures** - strings, linked lists, dictionaries applied to complex problems.
 3. **Hash Tables & Heaps** - advanced hashing, heap operations.
@@ -42,13 +44,13 @@ By the end of the course, per the syllabus:
 8. **Dynamic Programming** - memoization, tabulation, bottom-up, top-down, backtracking.
 9. **Greedy Algorithms** - introductory strategy.
 No textbook purchase required - all material comes through the CodePath platform.
-## Format & Key Activities
+## Format & Key Activities - Older Syllabus Copy, Unverified
 Every unit: **algorithm lectures and discussion** (instructor-led, UMPIRE-framed), **collaborative coding practice** (small-group problem-solving with peer explanation), and a **graded HackerRank unit assessment** (multiple choice plus coding). Throughout the course: **mock interviews**, both instructor-led and small-group, building interview communication skills specifically.
 Structurally: 10 content units plus 2 asynchronous stretch units over a full semester (15-16 weeks). Students meet synchronously twice a week, ~4 hours of class time per unit - roughly 60 minutes of lecture/discussion and 60 minutes of collaborative coding per session. Outside class: 2-4 hours/week expected on graded HackerRank assessments.
-## Actual Cohort Schedule
-Confirmed by the user directly 2026-09-08, not from the University LMS yet: **12 weeks**, meeting **every Tuesday and Thursday, 7-9pm**, starting the week of **2026-09-14** (first sessions likely Tue 2026-09-15 and Thu 2026-09-17) - already added to Google Calendar. Exact calendar dates are not fully confirmed beyond that. This is 4 weeks shorter than CodePath's own 16-week sample below, so the unit pacing in that sample table will compress - treat the sample's topic *order* as reliable, its *week numbers* as not.
+## Course Schedule Evidence
+The University Partnership syllabus copied below contains a 16-week sample schedule, not a verified schedule for this course section. The user's current interview-prep build window is separate from TIP103's course schedule. No official weekly cohort schedule or TIP103 course deadline is established in the material currently recorded here. Do not infer either from the sample table or from the user's planning calendar.
 ## Schedule (CodePath's Standard, 16-Week Sample - Topic Order Reference Only)
-CodePath's own label: "Sample Semester Schedule" - this cohort runs 12 weeks per the confirmed schedule above, not 16, so use this table for unit sequencing, not for which week maps to which date.
+This is the schedule copied from the University Partnership syllabus version already in this note. It can serve as a provisional topic-order reference, but its week numbers and applicability to the downloaded course-specific syllabus have not been verified.
 
 | Week | Unit | Lecture Topics | Assignment Due |
 |---|---|---|---|
@@ -71,8 +73,8 @@ CodePath's own label: "Sample Semester Schedule" - this cohort runs 12 weeks per
 
 *Adaptive pacing means HackerRank assessment numbers aren't pinned to specific weeks - students complete them at their own pace, up to 2 attempts per unit.
 > [!WARNING]
-> The syllabus literally says "Spring break" in week 8 of what it calls a sample schedule - a copy-paste artifact from a Spring-semester template CodePath reused. This Fall'26 section's actual week-8 break (if any) is whatever the University LMS shows, almost certainly not a spring break.
-## Grading & Completion
+> The copied schedule includes a "Spring break" row. This is not evidence of a break in the user's course section. Do not assign dates or build the interview-prep week map from this sample schedule.
+## Grading & Completion - Older Syllabus Copy, Unverified
 Grade is based entirely on HackerRank unit assessments - no separate exam, paper, or project grade in CodePath's own structure (a university may layer on attendance/quiz requirements on top; check the LMS).
 - **Weekly submission:** at least one HackerRank assessment from any unit, every week.
 - **Repeating a unit:** allowed until passed or until both attempts for that unit are used.
@@ -98,12 +100,21 @@ Grade is based entirely on HackerRank unit assessments - no separate exam, paper
 *Units 11 and 12 are not taught synchronously - they're extra problem sets and assessments for students who finish Unit 10 early and want to stretch further, which is how there are 12 gradeable units against only 10 taught content units.
 *Submission mechanics:* all assessments go through the HackerRank platform directly - pick the unit currently being worked, complete it by the deadline, then decide whether to retry or move on.
 *CodePath completer status* (separate from the university's own grade) requires: at least one valid attempt per week, passing 6+ distinct units, and any extra university-set requirements. Completers get a digital CodePath certificate and access to the CodePath completer network.
-## Policies
+## Policies - Older Syllabus Copy, Unverified
 *Attendance:* expected at every session, tracked via quizzes, group activities, sign-in sheets, or participation points depending on the university; repeated lateness can lower participation; notify the instructional team in advance when possible, and for health absences go through the university's Dean of Students Office.
 *Communication:* active in-class participation expected; outside class, the CodePath Course Portal handles CodePath resources and submissions, Slack (or an instructor-named platform) handles technical questions and peer collaboration, and the University LMS carries announcements and grades.
 *Late work:* HackerRank assessments get an automatic 48-hour extension past the posted weekly deadline with no permission needed - after that 48-hour window, the assessment is late. Any extra university-assigned coursework (quizzes, participation activities) follows whatever late policy that specific cohort sets.
-## Cadence
-Per [[20_Progress/Degree/_Courses/_Courses Board|_Courses Board]]: LeetCode every day (no fixed daily count set yet), plus TIP103's own material Tuesday and Thursday - which now maps cleanly onto the syllabus's "twice-weekly synchronous session" structure above rather than being an arbitrary personal cadence. No Fall daily-log tracker exists yet - the Summer one (`10_Areas/Life/Plans/Summer 2026/LeetCode & CSCI 4041.md`) is closed and its own `[!WARNING]` records its daily-log table never had a single row filled in across the entire summer. Building a new tracker with a different accountability hook is a real open task.
+## Recorded Progress
+The user reports that TIP103 Unit 1, Session 1 has been completed and that Homework 1-3 are complete. The session problems transcribed for Units 1-4 were already solved during their course sessions. Preserve those notes as session records and do not solve the problems again during transcription. Daily interview-practice execution is a separate measure and remains zero; the course-session solutions are not counted as daily LeetCode/interview practice.
+
+| Unit | Session 1 | Session 2 |
+|---|---|---|
+| 1 | Strings and arrays; UPI introduction | Strings and arrays; list and string manipulation |
+| 2 | Python data handling with lists, strings, and dictionaries | Lists, dictionaries, and sets |
+| 3 | Recursion and recursive-function structure | Stacks, queues, two pointers, strings, and arrays |
+| 4 | Python classes and linked lists | Binary trees and tree operations |
+
+This session-topic map comes from the landed transcript introductions, not the unverified schedule copied from the older syllabus edition.
 ## Resources
 - [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/CSCI 4041 Board|CSCI 4041]] (in this same Technical Interview folder, not a separate Degree-level folder - it moved here permanently 2026-09-29, the old `20_Progress/Degree/CSCI 4041/` path this line used to name never actually exists on disk) - the completed Spring'26 UMN course; a live, ongoing revision resource for TIP103, not just a one-time refresher - see [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041 Relation|CSCI 4041 Relation]] for the full topic mapping.
 - `10_Areas/Life/Plans/Summer 2026/LeetCode & CSCI 4041.md` - closed Summer plan; useful for its structural pattern (mastery table, company-rotation logic, Never-Forget checklist) even though its dates no longer apply.
@@ -111,4 +122,4 @@ Per [[20_Progress/Degree/_Courses/_Courses Board|_Courses Board]]: LeetCode ever
 ## Relation to _Courses Board
 Full sequencing lives in [[20_Progress/Degree/_Courses/_Courses Board|_Courses Board]] - this track runs now, in parallel with GitHub Foundations and AI Associate Engineer rather than waiting on either.
 ## Verification Notes
-The full syllabus text was pasted directly by the user 2026-09-07 (University Partnership Students edition) - course goals, prerequisites, topics, schedule, grading, and policies above are captured from that source, not inferred. The user confirmed 2026-09-08 the real meeting cadence (12 weeks, Tue/Thu 7-9pm, starting week of 2026-09-14, on their Google Calendar), which replaces guesswork about whether the CodePath sample schedule's dates applied. Not verified: the exact calendar date of the final session, the actual instructor/CRN, and whether any university-added requirements (attendance grade, extra quizzes) apply on top of the HackerRank-only grading CodePath describes.
+The local downloaded PDF is the intended course syllabus. Its contents still need to be transcribed and checked against this note. The sections explicitly labeled as older-syllabus material are retained only as a record of the earlier paste and are not confirmed facts about the correct course edition. The former claim of a confirmed 12-week Tuesday/Thursday cohort beginning 2026-09-14 is withdrawn. The official cohort schedule and TIP103 course deadline remain unknown and do not govern the personal interview-preparation deadline in [[20_Progress/Degree/_Courses/Technical Interview/Preparation & Sources|Preparation & Sources]].

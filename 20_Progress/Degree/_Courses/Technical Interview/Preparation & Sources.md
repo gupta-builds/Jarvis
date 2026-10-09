@@ -3,26 +3,35 @@ type: class
 input_kind: preparation
 status: sprout
 created: 2026-09-29
-updated: 2026-09-29
+updated: 2026-10-08
+deadline: 2026-12-28
 area:
   - "[[20_Progress/Degree/_Courses/Technical Interview/Technical Interview|Technical Interview]]"
 tags:
   - "#class"
-next: "Confirm the real instructor/CRN and the exact final-session date, then fill the empty TIP 103 source folder with whatever CodePath-specific material the portal actually provides"
+next: "Before the 2026-10-12 start, establish the daily problem routine and week-by-week map from verified course materials; finish the interview-prep build by 2026-12-28"
 ---
 # Technical Interview — Preparation & Sources
-==Completion here is pass/fail by unit, not letter-graded - the real failure mode is a week with zero HackerRank submissions, not a single low score.==
-## Where the Points Actually Are
+==The personal preparation plan runs from 2026-10-12 through its hard deadline on 2026-12-28. TIP103's own deadline remains unknown and is not this plan's deadline.==
+> [!WARNING]
+> The grading and policy details below were copied from the University Partnership Students syllabus, not verified against the downloaded course-specific syllabus. Treat those details as provisional until that PDF is checked.
+## Interview-Preparation Lock-In
+This is the personal interview-preparation plan, not the TIP103 course schedule. The lock-in starts Monday, 2026-10-12. The hard interview-preparation deadline is Monday, 2026-12-28. That span contains 11 full Monday-to-Sunday work weeks, from October 12 through December 27, followed by the deadline day on December 28. The TIP103 course deadline is unknown and does not set this plan's deadline.
+
+**Progress baseline:** daily problem-solving execution is 0. Homework 1-3 are complete. The session problems transcribed for Units 1-4 were already solved during the course sessions; retain their prompts as records and do not solve them again during capture. Session work and transcript capture are not counted as daily LeetCode or interview-practice execution. The user reports completing Unit 1, Session 1.
+
+The weekly map and daily problem schedule have not yet been built. This note establishes their planning window and starting baseline; it does not assign topic weeks or choose problem sets.
+## Course Assessment Notes - Provisional
 Grading is entirely HackerRank unit assessments - no exam, paper, or project grade in CodePath's own structure. Pass at least 6 of 12 gradeable units by the final day, each assessment needs 30 of 60 points, up to 2 attempts per unit, and a **weekly submission** (at least one assessment attempt from any unit, every week) is required regardless of how many units are already passed. The real leverage point is that weekly-submission requirement - skipping a week entirely is the actual failure mode this course punishes, not a low score on any one attempt, since attempts and unit choice are otherwise flexible. A university layer (attendance, extra quizzes) may sit on top of this per [[20_Progress/Degree/_Courses/Technical Interview/Technical Interview|Technical Interview]]'s own unresolved-verification note - check the LMS before assuming CodePath's structure is the whole grade.
-## Cheapest Points
+## Assessment Mechanics in the Copied Syllabus - Provisional
 The automatic 48-hour late extension on every HackerRank assessment is the lowest-effort safety net in the course - it requires no request, just don't treat the posted deadline as the real one when a week runs long. Passing itself is cheap by design (30/60, 2 attempts) compared to the actual cost center, which is this vault's own added one-unit-ahead system, not CodePath's minimum bar.
-## The Real Traps
+## Source and Mapping Cautions
 - **CodePath's sample schedule has a literal spring-break row copy-pasted from a Spring-semester template** - this Fall'26 section's real week-8 status (if any break exists) is whatever the University LMS shows, not "spring break."
 - **[[20_Progress/Degree/_Courses/Technical Interview/Technical Interview|Technical Interview]] has two internal schedule tables that number units differently from each other** (the 16-week sample's Unit 1-10 lecture-topic numbering vs. the grading section's Unit 1-12 HackerRank-assessment numbering) - never assume a "Unit N" mentioned in one table means the same thing in the other, and cross-check both against the live CodePath portal before trusting either.
 - **University policy overrides CodePath's standard syllabus wherever they conflict** - CodePath's own document repeats this caveat under nearly every section.
 - **The borrowed CSCI 4041 material is topical, not structural, overlap** - [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041 Relation|CSCI 4041 Relation]] maps most of TIP103's nine syllabus topics onto it, but UMPIRE, Union-Find, and backtracking-flavored DP have no matching note there - don't assume a revision pass on that folder alone covers everything TIP103 will ask.
 ## Study Cadence
-The full weekly operating loop - confirm the live unit, revise one topic-block ahead using [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041 Relation|CSCI 4041 Relation]]'s mapped material, run the daily-7 problem rule, then solve the live session and its HackerRank assessment unaided - is the actual source of truth and lives in [[Technical Interview Workflow]], not duplicated here. This note stays the grading/traps/resource layer; that workflow note is the weekly mechanism.
+The daily problem routine and weekly topic map for the October 12-December 28 interview-preparation window have not been set. Older workflow notes describe a daily-7 rule and a one-topic-ahead rhythm, but these are prior planning assumptions, not evidence of work already completed or confirmed requirements from the course-specific syllabus. Establish the routine and weekly map after the correct syllabus and existing course material are reconciled.
 ## Resources & Source Directories
 **Live course material** (once logged in): CodePath Course Portal and HackerRank - the actual unit content and assessments. A `TIP 103` folder now exists at `D:\Users\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4041\TIP 103\` for CodePath-specific material as it's gathered - currently empty as of 2026-09-29, the first thing to fill once the portal has been logged into.
 **The borrowed course's original source** - `D:\Users\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4041\` holds everything CSCI 4041 actually ran on: `Textbook\` (the real CLRS-style PDF, `Introduction to Algorithms - DSA.pdf`, plus `ITA Part 1.pdf`), `Lectures\Week - N\` (one folder per week, the real slides/notebooks this vault's Weekly notes were built from), `Homework\Coding\` and `Homework\Paper\`, `Midterm_Project\`, and `Final Project\`. This is the ground truth to pull from when [[Technical Interview Workflow]]'s textbook-enrichment rule calls for widening a thin chapter note - go to the real PDF, not general knowledge of CLRS.

@@ -1,3 +1,26 @@
+---
+type: input
+status: seed
+created:
+input_kind: transcript
+source_url:
+related_progress: []
+tags:
+  - transcript
+next:
+---
+# Unit - 1 Problems Transcript
+**Captured:** 2026-10-08
+**Source:**
+## Session - 1
+Paste the untouched transcript below, inside the fence. Do not edit, clean, or summarize here — this file is the raw capture. Summarization happens in the linked brief once `/transcript-to-brief` runs.
+````
+
+````
+## Session - 2
+Paste the untouched transcript below, inside the fence. Do not edit, clean, or summarize here — this file is the raw capture. Summarization happens in the linked brief once `/transcript-to-brief` runs.
+
+````
 ## Unit 1: Session 2
 
 ### UMPIRE | Strings & Arrays
@@ -388,3 +411,4 @@ Example Output:
 💡Hint: Sorting Lists
 
 Problem 6: Insert Interval
+````

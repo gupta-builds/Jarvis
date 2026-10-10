@@ -6,7 +6,7 @@ source_os: windows
 title: "Obsidian crash and Syncthing conflicts"
 started_at: 2026-10-09T20:17:11
 ended_at: 2026-10-10T00:43:33
-exported_at: 2026-10-10T07:30:04
+exported_at: 2026-10-10T08:30:05
 duration_minutes: 266.4
 project: Jarvis
 cwd: 'D:\Users\_Anant\10_Areas\Documents\Jarvis'

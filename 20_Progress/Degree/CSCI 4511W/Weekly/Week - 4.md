@@ -3,7 +3,7 @@ type: class
 input_kind: lecture
 status: seed
 created: 2026-09-28
-updated: 2026-10-02
+updated: 2026-10-09
 area:
   - "[[CSCI 4511W Board]]"
   - "[[20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 3|Chapter - 3]]"
@@ -222,3 +222,5 @@ Give the **A\* optimality proof sketch** for admissible h.::Suppose A\* pops sub
 What is **heuristic domination** and why does the **composite heuristic** h = max(h₁, h₂) stay admissible?::h₂ dominates h₁ if h₂(n) ≥ h₁(n) everywhere (and both are admissible). A\* with h₂ never expands more nodes than with h₁. The composite h = max(h₁,...,h_m) dominates all components: at each node it picks the tightest lower bound available. It stays admissible because each h_i ≤ h\*, so max(h_i) ≤ h\* still holds. #cards/csci4511w
 How does the **relaxed problem method** generate admissible heuristics, and what preconditions does removing produce for the 8-puzzle?::Removing preconditions adds edges to the state space (the relaxed supergraph contains all original paths), so the optimal relaxed solution ≤ true optimal → admissible. 8-puzzle original: tile at X, X adjacent to Y, Y blank. Remove "Y blank" → Manhattan distance (tile moves to any adjacent square). Remove both "adjacent" and "Y blank" → misplaced tiles (tile teleports to goal in one move). #cards/csci4511w
 Why does **Greedy say "probably"** and not "guaranteed"?::Greedy is not cost-optimal by design: it ignores g(n) entirely. On the Romania map it finds a 450-km path when the optimal is 418 km (§3.5.1). The lecture's own slide says "if we have a good estimation function, this will probably work well" — the word "probably" means the algorithm's quality depends entirely on h, with no structural backstop. A\*'s g(n)+h(n) provides that backstop. #cards/csci4511w
+## Assignment application: Problem Set 2
+[[20_Progress/Degree/CSCI 4511W/Assignments/Written/Problem Set 2|Problem Set 2]] now records the application of this week's A* and heuristic material. Lecture 07 was found and reviewed on October 9: slide 10 covers weighted A*, slides 14-19 cover puzzle heuristics and relaxation, and slides 3-9 cover completeness and admissibility. Earlier statements in this note describe the October 2 source inventory; full reconciliation of the Wednesday lecture section remains separate from the completed assignment draft.

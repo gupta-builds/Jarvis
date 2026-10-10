@@ -3,7 +3,7 @@ type: class
 input_kind: board
 status: sprout
 created: 2026-09-07
-updated: 2026-09-28
+updated: 2026-10-09
 area:
   - "[[Fall'26 Syllabus]]"
   - "[[APAS]]"
@@ -45,6 +45,9 @@ Discussion sections (led by the Grad TAs) run separately from lecture - exact me
 Scale as stated: 90%+ for some level of A, 80%+ for some level of B, 70%+ for some level of C, 60%+ for some level of D - no finer +/- breakdown given in the pasted text.
 ## Problem Sets
 5–6 written or coding problems each, completed and submitted individually online. Coding portions may require meeting a TA for a code review, which **must happen within 10 days of the assignment due date**.
+### Problem Set 2 working record
+[[20_Progress/Degree/CSCI 4511W/Assignments/Written/Problem Set 2|Problem Set 2]] covers every part of the local three-page assignment, due October 9, 2026. Problems 1-3 have a verified implementation in [[20_Progress/Degree/CSCI 4511W/Assignments/Code/ps2.py|ps2.py]]; Problems 4-5 have written worked answers. The record includes actual search outputs, independent shortest-path checks, custom-heuristic proofs, and the prompt's modeling ambiguities. Student review, submission, and any assigned code review remain open.
+The October 9 source check verified `Homework/ps2.pdf`, `Code/Homework/ps2.py`, `Code/aima-python/aima/search.py`, and Lecture 07 in the original course folder. The assignment note uses that primary material where older course notes still report Lecture 07 as missing.
 ## Writing Assignments
 Build toward writing in academic style, as though for publication as research - a specific format and citation conventions unique to Computer Science, taught progressively across the four assignments.
 ## Discussion Section Attendance and Participation

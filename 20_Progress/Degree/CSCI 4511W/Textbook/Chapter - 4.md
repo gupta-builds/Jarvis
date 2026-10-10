@@ -3,7 +3,7 @@ type: class
 input_kind: book
 status: seed
 created: 2026-09-28
-updated: 2026-10-02
+updated: 2026-10-09
 area:
   - "[[CSCI 4511W Board]]"
   - "[[20_Progress/Degree/CSCI 4511W/Textbook/Textbook Map|Textbook Map]]"
@@ -332,3 +332,5 @@ What three stages comprise a belief-state transition in a partially observable e
 How does a recursive state estimator compute \\(b'\\) without examining past percept history?::It applies \\(b' = \text{UPDATE}(\text{PREDICT}(b, a), o)\\) using only the current belief state \\(b\\), the last action \\(a\\), and the new percept \\(o\\) — the current belief state summarizes all relevant history (p. 131–132). #cards/ai
 ==Why does belief-state search treat observations as AND-node branches during contingent planning?==::At planning time the agent does not know which percept will be received, so the plan must handle every possible observation — each one becomes a branch at an AND node (p. 130–131). #cards/ai
 What structural advantage does convex optimization have over general local search?::A convex objective on a convex feasible region guarantees that any local minimum is also the global minimum, so gradient descent methods cannot get trapped (p. 123). #cards/ai
+## Assignment application: Problem Set 2
+[[20_Progress/Degree/CSCI 4511W/Assignments/Written/Problem Set 2|Problem Set 2]], Problem 5, applies the complete-state formulation in section 4.1.1: a state contains every package ID in a permutation, its objective is the machine processing time, and swaps generate neighboring orderings. The assignment record separates physical processing time from planning moves and states the assumptions about matching destination and weight.

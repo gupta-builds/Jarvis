@@ -3,7 +3,7 @@ type: class
 input_kind: book
 status: seed
 created: 2026-09-28
-updated: 2026-10-02
+updated: 2026-10-09
 area:
   - "[[CSCI 4511W Board]]"
   - "[[20_Progress/Degree/CSCI 4511W/Textbook/Textbook Map|Textbook Map]]"
@@ -426,3 +426,5 @@ What bounded suboptimality guarantee does Weighted A* provide?::With weight \\(W
 How does the relaxed problem method generate admissible heuristics?::Removing action preconditions adds edges to the state-space graph, so the optimal relaxed solution never exceeds the true optimal cost, guaranteeing admissibility (p. 100). #cards/ai
 Why do disjoint pattern databases preserve admissibility while summing standard pattern databases does not?::Disjoint databases partition tiles so each physical move is counted by exactly one database, preventing double-counting of the same action's cost across subproblems (p. 102). #cards/ai
 How do BFS, DFS, DLS, and IDDFS compare on completeness, cost-optimality, time, and space?::BFS: complete/unit-optimal/O(b^d)/O(b^d). DFS: incomplete/no/O(b^m)/O(bm). DLS: incomplete if l<d/no/O(b^l)/O(bl). IDDFS: complete/unit-optimal/O(b^d)/O(bd) — IDDFS dominates on large memory-constrained problems (p. 80–87). #cards/ai
+## Assignment application: Problem Set 2
+[[20_Progress/Degree/CSCI 4511W/Assignments/Written/Problem Set 2|Problem Set 2]] applies this chapter to instrumented Romania searches, fixed-goal and multiple-goal eight-puzzles, a perfect-heuristic greedy counterexample, and weighted A* completeness. The assignment record checks the actual textbook PDF, Lectures 03-07, and local AIMA implementation; it documents the default heuristic counting the blank and verifies the custom numbered-tile heuristics against exact distances.

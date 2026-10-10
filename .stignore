@@ -53,8 +53,17 @@
 (?d).obsidian/plugins/file-explorer-plus/data.json
 (?d).obsidian/copilot-index-*.json
 30_Order/System/jarvis-memory/*.sqlite*
-60_Claude/05_Clippings/AI Conversations/**/_raw_jsonl
-60_Claude/05_Clippings/AI Conversations/**/_raw_composer
+// (?d)-prefixed (Build 14, 2026-10-09): these two patterns were the one spot
+// in the AI Conversations tree that never got the (?d) fix applied in Build
+// 13, even though it's the identical "contains ignored files" delete deadlock.
+// Session folders deleted upstream (CausalOps, everything-claude-code,
+// hivemind, _archive-pre-fix*, ~50 paths total) each still held a _raw_jsonl/
+// or _raw_composer/ folder of ignored .jsonl content, so the delete could
+// never complete here. Confirmed live: 13,038 "Failed to delete directory"
+// retries since Build 13 landed (2026-10-06 12:32) plus 1,155 more on
+// 2026-10-09 alone, retried every ~16 min, the sole cause of "out of sync".
+(?d)60_Claude/05_Clippings/AI Conversations/**/_raw_jsonl
+(?d)60_Claude/05_Clippings/AI Conversations/**/_raw_composer
 20_Progress/AI/Kiro/.kiro_windows
 20_Progress/AI/Claude Code/.claude_wsl/skills/gbrain
 20_Progress/AI/Claude Code/.claude_wsl/skills/gstack

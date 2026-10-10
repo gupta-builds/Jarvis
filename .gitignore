@@ -189,11 +189,6 @@ mcp.env
 # Excalidraw MCP local install (npm package, regenerable)
 30_Order/System/excalidraw-mcp/node_modules/
 30_Order/System/excalidraw-mcp/*.log
-# The Excalidraw MCP server writes excalidraw.log into whatever directory it was
-# launched from (found 2026-10-09: vault root, claude-workflow/, and the
-# lazy-plugins folder), once per laptop. Each laptop's copy differs, so every
-# server start on both machines produced a .sync-conflict-* on the root copy.
-excalidraw.log
 
 # Lean Terminal plugin's native node-pty dependency (npm package, regenerable)
 .obsidian/plugins/lean-terminal/node_modules/

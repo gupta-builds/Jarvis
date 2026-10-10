@@ -183,6 +183,13 @@
 // different install paths would actively break the other machine's self-heal.
 (?d)30_Order/System/sync-workflow/scripts/.syncthing-exe-path.txt
 
+// excalidraw.log (Build 14, 2026-10-09) - the Excalidraw MCP server writes this
+// into whatever directory it was launched from (vault root, claude-workflow/,
+// lazy-plugins/), once per laptop, so each laptop's copy differs and every
+// server start on both machines produced a real .sync-conflict-* on the root
+// copy. Same per-machine-log shape as git-auto-sync.log; mirrored in .gitignore.
+(?d)excalidraw.log
+
 // Sync Alert Banner.md (Build 11, 2026-10-04) - same per-machine reasoning,
 // rewritten every 5 minutes on each laptop independently. This is the fix
 // for Known Failure Mode 15 (the Dashboard banner itself was a permanent,

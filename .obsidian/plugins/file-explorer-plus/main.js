@@ -2686,8 +2686,10 @@ function addOnTagChange(plugin) {
   plugin.registerEvent(
     plugin.app.metadataCache.on("changed", (path, data, cache) => {
       var _a, _b;
-      const isPinned = plugin.getFileExplorer().fileItems[path.path].info.pinned;
-      const isHidden = plugin.getFileExplorer().fileItems[path.path].info.hidden;
+      const explorerItem = (_a = plugin.getFileExplorer()) == null ? void 0 : _a.fileItems[path.path];
+      if (!explorerItem) return;
+      const isPinned = explorerItem.info.pinned;
+      const isHidden = explorerItem.info.hidden;
       const shouldBePinned = plugin.settings.pinFilters.tags.some((filter) => checkTagFilter(filter, path));
       const shouldBeHidden = plugin.settings.hideFilters.tags.some((filter) => checkTagFilter(filter, path));
       if (isPinned !== shouldBePinned && !shouldBeHidden) {

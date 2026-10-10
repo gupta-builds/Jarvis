@@ -91,6 +91,15 @@ $$h_{\mathrm{easy}}(s)=\min_{G\in\mathcal{G}}\sum_{t=1}^{8}\left(|r_s(t)-r_G(t)|
 To prove admissibility, let $G^*$ be a nearest reachable goal. The minimum cannot exceed the Manhattan estimate for $G^*$, and that estimate cannot exceed the true cost to $G^*$. Thus $h_{\mathrm{easy}}(s)\le h^*(s)$. Do not take the maximum over goals: distance to a more distant goal can overestimate the cost of reaching a nearer accepted goal.
 It is also consistent. For neighboring states $s,s'$, choose a goal that minimizes the estimate at $s'$; the numbered-tile Manhattan distance to that fixed goal changes by at most one, so $h_{\mathrm{easy}}(s)\le 1+h_{\mathrm{easy}}(s')$. It is zero at each goal and is not identically zero; the assigned initial state's value is 9.
 The starter's `problem_3c` docstring mentions a string representation, while the PDF asks for a solution path and the supplied example returns `.solution()`. This implementation follows the PDF and example and returns a list of blank-move actions. The original prompt text remains in the copied starter for reference.
+## Handwritten answers
+### Problem 4a
+Let S be the start and G the goal, with directed edges $S\to G$ costing 10, $S\to A$ costing 1, and $A\to G$ costing 1. The exact remaining costs are $h(S)=2$, $h(A)=1$, and $h(G)=0$. After expanding S, greedy chooses G because $h(G)<h(A)$, returning cost 10 instead of the optimal cost 2 through A. Even a perfect heuristic cannot prevent this because greedy ignores the cost already paid.
+### Problem 4b
+Yes, under the textbook's finite-branching model with nonnegative h. If $C^*$ is the optimal solution cost, admissibility gives $g+2h\le g+2(C^*-g)\le2C^*$ along that path, while action costs above $\epsilon$ give $g+2h\ge g>d\epsilon$ at depth d. Therefore only finitely many nodes can have priority at most $2C^*$, so a goal is eventually reached even in an infinite state space, although it need not be optimal.
+### Problem 5a
+Store each package's unique ID, destination, and weight in a fixed table. A state is a permutation of all package IDs, so it specifies a complete processing order with every package appearing once; initially use $(p_0,\ldots,p_{n-1})$. The objective is to minimize total processing time: 5 seconds for the first package, then 3 if its destination matches the immediately previous package, otherwise 4 if their weights differ by at most 2 ounces, otherwise 5. Assume the 3-second rule applies when both match.
+### Problem 5b
+For each pair of positions in the current ordering, make a copy and swap the two package IDs to generate a successor. Each successor differs in only two positions and still contains every package exactly once. Return all these successors and evaluate their total processing times; repeated swaps can reach any possible ordering.
 ## Written answers
 ### Problem 4a: perfect remaining costs can still mislead greedy search
 Use the directed graph with start `S`, goal `G`, and these four edges:

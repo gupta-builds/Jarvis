@@ -1,19 +1,20 @@
 ---
 type: class
 input_kind: board
-status: sprout
+status: archived
 created: 2026-09-07
-updated: 2026-09-15
+updated: 2026-10-09
 area:
   - "[[Fall'26 Syllabus]]"
   - "[[APAS]]"
 tags:
   - "#class"
-next: "Acquire all 8 required texts before the schedule catches up - Huckleberry Finn ch.s 1-6 are due 9/15, the first real reading deadline"
+next: "Choose the remaining Literature course in Fall'26 Syllabus; ENGL 1004 is no longer active."
 ---
 # ENGL 1004 (003) — Banned Books
-Fall'26, replaces the dropped [[20_Progress/Degree/AMES 1201/AMES 1201 Board|AMES 1201]] as of 2026-09-09 - both close the same Lib Ed Literature sub-requirement; this one was picked as the easier fit, meeting twice weekly (TTh) same as AMES 1201 did (MW). Full syllabus read directly from `D:\_Anant\10_Areas\UMN\Classes\Lib Eds & More\ENGL 1004\ENGL 1004-003 syllabus fall 2026.pdf`, 2026-09-09.
-## Current Grade
+**Dropped from Fall'26**, confirmed on 2026-10-09. The actual drop date and transcript notation remain unverified. This course contributes no projected credits and no longer satisfies Literature; one liberal education course remains. See [[APAS]] and [[Fall'26 Syllabus#Path to Graduation]] for the May 2028 plan.
+The syllabus, schedule, assignments, and grade estimates below are historical course material, not active obligations or a posted grade. ENGL 1004 originally replaced AMES 1201 on 2026-09-09.
+## Historical Grade Estimate
 > [!DANGER] Estimated ceiling, not an earned grade — recompute once [[Hit or Miss - Miss]] gets the full Canvas pass
 > Computed 2026-09-24 from [[Hit or Miss - Miss]] against this course's own weights and policies. Maximum grade still reachable if everything remaining is aced — not a real transcript grade.
 - **Journal Entries (30%, 12 entries, 0–2 scale, 2.5% per entry at full 2 pts):** Journal 1 and 3 both submitted late — each drops from 2/2 to 1/2 on the rubric, costing half its share. **−2.5%** (1.25% × 2 entries).

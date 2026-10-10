@@ -2,7 +2,7 @@
 type: index
 status: sprout
 created: 2026-09-15
-updated: 2026-09-15
+updated: 2026-10-09
 tags:
   - moc
   - fall2026
@@ -15,10 +15,10 @@ notes:
   - "[[20_Progress/Degree/CSCI 4061/CSCI 4061 Board|CSCI 4061 Board]]"
   - "[[20_Progress/Degree/CSCI 5304/CSCI 5304 Board|CSCI 5304 Board]]"
   - "[[20_Progress/Degree/MGMT 3015/MGMT 3015 Board|MGMT 3015 Board]]"
-  - "[[20_Progress/Degree/ENGL 1004/ENGL 1004 Board|ENGL 1004 Board]]"
 next: "Confirm CSCI 5304's midterm date (printed 10/15 vs. stated 10/22 - see that Board's anomaly warning) and MGMT 3015's two date anomalies (Session 6, Session 16) before those weeks arrive"
 ---
 # UMN
+ENGL 1004 was dropped, confirmed on 2026-10-09, and its entries are excluded from this active calendar. Five weeks are complete; Week 6 starts Monday, 2026-10-12. The referenced external spreadsheet was not located or updated and may retain the old roster.
 
 ==One master weekly calendar for every Fall'26 class - what's due, on what day, at what time, and whether it repeats. Each course's own Board note is the deep source (grading rationale, policies, full context); this note is the checkable cross-class view, the Obsidian counterpart to `Fall'26 Semester Calendar.xlsx` at `10_Areas/UMN/Plan/In Semester Review/`.==
 
@@ -29,7 +29,6 @@ next: "Confirm CSCI 5304's midterm date (printed 10/15 vs. stated 10/22 - see th
 3. **[[20_Progress/Degree/CSCI 4061/CSCI 4061 Board|CSCI 4061]]** (Intro to OS, TTh + Mon lab): Weekly Quizzes 10% · Labs 10% · Projects 25% · Midterm 1 15% · Midterm 2 15% · Final Exam 20% · Surveys 5%. **Midterm 1: Thu 10/8, in class. Midterm 2: Thu 11/12, in class. Final Exam - Section 001: Mon 12/21, 8:00-10:00am; Section 010: Thu 12/17, 4:00-6:00pm.**
 4. **[[20_Progress/Degree/CSCI 5304/CSCI 5304 Board|CSCI 5304]]** (Matrix Theory, TTh, Wed = HW due only): Attendance 10% · Homework 20% · Quizzes 30% · Exams 40%. **Midterm: printed Thu 10/15, but syllabus text says "Thursday, October 22nd" - real date unconfirmed, see Board's anomaly warning. Final Exam: Tue 12/22, 10:30am-12:30pm.**
 5. **[[20_Progress/Degree/MGMT 3015/MGMT 3015 Board|MGMT 3015]]** (Entrepreneurship, MW): Profile 5% · New Business Idea 5% · Quiz 1 10% · Business Idea Pitch 10% · Reflection 5% · Quiz 2 10% · Final Presentation 10% · Written Business Plan 25% · Participation 20%. No midterm/final exam - **Quiz 1: Wed 10/7, in class. Quiz 2: Wed 12/2, in class. Final Presentations: Mon 12/14 (Group B) and Wed 12/16 (Group A, also Written Plan + slides due).**
-6. **[[20_Progress/Degree/ENGL 1004/ENGL 1004 Board|ENGL 1004]]** (Banned Books, TTh): Journal Entries 30% · Role Creation 10% · Simulation 20% · Participation 20% · Final Exam 20%. No midterm - **Final Exam: Tue 12/15, in class** (last scheduled day).
 
 ## Weekly / Recurring Patterns
 
@@ -46,40 +45,31 @@ These repeat on their own cadence - listed once here rather than as a separate r
 
 ## Full Weekly Calendar
 
-Chronological, all six courses merged. "Weekly?" marked **No** for every row here - recurring items are in the table above, not repeated below. Times are as stated in each syllabus/Canvas source; where a source gave no time, none is shown.
+Chronological, all five active courses merged. "Weekly?" marked **No** for every row here - recurring items are in the table above, not repeated below. Times are as stated in each syllabus/Canvas source; where a source gave no time, none is shown.
 
 | Date | Day | Course | Item | Type | Time |
 |---|---|---|---|---|---|
 | 9/11 | Fri | CSCI 4511W | Discussion 1 - Turing 1950 | Discussion | 11:59pm |
-| 9/15 | Tue | ENGL 1004 | Journal 1 (Huckleberry Finn ch. 1-6) | Journal | — |
 | 9/18 | Fri | CSCI 4511W | Problem Set 1 (Code + Written) | Problem Set | 11:59pm |
 | 9/21 | Mon | MGMT 3015 | Profile of a Successful Entrepreneur (5%) | Assignment | — |
-| 9/22 | Tue | ENGL 1004 | Journal 2 | Journal | — |
 | 9/23 | Wed | CSCI 5304 | HW #1 | Homework | 11:59pm |
-| 9/24 | Wed | ENGL 1004 | Journal 3 (read Melissa) | Journal | — |
 | 9/25 | Fri* | MGMT 3015 | New Business Idea (5%) - Session 6, *date anomaly, see Board* | Assignment | — |
-| 10/1 | Wed | ENGL 1004 | Writing 1 - Learn the Tools | Writing | — |
 | 10/2 | Fri | CSCI 4061 | Project 1 due | Project | — |
 | 10/6 | Tue | CSCI 4521 | HW 1 | Homework | — |
 | 10/7 | Wed | CSCI 5304 | HW #2 | Homework | 11:59pm |
 | 10/7 | Wed | MGMT 3015 | Quiz 1 (10%) | Quiz | in class |
 | 10/8 | Thu | CSCI 4061 | **MIDTERM EXAM 1** | Exam | in class |
 | 10/9 | Fri | CSCI 4511W | Problem Set 2 (Code + Written) | Problem Set | 11:59pm |
-| 10/13 | Tue | ENGL 1004 | Journal 4 (in character) | Journal | — |
 | 10/14 | Wed | CSCI 4511W | **Long Quiz 01** | Exam | in class, 45 min |
 | 10/15 | Thu | CSCI 5304 | **MIDTERM EXAM** (printed date - see Board anomaly) | Exam | in class |
-| 10/20 | Tue | ENGL 1004 | Journal 5 (in character) | Journal | — |
 | 10/20 | Tue | CSCI 4521 | HW 2 | Homework | — |
 | 10/21 | Wed | CSCI 5304 | HW #3 | Homework | 11:59pm |
-| 10/22 | Thu | ENGL 1004 | Journal 6 (in character, sim debrief) | Journal | — |
 | 10/22 | Thu | CSCI 5304 | **MIDTERM EXAM** (stated date in syllabus text - see Board anomaly) | Exam | in class |
 | 10/23 | Fri | CSCI 4511W | Writing 2 | Writing | 11:59pm |
-| 10/29 | Thu | ENGL 1004 | Journal 7 | Journal | — |
 | 10/30 | Fri | CSCI 4061 | Project 2 due | Project | — |
 | 11/3 | Tue | CSCI 4521 | HW 3 | Homework | — |
 | 11/4 | Wed | CSCI 5304 | HW #4 | Homework | 11:59pm |
 | 11/4 | Wed | MGMT 3015 | Business Idea Pitch slides, Group A (10%) | Presentation | before class |
-| 11/5 | Tue | ENGL 1004 | Journal 8 | Journal | — |
 | 11/6 | Fri | CSCI 4061 | Project 3 due | Project | — |
 | 11/6 | Fri | CSCI 4511W | Problem Set 3 (Code + Written) | Problem Set | 11:59pm |
 | 11/9 | Mon | MGMT 3015 | Business Idea Pitch slides, Group B (10%, same category as 11/4) | Presentation | before class |
@@ -90,7 +80,6 @@ Chronological, all six courses merged. "Weekly?" marked **No** for every row her
 | 11/18 | Wed | CSCI 5304 | HW #5 | Homework | 11:59pm |
 | 11/24 | Tue | CSCI 4521 | HW 4 | Homework | — |
 | 11/25 | Wed | CSCI 4511W | Writing 4 - Literature Review | Writing | 11:59pm |
-| 12/1 | Tue | ENGL 1004 | Journal 12 | Journal | — |
 | 12/2 | Wed | MGMT 3015 | Quiz 2 (10%) | Quiz | in class |
 | 12/3 | Thu | CSCI 4521 | Final Project Proposal | Project | — |
 | 12/4 | Fri | CSCI 4511W | Problem Set 4 (Code + Written) | Problem Set | 11:59pm |
@@ -98,7 +87,6 @@ Chronological, all six courses merged. "Weekly?" marked **No** for every row her
 | 12/9 | Wed | CSCI 4511W | **Long Quiz 03** | Exam | 11:59pm |
 | 12/11 | Thu | CSCI 4061 | Project 4 due | Project | — |
 | 12/14 | Mon | MGMT 3015 | Final Presentation, Group B | Presentation | in class |
-| 12/15 | Tue | ENGL 1004 | **FINAL EXAM** | Exam | in class |
 | 12/16 | Wed | MGMT 3015 | Final Presentation Group A + Written Business Plan (25%) + slides (10%) | Presentation/Exam | in class |
 | 12/17 | Thu | CSCI 4061 | **FINAL EXAM**, Section 010 | Exam | 4:00-6:00pm |
 | 12/18 | Fri | CSCI 4511W | **Final Project due** | Project | 11:59pm |

@@ -2,7 +2,7 @@
 type: class
 status: sprout
 created: 2025-12-25
-updated:
+updated: 2026-10-09
 area:
   - "[[APAS]]"
   - "[[Extra Credits]]"
@@ -67,9 +67,8 @@ next: "[[APAS]]"
 	- SMGT 3632 - Sport Sales and Fundraising (3 Cr.)  
 	- SSM 4504W - Sustainable Products Systems Management (3 Cr.) Writing Intensive
 
-### Status (Aug 2026)
-Core: done — MGMT 3001 (Spring'26, A-) + MGMT 3015 (Fall'26, `IP` — grades not posted yet, tracked as complete for planning). 7 of the 7+ required credits, 2 of 2 courses.
-Electives: 0 of the required 10 credits taken yet. None of the classes already on the transcript are on this elective list.
-The minor needs exactly 10 more credits, all picked from the list above.
-First pick to consider: `MGMT 4171W` (Entrepreneurship in Action I, 4 Cr., Writing Intensive) — upper-division WI, which also closes the CS degree's last open Lib Ed item, "1 more upper-division WI course" (see [[APAS]]). Two requirements, one class.
-Graduation target: Fall'27, not Spring'27 — the degree's Technical Electives + this minor's electives don't fit in one more semester. See [[Fall'26 Syllabus]] → "Path to Graduation" for the full math.
+### Status (2026-10-09)
+Core: MGMT 3001 is earned (Spring'26, A-); MGMT 3015 is in progress (Fall'26). Successful completion of MGMT 3015 would close the 7-credit, two-course core; it is not complete yet.
+Electives: 0 of the required 10 credits are recorded as taken. Select 10 approved elective credits from the list above and verify approval, prerequisites, and semester availability before registration.
+MGMT 4171W remains a candidate for minor credit and upper-division WI. After ENGL 1004 was dropped, one Literature/liberal education course also remains; MGMT 4171W is not verified to cover Literature. Reconcile WI allocation in [[APAS]] before requiring this elective.
+Graduation is fixed for **May 2028**. Plan minor electives alongside degree work across Spring'27, Fall'27, and Spring'28 in [[Fall'26 Syllabus#Path to Graduation]]. Approved minor electives may cover the recorded general-elective gap; count each course once.

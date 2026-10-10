@@ -5,9 +5,9 @@ source_app: claude-code
 source_os: windows
 title: "Obsidian crash and Syncthing conflicts"
 started_at: 2026-10-09T20:17:11
-ended_at: 2026-10-09T22:19:29
-exported_at: 2026-10-09T22:30:02
-duration_minutes: 122.3
+ended_at: 2026-10-09T22:31:02
+exported_at: 2026-10-09T23:00:02
+duration_minutes: 133.9
 project: Jarvis
 cwd: 'D:\Users\_Anant\10_Areas\Documents\Jarvis'
 session_id: 1d554ee2-451a-487a-b0b5-3f349bd6e43d

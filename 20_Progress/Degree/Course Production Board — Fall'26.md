@@ -2,7 +2,7 @@
 type: index
 status: sprout
 created: 2026-09-21
-updated: 2026-09-21
+updated: 2026-10-09
 tags:
   - moc
   - fall2026
@@ -14,12 +14,15 @@ notes:
   - "[[Weekly Workflow]]"
 next: "Dispatch the Mechanical Fixes prompt first (small, unblocks nothing else but is a five-minute win), then CSCI 4061 Week 1/Week 2 since that course has the most real unused source material sitting in its source folder already"
 ---
-# Course Production Board — Fall'26
-==This is the single dispatch board for catching all six Fall'26 courses up to real, source-grounded weekly/textbook/assignment notes — one task list and one ready-to-paste handoff prompt per unit of work, so any session (this one or a fresh one, any model) can pick up exactly one row and execute it correctly without re-deriving context.== This note does not execute anything itself. It is the coordination layer between the planning pass that produced it and the execution sessions that will consume it.
+# Course Production Board - Fall'26
+> [!IMPORTANT] Roster correction, 2026-10-09
+> ENGL 1004 has been dropped. The active roster is CSCI 4511W, CSCI 4061, CSCI 4521, CSCI 5304, and MGMT 3015. ENGL handoff prompts below are historical and must not be dispatched. Five weeks are complete; Week 6 starts Monday, 2026-10-12. Degree planning is fixed for May 2028 in [[APAS]] and [[Fall'26 Syllabus#Path to Graduation]].
+
+==This is the single dispatch board for catching all five active Fall'26 courses up to real, source-grounded weekly/textbook/assignment notes — one task list and one ready-to-paste handoff prompt per unit of work, so any session (this one or a fresh one, any model) can pick up exactly one row and execute it correctly without re-deriving context.== This note does not execute anything itself. It is the coordination layer between the planning pass that produced it and the execution sessions that will consume it.
 
 ## Purpose
 
-Six Fall'26 courses need their weekly notes, textbook notes, and assignment notes caught up to real class time. [[CSCI 4511W Workflow|CSCI 4511W]] already has the deepest system (a per-class Workflow file, a Board, real weekly/textbook/homework notes) and is being executed live in a separate session today — its remaining gaps are tracked here for visibility only, not dispatched from here. The other five courses (CSCI 4061, CSCI 4521, CSCI 5304, MGMT 3015, ENGL 1004) have excellent Board/Preparation/Textbook-Map notes already, but almost no weekly, textbook, or assignment content, and none of them has a per-class Workflow file yet. Concept notes are explicitly out of scope everywhere on this board.
+Five active Fall'26 courses need their weekly notes, textbook notes, and assignment notes caught up to real class time. [[CSCI 4511W Workflow|CSCI 4511W]] already has the deepest system (a per-class Workflow file, a Board, real weekly/textbook/homework notes) and is being executed live in a separate session today — its remaining gaps are tracked here for visibility only, not dispatched from here. The other four active courses (CSCI 4061, CSCI 4521, CSCI 5304, MGMT 3015) have excellent Board/Preparation/Textbook-Map notes already, but almost no weekly, textbook, or assignment content, and none of them has a per-class Workflow file yet. Concept notes are explicitly out of scope everywhere on this board.
 
 ## Non-negotiable rules for every session executing off this board
 
@@ -81,7 +84,7 @@ expected — don't force a replace that doesn't fit, flag it instead).
 - [ ] `30_Order/Workflows/Courses/Per Class/CSCI 4521 Workflow.md`
 - [ ] `30_Order/Workflows/Courses/Per Class/CSCI 5304 Workflow.md`
 - [ ] `30_Order/Workflows/Courses/Per Class/MGMT 3015 Workflow.md`
-- [ ] `30_Order/Workflows/Courses/Per Class/ENGL 1004 Workflow.md`
+- [-] `30_Order/Workflows/Courses/Per Class/ENGL 1004 Workflow.md` - course dropped; do not create.
 
 ```text
 HANDOFF PROMPT — Per-Class Workflow files (do all 5 in one session; they're short and mechanical
@@ -299,15 +302,15 @@ assignment's rubric was locatable locally.
 
 ---
 
-## ENGL 1004 — Banned Books
+## ENGL 1004 - Dropped; historical handoff
 
 **Status snapshot (2026-09-21):** Board/Preparation excellent. No `Weekly/` or `Textbook/` folder exists — **confirmed intentional**, stated directly in the course's own Preparation note (no textbook, whole novels assigned by date). This is the course that most deviates from the standard shape, and it genuinely needs a design decision before content gets produced (see the Per-Class Workflow handoff above, which is dispatched first and should resolve this). Source folder holds the syllabus PDF plus empty `Journal Entries/` and `Lecture/` folders — nothing saved locally yet for either. As of today (9/21, a Monday, this TTh course has no class), Sessions on 9/8, 9/10, 9/15, 9/17 have already happened with zero notes written.
 
-- [ ] **Blocked on the ENGL 1004 Workflow file's design recommendation** (see System Work section above) — do not create session/journal notes until that call is made (Weekly-Standard-shaped session notes vs. something lighter).
-- [ ] Once unblocked: session notes for 9/8 (Introduction), 9/10 (case law/state laws), 9/15 (state laws; Huckleberry Finn ch. 1-6; Journal 1 due), 9/17 (*The Camp of the Saints*).
-- [ ] Journal Entry tracking — needs its own design decision too (one Homework-standard note per entry vs. one consolidated tracker); flag for user alongside the Workflow file's recommendation rather than deciding silently.
-- [ ] No textbook notes for this course — it has none, confirmed by design.
-- [ ] Update Board `next:` once session notes exist.
+- [-] **Blocked on the ENGL 1004 Workflow file's design recommendation** (see System Work section above) — do not create session/journal notes until that call is made (Weekly-Standard-shaped session notes vs. something lighter).
+- [-] Once unblocked: session notes for 9/8 (Introduction), 9/10 (case law/state laws), 9/15 (state laws; Huckleberry Finn ch. 1-6; Journal 1 due), 9/17 (*The Camp of the Saints*).
+- [-] Journal Entry tracking — needs its own design decision too (one Homework-standard note per entry vs. one consolidated tracker); flag for user alongside the Workflow file's recommendation rather than deciding silently.
+- [-] No textbook notes for this course — it has none, confirmed by design.
+- [-] Update Board `next:` once session notes exist.
 
 ```text
 HANDOFF PROMPT — ENGL 1004 (run only after the Per-Class Workflow handoff has resolved the session-
@@ -335,12 +338,12 @@ Report back what shape was used and why.
 ## Execution order (recommended, not mandatory)
 
 1. Mechanical Fixes (5 min, unblocks nothing but clears real bugs).
-2. Per-Class Workflow files for all 5 courses (system work; ENGL 1004's file also unblocks that course's content work).
+2. Per-Class Workflow files for the four active courses other than CSCI 4511W; exclude ENGL 1004 from historical prompts above.
 3. CSCI 4061 Week 1/2 + Lab 1 — richest real source material already on disk, highest-value single session.
 4. CSCI 4521 Week 1/2 — the real Jupyter notebook makes this fast and low-risk.
 5. MGMT 3015 Sessions 1-3 + the two urgent homework notes (Profile is due *today*).
 6. CSCI 5304 Week 1/2 — genuinely blocked on textbook notes landing first; lower priority until the user pastes Gemini output for Lectures 1-4.
-7. ENGL 1004 — genuinely blocked on the Workflow file's design call; do last.
+7. ENGL 1004 work is cancelled because the course was dropped.
 8. Textbook notes for every course, as the user pastes Gemini Notebook output per chapter — ongoing, not a one-time pass.
 
 ## Links

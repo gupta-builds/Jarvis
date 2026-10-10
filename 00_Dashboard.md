@@ -2,7 +2,7 @@
 type: dashboard
 status: tree
 created: 2026-04-23
-updated: 2026-07-27
+updated: 2026-10-09
 tags:
   - dashboard
   - daily
@@ -119,7 +119,7 @@ wrap.innerHTML = `
 > [!todo] Habits — check off in today's note
 > - [ ] Move ≥1 company Current/ → Applied/
 > - [ ] LeetCode/CodePath ≥5
-> - [ ] Fall'26 class step (4511W / 4061 / 5304 / 4521 / MGMT 3015 / ENGL 1004)
+> - [ ] Fall'26 class step (4511W / 4061 / 5304 / 4521 / MGMT 3015)
 > - [ ] Review — run /closeday
 
 ## Internship Pipeline

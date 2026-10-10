@@ -2,22 +2,27 @@
 type: evergreen
 status: tree
 created: 2025-12-25
-updated: 2026-09-10
+updated: 2026-10-09
 tags:
   - evergreen
 notes:
   - "[[Extra Credits]]"
   - "[[UMN Board]]"
+  - "[[Fall'26 Syllabus]]"
+next: "Reconcile a fresh APAS audit after the ENGL 1004 drop, then build the Spring 2027 shortlist in Fall'26 Syllabus."
 ---
 ## Audit Metadata
-Real APAS report pulled 2026-09-10 11:42 AM, **Computer Science BSCompSc**, Catalog Year **Fall 2024**, Advisor **Jacquelyn Rupp**, Last College: College of Sci and Engineering. **APAS's own system-computed Expected Grad Term: Spring 2028** - not Fall'27. This is a real discrepancy with the vault's own graduation projection below, not a typo; see the warning under Path to Graduation in [[Fall'26 Syllabus]] for why Spring 2028 may now be the more realistic number.
+Real APAS report pulled 2026-09-10 11:42 AM, **Computer Science BSCompSc**, Catalog Year **Fall 2024**, Advisor **Jacquelyn Rupp**, Last College: College of Sci and Engineering. The recorded report's Expected Grad Term is **Spring 2028**.
+**Confirmed by Anant on 2026-10-09:** graduation is **May 2028**; ENGL 1004 has been dropped from Fall'26; one liberal education course remains. These updates supersede the old Fall'27 target and ENGL 1004's September `IP` status. The drop date and official transcript notation were not supplied. No fresh APAS report was retrieved in this session.
+There are exactly **four regular semesters left**, including the current one: Fall'26, Spring'27, Fall'27, and Spring'28. Five Fall'26 weeks have been completed; Week 6 starts Monday, 2026-10-12. The five retained Fall'26 courses are in progress. [[Fall'26 Syllabus#Path to Graduation]] holds the planning workspace for the next three semesters; this note owns the audit ledger and requirement baseline.
 ## Credits
 Total: 120 credits
-Earned: 76 · In progress (F 26, incl. CSCI 4521): 21 · Needs: 23 more once F26 posts
+Earned: 76 · Projected in progress after the ENGL 1004 drop: 18 · Projected remaining to reach 120 after successful F26 completion: 26.
+The 18-credit projection uses the five retained course rows below, including the existing 4-credit assumption for CSCI 4511W. This is local planning arithmetic, not a newly verified APAS total: 76 + 18 = 94; 120 - 94 = 26. Meeting 120 credits alone does not close every requirement or the minor.
 `gpa` - 3.338 | `tech gpa` - 3.157 (per Aug'26 APAS)
-Treating F26 as complete for planning (grades not posted yet, tracked as `IP` per class below): both GPAs go to 4.0 if every grade is an A. GPA isn't the constraint — credits and requirement buckets are.
-> [!NOTE] Two Fall'26 courses were swapped 2026-09-09; the resulting CS Core gap is now settled, not open
-> AMES 1201 → ENGL 1004, and CSCI 3081W → CSCI 4511W. ENGL 1004 still closes the same Lib Ed Literature bucket AMES 1201 was closing (confirmed by the real audit below). **CSCI 3081W → CSCI 4511W was not a clean swap** - it left Computer Science Core's "Program Design & Development" sub-requirement Unfulfilled, since only CSCI 3081W or MADR 3081W satisfies it, not CSCI 4511W. **Resolved 2026-09-10: CSCI 3081W (or MADR 3081W) is scheduled for Spring'27.** See Computer Science Core below.
+Fall'26 grades have not posted. Projections assume successful completion; earned credits and completed requirements remain separate. Future A grades do not erase earlier grades, so the previous claim that both cumulative GPAs would become 4.0 was incorrect. No updated GPA has been calculated.
+> [!NOTE] September swaps and the subsequent ENGL 1004 drop
+> AMES 1201 → ENGL 1004, and CSCI 3081W → CSCI 4511W. The September audit assigned ENGL 1004 to Literature; its subsequent drop reopens that gap. **CSCI 3081W → CSCI 4511W left Program Design & Development unfulfilled**: only CSCI 3081W or MADR 3081W satisfies it. The existing decision is to take that requirement in Spring'27; actual offering, eligibility, section, and registration remain to be verified.
 ### Classes
 **Overall**:
 
@@ -46,14 +51,13 @@ Treating F26 as complete for planning (grades not posted yet, tracked as `IP` pe
 | SP26 | PHYS1302W | 4.0     | A     | Physics for Sci and Engr II                               |
 | SI26 | HIST1015  | 3.0     | A     | Contemporary World History                                |
 | SI26 | STAT3021  | 4.0     | B     | Probability & Statistics                                  |
-| F 26 | ENGL1004  | 3.0     | IP    | Banned Books (replaced AMES1201, 2026-09-09)              |
 | F 26 | CSCI4511W | 4.0     | IP    | Introduction to Artificial Intelligence (replaced CSCI3081W, 2026-09-09) |
 | F 26 | CSCI4061  | 4.0     | IP    | Intro to Operating Systems                                |
 | F 26 | CSCI5304  | 3.0     | IP    | Matrix Theory                                             |
 | F 26 | MGMT3015  | 4.0     | IP    | Intro to Entrepreneurship                                 |
 | F 26 | CSCI 4521 | 3.0     | IP    | Applied Machine Learning for Computer and Data Scientists |
 
-`IP` = in progress, Fall'26. BBE 1002 (W) and MATH 1371 (D, repeated) are excluded — they don't count toward earned credits. ENGL 1004 and CSCI 4511W's real credit counts are carried over from AMES 1201 (3.0) and CSCI 3081W (4.0) respectively, pending confirmation - neither's actual credit value has been independently verified against Canvas or the real APAS course listing yet.
+`IP` = in progress, Fall'26. BBE 1002 (W) and MATH 1371 (D, repeated) are excluded from earned credits. ENGL 1004 is excluded from the active ledger and earns no projected credits; it was previously carried as 3.0 credits. Its official drop/withdrawal notation remains unverified. CSCI 4511W's 4.0-credit value remains the existing assumption pending confirmation against a fresh APAS report or enrollment record.
 ## Lib ed requirements
 1. *Writing Intensive*: **still open, confirmed Unfulfilled by the real 2026-09-10 audit** — 2 earned (PHYS1301W, PHYS1302W — both lower-division). Need **1 more upper-division WI course**; F26 does not close this out on its own.
 	- `MGMT 4171W` (Entrepreneurship in Action I, minor elective) is upper-division WI — closes this and the minor at the same time.
@@ -61,11 +65,11 @@ Treating F26 as complete for planning (grades not posted yet, tracked as `IP` pe
 3. **Diversified Core**:
 	- *Biological & Physical Sciences* - Complete (BIOL1012 + PHYS1301W)
 	- *Historical Perspectives & Social Sciences* - Complete (HIST1015 + GEOG1502)
-	- *Arts/Humanities & Literature* - **In Progress** per the real audit (was tracked "complete" via AMES1201 before the swap; now via ENGL1004, F26, still in progress until the grade posts)
+	- *Arts/Humanities & Literature* - **Open after the ENGL 1004 drop**. The September audit assigned ENGL 1004 to Literature; that course no longer contributes. One replacement liberal education course remains, as confirmed by Anant. Verify the exact Literature sub-requirement and approved course designation against a fresh audit before selection.
 	- *Mathematical Thinking* - Complete (MATH1271)
 	- **Designated Themes** - 4/4 complete: Race, Power & Justice (MUS1013) · Civic Life & Ethics (BIOL1012) · Global Perspectives (HIST1015) · Technology & Society (BBE1201)
 
-All Lib Ed is on track except the 1 remaining upper-division WI course - that's the one confirmed-open item in this section, separate from the Computer Science Core gap below.
+**One liberal education course remains after the drop**, for the Literature gap previously assigned to ENGL 1004. The September audit also records an outstanding broader upper-division WI requirement. These are separate audit checks, not proof that two separate courses must be added: an approved upper-division WI Literature course might cover both, or WI might be covered by required core/minor work. CSCI 4511W's within-major WI remains in progress. Verify all WI allocations on a fresh APAS audit; do not assume MGMT 4171W covers Literature.
 ## Major Requirements
 > [!TIP] New CSCI courses: 2081, 3041, 3061.
 > - CSCI 4521 (Applied Machine Learning for Computer and Data Scientists) — enrolled F26, not just recommended anymore.
@@ -76,8 +80,8 @@ The B.S. includes 23 credits of upper division elective courses (sometimes refer
 - The other 12 can also be CSCI courses, but could also come from non-CSCI approved track electives.
 - *Minimum Major credits and Major GPA*: real audit shows **Unfulfilled** (expected mid-degree) — 49 earned + 14 in progress (F26, incl. CSCI 4521) → **15 more needed** once F26 posts.
 - *Upper Division Credits in the Major*: real audit shows **In Progress**, not Complete — 5 earned + 14 in progress (F26, incl. CSCI 4521) = 19, which closes this exactly **once F26 grades post**. The credit math still works; the live status just reflects that F26 hasn't graded yet.
-> [!TIP] Computer Science Core: **Unfulfilled** for F26, and **settled for Spring'27** — not an open risk anymore
-> 7 of 8 sub-requirements are done. The 8th, **Program Design & Development, is Unfulfilled** and needs **4.00 credits from CSCI 3081W or MADR 3081W specifically** — no other course, including CSCI 4511W, satisfies it. Dropping CSCI 3081W for CSCI 4511W on 2026-09-09 left this sub-requirement with nothing feeding it. **Confirmed 2026-09-10: CSCI 3081W (or MADR 3081W) is scheduled for Spring'27** to close this out. CSCI 3081W's real syllabus/schedule/grading stays archived at `20_Progress/Degree/CSCI 3081W/` (not deleted) for when that Spring'27 retake actually gets planned.
+> [!TIP] Computer Science Core remains unfulfilled; Program Design & Development is planned for Spring'27
+> Six of eight sub-requirements are complete, Operating Systems is in progress, and Program Design & Development is unfulfilled. The latter requires **4.00 credits from CSCI 3081W or MADR 3081W specifically**, according to the recorded audit; CSCI 4511W does not satisfy it. The existing 2026-09-10 decision places this course in Spring'27. Confirm offering, prerequisites, section, and registration before treating it as scheduled. It has not been completed previously in this ledger, so this is planned core coursework, not a confirmed retake.
 - Sub-requirement detail, per the real audit:
 	1. Computer Architecture — Complete (CSCI 2021, F25, A-)
 	2. Linear Algebra — Complete (CSCI 2033, F25, A)
@@ -88,9 +92,9 @@ The B.S. includes 23 credits of upper division elective courses (sometimes refer
 	7. Ethics in Computing — Complete (CSCI 3923, SP26, A-)
 	8. Statistics — Complete (STAT 3021, SI26, B; audit notes "ARCC: MATH2230," an approved course-substitution cross-reference, not a separate requirement)
 - **Technical Electives**: real audit confirms **Unfulfilled**, and its **4xxx/5xxx-level CSCI coursework** sub-item is also **Unfulfilled**. Talk with an academic advisor about faculty-constructed tracks to complete a specialization. 23 credits needed, 11 must carry a CSCI designator.
-	- *Upper Division Math Oriented Requirement*: done — CSCI 5304 (F26), 3 credits.
+	- *Upper Division Math Oriented Requirement*: in progress via CSCI 5304 (F26), 3 credits; projected complete only after a qualifying grade posts.
 	- *In progress (F26)*: CSCI 5304 (3) + CSCI 4521 (3) = 6 credits, both CSCI-designated.
-	- *Remaining*: **17 credits still needed** once F26 posts, of which **5 more must be CSCI 4xxx/5xxx** (6 of the 11 CSCI-designated credits required are covered by CSCI 5304 + CSCI 4521) - **plus the newly-reopened 4-credit Program Design & Development gap above, which is separate from this bucket and doesn't count toward it.**
+	- *Recorded remaining projection*: **17 credits**, including **5 CSCI 4xxx/5xxx credits**, after successful F26 completion. This baseline omits CSCI 4511W's possible technical-elective allocation; see Planning reconciliation below before using it as the final gap. The 4-credit Program Design & Development requirement is separate from this bucket.
 	- You may use up to three total credits from CSCI 4970W, CSCI 5991, and CSCI 5994 combined toward this requirement.
 ## Elective Credits
 Total needed for this degree: 17 credits
@@ -105,3 +109,14 @@ Earned: 7 · In progress (F26, MGMT3015): 4 · **Remaining once F26 posts: 6 cre
 | F 26 | MGMT3015 | 4.0    | IP    | Intro to Entrepreneurship    |
 
 The 10 more [[Entrepreneurship Minor]] elective credits count here too — picking those courses closes this 6-credit gap and the minor's electives in the same moves. Unaffected by the 2026-09-09 course swaps.
+## Planning reconciliation before course selection
+The ENGL 1004 drop changes the total-credit projection and reopens Literature. CS and general-elective figures above remain the recorded September baseline; they have not been recomputed by the university.
+- **Technical-elective allocation:** the existing ledger counts only CSCI 5304 + CSCI 4521 (6 credits), leaving 17 of 23 total and 5 of 11 CSCI credits. [[Fall'26 Syllabus]] also labels CSCI 4511W a technical elective, but its assumed 4 credits are absent from that calculation. If APAS applies all 4 there, the projected gaps become 13 total and 1 CSCI credit. Verify allocation before treating either figure as final.
+- **Major-credit minimum:** the recorded 15-credit shortfall after F26 is a separate threshold. Do not add it to core and technical-elective buckets; the same coursework can meet multiple thresholds.
+- **Distinct future coursework:** the retained baseline gives 4 core + 17 technical + 10 minor elective + an assumed 3-credit Literature replacement = 34 credits across the next three semesters. This provisional sum becomes 30 if CSCI 4511W contributes 4 additional technical-elective credits. Literature credits and permitted overlap can change it; this is not an official graduation minimum. WI is not added as a separate course while allocation remains unresolved.
+- **General electives:** the recorded 6-credit gap can be covered by approved minor electives. Count those courses once in the distinct-course total.
+- **Minor:** MGMT 3001 is earned, MGMT 3015 is in progress, and 10 elective credits remain. [[Entrepreneurship Minor]] owns the candidate list.
+### Verification queue
+- [ ] Capture a fresh APAS report and verify ENGL 1004's removal, actual Fall'26 credits, Literature and WI status, CSCI 4511W's technical-elective allocation, and remaining credit/residency requirements.
+- [ ] Reconcile the ledger with advisor Jacquelyn Rupp, including whether CSCI 3081W covers the broader WI gap and whether chosen courses may overlap degree/minor requirements.
+- [ ] Use the reconciled ledger to choose and distribute courses in [[Fall'26 Syllabus#Path to Graduation]] through May 2028.

@@ -44,7 +44,12 @@ function Write-SyncLog {
     if (-not (Test-Path $LogDir)) {
         New-Item -ItemType Directory -Path $LogDir -Force | Out-Null
     }
-    Add-Content -Path $LogFile -Value $line
+    # Another process can briefly hold this log open (found 2026-10-09: a locked append
+    # dropped the "=== end (success) ===" line the health check reads), so retry.
+    for ($attempt = 0; $attempt -lt 5; $attempt++) {
+        try { Add-Content -Path $LogFile -Value $line -ErrorAction Stop; break }
+        catch { Start-Sleep -Milliseconds 200 }
+    }
 }
 
 function Get-CurrentBranch {

@@ -6,7 +6,7 @@ source_os: windows
 title: "I have two vaults."
 started_at: 2026-06-07T06:55:35
 ended_at: 2026-06-07T07:33:14
-exported_at: 2026-10-08T21:01:33
+exported_at: 2026-10-09T21:30:34
 duration_minutes: 37.7
 project: 2026-06
 session_id: 50388146-e6a8-4eab-a1d0-0a03c6937102

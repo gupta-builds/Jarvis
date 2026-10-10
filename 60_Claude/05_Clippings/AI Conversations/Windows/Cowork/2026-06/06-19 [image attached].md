@@ -6,7 +6,7 @@ source_os: windows
 title: "[image attached]"
 started_at: 2026-06-19T15:29:31
 ended_at: 2026-06-19T15:56:40
-exported_at: 2026-10-08T21:01:56
+exported_at: 2026-10-09T21:30:47
 duration_minutes: 27.1
 project: 2026-06
 session_id: bfccd5ca-ca25-4d07-8d1a-fb593d8607f3

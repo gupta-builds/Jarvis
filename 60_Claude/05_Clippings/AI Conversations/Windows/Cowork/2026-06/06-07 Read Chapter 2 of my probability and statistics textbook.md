@@ -6,7 +6,7 @@ source_os: windows
 title: "Read Chapter 2 of my probability and statistics textbook"
 started_at: 2026-06-07T18:06:30
 ended_at: 2026-06-13T07:22:13
-exported_at: 2026-10-08T21:01:22
+exported_at: 2026-10-09T21:30:29
 duration_minutes: 7995.7
 project: 2026-06
 session_id: 1851b510-1ef5-4dc7-a2cf-efbef3878de1

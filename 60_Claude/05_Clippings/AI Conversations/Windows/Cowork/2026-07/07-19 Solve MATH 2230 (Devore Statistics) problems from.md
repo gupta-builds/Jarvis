@@ -6,7 +6,7 @@ source_os: windows
 title: "Solve MATH 2230 (Devore Statistics) problems from"
 started_at: 2026-07-19T11:05:34
 ended_at: 2026-07-19T11:26:38
-exported_at: 2026-10-08T21:02:05
+exported_at: 2026-10-09T21:30:51
 duration_minutes: 21.1
 project: 2026-07
 session_id: 4835b2a1-f4f3-4244-b1a7-d374d1dd9510

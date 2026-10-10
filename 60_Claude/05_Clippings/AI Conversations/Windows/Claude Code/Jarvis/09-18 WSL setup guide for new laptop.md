@@ -6,7 +6,7 @@ source_os: windows
 title: "WSL setup guide for new laptop"
 started_at: 2026-09-18T14:24:21
 ended_at: 2026-09-19T02:01:49
-exported_at: 2026-10-08T21:00:31
+exported_at: 2026-10-09T21:30:11
 duration_minutes: 697.5
 project: Jarvis
 cwd: 'D:\Users\_Anant\10_Areas\Documents\Jarvis'

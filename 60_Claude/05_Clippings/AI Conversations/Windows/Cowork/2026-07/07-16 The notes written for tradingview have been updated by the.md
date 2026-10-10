@@ -6,7 +6,7 @@ source_os: windows
 title: "The notes written for tradingview have been updated by the"
 started_at: 2026-07-16T12:20:29
 ended_at: 2026-07-16T12:30:37
-exported_at: 2026-10-08T21:01:57
+exported_at: 2026-10-09T21:30:47
 duration_minutes: 10.1
 project: 2026-07
 session_id: 88c7f9d7-6cc0-43e1-95d6-c7e398f6d0b0

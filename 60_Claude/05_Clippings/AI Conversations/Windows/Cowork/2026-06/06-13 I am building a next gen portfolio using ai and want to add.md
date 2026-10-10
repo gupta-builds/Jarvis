@@ -6,7 +6,7 @@ source_os: windows
 title: "I am building a next gen portfolio using ai and want to add"
 started_at: 2026-06-13T16:45:56
 ended_at: 2026-06-13T16:45:56
-exported_at: 2026-10-08T21:01:54
+exported_at: 2026-10-09T21:30:45
 duration_minutes: 0
 project: 2026-06
 session_id: 43e27d1d-7979-4eb3-885c-e20f0d092dfe

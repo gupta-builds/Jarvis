@@ -6,7 +6,7 @@ source_os: windows
 title: "We have a casualops catch up meeting right now"
 started_at: 2026-06-28T20:37:01
 ended_at: 2026-06-28T20:57:26
-exported_at: 2026-10-08T21:01:35
+exported_at: 2026-10-09T21:30:35
 duration_minutes: 20.4
 project: 2026-06
 session_id: 4ed11988-1ad0-431e-8183-30766cac6d56

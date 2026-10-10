@@ -6,7 +6,7 @@ source_os: windows
 title: "You are writing a final exam for HIST 1103 (Contemporary"
 started_at: 2026-06-30T02:06:48
 ended_at: 2026-06-30T02:31:08
-exported_at: 2026-10-08T21:02:00
+exported_at: 2026-10-09T21:30:49
 duration_minutes: 24.3
 project: 2026-06
 session_id: 824dd392-40b7-41c8-a3f8-83e44d5090ea

@@ -6,7 +6,7 @@ source_os: windows
 title: "Today is sunday, the day we check in with you and check if"
 started_at: 2026-06-07T09:01:04
 ended_at: 2026-06-11T09:23:29
-exported_at: 2026-10-08T21:01:32
+exported_at: 2026-10-09T21:30:34
 duration_minutes: 5782.4
 project: 2026-06
 session_id: 24bcd150-9daa-4086-8d2f-6a8d9c647099

@@ -6,7 +6,7 @@ source_os: windows
 title: "You are solving MATH 2230 (Devore Statistics) Chapter 7.1"
 started_at: 2026-07-16T02:20:54
 ended_at: 2026-07-19T10:20:27
-exported_at: 2026-10-08T21:01:19
+exported_at: 2026-10-09T21:30:28
 duration_minutes: 4799.6
 project: 2026-07
 session_id: 1b5aa975-f38c-4bfd-b362-20e6a8b0625b

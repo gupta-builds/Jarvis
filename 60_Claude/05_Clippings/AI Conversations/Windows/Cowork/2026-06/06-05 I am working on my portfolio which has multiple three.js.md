@@ -6,7 +6,7 @@ source_os: windows
 title: "I am working on my portfolio which has multiple three.js"
 started_at: 2026-06-05T16:48:10
 ended_at: 2026-06-05T16:52:59
-exported_at: 2026-10-08T21:01:19
+exported_at: 2026-10-09T21:30:28
 duration_minutes: 4.8
 project: 2026-06
 session_id: a4609a00-003c-46f6-b7fe-5cb872bf100b

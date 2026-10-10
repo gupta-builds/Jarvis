@@ -6,7 +6,7 @@ source_os: windows
 title: "I have come across this really cool product quantflow and"
 started_at: 2026-07-10T09:26:37
 ended_at: 2026-07-10T09:37:46
-exported_at: 2026-10-08T21:02:06
+exported_at: 2026-10-09T21:30:51
 duration_minutes: 11.1
 project: 2026-07
 session_id: 5a3e6c43-c73d-4b1f-971c-6686543c5044

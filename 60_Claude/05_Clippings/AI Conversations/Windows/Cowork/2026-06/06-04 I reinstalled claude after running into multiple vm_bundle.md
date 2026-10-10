@@ -6,7 +6,7 @@ source_os: windows
 title: "I reinstalled claude after running into multiple vm_bundle"
 started_at: 2026-06-04T11:38:57
 ended_at: 2026-06-05T02:23:28
-exported_at: 2026-10-08T21:01:43
+exported_at: 2026-10-09T21:30:39
 duration_minutes: 884.5
 project: 2026-06
 session_id: 3a333e33-5f92-4982-889b-c445ad9bcddc

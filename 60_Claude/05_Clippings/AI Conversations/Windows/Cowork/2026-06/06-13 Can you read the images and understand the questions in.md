@@ -6,7 +6,7 @@ source_os: windows
 title: "Can you read the images and understand the questions in"
 started_at: 2026-06-13T06:21:19
 ended_at: 2026-06-13T11:20:20
-exported_at: 2026-10-08T21:01:31
+exported_at: 2026-10-09T21:30:33
 duration_minutes: 299
 project: 2026-06
 session_id: 091f5321-c7b9-470f-9fce-c6f8c6fc856d

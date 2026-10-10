@@ -6,7 +6,7 @@ source_os: windows
 title: "Acer Predator Helios Neo 16 AI setup"
 started_at: 2026-09-11T20:16:23
 ended_at: 2026-09-13T21:47:59
-exported_at: 2026-10-08T21:00:08
+exported_at: 2026-10-09T21:30:02
 duration_minutes: 2971.6
 project: Home
 cwd: 'C:\Users\Anant Gupta'

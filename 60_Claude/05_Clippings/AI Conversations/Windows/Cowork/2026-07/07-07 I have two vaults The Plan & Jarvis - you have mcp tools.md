@@ -6,7 +6,7 @@ source_os: windows
 title: "I have two vaults The Plan & Jarvis - you have mcp tools"
 started_at: 2026-07-07T04:25:11
 ended_at: 2026-07-07T08:05:00
-exported_at: 2026-10-08T21:01:27
+exported_at: 2026-10-09T21:30:31
 duration_minutes: 219.8
 project: 2026-07
 session_id: 87cbbff9-fa74-4974-a006-67221a38aa74

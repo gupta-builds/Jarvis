@@ -6,7 +6,7 @@ source_os: windows
 title: "# Portfolio Claude Code — ECC Execution Brief"
 started_at: 2026-06-05T03:44:25
 ended_at: 2026-06-05T03:52:57
-exported_at: 2026-10-08T21:01:23
+exported_at: 2026-10-09T21:30:29
 duration_minutes: 8.5
 project: 2026-06
 session_id: 42781d55-af48-4ee6-b13a-9c65a4181873

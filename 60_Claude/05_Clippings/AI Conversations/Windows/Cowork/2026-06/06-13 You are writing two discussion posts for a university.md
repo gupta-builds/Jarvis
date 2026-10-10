@@ -6,7 +6,7 @@ source_os: windows
 title: "You are writing two discussion posts for a university"
 started_at: 2026-06-13T09:33:05
 ended_at: 2026-06-27T08:42:34
-exported_at: 2026-10-08T21:01:47
+exported_at: 2026-10-09T21:30:41
 duration_minutes: 20109.5
 project: 2026-06
 session_id: 75d74fcc-5244-44ac-ba25-be1eb9c7863f

@@ -6,7 +6,7 @@ source_os: windows
 title: "I have a meeting right now to discuss about my potential"
 started_at: 2026-06-05T09:29:47
 ended_at: 2026-06-05T09:34:26
-exported_at: 2026-10-08T21:01:31
+exported_at: 2026-10-09T21:30:33
 duration_minutes: 4.6
 project: 2026-06
 session_id: 925c9614-ed89-4a36-be2a-28da75309ee4

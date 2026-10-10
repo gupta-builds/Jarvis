@@ -6,7 +6,7 @@ source_os: windows
 title: "Can you categorize your last week's sessions"
 started_at: 2026-07-01T15:54:10
 ended_at: 2026-07-01T15:57:13
-exported_at: 2026-10-08T21:01:30
+exported_at: 2026-10-09T21:30:33
 duration_minutes: 3
 project: 2026-07
 session_id: 50f3f67b-1959-4d77-aa4a-61e893763214

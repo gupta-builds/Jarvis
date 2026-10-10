@@ -6,7 +6,7 @@ source_os: windows
 title: "sync-roadmap-handoff"
 started_at: 2026-09-18T14:45:55
 ended_at: 2026-09-20T17:13:54
-exported_at: 2026-10-08T21:00:48
+exported_at: 2026-10-09T21:30:17
 duration_minutes: 3028
 project: Jarvis
 cwd: 'D:\Users\_Anant\10_Areas\Documents\Jarvis'

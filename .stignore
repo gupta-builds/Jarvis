@@ -9,6 +9,15 @@
 .obsidian/workspace-mobile.json
 .trash
 .obsidian/workspaces.json
+
+// Permanently disabled plugins' renamed folders (2026-10-09) - same reasoning
+// as .gitignore's entry. These are local-only disable backups, never meant
+// to sync - each machine's own install may already be in whatever state it's
+// in, and syncing a renamed-disabled folder could re-litigate a disable that
+// was already settled independently on the Dell for obsidian-hover-editor.
+.obsidian/plugins/obsidian-tasks-plugin.disabled/
+.obsidian/plugins/omnisearch.disabled/
+.obsidian/plugins/obsidian-hover-editor.disabled/
 // (?d)-prefixed (Build 13, 2026-10-06): each of these is one file inside a
 // plugin folder that otherwise holds normally-synced content (main.js,
 // manifest.json, styles.css) - if that plugin is ever uninstalled on one

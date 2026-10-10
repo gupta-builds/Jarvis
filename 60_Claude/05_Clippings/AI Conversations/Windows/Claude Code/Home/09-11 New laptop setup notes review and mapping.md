@@ -6,7 +6,7 @@ source_os: windows
 title: "New laptop setup notes review and mapping"
 started_at: 2026-09-11T09:25:36
 ended_at: 2026-09-11T14:02:33
-exported_at: 2026-10-08T21:00:06
+exported_at: 2026-10-09T21:30:02
 duration_minutes: 276.9
 project: Home
 cwd: 'C:\Users\Anant Gupta'

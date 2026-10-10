@@ -6,7 +6,7 @@ source_os: windows
 title: "You are implementing the Persistent Semantic Memory and"
 started_at: 2026-07-01T09:28:54
 ended_at: 2026-07-01T10:17:31
-exported_at: 2026-10-08T21:01:59
+exported_at: 2026-10-09T21:30:48
 duration_minutes: 48.6
 project: 2026-07
 session_id: 38acd5c1-7ba8-46c3-a3be-c8b24bbdb11f

@@ -6,7 +6,7 @@ source_os: windows
 title: "Alright, look."
 started_at: 2026-06-08T16:08:41
 ended_at: 2026-06-09T03:36:55
-exported_at: 2026-10-08T21:01:59
+exported_at: 2026-10-09T21:30:48
 duration_minutes: 688.2
 project: 2026-06
 session_id: a2a05e9d-41cb-4619-b11d-1ef0b3983467

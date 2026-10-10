@@ -6,7 +6,7 @@ source_os: windows
 title: "Now based on the email conversations we have had in this"
 started_at: 2026-07-15T10:46:18
 ended_at: 2026-10-04T20:05:26
-exported_at: 2026-10-08T21:01:30
+exported_at: 2026-10-09T21:30:32
 duration_minutes: 117199.1
 project: 2026-07
 session_id: 1f88e333-edab-431b-b648-7802bf9b97dd

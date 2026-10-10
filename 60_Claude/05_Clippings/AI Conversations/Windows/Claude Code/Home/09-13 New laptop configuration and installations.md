@@ -6,7 +6,7 @@ source_os: windows
 title: "New laptop configuration and installations"
 started_at: 2026-09-13T21:42:10
 ended_at: 2026-09-16T16:00:24
-exported_at: 2026-10-08T21:00:10
+exported_at: 2026-10-09T21:30:03
 duration_minutes: 3978.2
 project: Home
 cwd: 'C:\Users\Anant Gupta'

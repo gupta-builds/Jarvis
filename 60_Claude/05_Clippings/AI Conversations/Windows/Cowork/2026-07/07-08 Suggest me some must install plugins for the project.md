@@ -6,7 +6,7 @@ source_os: windows
 title: "Suggest me some must install plugins for the project"
 started_at: 2026-07-08T12:19:31
 ended_at: 2026-07-08T12:20:34
-exported_at: 2026-10-08T21:01:53
+exported_at: 2026-10-09T21:30:45
 duration_minutes: 1
 project: 2026-07
 session_id: c630a283-7c33-4ae3-9dd4-47ae7949fc0e

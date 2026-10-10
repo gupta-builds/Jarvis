@@ -6,7 +6,7 @@ source_os: windows
 title: "North Star — Execution Prompt"
 started_at: 2026-06-11T09:24:47
 ended_at: 2026-06-11T09:51:18
-exported_at: 2026-10-08T21:01:35
+exported_at: 2026-10-09T21:30:35
 duration_minutes: 26.5
 project: 2026-06
 session_id: 42776e64-2ae9-4d90-9c41-fcbf7472475a

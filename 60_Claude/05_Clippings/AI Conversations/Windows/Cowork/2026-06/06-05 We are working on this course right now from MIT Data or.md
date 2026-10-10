@@ -6,7 +6,7 @@ source_os: windows
 title: "We are working on this course right now from MIT Data or"
 started_at: 2026-06-05T10:38:01
 ended_at: 2026-06-05T11:13:04
-exported_at: 2026-10-08T21:02:07
+exported_at: 2026-10-09T21:30:51
 duration_minutes: 35
 project: 2026-06
 session_id: 3d957daa-ec99-49ca-b5e0-ba8c31629a7b

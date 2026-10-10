@@ -4,6 +4,24 @@
 .obsidian/cache
 .trash/
 
+# Permanently disabled plugins, kept as local-only backups by renaming their
+# folder (2026-10-09) - obsidian-tasks-plugin and omnisearch were both
+# confirmed, direct contributors to Obsidian's repeated OOM crash on this
+# vault (Tasks: 300+ warnings/launch scanning 60_Claude/05_Clippings/AI
+# Conversations with no folder-exclusion mechanism of its own; Omnisearch:
+# never completed a single full-vault index without crashing, so its own
+# caching could never take effect). obsidian-hover-editor was crashing with
+# an uncaught TypeError wrapping obsidian-spaced-repetition's Review Queue
+# view - already disabled on the Dell for this exact reason. Renaming the
+# folder (not just removing it from community-plugins.json / lazy-plugins'
+# config) is the only disable that actually holds: lazy-plugins rescans
+# installed plugin folders on every load and silently re-adds any plugin it
+# finds on disk but missing from its own tracking list, which is why every
+# earlier config-only disable attempt reverted on the very next launch.
+.obsidian/plugins/obsidian-tasks-plugin.disabled/
+.obsidian/plugins/omnisearch.disabled/
+.obsidian/plugins/obsidian-hover-editor.disabled/
+
 # Copilot plugin's model-catalog cache (2026-10-07) - a 5MB+ regenerated blob,
 # refreshed independently whenever Copilot checks for model updates on either
 # laptop, same per-machine-churn shape as Failure Mode 9's file-explorer-plus -

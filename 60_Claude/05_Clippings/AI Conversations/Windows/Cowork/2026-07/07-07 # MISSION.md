@@ -6,7 +6,7 @@ source_os: windows
 title: "# MISSION"
 started_at: 2026-07-07T08:05:59
 ended_at: 2026-07-07T08:55:37
-exported_at: 2026-10-08T21:02:04
+exported_at: 2026-10-09T21:30:50
 duration_minutes: 49.6
 project: 2026-07
 session_id: b214ea0a-3103-420e-868e-196bc326d8cf

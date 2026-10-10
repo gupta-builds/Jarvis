@@ -18,7 +18,7 @@ tokens:
   output: 0
   cache_read: 0
   cache_creation: 0
-next: "[[60_Claude/05_Clippings/AI Conversations/Dell/WSL/Claude Code/CausalOps/00 - Tool Usage Rollup|00 - Tool Usage Rollup]]"
+next: "[[60_Claude/05_Clippings/AI Conversations/Dell/WSL/Claude/CausalOps/00 - Tool Usage Rollup|00 - Tool Usage Rollup]]"
 tags:
   - input
   - ai-conversation

@@ -4,7 +4,7 @@ description: Extract the full text of a PDF as Markdown using Copilot Plus. Use 
 license: Copilot Plus
 metadata:
   copilot-enabled-agents: opencode, claude, codex
-  copilot-builtin-version: "8"
+  copilot-builtin-version: "9"
 ---
 
 # Copilot read PDF

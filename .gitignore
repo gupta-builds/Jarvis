@@ -126,6 +126,13 @@ mcp.env
 # this exact exclusion.
 30_Order/System/claude-workflow/logs/weekly-review.log
 
+# .weekly-review.lock - run-weekly-review.ps1's own per-run mutex, created at
+# the start of each headless fire and removed at the end (or treated as stale
+# after 120 min). Found 2026-10-11 (W41 review) sitting untracked in git
+# status with no matching .gitignore/.stignore entry - same per-machine,
+# transient-runtime-state shape as the other entries in this block.
+30_Order/System/claude-workflow/scripts/.weekly-review.lock
+
 # Proven machine-local state that caused recurring cross-device conflicts —
 # every one of these already lived in .stignore (Syncthing-side) since Build
 # 9 or earlier, but was never added here, so git-auto-sync's own pull/rebase
@@ -189,13 +196,6 @@ mcp.env
 # Excalidraw MCP local install (npm package, regenerable)
 30_Order/System/excalidraw-mcp/node_modules/
 30_Order/System/excalidraw-mcp/*.log
-
-# excalidraw.log (Build 14, 2026-10-09) - the Excalidraw MCP server writes this
-# into whatever directory it was launched from (vault root, claude-workflow/,
-# lazy-plugins/), once per laptop, so each laptop's copy differs. Already
-# (?d)-prefixed in .stignore; this was the matching .gitignore line missing,
-# found by /weekly-review's Step 7.6 ignore-symmetry audit (2026-10-11).
-excalidraw.log
 
 # Lean Terminal plugin's native node-pty dependency (npm package, regenerable)
 .obsidian/plugins/lean-terminal/node_modules/

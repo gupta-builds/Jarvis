@@ -53,11 +53,12 @@ The Acer's cloud copy has landed on the Dell's Windows VS Code, with Acer-only p
 
 ## Session sequence
 1. WSL layer ([[Old Laptop Rebuild - Prompt 1 WSL]]): audit, `.wslconfig`, tool parity, WSL-side cleanup, Jarvis log.
-2. Windows host, `C:\Users\Anant Gupta`: pagefile, AppData cleanup (Roaming/Claude, Local), Temp and crash dumps, quarantine folder, startup and services, Defender exclusions for the vhdx and `~/projects`, power plan.
-3. D: offload: `wsl-ubuntu.tar`, game archives, recycle-bin Rust target dirs, Docker prune, model files.
-4. Terminal parity (Windows Terminal, PowerShell profile, Starship).
-5. VS Code parity (extensions 39/34, settings, MCP registry).
-6. Dev-only profile and a final verification pass against the Acer.
+2. Build 2 (WSL VS Code and the two-laptop SSH workflow): see [[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]].
+3. Build 3, Windows C: cleanup, Google Drive mirror, D: baseline and Windows-side WSL host settings (pagefile, AppData, Temp and crash dumps, quarantine, startup and tasks, Defender exclusions, D: offload). Prompt in [[Old Laptop Rebuild - Windows Prompts (Build 3 C Drive Cleanup and Build 4 Terminal Parity)]], run with the WizTree screenshots attached.
+4. Acer dotfile snapshot (appendix prompt in the same note), so terminal configs can be copied from the Acer instead of rebuilt from notes.
+5. Build 4, Windows terminal installs and config parity (PowerShell 7, Windows Terminal, Starship, Yazi, fonts, shared config hashes). Same note.
+6. Build 5, Windows VS Code and MCP wiring (extensions 39/34, settings, MCP registry), with the stale Acer paths from Build 2's findings.
+7. Build 6, dev-only profile and a final verification pass against the Acer.
 
 ## Logging rule for every session
 Each session writes `Old Laptop Rebuild - Build N <layer> Findings.md` here, with a before/after size table, every state-changing command, the root cause of every error, and a Growth rules section (the standing rule and one check command per thing that grew).

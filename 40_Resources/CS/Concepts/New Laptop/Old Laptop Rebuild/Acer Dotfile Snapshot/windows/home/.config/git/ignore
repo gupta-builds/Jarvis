@@ -1,0 +1,11 @@
+# Global git ignore (read automatically by git; core.excludesFile is unset).
+# Secret-bearing files never get committed from any repo on this machine.
+# A repo that must track one of these can force it with `git add -f`.
+.env
+.env.local
+.env.*.local
+.env.production
+.mcp.env
+.credentials.json
+*.pem
+*.key

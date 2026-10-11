@@ -1,0 +1,6 @@
+tmux-agent-status
+tmux-continuum
+tmux-fzf
+tmux-handlr
+tmux-resurrect
+tpm

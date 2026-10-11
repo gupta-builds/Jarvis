@@ -1,0 +1,6 @@
+[windows]
+	appendAtomically = false
+[core]
+	longpaths = true
+	fsmonitor = true
+	untrackedCache = true

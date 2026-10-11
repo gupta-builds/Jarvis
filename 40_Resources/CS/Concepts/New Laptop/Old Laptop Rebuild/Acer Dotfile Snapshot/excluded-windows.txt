@@ -1,0 +1,9 @@
+Source	RelDest	Reason
+C:\Users\anant\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1	powershell\WindowsPowerShell\Microsoft.PowerShell_profile.ps1	not present on this host
+C:\Users\anant\Documents\PowerShell\Microsoft.PowerShell_profile.ps1	powershell\PowerShell\Microsoft.PowerShell_profile.ps1	not present on this host
+yazi	(n/a)	no yazi binary/config found on Windows side (used only in WSL on this host)
+lazygit	(n/a)	no lazygit binary/config found on Windows side
+bat	(n/a)	no bat binary/config found on Windows side
+ripgrep config	(n/a)	rg.exe present but no custom config file (no RIPGREP_CONFIG_PATH, no ~/.ripgreprc) - uses defaults
+delta	(n/a)	no delta binary/config found on Windows side
+gh-dash	(n/a)	no gh-dash config found on Windows side

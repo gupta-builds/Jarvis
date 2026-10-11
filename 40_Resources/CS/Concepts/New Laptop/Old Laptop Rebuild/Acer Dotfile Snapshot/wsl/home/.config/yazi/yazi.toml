@@ -1,0 +1,24 @@
+[mgr]
+show_hidden = false
+show_symlink = true
+sort_by = "natural"
+sort_dir_first = true
+
+[preview]
+tab_size = 2
+max_width = 1200
+max_height = 1200
+image_filter = "lanczos3"
+image_quality = 90
+
+[[plugin.prepend_fetchers]]
+id    = "git"
+url   = "*"
+run   = "git"
+group = "git"
+
+[[plugin.prepend_fetchers]]
+id    = "git"
+url   = "*/"
+run   = "git"
+group = "git"

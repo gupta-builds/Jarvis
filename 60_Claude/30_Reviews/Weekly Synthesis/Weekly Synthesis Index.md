@@ -45,3 +45,4 @@ Use [[Weekly Synthesis Template]] to generate new review notes. The template inc
 | 2026-W22 | [[Weekly Synthesis — 2026-W22]] | Claude Pro workflow wired in; three-month spine 30% complete, 4 weeks behind |
 | 2026-W39 | [[Weekly Synthesis — 2026-W39]] | First review since the Fall 2026 Plan started, 3 weeks late; internship applications still at zero, git sync broken 5 days |
 | 2026-W40 | [[Weekly Synthesis — 2026-W40]] | First real unattended fire of the scheduled task; git sync fixed, but Syncthing itself down ~21 hours with one log entry lost and restored; applications still at zero |
+| 2026-W41 | [[Weekly Synthesis — 2026-W41]] | Obsidian OOM crash root-caused and fixed; daily-note floor collapsed to zero for six days; applications still at zero five weeks in; per-project Sync-Logs vanished, replaced by two logs stale since 09-21 |

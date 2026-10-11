@@ -2,7 +2,7 @@
 type: note
 status: sprout
 created: 2026-10-04
-updated: 2026-10-04
+updated: 2026-10-11
 course: Life
 track:
   - laptop
@@ -11,151 +11,149 @@ tags:
   - note
 related:
   - "[[Old Laptop Rebuild - Index]]"
-  - "[[Ubuntu - WSL]]"
-  - "[[Installations]]"
+  - "[[Old Laptop Rebuild - Build 1 WSL Findings]]"
+  - "[[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]]"
+  - "[[Old Laptop Rebuild - Build 2 SSH Runbook]]"
+  - "[[Old Laptop Rebuild - Build 2 Acer Handoff]]"
+  - "[[Old Laptop Rebuild - Windows Prompts (Build 3 C Drive Cleanup and Build 4 Terminal Parity)]]"
+  - "[[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]]"
+next: Run Prompt 1.1 in a fresh Dell WSL Codex session; close Phase 4, then continue every deferred Build 2 item and Builds 3-6 in Index order
 ---
 # Old Laptop Rebuild - Prompt 1 WSL
 
-Run in Codex (gpt-5.6-sol, medium effort) from `/home/anant_gupta` on the old laptop. Start it with `codex -m gpt-5.6-sol -c model_reasoning_effort=medium`, or set the effort with `/model`. Sibling notes: [[Old Laptop Rebuild - Index]].
+Run this revision as **Prompt 1.1 (Refix)** in Codex from `/home/anant_gupta` on the Dell. Use GPT-6 Luna at medium reasoning effort: `codex -m gpt-6-luna -c model_reasoning_effort=medium`. If that model name is unavailable, stop and report the available model names instead of silently switching. This is a multi-session completion plan, not permission to skip a gate or mark an unverified phase done.
 
-## Prompt
-
-~~~text
-You are Codex running in the WSL home directory (/home/anant_gupta) of the old laptop: Dell Latitude 5530, Windows 11 Pro, Ubuntu-24.04 on WSL2. This session works on the WSL layer only: audit, plan, then execute the changes I approve. Windows-side work (C: cleanup, pagefile, Windows Terminal, VS Code) belongs to later sessions. Record what you notice for them, but do not do it.
-
-# Goal
-Make this WSL install match the new laptop's (Acer) WSL configuration, and stop WSL from filling C:. The new laptop's notes are the reference. This machine already works, so repair it in place and align it. Do not rebuild it unless the audit shows real corruption.
-
-# Read first, in full
-Vault: /mnt/d/Users/_Anant/10_Areas/Documents/Jarvis (also reachable through the jarvis MCP). Read vault AGENTS.md before writing there. Then read every note in 40_Resources/CS/Concepts/New Laptop/, especially:
-- Ubuntu - WSL (Current State, Mistakes already made once)
-- Installations (the "Full software list - WSL side" table)
-- WSL New Laptop Master Plan (Decisions, Maintenance Cadence; the phases are historical)
-- Acer Live State (WSL execution log, round 2)
-- VS Code - WSL, VS Code - Install Loop, VS Code - Terminal Environments, VS Code - MCP and Secrets
-- WSL Session Briefing (old Dell findings; re-verify before trusting any of it)
-- Old Laptop Rebuild/Old Laptop Rebuild - Index (facts and the session sequence)
-Notes can be stale or contradict each other. The live machine wins. Verify a claim before acting on it, and log each contradiction you find.
-
-# Verified facts (2026-10-04)
-- Hardware: i7-1255U (10 cores, 12 threads), 32 GB RAM, Intel Iris Xe only. There is no NVIDIA GPU, so skip CUDA and WSL GPU tuning. Ollama stays on the Windows side.
-- C: is 251.9 GB with 28.6 GB free. D: is 700 GB with about 366 GB free. One NVMe disk.
-- Distro: D:\WSL\Ubuntu\ext4.vhdx is 105.4 GB. About 84 GB is used inside it, and the kernel is 5.15.167.4. Docker's disk is D:\Docker\DockerDesktopWSL\disk\docker_data.vhdx (33.8 GB).
-- C:\Users\Anant Gupta\.wslconfig currently holds networkingMode=mirrored, firewall=true, memory=16GB, processors=8. It has no swap setting, so WSL's swap vhdx defaults to %TEMP% on C:.
-- /etc/wsl.conf is correct. Never put a [wsl2] section in it.
-- Home usage: projects 47G (umn 19, ai 16, hub 11, hackathon 3.1), .vscode-server 7.8G, .npm 6.7G, .local 4.3G, .cursor-server 3.6G, .cache 2.9G, .claude 2.8G, .codex-archive 1.9G, .codex 1.6G, .rustup 1.3G, .nvm 1.3G, .vscode-remote-containers 1.1G.
-- WSL footprint on C: includes AppData\Local\Temp (3.6 GB, with wsl-crashes dumps), C:\Users\Anant Gupta\vscode-remote-wsl (6.3 GB), and C:\Users\Anant Gupta\codex-cleanup-quarantine-2026-09-20 (2.3 GB, a past quarantine that sits on the drive we are trying to free).
-- These repos had unpushed or uncommitted work on 2026-08-26. Re-check them: second-brain-claudekit (22 ahead), internship-research-loop (25 behind), portfolio, Assisto_website, tradingview, GymMangment_app_demo, DNA_BJJ_APP, Resq, adx-worktree-throwaway-test.
-- The Jarvis and The Plan MCP servers are Obsidian on Windows at 127.0.0.1:27123 and :27124. WSL reaches them only because networking is mirrored. Keep mirrored. The CheckConnection log noise is a known side effect to measure, not a reason to switch to NAT.
-- sudo needs a password you cannot type. Put every sudo step in a script for me to run, and do not stall on it or work around it.
-- A parallel session (Build 2) configures VS Code on the WSL side. Do not modify ~/.vscode-server extensions, data or settings, ~/.vscode, ~/.config/vscode-env, or the global git and Claude Code config. Build 2 may ask you to apply .wslconfig keys it records for an always-on SSH host (vmIdleTimeout and similar).
-- Do not run wsl --shutdown or anything else that restarts WSL. It would kill this session. Windows-host steps go in a .ps1 file that I run.
-
-# Target state
-1. .wslconfig (edit through /mnt/c, back up the old file first). Target values:
-   memory=20GB, processors=10, swap=8GB, swapfile=D:\\WSL\\swap.vhdx, networkingMode=mirrored, firewall=true.
-   Add autoMemoryReclaim=gradual and sparseVhd=true in whichever section the current Microsoft WSL docs place them. Check the docs and `wsl --version` first. If the docs disagree with any value above, follow the docs and log why.
-   Use whole numbers with units and doubled backslashes. Write the file from bash and read it back right after, because an earlier .wslconfig write failed silently.
-2. WSL toolchain parity: diff what is installed against the Acer list in Installations. Install what is missing, in user space where possible. The list includes direnv, wslu, delta, lazygit, zoxide, sesh, atuin, gh-dash, starship, yazi, tmux with TPM and its plugins, win32yank, ncdu, semgrep, a chafa binary of 1.16 or newer, and rustup. For config parity, use a dotfile snapshot if the vault has one (search the Old Laptop Rebuild folder and Acer Live State). Otherwise rebuild each config from what the notes describe, and label it "from notes, not from Acer".
-3. Fresh-install policy: never copy another machine's AI-platform home directories, SSH keys, tokens or .mcp.env here. Leave ~/.claude and ~/.codex credentials alone.
-4. Disk: shrink what WSL occupies and make sure nothing WSL-related defaults back to C:. Cover swap, crash dumps, editor servers, package caches, regenerable build output inside projects, and Docker.
-
-# What you may do without asking
-- Read-only inspection of anything, including /mnt/c and /mnt/d.
-- Writing notes under the Old Laptop Rebuild vault folder.
-- Backing up and editing .wslconfig, and writing WSL-side config files.
-- Installing user-space tools.
-- Clearing regenerable package caches: npm, pnpm store, uv, pip, cargo registry cache.
-- Running `fstrim` only if it needs no sudo, otherwise put it in the script.
-
-# Ask first (show the list with sizes, then wait for my reply)
-- Deleting anything under ~/projects, including node_modules, .venv, target, .next and other build dirs.
-- Deleting from ~/.codex-archive, ~/.claude, ~/.codex, and the editor server folders. Never touch editor servers while an editor is attached.
-- Any change on /mnt/c or /mnt/d other than .wslconfig and the host script below.
-- Docker prune, and git commit, push, reset or rebase in any repo.
-- Any wsl --unregister, --import or --export.
-Never print secret values (.mcp.env, auth.json, .credentials.json, gh hosts, ssh keys). Checking file permissions is fine.
-
-# Work plan
-Phase 1, audit (read-only). Cover:
-- Health: dmesg, journalctl, `systemctl --failed`, how often CheckConnection errors fire, and the root cause of the wsl-crashes dumps.
-- Versions of every tool, and sizes by directory (use ncdu or du).
-- Repo inventory: for each repo under ~/projects, `git status --short --branch`, ahead/behind, and the size of ignored or regenerable artifacts.
-- Cache sizes, and what is left in the editor server folders.
-- The WSL footprint on C:, and `docker system df` if Docker responds.
-
-Phase 2, plan and checkpoint. Write your findings and proposed changes to the vault (see Logging), then stop and present:
-- (a) Repair in place or rebuild. Default to in place. Recommend a rebuild only if every repo has been pushed and the audit found real corruption.
-- (b) A removal manifest with sizes and the GB each item should reclaim.
-- (c) The exact .wslconfig diff.
-- (d) The parity diff.
-Wait for my reply before changing anything beyond the pre-authorized items above.
-
-Phase 3, execute what I approve. Verify each change as you make it. Write D:\WSL\ops\wsl-host-step.ps1 for me to run. It should do `wsl --update`, back up the .wslconfig, `wsl --shutdown`, enable sparse mode on the distro (`wsl --manage Ubuntu --set-sparse true`), print the vhdx size before and after, and print the verification commands. Save it as a file, because pasted long lines have corrupted commands on this machine before. After I run it, give me a short list of commands to paste back and check.
-
-# Logging in Jarvis (required)
-Write all notes under 40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild/. Follow the vault write contract: never create files at the vault root, keep each note's frontmatter, patch by heading. Create "Old Laptop Rebuild - Build 1 WSL Findings.md" in the same style as the Cross-Laptop Sync Build Findings notes (frontmatter, One-Line Answer, Mechanism, Failure Modes, Flashcards). It must include:
-- A before/after table: top WSL home directories, vhdx size, swap location, C: free and D: free.
-- Every command that changed state, and every error hit with its root cause.
-- Each decision and the reason for it.
-- Open items handed to later sessions (Windows host, D: offload, terminal, VS Code), with the numbers you found.
-- A "Growth rules" section. For everything that grew (swap on C:, crash dumps, editor servers, caches, project build output, Docker vhdx), give the standing rule and the one command that checks it, so the same growth cannot return silently.
-Also add one line to 60_Claude/07_AI_Information/Session Logs/log.md and update the status line in "Old Laptop Rebuild - Index". Propose a monthly check list, but do not build tooling I did not ask for.
-
-# Stop rules
-- If the live machine contradicts anything above, trust the machine and log the difference.
-- If one step fails twice for the same reason, stop and report the cause and the smallest next check.
-- If you notice yourself re-reading the same files without progress, stop and summarize.
-
-# Final message
-Lead with the result in a few lines: GB reclaimed (measured), what changed, what is waiting for me, and the host script path. List open decisions as short bullets. Do not paste the notes back.
-~~~
-
-## Follow-up 1: execute the approved plan (2026-10-04, after the audit checkpoint)
-
-Send this to the same Codex session that returned the audit. It answers each open decision from the checkpoint, adds the two idle-timeout keys that the original target list missed (see [[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]], Decision 3), and turns every step that sandbox or sudo blocks into a script with exact commands. Pasting it approves the project-artifact deletions in item 4, so delete that item first if you want a smaller set.
+## Prompt 1.1 (Refix)
 
 ~~~text
-Your audit checkpoint is accepted. Below are my answers to your open decisions. Execute Phase 3 now, one numbered step at a time, verifying each step before starting the next. Re-read your own Build 1 WSL Findings note first, and read the "Decision 3" section of Codebases/Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem (same vault folder tree, 40_Resources/CS/Concepts/New Laptop/). It changes one thing in your plan: this laptop becomes an always-on SSH host for Build 2.
+You are Codex working on the Dell Latitude 5530, Windows 11 Pro with Ubuntu 24.04 on WSL2. Run from `/home/anant_gupta`. This is a continuation, not a rebuild. Build 1's WSL repair is complete. Build 2 is partly complete and Phase 4 is underway. Your assignment is to close the remaining Build 2 work and carry the laptop sequence through Builds 3, 4, 5, and 6, in the order in the Index. Work one bounded step at a time, verify it, record it, and preserve every user approval gate.
 
-# Approved
-1. .wslconfig: apply your exact diff, plus two keys you did not have. The final file must contain, under [wsl2]: networkingMode=mirrored, firewall=true, memory=20GB, processors=10, swap=8GB, swapfile=D:\\WSL\\swap.vhdx, vmIdleTimeout=-1. Under [general]: instanceIdleTimeout=-1. Under [experimental]: autoMemoryReclaim=gradual, sparseVhd=true. Confirm each key name and section against the current Microsoft WSL configuration reference and against the WSL version that exists after `wsl --update`. If the updated WSL does not recognize a key, tell me instead of guessing. Both idle keys are required together: vmIdleTimeout alone does not keep the distro alive past the 15-second instanceIdleTimeout. This means the VM never auto-shuts down. That is deliberate, and autoMemoryReclaim keeps memory in check.
-2. Cache cleanup: npm, pnpm store, pip, cargo, uv, using each tool's own cleanup command. Record sizes before and after.
-3. Toolchain parity: install everything on your "missing or incomplete" list in user space, plus Antigravity (agy), and update uv, rustup and Kiro CLI if their installers support it. Prefer GitHub release binaries over `cargo install` (delta, lazygit, yazi, sesh, zoxide, atuin, starship, win32yank), because compiling creates new cache. Verify each tool with its own --version right after installing it. Build configs "from notes, not from Acer" and label them. Add shell hooks only after the binary is verified. fd and bat need the `fdfind` and `batcat` symlinks in ~/.local/bin. For wslu: re-test after the WSL update. If wslview is still broken because of WSLInterop-late, set a BROWSER wrapper in the shell block that uses powershell.exe or cmd.exe to open URLs, and log it. Do not patch system files.
-4. Project artifacts: delete the verified Git-ignored, regenerable directories from your manifest, with these rules:
-   - Re-verify each path at deletion time with `git check-ignore`, and require a lockfile or manifest that can rebuild it (package-lock, pnpm-lock, yarn.lock, uv.lock, pyproject, requirements, Cargo.lock).
-   - Skip both gstack copies and both gbrain copies. They are installed tools whose dist and node_modules are used at runtime.
-   - Skip any path referenced by an MCP config, an agent or hook config, a systemd unit or a cron entry (search ~/.claude.json, ~/.claude/settings.json, ~/.codex/config.toml, ~/.mcp.json, ~/.config/systemd and crontab). Skip any directory with an open file or a running process.
-   - Hold the 1.03 GiB no-enclosing-repo project and ai/claude/claude-ai/node_modules.
-   - Write the manifest of what you actually deleted into the findings note, with sizes. Delete largest first and measure free space after each group.
-   - umn/boom/target is approved even though it is the largest.
-5. Hold, do nothing: ~/.codex-archive, ~/.claude, ~/.codex, all git operations, and the C: items. Editor servers (.vscode-server, .cursor-server, .vscode-remote-containers) and Miniconda go to Build 2. Docker, vscode-remote-wsl, the old quarantine, %TEMP%\wsl-crashes and the ConversationCapture-Backfill-WSL scheduled task go to the Windows-host session. Record each with its current numbers as handoffs.
+The project is not complete until every listed work item is either verified complete or explicitly recorded as waiting on a named user action, decision, machine, or approval. A script that was written but not run is pending, not done. An item described as deferred or optional in an older note remains in the completion ledger until it is completed or the user explicitly cancels it.
 
-# Order of work
-1. Preflight: confirm no VS Code or Cursor server process is attached, and record C: and D: free space and both VHDX sizes.
-2. Item 3 installs, with --version checks and a log line per tool.
-3. Item 3 configs.
-4. Item 4 project artifact deletion.
-5. Item 2 cache cleanup (last, so install caches are included).
-6. Write the sudo script, then the .wslconfig edit, then the host scripts (details below).
-7. Finish all vault logging before you hand me the host script. The WSL restart ends this session.
+# Mission
 
-# Where something is blocked
-Do not retry a blocked command and do not look for a workaround. If the sandbox or sudo blocks a step, write the exact commands to a script file and give me the one command to run it.
-- /mnt/d/WSL/ops/build1-sudo-step.sh: `apt install -y fd-find bat ncdu direnv`, any other apt package parity needs, and `fstrim -av` as the last line. Begin with `set -euo pipefail` and print each step. I run it with `sudo bash /mnt/d/WSL/ops/build1-sudo-step.sh`.
-- .wslconfig: back up the existing file, write the new one from bash, and read it back. If the write is blocked, save the full file as /mnt/d/WSL/ops/wslconfig.new and give me the one PowerShell command that backs up and replaces it.
-- D:\WSL\ops\wsl-host-step.ps1 (I run it from PowerShell after closing every editor and other WSL session): print sizes, `wsl --update`, `wsl --shutdown`, wait, then `wsl --manage Ubuntu --set-sparse true`. If updated WSL refuses to convert the existing disk, stop and print the documented manual compaction commands for my decision. Never use an unsafe override. Then start the distro, and print the verification block: `wsl -l -v`, `wsl --status`, `free -h`, `nproc`, `swapon --show`, `Get-Item D:\WSL\swap.vhdx`, the Ubuntu VHDX length, and the CheckConnection count for the first minutes.
-- D:\WSL\ops\wsl-idle-test.ps1: after the host script, start the distro with a command that exits at once, wait 60 seconds, then run `wsl -l -v` and print PASS if the distro is still Running and FAIL if not. The test is valid only when no other WSL terminal, VS Code window or Codex session is open, so print that precondition first.
-Give me the exact run order in your final message: sudo script, close everything, host script, idle test.
+1. Finish the partially started Build 2 Phase 4 Dell-to-Acer access path, using the current live state rather than rerunning installation steps that already succeeded.
+2. Complete the other deferred Build 2 work, including the unrun sudo package step, Phase 2 items 7-9, and remaining Phase 4 work.
+3. Carry out Builds 3-6 according to `Old Laptop Rebuild - Index` and the relevant build prompts. Those builds cross machine and OS boundaries, so write clear handoffs and scripts for the right session instead of pretending to execute Windows or Acer work from this Dell WSL session.
+4. Keep a durable completion ledger in the findings notes and Index so context loss or a session boundary cannot silently drop work.
 
-# Logging
-Update "Old Laptop Rebuild - Build 1 WSL Findings" in place by heading: a measured "after" table, the manifest of what was deleted, each install with its version, the final .wslconfig, every error and its root cause, and the handoffs to Build 2 and to the Windows-host session. Update the Index status line and add one line to Session Logs/log.md. Record that Build 2's prompt was rewritten around the Locked Decisions note.
+# Read first, then refresh live state
 
-# Stop rules
-- If anything you are about to delete is not what the manifest says, skip it and log why.
-- If one step fails twice for the same reason, stop and report the cause.
-- Do not touch anything on the hold list.
+Read these notes in full before acting. The live machine wins when a note conflicts with current evidence. Record the contradiction and patch the affected note by heading when appropriate.
 
-# Final message
-Lead with the measured reclaim (GiB, per category), what changed, and the exact commands I must run, in order. Then list anything you skipped and why.
+1. `/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis/AGENTS.md`, then the vault's `Vault Map`, `AI_CONTEXT`, `00_Dashboard`, `Session Logs/log.md`, `Jarvis Vault Architecture`, `Vault Operating System`, `HUMAN_WRITING`, `Jarvis Writing and Formatting`, and relevant `30_Order` workflow/template instructions. Never write to the vault root or `50_Archive`.
+2. `Old Laptop Rebuild - Index`, `Old Laptop Rebuild - Build 1 WSL Findings`, `Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings`, `Old Laptop Rebuild - Build 2 SSH Runbook`, `Old Laptop Rebuild - Build 2 Acer Handoff`, this note, and `Old Laptop Rebuild - Windows Prompts (Build 3 C Drive Cleanup and Build 4 Terminal Parity)`.
+3. `Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem`, including every decision and its postmortem; the live directives for `second-brain-claudekit` and `internship-research-loop`; and the VS Code WSL, Windows, Install Loop, Terminal Environments, MCP and Secrets notes.
+4. `Installations`, `Ubuntu - WSL`, the Acer Live State notes, and any later Build 3-6 findings or dotfile snapshot that exists.
+
+Read only what is relevant in the primary-source docs, and recheck time-sensitive software, security and configuration claims against current official documentation. Do not rely on an old phase description when a later findings note records a correction. Do not repeatedly reread files without new evidence.
+
+Before changing anything, run a read-only inventory of the relevant live services, WSL configuration/version, Tailscale state, repo state, disk state, editor attachments, Windows files, and Acer test status. Never print tokens, keys, credential values, `.mcp.env`, auth files, SSH private keys, or secret-bearing config contents. Paths, sizes, versions, permissions, key names, and redacted status are enough.
+
+# Starting state to re-verify, not assume
+
+The latest notes and user report say:
+
+- Build 1 WSL Phase 3 is complete. It reclaimed 36.424 GiB of verified ignored project artifacts and 5.304 GiB of native caches. Resource/swap checks passed with 19 GiB, 10 processors, and 8 GiB swap on `D:\WSL\swap.vhdx`. Safe sparse conversion was refused and intentionally skipped. Do not use `--allow-unsafe`.
+- The corrected idle test passed for 75 seconds with no WSL calls. Re-run it only when every WSL terminal, editor, Docker operation, and Codex session is closed.
+- WSL 3.0.1.0 was live in the last check. `systemd-binfmt.service` was the sole failed unit. The newest investigation identified a read-only binfmt flush as the cause; older notes that hypothesize duplicate Python registration are stale. A reported WSL 3.0.2 fix was pre-release at the time of that check. Recheck current Microsoft release status and live logs. Never install a pre-release or change systemd behavior without the user's choice.
+- Build 2 Phase 2 items 1-6 and its Phase 3 checkpoint are complete. `/mnt/d/WSL/ops/build2-sudo-step.sh` for bubblewrap/socat is written but unrun. Items 7-9 remain pending: repo contract/pilot, editor-server cleanup, and Miniconda.
+- Tailscale is installed on Acer Windows and Dell Ubuntu WSL, and both devices are in the user's tailnet. The user ran `sudo tailscale up --ssh --hostname=dell-wsl --accept-dns=false` on Dell. The last live Dell check reported `RunSSH=true`, active `tailscaled`, Dell name `dell-wsl`, Dell IP `100.94.129.113`, Acer Windows node `gupta-builds` at `100.84.91.11`, and successful direct `tailscale ping` in both directions. Verify again before relying on these values.
+- Dell `tailscale0` was MTU 1280. Check Tailscale's current WSL guidance and live traffic; do not guess or change MTU without documented justification and approval.
+- Acer's `tailscale ping dell-wsl` passed, but the Acer SSH test was waiting at a first-connect host-key prompt. SSH authentication, Remote-SSH, repo execution location, and a substantial Git transfer have not been verified. Do not tell the user to bypass or blindly accept a host-key prompt. Capture its exact wording and use the official Tailscale/Windows behavior and a trusted fingerprint check to resolve it.
+- The live observed Tailscale placement is locked: Dell WSL only; Acer Windows only. Never run Tailscale on both Windows and WSL on the same laptop. Dell Windows Tailscale remains off. Do not install Tailscale inside Acer WSL.
+- Tailscale SSH is primary. OpenSSH on port 2222 is the planned fallback, but its hardening/service setup and test may still be outstanding. Tailscale SSH handles tailnet port 22; do not conflate it with a conventional sshd listener.
+- The latest Index says the Dell WSL is degraded because of `systemd-binfmt`. Phase 4 must stop for the user's choice to wait for a stable fix or explicitly accept the known degraded state. A prior Tailscale command is not implicit acceptance of this systemd caveat.
+
+# Locked operating and safety rules
+
+- Repair in place. Do not rebuild a working distro absent evidence of corruption.
+- Keep code in one canonical Dell WSL checkout under `~/projects`. The Acer reaches it over Remote-SSH. GitHub remains the backup/PR channel. Worktrees use `<machine>/<topic>` and one session owns a branch at a time.
+- Jarvis and The Plan vaults are explicitly out of scope for this code-host model. Preserve their existing Syncthing and git-auto-sync behavior. Never edit their `.gitignore`, `.stignore`, or scheduled tasks as part of this rebuild.
+- Never run `wsl --shutdown` from WSL. Any host operation that requires it must be written as an ASCII `.ps1` under `D:\WSL\ops\` for the user to run after closing all sessions. Do not restart WSL from the current WSL session.
+- Sudo requires the user's password. Put sudo work in a reviewed script, print each step, and give the user the exact single command to run it. Do not stall, bypass sudo, or search for a workaround.
+- Never copy AI platform home directories, SSH private keys, tokens, `.mcp.env`, or credentials from Acer. Leave `~/.claude` and `~/.codex` credentials untouched.
+- Do not delete anything in `~/projects`, editor server folders, AI home/archive folders, Windows C:/D:, Docker, or user data without rechecking the exact target, size, references/open handles, and the relevant approval. Never prune Docker without approval. Never unregister, import, or export a WSL distro without separate approval.
+- No Git commit, push, reset, rebase, branch creation, merge, or PR without explicit repo-specific approval. A `git fetch` updates refs; get approval before running it unless the user has explicitly approved that exact sync-check operation. Read-only `status`, `check-ignore`, and local metadata inspection are permitted.
+- Never change a Windows user-level VS Code file or Settings Sync setting from this WSL build. Any Windows VS Code change belongs to Build 5 and needs its own reviewed plan.
+- Tailscale sign-in and policy/key-expiry actions are user browser steps. Do not edit tailnet ACLs, enable services, install an SSH fallback, test Remote Tunnels, or expose another network path without the user's explicit approval. The user's already-run `tailscale up --ssh` authorizes treating that specific action as complete, not unrelated network changes.
+- For destructive or risk-bearing actions, present exact paths and sizes and wait for approval. If the live target differs from the manifest, skip it and log why. If the same command fails twice for the same reason, stop and report the root cause and smallest next check.
+- A skipped step must have an explicit reason, owner, and next action. Do not turn a blocker into a claim of completion.
+
+# Execution plan
+
+Execute in numbered order. At the start of each group, state the narrow work in progress. Verify every state change before moving on. Keep independent read-only preparation moving while waiting for a user decision, but do not cross a gated boundary.
+
+## 1. Resume and finish Build 2 Phase 4
+
+1. Refresh live preconditions: WSL version/status, `systemctl is-system-running`, exact failed unit and current journal root cause, Tailscale status/preferences/IP/MTU, `/dev/net/tun`, Dell WSL ports, Dell Windows Tailscale/OpenSSH state, and the existing idle-test evidence. Confirm Dell Windows has no Tailscale and Acer WSL has none. Do not repeat installation or `tailscale up` if live state verifies it already succeeded.
+2. Resolve the systemd gate by presenting the current official WSL stable/pre-release evidence and the exact consequence of each choice. Wait for the user's choice: wait for stable WSL, explicitly choose a pre-release, or accept the known degraded unit. Do not choose on the user's behalf.
+3. In the Tailscale admin console, guide the user to disable key expiry for `dell-wsl` and inspect the actual SSH access policy. Do not assume defaults or add a broad ACL rule. Record the user's observed result, not a guessed policy.
+4. Check the runbook's planned hardened OpenSSH fallback on port 2222. If still desired and explicitly approved, prepare/review a sudo script, validate `sshd -t`, enable the intended socket/service, and test only from the tailnet. Otherwise record the explicit decision to omit it. Do not install the fallback silently.
+5. Finish the Acer Windows path: resolve the pending host-key prompt without bypassing verification, test `tailscale ping dell-wsl`, `ssh anant_gupta@dell-wsl`, then VS Code Remote-SSH. Verify `hostname`, `pwd`, canonical repo path under `/home/anant_gupta/projects`, read-only `git status`, and Git running on Dell WSL. Run a meaningful Git transfer only after user approval and record the exact before/after evidence. Test Acer WSL reachability separately if useful; never install Tailscale there.
+6. Check Tailscale's WSL MTU guidance and actual behavior. If a change is indicated, explain and ask before changing it. Measure direct/DERP route behavior and DNS without printing secrets.
+7. Re-run the idle/reachability gate after approved service setup. The user must close all WSL terminals, editors, Docker operations, and Codex sessions and run the ASCII-safe `D:\WSL\ops\wsl-idle-test.ps1` from Windows. Verify the output from the returned session. No WSL calls during the wait.
+8. For every Phase 4 item 4.1-4.11 in the Runbook, mark PASS, FAIL, WAITING USER, or NOT APPLICABLE with evidence and rationale. Include the Acer clone inventory/retire-or-relabel step from the Locked Decisions note. Do not delete clones without exact review and approval.
+9. The Runbook includes a Tunnels fallback test, a read-only `~/tools/sync-check`, an internship-directive superseded-by note, and a repo pilot/worktree settings. Treat each as required ledger items, not forgotten tasks. Tunnels sign-in/service installation, `git fetch`, directive edits, repo edits/branches, and PR work retain their separate approvals. Prepare the exact plan and ask before those operations.
+
+## 2. Finish deferred Build 2 work
+
+After the Phase 4 checkpoint is documented, continue the pending Build 2 list. Do not label this work optional or silently drop it.
+
+1. `/mnt/d/WSL/ops/build2-sudo-step.sh`: inspect the existing script; confirm whether the user ran it. If not, report its contents and exact command `sudo bash /mnt/d/WSL/ops/build2-sudo-step.sh`. The user runs it. Verify bubblewrap/socat and the sandbox setting afterward. Do not enable an agent sandbox unless the planned environment and user approval allow it.
+2. **Item 7, repo contract/pilot:** refresh repo status and inspect contracts, pins, lockfiles, editor config, and dependency-manager use. Present a minimal manifest. The proposed CausalOps pilot is not pre-approved. No file, branch, worktree, package setting, commit, or push without explicit approval for that repo and exact change. Respect pnpm 10.33.2's verified setting name `enableGlobalVirtualStore`; recheck current version/docs before proposing it. Preserve the locked uv same-filesystem requirement.
+3. **Item 8, editor-server cleanup:** report exact sizes and hashes for `~/.vscode-server`, `~/.cursor-server`, and `~/.vscode-remote-containers`. Recheck running processes, open files, active server hashes, and attached editors immediately before any cleanup. Present itemized paths and sizes; delete only after approval. Never blanket-delete a server folder or touch it while an editor is attached.
+4. **Item 9, Miniconda:** review whether the recorded `jupyter-base` decision still applies. Run a disk-cost/package-list estimate only. Present package list, target disk, and expected size; wait for explicit approval before install or environment creation.
+5. Keep any other Runbook work (Tunnels, sync-check, internship directive, repo pilot) in the ledger with its exact separate gate. Do not use the completion of the access path to imply these are done.
+
+## 3. Build 3, Dell Windows host and storage
+
+Use `Old Laptop Rebuild - Windows Prompts (Build 3 C Drive Cleanup and Build 4 Terminal Parity)`, Build 3 prompt. This is a separate Windows PowerShell session, not a WSL operation. Re-measure everything. User must attach the requested seven WizTree screenshots; if absent, say so and do only allowed read-only inventory. Use an ASCII `.ps1` for scripted steps and save it under `D:\WSL\ops\windows\`.
+
+Audit pagefile event logs and configuration, crash dumps, Temp, editor server on C:, old quarantine, Docker, WSL VHDX, D: free space, scheduled tasks including ConversationCapture-Backfill-WSL, startup entries, Defender exclusions, and Google Drive scope. Respect the prompt's three authorization tiers. Present lists with sizes and affected drive before any deletion, move, prune, pagefile change, or broad exclusion. Never touch Windows system folders, WSL VHDX, Docker disk, vaults, game saves, or unknown-purpose data without their specified approvals. Verify C: and D: free space after every approved group. Write the Build 3 findings and Growth rules.
+
+## 4. Acer dotfile snapshot
+
+Run the appendix prompt in `Old Laptop Rebuild - Windows Prompts...` on the Acer, then verify that the snapshot arrived in the vault. If the Acer is unavailable, mark the step WAITING USER and preserve the exact run instructions. Do not fabricate a snapshot or treat notes as an Acer snapshot.
+
+## 5. Build 4, Dell Windows terminal parity
+
+Follow the Build 4 prompt in the Windows Prompts note after Build 3 and the Acer snapshot. Inventory first. Prefer the snapshot as the source of truth. If unavailable, rebuild only what the notes specify and label each config `from notes, not from Acer`. Follow its user approval rules for installs, replacements, runtime managers, and system shell/default changes. Back up every file, verify tool versions and config hashes, record drive/size impact, and write Build 4 findings.
+
+## 6. Build 5, Dell Windows VS Code and MCP
+
+Use the Index's Build 5 scope and the VS Code Windows/MCP notes. This is a separate Windows session because Settings Sync can propagate changes to Acer. Inspect current state and backup before changing anything. Present the exact sync impact and request approval before Windows user-level VS Code files, extension changes, MCP registry changes, or sign-in/out. Never print secret values. Verify Dell Windows and WSL extension sets separately and test MCP endpoints without exposing credentials. Write Build 5 findings and handoffs.
+
+## 7. Build 6, dev-only profile and final cross-laptop verification
+
+Use the Index and applicable current notes. Verify the Dell's intended dev-only profile and compare the Acer and Dell layer by layer: WSL config/tooling, Windows storage/host, terminal tools/config hashes, Windows/WSL VS Code and MCP, canonical repo path, Tailscale/SSH persistence and access, editor execution location, and all remaining growth rules. Do not call parity complete when a check is UNKNOWN. Write Build 6 findings and a final PASS/DIFF/UNKNOWN matrix. Close every approved and waiting item in the ledger.
+
+# Campaign ledger and logging
+
+Maintain a concise table in the current findings note or Index, with columns: build/item, initial status, action/evidence, status (`PASS`, `DIFF`, `UNKNOWN`, `WAITING USER`, `BLOCKED`), approval or owner, and next action. Include every deferred item named above, plus any additional item discovered in authoritative notes. Preserve historical entries; patch by heading and add dated amendments rather than silently erasing prior outcomes.
+
+For every build session, record measurements before and after, each command that changed state, each error and evidenced root cause, decisions and reasons, files/scripts created, and remaining handoffs. Include a Growth rules section with one check command per recurring growth source. Update the appropriate findings note, Index status/next line, and add one concise entry to `60_Claude/07_AI_Information/Session Logs/log.md`. Keep timestamps and measured facts distinct from user-reported facts.
+
+# Stop and approval boundaries
+
+Stop and ask when a choice changes security posture, network exposure, deletion scope, external account state, repo history, a Windows sync surface, or meaningful cost. For an approval request, show exact target, size/impact, reversibility, verification, and the one decision needed. Do not ask about routine read-only checks or safe validation. If a user action is needed on Acer or Windows, give a short exact command sequence and wait for their output before claiming success.
+
+Do not turn this rebuild into Kubernetes or AI-infrastructure installation. The user noticed those Tailscale ecosystem options, but they are a separate project with requirements and threat-model decisions. At the very end, list that as a proposed follow-on only; do not install or enable infrastructure here.
+
+# Done criteria
+
+The campaign is complete only when:
+- Phase 4's actual Acer-to-Dell SSH and Remote-SSH path is tested, idle persistence is verified, and all admin/service decisions are recorded.
+- Every deferred Build 2 item has evidence of completion or a user-owned pending decision, with no item silently omitted.
+- Builds 3-6 have findings notes and verified completion matrices, or an explicit handoff awaiting the user or another machine.
+- The Index and session log agree with the live results, and no stale claim is presented as current.
+- The final response leads with completed measurable results, then clearly lists what remains, who must act, the exact commands/scripts, and the next build/session. Do not paste the notes back.
 ~~~
+
+## Prompt design references
+
+This revision uses OpenAI's guidance to state the assignment, context, constraints, decision boundaries, persistence behavior, verification criteria, and final handoff. It keeps the long-run plan in ordered, evidence-checkable stages and gives the model a ledger so deferred tasks survive session boundaries.
+
+- [A model guide for the GPT-6 family](https://openai.com/index/practical-guide-building-gpt-6/)
+- [OpenAI prompt engineering guide](https://developers.openai.com/api/docs/guides/prompt-engineering)
+- [OpenAI Codex prompting guide](https://learn.chatgpt.com/docs/prompting)

@@ -2,7 +2,7 @@
 type: note
 status: seedling
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-10-11
 course: Life
 track:
   - laptop
@@ -13,15 +13,15 @@ related:
   - "[[Old Laptop Rebuild - Index]]"
   - "[[Old Laptop Rebuild - Build 1 WSL Findings]]"
   - "[[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]]"
-next: Review Phase 3 checkpoint; do not begin Phase 4 until explicit approval and Build 1's degraded systemd unit is resolved or accepted
+next: Wait for WSL 3.0.2 with the binfmt fix to release stable; then recheck systemd and resume Phase 4 at admin/SSH validation
 ---
 # Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings
 
 ## One-Line Answer
-==WSL-side VS Code and user-level developer safety parity are applied and verified; the 34-extension target and user-scope MCPs work. The Build 1 idle gate passed, but systemd remains degraded. Network setup, repo changes, server cleanup, and Miniconda remain gated.==
+==WSL-side VS Code and user-level developer safety parity are applied and verified; Tailscale is now live on Dell WSL and Acer Windows, with direct ping evidence in both directions. The Dell host remains degraded on systemd-binfmt, and Acer SSH host-key verification and Remote-SSH checks are incomplete.==
 
 ## Scope and status
-Phase 2 items 1 through 6 are applied. No repo was modified. No Windows user-level VS Code file, Settings Sync control, WSL configuration, tailnet, SSH service, editor-server data, or Miniconda installation was changed. Q2 and Q3 require the later approved live tailnet/admin-console steps. Phase 3 is the checkpoint; Phase 4 has not started.
+Phase 2 items 1 through 6 are applied. The user has since installed/authenticated Tailscale on Dell Ubuntu WSL and Acer Windows and enabled Dell Tailscale SSH. No repo was modified. No Windows user-level VS Code file, Settings Sync control, WSL configuration, SSH server, editor-server data, or Miniconda installation was changed. Tailscale is the sole network component enabled so far. Phase 4 is in progress but paused at the systemd decision gate; admin-console policy/key-expiry and Acer SSH/Remote-SSH verification remain incomplete.
 
 ## Before and after
 | Area | Before | After / evidence |
@@ -36,7 +36,7 @@ Phase 2 items 1 through 6 are applied. No repo was modified. No Windows user-lev
 | Claude user MCPs | jarvis, the-plan, jarvis-fs were project scope only | Three user-scope entries; `cd /tmp && claude mcp list` reports all connected |
 | System-level packages | bubblewrap/socat absent | Not installed; `/mnt/d/WSL/ops/build2-sudo-step.sh` prepared for user, not run |
 | Miniconda | No `~/miniconda3` directory found | Not installed; root has 902 GiB free and D: 364 GiB free. Rebuild cost is not estimated because the package-list dry-run from the referenced WSL note has not been performed; retain approval gate. |
-| Tailscale | Not installed | Still not installed; no network path opened |
+| Tailscale | Not installed at Build 2 checkpoint | User installed/authenticated on Dell WSL and Acer Windows. Dell `tailscaled` active; `dell-wsl.tail0c1d06.ts.net`, `RunSSH=true`, Tailscale 1.104.1 stable; admin console shows key expiry disabled; peer ping to Acer direct. |
 
 Backups made before edits: `~/.bashrc.build2-20261007.bak`, `~/.gitconfig.build2-20261007.bak`, `~/.claude/settings.json.build2-20261007.bak`, `~/.claude.json.build2-20261007.bak`, and `~/.mcp.json.build2-20261007.bak`. New target files had no previous version. JSON validation (`jq empty`) and shell syntax validation (`bash -n`) passed. Existing `gh auth git-credential` remains; no plaintext credential helper was added. Secrets were not printed.
 
@@ -57,20 +57,52 @@ The first VS Code CLI command failed because the shell inherited a stale `VSCODE
 ## Build 1 gate and host status
 The user's corrected idle-test output is PASS: after Ubuntu was started, the test made no WSL call for 75 seconds, then `wsl -l --running --quiet` listed Ubuntu. This exceeds the default 60-second VM idle timer. The prior FAIL was the Windows PowerShell 5.1 output decoding bug documented in Build 1 findings, not a stopped distro. The sparse conversion refusal was Microsoft’s potential-corruption safeguard. The host script design incorrectly made an optional sparse conversion fatal; the safe refusal is now recorded as SKIPPED and independent checks continue.
 
-The post-update host report checked config/start, memory, processors, swap, and `wslview`; `wslview --version` works. It counted zero `CheckConnection` journal events over 120 seconds. However, `systemctl is-system-running` remains `degraded`, with `systemd-binfmt.service` failed. Its detailed boot journal rotated away. The active Python binfmt registration matches the configured rule, supporting but not proving a duplicate-registration cause. The host passed the required idle/reachability gate, but is not wholly clean until that unit is understood or explicitly accepted.
+The post-update host report checked config/start, memory, processors, swap, and `wslview`; `wslview --version` works. It counted zero `CheckConnection` journal events over 120 seconds. On 2026-10-11, Phase 4.1 read-only recheck returned `systemctl is-system-running=degraded`; the sole failed unit is `systemd-binfmt.service`, `Result=exit-code`, `ExecMainStatus=1`. The live journal gives the exact line `Failed to flush binfmt_misc rules, ignoring: Read-only file system`. The unit then exits nonzero. Its current one-shot operation is to reset and register Linux `binfmt_misc` handlers. Microsoft issue [WSL #41783](https://github.com/microsoft/WSL/issues/41783) documents this exact WSL 3.0.1 behavior: systemd tries to clear handlers by writing `-1` to `/proc/sys/fs/binfmt_misc/status`; WSL rejects that flush because the registry is kernel-global/read-only in this context, then the unit exits with an error. A Microsoft WSL maintainer closed the issue as fixed in WSL 3.0.2. The [3.0.2 release listing](https://github.com/microsoft/WSL/releases/tag/3.0.2) currently labels it pre-release. No workaround was attempted; the user chose to wait for a stable release.
+
+The practical current impact is bounded and measured: systemd PID 1 is still managing the distro, but reports `degraded`; `systemd-binfmt.service` is a one-shot boot setup unit, not a long-running daemon. The failed operation is its attempt to flush all binfmt rules. Microsoft's reproducer says configured rules are then registered but the unit still exits nonzero. This Dell's kernel currently shows enabled `WSLInterop` (`/init`, `MZ`) and `python3.12` (`/usr/bin/python3.12`) handlers, and the only binfmt config found was the Python 3.12 registration. `cmd.exe /c ver` succeeded, native Python launched successfully, and earlier `wslview --version` passed. No current loss of Windows interop, native Linux executable launch, or configured Python handler was observed. A future workload depending on some other custom format handler could be affected if its registration is absent, but none is configured here. This failure does not mean the WSL distro, SSH/Tailscale daemon, or ordinary Linux processes have stopped. The `cmd.exe` smoke test printed the normal UNC-current-directory warning and then defaulted to the Windows directory; command exit was 0, unrelated to binfmt.
+
+Build 1's corrected 75-second idle test passed, but Phase 4.5 must repeat after service configuration and every WSL/editor/Docker/Codex session is closed. Phase 4 is paused until stable WSL contains the fix; do not clear the failure, make a service override, or install a prerelease workaround.
+
+### Phase 4.1 read-only recheck, 2026-10-11
+| Check | Evidence | Result |
+|---|---|---|
+| WSL host/version | `wsl.exe --version`: WSL 3.0.1.0, kernel 6.18.40.1-1 | PASS |
+| Tailscale Dell WSL | `systemctl is-active tailscaled` active; `tailscale status` lists `dell-wsl`; `tailscale debug prefs` has `RunSSH=true` | PASS |
+| Dell to Acer path | `tailscale ping 100.84.91.11`: pong from `gupta-builds` via `10.5.8.252:41641`, 5 ms | PASS, direct endpoint form |
+| WSL SSH listeners | `ss -ltnp`: no port 22 or 2222 listener | PASS |
+| OpenSSH fallback | `openssh-server` reports not installed; `sshd` missing; `ssh.socket` unit not found; `ssh` and `ssh.socket` inactive | NOT INSTALLED, approval still required |
+| Dell Windows services/listeners | PowerShell: `sshd` and `Tailscale` services absent; no listeners on 22/2222 | PASS |
+| Systemd | `systemctl is-system-running` returned `degraded`; only failed unit `systemd-binfmt.service`, exit status 1; WSL 3.0.1 rejects the global binfmt flush as read-only | GATE, user chose to wait for stable WSL fix |
+| Idle test | Previously passed 75 seconds; not rerun because current WSL/editor sessions are active | PRIOR PASS; Phase 4.5 pending |
+
+User-provided Acer evidence: `tailscale ping dell-wsl` returned `pong ... via 10.5.8.253:41641 in 54ms`, which is the direct endpoint form, not `via DERP(...)`. Acer Windows OpenSSH then displayed a first-connect prompt for `dell-wsl (100.94.129.113)` with ED25519 fingerprint `SHA256:PHOUaZNkip9YvF80hW6WbG5emclHt7rIYMfWf3VzxHA`. The user has not reported accepting it or completing authentication. The host-key fingerprint is unverified: do not accept until compared against the Dell host key distributed through Tailscale's control plane. This observed prompt resolves part of the earlier uncertainty: plain Windows `ssh.exe` did prompt on this first connection despite the docs' general managed-known-hosts description. It does not prove an attack; exact cause is unknown. No `hostname`, `pwd`, Git status, or Remote-SSH test has completed.
+
+Exact Acer terminal output provided by the user:
+```text
+tailscale ping dell-wsl
+pong from dell-wsl (100.94.129.113) via 10.5.8.253:41641 in 54ms
+
+ssh anant_gupta@dell-wsl
+The authenticity of host 'dell-wsl (100.94.129.113)' can't be established.
+ED25519 key fingerprint is SHA256:PHOUaZNkip9YvF80hW6WbG5emclHt7rIYMfWf3VzxHA.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])?
+```
+
+The measured Dell interface MTUs are `tailscale0=1280`, `eth0=1500`, `eth1=1500`, `loopback0=1500`. Default route is via `eth1`. No MTU was changed. Tailscale documents a WSL adjustment from 1280 to 1340 in a specific default-interface condition; the observed `tailscale0` value alone is not proof that the documented condition applies here. Follow the documented diagnostic on the relevant interface and test data-path sizes; do not guess a manual MTU.
 
 ## Questions Q1 to Q6
 
 ### Q1. Acer Windows Tailscale to Dell WSL Tailscale SSH
 Tailscale SSH documentation says a tailnet device can connect to a Linux SSH server using the node's MagicDNS name or Tailscale IP. It uses tailnet node identity and control-plane-distributed host keys, with Tailscale client integration arranging known-host handling. Windows is a supported Tailscale client platform. Thus Windows-side Tailscale supplies the route to plain Windows `ssh.exe`; VS Code Remote-SSH can use that executable without a wrapper or ProxyCommand. Use `ssh anant_gupta@dell-wsl` after the node is named `dell-wsl`; if MagicDNS does not resolve, use the live `tailscale ip -4` address. The fully-qualified `.ts.net` name can be read from the admin device page if desired.
 
-The docs do not specify Windows OpenSSH's exact first-connect prompt/known_hosts behavior for a Tailscale SSH host. They also do not specify whether an Acer WSL terminal can reach the Dell through the Windows-side Tailscale route. Both are explicitly **to be tested on the Acer** in the handoff. No wrapper, ProxyCommand, or Acer-WSL Tailscale is proposed. Sources: [Tailscale SSH](https://tailscale.com/kb/1193/tailscale-ssh), [Tailscale WSL 2](https://tailscale.com/kb/1295/install-windows-wsl2).
+The Acer test now supplies the first-connect evidence: stock Windows `ssh.exe` displayed a normal unknown ED25519 host-key prompt for `dell-wsl (100.94.129.113)` with fingerprint `SHA256:PHOUaZNkip9YvF80hW6WbG5emclHt7rIYMfWf3VzxHA`. The user has not accepted it. This differs from the docs' general managed-known-host description; the cause is not established. Do not accept until matching the fingerprint against the host key advertised by Tailscale's control plane. Once that is done, re-run the plain `ssh` test. The optional Acer WSL terminal route remains untested. No wrapper, ProxyCommand, or Acer-WSL Tailscale is proposed. Sources: [Tailscale SSH](https://tailscale.com/docs/features/tailscale-ssh), [Tailscale WSL 2](https://tailscale.com/docs/install/windows/wsl2).
 
 ### Q2. Tailscale inside mirrored WSL
-**PENDING.** Tailscale is not installed or enabled in this phase, so there is no live round trip or MTU observation. The Dell's current WSL networking is mirrored, and the Obsidian endpoints at `127.0.0.1:27123` and `:27124` are already verified by the connected jarvis and the-plan MCP servers from `/tmp`. The Tailscale WSL article documents the WSL MTU adjustment, but the required `ip link show` observation at 1340 must wait until approved Phase 4. No inference from `tailscale status` is substituted for a data round trip.
+**PARTIAL.** Tailscale is active in Dell mirrored WSL and Acer Windows. User evidence shows direct Tailscale ping in both directions. Dell `tailscale0` is MTU 1280; other active interfaces are 1500. The end-to-end SSH and large transfer checks remain incomplete, so mirrored-mode Tailscale functionality is not fully verified. No manual MTU change was made. Follow Tailscale's documented check for the default interface and verify actual data transfer before deciding whether there is a defect.
 
 ### Q3. Personal tailnet SSH ACL
-**PENDING USER CONSOLE CHECK.** Do not assume the default policy either allows or blocks SSH. User must open Tailscale Admin Console → Access controls and inspect the existing policy's `ssh` rules. If needed, add only the smallest rule that allows the user's own devices to connect as `anant_gupta`. This is part of Phase 4.4.
+**PENDING USER CONSOLE CHECK.** Do not assume the personal tailnet's current policy either allows or blocks SSH. User must open Tailscale Admin Console → Access controls and inspect the existing policy's `ssh` rules. If needed, add only the smallest rule the user directs. Do not broaden or edit the policy without explicit direction. The Acer's SSH client currently shows an unverified host-key prompt, but no accepted-key/authentication result.
 
 ### Q4. pnpm global virtual store and repo use
 Installed pnpm is `10.33.2`; `pnpm config get enableGlobalVirtualStore` returns `undefined` because it is not currently configured. The installed version supports the setting `enableGlobalVirtualStore` (introduced in pnpm 10.12.1). The Locked Decisions note's newer spelling `virtualStoreType: global` is not the setting to use with pnpm 10.33.2; pnpm's current docs describe that newer spelling for pnpm 11.23+. This is a correction to propose in the locked note before dependency configuration is approved. Source: [pnpm 10 settings](https://pnpm.io/10.x/settings), [pnpm node_modules settings](https://pnpm.io/settings/node-modules).
@@ -88,7 +120,7 @@ The live WSL is 3.0.1.0, kernel `6.18.40.1-1`, WSLg `1.0.79`. Current `.wslconfi
 
 `wsl.exe --manage --help` is invalid syntax. `wsl.exe --help` lists `--set-sparse` and `--compact`, but does not list `--allow-unsafe`. The safe conversion output explicitly says sparse VHD support is disabled due to potential corruption and describes `--allow-unsafe` as a force override. This proves the current request was guarded on this machine; it does not prove whether that guard is build-specific or a standing policy. Never recommend the override.
 
-Mirrored-mode parity on WSL 3.0.1 is not fully established by release notes. The two localhost MCP endpoints work, but only a direct Tailscale data-plane test answers Q2. `CheckConnection` was 0 over one 120-second sample, compared to Build 1's 5/hour old-build sample. This is not enough for a trend or causal conclusion. Treat a reduced rate as a hypothesis until a comparable longer sample is taken; do not change networking based on this single reading.
+Mirrored-mode parity on WSL 3.0.1 is partially established: Dell-to-Acer and Acer-to-Dell Tailscale pings both returned direct endpoint paths (IP:port, not `DERP(...)`). SSH authentication, large transfer behavior, and a completed SSH remote session are still pending, so do not mark the workflow fully verified. The Dell `tailscale0` reports MTU 1280; `eth0` and `eth1` report 1500, and default route is via `eth1`. No guessed MTU change was made. Follow the [documented WSL check](https://tailscale.com/docs/install/windows/wsl2) on its stated interface and verify with an actual data transfer. `CheckConnection` was 0 over one 120-second sample, compared to Build 1's 5/hour old-build sample. This is not enough for a trend or causal conclusion. Treat a reduced rate as a hypothesis until a comparable longer sample is taken; do not change networking based on this single reading.
 
 ## Windows-side findings for Build 3
 No Windows user-level file or sync setting was changed. The synced settings contain Acer-only paths: Todo Tree points beneath `C:\Users\anant\...`; Python project paths beneath `D:\_Anant\...`; interpreter path resolves to a Windows `.venv/Scripts/python.exe`. Dell paths are `C:\Users\Anant Gupta` and `D:\Users\_Anant`. Windows VS Code is at `C:\Users\Anant Gupta\AppData\Local\Programs\Microsoft VS Code\Code.exe`; the Windows extension folder is `%USERPROFILE%\.vscode\extensions`. Windows has 40 extensions; WSL remote now has 34. The pre-sync backup showed the old PowerShell default shell, Python activation false, PowerShell/cmd/Git Bash profiles, Linux remote SSH host, hybrid auto-forwarding, format-on-save, Biome default formatter, pnpm package manager, and trust setting. `settingsSync.ignoredSettings` is absent from the current settings file.
@@ -101,7 +133,7 @@ List for later editing; older notes were not edited here:
 2. Clone notes: second-brain has no root package manifest/lockfile; confirm this is the live nested checkout path and avoid pnpm settings there.
 3. Internship repo notes: live repo is not currently a uv project root; remove stale claim that it is already converted unless a `pyproject.toml` is added later.
 4. Build 1 snapshot: WSLENV is currently `ELECTRON_RUN_AS_NODE/w:`, not empty.
-5. WSL/Tailscale notes: Windows OpenSSH first-connect prompt behavior and Acer WSL's route through Windows Tailscale are unknown until tested on Acer.
+5. WSL/Tailscale notes: Acer Windows `ssh.exe` did show an unknown-host ED25519 prompt on first connect; its fingerprint is not yet matched to the Tailscale-distributed host key. Acer WSL's route through Windows Tailscale remains untested.
 6. Settings Sync notes: `settingsSync.ignoredSettings` is absent and should not be assumed to be machine-local; validate its sync behavior in the Windows build.
 
 ## Phase 3 proposals
@@ -128,9 +160,12 @@ No Miniconda install or environment rebuild was started. Existing space/disk mea
 | WSL extension count | Keep the reviewed shared WSL set; record count after install-loop changes | `code --list-extensions --show-versions | wc -l` |
 | Worktrees and dependencies | One active session per branch; per-worktree installs; never delete worktrees/dependencies without approval | `git -C ~/projects/<repo> worktree list --porcelain; find ~/projects -xdev -type d \( -name node_modules -o -name .venv \) -prune -exec du -sh {} +` |
 | Logs | Keep bounded logs and inspect age/size before cleanup | `find ~/.vscode-server/data/logs -type f -printf '%s %TY-%Tm-%Td %p\n' | sort -nr | head -30` |
-| Tailscaled and sshd health | Once approved/enabled, both must remain active; sshd fallback stays on 2222 | `systemctl is-active tailscaled ssh; ss -ltn | rg ':(22|2222)\b'` |
-| Tailscale key expiry | Disable expiry for `dell-wsl` in admin console and recheck after node recreation | `tailscale status --json | jq -r '.Self | [.DNSName,.KeyExpiry] | @tsv'` |
+| Tailscaled and sshd health | Keep Dell `tailscaled` active; install/enable keyed `sshd` on 2222 only if user reconfirms the fallback | `systemctl is-active tailscaled; systemctl is-active ssh ssh.socket 2>/dev/null; ss -ltn | rg ':(22|2222)\b'` |
+| Tailscale key expiry | User confirmed expiry disabled for `dell-wsl`; preserve this state and recheck after node recreation | `tailscale status --json | jq -r '.Self | [.DNSName,.KeyExpiry] | @tsv'` |
 | Repo ahead/behind drift | Fetch, report branch tracking and ahead/behind; do not auto-merge/push | `git -C ~/projects/<repo> fetch --quiet && git -C ~/projects/<repo> status --short --branch` |
 
 ## C: handoff line
 2026-10-07: C: is 93% used with about 20.08 GiB free; pagefile allocation is 32,247 MB with 6,471 MB peak. D: has 363.80 GiB free. Do not shrink D:-resident Ubuntu VHDX to solve C: pressure; no C: data changed. See [[C Drive Bloat - Failure Log and Prevention Rules]].
+
+## Remaining queue after the systemd gate and Phase 4
+No failure workaround or unsafe WSL change is authorized. WSL 3.0.2 is currently prerelease and the user chose to wait for a stable build with the binfmt fix. After stable update, recheck the failed unit and systemd health before resuming Phase 4. Then finish the Access Controls check, verify the Acer host key before accepting it, complete SSH/Remote-SSH, and rerun idle test after closing every WSL/editor/Docker/Codex session. The keyed port-2222 fallback remains in locked R3, but this live audit found OpenSSH absent; confirm it remains desired before separately approved installation. After Phase 4, reconcile and schedule the pending bubblewrap/socat sudo script, Build 2 item 7 repo audit/pilot, item 8 editor-server cleanup proposal and approval, item 9 Miniconda disk/package estimate and install approval, optional Tunnels and sync-check/repo actions with their own gates, then Builds 3-6 in [[Old Laptop Rebuild - Index]] order.

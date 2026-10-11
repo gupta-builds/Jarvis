@@ -22,12 +22,12 @@ next: Run Build 3 (with the seven WizTree screenshots attached), then the Acer s
 ---
 # Old Laptop Rebuild - Windows Prompts (Build 3 C Drive Cleanup and Build 4 Terminal Parity)
 
-Two prompts for Claude Code sessions on the Dell's Windows side, written against the Sonnet 5.5 prompting guide (task, intent and constraints in the first turn; literal scoping; reasons next to rules; the "keep working" and "stop and report" paragraphs; a real-check verification rule; explicit approval rules for risky actions). A third, small prompt for the Acer is in the appendix.
+Two prompts for Claude Code sessions on the Dell's Windows side, written against the Sonnet 5.5 prompting guide (task, intent and constraints in the first turn; literal scoping; reasons next to rules; the "keep working" and "stop and report" paragraphs; a real-check verification rule; explicit approval rules for risky actions). The appendix holds a follow-up reply for the Acer session that ran the dotfile snapshot export and hit a hard stop.
 
 ## How to run
 - **Where:** Claude Code in PowerShell on the Dell, started from `C:\Users\Anant Gupta`. Pick Sonnet 5.5 with `/model`.
 - **Effort:** Build 3 at `high` (judgment, images, deletions). Build 4 at `medium` (well-specified installs and configs).
-- **Order:** Build 3, then the Acer snapshot prompt (appendix), then Build 4. Build 4 can start without the snapshot, but its configs would then be rebuilt from notes and not byte-identical to the Acer's.
+- **Order:** Build 3, then finish the Acer snapshot (the appendix reply; you run two scripts it prepared), then Build 4. Build 4 can start without the snapshot, but its configs would then be rebuilt from notes and not byte-identical to the Acer's.
 - **Images:** paste the seven WizTree screenshots (C: three, D: four) in the same message as the Build 3 prompt. Build 4 gets none.
 - **Admin steps:** the sessions run without elevation and write every admin step to a script under `D:\WSL\ops\windows\` for you to run in an elevated PowerShell.
 - **Numbering:** Build 1 was WSL, Build 2 was WSL VS Code plus the SSH workflow. These are Build 3 and Build 4. Windows VS Code and MCP wiring become Build 5, and the dev-only profile with the final check against the Acer becomes Build 6.
@@ -173,7 +173,7 @@ Verified on 2026-10-11 from live queries and my notes.
 - Acer reference (from my vault notes, not measured): Windows Terminal with PowerShell 7 as the shell, Starship with the Tokyo Night preset tuned with [status], [cmd_duration], $shlvl and $jobs and scan_timeout 500 ms, the same starship.toml file on Windows and WSL, Yazi with a git-status column, full borders, smart filter and the Tokyo Night Storm flavor, the IosevkaTerm Nerd Font registered by Windows as "IosevkaTerm NFM", a PowerShell profile that runs Starship once and dot-sources ~/.config/vscode-env/init.ps1 only inside VS Code, and recorded tool versions: Starship 1.26.0, Yazi 26.9.1, delta 0.19.2, zoxide 0.10.0, ripgrep 14.1.0, git 2.43.0 (WSL), uv 0.12.17.
 - The synced Windows VS Code settings on this Dell already name the font 'IosevkaTerm NFM'. Installing that font fixes terminal icons in VS Code without touching a VS Code file.
 - WSL (Build 1) already has Starship, Yazi, lazygit, delta, zoxide, atuin, tmux and the rest, with configs rebuilt from notes and labeled "from notes, not from Acer".
-- Dotfile snapshot from the Acer: check D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Acer Dotfile Snapshot\ . If it exists it is the source of truth for every config file. If it does not exist, say so in your first update, build configs from the notes, and label each one "from notes, not from Acer".
+- Dotfile snapshot from the Acer: check D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Acer Dotfile Snapshot\ . If it exists it is the source of truth for every config file and for which tools the Acer's Windows side really has (see VERSIONS.md and the winget export in it). The Acer-side exporter reported that the Acer's Windows side has no Yazi, lazygit, bat, delta or gh-dash install or config (they are WSL-only there), that ripgrep exists on Windows with no config file, and that its font survey showed Cascadia and Ubuntu Sans Mono families. That conflicts with the Acer reference above, so the snapshot decides: install on the Dell only what the Acer's Windows side really has, and log each conflict between the notes and the snapshot. If the snapshot does not exist, say so in your first update, build configs from the notes, and label each one "from notes, not from Acer".
 - Settings Sync is live between this laptop and the Acer. Terminal tools do not sync, but VS Code user files do.
 </facts>
 
@@ -187,7 +187,7 @@ The vault can be stale and the live machine wins. Log each contradiction.
 </reading_list>
 
 <target_state>
-The Windows toolkit, lighter than WSL: PowerShell 7, Windows Terminal, Starship, the IosevkaTerm Nerd Font Mono family, git with delta as the pager, GitHub CLI (with the gh-dash extension if the Acer has it), ripgrep, fd, bat, fzf, zoxide, jq, lazygit, Yazi (with the `file` utility it needs from Git for Windows), 7-Zip or NanaZip per Installations, and uv through its standalone installer so it comes first on PATH. Runtime managers (nvm-windows, Node, conda, Python) and the AI CLIs stay as they are: record the difference from the Acer and leave it for me to decide.
+The Windows toolkit, lighter than WSL. Treat this as a candidate list and keep only what the Acer snapshot shows on the Acer's Windows side (tools the Acer runs only in WSL stay out of Windows): PowerShell 7, Windows Terminal, Starship, the IosevkaTerm Nerd Font Mono family, git with delta as the pager, GitHub CLI (with the gh-dash extension if the Acer has it), ripgrep, fd, bat, fzf, zoxide, jq, lazygit, Yazi (with the `file` utility it needs from Git for Windows), 7-Zip or NanaZip per Installations, and uv through its standalone installer so it comes first on PATH. Runtime managers (nvm-windows, Node, conda, Python) and the AI CLIs stay as they are: record the difference from the Acer and leave it for me to decide.
 Parity rules:
 1. Shared config files are byte-identical across the Acer snapshot, Windows and WSL: starship.toml, the Yazi toml files, lazygit config, bat and ripgrep configs, and a shared delta include file referenced from each machine's own .gitconfig. Write them as UTF-8 without BOM and with LF line endings, using [IO.File]::WriteAllText, because Set-Content in Windows PowerShell adds CRLF and a BOM. Compare SHA-256 hashes to prove it.
 2. Where Windows looks for a config in a different place, point it at the shared location with a user environment variable: STARSHIP_CONFIG, YAZI_CONFIG_HOME, and the lazygit, bat and ripgrep equivalents. Check each tool's current documentation for the exact variable.
@@ -200,7 +200,7 @@ Parity rules:
 <task>
 Work in these steps, in order. Finish and check each step before starting the next. Keep working until everything I asked for is done, and stop to ask only when you cannot go on without me or before a risky step. When the work is done and checked, stop and report. Do not add tools, features, files or refactors that I did not ask for; mention a good idea at the end instead.
 1. Read the notes and the snapshot. Inventory the Dell's Windows side: versions of every tool above, the profile and Windows Terminal files, installed fonts, env vars. Write the inventory as a table with the Acer reference beside it.
-2. Install in this order, with a version check after each: PowerShell 7, the Iosevka Nerd Font (so Windows registers "IosevkaTerm NFM"; verify with System.Drawing.Text.InstalledFontCollection), Starship, git update and delta, gh (and gh-dash if on the Acer), ripgrep, fd, bat, fzf, zoxide, jq, lazygit, Yazi, 7-Zip or NanaZip, uv standalone.
+2. Install in this order, limited to the tools the target state keeps, with a version check after each: PowerShell 7, the Iosevka Nerd Font (so Windows registers "IosevkaTerm NFM"; verify with System.Drawing.Text.InstalledFontCollection), Starship, git update and delta, gh (and gh-dash if on the Acer), ripgrep, fd, bat, fzf, zoxide, jq, lazygit, Yazi, 7-Zip or NanaZip, uv standalone.
 3. Write the shared config files to ~\.config with the byte rules above, then set the env vars at user scope.
 4. Write the PowerShell profiles and the Windows Terminal settings, each after a backup, then open a new session of each shell and verify: the prompt renders icons, `starship print-config` parses, the status and duration modules work, zoxide jumps, Yazi starts with the theme and git column, lazygit starts and uses delta, and fzf, bat and fd run.
 5. Compare against WSL: for each shared file, hash the Windows copy and the WSL copy (`wsl.exe -d Ubuntu -- sha256sum <path>`; strip NUL characters from wsl.exe output). Build the parity matrix described below. If a WSL file differs from the snapshot, write a script that copies the snapshot version into WSL with a backup, and show it to me before anything runs.
@@ -234,33 +234,32 @@ Lead with the result: which tools and configs now match the Acer, which differ a
 
 ---
 
-## Appendix: Acer dotfile snapshot prompt (run on the Acer before Build 4)
+## Appendix: Follow-up reply for the Acer session that hit the hard stop
 
-Run this in a Claude Code or Codex session on the Acer, from its Windows home. It exports the non-secret terminal configs into the vault (Syncthing carries them to the Dell) so Build 4 can copy the Acer's real files instead of rebuilding them from notes.
+Send this to the same Acer session: the one that ran the dotfile snapshot export from the Jarvis directory and reported that its Bash and PowerShell calls were blocked. Read, Grep, Glob and Write still work there, so the reply uses only those. You run the two export scripts it prepared, then the session reads the results and writes the manifest and versions notes. If that session cannot continue, ask me for a fresh-session version of the export prompt.
 
 ~~~text
-<situation>
-You are running on my newer Acer laptop (Windows 11, WSL Ubuntu-24.04). I am making my old Dell laptop match this one. The Dell's terminal configs were rebuilt from notes, so they may differ from the real ones here. Your job is a read-only export of this laptop's non-secret terminal configuration into my Jarvis vault, so the Dell can copy the real files.
-</situation>
+Thank you for stopping instead of retrying. Do not try Bash or PowerShell again in this conversation. The export is not lost: both scripts exist, Read, Grep, Glob and Write still work, and I can run the scripts myself. Finish the job this way, in order, and check each step before the next.
 
-<task>
-Create the folder 40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Acer Dotfile Snapshot\ in the Jarvis vault (Windows path D:\...\Jarvis\ on this laptop; find it from the vault's own notes). Read the vault's AGENTS.md before writing, and keep to its write contract.
-Copy these files into it, in subfolders named windows\ and wsl\, preserving relative paths:
-- Windows: ~\.config\starship.toml, ~\.config\yazi\ (all toml files and flavor or plugin folders, without compiled caches), lazygit, bat, ripgrep, delta and gh-dash configs wherever they live, the Windows Terminal settings.json (LocalState folder of the Microsoft.WindowsTerminal package), the PowerShell 5.1 and 7 profiles, the user .gitconfig and ~\.config\git files, and the output of `winget export` to a JSON file.
-- WSL: ~/.config/starship.toml, ~/.config/yazi/, ~/.config/atuin/config.toml, ~/.config/sesh/sesh.toml, ~/.config/gh-dash/config.yml, lazygit config, ~/.config/git/, ~/.tmux.conf and the tmux plugin list, ~/.config/ncdu, only the JARVIS_WSL_ENV_BLOCK section of ~/.bashrc, /etc/wsl.conf, and the Windows .wslconfig.
-- Also write VERSIONS.md: the --version output of every terminal tool on both sides, the installed font family names, and the user environment variables that point at config folders (names and non-secret paths only).
-- Write MANIFEST.md: a table of every exported file with its source path, size and SHA-256.
-</task>
-
-<sensitive_data>
-Scan every file for secrets before copying it (tokens, API keys, passwords, private keys, credential helpers with embedded values). Leave out any file that matches, list it in MANIFEST.md under "excluded" with the reason and without its contents, and remove credential or identity lines from copies of .gitconfig. Do not export anything from ~/.claude, ~/.codex, ~/.cursor, ~/.kiro, ~/.ssh, ~/.mcp.json, ~/.mcp.env or any other AI-tool or credential directory.
-</sensitive_data>
-
-<working_rules>
-This task changes nothing except creating the snapshot folder. Write scripts to .ps1 or .sh files and run them as files. Verify the result by recomputing the hashes of the copies against MANIFEST.md. When it is done and checked, stop and report; do not start any other work.
-</working_rules>
-
-<final_report>
-Say how many files were exported, which were excluded and why, and give the snapshot folder path.
-</final_report>
+1. Review windows-export.ps1 and wsl-export.sh. Read each in full and compare it with this checklist. Fix any miss with Write.
+   - It creates files only under the Jarvis vault folder 40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Acer Dotfile Snapshot\ and nothing else.
+   - It deletes, moves and modifies nothing outside that folder.
+   - It scans every file for secret patterns before copying it. A match means the file is excluded and logged by path and reason only.
+   - It redacts the [credential ...] and [user] sections from the .gitconfig copies by key name.
+   - It never prints a secret value.
+   - Copies keep the original bytes (a binary-safe copy, no re-encoding).
+   - It computes SHA-256 of each source file and of its copy, and writes both to hashes-windows.txt and hashes-wsl.txt in the snapshot folder with MATCH or DIFF per file. A DIFF is expected only for the redacted .gitconfig copies.
+   - It leaves out everything under ~/.claude, ~/.codex, ~/.cursor, ~/.kiro, ~/.ssh, ~/.mcp.json, ~/.mcp.env and any other AI-tool or credential directory.
+   - Yazi: only the toml files and flavor or plugin source, no caches. tmux: plugin names only.
+   - It is ASCII only, can be run twice with the same result, and runs as a file.
+2. Save the final scripts into the snapshot folder under _scripts\ with Write, so they stay in the vault.
+3. Give me the exact commands to run, in order, ready to paste: the Windows script first, with its full path and the PowerShell call that runs it as a file, then the WSL script, with the right /mnt path and the way to run it from a WSL terminal. Say what each one prints when it succeeds. Then stop and wait for me.
+4. When I tell you the scripts ran, check the result with Read, Grep and Glob only:
+   - every file listed in the hash files exists in the snapshot folder;
+   - no DIFF appears other than the redacted .gitconfig copies;
+   - a Grep over the whole snapshot folder for secret patterns (token, api key, password, secret, private key headers, bearer) returns no hits in file contents; report any hit by path and line number without the value;
+   - no AI-tool or credential directory content is present.
+5. Write MANIFEST.md with Write: every exported file with its source path, size and SHA-256 taken from the hash files, plus an "excluded" section with the reason for each exclusion. Write VERSIONS.md: the tool versions and font families you already collected, and the config-folder environment variable names with their non-secret paths.
+6. Add a section "Differences from the vault notes" to VERSIONS.md. Record what you reported: this Acer's Windows side has no Yazi, lazygit, bat, delta or gh-dash install or config (they are WSL-only here), and ripgrep exists on Windows with no config file. List which tools and font families you found on each side, and which claims in my notes this contradicts (the notes say the Windows side runs Yazi with a Tokyo Night Storm flavor and uses the IosevkaTerm Nerd Font, registered as "IosevkaTerm NFM"). Check whether IosevkaTerm is installed by listing C:\Windows\Fonts and %LOCALAPPDATA%\Microsoft\Windows\Fonts with Glob, and report the result either way. Also state whether PowerShell 7 and Starship are installed on the Windows side.
+When all of that is done and checked, stop and report: the number of files exported, the files excluded and why, whether every check passed, and the snapshot folder path. Do not start other work.
 ~~~

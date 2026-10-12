@@ -74,7 +74,7 @@ Also cleaned up: `starship init powershell` ran twice in the PowerShell profile 
 - *Not confirmed:* that VS Code's `PowerShell` name resolves to `pwsh.exe` was not observed in a live GUI terminal. Check with `$PSVersionTable.PSVersion` in a new integrated terminal; both shells were tested with `TERM_PROGRAM=vscode` and print the `env | home | .vscode/env.ps1 loaded` block.
 - *Git pager:* `~\.gitconfig` sets `core.pager = delta`, `interactive.diffFilter = delta --color-only` and a `[delta]` block (navigate, side-by-side, line-numbers), the same as WSL minus its merge and diff lines.
 - *uv:* `C:\Users\anant\.local\bin\uv.exe` (0.12.19) is first on PATH; `D:\Apps\Hermes\bin\uv.exe` is second and harmless. No pip shadow copy.
-- *CLI tools:* fzf, fd, bat, delta and zoxide, all with default configuration. Listed in [[Installations]].
+- *CLI tools:* fzf, fd, bat, delta and zoxide — not plain defaults. PSFzf (installed separately for both PowerShell editions) drives fzf's keybindings (`Ctrl+T`/`Ctrl+R`/`Alt+C`, `-EnableFd`, `-GitKeyBindings`), `bat` has a real config (`%APPDATA%\bat\config`), `fd` has a global ignore file (`%APPDATA%\fd\ignore`), and `delta` matches WSL's `.gitconfig` in full including `diff.colorMoved`. Full detail and the two bugs caught while wiring this (missing WinGet PATH links, PSFzf's `fd`-shadowing alias) are in [[Installations]].
 
 ## Failures Found on This Laptop
 Logs go back to 2026-09-21; workspace history to 2026-09-19.
@@ -95,6 +95,8 @@ Logs go back to 2026-09-21; workspace history to 2026-09-19.
 9. **Settings Sync replaced local settings** (2026-09-25/26). See the incident section.
 ### Terminal Environment and Home Workspace
 Every VS Code terminal on Windows loads `~/.config/vscode-env/init.ps1` from the PowerShell profile, then the folder's `.vscode/env.ps1`. The home folder has its own (`~/.vscode/env.ps1`: space, Jarvis and The Plan, agent memory files, tooling, `~\Scripts` on PATH) and privacy settings (`~/.vscode/settings.json`). Other folders get the default until you run `env: create workspace environment`. Design, test results and timings: [[VS Code - Terminal Environments]].
+
+*Home workspace privacy, audited 2026-10-12:* `~/.vscode/settings.json`'s `files.exclude`/`search.exclude` already hid `AppData`, credentials and caches, but missed `.mcp-auth` (the OAuth/session cache the MCP gallery servers use), `.vscode-shared` and `vscode-remote-wsl` — all three added to both lists. Two genuinely empty, unreferenced leftover folders (`ansel\`, `pdf_survey\`) were confirmed dead (checked against configs, scripts, scheduled tasks, `D:\_Anant`, `AppData` and the WSL side) and deleted; `vscode-remote-wsl\stable\` was kept (it's the current WSL server download cache, matching the live `.vscode-server` commit) and only excluded. `C:\Users\anant\AGENTS.md` (the home directory's own design doc, read by every AI tool that opens a shell there) got a matching map update and its stale `D:\conda\envs` line corrected to `D:\Apps\Miniconda\envs`.
 ### MCP and Secrets
 Global MCP servers come from `~/.config/mcp/mcp.json` via `sync-mcp.ps1`. Claude Code denies reads of secret files on every drive, `~/.config/git/ignore` keeps them out of every repo, and the dotenv extension cloaks them on screen. Details and the six-month pre-mortem: [[VS Code - MCP and Secrets]].
 ## Trust Layout

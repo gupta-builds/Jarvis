@@ -108,3 +108,4 @@ cd /tmp && claude mcp list | grep jarvis               # Connected
 | 2026-09-24 | Baseline extensions installed on both sides, WSL server brought up to client version |
 | 2026-09-25 | C/C++ set removed on both sides |
 | 2026-09-26 | Sync pulled 9 Dell extensions; audit to 39/34; MCP moved to user scope; miniconda configured on Windows and installed in WSL; `jupyter-base` on both; standalone uv on Windows |
+| 2026-10-12 | PowerShell 7 profile created (didn't exist); `fzf`/`fd`/`bat`/`delta`/`zoxide` installed on Windows with PSFzf wiring, not plain defaults; `D:\conda` corrected to `D:\Apps\Miniconda` everywhere; CSCI 5304 channel fixed, CSCI 4521 added to `python-envs.pythonProjects`; home directory privacy excludes and `AGENTS.md` corrected; `.wslconfig` restored to its documented 20GB/18-core/swap-on-D: values |

@@ -104,11 +104,12 @@ Combined footprint: roughly 500MB-700MB installed. Immaterial against a 310GB C:
 | CUDA Toolkit | only if compiling custom PyTorch/TF kernels | nvidia.com | custom | D: if installed | Don't install speculatively — Ollama/llama.cpp GPU accel works off the driver alone |
 | Discord, Slack, WhatsApp, Zoom, Telegram, Claude Desktop | comms/AI | see tables above | see tables above | C: (forced) | **Done** |
 | PowerToys | productivity | Microsoft Store | see above | C: (forced, this method) | **Done** |
-| fzf (`junegunn.fzf`) | fuzzy search over files and history in any terminal, including VS Code's; plain defaults, no keybinding setup | winget | `%LOCALAPPDATA%\Microsoft\WinGet\Packages` (portable, linked into `WinGet\Links`) | C: (forced, tiny) | **Done** 2026-10-12, 0.74.4 |
-| fd (`sharkdp.fd`) | fast file search for course folders and snippets; pairs with fzf and ripgrep | winget | `%LOCALAPPDATA%\Microsoft\WinGet\Packages` | C: (forced, tiny) | **Done** 2026-10-12, 10.5.0 |
-| bat (`sharkdp.bat`) | syntax-highlighted file viewing from the terminal without opening the editor; no custom theme | winget | `%LOCALAPPDATA%\Microsoft\WinGet\Packages` | C: (forced, tiny) | **Done** 2026-10-12, 0.26.1 |
-| delta (`dandavison.delta`) | readable `git diff` and `git log -p`; set as `core.pager` and `interactive.diffFilter` in `~\.gitconfig`, same as WSL | winget | `%LOCALAPPDATA%\Microsoft\WinGet\Packages` | C: (forced, tiny) | **Done** 2026-10-12, 0.20.1 |
+| fzf (`junegunn.fzf`) | fuzzy search over files and history; driven by PSFzf in both PowerShell profiles (`Ctrl+T`/`Ctrl+R`/`Alt+C` chords, `-EnableFd`, `-GitKeyBindings`, `-TabExpansion`), with `FZF_DEFAULT_OPTS` opening a `bat`-rendered preview pane | winget | `%LOCALAPPDATA%\Microsoft\WinGet\Packages` (portable, hard-linked into `WinGet\Links`) | C: (forced, tiny) | **Done** 2026-10-12, 0.74.4 |
+| fd (`sharkdp.fd`) | fast file search for course folders and snippets; pairs with fzf and ripgrep; respects a global ignore file at `%APPDATA%\fd\ignore` (`.git`, `node_modules`, `__pycache__`, `.venv`, caches, build dirs) | winget | `%LOCALAPPDATA%\Microsoft\WinGet\Packages` | C: (forced, tiny) | **Done** 2026-10-12, 10.5.0 |
+| bat (`sharkdp.bat`) | syntax-highlighted file viewing from the terminal and fzf's preview pane; config at `%APPDATA%\bat\config` (`--style=numbers,changes,header`, `--paging=auto`, `--italic-text=always`); no theme override, matching WSL's own unthemed `bat` config | winget | `%LOCALAPPDATA%\Microsoft\WinGet\Packages` | C: (forced, tiny) | **Done** 2026-10-12, 0.26.1 |
+| delta (`dandavison.delta`) | readable `git diff` and `git log -p`; `core.pager`, `interactive.diffFilter`, the `[delta]` navigate/side-by-side/line-numbers block, and `diff.colorMoved = default` in `~\.gitconfig`, matching WSL's `.gitconfig` in full | winget | `%LOCALAPPDATA%\Microsoft\WinGet\Packages` | C: (forced, tiny) | **Done** 2026-10-12, 0.20.1 |
 | zoxide (`ajeetdsouza.zoxide`) | `z <dir>` jumps across scattered course folders, vaults and snippet projects; initialised in both PowerShell profiles | winget | `%LOCALAPPDATA%\Microsoft\WinGet\Packages` | C: (forced, tiny) | **Done** 2026-10-12, 0.10.0 |
+| PSFzf (PowerShell module) | gives `fzf` its PowerShell keybindings and aliases (`fe`/`fh`/`fkill`); installed separately for Windows PowerShell 5.1 and PowerShell 7 (they don't share a module path) | PowerShell Gallery (`Install-Module -Scope CurrentUser`) | `Documents\{WindowsPowerShell,PowerShell}\Modules` | D: (Documents is redirected) | **Done** 2026-10-12, 2.7.12 |
 
 **Explicitly not carrying forward from the Dell's undocumented long tail** unless a concrete current need justifies it: IntelliJ IDEA, MongoDB Shell, Malwarebytes (Windows Defender is the accepted baseline), WinRAR (replaced by NanaZip), Respondus LockDown Browser (course-specific), Dell-specific OEM apps (N/A on Acer; equivalent is PredatorSense — keep only if fan/RGB control is actually used), superwhisper/WisprFlow/Voquill (re-add only if actually still in use).
 
@@ -170,6 +171,12 @@ Real installed state as of 2026-09-19, confirmed via each tool's own `--version`
 
 > [!WARNING]
 > Batch-accepting an entire Chris Titus Tech preset list the way the old Dell accumulated an undocumented long tail of apps. Apply "decide per-app" per the install-method framework above.
+
+> [!WARNING]
+> `winget list` reporting a package as installed does not mean it runs from any shell. On 2026-10-12, `fzf`, `fd`, `bat`, `delta` and `zoxide` all showed installed versions in `winget list` but had no PATH entry at all — only `jq.exe` and `yazi.exe` had a link in `%LOCALAPPDATA%\Microsoft\WinGet\Links` (the one folder winget-installed portable tools actually resolve through). Fixed with `New-Item -ItemType HardLink` into that same `Links` folder (symlinks need admin; hard links don't, since everything is on C:). Check `(Get-Command <tool>).Source` after any winget install of a portable (non-MSI) package — don't trust `winget list` alone.
+
+> [!WARNING]
+> A PowerShell alias can silently shadow a real binary of the same name. PSFzf's `-EnableAliasFuzzySetLocation` option defines an alias literally named `fd`, which would have taken over every unqualified `fd` call instead of running `fd.exe`. Caught before it shipped by checking `(Get-Command fd).CommandType` after enabling PSFzf's options — not assumed safe from the module's own naming.
 
 ## Evidence From This Vault
 

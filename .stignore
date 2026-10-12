@@ -10,14 +10,14 @@
 .trash
 .obsidian/workspaces.json
 
-// Permanently disabled plugins' renamed folders (2026-10-09) - same reasoning
-// as .gitignore's entry. These are local-only disable backups, never meant
-// to sync - each machine's own install may already be in whatever state it's
-// in, and syncing a renamed-disabled folder could re-litigate a disable that
-// was already settled independently on the Dell for obsidian-hover-editor.
-.obsidian/plugins/obsidian-tasks-plugin.disabled/
-.obsidian/plugins/omnisearch.disabled/
-.obsidian/plugins/obsidian-hover-editor.disabled/
+// Permanently disabled plugins (2026-10-09, corrected 2026-10-11) - same
+// reasoning as .gitignore's entry. Moved out of .obsidian/plugins/ entirely
+// (not just renamed in place) after discovering on 2026-10-11 that a renamed
+// in-place folder still loads: Obsidian indexes plugin manifests by the `id`
+// field inside manifest.json, not the folder's name, so lazy-plugins' own
+// stale tracking entries were enough to re-trigger a load regardless of the
+// folder's name. Local-only disable backups, never meant to sync.
+.obsidian/_disabled-plugins/
 // (?d)-prefixed (Build 13, 2026-10-06): each of these is one file inside a
 // plugin folder that otherwise holds normally-synced content (main.js,
 // manifest.json, styles.css) - if that plugin is ever uninstalled on one
@@ -170,6 +170,12 @@
 // .gitignore fix.
 (?d)30_Order/System/claude-workflow/logs/weekly-review.log
 (?d)30_Order/System/claude-workflow/logs/weekly-review.sync-conflict-*
+
+// .weekly-review.lock - run-weekly-review.ps1's own per-run mutex, same
+// per-machine transient-state reasoning as weekly-review.log above. Found
+// 2026-10-11 (W41 review) untracked with no matching ignore entry on either
+// side.
+(?d)30_Order/System/claude-workflow/scripts/.weekly-review.lock
 
 // .sync-alert-state.json (Build 9, 2026-10-02) is Jarvis-Syncthing-Health's own
 // per-machine alert-rate-limiting counter, rewritten every 5 minutes on each

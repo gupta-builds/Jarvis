@@ -94,7 +94,7 @@ Combined footprint: roughly 500MB-700MB installed. Immaterial against a 310GB C:
 | Obsidian | Jarvis/The Plan vaults | obsidian.md | `AppData\Local\Programs` (app), vaults opened from D: | App C:, data D: | Planned |
 | Ollama | local LLM runtime | ollama.com | app C:, models redirected via `OLLAMA_MODELS` | App C:, models D:\AI\ollama-models | Planned |
 | uv | Python package/env manager | astral.sh installer | `%USERPROFILE%\.local\bin` | C: (tiny) | Planned |
-| Miniconda | Jupyter/notebook exception only | Anaconda installer | explicit custom path | **D:\conda** | Planned |
+| Miniconda | Jupyter/notebook exception only | Anaconda installer | base `C:\Users\anant\miniconda3`; envs, pkgs and specs on **D:\Apps\Miniconda** (corrected 2026-10-12, `D:\conda` never existed) | base C:, envs **D:** | **Done** |
 | GitHub CLI (`gh`) | Windows-side git auth | official winget package | `Program Files` | C: (small) | Recommended addition |
 | Windows Terminal | shell host | pre-installed / Store | n/a | C: | Verify present, set default |
 | NanaZip or 7-Zip | archive utility | winget, bucket B | `Program Files` (default) or D: if redirected | C: default, small either way | Recommended, avoid WinRAR |
@@ -104,6 +104,11 @@ Combined footprint: roughly 500MB-700MB installed. Immaterial against a 310GB C:
 | CUDA Toolkit | only if compiling custom PyTorch/TF kernels | nvidia.com | custom | D: if installed | Don't install speculatively — Ollama/llama.cpp GPU accel works off the driver alone |
 | Discord, Slack, WhatsApp, Zoom, Telegram, Claude Desktop | comms/AI | see tables above | see tables above | C: (forced) | **Done** |
 | PowerToys | productivity | Microsoft Store | see above | C: (forced, this method) | **Done** |
+| fzf (`junegunn.fzf`) | fuzzy search over files and history in any terminal, including VS Code's; plain defaults, no keybinding setup | winget | `%LOCALAPPDATA%\Microsoft\WinGet\Packages` (portable, linked into `WinGet\Links`) | C: (forced, tiny) | **Done** 2026-10-12, 0.74.4 |
+| fd (`sharkdp.fd`) | fast file search for course folders and snippets; pairs with fzf and ripgrep | winget | `%LOCALAPPDATA%\Microsoft\WinGet\Packages` | C: (forced, tiny) | **Done** 2026-10-12, 10.5.0 |
+| bat (`sharkdp.bat`) | syntax-highlighted file viewing from the terminal without opening the editor; no custom theme | winget | `%LOCALAPPDATA%\Microsoft\WinGet\Packages` | C: (forced, tiny) | **Done** 2026-10-12, 0.26.1 |
+| delta (`dandavison.delta`) | readable `git diff` and `git log -p`; set as `core.pager` and `interactive.diffFilter` in `~\.gitconfig`, same as WSL | winget | `%LOCALAPPDATA%\Microsoft\WinGet\Packages` | C: (forced, tiny) | **Done** 2026-10-12, 0.20.1 |
+| zoxide (`ajeetdsouza.zoxide`) | `z <dir>` jumps across scattered course folders, vaults and snippet projects; initialised in both PowerShell profiles | winget | `%LOCALAPPDATA%\Microsoft\WinGet\Packages` | C: (forced, tiny) | **Done** 2026-10-12, 0.10.0 |
 
 **Explicitly not carrying forward from the Dell's undocumented long tail** unless a concrete current need justifies it: IntelliJ IDEA, MongoDB Shell, Malwarebytes (Windows Defender is the accepted baseline), WinRAR (replaced by NanaZip), Respondus LockDown Browser (course-specific), Dell-specific OEM apps (N/A on Acer; equivalent is PredatorSense — keep only if fan/RGB control is actually used), superwhisper/WisprFlow/Voquill (re-add only if actually still in use).
 
@@ -147,7 +152,7 @@ Real installed state as of 2026-09-19, confirmed via each tool's own `--version`
 |---|---|
 | Windows OS, drivers, Program Files | PARA data (Documents/Downloads/Desktop/Pictures, redirected) |
 | Electron/Squirrel apps with no location choice (Discord, Slack, Zoom, Telegram, Claude Desktop) | Two Obsidian vaults (Jarvis, The Plan) |
-| Microsoft Store apps (WhatsApp, PowerToys as installed) | Ollama models, npm cache, Miniconda (`D:\conda`), Everything |
+| Microsoft Store apps (WhatsApp, PowerToys as installed) | Ollama models, npm cache, Miniconda envs (`D:\Apps\Miniconda`), Everything |
 | Obsidian, Ollama app binaries (bucket A) | **VS Code** (corrected — real location choice, chosen D:) |
 | — | **WSL + Docker's WSL disk image** (`D:\WSL\Ubuntu`, `D:\WSL\Docker`) — reversed back to D: 2026-09-15 |
 | System-managed pagefile (unless C: capacity becomes a measured problem) | Games, large standalone installs with a real path picker |

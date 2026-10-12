@@ -240,7 +240,7 @@ The gain does not come from any single feature. It comes from making every repo 
 ## Status
 | Item | State on 2026-09-26 |
 |---|---|
-| VS Code version | 1.139.1 (self-updated), WSL server on the same commit |
+| VS Code version | 1.141.0 on Windows (checked 2026-10-12; was 1.139.1 on 2026-09-26), WSL server not re-checked |
 | User settings, keybindings, tasks, MCP | applied and synced; restored after the Sync incident (see [[VS Code - Windows]]) |
 | Settings Sync | on, from the Acer; cloud copy verified to hold this laptop's files |
 | Extensions | 39 on Windows (limit 40), 34 on WSL, same working set |

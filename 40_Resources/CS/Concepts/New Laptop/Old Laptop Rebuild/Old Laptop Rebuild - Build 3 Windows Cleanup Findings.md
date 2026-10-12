@@ -294,3 +294,16 @@ Rule: a folder on C: is either Windows, an installed program, or one tool's own 
 | `D:\Cache\{uv,pip,ms-playwright}` and `D:\npm-cache` | redirected tool caches | env vars | set at user scope the day the tool is installed |
 | `D:\AI\ollama-models`, `D:\WSL\*` | models and WSL disks | tools | stay |
 Storage verification (2026-10-11): Ollama models are on D: (`OLLAMA_MODELS=D:\AI\ollama-models`, 9.2 GiB); the Ollama app's 6.47 GiB `lib` folder is app runtime on C: and moves with the reinstall. Jan keeps its data folder in `AppData\Roaming\Jan\data` (3.31 GiB) on C:; moving it is a Jan Settings step (Advanced, Data folder).
+
+## D: target layout and plan revision (2026-10-12)
+Plan revision: the pagefile stays on C: only (16384 MB start, 32768 MB max, no D: file; script 03 dropped). Jan already moved itself to `D:\AI\jan` (its settings.json says so), so only the stale C: copy is deleted. The D: recycle bin and `D:\Users\Games` were emptied by the user (D: free went from 363.8 to 479.9 GiB).
+
+| D: folder | Holds | Rule |
+|---|---|---|
+| `D:\_Anant` | the one user profile (vaults, 00_Inbox, 20_Progress, 30_Resources, 99_Archive) | target of the later `D:\Users\_Anant` merge, done only after the cleanup and a reference scan, because Jarvis, The Plan, Syncthing, MCP configs and scheduled tasks hardcode `D:\Users\_Anant` |
+| `D:\AI` | `ollama-models`, `local-models`, `jan`, `hermes` | models and agent data |
+| `D:\Cache` | `npm`, `uv`, `pip`, `ms-playwright`, `huggingface`, `nuget`, `gradle`, `puppeteer`, `codex` | everything that regenerates; set through user env vars and `npm config` |
+| `D:\Apps` | `Ollama`, `miniconda3`, `opamroot` (junction targets), later `Syncthing` | installers with a location option |
+| `D:\WSL` | Ubuntu disk, Docker disk, ops scripts | Tier C |
+| `D:\Quarantine` | dated review folders | delete by the date in the name |
+| `D:\DeliveryOptimization`, `D:\WUDownloadCache` | Windows Update caches | cleared by script 02; `Program Files`, `WindowsApps`, `WpSystem` are Store-managed, never touched |

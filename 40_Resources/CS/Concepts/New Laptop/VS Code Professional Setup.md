@@ -242,7 +242,7 @@ The gain does not come from any single feature. It comes from making every repo 
 |---|---|
 | VS Code version | 1.141.0 on Windows (checked 2026-10-12; was 1.139.1 on 2026-09-26), WSL server not re-checked |
 | User settings, keybindings, tasks, MCP | applied and synced; restored after the Sync incident (see [[VS Code - Windows]]) |
-| Settings Sync | on, from the Acer; cloud copy verified to hold this laptop's files |
+| Settings Sync | on, from the Acer; cloud copy verified to hold this laptop's files. Confirmed active on Windows 2026-10-12 (account-level, same as WSL, nothing separate to enable): `%APPDATA%\Code\User\sync\settings\lastSyncsettings.json` and `...\tasks\lastSynctasks.json` carried that day's edit times. Re-verify by checking those `lastSync*.json` timestamps against a recent real edit |
 | Extensions | 39 on Windows (limit 40), 34 on WSL, same working set |
 | Terminal environments | Windows: every terminal loads base + `.vscode/env.ps1`; home environment live. WSL: pending port |
 | Environments | conda `jupyter-base` on both sides for notebook work, uv for everything else |

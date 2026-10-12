@@ -40,6 +40,7 @@ next: "Keep Windows work to the UMN class folders and the vaults; mirror every i
 ## Settings Sync Incident, 2026-09-25/26
 Sync was turned on while the cloud already held a copy from another machine, most likely the Dell. The first sign-in hit a settings conflict whose preview was an empty file. After it was resolved, local `settings.json` held only the remote's 2 keys (`claudeCode.hideOnboarding`, `editor.wordWrap`), and at 13:55 and 13:57 on 2026-09-26 that 2-key file was pushed back to the cloud. The extension merge also installed the Dell's 9 extensions (40 total).
 *Recovery:* settings restored from the pre-sync backup, keeping both remote keys. The Dell extensions were audited, and every restored file was confirmed pushed in `userDataSync.log` (MCP 14:12, extensions 14:14, settings and keybindings 14:21, tasks 14:22).
+*Current state (checked 2026-10-12):* Settings Sync is active on Windows, account-level and the same as WSL. `%APPDATA%\Code\User\sync\settings\lastSyncsettings.json` and `...\tasks\lastSynctasks.json` timestamps matched that day's edits; re-verify the same way after any change.
 > [!WARNING]
 > When Sync reports a conflict on a new device, choose **Accept Local** (or "Replace Remote") for settings and extensions, then check `settings.json` before doing anything else. The Dell must not sign in again unless it should receive this laptop's config.
 

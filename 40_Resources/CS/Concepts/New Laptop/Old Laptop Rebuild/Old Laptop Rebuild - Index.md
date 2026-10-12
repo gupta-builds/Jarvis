@@ -58,8 +58,8 @@ The Acer's cloud copy has landed on the Dell's Windows VS Code, with Acer-only p
 1. WSL layer ([[Old Laptop Rebuild - Prompt 1 WSL]]): audit, `.wslconfig`, tool parity, WSL-side cleanup, Jarvis log.
 2. Build 2 (WSL VS Code and the two-laptop SSH workflow): see [[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]].
 3. Build 3, Windows C: cleanup, Google Drive mirror, D: baseline and Windows-side WSL host settings (pagefile, AppData, Temp and crash dumps, quarantine, startup and tasks, Defender exclusions, D: offload). Prompt in [[Old Laptop Rebuild - Windows Prompts (Build 3 C Drive Cleanup and Build 4 Terminal Parity)]], run with the WizTree screenshots attached.
-4. Acer dotfile snapshot (appendix prompt in the same note), so terminal configs can be copied from the Acer instead of rebuilt from notes.
-5. Build 4, Windows terminal installs and config parity (PowerShell 7, Windows Terminal, Starship, Yazi, fonts, shared config hashes). Same note.
+4. Acer dotfile snapshot: exported 2026-10-11 into `Old Laptop Rebuild/Acer Dotfile Snapshot/` (with its `_scripts`), so terminal configs are copied from the Acer instead of rebuilt from notes. Build 4 uses it.
+5. Build 4, scripted Windows toolkit on both laptops (PowerShell 7, Windows Terminal, Starship, fonts, shared config hashes, WSL config parity from the snapshot) plus a catalog and agent guide for AI tools. Same note; the Dell inventory is the "Old Laptop" section of [[Installations]].
 6. Build 5, Windows VS Code and MCP wiring (extensions 39/34, settings, MCP registry), with the stale Acer paths from Build 2's findings.
 7. Build 6, dev-only profile and a final verification pass against the Acer.
 

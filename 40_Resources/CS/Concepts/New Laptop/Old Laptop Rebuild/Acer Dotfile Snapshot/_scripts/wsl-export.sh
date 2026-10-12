@@ -8,7 +8,7 @@ mkdir -p "$WSL_OUT"
 
 HASHES="$SNAP/hashes-wsl.txt"
 EXCLUDED="$SNAP/excluded-wsl.txt"
-printf 'RelDest\tSource\tSourceSHA256\tCopySHA256\tStatus\n' > "$HASHES"
+printf 'RelDest\tSource\tSourceSHA256\tCopySHA256\tCopySize\tStatus\n' > "$HASHES"
 printf 'Source\tRelDest\tReason\n' > "$EXCLUDED"
 
 PATTERNS=(
@@ -63,8 +63,8 @@ log_excluded() {
 }
 
 log_hash() {
-  # args: reldest  source  sourcehash  copyhash  status
-  printf '%s\t%s\t%s\t%s\t%s\n' "$1" "$2" "$3" "$4" "$5" >> "$HASHES"
+  # args: reldest  source  sourcehash  copyhash  copysize  status
+  printf '%s\t%s\t%s\t%s\t%s\t%s\n' "$1" "$2" "$3" "$4" "$5" "$6" >> "$HASHES"
 }
 
 # Plain, verbatim, binary-safe copy. Scans the SOURCE before ever writing a copy.
@@ -85,11 +85,12 @@ export_file() {
   local dest="$WSL_OUT/$rel"
   mkdir -p "$(dirname "$dest")"
   cp -p "$src" "$dest"
-  local srchash dsthash status
+  local srchash dsthash dstsize status
   srchash=$(sha256sum "$src" | cut -d' ' -f1)
   dsthash=$(sha256sum "$dest" | cut -d' ' -f1)
+  dstsize=$(stat -c%s "$dest")
   if [ "$srchash" = "$dsthash" ]; then status="MATCH"; else status="DIFF"; fi
-  log_hash "wsl/$rel" "$src" "$srchash" "$dsthash" "$status"
+  log_hash "wsl/$rel" "$src" "$srchash" "$dsthash" "$dstsize" "$status"
 }
 
 # ---- starship ----
@@ -122,7 +123,8 @@ fi
 # ---- .gitconfig: redact [credential ...] and [user] sections, scanning IN MEMORY before any write ----
 if [ -f "$HOME/.gitconfig" ] && ! is_forbidden "$HOME/.gitconfig"; then
   redacted=$(awk '
-    /^[[:space:]]*\[(credential|user)\b/ { skip=1; next }
+    /^[[:space:]]*\[credential/ { skip=1; next }
+    /^[[:space:]]*\[user\]/ { skip=1; next }
     /^[[:space:]]*\[/ { skip=0 }
     !skip { print }
   ' "$HOME/.gitconfig")
@@ -134,7 +136,8 @@ if [ -f "$HOME/.gitconfig" ] && ! is_forbidden "$HOME/.gitconfig"; then
     printf '%s\n' "$redacted" > "$dest"
     srchash=$(sha256sum "$HOME/.gitconfig" | cut -d' ' -f1)
     dsthash=$(sha256sum "$dest" | cut -d' ' -f1)
-    log_hash "wsl/home/.gitconfig" "$HOME/.gitconfig (redacted: removed [credential] and [user] sections)" "$srchash" "$dsthash" "DIFF"
+    dstsize=$(stat -c%s "$dest")
+    log_hash "wsl/home/.gitconfig" "$HOME/.gitconfig (redacted: removed [credential] and [user] sections)" "$srchash" "$dsthash" "$dstsize" "DIFF"
   fi
 fi
 
@@ -148,7 +151,8 @@ if [ -d "$HOME/.tmux/plugins" ] && ! is_forbidden "$HOME/.tmux/plugins"; then
   mkdir -p "$(dirname "$dest")"
   printf '%s\n' "$listing" > "$dest"
   dsthash=$(sha256sum "$dest" | cut -d' ' -f1)
-  log_hash "wsl/home/.tmux-plugins-list.txt" "$HOME/.tmux/plugins (directory listing only, not plugin source, generated)" "n/a" "$dsthash" "GENERATED"
+  dstsize=$(stat -c%s "$dest")
+  log_hash "wsl/home/.tmux-plugins-list.txt" "$HOME/.tmux/plugins (directory listing only, not plugin source, generated)" "n/a" "$dsthash" "$dstsize" "GENERATED"
 else
   log_excluded "$HOME/.tmux/plugins" "home/.tmux-plugins-list.txt" "not present on this host"
 fi
@@ -160,7 +164,7 @@ export_file "/etc/wsl.conf" "etc/wsl.conf"
 if [ -f "$HOME/.bashrc" ] && ! is_forbidden "$HOME/.bashrc"; then
   start=$(grep -n '^# JARVIS_WSL_ENV_BLOCK' "$HOME/.bashrc" | head -1 | cut -d: -f1)
   if [ -n "${start:-}" ]; then
-    end=$(awk -v s="$start" 'NR>s && /^# >>>/ {print NR-1; exit} END{if(NR>0) print NR}' "$HOME/.bashrc")
+    end=$(awk -v s="$start" 'NR>s && /^# >>>/ {print NR-1; found=1; exit} END{if (!found) print NR}' "$HOME/.bashrc")
     # extract the range, then trim trailing blank lines via awk (portable, no multi-line sed tricks)
     block=$(sed -n "${start},${end}p" "$HOME/.bashrc" | awk '{lines[NR]=$0} END{n=NR; while (n>0 && lines[n]=="") n--; for (i=1;i<=n;i++) print lines[i]}')
     if has_secret_text "$block"; then
@@ -170,7 +174,8 @@ if [ -f "$HOME/.bashrc" ] && ! is_forbidden "$HOME/.bashrc"; then
       mkdir -p "$(dirname "$dest")"
       printf '%s\n' "$block" > "$dest"
       dsthash=$(sha256sum "$dest" | cut -d' ' -f1)
-      log_hash "wsl/home/.bashrc.jarvis_block" "$HOME/.bashrc (JARVIS_WSL_ENV_BLOCK lines $start-$end only, generated excerpt)" "n/a" "$dsthash" "GENERATED"
+      dstsize=$(stat -c%s "$dest")
+      log_hash "wsl/home/.bashrc.jarvis_block" "$HOME/.bashrc (JARVIS_WSL_ENV_BLOCK lines $start-$end only, generated excerpt)" "n/a" "$dsthash" "$dstsize" "GENERATED"
     fi
   else
     log_excluded "$HOME/.bashrc" "home/.bashrc.jarvis_block" "JARVIS_WSL_ENV_BLOCK marker not found"

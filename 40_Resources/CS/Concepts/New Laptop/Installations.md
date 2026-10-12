@@ -2,7 +2,7 @@
 type: note
 status: sprout
 created: 2026-09-13
-updated: 2026-09-19
+updated: 2026-10-11
 course: Life
 track:
   - laptop
@@ -183,6 +183,115 @@ Real installed state as of 2026-09-19, confirmed via each tool's own `--version`
 5. VS Code Day-2 build-out ([[VS Code Professional Setup#Suggested build order for the next VS Code session (for discussion, not started)]]).
 6. Decide per-app on the "not carrying forward" list once actual current usage is confirmed.
 7. Confirm what "DevTools" (Microsoft Store) actually refers to.
+
+## Old Laptop
+
+`Old Laptop`: `40_Resources/CS/Concepts/New Laptop/Installations`. Everything above this heading describes the Acer (new laptop). This section is the installed-tool record for the Dell Latitude 5530, written 2026-10-11 from live queries on the machine and reconciled with [[Old Laptop Rebuild - Build 1 WSL Findings]], [[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]] and [[Old Laptop Rebuild - Build 3 Windows Cleanup Findings]]. Where a build note and the machine disagreed, the machine is shown.
+
+Machine: i7-1255U (10 cores, 12 threads), 32 GB RAM, Intel Iris Xe only (no NVIDIA GPU), one 1 TB NVMe split into C: (252 GB) and D: (700 GB). Windows 11 Pro build 26300, user `C:\Users\Anant Gupta`. WSL 3.0.1.0, kernel 6.18.40.1, distro `Ubuntu` (Ubuntu 24.04.4), Linux user `anant_gupta`, mirrored networking, swap on `D:\WSL\swap.vhdx`. This is the always-on SSH host for the Acer: Tailscale runs inside this WSL only and is never installed on this laptop's Windows side.
+
+### Where things stand
+- WSL is rebuilt and configured (Builds 1 and 2). Its terminal configs were reconstructed from notes and mostly differ from the Acer's real files (see "Config parity" below).
+- The Windows side is a pre-rebuild state: no PowerShell 7, no Starship, no Nerd Font, Windows Terminal on defaults, and a PowerShell profile that only loads opam, Kiro shell integration and a `New-PyEnv` helper. Build 3 (cleanup) has audited it and has not changed anything yet. Build 4 installs and configures the terminal toolkit.
+- Several C: items are pending removal or review in Build 3 (Microsoft 365, Malwarebytes, Respondus, MongoDB Shell, WinRAR, Dell Optimizer and SupportAssist plugin, stray executables). They are listed here as installed because they still are.
+
+### Windows side (live 2026-10-11)
+Install source: `winget` means a winget package id, `Store` an MSIX package, `direct` an installer without a winget id, `npm` or `pip` a global package. Location is from the live PATH or install record, `C: (small)` where the installer records none.
+
+**Shell, terminal and fonts**
+| Tool | Version | Source | Location | State |
+|---|---|---|---|---|
+| Windows PowerShell | 5.1.26100 | built in | System32 | only shell; profile at `D:\Users\_Anant\10_Areas\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1` (opam env, Kiro integration, `New-PyEnv`; no Starship) |
+| Windows Terminal | 1.24.12741 | winget / Store | WindowsApps alias | default profile Windows PowerShell; no color scheme or font set; profiles: PowerShell, cmd, Azure Cloud Shell, Ubuntu, two Anaconda prompts |
+| PowerShell 7 | not installed | | | Build 4 |
+| Starship, Nerd Font (IosevkaTerm), zoxide, fzf, fd, bat, delta, lazygit, yazi | not installed | | | Build 4 decides the Windows set; Cascadia Code and Cascadia Mono are the only developer fonts found (a search for Iosevka, Nerd, JetBrains, FiraCode and Hack fonts returned nothing) |
+
+**CLI tools, runtimes and package managers**
+| Tool | Version | Source | Location | Note |
+|---|---|---|---|---|
+| Git | 2.52.0 | winget | `C:\Program Files\Git` | update to 2.55 available; global config has `core.autocrlf=false`, `pull.rebase=true`, `init.defaultbranch=main`, and safe.directory entries for WSL repos |
+| GitHub CLI | 2.89.0 | winget | `C:\Program Files\GitHub CLI` | |
+| ripgrep | 15.1.0 | winget | `AppData\Local\Microsoft\WinGet\Packages` | |
+| jq | 1.8.2 | winget | WinGet Packages | |
+| FFmpeg | 8.1.2 | winget | C: (small) | |
+| OpenSSH client | built in | Windows | `System32\OpenSSH` | `ssh-agent` service disabled; no `sshd` and no Tailscale on this side |
+| Node.js | 22.16.0 | winget (`OpenJS.NodeJS.22`) | `C:\Program Files\nodejs` | no nvm-windows; no pnpm |
+| npm globals | `@openai/codex` 0.160.0, `firecrawl-cli` 1.19.21, `mcp-remote` 0.2.1, `openclaw` 2026.3.13, `opencode-ai` 1.18.31 | npm | `AppData\Roaming\npm` | npm cache is `D:\npm-cache`; a stale 4.3 GiB copy remains in `AppData\Local\npm-cache` |
+| Python | 3.13.5 | winget and Chocolatey (`python313`) | `C:\Python313` | duplicate install paths |
+| uv | 0.11.26 | pip, into `C:\Python313\Scripts` | | not the standalone installer; Acer note records 0.12.17 standalone |
+| Miniconda3 | py313_25.11.1 | winget | `C:\Users\Anant Gupta\miniconda3` (7.1 GiB) | the plan says `D:\conda` |
+| opam (OCaml) | 2.5.0 | winget | root `C:\opamroot` (2.4 GiB) | |
+| Chocolatey | 2.4.3 | direct | `C:\ProgramData\chocolatey` | 12 packages: python313, vcredist140, vcredist2015 and Windows KB patches; use winget for new installs |
+| MongoDB Shell | 2.5.9 | winget | C: (small) | on the "not carrying forward" list |
+| WinRAR | 7.01 | winget | C: | replace with NanaZip or 7-Zip; "not carrying forward" |
+
+**AI platforms, agents and models**
+| Tool | Version | Source | Location | Note |
+|---|---|---|---|---|
+| Claude Code (Windows) | 2.1.296 | native installer | `C:\Users\Anant Gupta\.local\bin\claude.exe` | |
+| Codex CLI (Windows) | 0.160.0 | npm | `AppData\Roaming\npm` | the WSL copy is 0.162.1 |
+| Codex app and ChatGPT desktop | 26.1007 and 1.2026.190 | Store | WindowsApps | |
+| Claude Desktop | 2.31226 | winget | `AppData` (VM bundle 10.6 GiB under Roaming) | MCP servers configured by name: jarvis, the-plan, jarvis-fs, github |
+| Cursor | 3.19.13 | winget | `AppData\Local\Programs` | |
+| Kiro | 1.0.395 | winget | `AppData\Local\Programs` | |
+| Antigravity | 2.12.2 | winget | AppData | |
+| Ollama | 0.24.0 | winget | `AppData\Local\Programs` (6.5 GiB) | models in `D:\AI\ollama-models` (`OLLAMA_MODELS` set at user scope) |
+| Jan | 0.8.3 | winget | AppData | models 3.3 GiB under Roaming |
+| Cluely, 16x Prompt, Voquill, Wispr Flow | various | direct | AppData | voice and prompt helpers; start with Windows |
+| Docker Desktop | 4.56.0 | winget | `C:\Program Files\Docker` | disk image on `D:\WSL\Docker`; not running; auto-start is enabled in the Run key |
+| VS Code | 1.141.0 | winget | `C:\Users\Anant Gupta\AppData\Local\Programs\Microsoft VS Code` | on C: here, on D: on the Acer; 40 extensions from Settings Sync |
+
+**Productivity, communication and media (forced to C:)**
+Obsidian 1.9.12, Slack, Discord, Zoom, Telegram, WhatsApp (Store), Spotify, Vivaldi 8.2, Todoist, Loom, Bitwarden, Postman, Syncthing (runs from `D:\Users\_Anant\Downloads\syncthing-windows-amd64-v2.1.5`, so Downloads cleanup would break it), Google Drive for desktop 132 (not running), PowerToys 0.100, Logi Options+, WizTree 4.31, Revo Uninstaller 2.7.2, CrystalDiskInfo, Steam, RiotClient and Medal (startup entries), Netflix and LinkedIn (Store).
+
+**Microsoft and Dell packages**
+Microsoft 365 Apps 16.0.20430 (4.7 GiB), Teams and the Teams Meeting add-in, Outlook (new), Microsoft Edge 155, Mail and Calendar, Power Automate, Dev Home, Bing apps, and the .NET and Visual C++ runtimes. Dell Command Update 5.7, Dell Optimizer, SupportAssist OS Recovery plugin, Dell Core Services, Intel graphics software, Realtek audio driver. Respondus LockDown Browser, two Malwarebytes entries, HP Smart.
+
+### WSL side (Ubuntu 24.04.4, live 2026-10-11)
+`systemctl is-system-running` reports `degraded` because `systemd-binfmt.service` fails on WSL 3.0.1 (fixed upstream in 3.0.2). Root filesystem 55 GB used of 1007 GB.
+
+**apt packages (manual)**
+git 2.43.0, git-lfs 3.4.1, gh 2.45.0 (Ubuntu repo), ripgrep 14.1.0, fd-find 9.0.0 (`fd` symlink in `~/.local/bin`), bat 0.24.0 (`bat` symlink), fzf 0.44.1, jq 1.7, tmux 3.4, ncdu 1.19, direnv 2.32.1, bubblewrap, wslu 3.2.3, build-essential, curl, wget, unzip, python3-pip, Tailscale 1.104.1 (Tailscale apt repository; `RunSSH=true`, node `dell-wsl`).
+
+**User-space binaries in `~/.local/bin`**
+| Tool | Version | Note |
+|---|---|---|
+| Starship | 1.26.0 | |
+| Yazi and ya | 26.9.1 | |
+| lazygit | 0.65.1 | |
+| delta | 0.20.1 | Acer note records 0.19.2 |
+| zoxide | 0.10.0 | |
+| atuin | 18.23.0 | local-only, no sync |
+| sesh | 2.32.0 | |
+| gh-dash | 4.26.0 | `gh dash` is discovered by `gh extension list` |
+| chafa | 1.18.3 | static binary (Yazi needs 1.16 or newer) |
+| win32yank | 0.1.1 | clipboard bridge for tmux |
+| unison | 2.54.0 | |
+| PowerShell 7 | 7.6.4 | present in WSL; no build note records the install |
+| uv | 0.12.23 | updated in Build 1 |
+| git-filter-repo | present | |
+| Semgrep | 1.179.0 | `uv tool install` |
+
+**Runtimes and package managers**
+nvm with Node 24.14.1 (default `lts/*`), npm 11.11.0, pnpm 10.33.2 (Corepack), Bun 1.3.14, Python 3.12.3 (system), rustup 1.29.1 with rustc and cargo 1.99.0, `cargo-watch` 8.5.3 and `code2prompt` 4.2.0 (built from `~/projects/code2prompt`). Not installed: conda, ruff, shfmt and shellcheck binaries (the editor extensions are installed).
+
+**Global packages**
+npm: `@clerk/agent-toolkit` 0.2.33, `@modelcontextprotocol/server-filesystem` 2026.1.14, `@modelcontextprotocol/server-github` 2025.4.8 (deprecated upstream), `@openai/codex` 0.162.1, `@upstash/context7-mcp` 3.2.1, `@upstash/mcp-server` 0.2.3, `supabase` 2.101.0, `vercel` 54.9.1. uv tools: `graphifyy` 0.9.69 (graphify, graphify-mcp), `semgrep` 1.179.0, `specify-cli` 0.16.5.
+
+**AI CLIs and agents**
+claude 2.1.296, codex 0.162.1, kiro-cli 2.27.1, agy (Antigravity) 1.3.3. Ollama 0.18.3 is also installed at `/usr/local/bin/ollama`, which contradicts the "Ollama stays on the Windows side" decision in [[Ubuntu - WSL]]; decide whether to keep it. MCP servers: user scope in `~/.claude.json` are graphify, jarvis, jarvis-fs, pencil and the-plan; `~/.mcp.json` still lists github, jarvis, jarvis-fs and the-plan. Claude skills: 78 folders in `~/.claude/skills`; Codex skills: 13.
+
+**tmux, shell and editor**
+tmux plugins: tpm, tmux-resurrect, tmux-continuum, tmux-fzf, tmux-agent-status, tmux-handlr. VS Code Server 1.141.0 with 34 extensions (agents: anthropic.claude-code, openai.chatgpt, openai.codex-audio; Python: python, pylance, debugpy, python-envs, ruff; notebooks: jupyter, keymap, renderers, datawrangler, rainbow-csv; web: biome, eslint, tailwindcss, playwright; Git: gitlens, pull-request-github, github-actions; config formats: yaml, even-better-toml, markdownlint, editorconfig, dotenv; shell: shellcheck, shell-format; quality: errorlens, code-spell-checker, todo-tree, semgrep; others: httpyac, containers, rust-analyzer). Git global config: `pull.rebase true`, `push.autoSetupRemote true`, `fetch.prune true`, `rerere.enabled true`, `core.autocrlf input`, `init.defaultBranch main`, `gh auth git-credential` helper, `~/.config/git/ignore` with the eight secret patterns.
+
+### Config parity with the Acer snapshot (2026-10-11)
+The Acer's real WSL and Windows files are in `Old Laptop Rebuild/Acer Dotfile Snapshot/`. Compared by SHA-256 with the Dell's WSL files: **4 of 17 comparable files match** (the four Yazi plugin Lua files). **13 differ**: atuin config, gh-dash config, git ignore, lazygit config, ncdu config, sesh config, `starship.toml`, Yazi `init.lua`, `keymap.toml`, `theme.toml`, `yazi.toml`, `.gitconfig` and `.tmux.conf`. These Dell files were reconstructed from notes in Build 1 and carry a "from notes, not from Acer" label. Three Yazi files are missing on the Dell (`flavors/tokyonight-storm.yazi/flavor.toml` and `tmtheme.xml`, and `package.toml`). The Dell's `.wslconfig` differs from the Acer's on purpose (20 GB, 10 CPUs, swap on D:, both idle timeouts disabled for the SSH host). The Acer's own Windows and WSL `starship.toml` files are identical except line endings (the WSL copy has CRLF); the LF version is the one to keep.
+
+### Windows terminal on the Acer (from its snapshot)
+The Acer's Windows side is also incomplete: Windows Terminal is on defaults (One Half Dark, `IosevkaTerm Nerd Font`, 85 percent acrylic, default profile Windows PowerShell), no PowerShell profile exists, the global git config has only `longpaths`, `fsmonitor` and `untrackedCache` (plus redacted identity), and Yazi, lazygit, bat, delta and gh-dash exist only inside its WSL. Its winget export includes PowerShell 7, Starship, Tailscale, NanaZip, ripgrep, jq, Yazi (installed, unconfigured), Node LTS, Docker Desktop, Ollama, VS Code, Cursor, Claude and Antigravity. Build 4 completes this side on both laptops.
+
+### How to refresh this section
+Run on the Dell and re-read: `winget list`, `choco list`, `npm ls -g --depth=0` (Windows and WSL), `uv tool list`, `cargo install --list`, `code --list-extensions --show-versions` (Windows and WSL), `apt-mark showmanual`, and `ls ~/.local/bin`. The inventory scripts used for this section were `wsl-inventory.sh` and `win-inventory.ps1`; Build 4 turns them into repeatable scripts.
 
 ## Flashcards
 

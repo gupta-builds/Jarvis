@@ -51,9 +51,9 @@ function Test-ForbiddenPath {
   return $false
 }
 
-# hashes-windows.txt columns: RelDest  Source  SourceSHA256  CopySHA256  Status
+# hashes-windows.txt columns: RelDest  Source  SourceSHA256  CopySHA256  CopySize  Status
 $HashLines = New-Object System.Collections.Generic.List[string]
-$HashLines.Add("RelDest`tSource`tSourceSHA256`tCopySHA256`tStatus")
+$HashLines.Add("RelDest`tSource`tSourceSHA256`tCopySHA256`tCopySize`tStatus")
 # excluded-windows.txt columns: Source  RelDest  Reason
 $ExcludedLines = New-Object System.Collections.Generic.List[string]
 $ExcludedLines.Add("Source`tRelDest`tReason")
@@ -64,8 +64,8 @@ function Add-Excluded {
 }
 
 function Add-Hash {
-  param([string]$RelDest, [string]$Source, [string]$SourceHash, [string]$CopyHash, [string]$Status)
-  $HashLines.Add("$RelDest`t$Source`t$SourceHash`t$CopyHash`t$Status")
+  param([string]$RelDest, [string]$Source, [string]$SourceHash, [string]$CopyHash, [long]$CopySize, [string]$Status)
+  $HashLines.Add("$RelDest`t$Source`t$SourceHash`t$CopyHash`t$CopySize`t$Status")
 }
 
 # Plain, verbatim, binary-safe copy. Scans the SOURCE before ever writing a copy.
@@ -88,8 +88,9 @@ function Export-File {
   Copy-Item -Path $Source -Destination $destPath -Force
   $srcHash = (Get-FileHash -Algorithm SHA256 -Path $Source).Hash
   $dstHash = (Get-FileHash -Algorithm SHA256 -Path $destPath).Hash
+  $dstSize = (Get-Item $destPath).Length
   $status = if ($srcHash -eq $dstHash) { "MATCH" } else { "DIFF" }
-  Add-Hash "windows/$RelDest" $Source $srcHash $dstHash $status
+  Add-Hash "windows/$RelDest" $Source $srcHash $dstHash $dstSize $status
 }
 
 # ---- starship ----
@@ -125,7 +126,8 @@ if ((Test-Path $gitconfigSrc) -and -not (Test-ForbiddenPath $gitconfigSrc)) {
     [System.IO.File]::WriteAllText($destPath, $redactedText, $utf8NoBom)
     $srcHash = (Get-FileHash -Algorithm SHA256 -Path $gitconfigSrc).Hash
     $dstHash = (Get-FileHash -Algorithm SHA256 -Path $destPath).Hash
-    Add-Hash "windows/home/.gitconfig" "$gitconfigSrc (redacted: removed [credential] and [user] sections)" $srcHash $dstHash "DIFF"
+    $dstSize = (Get-Item $destPath).Length
+    Add-Hash "windows/home/.gitconfig" "$gitconfigSrc (redacted: removed [credential] and [user] sections)" $srcHash $dstHash $dstSize "DIFF"
   }
 }
 
@@ -156,8 +158,9 @@ if (Test-ForbiddenPath $wslconfigSrc) {
   Copy-Item -Path $wslconfigSrc -Destination $destPath -Force
   $srcHash = (Get-FileHash -Algorithm SHA256 -Path $wslconfigSrc).Hash
   $dstHash = (Get-FileHash -Algorithm SHA256 -Path $destPath).Hash
+  $dstSize = (Get-Item $destPath).Length
   $status = if ($srcHash -eq $dstHash) { "MATCH" } else { "DIFF" }
-  Add-Hash "wsl/windows-host/.wslconfig" $wslconfigSrc $srcHash $dstHash $status
+  Add-Hash "wsl/windows-host/.wslconfig" $wslconfigSrc $srcHash $dstHash $dstSize $status
 }
 
 # ---- tools with no config present on this host: record as not-present (not a secret exclusion) ----
@@ -179,7 +182,8 @@ New-Item -ItemType Directory -Force -Path (Split-Path $wingetOut -Parent) | Out-
 winget export -o $wingetOut --accept-source-agreements | Out-Null
 if (Test-Path $wingetOut) {
   $dstHash = (Get-FileHash -Algorithm SHA256 -Path $wingetOut).Hash
-  Add-Hash "windows/winget/winget-export.json" "winget export (generated)" "n/a" $dstHash "GENERATED"
+  $dstSize = (Get-Item $wingetOut).Length
+  Add-Hash "windows/winget/winget-export.json" "winget export (generated)" "n/a" $dstHash $dstSize "GENERATED"
 }
 
 # ---- write hashes and excluded logs into the snapshot folder only ----

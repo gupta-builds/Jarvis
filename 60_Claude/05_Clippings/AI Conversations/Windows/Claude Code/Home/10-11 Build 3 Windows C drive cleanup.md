@@ -5,32 +5,33 @@ source_app: claude-code
 source_os: windows
 title: "Build 3 Windows C: drive cleanup"
 started_at: 2026-10-11T18:14:49
-ended_at: 2026-10-11T18:39:03
-exported_at: 2026-10-11T19:00:02
-duration_minutes: 24.2
+ended_at: 2026-10-11T19:20:30
+exported_at: 2026-10-11T19:30:02
+duration_minutes: 65.7
 project: Home
 cwd: 'C:\Users\Anant Gupta'
 session_id: 06b8b684-9d4a-42af-85c3-f42ff7877041
 status: raw
-turn_count: 3
+turn_count: 5
 tools_used:
-  Bash: 8
+  Bash: 9
   Grep: 4
-  PowerShell: 20
+  PowerShell: 26
   Read: 12
   ToolSearch: 1
   WebSearch: 1
-  Write: 3
+  Write: 7
 tokens:
-  input: 160
-  output: 130376
-  cache_creation: 619369
-  cache_read: 12976431
-  total: 13726336
+  input: 214
+  output: 249753
+  cache_creation: 764680
+  cache_read: 20282968
+  total: 21297615
 cost_usd: null
 model:
   - "claude-sonnet-5-5"
 files_touched:
+  - "C:\\Users\\Anant Gupta\\.claude\\projects\\C--Users-Anant-Gupta\\memory\\feedback_scripts_for_bulk_cleanup.md"
   - "C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\06b8b684-9d4a-42af-85c3-f42ff7877041\\scratchpad\\sens.ps1"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Installations.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\New Laptop Setup.md"
@@ -45,6 +46,9 @@ files_touched:
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Sync\\Google Drive Sync Policy.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Ubuntu - WSL.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\AGENTS.md"
+  - "D:\\WSL\\ops\\windows\\01-user-cleanup.ps1"
+  - "D:\\WSL\\ops\\windows\\02-admin-cleanup.ps1"
+  - "D:\\WSL\\ops\\windows\\03-pagefile-stage2.ps1"
 tags:
   - input
   - ai-conversation
@@ -1008,11 +1012,738 @@ Pending until execution.
 ```
 - `Grep` -- pattern `—` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Old Laptop Rebuild - Build 3 Windows Cleanup Findings.md`
 
+## You
+
+The results landed with are concrete and directive. They are correct and sourced to this laptop, rely on the information that is actually discovered and not what is writte down inside jarvis. All the tiers thatare described are just tier 1. They all need to be done, other than that, we need to make sure that the existing ollama models, jan models, apps, etc. Everything is stored correctly in the places that they need to be stored inside. The first step i want to take over here is have a cleaner more directive, easy to understand c drive folder. I understand we cannot be removing a lot of information, But this needs structure and clarity. We will be mimicking a clean approach on the new laptop as well. But this over here is an absolute mess that needs to becleared folder by folder, file by file. In bulk we go through everything and manage to clear all the garbage required for this laptop. I do not want you to manually be doing the deleting since that is going to cause a lot of tokens to be burnt. You are required to only clear bulk files that are token efficient and anything that is too long and takes toomany tokens is provided in a script or as a command to run in an elevated shell or wherever. Let's make sure that we dive in details for everything that is mentioned over here. On the command that was required to run: ```
+
+<pasted_content id="8b75">
+PS C:\WINDOWS\system32> powershell -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\windows\diag-pagefile-bitlocker.ps1
+This script only reads state. It writes a transcript to D:\WSL\ops\windows\[REDACTED].txt
+== manage-bde C: and D:
+BitLocker Drive Encryption: Configuration Tool version 10.0.26100
+Copyright (C) 2013 Microsoft Corporation. All rights reserved.
+
+Volume C: []
+[OS Volume]
+
+    Size:                 251.93 GB
+    BitLocker Version:    2.0
+    Conversion Status:    Used Space Only Encrypted
+    Percentage Encrypted: 100.0%
+    Encryption Method:    XTS-AES 128
+    Protection Status:    Protection On
+    Lock Status:          Unlocked
+    Identification Field: Unknown
+    Key Protectors:
+        Numerical Password
+        TPM
+
+BitLocker Drive Encryption: Configuration Tool version 10.0.26100
+Copyright (C) 2013 Microsoft Corporation. All rights reserved.
+
+Volume D: [New Volume]
+[Data Volume]
+
+    Size:                 700.00 GB
+    BitLocker Version:    2.0
+    Conversion Status:    Used Space Only Encrypted
+    Percentage Encrypted: 100.0%
+    Encryption Method:    XTS-AES 128
+    Protection Status:    Protection On
+    Lock Status:          Unlocked
+    Identification Field: Unknown
+    Automatic Unlock:     Enabled
+    Key Protectors:
+        Numerical Password
+        External Key (Required for automatic unlock)
+
+== protectors on D: (look for ExternalKey or Password plus auto-unlock)
+BitLocker Drive Encryption: Configuration Tool version 10.0.26100
+Copyright (C) 2013 Microsoft Corporation. All rights reserved.
+
+Volume D: [New Volume]
+All Key Protectors
+
+    Numerical Password:
+      ID: {[REDACTED]}
+      Password:
+        008646-364727-534765-618167-381766-528033-559427-503074
+      Backup type:
+        Microsoft account backup
+        AAD backup
+
+    External Key:
+      ID: {[REDACTED]}
+      External Key File Name:
+        [REDACTED].BEK
+      Automatic unlock enabled.
+
+== auto-unlock keys registered for data volumes
+BitLocker Drive Encryption: Configuration Tool version 10.0.26100
+Copyright (C) 2013 Microsoft Corporation. All rights reserved.
+
+ERROR: Invalid Syntax.
+"-status" was not understood.
+
+Type "manage-bde -?" for usage.
+== pagefile and crash dump settings
+
+
+Name        : d:\pagefile.sys
+InitialSize : 0
+MaximumSize : 0
+
+
+
+
+
+Name              : C:\pagefile.sys
+AllocatedBaseSize : 26030
+CurrentUsage      : 1186
+PeakUsage         : 1246
+
+
+
+
+
+CrashDumpEnabled : 3
+DumpFile         : C:\WINDOWS\MEMORY.DMP
+
+
+
+== boot-time events mentioning pagefile, volmgr or BitLocker VMK (this boot and previous)
+
+
+TimeCreated  : 10/11/2026 6:00:54 PM
+Id           : 98
+ProviderName : Microsoft-Windows-Ntfs
+Msg          : Volume ?? (\Device\[REDACTED]) is healthy. No action is needed.
+
+TimeCreated  : 10/11/2026 5:35:34 PM
+Id           : 98
+ProviderName : Microsoft-Windows-Ntfs
+Msg          : Volume ?? (\Device\[REDACTED]) is healthy. No action is needed.
+
+TimeCreated  : 10/11/2026 1:04:57 PM
+Id           : 98
+ProviderName : Microsoft-Windows-Ntfs
+Msg          : Volume \\?\Volume{[REDACTED]} (\Device\HarddiskVolume6) is healthy. No action
+               is needed.
+
+TimeCreated  : 10/11/2026 1:04:57 PM
+Id           : 98
+ProviderName : Microsoft-Windows-Ntfs
+Msg          : Volume \\?\Volume{[REDACTED]} (\Device\HarddiskVolume4) is healthy. No action
+               is needed.
+
+TimeCreated  : 10/11/2026 1:04:56 PM
+Id           : 98
+ProviderName : Microsoft-Windows-Ntfs
+Msg          : Volume C: (\Device\HarddiskVolume3) is healthy. No action is needed.
+
+TimeCreated  : 10/11/2026 1:04:56 PM
+Id           : 98
+ProviderName : Microsoft-Windows-Ntfs
+Msg          : Volume D: (\Device\HarddiskVolume5) is healthy. No action is needed.
+
+TimeCreated  : 10/11/2026 1:04:56 PM
+Id           : 24709
+ProviderName : Microsoft-Windows-BitLocker-Driver
+Msg          : This event contains the boot-time final TPM PCR values and TCG log data.
+
+TimeCreated  : 10/11/2026 1:04:55 PM
+Id           : 24641
+ProviderName : Microsoft-Windows-BitLocker-Driver
+Msg          : An unexpected error was encountered attempting to retrieve the BitLocker volume master key during
+               restart.
+
+TimeCreated  : 10/11/2026 1:04:55 PM
+Id           : 24641
+ProviderName : Microsoft-Windows-BitLocker-Driver
+Msg          : An unexpected error was encountered attempting to retrieve the BitLocker volume master key during
+               restart.
+
+TimeCreated  : 10/11/2026 1:04:55 PM
+Id           : 24711
+ProviderName : Microsoft-Windows-BitLocker-Driver
+Msg          : A V2 TPM protector was used to start Windows. Binding ID: {[REDACTED]}.
+
+TimeCreated  : 10/11/2026 1:04:55 PM
+Id           : 24709
+ProviderName : Microsoft-Windows-BitLocker-Driver
+Msg          : This event contains the boot-time final TPM PCR values and TCG log data.
+
+TimeCreated  : 10/11/2026 12:00:28 PM
+Id           : 98
+ProviderName : Microsoft-Windows-Ntfs
+Msg          : Volume ?? (\Device\[REDACTED]) is healthy. No action is needed.
+
+TimeCreated  : 10/11/2026 12:00:28 AM
+Id           : 98
+ProviderName : Microsoft-Windows-Ntfs
+Msg          : Volume ?? (\Device\[REDACTED]) is healthy. No action is needed.
+
+TimeCreated  : 10/10/2026 12:00:32 PM
+Id           : 98
+ProviderName : Microsoft-Windows-Ntfs
+Msg          : Volume ?? (\Device\[REDACTED]) is healthy. No action is needed.
+
+TimeCreated  : 10/10/2026 12:00:29 AM
+Id           : 98
+ProviderName : Microsoft-Windows-Ntfs
+Msg          : Volume ?? (\Device\[REDACTED]) is healthy. No action is needed.
+
+TimeCreated  : 10/9/2026 7:19:17 PM
+Id           : 98
+ProviderName : Microsoft-Windows-Ntfs
+Msg          : Volume ?? (\Device\[REDACTED]) is healthy. No action is needed.
+
+TimeCreated  : 10/9/2026 12:00:29 PM
+Id           : 98
+ProviderName : Microsoft-Windows-Ntfs
+Msg          : Volume ?? (\Device\[REDACTED]) is healthy. No action is needed.
+
+TimeCreated  : 10/9/2026 12:00:40 AM
+Id           : 98
+ProviderName : Microsoft-Windows-Ntfs
+Msg          : Volume ?? (\Device\[REDACTED]) is healthy. No action is needed.
+
+
+
+== BitLocker driver event 24641 detail (last 5)
+
+
+TimeCreated : 10/11/2026 1:04:55 PM
+Message     : An unexpected error was encountered attempting to retrieve the BitLocker volume master key during
+              restart.
+
+TimeCreated : 10/11/2026 1:04:55 PM
+Message     : An unexpected error was encountered attempting to retrieve the BitLocker volume master key during
+              restart.
+
+TimeCreated : 10/3/2026 12:25:24 PM
+Message     : An unexpected error was encountered attempting to retrieve the BitLocker volume master key during
+              restart.
+
+TimeCreated : 10/3/2026 12:25:24 PM
+Message     : An unexpected error was encountered attempting to retrieve the BitLocker volume master key during
+              restart.
+
+TimeCreated : 10/3/2026 4:31:24 AM
+Message     : An unexpected error was encountered attempting to retrieve the BitLocker volume master key during
+              restart.
+
+
+
+Done. Paste back the transcript file named above.
+PS C:\WINDOWS\system32> The resu
+</pasted_content id="8b75">
+
+```
+
+## Claude
+
+Two things before I write the scripts. The `.bek` and recovery-key block you pasted is a live BitLocker recovery password, and it's also saved in the transcript file on D:. I'm redacting that file first, then checking where Ollama, Jan and the other app data actually live.
+
+Running the user script as a dry run to check it. It deletes nothing without `-Apply`.
+
+`Group` is a built-in PowerShell alias, so my function never ran. Renaming it to `Step` and re-running the dry run with trimmed output.
+
+The dry run works. It's too verbose, so I'll print only items of 50 MB or more and tally the rest. Then I'll write the elevated script.
+
+The dry run works. Now the elevated script: system caches, app removals, privacy policies and the staged pagefile change, with registry backups first.
+
+The three scripts parse cleanly and contain no non-ASCII characters. Now I'll log the diagnostic result and a C: layout map in the findings note, and save a feedback memory.
+
+## Scripts are ready, nothing deleted yet
+
+I took "all tiers" to mean A and B. Tier C (Windows, WinSxS, the vaults, the Ubuntu disk, Docker's disk) stays untouched. The cleanup is three scripts in `D:\WSL\ops\windows\`. They parse cleanly and contain only ASCII. I dry-ran script 01, which deleted nothing and changed no settings.
+
+### What the BitLocker output showed
+
+- **D: auto-unlock:** D: is BitLocker-encrypted and auto-unlocks with a `.bek` key file. That form of auto-unlock only opens after Windows itself is up. It's the strongest candidate for why the D: pagefile never gets created. It's still a hypothesis, because Windows logs no event that names it.
+- **BitLocker event 24641:** it also fired on 10-03, so it isn't new.
+- **Recovery password:** your paste included a live BitLocker recovery password. I redacted it from the saved transcript file, and it's in none of my notes. It's backed up to your Microsoft account. It's still in this chat's history, so consider rotating it later.
+- **Pagefile plan, revised:** commit charge is 43 of 57 GiB. A 4 GB C: file plus a failed D: file would crash WSL.
+  - **Stage 1:** C: 16 GB and D: 32 GB, both fixed. The commit limit stays around 80 GiB either way.
+  - **Stage 2:** after a reboot proves D: works, C: drops to 4 GB. If D: still fails, stage 2 refuses to shrink C:.
+
+### What you run, in order
+
+Close VS Code, Cursor, Kiro, Slack, Discord, Spotify, Vivaldi, Claude Desktop and Ollama first. A running app's group is skipped, not forced.
+
+1. **Check the dry run:**
+   ```powershell
+   powershell -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\windows\01-user-cleanup.ps1 -ClaudeVm -MoveOllama
+   ```
+2. **Apply it (normal shell):**
+   ```powershell
+   powershell -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\windows\01-user-cleanup.ps1 -Apply -ClaudeVm -MoveOllama
+   ```
+3. **Apply it (elevated shell):**
+   ```powershell
+   powershell -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\windows\02-admin-cleanup.ps1 -Apply -Pagefile
+   ```
+4. **Reboot, then stage 2:**
+   ```powershell
+   powershell -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\windows\03-pagefile-stage2.ps1 -Apply
+   ```
+5. **Defender scan:** run the full scan before touching Malwarebytes, because of the suspicious `.exe` files.
+   ```powershell
+   Start-MpScan -ScanType FullScan
+   ```
+
+Script 02 also runs as a dry run if you leave off `-Apply`. Every group prints C: and D: free space before and after, and the logs go to `D:\WSL\ops\windows\logs\`.
+
+### What script 01 does
+
+Expected C: gain: about 15 to 16 GiB, plus about 10.6 GiB from the Claude VM bundle and about 6.5 GiB from the Ollama move.
+
+- **Env vars:** sets the user-level variables `UV_CACHE_DIR`, `PIP_CACHE_DIR` and `PLAYWRIGHT_BROWSERS_PATH` to folders under `D:\Cache`.
+- **Stale C: caches (8.48 GiB):** npm, uv, Playwright and pip.
+- **Temp:** files older than 7 days (2.2 GiB). It skips the folder holding this session's scratch files.
+- **Crash dumps:** keeps the newest one per folder.
+- **App caches:** Cursor, Kiro, Slack, Discord, Claude, Vivaldi and Spotify.
+- **Profile root:** deletes `opamroot`, `srverify`, `vscode-remote-wsl` and `.cache\codex-runtimes`.
+- **Strays:** moves them to `D:\Quarantine\[REDACTED]\`. That covers the two suspicious executables (renamed `.quarantined`), the old quarantine folder and the loose profile files. It deletes the `NUL` and `echo` junk files.
+- **Ollama:** reinstalls to `D:\Apps\Ollama`. Models stay on D: and are already correctly there (9.2 GiB, `OLLAMA_MODELS` set).
+- **Startup:** disables 14 startup entries. You can re-enable any in Task Manager.
+
+### What script 02 does
+
+- **System caches:** clears WER (Windows error reports), the Windows Update cache, Delivery Optimization and Windows\Temp, then runs DISM component cleanup.
+- **Store apps:** removes the Bing apps, Copilot packages, Office hub and companions, new Outlook, Feedback Hub, Dev Home, Power Automate and Edge Game Assist.
+- **Desktop apps:** uninstalls Microsoft 365, the Teams add-in, Respondus, Dell Optimizer, the SupportAssist plugin, MongoDB Shell and WinRAR. Miniconda comes off only if it has no named environments.
+- **OneDrive:** uninstalls it.
+- **Policies:** applies privacy, Bing, Copilot, Edge and OneDrive policies. Registry backups are written first.
+- **DubbingAI:** removes its startup task.
+- **Pagefile:** writes the stage 1 pagefile settings.
+
+The rollback commands print before anything runs.
+
+### Things I can't script
+
+- **Default browser:** Windows blocks scripting this. Set Vivaldi in Settings, Default apps, for `.htm`, `.html`, `http`, `https` and `.pdf`.
+- **Jan data folder:** its 3.3 GiB lives on C:. Move it in Jan's Settings, Advanced, Data folder.
+- **Edge:** can't be uninstalled in this region. The script applies the policies that stop it launching.
+
+### Questions for you
+
+- **`D:\projects` in the recycle bin (25.6 GiB):** it holds `.git` and `.obsidian` folders. Is it already in GitHub or Jarvis? I'm holding the D: recycle bin until you say.
+- **Game archives (86 GB):** the Elden Ring archive, the Need for Speed Rivals archive and the Need for Speed Underground folder. Delete or keep?
+- **`D:\WSL\Installers\wsl-ubuntu.tar` (36.75 GB):** it's the only WSL backup. Delete it or export a fresh one first?
+- **Docker data:** do you want me to inspect it so Docker's own prune can run, with your approval?
+- **`ConversationCapture-Backfill-WSL`:** keep or remove?
+
+The Phase 2 findings note is updated with the BitLocker result, the revised pagefile plan and a C: layout map. The map says what each C: folder is and which rule governs it.
+
+### Tool Calls
+
+- `PowerShell` -- `{"command":"$t=Get-ChildItem D:\\WSL\\ops\\windows\\diag-pagefile-bitlocker-*.txt\nforeach($f in $t){ $c=Get-Content $f.FullName -Raw; $n=[regex]::Replace($c,\u0027\\d{6}(-\\d{6}){7}\u0027,\u0027[REDACTED-RECOVERY-PASSWORD]\u0027); if($n -ne $c){ Set-Content $f.FullName $n -Encoding ASCII; \"redacted: $($f.Name)\" } else { \"clean: $($f.Name)\" } }\n(Select-String -Path $t.FullName -Pattern \u0027\\d{6}-\\d{6}-\\d{6}\u0027 -Quiet)\nfunction Sz([string]$p){ if(-not (Test-Path -LiteralPath $p)){return \u0027n/a\u0027}; $o=\u0026 robocopy.exe $p NUL /L /E /XJ /BYTES /NFL /NDL /NJH /R:0 /W:0 /NP 2\u003e$null; $l=$o|?{$_ -match \u0027^\\s*Bytes\\s*:\u0027}|select -First 1; if($l){[math]::Round([int64](($l -split \u0027\\s+\u0027|?{$_})[2])/1GB,2)}else{0} }\nforeach($p in \"$env:LOCALAPPDATA\\Programs\\Ollama\",\"$env:APPDATA\\Jan\",\"$env:USERPROFILE\\.cache\",\"$env:USERPROFILE\\.local\",\"$env:LOCALAPPDATA\\hermes\",\"$env:USERPROFILE\\.codex\",\"D:\\AI\\ollama-models\"){ \"== $p  [$(Sz $p) GiB]\"; Get-ChildItem $p -Force -EA SilentlyContinue | % { \"   {0,-34} {1}\" -f $_.Name,$(if($_.PSIsContainer){Sz $_.FullName}else{[math]::Round($_.Length/1GB,2)}) } | Select -First 14 }\n\"OLLAMA_MODELS user: \" + [Environment]::GetEnvironmentVariable(\u0027OLLAMA_MODELS\u0027,\u0027User\u0027)\nGet-Process ollama*,jan* -EA SilentlyContinue | Select Name,Id | ft -auto\n\"profile settings.json (124 B):\"; Get-Content \"$env:USERPROFILE\\settings.json\" -Raw","description":"Redact recovery key; inspect Ollama, Jan, cache storage","timeout":200000}`
+- `Write` -- `D:\WSL\ops\windows\01-user-cleanup.ps1`
+```
+# Build 3 - 01 user-level cleanup (NOT elevated). ASCII only.
+# Default is a DRY RUN: it measures and prints what it would remove. Add -Apply to delete.
+#   powershell -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\windows\01-user-cleanup.ps1            (dry run)
+#   powershell -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\windows\01-user-cleanup.ps1 -Apply -ClaudeVm -MoveOllama
+# Close VS Code, Cursor, Kiro, Slack, Discord, Spotify, Vivaldi, Claude Desktop and Ollama first, or their groups are skipped.
+# Every group prints C: and D: free space before and after. Log: D:\WSL\ops\windows\logs\
+param([switch]$Apply, [switch]$ClaudeVm, [switch]$MoveOllama)
+$ErrorActionPreference = 'Continue'
+$null = New-Item -ItemType Directory -Force 'D:\WSL\ops\windows\logs'
+$log = 'D:\WSL\ops\windows\logs\01-user-cleanup-' + (Get-Date -Format 'yyyyMMdd-HHmm') + '.log'
+Start-Transcript -Path $log | Out-Null
+$P = $env:USERPROFILE; $L = $env:LOCALAPPDATA; $R = $env:APPDATA
+$QROOT = 'D:\Quarantine\[REDACTED]'
+if ($Apply) { Write-Host '*** APPLY MODE: files will be deleted or moved ***' } else { Write-Host '*** DRY RUN: nothing is changed. Re-run with -Apply ***' }
+
+function Free([string]$d) { [math]::Round((Get-PSDrive $d).Free / 1GB, 2) }
+function DirBytes([string]$p) {
+  $o = & robocopy.exe $p NUL /L /E /XJ /BYTES /NFL /NDL /NJH /R:0 /W:0 /NP 2>$null
+  $l = $o | Where-Object { $_ -match '^\s*Bytes\s*:' } | Select-Object -First 1
+  if ($l) { [int64](($l -split '\s+' | Where-Object { $_ })[2]) } else { 0 }
+}
+$script:total = [int64]0
+function Drop([string]$path) {
+  if (-not (Test-Path -LiteralPath $path)) { return }
+  $it = Get-Item -LiteralPath $path -Force -ErrorAction SilentlyContinue
+  if (-not $it) { return }
+  $b = if ($it.PSIsContainer) { DirBytes $path } else { $it.Length }
+  $script:total += $b
+  Write-Host ('   {0,8:N2} GiB  {1}' -f ($b / 1GB), $path)
+  if ($Apply) { Remove-Item -LiteralPath $path -Recurse -Force -ErrorAction SilentlyContinue }
+}
+function Running([string[]]$names) { @(Get-Process -Name $names -ErrorAction SilentlyContinue).Count -gt 0 }
+function Group([string]$name, [scriptblock]$body) {
+  $c0 = Free C; $d0 = Free D; $script:total = 0
+  Write-Host ''; Write-Host "--- $name"
+  & $body
+  $c1 = Free C; $d1 = Free D
+  Write-Host ('    group total {0:N2} GiB | C: free {1} -> {2} | D: free {3} -> {4}' -f ($script:total / 1GB), $c0, $c1, $d0, $d1)
+}
+Write-Host ('START  C: free {0} GiB, D: free {1} GiB' -f (Free C), (Free D))
+
+Group '1 Tool cache env vars to D: (frees nothing yet, prevents regrowth on C:)' {
+  foreach ($kv in @(@('UV_CACHE_DIR', 'D:\Cache\uv'), @('PIP_CACHE_DIR', 'D:\Cache\pip'), @('PLAYWRIGHT_BROWSERS_PATH', 'D:\Cache\ms-playwright'))) {
+    Write-Host ('   {0} = {1}  (current: {2})' -f $kv[0], $kv[1], [Environment]::GetEnvironmentVariable($kv[0], 'User'))
+    if ($Apply) { New-Item -ItemType Directory -Force $kv[1] | Out-Null; [Environment]::SetEnvironmentVariable($kv[0], $kv[1], 'User'); Set-Item -Path ('Env:' + $kv[0]) -Value $kv[1] }
+  }
+  $npm = (& npm config get cache 2>$null)
+  Write-Host ("   npm cache is: {0} (must be D:\npm-cache)" -f $npm)
+}
+
+Group '2 Stale C: tool caches (uv, Playwright, pip, npm copy)' {
+  $npm = (& npm config get cache 2>$null)
+  if ($npm -eq 'D:\npm-cache') { Drop "$L\npm-cache" } else { Write-Host '   SKIP npm-cache: npm is not pointed at D:\npm-cache' }
+  Drop "$L\uv"; Drop "$L\ms-playwright"; Drop "$L\pip\Cache"
+}
+
+Group '3 Temp files older than 7 days (keeps Temp\claude, the live session folder)' {
+  $cut = (Get-Date).AddDays(-7)
+  $files = Get-ChildItem "$L\Temp" -Recurse -Force -File -ErrorAction SilentlyContinue | Where-Object { $_.LastWriteTime -lt $cut -and $_.FullName -notlike '*\Temp\claude\*' -and $_.FullName -notlike '*\Temp\wsl-crashes\*' }
+  $sum = ($files | Measure-Object Length -Sum).Sum
+  Write-Host ('   {0} files, {1:N2} GiB' -f @($files).Count, ($sum / 1GB))
+  $script:total += [int64]$sum
+  if ($Apply) { $files | ForEach-Object { Remove-Item -LiteralPath $_.FullName -Force -ErrorAction SilentlyContinue } }
+}
+
+Group '4 Crash dumps, keep the newest one per folder' {
+  $dirs = @("$R\Code\Crashpad\reports", "$R\Kiro\Crashpad\reports", "$R\Todoist\Crashpad\reports", "$L\Vivaldi\User Data\Crashpad\reports", "$L\CrashDumps", "$L\Temp\wsl-crashes",
+            "$L\Packages\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\LocalState\EBWebView\Crashpad\reports")
+  foreach ($d in $dirs) {
+    if (-not (Test-Path $d)) { continue }
+    $all = Get-ChildItem $d -Force -File -ErrorAction SilentlyContinue | Where-Object { $_.Extension -in '.dmp', '.hdmp' } | Sort-Object LastWriteTime -Descending
+    $all | Select-Object -Skip 1 | ForEach-Object { Drop $_.FullName; Drop ([IO.Path]::ChangeExtension($_.FullName, 'meta')) }
+  }
+}
+
+Group '5 App caches (Chromium style cache folders only, per app, only if the app is closed)' {
+  $names = 'Cache', 'Code Cache', 'GPUCache', 'CachedData', 'CachedExtensionVSIXs', 'DawnGraphiteCache', 'DawnWebGPUCache', 'GrShaderCache', 'ShaderCache'
+  $apps = @(
+    @('VS Code', @('Code'), @("$R\Code")),
+    @('Cursor', @('Cursor'), @("$R\Cursor")),
+    @('Kiro', @('Kiro'), @("$R\Kiro")),
+    @('Slack', @('slack'), @("$R\Slack")),
+    @('Discord', @('Discord'), @("$R\discord")),
+    @('Claude Desktop', @('claude'), @("$R\Claude")),
+    @('Vivaldi', @('vivaldi'), @("$L\Vivaldi\User Data")),
+    @('Spotify', @('Spotify'), @("$L\Spotify\Storage", "$L\Spotify\Data"))
+  )
+  foreach ($a in $apps) {
+    if (Running $a[1]) { Write-Host ('   SKIP {0}: running (close it and re-run)' -f $a[0]); continue }
+    foreach ($root in $a[2]) {
+      if (-not (Test-Path $root)) { continue }
+      if ($a[0] -eq 'Spotify') { Drop $root; continue }
+      Get-ChildItem $root -Directory -Recurse -Depth 2 -Force -ErrorAction SilentlyContinue | Where-Object { $_.Name -in $names } | ForEach-Object { Drop $_.FullName }
+    }
+  }
+}
+
+Group '6 Regenerable folders in the profile (.cache\codex-runtimes, vscode-remote-wsl, opamroot, srverify)' {
+  if (-not (Running @('codex'))) { Drop "$P\.cache\codex-runtimes" } else { Write-Host '   SKIP codex-runtimes: codex is running' }
+  if (-not (Running @('Code'))) { Drop "$P\vscode-remote-wsl" } else { Write-Host '   SKIP vscode-remote-wsl: VS Code is running' }
+  Drop 'C:\opamroot'; Drop 'C:\srverify-20260502173203'
+}
+
+Group '7 Explorer thumbnail and icon caches' {
+  Get-ChildItem "$L\Microsoft\Windows\Explorer" -Force -File -ErrorAction SilentlyContinue | Where-Object { $_.Name -match '^(thumbcache|iconcache)_' } | ForEach-Object { Drop $_.FullName }
+}
+
+Group '8 Claude Desktop VM bundle (-ClaudeVm; Claude downloads it again when a VM feature is used)' {
+  if (-not $ClaudeVm) { Write-Host '   not requested (add -ClaudeVm)'; return }
+  if (Running @('claude')) { Write-Host '   SKIP: Claude Desktop is running. Quit it from the tray first.'; return }
+  Drop "$R\Claude\vm_bundles\claudevm.bundle"
+}
+
+Group '9 Structure the profile root: strays to a D: quarantine, junk deleted' {
+  $q = "$QROOT\profile-strays"
+  if ($Apply) { New-Item -ItemType Directory -Force $q, "$QROOT\suspicious", "$QROOT\old-quarantine" | Out-Null
+    Set-Content "$QROOT\README.txt" -Encoding ASCII -Value "Quarantine created by Build 3 on 2026-10-11. Review and delete by 2026-11-01. Lives on D: on purpose. Never place under a Google Drive folder." }
+  foreach ($f in '0K7YY.exe', 'nc6a9.exe') {
+    $s = "$P\$f"
+    if (Test-Path -LiteralPath $s) {
+      Write-Host ('   SUSPICIOUS move (renamed .quarantined): ' + $s)
+      if ($Apply) { Move-Item -LiteralPath $s -Destination "$QROOT\suspicious\$f.quarantined" -Force }
+    }
+  }
+  foreach ($f in 'battery-report.html', 'mongosh-2.5.9-x64.msi', 'global.yml', 'settings.json', '.claude.json.tmp.29124.1b232f4c6fe0') {
+    $s = "$P\$f"
+    if (Test-Path -LiteralPath $s) { Write-Host ('   move to profile-strays: ' + $f); if ($Apply) { Move-Item -LiteralPath $s -Destination "$q\$f" -Force } }
+  }
+  foreach ($f in 'NUL', 'echo') {
+    $raw = '\\?\' + $P + '\' + $f
+    $exists = [IO.File]::Exists($raw)
+    Write-Host ('   junk file {0}: exists={1}' -f $f, $exists)
+    if ($Apply -and $exists) { try { [IO.File]::Delete($raw) } catch { Write-Host ('   could not delete ' + $f + ': ' + $_.Exception.Message) } }
+  }
+  $old = "$P\[REDACTED]"
+  if (Test-Path $old) {
+    Write-Host ('   move old quarantine ({0:N2} GiB) to D: (keeps .env-named files local, off Drive)' -f ((DirBytes $old) / 1GB))
+    if ($Apply) { & robocopy.exe $old "$QROOT\old-quarantine\[REDACTED]" /E /MOVE /R:1 /W:1 /NFL /NDL /NJH /NJS /NP | Out-Null }
+  }
+}
+
+Group '10 Startup trim for this user (reversible: Task Manager > Startup > Enable)' {
+  $disable = @(
+    @('Run', 'Discord'), @('Run', 'RiotClient'), @('Run', 'Medal'), @('Run', 'Steam'), @('Run', 'com.squirrel.Rize.Rize'),
+    @('Run', 'Spotify'), @('Run', 'Docker Desktop'), @('Run', 'Voquill'), @('Run', 'com.squirrel.slack.slack'),
+    @('StartupFolder', 'E START App.lnk'), @('StartupFolder', 'Ollama.lnk'), @('StartupFolder', 'OpenClaw Gateway.cmd'),
+    @('StartupFolder', 'Send to OneNote.lnk'), @('StartupFolder', 'Wispr Flow.lnk')
+  )
+  foreach ($d in $disable) {
+    $key = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\' + $d[0]
+    Write-Host ('   disable startup: {0} ({1})' -f $d[1], $d[0])
+    if ($Apply) {
+      if (-not (Test-Path $key)) { New-Item -Path $key -Force | Out-Null }
+      $bytes = [byte[]](3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+      New-ItemProperty -Path $key -Name $d[1] -PropertyType Binary -Value $bytes -Force | Out-Null
+    }
+  }
+}
+
+Group '11 Ollama app to D:\Apps\Ollama (-MoveOllama; models already on D:\AI\ollama-models and stay)' {
+  if (-not $MoveOllama) { Write-Host '   not requested (add -MoveOllama)'; return }
+  Write-Host ('   OLLAMA_MODELS = ' + [Environment]::GetEnvironmentVariable('OLLAMA_MODELS', 'User'))
+  if (Running @('ollama', 'ollama app')) { Write-Host '   SKIP: Ollama is running. Quit it from the tray first.'; return }
+  Write-Host '   uninstall then reinstall with --location D:\Apps\Ollama'
+  if ($Apply) {
+    winget uninstall --id Ollama.Ollama --silent --accept-source-agreements
+    New-Item -ItemType Directory -Force 'D:\Apps' | Out-Null
+    winget install --id Ollama.Ollama --location 'D:\Apps\Ollama' --silent --accept-package-agreements --accept-source-agreements
+    Write-Host ('   check: ' + (Test-Path 'D:\Apps\Ollama\ollama.exe'))
+  }
+}
+
+Write-Host ''
+Write-Host ('END    C: free {0} GiB, D: free {1} GiB' -f (Free C), (Free D))
+Write-Host ('Log: ' + $log)
+Stop-Transcript | Out-Null
+
+```
+- `PowerShell` -- `{"command":"powershell -NoProfile -ExecutionPolicy Bypass -File D:\\WSL\\ops\\windows\\01-user-cleanup.ps1 -ClaudeVm -MoveOllama 2\u003e\u00261 | Select-String -NotMatch \u0027GiB  C:\\\\Users\\\\Anant Gupta\\\\AppData\\\\Roaming\\\\(Code|Cursor|Kiro)\\\\.*(User|Partitions)\u0027 | Out-String -Width 200 | Select -First 150","description":"Dry-run the user cleanup script","timeout":400000}`
+- `PowerShell` -- `{"command":"$f=\u0027D:\\WSL\\ops\\windows\\01-user-cleanup.ps1\u0027\n(Get-Content $f -Raw) -replace \u0027function Group\\(\u0027,\u0027function Step(\u0027 -replace \"(?m)^Group \u0027\",\"Step \u0027\" | Set-Content $f -Encoding ASCII\n$out = powershell -NoProfile -ExecutionPolicy Bypass -File $f -ClaudeVm -MoveOllama 2\u003e\u00261 | Out-String -Width 200\n($out -split \"`r?`n\") | ? { $_ -notmatch \u0027GiB  C:\\\\Users\\\\Anant Gupta\\\\AppData\\\\(Roaming|Local)\\\\.*\\\\(Cache|Code Cache|GPUCache|CachedData|CachedExtensionVSIXs|DawnGraphiteCache|DawnWebGPUCache|GrShaderCache|ShaderCache)$\u0027 -or $_ -match \u0027\\s[1-9]\\d*\\.\\d\\d GiB|\\s0\\.[1-9]\\d GiB\u0027 } | Select -First 90","description":"Fix function name and re-run dry run","timeout":400000}`
+- `PowerShell` -- `{"command":"$f=\u0027D:\\WSL\\ops\\windows\\01-user-cleanup.ps1\u0027\n$c=Get-Content $f -Raw\n$old=\"  Write-Host (\u0027   {0,8:N2} GiB  {1}\u0027 -f (`$b / 1GB), `$path)\"\n$new=\"  if (`$b -ge 50MB) { Write-Host (\u0027   {0,8:N2} GiB  {1}\u0027 -f (`$b / 1GB), `$path) } else { `$script:small++ }\"\nif($c.Contains($old)){ $c=$c.Replace($old,$new); $c=$c.Replace(\u0027$script:total = [int64]0\u0027,\u0027$script:total = [int64]0; $script:small = 0\u0027); $c=$c.Replace(\"  Write-Host (\u0027    group total\",\"  if (`$script:small) { Write-Host (\u0027   (+{0} small items under 50 MB not listed)\u0027 -f `$script:small); `$script:small = 0 }`r`n  Write-Host (\u0027    group total\"); Set-Content $f $c -Encoding ASCII; \u0027patched\u0027 } else { \u0027pattern not found\u0027 }\n$out = powershell -NoProfile -ExecutionPolicy Bypass -File $f -ClaudeVm -MoveOllama 2\u003e\u00261 | Out-String -Width 200\n($out -split \"`r?`n\") | Select -Last 62","description":"Quiet the script output and re-test dry run","timeout":400000}`
+- `Write` -- `D:\WSL\ops\windows\02-admin-cleanup.ps1`
+```
+# Build 3 - 02 elevated cleanup. ASCII only. Run from an ELEVATED PowerShell.
+# Default is a DRY RUN that prints what it would do. Add -Apply to execute. Add -Pagefile for stage 1 of the pagefile change.
+#   powershell -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\windows\02-admin-cleanup.ps1
+#   powershell -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\windows\02-admin-cleanup.ps1 -Apply -Pagefile
+# Backups of every registry key it touches go to D:\WSL\ops\windows\backup-<timestamp>\. Rollback commands print first.
+param([switch]$Apply, [switch]$Pagefile)
+$ErrorActionPreference = 'Continue'
+$isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+if (-not $isAdmin) { Write-Host 'Not elevated. Open PowerShell as Administrator and run again.'; exit 1 }
+$ts = Get-Date -Format 'yyyyMMdd-HHmm'
+$bk = "D:\WSL\ops\windows\backup-$ts"
+$null = New-Item -ItemType Directory -Force $bk, 'D:\WSL\ops\windows\logs'
+$log = "D:\WSL\ops\windows\logs\02-admin-cleanup-$ts.log"
+Start-Transcript -Path $log | Out-Null
+$P = $env:USERPROFILE
+
+function Free([string]$d) { [math]::Round((Get-PSDrive $d).Free / 1GB, 2) }
+function Step([string]$name, [scriptblock]$body) {
+  $c0 = Free C; $d0 = Free D
+  Write-Host ''; Write-Host "--- $name"
+  & $body
+  Write-Host ('    C: free {0} -> {1} | D: free {2} -> {3}' -f $c0, (Free C), $d0, (Free D))
+}
+function Clear-Dir([string]$p) {
+  if (-not (Test-Path -LiteralPath $p)) { Write-Host "   absent: $p"; return }
+  $o = & robocopy.exe $p NUL /L /E /XJ /BYTES /NFL /NDL /NJH /R:0 /W:0 /NP 2>$null
+  $l = $o | Where-Object { $_ -match '^\s*Bytes\s*:' } | Select-Object -First 1
+  $b = if ($l) { [int64](($l -split '\s+' | Where-Object { $_ })[2]) } else { 0 }
+  Write-Host ('   {0,8:N2} GiB  {1}' -f ($b / 1GB), $p)
+  if ($Apply) { Get-ChildItem -LiteralPath $p -Force -ErrorAction SilentlyContinue | Remove-Item -Recurse -Force -ErrorAction SilentlyContinue }
+}
+function Backup-Key([string]$key, [string]$name) { & reg.exe export $key "$bk\$name.reg" /y 2>$null | Out-Null }
+
+Write-Host '================ ROLLBACK (read this first) ================'
+Write-Host "Registry backups: $bk  (restore any with:  reg import <file>)"
+Write-Host 'Pagefile rollback to the state before this build:'
+Write-Host '  Set-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" -Name PagingFiles -Type MultiString -Value @("d:\pagefile.sys 0 0"); then reboot'
+Write-Host 'Startup entries: Task Manager > Startup apps > Enable.   Removed apps: reinstall from winget or the Store.'
+Write-Host '============================================================='
+if ($Apply) { Write-Host '*** APPLY MODE ***' } else { Write-Host '*** DRY RUN: nothing is changed. Re-run with -Apply ***' }
+Write-Host ('START  C: free {0} GiB, D: free {1} GiB' -f (Free C), (Free D))
+
+Step '1 Windows Error Reporting archives and queue (C:)' {
+  Clear-Dir 'C:\ProgramData\Microsoft\Windows\WER\ReportArchive'
+  Clear-Dir 'C:\ProgramData\Microsoft\Windows\WER\ReportQueue'
+  Clear-Dir 'C:\ProgramData\Microsoft\Windows\WER\Temp'
+}
+
+Step '2 Windows Update download cache and Delivery Optimization (C:)' {
+  if ($Apply) { Stop-Service wuauserv, bits -Force -ErrorAction SilentlyContinue }
+  Clear-Dir 'C:\Windows\SoftwareDistribution\Download'
+  if ($Apply) { Start-Service bits, wuauserv -ErrorAction SilentlyContinue }
+  Write-Host '   Delivery Optimization cache'
+  if ($Apply) { Delete-DeliveryOptimizationCache -Force -ErrorAction SilentlyContinue }
+  Clear-Dir 'C:\Windows\Temp'
+}
+
+Step '3 Component store cleanup, DISM StartComponentCleanup (C:, can take several minutes)' {
+  if ($Apply) { & dism.exe /Online /Cleanup-Image /StartComponentCleanup | Select-Object -Last 4 } else { Write-Host '   would run: dism /Online /Cleanup-Image /StartComponentCleanup' }
+}
+
+Step '4 Store apps on the wipe list (Bing, Copilot, Office hub, Outlook new, Feedback Hub, Dev Home, Power Automate, Edge Game Assist)' {
+  $pat = 'Microsoft.BingSearch', 'Microsoft.BingNews', 'Microsoft.BingWeather', 'Microsoft.Copilot', 'Microsoft.Windows.Ai.Copilot*', 'Microsoft.MicrosoftOfficeHub',
+         'Microsoft.M365Companions', 'Microsoft.OutlookForWindows', 'Microsoft.WindowsFeedbackHub', 'Microsoft.Windows.DevHome', 'Microsoft.PowerAutomateDesktop',
+         'Microsoft.Office.ActionsServer', 'Microsoft.OfficePushNotificationUtility', 'Microsoft.Edge.GameAssist', 'Microsoft.GetHelp'
+  foreach ($n in $pat) {
+    $found = Get-AppxPackage -AllUsers -Name $n -ErrorAction SilentlyContinue
+    if (-not $found) { continue }
+    foreach ($f in $found) {
+      Write-Host ('   remove ' + $f.PackageFullName)
+      if ($Apply) { Remove-AppxPackage -Package $f.PackageFullName -AllUsers -ErrorAction SilentlyContinue }
+    }
+    if ($Apply) { Get-AppxProvisionedPackage -Online | Where-Object { $_.DisplayName -like $n } | ForEach-Object { Remove-AppxProvisionedPackage -Online -PackageName $_.PackageName -ErrorAction SilentlyContinue | Out-Null } }
+  }
+}
+
+Step '5 Desktop programs (winget uninstall; Revo Uninstaller is the fallback for any that fail)' {
+  $names = 'Microsoft 365 Apps for enterprise - en-us', 'Microsoft Teams Meeting Add-in for Microsoft Office', 'Respondus LockDown Browser 2',
+           'Dell Optimizer', 'Dell SupportAssist OS Recovery Plugin for Dell Update', 'MongoDB Shell', 'WinRAR 7.01 (64-bit)'
+  foreach ($n in $names) {
+    Write-Host ('   uninstall: ' + $n)
+    if ($Apply) { & winget.exe uninstall --name $n --exact --silent --accept-source-agreements --disable-interactivity | Select-Object -Last 2; Write-Host ('   exit code ' + $LASTEXITCODE) }
+  }
+  Write-Host '   Malwarebytes is NOT removed here: run the Defender full scan first (see runbook), then remove it.'
+  $envs = @(Get-ChildItem "$P\miniconda3\envs" -Directory -ErrorAction SilentlyContinue)
+  if (-not (Test-Path "$P\miniconda3\Uninstall-Miniconda3.exe")) { Write-Host '   miniconda3: no uninstaller found' }
+  elseif ($envs.Count -gt 0) { Write-Host ('   miniconda3: SKIPPED, {0} named environments exist: {1}' -f $envs.Count, (($envs | ForEach-Object Name) -join ', ')) }
+  else {
+    Write-Host '   miniconda3: only the base environment exists, safe to remove (7 GiB on C:)'
+    if ($Apply) { Start-Process "$P\miniconda3\Uninstall-Miniconda3.exe" -ArgumentList '/S' -Wait; $t = 0; while ((Test-Path "$P\miniconda3\python.exe") -and $t -lt 120) { Start-Sleep 5; $t += 5 }; Write-Host ('   miniconda3 present after uninstall: ' + (Test-Path "$P\miniconda3\python.exe")) }
+  }
+}
+
+Step '6 OneDrive removal' {
+  $setup = if (Test-Path "$env:SystemRoot\SysWOW64\OneDriveSetup.exe") { "$env:SystemRoot\SysWOW64\OneDriveSetup.exe" } else { "$env:SystemRoot\System32\OneDriveSetup.exe" }
+  Write-Host ('   setup exe: {0} exists={1}' -f $setup, (Test-Path $setup))
+  if ($Apply -and (Test-Path $setup)) { Stop-Process -Name OneDrive -Force -ErrorAction SilentlyContinue; & $setup /uninstall; Start-Sleep 8 }
+}
+
+Step '7 Privacy, Bing, Copilot, Edge and OneDrive policies (registry backups first)' {
+  $keys = @{
+    'HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection' = 'dc'; 'HKLM\SOFTWARE\Policies\Microsoft\Windows\System' = 'sys'
+    'HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent' = 'cloud'; 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AdvertisingInfo' = 'adv'
+    'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsCopilot' = 'copilotm'; 'HKCU\Software\Policies\Microsoft\Windows\WindowsCopilot' = 'copilotu'
+    'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search' = 'search'; 'HKCU\Software\Policies\Microsoft\Windows\Explorer' = 'explorer'
+    'HKCU\Software\Microsoft\Windows\CurrentVersion\Search' = 'cvsearch'; 'HKLM\SOFTWARE\Policies\Microsoft\Edge' = 'edge'
+    'HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive' = 'onedrive'
+  }
+  $settings = @(
+    @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection', 'AllowTelemetry', 1), @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection', 'DoNotShowFeedbackNotifications', 1),
+    @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\System', 'EnableActivityFeed', 0), @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\System', 'PublishUserActivities', 0),
+    @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\System', 'UploadUserActivities', 0),
+    @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent', 'DisableWindowsConsumerFeatures', 1), @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent', 'DisableTailoredExperiencesWithDiagnosticData', 1),
+    @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\AdvertisingInfo', 'DisabledByGroupPolicy', 1),
+    @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsCopilot', 'TurnOffWindowsCopilot', 1), @('HKCU:\Software\Policies\Microsoft\Windows\WindowsCopilot', 'TurnOffWindowsCopilot', 1),
+    @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search', 'DisableWebSearch', 1), @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search', 'ConnectedSearchUseWeb', 0),
+    @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search', 'AllowCortana', 0),
+    @('HKCU:\Software\Policies\Microsoft\Windows\Explorer', 'DisableSearchBoxSuggestions', 1), @('HKCU:\Software\Microsoft\Windows\CurrentVersion\Search', 'BingSearchEnabled', 0),
+    @('HKLM:\SOFTWARE\Policies\Microsoft\Edge', 'StartupBoostEnabled', 0), @('HKLM:\SOFTWARE\Policies\Microsoft\Edge', 'BackgroundModeEnabled', 0),
+    @('HKLM:\SOFTWARE\Policies\Microsoft\Edge', 'HideFirstRunExperience', 1), @('HKLM:\SOFTWARE\Policies\Microsoft\Edge', 'EdgeShoppingAssistantEnabled', 0),
+    @('HKLM:\SOFTWARE\Policies\Microsoft\Edge', 'MetricsReportingEnabled', 0), @('HKLM:\SOFTWARE\Policies\Microsoft\Edge', 'PersonalizationReportingEnabled', 0),
+    @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\OneDrive', 'DisableFileSyncNGSC', 1)
+  )
+  if ($Apply) { foreach ($k in $keys.Keys) { Backup-Key $k $keys[$k] } }
+  foreach ($s in $settings) {
+    Write-Host ('   {0}\{1} = {2}' -f $s[0], $s[1], $s[2])
+    if ($Apply) { if (-not (Test-Path $s[0])) { New-Item -Path $s[0] -Force | Out-Null }; New-ItemProperty -Path $s[0] -Name $s[1] -PropertyType DWord -Value $s[2] -Force | Out-Null }
+  }
+  Write-Host '   Default browser is a Settings step (Windows blocks scripting it): Settings > Apps > Default apps > Vivaldi > set .htm .html http https .pdf'
+}
+
+Step '8 DubbingAI startup (scheduled task and Run key)' {
+  Write-Host '   unregister task: Login Auto Start Dubbing Task; remove HKLM Run DubbingAI'
+  if ($Apply) {
+    Unregister-ScheduledTask -TaskName 'Login Auto Start Dubbing Task' -Confirm:$false -ErrorAction SilentlyContinue
+    Remove-ItemProperty -Path 'HKLM:\Software\Microsoft\Windows\CurrentVersion\Run' -Name 'DubbingAI' -ErrorAction SilentlyContinue
+  }
+}
+
+Step '9 Pagefile stage 1 (-Pagefile): C: 16384 MB fixed + D: 32768 MB fixed, reboot to test' {
+  $mm = 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management'
+  $cur = (Get-ItemProperty $mm).PagingFiles
+  Write-Host ('   current PagingFiles: ' + ($cur -join ' | '))
+  Write-Host '   new      PagingFiles: C:\pagefile.sys 16384 16384 | D:\pagefile.sys 32768 32768'
+  Write-Host '   reason: commit charge is 43 GiB; C: stays big until D: is proven, so the commit limit never drops below 80 GiB'
+  if (-not $Pagefile) { Write-Host '   not requested (add -Pagefile)'; return }
+  if ($Apply) {
+    Backup-Key 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' 'memorymgmt'
+    Set-ItemProperty -Path $mm -Name PagingFiles -Type MultiString -Value @('C:\pagefile.sys 16384 16384', 'D:\pagefile.sys 32768 32768')
+    Write-Host ('   written: ' + ((Get-ItemProperty $mm).PagingFiles -join ' | '))
+    Write-Host '   REBOOT, then check: Test-Path D:\pagefile.sys ; Get-CimInstance Win32_PageFileUsage | ft Name,AllocatedBaseSize'
+  }
+}
+
+Write-Host ''
+Write-Host ('END    C: free {0} GiB, D: free {1} GiB' -f (Free C), (Free D))
+Write-Host ('Log: ' + $log)
+Stop-Transcript | Out-Null
+
+```
+- `Write` -- `D:\WSL\ops\windows\03-pagefile-stage2.ps1`
+```
+# Build 3 - 03 pagefile stage 2. ASCII only. ELEVATED. Run ONLY after rebooting from stage 1.
+# It refuses to shrink C: unless D:\pagefile.sys really exists and is in use.
+#   powershell -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\windows\03-pagefile-stage2.ps1 [-Apply]
+param([switch]$Apply)
+$isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+if (-not $isAdmin) { Write-Host 'Not elevated.'; exit 1 }
+$usage = Get-CimInstance Win32_PageFileUsage
+$usage | Format-Table Name, AllocatedBaseSize, CurrentUsage, PeakUsage -AutoSize | Out-String | Write-Host
+$dOk = (Test-Path -LiteralPath 'D:\pagefile.sys' -ErrorAction SilentlyContinue) -or ($usage | Where-Object { $_.Name -like 'D:*' })
+if (-not $dOk) {
+  Write-Host 'D:\pagefile.sys is NOT in use. D: cannot host the pagefile (likely BitLocker auto-unlock timing). C: is left at 16384 MB. Nothing changed.'
+  Write-Host 'Fallback: keep C: 16384 fixed and remove the D: entry:  Set-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" -Name PagingFiles -Type MultiString -Value @("C:\pagefile.sys 16384 16384")'
+  exit 2
+}
+$mm = 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management'
+Write-Host 'D: pagefile is live. Stage 2 sets C: to 4096 MB fixed, D: stays 32768 MB.'
+Write-Host 'Rollback: Set-ItemProperty <same key> -Name PagingFiles -Type MultiString -Value @("C:\pagefile.sys 16384 16384","D:\pagefile.sys 32768 32768")'
+if ($Apply) {
+  & reg.exe export 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' ('D:\WSL\ops\windows\backup-stage2-' + (Get-Date -Format 'yyyyMMdd-HHmm') + '.reg') /y | Out-Null
+  Set-ItemProperty -Path $mm -Name PagingFiles -Type MultiString -Value @('C:\pagefile.sys 4096 4096', 'D:\pagefile.sys 32768 32768')
+  Write-Host ('written: ' + ((Get-ItemProperty $mm).PagingFiles -join ' | ') + '  -> reboot to free about 12 GiB more on C:')
+} else { Write-Host 'DRY RUN. Add -Apply.' }
+
+```
+- `PowerShell` -- `{"command":"foreach($f in \u0027D:\\WSL\\ops\\windows\\01-user-cleanup.ps1\u0027,\u0027D:\\WSL\\ops\\windows\\02-admin-cleanup.ps1\u0027,\u0027D:\\WSL\\ops\\windows\\03-pagefile-stage2.ps1\u0027){\n $e=$null;$t=$null;[void][System.Management.Automation.Language.Parser]::ParseFile($f,[ref]$t,[ref]$e)\n $bytes=[IO.File]::ReadAllBytes($f); $na=($bytes|?{$_ -gt 127}).Count\n \"{0}: parse errors={1}; non-ascii bytes={2}\" -f (Split-Path $f -Leaf),@($e).Count,$na\n $e | % { \"   \" + $_.Message + \" line \" + $_.Extent.StartLineNumber } }","description":"Syntax and ASCII check of the three scripts"}`
+- `PowerShell` -- `{"command":"$f=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Old Laptop Rebuild - Build 3 Windows Cleanup Findings.md\u0027\n$add=@\u0027\n\n## Diagnostic result and revised pagefile plan (2026-10-11 evening)\nElevated read-only diagnostic `diag-pagefile-bitlocker.ps1`, transcript in `D:\\WSL\\ops\\windows\\` (recovery password redacted from the saved file; the key is escrowed to the Microsoft account).\n- C: BitLocker 2.0, TPM plus recovery password, protection on, XTS-AES 128, used-space-only.\n- D: BitLocker 2.0, protection on, **Automatic Unlock enabled through an External Key (.BEK)**. A BEK-based auto-unlock data volume is unlocked after the OS volume, which is the strongest candidate for why the D: pagefile cannot be created at boot. Still a hypothesis: Windows logs no event that names it, so the only proof is the reboot test below.\n- BitLocker event 24641 also fired on 2026-10-03 (three times), so it is not new.\n- `manage-bde -autounlock -status` is not a valid syntax; irrelevant.\nRevised plan, because commit charge is 43.2 of 57.1 GiB (a 4 GB C: file would drop the limit below the current charge if D: fails again):\n1. Stage 1 (`02-admin-cleanup.ps1 -Apply -Pagefile`): C: 16384 MB fixed, D: 32768 MB fixed. Commit limit about 80 GiB either way. C: gains about 9 GiB after the reboot.\n2. Reboot, then check `Test-Path D:\\pagefile.sys`.\n3. Stage 2 (`03-pagefile-stage2.ps1 -Apply`): only if D: works, C: drops to 4096 MB (about 12 GiB more). If D: does not work, C: stays at 16384 fixed and the D: entry is removed. Either way the RAM-sized 25.4 GiB fallback is gone.\n\n## C: layout map (target structure, mirrored on the Acer)\nRule: a folder on C: is either Windows, an installed program, or one tool\u0027s own state. Nothing the user authored lives on C:. Anything else goes to D:.\n| Location | What it is | Owner | Action rule |\n|---|---|---|---|\n| `C:\\Windows`, `C:\\Program Files`, `C:\\Program Files (x86)`, `C:\\ProgramData`, `C:\\Users`, `C:\\Recovery`, `C:\\pagefile.sys` | OS and installed programs | Windows | Tier C, never hand-edited |\n| `C:\\Python313`, `C:\\opamroot`, `C:\\srverify-*`, `C:\\OneDriveTemp`, `C:\\inetpub`, `C:\\Config.Msi` | root-level leftovers | various | opamroot and srverify removed by script 01; empty ones are left (Windows recreates them) |\n| `C:\\Users\\Anant Gupta\\AppData\\Local\\Programs` | Electron and per-user apps with no location choice | each app | clean caches only; Ollama moves to `D:\\Apps\\Ollama` |\n| `C:\\Users\\Anant Gupta\\AppData\\Roaming` | per-app settings and caches | each app | cache folders cleaned by script; never bulk-delete |\n| `C:\\Users\\Anant Gupta\\.\u003cname\u003e` dot folders (`.codex`, `.claude`, `.cursor`, `.kiro`, `.vscode`, `.docker`, `.cache`, `.local`, `.jdks`, `.gemini`, `.aitk`, `.pencil`) | AI and dev tool state | each tool | fresh-install-only, never synced, never copied |\n| Profile root loose files | `.claude.json`, `.gitconfig`, `.npmrc`, `.condarc`, `.zshrc`, `.wslconfig`, `.mcp.*` | tools | keep (sensitive by name: `.mcp.*`, `.claude.json`); strays moved to `D:\\Quarantine\\[REDACTED]\\profile-strays` |\n| `D:\\Quarantine\\[REDACTED]` | the one quarantine | Build 3 | review and delete on 2026-11-01; never inside a Drive folder |\n| `D:\\Apps\\\u003cName\u003e` | programs whose installer lets you choose a location | user | winget `--location` or manual installer |\n| `D:\\Cache\\{uv,pip,ms-playwright}` and `D:\\npm-cache` | redirected tool caches | env vars | set at user scope the day the tool is installed |\n| `D:\\AI\\ollama-models`, `D:\\WSL\\*` | models and WSL disks | tools | stay |\nStorage verification (2026-10-11): Ollama models are on D: (`OLLAMA_MODELS=D:\\AI\\ollama-models`, 9.2 GiB); the Ollama app\u0027s 6.47 GiB `lib` folder is app runtime on C: and moves with the reinstall. Jan keeps its data folder in `AppData\\Roaming\\Jan\\data` (3.31 GiB) on C:; moving it is a Jan Settings step (Advanced, Data folder).\n\u0027@\nAdd-Content -Path $f -Value $add -Encoding UTF8\n(Select-String -Path $f -Pattern ([string][char]0x2014) -Quiet)","description":"Append diagnostic result and layout map to note"}`
+- `Write` -- `C:\Users\Anant Gupta\.claude\projects\C--Users-Anant-Gupta\memory\feedback_scripts_for_bulk_cleanup.md`
+```
+---
+name: feedback-scripts-for-bulk-cleanup
+description: For bulk deletes and admin changes, write a script (dry-run first) for the user to run instead of deleting item by item through tool calls
+metadata:
+  type: feedback
+---
+
+On the Dell Windows cleanup (Build 3, 2026-10-11) the user said: do not delete manually file by file, it burns tokens. Bulk or long work goes into a .ps1 under `D:\WSL\ops\windows\` (ASCII, dry run by default, `-Apply` to execute, per-group C:/D: free-space report) and the user runs it, elevated when needed.
+
+**Why:** token cost, and the user wants one command to run, not a stream of tool calls.
+**How to apply:** write the script, parse-check it with the PowerShell parser, dry-run the non-admin one yourself, give the single command. Pipe big outputs through filters (a group name like `Group` is a PowerShell alias, use `Step`). Irreversible high-value data (game archives, recycle-bin project copies, WSL tarball, Docker prune) still gets a one-line confirmation. A pasted admin transcript can contain a BitLocker recovery password: redact the saved file and never copy it into notes. See [[project-new-laptop-acer-setup]].
+
+```
+- `Bash` -- `cd "/c/Users/Anant Gupta/.claude/projects/C--Users-Anant-Gupta/memory" && echo '- [Scripts for bulk cleanup](feedback_scripts_for_bulk_cleanup.md) — bulk deletes go in dry-run .ps1 scripts the user runs; redact pasted BitLocker keys' >> MEMORY.md && tail -3 MEMORY.md`
+```
+- [Windows Python env pattern](project_windows_python_env_pattern.md) — per-dir .venv + Scripts/python.exe override; global defaultInterpreterPath was wrong (bin/ not Scripts/)
+- [New Acer laptop setup](project_new_laptop_acer_setup.md) — Dell vs Acer session-identity trap, paste-back workflow, WSL-on-C reversal, see vault Installations.md
+- [Scripts for bulk cleanup](feedback_scripts_for_bulk_cleanup.md) — bulk deletes go in dry-run .ps1 scripts the user runs; redact pasted BitLocker keys
+```
+
 ## Actions Taken
 
 **Files created:**
+- `C:\Users\Anant Gupta\.claude\projects\C--Users-Anant-Gupta\memory\feedback_scripts_for_bulk_cleanup.md`
 - `C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\06b8b684-9d4a-42af-85c3-f42ff7877041\scratchpad\sens.ps1`
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Old Laptop Rebuild - Build 3 Windows Cleanup Findings.md`
+- `D:\WSL\ops\windows\01-user-cleanup.ps1`
+- `D:\WSL\ops\windows\02-admin-cleanup.ps1`
+- `D:\WSL\ops\windows\03-pagefile-stage2.ps1`
 
 **Files modified:**
 _None_
@@ -1157,5 +1888,6 @@ Stop-Transcript | Out-Null
 Write-Host 'Done. Paste back the transcript file named above.'
 EOF
 ls -la /d/WSL/ops/windows/; LC_ALL=C grep -nP '[^\x00-\x7F]' /d/WSL/ops/windows/diag-pagefile-bitlocker.ps1 | head -2; echo ascii-check-done`
+- `cd "/c/Users/Anant Gupta/.claude/projects/C--Users-Anant-Gupta/memory" && echo '- [Scripts for bulk cleanup](feedback_scripts_for_bulk_cleanup.md) — bulk deletes go in dry-run .ps1 scripts the user runs; redact pasted BitLocker keys' >> MEMORY.md && tail -3 MEMORY.md`
 
 

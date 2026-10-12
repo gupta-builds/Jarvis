@@ -5,40 +5,45 @@ source_app: claude-code
 source_os: windows
 title: "Windows toolkit rebuild for Dell and Acer"
 started_at: 2026-10-11T18:57:39
-ended_at: 2026-10-11T18:59:59
-exported_at: 2026-10-11T19:00:03
-duration_minutes: 2.3
+ended_at: 2026-10-11T19:08:58
+exported_at: 2026-10-11T19:30:03
+duration_minutes: 11.3
 project: Home
 cwd: 'C:\Users\Anant Gupta'
 session_id: cf4ca032-4c13-47e2-add0-c255f2ad1fc7
 status: raw
 turn_count: 2
 tools_used:
-  Bash: 2
-  Edit: 1
-  PowerShell: 4
-  Read: 14
-  Write: 2
+  Bash: 4
+  Edit: 2
+  PowerShell: 8
+  Read: 15
+  Write: 6
 tokens:
-  input: 74
-  output: 39574
-  cache_creation: 807602
-  cache_read: 4956232
-  total: 5803482
+  input: 126
+  output: 177500
+  cache_creation: 1000123
+  cache_read: 11651117
+  total: 12828866
 cost_usd: null
 model:
   - "claude-sonnet-5-5"
 files_touched:
   - "C:\\Users\\Anant Gupta\\.claude\\projects\\C--Users-Anant-Gupta\\cf4ca032-4c13-47e2-add0-c255f2ad1fc7\\tool-results\\bwqhv9k0j.txt"
+  - "C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\cf4ca032-4c13-47e2-add0-c255f2ad1fc7\\scratchpad\\audit-mcp.ps1"
   - "C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\cf4ca032-4c13-47e2-add0-c255f2ad1fc7\\scratchpad\\audit-win.out"
   - "C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\cf4ca032-4c13-47e2-add0-c255f2ad1fc7\\scratchpad\\audit-win.ps1"
   - "C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\cf4ca032-4c13-47e2-add0-c255f2ad1fc7\\scratchpad\\audit-winget.ps1"
+  - "C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\cf4ca032-4c13-47e2-add0-c255f2ad1fc7\\scratchpad\\audit-wsl.out"
+  - "C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\cf4ca032-4c13-47e2-add0-c255f2ad1fc7\\scratchpad\\audit-wsl.sh"
+  - "C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\cf4ca032-4c13-47e2-add0-c255f2ad1fc7\\scratchpad\\audit-wsl2.sh"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Acer Live State — 2026-09-16.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Codebases\\windows-home\\VS Code - Windows.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\C Drive Bloat - Failure Log and Prevention Rules.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Old Laptop Rebuild - Build 1 WSL Findings.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Old Laptop Rebuild - Build 3 Windows Cleanup Findings.md"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Old Laptop Rebuild - Build 4 Windows Toolkit Findings.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Old Laptop Rebuild - Index.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Old Laptop Rebuild - Windows Prompts (Build 3 C Drive Cleanup and Build 4 Terminal Parity).md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Ubuntu - WSL.md"
@@ -173,6 +178,83 @@ Phase 1 (audit, read-only): reading the vault AGENTS.md and listing the reading-
 Reading the rest of the list now (VS Code terminal, MCP and secrets, install loop, Ubuntu - WSL, Acer Live State, Build 1 findings), then live checks on the Dell.
 
 Vault reading done. Next, live read-only audit of the Dell's Windows side (Build 3 changes, tools, fonts, terminal, git, MCP names, winget IDs).
+
+No Iosevka package exists in winget, so the font will need a Nerd Fonts release download with checksum. Now the WSL side audit (config hashes against the snapshot, tools, bashrc block, MCP names).
+
+Checking the Nerd Fonts release asset (size, checksum) for the font install, since winget has no package.
+
+Quick read-only checks of the Acer's atuin config (behavior, not values) and the Dell's `gh` auth state, then I'll write up the Phase 1 and 2 note.
+
+Audit done. Writing the Phase 1 and 2 design into the Build 4 findings note (inside the vault's Old Laptop Rebuild folder), then I'll stop for your decisions.
+
+## Phase 2 checkpoint: nothing has been changed yet
+
+The audit and design are done and written to the Build 4 findings note in the vault. I have not installed or configured anything on either laptop. I'm waiting for your answers before I write scripts.
+
+### What the audit found
+- **Build 3 hasn't changed anything yet.** The pagefile, stale npm cache, Microsoft 365, WinRAR and the suspicious `.exe` files are all still there. C: has 39.5 GiB free.
+- **The Dell's Windows side is as expected.** It has no PowerShell 7, Starship, Nerd font or shell tools.
+- **The WSL config comparison matches your count.** 13 files differ from the Acer's, 4 plugin files match, and 3 Yazi items are missing.
+- **Two WSL differences you didn't list.** Both are harmless. `wsl.conf` differs only by spaces around `=`. The Dell has an extra `flavors/tokyo-night.yazi` folder and a 25-folder `plugins-src/` clone.
+- **The Dell's Ollama is a conflict.** The WSL Ollama (0.18.3, cloud models only) holds port 11434. Under mirrored networking that blocks the Windows Ollama that owns `D:\AI\ollama-models`.
+- **The Acer plan has two doubtful points.** The snapshot's "no PowerShell profile" is probably a false negative, because Documents is redirected to D:. The Acer's `IosevkaTerm Nerd Font` face name may not match what Windows registers (`IosevkaTerm NFM`).
+- **There is no winget package for the font.** I'll use the Nerd Fonts v3.5.1 release (`IosevkaTerm.tar.xz`, 87.5 MB) and verify its checksum.
+
+### Proposed manifest
+
+| Tool | Why | Machines | Method |
+|---|---|---|---|
+| PowerShell 7 | shell, profile and Terminal target | both | winget, UAC |
+| Windows Terminal | shell host | both | present, verify only |
+| Starship 1.26.0 | prompt, same version as both WSLs | both | winget MSI, UAC |
+| IosevkaTerm Nerd Font Mono | glyph font, registers as "IosevkaTerm NFM" | both | Nerd Fonts release, per-user, checksum verified |
+| zoxide, fzf, fd, bat | jump, fuzzy find, find files, view files | both | winget, portable |
+| NanaZip | one archive tool, replaces WinRAR | both | winget |
+| Git, GitHub CLI | version control and GitHub auth | both | winget, brought to current |
+| delta 0.20.1 | git pager | both | winget, portable |
+| ripgrep, jq, FFmpeg | search, JSON, media | both | present, version adopted |
+| Node LTS with Corepack | runtime, `npx` for MCP | both | winget (see D1) |
+| pnpm | JS package manager | both | winget, portable |
+| uv | Python tool manager | both | standalone installer (see D2) |
+| Claude Code, Codex CLI, Claude Desktop, Cursor, Antigravity, VS Code, Docker, Ollama | AI platforms | both | verify; Codex pinned from npm |
+| Kiro | IDE agent | Dell only | verify (not in the Acer's export) |
+| mcp-remote, `npx`, `uvx`, MCP launch check | MCP prerequisites | both | install or verify, server names only |
+| Tailscale | tailnet SSH | Acer only | verify only; must be absent on the Dell |
+| Yazi, lazygit, tmux, atuin, sesh, ncdu | WSL-first tools | neither | catalog only |
+
+### Decisions I need
+- **D1 Node.** I recommend LTS 24. It matches the Acer and both WSL installs. The switch is a hand-run uninstall of 22 and install of LTS after verify passes.
+- **D2 uv.** I recommend the standalone installer, pinned to 0.12.19 to match the Acer, then removing the pip copy. The pip copy sits earlier on the machine PATH, so both cannot coexist. This is the one non-winget install, and you listed it.
+- **D3 Miniconda.** I recommend leaving it where it is. The Acer keeps base on C: and envs on `D:\conda`, so the Dell should follow that later in Build 3.
+- **D4 `core.autocrlf`.** I recommend `input` on the Dell's Windows git and WSL, and on the Acer's Windows side. It never rewrites checkouts and stops CRLF from being committed. The Acer's WSL stays `false`.
+- **D5 Terminal.** I recommend the Tokyo Night Storm scheme and font face `IosevkaTerm NFM`. The Acer's opacity, acrylic, cursor and keybindings stay, and PowerShell 7 becomes the default profile. One-time visual glyph check by you.
+- **D6 Profile.** Your exact list, in one managed block between markers. The Dell's opam, Kiro and `New-PyEnv` stay untouched.
+- **D7 WSL files.** Replace all 13 and add the 3 Yazi items, with backups. `.gitconfig` is a merge: it keeps the Dell's identity and credential helper and takes the Acer's delta settings plus the Build 2 keys. `gh-dash` keeps the Dell's empty `repoPaths`. The old `tokyo-night.yazi` folder and `plugins-src/` clone stay; removing them is your call.
+- **D8 Ollama in WSL.** I recommend stopping and disabling the service but keeping the binary. It's one hand-run `sudo systemctl disable --now ollama`.
+- **D9 PowerShell 7 in WSL.** Keep it (7.6.4, harmless).
+- **D10 ruff, shfmt, shellcheck.** I recommend installing all three in user space, no sudo, behind `--with-tools` in the WSL script. The Build 2 VS Code extensions expect them.
+- **D11 Updates.** Adopt installed versions into the lock, except Git (2.52 to 2.55) and GitHub CLI (2.89 to 2.102), which go to current. Windows Terminal stays on 1.24.
+- **D12 Bun, Yazi, lazygit on Windows.** No.
+
+### Scripts and run order
+All ASCII, rerunnable, with `-DryRun`, logs to `D:\WSL\ops\windows\logs\` and result JSON into the vault.
+
+| Order | Script | Runs as |
+|---|---|---|
+| 1 | `00-preflight.ps1` | you, normal |
+| 2 | `10-install-toolkit.ps1` | you, normal (UAC consent prompts appear) |
+| 3 | `20-apply-configs.ps1` | you, normal |
+| 4 | `30-wsl-config-parity.sh` | you, inside WSL |
+| 5 | `99-verify.ps1` | you, normal |
+| 6 | `40-build-catalog.ps1` | you, normal |
+
+No script needs an elevated PowerShell. The hand-run lines are: remove the pip `uv`, switch Node 22 to LTS, disable WSL Ollama, and the Terminal visual check.
+
+### Catalog and Acer plan
+- **Catalog:** one Markdown file and one JSON file per host. They cover the manifest tools, plus an "unmanifested" table, the WSL tools, MCP servers by name, and config hashes. The authored guide note goes next to Installations.
+- **Acer plan:** the run sheet runs preflight, install (using the Dell's lock versions), apply, verify and catalog. It reports the Acer's profile path and hash first and keeps any existing profile outside the managed block. It never touches Tailscale.
+
+Reply with your answers to D1 to D12 (or "all recommended") and I'll move to Phase 3.
 
 ### Tool Calls
 
@@ -451,12 +533,400 @@ AI Consumption Tracker        AlexanderBrandt.AIConsumptionTracker 2.3.4        
 APM – Agent Package Manager   Microsoft.APM                        0.33.0        Tag: codex-cli                       winget
 relay-baton                   dgl1231.relay-baton                  1.6.1         Tag: codex, claude, cli, ai, handoff winget
 ```
+- `Write` -- `C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\cf4ca032-4c13-47e2-add0-c255f2ad1fc7\scratchpad\audit-wsl.sh`
+```
+#!/usr/bin/env bash
+set -u
+SNAP="/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis/40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild/Acer Dotfile Snapshot"
+echo "=== host"; hostname; whoami; uname -r
+echo "=== config parity vs snapshot"
+tail -n +2 "$SNAP/hashes-wsl.txt" | while IFS=$'\t' read -r rel src srchash copyhash size status; do
+  case "$status" in GENERATED) continue;; esac
+  case "$rel" in
+    wsl/home/*) dest="$HOME/${rel#wsl/home/}";;
+    wsl/etc/*) dest="/etc/${rel#wsl/etc/}";;
+    *) continue;;
+  esac
+  want="$copyhash"
+  if [ ! -f "$dest" ]; then echo "MISSING  $rel"; continue; fi
+  got=$(sha256sum "$dest" | cut -d' ' -f1)
+  crlf=""; grep -q $'\r' "$dest" 2>/dev/null && crlf=" CRLF"
+  if [ "$got" = "$want" ]; then echo "MATCH    $rel"; else echo "DIFF     $rel dell=${got:0:12} acer=${want:0:12}$crlf"; fi
+done
+echo "=== extra files in dell yazi/config not in snapshot"
+find "$HOME/.config/yazi" -type f 2>/dev/null | sed "s#$HOME/##" | sort
+echo "=== tool versions"
+for t in git gh rg fd bat fzf jq tmux ncdu direnv starship yazi ya lazygit delta zoxide atuin sesh chafa win32yank.exe unison pwsh uv node npm pnpm bun rustc cargo python3 claude codex kiro-cli agy ollama tailscale semgrep conda ruff shfmt shellcheck wslview docker; do
+  p=$(command -v "$t" 2>/dev/null) && echo "$t -> $p" || echo "$t -> NOT FOUND"
+done
+echo "=== versions"
+git --version; ollama --version 2>&1 | head -2; pwsh --version 2>&1 | head -1; node --version; pnpm --version; bun --version; uv --version; claude --version 2>&1|head -1; codex --version 2>&1|head -1
+echo "=== bashrc JARVIS block (secret-scanned)"
+start=$(grep -n '^# JARVIS_WSL_ENV_BLOCK' "$HOME/.bashrc" | head -1 | cut -d: -f1)
+if [ -n "${start:-}" ]; then
+  end=$(awk -v s="$start" 'NR>s && /^# >>>/ {print NR-1; found=1; exit} END{if (!found) print NR}' "$HOME/.bashrc")
+  block=$(sed -n "${start},${end}p" "$HOME/.bashrc" | awk '{lines[NR]=$0} END{n=NR; while (n>0 && lines[n]=="") n--; for (i=1;i<=n;i++) print lines[i]}')
+  if printf '%s' "$block" | grep -qiE 'AKIA[0-9A-Z]{16}|gh[pousr]_[A-Za-z0-9]{30,}|github_pat_|sk-[A-Za-z0-9]{20,}|xox[baprs]-|BEGIN[ A-Z]*PRIVATE KEY|AIza[0-9A-Za-z_-]{35}|(api[_-]?key|secret|passwd|password|token)[[:space:]]*[=:][[:space:]]*.{8,}|Bearer[[:space:]]+[A-Za-z0-9._-]{15,}'; then
+    echo "BLOCK MATCHED SECRET HEURISTIC - not printed (lines $start-$end)"
+  else
+    echo "(lines $start-$end)"; printf '%s\n' "$block"
+  fi
+else echo "marker not found"; fi
+echo "=== bashrc other hook lines (names only, not values)"
+grep -nE 'starship init|zoxide init|atuin init|direnv hook|nvm.sh|\.cargo/env|\.atuin/bin/env|mcp\.env' "$HOME/.bashrc" | sed -E 's/=.*//' | head -30
+echo "=== tmux plugins"
+ls -1 "$HOME/.tmux/plugins" 2>/dev/null
+echo "=== tmux.conf plugin lines"
+grep -nE "@plugin|@handlr|@agent|@continuum|^run " "$HOME/.tmux.conf" 2>/dev/null
+echo "=== git config global"
+git config --global --list 2>/dev/null | grep -viE 'token|password|secret'
+echo "=== MCP server names (no values)"
+if [ -f "$HOME/.claude.json" ]; then echo -n "claude.json user scope: "; jq -r '(.mcpServers // {}) | keys | join(", ")' "$HOME/.claude.json"; fi
+if [ -f "$HOME/.mcp.json" ]; then echo -n ".mcp.json: "; jq -r '(.mcpServers // {}) | keys | join(", ")' "$HOME/.mcp.json"; fi
+if [ -f "$HOME/.codex/config.toml" ]; then echo -n "codex config: "; grep -oE '^\[mcp_servers\.[^].]+' "$HOME/.codex/config.toml" | sed 's/\[mcp_servers\.//' | tr '\n' ' '; echo; fi
+echo "=== wslconfig/wsl.conf (not touched)"
+cat /etc/wsl.conf
+echo "=== ollama state"
+systemctl is-active ollama 2>&1; ss -ltn 2>/dev/null | grep -E ':11434' ; pgrep -a ollama | head -3
+echo "=== dell yazi flavors dir"
+ls -la "$HOME/.config/yazi" "$HOME/.config/yazi/flavors" 2>&1 | head -30
+echo "=== line endings of starship"
+file "$HOME/.config/starship.toml"
+echo "=== disk"
+df -h / | tail -1
+
+```
+- `Write` -- `C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\cf4ca032-4c13-47e2-add0-c255f2ad1fc7\scratchpad\audit-mcp.ps1`
+```
+$ErrorActionPreference = 'SilentlyContinue'
+function Show($label, $obj){
+  "--- $label"
+  if(-not $obj){ '(none)'; return }
+  foreach($p in $obj.PSObject.Properties){
+    $cmd = $p.Value.command
+    $leaf = if($cmd){ Split-Path $cmd -Leaf } else { '' }
+    $type = $p.Value.type
+    $res = ''
+    if($cmd){
+      $g = Get-Command $cmd -ErrorAction SilentlyContinue | Select-Object -First 1
+      $res = if($g){ 'RESOLVES' } elseif(Test-Path $cmd){ 'PATH-EXISTS' } else { 'UNRESOLVED' }
+    }
+    $hasUrl = [bool]$p.Value.url
+    "{0,-20} cmd={1,-14} type={2,-6} url={3} {4}" -f $p.Name,$leaf,$type,$hasUrl,$res
+  }
+}
+$cd = "$env:APPDATA\Claude\claude_desktop_config.json"
+"Claude Desktop config exists: " + (Test-Path $cd)
+if(Test-Path $cd){ $j = Get-Content $cd -Raw | ConvertFrom-Json; Show 'Claude Desktop mcpServers' $j.mcpServers }
+$cj = "$env:USERPROFILE\.claude.json"
+"claude.json exists: " + (Test-Path $cj)
+if(Test-Path $cj){ $j = Get-Content $cj -Raw | ConvertFrom-Json; Show 'Claude Code user scope' $j.mcpServers }
+$mj = "$env:USERPROFILE\.mcp.json"
+"home .mcp.json exists: " + (Test-Path $mj)
+if(Test-Path $mj){ $j = Get-Content $mj -Raw | ConvertFrom-Json; Show 'home .mcp.json' $j.mcpServers }
+$ct = "$env:USERPROFILE\.codex\config.toml"
+"codex config exists: " + (Test-Path $ct)
+if(Test-Path $ct){ "--- Codex servers"; Select-String -Path $ct -Pattern '^\[mcp_servers\.[^\].]+' | ForEach-Object { $_.Matches[0].Value -replace '\[mcp_servers\.','' } }
+$reg = "$env:USERPROFILE\.config\mcp\mcp.json"
+"registry exists: " + (Test-Path $reg)
+if(Test-Path $reg){ $j = Get-Content $reg -Raw | ConvertFrom-Json; Show 'registry' $j.mcpServers }
+"--- npm globals"
+npm ls -g --depth=0 2>&1 | Select-Object -First 20
+"--- user PATH (dirs only)"
+([Environment]::GetEnvironmentVariable('Path','User')) -split ';'
+"--- scheduled tasks mentioning Jarvis/Conversation/Syncthing"
+Get-ScheduledTask | Where-Object { $_.TaskName -match 'Jarvis|Conversation|Syncthing|ClaudeKit|SecondBrain' } | ForEach-Object { "{0} state={1}" -f $_.TaskName,$_.State }
+
+```
+- `Bash` -- `S="/c/Users/Anant Gupta/AppData/Local/Temp/claude/C--Users-Anant-Gupta/cf4ca032-4c13-47e2-add0-c255f2ad1fc7/scratchpad"; cd "$S"; (wsl.exe -d Ubuntu -- bash "/mnt/c/Users/Anant Gupta/AppData/Local/Temp/claude/C--Users-Anant-Gupta/cf4ca032-4c13-47e2-add0-c255f2ad1fc7/scratchpad/audit-wsl.sh" | tr -d '\000') > audit-wsl.out 2>&1; powershell.exe -NoProfile -ExecutionPolicy Bypass -File audit-mcp.ps1 > audit-mcp.out 2>&1; wc -l audit-wsl.out audit-mcp.out`
+```
+   1 audit-wsl.out
+  65 audit-mcp.out
+  66 total
+```
+- `Bash` -- `cd "/c/Users/Anant Gupta/AppData/Local/Temp/claude/C--Users-Anant-Gupta/cf4ca032-4c13-47e2-add0-c255f2ad1fc7/scratchpad"; cat audit-wsl.out; echo ----; cat audit-mcp.out`
+```
+bash: C:/Program Files/Git/mnt/c/Users/Anant Gupta/AppData/Local/Temp/claude/C--Users-Anant-Gupta/[REDACTED]/scratchpad/audit-wsl.sh: No such file or directory
+----
+Claude Desktop config exists: True
+--- Claude Desktop mcpServers
+jarvis-fs            cmd=npx.cmd        type=       url=False RESOLVES
+github               cmd=npx.cmd        type=       url=False RESOLVES
+jarvis               cmd=npx.cmd        type=       url=False RESOLVES
+the-plan             cmd=npx.cmd        type=       url=False RESOLVES
+claude.json exists: True
+--- Claude Code user scope
+jarvis-fs            cmd=npx.cmd        type=       url=False RESOLVES
+github               cmd=npx.cmd        type=       url=False RESOLVES
+jarvis               cmd=npx.cmd        type=       url=False RESOLVES
+the-plan             cmd=npx.cmd        type=       url=False RESOLVES
+home .mcp.json exists: True
+--- home .mcp.json
+jarvis               cmd=               type=http   url=True 
+the-plan             cmd=               type=http   url=True 
+github               cmd=npx            type=       url=False RESOLVES
+codex config exists: True
+--- Codex servers
+jarvis
+jarvis-fs
+node_repl
+node_repl
+cua_repl
+registry exists: False
+--- npm globals
+C:\Users\Anant Gupta\AppData\Roaming\npm
++-- @openai/codex@0.160.0
++-- firecrawl-cli@1.19.21
++-- mcp-remote@0.2.1
++-- openclaw@2026.3.13
+`-- opencode-ai@1.18.31
+
+--- user PATH (dirs only)
+C:\Users\Anant Gupta\AppData\Local\hermes\hermes-agent\venv\Scripts
+C:\Users\Anant Gupta\AppData\Local\hermes\bin
+\\?\C:\Users\Anant Gupta\AppData\Local\Programs\Jan\resources\bin
+C:\Users\Anant Gupta\AppData\Local\Microsoft\WindowsApps
+C:\Users\Anant Gupta\AppData\Local\Programs\Microsoft VS Code\bin
+C:\Program Files\JetBrains\IntelliJ IDEA 2024.3.3\bin
+C:\Users\Anant Gupta\AppData\Roaming\npm
+C:\Users\Anant Gupta\AppData\Local\spicetify
+C:\Users\Anant Gupta\AppData\Local\Programs\mongosh\
+C:\Users\Anant Gupta\AppData\Local\Microsoft\WinGet\Packages\OCaml.opam_Microsoft.Winget.Source_8wekyb3d8bbwe
+C:\Users\Anant Gupta\bin
+C:\Users\Anant Gupta\AppData\Local\Programs\cursor\resources\app\bin
+C:\Users\Anant Gupta\AppData\Local\Programs\Ollama
+C:\Users\Anant Gupta\.local\bin
+C:\Users\Anant Gupta\AppData\Local\Programs\Obsidian
+C:\Users\Anant Gupta\AppData\Local\Programs\Kiro\bin
+C:\Users\Anant Gupta\AppData\Local\Microsoft\WinGet\Packages\jqlang.jq_Microsoft.Winget.Source_8wekyb3d8bbwe
+C:\Users\Anant Gupta\AppData\Local\Microsoft\WinGet\Packages\BurntSushi.ripgrep.MSVC_Microsoft.Winget.Source_8wekyb3d8bbwe\ripgrep-15.1.[REDACTED]
+C:\Users\Anant Gupta\AppData\Local\Microsoft\WinGet\Packages\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\ffmpeg-8.1.2-full_build\bin
+
+C:\Users\Anant Gupta\.merget/bin
+--- scheduled tasks mentioning Jarvis/Conversation/Syncthing
+ClaudeKit-Sync-All state=Disabled
+ConversationCapture-Backfill-Windows state=Ready
+ConversationCapture-Backfill-WSL state=Ready
+Jarvis-Cursor-Session-Export state=Ready
+Jarvis-GitAutoSync state=Ready
+Jarvis-Syncthing-Health state=Ready
+Jarvis-WeeklyReview state=Ready
+SecondBrainClaudekit-JarvisSync state=Disabled
+Syncthing state=Running
+```
+- `PowerShell` -- `{"command":"$s=\u0027C:\\Users\\Anant Gupta\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\[REDACTED]\\scratchpad\u0027; $env:WSL_UTF8=1; $o = \u0026 wsl.exe -d Ubuntu -- bash \"/mnt/c/Users/Anant Gupta/AppData/Local/Temp/claude/C--Users-Anant-Gupta/[REDACTED]/scratchpad/audit-wsl.sh\" 2\u003e\u00261 | Out-String; ($o -replace \"`0\",\u0027\u0027) | Set-Content \"$s\\audit-wsl.out\" -Encoding UTF8; ($o -replace \"`0\",\u0027\u0027).Length","description":"Run WSL audit script from PowerShell","timeout":300000}`
+- `Read` -- `C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\cf4ca032-4c13-47e2-add0-c255f2ad1fc7\scratchpad\audit-wsl.out`
+- `Write` -- `C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\cf4ca032-4c13-47e2-add0-c255f2ad1fc7\scratchpad\audit-wsl2.sh`
+```
+#!/usr/bin/env bash
+export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.atuin/bin:$PATH"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" >/dev/null 2>&1
+echo "=== versions (proper PATH)"
+for t in fd bat starship yazi ya lazygit delta zoxide atuin sesh chafa win32yank.exe unison pwsh uv node npm pnpm bun rustc cargo claude codex kiro-cli agy semgrep ruff shfmt shellcheck conda tmux ncdu direnv; do
+  p=$(command -v "$t" 2>/dev/null) || { echo "$t -> NOT FOUND"; continue; }
+  v=$("$t" --version 2>&1 | head -1)
+  echo "$t -> $p | $v"
+done
+echo "=== bashrc lines 118-190 with secret-looking lines redacted"
+awk 'NR>=118 && NR<=190 { if ($0 ~ /(KEY|TOKEN|SECRET|PASSWORD|PASSWD)[A-Z_]*[[:space:]]*=/ || $0 ~ /AKIA|ghp_|github_pat_|sk-[A-Za-z0-9]{20}|AIza/) print NR": <redacted line>"; else print NR": "$0 }' "$HOME/.bashrc"
+echo "=== tmux handlr script present"
+ls -la "$HOME/.tmux/plugins/tmux-handlr/scripts/" 2>&1 | head -10
+echo "=== tmux.conf (dell) full"
+cat "$HOME/.tmux.conf"
+echo "=== dell starship tail check / yazi files content"
+for f in init.lua keymap.toml theme.toml yazi.toml; do echo "--- $f"; cat "$HOME/.config/yazi/$f"; done
+echo "=== dell small configs"
+for f in sesh/sesh.toml lazygit/config.yml ncdu/config git/ignore; do echo "--- $f"; cat "$HOME/.config/$f"; done
+echo "=== gh-dash repoPaths (dell)"
+grep -n -A6 '^repoPaths' "$HOME/.config/gh-dash/config.yml"
+echo "=== atuin config non-comment lines (dell)"
+grep -vE '^\s*#|^\s*$' "$HOME/.config/atuin/config.toml"
+echo "=== ollama models in WSL"
+du -sh "$HOME/.ollama" /usr/share/ollama 2>/dev/null
+ollama list 2>&1 | head -10
+
+```
+- `PowerShell` -- `{"command":"$s=\u0027C:\\Users\\Anant Gupta\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\[REDACTED]\\scratchpad\u0027; $env:WSL_UTF8=1; $o = \u0026 wsl.exe -d Ubuntu -- bash \"/mnt/c/Users/Anant Gupta/AppData/Local/Temp/claude/C--Users-Anant-Gupta/[REDACTED]/scratchpad/audit-wsl2.sh\" 2\u003e\u00261 | Out-String; ($o -replace \"`0\",\u0027\u0027) | Set-Content \"$s\\audit-wsl2.out\" -Encoding UTF8; ($o -replace \"`0\",\u0027\u0027)","description":"Run second WSL audit with correct PATH","timeout":300000}`
+- `PowerShell` -- `{"command":"$j = gh api repos/ryanoasis/nerd-fonts/releases/latest 2\u003e\u00261 | ConvertFrom-Json; \"tag: $($j.tag_name) published $($j.published_at)\"; $j.assets | Where-Object { $_.name -match \u0027^(IosevkaTerm\\.|SHA-256|IosevkaTerm)\u0027 } | ForEach-Object { \"{0} size={1} MB digest={2} url={3}\" -f $_.name,[math]::Round($_.size/1MB,1),$_.digest,$_.browser_download_url }\n$j.assets | Where-Object { $_.name -match \u0027SHA\u0027 } | ForEach-Object { $_.name + \u0027 \u0027 + $_.browser_download_url }","description":"Look up Nerd Fonts IosevkaTerm release asset"}`
+- `PowerShell` -- `{"command":"$a=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Acer Dotfile Snapshot\\wsl\\home\\.config\\atuin\\config.toml\u0027; \"--- Acer atuin active keys\"; Get-Content $a | Where-Object { $_ -notmatch \u0027^\\s*#\u0027 -and $_.Trim() -ne \u0027\u0027 }; \"--- gh auth (status only)\"; gh auth status 2\u003e\u00261 | Select-String -Pattern \u0027Logged in|account|Active|Git operations\u0027 | ForEach-Object { $_.Line -replace \u0027(gho_|ghp_)\\S+\u0027,\u0027\u003ctoken\u003e\u0027 }; \"--- tailscale on dell windows\"; Get-Service -Name Tailscale* -ErrorAction SilentlyContinue | Select Name,Status; \"--- winget Git dir/WT version\"; (Get-AppxPackage Microsoft.WindowsTerminal).InstallLocation; \"--- windows PATH (machine) python entries\"; ([Environment]::GetEnvironmentVariable(\u0027Path\u0027,\u0027Machine\u0027) -split \u0027;\u0027) | Select-String -Pattern \u0027Python|Scripts|nodejs|chocolatey\u0027","description":"Read-only checks: Acer atuin keys, gh auth, PATH order"}`
+- `Write` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Old Laptop Rebuild - Build 4 Windows Toolkit Findings.md`
+```
+---
+type: note
+status: seedling
+created: 2026-10-11
+updated: 2026-10-11
+course: Life
+track:
+  - laptop
+  - windows
+tags:
+  - note
+  - laptop
+  - terminal
+related:
+  - "[[Old Laptop Rebuild - Index]]"
+  - "[[Old Laptop Rebuild - Build 3 Windows Cleanup Findings]]"
+  - "[[Old Laptop Rebuild - Build 1 WSL Findings]]"
+  - "[[Installations]]"
+  - "[[VS Code - Windows]]"
+  - "[[VS Code - Terminal Environments]]"
+  - "[[Old Laptop Rebuild - Windows Prompts (Build 3 C Drive Cleanup and Build 4 Terminal Parity)]]"
+next: "User answers the Phase 2 decisions (D1 to D12); then Phase 3 writes the manifest, configs and scripts"
+---
+# Old Laptop Rebuild - Build 4 Windows Toolkit Findings
+
+## One-Line Answer
+==Phase 1 (read-only audit) and the Phase 2 design are done and nothing has been changed on either laptop: the Dell has no PowerShell 7, Starship, Nerd Font or shell tools on Windows, 13 of its 17 comparable WSL configs are reconstructions that differ from the Acer's real ones, Build 3 has not yet changed anything, and 12 decisions are waiting for the user before any script is written.==
+
+## Phase 1: Dell, Windows side (live 2026-10-11)
+| Item | Live value |
+|---|---|
+| Host | `DESKTOP-3VBG0JH`, user `C:\Users\Anant Gupta`, Windows PowerShell 5.1.26100, no `pwsh` |
+| Drives | C: 39.53 GiB free (Build 3 baseline 39.58), D: 363.91 GiB free |
+| Pagefile | `C:\pagefile.sys` 26,030 MB (peak 1,246 MB); configured `d:\pagefile.sys 0 0` that does not exist |
+| Windows Terminal | 1.24.12741.0; default profile Windows PowerShell; `profiles.defaults` empty; no scheme, no font; Ubuntu profile named `Ubuntu` (guid `a2e4d0f9-...`); user `actions` use `User.*` ids |
+| Fonts | Cascadia Code and Cascadia Mono only; no Iosevka or Nerd font |
+| Git | 2.52.0, global: `core.autocrlf=false`, `pull.rebase=true`, `init.defaultbranch=main`, `windows.appendatomically=false`, identity, 8 WSL `safe.directory` entries; no `~\.config\git\ignore`? it exists (True) but was not read |
+| Present tools | gh 2.89.0, rg 15.1.0, jq 1.8.2, ffmpeg 8.1.2, Node 22.16.0 (`C:\Program Files\nodejs`), npm 10.9.2, Python 3.13.5, uv 0.11.26 (`C:\Python313\Scripts`), opam, choco 2.4.3, Docker CLI 29.1.3, claude 2.1.296, codex 0.160.0 (npm), VS Code, Cursor, Kiro, wt, winget 1.29.380 |
+| Absent | pwsh, starship, zoxide, fzf, fd, bat, delta, lazygit, yazi, 7z/NanaZip, pnpm, bun, conda (not on PATH), agy, tailscale (correct) |
+| npm globals | `@openai/codex` 0.160.0, `firecrawl-cli` 1.19.21, `mcp-remote` 0.2.1, `openclaw` 2026.3.13, `opencode-ai` 1.18.31; npm cache `D:\npm-cache` |
+| User env vars | `OLLAMA_MODELS=D:\AI\ollama-models`, `OLLAMA_CONTEXT_LENGTH`, `OLLAMA_ORIGINS`, Obsidian and Jarvis URL/key variables, `GITHUB_PERSONAL_ACCESS_TOKEN` (names only, values never read), `HERMES_*`. Not set: `STARSHIP_CONFIG`, `YAZI_CONFIG_HOME`, `UV_CACHE_DIR`, `PIP_CACHE_DIR`, `PLAYWRIGHT_BROWSERS_PATH` (Build 3 owns the cache ones) |
+| Profile | `D:\Users\_Anant\10_Areas\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1` (secret scan clean): opam env block, Kiro integration, `New-PyEnv`. The PowerShell 7 profile would be `...\Documents\PowerShell\Microsoft.PowerShell_profile.ps1` (absent). `C:\Users\Anant Gupta\Documents\...` resolves to the same file (redirect). |
+| PATH | Machine PATH starts `C:\Python313\Scripts`, `C:\Python313`, `C:\Program Files\nodejs`, chocolatey; user PATH has `~\.local\bin`. Machine entries come first, so a standalone `uv` in `~\.local\bin` would lose to the pip `uv.exe` until that one is removed. |
+| Execution policy | `LocalMachine=RemoteSigned`, others undefined |
+| winget | no `Iosevka` package exists; `jesseduffield.lazygit` id not found (case differs); `Anthropic.ClaudeCode` 2.1.292 exists (the native install is 2.1.296, newer); `OpenAI.Codex` 0.161.0 exists |
+
+### Build 3 status (what it has changed so far)
+Nothing. The pagefile is unchanged, `Local\npm-cache` (stale), the 2026-09-20 quarantine folder, Microsoft 365, WinRAR, Malwarebytes, Respondus, Dell Optimizer, MongoDB Shell and the two suspicious `.exe` files in the profile root are all still present. The only new artifact is `D:\WSL\ops\windows\diag-pagefile-bitlocker.ps1`. Scheduled tasks `ConversationCapture-Backfill-WSL` and the Jarvis tasks are still Ready. This build does not touch any of these.
+
+## Phase 1: Acer, Windows side (from the snapshot, not live)
+| Item | Value | Source |
+|---|---|---|
+| User / vault | `C:\Users\anant`, `D:\_Anant\20_Progress\Documents\Jarvis` | prompt, VS Code - Windows |
+| Windows Terminal | font `IosevkaTerm Nerd Font`, scheme `One Half Dark`, opacity 85, acrylic, cursor `#98C379`, scrollbar hidden, default profile Windows PowerShell, built-in-id keybindings, Ubuntu profile `Ubuntu-24.04` (guid `a136339a-...`), two Miniconda profiles under `C:\Users\anant\miniconda3`, a PowerShell Core profile (guid `[REDACTED]`) | `terminal/settings.json` |
+| Git (Windows) | only `windows.appendAtomically=false`, `core.longpaths`, `core.fsmonitor`, `core.untrackedCache` (identity redacted) | `windows/home/.gitconfig` |
+| Config files | `starship.toml` (2,260 bytes, SHA `9EF71378...`), `~\.config\git\ignore` (8 patterns, SHA `546B86DB...`) | `hashes-windows.txt` |
+| winget export | Git, GitHub CLI, Starship, Node LTS, Tailscale, ripgrep, jq, Yazi, NanaZip, Docker, Ollama, VS Code, Cursor, Claude, Antigravity, Miniconda, FFmpeg, PowerShell, Windows Terminal, WSL, WizTree, Revo, plus apps. Not in the export: Kiro, fzf, fd, bat, delta, zoxide, pnpm, uv (standalone), Claude Code and Codex (not winget) | `winget-export.json` |
+| Versions | **Unknown.** `VERSIONS.md` and `MANIFEST.md` do not exist and the export carries no versions. The Dell run's lock file becomes the reference. | snapshot folder |
+
+## Phase 1: WSL config parity (Dell vs Acer snapshot, SHA-256, live)
+| File | Result | Note |
+|---|---|---|
+| `starship.toml` | DIFF | Dell is a reconstruction; Acer's LF copy wins |
+| `yazi/yazi.toml`, `init.lua`, `keymap.toml`, `theme.toml` | DIFF (4) | Dell theme uses flavor `tokyo-night`, Acer `tokyonight-storm` |
+| `yazi/plugins/*` (3 plugins, 10 files) | MATCH | |
+| `yazi/package.toml`, `flavors/tokyonight-storm.yazi/*` (7 files) | MISSING | Dell has `flavors/tokyo-night.yazi` and a 25-folder `plugins-src/` clone instead |
+| `atuin/config.toml`, `sesh/sesh.toml`, `gh-dash/config.yml`, `lazygit/config.yml`, `ncdu/config`, `git/ignore`, `.tmux.conf` | DIFF (7) | all carry "reconstructed from notes" headers except git ignore |
+| `.gitconfig` | DIFF | handled by merge, see D7 |
+| `/etc/wsl.conf` | DIFF (cosmetic) | Dell writes `enabled = true`, Acer `enabled=true`; same meaning; left alone |
+| Total | 13 differ as the prompt said, 4 match (plugin Lua files), 3 Yazi items missing, plus 1 cosmetic | |
+
+Other WSL facts: the Dell `.bashrc` block is `# >>> JARVIS_WSL_ENV_BLOCK (Build 1: from notes, not from Acer) >>>` (guards on each tool, a direnv-verified flag, a browser fallback flag) while the Acer block is plain (`# JARVIS_WSL_ENV_BLOCK`, unguarded, adds nvm and cargo lines inside the block); the tmux plugin list is **identical** (tpm, resurrect, continuum, tmux-fzf, tmux-agent-status, tmux-handlr), the Acer's `.tmux.conf` points at `agent-ntfy-notify.sh` which exists on the Dell. Tool versions with a login-style PATH: starship 1.26.0, yazi 26.9.1, lazygit 0.65.1, delta 0.20.1, zoxide 0.10.0, atuin 18.23.0, sesh 2.32.0, chafa 1.18.3, pwsh 7.6.4, uv 0.12.23, node 24.14.1, pnpm 10.33.2, claude 2.1.296, codex 0.162.1, kiro-cli 2.27.1, agy 1.3.3, semgrep 1.179.0, fd 9.0.0, bat 0.24.0, ncdu 1.19, direnv 2.32.1. Missing: ruff, shfmt, shellcheck, conda. Ollama 0.18.3 is `active` under systemd, listens on `127.0.0.1:11434`, and only has cloud models (`kimi-k2.6:cloud`, `kimi-k2.5:cloud`, `qwen3-coder-next:cloud`; `~/.ollama` is 8 KB).
+
+## Contradictions with the vault and prompt (live wins)
+1. Windows `ollama --version` prints `0.18.3` plus "client version is 0.24.0": the server answering on 11434 is the WSL one (mirrored networking), so the Windows Ollama server is not the one running and `D:\AI\ollama-models` is not being served.
+2. The prompt says the Acer has no PowerShell profile. [[VS Code - Windows]] and [[VS Code - Terminal Environments]] describe an Acer profile (Starship, conda init, VS Code hook) under `D:\_Anant\20_Progress\Documents\WindowsPowerShell\`. The snapshot looked under the redirected `C:\Users\anant\Documents` and recorded "not present", which is probably a false negative. The Acer preflight must resolve the profile path with `[Environment]::GetFolderPath('MyDocuments')` and report what it finds before the apply script touches it.
+3. The Acer Windows Terminal says font `IosevkaTerm Nerd Font`, but [[VS Code - Windows]] proved Windows registers the Mono build as `IosevkaTerm NFM` (and also `NF`, `NFP`), and that `IosevkaTerm Nerd Font Mono` did not match in VS Code.
+4. The prompt asks for a winget font package. None exists (`winget search iosevka` returns nothing); the font comes from the Nerd Fonts GitHub release v3.5.1.
+5. `.wslconfig`, `wsl.conf` content: `wsl.conf` differs only by spaces around `=`; not part of the 13.
+6. [[Installations]] lists Bun 1.3.14 in WSL; `bun` is not on a non-interactive PATH (the `.bashrc` sets `BUN_INSTALL`, binary not confirmed). Not used by this build.
+7. Build 1 told us the Dell `.bashrc` holds a plaintext Firecrawl export (still present, line redacted in every read here). Rotation is still open from Build 1; the catalog must never print that line.
+
+## Phase 2: design
+
+### Toolkit manifest (proposed membership)
+Policies: `install` = install if missing (adopt the installed version into the lock), `latest` = bring to current, `verify` = check only, `absent` = must not exist.
+| Tool | Why it is there | Machines | Method and policy |
+|---|---|---|---|
+| PowerShell 7 | modern shell, profile and Terminal target | both | winget `Microsoft.PowerShell`, install (UAC) |
+| Windows Terminal | shell host | both | winget `Microsoft.WindowsTerminal`, verify (1.24 stays) |
+| Starship 1.26.0 | prompt, same version as both WSLs | both | winget `Starship.Starship`, install (MSI, UAC) |
+| IosevkaTerm Nerd Font Mono | glyph font, registers as "IosevkaTerm NFM" | both | Nerd Fonts v3.5.1 `IosevkaTerm.tar.xz` (87.5 MB, SHA-256 `054a4a36...`), Mono TTFs only, per-user, checksum verified |
+| zoxide 0.10.0 | directory jumping, same as WSL | both | winget `ajeetdsouza.zoxide`, install (portable) |
+| fzf, fd, bat | fuzzy finder, file find, file viewer | both | winget `junegunn.fzf`, `sharkdp.fd`, `sharkdp.bat`, install (portable) |
+| NanaZip | one archive tool; replaces WinRAR (Build 3 removes it) | both | winget `M2Team.NanaZip`, install (MSIX) |
+| Git | version control | both | winget `Git.Git`, latest (2.52.0 to 2.55.0.5, UAC) |
+| delta 0.20.1 | git pager, same as Dell WSL | both | winget `dandavison.delta`, install (portable) |
+| GitHub CLI | GitHub auth and credential helper | both | winget `GitHub.cli`, latest (2.89.0 to 2.102.0) |
+| ripgrep, jq, FFmpeg | search, JSON, media | both | present on the Dell; winget `BurntSushi.ripgrep.MSVC`, `jqlang.jq`, `Gyan.FFmpeg`, install (adopt installed) |
+| Node.js LTS + Corepack | runtime, `npx` for MCP | both | winget `OpenJS.NodeJS.LTS` (24.20.0), see D1 |
+| pnpm | JS package manager | both | winget `pnpm.pnpm`, install (portable) |
+| uv | Python tool and project manager | both | standalone installer, pinned URL, see D2 |
+| Python (system 3.13.5), Miniconda, opam, Chocolatey | existing, not managed | dell | verify only (see D3) |
+| Claude Code (native) | primary agent CLI | both | verify (`~\.local\bin`) |
+| Codex CLI | OpenAI agent CLI | both | npm `@openai/codex`, pinned in lock, install if missing |
+| Claude Desktop, Cursor, Antigravity, VS Code, Docker Desktop, Ollama | AI platforms and runtimes | both | winget ids `Anthropic.Claude`, `Anysphere.Cursor`, `Google.Antigravity`, `Microsoft.VisualStudioCode`, `Docker.DockerDesktop`, `Ollama.Ollama`, verify only |
+| Kiro | IDE agent | dell | `Amazon.Kiro`, verify (not in the Acer export) |
+| mcp-remote, npx, uvx | MCP launch prerequisites | both | npm global `mcp-remote` install; `npx` from Node; `uvx` from uv |
+| MCP launch check | every configured server's command resolves (names only) | both | verify |
+| Tailscale | tailnet SSH | acer | `Tailscale.Tailscale` verify only on the Acer; `absent` on the Dell; never installed by a script |
+| Yazi, lazygit, tmux, atuin, sesh, ncdu | WSL-first tier | catalog only | not installed on Windows |
+
+Catalog-only: everything else found on the machine (winget list, npm globals, `~/.local/bin`, apt manual, uv tools, cargo) is listed as "unmanifested" with the same fields minus the use-case text.
+
+### Decisions I need from you
+| # | Decision | Recommendation and reason |
+|---|---|---|
+| D1 | Node 22 or LTS on the Dell | **LTS (24.x).** Acer is on LTS and both WSL installs are on 24.14. It means uninstalling `OpenJS.NodeJS.22` (UAC) then installing LTS as one hand-run step after the verify passes; npm globals in `AppData\Roaming\npm` survive. Node 22 stays until you say go. |
+| D2 | uv | **Standalone installer, pinned URL (0.12.19 to match the Acer), then remove the pip copy** (`python -m pip uninstall uv`, one command, you run it). The pip `uv.exe` is in the machine PATH, which wins over `~\.local\bin`, so both cannot coexist. This is the one install that is not winget (you listed it). |
+| D3 | Miniconda | **Leave it where it is** (`C:\Users\Anant Gupta\miniconda3`, 7.09 GiB), do not reinstall. The Acer's real pattern is base on C: and envs plus package cache on `D:\conda`; the Dell should follow it through `.condarc` later (Build 3 Tier B owns the 7 GiB). Not in this build's scripts. |
+| D4 | `core.autocrlf` | **`input` on the Dell's Windows git and WSL** (and the Acer's Windows side). Everything here is LF (vault, WSL, configs). `input` never rewrites checkouts but normalizes CRLF to LF on commit, which stops PowerShell and Windows editors from committing CRLF. `false` (Acer WSL today) silently commits CRLF; `true` fights WSL checkouts. The Acer's WSL stays `false` unless you change it later. |
+| D5 | Terminal scheme and font | **Scheme Tokyo Night Storm** (matches Starship palette, Yazi flavor `tokyonight-storm`, tmux), taken from the official folke/tokyonight extras and checked in Phase 3. **Font face `IosevkaTerm NFM`**, the name Windows registers, because the Acer's `IosevkaTerm Nerd Font` and your `IosevkaTerm Nerd Font Mono` can fail to match. Opacity 85, acrylic, cursor `#98C379`, hidden scrollbar and keybindings kept from the Acer. Default profile becomes PowerShell 7. |
+| D6 | Profile contents | Exactly your list inside one managed block (UTF-8 output, `STARSHIP_CONFIG`, Starship once, zoxide once, VS Code hook behind `Test-Path`). The block is inserted or replaced between markers; nothing outside it is touched, so the Dell keeps opam, Kiro and `New-PyEnv`. Nothing added. |
+| D7 | Which WSL configs are replaced | **All 13 plus the 3 missing Yazi items**, with backups. Two are merges, not replacements: `.gitconfig` keeps the Dell's `[user]`, `[credential]` and `[filter "lfs"]` and takes the Acer's delta, pager, merge and diff settings plus the Build 2 keys (via an include file); `gh-dash/config.yml` takes the Acer file but keeps the Dell's `repoPaths: {}`. `/etc/wsl.conf`, `.wslconfig` untouched. The Dell's old `flavors/tokyo-night.yazi` and the `plugins-src/` clone stay (listed in the report, removal is your call). |
+| D8 | Ollama inside the Dell's WSL | **Stop and disable the service, keep the binary.** It holds `127.0.0.1:11434` for both sides under mirrored networking, blocks the Windows Ollama server that owns `D:\AI\ollama-models`, and has only cloud models. One hand-run `sudo systemctl disable --now ollama`. Not scripted. |
+| D9 | PowerShell 7 in the Dell's WSL | **Keep** (user-space, 7.6.4, harmless); record it in the catalog. |
+| D10 | ruff, shfmt, shellcheck in WSL | **Install all three, user-space, no sudo**: `uv tool install ruff`, shfmt and shellcheck release binaries with checksum into `~/.local/bin`. The VS Code extensions installed in Build 2 expect them. Added behind `--with-tools` in `30-wsl-config-parity.sh`. |
+| D11 | Update policy | **Adopt, don't upgrade, except Git and GitHub CLI** (`latest`). Everything installed on the Dell is recorded into `toolkit.lock.json` as it is; the Acer run installs those versions. Windows Terminal stays on 1.24. |
+| D12 | Bun, Yazi, lazygit on Windows | **No.** No Windows tool needs Bun; Yazi, lazygit, tmux, atuin, sesh and ncdu stay WSL-first (the Acer's installed Windows Yazi is left alone). |
+
+### Scripts (all ASCII, rerunnable, `-DryRun`, logs in `D:\WSL\ops\windows\logs\`, results in `Windows Toolkit\results\<host>\`)
+| Order | Script | Runs as | What it does |
+|---|---|---|---|
+| 1 | `00-preflight.ps1` | you, normal | read-only: machine and vault detection, manifest vs reality, plan, secret scan of every config it will write |
+| 2 | `10-install-toolkit.ps1` | you, normal (UAC prompts appear for MSI installers, announced first) | installs per manifest, continues past a failed package, prints a summary table, records versions |
+| 3 | `20-apply-configs.ps1` | you, normal | profiles (managed block), Starship config, Terminal merge, git settings, env vars, SHA-256 table, backups |
+| 4 | `30-wsl-config-parity.sh` | you, inside WSL via `wsl -d Ubuntu -- bash` | the 13 replacements, 3 additions, report of `.bashrc` and tmux differences, `--with-tools` |
+| 5 | `99-verify.ps1` | you, normal | manifest vs reality: versions, hashes, env vars, font registered, profile loads in a fresh shell, Starship renders, MCP commands resolve |
+| 6 | `40-build-catalog.ps1` | you, normal | catalog Markdown and JSON for Windows and WSL |
+No script needs an elevated PowerShell; the UAC consent prompts come from individual installers. Hand-run lines (separate): `pip uninstall uv`, Node 22 to LTS, `sudo systemctl disable --now ollama`, the one-time Terminal visual check.
+
+### Catalog outline (Phase 5)
+`Windows Toolkit\catalog\Tool Catalog - <host>.md` and `tool-catalog-<host>.json`: header (host, drives, generated time, manifest hash); per category a table with tool, version, path, drive, owner config, purpose, when to reach for it, key commands, where it runs; an "unmanifested" table; WSL section (apt manual, `~/.local/bin`, npm, uv tools, cargo); MCP servers by name with "command resolves"; config files with hashes. The authored note "Machine Toolkit - Tool Use Cases and Agent Guide" sits next to [[Installations]]: agent front page, then cards grouped by task.
+
+### Acer plan (Phase 6)
+The scripts are already in the vault. The run sheet gives: `00-preflight`, `10-install-toolkit` (installs the Dell's lock versions where winget has them), `20-apply-configs`, `99-verify`, `40-build-catalog`. It prints the Acer's profile path and content hash first (contradiction 2), keeps the existing profile outside the managed block, and never touches Tailscale (already on the Acer's Windows side, never added to its WSL). The Acer's WSL is not in scope except for the optional `30-` parity checks the run sheet may offer read-only.
+
+## State-changing commands
+None so far. Files created: this note only. Scratch audit scripts live in the session scratchpad.
+
+## Errors and root causes
+| Error | Root cause | Status |
+|---|---|---|
+| First WSL audit showed most tools "NOT FOUND" | `wsl.exe -- bash script` is non-interactive and does not load `~/.local/bin`, nvm or cargo | rerun with an explicit PATH; toolkit scripts set PATH themselves |
+| Git Bash mangled `/mnt/c/...` path to `C:/Program Files/Git/mnt/...` | MSYS path conversion | run `wsl.exe` from PowerShell |
+
+## Left for Build 5 and later
+VS Code settings and extensions, the MCP registry and `sync-mcp.ps1`, Claude Code settings, Miniconda relocation, the pagefile, and all Build 3 items.
+
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Old Laptop Rebuild - Build 4 Windows Toolkit Findings.md`
+```diff
+- 8 WSL `safe.directory` entries; no `~\.config\git\ignore`? it exists (True) but was not read |
++ 8 WSL `safe.directory` entries; no `push.autoSetupRemote`, `fetch.prune`, `rerere` or pager settings. `~\.config\git\ignore` exists (not yet compared to the Acer's) |
+```
 
 ## Actions Taken
 
 **Files created:**
+- `C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\cf4ca032-4c13-47e2-add0-c255f2ad1fc7\scratchpad\audit-mcp.ps1`
 - `C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\cf4ca032-4c13-47e2-add0-c255f2ad1fc7\scratchpad\audit-win.ps1`
 - `C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\cf4ca032-4c13-47e2-add0-c255f2ad1fc7\scratchpad\audit-winget.ps1`
+- `C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\cf4ca032-4c13-47e2-add0-c255f2ad1fc7\scratchpad\audit-wsl.sh`
+- `C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\cf4ca032-4c13-47e2-add0-c255f2ad1fc7\scratchpad\audit-wsl2.sh`
+- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Old Laptop Rebuild - Build 4 Windows Toolkit Findings.md`
 
 **Files modified:**
 _None_
@@ -467,5 +937,7 @@ _None detected_
 **Commands run:**
 - `cd "C:/Users/ANANTG~1/AppData/Local/Temp/claude/C--Users-Anant-Gupta/cf4ca032-4c13-47e2-add0-c255f2ad1fc7/scratchpad" && powershell.exe -NoProfile -ExecutionPolicy Bypass -File audit-win.ps1 > audit-win.out 2>&1; wc -c audit-win.out`
 - `cd "C:/Users/ANANTG~1/AppData/Local/Temp/claude/C--Users-Anant-Gupta/cf4ca032-4c13-47e2-add0-c255f2ad1fc7/scratchpad" && powershell.exe -NoProfile -ExecutionPolicy Bypass -File audit-winget.ps1 > audit-winget.out 2>&1; cat audit-winget.out`
+- `S="/c/Users/Anant Gupta/AppData/Local/Temp/claude/C--Users-Anant-Gupta/cf4ca032-4c13-47e2-add0-c255f2ad1fc7/scratchpad"; cd "$S"; (wsl.exe -d Ubuntu -- bash "/mnt/c/Users/Anant Gupta/AppData/Local/Temp/claude/C--Users-Anant-Gupta/cf4ca032-4c13-47e2-add0-c255f2ad1fc7/scratchpad/audit-wsl.sh" | tr -d '\000') > audit-wsl.out 2>&1; powershell.exe -NoProfile -ExecutionPolicy Bypass -File audit-mcp.ps1 > audit-mcp.out 2>&1; wc -l audit-wsl.out audit-mcp.out`
+- `cd "/c/Users/Anant Gupta/AppData/Local/Temp/claude/C--Users-Anant-Gupta/cf4ca032-4c13-47e2-add0-c255f2ad1fc7/scratchpad"; cat audit-wsl.out; echo ----; cat audit-mcp.out`
 
 

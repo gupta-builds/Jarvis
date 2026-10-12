@@ -3,7 +3,7 @@ type: project
 status: active
 created: 2026-04-27
 related:
-  - "[[Mentor Details]]"
+  - "[[Mentor Details'25]]"
   - "[[Mentorship Board]]"
   - "[[Plan]]"
   - "[[Opspilot]]"
@@ -19,7 +19,7 @@ tags:
 > [!NOTE] Superseded
 > This was prep for the mid-April meeting. [[Mentor Meeting Playbook]] is the current source of truth for every meeting going forward. The "After the Meeting" checklist below was never filled in — no record exists of what Ahnaf actually said on Opspilot vs. Resq, so that comparison stays an open question rather than a settled outcome.
 ## Meeting Focus
-Three things I want from this conversation with [[Mentor Details|Ahnaf]]:
+Three things I want from this conversation with [[Mentor Details'25|Ahnaf]]:
 1. Which hackathon project is the stronger portfolio artifact, and how should I frame it?
 2. What should I focus on this summer if I do not have an internship?
 3. How do I start networking more intentionally — especially across Best Buy?

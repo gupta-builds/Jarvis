@@ -20,7 +20,7 @@ One to three sentences: what this folder or note-cluster is for, and who reads i
 
 The actual content of the MOC: short-linked prose explaining the key notes in this folder and how they relate to each other. Every sentence should earn a link. This is what makes a MOC different from a dataview query — write it, don't list it.
 
-*Example:* [[Mentor Details]] holds who the mentor is and how to reach them. [[Plan]] is the standing goals document — its periodic sections are read before every meeting. [[Mentor Meeting Playbook]] is the format every meeting follows; its Session Log is the append-only record of what was actually said.
+*Example:* [[Mentor Details'25]] holds who the mentor is and how to reach them. [[Plan]] is the standing goals document — its periodic sections are read before every meeting. [[Mentor Meeting Playbook]] is the format every meeting follows; its Session Log is the append-only record of what was actually said.
 
 ## Status
 

@@ -81,7 +81,7 @@ New tier this pass — the original review didn't look at the project's own buil
 - [[Claims vs Implementation]] — the file-level evidence behind the July-era items above
 - [[Codebase Deep Read]] — the index for all five notes behind everything marked "hardened" or "new this pass"
 - [[Safety-Critical Gaps]], [[Process and CI Gaps]], [[Dead-on-Arrival Code]], [[Distribution and Adoption Gaps]], [[Competitive Positioning]] — the five notes themselves
-- [[Mentor Details]] — the mentor whose project this is
+- [[Mentor Details'25]] — the mentor whose project this is
 ## Log
 - **2026-07-22:** Extracted every fix implied by [[adx]] and [[Claims vs Implementation]] into this dedicated punch list, and trimmed recommendation language out of both of those notes so the full four-note set separates fact from judgment cleanly.
 - **2026-08-08:** Full rewrite, not an append. Added Section 0 (distribution — the npm collision, which now leads the whole list) and Section 3 (process/CI — the root cause of the `adx init` crash). Cross-checked every item from the original list against the five [[Codebase Deep Read]] notes: marked each as hardened with new live evidence, unchanged and not re-tested this pass, or new. Added dead code, documentation, and code-quality items the original static-reading pass couldn't have found without running the CLI, calling the MCP server live, and reading full commit history.

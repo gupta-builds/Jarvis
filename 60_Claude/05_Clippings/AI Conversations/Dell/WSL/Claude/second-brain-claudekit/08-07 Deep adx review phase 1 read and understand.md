@@ -10315,7 +10315,7 @@ Every one of adx's headline safety claims — isolated execution, safe unattende
 - [[Codebase Deep Read]] — index for this whole pass
 - [[Claims vs Implementation]] — the original code-vs-docs review these findings extend; its "Agency Ladder's Integrity Gap" and "What's Actually Well-Built" sections both need reading alongside this note — mutation testing was called out there as genuinely well-built, which still holds for the *scoring*, not for crash-safety
 - [[Recommended Fixes]] — its "Integrity Fixes — Highest Priority" list maps directly onto the CI auto-approve and `signedBy` findings here, confirmed unfixed
-- [[Mentor Details]] — the mentor whose project this is
+- [[Mentor Details'25]] — the mentor whose project this is
 ## Open Questions
 - [ ] Is `--exec`'s worktree bypass something Ahnaf already knows doesn't work, or news? It's central enough to the harness's safety story that it changes how the whole "Orchestrate" pillar should be pitched.
 - [ ] Does the mutation-testing crash window matter in practice, or is `adx gate` typically run somewhere (CI) where an interrupted process is rare enough to not worry about?

@@ -4,7 +4,7 @@ status: active
 created: 2026-04-27
 related:
   - "[[Mentor Meeting - Hackathons, Summer, and Networking]]"
-  - "[[Mentor Details]]"
+  - "[[Mentor Details'25]]"
   - "[[Opspilot]]"
   - "[[Resq]]"
 ---

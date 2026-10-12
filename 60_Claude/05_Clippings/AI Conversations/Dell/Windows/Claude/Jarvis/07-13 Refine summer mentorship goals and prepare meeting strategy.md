@@ -2229,7 +2229,7 @@ related:
   - "[[CausalOps — Index]]"
   - "[[Internship Tracker — Dashboard]]"
   - "[[Programs-to-Create]]"
-  - "[[Mentor Details]]"
+  -[[Mentor Details'25]]]]"
 tags:
   - mentorship
   - post-meeting

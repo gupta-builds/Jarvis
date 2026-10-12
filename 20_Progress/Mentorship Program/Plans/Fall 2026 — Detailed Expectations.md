@@ -7,7 +7,7 @@ deadline:
 related_progress:
   - "[[Plan]]"
   - "[[Mentor Meeting Playbook]]"
-  - "[[Mentor Details]]"
+  - "[[Mentor Details'25]]"
   - "[[adx]]"
 tags:
   - "#progress"

@@ -7,7 +7,7 @@ tags:
   - concept
 notes:
   - "[[Plan]]"
-  - "[[20_Progress/Mentorship Program/Mentor Details]]"
+  - "[[Mentor Details'25]]"
 track:
   - career
 prerequisites: []
@@ -64,7 +64,7 @@ The MoSCoW framework (Must-have, Should-have, Could-have, Won't-have) from the m
 ### Source Anchors
 
 - [[Plan]] — full mentorship plan with meeting frameworks
-- [[20_Progress/Mentorship Program/Mentor Details]] — mentor background
+- [[Mentor Details'25]] — mentor background
 - CSE Mentor Program guidelines — program structure and expectations
 
 ## Diagnostic Questions

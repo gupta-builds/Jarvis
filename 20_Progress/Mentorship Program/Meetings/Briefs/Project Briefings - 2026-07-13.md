@@ -4,7 +4,7 @@ status: sprout
 input_kind: transcript
 created: 2026-07-14
 updated: 2026-08-08
-source_note: "Mentor Meeting Transcript.md"
+source_note: Mentor Meeting Transcript.md
 tags:
   - mentorship
   - brief
@@ -13,7 +13,7 @@ related_progress:
   - "[[2026-07-14 Mentor Meeting — Actions]]"
   - "[[adx]]"
   - "[[Codebase Deep Read]]"
-  - "[[Mentor Details]]"
+  - "[[Mentor Details'25]]"
 next: The full action breakdown already exists at [[2026-07-14 Mentor Meeting — Actions]] — no /note-to-actions pass needed.
 ---
 # 2026-07-14 Mentor Meeting — Brief
@@ -46,5 +46,5 @@ TradingView wasn't discussed this call. Portfolio/Orby was barely touched — on
 - [[Mentor Meeting Playbook]] — the standing format this call followed, and its Session Log's 2026-07-14 entry
 - [[2026-07-14 Mentor Meeting — Actions]] — the full link-dense action breakdown
 - [[adx]], [[Codebase Deep Read]] — where the adx thread actually went
-- [[Mentor Details]] — the mentor whose program this is
+- [[Mentor Details'25]] — the mentor whose program this is
 - [[Plan]] — the standing goals document this call's cadence decision updates

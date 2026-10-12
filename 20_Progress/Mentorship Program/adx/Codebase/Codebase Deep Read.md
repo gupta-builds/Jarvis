@@ -9,7 +9,7 @@ related_progress:
   - "[[Source Claims]]"
   - "[[Claims vs Implementation]]"
   - "[[Recommended Fixes]]"
-  - "[[Mentor Details]]"
+  - "[[Mentor Details'25]]"
 tags:
   - "#progress"
 next: Decide what becomes a GitHub issue. No issues open until that gets a separate go-ahead.
@@ -39,7 +39,7 @@ adx's actual claim to novelty — per [[adx]]'s own Competitive Read — is the 
 ## Methodology
 Every finding in these five notes is one of four things, and each note says which: read directly in source, reproduced by running the built CLI or MCP server against a throwaway repo, traced through `git show`/`git log` on the actual commit that introduced or broke it, or independently verified against a live external source (npm registry, Factory AI's own docs) rather than taken on report. Nothing here is a single observation standing alone — claims that started as one observation were deliberately re-tested across flag combinations, config variations, repeated runs, or independent sources before being written down.
 ## Open Questions
-- [ ] Which of these findings does Ahnaf already know about? The mentorship framing (per [[Mentor Details]] and the original meeting transcript) is that he wants the harsh read specifically because he can't get it from his own team — worth checking directly rather than assuming any of this is news.
+- [ ] Which of these findings does Ahnaf already know about? The mentorship framing (per [[Mentor Details'25]] and the original meeting transcript) is that he wants the harsh read specifically because he can't get it from his own team — worth checking directly rather than assuming any of this is news.
 - [ ] Does the npm name collision change the order of operations for raising anything with him — it's arguably more urgent than the `adx init` crash, since it blocks a first-time user one step earlier and with zero error signal.
 - [ ] See each individual note's Open Questions for narrower follow-ups.
 ## Next Action

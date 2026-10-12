@@ -7,7 +7,7 @@ tags:
   - moc
   - mentorship
 notes:
-  - "[[Mentor Details]]"
+  - "[[Mentor Details'25]]"
   - "[[Plan]]"
   - "[[Mentor Meeting Playbook]]"
   - "[[Fall 2026 — Detailed Expectations]]"
@@ -18,7 +18,7 @@ next: Hold the first fall meeting under the confirmed alternate-week cadence
 ## Purpose
 This is the control surface for the Ahnaf mentorship program — every meeting, plan, and open thread lives under this folder. Read this before opening any individual note inside it.
 ## Map
-[[Mentor Details]] holds who Ahnaf is — Senior Engineering Manager at Best Buy, matched through the CSE Mentor Program — and how to reach him. [[Plan]] is the standing goals document: its `## Summer` section carries the live 4-Goals framework (Relationship, Project + build review, Startup fundamentals, Professional image), the 5-month roadmap, and the standing meeting format; `## Fall 2026` stays intentionally short, pointing at [[Fall 2026 — Detailed Expectations]] rather than pre-deciding fall content before real meetings generate it.
+[[Mentor Details'25]] holds who Ahnaf is — Senior Engineering Manager at Best Buy, matched through the CSE Mentor Program — and how to reach him. [[Plan]] is the standing goals document: its `## Summer` section carries the live 4-Goals framework (Relationship, Project + build review, Startup fundamentals, Professional image), the 5-month roadmap, and the standing meeting format; `## Fall 2026` stays intentionally short, pointing at [[Fall 2026 — Detailed Expectations]] rather than pre-deciding fall content before real meetings generate it.
 [[Mentor Meeting Playbook]] is the format every meeting follows — Demo → Shipped/Blocked/Deciding → Ask — and its Session Log is the append-only record of what was actually said. The most recent entry, 2026-07-14, is where **adx** — [[adx|Ahnaf's own Agent Development Kit]] — became the real center of gravity of the relationship, ahead of the original four goals.
 Each meeting now moves through three folders under `Meetings/`: the raw call lands untouched in `Transcripts/`, `/transcript-to-brief` turns it into a dated brief in `Briefs/` — [[Project Briefings - 2026-07-13]] is the current real example — and `/note-to-actions` turns that brief into a link-dense action note in `Action/` once one exists for a given meeting. [[Mentor Meeting - One-Pager]] and [[Mentor Meeting - Hackathons, Summer, and Networking]] are both superseded, kept for history rather than as live references.
 [[Fall 2026 — Detailed Expectations]] is where fall actually gets planned — not by guessing now, but by accumulating what Ahnaf raises meeting by meeting, checked against the program's original [Detailed Goals doc](https://docs.google.com/document/d/1xu8pmUATj1jrVf_2csw1lUbGaV-3YZnP202AI1CzYKw/edit?usp=sharing) for how far the relationship has actually moved since it started.

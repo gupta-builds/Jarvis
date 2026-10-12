@@ -3,17 +3,16 @@ type: project
 status: active
 created: 2026-07-22
 updated: 2026-07-22
-deadline: null
+deadline:
 related_progress:
   - "[[Source Claims]]"
   - "[[Claims vs Implementation]]"
   - "[[Recommended Fixes]]"
   - "[[Codebase Deep Read]]"
-  - "[[Mentor Details]]"
+  - "[[Mentor Details'25]]"
 tags:
   - "#progress"
-next: Recommended Fixes is now rewritten and current. Get Ahnaf's read on
-  priority before raising anything — see its Open Questions.
+next: Recommended Fixes is now rewritten and current. Get Ahnaf's read on priority before raising anything — see its Open Questions.
 ---
 # adx — MOC (Agentic Developer Experience)
 =="adx" is meta-tooling — not an agent itself — that scores how "agent-ready" a codebase is, runs agent tasks inside an isolated harness, and gates every resulting diff behind a 3-layer check plus a mandatory human sign-off recorded on a 7-level Agency Ladder.==

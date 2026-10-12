@@ -8,7 +8,7 @@ tags:
 related:
   - "[[01_Summit]]"
   - "[[Resq]]"
-  - "[[Mentor Details]]"
+  - "[[Mentor Details'25]]"
   - "[[Mentorship Board]]"
 ---
 # OpsPilot
@@ -128,7 +128,7 @@ Yes, as a portfolio artifact. It does not need to become a startup, but it shows
 - Implemented Supabase-backed appointments, invoices, finance transactions, feedback analysis, webhook ingestion, and dashboard read models for a hackathon demo.
 ### Interview story
 "A time I learned to reduce scope under time pressure. We had many modules, but the strongest demo was one reliable operational loop."
-## Questions for [[Mentor Details|Ahnaf]]
+## Questions for [[Mentor Details'25|Ahnaf]]
 1. Does the architecture separation (routes → services → domain → queries) read as mature, or would you simplify it for a portfolio project?
 2. What part stands out most to a hiring manager: product polish, backend workflow, AI integration, or data modeling?
 3. Is it better to present this as a restaurant product or a general small-business operations platform?

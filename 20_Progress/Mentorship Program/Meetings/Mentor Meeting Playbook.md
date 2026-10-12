@@ -5,7 +5,7 @@ created: 2026-07-13
 updated: 2026-07-13
 related:
   - "[[Plan]]"
-  - "[[Mentor Details]]"
+  - "[[Mentor Details'25]]"
   - "[[Mentor Meeting - Hackathons, Summer, and Networking]]"
   - "[[Mentor Meeting - One-Pager]]"
   - "[[Mentorship and Networking]]"

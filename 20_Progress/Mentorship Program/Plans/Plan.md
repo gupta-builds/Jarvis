@@ -5,7 +5,7 @@ created: 2025-10-30
 related_progress:
   - "[[Useful Links]]"
   - "[[Elevator pitch]]"
-  - "[[Mentor Details]]"
+  - "[[Mentor Details'25]]"
   - "[[Learning Tracker tool|Arc (Learning Tracker)]]"
   - "[[Winter Break]]"
   - "[[Portfolio]]"

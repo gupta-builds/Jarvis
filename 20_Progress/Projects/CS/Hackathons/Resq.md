@@ -9,7 +9,7 @@ tags:
 related:
   - "[[01_Summit]]"
   - "[[Opspilot]]"
-  - "[[Mentor Details]]"
+  - "[[Mentor Details'25]]"
   - "[[Mentorship Board]]"
 ---
 # Resq
@@ -181,7 +181,7 @@ Yes, with focus. Resq has the stronger career story if polished carefully — it
 $1M pre-seed. 10 design partners. Q3 2026 public beta target.
 ### Grounded interpretation
 The strongest business angle is affordable CFO-style cash visibility. The competitive angle is deterministic forecasting with AI only in the advisory layer. Possible weakness: repo docs say SMB owner-operator, deck narrows to post-revenue software founders under $1M ARR. That positioning decision needs to be clarified before pitching seriously.
-## Questions for [[Mentor Details|Ahnaf]]
+## Questions for [[Mentor Details'25|Ahnaf]]
 1. Does the "AI advises, but never touches the numbers" framing make the project more credible to engineering managers?
 2. Would you present Resq as a fintech project, an AI agent project, or a full-stack architecture project?
 3. Which part impresses a hiring manager most: forecast engine, audit trail, TinyFish integration, or product positioning?

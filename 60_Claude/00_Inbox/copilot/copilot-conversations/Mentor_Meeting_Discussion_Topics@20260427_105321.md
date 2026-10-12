@@ -57,7 +57,7 @@ End by confirming:
 - 1 **action item** from him (intro or mock interview) and 1 action item from you (next demo)
 
 #### Sources
-[^1]: [[Mentor Details]]
+[^1]: [[Mentor Details'25]]
 [^2]: [[Plan]]
 [^3]: [[01_Summit]]
 [Timestamp: 2026/04/27 10:53:58]

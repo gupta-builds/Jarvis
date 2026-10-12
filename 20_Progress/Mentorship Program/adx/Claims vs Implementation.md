@@ -101,7 +101,7 @@ This is the deliverable Ahnaf actually asked for: not "does the website read wel
 - [[Source Claims]] — the claims this note checks, captured faithfully from the website and README before this code review began
 - [[adx]] — the judgment-level synthesis; see its "Verification Against The Codebase" section for the condensed version of these findings
 - [[Recommended Fixes]] — the actionable punch list built from every finding in this note
-- [[Mentor Details]] — the mentor whose project this is
+- [[Mentor Details'25]] — the mentor whose project this is
 ## Open Questions
 - [ ] Is the agency-ledger integrity gap (hardcoded `signedBy`, CI auto-approval at Level 6) something Ahnaf already knows about, or a genuine blind spot worth raising directly?
 - [ ] Does he intend `adx sweep --auto` to ever run unattended in CI, given it deletes code with no confirmation and is currently undocumented?

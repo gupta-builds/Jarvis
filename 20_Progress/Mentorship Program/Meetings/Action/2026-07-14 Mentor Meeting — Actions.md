@@ -10,7 +10,7 @@ related_progress:
   - "[[CausalOps — Index]]"
   - "[[Internship - Dashboard]]"
   - "[[Programs-to-Create]]"
-  - "[[Mentor Details]]"
+  - "[[Mentor Details'25]]"
   - "[[Codebase Deep Read]]"
 tags:
   - "#progress"
@@ -58,4 +58,4 @@ Before the 2026-07-14 call, the note this content originated from held detailed,
 - [[Project Briefings - 2026-07-13]] — the compressed brief this detail supports
 - [[Codebase Deep Read]] — where Section 1's adx review actually landed, far deeper than planned here
 - [[Mentor Meeting Playbook]] — the standing format and Session Log
-- [[Mentor Details]] — the mentor whose program this is
+- [[Mentor Details'25]] — the mentor whose program this is

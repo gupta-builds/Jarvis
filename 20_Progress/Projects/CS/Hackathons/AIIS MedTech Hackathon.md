@@ -10,7 +10,7 @@ related:
   - "[[01_Summit]]"
   - "[[Opspilot]]"
   - "[[Resq]]"
-  - "[[Mentor Details]]"
+  - "[[Mentor Details'25]]"
   - "[[Mentorship Board]]"
 ---
 # AIIS MedTech Hackathon
@@ -159,7 +159,7 @@ Medtech ideas easily become too ambitious. The MVP stays focused on one workflow
 3. App turns logs into a visit brief.
 4. Brief shows source-linked, non-diagnostic summaries.
 5. Patient walks into the appointment more prepared.
-## Questions for [[Mentor Details|Ahnaf]]
+## Questions for [[Mentor Details'25|Ahnaf]]
 1. Is a care companion / visit-prep summarizer a strong enough hackathon idea, or does it need a more technical hook?
 2. How can I make the architecture look mature without overbuilding?
 3. Would engineering managers care more about the AI summary quality, the data model, or the privacy boundaries?
@@ -176,5 +176,5 @@ Build a focused care companion that turns daily patient logs into a clinician-re
 - Will sponsors provide a useful integration?
 - Should the demo be patient-facing or clinician-facing?
 - How much privacy/auth infrastructure is worth building during the hackathon?
-### Next decision after talking to [[Mentor Details|Ahnaf]]
+### Next decision after talking to [[Mentor Details'25|Ahnaf]]
 Decide the target user and exact demo workflow before writing code.

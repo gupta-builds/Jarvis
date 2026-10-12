@@ -3,14 +3,14 @@ type: project
 status: active
 created: 2026-08-30
 updated: 2026-08-30
-deadline: null
+deadline:
 related_progress:
   - "[[adx]]"
   - "[[Competitive Positioning]]"
   - "[[Codebase Deep Read]]"
   - "[[Recommended Fixes]]"
   - "[[Github Issues]]"
-  - "[[Mentor Details]]"
+  - "[[Mentor Details'25]]"
 tags:
   - "#progress"
 next: This is the reservoir for a future Google Doc, not the doc itself. Curating it into a 3-page draft is separate, later work.
@@ -88,6 +88,6 @@ Worth noting directly: item 4's weight-validation question connects back to Sect
 - [[Recommended Fixes]] - where item 1 of the recovered ranked list ended up, demoted, and the note now scoped strictly to code fixes
 - [[Github Issues]] - the full drafted set of 17 filed issues referenced throughout
 - [[2026-07-14 Mentor Meeting — Actions]] and [[Mentor Meeting Playbook]] - the memory-layer proposal's origin and Ahnaf's live reaction to it
-- [[Mentor Details]] - the mentor whose project this is
+- [[Mentor Details'25]] - the mentor whose project this is
 ## Log
 - **2026-08-30:** First version. Wrote all five sections against live-verified sources: recovered the cut "What Would Make It Extremely Useful" list from git history (commit `d462a93d`) rather than reconstructing it from memory; confirmed via full git history search that OpenHands' actual memory architecture was never researched despite the 2026-07-14 meeting's own instruction to do so before pitching the memory-layer idea; confirmed via full git history search that GitClear has zero presence anywhere in this vault and that CodeRabbit's only depth is a single 2026-07-22 one-liner, both flagged plainly in Section 2 rather than filled in with invented competitive research; fetched the live GitHub issue count and representative titles via `gh issue list` rather than reusing the drafted count.

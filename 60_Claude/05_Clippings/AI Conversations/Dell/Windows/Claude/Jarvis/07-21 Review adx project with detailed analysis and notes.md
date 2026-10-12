@@ -742,7 +742,7 @@ tags:
   - summary
 notes:
   - "[[adx — MOC]]"
-  - "[[Mentor Details]]"
+  -[[Mentor Details'25]]]]"
 source_url: https://ahnafyy.github.io/adx/
 input_kind: web
 track: ai
@@ -1005,10 +1005,10 @@ What to commit vs gitignore (stated table): commit `.evidence/`, `.adx/state/adx
 *Project layout tree (full, as given):* `adx.config.ts`, `AGENTS.md`, `llms.txt`, `.github/agents/`, `.claude/agents/`, `.cursor/rules/`, and `.adx/` containing `state/adx-agency.json` (committed permanent ledger) + `state/progress.json` (gitignored ephemeral) + `tasks/` (gitignored) + `worktrees/` (gitignored) + `badge.json`; plus a top-level `.evidence/run-<timestamp>/` (committed) holding `diff.patch`, `intent-map.json`, `test-log.txt`, `manifest.json`.
 The README badge is a **live shields.io endpoint** reading `.adx/badge.json` from `raw.githubusercontent.com` — meaning adx literally scores its own repository and displays that score at the top of its own README.
 ## Why It Matters
-This note is the factual foundation for a mentorship deliverable: **Ahnaf** (mentor, [[Mentor Details]]) asked for a detailed, honest third-party review of adx — usage, gaps, and how it compares to adjacent tooling. Every judgment call in [[adx — MOC]] traces back to a specific claim captured here, so the review stays checkable against what adx actually says about itself rather than a vague impression of it.
+This note is the factual foundation for a mentorship deliverable: **Ahnaf** (mentor[[Mentor Details'25]]]]) asked for a detailed, honest third-party review of adx — usage, gaps, and how it compares to adjacent tooling. Every judgment call in [[adx — MOC]] traces back to a specific claim captured here, so the review stays checkable against what adx actually says about itself rather than a vague impression of it.
 ## Links Into The Vault
 - [[adx — MOC]] — the analysis and judgment note built on top of this source capture
-- [[Mentor Details]] — the mentor whose project this is
+[[Mentor Details'25]]]] — the mentor whose project this is
 ## Open Questions
 - [ ] No reference page exists for `adx ratchet` despite it being named on the homepage and exposed as an MCP tool (`adx_ratchet`) — every other command (audit/shape/sweep/init/run/maintain/gate) has a full page
 - [ ] "Taste deficit analysis" appears in the `adx gate` sample output and as `boundary.enforceTasteCheck` in the config reference, but no page explains what it checks or how/whether it factors into the numeric gate score
@@ -1036,7 +1036,7 @@ updated: 2026-07-22
 deadline:
 related_progress:
   - "[[adx — Source Claims]]"
-  - "[[Mentor Details]]"
+  -[[Mentor Details'25]]]]"
 tags:
   - "#progress"
 next: "Read the adx-core and adx-gate package source against the claims in [[adx — Source Claims]] and flag any mismatch before the next mentor conversation."

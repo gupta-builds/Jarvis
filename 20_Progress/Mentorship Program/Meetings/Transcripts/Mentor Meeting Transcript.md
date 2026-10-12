@@ -6,11 +6,11 @@ created: 2026-07-14
 source_url:
 related_progress:
   - "[[adx]]"
-  - "[[Mentor Details]]"
+  - "[[Mentor Details'25]]"
   - "[[Project Briefings - 2026-07-13]]"
 tags:
   - transcript
-next: "None — already distilled into [[Project Briefings - 2026-07-13]]"
+next: None — already distilled into [[Project Briefings - 2026-07-13]]
 ---
 # Mentor Meeting Transcript
 7-14-2026

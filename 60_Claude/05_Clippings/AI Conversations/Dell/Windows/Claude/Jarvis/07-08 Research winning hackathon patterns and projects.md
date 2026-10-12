@@ -4923,7 +4923,7 @@ Continue the conversation from where it left off without asking the user any fur
 
 | Project | Status | Next Action |
 |---------|--------|-------------|
-| **Mentorship Program** | seed | [[Mentor Details]] — post-program phase |
+| **Mentorship Program** | seed [[Mentor Details'25]]]] — post-program phase |
 | **Summer Courses (HIST 1103 + MATH 2230)** | active | Weekly check-ins + assignment tracking |
 | **Trading Resources Integration** | completed | [[Trading Resources Integration — TradingView Architecture Roadmap]] (distilled note written 07-09) |
 | **Internship Tracking System** | completed | [[Internship Tracker — Dashboard]] + 13 program files ready to populate |

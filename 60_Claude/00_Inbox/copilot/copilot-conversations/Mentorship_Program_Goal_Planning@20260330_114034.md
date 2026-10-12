@@ -9,7 +9,7 @@ tags:
   - copilot-conversation
 ---
 
-**user**: Based on my mentor details [[Mentor Details]]  and the things that i wish to accomplish in this mentorship program. {20_Progress/Mentorship Program} . I need your help coming up with a plan for the summer and the next few meetings that i am going to have with him in april. Guide me through the steps that i need to take to make the most out of this program.
+**user**: Based on my mentor details [[Mentor Details'25]]  and the things that i wish to accomplish in this mentorship program. {20_Progress/Mentorship Program} . I need your help coming up with a plan for the summer and the next few meetings that i am going to have with him in april. Guide me through the steps that i need to take to make the most out of this program.
 [Context: Notes: 20_Progress/Mentorship Program/Mentor Details.md, 20_Progress/Mentorship Program/Plan.md]
 [Timestamp: 2026/03/30 11:40:34]
 

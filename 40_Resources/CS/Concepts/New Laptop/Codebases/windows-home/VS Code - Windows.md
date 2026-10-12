@@ -40,6 +40,7 @@ next: "Keep Windows work to the UMN class folders and the vaults; mirror every i
 ## Settings Sync Incident, 2026-09-25/26
 Sync was turned on while the cloud already held a copy from another machine, most likely the Dell. The first sign-in hit a settings conflict whose preview was an empty file. After it was resolved, local `settings.json` held only the remote's 2 keys (`claudeCode.hideOnboarding`, `editor.wordWrap`), and at 13:55 and 13:57 on 2026-09-26 that 2-key file was pushed back to the cloud. The extension merge also installed the Dell's 9 extensions (40 total).
 *Recovery:* settings restored from the pre-sync backup, keeping both remote keys. The Dell extensions were audited, and every restored file was confirmed pushed in `userDataSync.log` (MCP 14:12, extensions 14:14, settings and keybindings 14:21, tasks 14:22).
+*Current state (checked 2026-10-12):* Settings Sync is active on Windows, account-level and the same as WSL. `%APPDATA%\Code\User\sync\settings\lastSyncsettings.json` and `...\tasks\lastSynctasks.json` timestamps matched that day's edits; re-verify the same way after any change.
 > [!WARNING]
 > When Sync reports a conflict on a new device, choose **Accept Local** (or "Replace Remote") for settings and extensions, then check `settings.json` before doing anything else. The Dell must not sign in again unless it should receive this laptop's config.
 
@@ -70,10 +71,10 @@ Also cleaned up: `starship init powershell` ran twice in the PowerShell profile 
 ## PowerShell Profiles and Terminal Default
 - *Profiles:* `D:\_Anant\20_Progress\Documents\PowerShell\Microsoft.PowerShell_profile.ps1` (PowerShell 7, created 2026-10-12; it did not exist before, so `pwsh` had no Starship, UTF-8 or `vscode-env` hook) and `...\WindowsPowerShell\Microsoft.PowerShell_profile.ps1` (5.1). Both hold the same content: Starship, zoxide, UTF-8 output, and the `TERM_PROGRAM -eq 'vscode'` guarded dot-source of `~/.config/vscode-env/init.ps1`.
 - *Default shell:* `pwsh` (PowerShell 7) in both Windows Terminal (`defaultProfile` is the `PowerShell` GUID `{574e775e-4f2a-5b96-ac1e-a2962a402336}`) and VS Code (`terminal.integrated.defaultProfile.windows` is `PowerShell`). This follows the Dell rebuild's decision D5. Windows PowerShell 5.1 stays available as a second profile.
-- *Not confirmed:* that VS Code's `PowerShell` name resolves to `pwsh.exe` was not observed in a live GUI terminal. Check with `$PSVersionTable.PSVersion` in a new integrated terminal; both shells were tested with `TERM_PROGRAM=vscode` and print the `env | home | .vscode/env.ps1 loaded` block.
+- *Not confirmed (rechecked 2026-10-12, still no live GUI window available):* that VS Code's `PowerShell` name resolves to `pwsh.exe` was not observed in a live GUI terminal. Check with `$PSVersionTable.PSVersion` in a new integrated terminal; both shells were tested with `TERM_PROGRAM=vscode` and print the `env | home | .vscode/env.ps1 loaded` block.
 - *Git pager:* `~\.gitconfig` sets `core.pager = delta`, `interactive.diffFilter = delta --color-only` and a `[delta]` block (navigate, side-by-side, line-numbers), the same as WSL minus its merge and diff lines.
 - *uv:* `C:\Users\anant\.local\bin\uv.exe` (0.12.19) is first on PATH; `D:\Apps\Hermes\bin\uv.exe` is second and harmless. No pip shadow copy.
-- *CLI tools:* fzf, fd, bat, delta and zoxide, all with default configuration. Listed in [[Installations]].
+- *CLI tools:* fzf, fd, bat, delta and zoxide — not plain defaults. PSFzf (installed separately for both PowerShell editions) drives fzf's keybindings (`Ctrl+T`/`Ctrl+R`/`Alt+C`, `-EnableFd`, `-GitKeyBindings`), `bat` has a real config (`%APPDATA%\bat\config`), `fd` has a global ignore file (`%APPDATA%\fd\ignore`), and `delta` matches WSL's `.gitconfig` in full including `diff.colorMoved`. Full detail and the two bugs caught while wiring this (missing WinGet PATH links, PSFzf's `fd`-shadowing alias) are in [[Installations]].
 
 ## Failures Found on This Laptop
 Logs go back to 2026-09-21; workspace history to 2026-09-19.
@@ -94,6 +95,8 @@ Logs go back to 2026-09-21; workspace history to 2026-09-19.
 9. **Settings Sync replaced local settings** (2026-09-25/26). See the incident section.
 ### Terminal Environment and Home Workspace
 Every VS Code terminal on Windows loads `~/.config/vscode-env/init.ps1` from the PowerShell profile, then the folder's `.vscode/env.ps1`. The home folder has its own (`~/.vscode/env.ps1`: space, Jarvis and The Plan, agent memory files, tooling, `~\Scripts` on PATH) and privacy settings (`~/.vscode/settings.json`). Other folders get the default until you run `env: create workspace environment`. Design, test results and timings: [[VS Code - Terminal Environments]].
+
+*Home workspace privacy, audited 2026-10-12:* `~/.vscode/settings.json`'s `files.exclude`/`search.exclude` already hid `AppData`, credentials and caches, but missed `.mcp-auth` (the OAuth/session cache the MCP gallery servers use), `.vscode-shared` and `vscode-remote-wsl` — all three added to both lists. Two genuinely empty, unreferenced leftover folders (`ansel\`, `pdf_survey\`) were confirmed dead (checked against configs, scripts, scheduled tasks, `D:\_Anant`, `AppData` and the WSL side) and deleted; `vscode-remote-wsl\stable\` was kept (it's the current WSL server download cache, matching the live `.vscode-server` commit) and only excluded. `C:\Users\anant\AGENTS.md` (the home directory's own design doc, read by every AI tool that opens a shell there) got a matching map update and its stale `D:\conda\envs` line corrected to `D:\Apps\Miniconda\envs`.
 ### MCP and Secrets
 Global MCP servers come from `~/.config/mcp/mcp.json` via `sync-mcp.ps1`. Claude Code denies reads of secret files on every drive, `~/.config/git/ignore` keeps them out of every repo, and the dotenv extension cloaks them on screen. Details and the six-month pre-mortem: [[VS Code - MCP and Secrets]].
 ## Trust Layout

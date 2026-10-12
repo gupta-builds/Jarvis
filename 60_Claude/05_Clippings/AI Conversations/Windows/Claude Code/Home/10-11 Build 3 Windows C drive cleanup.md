@@ -5,33 +5,35 @@ source_app: claude-code
 source_os: windows
 title: "Build 3 Windows C: drive cleanup"
 started_at: 2026-10-11T18:14:49
-ended_at: 2026-10-11T20:12:30
-exported_at: 2026-10-12T13:30:06
-duration_minutes: 117.7
+ended_at: 2026-10-12T13:58:54
+exported_at: 2026-10-12T16:30:03
+duration_minutes: 1184.1
 project: Home
 cwd: 'C:\Users\Anant Gupta'
 session_id: 06b8b684-9d4a-42af-85c3-f42ff7877041
 status: raw
-turn_count: 6
+turn_count: 9
 tools_used:
   Bash: 9
-  Grep: 4
-  PowerShell: 26
-  Read: 12
+  Edit: 5
+  Grep: 5
+  PowerShell: 33
+  Read: 15
   ToolSearch: 1
   WebSearch: 1
-  Write: 7
+  Write: 10
 tokens:
-  input: 214
-  output: 249753
-  cache_creation: 764680
-  cache_read: 20282968
-  total: 21297615
+  input: 290
+  output: 395426
+  cache_creation: 1135855
+  cache_read: 24384271
+  total: 25915842
 cost_usd: null
 model:
   - "claude-sonnet-5-5"
 files_touched:
   - "C:\\Users\\Anant Gupta\\.claude\\projects\\C--Users-Anant-Gupta\\memory\\feedback_scripts_for_bulk_cleanup.md"
+  - "C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\06b8b684-9d4a-42af-85c3-f42ff7877041\\scratchpad\\map2.ps1"
   - "C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\06b8b684-9d4a-42af-85c3-f42ff7877041\\scratchpad\\sens.ps1"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Installations.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\New Laptop Setup.md"
@@ -1958,10 +1960,745 @@ Continue the conversation from where it left off without asking the user any fur
 
 The messages after this summary are the most recent messages from before compaction, kept verbatim. The summary was written without seeing them, so something it says has not happened yet may already have happened in them.
 
+## You
+
+[Image #10] Before i run the scripts that are written out already. You need to have a detailed understanding of what the d drive folder should be like: [Image #11] - inside ai will be folders for ollama models, local models, jan and hermes. _Anant is the mainuser profile. We will be moving everything inside the Users/_Anant/... to the _Anant folder. We need to do the carefully because jarvis, the plan and literally everything exists inside that _Anant folder inside Users. This is a new action that is going to take place after the cleanup is done to rearrange, structureand manage all the storage clearly. Another thing to note is the Cache folder/ this is a folder which si created to hold all the regenerating cache that can redirected to d drive easily for cleanups, monitoring, etc. The other things that cannot be moved to d drive will clearly arranged together as cache for everything, including apps, etc. There is a lot of restructuring required on the c drive. The cleanup scripts written out do not exactly take care of everythting that needs to be cleaned up. The page file decision seems complicated, let's just leave pagefile on c drive but make sure to clear the content in it to be optimal, we clear c drive as much as we possibly can without losing content that is already existing. There is excessive dump inside the c drive because we have already uninstalled apps that are not required but are still left with so much storage to clear. There must be at least worth more than 100 gb worth of content that needs to be cleaned correctly, moved or redesigned. Make sure to rewrite the scripts based on this new information, to manage apps, storage, etc. In another codex build taking place from these sessions: `40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild`. Here is the reply from that session which is supposed to be clearing the contents: ```
+
+<pasted_content id="8b75">
+I started the Build 3 work here with a read-only Windows preflight. I have not run cleanup or changed the pagefile, tasks, Defender, Google Drive, or other settings. I also held off on vault-note corrections, as you requested, because Builds 1–3 are not yet complete.
+
+Current Windows measurements:
+
+| Check | Result |
+|---|---:|
+| C: free | 42,344,927,232 bytes (39.42 GiB) |
+| D: free | 390,745,198,592 bytes (363.80 GiB) |
+| C: pagefile | 26,030 MB allocated; 5,317 MB current use; 5,927 MB peak |
+
+The targeted read-only scan measured the main C: cleanup candidates: npm cache 4.63 GB, uv cache 2.70 GB, Playwright 1.43 GB, pip 343 MB, Temp files older than seven days 2.96 GB, and the three listed VS Code caches together 1.51 GB. It also found 598 MB in Windows Update Download and 1.7 MB in WER ReportArchive. These are measurements, not approval to delete; other targets, including per-source crash dumps and the recycle bin, still need exact review.
+
+I attempted a broader inventory script, but its recursive scan of D:\$RECYCLE.BIN ran too long. I stopped only the two processes I had launched and removed that script. A narrower C: scan completed. No inventory process from that script remains running.
+
+The phase audit shows:
+
+- Build 1: The WSL repair and recorded 75-second idle test are complete. The findings also retain a Firecrawl credential-rotation handoff; that account action is not verified complete.
+- Build 2: Phases 1–3 are recorded complete. Phase 4 remains in progress, waiting for the stable WSL binfmt fix you chose to wait for. Live WSL is still 3.0.1.0 and degraded only on systemd-binfmt.service.
+- Build 3: The earlier read-only audit, screenshot transcription, and pagefile diagnostic are recorded. The latest diagnostic suggests D:’s BitLocker auto-unlock timing may explain the pagefile issue, but that remains a hypothesis. Tier A cleanup has not been approved or run; the staged pagefile change also needs its separate approval.
+
+There is one required approval before Build 3 Phase 3: the prompt says Tier A proceeds only after you reply “go A” or edit the list. I will not treat “complete the phases” as that specific approval. The recycle-bin contents are excluded from any group approval until their exact entries are reviewed; the findings say go A alone is not enough to empty it.
+
+Your request directs me to work through Build 3 here, so I began its read-only work. The campaign’s earlier order still places Build 3 after the Build 2 Phase 4 checkpoint. Should I keep that order and wait for stable WSL, or do you explicitly want Build 3 to proceed out of order? If you want its Tier A cleanup authorized, reply “go A” after reviewing the listed items, or send the changes you want to the list.
+</pasted_content id="8b75">
+
+```.
+
+
+Based on all of this content provided to you. Here is what you need to do: update the scripts to be correct on the information that is provided. We clear and make sure that the scripts run the clearing commands correctly. Make sure that each and every single character on the scripts are correct. The outputs will be pasted back to you in this session after all services have been closed. Make sure to dig through the information in detail for these scripts to perfect. Go ahead and lay out the perfect scripts, tell me a summary of what each script is going to do in the end.
+
+[image attached]
+
+[image attached]
+
+## You
+
+[Image: source: C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\[REDACTED]\images\10.png]
+
+[Image: source: C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\[REDACTED]\images\11.png]
+
+## Claude
+
+I'll re-read the two scripts and the measured C: sizes first, so the rewrite matches what was found on this laptop.
+
+Before I finalize the scripts, I'll measure what the scripts don't cover yet: the rest of the profile, the D: root folders, Jan, hermes, Ollama and hiberfil. It's one read-only scan.
+
+Now the admin script, rewritten without the D: pagefile and with the leftovers and D: cache cleanup added.
+
+Both scripts parse with 0 errors and have no non-ASCII characters. Next I'm dry-running script 01. It changes nothing.
+
+Script 01's dry run is clean now. I'll record the D: layout and the revised plan in the findings note, then summarize.
+
+## Both scripts are rewritten and checked. Nothing has been changed on the machine yet.
+
+Both scripts parse with 0 errors and contain only ASCII. I dry-ran script 01 twice. Script 02 needs an elevated shell, so I could only parse-check it.
+
+I deleted `03-pagefile-stage2.ps1`. The pagefile now stays on C:.
+
+### Bugs the dry run caught, now fixed
+- **Wrong variable:** PowerShell variable names are case-insensitive, so a loop variable `$p` overwrote the profile path `$P`. That broke the "is the app running" check.
+- **Claude Desktop check:** the old check treated the Claude Code CLI (`.local\bin\claude.exe`) as Claude Desktop. It now ignores the CLI, so you can keep this session open.
+- **Jan:** Jan has already moved itself. Its `settings.json` says `D:\AI\jan`, which holds 3.1 GiB. So the 3.47 GiB under `Roaming\Jan\data` on C: is a stale copy, not live data.
+
+### Other changes I noticed
+- Your D: free space went from 364 to 480 GiB. That means the recycle bin and the Games archives are already gone, so I'm not asking about them any more.
+- There is no `hiberfil.sys`, and no Windows.old.
+
+### Script 01 (normal shell, close your apps first)
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\windows\01-user-cleanup.ps1 -Apply -ClaudeVm -MoveOllama
+```
+Close VS Code, Obsidian, Vivaldi, Spotify, codex, Jan and Ollama first. Any app still running has its group skipped.
+
+- **Group 0:** creates the D: folders. `D:\AI` gets `ollama-models`, `local-models`, `jan` and `hermes`. `D:\Cache` gets `npm`, `uv`, `pip`, `ms-playwright`, `huggingface`, `nuget`, `gradle`, `puppeteer` and `codex`. It also creates `D:\Apps` and `D:\Quarantine`.
+- **Group 1:** points seven user environment variables at `D:\Cache`. It also moves `D:\npm-cache` into `D:\Cache\npm` and updates npm's cache setting.
+- **Groups 2 to 5:**
+  - Deletes the stale caches on C: (8.5 GiB).
+  - Deletes Temp files older than 7 days (2.2 GiB).
+  - Deletes old crash dumps, keeping the newest one per folder.
+  - Deletes Chromium cache folders for eleven apps (about 3 GiB).
+- **Group 6:**
+  - Deletes `vscode-remote-wsl` (6.5 GiB), `codex-runtimes` and `srverify`.
+  - Moves `opamroot` to `D:\Apps` and `.codex\packages` to `D:\Cache\codex`.
+  - Each move leaves a junction at the old path, so nothing breaks.
+- **Groups 7 and 8:** clears the Explorer thumbnail cache and deletes the Claude VM bundle (10.6 GiB).
+- **Group 9:** deletes the stale Jan copy on C:. It moves `hermes` (2.1 GiB) to `D:\AI\hermes` and miniconda (7.1 GiB, environments kept) to `D:\Apps\miniconda3`, with junctions left behind.
+- **Group 10:** quarantines the two suspicious `.exe` files and the old `codex-cleanup-quarantine` on D: (2.3 GiB). It deletes the `NUL` and `echo` junk files.
+- **Group 11:** disables 14 startup items.
+- **Group 12:** reinstalls Ollama to `D:\Apps\Ollama` and frees 6.5 GiB. It refuses to run unless the models are confirmed on D:.
+- **Group 13:** lists AppData folders of 50 MB or more with no matching installed program. It deletes nothing unless you pass `-RemoveOrphans`.
+- **Group 14:** prints what is still big on C: and D:. **Paste that section back to me.**
+
+**Every move is checked.** A move copies the folder, compares the byte counts, and only then swaps in the junction. If anything differs, it stops and leaves the original alone.
+
+### Script 02 (elevated shell)
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\windows\02-admin-cleanup.ps1 -Apply -Pagefile
+```
+- **Windows caches (steps 1 to 3):**
+  - Clears the Error Reporting, Windows Update, Delivery Optimization and `Windows\Temp` caches, including the copies on D:.
+  - Runs DISM component cleanup. Add `-ResetBase` to also drop superseded components. That makes Windows updates impossible to uninstall afterwards.
+- **Store apps (step 4):** removes Bing, Copilot, Office hub, new Outlook, Feedback Hub, Dev Home, Power Automate and Edge Game Assist.
+- **Programs and leftovers (steps 5 and 6):**
+  - Uninstalls Microsoft 365, the Teams add-in, Respondus, Dell Optimizer, the SupportAssist plugin, MongoDB Shell and WinRAR.
+  - Lists anything that failed to uninstall, so you can use Revo for it.
+  - Removes the leftover `C:\Program Files\Microsoft Office` folder, but only once `WINWORD.EXE` is gone.
+  - Removes OneDrive and its leftovers.
+- **Policies and startup (steps 7 and 8):**
+  - Applies the telemetry, Bing, Copilot, Edge and OneDrive policies, with registry backups first.
+  - Removes DubbingAI's startup entries.
+- **Pagefile (step 9):** C: only, 16 GiB start and 32 GiB max. This frees about 9 GiB after a reboot.
+
+I did not shrink the pagefile to 4 GB. WSL pushes commit charge to 43 GiB, and the `vmmemWSL` low-memory events I found earlier come from that. The file grows only when needed. I also left "clear pagefile at shutdown" off. It zeroes the file on shutdown, which only slows shutdown and frees no space.
+
+### What this will realistically free on C:
+About 80 to 90 GiB, not 100 or more. Rough breakdown:
+- Pagefile: about 9 GiB.
+- Claude VM: 10.6 GiB.
+- Miniconda: 7.1 GiB.
+- Ollama app: 6.5 GiB.
+- `vscode-remote-wsl`: 6.5 GiB.
+- Stale caches: about 8.5 GiB.
+- Office: about 4.7 GiB.
+- Jan leftover: 3.5 GiB.
+- The rest: about 20 GiB from Temp, app caches, `hermes`, `opamroot`, the old quarantine and the Windows caches.
+
+I won't count the remaining gap until I see the group 14 map from your run. `Windows` (35 GiB), `Program Files` and `Local\Programs` are mostly Windows and the apps that have to stay on C:.
+
+### Decisions for you
+- **Orphan app data:** group 13 lists leftover folders. My suggestion is `-RemoveOrphans "kingsoft,GitKrakenCLI,guardian-browser-updater,electron,16x-prompt-updater,antigravity-updater,bitwarden-updater,cluely-updater,obsidian-updater,todoist-updater"`. Add the names to a re-run of script 01 after you look at them. I excluded `Medal`, `Rize` and `riot-client-ux` because their startup entries show they are installed. I also excluded `Opera Software`, `BraveSoftware`, `JetBrains` and `EldenRing`, which could hold browser logins or game saves.
+- **Still open:**
+  - `D:\WSL\Installers\wsl-ubuntu.tar` (36.75 GB, the only WSL backup).
+  - Docker's own prune.
+  - `ConversationCapture-Backfill-WSL`.
+  - Which Google account is which.
+- **Malwarebytes:** I'm leaving it in place until a Defender full scan has run.
+- **`D:\Users\_Anant` to `D:\_Anant`:** I'm not writing this move yet. Jarvis, The Plan, Syncthing, the MCP configs and the scheduled tasks all hardcode the old path. After the cleanup, the first step is a read-only scan listing every reference, then a move with junctions. I've noted the target D: layout in the findings note.
+
+After script 02, reboot, paste both logs' key sections back to me, and I'll do the follow-up pass.
+
+### Tool Calls
+
+- `Read` -- `D:\WSL\ops\windows\01-user-cleanup.ps1`
+- `Read` -- `D:\WSL\ops\windows\02-admin-cleanup.ps1`
+- `Grep` -- pattern `^#{1,4} ` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Old Laptop Rebuild - Build 3 Windows Cleanup Findings.md`
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Old Laptop Rebuild - Build 3 Windows Cleanup Findings.md`
+- `Write` -- `C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\06b8b684-9d4a-42af-85c3-f42ff7877041\scratchpad\map2.ps1`
+```
+$ErrorActionPreference = 'SilentlyContinue'
+function DirBytes([string]$p) {
+  $o = & robocopy.exe $p NUL /L /E /XJ /BYTES /NFL /NDL /NJH /R:0 /W:0 /NP 2>$null
+  $l = $o | Where-Object { $_ -match '^\s*Bytes\s*:' } | Select-Object -First 1
+  if ($l) { [int64](($l -split '\s+' | Where-Object { $_ })[2]) } else { 0 }
+}
+function Lvl([string]$root, [double]$minGiB) {
+  Write-Host ('== ' + $root)
+  Get-ChildItem -LiteralPath $root -Force -Directory | ForEach-Object {
+    $b = DirBytes $_.FullName
+    if ($b / 1GB -ge $minGiB) { '{0,8:N2}  {1}' -f ($b / 1GB), $_.FullName }
+  } | Sort-Object -Descending
+}
+$P = $env:USERPROFILE
+Lvl 'C:\' 0.3
+Lvl $P 0.3
+Lvl "$P\AppData\Roaming" 0.3
+Lvl "$P\AppData\Local" 0.3
+Lvl "$P\AppData\Local\Programs" 0.3
+Lvl "$P\AppData\Roaming\Jan" 0.05
+Lvl "$P\AppData\Roaming\Jan\data" 0.05
+Lvl "$P\AppData\Local\hermes" 0.05
+Lvl "$P\.codex" 0.05
+Lvl "$P\.cache" 0.05
+Lvl 'C:\ProgramData' 0.3
+Lvl 'C:\Program Files' 0.5
+Lvl 'C:\Program Files (x86)' 0.5
+Lvl 'D:\' 0.01
+Lvl 'D:\AI' 0.01
+Lvl 'D:\Cache' 0.0
+'--- hiberfil / pagefile / swapfile'
+Get-ChildItem C:\ -Force -File | Where-Object { $_.Name -match 'sys$' } | ForEach-Object { '{0,8:N2}  {1}' -f ($_.Length / 1GB), $_.FullName }
+'--- env'
+foreach ($n in 'OLLAMA_MODELS','HF_HOME','NUGET_PACKAGES','GRADLE_USER_HOME','PUPPETEER_CACHE_DIR','npm_config_cache') { $n + ' = ' + [Environment]::GetEnvironmentVariable($n, 'User') }
+'npm cache: ' + (& npm config get cache 2>$null)
+'--- windows.old / Downloads'
+Test-Path C:\Windows.old
+'Downloads: ' + ('{0:N2}' -f ((DirBytes "$P\Downloads") / 1GB))
+'Documents: ' + ('{0:N2}' -f ((DirBytes "$P\Documents") / 1GB))
+'Desktop: ' + ('{0:N2}' -f ((DirBytes "$P\Desktop") / 1GB))
+Get-Item "$P\Downloads","$P\Documents","$P\Desktop" -Force | ForEach-Object { $_.FullName + ' linktype=' + $_.LinkType + ' target=' + $_.Target }
+
+```
+- `PowerShell` -- `{"command":"powershell -NoProfile -ExecutionPolicy Bypass -File \u0027C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\[REDACTED]\\scratchpad\\map2.ps1\u0027 | Out-String -Width 200","description":"Read-only size map of C: and D: folders","timeout":600000}`
+- `PowerShell` -- `{"command":"Get-Process claude,Claude -ErrorAction SilentlyContinue | Select-Object Id,Path | Format-Table -AutoSize | Out-String -Width 200; Get-Item \u0027C:\\Users\\Anant Gupta\\.local\\bin\\claude*\u0027 -ErrorAction SilentlyContinue | Select-Object FullName; winget --version; powershell -NoProfile -Command \u0027$PSVersionTable.PSVersion.ToString()\u0027; (Get-ItemProperty \u0027HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management\u0027).PagingFiles; (Get-CimInstance Win32_ComputerSystem).AutomaticManagedPagefile; Get-ChildItem \u0027D:\\DeliveryOptimization\u0027,\u0027D:\\WUDownloadCache\u0027 -Force -ErrorAction SilentlyContinue | Measure-Object | Select-Object Count","description":"Check Claude process paths, winget, pagefile state"}`
+- `Write` -- `D:\WSL\ops\windows\01-user-cleanup.ps1`
+```
+# Build 3 - 01 user-level cleanup and D: restructure (NOT elevated). ASCII only.
+# Default is a DRY RUN: it measures and prints what it would do. Add -Apply to execute.
+#   powershell -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\windows\01-user-cleanup.ps1
+#   powershell -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\windows\01-user-cleanup.ps1 -Apply -ClaudeVm -MoveOllama
+#   optional: -RemoveOrphans Name1,Name2   (folder names from group 13 that you decided to delete)
+# Close VS Code, Cursor, Kiro, Antigravity, Slack, Discord, Spotify, Vivaldi, Obsidian, Todoist, Jan, Ollama, Docker, codex
+# and Claude Desktop first, or their groups are skipped (nothing is forced). The Claude Code CLI may stay open.
+# Every group prints C: and D: free space before and after. Log: D:\WSL\ops\windows\logs\
+param([switch]$Apply, [switch]$ClaudeVm, [switch]$MoveOllama, [string[]]$RemoveOrphans = @())
+$ErrorActionPreference = 'Continue'
+$null = New-Item -ItemType Directory -Force 'D:\WSL\ops\windows\logs'
+$log = 'D:\WSL\ops\windows\logs\01-user-cleanup-' + (Get-Date -Format 'yyyyMMdd-HHmm') + '.log'
+Start-Transcript -Path $log | Out-Null
+$P = $env:USERPROFILE; $L = $env:LOCALAPPDATA; $R = $env:APPDATA
+$QROOT = 'D:\Quarantine\[REDACTED]'
+if ($Apply) { Write-Host '*** APPLY MODE: files will be deleted or moved ***' } else { Write-Host '*** DRY RUN: nothing is changed. Re-run with -Apply ***' }
+
+function Free([string]$d) { [math]::Round((Get-PSDrive $d).Free / 1GB, 2) }
+function DirBytes([string]$p) {
+  $o = & robocopy.exe $p NUL /L /E /XJ /BYTES /NFL /NDL /NJH /R:0 /W:0 /NP 2>$null
+  $l = $o | Where-Object { $_ -match '^\s*Bytes\s*:' } | Select-Object -First 1
+  if ($l) { [int64](($l -split '\s+' | Where-Object { $_ })[2]) } else { 0 }
+}
+function IsLink($it) { [bool]($it.Attributes -band [IO.FileAttributes]::ReparsePoint) }
+function Rd([string]$path) {
+  if (-not (Test-Path -LiteralPath $path)) { return }
+  $it = Get-Item -LiteralPath $path -Force -ErrorAction SilentlyContinue
+  if (-not $it) { return }
+  if ($it.PSIsContainer -and (IsLink $it)) { try { [IO.Directory]::Delete($path) } catch {}; return }
+  Remove-Item -LiteralPath $path -Recurse -Force -ErrorAction SilentlyContinue
+  if ((Test-Path -LiteralPath $path) -and $it.PSIsContainer) { & cmd.exe /c ('rd /s /q "\\?\' + $path + '"') 2>$null | Out-Null }
+}
+$script:total = [int64]0; $script:small = 0
+function Drop([string]$path) {
+  if (-not (Test-Path -LiteralPath $path)) { return }
+  $it = Get-Item -LiteralPath $path -Force -ErrorAction SilentlyContinue
+  if (-not $it) { return }
+  $b = if ($it.PSIsContainer) { DirBytes $path } else { $it.Length }
+  $script:total += $b
+  if ($b -ge 50MB) { Write-Host ('   {0,8:N2} GiB  {1}' -f ($b / 1GB), $path) } else { $script:small++ }
+  if ($Apply) { Rd $path }
+}
+function Running([string[]]$names) {
+  foreach ($n in $names) {
+    foreach ($p in (Get-Process -Name $n -ErrorAction SilentlyContinue)) {
+      $pp = $null; try { $pp = $p.Path } catch {}
+      if ($n -eq 'claude' -and $pp -and $pp -like ($P + '\.local\*')) { continue }
+      return $true
+    }
+  }
+  return $false
+}
+function UnderPath([string]$dir) {
+  foreach ($p in (Get-Process -ErrorAction SilentlyContinue)) {
+    $pp = $null; try { $pp = $p.Path } catch {}
+    if ($pp -and $pp -like ($dir + '\*')) { return $true }
+  }
+  return $false
+}
+# Copy a folder to D:, verify the byte count, swap the original for a junction so the old path keeps working.
+function Relocate([string]$src, [string]$dst, [string]$why, [string[]]$procs = @()) {
+  Write-Host ('   relocate {0} -> {1}  ({2})' -f $src, $dst, $why)
+  if (-not (Test-Path -LiteralPath $src)) { Write-Host '     absent, nothing to do'; return }
+  $it = Get-Item -LiteralPath $src -Force
+  if (IsLink $it) { Write-Host ('     already a link to ' + $it.Target); return }
+  if (($procs.Count -gt 0 -and (Running $procs)) -or (UnderPath $src)) { Write-Host '     SKIP: the program is running, close it and re-run'; return }
+  $b = DirBytes $src
+  Write-Host ('     size {0:N2} GiB leaves C:' -f ($b / 1GB))
+  $script:total += $b
+  if (-not $Apply) { return }
+  if ((Test-Path -LiteralPath $dst) -and (@(Get-ChildItem -LiteralPath $dst -Force -ErrorAction SilentlyContinue).Count -gt 0)) { Write-Host '     SKIP: destination exists and is not empty'; return }
+  $null = New-Item -ItemType Directory -Force (Split-Path $dst)
+  & robocopy.exe $src $dst /E /COPY:DAT /DCOPY:DAT /XJ /R:1 /W:1 /NFL /NDL /NJH /NJS /NP | Out-Null
+  if ($LASTEXITCODE -ge 8) { Write-Host ('     ABORT: robocopy exit ' + $LASTEXITCODE + ', source untouched'); Rd $dst; return }
+  $b2 = DirBytes $dst
+  if ($b2 -ne $b) { Write-Host ('     ABORT: copy is {0} bytes, source is {1}; source untouched' -f $b2, $b); Rd $dst; return }
+  $old = $src + '.relocating'
+  try { Rename-Item -LiteralPath $src -NewName ($it.Name + '.relocating') -ErrorAction Stop } catch { Write-Host ('     ABORT: could not rename source: ' + $_.Exception.Message); Rd $dst; return }
+  try { $null = New-Item -ItemType Junction -Path $src -Target $dst -ErrorAction Stop }
+  catch { Write-Host ('     ABORT: junction failed: ' + $_.Exception.Message); Rename-Item -LiteralPath $old -NewName $it.Name; Rd $dst; return }
+  Rd $old
+  Write-Host ('     done. ' + $src + ' is now a junction to ' + $dst)
+}
+function Lvl([string]$root, [double]$minGiB) {
+  if (-not (Test-Path -LiteralPath $root)) { return }
+  Write-Host ('   == ' + $root)
+  Get-ChildItem -LiteralPath $root -Force -Directory -ErrorAction SilentlyContinue | ForEach-Object {
+    if (IsLink $_) { return }
+    $b = DirBytes $_.FullName
+    if ($b / 1GB -ge $minGiB) { '   {0,8:N2}  {1}' -f ($b / 1GB), $_.FullName }
+  } | Sort-Object -Descending
+}
+function Step([string]$name, [scriptblock]$body) {
+  $c0 = Free C; $d0 = Free D; $script:total = 0
+  Write-Host ''; Write-Host "--- $name"
+  & $body
+  $c1 = Free C; $d1 = Free D
+  if ($script:small) { Write-Host ('   (+{0} small items under 50 MB not listed)' -f $script:small); $script:small = 0 }
+  Write-Host ('    group total {0:N2} GiB | C: free {1} -> {2} | D: free {3} -> {4}' -f ($script:total / 1GB), $c0, $c1, $d0, $d1)
+}
+Write-Host ('START  C: free {0} GiB, D: free {1} GiB' -f (Free C), (Free D))
+
+Step '0 D: structure (D:\AI, D:\Cache, D:\Apps, D:\Quarantine)' {
+  $dirs = 'D:\AI\ollama-models', 'D:\AI\local-models', 'D:\AI\jan', 'D:\AI\hermes',
+          'D:\Cache\npm', 'D:\Cache\uv', 'D:\Cache\pip', 'D:\Cache\ms-playwright', 'D:\Cache\huggingface', 'D:\Cache\nuget', 'D:\Cache\gradle', 'D:\Cache\puppeteer', 'D:\Cache\codex',
+          'D:\Apps', 'D:\Quarantine'
+  foreach ($d in $dirs) {
+    Write-Host ('   {0}  exists={1}' -f $d, (Test-Path $d))
+    if ($Apply) { $null = New-Item -ItemType Directory -Force $d }
+  }
+}
+
+Step '1 Cache redirects: user env vars and the npm cache point at D:\Cache (stops regrowth on C:)' {
+  $vars = @(
+    @('UV_CACHE_DIR', 'D:\Cache\uv'), @('PIP_CACHE_DIR', 'D:\Cache\pip'), @('PLAYWRIGHT_BROWSERS_PATH', 'D:\Cache\ms-playwright'),
+    @('HF_HOME', 'D:\Cache\huggingface'), @('NUGET_PACKAGES', 'D:\Cache\nuget'), @('GRADLE_USER_HOME', 'D:\Cache\gradle'), @('PUPPETEER_CACHE_DIR', 'D:\Cache\puppeteer')
+  )
+  foreach ($kv in $vars) {
+    Write-Host ('   {0} = {1}  (current: {2})' -f $kv[0], $kv[1], [Environment]::GetEnvironmentVariable($kv[0], 'User'))
+    if ($Apply) { [Environment]::SetEnvironmentVariable($kv[0], $kv[1], 'User'); Set-Item -Path ('Env:' + $kv[0]) -Value $kv[1] }
+  }
+  $npm = (& npm config get cache 2>$null)
+  Write-Host ('   npm cache now: {0}  target: D:\Cache\npm' -f $npm)
+  if ($Apply -and $npm -ne 'D:\Cache\npm') {
+    if (Test-Path 'D:\npm-cache') { & robocopy.exe 'D:\npm-cache' 'D:\Cache\npm' /E /MOVE /R:1 /W:1 /NFL /NDL /NJH /NJS /NP | Out-Null }
+    & npm config set cache 'D:\Cache\npm'
+    Write-Host ('   npm cache after: ' + (& npm config get cache 2>$null))
+  }
+}
+
+Step '2 Stale tool caches on C: (npm copy, uv, Playwright, pip)' {
+  $npm = (& npm config get cache 2>$null)
+  if ($npm -eq 'D:\npm-cache' -or $npm -eq 'D:\Cache\npm') { Drop "$L\npm-cache" } else { Write-Host '   SKIP Local\npm-cache: npm is not pointed at D: (re-run after -Apply)' }
+  Drop "$L\uv"; Drop "$L\ms-playwright"; Drop "$L\pip\Cache"
+}
+
+Step '3 Temp files older than 7 days (keeps Temp\claude, the live session folder)' {
+  $cut = (Get-Date).AddDays(-7)
+  $files = @(Get-ChildItem "$L\Temp" -Recurse -Force -File -ErrorAction SilentlyContinue | Where-Object { $_.LastWriteTime -lt $cut -and $_.FullName -notlike '*\Temp\claude\*' -and $_.FullName -notlike '*\Temp\wsl-crashes\*' })
+  $sum = ($files | Measure-Object Length -Sum).Sum
+  Write-Host ('   {0} files, {1:N2} GiB' -f $files.Count, ($sum / 1GB))
+  $script:total += [int64]$sum
+  if ($Apply) { $files | ForEach-Object { Remove-Item -LiteralPath $_.FullName -Force -ErrorAction SilentlyContinue } }
+}
+
+Step '4 Crash dumps, keep the newest one per folder' {
+  $dirs = @("$R\Code\Crashpad\reports", "$R\Kiro\Crashpad\reports", "$R\Todoist\Crashpad\reports", "$L\Vivaldi\User Data\Crashpad\reports", "$L\CrashDumps", "$L\Temp\wsl-crashes",
+            "$L\Packages\MicrosoftWindows.Client.CBS_cw5n1h2txyewy\LocalState\EBWebView\Crashpad\reports")
+  foreach ($d in $dirs) {
+    if (-not (Test-Path $d)) { continue }
+    $all = Get-ChildItem $d -Force -File -ErrorAction SilentlyContinue | Where-Object { $_.Extension -in '.dmp', '.hdmp' } | Sort-Object LastWriteTime -Descending
+    $all | Select-Object -Skip 1 | ForEach-Object { Drop $_.FullName; Drop ([IO.Path]::ChangeExtension($_.FullName, 'meta')) }
+  }
+}
+
+Step '5 App caches (Chromium style cache folders only, per app, only if the app is closed)' {
+  $names = 'Cache', 'Code Cache', 'GPUCache', 'CachedData', 'CachedExtensionVSIXs', 'DawnGraphiteCache', 'DawnWebGPUCache', 'GrShaderCache', 'ShaderCache'
+  $apps = @(
+    @('VS Code', @('Code'), @("$R\Code")),
+    @('Cursor', @('Cursor'), @("$R\Cursor")),
+    @('Kiro', @('Kiro'), @("$R\Kiro")),
+    @('Antigravity', @('Antigravity'), @("$R\Antigravity")),
+    @('Slack', @('slack'), @("$R\Slack")),
+    @('Discord', @('Discord'), @("$R\discord")),
+    @('Obsidian', @('Obsidian'), @("$R\obsidian")),
+    @('Todoist', @('Todoist'), @("$R\Todoist")),
+    @('Claude Desktop', @('claude'), @("$R\Claude")),
+    @('Vivaldi', @('vivaldi'), @("$L\Vivaldi\User Data")),
+    @('Spotify', @('Spotify'), @("$L\Spotify\Storage", "$L\Spotify\Data"))
+  )
+  foreach ($a in $apps) {
+    if (Running $a[1]) { Write-Host ('   SKIP {0}: running (close it and re-run)' -f $a[0]); continue }
+    foreach ($root in $a[2]) {
+      if (-not (Test-Path $root)) { continue }
+      if ($a[0] -eq 'Spotify') { Drop $root; continue }
+      Get-ChildItem $root -Directory -Recurse -Depth 2 -Force -ErrorAction SilentlyContinue | Where-Object { $_.Name -in $names } | ForEach-Object { Drop $_.FullName }
+    }
+  }
+}
+
+Step '6 Profile dump: delete regenerable folders, move the rest to D: with a junction left behind' {
+  if (-not (Running @('codex'))) { Drop "$P\.cache\codex-runtimes" } else { Write-Host '   SKIP codex-runtimes: codex is running' }
+  if (-not (Running @('Code'))) { Drop "$P\vscode-remote-wsl" } else { Write-Host '   SKIP vscode-remote-wsl: VS Code is running' }
+  Drop 'C:\srverify-20260502173203'
+  Relocate 'C:\opamroot' 'D:\Apps\opamroot' 'OCaml opam store'
+  Relocate "$P\.codex\packages" 'D:\Cache\codex\packages' 'codex runtime packages (config and auth stay in .codex on C:)' @('codex')
+}
+
+Step '7 Explorer thumbnail and icon caches' {
+  Get-ChildItem "$L\Microsoft\Windows\Explorer" -Force -File -ErrorAction SilentlyContinue | Where-Object { $_.Name -match '^(thumbcache|iconcache)_' } | ForEach-Object { Drop $_.FullName }
+}
+
+Step '8 Claude Desktop VM bundle (-ClaudeVm; Claude downloads it again when a VM feature is used)' {
+  if (-not $ClaudeVm) { Write-Host '   not requested (add -ClaudeVm)'; return }
+  if (Running @('claude')) { Write-Host '   SKIP: Claude Desktop is running. Quit it from the tray first.'; return }
+  Drop "$R\Claude\vm_bundles\claudevm.bundle"
+}
+
+Step '9 App data to D: with a junction left behind (Jan data, hermes agent, miniconda)' {
+  Relocate "$R\Jan\data" 'D:\AI\jan' 'Jan models and extensions' @('Jan')
+  Relocate "$L\hermes" 'D:\AI\hermes' 'hermes agent install' @('hermes')
+  Relocate "$P\miniconda3" 'D:\Apps\miniconda3' 'Miniconda (all environments kept, old path keeps working)' @('conda')
+}
+
+Step '10 Profile root strays: quarantine on D:, junk deleted' {
+  $q = "$QROOT\profile-strays"
+  if ($Apply) {
+    $null = New-Item -ItemType Directory -Force $q, "$QROOT\suspicious", "$QROOT\old-quarantine"
+    Set-Content "$QROOT\README.txt" -Encoding ASCII -Value 'Quarantine created by Build 3 on 2026-10-11. Review and delete by 2026-11-01. Lives on D: on purpose. Never place under a Google Drive folder.'
+  }
+  foreach ($f in '0K7YY.exe', 'nc6a9.exe') {
+    $s = "$P\$f"
+    if (Test-Path -LiteralPath $s) {
+      Write-Host ('   SUSPICIOUS move (renamed .quarantined): ' + $s)
+      if ($Apply) { Move-Item -LiteralPath $s -Destination "$QROOT\suspicious\$f.quarantined" -Force }
+    }
+  }
+  foreach ($f in 'battery-report.html', 'mongosh-2.5.9-x64.msi', 'global.yml', 'settings.json', '.claude.json.tmp.29124.1b232f4c6fe0') {
+    $s = "$P\$f"
+    if (Test-Path -LiteralPath $s) { Write-Host ('   move to profile-strays: ' + $f); if ($Apply) { Move-Item -LiteralPath $s -Destination "$q\$f" -Force } }
+  }
+  foreach ($f in 'NUL', 'echo') {
+    $raw = '\\?\' + $P + '\' + $f
+    $exists = [IO.File]::Exists($raw)
+    Write-Host ('   junk file {0}: exists={1}' -f $f, $exists)
+    if ($Apply -and $exists) { try { [IO.File]::Delete($raw) } catch { Write-Host ('   could not delete ' + $f + ': ' + $_.Exception.Message) } }
+  }
+  $old = "$P\[REDACTED]"
+  if (Test-Path $old) {
+    $b = DirBytes $old
+    $script:total += $b
+    Write-Host ('   move old quarantine ({0:N2} GiB) to D: (keeps .env-named files local, off Drive)' -f ($b / 1GB))
+    if ($Apply) { & robocopy.exe $old "$QROOT\old-quarantine\[REDACTED]" /E /MOVE /R:1 /W:1 /NFL /NDL /NJH /NJS /NP | Out-Null }
+  }
+}
+
+Step '11 Startup trim for this user (reversible: Task Manager > Startup > Enable)' {
+  $disable = @(
+    @('Run', 'Discord'), @('Run', 'RiotClient'), @('Run', 'Medal'), @('Run', 'Steam'), @('Run', 'com.squirrel.Rize.Rize'),
+    @('Run', 'Spotify'), @('Run', 'Docker Desktop'), @('Run', 'Voquill'), @('Run', 'com.squirrel.slack.slack'),
+    @('StartupFolder', 'E START App.lnk'), @('StartupFolder', 'Ollama.lnk'), @('StartupFolder', 'OpenClaw Gateway.cmd'),
+    @('StartupFolder', 'Send to OneNote.lnk'), @('StartupFolder', 'Wispr Flow.lnk')
+  )
+  foreach ($d in $disable) {
+    $key = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\' + $d[0]
+    Write-Host ('   disable startup: {0} ({1})' -f $d[1], $d[0])
+    if ($Apply) {
+      if (-not (Test-Path $key)) { $null = New-Item -Path $key -Force }
+      $bytes = [byte[]](3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+      $null = New-ItemProperty -Path $key -Name $d[1] -PropertyType Binary -Value $bytes -Force
+    }
+  }
+}
+
+Step '12 Ollama app to D:\Apps\Ollama (-MoveOllama; models already on D:\AI\ollama-models and stay)' {
+  if (-not $MoveOllama) { Write-Host '   not requested (add -MoveOllama)'; return }
+  $om = [Environment]::GetEnvironmentVariable('OLLAMA_MODELS', 'User')
+  $mb = DirBytes 'D:\AI\ollama-models'
+  Write-Host ('   OLLAMA_MODELS = {0}, folder holds {1:N2} GiB' -f $om, ($mb / 1GB))
+  if ($om -ne 'D:\AI\ollama-models' -or $mb -lt 1GB) { Write-Host '   SKIP: models are not confirmed on D:, nothing touched'; return }
+  if (Running @('ollama', 'ollama app')) { Write-Host '   SKIP: Ollama is running. Quit it from the tray first.'; return }
+  $script:total += DirBytes "$L\Programs\Ollama"
+  Write-Host '   uninstall, then reinstall with --location D:\Apps\Ollama'
+  if ($Apply) {
+    & winget.exe uninstall --id Ollama.Ollama --silent --accept-source-agreements
+    $null = New-Item -ItemType Directory -Force 'D:\Apps'
+    & winget.exe install --id Ollama.Ollama --location 'D:\Apps\Ollama' --silent --accept-package-agreements --accept-source-agreements
+    Write-Host ('   D:\Apps\Ollama\ollama.exe exists: ' + (Test-Path 'D:\Apps\Ollama\ollama.exe'))
+    Write-Host ('   old C: folder still present: ' + (Test-Path "$L\Programs\Ollama"))
+  }
+}
+
+Step '13 Leftover app data of programs that are no longer installed (report; deletes only names given to -RemoveOrphans)' {
+  $keys = 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*', 'HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*', 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*'
+  $blob = ''
+  foreach ($k in $keys) { Get-ItemProperty $k -ErrorAction SilentlyContinue | ForEach-Object { $blob += ' ' + $_.DisplayName + ' ' + $_.Publisher + ' ' + $_.InstallLocation + ' ' + $_.PSChildName } }
+  Get-AppxPackage -ErrorAction SilentlyContinue | ForEach-Object { $blob += ' ' + $_.Name }
+  $blob = $blob.ToLower() -replace '[^a-z0-9]', ''
+  $skip = '^(Microsoft|Packages|Temp|Programs|Google|Claude|Code|Cursor|Kiro|Antigravity|Slack|Discord|Spotify|Vivaldi|npm|npm-cache|Jan|Obsidian|Todoist|Postman|Docker|ConnectedDevices|PlaceholderTileLogoFolder|VirtualStore|History|Comms|D3DSCache|CrashDumps|pip|uv|ms-playwright|hermes|OpenAI|Zoom|Loom|loom-updater|SquirrelTemp|Publishers|Ollama)$'
+  Write-Host '   folders of 50 MB or more in Roaming and Local with no matching installed program (candidates only):'
+  foreach ($root in @($R, $L)) {
+    Get-ChildItem $root -Directory -Force -ErrorAction SilentlyContinue | Where-Object { $_.Name -notmatch $skip -and $_.Name.Length -ge 4 } | ForEach-Object {
+      $sq = $_.Name.ToLower() -replace '[^a-z0-9]', ''
+      if ($blob.Contains($sq)) { return }
+      $b = DirBytes $_.FullName
+      if ($b -ge 50MB) { Write-Host ('   {0,8:N2} GiB  {1}' -f ($b / 1GB), $_.FullName) }
+    }
+  }
+  foreach ($n in $RemoveOrphans) {
+    if ($n -match $skip -or $n -match '[\\/:]') { Write-Host ('   REFUSED (protected or not a plain folder name): ' + $n); continue }
+    foreach ($root in @($R, $L, 'C:\ProgramData')) { Drop (Join-Path $root $n) }
+  }
+}
+
+Step '14 What is still big on C: after this run (paste this back)' {
+  Lvl 'C:\' 0.3
+  Lvl $P 0.3
+  Lvl "$R" 0.3
+  Lvl "$L" 0.3
+  Lvl "$L\Programs" 0.3
+  Lvl 'C:\ProgramData' 0.3
+  Lvl 'C:\Program Files' 0.5
+  Lvl 'C:\Program Files (x86)' 0.5
+  Lvl 'D:\' 0.01
+  Lvl 'D:\AI' 0.0
+  Lvl 'D:\Cache' 0.0
+  Lvl 'D:\Apps' 0.0
+}
+
+Write-Host ''
+Write-Host ('END    C: free {0} GiB, D: free {1} GiB' -f (Free C), (Free D))
+Write-Host ('Log: ' + $log)
+Stop-Transcript | Out-Null
+
+```
+- `Edit` -- `D:\WSL\ops\windows\01-user-cleanup.ps1`
+```diff
+-   $script:total += DirBytes "$L\Programs\Ollama"
++   $script:total += (DirBytes "$L\Programs\Ollama")
+```
+- `Write` -- `D:\WSL\ops\windows\02-admin-cleanup.ps1`
+```
+# Build 3 - 02 elevated cleanup. ASCII only. Run from an ELEVATED PowerShell.
+# Default is a DRY RUN that prints what it would do. Add -Apply to execute.
+#   powershell -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\windows\02-admin-cleanup.ps1
+#   powershell -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\windows\02-admin-cleanup.ps1 -Apply -Pagefile
+# Optional: -ResetBase (also removes superseded Windows components; Windows updates can no longer be uninstalled afterwards).
+# -Pagefile keeps the pagefile on C: only, 16384 MB start / 32768 MB max (frees about 9 GiB after the reboot).
+# Backups of every registry key it touches go to D:\WSL\ops\windows\backup-<timestamp>\. Rollback commands print first.
+param([switch]$Apply, [switch]$Pagefile, [switch]$ResetBase)
+$ErrorActionPreference = 'Continue'
+$isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+if (-not $isAdmin) { Write-Host 'Not elevated. Open PowerShell as Administrator and run again.'; exit 1 }
+$ts = Get-Date -Format 'yyyyMMdd-HHmm'
+$bk = "D:\WSL\ops\windows\backup-$ts"
+$null = New-Item -ItemType Directory -Force $bk, 'D:\WSL\ops\windows\logs'
+$log = "D:\WSL\ops\windows\logs\02-admin-cleanup-$ts.log"
+Start-Transcript -Path $log | Out-Null
+$P = $env:USERPROFILE; $L = $env:LOCALAPPDATA
+
+function Free([string]$d) { [math]::Round((Get-PSDrive $d).Free / 1GB, 2) }
+function Step([string]$name, [scriptblock]$body) {
+  $c0 = Free C; $d0 = Free D
+  Write-Host ''; Write-Host "--- $name"
+  & $body
+  Write-Host ('    C: free {0} -> {1} | D: free {2} -> {3}' -f $c0, (Free C), $d0, (Free D))
+}
+function DirBytes([string]$p) {
+  $o = & robocopy.exe $p NUL /L /E /XJ /BYTES /NFL /NDL /NJH /R:0 /W:0 /NP 2>$null
+  $l = $o | Where-Object { $_ -match '^\s*Bytes\s*:' } | Select-Object -First 1
+  if ($l) { [int64](($l -split '\s+' | Where-Object { $_ })[2]) } else { 0 }
+}
+function Clear-Dir([string]$p) {
+  if (-not (Test-Path -LiteralPath $p)) { Write-Host "   absent: $p"; return }
+  Write-Host ('   {0,8:N2} GiB  {1}' -f ((DirBytes $p) / 1GB), $p)
+  if ($Apply) { Get-ChildItem -LiteralPath $p -Force -ErrorAction SilentlyContinue | Remove-Item -Recurse -Force -ErrorAction SilentlyContinue }
+}
+function Backup-Key([string]$key, [string]$name) { & reg.exe export $key "$bk\$name.reg" /y 2>$null | Out-Null }
+
+Write-Host '================ ROLLBACK (read this first) ================'
+Write-Host "Registry backups: $bk  (restore any with:  reg import <file>)"
+Write-Host 'Pagefile rollback to the state before this build:'
+Write-Host '  Set-ItemProperty "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management" -Name PagingFiles -Type MultiString -Value @("d:\pagefile.sys 0 0"); then reboot'
+Write-Host 'Startup entries: Task Manager > Startup apps > Enable.   Removed apps: reinstall from winget or the Store.'
+Write-Host '============================================================='
+if ($Apply) { Write-Host '*** APPLY MODE ***' } else { Write-Host '*** DRY RUN: nothing is changed. Re-run with -Apply ***' }
+Write-Host ('START  C: free {0} GiB, D: free {1} GiB' -f (Free C), (Free D))
+
+Step '1 Windows Error Reporting archives and queue (C:)' {
+  Clear-Dir 'C:\ProgramData\Microsoft\Windows\WER\ReportArchive'
+  Clear-Dir 'C:\ProgramData\Microsoft\Windows\WER\ReportQueue'
+  Clear-Dir 'C:\ProgramData\Microsoft\Windows\WER\Temp'
+}
+
+Step '2 Windows Update download cache, Delivery Optimization, Windows\Temp (C:) and the same caches on D:' {
+  if ($Apply) { Stop-Service wuauserv, bits -Force -ErrorAction SilentlyContinue }
+  Clear-Dir 'C:\Windows\SoftwareDistribution\Download'
+  Clear-Dir 'D:\WUDownloadCache'
+  if ($Apply) { Start-Service bits, wuauserv -ErrorAction SilentlyContinue }
+  Write-Host '   Delivery Optimization cache'
+  if ($Apply) { Delete-DeliveryOptimizationCache -Force -ErrorAction SilentlyContinue }
+  Clear-Dir 'D:\DeliveryOptimization'
+  Clear-Dir 'C:\Windows\Temp'
+}
+
+Step '3 Component store cleanup (C:, can take several minutes; -ResetBase also drops superseded components)' {
+  if ($ResetBase) { $dargs = '/Online /Cleanup-Image /StartComponentCleanup /ResetBase' } else { $dargs = '/Online /Cleanup-Image /StartComponentCleanup' }
+  if ($Apply) { & dism.exe $dargs.Split(' ') | Select-Object -Last 4 } else { Write-Host ('   would run: dism ' + $dargs) }
+}
+
+Step '4 Store apps on the wipe list (Bing, Copilot, Office hub, Outlook new, Feedback Hub, Dev Home, Power Automate, Edge Game Assist)' {
+  $pat = 'Microsoft.BingSearch', 'Microsoft.BingNews', 'Microsoft.BingWeather', 'Microsoft.Copilot', 'Microsoft.Windows.Ai.Copilot*', 'Microsoft.MicrosoftOfficeHub',
+         'Microsoft.M365Companions', 'Microsoft.OutlookForWindows', 'Microsoft.WindowsFeedbackHub', 'Microsoft.Windows.DevHome', 'Microsoft.PowerAutomateDesktop',
+         'Microsoft.Office.ActionsServer', 'Microsoft.OfficePushNotificationUtility', 'Microsoft.Edge.GameAssist', 'Microsoft.GetHelp'
+  foreach ($n in $pat) {
+    $found = Get-AppxPackage -AllUsers -Name $n -ErrorAction SilentlyContinue
+    foreach ($f in $found) {
+      Write-Host ('   remove ' + $f.PackageFullName)
+      if ($Apply) { Remove-AppxPackage -Package $f.PackageFullName -AllUsers -ErrorAction SilentlyContinue }
+    }
+    if ($Apply) { Get-AppxProvisionedPackage -Online | Where-Object { $_.DisplayName -like $n } | ForEach-Object { $null = Remove-AppxProvisionedPackage -Online -PackageName $_.PackageName -ErrorAction SilentlyContinue } }
+  }
+}
+
+Step '5 Desktop programs on the wipe list (winget uninstall; Revo Uninstaller is the fallback for any that fail)' {
+  $names = 'Microsoft 365 Apps for enterprise - en-us', 'Microsoft Teams Meeting Add-in for Microsoft Office', 'Respondus LockDown Browser 2',
+           'Dell Optimizer', 'Dell SupportAssist OS Recovery Plugin for Dell Update', 'MongoDB Shell', 'WinRAR 7.01 (64-bit)'
+  foreach ($n in $names) {
+    Write-Host ('   uninstall: ' + $n)
+    if ($Apply) { & winget.exe uninstall --name $n --exact --silent --accept-source-agreements --disable-interactivity | Select-Object -Last 2; Write-Host ('   exit code ' + $LASTEXITCODE) }
+  }
+  Write-Host '   Malwarebytes is NOT removed here: run the Defender full scan first, then remove it.'
+  Write-Host '   Miniconda is NOT removed: script 01 moves it to D:\Apps\miniconda3 and keeps every environment.'
+  if ($Apply) {
+    $left = 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*', 'HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*' | ForEach-Object { Get-ItemProperty $_ -ErrorAction SilentlyContinue } |
+            Where-Object { $_.DisplayName -match 'Microsoft 365|Teams Meeting Add-in|Respondus|Dell Optimizer|SupportAssist OS Recovery|MongoDB Shell|WinRAR' }
+    if ($left) { Write-Host '   STILL INSTALLED (use Revo Uninstaller for these):'; $left | ForEach-Object { Write-Host ('     ' + $_.DisplayName) } } else { Write-Host '   all listed programs are gone' }
+    $office = 'C:\Program Files\Microsoft Office'
+    if ((Test-Path $office) -and -not (Test-Path "$office\root\Office16\WINWORD.EXE")) { Clear-Dir $office; Remove-Item -LiteralPath $office -Recurse -Force -ErrorAction SilentlyContinue }
+  } else { Write-Host '   after the uninstall, an empty or leftover C:\Program Files\Microsoft Office folder is removed (only when WINWORD.EXE is gone)' }
+}
+
+Step '6 OneDrive removal and leftovers' {
+  $setup = if (Test-Path "$env:SystemRoot\SysWOW64\OneDriveSetup.exe") { "$env:SystemRoot\SysWOW64\OneDriveSetup.exe" } else { "$env:SystemRoot\System32\OneDriveSetup.exe" }
+  Write-Host ('   setup exe: {0} exists={1}' -f $setup, (Test-Path $setup))
+  if ($Apply -and (Test-Path $setup)) { Stop-Process -Name OneDrive -Force -ErrorAction SilentlyContinue; & $setup /uninstall; Start-Sleep 8 }
+  if ($Apply) { Start-Sleep 5 }
+  foreach ($d in 'C:\ProgramData\Microsoft OneDrive', "$L\Microsoft\OneDrive", "$L\OneDrive") {
+    if (Test-Path -LiteralPath $d) { Clear-Dir $d; if ($Apply) { Remove-Item -LiteralPath $d -Recurse -Force -ErrorAction SilentlyContinue } }
+  }
+}
+
+Step '7 Privacy, Bing, Copilot, Edge and OneDrive policies (registry backups first)' {
+  $keys = @{
+    'HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection' = 'dc'; 'HKLM\SOFTWARE\Policies\Microsoft\Windows\System' = 'sys'
+    'HKLM\SOFTWARE\Policies\Microsoft\Windows\CloudContent' = 'cloud'; 'HKLM\SOFTWARE\Policies\Microsoft\Windows\AdvertisingInfo' = 'adv'
+    'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsCopilot' = 'copilotm'; 'HKCU\Software\Policies\Microsoft\Windows\WindowsCopilot' = 'copilotu'
+    'HKLM\SOFTWARE\Policies\Microsoft\Windows\Windows Search' = 'search'; 'HKCU\Software\Policies\Microsoft\Windows\Explorer' = 'explorer'
+    'HKCU\Software\Microsoft\Windows\CurrentVersion\Search' = 'cvsearch'; 'HKLM\SOFTWARE\Policies\Microsoft\Edge' = 'edge'
+    'HKLM\SOFTWARE\Policies\Microsoft\Windows\OneDrive' = 'onedrive'
+  }
+  $settings = @(
+    @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection', 'AllowTelemetry', 1), @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\DataCollection', 'DoNotShowFeedbackNotifications', 1),
+    @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\System', 'EnableActivityFeed', 0), @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\System', 'PublishUserActivities', 0),
+    @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\System', 'UploadUserActivities', 0),
+    @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent', 'DisableWindowsConsumerFeatures', 1), @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\CloudContent', 'DisableTailoredExperiencesWithDiagnosticData', 1),
+    @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\AdvertisingInfo', 'DisabledByGroupPolicy', 1),
+    @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsCopilot', 'TurnOffWindowsCopilot', 1), @('HKCU:\Software\Policies\Microsoft\Windows\WindowsCopilot', 'TurnOffWindowsCopilot', 1),
+    @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search', 'DisableWebSearch', 1), @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search', 'ConnectedSearchUseWeb', 0),
+    @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\Windows Search', 'AllowCortana', 0),
+    @('HKCU:\Software\Policies\Microsoft\Windows\Explorer', 'DisableSearchBoxSuggestions', 1), @('HKCU:\Software\Microsoft\Windows\CurrentVersion\Search', 'BingSearchEnabled', 0),
+    @('HKLM:\SOFTWARE\Policies\Microsoft\Edge', 'StartupBoostEnabled', 0), @('HKLM:\SOFTWARE\Policies\Microsoft\Edge', 'BackgroundModeEnabled', 0),
+    @('HKLM:\SOFTWARE\Policies\Microsoft\Edge', 'HideFirstRunExperience', 1), @('HKLM:\SOFTWARE\Policies\Microsoft\Edge', 'EdgeShoppingAssistantEnabled', 0),
+    @('HKLM:\SOFTWARE\Policies\Microsoft\Edge', 'MetricsReportingEnabled', 0), @('HKLM:\SOFTWARE\Policies\Microsoft\Edge', 'PersonalizationReportingEnabled', 0),
+    @('HKLM:\SOFTWARE\Policies\Microsoft\Windows\OneDrive', 'DisableFileSyncNGSC', 1)
+  )
+  if ($Apply) { foreach ($k in $keys.Keys) { Backup-Key $k $keys[$k] } }
+  foreach ($s in $settings) {
+    Write-Host ('   {0}\{1} = {2}' -f $s[0], $s[1], $s[2])
+    if ($Apply) { if (-not (Test-Path $s[0])) { $null = New-Item -Path $s[0] -Force }; $null = New-ItemProperty -Path $s[0] -Name $s[1] -PropertyType DWord -Value $s[2] -Force }
+  }
+  Write-Host '   Default browser is a Settings step (Windows blocks scripting it): Settings > Apps > Default apps > Vivaldi > set .htm .html http https .pdf'
+}
+
+Step '8 DubbingAI startup (scheduled task and Run key)' {
+  Write-Host '   unregister task: Login Auto Start Dubbing Task; remove HKLM Run DubbingAI'
+  if ($Apply) {
+    Unregister-ScheduledTask -TaskName 'Login Auto Start Dubbing Task' -Confirm:$false -ErrorAction SilentlyContinue
+    Remove-ItemProperty -Path 'HKLM:\Software\Microsoft\Windows\CurrentVersion\Run' -Name 'DubbingAI' -ErrorAction SilentlyContinue
+  }
+}
+
+Step '9 Pagefile stays on C: only (-Pagefile): 16384 MB start, 32768 MB max, D: entry removed' {
+  $mm = 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management'
+  $cur = (Get-ItemProperty $mm).PagingFiles
+  Write-Host ('   current PagingFiles: ' + ($cur -join ' | '))
+  Write-Host '   new      PagingFiles: C:\pagefile.sys 16384 32768'
+  Write-Host '   why: D: cannot host the file (BitLocker auto-unlock comes after boot). A bigger limit than the old 25 GiB stays available on demand, because'
+  Write-Host '        WSL (vmmemWSL, about 16 GiB) pushes commit charge to 43 GiB. The file starts at 16 GiB and grows to 32 GiB only when needed.'
+  Write-Host ('   automatic management currently: ' + (Get-CimInstance Win32_ComputerSystem).AutomaticManagedPagefile)
+  if (-not $Pagefile) { Write-Host '   not requested (add -Pagefile)'; return }
+  if ($Apply) {
+    Backup-Key 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' 'memorymgmt'
+    Set-ItemProperty -Path $mm -Name PagingFiles -Type MultiString -Value @('C:\pagefile.sys 16384 32768')
+    Write-Host ('   written: ' + ((Get-ItemProperty $mm).PagingFiles -join ' | '))
+    Write-Host '   REBOOT to apply. After the reboot: Get-CimInstance Win32_PageFileUsage | ft Name,AllocatedBaseSize,CurrentUsage'
+  }
+}
+
+Write-Host ''
+Write-Host ('END    C: free {0} GiB, D: free {1} GiB' -f (Free C), (Free D))
+Write-Host ('Log: ' + $log)
+Stop-Transcript | Out-Null
+
+```
+- `PowerShell` -- `{"command":"Remove-Item \u0027D:\\WSL\\ops\\windows\\03-pagefile-stage2.ps1\u0027 -Force\nforeach ($f in \u002701-user-cleanup.ps1\u0027,\u002702-admin-cleanup.ps1\u0027) {\n  $p = \"D:\\WSL\\ops\\windows\\$f\"; $e = $null; $t = $null\n  [void][System.Management.Automation.Language.Parser]::ParseFile($p, [ref]$t, [ref]$e)\n  $bytes = [IO.File]::ReadAllBytes($p); $na = @($bytes | Where-Object { $_ -gt 127 -or $_ -eq 0 }).Count\n  \"$f parseErrors=$($e.Count) nonAscii=$na\"; $e | ForEach-Object { $_.Message + \u0027 line \u0027 + $_.Extent.StartLineNumber }\n}\nGet-ChildItem D:\\WSL\\ops\\windows\\*.ps1 | Select-Object Name","description":"Delete stage 2 script, parse-check both scripts"}`
+- `PowerShell` -- `{"command":"$o = \u0026 powershell -NoProfile -ExecutionPolicy Bypass -File D:\\WSL\\ops\\windows\\01-user-cleanup.ps1 -ClaudeVm -MoveOllama 2\u003e\u00261 | Out-String -Width 220; $o | Set-Content \u0027C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\[REDACTED]\\scratchpad\\dry01.txt\u0027 -Encoding ASCII; $o","description":"Dry-run script 01 (changes nothing)","timeout":600000}`
+- `PowerShell` -- `{"command":"Get-Process Jan,jan* -ErrorAction SilentlyContinue | Select-Object Name,Id | Format-Table -AutoSize | Out-String\nGet-ChildItem \u0027D:\\AI\\jan\u0027 -Force | Select-Object Name,LastWriteTime | Format-Table -AutoSize | Out-String\n\u0027{0:N2} GiB now\u0027 -f ((Get-ChildItem \u0027D:\\AI\\jan\u0027 -Recurse -Force -File -ErrorAction SilentlyContinue | Measure-Object Length -Sum).Sum / 1GB)\nGet-ChildItem \"$env:APPDATA\\Jan\" -Force -File | Select-Object Name,Length | Format-Table -AutoSize | Out-String\nSelect-String -Path \"$env:APPDATA\\Jan\\*.json\" -Pattern \u0027data_folder|dataFolder|janDataFolder\u0027 -ErrorAction SilentlyContinue | ForEach-Object { $_.Path + \u0027: \u0027 + $_.Line.Trim() }","description":"Check whether Jan is copying its data to D:"}`
+- `Edit` -- `D:\WSL\ops\windows\01-user-cleanup.ps1`
+```diff
+-     foreach ($p in (Get-Process -Name $n -ErrorAction SilentlyContinue)) {
+      $pp = $null; try { $pp = $p.Path } catch {}
++     foreach ($proc in (Get-Process -Name $n -ErrorAction SilentlyContinue)) {
+      $pp = $null; try { $pp = $proc.Path } catch {}
+```
+- `Edit` -- `D:\WSL\ops\windows\01-user-cleanup.ps1`
+```diff
+-   foreach ($p in (Get-Process -ErrorAction SilentlyContinue)) {
+    $pp = $null; try { $pp = $p.Path } catch {}
++   foreach ($proc in (Get-Process -ErrorAction SilentlyContinue)) {
+    $pp = $null; try { $pp = $proc.Path } catch {}
+```
+- `Edit` -- `D:\WSL\ops\windows\01-user-cleanup.ps1`
+```diff
+- $ErrorActionPreference = 'Continue'
+$null = New-Item -ItemType Directory -Force 'D:\WSL\ops\windows\logs'
++ $ErrorActionPreference = 'Continue'
+$RemoveOrphans = @($RemoveOrphans | ForEach-Object { $_ -split ',' } | ForEach-Object { $_.Trim() } | Where-Object { $_ })
+$null = New-Item -ItemType Directory -Force 'D:\WSL\ops\windows\logs'
+```
+- `Edit` -- `D:\WSL\ops\windows\01-user-cleanup.ps1`
+```diff
+-   Relocate "$R\Jan\data" 'D:\AI\jan' 'Jan models and extensions' @('Jan')
++   $janSet = ''; try { $janSet = (Get-Content "$R\Jan\settings.json" -Raw | ConvertFrom-Json).data_folder } catch {}
+  $janD = DirBytes 'D:\AI\jan'
+  Write-Host ('   Jan settings data_folder = {0}; D:\AI\jan holds {1:N2} GiB' -f $janSet, ($janD / 1GB))
+  if ($janSet -eq 'D:\AI\jan' -and $janD -ge 2.5GB) {
+    if (Running @('Jan')) { Write-Host '   SKIP old Jan data on C: (Jan is running, close it and re-run)' }
+    else { Write-Host '   Jan already uses D:\AI\jan; the copy left on C: is stale:'; Drop "$R\Jan\data" }
+  } else { Relocate "$R\Jan\data" 'D:\AI\jan' 'Jan models and extensions' @('Jan') }
+```
+- `PowerShell` -- `{"command":"$p = \u0027D:\\WSL\\ops\\windows\\01-user-cleanup.ps1\u0027; $e = $null; $t = $null\n[void][System.Management.Automation.Language.Parser]::ParseFile($p, [ref]$t, [ref]$e)\n$na = @([IO.File]::ReadAllBytes($p) | Where-Object { $_ -gt 127 -or $_ -eq 0 }).Count\n\"parseErrors=$($e.Count) nonAscii=$na\"\n$o = \u0026 powershell -NoProfile -ExecutionPolicy Bypass -File $p -ClaudeVm -MoveOllama -RemoveOrphans \u0027Medal,Opera Software\u0027 2\u003e\u00261 | Out-String -Width 220\n$o -split \"`r?`n\" | Where-Object { $_ -match \u0027SKIP|REFUSED|Jan|relocate|size |Medal|Opera|Method|error|Exception|group total|^---|START|END\u0027 } | Select-Object -First 70","description":"Re-parse and re-run the dry run, filtered","timeout":600000}`
+- `PowerShell` -- `{"command":"$f = \u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Old Laptop Rebuild - Build 3 Windows Cleanup Findings.md\u0027\n$add = @\u0027\n\n## D: target layout and plan revision (2026-10-12)\nPlan revision: the pagefile stays on C: only (16384 MB start, 32768 MB max, no D: file; script 03 dropped). Jan already moved itself to `D:\\AI\\jan` (its settings.json says so), so only the stale C: copy is deleted. The D: recycle bin and `D:\\Users\\Games` were emptied by the user (D: free went from 363.8 to 479.9 GiB).\n\n| D: folder | Holds | Rule |\n|---|---|---|\n| `D:\\_Anant` | the one user profile (vaults, 00_Inbox, 20_Progress, 30_Resources, 99_Archive) | target of the later `D:\\Users\\_Anant` merge, done only after the cleanup and a reference scan, because Jarvis, The Plan, Syncthing, MCP configs and scheduled tasks hardcode `D:\\Users\\_Anant` |\n| `D:\\AI` | `ollama-models`, `local-models`, `jan`, `hermes` | models and agent data |\n| `D:\\Cache` | `npm`, `uv`, `pip`, `ms-playwright`, `huggingface`, `nuget`, `gradle`, `puppeteer`, `codex` | everything that regenerates; set through user env vars and `npm config` |\n| `D:\\Apps` | `Ollama`, `miniconda3`, `opamroot` (junction targets), later `Syncthing` | installers with a location option |\n| `D:\\WSL` | Ubuntu disk, Docker disk, ops scripts | Tier C |\n| `D:\\Quarantine` | dated review folders | delete by the date in the name |\n| `D:\\DeliveryOptimization`, `D:\\WUDownloadCache` | Windows Update caches | cleared by script 02; `Program Files`, `WindowsApps`, `WpSystem` are Store-managed, never touched |\n\u0027@\nAdd-Content -LiteralPath $f -Value $add -Encoding UTF8\n(Select-String -LiteralPath $f -Pattern ([string][char]0x2014)).Count","description":"Append D: layout section to findings note"}`
+
 ## Actions Taken
 
 **Files created:**
 - `C:\Users\Anant Gupta\.claude\projects\C--Users-Anant-Gupta\memory\feedback_scripts_for_bulk_cleanup.md`
+- `C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\06b8b684-9d4a-42af-85c3-f42ff7877041\scratchpad\map2.ps1`
 - `C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\06b8b684-9d4a-42af-85c3-f42ff7877041\scratchpad\sens.ps1`
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Old Laptop Rebuild - Build 3 Windows Cleanup Findings.md`
 - `D:\WSL\ops\windows\01-user-cleanup.ps1`

@@ -24,6 +24,7 @@ notes:
   - "[[VS Code - Terminal Environments]]"
   - "[[VS Code - MCP and Secrets]]"
   - "[[VS Code - Install Loop]]"
+  - "[[VS Code Modifications]]"
   - "[[Installations]]"
   - "[[second-brain-claudekit-new-laptop-directive]]"
 next: Give second-brain-claudekit its .vscode/ folder; keep every install
@@ -33,8 +34,9 @@ next: Give second-brain-claudekit its .vscode/ folder; keep every install
 ## Purpose
 ==VS Code is the home base for every piece of work on the Acer, and this note is the map for how it is configured: what is shared across Windows and WSL, what exists twice, and which VS Code system owns which job.== Read this first, then go to the platform note for whichever side you are changing. The developer baseline (settings, keybindings, extensions on both sides, WSL Remote settings) was applied on 2026-09-24.
 ## Map
-The setup splits into two platform notes because VS Code genuinely runs two different installations on this laptop. [[VS Code - Windows]] covers the Windows home (`C:\Users\anant`), the client app, the user settings layer that every window inherits, the Windows environments (miniconda on `D:\conda`, standalone uv), the Settings Sync incident, and the log evidence for every failure found on this laptop so far. [[VS Code - WSL]] covers the WSL home (`/home/anant_gupta`), the VS Code Server inside Ubuntu, the Remote settings layer, and the Linux toolchain where the main codebases live. Windows is the side verified first; WSL copies it once Windows is confirmed in daily use.
+The setup splits into two platform notes because VS Code genuinely runs two different installations on this laptop. [[VS Code - Windows]] covers the Windows home (`C:\Users\anant`), the client app, the user settings layer that every window inherits, the Windows environments (miniconda envs on `D:\Apps\Miniconda`, standalone uv), the Settings Sync incident, and the log evidence for every failure found on this laptop so far. [[VS Code - WSL]] covers the WSL home (`/home/anant_gupta`), the VS Code Server inside Ubuntu, the Remote settings layer, and the Linux toolchain where the main codebases live. Windows is the side verified first; WSL copies it once Windows is confirmed in daily use.
 Three cross-cutting notes hold the systems both sides share. [[VS Code - Terminal Environments]] explains how every VS Code terminal loads a base environment plus the folder's `.vscode/env.ps1`, and what the home environment contains. [[VS Code - MCP and Secrets]] explains the global MCP registry and sync script, where secret values live, how WSL reaches Jarvis, and a six-month pre-mortem. [[VS Code - Install Loop]] owns the recurring job of keeping both sides aligned: the 40-extension limit and current list, mirror commands, and a check block with expected numbers.
+[[VS Code Modifications]] records proposed changes only (environment auto-activation, agent sandboxing, worktrees, dev containers, MCP file moves) with sources and costs; none are applied yet.
 This note holds everything else that is the same on both sides: settings precedence, Workspace Trust, the `.vscode/` folder, the agent customization files, the Agents window and dev containers, approvals and sandboxing, profiles, and Settings Sync.
 Upstream, [[New Laptop Setup]] is the pinned index for the laptop, [[Installations]] records which drive each app landed on, and [[Ubuntu - WSL]] holds the WSL terminal tooling. The first real codebase to receive a `.vscode/` folder is `second-brain-claudekit`, documented in [[second-brain-claudekit-new-laptop-directive]].
 ## Where VS Code Keeps State
@@ -242,9 +244,9 @@ The gain does not come from any single feature. It comes from making every repo 
 |---|---|
 | VS Code version | 1.141.0 on Windows (checked 2026-10-12; was 1.139.1 on 2026-09-26), WSL server not re-checked |
 | User settings, keybindings, tasks, MCP | applied and synced; restored after the Sync incident (see [[VS Code - Windows]]) |
-| Settings Sync | on, from the Acer; cloud copy verified to hold this laptop's files |
+| Settings Sync | on, from the Acer; cloud copy verified to hold this laptop's files. Confirmed active on Windows 2026-10-12 (account-level, same as WSL, nothing separate to enable): `%APPDATA%\Code\User\sync\settings\lastSyncsettings.json` and `...\tasks\lastSynctasks.json` carried that day's edit times. Re-verify by checking those `lastSync*.json` timestamps against a recent real edit |
 | Extensions | 39 on Windows (limit 40), 34 on WSL, same working set |
-| Terminal environments | Windows: every terminal loads base + `.vscode/env.ps1`; home environment live. WSL: pending port |
+| Terminal environments | Windows: every terminal loads base + `.vscode/env.ps1`; home environment live. WSL: ported and verified 2026-09-27, negligible overhead (see [[VS Code - Terminal Environments]]) |
 | Environments | conda `jupyter-base` on both sides for notebook work, uv for everything else |
 | MCP | global registry + sync script on Windows; Jarvis global in Claude Code and VS Code; `the-plan` needs `THE_PLAN_API_KEY` |
 | Secrets | Claude Code read-deny on secret files, global git ignore, on-screen cloaking |

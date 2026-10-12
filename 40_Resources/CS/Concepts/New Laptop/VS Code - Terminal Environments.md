@@ -29,7 +29,7 @@ The obvious route is a terminal profile whose `args` run a script. VS Code's doc
 - `VSCODE_ENV_DISABLE = 1` turns it off for one window.
 These `terminal.integrated.*` settings are marked `restricted` in VS Code 1.139, so a workspace can only set them once you trust it.
 ## What Runs, In Order
-1. **Profile** (`D:\_Anant\20_Progress\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1`): Starship, UTF-8, then dot-sources `~/.config/vscode-env/init.ps1` when inside VS Code.
+1. **Profile** (PowerShell 7: `D:\_Anant\20_Progress\Documents\PowerShell\Microsoft.PowerShell_profile.ps1`, created 2026-10-12; Windows PowerShell 5.1: `...\WindowsPowerShell\Microsoft.PowerShell_profile.ps1`; same content in both): Starship, zoxide, UTF-8, then dot-sources `~/.config/vscode-env/init.ps1` when inside VS Code.
 2. **Base**: conda `base` is never left active (conda `auto_activate` is also off).
 3. **Detect**: `pyproject.toml` (uv project), `environment.yml` (conda project), a bare `.venv`, `requirements.txt`, notebooks. Only file checks, no conda or uv processes, so it stays fast.
 4. **Header**: `env | <folder> | <what was detected> | .vscode/env.ps1 loaded` (or `no .vscode/env.ps1`).
@@ -40,7 +40,7 @@ Tasks run `powershell -Command` without `-NoExit`, so the script stays silent th
 | Folder | Status line | Warning |
 |---|---|---|
 | `C:\Users\anant` | `env \| home \| .vscode/env.ps1 loaded` + home block | none |
-| CSCI 5304 | `conda env 'csci-5304'` | `defaults` channel needs Anaconda ToS |
+| CSCI 5304 | `conda env 'csci-5304'` | `defaults` channel needs Anaconda ToS (measured 2026-09-26; the file now says `conda-forge`, 2026-10-12) |
 | CSCI 4511W practice code | `.venv (no pyproject.toml)` | untracked `.venv`, cannot be rebuilt |
 | scratch uv project | `uv project` | no `.venv`, no `uv.lock` |
 Startup cost: 773 to 869 ms per terminal against a 734 ms baseline for plain PowerShell 5.1 with Starship, so the environment adds roughly 40 to 135 ms.

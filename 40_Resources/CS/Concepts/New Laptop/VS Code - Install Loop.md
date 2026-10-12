@@ -65,7 +65,7 @@ Global servers come from one registry, `~/.config/mcp/mcp.json`, applied by `~/.
 - *GitHub:* one server, the official remote in VS Code. The deprecated npm `server-github` is gone.
 - *No home `.mcp.json`:* it was Claude-only, asked for approval in every new project under home, missed `D:\`, and could shadow user scope. Project `.mcp.json` files remain for repo-specific servers.
 ## Environment Rule
-- *Notebook or library work:* a conda env, used through Jupyter cells. Shared default is `jupyter-base` (spec: `D:\conda\specs\jupyter-base.yml` on Windows, `~/conda/specs/jupyter-base.yml` in WSL). A course or project that needs its own set gets its own env and an `environment.yml` in the repo.
+- *Notebook or library work:* a conda env, used through Jupyter cells. Shared default is `jupyter-base` (spec: `D:\Apps\Miniconda\specs\jupyter-base.yml` on Windows, `~/conda/specs/jupyter-base.yml` in WSL). A course or project that needs its own set gets its own env and an `environment.yml` in the repo.
 - *Everything else:* a uv project (`pyproject.toml` + `uv.lock` + `.venv`).
 - *Growth:* install, then export. `conda install -n <env> <pkg>` followed by the export task; `uv add <pkg>` updates `pyproject.toml` and `uv.lock` itself.
 - *Warnings:* Pylance reports unresolved imports as warnings (`reportMissingImports`, `reportMissingModuleSource`), which is the signal that a package is missing from the selected env. `uv: lock check` fails when `uv.lock` drifts from `pyproject.toml`. Jupyter hides base and loose interpreters from the kernel picker, so a notebook cannot silently land on `base`.
@@ -93,7 +93,7 @@ Run after any change. Expected values as of 2026-09-26 in the comments.
 ```powershell
 (code --list-extensions).Count                         # 39
 code --version | Select-Object -First 1                # matches WSL server commit
-& "$env:USERPROFILE\miniconda3\Scripts\conda.exe" env list   # base, jupyter-base on D:\conda\envs
+& "$env:USERPROFILE\miniconda3\Scripts\conda.exe" env list   # base, csci-4521, jupyter-base on D:\Apps\Miniconda\envs (2026-10-12)
 uv --version                                           # resolves to ~\.local\bin\uv.exe
 ```
 ```bash

@@ -197,6 +197,14 @@ mcp.env
 30_Order/System/excalidraw-mcp/node_modules/
 30_Order/System/excalidraw-mcp/*.log
 
+# excalidraw.log (Build 14, 2026-10-09) - the Excalidraw MCP server writes this
+# into whatever directory it was launched from (vault root, claude-workflow/,
+# lazy-plugins/), once per laptop, so each laptop's copy differs. Already
+# (?d)-prefixed in .stignore but was still tracked in git, causing a real
+# rebase conflict (2026-10-12) between two laptops' append-only log growth -
+# untracked from git entirely below, not just ignored going forward.
+excalidraw.log
+
 # Lean Terminal plugin's native node-pty dependency (npm package, regenerable)
 .obsidian/plugins/lean-terminal/node_modules/
 

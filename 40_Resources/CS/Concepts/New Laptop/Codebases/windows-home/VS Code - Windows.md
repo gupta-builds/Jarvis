@@ -25,7 +25,7 @@ next: "Keep Windows work to the UMN class folders and the vaults; mirror every i
 ## File Map
 | Path | What lives there |
 |---|---|
-| `D:\Apps\Microsoft VS Code\` | the app (1.139.1 on 2026-09-26, self-updating) |
+| `D:\Apps\Microsoft VS Code\` | the app (1.141.0 on 2026-10-12, was 1.139.1 on 2026-09-26; self-updating) |
 | `~\.vscode\extensions\` | Windows-side extensions (39) |
 | `%APPDATA%\Code\User\settings.json` | user settings, inherited by WSL windows, synced |
 | `%APPDATA%\Code\User\keybindings.json` | custom `Ctrl+Alt` layer, synced |
@@ -34,9 +34,9 @@ next: "Keep Windows work to the UMN class folders and the vaults; mirror every i
 | `%APPDATA%\Code\User\workspaceStorage\<hash>\workspace.json` | one file per folder ever opened, with its URI |
 | `%APPDATA%\Code\logs\<session>\` | per-session logs, including `userDataSync.log` |
 | `%APPDATA%\Code\User-backup-20260924\` | every pre-change backup from 2026-09-24 to 2026-09-26 |
-| `~\.condarc`, `D:\conda\envs`, `D:\conda\pkgs`, `D:\conda\specs` | conda config, environments, package cache, env specs |
+| `~\.condarc`, `D:\Apps\Miniconda\envs`, `D:\Apps\Miniconda\pkgs`, `D:\Apps\Miniconda\specs` | conda config, environments, package cache, env specs (`D:\conda` never existed; corrected 2026-10-12) |
 | `~\.config\starship.toml` | prompt config, same file as WSL since 2026-09-26 |
-| `D:\_Anant\20_Progress\Documents\WindowsPowerShell\` | PowerShell profiles (Documents is redirected to D:) |
+| `D:\_Anant\20_Progress\Documents\PowerShell\` and `...\WindowsPowerShell\` | PowerShell 7 and Windows PowerShell 5.1 profiles (Documents is redirected to D:); see "PowerShell Profiles and Terminal Default" |
 ## Settings Sync Incident, 2026-09-25/26
 Sync was turned on while the cloud already held a copy from another machine, most likely the Dell. The first sign-in hit a settings conflict whose preview was an empty file. After it was resolved, local `settings.json` held only the remote's 2 keys (`claudeCode.hideOnboarding`, `editor.wordWrap`), and at 13:55 and 13:57 on 2026-09-26 that 2-key file was pushed back to the cloud. The extension merge also installed the Dell's 9 extensions (40 total).
 *Recovery:* settings restored from the pre-sync backup, keeping both remote keys. The Dell extensions were audited, and every restored file was confirmed pushed in `userDataSync.log` (MCP 14:12, extensions 14:14, settings and keybindings 14:21, tasks 14:22).
@@ -60,11 +60,20 @@ Two causes, both fixed on 2026-09-26:
 2. **The setting was wiped** by the Sync incident above.
 Also cleaned up: `starship init powershell` ran twice in the PowerShell profile (one line removed), and the Windows `starship.toml` was the older untuned copy. It is now the WSL version (exit status, command duration, shell level, jobs, 500 ms scan timeout). `starship print-config` parses it cleanly.
 ## Environments on Windows
-- *Miniconda:* base stays at `C:\Users\anant\miniconda3` (0.99 GB), but new envs and the package cache go to `D:\conda\envs` and `D:\conda\pkgs`, which is what [[Installations]] planned for `D:\conda`. Channels are conda-forge only with strict priority; Anaconda's `defaults` channels were removed from both `.condarc` files because conda 26 blocks them until their Terms of Service are accepted. `auto_activate` is off (every PowerShell used to start inside `base`), and `changeps1` is off because Starship shows the env.
-- *`jupyter-base`:* Python 3.12.14, ipykernel, ipywidgets, numpy 2.5.3, pandas 3.0.6, pyarrow, scipy, scikit-learn 1.9.1, matplotlib, seaborn. Spec at `D:\conda\specs\jupyter-base.yml`.
+- *Miniconda:* base stays at `C:\Users\anant\miniconda3` (0.99 GB), but new envs and the package cache go to `D:\Apps\Miniconda\envs` and `D:\Apps\Miniconda\pkgs` (set by `envs_dirs`/`pkgs_dirs` in `~\.condarc`; the `D:\conda` path in [[Installations]] and earlier versions of this note never existed). Live envs on 2026-10-12: `base`, `csci-4521` and `jupyter-base`. CSCI 5304's env is a project-local prefix at `CSCI 5304\.conda\csci-5304`, so it does not show in `conda env list`. Channels are conda-forge only with strict priority; Anaconda's `defaults` channels were removed from both `.condarc` files because conda 26 blocks them until their Terms of Service are accepted. `auto_activate` is off (every PowerShell used to start inside `base`), and `changeps1` is off because Starship shows the env.
+- *`jupyter-base`:* Python 3.12.14, ipykernel, ipywidgets, numpy 2.5.3, pandas 3.0.6, pyarrow, scipy, scikit-learn 1.9.1, matplotlib, seaborn. Spec at `D:\Apps\Miniconda\specs\jupyter-base.yml`, re-exported 2026-10-12 with the `conda: export jupyter-base spec` task command; all nine packages confirmed live.
 - *uv:* standalone 0.12.19 in `~\.local\bin` (Astral installer), now first on the user PATH ahead of `D:\Apps\Hermes\bin`, so `uv self update` works and uv no longer depends on the Hermes bundle.
-> [!WARNING]
-> CSCI 5304's `environment.yml` still lists `defaults`. Rebuilding that env will stop at the Terms of Service prompt until the channel line is changed to `conda-forge`.
+- *Course mapping:* `python-envs.pythonProjects` maps CSCI 5304 (conda), CSCI 4521's `Code` subfolder (conda, env `csci-4521`) and CSCI 4511W's practice `Code` folder (`.venv`). CSCI 4521 was added 2026-10-12.
+> [!NOTE]
+> CSCI 5304's `environment.yml` channel line was changed from `defaults` to `conda-forge` plus `nodefaults` on 2026-10-12. The existing `.conda\csci-5304` env was built before the change and was not rebuilt; the edit only matters at the next rebuild.
+
+## PowerShell Profiles and Terminal Default
+- *Profiles:* `D:\_Anant\20_Progress\Documents\PowerShell\Microsoft.PowerShell_profile.ps1` (PowerShell 7, created 2026-10-12; it did not exist before, so `pwsh` had no Starship, UTF-8 or `vscode-env` hook) and `...\WindowsPowerShell\Microsoft.PowerShell_profile.ps1` (5.1). Both hold the same content: Starship, zoxide, UTF-8 output, and the `TERM_PROGRAM -eq 'vscode'` guarded dot-source of `~/.config/vscode-env/init.ps1`.
+- *Default shell:* `pwsh` (PowerShell 7) in both Windows Terminal (`defaultProfile` is the `PowerShell` GUID `{574e775e-4f2a-5b96-ac1e-a2962a402336}`) and VS Code (`terminal.integrated.defaultProfile.windows` is `PowerShell`). This follows the Dell rebuild's decision D5. Windows PowerShell 5.1 stays available as a second profile.
+- *Not confirmed:* that VS Code's `PowerShell` name resolves to `pwsh.exe` was not observed in a live GUI terminal. Check with `$PSVersionTable.PSVersion` in a new integrated terminal; both shells were tested with `TERM_PROGRAM=vscode` and print the `env | home | .vscode/env.ps1 loaded` block.
+- *Git pager:* `~\.gitconfig` sets `core.pager = delta`, `interactive.diffFilter = delta --color-only` and a `[delta]` block (navigate, side-by-side, line-numbers), the same as WSL minus its merge and diff lines.
+- *uv:* `C:\Users\anant\.local\bin\uv.exe` (0.12.19) is first on PATH; `D:\Apps\Hermes\bin\uv.exe` is second and harmless. No pip shadow copy.
+- *CLI tools:* fzf, fd, bat, delta and zoxide, all with default configuration. Listed in [[Installations]].
 
 ## Failures Found on This Laptop
 Logs go back to 2026-09-21; workspace history to 2026-09-19.
@@ -92,5 +101,4 @@ Global MCP servers come from `~/.config/mcp/mcp.json` via `sync-mcp.ps1`. Claude
 - *Home:* `C:\Users\anant` stays trusted for Claude Code home sessions.
 - *Landing zone:* third-party clones go to WSL `~/projects/scratch`.
 ## Remaining on Windows
-- Change `defaults` to `conda-forge` in CSCI 5304's `environment.yml` before its next rebuild.
 - Profiles, once there is more than one kind of Windows work.

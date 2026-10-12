@@ -24,6 +24,7 @@ notes:
   - "[[VS Code - Terminal Environments]]"
   - "[[VS Code - MCP and Secrets]]"
   - "[[VS Code - Install Loop]]"
+  - "[[VS Code Modifications]]"
   - "[[Installations]]"
   - "[[second-brain-claudekit-new-laptop-directive]]"
 next: Give second-brain-claudekit its .vscode/ folder; keep every install
@@ -35,6 +36,7 @@ next: Give second-brain-claudekit its .vscode/ folder; keep every install
 ## Map
 The setup splits into two platform notes because VS Code genuinely runs two different installations on this laptop. [[VS Code - Windows]] covers the Windows home (`C:\Users\anant`), the client app, the user settings layer that every window inherits, the Windows environments (miniconda envs on `D:\Apps\Miniconda`, standalone uv), the Settings Sync incident, and the log evidence for every failure found on this laptop so far. [[VS Code - WSL]] covers the WSL home (`/home/anant_gupta`), the VS Code Server inside Ubuntu, the Remote settings layer, and the Linux toolchain where the main codebases live. Windows is the side verified first; WSL copies it once Windows is confirmed in daily use.
 Three cross-cutting notes hold the systems both sides share. [[VS Code - Terminal Environments]] explains how every VS Code terminal loads a base environment plus the folder's `.vscode/env.ps1`, and what the home environment contains. [[VS Code - MCP and Secrets]] explains the global MCP registry and sync script, where secret values live, how WSL reaches Jarvis, and a six-month pre-mortem. [[VS Code - Install Loop]] owns the recurring job of keeping both sides aligned: the 40-extension limit and current list, mirror commands, and a check block with expected numbers.
+[[VS Code Modifications]] records proposed changes only (environment auto-activation, agent sandboxing, worktrees, dev containers, MCP file moves) with sources and costs; none are applied yet.
 This note holds everything else that is the same on both sides: settings precedence, Workspace Trust, the `.vscode/` folder, the agent customization files, the Agents window and dev containers, approvals and sandboxing, profiles, and Settings Sync.
 Upstream, [[New Laptop Setup]] is the pinned index for the laptop, [[Installations]] records which drive each app landed on, and [[Ubuntu - WSL]] holds the WSL terminal tooling. The first real codebase to receive a `.vscode/` folder is `second-brain-claudekit`, documented in [[second-brain-claudekit-new-laptop-directive]].
 ## Where VS Code Keeps State

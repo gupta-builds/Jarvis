@@ -14,7 +14,7 @@ related:
   - "[[Ubuntu - WSL]]"
   - "[[Installations]]"
   - "[[Old Laptop Rebuild - Prompt 1 WSL]]"
-next: Wait for the WSL 3.0.2 binfmt fix to reach stable, then recheck systemd and resume Phase 4 at the admin/SSH validation steps
+next: Await a stable WSL release containing the binfmt fix, then recheck systemd and continue Phase 4 at the admin/SSH validation steps
 ---
 # Old Laptop Rebuild - Index
 
@@ -65,3 +65,10 @@ The Acer's cloud copy has landed on the Dell's Windows VS Code, with Acer-only p
 
 ## Logging rule for every session
 Each session writes `Old Laptop Rebuild - Build N <layer> Findings.md` here, with a before/after size table, every state-changing command, the root cause of every error, and a Growth rules section (the standing rule and one check command per thing that grew).
+
+## Dated campaign amendment — 2026-10-11
+Phase 4 remains **in progress** while waiting for a stable WSL release containing the `systemd-binfmt` fix. The user's choice is to wait for stable; this is not a pause of the phase or campaign. WSL 3.0.1.0 remains live and degraded only because the binfmt flush is read-only; do not install the prerelease or apply a workaround. Follow the detailed live facts and item-by-item ledger in [[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]].
+
+Current handoff: Build 2 Phase 4 still needs the stable update and recheck, actual SSH-policy inspection, host-key match and Acer SSH/Remote-SSH checks, optional port-2222 decision, meaningful transfer approval, clone inventory, and post-service idle test. Then the unrun sudo package script and Build 2 items 7-9 remain, as do sync-check, Tunnels, directive and repo pilot gates. The Acer snapshot exists at `Acer Dotfile Snapshot/` (MANIFEST/VERSIONS dated 2026-10-11); use it as Build 4's source, but run Build 3 first. Build 3 Windows work, Build 4 Windows parity, Build 5 Windows VS Code/MCP and Build 6 cross-machine verification are not complete. See the Build 2 campaign ledger for named owners and exact next actions.
+
+Live 2026-10-11 disk/service refresh: WSL `/` has 901 GiB free; C: 39.46 GiB free; D: 363.80 GiB free. Tailscale ping first used DERP and later went direct, so route is variable; no MTU change. No listeners on 22/2222 or Dell Windows Tailscale/OpenSSH service were observed. Current editor/Codex processes prevented an idle-test rerun. Historical 2026-10-07 duplicate-Python-registration hypothesis is superseded: latest journal evidence is the read-only `binfmt_misc` flush failure described in Build 2 findings.

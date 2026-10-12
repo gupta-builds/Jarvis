@@ -267,3 +267,30 @@ None so far. One new file: `D:\WSL\ops\windows\diag-pagefile-bitlocker.ps1` (rea
 
 ## Hand-offs to later builds
 Pending until execution.
+
+## Diagnostic result and revised pagefile plan (2026-10-11 evening)
+Elevated read-only diagnostic `diag-pagefile-bitlocker.ps1`, transcript in `D:\WSL\ops\windows\` (recovery password redacted from the saved file; the key is escrowed to the Microsoft account).
+- C: BitLocker 2.0, TPM plus recovery password, protection on, XTS-AES 128, used-space-only.
+- D: BitLocker 2.0, protection on, **Automatic Unlock enabled through an External Key (.BEK)**. A BEK-based auto-unlock data volume is unlocked after the OS volume, which is the strongest candidate for why the D: pagefile cannot be created at boot. Still a hypothesis: Windows logs no event that names it, so the only proof is the reboot test below.
+- BitLocker event 24641 also fired on 2026-10-03 (three times), so it is not new.
+- `manage-bde -autounlock -status` is not a valid syntax; irrelevant.
+Revised plan, because commit charge is 43.2 of 57.1 GiB (a 4 GB C: file would drop the limit below the current charge if D: fails again):
+1. Stage 1 (`02-admin-cleanup.ps1 -Apply -Pagefile`): C: 16384 MB fixed, D: 32768 MB fixed. Commit limit about 80 GiB either way. C: gains about 9 GiB after the reboot.
+2. Reboot, then check `Test-Path D:\pagefile.sys`.
+3. Stage 2 (`03-pagefile-stage2.ps1 -Apply`): only if D: works, C: drops to 4096 MB (about 12 GiB more). If D: does not work, C: stays at 16384 fixed and the D: entry is removed. Either way the RAM-sized 25.4 GiB fallback is gone.
+
+## C: layout map (target structure, mirrored on the Acer)
+Rule: a folder on C: is either Windows, an installed program, or one tool's own state. Nothing the user authored lives on C:. Anything else goes to D:.
+| Location | What it is | Owner | Action rule |
+|---|---|---|---|
+| `C:\Windows`, `C:\Program Files`, `C:\Program Files (x86)`, `C:\ProgramData`, `C:\Users`, `C:\Recovery`, `C:\pagefile.sys` | OS and installed programs | Windows | Tier C, never hand-edited |
+| `C:\Python313`, `C:\opamroot`, `C:\srverify-*`, `C:\OneDriveTemp`, `C:\inetpub`, `C:\Config.Msi` | root-level leftovers | various | opamroot and srverify removed by script 01; empty ones are left (Windows recreates them) |
+| `C:\Users\Anant Gupta\AppData\Local\Programs` | Electron and per-user apps with no location choice | each app | clean caches only; Ollama moves to `D:\Apps\Ollama` |
+| `C:\Users\Anant Gupta\AppData\Roaming` | per-app settings and caches | each app | cache folders cleaned by script; never bulk-delete |
+| `C:\Users\Anant Gupta\.<name>` dot folders (`.codex`, `.claude`, `.cursor`, `.kiro`, `.vscode`, `.docker`, `.cache`, `.local`, `.jdks`, `.gemini`, `.aitk`, `.pencil`) | AI and dev tool state | each tool | fresh-install-only, never synced, never copied |
+| Profile root loose files | `.claude.json`, `.gitconfig`, `.npmrc`, `.condarc`, `.zshrc`, `.wslconfig`, `.mcp.*` | tools | keep (sensitive by name: `.mcp.*`, `.claude.json`); strays moved to `D:\Quarantine\c-cleanup-review-2026-11-01\profile-strays` |
+| `D:\Quarantine\c-cleanup-review-2026-11-01` | the one quarantine | Build 3 | review and delete on 2026-11-01; never inside a Drive folder |
+| `D:\Apps\<Name>` | programs whose installer lets you choose a location | user | winget `--location` or manual installer |
+| `D:\Cache\{uv,pip,ms-playwright}` and `D:\npm-cache` | redirected tool caches | env vars | set at user scope the day the tool is installed |
+| `D:\AI\ollama-models`, `D:\WSL\*` | models and WSL disks | tools | stay |
+Storage verification (2026-10-11): Ollama models are on D: (`OLLAMA_MODELS=D:\AI\ollama-models`, 9.2 GiB); the Ollama app's 6.47 GiB `lib` folder is app runtime on C: and moves with the reinstall. Jan keeps its data folder in `AppData\Roaming\Jan\data` (3.31 GiB) on C:; moving it is a Jan Settings step (Advanced, Data folder).

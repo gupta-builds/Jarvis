@@ -5,27 +5,27 @@ source_app: claude-code
 source_os: windows
 title: "Windows toolkit rebuild for Dell and Acer"
 started_at: 2026-10-11T18:57:39
-ended_at: 2026-10-12T22:29:48
-exported_at: 2026-10-12T22:30:02
-duration_minutes: 1652.1
+ended_at: 2026-10-12T22:56:02
+exported_at: 2026-10-12T23:00:05
+duration_minutes: 1678.4
 project: Home
 cwd: 'C:\Users\Anant Gupta'
 session_id: cf4ca032-4c13-47e2-add0-c255f2ad1fc7
 status: raw
-turn_count: 18
+turn_count: 21
 tools_used:
   Agent: 4
   Bash: 4
-  Edit: 2
-  PowerShell: 14
+  Edit: 3
+  PowerShell: 18
   Read: 15
-  Write: 6
+  Write: 9
 tokens:
-  input: 194
-  output: 249388
-  cache_creation: 1761176
-  cache_read: 13493087
-  total: 15503845
+  input: 234
+  output: 342920
+  cache_creation: 2529510
+  cache_read: 15870102
+  total: 18742766
 cost_usd: null
 model:
   - "claude-sonnet-5-5"
@@ -38,6 +38,7 @@ files_touched:
   - "C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\cf4ca032-4c13-47e2-add0-c255f2ad1fc7\\scratchpad\\audit-wsl.out"
   - "C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\cf4ca032-4c13-47e2-add0-c255f2ad1fc7\\scratchpad\\audit-wsl.sh"
   - "C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\cf4ca032-4c13-47e2-add0-c255f2ad1fc7\\scratchpad\\audit-wsl2.sh"
+  - "C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\cf4ca032-4c13-47e2-add0-c255f2ad1fc7\\scratchpad\\scan-c.ps1"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Acer Live State — 2026-09-16.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Codebases\\windows-home\\VS Code - Windows.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\C Drive Bloat - Failure Log and Prevention Rules.md"
@@ -51,6 +52,8 @@ files_touched:
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\VS Code - Install Loop.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\VS Code - MCP and Secrets.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\VS Code - Terminal Environments.md"
+  - "D:\\WSL\\ops\\windows\\03-user-tidy.ps1"
+  - "D:\\WSL\\ops\\windows\\04-admin-remove.ps1"
 tags:
   - input
   - ai-conversation
@@ -2057,11 +2060,401 @@ On the aditional mentions for c drive: Opera, clace, guardian-browser, C:\Progra
 
 Both steps ran with no errors on screen. Before I write anything new, I'm verifying what they did and reading the state your new instructions depend on. All of this is read-only.
 
+Now I'll parse-check both scripts and dry-run the non-admin one. A dry run only writes a log.
+
+## Result
+
+Steps 1 and 2 worked: both `.relocating` folders, `Local\npm-cache`, `ProgramData\Riot Games` and Dell Optimizer are gone, and Syncthing runs from `D:\Apps\Syncthing`. C: free is 116.9 GiB.
+
+I wrote two scripts for your new removal list. Both default to a dry run, and both passed a syntax check. I ran only the non-admin one, as a dry run, and nothing has been removed yet.
+
+## Run these next
+
+**1. Normal PowerShell.** It deletes installers of removed apps, removes Opera, clace and guardian-browser, and moves TEMP to D:.
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\windows\03-user-tidy.ps1 -Apply
+```
+
+The dry run found three installers for apps that are gone: LockDownBrowser, Merget and Wispr Flow Setup (about 560 MB). I left every installer for an app that is still installed, as you asked. Old versions of Jan, Loom, Cursor, Kiro, PowerToys, Vivaldi and Dell Command Update make up about 1.3 GB of those. Say the word if you want them cleared.
+
+**2. Elevated PowerShell.** Run it as a dry run first, read the list, then apply.
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\windows\04-admin-remove.ps1
+powershell -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\windows\04-admin-remove.ps1 -Apply
+```
+
+It removes Logi Options+ and its plugin service, VC++ 2010 and 2012, .NET 9, and `ProgramData\Epic`. Epic only had installer leftovers, no launcher. Opera, clace and guardian-browser had no uninstaller entries, which is why script 03 deletes the folders directly.
+
+## Two removals I held back, deliberately
+
+- **Python 3.13.5 and Chocolatey.** Choco installed that Python (`python313`), and it holds your global `mcp`, `ipykernel`, `uvicorn` and the pip `uv`. Nothing in your Claude, MCP or Codex configs points at it. But Miniconda isn't on PATH, so removing it leaves no `python` command until the standalone `uv` goes in during Build 4. The script refuses to remove it until that `uv` exists, then removes it with `-IncludePython`, followed by Chocolatey. The Choco-listed VC++ 2015 and the KB hotfix entries are just records, so removing Choco won't hurt Windows.
+- **.NET 8.** I removed .NET 9 and kept 8 by default. Dell Command Update may depend on .NET 8, and I haven't confirmed that. Run `04-admin-remove.ps1 -Apply -IncludeDotnet8` once you've checked Command Update still opens after the first pass. .NET 10 stays either way.
+
+## Your questions
+
+**Should you uninstall Windows Installer or clear Package Cache?** No. Windows Installer isn't an app, and `C:\Windows\Installer` (2 GB) holds the files Windows needs to repair or remove each program. `ProgramData\Package Cache` (0.65 GB) is the same kind of thing. Both shrink by themselves as the products above are removed. Manual deletion is the one thing that can break uninstalls later.
+
+**Battery cap at 80%?** Yes. A laptop at 100% on charger for a month wears faster. Dell's BIOS handles it with no software installed:
+
+1. Press F2 at boot and open Power Management, then Battery Configuration.
+2. Choose Custom with start 75 and stop 80, or Primary AC Use (menu wording varies by BIOS version).
+3. In the same section, set AC Recovery to power on after a power loss.
+
+I found no Dell Power Manager installed, so BIOS is the clean route.
+
+**Always-on setup.**
+- Sleep is already off. Run this in a normal shell to make closing the lid safe too:
+
+```powershell
+powercfg /change standby-timeout-ac 0
+powercfg /change disk-timeout-ac 0
+powercfg /setacvalueindex SCHEME_CURRENT SUB_BUTTONS LIDACTION 0
+powercfg /setactive SCHEME_CURRENT
+```
+
+- Only services run before sign-in. Syncthing runs at logon, so after an unexpected power cut it stays down until you sign in. If you want it to survive that, we'd need auto sign-in. That weakens security with BitLocker, so I won't set it without your say-so.
+- I'd add a daily health check that reports Syncthing, Tailscale and Ollama state. You already have `Jarvis-Syncthing-Health` as a base.
+
+## Needs your attention
+
+- **Tailscale isn't on this laptop.** I found no Tailscale service or command here, only Syncthing. Your original Build 4 rule says not to install it on the Dell. If you meant the Acer, fine. If you want it here, tell me and I'll change that rule.
+- **Miniconda is working** (conda 25.11.1 runs from D:). Keep the junction at `C:\Users\Anant Gupta\miniconda3` permanently. Conda environments contain absolute paths, and the junction keeps them valid. The duplicate entries in `conda env list` are cosmetic.
+- **Medal, `E START App.lnk`, OpenClaw and the Windows Ollama startup shortcut** are still in your startup. They weren't on your list, so I left them. The Ollama shortcut will start the Windows Ollama, which conflicts with the WSL one on port 11434.
+
+When both scripts have run, paste the output back. I'll check the result, then move on to the remaining D: structure, Build 4's `uv` install, and the Python removal.
+
 ### Tool Calls
 
 - `PowerShell` -- `{"command":"\"--- leftovers\"; foreach($p in \u0027C:\\opamroot.relocating\u0027,\u0027C:\\Users\\Anant Gupta\\AppData\\Local\\hermes.relocating\u0027,\u0027C:\\Users\\Anant Gupta\\AppData\\Local\\npm-cache\u0027,\u0027C:\\ProgramData\\Riot Games\u0027,\u0027D:\\npm-cache\u0027){ \"{0} exists={1}\" -f $p,(Test-Path $p) }\n\"--- dell optimizer\"; Get-AppxPackage *DellOptimizer* | Select Name; Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*,HKLM:\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\* -EA SilentlyContinue | Where DisplayName -match \u0027Optimizer\u0027 | Select DisplayName\n\"--- services\"; Get-Service brave,bravem,\u0027Steam Client Service\u0027,Tailscale,Syncthing* -EA SilentlyContinue | Select Name,Status,StartType\n\"--- tailscale / syncthing\"; Get-Command tailscale -EA SilentlyContinue | Select Source; Get-Process syncthing,tailscale* -EA SilentlyContinue | Select Name,Path\nGet-ScheduledTask | Where TaskName -match \u0027syncthing\u0027 | ForEach-Object { $_.TaskName; $_.State; ($_.Actions | % { $_.Execute + \u0027 \u0027 + $_.Arguments }); $_.Triggers | % { $_.CimClass.CimClassName } }\n\"--- apps dir\"; Get-ChildItem D:\\Apps -Directory | Select Name\n\"--- disk\"; Get-PSDrive C,D | Select Name,@{n=\u0027Free\u0027;e={[math]::Round($_.Free/1GB,2)}}","description":"Verify step 1 and 2 results, Syncthing, Tailscale"}`
 - `PowerShell` -- `{"command":"\"--- choco packages\"; choco list --local-only 2\u003e\u00261 | Select-Object -First 30\n\"--- targets in Uninstall keys\"; Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*,HKLM:\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*,HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\* -EA SilentlyContinue | Where { $_.DisplayName -match \u0027Opera|Epic|Logi|Python 3|Visual C\\+\\+ 201[02]|\\.NET (Desktop )?Runtime|ASP\\.NET|Windows Desktop Runtime|clace|guardian\u0027 } | Sort DisplayName | Select DisplayName,DisplayVersion,@{n=\u0027Uninstall\u0027;e={ if($_.QuietUninstallString){$_.QuietUninstallString}else{$_.UninstallString} }} | Format-List | Out-String -Width 250\n\"--- Downloads\"; Get-ChildItem \u0027D:\\Users\\_Anant\\Downloads\u0027 -Force | Sort Length -Desc | Select Name,@{n=\u0027MB\u0027;e={[math]::Round($_.Length/1MB,1)}},PSIsContainer | Format-Table -AutoSize | Out-String -Width 200","description":"List choco packages, target uninstall strings, Downloads"}`
 - `PowerShell` -- `{"command":"\"--- power\"; powercfg /getactivescheme; powercfg /q SCHEME_CURRENT SUB_BUTTONS | Select-String \u0027Power Setting Index|GUID Alias|Friendly\u0027 | Select-Object -First 20\npowercfg /q SCHEME_CURRENT SUB_SLEEP STANDBYIDLE | Select-String \u0027Current (AC|DC)\u0027\n\"--- battery\"; Get-CimInstance Win32_Battery | Select Name,EstimatedChargeRemaining,BatteryStatus,DesignVoltage\nGet-ChildItem \u0027HKLM:\\SOFTWARE\\Dell\u0027 -EA SilentlyContinue | Select Name; Get-Service | Where Name -match \u0027DellPowerManager|DellClientManagement|DellTechHub\u0027 | Select Name,Status\n\"--- conda envs file\"; Get-Content \"$env:USERPROFILE\\.conda\\environments.txt\" -EA SilentlyContinue\n\"--- update policy\"; Get-ItemProperty \u0027HKLM:\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU\u0027 -EA SilentlyContinue | Select NoAutoRebootWithLoggedOnUsers,AUOptions\nGet-ComputerInfo -Property OsLastBootUpTime | Select OsLastBootUpTime","description":"Read power settings, battery, conda env list"}`
+- `PowerShell` -- `{"command":"\"--- choco\"; choco list 2\u003e\u00261 | Select-Object -First 20; [Environment]::GetEnvironmentVariable(\u0027ChocolateyInstall\u0027,\u0027Machine\u0027)\n\"--- C:\\Python313 pip packages\"; \u0026 C:\\Python313\\python.exe -m pip list --format=freeze 2\u003e\u00261 | Select-Object -First 40\nGet-ChildItem C:\\Python313\\Scripts -Filter *.exe -EA SilentlyContinue | Select -Expand Name\n\"--- user-location apps\"; foreach($n in \u0027Opera\u0027,\u0027clace\u0027,\u0027guardian-browser\u0027){ $d=\"$env:LOCALAPPDATA\\Programs\\$n\"; \"{0}: exists={1} size={2:N0}MB\" -f $n,(Test-Path $d),((Get-ChildItem $d -Recurse -Force -EA SilentlyContinue | Measure Length -Sum).Sum/1MB); Get-ChildItem $d -Filter \u0027unins*.exe\u0027,\u0027Uninstall*.exe\u0027 -EA SilentlyContinue | Select -Expand FullName }\nGet-ChildItem \"$env:LOCALAPPDATA\\Programs\\Opera\",\"$env:LOCALAPPDATA\\Programs\\clace\" -Filter *.exe -Depth 1 -EA SilentlyContinue | Select -First 8 -Expand FullName\n\"--- Run values (names only + exe leaf)\"; (Get-ItemProperty HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run).PSObject.Properties | Where Name -notmatch \u0027^PS\u0027 | ForEach-Object { \"{0} -\u003e {1}\" -f $_.Name, ($_.Value -replace \u0027^\"?([^\"]*\\\\)?([^\\\\\"]+\\.exe).*\u0027,\u0027$2\u0027) }\n\"--- Epic\"; Get-ChildItem C:\\ProgramData\\Epic -Recurse -Force -EA SilentlyContinue | Select -First 15 -Expand FullName\n\"--- epic installers anywhere obvious\"; Get-ChildItem \u0027D:\\Users\\_Anant\u0027,\u0027C:\\ProgramData\\Package Cache\u0027 -Recurse -Include \u0027EpicGames*\u0027,\u0027*Epic*Launcher*\u0027 -Force -EA SilentlyContinue -Depth 3 | Select -First 5 -Expand FullName\n\"--- installed names for installer matching\"; Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*,HKLM:\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*,HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\* -EA SilentlyContinue | Where { $_.DisplayName -match \u0027Merget|Wispr|superwhisper|Voquill|Hermes|Jan|Loom|Antigravity|Claude|Codex|ChatGPT|WizTree|16x|Kiro|Cursor|PowerToys|Vivaldi|Command Update|Revo|Git|GitHub CLI|Miniconda\u0027 } | Select DisplayName,DisplayVersion | Sort DisplayName | Format-Table -AutoSize | Out-String -Width 160\nGet-AppxPackage | Where Name -match \u0027ChatGPT|Claude|Codex|Hermes|Voquill|superwhisper\u0027 | Select Name,Version","description":"Check choco, Python pip packages, app folders, installers"}`
+- `PowerShell` -- `{"command":"\"--- who references global python / C:\\Python313 (names of files only)\"\n$roots=\u0027C:\\Users\\Anant Gupta\\.claude\\settings.json\u0027,\u0027C:\\Users\\Anant Gupta\\.claude.json\u0027,\u0027C:\\Users\\Anant Gupta\\.mcp.json\u0027,\u0027C:\\Users\\Anant Gupta\\.codex\\config.toml\u0027,\u0027C:\\Users\\Anant Gupta\\AppData\\Roaming\\Claude\\claude_desktop_config.json\u0027,\u0027C:\\Users\\Anant Gupta\\AppData\\Roaming\\Code\\User\\settings.json\u0027,\u0027C:\\Users\\Anant Gupta\\AppData\\Roaming\\Cursor\\User\\settings.json\u0027\nforeach($f in $roots){ if(Test-Path $f){ $m=Select-String -Path $f -Pattern \u0027Python313|python\\.exe|\"python\"|pythonw|uvx?\\.exe|\\bmcp\\.exe\u0027 -AllMatches; \"{0}: {1} line(s)\" -f (Split-Path $f -Leaf),@($m).Count } }\n\"--- hooks mentioning python (command lines, secrets unlikely)\"; Select-String -Path \u0027C:\\Users\\Anant Gupta\\.claude\\settings.json\u0027 -Pattern \u0027python\u0027 | ForEach-Object { ($_.Line.Trim() -replace \u0027(key|token|secret)[^,]*\u0027,\u0027\u003cr\u003e\u0027) }\n\"--- scheduled tasks calling python\"; Get-ScheduledTask | Where { $_.Actions.Execute -match \u0027python\u0027 -or $_.Actions.Arguments -match \u0027python\u0027 } | Select TaskName,@{n=\u0027Exec\u0027;e={$_.Actions.Execute}}\n\"--- footprints\"; foreach($p in \"$env:LOCALAPPDATA\\WisprFlow\",\"$env:LOCALAPPDATA\\Programs\\WisprFlow\",\"$env:LOCALAPPDATA\\superwhisper\",\"$env:LOCALAPPDATA\\Programs\\superwhisper\",\"$env:APPDATA\\superwhisper\",\"$env:USERPROFILE\\.merget\",\"$env:LOCALAPPDATA\\Merget\",\"$env:LOCALAPPDATA\\Programs\\Merget\",\"$env:LOCALAPPDATA\\Medal\"){ \"{0} exists={1}\" -f $p,(Test-Path $p) }\nGet-AppxPackage | Where Name -match \u0027Wispr|superwhisper|Merget\u0027 | Select Name\nGet-Process | Where ProcessName -match \u0027wispr|superwhisper|merget|opera|clace\u0027 | Select ProcessName\n\"--- Start-menu/Startup shortcuts\"; Get-ChildItem \"$env:APPDATA\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\" | Select -Expand Name","description":"Check Python dependents and removed-app footprints"}`
+- `Write` -- `D:\WSL\ops\windows\03-user-tidy.ps1`
+```
+<#
+03-user-tidy.ps1  (normal PowerShell, NOT admin)
+Default is a DRY RUN. Add -Apply to make changes.
+ 1. Delete installers in Downloads for apps that are no longer installed
+ 2. Remove Opera, clace, guardian-browser from AppData\Local\Programs
+ 3. Remove C:\ProgramData-free leftovers that need no admin (none here)
+ 4. Move TEMP and TMP (user scope) to D:\Cache\Temp
+Installers for apps that ARE still installed are never touched.
+#>
+param([switch]$Apply)
+$ErrorActionPreference = 'Continue'
+$log = "D:\WSL\ops\windows\logs\03-user-tidy-$(Get-Date -Format yyyyMMdd-HHmm).log"
+Start-Transcript -Path $log | Out-Null
+if (-not $Apply) { Write-Host '*** DRY RUN (nothing changes). Re-run with -Apply ***' -ForegroundColor Yellow }
+
+function Size-MB($p) { [math]::Round(((Get-ChildItem $p -Recurse -Force -ErrorAction SilentlyContinue | Measure-Object Length -Sum).Sum) / 1MB, 1) }
+function Remove-Safe($p) {
+  if (-not (Test-Path $p)) { Write-Host "   absent: $p"; return }
+  Write-Host ("   {0,8} MB  {1}" -f (Size-MB $p), $p)
+  if ($Apply) {
+    Remove-Item $p -Recurse -Force -ErrorAction SilentlyContinue
+    if (Test-Path $p) { cmd /c rd /s /q "\\?\$p" 2>$null }
+    Write-Host ("   -> " + $(if (Test-Path $p) { 'STILL PRESENT' } else { 'removed' }))
+  }
+}
+
+Write-Host "`n--- 1 Installers of apps that are gone (Downloads)"
+$dl = [Environment]::GetFolderPath('UserProfile') | ForEach-Object { (Get-ItemProperty 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders').'{[REDACTED]}' }
+$dl = [Environment]::ExpandEnvironmentVariables($dl)
+Write-Host "   Downloads = $dl"
+foreach ($pat in 'LockDownBrowser-*', 'Merget_*', 'Wispr Flow Setup*') {
+  Get-ChildItem $dl -Filter $pat -File -ErrorAction SilentlyContinue | ForEach-Object { Remove-Safe $_.FullName }
+}
+Write-Host '   kept on purpose: installers of apps that are still installed, Syncthing (moved), PDFs, obsidian-local-rest-api.crt'
+
+Write-Host "`n--- 2 Leftover app folders (no uninstaller exists for these)"
+$pr = Join-Path $env:LOCALAPPDATA 'Programs'
+foreach ($n in 'Opera', 'clace', 'guardian-browser') {
+  Get-Process | Where-Object { $_.Path -like "$pr\$n\*" } | ForEach-Object { Write-Host "   stopping $($_.ProcessName)"; if ($Apply) { $_ | Stop-Process -Force } }
+  Remove-Safe (Join-Path $pr $n)
+}
+$run = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Run'
+foreach ($v in 'Opera Stable', 'Opera Browser Assistant', 'clace') {
+  if (Get-ItemProperty $run -Name $v -ErrorAction SilentlyContinue) { Write-Host "   Run value: $v"; if ($Apply) { Remove-ItemProperty $run $v -ErrorAction SilentlyContinue } }
+}
+
+Write-Host "`n--- 3 TEMP and TMP to D:\Cache\Temp (user scope)"
+Write-Host "   now: TEMP=$([Environment]::GetEnvironmentVariable('TEMP','User'))"
+if ($Apply) {
+  New-Item -ItemType Directory -Force -Path 'D:\Cache\Temp' | Out-Null
+  [Environment]::SetEnvironmentVariable('TEMP', 'D:\Cache\Temp', 'User')
+  [Environment]::SetEnvironmentVariable('TMP', 'D:\Cache\Temp', 'User')
+  Write-Host '   set. Applies to new processes: sign out and in (or reboot) to cover everything.'
+  Write-Host '   Rollback: setx TEMP "%USERPROFILE%\AppData\Local\Temp"  and the same for TMP.'
+}
+
+$f = (Get-PSDrive C).Free / 1GB
+Write-Host ("`nEND  C: free {0:N2} GiB   log: {1}" -f $f, $log)
+Stop-Transcript | Out-Null
+
+```
+- `Write` -- `D:\WSL\ops\windows\04-admin-remove.ps1`
+```
+<#
+04-admin-remove.ps1  (ELEVATED PowerShell)
+Default is a DRY RUN. Add -Apply to make changes.
+Always:      Logi Options+, Logi Plugin Service, VC++ 2010 and 2012, .NET 9.x, C:\ProgramData\Epic
+Optional:    -IncludeDotnet8   also remove .NET 8.x (Dell Command Update may need it - see README note in chat)
+             -IncludePython    remove Python 3.13.5 (choco python313) and then Chocolatey itself.
+                               Run only AFTER the standalone uv is installed (Build 4), because it leaves no python on PATH.
+Nothing here touches C:\Windows\Installer or Package Cache; those shrink by themselves as products are removed.
+#>
+param([switch]$Apply, [switch]$IncludeDotnet8, [switch]$IncludePython)
+$ErrorActionPreference = 'Continue'
+if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole('Administrator')) { throw 'Run this from an elevated PowerShell.' }
+$log = "D:\WSL\ops\windows\logs\04-admin-remove-$(Get-Date -Format yyyyMMdd-HHmm).log"
+Start-Transcript -Path $log | Out-Null
+if (-not $Apply) { Write-Host '*** DRY RUN (nothing changes). Re-run with -Apply ***' -ForegroundColor Yellow }
+$start = (Get-PSDrive C).Free / 1GB
+
+$keys = 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*', 'HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*'
+function Get-Arp($regex) {
+  Get-ItemProperty $keys -ErrorAction SilentlyContinue | Where-Object { $_.DisplayName -match $regex } | Sort-Object DisplayName
+}
+function Remove-Arp($e) {
+  $cmd = if ($e.QuietUninstallString) { $e.QuietUninstallString } else { $e.UninstallString }
+  Write-Host "   $($e.DisplayName) $($e.DisplayVersion)"
+  if (-not $cmd) { Write-Host '     no uninstall string'; return }
+  if ($cmd -match 'MsiExec') {
+    $guid = [regex]::Match($cmd, '\{[0-9A-Fa-f-]{36}\}').Value
+    $args2 = "/X$guid /qn /norestart"
+    Write-Host "     msiexec $args2"
+    if ($Apply) { $p = Start-Process msiexec.exe -ArgumentList $args2 -Wait -PassThru; Write-Host "     exit $($p.ExitCode) (3010 = reboot needed)" }
+  } else {
+    $m = [regex]::Match($cmd, '^\s*("([^"]+)"|(\S+))\s*(.*)$')
+    $exe = if ($m.Groups[2].Success) { $m.Groups[2].Value } else { $m.Groups[3].Value }
+    $rest = $m.Groups[4].Value
+    if ($rest -notmatch 'quiet|/S\b|silent') { $rest = ($rest + ' /quiet /norestart').Trim() }
+    Write-Host "     $exe $rest"
+    if (-not (Test-Path $exe)) { Write-Host '     uninstaller file missing, skipped'; return }
+    if ($Apply) { $p = Start-Process $exe -ArgumentList $rest -Wait -PassThru; Write-Host "     exit $($p.ExitCode)" }
+  }
+}
+
+Write-Host "`n--- 1 Logi Options+ and Logi Plugin Service"
+$lo = Get-Arp '^Logi Options\+'
+foreach ($e in $lo) {
+  $u = 'C:\Program Files\LogiOptionsPlus\logioptionsplus_updater.exe'
+  Write-Host "   $($e.DisplayName): $u --uninstall --full --shadow"
+  if ($Apply -and (Test-Path $u)) { Get-Process | Where-Object ProcessName -match 'logi' | Stop-Process -Force -ErrorAction SilentlyContinue; Start-Process $u -ArgumentList '--uninstall --full --shadow' -Wait }
+}
+Get-Arp '^Logi Plugin Service' | ForEach-Object { Remove-Arp $_ }
+if ($Apply) {
+  Get-Service | Where-Object { $_.Name -match 'LogiPluginService|OptionsPlusUpdaterService|LogiOptions' } | ForEach-Object { Write-Host "   delete service $($_.Name)"; Stop-Service $_ -Force -ErrorAction SilentlyContinue; sc.exe delete $_.Name | Out-Null }
+}
+foreach ($d in 'C:\ProgramData\LogiOptionsPlus', 'C:\Program Files\LogiOptionsPlus') {
+  if (Test-Path $d) { Write-Host "   leftover: $d"; if ($Apply) { Remove-Item $d -Recurse -Force -ErrorAction SilentlyContinue } }
+}
+
+Write-Host "`n--- 2 Visual C++ 2010 and 2012 redistributables (2015-2022 stays)"
+# 2012 'Additional/Minimum Runtime' MSIs are children of the bundle and go with it.
+Get-Arp 'Visual C\+\+ 2010' | ForEach-Object { Remove-Arp $_ }
+Get-Arp 'Visual C\+\+ 2012 Redistributable' | ForEach-Object { Remove-Arp $_ }
+
+Write-Host "`n--- 3 .NET 9.x (and 8.x with -IncludeDotnet8). 10.x stays."
+$ver = if ($IncludeDotnet8) { '(?<![\d.])(8|9)\.0\.\d+' } else { '(?<![\d.])9\.0\.\d+' }
+$dn = Get-Arp '(\.NET Runtime|ASP\.NET Core|Windows Desktop Runtime)' | Where-Object { $_.DisplayName -match $ver }
+# bundles (exe) first, then raw MSIs
+$dn | Where-Object { ($_.UninstallString -notmatch 'MsiExec') } | ForEach-Object { Remove-Arp $_ }
+$dn | Where-Object { ($_.UninstallString -match 'MsiExec') } | ForEach-Object { Remove-Arp $_ }
+if (-not $IncludeDotnet8) { Write-Host '   .NET 8.x kept (use -IncludeDotnet8 after checking Dell Command Update still opens)' }
+
+Write-Host "`n--- 4 Epic leftovers"
+if (Test-Path 'C:\ProgramData\Epic') { Write-Host '   C:\ProgramData\Epic'; if ($Apply) { Remove-Item 'C:\ProgramData\Epic' -Recurse -Force -ErrorAction SilentlyContinue } }
+
+if ($IncludePython) {
+  Write-Host "`n--- 5 Python 3.13.5 (choco python313), then Chocolatey"
+  if (-not (Get-Command uv -ErrorAction SilentlyContinue | Where-Object { $_.Source -notmatch 'Python313' })) {
+    Write-Host '   STOP: no standalone uv found yet. Install uv first (Build 4), then re-run with -IncludePython.' -ForegroundColor Red
+  } else {
+    Write-Host '   choco uninstall python313 -y'
+    if ($Apply) { choco uninstall python313 -y }
+    foreach ($d in 'C:\Python313') { if (Test-Path $d) { Write-Host "   leftover: $d"; if ($Apply) { Remove-Item $d -Recurse -Force -ErrorAction SilentlyContinue } } }
+    Write-Host '   remove Chocolatey: C:\ProgramData\chocolatey, ChocolateyInstall variable, PATH entry'
+    if ($Apply) {
+      Remove-Item 'C:\ProgramData\chocolatey' -Recurse -Force -ErrorAction SilentlyContinue
+      [Environment]::SetEnvironmentVariable('ChocolateyInstall', $null, 'Machine')
+      [Environment]::SetEnvironmentVariable('ChocolateyLastPathUpdate', $null, 'User')
+      $mp = ([Environment]::GetEnvironmentVariable('Path', 'Machine') -split ';') | Where-Object { $_ -and ($_ -notmatch 'chocolatey|Python313') }
+      [Environment]::SetEnvironmentVariable('Path', ($mp -join ';'), 'Machine')
+    }
+  }
+} else {
+  Write-Host "`n--- 5 Python 3.13.5 and Chocolatey: skipped (needs -IncludePython after uv is installed)"
+}
+
+$end = (Get-PSDrive C).Free / 1GB
+Write-Host ("`nEND  C: free {0:N2} -> {1:N2} GiB   log: {2}" -f $start, $end, $log)
+if ($Apply) { Write-Host 'Reboot afterwards if any exit code was 3010.' }
+Stop-Transcript | Out-Null
+
+```
+- `PowerShell` -- `{"command":"foreach($f in \u0027D:\\WSL\\ops\\windows\\03-user-tidy.ps1\u0027,\u0027D:\\WSL\\ops\\windows\\04-admin-remove.ps1\u0027){ $e=$null;$t=$null;[System.Management.Automation.Language.Parser]::ParseFile($f,[ref]$t,[ref]$e)|Out-Null; \"{0}: {1} parse errors\" -f (Split-Path $f -Leaf),$e.Count; $e|%{$_.Message} }\npowershell -NoProfile -ExecutionPolicy Bypass -File D:\\WSL\\ops\\windows\\03-user-tidy.ps1 2\u003e\u00261 | Out-String -Width 200","description":"Parse-check scripts and dry-run user tidy"}`
+
+## You
+
+```
+
+<pasted_content id="238b">
+PS C:\WINDOWS\system32> powershell -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\windows\04-admin-remove.ps1
+Run this from an elevated PowerShell.
+At D:\WSL\ops\windows\04-admin-remove.ps1:12 char:129
++ ... e('Administrator')) { throw 'Run this from an elevated PowerShell.' }
++                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (Run this from an elevated PowerShell.:String) [], RuntimeException
+    + FullyQualifiedErrorId : Run this from an elevated PowerShell.
+
+PS C:\WINDOWS\system32> powershell -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\windows\04-admin-remove.ps1 -Apply
+Run this from an elevated PowerShell.
+At D:\WSL\ops\windows\04-admin-remove.ps1:12 char:129
++ ... e('Administrator')) { throw 'Run this from an elevated PowerShell.' }
++                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OperationStopped: (Run this from an elevated PowerShell.:String) [], RuntimeException
+    + FullyQualifiedErrorId : Run this from an elevated PowerShell.
+
+PS C:\WINDOWS\system32>
+</pasted_content id="238b">
+
+```, elevated shell did not run. The rest were run correctly: ```
+
+<pasted_content id="238b">
+PS C:\Users\Anant Gupta> powershell -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\windows\03-user-tidy.ps1 -Apply
+
+--- 1 Installers of apps that are gone (Downloads)
+   Downloads = D:\Users\_Anant\Downloads
+      132.2 MB  D:\Users\_Anant\Downloads\[REDACTED].exe
+   -> removed
+      117.1 MB  D:\Users\_Anant\Downloads\Merget_0.5.0_x64-setup.exe
+   -> removed
+      309.5 MB  D:\Users\_Anant\Downloads\Wispr Flow Setup-v1.4.789.exe
+   -> removed
+   kept on purpose: installers of apps that are still installed, Syncthing (moved), PDFs, obsidian-local-rest-api.crt
+
+--- 2 Leftover app folders (no uninstaller exists for these)
+          5 MB  C:\Users\Anant Gupta\AppData\Local\Programs\Opera
+   -> removed
+       21.9 MB  C:\Users\Anant Gupta\AppData\Local\Programs\clace
+   -> removed
+          0 MB  C:\Users\Anant Gupta\AppData\Local\Programs\guardian-browser
+   -> removed
+
+--- 3 TEMP and TMP to D:\Cache\Temp (user scope)
+   now: TEMP=C:\Users\Anant Gupta\AppData\Local\Temp
+   set. Applies to new processes: sign out and in (or reboot) to cover everything.
+   Rollback: setx TEMP "%USERPROFILE%\AppData\Local\Temp"  and the same for TMP.
+
+END  C: free 116.91 GiB   log: D:\WSL\ops\windows\logs\[REDACTED].log
+PS C:\Users\Anant Gupta> powercfg /change standby-timeout-ac 0
+PS C:\Users\Anant Gupta> powercfg /change disk-timeout-ac 0
+PS C:\Users\Anant Gupta> powercfg /setacvalueindex SCHEME_CURRENT SUB_BUTTONS LIDACTION 0
+PS C:\Users\Anant Gupta> powercfg /setactive SCHEME_CURRENT
+PS C:\Users\Anant Gupta>
+</pasted_content id="238b">
+
+```.
+
+Tailscale is on wsl and need not be concerned about it anymore, the power settings will take place. Goa head and update the elevated shell script based on the errors that it caused. Other than that, go ahead and take a very detailed deep dive intothe existing c folder now. How do we establish the structure with clear and managable workflows over here? Another thing that needs to take place in detail is that we take a snapshot of the entire c direcotry now and note it downinside jarvis correctly for future references over here: `40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild`. I am going to be providing you with images regarding the entire c drive again from wiztree now that so much storgae has cleared. We take a detailed look into everything that currently exists, restructure or rellocate anything more that is required to be moved like packages that might be uninstalled or reused. We are not sure of, another thing we need to carefully look at are the basic and most windows defined files that are structured inside the c folder that were not touced at all. What are these, can we configure any of these for our use case? How can we make the most out of the cleaned up c drive now? How can we refrain it from bloating? How can we keep a watrcher for the cache, the wsl swapper, the backup, etc. We need to be watching everything from here on because we have taken a huge clean up step here for this to happen. Let's execute each and every single action correctly based on these images that are provided regarding the c drive right now: [Image #6], [Image #7],[Image #8], [Image #9], [Image #10]. [Image #11], [Image #12], [Image #13], [Image #14], [Image #15], [Image #16], [Image #17], [Image #18], [Image #19], [Image #20]. This should be wrapping up all the clean ups and restructuring that needs to take place now. Look through each and every single folder and image provided in detail. Look through the entire laptops map in detail. Understand what should still be deleted and what should not be deleted. I still found a lot of folders for applications that have been deleted already showing up in the appdata, there are other folders consisting of similar folders that are occupying reduntant amount of spcace. Actually, remove all the outdated installers as well. Let's make sure that we are starting of with a clean downloads folder as well now. Other than that, make sure to eexecute all the deletions that need to take place based on the images and this reply provided. This should be finishing up the cleaning completely and we should be finalizing our restructure entirely for this laptop. Making sure that each and every single thing is monitored over, cleanlyt watched. Things that should be regularly cleared are scheduled as windows cleaup weekly scheduled tasks. Things that need to be done regarding something specific such as inside jarvis is going to scheduled for an llm or is a script (depends). But for the regular cleanup that takes place, it should be a scheduled task. Come back to me with scripts to run on all the deletions to be done now, a scheduled task to create on the windows app and the restructure plan that has already been half executed and is going to be executed just now. How much is still left after this build, being honest. Everything should be taken care of over here by now. Let's make sure to clearly write down the notes that were just explained meanwhile doing this entire process. Research in detail for the process that needs to be executed just now. Based on that inly write correct scripts that do not fail. Provide me with write and exact set of commands to run to make sure that these happen correctly.
+
+[image attached]
+
+[image attached]
+
+[image attached]
+
+[image attached]
+
+[image attached]
+
+[image attached]
+
+[image attached]
+
+[image attached]
+
+[image attached]
+
+[image attached]
+
+[image attached]
+
+[image attached]
+
+[image attached]
+
+[image attached]
+
+[image attached]
+
+## You
+
+[Image: source: C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\[REDACTED]\images\6.png]
+
+[Image: source: C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\[REDACTED]\images\7.png]
+
+[Image: source: C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\[REDACTED]\images\8.png]
+
+[Image: source: C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\[REDACTED]\images\9.png]
+
+[Image: source: C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\[REDACTED]\images\10.png]
+
+[Image: source: C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\[REDACTED]\images\11.png]
+
+[Image: source: C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\[REDACTED]\images\12.png]
+
+[Image: source: C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\[REDACTED]\images\13.png]
+
+[Image: source: C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\[REDACTED]\images\14.png]
+
+[Image: source: C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\[REDACTED]\images\15.png]
+
+[Image: source: C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\[REDACTED]\images\16.png]
+
+[Image: source: C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\[REDACTED]\images\17.png]
+
+[Image: source: C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\[REDACTED]\images\18.png]
+
+[Image: source: C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\[REDACTED]\images\19.png]
+
+[Image: source: C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\[REDACTED]\images\20.png]
+
+## Claude
+
+First the cause of the elevated-shell failure. It was my bug, not your shell. The check I wrote, `IsInRole('Administrator')`, asks for a group literally named "Administrator", which doesn't exist, so it fails even in an elevated shell. Your `sc delete` and `takeown` commands ran fine in that same shell. I'm fixing it to use the built-in role enum.
+
+Then the deep dive. Starting with read-only scans to turn the WizTree screenshots into exact folder lists, because I won't delete anything from a screenshot alone.
+
+### Tool Calls
+
+- `Edit` -- `D:\WSL\ops\windows\04-admin-remove.ps1`
+```diff
+- if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole('Administrator')) { throw 'Run this from an elevated PowerShell.' }
++ if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) { throw 'Run this from an elevated PowerShell.' }
+```
+- `Write` -- `C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\cf4ca032-4c13-47e2-add0-c255f2ad1fc7\scratchpad\scan-c.ps1`
+```
+$ErrorActionPreference='SilentlyContinue'
+function SizeGB($p){ $s=(Get-ChildItem -LiteralPath $p -Recurse -Force -File -EA SilentlyContinue | Measure-Object Length -Sum).Sum; [math]::Round($s/1GB,3) }
+function Top($root,$n){ Get-ChildItem -LiteralPath $root -Force -Directory -EA SilentlyContinue | ForEach-Object { [pscustomobject]@{GB=(SizeGB $_.FullName);Name=$_.Name;Link=$_.LinkType} } | Sort-Object GB -Descending | Select-Object -First $n }
+foreach($r in 'C:\ProgramData','C:\Users\Anant Gupta\AppData\Local','C:\Users\Anant Gupta\AppData\Roaming','C:\Users\Anant Gupta\AppData\LocalLow','C:\Program Files','C:\Program Files (x86)'){ "=== $r"; Top $r 45 | ForEach-Object { "{0,8:N3}  {1} {2}" -f $_.GB,$_.Name,$_.Link } }
+"=== C:\Users\Anant Gupta (dot folders and others)"; Get-ChildItem 'C:\Users\Anant Gupta' -Force -Directory | Where Name -ne 'AppData' | ForEach-Object { [pscustomobject]@{GB=(SizeGB $_.FullName);Name=$_.Name;Link=$_.LinkType} } | Sort GB -Desc | ForEach-Object { "{0,8:N3}  {1} {2}" -f $_.GB,$_.Name,$_.Link }
+"=== C:\Windows"; Get-ChildItem C:\Windows -Force -Directory | ForEach-Object { [pscustomobject]@{GB=(SizeGB $_.FullName);Name=$_.Name} } | Sort GB -Desc | Select -First 14 | ForEach-Object { "{0,8:N3}  {1}" -f $_.GB,$_.Name }
+"=== LiveKernelReports"; Get-ChildItem C:\Windows\LiveKernelReports -Recurse -Force -File | Select FullName,@{n='MB';e={[math]::Round($_.Length/1MB,1)}},LastWriteTime | Format-Table -AutoSize | Out-String -Width 220
+"=== Windows\Minidump / MEMORY.DMP"; Get-ChildItem C:\Windows\Minidump -Force | Measure Length -Sum; Get-Item C:\Windows\MEMORY.DMP -Force | Select Length
+"=== shadow storage"; vssadmin list shadowstorage 2>&1
+"=== large files on C: (>150MB) excluding pagefile and obvious system stores"
+Get-ChildItem C:\Users,C:\ProgramData,'C:\Program Files','C:\Program Files (x86)' -Recurse -Force -File -EA SilentlyContinue | Where { $_.Length -gt 150MB } | Sort Length -Desc | Select -First 40 | ForEach-Object { "{0,8:N0} MB  {1}" -f ($_.Length/1MB),$_.FullName }
+"=== .iso and big .tmp, .dmp anywhere in Users/ProgramData"
+Get-ChildItem C:\Users,C:\ProgramData -Recurse -Force -File -Include *.iso,*.dmp,*.hdmp,*.etl -EA SilentlyContinue | Where Length -gt 20MB | Select -First 25 | ForEach-Object { "{0,8:N0} MB  {1}" -f ($_.Length/1MB),$_.FullName }
+
+```
+- `PowerShell` -- `{"command":"$sp=\u0027C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\[REDACTED]\\scratchpad\u0027\npowershell -NoProfile -ExecutionPolicy Bypass -File \"$sp\\scan-c.ps1\" \u003e \"$sp\\scan-c.out\" 2\u003e\u00261\n(Get-Item \"$sp\\scan-c.out\").Length","description":"Run read-only C: size scan to a file","timeout":600000}`
 
 ## Actions Taken
 
@@ -2071,7 +2464,10 @@ Both steps ran with no errors on screen. Before I write anything new, I'm verify
 - `C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\cf4ca032-4c13-47e2-add0-c255f2ad1fc7\scratchpad\audit-winget.ps1`
 - `C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\cf4ca032-4c13-47e2-add0-c255f2ad1fc7\scratchpad\audit-wsl.sh`
 - `C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\cf4ca032-4c13-47e2-add0-c255f2ad1fc7\scratchpad\audit-wsl2.sh`
+- `C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\cf4ca032-4c13-47e2-add0-c255f2ad1fc7\scratchpad\scan-c.ps1`
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Old Laptop Rebuild - Build 4 Windows Toolkit Findings.md`
+- `D:\WSL\ops\windows\03-user-tidy.ps1`
+- `D:\WSL\ops\windows\04-admin-remove.ps1`
 
 **Files modified:**
 _None_

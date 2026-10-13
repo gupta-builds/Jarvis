@@ -152,9 +152,9 @@ function Install-Font {
     if ($h -ne $pin.sha256.ToUpper()) { Add-Result $Tool.id 'FAIL' ("SHA-256 mismatch: got {0}" -f $h); return }
     Write-Log 'archive SHA-256 verified'
     $tar = (Get-Command tar.exe).Source
-    $r = Invoke-Native -File $tar -Arguments @('-xf', $arc, '-C', $out, $pin.filePattern) -TimeoutSec 300
+    $r = Invoke-Native -File $tar -Arguments @('-xf', $arc, '-C', $out, $pin.filePattern, $pin.basePattern) -TimeoutSec 300
     $ttf = @(Get-ChildItem -LiteralPath $out -Filter '*.ttf' -File)
-    if ($ttf.Count -lt 20) { Add-Result $Tool.id 'FAIL' ("extracted only {0} TTF files (tar exit {1}: {2})" -f $ttf.Count, $r.ExitCode, (ConvertTo-Ascii $r.Error)); return }
+    if ($ttf.Count -lt 50) { Add-Result $Tool.id 'FAIL' ("extracted only {0} TTF files (tar exit {1}: {2})" -f $ttf.Count, $r.ExitCode, (ConvertTo-Ascii $r.Error)); return }
     $fontDir = Join-Path $env:LOCALAPPDATA 'Microsoft\Windows\Fonts'
     New-Item -ItemType Directory -Force -Path $fontDir | Out-Null
     $reg = 'HKCU:\Software\Microsoft\Windows NT\CurrentVersion\Fonts'
@@ -162,7 +162,7 @@ function Install-Font {
     $total = 0.0
     foreach ($f in $ttf) {
         $dest = Join-Path $fontDir $f.Name
-        Copy-Item -LiteralPath $f.FullName -Destination $dest -Force
+        if (-not ((Test-Path -LiteralPath $dest) -and ((Get-Item -LiteralPath $dest).Length -eq $f.Length))) { Copy-Item -LiteralPath $f.FullName -Destination $dest -Force }
         New-ItemProperty -Path $reg -Name ([IO.Path]::GetFileNameWithoutExtension($f.Name) + ' (TrueType)') -Value $dest -PropertyType String -Force | Out-Null
         $total += $f.Length
     }
@@ -173,8 +173,8 @@ function Install-Font {
     [ToolkitNative.Win32]::SendMessageTimeout([IntPtr]0xffff, 0x1D, [UIntPtr]::Zero, [IntPtr]::Zero, 2, 2000, [ref]$res) | Out-Null
     Remove-Item -LiteralPath $work -Recurse -Force -ErrorAction SilentlyContinue
     $sizeMB = [math]::Round($total / 1MB, 1)
-    if (Test-FontFamily $pin.family) { Add-Result $Tool.id 'INSTALLED' ("{0} TTF files, {1} MB, family '{2}' registered" -f $ttf.Count, $sizeMB, $pin.family) @{ drive = 'C:'; sizeMB = $sizeMB; version = $pin.release } }
-    else { Add-Result $Tool.id 'WARN' ("{0} files copied ({1} MB) but family '{2}' is not visible yet; sign out and back in, then run 99-verify" -f $ttf.Count, $sizeMB, $pin.family) @{ drive = 'C:'; sizeMB = $sizeMB } }
+    if ((Test-FontFamily $pin.family) -and (Test-FontFamily $pin.baseFamily)) { Add-Result $Tool.id 'INSTALLED' ("{0} TTF files, {1} MB, families '{2}' and '{3}' registered" -f $ttf.Count, $sizeMB, $pin.baseFamily, $pin.family) @{ drive = 'C:'; sizeMB = $sizeMB; version = $pin.release } }
+    else { Add-Result $Tool.id 'WARN' ("{0} files copied ({1} MB) but the families '{2}' / '{3}' are not both visible yet; sign out and back in, then run 99-verify" -f $ttf.Count, $sizeMB, $pin.baseFamily, $pin.family) @{ drive = 'C:'; sizeMB = $sizeMB } }
 }
 
 function Install-PsModule {

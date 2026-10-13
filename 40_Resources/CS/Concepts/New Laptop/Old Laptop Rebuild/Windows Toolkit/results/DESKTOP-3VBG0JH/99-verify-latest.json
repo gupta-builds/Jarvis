@@ -3,17 +3,15 @@
     "host":  "DESKTOP-3VBG0JH",
     "machine":  "dell",
     "dryRun":  false,
-    "started":  "2026-10-13T01:04:37",
-    "finished":  "2026-10-13T01:04:58",
+    "started":  "2026-10-13T01:57:03",
+    "finished":  "2026-10-13T01:57:20",
     "admin":  false,
-    "manifestSha256":  "1148540EEA4E16CE17D955AACA684E62911ECDA1AE29861DD385788EBDE6CFA5",
+    "manifestSha256":  "A85E83A917A81B8BC009AEB4430E55A26F11DAACEFF6DA83720C5A93FFE74FC5",
     "vaultRoot":  "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis",
-    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-99-verify-20261013-010437.log",
+    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-99-verify-20261013-015703.log",
     "counts":  {
+                   "PASS":  104,
                    "INFO":  12,
-                   "PASS":  97,
-                   "FAIL":  3,
-                   "PENDING":  3,
                    "WARN":  1
                },
     "items":  [
@@ -163,21 +161,21 @@
                   },
                   {
                       "id":  "node",
-                      "status":  "FAIL",
-                      "detail":  "version 22.16.0 on C:, 93.6 MB; major 22, expected 24",
+                      "status":  "PASS",
+                      "detail":  "version 24.20.0 on C:, 101.6 MB",
                       "drive":  "C:",
                       "path":  "C:\\Program Files\\nodejs\\node.exe",
-                      "version":  "22.16.0",
-                      "sizeMB":  93.6
+                      "version":  "24.20.0",
+                      "sizeMB":  101.6
                   },
                   {
                       "id":  "npm",
                       "status":  "PASS",
-                      "detail":  "version 10.9.2 on C:, 93.6 MB",
+                      "detail":  "version 11.19.0 on C:, 101.6 MB",
                       "drive":  "C:",
                       "path":  "C:\\Program Files\\nodejs\\npm.ps1",
-                      "version":  "10.9.2",
-                      "sizeMB":  93.6
+                      "version":  "11.19.0",
+                      "sizeMB":  101.6
                   },
                   {
                       "id":  "pnpm",
@@ -200,23 +198,21 @@
                   {
                       "id":  "uv-python",
                       "status":  "PASS",
-                      "detail":  "version 3.13.5; cpython 3.13.5",
-                      "drive":  null,
-                      "path":  null,
-                      "version":  "3.13.5",
+                      "detail":  "version 3.13.15 on C:; cpython 3.13.15",
+                      "drive":  "C:",
+                      "path":  "C:\\Users\\Anant Gupta\\AppData\\Roaming\\uv\\python\\cpython-3.13.15-windows-x86_64-none",
+                      "version":  "3.13.15",
                       "sizeMB":  null
                   },
                   {
                       "id":  "python-choco",
-                      "status":  "PENDING",
-                      "detail":  "still present (3.13.5); retire with: elevated: powershell -File \"D:\\WSL\\ops\\windows\\04-admin-remove.ps1\" -IncludePython -Apply",
-                      "version":  "3.13.5"
+                      "status":  "PASS",
+                      "detail":  "retired (absent)"
                   },
                   {
                       "id":  "choco",
-                      "status":  "PENDING",
-                      "detail":  "still present (2.4.3); retire with: same elevated command as python-choco",
-                      "version":  "2.4.3"
+                      "status":  "PASS",
+                      "detail":  "retired (absent)"
                   },
                   {
                       "id":  "miniconda",
@@ -338,11 +334,11 @@
                   {
                       "id":  "npx",
                       "status":  "PASS",
-                      "detail":  "version 10.9.2 on C:, 93.6 MB",
+                      "detail":  "version 11.19.0 on C:, 101.6 MB",
                       "drive":  "C:",
                       "path":  "C:\\Program Files\\nodejs\\npx.ps1",
-                      "version":  "10.9.2",
-                      "sizeMB":  93.6
+                      "version":  "11.19.0",
+                      "sizeMB":  101.6
                   },
                   {
                       "id":  "uvx",
@@ -369,8 +365,8 @@
                   },
                   {
                       "id":  "uv-path-first",
-                      "status":  "PENDING",
-                      "detail":  "first uv on PATH is C:\\Python313\\Scripts\\uv.exe; wins until 04-admin-remove.ps1 -IncludePython retires Python"
+                      "status":  "PASS",
+                      "detail":  "standalone uv is the first uv on PATH"
                   },
                   {
                       "id":  "junction-miniconda",
@@ -425,6 +421,11 @@
                       "blockSha256":  "2F6B24B4DB41E765F071483F8AFF14EC5F0E810D11E49EF93C5B368CAF8483E9"
                   },
                   {
+                      "id":  "cfg-path-order",
+                      "status":  "PASS",
+                      "detail":  "C:\\Users\\Anant Gupta\\.local\\bin is first on the user PATH"
+                  },
+                  {
                       "id":  "wt-default-profile-is-powershell-7",
                       "status":  "PASS",
                       "detail":  "default profile is PowerShell 7"
@@ -435,14 +436,14 @@
                       "detail":  "font face IosevkaTerm NFM"
                   },
                   {
-                      "id":  "wt-scheme-tokyo-night-storm-applied",
+                      "id":  "wt-scheme-one-half-dark-applied",
                       "status":  "PASS",
-                      "detail":  "scheme Tokyo Night Storm applied"
+                      "detail":  "scheme One Half Dark applied"
                   },
                   {
-                      "id":  "wt-scheme-defined-once",
+                      "id":  "wt-extra-scheme-defined-once",
                       "status":  "PASS",
-                      "detail":  "scheme defined once"
+                      "detail":  "extra scheme defined once"
                   },
                   {
                       "id":  "wt-opacity-85-acrylic-cursor-98c379",
@@ -531,8 +532,8 @@
                   },
                   {
                       "id":  "git-pager",
-                      "status":  "FAIL",
-                      "detail":  "core.pager is \u0027\u0027"
+                      "status":  "PASS",
+                      "detail":  "core.pager=delta"
                   },
                   {
                       "id":  "gh-auth",
@@ -597,14 +598,14 @@
                   {
                       "id":  "shell-powershell-5.1",
                       "status":  "PASS",
-                      "detail":  "profile loads; Starship and zoxide initialised; startup 2507 ms",
-                      "startupMs":  2507
+                      "detail":  "profile loads; Starship and zoxide initialised; startup 2049 ms",
+                      "startupMs":  2049
                   },
                   {
                       "id":  "shell-pwsh-7",
                       "status":  "PASS",
-                      "detail":  "profile loads; Starship and zoxide initialised; startup 1267 ms",
-                      "startupMs":  1267
+                      "detail":  "profile loads; Starship and zoxide initialised; startup 925 ms",
+                      "startupMs":  925
                   },
                   {
                       "id":  "starship-config",
@@ -790,8 +791,8 @@
                   },
                   {
                       "id":  "lock-write",
-                      "status":  "FAIL",
-                      "detail":  "not written: 2 check(s) failed"
+                      "status":  "PASS",
+                      "detail":  "wrote D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\toolkit.lock.json with 37 tools and 8 config hashes"
                   }
               ]
 }

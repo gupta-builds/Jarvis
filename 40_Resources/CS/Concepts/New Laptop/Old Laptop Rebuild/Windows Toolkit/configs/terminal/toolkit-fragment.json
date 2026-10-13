@@ -7,9 +7,9 @@
     "hidden": false
   },
   "defaults": {
-    "colorScheme": "Tokyo Night Storm",
+    "colorScheme": "One Half Dark",
     "cursorColor": "#98C379",
-    "font": { "face": "IosevkaTerm NFM" },
+    "font": { "face": "IosevkaTerm Nerd Font" },
     "opacity": 85,
     "scrollbarState": "hidden",
     "useAcrylic": true

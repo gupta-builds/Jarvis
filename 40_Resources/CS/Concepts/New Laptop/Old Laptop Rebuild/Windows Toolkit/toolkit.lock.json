@@ -1,0 +1,315 @@
+{
+    "schema":  1,
+    "created":  "2026-10-13T01:57:20",
+    "host":  "DESKTOP-3VBG0JH",
+    "machine":  "dell",
+    "manifestSha256":  "A85E83A917A81B8BC009AEB4430E55A26F11DAACEFF6DA83720C5A93FFE74FC5",
+    "tools":  {
+                  "pwsh":  {
+                               "version":  "7.6.6",
+                               "policy":  "install",
+                               "wingetId":  "Microsoft.PowerShell",
+                               "path":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe",
+                               "drive":  "C:",
+                               "sizeMB":  null
+                           },
+                  "wt":  {
+                             "version":  "1.24.12741.0",
+                             "policy":  "verify",
+                             "wingetId":  "Microsoft.WindowsTerminal",
+                             "path":  null,
+                             "drive":  null,
+                             "sizeMB":  null
+                         },
+                  "starship":  {
+                                   "version":  "1.26.0",
+                                   "policy":  "install",
+                                   "wingetId":  "Starship.Starship",
+                                   "path":  "C:\\Program Files\\starship\\bin\\starship.exe",
+                                   "drive":  "C:",
+                                   "sizeMB":  12.5
+                               },
+                  "iosevkaterm-nfm":  {
+                                          "version":  "v3.5.1",
+                                          "policy":  "install",
+                                          "wingetId":  null,
+                                          "path":  null,
+                                          "drive":  null,
+                                          "sizeMB":  null
+                                      },
+                  "zoxide":  {
+                                 "version":  "0.10.0",
+                                 "policy":  "install",
+                                 "wingetId":  "ajeetdsouza.zoxide",
+                                 "path":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Microsoft\\WinGet\\Packages\\ajeetdsouza.zoxide_Microsoft.Winget.Source_8wekyb3d8bbwe\\zoxide.exe",
+                                 "drive":  "C:",
+                                 "sizeMB":  1.3
+                             },
+                  "fzf":  {
+                              "version":  "0.74.4",
+                              "policy":  "install",
+                              "wingetId":  "junegunn.fzf",
+                              "path":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Microsoft\\WinGet\\Packages\\junegunn.fzf_Microsoft.Winget.Source_8wekyb3d8bbwe\\fzf.exe",
+                              "drive":  "C:",
+                              "sizeMB":  6
+                          },
+                  "psfzf":  {
+                                "version":  "2.7.12",
+                                "policy":  "install",
+                                "wingetId":  null,
+                                "path":  null,
+                                "drive":  null,
+                                "sizeMB":  null
+                            },
+                  "fd":  {
+                             "version":  "10.5.0",
+                             "policy":  "install",
+                             "wingetId":  "sharkdp.fd",
+                             "path":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Microsoft\\WinGet\\Packages\\sharkdp.fd_Microsoft.Winget.Source_8wekyb3d8bbwe\\fd-v10.5.0-x86_64-pc-windows-msvc\\fd.exe",
+                             "drive":  "C:",
+                             "sizeMB":  4.1
+                         },
+                  "bat":  {
+                              "version":  "0.26.1",
+                              "policy":  "install",
+                              "wingetId":  "sharkdp.bat",
+                              "path":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Microsoft\\WinGet\\Packages\\sharkdp.bat_Microsoft.Winget.Source_8wekyb3d8bbwe\\bat-v0.26.1-x86_64-pc-windows-msvc\\bat.exe",
+                              "drive":  "C:",
+                              "sizeMB":  7.2
+                          },
+                  "delta":  {
+                                "version":  "0.20.1",
+                                "policy":  "install",
+                                "wingetId":  "dandavison.delta",
+                                "path":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Microsoft\\WinGet\\Packages\\dandavison.delta_Microsoft.Winget.Source_8wekyb3d8bbwe\\delta-0.20.1-x86_64-pc-windows-msvc\\delta.exe",
+                                "drive":  "C:",
+                                "sizeMB":  7.3
+                            },
+                  "git":  {
+                              "version":  "2.55.0",
+                              "policy":  "latest",
+                              "wingetId":  "Git.Git",
+                              "path":  "C:\\Program Files\\Git\\cmd\\git.exe",
+                              "drive":  "C:",
+                              "sizeMB":  404
+                          },
+                  "gh":  {
+                             "version":  "2.102.0",
+                             "policy":  "latest",
+                             "wingetId":  "GitHub.cli",
+                             "path":  "C:\\Program Files\\GitHub CLI\\gh.exe",
+                             "drive":  "C:",
+                             "sizeMB":  40.9
+                         },
+                  "ripgrep":  {
+                                  "version":  "15.1.0",
+                                  "policy":  "install",
+                                  "wingetId":  "BurntSushi.ripgrep.MSVC",
+                                  "path":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Microsoft\\WinGet\\Packages\\BurntSushi.ripgrep.MSVC_Microsoft.Winget.Source_8wekyb3d8bbwe\\ripgrep-15.1.0-x86_64-pc-windows-msvc\\rg.exe",
+                                  "drive":  "C:",
+                                  "sizeMB":  4.4
+                              },
+                  "jq":  {
+                             "version":  "1.8.2",
+                             "policy":  "install",
+                             "wingetId":  "jqlang.jq",
+                             "path":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Microsoft\\WinGet\\Packages\\jqlang.jq_Microsoft.Winget.Source_8wekyb3d8bbwe\\jq.exe",
+                             "drive":  "C:",
+                             "sizeMB":  1
+                         },
+                  "ffmpeg":  {
+                                 "version":  "8.1.2",
+                                 "policy":  "install",
+                                 "wingetId":  "Gyan.FFmpeg",
+                                 "path":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.1.2-full_build\\bin\\ffmpeg.exe",
+                                 "drive":  "C:",
+                                 "sizeMB":  706.1
+                             },
+                  "nanazip":  {
+                                  "version":  "7.0.1843.0",
+                                  "policy":  "install",
+                                  "wingetId":  "M2Team.NanaZip",
+                                  "path":  "C:\\Program Files\\WindowsApps\\40174MouriNaruto.NanaZip_7.0.1843.0_x64__gnj4mf6z9tkrc",
+                                  "drive":  "C:",
+                                  "sizeMB":  null
+                              },
+                  "node":  {
+                               "version":  "24.20.0",
+                               "policy":  "install",
+                               "wingetId":  "OpenJS.NodeJS.LTS",
+                               "path":  "C:\\Program Files\\nodejs\\node.exe",
+                               "drive":  "C:",
+                               "sizeMB":  101.6
+                           },
+                  "npm":  {
+                              "version":  "11.19.0",
+                              "policy":  "verify",
+                              "wingetId":  null,
+                              "path":  "C:\\Program Files\\nodejs\\npm.ps1",
+                              "drive":  "C:",
+                              "sizeMB":  101.6
+                          },
+                  "pnpm":  {
+                               "version":  "12.11.2",
+                               "policy":  "install",
+                               "wingetId":  "pnpm.pnpm",
+                               "path":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Microsoft\\WinGet\\Packages\\pnpm.pnpm_Microsoft.Winget.Source_8wekyb3d8bbwe\\pnpm.exe",
+                               "drive":  "C:",
+                               "sizeMB":  51.5
+                           },
+                  "uv":  {
+                             "version":  "0.12.19",
+                             "policy":  "install",
+                             "wingetId":  null,
+                             "path":  "C:\\Users\\Anant Gupta\\.local\\bin\\uv.exe",
+                             "drive":  "C:",
+                             "sizeMB":  40.5
+                         },
+                  "uv-python":  {
+                                    "version":  "3.13.15",
+                                    "policy":  "install",
+                                    "wingetId":  null,
+                                    "path":  "C:\\Users\\Anant Gupta\\AppData\\Roaming\\uv\\python\\cpython-3.13.15-windows-x86_64-none",
+                                    "drive":  "C:",
+                                    "sizeMB":  null
+                                },
+                  "miniconda":  {
+                                    "version":  "py313_25.11.1-1",
+                                    "policy":  "verify",
+                                    "wingetId":  "Anaconda.Miniconda3",
+                                    "path":  null,
+                                    "drive":  null,
+                                    "sizeMB":  null
+                                },
+                  "opam":  {
+                               "version":  "2.5.0",
+                               "policy":  "verify",
+                               "wingetId":  "OCaml.opam",
+                               "path":  null,
+                               "drive":  null,
+                               "sizeMB":  null
+                           },
+                  "winget":  {
+                                 "version":  "1.29.380",
+                                 "policy":  "verify",
+                                 "wingetId":  null,
+                                 "path":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Microsoft\\WindowsApps\\winget.exe",
+                                 "drive":  "C:",
+                                 "sizeMB":  null
+                             },
+                  "claude-code":  {
+                                      "version":  "2.1.296",
+                                      "policy":  "verify",
+                                      "wingetId":  null,
+                                      "path":  "C:\\Users\\Anant Gupta\\.local\\bin\\claude.exe",
+                                      "drive":  "C:",
+                                      "sizeMB":  248.4
+                                  },
+                  "codex":  {
+                                "version":  "0.160.0",
+                                "policy":  "install",
+                                "wingetId":  null,
+                                "path":  "C:\\Users\\Anant Gupta\\AppData\\Roaming\\npm\\codex.ps1",
+                                "drive":  "C:",
+                                "sizeMB":  0
+                            },
+                  "claude-desktop":  {
+                                         "version":  "2.31226.1.0",
+                                         "policy":  "verify",
+                                         "wingetId":  "Anthropic.Claude",
+                                         "path":  null,
+                                         "drive":  null,
+                                         "sizeMB":  null
+                                     },
+                  "cursor":  {
+                                 "version":  "3.19.13",
+                                 "policy":  "verify",
+                                 "wingetId":  "Anysphere.Cursor",
+                                 "path":  null,
+                                 "drive":  null,
+                                 "sizeMB":  null
+                             },
+                  "kiro":  {
+                               "version":  "1.0.395",
+                               "policy":  "verify",
+                               "wingetId":  "Amazon.Kiro",
+                               "path":  null,
+                               "drive":  null,
+                               "sizeMB":  null
+                           },
+                  "antigravity":  {
+                                      "version":  "2.22.0",
+                                      "policy":  "verify",
+                                      "wingetId":  "Google.Antigravity",
+                                      "path":  null,
+                                      "drive":  null,
+                                      "sizeMB":  null
+                                  },
+                  "docker-desktop":  {
+                                         "version":  "4.56.0",
+                                         "policy":  "verify",
+                                         "wingetId":  "Docker.DockerDesktop",
+                                         "path":  null,
+                                         "drive":  null,
+                                         "sizeMB":  null
+                                     },
+                  "ollama":  {
+                                 "version":  "0.40.3",
+                                 "policy":  "verify",
+                                 "wingetId":  "Ollama.Ollama",
+                                 "path":  null,
+                                 "drive":  null,
+                                 "sizeMB":  null
+                             },
+                  "vscode":  {
+                                 "version":  "1.141.0",
+                                 "policy":  "verify",
+                                 "wingetId":  "Microsoft.VisualStudioCode",
+                                 "path":  null,
+                                 "drive":  null,
+                                 "sizeMB":  null
+                             },
+                  "mcp-remote":  {
+                                     "version":  "0.2.1",
+                                     "policy":  "install",
+                                     "wingetId":  null,
+                                     "path":  "C:\\Users\\Anant Gupta\\AppData\\Roaming\\npm\\mcp-remote.ps1",
+                                     "drive":  "C:",
+                                     "sizeMB":  0
+                                 },
+                  "npx":  {
+                              "version":  "11.19.0",
+                              "policy":  "verify",
+                              "wingetId":  null,
+                              "path":  "C:\\Program Files\\nodejs\\npx.ps1",
+                              "drive":  "C:",
+                              "sizeMB":  101.6
+                          },
+                  "uvx":  {
+                              "version":  "0.12.19",
+                              "policy":  "verify",
+                              "wingetId":  null,
+                              "path":  "C:\\Users\\Anant Gupta\\.local\\bin\\uvx.exe",
+                              "drive":  "C:",
+                              "sizeMB":  0.3
+                          },
+                  "docker-cli":  {
+                                     "version":  "29.1.3",
+                                     "policy":  "verify",
+                                     "wingetId":  null,
+                                     "path":  "C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe",
+                                     "drive":  "C:",
+                                     "sizeMB":  3785.2
+                                 }
+              },
+    "configs":  {
+                    "starship":  "9EF7137822AA311445172696D150ED8E6D8C5CD84F5FCF7829D96EE0FA81D1E2",
+                    "git-ignore":  "546B86DBE5D2AA141915726FB99966DE0664263AB33C17C460CD50EA3C6E0E50",
+                    "git-delta":  "91DE9847A2993F7EC2950A3F20FF6D1A72DF778B87C1817B5554780BEDD840F8",
+                    "bat":  "FD064DBC4718C2A38DC7D5B250609D62EBC386A3B97B6353009D4348D95D4C8A",
+                    "fd-ignore":  "A97264C09BFF11356068FED1BB45BD241798431071EE2B1C78C9FF849FA651E0",
+                    "profile-ps5":  "2F6B24B4DB41E765F071483F8AFF14EC5F0E810D11E49EF93C5B368CAF8483E9",
+                    "profile-pwsh":  "2F6B24B4DB41E765F071483F8AFF14EC5F0E810D11E49EF93C5B368CAF8483E9",
+                    "terminal":  "DC5573D96B72C24BB4F3767E190D94C0BC42C57365D2F1AE732C1FBA0B7A2991"
+                }
+}

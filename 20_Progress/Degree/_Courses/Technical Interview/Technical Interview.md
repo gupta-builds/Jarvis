@@ -2,7 +2,7 @@
 type: class
 status: sprout
 created: 2026-09-07
-updated: 2026-10-08
+updated: 2026-10-13
 tags:
   - class
   - fall2026
@@ -113,6 +113,8 @@ The user reports that TIP103 Unit 1, Session 1 has been completed and that Homew
 | 2 | Python data handling with lists, strings, and dictionaries | Lists, dictionaries, and sets |
 | 3 | Recursion and recursive-function structure | Stacks, queues, two pointers, strings, and arrays |
 | 4 | Python classes and linked lists | Binary trees and tree operations |
+
+**Status correction (2026-10-13):** The user reports Day 1 of the personal preparation window (October 12) was missed. Day 2 (October 13) is the recovery start, with a detailed Units 1-5 audit planned this week. Units 1-4 session problems were solved in class; they are transcript records, not new practice assignments. Homework 1-3 are complete. Independent daily interview-problem execution is 0. No Unit 5 session transcript or verified topic is currently indexed, so do not infer its scope from the older University Partnership syllabus copy.
 
 This session-topic map comes from the landed transcript introductions, not the unverified schedule copied from the older syllabus edition.
 ## Resources

@@ -1,0 +1,24 @@
+# yazi 26.9.x. Source: Acer snapshot, Build 5b: removed `id = "git"` (not a documented fetcher key; yazi ignores it, docs list url/run/if/prio/group).
+[mgr]
+show_hidden = false
+show_symlink = true
+sort_by = "natural"
+sort_dir_first = true
+
+[preview]
+tab_size = 2
+max_width = 1200
+max_height = 1200
+image_filter = "lanczos3"
+image_quality = 90
+
+# git status column. Plugin: yazi-rs/plugins:git (pinned in package.toml). init.lua calls require("git"):setup.
+[[plugin.prepend_fetchers]]
+url   = "*"
+run   = "git"
+group = "git"
+
+[[plugin.prepend_fetchers]]
+url   = "*/"
+run   = "git"
+group = "git"

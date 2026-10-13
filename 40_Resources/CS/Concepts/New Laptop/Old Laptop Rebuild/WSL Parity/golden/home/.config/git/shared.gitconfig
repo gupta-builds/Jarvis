@@ -1,0 +1,37 @@
+# ~/.config/git/shared.gitconfig - golden, Build 5b. Identical on the Dell and Acer WSL.
+# Included from ~/.gitconfig ([include] path). Machine-specific keys stay in ~/.gitconfig: user, credential helpers,
+# filter "lfs", and core.autocrlf (Dell WSL = input).
+# NOT set on purpose: core.fsmonitor (git 2.43 has no fsmonitor daemon on Linux: "fsmonitor--daemon not supported on this platform"),
+# rebase.autoStash (would let `git pull` stash dirty work silently), help.autocorrect=prompt (the "prompt" value is probably not recognised by git 2.43, unverified).
+[core]
+	pager = delta
+	untrackedCache = true
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	dark = true
+	line-numbers = true
+	side-by-side = true
+[merge]
+	conflictStyle = zdiff3
+[diff]
+	algorithm = histogram
+	colorMoved = default
+	colorMovedWS = allow-indentation-change
+[init]
+	defaultBranch = main
+[pull]
+	rebase = true
+[push]
+	autoSetupRemote = true
+[fetch]
+	prune = true
+[rerere]
+	enabled = true
+[rebase]
+	updateRefs = true
+[branch]
+	sort = -committerdate
+[worktree]
+	guessRemote = true

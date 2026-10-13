@@ -1,0 +1,11 @@
+#:schema https://github.com/joshmedeski/sesh/raw/main/sesh.schema.json
+# sesh 2.x. Golden config, Build 5b. Docs: https://github.com/joshmedeski/sesh (README). sesh also lists tmux sessions and zoxide dirs on its own.
+dir_length = 2                       # [5b] "hub/CausalOps" instead of "CausalOps" in session names
+sort_order = ["tmux", "config", "zoxide"]
+
+[default_session]
+preview_command = "ls -la --color=always {}"   # [acer]
+
+[[session]]
+name = "projects"                    # [5b] one-key jump to the canonical checkout root (same path on Dell and Acer)
+path = "~/projects"

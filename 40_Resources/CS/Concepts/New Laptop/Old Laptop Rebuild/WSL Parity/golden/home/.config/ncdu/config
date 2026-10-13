@@ -1,0 +1,12 @@
+# Always show extended info (item counts, mtime)
+-e
+
+# Dark color scheme
+--color dark
+
+# Skip noise that isn't useful to size-audit
+--exclude .git
+--exclude node_modules
+
+# Don't quit accidentally
+--confirm-quit

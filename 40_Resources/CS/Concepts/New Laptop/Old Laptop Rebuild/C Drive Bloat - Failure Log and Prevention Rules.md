@@ -2,7 +2,7 @@
 type: note
 status: sprout
 created: 2026-10-07
-updated: 2026-10-07
+updated: 2026-10-12
 course: Life
 track:
   - laptop
@@ -47,7 +47,7 @@ next: "Windows-host build (Dell) applies the Dell fixes; Acer gets the monthly c
 | 5 | Moving the VHDX to D: was read as "WSL is off C:" | Index facts; 9.26 GiB of WSL-adjacent files sit on C: | `vscode-remote-wsl` (6.29), the old Codex quarantine (2.34) and `%TEMP%\wsl-crashes` (0.54) are outside the VHDX | Open, Windows-host build |
 | 6 | Electron and Store apps are stuck on C: | [[Installations]] already says so; Spotify 6.38, Vivaldi 5.63, superwhisper 4.82, WisprFlow 1.88 | Their installers offer no location choice | Accepted. Budget for them; clear their caches |
 | 7 | Windows-side editors and agents grow on C: | `.vscode` 4.08, `.codex` 3.36, Local\Programs 14.1 (VS Code installed on C: here, on D: on the Acer) | Install location and extension cache are not redirectable per tool | Open |
-| 8 | A cleanup created more C: data | `codex-cleanup-quarantine-2026-09-20` 2.34 GiB | "Quarantine" moved files to the same drive and nothing reviewed them | Open: decide, then delete |
+| 8 | A cleanup created more C: data | `codex-cleanup-quarantine-2026-09-20` 2.34 GiB | "Quarantine" moved files to the same drive and nothing reviewed them | Partially closed, 2026-10-12: the folder now lives at `D:\Quarantine\c-cleanup-review-2026-11-01\old-quarantine`, off C:, with a 2026-11-01 review date. Contents not yet reviewed item-by-item. Unrelated to the quarantine move itself, the same-era cleanup also redirected `.codex\packages` to `D:\Cache\codex\packages` via a directory junction and left that target without a `current` release pointer, which broke the Codex CLI's background daemon (`daemon executable not found at ...\.codex\packages\app-server-daemon\current\bin\codex.exe`) and, downstream, Windows sandbox setup. Fixed 2026-10-12: see the session log entry for that date. |
 | 9 | Free space was reported from the wrong place | Build 1's 41.7 GiB reclaim changed D: and ext4 only; C: free fell | Different drives; host reclaim also needs trim plus compaction | Rule below |
 
 ## Growth rules (apply to both laptops)

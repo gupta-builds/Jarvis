@@ -11,6 +11,7 @@ param([switch]$DryRun, [ValidateSet('dell', 'acer')][string]$Machine, [string[]]
 
 . "$PSScriptRoot\_lib.ps1"
 $ErrorActionPreference = 'Stop'
+if ($Only) { $Only = @($Only | ForEach-Object { $_ -split ',' } | Where-Object { $_ }) }
 Initialize-Toolkit -Name '10-install-toolkit' -DryRun $DryRun.IsPresent -Machine $Machine | Out-Null
 $m = $global:TK.Manifest
 $role = $global:TK.Role

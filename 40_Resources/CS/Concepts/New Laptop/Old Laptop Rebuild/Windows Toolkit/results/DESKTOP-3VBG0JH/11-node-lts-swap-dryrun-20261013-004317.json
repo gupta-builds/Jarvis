@@ -1,0 +1,40 @@
+{
+    "script":  "11-node-lts-swap",
+    "host":  "DESKTOP-3VBG0JH",
+    "machine":  "dell",
+    "dryRun":  true,
+    "started":  "2026-10-13T00:43:17",
+    "finished":  "2026-10-13T00:43:20",
+    "admin":  false,
+    "manifestSha256":  "F8449C836949F4BF3847901874906E213AA2BAF9ABF3A2BD1E09809F4DA70733",
+    "vaultRoot":  "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis",
+    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-11-node-lts-swap-20261013-004317.log",
+    "counts":  {
+                   "FAIL":  1,
+                   "INFO":  2
+               },
+    "items":  [
+                  {
+                      "id":  "node-state",
+                      "status":  "INFO",
+                      "detail":  "OpenJS.NodeJS.22 = 22.16.0; OpenJS.NodeJS.LTS = "
+                  },
+                  {
+                      "id":  "npm-globals-before",
+                      "status":  "INFO",
+                      "detail":  "@openai/codex@0.160.0, firecrawl-cli@1.19.21, mcp-remote@0.2.1, openclaw@2026.3.13, opencode-ai@1.18.31",
+                      "globals":  [
+                                      "@openai/codex@0.160.0",
+                                      "firecrawl-cli@1.19.21",
+                                      "mcp-remote@0.2.1",
+                                      "openclaw@2026.3.13",
+                                      "opencode-ai@1.18.31"
+                                  ]
+                  },
+                  {
+                      "id":  "node-running",
+                      "status":  "FAIL",
+                      "detail":  "node.exe pid 984, node.exe pid 1924, node.exe pid 5580, node.exe pid 6512, node.exe pid 7640, node.exe pid 15832, node.exe pid 16332, node.exe pid 16368, node.exe pid 17972, node.exe pid 18460, node.exe pid 19228, node.exe pid 19760, node.exe pid 20012, node.exe pid 20144, node.exe pid 20588, node.exe pid 20656, node.exe pid 20888, node.exe pid 21168, node.exe pid 21216, node.exe pid 21224, node.exe pid 21596, node.exe pid 21896, node.exe pid 22148, node.exe pid 22456, node.exe pid 23380, node.exe pid 23632, node.exe pid 23676, node.exe pid 23848, node.exe pid 24016, node.exe pid 24792, node.exe pid 25816, node.exe pid 27888. Close editors, Claude Desktop and terminals running node, then re-run."
+                  }
+              ]
+}

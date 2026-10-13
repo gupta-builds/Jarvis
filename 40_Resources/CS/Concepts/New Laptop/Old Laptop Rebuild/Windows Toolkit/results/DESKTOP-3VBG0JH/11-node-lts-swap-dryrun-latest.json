@@ -1,0 +1,46 @@
+{
+    "script":  "11-node-lts-swap",
+    "host":  "DESKTOP-3VBG0JH",
+    "machine":  "dell",
+    "dryRun":  true,
+    "started":  "2026-10-13T00:43:39",
+    "finished":  "2026-10-13T00:43:44",
+    "admin":  false,
+    "manifestSha256":  "F8449C836949F4BF3847901874906E213AA2BAF9ABF3A2BD1E09809F4DA70733",
+    "vaultRoot":  "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis",
+    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-11-node-lts-swap-20261013-004339.log",
+    "counts":  {
+                   "PLAN":  1,
+                   "INFO":  2,
+                   "WARN":  1
+               },
+    "items":  [
+                  {
+                      "id":  "node-state",
+                      "status":  "INFO",
+                      "detail":  "OpenJS.NodeJS.22 = 22.16.0; OpenJS.NodeJS.LTS = "
+                  },
+                  {
+                      "id":  "npm-globals-before",
+                      "status":  "INFO",
+                      "detail":  "@openai/codex@0.160.0, firecrawl-cli@1.19.21, mcp-remote@0.2.1, openclaw@2026.3.13, opencode-ai@1.18.31",
+                      "globals":  [
+                                      "@openai/codex@0.160.0",
+                                      "firecrawl-cli@1.19.21",
+                                      "mcp-remote@0.2.1",
+                                      "openclaw@2026.3.13",
+                                      "opencode-ai@1.18.31"
+                                  ]
+                  },
+                  {
+                      "id":  "node-running",
+                      "status":  "WARN",
+                      "detail":  "[DRYRUN] 32 node.exe process(es), started by: claude x2, cmd x30. Close those apps (editors, Claude Desktop, Claude Code, terminals) before -Apply; command lines are never printed."
+                  },
+                  {
+                      "id":  "node-swap",
+                      "status":  "PLAN",
+                      "detail":  "[DRYRUN] would: winget uninstall OpenJS.NodeJS.22, then winget install OpenJS.NodeJS.LTS, then verify major 24 and the npm globals. Re-run with -Apply."
+                  }
+              ]
+}

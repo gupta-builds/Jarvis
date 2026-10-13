@@ -1,0 +1,125 @@
+{
+    "script":  "20-apply-configs",
+    "host":  "DESKTOP-3VBG0JH",
+    "machine":  "dell",
+    "dryRun":  true,
+    "started":  "2026-10-13T00:40:06",
+    "finished":  "2026-10-13T00:40:08",
+    "admin":  false,
+    "manifestSha256":  "F8449C836949F4BF3847901874906E213AA2BAF9ABF3A2BD1E09809F4DA70733",
+    "vaultRoot":  "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis",
+    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-20-apply-configs-20261013-004006.log",
+    "counts":  {
+                   "PLAN":  10,
+                   "PASS":  8,
+                   "WARN":  2
+               },
+    "items":  [
+                  {
+                      "id":  "starship",
+                      "status":  "PLAN",
+                      "detail":  "[DRYRUN] would write C:\\Users\\Anant Gupta\\.config\\starship.toml (source sha256 9EF7137822AA...)"
+                  },
+                  {
+                      "id":  "git-ignore",
+                      "status":  "PLAN",
+                      "detail":  "[DRYRUN] would write C:\\Users\\Anant Gupta\\.config\\git\\ignore (source sha256 546B86DBE5D2...)"
+                  },
+                  {
+                      "id":  "git-delta",
+                      "status":  "WARN",
+                      "detail":  "delta is not installed yet; skipped (run 10-install-toolkit first)"
+                  },
+                  {
+                      "id":  "bat",
+                      "status":  "PLAN",
+                      "detail":  "[DRYRUN] would write C:\\Users\\Anant Gupta\\AppData\\Roaming\\bat\\config (source sha256 FD064DBC4718...)"
+                  },
+                  {
+                      "id":  "fd-ignore",
+                      "status":  "PLAN",
+                      "detail":  "[DRYRUN] would write C:\\Users\\Anant Gupta\\AppData\\Roaming\\fd\\ignore (source sha256 A97264C09BFF...)"
+                  },
+                  {
+                      "id":  "profile-ps5",
+                      "status":  "PLAN",
+                      "detail":  "[DRYRUN] would insert/refresh the managed block in D:\\Users\\_Anant\\10_Areas\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1 ",
+                      "target":  "D:\\Users\\_Anant\\10_Areas\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1"
+                  },
+                  {
+                      "id":  "profile-pwsh",
+                      "status":  "PLAN",
+                      "detail":  "[DRYRUN] would insert/refresh the managed block in D:\\Users\\_Anant\\10_Areas\\Documents\\PowerShell\\Microsoft.PowerShell_profile.ps1 ",
+                      "target":  "D:\\Users\\_Anant\\10_Areas\\Documents\\PowerShell\\Microsoft.PowerShell_profile.ps1"
+                  },
+                  {
+                      "id":  "terminal",
+                      "status":  "PLAN",
+                      "detail":  "[DRYRUN] would merge scheme, defaults, actions, keybindings, pwsh profile and rename Ubuntu to \u0027Ubuntu (Dell)\u0027 in C:\\Users\\Anant Gupta\\AppData\\Local\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json; preview: D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\results\\DESKTOP-3VBG0JH\\terminal-settings-preview-20261013-004006.json",
+                      "target":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json"
+                  },
+                  {
+                      "id":  "git-delta-include",
+                      "status":  "WARN",
+                      "detail":  "delta or its include file is missing; pager include skipped"
+                  },
+                  {
+                      "id":  "git-settings",
+                      "status":  "PLAN",
+                      "detail":  "9 setting(s) would change; 2 already correct. core.longpaths: \u0027\u0027 -\u003e \u0027true\u0027 | core.fsmonitor: \u0027\u0027 -\u003e \u0027true\u0027 | core.untrackedCache: \u0027\u0027 -\u003e \u0027true\u0027 | core.autocrlf: \u0027false\u0027 -\u003e \u0027input\u0027 | push.autoSetupRemote: \u0027\u0027 -\u003e \u0027true\u0027 | fetch.prune: \u0027\u0027 -\u003e \u0027true\u0027 | rerere.enabled: \u0027\u0027 -\u003e \u0027true\u0027 | credential.https://github.com.helper: would reset and set to gh auth git-credential | credential.https://gist.github.com.helper: would reset and set to gh auth git-credential"
+                  },
+                  {
+                      "id":  "env-STARSHIP_CONFIG",
+                      "status":  "PLAN",
+                      "detail":  "[DRYRUN] would set STARSHIP_CONFIG=C:\\Users\\Anant Gupta\\.config\\starship.toml (was \u0027\u0027)"
+                  },
+                  {
+                      "id":  "env-TOOLKIT_VAULT_ROOT",
+                      "status":  "PLAN",
+                      "detail":  "[DRYRUN] would set TOOLKIT_VAULT_ROOT=D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis (was \u0027\u0027)"
+                  },
+                  {
+                      "id":  "envchk-UV_CACHE_DIR",
+                      "status":  "PASS",
+                      "detail":  "UV_CACHE_DIR=D:\\Cache\\uv (Build 3, untouched)"
+                  },
+                  {
+                      "id":  "envchk-PIP_CACHE_DIR",
+                      "status":  "PASS",
+                      "detail":  "PIP_CACHE_DIR=D:\\Cache\\pip (Build 3, untouched)"
+                  },
+                  {
+                      "id":  "envchk-HF_HOME",
+                      "status":  "PASS",
+                      "detail":  "HF_HOME=D:\\Cache\\huggingface (Build 3, untouched)"
+                  },
+                  {
+                      "id":  "envchk-NUGET_PACKAGES",
+                      "status":  "PASS",
+                      "detail":  "NUGET_PACKAGES=D:\\Cache\\nuget (Build 3, untouched)"
+                  },
+                  {
+                      "id":  "envchk-GRADLE_USER_HOME",
+                      "status":  "PASS",
+                      "detail":  "GRADLE_USER_HOME=D:\\Cache\\gradle (Build 3, untouched)"
+                  },
+                  {
+                      "id":  "envchk-PLAYWRIGHT_BROWSERS_PATH",
+                      "status":  "PASS",
+                      "detail":  "PLAYWRIGHT_BROWSERS_PATH=D:\\Cache\\ms-playwright (Build 3, untouched)"
+                  },
+                  {
+                      "id":  "envchk-PUPPETEER_CACHE_DIR",
+                      "status":  "PASS",
+                      "detail":  "PUPPETEER_CACHE_DIR=D:\\Cache\\puppeteer (Build 3, untouched)"
+                  },
+                  {
+                      "id":  "envchk-OLLAMA_MODELS",
+                      "status":  "PASS",
+                      "detail":  "OLLAMA_MODELS=D:\\AI\\ollama-models (Build 3, untouched)"
+                  }
+              ],
+    "hashTable":  [
+
+                  ]
+}

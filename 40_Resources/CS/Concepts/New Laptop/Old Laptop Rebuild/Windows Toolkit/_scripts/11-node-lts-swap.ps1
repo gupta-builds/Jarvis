@@ -36,11 +36,18 @@ try {
 
     $running = @(Get-Process -Name node -ErrorAction SilentlyContinue)
     if ($running.Count -gt 0) {
-        $names = ($running | ForEach-Object { 'node.exe pid ' + $_.Id }) -join ', '
-        if ($IgnoreRunning) { Add-Result 'node-running' 'WARN' ("{0} (continuing because -IgnoreRunning)" -f $names) }
-        else { Add-Result 'node-running' 'FAIL' ("{0}. Close editors, Claude Desktop and terminals running node, then re-run." -f $names); Complete-Toolkit }
+        $owners = @{}
+        foreach ($proc in (Get-CimInstance Win32_Process -Filter "Name='node.exe'" -ErrorAction SilentlyContinue)) {
+            $pn = 'unknown'
+            try { $pn = (Get-Process -Id $proc.ParentProcessId -ErrorAction Stop).ProcessName } catch { $pn = 'exited-parent' }
+            if ($owners.ContainsKey($pn)) { $owners[$pn]++ } else { $owners[$pn] = 1 }
+        }
+        $ownTxt = ($owners.Keys | Sort-Object | ForEach-Object { '{0} x{1}' -f $_, $owners[$_] }) -join ', '
+        $msg = ("{0} node.exe process(es), started by: {1}. Close those apps (editors, Claude Desktop, Claude Code, terminals) before -Apply; command lines are never printed." -f $running.Count, $ownTxt)
+        if ($IgnoreRunning) { Add-Result 'node-running' 'WARN' ($msg + ' Continuing because -IgnoreRunning.') }
+        elseif ($dry) { Add-Result 'node-running' 'WARN' ('[DRYRUN] ' + $msg) }
+        else { Add-Result 'node-running' 'FAIL' $msg; Complete-Toolkit }
     } else { Add-Result 'node-running' 'PASS' 'no node.exe running' }
-
     if ($dry) {
         Add-Result 'node-swap' 'PLAN' '[DRYRUN] would: winget uninstall OpenJS.NodeJS.22, then winget install OpenJS.NodeJS.LTS, then verify major 24 and the npm globals. Re-run with -Apply.'
         Complete-Toolkit

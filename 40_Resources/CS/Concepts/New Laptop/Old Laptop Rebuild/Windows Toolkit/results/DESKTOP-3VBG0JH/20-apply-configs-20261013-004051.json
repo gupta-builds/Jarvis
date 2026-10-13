@@ -1,0 +1,28 @@
+{
+    "script":  "20-apply-configs",
+    "host":  "DESKTOP-3VBG0JH",
+    "machine":  "acer",
+    "dryRun":  false,
+    "started":  "2026-10-13T00:40:51",
+    "finished":  "2026-10-13T00:40:51",
+    "admin":  false,
+    "manifestSha256":  "F8449C836949F4BF3847901874906E213AA2BAF9ABF3A2BD1E09809F4DA70733",
+    "vaultRoot":  "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis",
+    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-20-apply-configs-20261013-004051.log",
+    "counts":  {
+                   "CHANGED":  1
+               },
+    "items":  [
+                  {
+                      "id":  "terminal",
+                      "status":  "CHANGED",
+                      "detail":  "merged into C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\c49292f8-66cc-4fcf-be7d-2fa48b988728\\scratchpad\\wt-test\\acer-settings.json; backup C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\c49292f8-66cc-4fcf-be7d-2fa48b988728\\scratchpad\\wt-test\\bk\\20261013-004051\\9C788AF4_acer-settings.json",
+                      "backup":  "C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\c49292f8-66cc-4fcf-be7d-2fa48b988728\\scratchpad\\wt-test\\bk\\20261013-004051\\9C788AF4_acer-settings.json",
+                      "sha256":  "A12DA5E0EE9EEF7E06A7B5B0136112EF276A1E853AB16BCB21FA150EC41A84FD",
+                      "target":  "C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\c49292f8-66cc-4fcf-be7d-2fa48b988728\\scratchpad\\wt-test\\acer-settings.json"
+                  }
+              ],
+    "hashTable":  [
+
+                  ]
+}

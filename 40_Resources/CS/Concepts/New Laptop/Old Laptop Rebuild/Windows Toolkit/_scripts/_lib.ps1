@@ -204,7 +204,7 @@ function Complete-Toolkit {
         script = $global:TK.Name; host = $global:TK.Host; machine = $global:TK.Role; dryRun = $global:TK.DryRun
         started = $global:TK.Started.ToString('s'); finished = (Get-Date).ToString('s')
         admin = (Test-IsAdmin); manifestSha256 = $global:TK.ManifestHash; vaultRoot = $global:TK.Vault
-        log = $global:TK.LogFile; counts = $counts; items = @($items)
+        log = $global:TK.LogFile; counts = $counts; items = $items.ToArray()
     }
     if ($Summary) { foreach ($k in $Summary.Keys) { $res[$k] = $Summary[$k] } }
     $json = ConvertTo-Json -InputObject ([pscustomobject]$res) -Depth 12
@@ -269,16 +269,26 @@ function Invoke-Native {
 
 function Invoke-PSCode {
     # Runs code in a fresh PowerShell via -EncodedCommand. $Exe defaults to Windows PowerShell 5.1.
+    # With redirected streams PowerShell wraps progress in CLIXML on stderr; that is stripped, real error text is kept.
     param([string]$Code, [int]$TimeoutSec = 90, [switch]$NoProfile, [string]$Exe)
-    $b64 = [Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($Code))
+    $full = '$ProgressPreference = ''SilentlyContinue''; ' + $Code
+    $b64 = [Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($full))
     $e = $Exe
     if (-not $e) { $e = (Get-Command powershell.exe).Source }
     $a = @('-NoLogo', '-NonInteractive')
     if ($NoProfile) { $a += '-NoProfile' }
     $a += @('-EncodedCommand', $b64)
-    return (Invoke-Native -File $e -Arguments $a -TimeoutSec $TimeoutSec)
+    $r = Invoke-Native -File $e -Arguments $a -TimeoutSec $TimeoutSec
+    $err = [string]$r.Error
+    if ($err -match '^\s*#< CLIXML') {
+        $msgs = @()
+        foreach ($mm in [regex]::Matches($err, '<S S="Error">(.*?)</S>')) {
+            $msgs += ([regex]::Replace($mm.Groups[1].Value, '_x([0-9A-Fa-f]{4})_', { param($x) [string][char][Convert]::ToInt32($x.Groups[1].Value, 16) })).Trim()
+        }
+        $err = ($msgs | Where-Object { $_ }) -join ' '
+    }
+    return [pscustomobject]@{ ExitCode = $r.ExitCode; Output = $r.Output; Error = $err; TimedOut = $r.TimedOut }
 }
-
 function Resolve-CmdAll {
     param([string]$Name)
     $all = @(Get-Command $Name -All -ErrorAction SilentlyContinue | Where-Object { $_.CommandType -eq 'Application' -or $_.CommandType -eq 'ExternalScript' })
@@ -287,9 +297,9 @@ function Resolve-CmdAll {
 
 function Resolve-Cmd {
     param([string]$Name)
-    $all = Resolve-CmdAll $Name
+    $all = @(Resolve-CmdAll $Name)
     if ($all.Count -eq 0) { return $null }
-    return $all[0]
+    return [string]$all[0]
 }
 
 function Write-NativeTail {
@@ -306,17 +316,13 @@ function Get-WingetInstalledVersion {
     $w = Resolve-Cmd 'winget'
     if (-not $w) { return $null }
     $r = Invoke-Native -File $w -Arguments @('list', '--id', $Id, '--exact', '--accept-source-agreements', '--disable-interactivity') -TimeoutSec 120
+    $rx = '(?:^|\s)' + [regex]::Escape($Id) + '\s+(?:[<>~=]+\s*)?(\S+)'
     foreach ($line in ($r.Output -split "`r?`n")) {
-        if ($line -match ('(^|\s)' + [regex]::Escape($Id) + '(\s|$)')) {
-            $cols = @($line -split '\s{2,}')
-            for ($i = 0; $i -lt $cols.Count; $i++) {
-                if ($cols[$i].Trim() -ieq $Id -and ($i + 1) -lt $cols.Count) { return ($cols[$i + 1].Trim() -replace '^[<>~= ]+', '') }
-            }
-        }
+        $mm = [regex]::Match($line, $rx)
+        if ($mm.Success) { return $mm.Groups[1].Value }
     }
     return $null
 }
-
 function Invoke-WingetAction {
     # Action: install | upgrade | uninstall. Returns the Invoke-Native result.
     param([string]$Action, [string]$Id, [string]$Version)
@@ -467,14 +473,65 @@ function Backup-Target {
     $dir = Join-Path $base $global:TK.Ts
     if ($global:TK.DryRun) { Write-Log ("[DRYRUN] would back up {0} to {1}" -f $Path, $dir); return '(dry run)' }
     New-Item -ItemType Directory -Force -Path $dir | Out-Null
-    $flat = ($Path -replace '[:\\/ ]', '_')
+    $flat = (Get-TextSha256 $Path).Substring(0, 8) + '_' + (Split-Path -Leaf $Path)
     $dest = Join-Path $dir $flat
     Copy-Item -LiteralPath $Path -Destination $dest -Force
     $global:TK.Backups.Add([pscustomobject]@{ original = $Path; backup = $dest })
     $idx = Join-Path $dir 'backup-index.json'
-    Write-Utf8NoBom -Path $idx -Text (ConvertTo-Json -InputObject @($global:TK.Backups) -Depth 4)
+    Write-Utf8NoBom -Path $idx -Text (ConvertTo-Json -InputObject $global:TK.Backups.ToArray() -Depth 4)
     Write-Log ("backup: {0} -> {1}" -f $Path, $dest)
     return $dest
+}
+
+# ---------------------------------------------------------------- MCP inventory (names and command names only)
+function Get-McpInventory {
+    # Returns one row per configured server: file label, name, command (or $null for url servers), resolves, purpose, note.
+    # Arguments, environment values and urls are never read into the output.
+    $rows = New-Object System.Collections.Generic.List[object]
+    $m = $global:TK.Manifest
+    foreach ($cf in $m.mcp.configFiles) {
+        $path = Expand-ToolkitPath $cf.path $global:TK.Vault
+        if (-not (Test-Path -LiteralPath $path)) { $rows.Add([pscustomobject]@{ file = $cf.label; name = '(file absent)'; command = $null; resolves = $null; purpose = ''; note = 'file not present' }); continue }
+        $servers = @()
+        try {
+            if ($path -like '*.toml') {
+                $cur = $null
+                foreach ($line in ([IO.File]::ReadAllLines($path))) {
+                    $mh = [regex]::Match($line, '^\s*\[mcp_servers\.([^\].]+)(\..*)?\]\s*$')
+                    if ($mh.Success) { $cur = $mh.Groups[1].Value; if (-not ($servers | Where-Object { $_.name -eq $cur })) { $servers += [pscustomobject]@{ name = $cur; command = $null } }; continue }
+                    if ($line -match '^\s*\[') { $cur = $null; continue }
+                    $mc = [regex]::Match($line, '^\s*command\s*=\s*"([^"]+)"')
+                    if ($cur -and $mc.Success) { ($servers | Where-Object { $_.name -eq $cur }).command = $mc.Groups[1].Value }
+                }
+            } else {
+                $d = Read-JsonLoose $path
+                foreach ($key in 'mcpServers', 'servers') {
+                    if ($d -is [System.Collections.IDictionary] -and (@($d.Keys) -contains $key) -and ($d[$key] -is [System.Collections.IDictionary])) {
+                        foreach ($name in $d[$key].Keys) {
+                            $entry = $d[$key][$name]
+                            $cmd = $null
+                            if ($entry -is [System.Collections.IDictionary] -and (@($entry.Keys) -contains 'command')) { $cmd = [string]$entry['command'] }
+                            $servers += [pscustomobject]@{ name = [string]$name; command = $cmd }
+                        }
+                    }
+                }
+            }
+        } catch { $rows.Add([pscustomobject]@{ file = $cf.label; name = '(unreadable)'; command = $null; resolves = $null; purpose = ''; note = ('could not read: ' + $_.Exception.Message) }); continue }
+        if ($servers.Count -eq 0) { $rows.Add([pscustomobject]@{ file = $cf.label; name = '(none)'; command = $null; resolves = $null; purpose = ''; note = 'no servers found' }); continue }
+        foreach ($sv in $servers) {
+            $purpose = $m.mcp.purposes.($sv.name)
+            if (-not $purpose) { $purpose = '' }
+            $ok = $null
+            $note = ''
+            if (-not $sv.command) { $note = 'remote/url server, no local launch command (url not printed)' }
+            else {
+                if ($sv.command -match '[\\/]') { $ok = Test-Path -LiteralPath ([Environment]::ExpandEnvironmentVariables($sv.command)) }
+                else { $ok = [bool](Get-Command $sv.command -ErrorAction SilentlyContinue) }
+            }
+            $rows.Add([pscustomobject]@{ file = $cf.label; name = $sv.name; command = $sv.command; resolves = $ok; purpose = $purpose; note = $note })
+        }
+    }
+    return $rows.ToArray()
 }
 
 # ---------------------------------------------------------------- planning

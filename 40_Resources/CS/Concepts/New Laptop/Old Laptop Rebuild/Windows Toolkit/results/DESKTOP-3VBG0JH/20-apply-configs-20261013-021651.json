@@ -1,0 +1,49 @@
+{
+    "script":  "20-apply-configs",
+    "host":  "DESKTOP-3VBG0JH",
+    "machine":  "dell",
+    "dryRun":  false,
+    "started":  "2026-10-13T02:16:51",
+    "finished":  "2026-10-13T02:16:52",
+    "admin":  false,
+    "manifestSha256":  "4E4A8D15CFEE15DC9E674B51DBE6FAB1F3730A951C20957AC9E4BB1F3C817634",
+    "vaultRoot":  "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis",
+    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-20-apply-configs-20261013-021651.log",
+    "counts":  {
+                   "CHANGED":  2
+               },
+    "items":  [
+                  {
+                      "id":  "profile-ps5",
+                      "status":  "CHANGED",
+                      "detail":  "block written to D:\\Users\\_Anant\\10_Areas\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1 ; backup D:\\Backup\\Toolkit\\20261013-021651\\5236C5E2_Microsoft.PowerShell_profile.ps1",
+                      "backup":  "D:\\Backup\\Toolkit\\20261013-021651\\5236C5E2_Microsoft.PowerShell_profile.ps1",
+                      "blockSha256":  "C98CB5199290C43642B0931384E7C7A26C2A66F453A30EADAE417903105D4B39",
+                      "target":  "D:\\Users\\_Anant\\10_Areas\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1"
+                  },
+                  {
+                      "id":  "profile-pwsh",
+                      "status":  "CHANGED",
+                      "detail":  "block written to D:\\Users\\_Anant\\10_Areas\\Documents\\PowerShell\\Microsoft.PowerShell_profile.ps1 ; backup D:\\Backup\\Toolkit\\20261013-021651\\464F26E8_Microsoft.PowerShell_profile.ps1",
+                      "backup":  "D:\\Backup\\Toolkit\\20261013-021651\\464F26E8_Microsoft.PowerShell_profile.ps1",
+                      "blockSha256":  "C98CB5199290C43642B0931384E7C7A26C2A66F453A30EADAE417903105D4B39",
+                      "target":  "D:\\Users\\_Anant\\10_Areas\\Documents\\PowerShell\\Microsoft.PowerShell_profile.ps1"
+                  }
+              ],
+    "hashTable":  [
+                      {
+                          "id":  "profile-ps5",
+                          "target":  "D:\\Users\\_Anant\\10_Areas\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1",
+                          "source":  "C98CB5199290C43642B0931384E7C7A26C2A66F453A30EADAE417903105D4B39",
+                          "target_hash":  "C98CB5199290C43642B0931384E7C7A26C2A66F453A30EADAE417903105D4B39",
+                          "match":  true
+                      },
+                      {
+                          "id":  "profile-pwsh",
+                          "target":  "D:\\Users\\_Anant\\10_Areas\\Documents\\PowerShell\\Microsoft.PowerShell_profile.ps1",
+                          "source":  "C98CB5199290C43642B0931384E7C7A26C2A66F453A30EADAE417903105D4B39",
+                          "target_hash":  "C98CB5199290C43642B0931384E7C7A26C2A66F453A30EADAE417903105D4B39",
+                          "match":  true
+                      }
+                  ]
+}

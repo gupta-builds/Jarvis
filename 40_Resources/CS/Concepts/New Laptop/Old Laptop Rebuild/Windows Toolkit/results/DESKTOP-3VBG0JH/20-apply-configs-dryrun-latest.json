@@ -1,0 +1,25 @@
+{
+    "script":  "20-apply-configs",
+    "host":  "DESKTOP-3VBG0JH",
+    "machine":  "dell",
+    "dryRun":  true,
+    "started":  "2026-10-13T01:19:26",
+    "finished":  "2026-10-13T01:19:26",
+    "admin":  false,
+    "manifestSha256":  "3C04918D8FF9E28CC3618ECCB8E2EA052B9EEE6C8C9CCC302276FFA022913E7F",
+    "vaultRoot":  "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis",
+    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-20-apply-configs-20261013-011926.log",
+    "counts":  {
+                   "PLAN":  1
+               },
+    "items":  [
+                  {
+                      "id":  "path-order",
+                      "status":  "PLAN",
+                      "detail":  "[DRYRUN] would move C:\\Users\\Anant Gupta\\.local\\bin to the front of the user PATH (all other entries kept in order)"
+                  }
+              ],
+    "hashTable":  [
+
+                  ]
+}

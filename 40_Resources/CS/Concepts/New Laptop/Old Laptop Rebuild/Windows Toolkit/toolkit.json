@@ -431,7 +431,8 @@
     { "id": "profile-ps5", "kind": "profile-block", "source": "configs\\powershell\\managed-block.ps1", "target": "{MyDocuments}\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1" },
     { "id": "profile-pwsh", "kind": "profile-block", "source": "configs\\powershell\\managed-block.ps1", "target": "{MyDocuments}\\PowerShell\\Microsoft.PowerShell_profile.ps1" },
     { "id": "terminal", "kind": "terminal-merge", "source": "configs\\terminal\\toolkit-fragment.json" },
-    { "id": "git-settings", "kind": "git" }
+    { "id": "git-settings", "kind": "git" },
+    { "id": "path-order", "kind": "path-order", "prefer": "%USERPROFILE%\\.local\\bin", "note": "Standalone uv must win over the Hermes uv (0.11.28) that sits earlier on the user PATH." }
   ],
   "gitSettings": [
     { "key": "core.longpaths", "value": "true" },

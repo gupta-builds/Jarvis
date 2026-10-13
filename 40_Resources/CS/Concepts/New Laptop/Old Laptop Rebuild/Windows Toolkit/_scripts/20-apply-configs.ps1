@@ -325,6 +325,35 @@ function Apply-Env {
     }
 }
 
+function Apply-PathOrder {
+    # Puts the preferred folder (the standalone uv in ~\.local\bin) first on the USER path, keeping the registry value type
+    # and every other entry. The old value is saved to the backup folder first. Machine PATH is not touched here.
+    param($Cfg)
+    $want = [Environment]::ExpandEnvironmentVariables($Cfg.prefer)
+    $key = [Microsoft.Win32.Registry]::CurrentUser.OpenSubKey('Environment', $true)
+    try {
+        $raw = [string]$key.GetValue('Path', '', [Microsoft.Win32.RegistryValueOptions]::DoNotExpandEnvironmentNames)
+        $new = Get-PathWithFirst -RawPath $raw -Preferred $want
+        if ($new -ceq $raw) { Add-Result $Cfg.id 'UNCHANGED' ("{0} is already first on the user PATH" -f $want); return }
+        if ($dry) { Add-Result $Cfg.id 'PLAN' ("[DRYRUN] would move {0} to the front of the user PATH (all other entries kept in order)" -f $want); return }
+        $base = $global:TK.BackupBase; if (-not $base) { $base = 'D:\Backup\Toolkit' }
+        $dir = Join-Path $base $global:TK.Ts
+        New-Item -ItemType Directory -Force -Path $dir | Out-Null
+        $bk = Join-Path $dir 'user-path-before.txt'
+        Write-Utf8NoBom -Path $bk -Text $raw
+        $kind = $key.GetValueKind('Path')
+        $key.SetValue('Path', $new, $kind)
+        [Environment]::SetEnvironmentVariable('TOOLKIT_PATH_REFRESH', '1', 'User')
+        [Environment]::SetEnvironmentVariable('TOOLKIT_PATH_REFRESH', $null, 'User')
+        Update-SessionPath
+        $chk = [string]$key.GetValue('Path', '', [Microsoft.Win32.RegistryValueOptions]::DoNotExpandEnvironmentNames)
+        $first = ($chk -split ';' | Where-Object { $_ } | Select-Object -First 1)
+        if ([Environment]::ExpandEnvironmentVariables($first).TrimEnd('\') -ieq $want.TrimEnd('\')) {
+            Add-Result $Cfg.id 'CHANGED' ("{0} is now first on the user PATH; old value saved to {1}; open a new window to use it" -f $want, $bk) @{ backup = $bk }
+        } else { Add-Result $Cfg.id 'FAIL' ("PATH did not re-read as expected; old value is in {0}" -f $bk) }
+    } finally { $key.Close() }
+}
+
 # ------------------------------------------------------------------ run
 try {
     foreach ($cfg in $m.configs) {
@@ -335,6 +364,7 @@ try {
                 'profile-block' { Apply-ProfileBlock $cfg }
                 'terminal-merge' { Apply-Terminal $cfg }
                 'git' { Apply-GitSettings }
+                'path-order' { Apply-PathOrder $cfg }
             }
         } catch { Add-Result $cfg.id 'FAIL' ("exception: " + $_.Exception.Message) }
     }

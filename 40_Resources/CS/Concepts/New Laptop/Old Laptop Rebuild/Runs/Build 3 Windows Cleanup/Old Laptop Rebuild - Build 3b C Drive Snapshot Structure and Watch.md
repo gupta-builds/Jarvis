@@ -114,7 +114,7 @@ Cap charge at 80 percent: Power Management, Battery Configuration, Custom with s
 
 Expected from dry-run sizes (not measured): script 05 about 10.9 GiB, script 06 about 4 GiB (LiveKernelReports 3.0 from the screenshot, not readable without admin), script 04 about 2.5 GiB. That would put C: free near 130 to 135 GiB. Still on C: after that: Windows 33 GB, pagefile 16 GB, Docker 3.7, Spotify 7 (offline downloads), Google DriveFS 4.2 (not touched), Vivaldi 5.2, editors about 8, and the 1.9 GB Teams package unless `-StoreApps` is used.
 
-Not done after this build: Python 3.13.5 and Chocolatey (need the standalone uv from Build 4), .NET 8 (check Dell Command Update first), Spotify and DriveFS relocation, `D:\WSL\Installers\wsl-ubuntu.tar` (73 GB, D: item for the `_Anant` build), obsolete disabled tasks `ClaudeKit-Sync-All` and `SecondBrainClaudekit-JarvisSync`, the Windows Ollama startup shortcut (conflicts with the WSL Ollama on port 11434), Medal-like unknowns (Rize, GitKrakenCLI), and the Build 4 toolkit itself.
+Not done after this build: Python 3.13.5 and Chocolatey (need the standalone uv from Build 4), .NET 8 (check Dell Command Update first), Spotify and DriveFS relocation, `D:\WSL\Installers\wsl-ubuntu.tar` (36.75 GiB; an earlier draft said 73 GB because the size check counted the file twice; a D: item for Build 5), obsolete disabled tasks `ClaudeKit-Sync-All` and `SecondBrainClaudekit-JarvisSync`, the Windows Ollama startup shortcut (conflicts with the WSL Ollama on port 11434), Medal-like unknowns (Rize, GitKrakenCLI), and the Build 4 toolkit itself.
 
 ## 9. Run results (2026-10-12 night, from the logs, measured)
 
@@ -139,7 +139,7 @@ Expected after both: about 145 GiB free (estimate, to be replaced by the next wa
 
 - About 50 dot-folders in the profile (`.adal`, `.agents`, `.hermes`, `.openhands`, `.qoder` and similar) look empty but hold agent skill junctions, many pointing at `C:\Users\Anant Gupta\.agents\skills\*`, which does not exist. A separate task, because it sits under agent settings.
 - Python 3.13.5 and Chocolatey after the standalone uv (Build 4); .NET 8 after checking Dell Command Update; Windows Ollama startup shortcut (conflicts with the WSL Ollama on 11434); obsolete disabled tasks `ClaudeKit-Sync-All`, `SecondBrainClaudekit-JarvisSync`; Rize and GitKrakenCLI are unknown tools left in place; WhatsApp (0.5 GB) kept.
-- D: items for the `_Anant` build: `D:\WSL\Installers\wsl-ubuntu.tar` (73 GB), Google DriveFS cache on C: (4.2 GB), `D:\Quarantine` review on 2026-11-01 and 2026-11-11.
+- D: items (now Build 5): `D:\WSL\Installers\wsl-ubuntu.tar` (36.75 GiB, corrected from 73), Google DriveFS cache on C: (4.2 GB), `D:\Quarantine` review on 2026-11-01 and 2026-11-11.
 - Battery cap to 80 percent and AC Recovery are BIOS steps for the user (section 7).
 
 ## 12. After the finish (fill in from the next watch reading)

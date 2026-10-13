@@ -3,14 +3,14 @@
     "host":  "DESKTOP-3VBG0JH",
     "machine":  "dell",
     "dryRun":  false,
-    "started":  "2026-10-13T01:57:03",
-    "finished":  "2026-10-13T01:57:20",
+    "started":  "2026-10-13T02:04:35",
+    "finished":  "2026-10-13T02:04:53",
     "admin":  false,
-    "manifestSha256":  "A85E83A917A81B8BC009AEB4430E55A26F11DAACEFF6DA83720C5A93FFE74FC5",
+    "manifestSha256":  "4E4A8D15CFEE15DC9E674B51DBE6FAB1F3730A951C20957AC9E4BB1F3C817634",
     "vaultRoot":  "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis",
-    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-99-verify-20261013-015703.log",
+    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-99-verify-20261013-020435.log",
     "counts":  {
-                   "PASS":  104,
+                   "PASS":  105,
                    "INFO":  12,
                    "WARN":  1
                },
@@ -431,9 +431,9 @@
                       "detail":  "default profile is PowerShell 7"
                   },
                   {
-                      "id":  "wt-font-face-iosevkaterm-nfm",
+                      "id":  "wt-font-face-iosevkaterm-nerd-font",
                       "status":  "PASS",
-                      "detail":  "font face IosevkaTerm NFM"
+                      "detail":  "font face IosevkaTerm Nerd Font"
                   },
                   {
                       "id":  "wt-scheme-one-half-dark-applied",
@@ -466,7 +466,12 @@
                       "detail":  "Ubuntu profile named \u0027Ubuntu (Dell)\u0027"
                   },
                   {
-                      "id":  "font-family",
+                      "id":  "font-family-IosevkaTerm-NF",
+                      "status":  "PASS",
+                      "detail":  "family \u0027IosevkaTerm NF\u0027 registered (seen by a fresh process)"
+                  },
+                  {
+                      "id":  "font-family-IosevkaTerm-NFM",
                       "status":  "PASS",
                       "detail":  "family \u0027IosevkaTerm NFM\u0027 registered (seen by a fresh process)"
                   },
@@ -598,14 +603,14 @@
                   {
                       "id":  "shell-powershell-5.1",
                       "status":  "PASS",
-                      "detail":  "profile loads; Starship and zoxide initialised; startup 2049 ms",
-                      "startupMs":  2049
+                      "detail":  "profile loads; Starship and zoxide initialised; startup 2094 ms",
+                      "startupMs":  2094
                   },
                   {
                       "id":  "shell-pwsh-7",
                       "status":  "PASS",
-                      "detail":  "profile loads; Starship and zoxide initialised; startup 925 ms",
-                      "startupMs":  925
+                      "detail":  "profile loads; Starship and zoxide initialised; startup 990 ms",
+                      "startupMs":  990
                   },
                   {
                       "id":  "starship-config",

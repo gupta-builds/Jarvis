@@ -3,12 +3,12 @@
     "host":  "DESKTOP-3VBG0JH",
     "machine":  "dell",
     "dryRun":  false,
-    "started":  "2026-10-13T01:56:48",
-    "finished":  "2026-10-13T01:56:49",
+    "started":  "2026-10-13T02:03:35",
+    "finished":  "2026-10-13T02:03:35",
     "admin":  false,
-    "manifestSha256":  "A85E83A917A81B8BC009AEB4430E55A26F11DAACEFF6DA83720C5A93FFE74FC5",
+    "manifestSha256":  "4E4A8D15CFEE15DC9E674B51DBE6FAB1F3730A951C20957AC9E4BB1F3C817634",
     "vaultRoot":  "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis",
-    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-20-apply-configs-20261013-015648.log",
+    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-20-apply-configs-20261013-020335.log",
     "counts":  {
                    "CHANGED":  1
                },
@@ -16,9 +16,9 @@
                   {
                       "id":  "terminal",
                       "status":  "CHANGED",
-                      "detail":  "merged into C:\\Users\\Anant Gupta\\AppData\\Local\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json; backup D:\\Backup\\Toolkit\\20261013-015648\\3CD52749_settings.json",
-                      "backup":  "D:\\Backup\\Toolkit\\20261013-015648\\3CD52749_settings.json",
-                      "sha256":  "DC5573D96B72C24BB4F3767E190D94C0BC42C57365D2F1AE732C1FBA0B7A2991",
+                      "detail":  "merged into C:\\Users\\Anant Gupta\\AppData\\Local\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json; backup D:\\Backup\\Toolkit\\20261013-020335\\3CD52749_settings.json",
+                      "backup":  "D:\\Backup\\Toolkit\\20261013-020335\\3CD52749_settings.json",
+                      "sha256":  "E0A4D6A5CA87BADA95D8D430E9559DA8DF1502729E159CC4234DD8E66AEF4C9A",
                       "target":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json"
                   }
               ],

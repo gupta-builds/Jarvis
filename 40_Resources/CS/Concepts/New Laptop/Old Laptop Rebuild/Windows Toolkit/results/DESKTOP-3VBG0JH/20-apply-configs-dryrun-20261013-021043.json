@@ -1,0 +1,32 @@
+{
+    "script":  "20-apply-configs",
+    "host":  "DESKTOP-3VBG0JH",
+    "machine":  "dell",
+    "dryRun":  true,
+    "started":  "2026-10-13T02:10:43",
+    "finished":  "2026-10-13T02:10:44",
+    "admin":  false,
+    "manifestSha256":  "4E4A8D15CFEE15DC9E674B51DBE6FAB1F3730A951C20957AC9E4BB1F3C817634",
+    "vaultRoot":  "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis",
+    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-20-apply-configs-20261013-021043.log",
+    "counts":  {
+                   "PLAN":  2
+               },
+    "items":  [
+                  {
+                      "id":  "profile-ps5",
+                      "status":  "PLAN",
+                      "detail":  "[DRYRUN] would insert/refresh the managed block in D:\\Users\\_Anant\\10_Areas\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1 ",
+                      "target":  "D:\\Users\\_Anant\\10_Areas\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1"
+                  },
+                  {
+                      "id":  "profile-pwsh",
+                      "status":  "PLAN",
+                      "detail":  "[DRYRUN] would insert/refresh the managed block in D:\\Users\\_Anant\\10_Areas\\Documents\\PowerShell\\Microsoft.PowerShell_profile.ps1 ",
+                      "target":  "D:\\Users\\_Anant\\10_Areas\\Documents\\PowerShell\\Microsoft.PowerShell_profile.ps1"
+                  }
+              ],
+    "hashTable":  [
+
+                  ]
+}

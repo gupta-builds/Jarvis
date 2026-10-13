@@ -74,3 +74,12 @@ next: "A separate later build, not Build 5. Before it starts, the user answers t
 - Does the Dell Drive run as Mirror or Stream today?
 - Which Acer folders does the Acer Drive backup cover, and where does it keep Desktop, Downloads and Pictures?
 - Should Jarvis stay Syncthing-only and be kept out of the Drive mirror?
+
+## Update 2026-10-13 (later): the user's answers
+- Jarvis and The Plan vaults stay OUTSIDE the Drive mirror. Syncthing remains their only carrier between the laptops.
+- Google Drive today: each laptop is signed in to a DIFFERENT Google account, and both are in Stream mode, not Mirror. Nothing is mirrored on either.
+- Goal: for Drive to work across both laptops, both must mirror. Before turning mirroring on, every folder has to be reviewed one by one, because several hold codebases or cache-generating trees (for example the UMN course folders with `.conda` environments and `node_modules`). Drive cannot exclude a subfolder inside a mirrored folder, so the separation must be structural (folders outside the mirrored root).
+- Agreed direction (not done yet): codebases and cache-generating trees move to Syncthing, or stay on ext4 with GitHub as the backup. This has NOT happened. Until it does, no mirror is turned on.
+- Open consequence: with two different accounts, "mirror on both" means two separate cloud copies unless the accounts are unified or a shared folder is used. Decide which account owns the shared content before the build.
+- The Dell's Drive cache (4.17 GB in `%LOCALAPPDATA%\Google\DriveFS`, mostly metadata) stays where it is.
+- Quarantine location changed: reviews now live in `D:\Backup\Quarantine` (it was `D:\Quarantine`). New scripts use the new path.

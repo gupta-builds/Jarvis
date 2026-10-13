@@ -56,7 +56,7 @@ Build 4 (Windows) and Build 5 (WSL) touch different layers and can run in either
 - **Mirrored networking stays.** Jarvis MCP from WSL needs `127.0.0.1:27123` to be Obsidian on Windows, which only mirrored mode gives.
 - **Never `wsl --shutdown`** from inside WSL, and never restart WSL from a session; host steps go into a script the user runs.
 - **No discrete GPU on the Dell** (Iris Xe only); heavy local-model work belongs on the Acer.
-- **Layout contract (Build 3b):** C: holds Windows, installs, drivers and the profile; D:\Apps, D:\Cache\<tool>, D:\AI, D:\WSL, D:\Backup, D:\Quarantine hold the rest; a new tool sets its environment variable first.
+- **Layout contract (Build 3b):** C: holds Windows, installs, drivers and the profile; D:\Apps, D:\Cache\<tool>, D:\AI, D:\WSL, D:\Backup, D:\Backup (with D:\Backup\Quarantine since 2026-10-13) hold the rest; a new tool sets its environment variable first.
 - **Reversible deletions:** quarantine, do not delete, anything that is not a regenerable cache.
 - **Always-on host:** weekly clean and a daily read-only watcher run as scheduled tasks ([[Old Laptop Rebuild - Build 3b C Drive Snapshot Structure and Watch]]).
 

@@ -2,10 +2,11 @@
 type: note
 status: sprout
 created: 2026-10-04
-updated: 2026-10-11
+updated: 2026-10-13
 course: Life
 track:
   - laptop
+  - windows
   - wsl
 tags:
   - note
@@ -13,62 +14,66 @@ related:
   - "[[New Laptop Setup]]"
   - "[[Ubuntu - WSL]]"
   - "[[Installations]]"
-  - "[[Old Laptop Rebuild - Prompt 1 WSL]]"
-next: Await a stable WSL release containing the binfmt fix, then recheck systemd and continue Phase 4 at the admin/SSH validation steps
+  - "[[Old Laptop Rebuild - Runs Index]]"
+  - "[[Old Laptop Rebuild - Index History (to 2026-10-12)]]"
+  - "[[Old Laptop Rebuild - Build 4 Prompt (Windows Toolkit)]]"
+  - "[[Old Laptop Rebuild - Build 5 Prompt (WSL Parity and D Drive)]]"
+next: "Send the Build 4 prompt (Windows, Sonnet 5.5) and the Build 5 prompt (WSL home, Sonnet 5.5); they are independent. Then write the Build 6 and 7 prompts."
 ---
 # Old Laptop Rebuild - Index
 
 ## One-Line Answer
-==The old Dell (Latitude 5530) gets rebuilt to match the Acer in sessions run one layer at a time, WSL first, and every session logs what it measured and the rule that stops the same growth from returning.==
+==The old Dell (Latitude 5530) gets rebuilt to match the Acer in sessions run one layer at a time, and every session logs what it measured and the rule that stops the same growth from returning.==
 
-## Status
-Build 1 WSL Phase 3 executed 2026-10-04 ([[Old Laptop Rebuild - Build 1 WSL Findings]]): 36.424 GiB of verified project artifacts plus 5.304 GiB of native caches reclaimed inside ext4; user-space parity/config applied; `.wslconfig` backed up and aligned for the always-on SSH host.
-Update 2026-10-07: WSL 3.0.1.0 is live. Resource/swap verification passed (19 GiB, 10 processors, 8 GiB on `D:\WSL\swap.vhdx`), `wslview` and both mirrored Obsidian endpoints pass. The safe sparse refusal should have been SKIPPED, not fatal; the original idle FAIL was a PowerShell 5.1 decoding bug. Corrected ASCII scripts are under `D:\WSL\ops`, with dated backups. The post-update verifier measured 0 `CheckConnection` events in 120 seconds. The corrected idle test passed: Ubuntu remained Running after 75 seconds with no WSL call during the wait. Systemd is still `degraded` because `systemd-binfmt.service` failed; its only configured Python registration exactly matches one already live, suggesting a duplicate registration, but the unit log rotated away so this remains a hypothesis. Build 2 Phase 2 items 1-6 are now applied and verified; see [[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]]. Phase 3 checkpoint is ready. Host health is not fully clean until the systemd caveat is understood or accepted. C: has 20.08 GiB free and a 32,247 MB pagefile (6,471 MB peak); D: has 363.80 GiB free. See [[C Drive Bloat - Failure Log and Prevention Rules]].
-Update 2026-10-07: WSL 3.0.1.0 is live. Resource/swap verification passed (19 GiB, 10 processors, 8 GiB on `D:\WSL\swap.vhdx`), `wslview` and both mirrored Obsidian endpoints pass. The safe sparse refusal should have been SKIPPED, not fatal; the original idle FAIL was a PowerShell 5.1 decoding bug. Corrected ASCII scripts are under `D:\WSL\ops`, with dated backups. The post-update verifier measured 0 `CheckConnection` events in 120 seconds. The corrected idle test passed: Ubuntu remained Running after 75 seconds with no WSL call during the wait. Systemd is still `degraded` because `systemd-binfmt.service` failed; its only configured Python registration exactly matches one already live, suggesting a duplicate registration, but the unit log rotated away so this remains a hypothesis. Build 2 Phase 2 items 1-6 are now applied and verified; see [[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]]. Phase 3 checkpoint is ready. Host health is not fully clean until the systemd caveat is understood or accepted. C: has 20.08 GiB free and a 32,247 MB pagefile (6,471 MB peak); D: has 363.80 GiB free. See [[C Drive Bloat - Failure Log and Prevention Rules]].
-Update 2026-10-11: Tailscale is installed and authenticated on Acer Windows and Dell Ubuntu WSL. Dell WSL has `dell-wsl`, `RunSSH=true`, active `tailscaled`, Tailscale 1.104.1 stable, full name `dell-wsl.tail0c1d06.ts.net`, and key expiry disabled. Direct ping to Acer `100.84.91.11` returned via `10.5.8.252:41641` in 5 ms. Phase 4.1 read-only recheck: WSL 3.0.1.0, no WSL listeners on 22/2222, `ssh` and `ssh.socket` inactive, OpenSSH server not installed; Dell Windows has no Tailscale/sshd service or 22/2222 listeners. Systemd is degraded only because `systemd-binfmt.service` fails its binfmt flush with `Read-only file system`; WSL issue #41783 states fixed in WSL 3.0.2, which is prerelease. The user chose to wait for stable WSL. Acer ping to Dell was direct (via `10.5.8.253:41641`, 54 ms), but its first SSH host-key prompt remains unverified; no remote command or VS Code Remote-SSH verification has completed. Dell `tailscale0` MTU is 1280; no MTU change was made. See Build 2 Findings and Runbook.
-After Phase 4, retain the unrun `/mnt/d/WSL/ops/build2-sudo-step.sh` (bubblewrap/socat) and Build 2 items 7-9; then separately approved Tunnels/sync-check/repo steps; then Builds 3-6 in the sequence above. Preserve the per-item approval gates and do not change either vault's sync.
-
-## Two-laptop workflow (locked direction, 2026-10-04)
-The Dell is the canonical host: one checkout per shared repo on its WSL ext4 disk. The Acer connects through VS Code Remote-SSH over Tailscale. Tailscale runs in exactly one place per machine: inside WSL on the Dell (the Tailscale SSH server is Linux/macOS only), and on the Windows side only on the Acer (Remote-SSH uses the Windows `ssh.exe`). Decided 2026-10-04. GitHub stays the backup and PR channel, parallel tasks use git worktrees with `<machine>/<topic>` branches, and no sync daemon touches code. Cost: the Dell must be awake and on the tailnet. Fallback when it is off: the Acer pushes a branch from its own clone. Reasoning: a single copy cannot drift, which is the property the Jarvis sync could not give without constant repair ([[Cross-Laptop Sync - Known Failure Modes and Prevention]]). Network exposure (Tailscale, sshd) needs the user's approval inside the session.
-
-## Settings Sync is live on the Dell
-The Acer's cloud copy has landed on the Dell's Windows VS Code, with Acer-only paths in the synced `settings.json`. Anything written to a Windows user-level VS Code file on the Dell reaches the Acer. Build 2 stays out of those files and records findings for the Windows-side build.
-
-## Facts (WizTree scans plus live queries, 2026-10-04)
-| Item | Value |
+## Where things are (reorganised 2026-10-13)
+| Place | Holds |
 |---|---|
-| Machine | Dell Latitude 5530, i7-1255U (10 cores, 12 threads), 32 GB RAM, Intel Iris Xe only, no NVIDIA GPU |
-| Disk | One Samsung PM9A1 1 TB NVMe. C: 251.9 GB (28.6 GB free), D: 700 GB (about 366 GB free) |
-| C: biggest | Users 128 GB (AppData 100 GB: Local 67.8, Roaming 32.2), Windows 39 GB, pagefile.sys 25.6 GB, Program Files 26 GB |
-| Roaming heavy | Claude 10.7 GB, Code 3.4, Jan 3.3, Cursor 2.8, Kiro 2.6, npm 1.8 |
-| Local heavy | Programs 15 GB, Spotify 6.2, Vivaldi 5.8, Microsoft 5.0, superwhisper 4.9, npm-cache 4.5 (redirect to D: missed), Packages 3.8, Temp 3.6, hermes 2.3, WisprFlow 1.9, ms-playwright 1.4. `Local/Google` reports a bogus size (Drive virtual files), so skip it when measuring |
-| Home folders on C: | vscode-remote-wsl 6.3 GB, miniconda3 7.1 GB, .vscode 4.3, .codex 2.5, codex-cleanup-quarantine-2026-09-20 2.3, .cache 1.4 |
-| D: biggest | WSL 176 GB (Ubuntu vhdx 105.4, Installers/wsl-ubuntu.tar 36.7), Docker vhdx 33.8, Games 86 (Elden Ring rar 67), $RECYCLE.BIN 32.5 (about 21 GB of Rust target dirs), ollama-models 9.2 |
-| WSL | Kernel 5.15.167.4 (old). .wslconfig: mirrored, 16 GB, 8 CPUs, no swap setting |
+| this folder | this Index, the prompts that have not run yet, living reference notes, the Acer dotfile snapshot, the Build 4 working findings |
+| [[Old Laptop Rebuild - Runs Index]] and `Runs/` | everything already run, one folder per build (prompt plus findings), `_backups/` for all dated `.bak` files, and the full old Index with its dated status paragraphs |
+| `Old Laptop Rebuild/Acer Dotfile Snapshot/` | the Acer's real Windows and WSL configs, hashes and scripts; Build 4 copies configs from here |
+| parent folder `New Laptop/` | [[Installations]] (the inventory), [[Ubuntu - WSL]], [[New Laptop Setup]], `Codebases/`, `Sync/` (Cross-Laptop Sync notes, [[Google Drive Sync Policy]]) |
 
-## Findings that change the plan
-- **There is no discrete GPU.** "Use the GPU" means the Iris Xe only. CUDA, NVIDIA container tooling and GPU-passthrough tuning do not apply. Heavy local-model work belongs on the Acer.
-- **The pagefile warning has a visible cause.** Windows reports `D:\pagefile.sys` as the configured pagefile (system-managed, `AutomaticManagedPagefile` off), but no pagefile exists on D:. The live one is a 25.6 GB `C:\pagefile.sys`. The likely story is that Windows cannot create the D: file at boot, falls back to a temporary C: file, and shows the "pagefile" pop-up. This is a hypothesis for the Windows-host session to confirm in the event log. The fix is an explicit, sized pagefile configuration, not another reboot.
-- **WSL swap defaults to C:.** No `swapfile=` setting exists, the same bug the Acer notes record.
-- **Jarvis MCP needs mirrored networking.** From WSL, `127.0.0.1:27123` is Obsidian on Windows only in mirrored mode ([[VS Code - MCP and Secrets]]). The statement in [[Ubuntu - WSL]] that NAT alone forwards localhost both ways is only true from Windows to WSL, so the Dell keeps mirrored.
-- **A past quarantine sits on C:.** `codex-cleanup-quarantine-2026-09-20` (2.3 GB) is on the drive being freed.
-- **Running `wsl --shutdown` from inside a WSL session kills the session.** Host steps go in a script the user runs.
+Living reference notes here: [[C Drive Bloat - Failure Log and Prevention Rules]], [[Old Laptop Rebuild - Build 2 SSH Runbook]], [[Old Laptop Rebuild - Build 2 Acer Handoff]], [[Old Laptop Rebuild - Build 4 Windows Toolkit Findings]] (audit and an unanswered design checkpoint; Build 4 continues it).
 
-## Session sequence
-1. WSL layer ([[Old Laptop Rebuild - Prompt 1 WSL]]): audit, `.wslconfig`, tool parity, WSL-side cleanup, Jarvis log.
-2. Build 2 (WSL VS Code and the two-laptop SSH workflow): see [[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]].
-3. Build 3, Windows C: cleanup, Google Drive mirror, D: baseline and Windows-side WSL host settings (pagefile, AppData, Temp and crash dumps, quarantine, startup and tasks, Defender exclusions, D: offload). Prompt in [[Old Laptop Rebuild - Windows Prompts (Build 3 C Drive Cleanup and Build 4 Terminal Parity)]], run with the WizTree screenshots attached.
-4. Acer dotfile snapshot: exported 2026-10-11 into `Old Laptop Rebuild/Acer Dotfile Snapshot/` (with its `_scripts`), so terminal configs are copied from the Acer instead of rebuilt from notes. Build 4 uses it.
-5. Build 4, scripted Windows toolkit on both laptops (PowerShell 7, Windows Terminal, Starship, fonts, shared config hashes, WSL config parity from the snapshot) plus a catalog and agent guide for AI tools. Same note; the Dell inventory is the "Old Laptop" section of [[Installations]].
-6. Build 5, Windows VS Code and MCP wiring (extensions 39/34, settings, MCP registry), with the stale Acer paths from Build 2's findings.
-7. Build 6, dev-only profile and a final verification pass against the Acer.
+## Roadmap
+| Build | Layer | Status | Prompt | Findings |
+|---|---|---|---|---|
+| 1 | WSL layer | run, done | [[Old Laptop Rebuild - Prompt 1 WSL]] | [[Old Laptop Rebuild - Build 1 WSL Findings]] |
+| 2 | WSL VS Code and two-laptop SSH | run; Phase 4 items open, carried into Build 5 | [[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]] | [[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]] |
+| 3 | Windows C: cleanup (plus 3b snapshot, structure, watch) | run, done 2026-10-12; C: free 39.5 to about 136 GiB | [[Old Laptop Rebuild - Windows Prompts (Build 3 C Drive Cleanup and Build 4 Terminal Parity)]] | [[Old Laptop Rebuild - Build 3 Windows Cleanup Findings]], [[Old Laptop Rebuild - Build 3b C Drive Snapshot Structure and Watch]] |
+| 4 | Windows toolkit on both laptops (PowerShell 7, Terminal, Starship, font, configs, catalog and agent guide) | audit and design done, **prompt ready, decisions D1 to D12 unanswered** | [[Old Laptop Rebuild - Build 4 Prompt (Windows Toolkit)]] | [[Old Laptop Rebuild - Build 4 Windows Toolkit Findings]] |
+| 5 | WSL parity and the D: drive (config parity, Build 2 leftovers, the 36.75 GiB `wsl-ubuntu.tar`, Google Drive and the `_Anant` folders) | **prompt ready** | [[Old Laptop Rebuild - Build 5 Prompt (WSL Parity and D Drive)]] | written by the run |
+| 6 | Windows VS Code and MCP wiring (extensions, settings, MCP registry, stale Acer paths, agent dot-folder skill junctions) | prompt not written (was "Build 5" before 2026-10-13) | - | - |
+| 7 | dev-only profile and a final verification pass against the Acer | prompt not written (was "Build 6") | - | - |
+
+## Order and independence
+Build 4 (Windows) and Build 5 (WSL) touch different layers and can run in either order. Build 4 depends on nothing in Build 5. Build 5's WSL config parity script comes from Build 4's `30-wsl-config-parity.sh`, so Build 5 only runs that step after Build 4 has delivered it; everything else in Build 5 is independent. Builds 6 and 7 come after both. Each run ends by moving its prompt and findings into `Runs/` and updating the table above.
+
+## Standing decisions (locked, do not relitigate)
+- **Two-laptop workflow (2026-10-04):** the Dell is the canonical host with one checkout per shared repo on WSL ext4. The Acer connects with VS Code Remote-SSH over Tailscale. GitHub is the backup and PR channel, parallel work uses git worktrees with `<machine>/<topic>` branches, and no sync daemon touches code. Cost: the Dell must be awake. Details in [[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]].
+- **Tailscale placement:** inside WSL on the Dell, Windows side only on the Acer. Never on the Dell's Windows side, never inside the Acer's WSL.
+- **Settings Sync is live.** Any Windows VS Code user file written on the Dell reaches the Acer. Windows VS Code, MCP and Claude Code settings are Build 6's.
+- **Mirrored networking stays.** Jarvis MCP from WSL needs `127.0.0.1:27123` to be Obsidian on Windows, which only mirrored mode gives.
+- **Never `wsl --shutdown`** from inside WSL, and never restart WSL from a session; host steps go into a script the user runs.
+- **No discrete GPU on the Dell** (Iris Xe only); heavy local-model work belongs on the Acer.
+- **Layout contract (Build 3b):** C: holds Windows, installs, drivers and the profile; D:\Apps, D:\Cache\<tool>, D:\AI, D:\WSL, D:\Backup, D:\Quarantine hold the rest; a new tool sets its environment variable first.
+- **Reversible deletions:** quarantine, do not delete, anything that is not a regenerable cache.
+- **Always-on host:** weekly clean and a daily read-only watcher run as scheduled tasks ([[Old Laptop Rebuild - Build 3b C Drive Snapshot Structure and Watch]]).
+
+## Current state in four lines (2026-10-13)
+- Dell Windows: C: about 136 GiB free (about 145 after the last finishing script), D: about 450 GiB; Python 3.13.5, Chocolatey, .NET 8 and the pip `uv` are waiting on Build 4's standalone `uv`.
+- Dell WSL: 3.0.1.0, Ubuntu 24.04, mirrored, systemd degraded only by `systemd-binfmt` (fix is in WSL 3.0.2 prerelease; the user chose to wait for stable); 13 of 17 config files still differ from the Acer's; Ollama runs in WSL and blocks the Windows one.
+- Tailscale: Dell WSL `dell-wsl` and Acer Windows connected directly; plain SSH to the canonical checkout proven.
+- Open items by build: see the table above and [[Old Laptop Rebuild - Build 5 Prompt (WSL Parity and D Drive)]].
+
+## Stale notes to fix when touched
+Found by the 2026-10-13 reading pass. The live machine wins over each of these.
+- `wsl-ubuntu.tar` is 36.75 GiB, not 73 (the Build 3b note was corrected). The old WSL Session Briefing puts it at `D:\Installers\`; it is `D:\WSL\Installers\`.
+- [[Ubuntu - WSL]], the WSL master plan and the briefing say Ollama is Windows-only and the Dell is retired; both are out of date (a WSL Ollama runs; the Dell is the canonical host). The decommission checklist is superseded.
+- bubblewrap is installed on the Dell; `socat` is not. Build 2 notes still say both are missing.
+- Build 2's 2026-10-11 ledger rows 4.4, 4.9 and 4.10 are stale (later sections show them passed).
+- The pnpm key is `enableGlobalVirtualStore`, not `virtualStoreType: global`.
+- Acer `.wslconfig` values in the snapshot (16 GB, 8 CPUs) predate the 2026-10-12 correction noted in [[Ubuntu - WSL]].
 
 ## Logging rule for every session
-Each session writes `Old Laptop Rebuild - Build N <layer> Findings.md` here, with a before/after size table, every state-changing command, the root cause of every error, and a Growth rules section (the standing rule and one check command per thing that grew).
-
-## Dated campaign amendment — 2026-10-11
-Phase 4 remains **in progress** while waiting for a stable WSL release containing the `systemd-binfmt` fix. The user's choice is to wait for stable; this is not a pause of the phase or campaign. WSL 3.0.1.0 remains live and degraded only because the binfmt flush is read-only; do not install the prerelease or apply a workaround. Follow the detailed live facts and item-by-item ledger in [[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]].
-
-Current handoff: Build 2 Phase 4 still needs the stable update and recheck, actual SSH-policy inspection, host-key match and Acer SSH/Remote-SSH checks, optional port-2222 decision, meaningful transfer approval, clone inventory, and post-service idle test. Then the unrun sudo package script and Build 2 items 7-9 remain, as do sync-check, Tunnels, directive and repo pilot gates. The Acer snapshot exists at `Acer Dotfile Snapshot/` (MANIFEST/VERSIONS dated 2026-10-11); use it as Build 4's source, but run Build 3 first. Build 3 Windows work, Build 4 Windows parity, Build 5 Windows VS Code/MCP and Build 6 cross-machine verification are not complete. See the Build 2 campaign ledger for named owners and exact next actions.
-
-Live 2026-10-11 disk/service refresh: WSL `/` has 901 GiB free; C: 39.46 GiB free; D: 363.80 GiB free. Tailscale ping first used DERP and later went direct, so route is variable; no MTU change. No listeners on 22/2222 or Dell Windows Tailscale/OpenSSH service were observed. Current editor/Codex processes prevented an idle-test rerun. Historical 2026-10-07 duplicate-Python-registration hypothesis is superseded: latest journal evidence is the read-only `binfmt_misc` flush failure described in Build 2 findings.
+Each session writes `Old Laptop Rebuild - Build N <layer> Findings.md` here (it moves into `Runs/` when the build closes), with a before/after size table, every state-changing command, the root cause of every error, and a Growth rules section (the standing rule and one check command per thing that grew). It adds one line to `60_Claude/07_AI_Information/Session Logs/log.md`.

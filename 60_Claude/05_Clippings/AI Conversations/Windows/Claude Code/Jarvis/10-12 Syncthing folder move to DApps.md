@@ -6,7 +6,7 @@ source_os: windows
 title: "Syncthing folder move to D:\\Apps"
 started_at: 2026-10-12T22:18:24
 ended_at: 2026-10-12T22:27:31
-exported_at: 2026-10-12T22:30:03
+exported_at: 2026-10-12T23:30:04
 duration_minutes: 9.1
 project: Jarvis
 cwd: 'D:\Users\_Anant\10_Areas\Documents\Jarvis'

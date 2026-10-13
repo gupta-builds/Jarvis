@@ -18,11 +18,14 @@ related:
   - "[[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]]"
   - "[[Installations]]"
   - "[[Google Drive Sync Policy]]"
-next: Run Build 3's approved phases, then Build 4 (scripts for both laptops)
+next: "History. Build 3's prompt below was run (see the Build 3 findings in this folder). The Build 4 section is superseded by [[Old Laptop Rebuild - Build 4 Prompt (Windows Toolkit)]]; do not run it from here."
 ---
 # Old Laptop Rebuild - Windows Prompts (Build 3 C Drive Cleanup and Build 4 Terminal Parity)
 
 Two prompts for Claude Code sessions on the Dell's Windows side, written against the Sonnet 5.5 prompting guide (task, intent and constraints in the first turn; literal scoping; reasons next to rules; the "keep working" and "stop and report" paragraphs; a real-check verification rule; explicit approval rules for risky actions). Build 3 cleans C: and D:. Build 4, rewritten 2026-10-11, installs and configures the Windows toolkit on both laptops through scripts and builds a catalog for AI agents. The Acer dotfile snapshot export has finished, so the follow-up reply that used to sit at the bottom of this note is gone.
+
+> [!note] Archived 2026-10-13
+> The Build 3 prompt in this note was run on 2026-10-11 and 2026-10-12; results are in [[Old Laptop Rebuild - Build 3 Windows Cleanup Findings]] and [[Old Laptop Rebuild - Build 3b C Drive Snapshot Structure and Watch]]. The Build 4 prompt further down is the older version 2. The current one is [[Old Laptop Rebuild - Build 4 Prompt (Windows Toolkit)]].
 
 ## How to run
 - **Where:** Claude Code in PowerShell on the Dell, started from `C:\Users\Anant Gupta`. Pick Sonnet 5.5 with `/model`.

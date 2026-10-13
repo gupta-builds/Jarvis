@@ -6,7 +6,7 @@ source_os: windows
 title: "Codex daemon executable missing on Windows"
 started_at: 2026-10-12T19:30:00
 ended_at: 2026-10-12T19:46:21
-exported_at: 2026-10-12T20:00:05
+exported_at: 2026-10-12T20:30:02
 duration_minutes: 16.3
 project: Jarvis
 cwd: 'D:\Users\_Anant\10_Areas\Documents\Jarvis'

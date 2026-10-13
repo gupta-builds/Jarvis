@@ -69,6 +69,10 @@ Confirmed directly against Microsoft's own WSL config docs (`learn.microsoft.com
 - **Verification Prompt 1 or Prompt 2's Phase 1 must run, live, not assumed from the docs:** close every WSL terminal and VS Code window, wait at least 30 seconds, then confirm from PowerShell (`wsl -l -v` should still show the distro `Running`) and confirm sshd still answers a connection. Do this before trusting any later phase of the two-laptop design.
 
 ## Decision 4 — retire the existing dual-checkout model explicitly; don't assume Prompt 2 is a continuation of it
+
+> [!NOTE] Build 5 correction, 2026-10-13
+> The Dell's second-brain checkout is `~/projects/ai/claude/second-brain-claudekit` (the Acer uses `ai/second-brain-claudekit`) and it has no root package manifest. The internship-research-loop checkout is not a live uv project (no `pyproject.toml`).
+
 Both `second-brain-claudekit` and `internship-research-loop` already have a real, dated, working model that Prompt 2 silently replaces, not extends:
 - `internship-research-loop-new-laptop-directive.md` (2026-09-26): each laptop holds its **own independent clone**, branches named `dell-latitude/<topic>` / `acer-predator/<topic>`, merged by PR, documented in the repo's own `CLAUDE.md` under "Two-laptop workflow" (added 2026-09-26, in the Auto-mode classifier notes section).
 - **Important and easy to miss: the vault's own mirrored copy of that `CLAUDE.md`** (`20_Progress/AI/Claude Code/internship-research-loop/CLAUDE.md`) **is stale and does not contain this section at all** — its last write is 2026-09-05, three weeks before the section was added to the real repo. This is a live, concrete example of the one-way-mirror risk already flagged in the superseded brief: **don't trust the vault's mirrored `CLAUDE.md` copies as source of truth for either repo's current two-laptop conventions — read the live WSL checkout directly.**
@@ -89,6 +93,10 @@ Prompt 2's scope is `~/projects` and the 18 repos under it. The vaults already h
 **Add one explicit line to Prompt 2's rewrite:** "This build's scope is `~/projects` only. The Jarvis and The Plan vaults keep their existing Syncthing + git-auto-sync mechanism unchanged; do not touch `.stignore`, `.gitignore`, or either vault's Scheduled Tasks from this build." Don't rely on scope being implied by the reading list.
 
 ## Decision 7 — worktree dependency caches: the specific settings, confirmed
+
+> [!NOTE] Build 5 correction, 2026-10-13
+> pnpm 10.33.2 uses the key `enableGlobalVirtualStore`, not `virtualStoreType: global`. Only set it on repos that really use pnpm, and measure first.
+
 Both repos' package managers already support exactly this scenario natively — this needs a specific setting, not just an awareness that "caches help":
 - **`second-brain-claudekit` (pnpm):** pnpm's own documentation (`pnpm.io/git-worktrees`, `pnpm.io/global-virtual-store`) describes this exact use case by name ("pnpm + Git Worktrees for Multi-Agent Development"). Default pnpm already hardlinks package contents from a shared content-addressable store into each project's `node_modules/.pnpm` — real bytes aren't duplicated, but the hardlink *directory structure* is still rebuilt per worktree, which costs real time at scale. The documented fix for exactly this scenario is `virtualStoreType: global` in `pnpm-workspace.yaml` (or `.npmrc`): every worktree's `node_modules` becomes pure symlinks into one shared global store, "near-zero per-worktree overhead." **Set this explicitly for `second-brain-claudekit`, don't rely on pnpm's default per-project behavior.**
 - **`internship-research-loop` (uv):** uv's global content-addressed cache uses hardlinks/copy-on-write by default (confirmed, `docs.astral.sh/uv/concepts/cache`) — no extra setting needed, but it only works when the cache and the `.venv` share a filesystem; if they're on different volumes, uv silently falls back to slow copies with no warning. **Verification step for Phase 1:** confirm `uv cache dir` and every worktree's path under `~/projects` resolve to the same filesystem (`df` both paths, compare the device) — this is already satisfied by Prompt 2's own "never work from `/mnt/c` or `/mnt/d`" rule, but confirm it rather than inferring it.

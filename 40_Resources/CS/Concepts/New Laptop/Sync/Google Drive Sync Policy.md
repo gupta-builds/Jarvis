@@ -58,3 +58,9 @@ Google Drive for desktop cannot exclude a subfolder by pattern inside a folder a
 ## Open item
 
 The "Entire Move" → "Laptop Backup (45GB)" shared shortcut's actual target folder could not be resolved via the Drive API from this session (tried three search approaches, 2026-09-13). Needs the user to paste the real folder URL or move it into My Drive directly before its contents can be reviewed.
+
+## Update 2026-10-13: planned layout and a conflict to resolve
+
+Decision recorded from the user: `D:\_Anant` becomes the one main folder on both laptops and `D:\Users` goes away later. On the Dell, Google Drive mirrors the whole `D:\_Anant` and crucial files are read from that mirror. On the Acer, Drive is a backup, not a mirror, and its scope inside `_Anant` is not decided. The move is a separate later build, described in [[Old Laptop Rebuild - Anant Folder Consolidation and Drive Plan (later build)]].
+
+This conflicts with the rule above. Mirroring the whole `D:\_Anant` would include the Jarvis vault (already carried by Syncthing, so two sync tools would write the same files) and the regenerable trees (`.conda`, `node_modules`, `.venv`), and Drive still cannot exclude a subfolder. Before the mirror is turned on, either those trees live outside the mirrored folder or this policy is changed on purpose. Per Google's Drive for desktop page (read 2026-10-13), configuring new backup folders in the app ends from 2026-06-15 and mirroring applies to My Drive in a chosen folder, so "mirror D:\_Anant" needs checking in the app first. The Dell's Drive was not running on 2026-10-13 and its saved backup-folder list is stale.

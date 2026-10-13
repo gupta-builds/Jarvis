@@ -12,7 +12,7 @@ tags:
   - laptop
   - terminal
 related:
-  - "[[Old Laptop Rebuild - Index]]"
+  - "[[_Rebuild - Index]]"
   - "[[Old Laptop Rebuild - Build 3 Windows Cleanup Findings]]"
   - "[[Old Laptop Rebuild - Build 1 WSL Findings]]"
   - "[[Installations]]"
@@ -262,6 +262,6 @@ Known quirk: the Terminal step compares JSON text, so it can report CHANGED when
 | To apply | `20-apply-configs.ps1 -Only profile-ps5,profile-pwsh`, then open a new window |
 | Until then | `wsl --cd '~'` works in any shell |
 
-The Build 5 readiness audit (what the Build 1 to 3 notes claimed versus the live machine) is recorded in [[Old Laptop Rebuild - Index]], section "Readiness audit, 2026-10-13".
+The Build 5 readiness audit (what the Build 1 to 3 notes claimed versus the live machine) is recorded in [[_Rebuild - Index]], section "Readiness audit, 2026-10-13".
 ## Left for Build 5 and later
 VS Code settings and extensions, the MCP registry and `sync-mcp.ps1`, Claude Code settings, Miniconda relocation, the pagefile, and all Build 3 items.

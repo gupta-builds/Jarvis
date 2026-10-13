@@ -1263,13 +1263,13 @@ track:
 tags:
   - note
 related:
-  - "[[Old Laptop Rebuild - Index]]"
+  - "[[_Rebuild - Index]]"
   - "[[Ubuntu - WSL]]"
   - "[[Installations]]"
 ---
 # Old Laptop Rebuild - Prompt 1 WSL
 
-Run in Codex (gpt-5.6-sol, medium effort) from `/home/anant_gupta` on the old laptop. Start it with `codex -m gpt-5.6-sol -c model_reasoning_effort=medium`, or set the effort with `/model`. Sibling notes: [[Old Laptop Rebuild - Index]].
+Run in Codex (gpt-5.6-sol, medium effort) from `/home/anant_gupta` on the old laptop. Start it with `codex -m gpt-5.6-sol -c model_reasoning_effort=medium`, or set the effort with `/model`. Sibling notes: [[_Rebuild - Index]].
 
 ## Prompt
 
@@ -1447,13 +1447,13 @@ track:
 tags:
   - note
 related:
-  - "[[Old Laptop Rebuild - Index]]"
+  - "[[_Rebuild - Index]]"
   - "[[Ubuntu - WSL]]"
   - "[[Installations]]"
 ---
 # Old Laptop Rebuild - Prompt 1 WSL
 
-Run in Codex (gpt-5.6-sol, medium effort) from `/home/anant_gupta` on the old laptop. Start it with `codex -m gpt-5.6-sol -c model_reasoning_effort=medium`, or set the effort with `/model`. Sibling notes: [[Old Laptop Rebuild - Index]].
+Run in Codex (gpt-5.6-sol, medium effort) from `/home/anant_gupta` on the old laptop. Start it with `codex -m gpt-5.6-sol -c model_reasoning_effort=medium`, or set the effort with `/model`. Sibling notes: [[_Rebuild - Index]].
 
 ## Prompt
 
@@ -3064,7 +3064,7 @@ track:
 tags:
   - note
 related:
-  - "[[Old Laptop Rebuild - Index]]"
+  - "[[_Rebuild - Index]]"
   - "[[Old Laptop Rebuild - Prompt 1 WSL]]"
   - "[[VS Code - WSL]]"
   - "[[VS Code Professional Setup]]"
@@ -3201,7 +3201,7 @@ track:
 tags:
   - note
 related:
-  - "[[Old Laptop Rebuild - Index]]"
+  - "[[_Rebuild - Index]]"
   - "[[Old Laptop Rebuild - Prompt 1 WSL]]"
   - "[[VS Code - WSL]]"
   - "[[VS Code Professional Setup]]"
@@ -3675,7 +3675,7 @@ track:
 tags:
   - note
 related:
-  - "[[Old Laptop Rebuild - Index]]"
+  - "[[_Rebuild - Index]]"
   - "[[Old Laptop Rebuild - Prompt 1 WSL]]"
   - "[[Old Laptop Rebuild - Build 1 WSL Findings]]"
   - "[[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]]"
@@ -3839,7 +3839,7 @@ track:
 tags:
   - note
 related:
-  - "[[Old Laptop Rebuild - Index]]"
+  - "[[_Rebuild - Index]]"
   - "[[Old Laptop Rebuild - Prompt 1 WSL]]"
   - "[[Old Laptop Rebuild - Build 1 WSL Findings]]"
   - "[[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]]"

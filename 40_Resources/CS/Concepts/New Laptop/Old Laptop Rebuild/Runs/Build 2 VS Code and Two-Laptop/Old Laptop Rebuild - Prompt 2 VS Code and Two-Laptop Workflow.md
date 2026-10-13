@@ -11,7 +11,7 @@ track:
 tags:
   - note
 related:
-  - "[[Old Laptop Rebuild - Index]]"
+  - "[[_Rebuild - Index]]"
   - "[[Old Laptop Rebuild - Prompt 1 WSL]]"
   - "[[Old Laptop Rebuild - Build 1 WSL Findings]]"
   - "[[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]]"

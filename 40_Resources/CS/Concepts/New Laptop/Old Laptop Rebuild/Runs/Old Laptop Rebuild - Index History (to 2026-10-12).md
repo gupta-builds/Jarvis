@@ -19,7 +19,7 @@ next: "History only. The live roadmap is [[Old Laptop Rebuild - Index]]."
 # Old Laptop Rebuild - Index History (to 2026-10-12)
 
 > [!note] Archived 2026-10-13
-> This is the full Index as it stood on 2026-10-12, with every dated status paragraph (some are duplicated in the original). The live roadmap and standing decisions are in [[Old Laptop Rebuild - Index]]. Facts in the table below are from 2026-10-04 and are out of date.
+> This is the full Index as it stood on 2026-10-12, with every dated status paragraph (some are duplicated in the original). The live roadmap and standing decisions are in [[_Rebuild - Index]]. Facts in the table below are from 2026-10-04 and are out of date.
 
 ## One-Line Answer
 ==The old Dell (Latitude 5530) gets rebuilt to match the Acer in sessions run one layer at a time, WSL first, and every session logs what it measured and the rule that stops the same growth from returning.==

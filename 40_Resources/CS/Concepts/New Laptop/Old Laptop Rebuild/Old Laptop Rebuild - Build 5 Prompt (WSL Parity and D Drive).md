@@ -12,7 +12,7 @@ tags:
   - laptop
   - prompt
 related:
-  - "[[Old Laptop Rebuild - Index]]"
+  - "[[_Rebuild - Index]]"
   - "[[Old Laptop Rebuild - Build 4 Prompt (Windows Toolkit)]]"
   - "[[Old Laptop Rebuild - Build 4 Windows Toolkit Findings]]"
   - "[[Old Laptop Rebuild - Build 2 SSH Runbook]]"
@@ -21,7 +21,7 @@ related:
   - "[[C Drive Bloat - Failure Log and Prevention Rules]]"
   - "[[Installations]]"
   - "[[Google Drive Sync Policy]]"
-next: "Run in Claude Code inside WSL (Sonnet 5.5, high effort, started in the WSL home directory). Answer the Phase 2 decisions E1 to E10."
+next: Run in Claude Code inside WSL (Sonnet 5.5, high effort, started in the WSL home directory). Answer the Phase 2 decisions E1 to E10.
 ---
 # Old Laptop Rebuild - Build 5 Prompt (WSL Parity and D Drive)
 

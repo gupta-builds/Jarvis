@@ -1520,7 +1520,7 @@ tags:
   - laptop
   - disk
 related:
-  - "[[Old Laptop Rebuild - Index]]"
+  - "[[_Rebuild - Index]]"
   - "[[Old Laptop Rebuild - Build 1 WSL Findings]]"
   - "[[Installations]]"
   - "[[New Laptop Setup]]"
@@ -1543,7 +1543,7 @@ next: "Windows-host build (Dell) applies the Dell fixes; Acer gets the monthly c
 | Profile, non-AppData | about 29 GiB | scan |
 | `AppData\Local` top | Programs 14.1, Spotify 6.38, Vivaldi 5.63, Microsoft 4.87, superwhisper 4.82, **npm-cache 4.31**, Packages 3.68, Temp 3.37, **uv 2.51**, hermes 2.09, WisprFlow 1.88, **ms-playwright 1.34** (GiB) | scan |
 | Profile folders | miniconda3 7.09, **vscode-remote-wsl 6.29**, .vscode 4.08, .codex 3.36, **[REDACTED] 2.34**, .cache 1.44, .local 1.18, .kiro 0.91 (GiB) | scan |
-| Roaming and Windows folders | not measured in this pass. 10-04 WizTree: Roaming Claude 10.7, Code 3.4, Jan 3.3, Cursor 2.8, Kiro 2.6, npm 1.8 | [[Old Laptop Rebuild - Index]] |
+| Roaming and Windows folders | not measured in this pass. 10-04 WizTree: Roaming Claude 10.7, Code 3.4, Jan 3.3, Cursor 2.8, Kiro 2.6, npm 1.8 | [[_Rebuild - Index]] |
 
 ## Failure log
 | # | What went wrong | Evidence | Root cause | Status |
@@ -1600,7 +1600,7 @@ tags:
   - laptop
   - disk
 related:
-  - "[[Old Laptop Rebuild - Index]]"
+  - "[[_Rebuild - Index]]"
   - "[[Old Laptop Rebuild - Build 1 WSL Findings]]"
   - "[[Installations]]"
   - "[[New Laptop Setup]]"
@@ -1623,7 +1623,7 @@ next: "Windows-host build (Dell) applies the Dell fixes; Acer gets the monthly c
 | Profile, non-AppData | about 29 GiB | scan |
 | `AppData\Local` top | Programs 14.1, Spotify 6.38, Vivaldi 5.63, Microsoft 4.87, superwhisper 4.82, **npm-cache 4.31**, Packages 3.68, Temp 3.37, **uv 2.51**, hermes 2.09, WisprFlow 1.88, **ms-playwright 1.34** (GiB) | scan |
 | Profile folders | miniconda3 7.09, **vscode-remote-wsl 6.29**, .vscode 4.08, .codex 3.36, **[REDACTED] 2.34**, .cache 1.44, .local 1.18, .kiro 0.91 (GiB) | scan |
-| Roaming and Windows folders | not measured in this pass. 10-04 WizTree: Roaming Claude 10.7, Code 3.4, Jan 3.3, Cursor 2.8, Kiro 2.6, npm 1.8 | [[Old Laptop Rebuild - Index]] |
+| Roaming and Windows folders | not measured in this pass. 10-04 WizTree: Roaming Claude 10.7, Code 3.4, Jan 3.3, Cursor 2.8, Kiro 2.6, npm 1.8 | [[_Rebuild - Index]] |
 
 ## Failure log
 | # | What went wrong | Evidence | Root cause | Status |

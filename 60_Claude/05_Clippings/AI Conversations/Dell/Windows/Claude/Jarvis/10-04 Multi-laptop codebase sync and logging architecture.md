@@ -425,7 +425,7 @@ tags:
   - ssh
   - tailscale
 related:
-  - "[[Old Laptop Rebuild - Index]]"
+  -[[_Rebuild - Index]]]]"
   - "[[Old Laptop Rebuild - Prompt 1 WSL]]"
   - "[[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]]"
   - "[[internship-research-loop-new-laptop-directive]]"

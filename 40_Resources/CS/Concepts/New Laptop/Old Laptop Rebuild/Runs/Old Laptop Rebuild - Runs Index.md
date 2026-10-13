@@ -12,14 +12,14 @@ tags:
   - note
   - laptop
 related:
-  - "[[Old Laptop Rebuild - Index]]"
+  - "[[_Rebuild - Index]]"
   - "[[Old Laptop Rebuild - Index History (to 2026-10-12)]]"
   - "[[C Drive Bloat - Failure Log and Prevention Rules]]"
-next: "Add each future build here when its prompt and findings move into Runs"
+next: Add each future build here when its prompt and findings move into Runs
 ---
 # Old Laptop Rebuild - Runs Index
 
-Everything that has already been run for the Dell rebuild: the prompt that was sent and the findings it produced, one folder per run. Prompts that have not run yet, living reference notes and the roadmap stay one level up in [[Old Laptop Rebuild - Index]]. Moved here on 2026-10-13. Obsidian links use note names, so no link broke.
+Everything that has already been run for the Dell rebuild: the prompt that was sent and the findings it produced, one folder per run. Prompts that have not run yet, living reference notes and the roadmap stay one level up in [[_Rebuild - Index]]. Moved here on 2026-10-13. Obsidian links use note names, so no link broke.
 
 ## Folder layout
 

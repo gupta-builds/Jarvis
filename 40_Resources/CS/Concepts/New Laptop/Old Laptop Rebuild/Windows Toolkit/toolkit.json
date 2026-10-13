@@ -1,0 +1,487 @@
+{
+  "schema": 1,
+  "name": "Windows Toolkit manifest",
+  "updated": "2026-10-13",
+  "notes": "One manifest drives 00-preflight, 10-install-toolkit, 20-apply-configs, 99-verify and 40-build-catalog. ASCII only. Policies: install (install if missing, adopt the installed version), latest (bring to current), verify (check only), absent (must not exist), retire (present until the gated removal script runs, reported PENDING), catalog-only (never installed on Windows).",
+  "machines": {
+    "dell": {
+      "label": "Dell Latitude 5530",
+      "computerName": "DESKTOP-3VBG0JH",
+      "vaultRoot": "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis",
+      "ubuntuProfileName": "Ubuntu (Dell)"
+    },
+    "acer": {
+      "label": "Acer",
+      "computerName": "",
+      "vaultRoot": "D:\\_Anant\\20_Progress\\Documents\\Jarvis",
+      "ubuntuProfileName": "Ubuntu-24.04 (Acer)"
+    }
+  },
+  "pins": {
+    "uv": { "version": "0.12.19", "installerUrl": "https://github.com/astral-sh/uv/releases/download/0.12.19/uv-installer.ps1", "installerSha256": "F44CF87798D181653F4C160EE28DF6353CCF0AC4EFEA16C9A32ABFF694C8F45B" },
+    "font": { "release": "v3.5.1", "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.1/IosevkaTerm.tar.xz", "sha256": "054a4a369cdcc5d57e9bc91ea56dfefd66c71c253dcb0c0d7b72c0810373da26", "family": "IosevkaTerm NFM", "filePattern": "IosevkaTermNerdFontMono-*.ttf", "regularFile": "IosevkaTermNerdFontMono-Regular.ttf" },
+    "psfzf": { "version": "2.7.12" },
+    "python": { "uvSpec": "3.13" }
+  },
+  "tools": [
+    {
+      "id": "pwsh", "name": "PowerShell 7", "category": "Shell and terminal", "method": "winget", "wingetId": "Microsoft.PowerShell",
+      "machines": ["dell", "acer"], "policy": "install", "uac": false, "exe": "pwsh",
+      "location": "MSIX under Program Files\\WindowsApps (forced to C:, about 120 MB)",
+      "configs": ["profile-pwsh"],
+      "purpose": "Modern cross-platform shell and the default Windows Terminal profile.",
+      "when": "Default interactive shell for all Windows work. Use Windows PowerShell 5.1 only for legacy scripts.",
+      "keyCommands": ["pwsh", "pwsh -NoProfile -File script.ps1", "$PSVersionTable.PSVersion", "notepad $PROFILE"],
+      "runsWhere": "Windows",
+      "agentNotes": "Run scripts with pwsh -NoProfile -File. The profile lives in Documents\\PowerShell (Documents is redirected to D:). The 5.1 profile is separate."
+    },
+    {
+      "id": "wt", "name": "Windows Terminal", "category": "Shell and terminal", "method": "winget", "wingetId": "Microsoft.WindowsTerminal",
+      "machines": ["dell", "acer"], "policy": "verify", "detect": "winget",
+      "location": "MSIX (forced to C:)",
+      "configs": ["terminal"],
+      "purpose": "Terminal host with the Tokyo Night Storm scheme and the IosevkaTerm NFM font.",
+      "when": "Every interactive session. The Dell stays on 1.24 on purpose.",
+      "keyCommands": ["wt", "wt -d . pwsh", "wt new-tab -p \"Ubuntu (Dell)\"", "Ctrl+Shift+F find", "Alt+Shift+D duplicate pane"],
+      "runsWhere": "Windows",
+      "agentNotes": "settings.json is merged by 20-apply-configs.ps1 from configs\\terminal\\toolkit-fragment.json. Do not hand-edit defaults; machine profiles are preserved."
+    },
+    {
+      "id": "starship", "name": "Starship", "category": "Shell and terminal", "method": "winget", "wingetId": "Starship.Starship",
+      "machines": ["dell", "acer"], "policy": "install", "uac": true, "exe": "starship", "expect": "^1\\.26\\.",
+      "location": "MSI in C:\\Program Files\\starship (tiny)",
+      "configs": ["starship"],
+      "purpose": "Cross-shell prompt. One starship.toml for Windows and both WSLs.",
+      "when": "Always on in PowerShell. Check the config with starship print-config.",
+      "keyCommands": ["starship --version", "starship print-config", "starship prompt", "starship explain", "starship timings"],
+      "runsWhere": "Windows (and WSL separately)",
+      "agentNotes": "STARSHIP_CONFIG points to ~\\.config\\starship.toml. The managed profile block initialises it once per session."
+    },
+    {
+      "id": "iosevkaterm-nfm", "name": "IosevkaTerm Nerd Font Mono", "category": "Shell and terminal", "method": "font", "detect": "font",
+      "machines": ["dell", "acer"], "policy": "install", "uac": false,
+      "location": "per-user fonts: %LOCALAPPDATA%\\Microsoft\\Windows\\Fonts (27 TTF files, about 380 MB, C:, cannot be redirected); Acer has it system-wide",
+      "configs": ["terminal"],
+      "purpose": "Glyph font for Starship icons. Registers in Windows as the family IosevkaTerm NFM.",
+      "when": "Set as the Terminal and VS Code terminal font face. Use the registered name IosevkaTerm NFM, not the long name.",
+      "keyCommands": ["(New-Object System.Drawing.Text.InstalledFontCollection).Families | ? Name -like 'Iosevka*'"],
+      "runsWhere": "Windows",
+      "agentNotes": "No winget package exists. Source is Nerd Fonts v3.5.1 IosevkaTerm.tar.xz with a pinned SHA-256."
+    },
+    {
+      "id": "zoxide", "name": "zoxide", "category": "Shell and terminal", "method": "winget", "wingetId": "ajeetdsouza.zoxide",
+      "machines": ["dell", "acer"], "policy": "install", "uac": false, "exe": "zoxide", "portable": true,
+      "location": "winget portable in %LOCALAPPDATA%\\Microsoft\\WinGet\\Packages (tiny, C:)",
+      "configs": ["profile-ps5", "profile-pwsh"],
+      "purpose": "Smart directory jumper that learns frequent folders.",
+      "when": "Use z <part-of-path> instead of cd for folders you visit often.",
+      "keyCommands": ["z <name>", "zi", "zoxide query <name>", "zoxide add .", "zoxide remove <path>"],
+      "runsWhere": "Windows (and WSL separately)",
+      "agentNotes": "Initialised once by the managed profile block. Agents should not rely on z in non-interactive shells."
+    },
+    {
+      "id": "fzf", "name": "fzf", "category": "Shell and terminal", "method": "winget", "wingetId": "junegunn.fzf",
+      "machines": ["dell", "acer"], "policy": "install", "uac": false, "exe": "fzf", "portable": true,
+      "location": "winget portable (tiny, C:)",
+      "configs": ["profile-ps5", "profile-pwsh"],
+      "purpose": "Fuzzy finder for files, history and command output.",
+      "when": "Ctrl+T files, Ctrl+R history, Alt+C folders (through PSFzf), or pipe any list into fzf.",
+      "keyCommands": ["fzf", "fd -t f | fzf", "git branch | fzf", "Get-Process | Out-String -Stream | fzf", "fzf --preview \"bat --color=always {}\""],
+      "runsWhere": "Windows (and WSL separately)",
+      "agentNotes": "Interactive tool. Agents should use rg or fd directly, not fzf."
+    },
+    {
+      "id": "psfzf", "name": "PSFzf", "category": "Shell and terminal", "method": "psmodule", "detect": "psmodule", "moduleName": "PSFzf",
+      "machines": ["dell", "acer"], "policy": "install", "uac": false,
+      "location": "PowerShell Gallery module in Documents\\WindowsPowerShell\\Modules and Documents\\PowerShell\\Modules (Documents is on D:)",
+      "configs": ["profile-ps5", "profile-pwsh"],
+      "purpose": "Gives fzf its PowerShell key bindings (Ctrl+T, Ctrl+R, Alt+C).",
+      "when": "Loaded automatically by the managed profile block when the module exists.",
+      "keyCommands": ["Get-Module -ListAvailable PSFzf", "Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t'"],
+      "runsWhere": "Windows PowerShell 5.1 and PowerShell 7 (installed separately)",
+      "agentNotes": "Never enable -EnableAliasFuzzySetLocation: it defines an alias named fd that shadows fd.exe."
+    },
+    {
+      "id": "fd", "name": "fd", "category": "Shell and terminal", "method": "winget", "wingetId": "sharkdp.fd",
+      "machines": ["dell", "acer"], "policy": "install", "uac": false, "exe": "fd", "portable": true,
+      "location": "winget portable (tiny, C:)",
+      "configs": ["fd-ignore"],
+      "purpose": "Fast, friendly replacement for find.",
+      "when": "Find files by name. It respects .gitignore and the global ignore file.",
+      "keyCommands": ["fd <pattern>", "fd -e md", "fd -t d <name>", "fd -H -I <name>", "fd <pattern> -x <command> {}"],
+      "runsWhere": "Windows (and WSL separately)",
+      "agentNotes": "Global ignore file is %APPDATA%\\fd\\ignore. Use -H -I to see hidden and ignored files."
+    },
+    {
+      "id": "bat", "name": "bat", "category": "Shell and terminal", "method": "winget", "wingetId": "sharkdp.bat",
+      "machines": ["dell", "acer"], "policy": "install", "uac": false, "exe": "bat", "portable": true,
+      "location": "winget portable (tiny, C:)",
+      "configs": ["bat"],
+      "purpose": "cat with syntax highlighting and git change markers. Also the fzf preview renderer.",
+      "when": "View a file in the terminal. Use --plain for copyable output.",
+      "keyCommands": ["bat <file>", "bat --plain <file>", "bat -r 10:40 <file>", "bat --list-languages", "bat --list-themes"],
+      "runsWhere": "Windows (and WSL separately)",
+      "agentNotes": "Config is %APPDATA%\\bat\\config. For reading a file in an agent session prefer the agent's own Read tool."
+    },
+    {
+      "id": "delta", "name": "delta", "category": "Core CLI", "method": "winget", "wingetId": "dandavison.delta",
+      "machines": ["dell", "acer"], "policy": "install", "uac": false, "exe": "delta", "portable": true,
+      "location": "winget portable (tiny, C:)",
+      "configs": ["git-delta", "git-settings"],
+      "purpose": "Readable git diff and git log -p pager.",
+      "when": "Automatic after the shared git include is applied. Bypass with git --no-pager.",
+      "keyCommands": ["git diff", "git log -p", "git show", "git --no-pager diff", "delta file1 file2"],
+      "runsWhere": "Windows (and WSL separately)",
+      "agentNotes": "Agents should call git --no-pager so output stays plain."
+    },
+    {
+      "id": "git", "name": "Git", "category": "Core CLI", "method": "winget", "wingetId": "Git.Git",
+      "machines": ["dell", "acer"], "policy": "latest", "uac": true, "exe": "git",
+      "location": "C:\\Program Files\\Git (about 400 MB, installer is Inno Setup)",
+      "configs": ["git-settings", "git-ignore", "git-delta"],
+      "purpose": "Version control. Windows global config is shared by the toolkit.",
+      "when": "Windows-side repos only. Projects live in WSL ext4, never under /mnt.",
+      "keyCommands": ["git status -sb", "git log --oneline -n 20", "git config --global --list --show-origin", "git switch -c <machine>/<topic>", "git worktree add ../x <branch>"],
+      "runsWhere": "Windows (WSL has its own git)",
+      "agentNotes": "core.autocrlf is input. Identity and safe.directory entries are machine specific and are never touched."
+    },
+    {
+      "id": "gh", "name": "GitHub CLI", "category": "Core CLI", "method": "winget", "wingetId": "GitHub.cli",
+      "machines": ["dell", "acer"], "policy": "latest", "uac": true, "exe": "gh",
+      "location": "C:\\Program Files\\GitHub CLI (tiny)",
+      "configs": ["git-settings"],
+      "purpose": "GitHub from the terminal and the git credential helper for github.com.",
+      "when": "PRs, issues, auth. gh auth status shows the login without printing the token.",
+      "keyCommands": ["gh auth status", "gh pr create --fill", "gh pr list", "gh repo clone <owner>/<repo>", "gh run watch"],
+      "runsWhere": "Windows (WSL has its own gh)",
+      "agentNotes": "Never print gh auth token. The credential helper is gh auth git-credential."
+    },
+    {
+      "id": "ripgrep", "name": "ripgrep", "category": "Core CLI", "method": "winget", "wingetId": "BurntSushi.ripgrep.MSVC",
+      "machines": ["dell", "acer"], "policy": "install", "uac": false, "exe": "rg", "portable": true,
+      "location": "winget portable (tiny, C:)",
+      "purpose": "Fast recursive text search.",
+      "when": "Search file contents. It respects .gitignore.",
+      "keyCommands": ["rg <pattern>", "rg -n -i <pattern> -g \"*.md\"", "rg -l <pattern>", "rg --files | rg <name>", "rg -C 3 <pattern>"],
+      "runsWhere": "Windows (and WSL separately)",
+      "agentNotes": "Preferred over grep or Select-String for large trees."
+    },
+    {
+      "id": "jq", "name": "jq", "category": "Core CLI", "method": "winget", "wingetId": "jqlang.jq",
+      "machines": ["dell", "acer"], "policy": "install", "uac": false, "exe": "jq", "portable": true,
+      "location": "winget portable (tiny, C:)",
+      "purpose": "Query and reshape JSON.",
+      "when": "Inspect JSON from APIs, logs and config files.",
+      "keyCommands": ["jq . file.json", "jq -r '.items[].name' file.json", "jq 'keys' file.json", "Get-Content f.json | jq .", "jq -s . a.json b.json"],
+      "runsWhere": "Windows (and WSL separately)",
+      "agentNotes": "Use for JSON files that hold secrets only with a filter that prints names, never values."
+    },
+    {
+      "id": "ffmpeg", "name": "FFmpeg", "category": "Core CLI", "method": "winget", "wingetId": "Gyan.FFmpeg",
+      "machines": ["dell", "acer"], "policy": "install", "uac": false, "exe": "ffmpeg", "versionArgs": ["-version"], "portable": true,
+      "location": "winget portable full build (about 200 MB, C:)",
+      "purpose": "Audio and video conversion.",
+      "when": "Convert, trim or extract media.",
+      "keyCommands": ["ffmpeg -i in.mp4 out.mp3", "ffmpeg -i in.mov -vcodec libx264 out.mp4", "ffmpeg -ss 00:00:10 -t 5 -i in.mp4 clip.mp4", "ffprobe in.mp4"],
+      "runsWhere": "Windows",
+      "agentNotes": "Always pass -n or -y explicitly so it never prompts."
+    },
+    {
+      "id": "nanazip", "name": "NanaZip", "category": "Core CLI", "method": "winget", "wingetId": "M2Team.NanaZip",
+      "machines": ["dell", "acer"], "policy": "install", "uac": false, "detect": "appx", "appxName": "*NanaZip*",
+      "location": "MSIX (forced to C:)",
+      "purpose": "The one archive tool (replaces WinRAR). Supports 7z, zip, tar, xz, rar extraction.",
+      "when": "Open or create archives from Explorer. Use tar.exe for tar.xz in scripts.",
+      "keyCommands": ["tar -tf file.tar.xz", "tar -xf file.tar.xz -C <dir>", "Right-click > NanaZip"],
+      "runsWhere": "Windows",
+      "agentNotes": "No stable console executable on PATH. Scripts use the built-in tar.exe (bsdtar)."
+    },
+    {
+      "id": "node", "name": "Node.js LTS", "category": "Runtimes", "method": "winget", "wingetId": "OpenJS.NodeJS.LTS",
+      "machines": ["dell", "acer"], "policy": "install", "uac": true, "exe": "node", "expectMajor": 24,
+      "conflictsWith": ["OpenJS.NodeJS.22"], "manualScript": "11-node-lts-swap.ps1",
+      "location": "C:\\Program Files\\nodejs (about 100 MB, kept on C: because MCP configs reference it)",
+      "purpose": "JavaScript runtime for npx, MCP servers and CLI tools.",
+      "when": "Always. LTS 24 matches both WSL installs.",
+      "keyCommands": ["node --version", "npm ls -g --depth=0", "npx -y <package>", "npm config get cache"],
+      "runsWhere": "Windows (WSL uses nvm)",
+      "agentNotes": "The Dell moves from 22 to 24 through 11-node-lts-swap.ps1 (by hand). npm cache is D:\\npm-cache via ~/.npmrc."
+    },
+    {
+      "id": "npm", "name": "npm", "category": "Runtimes", "method": "verify", "machines": ["dell", "acer"], "policy": "verify", "exe": "npm",
+      "location": "ships with Node",
+      "purpose": "Node package manager and the carrier of global CLIs (Codex, mcp-remote).",
+      "when": "Install or update global CLI tools.",
+      "keyCommands": ["npm ls -g --depth=0", "npm install -g <pkg>@<version>", "npm config get cache", "npm outdated -g"],
+      "runsWhere": "Windows",
+      "agentNotes": "Global packages live in %APPDATA%\\npm and survive a Node major upgrade."
+    },
+    {
+      "id": "pnpm", "name": "pnpm", "category": "Runtimes", "method": "winget", "wingetId": "pnpm.pnpm",
+      "machines": ["dell", "acer"], "policy": "install", "uac": false, "exe": "pnpm", "portable": true,
+      "location": "winget portable (tiny, C:). Corepack stays disabled because enabling it needs admin under Program Files",
+      "purpose": "Fast disk-efficient JavaScript package manager.",
+      "when": "JavaScript projects that use a pnpm-lock.yaml. Projects themselves live in WSL.",
+      "keyCommands": ["pnpm install", "pnpm add <pkg>", "pnpm dlx <pkg>", "pnpm store path"],
+      "runsWhere": "Windows (WSL has its own via Corepack)",
+      "agentNotes": "Do not run corepack enable on Windows."
+    },
+    {
+      "id": "uv", "name": "uv", "category": "Runtimes", "method": "uv-standalone", "detect": "exe", "exe": "uv", "exePath": "%USERPROFILE%\\.local\\bin\\uv.exe",
+      "pin": "uv",
+      "machines": ["dell", "acer"], "policy": "install", "uac": false, "expect": "^0\\.12\\.19$",
+      "location": "%USERPROFILE%\\.local\\bin (tiny, C:). Cache is D:\\Cache\\uv through UV_CACHE_DIR",
+      "purpose": "Python project, tool and interpreter manager (standalone installer, supports uv self update).",
+      "when": "All Python work. The pip copy in C:\\Python313 is retired after this one is verified.",
+      "keyCommands": ["uv init", "uv add <pkg>", "uv run <script>", "uv tool install <tool>", "uvx <tool>", "uv self update"],
+      "runsWhere": "Windows (WSL has its own)",
+      "agentNotes": "Machine PATH precedes user PATH, so the pip uv wins until Python is removed by 04-admin-remove.ps1 -IncludePython."
+    },
+    {
+      "id": "uv-python", "name": "uv-managed Python", "category": "Runtimes", "method": "uv-python", "detect": "uv-python",
+      "machines": ["dell", "acer"], "policy": "install",
+      "location": "%APPDATA%\\uv\\python (about 100 MB per version, C:)",
+      "purpose": "Python interpreter installed and owned by uv instead of a system install.",
+      "when": "uv picks it automatically for uv venv and uv run.",
+      "keyCommands": ["uv python list", "uv python install 3.13", "uv python find", "uv venv"],
+      "runsWhere": "Windows",
+      "agentNotes": "There is no python.exe on PATH after the Chocolatey Python is retired. Use uv run python or a project .venv."
+    },
+    {
+      "id": "python-choco", "name": "Python 3.13.5 (Chocolatey)", "category": "Retire after uv", "method": "retire", "detect": "exe", "exe": "python", "exePath": "C:\\Python313\\python.exe",
+      "machines": ["dell"], "policy": "retire", "retireCommand": "elevated: powershell -File \"D:\\WSL\\ops\\windows\\04-admin-remove.ps1\" -IncludePython -Apply",
+      "location": "C:\\Python313 (about 0.3 GB)",
+      "purpose": "Old system Python that also shadows the standalone uv.",
+      "when": "Never. Retired through the gated admin script.",
+      "keyCommands": [], "runsWhere": "Windows", "agentNotes": "Do not use. Absent after retirement."
+    },
+    {
+      "id": "choco", "name": "Chocolatey", "category": "Retire after uv", "method": "retire", "detect": "exe", "exe": "choco",
+      "machines": ["dell"], "policy": "retire", "retireCommand": "same elevated command as python-choco",
+      "location": "C:\\ProgramData\\chocolatey",
+      "purpose": "Old package manager that installed Python 3.13.5.",
+      "when": "Never. winget is the package manager.",
+      "keyCommands": [], "runsWhere": "Windows", "agentNotes": "Do not use. Absent after retirement."
+    },
+    {
+      "id": "miniconda", "name": "Miniconda", "category": "Runtimes", "method": "verify", "wingetId": "Anaconda.Miniconda3", "detect": "winget",
+      "machines": ["dell"], "policy": "verify",
+      "junction": { "path": "%USERPROFILE%\\miniconda3", "target": "D:\\Apps\\miniconda3" },
+      "location": "D:\\Apps\\miniconda3 with a permanent junction at C:\\Users\\Anant Gupta\\miniconda3 (do not delete the junction)",
+      "purpose": "Conda environments for notebooks and coursework only. Not on PATH.",
+      "when": "Notebook and library work. Everything else is a uv project.",
+      "keyCommands": ["& \"$env:USERPROFILE\\miniconda3\\Scripts\\conda.exe\" env list", "& \"$env:USERPROFILE\\miniconda3\\Scripts\\conda.exe\" install -n <env> <pkg>"],
+      "runsWhere": "Windows",
+      "agentNotes": "Conda environments hold absolute paths, so the junction must stay."
+    },
+    {
+      "id": "opam", "name": "opam (OCaml)", "category": "Runtimes", "method": "verify", "wingetId": "OCaml.opam", "detect": "winget",
+      "machines": ["dell"], "policy": "verify",
+      "junction": { "path": "C:\\opamroot", "target": "D:\\Apps\\opamroot" },
+      "location": "opam root D:\\Apps\\opamroot with a junction at C:\\opamroot",
+      "purpose": "OCaml package manager loaded by the Dell's Windows PowerShell profile.",
+      "when": "OCaml coursework.",
+      "keyCommands": ["opam switch list", "opam env", "opam install <pkg>"],
+      "runsWhere": "Windows",
+      "agentNotes": "Opam files carry the System attribute. Never bulk-delete the root."
+    },
+    {
+      "id": "winget", "name": "winget", "category": "Core CLI", "method": "verify", "machines": ["dell", "acer"], "policy": "verify", "exe": "winget",
+      "location": "App Installer (forced to C:)",
+      "purpose": "The package manager for everything on Windows.",
+      "when": "Install or upgrade tools. Always pass --exact and --source winget.",
+      "keyCommands": ["winget list", "winget upgrade", "winget install --id <Id> --exact --source winget", "winget show --id <Id> --exact", "winget export -o file.json"],
+      "runsWhere": "Windows",
+      "agentNotes": "A portable package may install without a PATH entry. Check Get-Command <tool> afterwards."
+    },
+    {
+      "id": "claude-code", "name": "Claude Code", "category": "AI platforms", "method": "verify", "machines": ["dell", "acer"], "policy": "verify", "exe": "claude",
+      "location": "native installer in %USERPROFILE%\\.local\\bin (C:)",
+      "purpose": "Primary agent CLI for terminal and vault work.",
+      "when": "Coding, file work and vault tasks from a shell.",
+      "keyCommands": ["claude", "claude --version", "claude mcp list", "claude update", "claude -p \"<prompt>\""],
+      "runsWhere": "Windows (WSL has its own)",
+      "agentNotes": "Settings and MCP registry belong to Build 6. This toolkit only verifies the binary."
+    },
+    {
+      "id": "codex", "name": "Codex CLI", "category": "AI platforms", "method": "npm", "npmPackage": "@openai/codex", "machines": ["dell", "acer"], "policy": "install", "exe": "codex",
+      "location": "npm global in %APPDATA%\\npm (small, C:); packages junction at D:\\Cache\\codex\\packages",
+      "purpose": "OpenAI agent CLI.",
+      "when": "Second-opinion coding runs and sandboxed tasks.",
+      "keyCommands": ["codex", "codex --version", "codex doctor", "codex mcp list", "codex exec \"<prompt>\""],
+      "runsWhere": "Windows (WSL has its own)",
+      "agentNotes": "Pinned to the version recorded in toolkit.lock.json. Daemon needs .codex\\packages\\app-server-daemon\\current to exist."
+    },
+    {
+      "id": "claude-desktop", "name": "Claude Desktop", "category": "AI platforms", "method": "verify", "wingetId": "Anthropic.Claude", "detect": "winget", "machines": ["dell", "acer"], "policy": "verify",
+      "location": "per-user app (forced to C:), VM bundle under %APPDATA%\\Claude",
+      "purpose": "Chat app with MCP servers and Cowork.",
+      "when": "Conversational work with MCP-connected tools.",
+      "keyCommands": ["Start Menu > Claude"], "runsWhere": "Windows", "agentNotes": "Configured MCP server names are listed in the catalog. Values are never read."
+    },
+    {
+      "id": "cursor", "name": "Cursor", "category": "AI platforms", "method": "verify", "wingetId": "Anysphere.Cursor", "detect": "winget", "machines": ["dell", "acer"], "policy": "verify",
+      "location": "per-user app (forced to C:)",
+      "purpose": "AI-first code editor.", "when": "Editor sessions with its agent.",
+      "keyCommands": ["cursor .", "cursor --version"], "runsWhere": "Windows", "agentNotes": "Cursor sessions are archived by the Jarvis Cursor pipeline."
+    },
+    {
+      "id": "kiro", "name": "Kiro", "category": "AI platforms", "method": "verify", "wingetId": "Amazon.Kiro", "detect": "winget", "machines": ["dell"], "policy": "verify",
+      "location": "per-user app (forced to C:)",
+      "purpose": "Spec-driven agent IDE.", "when": "Spec-driven feature work.",
+      "keyCommands": ["kiro .", "kiro --version"], "runsWhere": "Windows", "agentNotes": "Not installed on the Acer by this toolkit."
+    },
+    {
+      "id": "antigravity", "name": "Antigravity", "category": "AI platforms", "method": "verify", "wingetId": "Google.Antigravity", "detect": "winget", "machines": ["dell", "acer"], "policy": "verify",
+      "location": "per-user app (forced to C:)",
+      "purpose": "Google agent IDE.", "when": "Agent-first editor sessions.",
+      "keyCommands": ["agy --version", "Command Palette > Install 'agy' command in PATH (one-time)"], "runsWhere": "Windows", "agentNotes": "The agy shim exists only after the one-time in-app step."
+    },
+    {
+      "id": "docker-desktop", "name": "Docker Desktop", "category": "AI platforms", "method": "verify", "wingetId": "Docker.DockerDesktop", "detect": "winget", "machines": ["dell", "acer"], "policy": "verify",
+      "location": "C:\\Program Files\\Docker; disk image on D:\\WSL\\Docker",
+      "purpose": "Container engine. Needed by Dev Containers and some MCP servers.",
+      "when": "Container and Dev Container work. Auto-start is off by choice.",
+      "keyCommands": ["docker version", "docker ps", "docker system df", "docker compose up -d"], "runsWhere": "Windows (WSL integration)", "agentNotes": "If the engine pipe is missing, Docker Desktop is not running. Start it, do not reinstall."
+    },
+    {
+      "id": "ollama", "name": "Ollama (Windows)", "category": "AI platforms", "method": "verify", "wingetId": "Ollama.Ollama", "detect": "winget", "machines": ["dell", "acer"], "policy": "verify",
+      "location": "D:\\Apps\\Ollama (Dell); models in D:\\AI\\ollama-models via OLLAMA_MODELS",
+      "purpose": "Local model runtime.",
+      "when": "Local models. On the Dell a WSL Ollama currently holds port 11434 (Build 5 decides which serves).",
+      "keyCommands": ["ollama list", "ollama run <model>", "ollama ps", "ollama --version"], "runsWhere": "Windows (and WSL on the Dell)", "agentNotes": "ollama --version may print the WSL server version while the Windows client differs. The startup shortcut stays until Build 5."
+    },
+    {
+      "id": "vscode", "name": "VS Code", "category": "AI platforms", "method": "verify", "wingetId": "Microsoft.VisualStudioCode", "detect": "winget", "machines": ["dell", "acer"], "policy": "verify",
+      "location": "per-user installer (Dell on C:, Acer on D:\\Apps)",
+      "purpose": "Main editor. Settings, extensions and MCP wiring belong to Build 6.",
+      "when": "Editing, remote-WSL and remote-SSH work.",
+      "keyCommands": ["code .", "code --list-extensions", "code --version", "code --install-extension <id>"], "runsWhere": "Windows", "agentNotes": "Settings Sync is live. Never write Windows VS Code user files from a script in this build."
+    },
+    {
+      "id": "mcp-remote", "name": "mcp-remote", "category": "MCP prerequisites", "method": "npm", "npmPackage": "mcp-remote", "machines": ["dell", "acer"], "policy": "install", "exe": "mcp-remote", "versionArgs": ["--version"],
+      "location": "npm global in %APPDATA%\\npm (tiny)",
+      "purpose": "Bridge for remote HTTP MCP servers that only speak stdio to a client.",
+      "when": "A client config uses npx mcp-remote <url>.",
+      "keyCommands": ["npx -y mcp-remote <url>", "npm ls -g mcp-remote"], "runsWhere": "Windows", "agentNotes": "May not print a version; presence on PATH is the check."
+    },
+    {
+      "id": "npx", "name": "npx", "category": "MCP prerequisites", "method": "verify", "machines": ["dell", "acer"], "policy": "verify", "exe": "npx",
+      "location": "ships with Node", "purpose": "Runs Node-based MCP servers without installing them.", "when": "MCP config entries of the form npx -y <package>.",
+      "keyCommands": ["npx -y <package>", "npx --version"], "runsWhere": "Windows", "agentNotes": "Resolves only if Node is on PATH."
+    },
+    {
+      "id": "uvx", "name": "uvx", "category": "MCP prerequisites", "method": "verify", "machines": ["dell", "acer"], "policy": "verify", "exe": "uvx", "exePath": "%USERPROFILE%\\.local\\bin\\uvx.exe", "dependsOn": "uv",
+      "location": "ships with the standalone uv", "purpose": "Runs Python-based MCP servers and tools in isolated environments.", "when": "MCP config entries of the form uvx <package>.",
+      "keyCommands": ["uvx <tool>", "uvx --from <pkg> <cmd>", "uvx --version"], "runsWhere": "Windows", "agentNotes": "Comes from the standalone uv, not the pip uv."
+    },
+    {
+      "id": "docker-cli", "name": "Docker CLI", "category": "MCP prerequisites", "method": "verify", "machines": ["dell", "acer"], "policy": "verify", "exe": "docker",
+      "location": "C:\\Program Files\\Docker\\Docker\\resources\\bin", "purpose": "Command used by MCP servers shipped as containers.", "when": "MCP config entries of the form docker run.",
+      "keyCommands": ["docker --version", "docker run --rm <image>"], "runsWhere": "Windows", "agentNotes": "Only the command resolution is verified; the engine may be stopped."
+    },
+    {
+      "id": "tailscale-acer", "name": "Tailscale (Acer, Windows side)", "category": "Per machine", "method": "verify", "wingetId": "Tailscale.Tailscale", "detect": "winget", "machines": ["acer"], "policy": "verify",
+      "location": "C:\\Program Files\\Tailscale", "purpose": "Tailnet client used by the Acer to SSH into the Dell's WSL.",
+      "when": "Remote-SSH to the canonical host (dell-wsl).",
+      "keyCommands": ["tailscale status", "tailscale ssh dell-wsl", "ssh dell-wsl"], "runsWhere": "Acer Windows only", "agentNotes": "Never installed by a script. Never inside the Acer's WSL."
+    },
+    {
+      "id": "tailscale-dell", "name": "Tailscale (must be absent on the Dell's Windows side)", "category": "Per machine", "method": "absent", "wingetId": "Tailscale.Tailscale", "detect": "winget", "exe": "tailscale", "machines": ["dell"], "policy": "absent",
+      "location": "none", "purpose": "On the Dell, Tailscale runs inside WSL only (node dell-wsl).", "when": "Never on Windows.",
+      "keyCommands": [], "runsWhere": "none", "agentNotes": "If it appears on the Dell's Windows side, report it, do not remove it silently."
+    },
+    {
+      "id": "yazi", "name": "Yazi", "category": "WSL-first (catalog only)", "method": "none", "machines": [], "policy": "catalog-only",
+      "location": "WSL ~/.local/bin", "purpose": "Terminal file manager with the Tokyo Night Storm flavor.", "when": "Browse files inside WSL.",
+      "keyCommands": ["yazi", "y (shell wrapper)", "q quit", "~ help"], "runsWhere": "WSL", "agentNotes": "Windows Yazi is not part of this toolkit."
+    },
+    {
+      "id": "lazygit", "name": "lazygit", "category": "WSL-first (catalog only)", "method": "none", "machines": [], "policy": "catalog-only",
+      "location": "WSL ~/.local/bin", "purpose": "Git TUI wired to delta.", "when": "Stage, commit and rebase interactively in WSL.",
+      "keyCommands": ["lazygit", "? help", "space stage", "c commit"], "runsWhere": "WSL", "agentNotes": "Interactive only."
+    },
+    {
+      "id": "tmux", "name": "tmux", "category": "WSL-first (catalog only)", "method": "none", "machines": [], "policy": "catalog-only",
+      "location": "WSL apt", "purpose": "Terminal multiplexer, Ctrl-a prefix, resurrect and continuum.", "when": "Long-running sessions over SSH.",
+      "keyCommands": ["tmux new -s <name>", "tmux attach -t <name>", "tmux ls", "Ctrl-a d detach"], "runsWhere": "WSL", "agentNotes": "Agent status plugins show per-pane agent state."
+    },
+    {
+      "id": "atuin", "name": "atuin", "category": "WSL-first (catalog only)", "method": "none", "machines": [], "policy": "catalog-only",
+      "location": "WSL ~/.local/bin", "purpose": "Shell history search, local only.", "when": "Ctrl+R in WSL bash.",
+      "keyCommands": ["atuin search <text>", "atuin stats", "atuin history list"], "runsWhere": "WSL", "agentNotes": "History can hold secrets typed on the command line. Never print it."
+    },
+    {
+      "id": "sesh", "name": "sesh", "category": "WSL-first (catalog only)", "method": "none", "machines": [], "policy": "catalog-only",
+      "location": "WSL ~/.local/bin", "purpose": "tmux session manager that uses zoxide.", "when": "Jump between project sessions.",
+      "keyCommands": ["sesh list", "sesh connect <name>"], "runsWhere": "WSL", "agentNotes": "Interactive only."
+    },
+    {
+      "id": "ncdu", "name": "ncdu", "category": "WSL-first (catalog only)", "method": "none", "machines": [], "policy": "catalog-only",
+      "location": "WSL apt", "purpose": "Disk usage browser.", "when": "Find what fills a WSL folder.",
+      "keyCommands": ["ncdu ~", "ncdu -x /", "d delete (careful)"], "runsWhere": "WSL", "agentNotes": "On Windows use WizTree instead."
+    }
+  ],
+  "configs": [
+    { "id": "starship", "kind": "copy", "source": "configs\\starship.toml", "target": "%USERPROFILE%\\.config\\starship.toml", "onExisting": { "dell": "replace", "acer": "replace" }, "sha256": "9EF7137822AA311445172696D150ED8E6D8C5CD84F5FCF7829D96EE0FA81D1E2" },
+    { "id": "git-ignore", "kind": "copy", "source": "configs\\git\\ignore", "target": "%USERPROFILE%\\.config\\git\\ignore", "onExisting": { "dell": "replace", "acer": "replace" }, "sha256": "546B86DBE5D2AA141915726FB99966DE0664263AB33C17C460CD50EA3C6E0E50" },
+    { "id": "git-delta", "kind": "copy", "source": "configs\\git\\delta.gitconfig", "target": "%USERPROFILE%\\.config\\git\\delta.gitconfig", "onExisting": { "dell": "replace", "acer": "replace" }, "requiresTool": "delta" },
+    { "id": "bat", "kind": "copy", "source": "configs\\bat\\config", "target": "%APPDATA%\\bat\\config", "onExisting": { "dell": "replace", "acer": "keep" }, "note": "Reconstructed from Installations; the Acer keeps its real file until the Acer paste-back is promoted." },
+    { "id": "fd-ignore", "kind": "copy", "source": "configs\\fd\\ignore", "target": "%APPDATA%\\fd\\ignore", "onExisting": { "dell": "replace", "acer": "keep" }, "note": "Reconstructed from Installations; the Acer keeps its real file until the Acer paste-back is promoted." },
+    { "id": "profile-ps5", "kind": "profile-block", "source": "configs\\powershell\\managed-block.ps1", "target": "{MyDocuments}\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1" },
+    { "id": "profile-pwsh", "kind": "profile-block", "source": "configs\\powershell\\managed-block.ps1", "target": "{MyDocuments}\\PowerShell\\Microsoft.PowerShell_profile.ps1" },
+    { "id": "terminal", "kind": "terminal-merge", "source": "configs\\terminal\\toolkit-fragment.json" },
+    { "id": "git-settings", "kind": "git" }
+  ],
+  "gitSettings": [
+    { "key": "core.longpaths", "value": "true" },
+    { "key": "core.fsmonitor", "value": "true" },
+    { "key": "core.untrackedCache", "value": "true" },
+    { "key": "core.autocrlf", "value": "input" },
+    { "key": "pull.rebase", "value": "true" },
+    { "key": "push.autoSetupRemote", "value": "true" },
+    { "key": "fetch.prune", "value": "true" },
+    { "key": "rerere.enabled", "value": "true" },
+    { "key": "init.defaultBranch", "value": "main" }
+  ],
+  "gitCredentialHosts": ["https://github.com", "https://gist.github.com"],
+  "gitDeltaInclude": "~/.config/git/delta.gitconfig",
+  "env": {
+    "set": [
+      { "name": "STARSHIP_CONFIG", "value": "%USERPROFILE%\\.config\\starship.toml" },
+      { "name": "TOOLKIT_VAULT_ROOT", "value": "{vaultRoot}" }
+    ],
+    "verify": [
+      { "name": "UV_CACHE_DIR", "dell": "D:\\Cache\\uv" },
+      { "name": "PIP_CACHE_DIR", "dell": "D:\\Cache\\pip" },
+      { "name": "HF_HOME", "dell": "D:\\Cache\\huggingface" },
+      { "name": "NUGET_PACKAGES", "dell": "D:\\Cache\\nuget" },
+      { "name": "GRADLE_USER_HOME", "dell": "D:\\Cache\\gradle" },
+      { "name": "PLAYWRIGHT_BROWSERS_PATH", "dell": "D:\\Cache\\ms-playwright" },
+      { "name": "PUPPETEER_CACHE_DIR", "dell": "D:\\Cache\\puppeteer" },
+      { "name": "OLLAMA_MODELS", "dell": "D:\\AI\\ollama-models" }
+    ]
+  },
+  "mcp": {
+    "configFiles": [
+      { "label": "Claude Desktop", "path": "%APPDATA%\\Claude\\claude_desktop_config.json" },
+      { "label": "Claude Code (home .mcp.json)", "path": "%USERPROFILE%\\.mcp.json" },
+      { "label": "Claude Code (user scope)", "path": "%USERPROFILE%\\.claude.json" },
+      { "label": "VS Code", "path": "%APPDATA%\\Code\\User\\mcp.json" },
+      { "label": "Codex", "path": "%USERPROFILE%\\.codex\\config.toml" }
+    ],
+    "purposes": {
+      "jarvis": "Jarvis Obsidian vault through the Local REST API (127.0.0.1:27123).",
+      "the-plan": "The Plan Obsidian vault through the Local REST API (127.0.0.1:27124).",
+      "jarvis-fs": "Filesystem MCP over the Jarvis vault folders.",
+      "github": "GitHub issues, PRs and repos.",
+      "io.github.github/github-mcp-server": "Official GitHub MCP server (remote).",
+      "io.github.upstash/context7": "Current library and framework documentation lookup.",
+      "firecrawl/firecrawl-mcp-server": "Web scraping and search.",
+      "node_repl": "Codex built-in Node REPL helper (purpose not verified).",
+      "cua_repl": "Codex built-in computer-use helper (purpose not verified).",
+      "graphify": "Knowledge-graph tool from the WSL uv tool graphifyy.",
+      "pencil": "Design editor for .pen files."
+    }
+  }
+}

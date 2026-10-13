@@ -1,0 +1,601 @@
+{
+    "script":  "00-preflight",
+    "host":  "DESKTOP-3VBG0JH",
+    "machine":  "dell",
+    "dryRun":  false,
+    "started":  "2026-10-13T00:38:03",
+    "finished":  "2026-10-13T00:38:28",
+    "admin":  false,
+    "manifestSha256":  "F8449C836949F4BF3847901874906E213AA2BAF9ABF3A2BD1E09809F4DA70733",
+    "vaultRoot":  "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis",
+    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-00-preflight-20261013-003803.log",
+    "counts":  {
+                   "MANUAL":  1,
+                   "PASS":  30,
+                   "OK":  11,
+                   "PLAN":  16,
+                   "PENDING":  2,
+                   "WARN":  10,
+                   "INFO":  10
+               },
+    "items":  [
+                  {
+                      "id":  "env-drives",
+                      "status":  "INFO",
+                      "detail":  "C: free 145.4 GiB, D: free 450.2 GiB",
+                      "freeC":  145.4,
+                      "freeD":  450.2
+                  },
+                  {
+                      "id":  "env-powershell",
+                      "status":  "INFO",
+                      "detail":  "PowerShell 5.1.26100.9549, admin=False, execution policy (effective) Bypass"
+                  },
+                  {
+                      "id":  "env-winget",
+                      "status":  "PASS",
+                      "detail":  "winget at C:\\Users\\Anant Gupta\\AppData\\Local\\Microsoft\\WindowsApps\\winget.exe"
+                  },
+                  {
+                      "id":  "env-vault",
+                      "status":  "PASS",
+                      "detail":  "vault root D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis",
+                      "vaultRoot":  "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis"
+                  },
+                  {
+                      "id":  "env-machine",
+                      "status":  "PASS",
+                      "detail":  "dell (Dell Latitude 5530) detected"
+                  },
+                  {
+                      "id":  "env-network",
+                      "status":  "PASS",
+                      "detail":  "github.com reachable (HTTP 200)"
+                  },
+                  {
+                      "id":  "script-_lib.ps1",
+                      "status":  "PASS",
+                      "detail":  "ASCII only, parses clean"
+                  },
+                  {
+                      "id":  "script-00-preflight.ps1",
+                      "status":  "PASS",
+                      "detail":  "ASCII only, parses clean"
+                  },
+                  {
+                      "id":  "script-10-install-toolkit.ps1",
+                      "status":  "PASS",
+                      "detail":  "ASCII only, parses clean"
+                  },
+                  {
+                      "id":  "script-11-node-lts-swap.ps1",
+                      "status":  "PASS",
+                      "detail":  "ASCII only, parses clean"
+                  },
+                  {
+                      "id":  "script-20-apply-configs.ps1",
+                      "status":  "PASS",
+                      "detail":  "ASCII only, parses clean"
+                  },
+                  {
+                      "id":  "script-40-build-catalog.ps1",
+                      "status":  "PASS",
+                      "detail":  "ASCII only, parses clean"
+                  },
+                  {
+                      "id":  "script-99-verify.ps1",
+                      "status":  "PASS",
+                      "detail":  "ASCII only, parses clean"
+                  },
+                  {
+                      "id":  "manifest-ids",
+                      "status":  "PASS",
+                      "detail":  "47 tools, ids unique"
+                  },
+                  {
+                      "id":  "config-src-starship",
+                      "status":  "PASS",
+                      "detail":  "sha256 9EF7137822AA... matches the Acer snapshot hash",
+                      "sha256":  "9EF7137822AA311445172696D150ED8E6D8C5CD84F5FCF7829D96EE0FA81D1E2"
+                  },
+                  {
+                      "id":  "config-src-git-ignore",
+                      "status":  "PASS",
+                      "detail":  "sha256 546B86DBE5D2... matches the Acer snapshot hash",
+                      "sha256":  "546B86DBE5D2AA141915726FB99966DE0664263AB33C17C460CD50EA3C6E0E50"
+                  },
+                  {
+                      "id":  "config-src-git-delta",
+                      "status":  "PASS",
+                      "detail":  "sha256 91DE9847A299...",
+                      "sha256":  "91DE9847A2993F7EC2950A3F20FF6D1A72DF778B87C1817B5554780BEDD840F8"
+                  },
+                  {
+                      "id":  "config-src-bat",
+                      "status":  "PASS",
+                      "detail":  "sha256 FD064DBC4718...",
+                      "sha256":  "FD064DBC4718C2A38DC7D5B250609D62EBC386A3B97B6353009D4348D95D4C8A"
+                  },
+                  {
+                      "id":  "config-src-fd-ignore",
+                      "status":  "PASS",
+                      "detail":  "sha256 A97264C09BFF...",
+                      "sha256":  "A97264C09BFF11356068FED1BB45BD241798431071EE2B1C78C9FF849FA651E0"
+                  },
+                  {
+                      "id":  "config-src-profile-ps5",
+                      "status":  "PASS",
+                      "detail":  "sha256 CD64EEF39B2C...",
+                      "sha256":  "CD64EEF39B2C94FC880E1805265A013D69AD38FC79C1181D9714C33FF0989BCC"
+                  },
+                  {
+                      "id":  "config-src-profile-pwsh",
+                      "status":  "PASS",
+                      "detail":  "sha256 CD64EEF39B2C...",
+                      "sha256":  "CD64EEF39B2C94FC880E1805265A013D69AD38FC79C1181D9714C33FF0989BCC"
+                  },
+                  {
+                      "id":  "config-src-terminal",
+                      "status":  "PASS",
+                      "detail":  "sha256 780A89F81BCF...",
+                      "sha256":  "780A89F81BCF4EC0466CCE2DF03F7A3FF18D8522D5A6EF9807C114CF720C5BA9"
+                  },
+                  {
+                      "id":  "profile-profile-ps5",
+                      "status":  "INFO",
+                      "detail":  "D:\\Users\\_Anant\\10_Areas\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1 exists, 890 bytes, sha256 C8789CCD6741..., managed block present=False, parse errors=0, secret-like hits=0",
+                      "sha256":  "C8789CCD67417DEC53FF947533C7D29FE27DF3483D1BEB58E2C9C38B75FBF61F",
+                      "path":  "D:\\Users\\_Anant\\10_Areas\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1"
+                  },
+                  {
+                      "id":  "profile-profile-pwsh",
+                      "status":  "INFO",
+                      "detail":  "D:\\Users\\_Anant\\10_Areas\\Documents\\PowerShell\\Microsoft.PowerShell_profile.ps1 does not exist yet; it will be created",
+                      "path":  "D:\\Users\\_Anant\\10_Areas\\Documents\\PowerShell\\Microsoft.PowerShell_profile.ps1"
+                  },
+                  {
+                      "id":  "terminal-settings",
+                      "status":  "INFO",
+                      "detail":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json parses as JSON, sha256 6579DE891049...",
+                      "path":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json"
+                  },
+                  {
+                      "id":  "git-global",
+                      "status":  "INFO",
+                      "detail":  "global .gitconfig present; core.autocrlf=false (will become input)"
+                  },
+                  {
+                      "id":  "lock",
+                      "status":  "INFO",
+                      "detail":  "no toolkit.lock.json yet (this host will create it after 99-verify -WriteLock)"
+                  },
+                  {
+                      "id":  "pwsh",
+                      "status":  "PLAN",
+                      "detail":  "installed=False version=- -\u003e install (not installed)",
+                      "path":  null,
+                      "version":  null,
+                      "installed":  false,
+                      "action":  "install"
+                  },
+                  {
+                      "id":  "wt",
+                      "status":  "PLAN",
+                      "detail":  "installed=False version=- -\u003e install (not installed)",
+                      "path":  null,
+                      "version":  null,
+                      "installed":  false,
+                      "action":  "install"
+                  },
+                  {
+                      "id":  "starship",
+                      "status":  "PLAN",
+                      "detail":  "installed=False version=- -\u003e install (not installed)",
+                      "path":  null,
+                      "version":  null,
+                      "installed":  false,
+                      "action":  "install"
+                  },
+                  {
+                      "id":  "iosevkaterm-nfm",
+                      "status":  "PLAN",
+                      "detail":  "installed=False version=- -\u003e install (family not registered)",
+                      "path":  null,
+                      "version":  null,
+                      "installed":  false,
+                      "action":  "install"
+                  },
+                  {
+                      "id":  "zoxide",
+                      "status":  "PLAN",
+                      "detail":  "installed=False version=- -\u003e install (not installed)",
+                      "path":  null,
+                      "version":  null,
+                      "installed":  false,
+                      "action":  "install"
+                  },
+                  {
+                      "id":  "fzf",
+                      "status":  "PLAN",
+                      "detail":  "installed=False version=- -\u003e install (not installed)",
+                      "path":  null,
+                      "version":  null,
+                      "installed":  false,
+                      "action":  "install"
+                  },
+                  {
+                      "id":  "psfzf",
+                      "status":  "PLAN",
+                      "detail":  "installed=False version=- -\u003e install (5.1 missing=True 7 missing=False)",
+                      "path":  null,
+                      "version":  null,
+                      "installed":  false,
+                      "action":  "install"
+                  },
+                  {
+                      "id":  "fd",
+                      "status":  "PLAN",
+                      "detail":  "installed=False version=- -\u003e install (not installed)",
+                      "path":  null,
+                      "version":  null,
+                      "installed":  false,
+                      "action":  "install"
+                  },
+                  {
+                      "id":  "bat",
+                      "status":  "PLAN",
+                      "detail":  "installed=False version=- -\u003e install (not installed)",
+                      "path":  null,
+                      "version":  null,
+                      "installed":  false,
+                      "action":  "install"
+                  },
+                  {
+                      "id":  "delta",
+                      "status":  "PLAN",
+                      "detail":  "installed=False version=- -\u003e install (not installed)",
+                      "path":  null,
+                      "version":  null,
+                      "installed":  false,
+                      "action":  "install"
+                  },
+                  {
+                      "id":  "git",
+                      "status":  "PLAN",
+                      "detail":  "installed=True version=2.52.0 -\u003e upgrade (policy latest)",
+                      "path":  "C:\\Program Files\\Git\\cmd\\git.exe",
+                      "version":  "2.52.0",
+                      "installed":  true,
+                      "action":  "upgrade"
+                  },
+                  {
+                      "id":  "gh",
+                      "status":  "PLAN",
+                      "detail":  "installed=True version=2.89.0 -\u003e upgrade (policy latest)",
+                      "path":  "C:\\Program Files\\GitHub CLI\\gh.exe",
+                      "version":  "2.89.0",
+                      "installed":  true,
+                      "action":  "upgrade"
+                  },
+                  {
+                      "id":  "ripgrep",
+                      "status":  "OK",
+                      "detail":  "installed=True version=15.1.0 -\u003e none (present, adopted)",
+                      "path":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Microsoft\\WinGet\\Packages\\BurntSushi.ripgrep.MSVC_Microsoft.Winget.Source_8wekyb3d8bbwe\\ripgrep-15.1.0-x86_64-pc-windows-msvc\\rg.exe",
+                      "version":  "15.1.0",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "jq",
+                      "status":  "OK",
+                      "detail":  "installed=True version=1.8.2 -\u003e none (present, adopted)",
+                      "path":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Microsoft\\WinGet\\Packages\\jqlang.jq_Microsoft.Winget.Source_8wekyb3d8bbwe\\jq.exe",
+                      "version":  "1.8.2",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "ffmpeg",
+                      "status":  "OK",
+                      "detail":  "installed=True version=8.1.2 -\u003e none (present, adopted)",
+                      "path":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.1.2-full_build\\bin\\ffmpeg.exe",
+                      "version":  "8.1.2",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "nanazip",
+                      "status":  "PLAN",
+                      "detail":  "installed=False version=- -\u003e install (not installed)",
+                      "path":  null,
+                      "version":  null,
+                      "installed":  false,
+                      "action":  "install"
+                  },
+                  {
+                      "id":  "node",
+                      "status":  "MANUAL",
+                      "detail":  "installed=True version=22.16.0 -\u003e manual (major 22 installed, 24 wanted; run 11-node-lts-swap.ps1 by hand)",
+                      "path":  "C:\\Program Files\\nodejs\\node.exe",
+                      "version":  "22.16.0",
+                      "installed":  true,
+                      "action":  "manual"
+                  },
+                  {
+                      "id":  "npm",
+                      "status":  "OK",
+                      "detail":  "installed=True version=10.9.2 -\u003e none (present)",
+                      "path":  "C:\\Program Files\\nodejs\\npm.ps1",
+                      "version":  "10.9.2",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "pnpm",
+                      "status":  "PLAN",
+                      "detail":  "installed=False version=- -\u003e install (not installed)",
+                      "path":  null,
+                      "version":  null,
+                      "installed":  false,
+                      "action":  "install"
+                  },
+                  {
+                      "id":  "uv",
+                      "status":  "PLAN",
+                      "detail":  "installed=False version=- -\u003e install 0.12.19 (standalone uv missing or not at pin)",
+                      "path":  null,
+                      "version":  null,
+                      "installed":  false,
+                      "action":  "install"
+                  },
+                  {
+                      "id":  "uv-python",
+                      "status":  "PLAN",
+                      "detail":  "installed=False version=- -\u003e install (no uv-managed python)",
+                      "path":  null,
+                      "version":  null,
+                      "installed":  false,
+                      "action":  "install"
+                  },
+                  {
+                      "id":  "python-choco",
+                      "status":  "PENDING",
+                      "detail":  "installed=True version=3.13.5 -\u003e pending-retire (elevated: powershell -File \"D:\\WSL\\ops\\windows\\04-admin-remove.ps1\" -IncludePython -Apply)",
+                      "path":  "C:\\Python313\\python.exe",
+                      "version":  "3.13.5",
+                      "installed":  true,
+                      "action":  "pending-retire"
+                  },
+                  {
+                      "id":  "choco",
+                      "status":  "PENDING",
+                      "detail":  "installed=True version=2.4.3 -\u003e pending-retire (same elevated command as python-choco)",
+                      "path":  "C:\\ProgramData\\chocolatey\\bin\\choco.exe",
+                      "version":  "2.4.3",
+                      "installed":  true,
+                      "action":  "pending-retire"
+                  },
+                  {
+                      "id":  "miniconda",
+                      "status":  "WARN",
+                      "detail":  "installed=False version=- -\u003e missing (verify-only tool is missing)",
+                      "path":  null,
+                      "version":  null,
+                      "installed":  false,
+                      "action":  "missing"
+                  },
+                  {
+                      "id":  "opam",
+                      "status":  "WARN",
+                      "detail":  "installed=False version=- -\u003e missing (verify-only tool is missing)",
+                      "path":  null,
+                      "version":  null,
+                      "installed":  false,
+                      "action":  "missing"
+                  },
+                  {
+                      "id":  "winget",
+                      "status":  "OK",
+                      "detail":  "installed=True version=1.29.380 -\u003e none (present)",
+                      "path":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Microsoft\\WindowsApps\\winget.exe",
+                      "version":  "1.29.380",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "claude-code",
+                      "status":  "OK",
+                      "detail":  "installed=True version=2.1.296 -\u003e none (present)",
+                      "path":  "C:\\Users\\Anant Gupta\\.local\\bin\\claude.exe",
+                      "version":  "2.1.296",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "codex",
+                      "status":  "OK",
+                      "detail":  "installed=True version=0.160.0 -\u003e none (present, adopted)",
+                      "path":  "C:\\Users\\Anant Gupta\\AppData\\Roaming\\npm\\codex.ps1",
+                      "version":  "0.160.0",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "claude-desktop",
+                      "status":  "WARN",
+                      "detail":  "installed=False version=- -\u003e missing (verify-only tool is missing)",
+                      "path":  null,
+                      "version":  null,
+                      "installed":  false,
+                      "action":  "missing"
+                  },
+                  {
+                      "id":  "cursor",
+                      "status":  "WARN",
+                      "detail":  "installed=False version=- -\u003e missing (verify-only tool is missing)",
+                      "path":  null,
+                      "version":  null,
+                      "installed":  false,
+                      "action":  "missing"
+                  },
+                  {
+                      "id":  "kiro",
+                      "status":  "WARN",
+                      "detail":  "installed=False version=- -\u003e missing (verify-only tool is missing)",
+                      "path":  null,
+                      "version":  null,
+                      "installed":  false,
+                      "action":  "missing"
+                  },
+                  {
+                      "id":  "antigravity",
+                      "status":  "WARN",
+                      "detail":  "installed=False version=- -\u003e missing (verify-only tool is missing)",
+                      "path":  null,
+                      "version":  null,
+                      "installed":  false,
+                      "action":  "missing"
+                  },
+                  {
+                      "id":  "docker-desktop",
+                      "status":  "WARN",
+                      "detail":  "installed=False version=- -\u003e missing (verify-only tool is missing)",
+                      "path":  null,
+                      "version":  null,
+                      "installed":  false,
+                      "action":  "missing"
+                  },
+                  {
+                      "id":  "ollama",
+                      "status":  "WARN",
+                      "detail":  "installed=False version=- -\u003e missing (verify-only tool is missing)",
+                      "path":  null,
+                      "version":  null,
+                      "installed":  false,
+                      "action":  "missing"
+                  },
+                  {
+                      "id":  "vscode",
+                      "status":  "WARN",
+                      "detail":  "installed=False version=- -\u003e missing (verify-only tool is missing)",
+                      "path":  null,
+                      "version":  null,
+                      "installed":  false,
+                      "action":  "missing"
+                  },
+                  {
+                      "id":  "mcp-remote",
+                      "status":  "OK",
+                      "detail":  "installed=True version=0.2.1 -\u003e none (present, adopted)",
+                      "path":  "C:\\Users\\Anant Gupta\\AppData\\Roaming\\npm\\mcp-remote.ps1",
+                      "version":  "0.2.1",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "npx",
+                      "status":  "OK",
+                      "detail":  "installed=True version=10.9.2 -\u003e none (present)",
+                      "path":  "C:\\Program Files\\nodejs\\npx.ps1",
+                      "version":  "10.9.2",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "uvx",
+                      "status":  "WARN",
+                      "detail":  "installed=False version=- -\u003e missing (verify-only tool is missing)",
+                      "path":  null,
+                      "version":  null,
+                      "installed":  false,
+                      "action":  "missing"
+                  },
+                  {
+                      "id":  "docker-cli",
+                      "status":  "OK",
+                      "detail":  "installed=True version=29.1.3 -\u003e none (present)",
+                      "path":  "C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe",
+                      "version":  "29.1.3",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "tailscale-dell",
+                      "status":  "OK",
+                      "detail":  "installed=False version=- -\u003e none (absent as required)",
+                      "path":  null,
+                      "version":  null,
+                      "installed":  false,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "plan-total",
+                      "status":  "INFO",
+                      "detail":  "16 install/upgrade action(s) planned for 10-install-toolkit.ps1"
+                  },
+                  {
+                      "id":  "env-UV_CACHE_DIR",
+                      "status":  "PASS",
+                      "detail":  "UV_CACHE_DIR=D:\\Cache\\uv"
+                  },
+                  {
+                      "id":  "env-PIP_CACHE_DIR",
+                      "status":  "PASS",
+                      "detail":  "PIP_CACHE_DIR=D:\\Cache\\pip"
+                  },
+                  {
+                      "id":  "env-HF_HOME",
+                      "status":  "PASS",
+                      "detail":  "HF_HOME=D:\\Cache\\huggingface"
+                  },
+                  {
+                      "id":  "env-NUGET_PACKAGES",
+                      "status":  "PASS",
+                      "detail":  "NUGET_PACKAGES=D:\\Cache\\nuget"
+                  },
+                  {
+                      "id":  "env-GRADLE_USER_HOME",
+                      "status":  "PASS",
+                      "detail":  "GRADLE_USER_HOME=D:\\Cache\\gradle"
+                  },
+                  {
+                      "id":  "env-PLAYWRIGHT_BROWSERS_PATH",
+                      "status":  "PASS",
+                      "detail":  "PLAYWRIGHT_BROWSERS_PATH=D:\\Cache\\ms-playwright"
+                  },
+                  {
+                      "id":  "env-PUPPETEER_CACHE_DIR",
+                      "status":  "PASS",
+                      "detail":  "PUPPETEER_CACHE_DIR=D:\\Cache\\puppeteer"
+                  },
+                  {
+                      "id":  "env-OLLAMA_MODELS",
+                      "status":  "PASS",
+                      "detail":  "OLLAMA_MODELS=D:\\AI\\ollama-models"
+                  },
+                  {
+                      "id":  "env-STARSHIP_CONFIG",
+                      "status":  "INFO",
+                      "detail":  "STARSHIP_CONFIG=(unset, will be set by 20-apply-configs)"
+                  },
+                  {
+                      "id":  "env-TOOLKIT_VAULT_ROOT",
+                      "status":  "INFO",
+                      "detail":  "TOOLKIT_VAULT_ROOT=(unset, will be set by 20-apply-configs)"
+                  },
+                  {
+                      "id":  "junction-miniconda",
+                      "status":  "PASS",
+                      "detail":  "C:\\Users\\Anant Gupta\\miniconda3 -\u003e D:\\Apps\\miniconda3"
+                  },
+                  {
+                      "id":  "junction-opam",
+                      "status":  "PASS",
+                      "detail":  "C:\\opamroot -\u003e D:\\Apps\\opamroot"
+                  }
+              ],
+    "freeD":  450.2,
+    "plannedActions":  16,
+    "freeC":  145.4
+}

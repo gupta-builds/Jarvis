@@ -1,0 +1,40 @@
+{
+    "script":  "11-node-lts-swap",
+    "host":  "DESKTOP-3VBG0JH",
+    "machine":  "dell",
+    "dryRun":  false,
+    "started":  "2026-10-13T01:00:36",
+    "finished":  "2026-10-13T01:00:39",
+    "admin":  false,
+    "manifestSha256":  "1148540EEA4E16CE17D955AACA684E62911ECDA1AE29861DD385788EBDE6CFA5",
+    "vaultRoot":  "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis",
+    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-11-node-lts-swap-20261013-010036.log",
+    "counts":  {
+                   "FAIL":  1,
+                   "INFO":  2
+               },
+    "items":  [
+                  {
+                      "id":  "node-state",
+                      "status":  "INFO",
+                      "detail":  "OpenJS.NodeJS.22 = 22.16.0; OpenJS.NodeJS.LTS = "
+                  },
+                  {
+                      "id":  "npm-globals-before",
+                      "status":  "INFO",
+                      "detail":  "@openai/codex@0.160.0, firecrawl-cli@1.19.21, mcp-remote@0.2.1, openclaw@2026.3.13, opencode-ai@1.18.31",
+                      "globals":  [
+                                      "@openai/codex@0.160.0",
+                                      "firecrawl-cli@1.19.21",
+                                      "mcp-remote@0.2.1",
+                                      "openclaw@2026.3.13",
+                                      "opencode-ai@1.18.31"
+                                  ]
+                  },
+                  {
+                      "id":  "node-running",
+                      "status":  "FAIL",
+                      "detail":  "12 node.exe process(es), started by: cmd x12. Close those apps (editors, Claude Desktop, Claude Code, terminals) before -Apply; command lines are never printed."
+                  }
+              ]
+}

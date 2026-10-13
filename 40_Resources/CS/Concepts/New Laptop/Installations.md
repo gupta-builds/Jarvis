@@ -254,7 +254,7 @@ Install source: `winget` means a winget package id, `Store` an MSIX package, `di
 | VS Code | 1.141.0 | winget | `C:\Users\Anant Gupta\AppData\Local\Programs\Microsoft VS Code` | on C: here, on D: on the Acer; 40 extensions from Settings Sync |
 
 **Productivity, communication and media (forced to C:)**
-Obsidian 1.9.12, Slack, Discord, Zoom, Telegram, WhatsApp (Store), Spotify, Vivaldi 8.2, Todoist, Loom, Bitwarden, Postman, Syncthing (runs from `D:\Users\_Anant\Downloads\syncthing-windows-amd64-v2.1.5`, so Downloads cleanup would break it), Google Drive for desktop 132 (not running), PowerToys 0.100, Logi Options+, WizTree 4.31, Revo Uninstaller 2.7.2, CrystalDiskInfo, Steam, RiotClient and Medal (startup entries), Netflix and LinkedIn (Store).
+Obsidian 1.9.12, Slack, Discord, Zoom, Telegram, WhatsApp (Store), Spotify, Vivaldi 8.2, Todoist, Loom, Bitwarden, Postman, Syncthing (runs from `D:\Apps\Syncthing\syncthing-windows-amd64-v2.1.5\syncthing-windows-amd64-v2.1.5\syncthing.exe` as of 2026-10-12, moved out of Downloads to a stable location), Google Drive for desktop 132 (not running), PowerToys 0.100, Logi Options+, WizTree 4.31, Revo Uninstaller 2.7.2, CrystalDiskInfo, Steam, RiotClient and Medal (startup entries), Netflix and LinkedIn (Store).
 
 **Microsoft and Dell packages**
 Microsoft 365 Apps 16.0.20430 (4.7 GiB), Teams and the Teams Meeting add-in, Outlook (new), Microsoft Edge 155, Mail and Calendar, Power Automate, Dev Home, Bing apps, and the .NET and Visual C++ runtimes. Dell Command Update 5.7, Dell Optimizer, SupportAssist OS Recovery plugin, Dell Core Services, Intel graphics software, Realtek audio driver. Respondus LockDown Browser, two Malwarebytes entries, HP Smart.

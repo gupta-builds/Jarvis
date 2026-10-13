@@ -230,7 +230,7 @@ Startup entries (current user): Discord, RiotClient, Medal, Steam, GoogleDriveFS
 | SecurityHealth, WavesSvc, RtkAudUService | keep (Windows and audio) |
 | DubbingAI (Run key plus task `Login Auto Start Dubbing Task`, last result 2147942402 = file not found) | remove the task; app name suggests it is not in use |
 | `ConversationCapture-Backfill-WSL` | decision with you in Phase 4: WSL stays up now, so every 30 minutes `wsl.exe` is harmless but redundant; either keep and rename for clarity, or keep only the Windows task |
-| `ConversationCapture-Backfill-Windows`, `Jarvis-Cursor-Session-Export`, `Jarvis-GitAutoSync`, `Jarvis-WeeklyReview`, `Syncthing` | keep. Syncthing runs from `D:\Users\_Anant\Downloads\syncthing-windows-amd64-v2.1.5\...`, so a Downloads cleanup would break it; move it to `D:\Apps\Syncthing` later |
+| `ConversationCapture-Backfill-Windows`, `Jarvis-Cursor-Session-Export`, `Jarvis-GitAutoSync`, `Jarvis-WeeklyReview`, `Syncthing` | keep. Syncthing ran from `D:\Users\_Anant\Downloads\syncthing-windows-amd64-v2.1.5\...` at the time of this finding, so a Downloads cleanup would have broken it; move it to `D:\Apps\Syncthing` later — **resolved 2026-10-12**: moved to `D:\Apps\Syncthing\syncthing-windows-amd64-v2.1.5\syncthing-windows-amd64-v2.1.5\syncthing.exe`, Scheduled Task and self-heal cache file repointed, process restarted clean from the new path, verified fully synced |
 | `Jarvis-Syncthing-Health` | keep but it last returned 1 (matches the toast in screenshot 3: six live `.sync-conflict-*` files). Run the Operations Reference Part 4 procedure; do not bulk-delete |
 | `ClaudeKit-Sync-All`, `SecondBrainClaudekit-JarvisSync` (disabled) | leave disabled |
 | Vivaldi and Zoom update tasks, PowerToys Autorun, SoftLanding | keep |

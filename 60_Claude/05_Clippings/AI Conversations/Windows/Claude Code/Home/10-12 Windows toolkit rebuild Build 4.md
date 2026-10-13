@@ -5,9 +5,9 @@ source_app: claude-code
 source_os: windows
 title: "Windows toolkit rebuild Build 4"
 started_at: 2026-10-12T23:45:48
-ended_at: 2026-10-13T00:29:50
-exported_at: 2026-10-13T00:30:04
-duration_minutes: 44
+ended_at: 2026-10-13T00:53:37
+exported_at: 2026-10-13T01:00:03
+duration_minutes: 67.8
 project: Home
 cwd: 'C:\Users\Anant Gupta'
 session_id: c49292f8-66cc-4fcf-be7d-2fa48b988728
@@ -15,18 +15,19 @@ status: raw
 turn_count: 6
 tools_used:
   Agent: 1
-  Bash: 2
-  Edit: 1
+  Bash: 3
+  Edit: 9
   Glob: 2
-  PowerShell: 6
-  Read: 26
-  Write: 7
+  Grep: 1
+  PowerShell: 41
+  Read: 27
+  Write: 14
 tokens:
-  input: 136
-  output: 330132
-  cache_creation: 893464
-  cache_read: 10789750
-  total: 12013482
+  input: 346
+  output: 585793
+  cache_creation: 1246759
+  cache_read: 50930317
+  total: 52763215
 cost_usd: null
 model:
   - "claude-sonnet-5-5"
@@ -52,6 +53,13 @@ files_touched:
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Runs\\Build 3 Windows Cleanup\\Old Laptop Rebuild - Build 3 Windows Cleanup Findings.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Runs\\Build 3 Windows Cleanup\\Old Laptop Rebuild - Build 3b C Drive Snapshot Structure and Watch.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\\_lib.ps1"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\\00-preflight.ps1"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\\10-install-toolkit.ps1"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\\11-node-lts-swap.ps1"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\\20-apply-configs.ps1"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\\40-build-catalog.ps1"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\\99-verify.ps1"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\\README.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\configs\\bat\\config"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\configs\\fd\\ignore"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\configs\\git\\delta.gitconfig"
@@ -382,6 +390,80 @@ The recommendations for all the D's in the end need to be implemented since they
 Understood: all recommendations (D1 to D16 and `_lib.ps1`) go in. Before writing, I'll verify the remaining inputs I'll depend on: the uv 0.12.19 installer, the Acer's delta settings, and the font archive contents.
 
 Configs are written and the two Acer files are hash-identical to the snapshot. Now writing the shared library `_lib.ps1`.
+
+Now replace 99's Section E with the shared function.
+
+Scripts written. Parse-checking all of them and checking for non-ASCII bytes before anything else.
+
+Everything parses with zero non-ASCII bytes. Now the real runs of the read-only preflight on the Dell.
+
+Winget detection now matches the live machine. Next the dry run of the installer.
+
+Terminal merge works on both machines and is idempotent. Now the profile block, tested on the Dell's real profile (copy) and a worst-case Acer-style profile with duplicates, CRLF and a BOM.
+
+Re-running 99-verify, the Node swap dry run and the catalog dry run to confirm those fixes.
+
+Fixing the stdin issue (a probed tool was swallowing the rest of the piped script) and re-running the catalog dry run.
+
+Now the README with run order, elevation notes, and rollback.
+
+Scripts, configs and README are done and tested. Recording Phase 3 in the findings note now.
+
+## Phase 3 is done: scripts, manifest and configs are written, tested and waiting for you to run them
+
+Nothing on the Dell has been changed yet. The real installs, the font registration, the git and environment writes, the Node swap and Starship rendering can't be proven by a dry run. Step 1 below is the first real test of them, and the outputs will show whether each one worked.
+
+All 16 decisions (D1 to D16) and the `_lib.ps1` helper are built in. Everything is in the vault under `Old Laptop Rebuild\Windows Toolkit\`. `_scripts\README.md` has the run order and rollback, and the findings note has the full Phase 3 log.
+
+### What I tested
+- **Syntax:** all 7 scripts parse clean and contain no non-ASCII bytes.
+- **Dry runs:** `00-preflight` (a real run, read-only), plus `10`, `20`, `11` and `40` in dry-run mode, all exit 0. The preflight plans 15 installs or upgrades, flags Node 22 for the hand swap, and flags Python and Chocolatey for later removal.
+- **Terminal merge:** tested on a copy of the Dell's settings and on the Acer's snapshot. Both end with Tokyo Night Storm, `IosevkaTerm NFM`, PowerShell 7 as default and Ubuntu renamed per machine. The Acer's conda profiles survive, and a second run changes nothing.
+- **Profile block:** tested on a copy of the Dell's real profile (opam, Kiro and `New-PyEnv` kept) and on a worst-case Acer-style profile. Duplicate Starship, zoxide, PSFzf and VS Code lines get commented out, the BOM and CRLF are kept, and the result parses. A profile with two statements on one line is left untouched and reported as MANUAL.
+- **Downloads:** the font archive hash matches the published list and extracts exactly 27 TTFs (about 380 MB, not the 60 MB I first estimated). The uv 0.12.19 installer hash is pinned.
+- **Bugs fixed on the way:** 9 bugs found by the tests and fixed, all listed in the findings note.
+
+### Your commands
+Replace nothing; paste each as is. Wait for me to read the result between steps. The scripts live at `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\`.
+
+**1. Install the tools** (normal shell; close VS Code, Cursor and Kiro first; click Yes on the UAC prompts for Git, GitHub CLI and Starship)
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\10-install-toolkit.ps1"
+```
+
+**2. Swap Node 22 for LTS 24.** Exit Claude Code, Claude Desktop and every editor, then open a **fresh** PowerShell window. Run the dry run first, then `-Apply`.
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\11-node-lts-swap.ps1"
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\11-node-lts-swap.ps1" -Apply
+```
+The dry run lists which apps started the 32 running `node.exe` processes. Two UAC prompts appear on `-Apply`. Your npm global packages survive; the script lists them before and after.
+
+**3. Apply the configs** (normal shell)
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\20-apply-configs.ps1"
+```
+Every replaced file is backed up to `D:\Backup\Toolkit\<timestamp>\` first.
+
+**4. Verify and write the lock file.** Use a **fresh** window so the new PATH is live. If it reports the font as not visible, sign out and back in once, then re-run.
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\99-verify.ps1" -WriteLock
+```
+
+**5. Retire Python and Chocolatey.** This is the only elevated step. Do it only after I confirm step 4, because the script refuses to run until a standalone uv exists.
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "D:\WSL\ops\windows\04-admin-remove.ps1" -IncludePython
+```
+That is a dry run; I will give you the `-Apply` form after reading it. Then run step 4 again without `-WriteLock`.
+
+After each step, tell me it ran. I'll read the log and result JSON myself (`D:\WSL\ops\windows\logs\` and `Windows Toolkit\results\DESKTOP-3VBG0JH\`).
+
+### Things to know before you start
+- **Glyph check:** after step 3, open Windows Terminal and check that the Starship icons render. That is the one visual check I can't do.
+- **`agy` command:** it still needs the one-time "Install 'agy' command in PATH" click in Antigravity.
+- **Codex config:** it has a WSL path (`/mnt/c/...`) for `node_repl` that doesn't resolve on Windows. It is reported only, and Build 6 owns it.
+- **Git `core.fsmonitor`:** you asked for it, but it may warn on repos reached through `\\wsl$` paths. If so, say and I'll scope it.
+
+The build is complete only when `99-verify.ps1` passes on the Dell and `toolkit.lock.json` exists. I'll say so then, and Phase 5 (catalog and agent guide) plus the Acer run sheet follow.
 
 ### Tool Calls
 
@@ -1582,11 +1664,1704 @@ function Get-ToolPlan {
 }
 
 ```
+- `Write` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\00-preflight.ps1`
+```
+<#
+00-preflight.ps1 - READ-ONLY. Run first, on either laptop, in a normal (not elevated) shell.
+Detects the machine and the vault, checks the manifest and every script, compares the manifest with reality,
+prints the plan that 10-install-toolkit.ps1 would carry out, and scans the config sources for secrets.
+Nothing is installed or changed. Writes only a log and a result JSON.
+#>
+param([ValidateSet('dell', 'acer')][string]$Machine)
+
+. "$PSScriptRoot\_lib.ps1"
+$ErrorActionPreference = 'Stop'
+Initialize-Toolkit -Name '00-preflight' -DryRun $false -Machine $Machine | Out-Null
+$m = $global:TK.Manifest
+$role = $global:TK.Role
+
+try {
+    # ---- 1 environment facts
+    Write-Log '--- 1 Environment' 'STEP'
+    $c = Get-PSDrive C; $d = Get-PSDrive D -ErrorAction SilentlyContinue
+    $freeC = [math]::Round($c.Free / 1GB, 1)
+    $freeD = 0
+    if ($d) { $freeD = [math]::Round($d.Free / 1GB, 1) }
+    Add-Result 'env-drives' 'INFO' ("C: free {0} GiB, D: free {1} GiB" -f $freeC, $freeD) @{ freeC = $freeC; freeD = $freeD }
+    Add-Result 'env-powershell' 'INFO' ("PowerShell {0}, admin={1}, execution policy (effective) {2}" -f $PSVersionTable.PSVersion, (Test-IsAdmin), (Get-ExecutionPolicy))
+    if (Test-IsAdmin) { Add-Result 'env-elevation' 'WARN' 'Running elevated. Installers and config writes are meant to run in a normal shell.' }
+    $wg = Resolve-Cmd 'winget'
+    if ($wg) { Add-Result 'env-winget' 'PASS' ("winget at {0}" -f $wg) } else { Add-Result 'env-winget' 'FAIL' 'winget not found' }
+    Add-Result 'env-vault' 'PASS' ("vault root {0}" -f $global:TK.Vault) @{ vaultRoot = $global:TK.Vault }
+    Add-Result 'env-machine' 'PASS' ("{0} ({1}) detected" -f $role, $m.machines.$role.label)
+    try {
+        $r = Invoke-WebRequest -Uri 'https://github.com' -Method Head -UseBasicParsing -TimeoutSec 20
+        Add-Result 'env-network' 'PASS' ("github.com reachable (HTTP {0})" -f $r.StatusCode)
+    } catch { Add-Result 'env-network' 'WARN' 'github.com not reachable; font and uv downloads would fail' }
+
+    # ---- 2 scripts: ASCII and parse
+    Write-Log '--- 2 Scripts parse and ASCII check' 'STEP'
+    foreach ($f in Get-ChildItem -LiteralPath $global:TKLibDir -Filter '*.ps1' | Sort-Object Name) {
+        $bytes = [IO.File]::ReadAllBytes($f.FullName)
+        $bad = 0; foreach ($b in $bytes) { if ($b -gt 127) { $bad++ } }
+        $errs = $null; $tokens = $null
+        [System.Management.Automation.Language.Parser]::ParseFile($f.FullName, [ref]$tokens, [ref]$errs) | Out-Null
+        $n = 0; if ($errs) { $n = $errs.Count }
+        if ($bad -eq 0 -and $n -eq 0) { Add-Result ('script-' + $f.Name) 'PASS' 'ASCII only, parses clean' }
+        else { Add-Result ('script-' + $f.Name) 'FAIL' ("non-ASCII bytes={0}, parse errors={1}" -f $bad, $n) }
+    }
+
+    # ---- 3 manifest sanity and config sources
+    Write-Log '--- 3 Manifest and config sources' 'STEP'
+    $ids = @($m.tools | ForEach-Object { $_.id })
+    $dups = @($ids | Group-Object | Where-Object { $_.Count -gt 1 })
+    if ($dups.Count -eq 0) { Add-Result 'manifest-ids' 'PASS' ("{0} tools, ids unique" -f $ids.Count) } else { Add-Result 'manifest-ids' 'FAIL' 'duplicate ids' }
+    foreach ($cfg in $m.configs) {
+        if (-not $cfg.source) { continue }
+        $sp = Join-Path $global:TK.Root $cfg.source
+        if (-not (Test-Path -LiteralPath $sp)) { Add-Result ('config-src-' + $cfg.id) 'FAIL' ("missing source {0}" -f $cfg.source); continue }
+        $text = [IO.File]::ReadAllText($sp)
+        $hits = Get-SecretHitCount $text
+        $hash = Get-FileSha256 $sp
+        $st = 'PASS'; $dt = ("sha256 {0}..." -f $hash.Substring(0, 12))
+        if ($hits -gt 0) { $st = 'FAIL'; $dt = ("secret-like patterns matched: {0} (text not shown)" -f $hits) }
+        elseif ($cfg.sha256 -and ($cfg.sha256 -ne $hash)) { $st = 'FAIL'; $dt = ("hash differs from manifest ({0})" -f $hash) }
+        elseif ($cfg.sha256) { $dt += ' matches the Acer snapshot hash' }
+        Add-Result ('config-src-' + $cfg.id) $st $dt @{ sha256 = $hash }
+    }
+
+    # ---- 4 existing profiles, terminal, git on THIS machine
+    Write-Log '--- 4 Existing files that will be touched' 'STEP'
+    foreach ($cfg in $m.configs | Where-Object { $_.kind -eq 'profile-block' }) {
+        $tp = Expand-ToolkitPath $cfg.target $global:TK.Vault
+        if (Test-Path -LiteralPath $tp) {
+            $txt = [IO.File]::ReadAllText($tp)
+            $hits = Get-SecretHitCount $txt
+            $has = $txt.Contains($global:TKBlockBegin)
+            $errs = $null; $tokens = $null
+            [System.Management.Automation.Language.Parser]::ParseInput($txt, [ref]$tokens, [ref]$errs) | Out-Null
+            $n = 0; if ($errs) { $n = $errs.Count }
+            $detail = ("{0} exists, {1} bytes, sha256 {2}..., managed block present={3}, parse errors={4}, secret-like hits={5}" -f $tp, $txt.Length, (Get-FileSha256 $tp).Substring(0, 12), $has, $n, $hits)
+            $st = 'INFO'; if ($n -gt 0 -or $hits -gt 0) { $st = 'WARN' }
+            Add-Result ('profile-' + $cfg.id) $st $detail @{ path = $tp; sha256 = (Get-FileSha256 $tp) }
+        } else {
+            Add-Result ('profile-' + $cfg.id) 'INFO' ("{0} does not exist yet; it will be created" -f $tp) @{ path = $tp }
+        }
+    }
+    $wtDir = Get-ChildItem (Join-Path $env:LOCALAPPDATA 'Packages') -Filter 'Microsoft.WindowsTerminal_*' -Directory -ErrorAction SilentlyContinue | Select-Object -First 1
+    if ($wtDir) {
+        $wtp = Join-Path $wtDir.FullName 'LocalState\settings.json'
+        if (Test-Path -LiteralPath $wtp) {
+            $ok = $true; try { $null = Get-Content -LiteralPath $wtp -Raw | ConvertFrom-Json } catch { $ok = $false }
+            if ($ok) { Add-Result 'terminal-settings' 'INFO' ("{0} parses as JSON, sha256 {1}..." -f $wtp, (Get-FileSha256 $wtp).Substring(0, 12)) @{ path = $wtp } }
+            else { Add-Result 'terminal-settings' 'WARN' 'settings.json has comments or is not strict JSON; 20-apply-configs will report MANUAL and not touch it' @{ path = $wtp } }
+        } else { Add-Result 'terminal-settings' 'INFO' 'no settings.json yet (open Windows Terminal once)' }
+    } else { Add-Result 'terminal-settings' 'WARN' 'Windows Terminal package folder not found' }
+    $gp = Join-Path $env:USERPROFILE '.gitconfig'
+    if (Test-Path -LiteralPath $gp) {
+        $git = Resolve-Cmd 'git'
+        if ($git) {
+            $r = Invoke-Native -File $git -Arguments @('config', '--global', '--get', 'core.autocrlf') -TimeoutSec 20
+            Add-Result 'git-global' 'INFO' ("global .gitconfig present; core.autocrlf={0} (will become input)" -f $r.Output.Trim())
+        }
+    } else { Add-Result 'git-global' 'INFO' 'no global .gitconfig yet' }
+
+    # ---- 5 manifest vs reality (the plan)
+    Write-Log '--- 5 Manifest versus reality (the plan for 10-install-toolkit)' 'STEP'
+    $lock = Read-ToolkitLock
+    if ($lock) { Add-Result 'lock' 'INFO' ("toolkit.lock.json present (host {0}, {1})" -f $lock.host, $lock.created) } else { Add-Result 'lock' 'INFO' 'no toolkit.lock.json yet (this host will create it after 99-verify -WriteLock)' }
+    $planned = 0
+    foreach ($t in $m.tools) {
+        if (-not (Test-ToolOnMachine $t $role) -and $t.policy -ne 'catalog-only') { continue }
+        if ($t.policy -eq 'catalog-only') { continue }
+        $st = Get-ToolState $t
+        $pl = Get-ToolPlan -Tool $t -State $st -Lock $lock
+        $status = 'OK'
+        if ($pl.action -in 'install', 'upgrade') { $status = 'PLAN'; $planned++ }
+        elseif ($pl.action -eq 'manual') { $status = 'MANUAL' }
+        elseif ($pl.action -in 'pending-retire') { $status = 'PENDING' }
+        elseif ($pl.action -in 'missing', 'warn-present') { $status = 'WARN' }
+        $ver = $st.version; if (-not $ver) { $ver = '-' }
+        $act = $pl.action; if ($pl.version) { $act = $act + ' ' + $pl.version }
+        Add-Result $t.id $status ("installed={0} version={1} -> {2} ({3})" -f $st.installed, $ver, $act, $pl.reason) @{ installed = $st.installed; version = $st.version; path = $st.path; action = $pl.action }
+    }
+    Add-Result 'plan-total' 'INFO' ("{0} install/upgrade action(s) planned for 10-install-toolkit.ps1" -f $planned)
+
+    # ---- 6 environment variables (known, non-secret names only)
+    Write-Log '--- 6 Environment variables' 'STEP'
+    foreach ($e in $m.env.verify) {
+        $v = [Environment]::GetEnvironmentVariable($e.name, 'User')
+        $want = $e.dell
+        if ($role -eq 'dell' -and $want) {
+            if ($v -eq $want) { Add-Result ('env-' + $e.name) 'PASS' ("{0}={1}" -f $e.name, $v) } else { Add-Result ('env-' + $e.name) 'WARN' ("{0} is '{1}', expected '{2}' (Build 3 variable, not changed here)" -f $e.name, $v, $want) }
+        } else {
+            $shown = $v; if (-not $shown) { $shown = '(unset)' }
+            Add-Result ('env-' + $e.name) 'INFO' ("{0}={1}" -f $e.name, $shown)
+        }
+    }
+    foreach ($e in $m.env.set) {
+        $v = [Environment]::GetEnvironmentVariable($e.name, 'User')
+        $shown = $v; if (-not $shown) { $shown = '(unset, will be set by 20-apply-configs)' }
+        Add-Result ('env-' + $e.name) 'INFO' ("{0}={1}" -f $e.name, $shown)
+    }
+
+    # ---- 7 junctions
+    foreach ($t in $m.tools | Where-Object { $_.junction -and (Test-ToolOnMachine $_ $role) }) {
+        $jp = Expand-ToolkitPath $t.junction.path $global:TK.Vault
+        if (Test-Path -LiteralPath $jp) {
+            $it = Get-Item -LiteralPath $jp -Force
+            $isLink = [bool]($it.Attributes -band [IO.FileAttributes]::ReparsePoint)
+            $tgt = ''; try { $tgt = ($it.Target -join ';') } catch { }
+            if ($isLink) { Add-Result ('junction-' + $t.id) 'PASS' ("{0} -> {1}" -f $jp, $tgt) } else { Add-Result ('junction-' + $t.id) 'WARN' ("{0} exists but is not a junction" -f $jp) }
+        } else { Add-Result ('junction-' + $t.id) 'WARN' ("{0} missing" -f $jp) }
+    }
+    $ctx = @{ plannedActions = $planned; freeC = $freeC; freeD = $freeD }
+} catch {
+    Add-Result 'preflight-error' 'FAIL' $_.Exception.Message
+    $ctx = @{}
+}
+Complete-Toolkit -Summary $ctx
+
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\_lib.ps1`
+```diff
+- $global:TKLibDir = $PSScriptRoot
+$global:TK = $null
++ $global:TKLibDir = $PSScriptRoot
+$global:TK = $null
+try { [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12 } catch { }
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\toolkit.json`
+```diff
+- "exe": "uvx", "exePath": "%USERPROFILE%\\.local\\bin\\uvx.exe",
++ "exe": "uvx", "exePath": "%USERPROFILE%\\.local\\bin\\uvx.exe", "dependsOn": "uv",
+```
+- `Write` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\10-install-toolkit.ps1`
+```
+<#
+10-install-toolkit.ps1 - installs and adopts the toolkit from toolkit.json. Run in a NORMAL (not elevated) shell.
+Windows will show UAC prompts for the machine-wide installers (Git, GitHub CLI, Starship, Node); click Yes.
+  -DryRun   print the plan, change nothing
+  -Only     limit to some tool ids, for example -Only starship,fzf
+  -Machine  force dell or acer if detection fails
+Safe to run twice. Continues past a failed package and prints a summary table. Exit code 1 only on a required failure.
+Never installs Tailscale, never touches Node 22 (use 11-node-lts-swap.ps1), never removes anything.
+#>
+param([switch]$DryRun, [ValidateSet('dell', 'acer')][string]$Machine, [string[]]$Only)
+
+. "$PSScriptRoot\_lib.ps1"
+$ErrorActionPreference = 'Stop'
+Initialize-Toolkit -Name '10-install-toolkit' -DryRun $DryRun.IsPresent -Machine $Machine | Out-Null
+$m = $global:TK.Manifest
+$role = $global:TK.Role
+$dry = $global:TK.DryRun
+$lock = Read-ToolkitLock
+
+function Add-ToolInfo {
+    param($Tool, $State)
+    $info = Get-InstallInfo $State.path
+    return @{ version = $State.version; path = $State.path; drive = $info.drive; sizeMB = $info.sizeMB; policy = $Tool.policy }
+}
+
+function Repair-PortablePath {
+    param($Tool)
+    $pkgRoot = Join-Path $env:LOCALAPPDATA 'Microsoft\WinGet\Packages'
+    $pkg = Get-ChildItem -LiteralPath $pkgRoot -Directory -ErrorAction SilentlyContinue | Where-Object { $_.Name -like ($Tool.wingetId + '_*') } | Select-Object -First 1
+    if (-not $pkg) { Write-Log ("no package folder found for {0}" -f $Tool.wingetId) 'WARN'; return $false }
+    $exe = Get-ChildItem -LiteralPath $pkg.FullName -Recurse -Filter ($Tool.exe + '.exe') -File -ErrorAction SilentlyContinue | Select-Object -First 1
+    if (-not $exe) { Write-Log ("{0}.exe not found under {1}" -f $Tool.exe, $pkg.FullName) 'WARN'; return $false }
+    $links = Join-Path $env:LOCALAPPDATA 'Microsoft\WinGet\Links'
+    New-Item -ItemType Directory -Force -Path $links | Out-Null
+    $link = Join-Path $links ($Tool.exe + '.exe')
+    if (-not (Test-Path -LiteralPath $link)) {
+        New-Item -ItemType HardLink -Path $link -Value $exe.FullName | Out-Null
+        Write-Log ("hard link created: {0} -> {1}" -f $link, $exe.FullName)
+    }
+    $up = [Environment]::GetEnvironmentVariable('Path', 'User')
+    $has = $false
+    foreach ($e in ($up -split ';')) { if ($e.TrimEnd('\') -ieq $links.TrimEnd('\')) { $has = $true } }
+    if (-not $has) {
+        [Environment]::SetEnvironmentVariable('Path', ($links + ';' + $up), 'User')
+        Write-Log ("added {0} to the user PATH" -f $links)
+    }
+    Update-SessionPath
+    return $true
+}
+
+function Install-WingetTool {
+    param($Tool, $Plan)
+    $r = Invoke-WingetAction -Action 'install' -Id $Tool.wingetId -Version $Plan.version
+    Update-SessionPath
+    $st = Get-ToolState $Tool
+    if ((-not $st.installed) -and $Plan.version) {
+        Write-Log ("pinned version {0} failed; retrying with the current version" -f $Plan.version) 'WARN'
+        $r = Invoke-WingetAction -Action 'install' -Id $Tool.wingetId -Version $null
+        Update-SessionPath
+        $st = Get-ToolState $Tool
+    }
+    if ((-not $st.installed) -and $Tool.portable) {
+        if (Repair-PortablePath $Tool) { $st = Get-ToolState $Tool }
+    }
+    if ($st.installed) { Add-Result $Tool.id 'INSTALLED' ("version {0} (winget exit {1})" -f $st.version, $r.ExitCode) (Add-ToolInfo $Tool $st) }
+    else { Add-Result $Tool.id 'FAIL' ("not detected after install (winget exit {0}); open a new shell and re-run" -f $r.ExitCode) }
+}
+
+function Update-WingetTool {
+    param($Tool, $State)
+    $before = $State.version
+    $r = Invoke-WingetAction -Action 'upgrade' -Id $Tool.wingetId -Version $null
+    Update-SessionPath
+    $st = Get-ToolState $Tool
+    if ($st.installed -and $st.version -ne $before) { Add-Result $Tool.id 'UPGRADED' ("{0} -> {1}" -f $before, $st.version) (Add-ToolInfo $Tool $st) }
+    elseif ($st.installed) { Add-Result $Tool.id 'OK' ("already current at {0} (winget exit {1})" -f $st.version, $r.ExitCode) (Add-ToolInfo $Tool $st) }
+    else { Add-Result $Tool.id 'FAIL' ("tool not detected after upgrade (winget exit {0})" -f $r.ExitCode) }
+}
+
+function Install-NpmTool {
+    param($Tool, $Plan)
+    $npm = Resolve-Cmd 'npm'
+    if (-not $npm) { Add-Result $Tool.id 'FAIL' 'npm not found (Node missing)'; return }
+    $spec = $Tool.npmPackage
+    if ($Plan.version) { $spec = $spec + '@' + $Plan.version }
+    Write-Log ("npm install -g {0}" -f $spec)
+    $r = Invoke-Native -File $npm -Arguments @('install', '-g', $spec) -TimeoutSec 900
+    Write-NativeTail $r
+    Update-SessionPath
+    $st = Get-ToolState $Tool
+    if (-not $st.installed) {
+        $gp = Join-Path $env:APPDATA 'npm'
+        if (Test-Path -LiteralPath $gp) { $env:Path = $env:Path + ';' + $gp; $st = Get-ToolState $Tool }
+    }
+    if ($st.installed) { Add-Result $Tool.id 'INSTALLED' ("npm exit {0}, version {1}" -f $r.ExitCode, $st.version) (Add-ToolInfo $Tool $st) }
+    else { Add-Result $Tool.id 'FAIL' ("not detected after npm install (exit {0})" -f $r.ExitCode) }
+}
+
+function Install-UvStandalone {
+    param($Tool)
+    $pin = $m.pins.uv
+    $dir = Join-Path $env:TEMP ("toolkit-uv-" + $global:TK.Ts)
+    New-Item -ItemType Directory -Force -Path $dir | Out-Null
+    $f = Join-Path $dir 'uv-installer.ps1'
+    try {
+        Invoke-WebRequest -Uri $pin.installerUrl -OutFile $f -UseBasicParsing
+    } catch { Add-Result $Tool.id 'FAIL' ("download failed: " + $_.Exception.Message); return }
+    $h = Get-FileSha256 $f
+    if ($h -ne $pin.installerSha256.ToUpper()) { Add-Result $Tool.id 'FAIL' ("installer SHA-256 mismatch: got {0}" -f $h); return }
+    Write-Log ("uv installer verified, sha256 {0}" -f $h)
+    $r = Invoke-Native -File $f -Arguments @() -TimeoutSec 600 -Env @{ UV_NO_MODIFY_PATH = '1' }
+    Write-NativeTail $r
+    $bin = Join-Path $env:USERPROFILE '.local\bin'
+    $up = [Environment]::GetEnvironmentVariable('Path', 'User')
+    $has = $false
+    foreach ($e in ($up -split ';')) { if ([Environment]::ExpandEnvironmentVariables($e).TrimEnd('\') -ieq $bin.TrimEnd('\')) { $has = $true } }
+    if (-not $has) {
+        [Environment]::SetEnvironmentVariable('Path', ($bin + ';' + $up), 'User')
+        Write-Log ("added {0} to the user PATH" -f $bin)
+    }
+    Update-SessionPath
+    Remove-Item -LiteralPath $dir -Recurse -Force -ErrorAction SilentlyContinue
+    $st = Get-ToolState $Tool
+    if ($st.installed -and $st.version -eq $pin.version) { Add-Result $Tool.id 'INSTALLED' ("standalone uv {0} at {1}" -f $st.version, $st.path) (Add-ToolInfo $Tool $st) }
+    else { Add-Result $Tool.id 'FAIL' ("uv not at pin after install (found {0}, installer exit {1})" -f $st.version, $r.ExitCode) }
+}
+
+function Install-UvPython {
+    param($Tool)
+    $uv = [Environment]::ExpandEnvironmentVariables('%USERPROFILE%\.local\bin\uv.exe')
+    if (-not (Test-Path -LiteralPath $uv)) { Add-Result $Tool.id 'FAIL' 'standalone uv missing, cannot install Python'; return }
+    $spec = $m.pins.python.uvSpec
+    $r = Invoke-Native -File $uv -Arguments @('python', 'install', $spec) -TimeoutSec 900
+    Write-NativeTail $r
+    $st = Get-ToolState $Tool
+    if ($st.installed) { Add-Result $Tool.id 'INSTALLED' ("cpython {0} (uv exit {1})" -f $st.version, $r.ExitCode) @{ version = $st.version } }
+    else { Add-Result $Tool.id 'FAIL' ("no uv-managed python found after install (exit {0})" -f $r.ExitCode) }
+}
+
+function Install-Font {
+    param($Tool)
+    $pin = $m.pins.font
+    $work = Join-Path $env:TEMP ("toolkit-font-" + $global:TK.Ts)
+    New-Item -ItemType Directory -Force -Path $work | Out-Null
+    $arc = Join-Path $work 'IosevkaTerm.tar.xz'
+    $out = Join-Path $work 'ttf'
+    New-Item -ItemType Directory -Force -Path $out | Out-Null
+    Write-Log ("downloading {0} (about 87.5 MB)" -f $pin.url)
+    try { Invoke-WebRequest -Uri $pin.url -OutFile $arc -UseBasicParsing } catch { Add-Result $Tool.id 'FAIL' ("download failed: " + $_.Exception.Message); return }
+    $h = (Get-FileSha256 $arc)
+    if ($h -ne $pin.sha256.ToUpper()) { Add-Result $Tool.id 'FAIL' ("SHA-256 mismatch: got {0}" -f $h); return }
+    Write-Log 'archive SHA-256 verified'
+    $tar = (Get-Command tar.exe).Source
+    $r = Invoke-Native -File $tar -Arguments @('-xf', $arc, '-C', $out, $pin.filePattern) -TimeoutSec 300
+    $ttf = @(Get-ChildItem -LiteralPath $out -Filter '*.ttf' -File)
+    if ($ttf.Count -lt 20) { Add-Result $Tool.id 'FAIL' ("extracted only {0} TTF files (tar exit {1}: {2})" -f $ttf.Count, $r.ExitCode, (ConvertTo-Ascii $r.Error)); return }
+    $fontDir = Join-Path $env:LOCALAPPDATA 'Microsoft\Windows\Fonts'
+    New-Item -ItemType Directory -Force -Path $fontDir | Out-Null
+    $reg = 'HKCU:\Software\Microsoft\Windows NT\CurrentVersion\Fonts'
+    if (-not (Test-Path $reg)) { New-Item -Path $reg -Force | Out-Null }
+    $total = 0.0
+    foreach ($f in $ttf) {
+        $dest = Join-Path $fontDir $f.Name
+        Copy-Item -LiteralPath $f.FullName -Destination $dest -Force
+        New-ItemProperty -Path $reg -Name ([IO.Path]::GetFileNameWithoutExtension($f.Name) + ' (TrueType)') -Value $dest -PropertyType String -Force | Out-Null
+        $total += $f.Length
+    }
+    if (-not ('ToolkitNative.Win32' -as [type])) {
+        Add-Type -Namespace ToolkitNative -Name Win32 -MemberDefinition '[System.Runtime.InteropServices.DllImport("user32.dll", SetLastError=true, CharSet=System.Runtime.InteropServices.CharSet.Auto)] public static extern System.IntPtr SendMessageTimeout(System.IntPtr hWnd, uint Msg, System.UIntPtr wParam, System.IntPtr lParam, uint fuFlags, uint uTimeout, out System.UIntPtr lpdwResult);'
+    }
+    $res = [UIntPtr]::Zero
+    [ToolkitNative.Win32]::SendMessageTimeout([IntPtr]0xffff, 0x1D, [UIntPtr]::Zero, [IntPtr]::Zero, 2, 2000, [ref]$res) | Out-Null
+    Remove-Item -LiteralPath $work -Recurse -Force -ErrorAction SilentlyContinue
+    $sizeMB = [math]::Round($total / 1MB, 1)
+    if (Test-FontFamily $pin.family) { Add-Result $Tool.id 'INSTALLED' ("{0} TTF files, {1} MB, family '{2}' registered" -f $ttf.Count, $sizeMB, $pin.family) @{ drive = 'C:'; sizeMB = $sizeMB; version = $pin.release } }
+    else { Add-Result $Tool.id 'WARN' ("{0} files copied ({1} MB) but family '{2}' is not visible yet; sign out and back in, then run 99-verify" -f $ttf.Count, $sizeMB, $pin.family) @{ drive = 'C:'; sizeMB = $sizeMB } }
+}
+
+function Install-PsModule {
+    param($Tool, $State)
+    $ver = $m.pins.psfzf.version
+    $core = "Install-Module -Name '{0}' -RequiredVersion '{1}' -Scope CurrentUser -Repository PSGallery -Force -AllowClobber -Confirm:`$false -ErrorAction Stop; 'MOD-DONE'" -f $Tool.moduleName, $ver
+    if (-not $State.installed) {
+        $code = "[Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12; if (-not (Get-PackageProvider -Name NuGet -ListAvailable -ErrorAction SilentlyContinue)) { Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Scope CurrentUser -Force | Out-Null }; " + $core
+        $r = Invoke-PSCode -Code $code -NoProfile -TimeoutSec 600
+        Write-NativeTail $r 6
+    }
+    $pw = Resolve-Cmd 'pwsh'
+    if ($pw -and (-not $State.version7)) {
+        $r2 = Invoke-PSCode -Code $core -NoProfile -TimeoutSec 600 -Exe $pw
+        Write-NativeTail $r2 6
+    }
+    $st = Get-ToolState $Tool
+    if ($st.installed -and ((-not $st.pwshPresent) -or $st.version7)) { Add-Result $Tool.id 'INSTALLED' ("PSFzf {0} ({1})" -f $st.version, $st.detail) @{ version = $st.version } }
+    else { Add-Result $Tool.id 'FAIL' ("PSFzf not present in every edition: {0}" -f $st.detail) }
+}
+
+# ------------------------------------------------------------------ pass 1: plan
+Write-Log '--- Plan' 'STEP'
+$rows = @()
+foreach ($t in $m.tools) {
+    if ($t.policy -eq 'catalog-only') { continue }
+    if (-not (Test-ToolOnMachine $t $role)) { continue }
+    if ($Only -and ($Only -notcontains $t.id)) { continue }
+    $st = Get-ToolState $t
+    $pl = Get-ToolPlan -Tool $t -State $st -Lock $lock
+    $rows += [pscustomobject]@{ Tool = $t; State = $st; Plan = $pl }
+    $v = $st.version; if (-not $v) { $v = '-' }
+    Write-Log ("{0,-18} installed={1,-5} version={2,-14} action={3} ({4})" -f $t.id, $st.installed, $v, $pl.action, $pl.reason)
+}
+$todo = @($rows | Where-Object { $_.Plan.action -in 'install', 'upgrade' })
+Write-Log ("Planned total: {0} install/upgrade action(s)" -f $todo.Count) 'STEP'
+$uac = @($todo | Where-Object { $_.Tool.uac } | ForEach-Object { $_.Tool.id })
+if ($uac.Count -gt 0) { Write-Log ("UAC prompts expected for: {0}. Click Yes on each." -f ($uac -join ', ')) 'WARN' }
+
+# ------------------------------------------------------------------ pass 2: execute (state re-read per tool)
+Write-Log '--- Execute' 'STEP'
+foreach ($row in $rows) {
+    $t = $row.Tool
+    try {
+        $st = Get-ToolState $t
+        $pl = Get-ToolPlan -Tool $t -State $st -Lock $lock
+        $action = $pl.action
+        if ($dry) {
+            if ($action -in 'install', 'upgrade') {
+                $ver = ''; if ($pl.version) { $ver = ' ' + $pl.version }
+                Add-Result $t.id 'PLAN' ("[DRYRUN] would {0}{1} ({2})" -f $action, $ver, $pl.reason)
+            } elseif ($action -eq 'missing' -and $t.dependsOn) {
+                Add-Result $t.id 'PLAN' ("[DRYRUN] available after {0} is installed" -f $t.dependsOn)
+            } elseif ($action -eq 'missing') { Add-Result $t.id 'MANUAL' ("missing; install by hand ({0})" -f $t.name) }
+            elseif ($action -eq 'manual') { Add-Result $t.id 'MANUAL' $pl.reason }
+            elseif ($action -eq 'pending-retire') { Add-Result $t.id 'PENDING' $pl.reason }
+            elseif ($action -eq 'warn-present') { Add-Result $t.id 'WARN' $pl.reason }
+            else { Add-Result $t.id 'OK' ("{0} (version {1})" -f $pl.reason, $st.version) (Add-ToolInfo $t $st) }
+            continue
+        }
+        switch ($action) {
+            'install' {
+                if ($t.method -eq 'winget') { Install-WingetTool $t $pl }
+                elseif ($t.method -eq 'npm') { Install-NpmTool $t $pl }
+                elseif ($t.method -eq 'uv-standalone') { Install-UvStandalone $t }
+                elseif ($t.method -eq 'uv-python') { Install-UvPython $t }
+                elseif ($t.method -eq 'font') { Install-Font $t }
+                elseif ($t.method -eq 'psmodule') { Install-PsModule $t $st }
+                else { Add-Result $t.id 'FAIL' ("no installer for method {0}" -f $t.method) }
+            }
+            'upgrade' { Update-WingetTool $t $st }
+            'manual' { Add-Result $t.id 'MANUAL' $pl.reason }
+            'missing' { Add-Result $t.id 'MANUAL' ("missing; install by hand ({0})" -f $t.name) }
+            'pending-retire' { Add-Result $t.id 'PENDING' $pl.reason }
+            'warn-present' { Add-Result $t.id 'WARN' $pl.reason }
+            default { Add-Result $t.id 'OK' ("{0} (version {1})" -f $pl.reason, $st.version) (Add-ToolInfo $t $st) }
+        }
+    } catch {
+        Add-Result $t.id 'FAIL' ("exception: " + $_.Exception.Message)
+    }
+}
+Complete-Toolkit -Summary @{ plannedActions = $todo.Count }
+
+```
+- `Write` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\11-node-lts-swap.ps1`
+```
+<#
+11-node-lts-swap.ps1 - Dell only, by hand. Replaces Node.js 22 (winget OpenJS.NodeJS.22) with Node.js LTS (OpenJS.NodeJS.LTS, 24.x).
+Default is a DRY RUN. Add -Apply to change anything. Run in a NORMAL shell; Windows asks for UAC twice (uninstall, install).
+Before -Apply: close VS Code, Cursor, Kiro, Antigravity, Claude Desktop and every terminal that runs node, npm or a dev server.
+npm global packages live in %APPDATA%\npm and survive; the script lists them before and after to prove it.
+Exit codes are printed (1605 = already gone, 3010 = reboot needed).
+#>
+param([switch]$Apply, [switch]$IgnoreRunning, [ValidateSet('dell', 'acer')][string]$Machine)
+
+. "$PSScriptRoot\_lib.ps1"
+$ErrorActionPreference = 'Stop'
+Initialize-Toolkit -Name '11-node-lts-swap' -DryRun (-not $Apply.IsPresent) -Machine $Machine | Out-Null
+$dry = $global:TK.DryRun
+$tool = $global:TK.Manifest.tools | Where-Object { $_.id -eq 'node' }
+
+function Get-NpmGlobals {
+    $npm = Resolve-Cmd 'npm'
+    if (-not $npm) { return @() }
+    $r = Invoke-Native -File $npm -Arguments @('ls', '-g', '--depth=0', '--json') -TimeoutSec 120
+    try {
+        $j = $r.Output | ConvertFrom-Json
+        if ($j.dependencies) { return @($j.dependencies.PSObject.Properties | ForEach-Object { '{0}@{1}' -f $_.Name, $_.Value.version }) }
+    } catch { }
+    return @()
+}
+
+try {
+    $v22 = Get-WingetInstalledVersion 'OpenJS.NodeJS.22'
+    $vLts = Get-WingetInstalledVersion 'OpenJS.NodeJS.LTS'
+    Add-Result 'node-state' 'INFO' ("OpenJS.NodeJS.22 = {0}; OpenJS.NodeJS.LTS = {1}" -f $v22, $vLts)
+    $before = Get-NpmGlobals
+    Add-Result 'npm-globals-before' 'INFO' ($before -join ', ') @{ globals = $before }
+
+    if (-not $v22 -and $vLts) { Add-Result 'node-swap' 'OK' ("Node LTS {0} already installed and Node 22 is gone" -f $vLts); Complete-Toolkit }
+    if (-not $v22 -and -not $vLts) { Add-Result 'node-swap' 'MANUAL' 'Neither Node 22 nor LTS was installed through winget. Run 10-install-toolkit.ps1 to install LTS.'; Complete-Toolkit }
+
+    $running = @(Get-Process -Name node -ErrorAction SilentlyContinue)
+    if ($running.Count -gt 0) {
+        $names = ($running | ForEach-Object { 'node.exe pid ' + $_.Id }) -join ', '
+        if ($IgnoreRunning) { Add-Result 'node-running' 'WARN' ("{0} (continuing because -IgnoreRunning)" -f $names) }
+        else { Add-Result 'node-running' 'FAIL' ("{0}. Close editors, Claude Desktop and terminals running node, then re-run." -f $names); Complete-Toolkit }
+    } else { Add-Result 'node-running' 'PASS' 'no node.exe running' }
+
+    if ($dry) {
+        Add-Result 'node-swap' 'PLAN' '[DRYRUN] would: winget uninstall OpenJS.NodeJS.22, then winget install OpenJS.NodeJS.LTS, then verify major 24 and the npm globals. Re-run with -Apply.'
+        Complete-Toolkit
+    }
+
+    Write-Log 'Uninstalling Node 22 (a UAC prompt appears).' 'STEP'
+    $r1 = Invoke-WingetAction -Action 'uninstall' -Id 'OpenJS.NodeJS.22' -Version $null
+    Update-SessionPath
+    $still = Get-WingetInstalledVersion 'OpenJS.NodeJS.22'
+    if ($still) { Add-Result 'node22-uninstall' 'FAIL' ("Node 22 is still installed ({0}); winget exit {1}. Nothing else was changed." -f $still, $r1.ExitCode); Complete-Toolkit }
+    Add-Result 'node22-uninstall' 'PASS' ("Node 22 removed (winget exit {0})" -f $r1.ExitCode)
+
+    Write-Log 'Installing Node LTS (a UAC prompt appears).' 'STEP'
+    $r2 = Invoke-WingetAction -Action 'install' -Id 'OpenJS.NodeJS.LTS' -Version $null
+    Update-SessionPath
+    $st = Get-ToolState $tool
+    if ($st.installed -and $st.version -and ([int](($st.version -split '\.')[0]) -eq 24)) { Add-Result 'node-lts-install' 'PASS' ("node {0} at {1} (winget exit {2})" -f $st.version, $st.path, $r2.ExitCode) }
+    else { Add-Result 'node-lts-install' 'FAIL' ("expected Node 24, found '{0}' (winget exit {1}). Open a new shell and run 10-install-toolkit.ps1 -Only node." -f $st.version, $r2.ExitCode) }
+
+    $after = Get-NpmGlobals
+    $lost = @($before | Where-Object { $after -notcontains $_ })
+    if ($lost.Count -eq 0) { Add-Result 'npm-globals-after' 'PASS' ("all {0} global packages survived: {1}" -f $after.Count, ($after -join ', ')) @{ globals = $after } }
+    else { Add-Result 'npm-globals-after' 'FAIL' ("missing after swap: {0}" -f ($lost -join ', ')) @{ globals = $after } }
+} catch {
+    Add-Result 'node-swap-error' 'FAIL' $_.Exception.Message
+}
+Complete-Toolkit
+
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\_lib.ps1`
+```diff
+-     $base = 'D:\Backup\Toolkit'
+    $dir = Join-Path $base $global:TK.Ts
++     $base = $global:TK.BackupBase
+    if (-not $base) { $base = 'D:\Backup\Toolkit' }
+    $dir = Join-Path $base $global:TK.Ts
+```
+- `Write` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\20-apply-configs.ps1`
+```
+<#
+20-apply-configs.ps1 - applies the shared configs. Run in a NORMAL shell after 10-install-toolkit.ps1.
+Applies: starship.toml, global git ignore, shared delta include, bat and fd configs, the managed block in both PowerShell profiles,
+the shared Windows Terminal fragment (merged, machine profiles preserved), global git settings, user environment variables.
+Every replaced file is backed up first to D:\Backup\Toolkit\<timestamp>\ (index: backup-index.json). Nothing is deleted.
+  -DryRun        print what would change
+  -Only          limit to config ids (starship, git-ignore, git-delta, bat, fd-ignore, profile-ps5, profile-pwsh, terminal, git-settings, env)
+  -RestoreFrom   path of a D:\Backup\Toolkit\<timestamp> folder; copies the backed-up files back (git settings and env vars are listed, not auto-reverted)
+  -TerminalSettingsPath, -TestProfileDir, -BackupBase   test overrides only
+Safe to run twice: unchanged files report UNCHANGED.
+#>
+param(
+    [switch]$DryRun,
+    [ValidateSet('dell', 'acer')][string]$Machine,
+    [string[]]$Only,
+    [string]$RestoreFrom,
+    [string]$TerminalSettingsPath,
+    [string]$TestProfileDir,
+    [string]$BackupBase
+)
+
+. "$PSScriptRoot\_lib.ps1"
+$ErrorActionPreference = 'Stop'
+Initialize-Toolkit -Name '20-apply-configs' -DryRun $DryRun.IsPresent -Machine $Machine | Out-Null
+if ($BackupBase) { $global:TK.BackupBase = $BackupBase }
+$m = $global:TK.Manifest
+$role = $global:TK.Role
+$dry = $global:TK.DryRun
+$hashRows = New-Object System.Collections.Generic.List[object]
+
+function Test-Wanted { param([string]$Id) if ($Only -and ($Only -notcontains $Id)) { return $false }; return $true }
+
+function Set-Prop {
+    param($Obj, [string]$Name, $Value)
+    if ($Obj.PSObject.Properties[$Name]) { $Obj.$Name = $Value } else { $Obj | Add-Member -NotePropertyName $Name -NotePropertyValue $Value }
+}
+
+# ------------------------------------------------------------------ restore mode
+if ($RestoreFrom) {
+    $idx = Join-Path $RestoreFrom 'backup-index.json'
+    if (-not (Test-Path -LiteralPath $idx)) { Write-Log ("No backup-index.json in {0}" -f $RestoreFrom) 'ERROR'; exit 1 }
+    $entries = @(Get-Content -LiteralPath $idx -Raw | ConvertFrom-Json)
+    foreach ($e in $entries) {
+        if (-not (Test-Path -LiteralPath $e.backup)) { Add-Result 'restore' 'FAIL' ("backup file missing: {0}" -f $e.backup); continue }
+        if ($dry) { Add-Result 'restore' 'PLAN' ("[DRYRUN] would restore {0}" -f $e.original); continue }
+        Copy-Item -LiteralPath $e.backup -Destination $e.original -Force
+        Add-Result 'restore' 'CHANGED' ("restored {0}" -f $e.original)
+    }
+    Write-Log 'Git settings and user environment variables are not auto-reverted. To undo: git config --global --unset <key>; remove STARSHIP_CONFIG / TOOLKIT_VAULT_ROOT in System Properties.' 'WARN'
+    Complete-Toolkit
+}
+
+# ------------------------------------------------------------------ helpers: copy
+function Apply-CopyConfig {
+    param($Cfg)
+    $src = Join-Path $global:TK.Root $Cfg.source
+    $tgt = Expand-ToolkitPath $Cfg.target $global:TK.Vault
+    if (-not (Test-Path -LiteralPath $src)) { Add-Result $Cfg.id 'FAIL' ("source missing: {0}" -f $Cfg.source); return }
+    if ($Cfg.requiresTool -and -not (Resolve-Cmd $Cfg.requiresTool)) { Add-Result $Cfg.id 'WARN' ("{0} is not installed yet; skipped (run 10-install-toolkit first)" -f $Cfg.requiresTool); return }
+    $hits = Get-SecretHitCount ([IO.File]::ReadAllText($src))
+    if ($hits -gt 0) { Add-Result $Cfg.id 'FAIL' ("source matches {0} secret pattern(s); not written, text not shown" -f $hits); return }
+    $srcHash = Get-FileSha256 $src
+    $dstHash = Get-FileSha256 $tgt
+    $mode = $Cfg.onExisting.$role
+    if ($dstHash -and ($dstHash -eq $srcHash)) {
+        Add-Result $Cfg.id 'UNCHANGED' ("{0} already matches the source" -f $tgt) @{ sha256 = $srcHash; target = $tgt }
+        $hashRows.Add([pscustomobject]@{ id = $Cfg.id; target = $tgt; source = $srcHash; target_hash = $dstHash; match = $true }); return
+    }
+    if ($dstHash -and $mode -eq 'keep') {
+        Add-Result $Cfg.id 'DIFF' ("kept this machine's own file ({0}); differs from the shared copy by design until promoted" -f $tgt) @{ sha256 = $dstHash; sourceSha256 = $srcHash; target = $tgt }
+        $hashRows.Add([pscustomobject]@{ id = $Cfg.id; target = $tgt; source = $srcHash; target_hash = $dstHash; match = $false }); return
+    }
+    if ($dry) { Add-Result $Cfg.id 'PLAN' ("[DRYRUN] would write {0} (source sha256 {1}...)" -f $tgt, $srcHash.Substring(0, 12)); return }
+    $bk = Backup-Target $tgt
+    $dir = Split-Path -Parent $tgt
+    if (-not (Test-Path -LiteralPath $dir)) { New-Item -ItemType Directory -Force -Path $dir | Out-Null }
+    Copy-Item -LiteralPath $src -Destination $tgt -Force
+    $new = Get-FileSha256 $tgt
+    if ($new -eq $srcHash) { Add-Result $Cfg.id 'CHANGED' ("wrote {0}; hash matches source; backup {1}" -f $tgt, $bk) @{ sha256 = $new; target = $tgt; backup = $bk } }
+    else { Add-Result $Cfg.id 'FAIL' ("hash mismatch after copy to {0}" -f $tgt) }
+    $hashRows.Add([pscustomobject]@{ id = $Cfg.id; target = $tgt; source = $srcHash; target_hash = $new; match = ($new -eq $srcHash) })
+}
+
+# ------------------------------------------------------------------ helpers: profile block
+function Get-ProfileText {
+    param([string]$Path)
+    $bytes = [IO.File]::ReadAllBytes($Path)
+    $hadBom = ($bytes.Length -ge 3 -and $bytes[0] -eq 0xEF -and $bytes[1] -eq 0xBB -and $bytes[2] -eq 0xBF)
+    $start = 0; if ($hadBom) { $start = 3 }
+    $strict = New-Object System.Text.UTF8Encoding($false, $true)
+    $text = $strict.GetString($bytes, $start, $bytes.Length - $start)
+    return [pscustomobject]@{ Text = $text; HadBom = $hadBom }
+}
+
+function Remove-ManagedBlock {
+    param([string]$NormText)
+    $rx = '(?s)' + [regex]::Escape($global:TKBlockBegin) + '.*?' + [regex]::Escape($global:TKBlockEnd) + '\n?'
+    return [regex]::Replace($NormText, $rx, '')
+}
+
+function Get-ManagedBlock {
+    param([string]$NormText)
+    $rx = '(?s)' + [regex]::Escape($global:TKBlockBegin) + '.*?' + [regex]::Escape($global:TKBlockEnd)
+    $mm = [regex]::Match($NormText, $rx)
+    if ($mm.Success) { return $mm.Value }
+    return $null
+}
+
+function Update-ProfileBlock {
+    # Returns @{ Status; Detail; Final; Enc }. Never writes.
+    param([string]$Path, [string]$BlockNorm)
+    $exists = Test-Path -LiteralPath $Path
+    $existingText = ''
+    $hadBom = $false
+    $eol = "`n"
+    if ($exists) {
+        try { $pt = Get-ProfileText $Path } catch { return @{ Status = 'MANUAL'; Detail = 'profile is not valid UTF-8; left untouched' } }
+        $existingText = $pt.Text; $hadBom = $pt.HadBom
+        if ($existingText.Contains("`r`n")) { $eol = "`r`n" }
+    }
+    $norm = $existingText.Replace("`r`n", "`n")
+    $norm = Remove-ManagedBlock $norm
+    $notes = @()
+    # supersede single statements that the block now provides
+    $errs = $null; $tok = $null
+    $ast = [System.Management.Automation.Language.Parser]::ParseInput($norm, [ref]$tok, [ref]$errs)
+    if ($errs -and $errs.Count -gt 0) { return @{ Status = 'MANUAL'; Detail = ("existing profile has {0} parse error(s) outside the managed block; left untouched" -f $errs.Count) } }
+    $pats = @('starship\s+init\s+powershell', 'zoxide\s+init\s+powershell', 'Set-PsFzfOption', 'Import-Module\s+PSFzf', 'vscode-env', '\[Console\]::OutputEncoding\s*=', '\$OutputEncoding\s*=')
+    $stmts = @()
+    if ($ast.EndBlock) { $stmts = @($ast.EndBlock.Statements) }
+    $toComment = @()
+    foreach ($s in $stmts) {
+        $t = $s.Extent.Text
+        foreach ($p in $pats) { if ($t -match $p) { $toComment += $s; break } }
+    }
+    if ($toComment.Count -gt 0) {
+        $lines = [System.Collections.ArrayList]@($norm -split "`n")
+        $ranges = @($toComment | ForEach-Object { ,@($_.Extent.StartLineNumber, $_.Extent.EndLineNumber) })
+        foreach ($s in $stmts) {
+            if ($toComment -contains $s) { continue }
+            foreach ($r in $ranges) {
+                if ($s.Extent.StartLineNumber -le $r[1] -and $s.Extent.EndLineNumber -ge $r[0]) {
+                    return @{ Status = 'MANUAL'; Detail = ("a superseded statement shares lines {0}-{1} with other code; edit the profile by hand and re-run" -f $r[0], $r[1]) }
+                }
+            }
+        }
+        foreach ($s in $toComment) {
+            if ($s.Extent.Text.Length -gt 900) { return @{ Status = 'MANUAL'; Detail = ("statement at line {0} is large and overlaps the managed block; edit by hand" -f $s.Extent.StartLineNumber) } }
+            for ($ln = $s.Extent.StartLineNumber; $ln -le $s.Extent.EndLineNumber; $ln++) {
+                $lines[$ln - 1] = '# [toolkit-superseded] ' + $lines[$ln - 1]
+            }
+            $notes += ("lines {0}-{1} superseded" -f $s.Extent.StartLineNumber, $s.Extent.EndLineNumber)
+        }
+        $norm = ($lines -join "`n")
+    }
+    $body = $norm.TrimEnd("`n")
+    $block = $BlockNorm.TrimEnd("`n") + "`n"
+    $final = $block
+    if ($body.Length -gt 0) { $final = $body + "`n`n" + $block }
+    $e2 = $null; $t2 = $null
+    [System.Management.Automation.Language.Parser]::ParseInput($final, [ref]$t2, [ref]$e2) | Out-Null
+    if ($e2 -and $e2.Count -gt 0) { return @{ Status = 'MANUAL'; Detail = ("result would have {0} parse error(s); left untouched" -f $e2.Count) } }
+    $finalEol = $final.Replace("`n", $eol)
+    if ($exists -and ($finalEol -ceq $existingText)) { return @{ Status = 'UNCHANGED'; Detail = 'managed block already current'; Final = $finalEol; HadBom = $hadBom } }
+    return @{ Status = 'CHANGED'; Detail = ($notes -join '; '); Final = $finalEol; HadBom = $hadBom }
+}
+
+function Apply-ProfileBlock {
+    param($Cfg)
+    $src = Join-Path $global:TK.Root $Cfg.source
+    $tgt = Expand-ToolkitPath $Cfg.target $global:TK.Vault
+    if ($TestProfileDir) {
+        if ($Cfg.id -eq 'profile-ps5') { $tgt = Join-Path $TestProfileDir 'WindowsPowerShell\Microsoft.PowerShell_profile.ps1' }
+        else { $tgt = Join-Path $TestProfileDir 'PowerShell\Microsoft.PowerShell_profile.ps1' }
+    }
+    $blockNorm = ([IO.File]::ReadAllText($src)).Replace("`r`n", "`n")
+    if ((Get-SecretHitCount $blockNorm) -gt 0) { Add-Result $Cfg.id 'FAIL' 'block source matches a secret pattern; not written'; return }
+    $blockHash = Get-TextSha256 (Get-ManagedBlock $blockNorm)
+    $res = Update-ProfileBlock -Path $tgt -BlockNorm $blockNorm
+    if ($res.Status -eq 'MANUAL') { Add-Result $Cfg.id 'MANUAL' ("{0}: {1}" -f $tgt, $res.Detail) @{ target = $tgt }; return }
+    if ($res.Status -eq 'UNCHANGED') {
+        Add-Result $Cfg.id 'UNCHANGED' ("{0}: {1}" -f $tgt, $res.Detail) @{ target = $tgt; blockSha256 = $blockHash }
+        $hashRows.Add([pscustomobject]@{ id = $Cfg.id; target = $tgt; source = $blockHash; target_hash = $blockHash; match = $true }); return
+    }
+    if ($dry) { Add-Result $Cfg.id 'PLAN' ("[DRYRUN] would insert/refresh the managed block in {0} {1}" -f $tgt, $res.Detail) @{ target = $tgt }; return }
+    $bk = Backup-Target $tgt
+    $enc = New-Object System.Text.UTF8Encoding($res.HadBom)
+    $dir = Split-Path -Parent $tgt
+    if (-not (Test-Path -LiteralPath $dir)) { New-Item -ItemType Directory -Force -Path $dir | Out-Null }
+    [IO.File]::WriteAllText($tgt, $res.Final, $enc)
+    $back = (Get-ProfileText $tgt).Text.Replace("`r`n", "`n")
+    $got = Get-ManagedBlock $back
+    $gotHash = $null; if ($got) { $gotHash = Get-TextSha256 $got }
+    if ($gotHash -eq $blockHash) { Add-Result $Cfg.id 'CHANGED' ("block written to {0} {1}; backup {2}" -f $tgt, $res.Detail, $bk) @{ target = $tgt; blockSha256 = $gotHash; backup = $bk } }
+    else { Add-Result $Cfg.id 'FAIL' ("block hash mismatch after writing {0}" -f $tgt) }
+    $hashRows.Add([pscustomobject]@{ id = $Cfg.id; target = $tgt; source = $blockHash; target_hash = $gotHash; match = ($gotHash -eq $blockHash) })
+}
+
+# ------------------------------------------------------------------ helpers: terminal
+function Merge-TerminalSettings {
+    param($S, $F, [string]$UbuntuName)
+    if (-not $S.profiles -or $S.profiles -is [System.Array]) { throw 'unsupported settings.json layout (profiles is not an object)' }
+    Set-Prop $S 'defaultProfile' $F.defaultProfile
+    if (-not $S.profiles.PSObject.Properties['defaults'] -or $null -eq $S.profiles.defaults) { Set-Prop $S.profiles 'defaults' ([pscustomobject]@{}) }
+    $def = $S.profiles.defaults
+    foreach ($p in $F.defaults.PSObject.Properties) {
+        if ($p.Value -is [System.Management.Automation.PSCustomObject]) {
+            if (-not $def.PSObject.Properties[$p.Name] -or $null -eq $def.($p.Name)) { Set-Prop $def $p.Name ([pscustomobject]@{}) }
+            foreach ($q in $p.Value.PSObject.Properties) { Set-Prop $def.($p.Name) $q.Name $q.Value }
+        } else { Set-Prop $def $p.Name $p.Value }
+    }
+    $schemes = @()
+    if ($S.PSObject.Properties['schemes'] -and $S.schemes) { $schemes = @($S.schemes | Where-Object { $_.name -ne $F.scheme.name }) }
+    Set-Prop $S 'schemes' (@($schemes) + @($F.scheme))
+    $fIds = @($F.actions | ForEach-Object { $_.id })
+    $fKeys = @($F.keybindings | ForEach-Object { ([string]$_.keys).ToLower() })
+    $actions = @()
+    if ($S.PSObject.Properties['actions'] -and $S.actions) { $actions = @($S.actions | Where-Object { $fIds -notcontains $_.id }) }
+    Set-Prop $S 'actions' (@($actions) + @($F.actions))
+    $kb = @()
+    if ($S.PSObject.Properties['keybindings'] -and $S.keybindings) {
+        $kb = @($S.keybindings | Where-Object { ($fIds -notcontains $_.id) -and ($fKeys -notcontains ([string]$_.keys).ToLower()) })
+    }
+    Set-Prop $S 'keybindings' (@($kb) + @($F.keybindings))
+    $list = @($S.profiles.list)
+    $guid = $F.powershellProfile.guid
+    if (-not (@($list | Where-Object { $_.guid -ieq $guid }).Count)) { $list = $list + @($F.powershellProfile) }
+    foreach ($p in $list) {
+        if ($p.source -eq 'Microsoft.WSL' -and $p.name -match '^Ubuntu') { $p.name = $UbuntuName }
+    }
+    $S.profiles.list = $list
+    return $S
+}
+
+function Apply-Terminal {
+    param($Cfg)
+    $frag = Get-Content -LiteralPath (Join-Path $global:TK.Root $Cfg.source) -Raw | ConvertFrom-Json
+    $wtp = $TerminalSettingsPath
+    if (-not $wtp) {
+        $pkg = Get-ChildItem (Join-Path $env:LOCALAPPDATA 'Packages') -Filter 'Microsoft.WindowsTerminal_*' -Directory -ErrorAction SilentlyContinue | Select-Object -First 1
+        if ($pkg) { $wtp = Join-Path $pkg.FullName 'LocalState\settings.json' }
+    }
+    if (-not $wtp -or -not (Test-Path -LiteralPath $wtp)) { Add-Result $Cfg.id 'WARN' 'Windows Terminal settings.json not found; open Windows Terminal once and re-run'; return }
+    $raw = [IO.File]::ReadAllText($wtp)
+    try { $orig = $raw | ConvertFrom-Json; $S = $raw | ConvertFrom-Json } catch { Add-Result $Cfg.id 'MANUAL' ("{0} is not strict JSON (comments?); not touched" -f $wtp); return }
+    $ubuntu = $m.machines.$role.ubuntuProfileName
+    try { $S = Merge-TerminalSettings -S $S -F $frag -UbuntuName $ubuntu } catch { Add-Result $Cfg.id 'MANUAL' ("{0}: {1}" -f $wtp, $_.Exception.Message); return }
+    $j1 = ConvertTo-Json -InputObject $orig -Depth 30
+    $j2 = ConvertTo-Json -InputObject $S -Depth 30
+    if ($j1 -ceq $j2) { Add-Result $Cfg.id 'UNCHANGED' ("{0} already carries the fragment" -f $wtp) @{ target = $wtp }; return }
+    if ($dry) {
+        $prev = Join-Path $global:TK.ResultsDir ("terminal-settings-preview-" + $global:TK.Ts + ".json")
+        Write-Utf8NoBom -Path $prev -Text ($j2 + "`n")
+        Add-Result $Cfg.id 'PLAN' ("[DRYRUN] would merge scheme, defaults, actions, keybindings, pwsh profile and rename Ubuntu to '{0}' in {1}; preview: {2}" -f $ubuntu, $wtp, $prev) @{ target = $wtp }; return
+    }
+    $bk = Backup-Target $wtp
+    Write-Utf8NoBom -Path $wtp -Text ($j2 + "`n")
+    $chk = Get-Content -LiteralPath $wtp -Raw | ConvertFrom-Json
+    $ok = ($chk.defaultProfile -eq $frag.defaultProfile) -and ($chk.profiles.defaults.font.face -eq 'IosevkaTerm NFM') -and ($chk.profiles.defaults.colorScheme -eq 'Tokyo Night Storm') -and (@($chk.schemes | Where-Object { $_.name -eq 'Tokyo Night Storm' }).Count -eq 1)
+    if ($ok) { Add-Result $Cfg.id 'CHANGED' ("merged into {0}; backup {1}" -f $wtp, $bk) @{ target = $wtp; sha256 = (Get-FileSha256 $wtp); backup = $bk } }
+    else { Add-Result $Cfg.id 'FAIL' ("settings.json did not re-read as expected; restore from {0}" -f $bk) }
+}
+
+# ------------------------------------------------------------------ helpers: git and env
+function Invoke-Git {
+    param([string[]]$GitArgs)
+    $git = Resolve-Cmd 'git'
+    return (Invoke-Native -File $git -Arguments $GitArgs -TimeoutSec 60)
+}
+
+function Apply-GitSettings {
+    if (-not (Resolve-Cmd 'git')) { Add-Result 'git-settings' 'FAIL' 'git not found'; return }
+    $changed = @(); $same = 0
+    foreach ($s in $m.gitSettings) {
+        $cur = (Invoke-Git @('config', '--global', '--get', $s.key)).Output.Trim()
+        if ($cur -eq $s.value) { $same++; continue }
+        if ($dry) { $changed += ("{0}: '{1}' -> '{2}'" -f $s.key, $cur, $s.value); continue }
+        $r = Invoke-Git @('config', '--global', $s.key, $s.value)
+        if ($r.ExitCode -eq 0) { $changed += ("{0}: '{1}' -> '{2}'" -f $s.key, $cur, $s.value) } else { Add-Result ('git-' + $s.key) 'FAIL' ("git config exit {0}" -f $r.ExitCode) }
+    }
+    # credential helper (gh) for each host
+    if (Resolve-Cmd 'gh') {
+        foreach ($h in $m.gitCredentialHosts) {
+            $key = 'credential.' + $h + '.helper'
+            $cur = ((Invoke-Git @('config', '--global', '--get-all', $key)).Output -replace "`r", '').TrimEnd("`n")
+            $want = "`n!gh auth git-credential"
+            if ($cur -ceq $want) { $same++; continue }
+            if ($dry) { $changed += ("{0}: would reset and set to gh auth git-credential" -f $key); continue }
+            Invoke-Git @('config', '--global', '--unset-all', $key) | Out-Null
+            Invoke-Git @('config', '--global', '--add', $key, '') | Out-Null
+            Invoke-Git @('config', '--global', '--add', $key, '!gh auth git-credential') | Out-Null
+            $changed += ("{0}: set to gh auth git-credential" -f $key)
+        }
+    } else { Add-Result 'git-credential' 'WARN' 'gh not installed; credential helper skipped' }
+    # shared delta include
+    $deltaTarget = Expand-ToolkitPath '%USERPROFILE%\.config\git\delta.gitconfig' $global:TK.Vault
+    if ((Resolve-Cmd 'delta') -and (Test-Path -LiteralPath $deltaTarget)) {
+        $inc = (Invoke-Git @('config', '--global', '--get-all', 'include.path')).Output
+        if ($inc -notmatch [regex]::Escape($m.gitDeltaInclude)) {
+            if ($dry) { $changed += 'include.path: would add the shared delta include' }
+            else { Invoke-Git @('config', '--global', '--add', 'include.path', $m.gitDeltaInclude) | Out-Null; $changed += 'include.path: added the shared delta include' }
+        } else { $same++ }
+    } else { Add-Result 'git-delta-include' 'WARN' 'delta or its include file is missing; pager include skipped' }
+    $verb = 'CHANGED'; if ($dry) { $verb = 'PLAN' }
+    if ($changed.Count -gt 0) { Add-Result 'git-settings' $verb ("{0} setting(s) {1}; {2} already correct. {3}" -f $changed.Count, $(if ($dry) { 'would change' } else { 'changed' }), $same, ($changed -join ' | ')) }
+    else { Add-Result 'git-settings' 'UNCHANGED' ("all {0} git settings already correct" -f $same) }
+}
+
+function Apply-Env {
+    foreach ($e in $m.env.set) {
+        $val = Expand-ToolkitPath $e.value $global:TK.Vault
+        $cur = [Environment]::GetEnvironmentVariable($e.name, 'User')
+        if ($cur -eq $val) { Add-Result ('env-' + $e.name) 'UNCHANGED' ("{0}={1}" -f $e.name, $val); continue }
+        if ($dry) { Add-Result ('env-' + $e.name) 'PLAN' ("[DRYRUN] would set {0}={1} (was '{2}')" -f $e.name, $val, $cur); continue }
+        [Environment]::SetEnvironmentVariable($e.name, $val, 'User')
+        Set-Item -Path ('Env:' + $e.name) -Value $val
+        Add-Result ('env-' + $e.name) 'CHANGED' ("{0}={1} (was '{2}')" -f $e.name, $val, $cur)
+    }
+    foreach ($e in $m.env.verify) {
+        $v = [Environment]::GetEnvironmentVariable($e.name, 'User')
+        if ($role -eq 'dell' -and $e.dell) {
+            if ($v -eq $e.dell) { Add-Result ('envchk-' + $e.name) 'PASS' ("{0}={1} (Build 3, untouched)" -f $e.name, $v) } else { Add-Result ('envchk-' + $e.name) 'WARN' ("{0} is '{1}', expected '{2}' (not changed here)" -f $e.name, $v, $e.dell) }
+        }
+    }
+}
+
+# ------------------------------------------------------------------ run
+try {
+    foreach ($cfg in $m.configs) {
+        if (-not (Test-Wanted $cfg.id)) { continue }
+        try {
+            switch ($cfg.kind) {
+                'copy' { Apply-CopyConfig $cfg }
+                'profile-block' { Apply-ProfileBlock $cfg }
+                'terminal-merge' { Apply-Terminal $cfg }
+                'git' { Apply-GitSettings }
+            }
+        } catch { Add-Result $cfg.id 'FAIL' ("exception: " + $_.Exception.Message) }
+    }
+    if (Test-Wanted 'env') { try { Apply-Env } catch { Add-Result 'env' 'FAIL' ("exception: " + $_.Exception.Message) } }
+} catch {
+    Add-Result 'apply-error' 'FAIL' $_.Exception.Message
+}
+Write-Host ''
+Write-Host 'SHA-256 table (source vs target; identical means the hashes match)'
+foreach ($h in $hashRows) { Write-Host ('{0,-14} match={1,-5} src={2}... dst={3}...' -f $h.id, $h.match, ([string]$h.source).Substring(0, 12), ([string]$h.target_hash).Substring(0, [math]::Min(12, ([string]$h.target_hash).Length))) }
+Complete-Toolkit -Summary @{ hashTable = @($hashRows) }
+
+```
+- `Write` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\99-verify.ps1`
+```
+<#
+99-verify.ps1 - compares the manifest with reality. Read-only except for its log, result JSON and (with -WriteLock) toolkit.lock.json.
+Run in a NORMAL shell, ideally in a fresh window after 10 and 20. Statuses: PASS, FAIL, PENDING (waits for a gated step), DIFF (differs from the Dell lock), WARN, INFO.
+  -WriteLock   Dell only: when there is no FAIL, record the verified versions and config hashes in toolkit.lock.json
+Exit code 1 only when something FAILs.
+#>
+param([switch]$WriteLock, [ValidateSet('dell', 'acer')][string]$Machine)
+
+. "$PSScriptRoot\_lib.ps1"
+$ErrorActionPreference = 'Stop'
+Initialize-Toolkit -Name '99-verify' -DryRun $false -Machine $Machine | Out-Null
+$m = $global:TK.Manifest
+$role = $global:TK.Role
+$lock = Read-ToolkitLock
+$lockOther = ($lock -and $lock.host -ne $global:TK.Host)
+$lockTools = [ordered]@{}
+$lockConfigs = [ordered]@{}
+$python = $null
+
+function Test-Section { param([string]$Name, [scriptblock]$Body) Write-Log ("--- " + $Name) 'STEP'; try { & $Body } catch { Add-Result ('error-' + $Name) 'FAIL' $_.Exception.Message } }
+
+# ------------------------------------------------------------------ A tools
+Test-Section 'A Tools versus manifest' {
+    foreach ($t in $m.tools) {
+        if ($t.policy -eq 'catalog-only') { continue }
+        if (-not (Test-ToolOnMachine $t $role)) { continue }
+        $st = Get-ToolState $t
+        $ver = $st.version; if (-not $ver) { $ver = '-' }
+        if ($t.policy -eq 'absent') {
+            if ($st.installed) { Add-Result $t.id 'FAIL' ("present but must be absent (version {0})" -f $ver) } else { Add-Result $t.id 'PASS' 'absent as required' }
+            continue
+        }
+        if ($t.policy -eq 'retire') {
+            if ($st.installed) { Add-Result $t.id 'PENDING' ("still present ({0}); retire with: {1}" -f $ver, $t.retireCommand) @{ version = $st.version } } else { Add-Result $t.id 'PASS' 'retired (absent)' }
+            continue
+        }
+        if (-not $st.installed) { Add-Result $t.id 'FAIL' ("not installed / not detected ({0})" -f $t.name); continue }
+        $info = Get-InstallInfo $st.path
+        $extra = @{ version = $st.version; path = $st.path; drive = $info.drive; sizeMB = $info.sizeMB }
+        $notes = @()
+        $status = 'PASS'
+        if ($t.expect -and $st.version -and ($st.version -notmatch $t.expect)) { $status = 'FAIL'; $notes += ("version {0} does not match /{1}/" -f $st.version, $t.expect) }
+        if ($t.expectMajor -and $st.version) {
+            $maj = [int](($st.version -split '\.')[0])
+            if ($maj -ne [int]$t.expectMajor) { $status = 'FAIL'; $notes += ("major {0}, expected {1}" -f $maj, $t.expectMajor) }
+        }
+        if ($t.id -eq 'uv-python' -and $st.version) { $notes += ("cpython {0}" -f $st.version) }
+        if ($t.detect -eq 'psmodule') {
+            if ($st.pwshPresent -and -not $st.version7) { $status = 'FAIL'; $notes += 'missing in PowerShell 7' }
+            $notes += $st.detail
+        }
+        if ($lockOther -and $status -eq 'PASS') {
+            $lv = Get-LockedVersion -Lock $lock -Id $t.id
+            if ($lv -and $st.version -and ($lv -ne $st.version)) { $status = 'DIFF'; $notes += ("Dell lock has {0}" -f $lv) }
+        }
+        $dr = ''; if ($info.drive) { $dr = (' on {0}' -f $info.drive) }
+        $sz = ''; if ($info.sizeMB) { $sz = (', {0} MB' -f $info.sizeMB) }
+        Add-Result $t.id $status (("version {0}{1}{2}; " -f $ver, $dr, $sz) + ($notes -join '; ')) $extra
+        if ($status -in 'PASS', 'DIFF') {
+            $lockTools[$t.id] = [ordered]@{ version = $st.version; policy = $t.policy; wingetId = $t.wingetId; path = $st.path; drive = $info.drive; sizeMB = $info.sizeMB }
+        }
+    }
+    # uv must win on PATH once the Chocolatey Python is gone
+    $uvAll = @(Resolve-CmdAll 'uv')
+    $want = [Environment]::ExpandEnvironmentVariables('%USERPROFILE%\.local\bin\uv.exe')
+    $pyTool = $m.tools | Where-Object { $_.id -eq 'python-choco' }
+    $pyThere = $false
+    if ($pyTool -and (Test-ToolOnMachine $pyTool $role)) { $pyThere = (Get-ToolState $pyTool).installed }
+    if ($uvAll.Count -gt 0 -and ($uvAll[0] -ieq $want)) { Add-Result 'uv-path-first' 'PASS' 'standalone uv is the first uv on PATH' }
+    elseif ($pyThere) { Add-Result 'uv-path-first' 'PENDING' ("first uv on PATH is {0}; wins until 04-admin-remove.ps1 -IncludePython retires Python" -f $uvAll[0]) }
+    else { Add-Result 'uv-path-first' 'FAIL' ("first uv on PATH is '{0}', expected {1}" -f $(if ($uvAll.Count) { $uvAll[0] } else { '(none)' }), $want) }
+    # junctions
+    foreach ($t in $m.tools | Where-Object { $_.junction -and (Test-ToolOnMachine $_ $role) }) {
+        $jp = Expand-ToolkitPath $t.junction.path $global:TK.Vault
+        if (Test-Path -LiteralPath $jp) {
+            $it = Get-Item -LiteralPath $jp -Force
+            if ($it.Attributes -band [IO.FileAttributes]::ReparsePoint) { Add-Result ('junction-' + $t.id) 'PASS' ("{0} -> {1}" -f $jp, ($it.Target -join ';')) } else { Add-Result ('junction-' + $t.id) 'FAIL' ("{0} is not a junction" -f $jp) }
+        } else { Add-Result ('junction-' + $t.id) 'FAIL' ("{0} missing" -f $jp) }
+    }
+}
+
+# ------------------------------------------------------------------ B configs
+Test-Section 'B Config hashes' {
+    foreach ($cfg in $m.configs | Where-Object { $_.kind -eq 'copy' }) {
+        $src = Join-Path $global:TK.Root $cfg.source
+        $tgt = Expand-ToolkitPath $cfg.target $global:TK.Vault
+        $sh = Get-FileSha256 $src; $th = Get-FileSha256 $tgt
+        if ($cfg.requiresTool -and -not (Resolve-Cmd $cfg.requiresTool)) { Add-Result ('cfg-' + $cfg.id) 'FAIL' ("{0} not installed" -f $cfg.requiresTool); continue }
+        if ($th -and $th -eq $sh) { Add-Result ('cfg-' + $cfg.id) 'PASS' ("{0} sha256 {1}... matches source" -f $tgt, $th.Substring(0, 12)) @{ sha256 = $th }; $lockConfigs[$cfg.id] = $th }
+        elseif ($th -and $cfg.onExisting.$role -eq 'keep') { Add-Result ('cfg-' + $cfg.id) 'DIFF' ("{0} is this machine's own file (kept by design until promoted)" -f $tgt) @{ sha256 = $th; sourceSha256 = $sh } }
+        elseif ($th) { Add-Result ('cfg-' + $cfg.id) 'FAIL' ("{0} differs from source ({1}... vs {2}...)" -f $tgt, $th.Substring(0, 12), $sh.Substring(0, 12)) }
+        else { Add-Result ('cfg-' + $cfg.id) 'FAIL' ("{0} missing" -f $tgt) }
+    }
+    $blockSrc = ([IO.File]::ReadAllText((Join-Path $global:TK.Root 'configs\powershell\managed-block.ps1'))).Replace("`r`n", "`n")
+    $blockHash = Get-TextSha256 ($blockSrc.Substring($blockSrc.IndexOf($global:TKBlockBegin)).TrimEnd("`n"))
+    foreach ($cfg in $m.configs | Where-Object { $_.kind -eq 'profile-block' }) {
+        $tgt = Expand-ToolkitPath $cfg.target $global:TK.Vault
+        if (-not (Test-Path -LiteralPath $tgt)) { Add-Result ('cfg-' + $cfg.id) 'FAIL' ("{0} missing" -f $tgt); continue }
+        $txt = ([IO.File]::ReadAllText($tgt)).Replace("`r`n", "`n")
+        $rx = '(?s)' + [regex]::Escape($global:TKBlockBegin) + '.*?' + [regex]::Escape($global:TKBlockEnd)
+        $mm = [regex]::Match($txt, $rx)
+        $errs = $null; $tok = $null
+        [System.Management.Automation.Language.Parser]::ParseInput($txt, [ref]$tok, [ref]$errs) | Out-Null
+        $n = 0; if ($errs) { $n = $errs.Count }
+        $initLines = @($txt -split "`n" | Where-Object { $_ -match 'starship\s+init\s+powershell' -and $_ -notmatch '^\s*#' }).Count
+        if ($mm.Success -and ((Get-TextSha256 $mm.Value) -eq $blockHash) -and $n -eq 0 -and $initLines -eq 1) { Add-Result ('cfg-' + $cfg.id) 'PASS' ("{0}: block hash matches, parses clean, one starship init" -f $tgt) @{ blockSha256 = $blockHash }; $lockConfigs[$cfg.id] = $blockHash }
+        else { Add-Result ('cfg-' + $cfg.id) 'FAIL' ("{0}: block present={1}, hash ok={2}, parse errors={3}, active starship init lines={4}" -f $tgt, $mm.Success, ($mm.Success -and ((Get-TextSha256 $mm.Value) -eq $blockHash)), $n, $initLines) }
+    }
+}
+
+Test-Section 'C Terminal, git, environment' {
+    # terminal
+    $pkg = Get-ChildItem (Join-Path $env:LOCALAPPDATA 'Packages') -Filter 'Microsoft.WindowsTerminal_*' -Directory -ErrorAction SilentlyContinue | Select-Object -First 1
+    if ($pkg) {
+        $wtp = Join-Path $pkg.FullName 'LocalState\settings.json'
+        try {
+            $s = Get-Content -LiteralPath $wtp -Raw | ConvertFrom-Json
+            $frag = Get-Content -LiteralPath (Join-Path $global:TK.Root 'configs\terminal\toolkit-fragment.json') -Raw | ConvertFrom-Json
+            $checks = @(
+                @('default profile is PowerShell 7', ($s.defaultProfile -ieq $frag.defaultProfile)),
+                @('font face IosevkaTerm NFM', ($s.profiles.defaults.font.face -eq 'IosevkaTerm NFM')),
+                @('scheme Tokyo Night Storm applied', ($s.profiles.defaults.colorScheme -eq 'Tokyo Night Storm')),
+                @('scheme defined once', (@($s.schemes | Where-Object { $_.name -eq 'Tokyo Night Storm' }).Count -eq 1)),
+                @('opacity 85, acrylic, cursor #98C379', (($s.profiles.defaults.opacity -eq 85) -and ($s.profiles.defaults.useAcrylic -eq $true) -and ($s.profiles.defaults.cursorColor -eq '#98C379'))),
+                @('keybindings ctrl+c ctrl+v ctrl+shift+f alt+shift+d', (@($s.keybindings | Where-Object { $_.keys -in 'ctrl+c', 'ctrl+v', 'ctrl+shift+f', 'alt+shift+d' }).Count -ge 4)),
+                @('pwsh profile entry present', (@($s.profiles.list | Where-Object { $_.guid -ieq $frag.powershellProfile.guid }).Count -ge 1)),
+                @(("Ubuntu profile named '{0}'" -f $m.machines.$role.ubuntuProfileName), (@($s.profiles.list | Where-Object { $_.name -eq $m.machines.$role.ubuntuProfileName }).Count -ge 1))
+            )
+            foreach ($c in $checks) { if ($c[1]) { Add-Result ('wt-' + ($c[0] -replace '[^A-Za-z0-9]+', '-').ToLower().Trim('-')) 'PASS' $c[0] } else { Add-Result ('wt-' + ($c[0] -replace '[^A-Za-z0-9]+', '-').ToLower().Trim('-')) 'FAIL' $c[0] } }
+            $lockConfigs['terminal'] = Get-FileSha256 $wtp
+        } catch { Add-Result 'wt-settings' 'FAIL' ("settings.json unreadable: " + $_.Exception.Message) }
+    } else { Add-Result 'wt-settings' 'FAIL' 'Windows Terminal package not found' }
+    # font files + family (fresh process)
+    $fontTool = $m.tools | Where-Object { $_.id -eq 'iosevkaterm-nfm' }
+    if (Test-FontFamily $m.pins.font.family) { Add-Result 'font-family' 'PASS' ("family '{0}' registered (seen by a fresh process)" -f $m.pins.font.family) } else { Add-Result 'font-family' 'FAIL' ("family '{0}' not registered; sign out/in once, then re-run" -f $m.pins.font.family) }
+    # git
+    $git = Resolve-Cmd 'git'
+    if ($git) {
+        foreach ($s in $m.gitSettings) {
+            $cur = (Invoke-Native -File $git -Arguments @('config', '--global', '--get', $s.key) -TimeoutSec 30).Output.Trim()
+            if ($cur -eq $s.value) { Add-Result ('git-' + $s.key) 'PASS' ("{0}={1}" -f $s.key, $cur) } else { Add-Result ('git-' + $s.key) 'FAIL' ("{0} is '{1}', expected '{2}'" -f $s.key, $cur, $s.value) }
+        }
+        foreach ($h in $m.gitCredentialHosts) {
+            $key = 'credential.' + $h + '.helper'
+            $cur = ((Invoke-Native -File $git -Arguments @('config', '--global', '--get-all', $key) -TimeoutSec 30).Output -replace "`r", '').TrimEnd("`n")
+            if ($cur -ceq "`n!gh auth git-credential") { Add-Result ('git-cred-' + $h) 'PASS' ("{0} uses gh auth git-credential" -f $h) } else { Add-Result ('git-cred-' + $h) 'FAIL' ("{0} helper not set to gh" -f $h) }
+        }
+        $inc = (Invoke-Native -File $git -Arguments @('config', '--global', '--get-all', 'include.path') -TimeoutSec 30).Output
+        if ($inc -match [regex]::Escape($m.gitDeltaInclude)) { Add-Result 'git-delta-include' 'PASS' 'shared delta include is active' } else { Add-Result 'git-delta-include' 'FAIL' 'shared delta include missing' }
+        $pager = (Invoke-Native -File $git -Arguments @('config', '--global', '--get', 'core.pager') -TimeoutSec 30).Output.Trim()
+        if ($pager -eq 'delta') { Add-Result 'git-pager' 'PASS' 'core.pager=delta' } else { Add-Result 'git-pager' 'FAIL' ("core.pager is '{0}'" -f $pager) }
+    }
+    $gh = Resolve-Cmd 'gh'
+    if ($gh) {
+        $r = Invoke-Native -File $gh -Arguments @('auth', 'status') -TimeoutSec 40
+        if ($r.ExitCode -eq 0) { Add-Result 'gh-auth' 'PASS' 'gh is logged in (details not printed)' } else { Add-Result 'gh-auth' 'WARN' 'gh is not logged in; run: gh auth login' }
+    }
+    # environment variables
+    foreach ($e in $m.env.set) {
+        $want = Expand-ToolkitPath $e.value $global:TK.Vault
+        $cur = [Environment]::GetEnvironmentVariable($e.name, 'User')
+        if ($cur -eq $want) { Add-Result ('env-' + $e.name) 'PASS' ("{0}={1}" -f $e.name, $cur) } else { Add-Result ('env-' + $e.name) 'FAIL' ("{0} is '{1}', expected '{2}'" -f $e.name, $cur, $want) }
+    }
+    foreach ($e in $m.env.verify) {
+        $cur = [Environment]::GetEnvironmentVariable($e.name, 'User')
+        if ($role -eq 'dell' -and $e.dell) {
+            if ($cur -eq $e.dell) { Add-Result ('env-' + $e.name) 'PASS' ("{0}={1}" -f $e.name, $cur) } else { Add-Result ('env-' + $e.name) 'FAIL' ("{0} is '{1}', expected '{2}'" -f $e.name, $cur, $e.dell) }
+        } else {
+            $shown = $cur; if (-not $shown) { $shown = '(unset)' }
+            Add-Result ('env-' + $e.name) 'INFO' ("{0}={1} (Acer: reported only)" -f $e.name, $shown)
+        }
+    }
+    if ($role -eq 'dell') {
+        $npm = Resolve-Cmd 'npm'
+        if ($npm) {
+            $c = (Invoke-Native -File $npm -Arguments @('config', 'get', 'cache') -TimeoutSec 60).Output.Trim()
+            if ($c -like 'D:\*') { Add-Result 'npm-cache' 'PASS' ("npm cache {0}" -f $c) } else { Add-Result 'npm-cache' 'FAIL' ("npm cache is {0}, expected a D: path" -f $c) }
+        }
+    }
+}
+
+# ------------------------------------------------------------------ D live behaviour
+Test-Section 'D Shells, Starship, tools in a fresh process' {
+    $probe = "'LOADED:' + [bool]`$global:ToolkitStarshipLoaded + ':' + [bool]`$global:ToolkitZoxideLoaded + ':' + `$env:STARSHIP_CONFIG"
+    $editions = @(@{ n = 'powershell-5.1'; exe = (Get-Command powershell.exe).Source })
+    $pw = Resolve-Cmd 'pwsh'
+    if ($pw) { $editions += @{ n = 'pwsh-7'; exe = $pw } } else { Add-Result 'shell-pwsh-7' 'FAIL' 'pwsh not found' }
+    foreach ($ed in $editions) {
+        $sw = [Diagnostics.Stopwatch]::StartNew()
+        $r = Invoke-PSCode -Code $probe -Exe $ed.exe -TimeoutSec 90
+        $sw.Stop()
+        $ms = [int]$sw.ElapsedMilliseconds
+        $loaded = ($r.Output -match 'LOADED:True:True:')
+        $errTxt = (ConvertTo-Ascii $r.Error).Trim()
+        if ($loaded -and -not $errTxt) { Add-Result ('shell-' + $ed.n) 'PASS' ("profile loads; Starship and zoxide initialised; startup {0} ms" -f $ms) @{ startupMs = $ms } }
+        elseif ($loaded) { Add-Result ('shell-' + $ed.n) 'WARN' ("profile loads but wrote to stderr: {0}" -f $errTxt.Substring(0, [math]::Min(160, $errTxt.Length))) @{ startupMs = $ms } }
+        else { Add-Result ('shell-' + $ed.n) 'FAIL' ("profile did not initialise Starship/zoxide. output='{0}' error='{1}'" -f (ConvertTo-Ascii $r.Output).Trim(), $errTxt.Substring(0, [math]::Min(160, $errTxt.Length))) }
+        if ($ms -gt 4000) { Add-Result ('startup-' + $ed.n) 'WARN' ("startup {0} ms is slow (budget 4000)" -f $ms) }
+    }
+    $sx = Resolve-Cmd 'starship'
+    if ($sx) {
+        $cfg = [Environment]::GetEnvironmentVariable('STARSHIP_CONFIG', 'User')
+        $r = Invoke-Native -File $sx -Arguments @('print-config') -TimeoutSec 40 -Env @{ STARSHIP_CONFIG = $cfg }
+        if ($r.ExitCode -eq 0 -and $r.Output.Length -gt 100) { Add-Result 'starship-config' 'PASS' 'starship print-config parses the shared config' } else { Add-Result 'starship-config' 'FAIL' ("print-config exit {0}: {1}" -f $r.ExitCode, (ConvertTo-Ascii $r.Error).Trim()) }
+        $r2 = Invoke-Native -File $sx -Arguments @('prompt') -TimeoutSec 40 -Env @{ STARSHIP_CONFIG = $cfg }
+        if ($r2.ExitCode -eq 0 -and $r2.Output.Length -gt 5) { Add-Result 'starship-render' 'PASS' ("starship prompt rendered {0} characters" -f $r2.Output.Length) } else { Add-Result 'starship-render' 'FAIL' ("prompt exit {0}" -f $r2.ExitCode) }
+    } else { Add-Result 'starship-render' 'FAIL' 'starship not found' }
+    $zx = Resolve-Cmd 'zoxide'
+    if ($zx) {
+        $r = Invoke-Native -File $zx -Arguments @('init', 'powershell') -TimeoutSec 30
+        if ($r.ExitCode -eq 0 -and $r.Output.Length -gt 50) { Add-Result 'zoxide-init' 'PASS' 'zoxide init powershell works' } else { Add-Result 'zoxide-init' 'FAIL' 'zoxide init failed' }
+    }
+    # Ollama: who answers on 11434 (information only)
+    try {
+        $o = Invoke-RestMethod -Uri 'http://127.0.0.1:11434/api/version' -TimeoutSec 5
+        Add-Result 'ollama-port' 'INFO' ("port 11434 answers with server version {0} (the WSL Ollama on the Dell until Build 5 decides)" -f $o.version)
+    } catch { Add-Result 'ollama-port' 'INFO' 'nothing answers on 127.0.0.1:11434' }
+}
+
+# ------------------------------------------------------------------ E MCP launch commands
+Test-Section 'E MCP launch commands (names only)' {
+    $seen = 0
+    foreach ($cf in $m.mcp.configFiles) {
+        $path = Expand-ToolkitPath $cf.path $global:TK.Vault
+        if (-not (Test-Path -LiteralPath $path)) { Add-Result ('mcp-file-' + $cf.label) 'INFO' 'file not present'; continue }
+        $servers = @()
+        try {
+            if ($path -like '*.toml') {
+                $cur = $null
+                foreach ($line in ([IO.File]::ReadAllLines($path))) {
+                    $mh = [regex]::Match($line, '^\s*\[mcp_servers\.([^\].]+)(\..*)?\]\s*$')
+                    if ($mh.Success) { $cur = $mh.Groups[1].Value; if (-not ($servers | Where-Object { $_.name -eq $cur })) { $servers += [pscustomobject]@{ name = $cur; command = $null } }; continue }
+                    if ($line -match '^\s*\[') { $cur = $null; continue }
+                    $mc = [regex]::Match($line, '^\s*command\s*=\s*"([^"]+)"')
+                    if ($cur -and $mc.Success) { ($servers | Where-Object { $_.name -eq $cur }).command = $mc.Groups[1].Value }
+                }
+            } else {
+                $d = Read-JsonLoose $path
+                foreach ($key in 'mcpServers', 'servers') {
+                    if ($d -is [System.Collections.IDictionary] -and $d.Contains($key) -and ($d[$key] -is [System.Collections.IDictionary])) {
+                        foreach ($name in $d[$key].Keys) {
+                            $entry = $d[$key][$name]
+                            $cmd = $null
+                            if ($entry -is [System.Collections.IDictionary] -and $entry.Contains('command')) { $cmd = [string]$entry['command'] }
+                            $servers += [pscustomobject]@{ name = [string]$name; command = $cmd }
+                        }
+                    }
+                }
+            }
+        } catch { Add-Result ('mcp-file-' + $cf.label) 'WARN' ("could not read: " + $_.Exception.Message); continue }
+        if ($servers.Count -eq 0) { Add-Result ('mcp-file-' + $cf.label) 'INFO' 'no servers found'; continue }
+        foreach ($sv in $servers) {
+            $seen++
+            $purpose = $m.mcp.purposes.($sv.name)
+            if (-not $purpose) { $purpose = '' }
+            if (-not $sv.command) { Add-Result ('mcp-' + $cf.label + '-' + $sv.name) 'INFO' 'remote/url server, no local launch command (url not printed)' @{ purpose = $purpose }; continue }
+            $cmdName = $sv.command
+            $ok = $false
+            if ($cmdName -match '[\\/]') { $ok = Test-Path -LiteralPath ([Environment]::ExpandEnvironmentVariables($cmdName)) } else { $ok = [bool](Get-Command $cmdName -ErrorAction SilentlyContinue) }
+            if ($ok) { Add-Result ('mcp-' + $cf.label + '-' + $sv.name) 'PASS' ("command '{0}' resolves" -f $cmdName) @{ command = $cmdName; purpose = $purpose } }
+            else { Add-Result ('mcp-' + $cf.label + '-' + $sv.name) 'WARN' ("command '{0}' does not resolve" -f $cmdName) @{ command = $cmdName } }
+        }
+    }
+    Add-Result 'mcp-total' 'INFO' ("{0} server entries inspected (names and command names only; args, env and urls never read into output)" -f $seen)
+}
+
+# ------------------------------------------------------------------ lock
+$failCount = @($global:TK.Items | Where-Object { $_.status -eq 'FAIL' }).Count
+if ($WriteLock) {
+    if ($role -ne 'dell') { Add-Result 'lock-write' 'WARN' 'lock is written on the Dell only; skipped' }
+    elseif ($failCount -gt 0) { Add-Result 'lock-write' 'FAIL' ("not written: {0} check(s) failed" -f $failCount) }
+    else {
+        $obj = [ordered]@{ schema = 1; created = (Get-Date).ToString('s'); host = $global:TK.Host; machine = $role; manifestSha256 = $global:TK.ManifestHash; tools = $lockTools; configs = $lockConfigs }
+        $lp = Join-Path $global:TK.Root 'toolkit.lock.json'
+        Write-Utf8NoBom -Path $lp -Text ((ConvertTo-Json -InputObject ([pscustomobject]$obj) -Depth 8) + "`n")
+        Add-Result 'lock-write' 'PASS' ("wrote {0} with {1} tools and {2} config hashes" -f $lp, $lockTools.Count, $lockConfigs.Count)
+    }
+}
+Complete-Toolkit
+
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\_lib.ps1`
+```diff
+- # ---------------------------------------------------------------- planning
++ # ---------------------------------------------------------------- MCP inventory (names and command names only)
+function Get-McpInventory {
+    # Returns one row per configured server: file label, name, command (or $null for url servers), resolves, purpose, note.
+    # Arguments, environment values and urls are never read into the output.
+    $rows = New-Object System.Collections.Generic.List[object]
+    $m = $global:TK.Manifest
+    foreach ($cf in $m.mcp.configFiles) {
+        $path = Expand-ToolkitPath $cf.path $global:TK.Vault
+        if (-not (Test-Path -LiteralPath $path)) { $rows.Add([pscustomobject]@{ file = $cf.label; name = '(file absent)'; command = $null; resolves = $null; purpose = ''; note = 'file not present' }); continue }
+        $servers = @()
+        try {
+            if ($path -like '*.toml') {
+                $cur = $null
+                foreach ($line in ([IO.File]::ReadAllLines($path))) {
+                    $mh = [regex]::Match($line, '^\s*\[mcp_servers\.([^\].]+)(\..*)?\]\s*$')
+                    if ($mh.Success) { $cur = $mh.Groups[1].Value; if (-not ($servers | Where-Object { $_.name -eq $cur })) { $servers += [pscustomobject]@{ name = $cur; command = $null } }; continue }
+                    if ($line -match '^\s*\[') { $cur = $null; continue }
+                    $mc = [regex]::Match($line, '^\s*command\s*=\s*"([^"]+)"')
+                    if ($cur -and $mc.Success) { ($servers | Where-Object { $_.name -eq $cur }).command = $mc.Groups[1].Value }
+                }
+            } else {
+                $d = Read-JsonLoose $path
+                foreach ($key in 'mcpServers', 'servers') {
+                    if ($d -is [System.Collections.IDictionary] -and $d.Contains($key) -and ($d[$key] -is [System.Collections.IDictionary])) {
+                        foreach ($name in $d[$key].Keys) {
+                            $entry = $d[$key][$name]
+                            $cmd = $null
+                            if ($entry -is [System.Collections.IDictionary] -and $entry.Contains('command')) { $cmd = [string]$entry['command'] }
+                            $servers += [pscustomobject]@{ name = [string]$name; command = $cmd }
+                        }
+                    }
+                }
+            }
+        } catch { $rows.Add([pscustomobject]@{ file = $cf.label; name = '(unreadable)'; command = $null; resolves = $null; purpose = ''; note = ('could not read: ' + $_.Exception.Message) }); continue }
+        if ($servers.Count -eq 0) { $rows.Add([pscustomobject]@{ file = $cf.label; name = '(none)'; command = $null; resolves = $null; purpose = ''; note = 'no servers found' }); continue }
+        foreach ($sv in $servers) {
+            $purpose = $m.mcp.purposes.($sv.name)
+            if (-not $purpose) { $purpose = '' }
+            $ok = $null
+            $note = ''
+            if (-not $sv.command) { $note = 'remote/url server, no local launch command (url not printed)' }
+            else {
+                if ($sv.command -match '[\\/]') { $ok = Test-Path -LiteralPath ([Environment]::ExpandEnvironmentVariables($sv.command)) }
+                else { $ok = [bool](Get-Command $sv.command -ErrorAction SilentlyContinue) }
+            }
+            $rows.Add([pscustomobject]@{ file = $cf.label; name = $sv.name; command = $sv.command; resolves = $ok; purpose = $purpose; note = $note })
+        }
+    }
+    return @($rows)
+}
+
+# ---------------------------------------------------------------- planning
+```
+- `Bash` -- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis/40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild/Windows Toolkit/_scripts" && python3 - <<'EOF'
+import re
+p='99-verify.ps1'
+s=open(p,encoding='ascii').read()
+a=s.index("Test-Section 'E MCP launch commands (names only)' {")
+b=s.index("# ------------------------------------------------------------------ lock")
+new='''Test-Section 'E MCP launch commands (names only)' {
+    $inv = Get-McpInventory
+    $seen = 0
+    foreach ($r in $inv) {
+        $id = 'mcp-' + $r.file + '-' + $r.name
+        if ($r.name -like '(*') { Add-Result $id 'INFO' $r.note; continue }
+        $seen++
+        if (-not $r.command) { Add-Result $id 'INFO' $r.note @{ purpose = $r.purpose }; continue }
+        if ($r.resolves) { Add-Result $id 'PASS' ("command '{0}' resolves" -f $r.command) @{ command = $r.command; purpose = $r.purpose } }
+        else { Add-Result $id 'WARN' ("command '{0}' does not resolve" -f $r.command) @{ command = $r.command } }
+    }
+    Add-Result 'mcp-total' 'INFO' ("{0} server entries inspected (names and command names only; args, env and urls are never read into output)" -f $seen)
+}
+
+'''
+s=s[:a]+new+s[b:]
+open(p,'w',encoding='ascii',newline='\n').write(s)
+print('ok')
+EOF
+grep -n "Get-McpInventory" 99-verify.ps1`
+```
+Python was not found; run without arguments to install from the Microsoft Store, or disable this shortcut from Settings > Apps > Advanced app settings > App execution aliases.
+```
+- `PowerShell` -- `{"command":"$p=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\\99-verify.ps1\u0027\n$s=[IO.File]::ReadAllText($p)\n$a=$s.IndexOf(\"Test-Section \u0027E MCP launch commands (names only)\u0027 {\")\n$b=$s.IndexOf(\"# ------------------------------------------------------------------ lock\")\n$new=@\u0027\nTest-Section \u0027E MCP launch commands (names only)\u0027 {\n    $inv = Get-McpInventory\n    $seen = 0\n    foreach ($r in $inv) {\n        $id = \u0027mcp-\u0027 + $r.file + \u0027-\u0027 + $r.name\n        if ($r.name -like \u0027(*\u0027) { Add-Result $id \u0027INFO\u0027 $r.note; continue }\n        $seen++\n        if (-not $r.command) { Add-Result $id \u0027INFO\u0027 $r.note @{ purpose = $r.purpose }; continue }\n        if ($r.resolves) { Add-Result $id \u0027PASS\u0027 (\"command \u0027{0}\u0027 resolves\" -f $r.command) @{ command = $r.command; purpose = $r.purpose } }\n        else { Add-Result $id \u0027WARN\u0027 (\"command \u0027{0}\u0027 does not resolve\" -f $r.command) @{ command = $r.command } }\n    }\n    Add-Result \u0027mcp-total\u0027 \u0027INFO\u0027 (\"{0} server entries inspected (names and command names only; args, env and urls are never read into output)\" -f $seen)\n}\n\n\n\u0027@\n$s2=$s.Substring(0,$a)+$new.Replace(\"`r`n\",\"`n\")+$s.Substring($b)\n[IO.File]::WriteAllText($p,$s2,(New-Object Text.UTF8Encoding($false)))\nSelect-String -Path $p -Pattern \u0027Get-McpInventory\u0027 | % { $_.LineNumber }","description":"Splice shared MCP function into 99-verify"}`
+- `Write` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\40-build-catalog.ps1`
+```
+<#
+40-build-catalog.ps1 - builds the machine catalog: catalog\Tool Catalog - <host>.md and catalog\tool-catalog-<host>.json.
+Read-only on the machine. Reads WSL state only through version probes and file hashes (never prints .bashrc or environment values, never shuts WSL down).
+  -DryRun    gather and print counts, write no catalog files
+  -SkipWsl   skip the WSL probe
+Run in a NORMAL shell after 99-verify.ps1 passes.
+#>
+param([switch]$DryRun, [switch]$SkipWsl, [ValidateSet('dell', 'acer')][string]$Machine)
+
+. "$PSScriptRoot\_lib.ps1"
+$ErrorActionPreference = 'Stop'
+Initialize-Toolkit -Name '40-build-catalog' -DryRun $DryRun.IsPresent -Machine $Machine | Out-Null
+$m = $global:TK.Manifest
+$role = $global:TK.Role
+$hostName = $global:TK.Host
+$catDir = Join-Path $global:TK.Root 'catalog'
+$lock = Read-ToolkitLock
+
+function Md { param($S) if ($null -eq $S) { return '' }; return (([string]$S) -replace '\|', '\|' -replace '\r?\n', ' ') }
+
+# ------------------------------------------------------------------ tools
+Write-Log '--- Tools' 'STEP'
+$toolRows = New-Object System.Collections.Generic.List[object]
+foreach ($t in $m.tools) {
+    $onMachine = Test-ToolOnMachine $t $role
+    if (-not $onMachine -and $t.policy -ne 'catalog-only') { continue }
+    $state = $null
+    if ($t.policy -ne 'catalog-only') { $state = Get-ToolState $t }
+    $info = $null; if ($state -and $state.path) { $info = Get-InstallInfo $state.path }
+    $toolRows.Add([pscustomobject]@{
+            id = $t.id; name = $t.name; category = $t.category; policy = $t.policy
+            installed = $(if ($state) { $state.installed } else { $null })
+            version = $(if ($state) { $state.version } else { $null })
+            path = $(if ($state) { $state.path } else { $null })
+            drive = $(if ($info) { $info.drive } else { $null })
+            sizeMB = $(if ($info) { $info.sizeMB } else { $null })
+            location = $t.location; configs = @($t.configs); purpose = $t.purpose; when = $t.when
+            keyCommands = @($t.keyCommands); runsWhere = $t.runsWhere; agentNotes = $t.agentNotes
+        })
+    Write-Log ("{0,-18} installed={1} version={2}" -f $t.id, $(if ($state) { $state.installed } else { 'n/a' }), $(if ($state) { $state.version } else { '' }))
+}
+Add-Result 'tools' 'INFO' ("{0} manifest tools catalogued" -f $toolRows.Count)
+
+# ------------------------------------------------------------------ unmanifested
+Write-Log '--- Unmanifested software' 'STEP'
+$manifestWinget = @($m.tools | Where-Object { $_.wingetId } | ForEach-Object { $_.wingetId })
+$wingetRows = New-Object System.Collections.Generic.List[object]
+$w = Resolve-Cmd 'winget'
+if ($w) {
+    $r = Invoke-Native -File $w -Arguments @('list', '--accept-source-agreements', '--disable-interactivity') -TimeoutSec 180
+    $lines = @($r.Output -split "`r?`n")
+    $h = -1
+    for ($i = 0; $i -lt $lines.Count; $i++) { if ($lines[$i] -match '^Name\s+Id\s+Version') { $h = $i; break } }
+    if ($h -ge 0) {
+        $hdr = $lines[$h]
+        $iId = $hdr.IndexOf('Id'); $iVer = $hdr.IndexOf('Version'); $iAv = $hdr.IndexOf('Available'); $iSrc = $hdr.IndexOf('Source')
+        $end = $iSrc; if ($end -lt 0) { $end = 1000 }
+        $vEnd = $iAv; if ($vEnd -lt 0) { $vEnd = $end }
+        for ($i = $h + 2; $i -lt $lines.Count; $i++) {
+            $ln = $lines[$i]
+            if ($ln.Length -le $iVer) { continue }
+            $name = $ln.Substring(0, $iId).Trim()
+            $id = $ln.Substring($iId, $iVer - $iId).Trim()
+            $ver = $ln.Substring($iVer, [math]::Min($vEnd, $ln.Length) - $iVer).Trim()
+            if ($manifestWinget -contains $id) { continue }
+            $wingetRows.Add([pscustomobject]@{ name = (ConvertTo-Ascii $name); id = (ConvertTo-Ascii $id); version = (ConvertTo-Ascii $ver) })
+        }
+    }
+}
+$npmGlobals = @()
+$npm = Resolve-Cmd 'npm'
+if ($npm) {
+    $r = Invoke-Native -File $npm -Arguments @('ls', '-g', '--depth=0', '--json') -TimeoutSec 120
+    try { $j = $r.Output | ConvertFrom-Json; if ($j.dependencies) { $npmGlobals = @($j.dependencies.PSObject.Properties | ForEach-Object { [pscustomobject]@{ name = $_.Name; version = $_.Value.version } }) } } catch { }
+}
+$localBin = @()
+$lb = Join-Path $env:USERPROFILE '.local\bin'
+if (Test-Path -LiteralPath $lb) { $localBin = @(Get-ChildItem -LiteralPath $lb -File | ForEach-Object { $_.Name }) }
+$uvTools = @()
+$uvExe = [Environment]::ExpandEnvironmentVariables('%USERPROFILE%\.local\bin\uv.exe')
+if (Test-Path -LiteralPath $uvExe) {
+    $r = Invoke-Native -File $uvExe -Arguments @('tool', 'list') -TimeoutSec 60
+    $uvTools = @($r.Output -split "`r?`n" | Where-Object { $_ -and $_ -notmatch '^\s*-' -and $_ -notmatch 'No tools' })
+}
+$chocoList = @()
+$ch = Resolve-Cmd 'choco'
+if ($ch) {
+    $r = Invoke-Native -File $ch -Arguments @('list', '--limit-output') -TimeoutSec 120
+    $chocoList = @($r.Output -split "`r?`n" | Where-Object { $_ -match '\|' })
+}
+Add-Result 'unmanifested' 'INFO' ("winget rows {0}, npm globals {1}, ~/.local/bin files {2}, uv tools {3}, choco packages {4}" -f $wingetRows.Count, $npmGlobals.Count, $localBin.Count, $uvTools.Count, $chocoList.Count)
+
+# ------------------------------------------------------------------ MCP, configs, env, path
+Write-Log '--- MCP, configs, environment' 'STEP'
+$mcp = @(Get-McpInventory)
+Add-Result 'mcp' 'INFO' ("{0} MCP entries (names and command names only)" -f $mcp.Count)
+$cfgRows = New-Object System.Collections.Generic.List[object]
+foreach ($cfg in $m.configs) {
+    if ($cfg.kind -eq 'copy') {
+        $src = Join-Path $global:TK.Root $cfg.source; $tgt = Expand-ToolkitPath $cfg.target $global:TK.Vault
+        $sh = Get-FileSha256 $src; $th = Get-FileSha256 $tgt
+        $st = 'MISSING'; if ($th -and $th -eq $sh) { $st = 'MATCH' } elseif ($th) { $st = 'DIFF' }
+        $cfgRows.Add([pscustomobject]@{ id = $cfg.id; kind = 'copy'; target = $tgt; sha256 = $th; sourceSha256 = $sh; status = $st })
+    } elseif ($cfg.kind -eq 'profile-block') {
+        $tgt = Expand-ToolkitPath $cfg.target $global:TK.Vault
+        $th = Get-FileSha256 $tgt
+        $has = $false; if ($th) { $has = ([IO.File]::ReadAllText($tgt)).Contains($global:TKBlockBegin) }
+        $st = 'MISSING'; if ($has) { $st = 'BLOCK-PRESENT' } elseif ($th) { $st = 'NO-BLOCK' }
+        $cfgRows.Add([pscustomobject]@{ id = $cfg.id; kind = 'profile'; target = $tgt; sha256 = $th; sourceSha256 = $null; status = $st })
+    }
+}
+$envRows = New-Object System.Collections.Generic.List[object]
+foreach ($e in @($m.env.set) + @($m.env.verify)) {
+    $envRows.Add([pscustomobject]@{ name = $e.name; value = [Environment]::GetEnvironmentVariable($e.name, 'User') })
+}
+$pathRows = @(($env:Path -split ';') | Where-Object { $_ } | Select-Object -First 25)
+$driveRows = @(Get-PSDrive -PSProvider FileSystem | Where-Object { $_.Name -in 'C', 'D' } | ForEach-Object { [pscustomobject]@{ drive = $_.Name + ':'; freeGiB = [math]::Round($_.Free / 1GB, 1); usedGiB = [math]::Round($_.Used / 1GB, 1) } })
+
+# ------------------------------------------------------------------ WSL (read only)
+$wsl = [ordered]@{ probed = $false; distro = $null; tools = @(); localBin = @(); aptManualCount = $null; aptManual = ''; hashes = @(); note = '' }
+if (-not $SkipWsl) {
+    Write-Log '--- WSL read-only probe' 'STEP'
+    $distros = @()
+    try {
+        $distros = @(Get-ChildItem 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Lxss' -ErrorAction Stop | ForEach-Object { (Get-ItemProperty $_.PSPath).DistributionName } | Where-Object { $_ -and $_ -notmatch '^docker-desktop' })
+    } catch { }
+    if ($distros.Count -eq 0) { $wsl.note = 'no WSL distro registered'; Add-Result 'wsl' 'INFO' $wsl.note }
+    else {
+        $distro = $distros[0]
+        $wsl.distro = $distro
+        $hashList = @()
+        $snap = Join-Path $global:TK.Root '..\Acer Dotfile Snapshot\hashes-wsl.txt'
+        $expected = @{}
+        if (Test-Path -LiteralPath $snap) {
+            foreach ($line in (Get-Content -LiteralPath $snap | Select-Object -Skip 1)) {
+                $c = $line -split "`t"
+                if ($c.Count -ge 6 -and $c[1] -like '/home/anant_gupta/*' -and $c[1] -notmatch '\.gitconfig$' -and $c[5] -eq 'MATCH') {
+                    $rel = $c[1].Substring('/home/anant_gupta/'.Length)
+                    if ($rel -notmatch '\s') { $expected[$rel] = $c[3].ToLower() }
+                }
+            }
+        }
+        $sb = New-Object System.Text.StringBuilder
+        [void]$sb.Append("export PATH=`"`$HOME/.local/bin:`$HOME/.cargo/bin:`$PATH`"`n")
+        [void]$sb.Append("for t in starship yazi lazygit delta zoxide atuin sesh tmux ncdu fd fdfind bat batcat fzf rg jq git gh node npm pnpm bun uv pwsh claude codex kiro-cli agy ollama semgrep ruff shfmt shellcheck direnv chafa tailscale docker; do`n")
+        [void]$sb.Append("  p=`$(command -v `$t 2>/dev/null) || continue`n")
+        [void]$sb.Append("  v=`$(timeout 10 `$t --version 2>/dev/null | head -n1)`n")
+        [void]$sb.Append("  echo `"TOOL|`$t|`$p|`$v`"`n")
+        [void]$sb.Append("done`n")
+        [void]$sb.Append("echo `"APTCOUNT|`$(apt-mark showmanual 2>/dev/null | wc -l)`"`n")
+        [void]$sb.Append("echo `"APT|`$(apt-mark showmanual 2>/dev/null | tr '\n' ' ')`"`n")
+        [void]$sb.Append("ls -1 `"`$HOME/.local/bin`" 2>/dev/null | sed 's/^/LOCALBIN|/'`n")
+        foreach ($rel in ($expected.Keys | Sort-Object)) {
+            [void]$sb.Append(("if [ -f `"`$HOME/{0}`" ]; then echo `"HASH|{0}|`$(sha256sum `"`$HOME/{0}`" | cut -d' ' -f1)`"; else echo `"HASH|{0}|MISSING`"; fi`n" -f $rel))
+        }
+        $b64 = [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes($sb.ToString()))
+        $wslExe = Join-Path $env:SystemRoot 'System32\wsl.exe'
+        $r = Invoke-Native -File $wslExe -Arguments @('-d', $distro, '--', 'bash', '-lc', ("echo {0} | base64 -d | bash" -f $b64)) -TimeoutSec 180
+        $out = ($r.Output -replace "`0", '')
+        if ($r.ExitCode -ne 0 -and -not $out) { $wsl.note = ("wsl probe failed (exit {0}): {1}" -f $r.ExitCode, (ConvertTo-Ascii ($r.Error -replace "`0", '')).Trim()); Add-Result 'wsl' 'WARN' $wsl.note }
+        else {
+            $tools = @(); $hashes = @(); $lbin = @()
+            foreach ($line in ($out -split "`r?`n")) {
+                $p = $line -split '\|', 4
+                if ($p[0] -eq 'TOOL' -and $p.Count -ge 4) { $tools += [pscustomobject]@{ tool = $p[1]; path = (ConvertTo-Ascii $p[2]); version = (ConvertTo-Ascii $p[3]) } }
+                elseif ($p[0] -eq 'LOCALBIN' -and $p.Count -ge 2) { $lbin += $p[1] }
+                elseif ($p[0] -eq 'APTCOUNT' -and $p.Count -ge 2) { $wsl.aptManualCount = $p[1].Trim() }
+                elseif ($p[0] -eq 'APT' -and $p.Count -ge 2) { $wsl.aptManual = (ConvertTo-Ascii ($line.Substring(4)).Trim()) }
+                elseif ($p[0] -eq 'HASH' -and $p.Count -ge 3) {
+                    $rel = $p[1]; $got = $p[2].Trim().ToLower()
+                    $st = 'DIFF'; if ($got -eq 'missing') { $st = 'MISSING' } elseif ($got -eq $expected[$rel]) { $st = 'MATCH' }
+                    $hashes += [pscustomobject]@{ file = $rel; status = $st; sha256 = $got; acerSha256 = $expected[$rel] }
+                }
+            }
+            $wsl.probed = $true; $wsl.tools = $tools; $wsl.localBin = $lbin; $wsl.hashes = $hashes
+            $match = @($hashes | Where-Object { $_.status -eq 'MATCH' }).Count
+            Add-Result 'wsl' 'INFO' ("distro {0}: {1} tools found, {2} config files compared with the Acer snapshot ({3} match, {4} differ, {5} missing)" -f $distro, $tools.Count, $hashes.Count, $match, @($hashes | Where-Object { $_.status -eq 'DIFF' }).Count, @($hashes | Where-Object { $_.status -eq 'MISSING' }).Count)
+        }
+    }
+}
+
+# ------------------------------------------------------------------ write
+$generated = Get-Date
+$facts = [ordered]@{
+    host = $hostName; machine = $role; label = $m.machines.$role.label; generated = $generated.ToString('s')
+    manifestSha256 = $global:TK.ManifestHash; lockHost = $(if ($lock) { $lock.host } else { $null }); lockCreated = $(if ($lock) { $lock.created } else { $null })
+    vaultRoot = $global:TK.Vault; drives = $driveRows
+}
+$json = [ordered]@{
+    facts = $facts; tools = @($toolRows); unmanifested = [ordered]@{ winget = @($wingetRows); npmGlobals = $npmGlobals; localBin = $localBin; uvTools = $uvTools; choco = $chocoList }
+    mcp = $mcp; configs = @($cfgRows); env = @($envRows); path = $pathRows; wsl = $wsl
+}
+
+$sbm = New-Object System.Text.StringBuilder
+$day = $generated.ToString('yyyy-MM-dd')
+[void]$sbm.Append("---`ntype: note`nstatus: sprout`ncreated: $day`nupdated: $day`ncourse: Life`ntrack:`n  - laptop`n  - windows`ntags:`n  - note`n  - laptop`nrelated:`n  - `"[[Old Laptop Rebuild - Build 4 Windows Toolkit Findings]]`"`n  - `"[[Installations]]`"`n---`n")
+[void]$sbm.Append("# Tool Catalog - $hostName`n`n")
+[void]$sbm.Append("Generated by ``40-build-catalog.ps1`` on $($generated.ToString('yyyy-MM-dd HH:mm')). Machine: **$($m.machines.$role.label)** (``$role``). Regenerate with the script; do not hand-edit.`n`n")
+[void]$sbm.Append("## Facts`n| Item | Value |`n|---|---|`n")
+[void]$sbm.Append("| Host | $hostName |`n| Vault root | ``$(Md $global:TK.Vault)`` |`n| Manifest SHA-256 | ``$($global:TK.ManifestHash.Substring(0,16))...`` |`n")
+if ($lock) { [void]$sbm.Append("| Lock | written on $(Md $lock.host) at $(Md $lock.created) |`n") } else { [void]$sbm.Append("| Lock | none yet |`n") }
+foreach ($d in $driveRows) { [void]$sbm.Append("| $($d.drive) free | $($d.freeGiB) GiB (used $($d.usedGiB) GiB) |`n") }
+[void]$sbm.Append("`n")
+$cats = @($toolRows | ForEach-Object { $_.category } | Select-Object -Unique)
+foreach ($cat in $cats) {
+    [void]$sbm.Append("## $cat`n")
+    [void]$sbm.Append("| Tool | Version | Where (drive, size) | Config | Purpose | When to reach for it | Key commands | Runs where | Agent notes |`n|---|---|---|---|---|---|---|---|---|`n")
+    foreach ($t in ($toolRows | Where-Object { $_.category -eq $cat })) {
+        $ver = $t.version; if (-not $ver) { if ($t.policy -eq 'catalog-only') { $ver = 'WSL only' } elseif ($t.installed) { $ver = 'installed' } else { $ver = 'not installed' } }
+        $where = $t.path; if (-not $where) { $where = $t.location }
+        $dr = ''; if ($t.drive) { $dr = " ($($t.drive)$(if ($t.sizeMB) { ', ' + $t.sizeMB + ' MB' }))" }
+        $cmds = (@($t.keyCommands) | ForEach-Object { '`' + (Md $_) + '`' }) -join '<br>'
+        [void]$sbm.Append("| **$(Md $t.name)** | $(Md $ver) | $(Md $where)$(Md $dr) | $(Md ($t.configs -join ', ')) | $(Md $t.purpose) | $(Md $t.when) | $cmds | $(Md $t.runsWhere) | $(Md $t.agentNotes) |`n")
+    }
+    [void]$sbm.Append("`n")
+}
+[void]$sbm.Append("## MCP servers (names and launch commands only)`n| Config | Server | Command | Resolves | Purpose |`n|---|---|---|---|---|`n")
+foreach ($r in $mcp) {
+    $res = ''; if ($null -ne $r.resolves) { $res = $(if ($r.resolves) { 'yes' } else { 'NO' }) }
+    $cmdTxt = ''; if ($r.command) { $cmdTxt = '`' + (Md $r.command) + '`' } else { $cmdTxt = Md $r.note }
+    [void]$sbm.Append("| $(Md $r.file) | $(Md $r.name) | $cmdTxt | $res | $(Md $r.purpose) |`n")
+}
+[void]$sbm.Append("`n## Config files and hashes`n| Config | Kind | Target | Status | SHA-256 |`n|---|---|---|---|---|`n")
+foreach ($c in $cfgRows) { $hs = ''; if ($c.sha256) { $hs = '`' + $c.sha256.Substring(0, 16) + '...`' }; [void]$sbm.Append("| $(Md $c.id) | $(Md $c.kind) | $(Md $c.target) | $(Md $c.status) | $hs |`n") }
+[void]$sbm.Append("`n## Environment variables (user scope)`n| Name | Value |`n|---|---|`n")
+foreach ($e in $envRows) { $v = $e.value; if (-not $v) { $v = '(unset)' }; [void]$sbm.Append("| $(Md $e.name) | ``$(Md $v)`` |`n") }
+[void]$sbm.Append("`n## PATH order (first 25)`n")
+$n = 0; foreach ($p in $pathRows) { $n++; [void]$sbm.Append("$n. ``$(Md $p)```n") }
+[void]$sbm.Append("`n## Unmanifested software`nEverything found on the machine that the manifest does not manage. Listed so nothing is invisible.`n`n")
+[void]$sbm.Append("### winget (not in the manifest)`n| Name | Id | Version |`n|---|---|---|`n")
+foreach ($r in $wingetRows) { [void]$sbm.Append("| $(Md $r.name) | $(Md $r.id) | $(Md $r.version) |`n") }
+[void]$sbm.Append("`n### npm globals`n")
+foreach ($r in $npmGlobals) { [void]$sbm.Append("- $(Md $r.name) $(Md $r.version)`n") }
+[void]$sbm.Append("`n### ~/.local/bin`n$(Md ($localBin -join ', '))`n`n### uv tools`n")
+foreach ($r in $uvTools) { [void]$sbm.Append("- $(Md $r)`n") }
+[void]$sbm.Append("`n### Chocolatey`n")
+foreach ($r in $chocoList) { [void]$sbm.Append("- $(Md $r)`n") }
+[void]$sbm.Append("`n## WSL (read-only probe)`n")
+if ($wsl.probed) {
+    [void]$sbm.Append("Distro ``$($wsl.distro)``. apt manual packages: $($wsl.aptManualCount). WSL configs are replaced by Build 5; this table is the before picture.`n`n")
+    [void]$sbm.Append("| Tool | Version | Path |`n|---|---|---|`n")
+    foreach ($t in $wsl.tools) { [void]$sbm.Append("| $(Md $t.tool) | $(Md $t.version) | $(Md $t.path) |`n") }
+    [void]$sbm.Append("`n| WSL config file | Versus Acer snapshot |`n|---|---|`n")
+    foreach ($h in ($wsl.hashes | Sort-Object file)) { [void]$sbm.Append("| ~/$(Md $h.file) | $($h.status) |`n") }
+    [void]$sbm.Append("`n### apt manual packages`n$(Md $wsl.aptManual)`n")
+} else { [void]$sbm.Append("Not probed: $(Md $wsl.note)`n") }
+
+if ($DryRun) {
+    Add-Result 'catalog-write' 'PLAN' ("[DRYRUN] would write 'Tool Catalog - {0}.md' ({1} chars) and tool-catalog-{0}.json" -f $hostName, $sbm.Length)
+} else {
+    New-Item -ItemType Directory -Force -Path $catDir | Out-Null
+    $mdPath = Join-Path $catDir ("Tool Catalog - {0}.md" -f $hostName)
+    $jsPath = Join-Path $catDir ("tool-catalog-{0}.json" -f $hostName)
+    $mdText = $sbm.ToString()
+    if ((Get-SecretHitCount $mdText) -gt 0) { Add-Result 'catalog-write' 'FAIL' 'catalog text matches a secret pattern; not written (text not shown)' }
+    else {
+        Write-Utf8NoBom -Path $mdPath -Text $mdText
+        Write-Utf8NoBom -Path $jsPath -Text ((ConvertTo-Json -InputObject ([pscustomobject]$json) -Depth 8) + "`n")
+        Add-Result 'catalog-write' 'PASS' ("wrote {0} and {1}" -f $mdPath, $jsPath) @{ md = $mdPath; json = $jsPath }
+    }
+}
+Complete-Toolkit
+
+```
+- `PowerShell` -- `{"command":"$dir=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\u0027\nforeach($f in Get-ChildItem $dir -Filter *.ps1 | Sort Name){\n  $bytes=[IO.File]::ReadAllBytes($f.FullName); $bad=0; foreach($b in $bytes){ if($b -gt 127){$bad++} }\n  $crlf = ([IO.File]::ReadAllText($f.FullName)).Contains(\"`r`n\")\n  $errs=$null;$tok=$null\n  [void][System.Management.Automation.Language.Parser]::ParseFile($f.FullName,[ref]$tok,[ref]$errs)\n  \"{0,-24} bytes={1,6} nonASCII={2} CRLF={3} parseErrors={4}\" -f $f.Name,$bytes.Length,$bad,$crlf,@($errs).Count\n  foreach($e in @($errs)){ \"   line {0}: {1}\" -f $e.Extent.StartLineNumber,$e.Message }\n}\n$j = Get-Content \u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\toolkit.json\u0027 -Raw | ConvertFrom-Json\n\"manifest tools: \" + $j.tools.Count\n$tb=[IO.File]::ReadAllBytes(\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\toolkit.json\u0027); $nb=0; foreach($b in $tb){ if($b -gt 127){$nb++} }; \"toolkit.json non-ASCII bytes: $nb\"\n$fr = Get-Content \u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\configs\\terminal\\toolkit-fragment.json\u0027 -Raw | ConvertFrom-Json; \"fragment ok: \" + $fr.scheme.name","description":"Parse-check all scripts and JSON"}`
+- `PowerShell` -- `{"command":"$s=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\\00-preflight.ps1\u0027\npowershell.exe -NoProfile -ExecutionPolicy Bypass -File $s 2\u003e\u00261 | ForEach-Object { \"$_\" }\n\"EXIT: $LASTEXITCODE\"","description":"Run 00-preflight (read-only) on the Dell","timeout":600000}`
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\_lib.ps1`
+```diff
+-     $all = Resolve-CmdAll $Name
+    if ($all.Count -eq 0) { return $null }
+    return $all[0]
++     $all = @(Resolve-CmdAll $Name)
+    if ($all.Count -eq 0) { return $null }
+    return [string]$all[0]
+```
+- `PowerShell` -- `{"command":"$lib=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\\_lib.ps1\u0027\n$code=@\u0027\n. $args[0]\n$counts=@{ PASS=2; INFO=1 }\n$items = New-Object System.Collections.Generic.List[object]\n$items.Add([pscustomobject]@{id=\u0027a\u0027;status=\u0027PASS\u0027})\ntry { $r=[ordered]@{ script=\u0027x\u0027; counts=$counts }; \"A ok\" } catch { \"A fail: $($_.Exception.Message)\" }\ntry { $r=[ordered]@{ script=\u0027x\u0027; items=@($items) }; \"B ok\" } catch { \"B fail: $($_.Exception.Message)\" }\ntry { $r=[ordered]@{ script=\u0027x\u0027; started=(Get-Date).ToString(\u0027s\u0027); admin=$false; log=\u0027y\u0027 }; \"C ok\" } catch { \"C fail: $($_.Exception.Message)\" }\ntry { $r=[ordered]@{ host=\u0027x\u0027; machine=\u0027y\u0027; dryRun=$false }; \"D ok\" } catch { \"D fail: $($_.Exception.Message)\" }\ntry { $r=[ordered]@{ manifestSha256=\u0027x\u0027; vaultRoot=\u0027y\u0027; counts=$counts; items=@($items) }; \"E ok\" } catch { \"E fail: $($_.Exception.Message)\" }\n\u0027@\n$tmp=Join-Path $env:TEMP \u0027tkdbg.ps1\u0027; [IO.File]::WriteAllText($tmp,$code)\npowershell.exe -NoProfile -ExecutionPolicy Bypass -File $tmp $lib 2\u003e\u00261 | % { \"$_\" }","description":"Isolate the ordered-dictionary error"}`
+- `PowerShell` -- `{"command":"$p=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\\_lib.ps1\u0027\n$s=[IO.File]::ReadAllText($p)\n$s=$s.Replace(\"log = `$global:TK.LogFile; counts = `$counts; items = @(`$items)\",\"log = `$global:TK.LogFile; counts = `$counts; items = `$items.ToArray()\")\n$s=$s.Replace(\"(ConvertTo-Json -InputObject @(`$global:TK.Backups) -Depth 4)\",\"(ConvertTo-Json -InputObject `$global:TK.Backups.ToArray() -Depth 4)\")\n[IO.File]::WriteAllText($p,$s,(New-Object Text.UTF8Encoding($false)))\nSelect-String -Path $p -Pattern \u0027ToArray\u0027 | % { \"{0}: {1}\" -f $_.LineNumber,$_.Line.Trim() }\n$code=@\u0027\n$items = New-Object System.Collections.Generic.List[object]\n$items.Add([pscustomobject]@{id=\u0027a\u0027;status=\u0027PASS\u0027})\n$r=[ordered]@{ script=\u0027x\u0027; items=$items.ToArray() }\nConvertTo-Json -InputObject ([pscustomobject]$r) -Depth 6\n\u0027@\n$tmp=Join-Path $env:TEMP \u0027tkdbg2.ps1\u0027; [IO.File]::WriteAllText($tmp,$code)\npowershell.exe -NoProfile -ExecutionPolicy Bypass -File $tmp 2\u003e\u00261 | % { \"$_\" }","description":"Apply ToArray fix and test serialization"}`
+- `PowerShell` -- `{"command":"$d=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\u0027\n$u=New-Object Text.UTF8Encoding($false)\n$p=\"$d\\40-build-catalog.ps1\"; $s=[IO.File]::ReadAllText($p)\nforeach($n in \u0027toolRows\u0027,\u0027wingetRows\u0027,\u0027cfgRows\u0027,\u0027envRows\u0027){ $s=$s.Replace(\"@(`$$n)\",\"`$$n.ToArray()\") }\n[IO.File]::WriteAllText($p,$s,$u)\n$p=\"$d\\20-apply-configs.ps1\"; $s=[IO.File]::ReadAllText($p)\n$s=$s.Replace(\"@(`$hashRows)\",\"`$hashRows.ToArray()\")\n[IO.File]::WriteAllText($p,$s,$u)\nSelect-String -Path \"$d\\40-build-catalog.ps1\",\"$d\\20-apply-configs.ps1\" -Pattern \u0027\\.ToArray\\(\\)|@\\(\\$(toolRows|wingetRows|cfgRows|envRows|hashRows)\u0027 | % { \"{0}:{1}: {2}\" -f (Split-Path $_.Path -Leaf),$_.LineNumber,$_.Line.Trim().Substring(0,[math]::Min(110,$_.Line.Trim().Length)) }","description":"Replace List-to-array conversions in catalog and apply scripts"}`
+- `PowerShell` -- `{"command":"$s=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\\00-preflight.ps1\u0027\n$out = powershell.exe -NoProfile -ExecutionPolicy Bypass -File $s 2\u003e\u00261 | ForEach-Object { \"$_\" }\n\"EXIT: $LASTEXITCODE\"\n$i = ($out | Select-String -Pattern \u0027Manifest versus reality\u0027 | Select-Object -First 1).LineNumber\n$out | Select-Object -Skip ($i-1) -First 75","description":"Re-run preflight after fixes and show the plan section","timeout":600000}`
+- `PowerShell` -- `{"command":"$code=@\u0027\n. $args[0]\n$w = Resolve-Cmd \u0027winget\u0027\n\"winget: $w\"\n$r = Invoke-Native -File $w -Arguments @(\u0027list\u0027,\u0027--id\u0027,\u0027Anysphere.Cursor\u0027,\u0027--exact\u0027,\[REDACTED]\u0027,\[REDACTED]\u0027) -TimeoutSec 120\n\"exit: $($r.ExitCode)\"\n\"--- stdout (escaped)\"\n($r.Output -replace \"`r\",\"\u003cCR\u003e\" -replace \"`n\",\"\u003cLF\u003e`n\")\n\"--- stderr\"\n$r.Error\n\"version: \" + (Get-WingetInstalledVersion \u0027Anysphere.Cursor\u0027)\n\u0027@\n$tmp=Join-Path $env:TEMP \u0027tkdbg3.ps1\u0027; [IO.File]::WriteAllText($tmp,$code)\npowershell.exe -NoProfile -ExecutionPolicy Bypass -File $tmp \u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\\_lib.ps1\u0027 2\u003e\u00261 | % { \"$_\" }","description":"Debug winget list parsing","timeout":200000}`
+- `PowerShell` -- `{"command":"$p=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\\_lib.ps1\u0027\n$s=[IO.File]::ReadAllText($p)\n$a=$s.IndexOf(\"    foreach (`$line in (`$r.Output -split `\"``r?``n`\")) {`n        if (`$line -match (\u0027(^|\\s)\u0027 + [regex]::Escape(`$Id) + \u0027(\\s|`$)\u0027)) {\")\n$b=$s.IndexOf(\"function Invoke-WingetAction\")\n\"a=$a b=$b\"\n$old=$s.Substring($a,$b-$a)\n$old","description":"Locate the winget parsing block to replace"}`
+- `PowerShell` -- `{"command":"$p=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\\_lib.ps1\u0027\n$s=[IO.File]::ReadAllText($p)\n$a=$s.IndexOf(\"    foreach (`$line in (`$r.Output -split `\"``r?``n`\")) {`n        if (`$line -match (\u0027(^|\\s)\u0027 + [regex]::Escape(`$Id) + \u0027(\\s|`$)\u0027)) {\")\n$b=$s.IndexOf(\"function Invoke-WingetAction\")\n$new=@\u0027\n    $rx = \u0027(?:^|\\s)\u0027 + [regex]::Escape($Id) + \u0027\\s+(?:[\u003c\u003e~=]+\\s*)?(\\S+)\u0027\n    foreach ($line in ($r.Output -split \"`r?`n\")) {\n        $mm = [regex]::Match($line, $rx)\n        if ($mm.Success) { return $mm.Groups[1].Value }\n    }\n    return $null\n}\n\n\u0027@.Replace(\"`r`n\",\"`n\")\n$s2=$s.Substring(0,$a)+$new+$s.Substring($b)\n[IO.File]::WriteAllText($p,$s2,(New-Object Text.UTF8Encoding($false)))\n$errs=$null;$tok=$null; [void][System.Management.Automation.Language.Parser]::ParseFile($p,[ref]$tok,[ref]$errs); \"parse errors: \" + @($errs).Count\n$tmp=Join-Path $env:TEMP \u0027tkdbg4.ps1\u0027\n[IO.File]::WriteAllText($tmp,@\u0027\n. $args[0]\nforeach($i in \u0027Anysphere.Cursor\u0027,\u0027Microsoft.WindowsTerminal\u0027,\u0027Docker.DockerDesktop\u0027,\u0027Ollama.Ollama\u0027,\u0027Git.Git\u0027,\u0027OpenJS.NodeJS.22\u0027,\u0027Amazon.Kiro\u0027,\u0027Tailscale.Tailscale\u0027,\u0027Anaconda.Miniconda3\u0027,\u0027OCaml.opam\u0027){ \"{0} =\u003e {1}\" -f $i,(Get-WingetInstalledVersion $i) }\n\u0027@)\npowershell.exe -NoProfile -ExecutionPolicy Bypass -File $tmp $p 2\u003e\u00261 | % { \"$_\" }","description":"Fix winget version parsing and test on real packages","timeout":300000}`
+- `PowerShell` -- `{"command":"$s=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\\10-install-toolkit.ps1\u0027\n$out = powershell.exe -NoProfile -ExecutionPolicy Bypass -File $s -DryRun 2\u003e\u00261 | ForEach-Object { \"$_\" }\n\"EXIT: $LASTEXITCODE\"\n$i = ($out | Select-String -Pattern \u0027^ID \u0027 | Select-Object -First 1).LineNumber\n$out | Select-Object -Skip ($i-1)\n\"--- first lines\"\n$out | Select-Object -First 8","description":"Dry-run 10-install-toolkit on the Dell","timeout":600000}`
+- `PowerShell` -- `{"command":"$s=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\\20-apply-configs.ps1\u0027\n$out = powershell.exe -NoProfile -ExecutionPolicy Bypass -File $s -DryRun 2\u003e\u00261 | ForEach-Object { \"$_\" }\n\"EXIT: $LASTEXITCODE\"\n$out | Select-Object -Last 40","description":"Dry-run 20-apply-configs on the Dell","timeout":300000}`
+- `PowerShell` -- `{"command":"$sp=\"C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\[REDACTED]\\scratchpad\"\n$t=Join-Path $sp \u0027wt-test\u0027; Remove-Item $t -Recurse -Force -ErrorAction SilentlyContinue; New-Item -ItemType Directory -Force $t | Out-Null\nCopy-Item \"$env:LOCALAPPDATA\\Packages\\Microsoft.[REDACTED]\\LocalState\\settings.json\" \"$t\\dell-settings.json\"\nCopy-Item \u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Acer Dotfile Snapshot\\windows\\terminal\\settings.json\u0027 \"$t\\acer-settings.json\"\n$s=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\\20-apply-configs.ps1\u0027\nforeach($case in @(@(\u0027dell\u0027,\u0027dell-settings.json\u0027),@(\u0027acer\u0027,\u0027acer-settings.json\u0027))){\n  \"=== $($case[0]) first run\"\n  powershell.exe -NoProfile -ExecutionPolicy Bypass -File $s -Only terminal -Machine $case[0] -TerminalSettingsPath \"$t\\$($case[1])\" -BackupBase \"$t\\bk\" 2\u003e\u00261 | % { \"$_\" } | Select-String \u0027terminal|SUMMARY|FAIL|MANUAL\u0027 | % { $_.Line }\n  \"=== $($case[0]) second run (idempotence)\"\n  powershell.exe -NoProfile -ExecutionPolicy Bypass -File $s -Only terminal -Machine $case[0] -TerminalSettingsPath \"$t\\$($case[1])\" -BackupBase \"$t\\bk\" 2\u003e\u00261 | % { \"$_\" } | Select-String \u0027terminal \u0027 | % { $_.Line }\n}\n\"=== merged dell result (summary)\"\n$j = Get-Content \"$t\\dell-settings.json\" -Raw | ConvertFrom-Json\n\"defaultProfile: $($j.defaultProfile)\"; \"font: $($j.profiles.defaults.font.face)  scheme: $($j.profiles.defaults.colorScheme)  opacity: $($j.profiles.defaults.opacity) acrylic: $($j.profiles.defaults.useAcrylic) cursor: $($j.profiles.defaults.cursorColor)\"\n\"profiles: \" + (($j.profiles.list | % { $_.name }) -join \u0027 | \u0027)\n\"keybindings: \" + (($j.keybindings | % { $_.keys }) -join \u0027, \u0027)\n\"actions: \" + (($j.actions | % { $_.id }) -join \u0027, \u0027)\n\"schemes: \" + (($j.schemes | % { $_.name }) -join \u0027, \u0027)\n\"=== merged acer result (summary)\"\n$j = Get-Content \"$t\\acer-settings.json\" -Raw | ConvertFrom-Json\n\"defaultProfile: $($j.defaultProfile)\"; \"profiles: \" + (($j.profiles.list | % { $_.name }) -join \u0027 | \u0027)\n\"keybindings: \" + (($j.keybindings | % { \"$($_.keys)=$($_.id)\" }) -join \u0027, \u0027)\n\"first bytes (BOM check): \" + (([IO.File]::ReadAllBytes(\"$t\\dell-settings.json\")[0..2]) -join \u0027,\u0027)\n\"lines CRLF? \" + ([IO.File]::ReadAllText(\"$t\\dell-settings.json\").Contains(\"`r`n\"))","description":"Test Terminal merge on copies of Dell and Acer settings","timeout":300000}`
+- `PowerShell` -- `{"command":"$p=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\\_lib.ps1\u0027\n$s=[IO.File]::ReadAllText($p)\n$old=\"    `$flat = (`$Path -replace \u0027[:\\\\/ ]\u0027, \u0027_\u0027)`n    `$dest = Join-Path `$dir `$flat\"\n\"found: \" + $s.Contains($old)\n$new=\"    `$flat = (Get-TextSha256 `$Path).Substring(0, 8) + \u0027_\u0027 + (Split-Path -Leaf `$Path)`n    `$dest = Join-Path `$dir `$flat\"\n$s=$s.Replace($old,$new)\n[IO.File]::WriteAllText($p,$s,(New-Object Text.UTF8Encoding($false)))\n$errs=$null;$tok=$null; [void][System.Management.Automation.Language.Parser]::ParseFile($p,[ref]$tok,[ref]$errs); \"parse errors: \" + @($errs).Count","description":"Shorten backup file names to avoid path-length failures"}`
+- `PowerShell` -- `{"command":"$sp=\"C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\[REDACTED]\\scratchpad\"\n$t=Join-Path $sp \u0027wt-test\u0027; Remove-Item $t -Recurse -Force -ErrorAction SilentlyContinue; New-Item -ItemType Directory -Force $t | Out-Null\nCopy-Item \"$env:LOCALAPPDATA\\Packages\\Microsoft.[REDACTED]\\LocalState\\settings.json\" \"$t\\dell-settings.json\"\nCopy-Item \u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Acer Dotfile Snapshot\\windows\\terminal\\settings.json\u0027 \"$t\\acer-settings.json\"\n$s=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\\20-apply-configs.ps1\u0027\nforeach($case in @(@(\u0027dell\u0027,\u0027dell-settings.json\u0027),@(\u0027acer\u0027,\u0027acer-settings.json\u0027))){\n  \"=== $($case[0]) first run\"\n  powershell.exe -NoProfile -ExecutionPolicy Bypass -File $s -Only terminal -Machine $case[0] -TerminalSettingsPath \"$t\\$($case[1])\" -BackupBase \"$t\\bk\" 2\u003e\u00261 | % { \"$_\" } | Select-String \u0027CHANGED|UNCHANGED|SUMMARY|FAIL|MANUAL\u0027 | % { $_.Line }\n  \"=== $($case[0]) second run (idempotence)\"\n  powershell.exe -NoProfile -ExecutionPolicy Bypass -File $s -Only terminal -Machine $case[0] -TerminalSettingsPath \"$t\\$($case[1])\" -BackupBase \"$t\\bk\" 2\u003e\u00261 | % { \"$_\" } | Select-String \u0027CHANGED|UNCHANGED|FAIL|MANUAL\u0027 | % { $_.Line }\n}\n\"=== merged dell result\"\n$j = Get-Content \"$t\\dell-settings.json\" -Raw | ConvertFrom-Json\n\"defaultProfile: $($j.defaultProfile)\"; \"font: $($j.profiles.defaults.font.face)  scheme: $($j.profiles.defaults.colorScheme)  opacity: $($j.profiles.defaults.opacity) acrylic: $($j.profiles.defaults.useAcrylic) cursor: $($j.profiles.defaults.cursorColor) scrollbar: $($j.profiles.defaults.scrollbarState)\"\n\"profiles: \" + (($j.profiles.list | % { $_.name }) -join \u0027 | \u0027)\n\"keybindings: \" + (($j.keybindings | % { $_.keys }) -join \u0027, \u0027)\n\"actions: \" + (($j.actions | % { $_.id }) -join \u0027, \u0027)\n\"schemes: \" + (($j.schemes | % { $_.name }) -join \u0027, \u0027)\n\"newTabMenu kept: \" + ($j.newTabMenu | ConvertTo-Json -Compress)\n\"=== merged acer result\"\n$j = Get-Content \"$t\\acer-settings.json\" -Raw | ConvertFrom-Json\n\"defaultProfile: $($j.defaultProfile)  font: $($j.profiles.defaults.font.face)  scheme: $($j.profiles.defaults.colorScheme)\"\n\"profiles: \" + (($j.profiles.list | % { $_.name }) -join \u0027 | \u0027)\n\"keybindings: \" + (($j.keybindings | % { \"$($_.keys)=$($_.id)\" }) -join \u0027, \u0027)\n\"conda profile commandline preserved: \" + (($j.profiles.list | ? name -like \u0027Anaconda PowerShell*\u0027 | % { $_.commandline.Substring(0,60) }))\n\"BOM first bytes: \" + (([IO.File]::ReadAllBytes(\"$t\\dell-settings.json\")[0..2]) -join \u0027,\u0027) + \"  CRLF: \" + ([IO.File]::ReadAllText(\"$t\\dell-settings.json\").Contains(\"`r`n\"))\n\"backups: \" + ((Get-ChildItem \"$t\\bk\" -Recurse -File | % { $_.Name }) -join \u0027; \u0027)","description":"Re-test Terminal merge on copies","timeout":300000}`
+- `PowerShell` -- `{"command":"$sp=\"C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\[REDACTED]\\scratchpad\"\n$s=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\\20-apply-configs.ps1\u0027\n$dellProfile=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1\u0027\n# ---- case 1: Dell real profile copy, no pwsh profile\n$t1=Join-Path $sp \u0027prof-dell\u0027; Remove-Item $t1 -Recurse -Force -ErrorAction SilentlyContinue; New-Item -ItemType Directory -Force \"$t1\\WindowsPowerShell\" | Out-Null\nCopy-Item $dellProfile \"$t1\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1\"\n$before = Get-FileHash $dellProfile\n\"=== case 1: Dell profile copy\"\npowershell.exe -NoProfile -ExecutionPolicy Bypass -File $s -Only profile-ps5,profile-pwsh -Machine dell -TestProfileDir $t1 -BackupBase \"$t1\\bk\" 2\u003e\u00261 | % { \"$_\" } | Select-String \u0027CHANGED|UNCHANGED|FAIL|MANUAL|SUMMARY\u0027 | % { ($_.Line -replace [regex]::Escape($sp),\u0027\u003cscratch\u003e\u0027) }\n\"--- result text (Dell ps5 profile)\"\nGet-Content \"$t1\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1\"\n\"--- real Dell profile unchanged: \" + ((Get-FileHash $dellProfile).Hash -eq $before.Hash)\n\"--- second run\"\npowershell.exe -NoProfile -ExecutionPolicy Bypass -File $s -Only profile-ps5,profile-pwsh -Machine dell -TestProfileDir $t1 -BackupBase \"$t1\\bk\" 2\u003e\u00261 | % { \"$_\" } | Select-String \u0027 UNCHANGED|CHANGED |FAIL|MANUAL\u0027 | % { ($_.Line -replace [regex]::Escape($sp),\u0027\u003cscratch\u003e\u0027).Substring(0,120) }","description":"Test profile block on a copy of the Dell profile","timeout":300000}`
+- `PowerShell` -- `{"command":"$d=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\u0027\n$u=New-Object Text.UTF8Encoding($false)\nforeach($f in \u002710-install-toolkit.ps1\u0027,\u002720-apply-configs.ps1\u0027){\n  $p=\"$d\\$f\"; $s=[IO.File]::ReadAllText($p)\n  $s=$s.Replace(\". `\"`$PSScriptRoot\\_lib.ps1`\"`n`$ErrorActionPreference = \u0027Stop\u0027\", \". `\"`$PSScriptRoot\\_lib.ps1`\"`n`$ErrorActionPreference = \u0027Stop\u0027`nif (`$Only) { `$Only = @(`$Only | ForEach-Object { `$_ -split \u0027,\u0027 } | Where-Object { `$_ }) }\")\n  [IO.File]::WriteAllText($p,$s,$u)\n  \"{0}: {1}\" -f $f,(Select-String -Path $p -Pattern \u0027split\u0027 | Select-Object -First 1 | % { $_.Line.Trim() })\n  $errs=$null;$tok=$null; [void][System.Management.Automation.Language.Parser]::ParseFile($p,[ref]$tok,[ref]$errs); \"parse errors: \" + @($errs).Count\n}","description":"Make -Only accept comma lists when run with -File"}`
+- `PowerShell` -- `{"command":"$sp=\"C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\[REDACTED]\\scratchpad\"\n$s=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\\20-apply-configs.ps1\u0027\n$dellProfile=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1\u0027\nfunction Show($t,$label,$m){ $o = powershell.exe -NoProfile -ExecutionPolicy Bypass -File $s -Only \u0027profile-ps5,profile-pwsh\u0027 -Machine $m -TestProfileDir $t -BackupBase \"$t\\bk\" 2\u003e\u00261 | % { \"$_\" }; $o | Select-String \u0027^(\\S+\\s+)?\\d\\d:\\d\\d:\\d\\d \\[(OK|WARN|ERROR)\\] (CHANGED|UNCHANGED|FAIL|MANUAL)\u0027 | % { \"  \" + ($_.Line -replace [regex]::Escape($sp),\u0027\u003cscratch\u003e\u0027) } }\n# ---- case 1 again\n$t1=Join-Path $sp \u0027prof-dell\u0027; Remove-Item $t1 -Recurse -Force -ErrorAction SilentlyContinue; New-Item -ItemType Directory -Force \"$t1\\WindowsPowerShell\" | Out-Null\nCopy-Item $dellProfile \"$t1\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1\"\n\"=== case 1: Dell profile copy (first, second run)\"\nShow $t1 \u0027c1\u0027 \u0027dell\u0027; Show $t1 \u0027c1b\u0027 \u0027dell\u0027\n\"--- Dell ps5 profile tail (after block)\"\n(Get-Content \"$t1\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1\") | Select-Object -Skip 17\n\"--- pwsh profile created: \" + (Test-Path \"$t1\\PowerShell\\Microsoft.PowerShell_profile.ps1\")\n# ---- case 2: Acer-style worst case, CRLF + BOM\n$t2=Join-Path $sp \u0027prof-acer\u0027; Remove-Item $t2 -Recurse -Force -ErrorAction SilentlyContinue; New-Item -ItemType Directory -Force \"$t2\\WindowsPowerShell\",\"$t2\\PowerShell\" | Out-Null\n$acer = @\u0027\n$ErrorActionPreference = \u0027SilentlyContinue\u0027\n[Console]::OutputEncoding = [System.Text.Encoding]::UTF8\nInvoke-Expression (\u0026starship init powershell)\nif (Get-Command zoxide -ErrorAction SilentlyContinue) {\n  Invoke-Expression (\u0026 { (zoxide init powershell | Out-String) })\n}\nImport-Module PSFzf\nSet-PsFzfOption -PSReadlineChordProvider \u0027Ctrl+t\u0027 -PSReadlineChordReverseHistory \u0027Ctrl+r\u0027\nif ($env:TERM_PROGRAM -eq \u0027vscode\u0027) {\n  $init = Join-Path $HOME \u0027.config/vscode-env/init.ps1\u0027\n  if (Test-Path $init) { . $init }\n}\n#region conda initialize\nIf (Test-Path \"C:\\Users\\anant\\miniconda3\\Scripts\\conda.exe\") {\n    (\u0026 \"C:\\Users\\anant\\miniconda3\\Scripts\\conda.exe\" \"shell.powershell\" \"hook\") | Out-String | ?{$_} | Invoke-Expression\n}\n#endregion\nfunction Hello { \u0027hi\u0027 }\n\u0027@.Replace(\"`r`n\",\"`n\").Replace(\"`n\",\"`r`n\")\n[IO.File]::WriteAllText(\"$t2\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1\",$acer,(New-Object Text.UTF8Encoding($true)))\n[IO.File]::WriteAllText(\"$t2\\PowerShell\\Microsoft.PowerShell_profile.ps1\",$acer,(New-Object Text.UTF8Encoding($true)))\n\"=== case 2: Acer-style profile (first, second run)\"\nShow $t2 \u0027c2\u0027 \u0027acer\u0027; Show $t2 \u0027c2b\u0027 \u0027acer\u0027\n$txt=[IO.File]::ReadAllText(\"$t2\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1\")\n\"--- result: BOM=\" + (([IO.File]::ReadAllBytes(\"$t2\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1\")[0..2]) -join \u0027,\u0027) + \" CRLF=\" + $txt.Contains(\"`r`n\") + \" LF-only-lines=\" + ([regex]::Matches($txt,\u0027(?\u003c!\\r)\\n\u0027).Count)\n\"--- result text\"\n($txt -split \"`r`n\") | Select-Object -First 30\n$errs=$null;$tok=$null;[void][System.Management.Automation.Language.Parser]::ParseInput($txt,[ref]$tok,[ref]$errs); \"parse errors in result: \" + @($errs).Count\n# ---- case 3: shared-line statement must be MANUAL and untouched\n$t3=Join-Path $sp \u0027prof-shared\u0027; Remove-Item $t3 -Recurse -Force -ErrorAction SilentlyContinue; New-Item -ItemType Directory -Force \"$t3\\WindowsPowerShell\",\"$t3\\PowerShell\" | Out-Null\n$sh=\"Import-Module PSFzf; Set-Alias ll Get-ChildItem`r`n\"\n[IO.File]::WriteAllText(\"$t3\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1\",$sh); [IO.File]::WriteAllText(\"$t3\\PowerShell\\Microsoft.PowerShell_profile.ps1\",$sh)\n\"=== case 3: shared-line statements\"\nShow $t3 \u0027c3\u0027 \u0027acer\u0027\n\"--- untouched: \" + ([IO.File]::ReadAllText(\"$t3\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1\") -ceq $sh)","description":"Test profile block on Dell copy and Acer-style worst cases","timeout":400000}`
+- `PowerShell` -- `{"command":"$b=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\configs\\powershell\\managed-block.ps1\u0027\n$r = powershell.exe -NoProfile -ExecutionPolicy Bypass -Command \"`$ErrorActionPreference=\u0027Stop\u0027; . \u0027$b\u0027; \u0027BLOCK-OK enc=\u0027 + [Console]::OutputEncoding.WebName + \u0027 cfg=\u0027 + `$env:STARSHIP_CONFIG + \u0027 starshipLoaded=\u0027 + [bool]`$global:ToolkitStarshipLoaded\" 2\u003e\u00261\n$r | % { \"$_\" }\n\"--- starship/zoxide binaries available in the scratch download? (not installed yet, expected: loaded=False)\"","description":"Execute the managed block in a clean Windows PowerShell 5.1"}`
+- `PowerShell` -- `{"command":"$d=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\u0027\n$out = powershell.exe -NoProfile -ExecutionPolicy Bypass -File \"$d\\99-verify.ps1\" 2\u003e\u00261 | ForEach-Object { \"$_\" }\n\"EXIT: $LASTEXITCODE (nonzero is expected before install)\"\n$i = ($out | Select-String -Pattern \u0027^ID \u0027 | Select-Object -First 1).LineNumber\n$out | Select-Object -Skip ($i-1)","description":"Run 99-verify before install to exercise every code path","timeout":600000}`
+- `PowerShell` -- `{"command":"$d=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\u0027\n$u=New-Object Text.UTF8Encoding($false)\n$p=\"$d\\_lib.ps1\"; $s=[IO.File]::ReadAllText($p)\n# 1 McpInventory return\n$s=$s.Replace(\"    return @(`$rows)`n}\",\"    return `$rows.ToArray()`n}\")\n# 2 Invoke-PSCode: silence progress and clean CLIXML stderr\n$old=$s.Substring($s.IndexOf(\"function Invoke-PSCode {\"))\n$old=$old.Substring(0,$old.IndexOf(\"function Resolve-CmdAll\"))\n$new=@\u0027\nfunction Invoke-PSCode {\n    # Runs code in a fresh PowerShell via -EncodedCommand. $Exe defaults to Windows PowerShell 5.1.\n    # With redirected streams PowerShell wraps progress in CLIXML on stderr; that is stripped, real error text is kept.\n    param([string]$Code, [int]$TimeoutSec = 90, [switch]$NoProfile, [string]$Exe)\n    $full = \u0027$ProgressPreference = \u0027\u0027SilentlyContinue\u0027\u0027; \u0027 + $Code\n    $b64 = [Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($full))\n    $e = $Exe\n    if (-not $e) { $e = (Get-Command powershell.exe).Source }\n    $a = @(\u0027-NoLogo\u0027, \u0027-NonInteractive\u0027)\n    if ($NoProfile) { $a += \u0027-NoProfile\u0027 }\n    $a += @(\u0027-EncodedCommand\u0027, $b64)\n    $r = Invoke-Native -File $e -Arguments $a -TimeoutSec $TimeoutSec\n    $err = [string]$r.Error\n    if ($err -match \u0027^\\s*#\u003c CLIXML\u0027) {\n        $msgs = @()\n        foreach ($mm in [regex]::Matches($err, \u0027\u003cS S=\"Error\"\u003e(.*?)\u003c/S\u003e\u0027)) {\n            $msgs += ([regex]::Replace($mm.Groups[1].Value, \u0027_x([0-9A-Fa-f]{4})_\u0027, { param($x) [string][char][Convert]::ToInt32($x.Groups[1].Value, 16) })).Trim()\n        }\n        $err = ($msgs | Where-Object { $_ }) -join \u0027 \u0027\n    }\n    return [pscustomobject]@{ ExitCode = $r.ExitCode; Output = $r.Output; Error = $err; TimedOut = $r.TimedOut }\n}\n\n\u0027@.Replace(\"`r`n\",\"`n\")\n$s=$s.Replace($old,$new)\n[IO.File]::WriteAllText($p,$s,$u)\n# 3 cosmetic in 99\n$p2=\"$d\\99-verify.ps1\"; $t=[IO.File]::ReadAllText($p2)\n$o2=\"        Add-Result `$t.id `$status ((`\"version {0}{1}{2}; `\" -f `$ver, `$dr, `$sz) + (`$notes -join \u0027; \u0027)) `$extra\"\n\"found cosmetic: \" + $t.Contains($o2)\n$n2=\"        `$msg = (`\"version {0}{1}{2}`\" -f `$ver, `$dr, `$sz)`n        if (`$notes.Count -gt 0) { `$msg = `$msg + \u0027; \u0027 + (`$notes -join \u0027; \u0027) }`n        Add-Result `$t.id `$status `$msg `$extra\"\n$t=$t.Replace($o2,$n2)\n[IO.File]::WriteAllText($p2,$t,$u)\nforeach($f in \u0027_lib.ps1\u0027,\u002799-verify.ps1\u0027){ $errs=$null;$tok=$null; [void][System.Management.Automation.Language.Parser]::ParseFile(\"$d\\$f\",[ref]$tok,[ref]$errs); \"$f parse errors: \" + @($errs).Count }\n\"rows return fixed: \" + (Select-String -Path $p -Pattern \u0027rows.ToArray\u0027 | Measure-Object).Count","description":"Fix MCP inventory return, CLIXML stderr noise, and message format"}`
+- `PowerShell` -- `{"command":"$d=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\u0027\n$out = powershell.exe -NoProfile -ExecutionPolicy Bypass -File \"$d\\99-verify.ps1\" 2\u003e\u00261 | ForEach-Object { \"$_\" }\n\"99 EXIT: $LASTEXITCODE (nonzero expected pre-install)\"\n$out | Select-String -Pattern \u0027^(shell-|starship|zoxide|ollama|mcp|error-|gh-)\u0027 | % { $_.Line }\n\"=============== 11 dry run\"\npowershell.exe -NoProfile -ExecutionPolicy Bypass -File \"$d\\11-node-lts-swap.ps1\" 2\u003e\u00261 | ForEach-Object { \"$_\" } | Select-String -Pattern \u0027node|npm|SUMMARY|Exit\u0027 | % { $_.Line }\n\"11 EXIT: $LASTEXITCODE\"","description":"Re-run 99-verify and the Node swap dry run","timeout":600000}`
+- `PowerShell` -- `{"command":"$d=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\u0027\n$u=New-Object Text.UTF8Encoding($false)\n$p=\"$d\\_lib.ps1\"; $s=[IO.File]::ReadAllText($p)\n$o1=\"if (`$d -is [System.Collections.IDictionary] -and `$d.Contains(`$key) -and (`$d[`$key] -is [System.Collections.IDictionary])) {\"\n$n1=\"if (`$d -is [System.Collections.IDictionary] -and (@(`$d.Keys) -contains `$key) -and (`$d[`$key] -is [System.Collections.IDictionary])) {\"\n$o2=\"if (`$entry -is [System.Collections.IDictionary] -and `$entry.Contains(\u0027command\u0027)) { `$cmd = [string]`$entry[\u0027command\u0027] }\"\n$n2=\"if (`$entry -is [System.Collections.IDictionary] -and (@(`$entry.Keys) -contains \u0027command\u0027)) { `$cmd = [string]`$entry[\u0027command\u0027] }\"\n\"found1: \" + $s.Contains($o1) + \"  found2: \" + $s.Contains($o2)\n$s=$s.Replace($o1,$n1).Replace($o2,$n2)\n[IO.File]::WriteAllText($p,$s,$u)\n# node-running check in 11: dry run warns, apply fails; show owners by parent process name only\n$p2=\"$d\\11-node-lts-swap.ps1\"; $t=[IO.File]::ReadAllText($p2)\n$a=$t.IndexOf(\"    `$running = @(Get-Process -Name node -ErrorAction SilentlyContinue)\")\n$b=$t.IndexOf(\"    if (`$dry) {\")\n$new=@\u0027\n    $running = @(Get-Process -Name node -ErrorAction SilentlyContinue)\n    if ($running.Count -gt 0) {\n        $owners = @{}\n        foreach ($proc in (Get-CimInstance Win32_Process -Filter \"Name=\u0027node.exe\u0027\" -ErrorAction SilentlyContinue)) {\n            $pn = \u0027unknown\u0027\n            try { $pn = (Get-Process -Id $proc.ParentProcessId -ErrorAction Stop).ProcessName } catch { $pn = \u0027exited-parent\u0027 }\n            if ($owners.ContainsKey($pn)) { $owners[$pn]++ } else { $owners[$pn] = 1 }\n        }\n        $ownTxt = ($owners.Keys | Sort-Object | ForEach-Object { \u0027{0} x{1}\u0027 -f $_, $owners[$_] }) -join \u0027, \u0027\n        $msg = (\"{0} node.exe process(es), started by: {1}. Close those apps (editors, Claude Desktop, Claude Code, terminals) before -Apply; command lines are never printed.\" -f $running.Count, $ownTxt)\n        if ($IgnoreRunning) { Add-Result \u0027node-running\u0027 \u0027WARN\u0027 ($msg + \u0027 Continuing because -IgnoreRunning.\u0027) }\n        elseif ($dry) { Add-Result \u0027node-running\u0027 \u0027WARN\u0027 (\u0027[DRYRUN] \u0027 + $msg) }\n        else { Add-Result \u0027node-running\u0027 \u0027FAIL\u0027 $msg; Complete-Toolkit }\n    } else { Add-Result \u0027node-running\u0027 \u0027PASS\u0027 \u0027no node.exe running\u0027 }\n\n\u0027@.Replace(\"`r`n\",\"`n\")\n$t=$t.Substring(0,$a)+$new+$t.Substring($b)\n[IO.File]::WriteAllText($p2,$t,$u)\nforeach($f in \u0027_lib.ps1\u0027,\u002711-node-lts-swap.ps1\u0027){ $errs=$null;$tok=$null; [void][System.Management.Automation.Language.Parser]::ParseFile(\"$d\\$f\",[ref]$tok,[ref]$errs); \"$f parse errors: \" + @($errs).Count }\n\"=== 11 dry run\"\npowershell.exe -NoProfile -ExecutionPolicy Bypass -File \"$d\\11-node-lts-swap.ps1\" 2\u003e\u00261 | ForEach-Object { \"$_\" } | Select-String -Pattern \u0027node-|npm-|SUMMARY|Exit code\u0027 | % { $_.Line }\n\"=== 99 MCP section\"\npowershell.exe -NoProfile -ExecutionPolicy Bypass -File \"$d\\99-verify.ps1\" 2\u003e\u00261 | ForEach-Object { \"$_\" } | Select-String -Pattern \u0027^mcp\u0027 | % { $_.Line }","description":"Fix MCP JSON reading and Node-running check, retest","timeout":400000}`
+- `PowerShell` -- `{"command":"$d=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\u0027\n$out = powershell.exe -NoProfile -ExecutionPolicy Bypass -File \"$d\\40-build-catalog.ps1\" -DryRun 2\u003e\u00261 | ForEach-Object { \"$_\" }\n\"40 EXIT: $LASTEXITCODE\"\n$out | Select-String -Pattern \u0027^(tools|unmanifested|mcp |wsl|catalog)|\\[(ERROR|WARN)\\]|Exception|SUMMARY\u0027 | % { $_.Line }","description":"Dry-run the catalog builder including the WSL probe","timeout":600000}`
+- `PowerShell` -- `{"command":"$d=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\u0027\n$out = powershell.exe -NoProfile -ExecutionPolicy Bypass -File \"$d\\40-build-catalog.ps1\" -DryRun 2\u003e\u00261 | ForEach-Object { \"$_\" }\n$out | Select-Object -First 14 | % { if($_.Length -gt 300){$_.Substring(0,300)}else{$_} }","description":"Show the catalog dry-run error in full","timeout":300000}`
+- `PowerShell` -- `{"command":"$d=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\u0027\n$out = powershell.exe -NoProfile -ExecutionPolicy Bypass -File \"$d\\40-build-catalog.ps1\" -DryRun 2\u003e\u00261 | ForEach-Object { \"$_\" }\n$idx = ($out | Select-String -Pattern \u0027Unmanifested|unmanifested|WSL|MCP, configs\u0027 | Select-Object -First 6).LineNumber\n$out | Select-Object -Skip 40 | % { if($_.Length -gt 260){$_.Substring(0,260)}else{$_} }","description":"Show the later part of the catalog dry-run output","timeout":300000}`
+- `PowerShell` -- `{"command":"$snap=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Acer Dotfile Snapshot\\hashes-wsl.txt\u0027\n$lines = Get-Content -LiteralPath $snap\n\"lines: $($lines.Count)\"\n$c = $lines[1] -split \"`t\"\n\"cols: $($c.Count)\"; $c | % { \"[$_]\" }\n($lines | Select-Object -Skip 1 | ? { ($_ -split \"`t\")[5] -ne \u0027MATCH\u0027 }) | Select-Object -First 5","description":"Debug the WSL hash snapshot parsing"}`
+- `PowerShell` -- `{"command":"$code=@\u0027\n. $args[0]\n$snap = \u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Acer Dotfile Snapshot\\hashes-wsl.txt\u0027\n$expected=@{}\nforeach ($line in (Get-Content -LiteralPath $snap | Select-Object -Skip 1)) {\n    $c = $line -split \"`t\"\n    if ($c.Count -ge 6 -and $c[1] -like \u0027/home/anant_gupta/*\u0027 -and $c[1] -notmatch \u0027\\.gitconfig$\u0027 -and $c[5] -eq \u0027MATCH\u0027) {\n        $rel = $c[1].Substring(\u0027/home/anant_gupta/\u0027.Length)\n        if ($rel -notmatch \u0027\\s\u0027) { $expected[$rel] = $c[3].ToLower() }\n    }\n}\n\"expected count: \" + $expected.Count\n$sb = New-Object System.Text.StringBuilder\nforeach ($rel in ($expected.Keys | Sort-Object | Select-Object -First 2)) {\n    [void]$sb.Append((\"if [ -f `\"`$HOME/{0}`\" ]; then echo `\"HASH|{0}|`$(sha256sum `\"`$HOME/{0}`\" | cut -d\u0027 \u0027 -f1)`\"; else echo `\"HASH|{0}|MISSING`\"; fi`n\" -f $rel))\n}\n$sb.ToString()\n$b64 = [Convert]::ToBase64String([Text.Encoding]::UTF8.GetBytes($sb.ToString()))\n$r = Invoke-Native -File (Join-Path $env:SystemRoot \u0027System32\\wsl.exe\u0027) -Arguments @(\u0027-d\u0027,\u0027Ubuntu\u0027,\u0027--\u0027,\u0027bash\u0027,\u0027-lc\u0027,(\"echo {0} | base64 -d | bash\" -f $b64)) -TimeoutSec 60\n\"exit $($r.ExitCode)\"; \"OUT: \" + $r.Output; \"ERR: \" + $r.Error\n\u0027@\n$tmp=Join-Path $env:TEMP \u0027tkdbg5.ps1\u0027; [IO.File]::WriteAllText($tmp,$code)\npowershell.exe -NoProfile -ExecutionPolicy Bypass -File $tmp \u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\\_lib.ps1\u0027 2\u003e\u00261 | % { \"$_\" }","description":"Debug the WSL hash probe","timeout":120000}`
+- `PowerShell` -- `{"command":"$d=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\u0027\n$p=\"$d\\40-build-catalog.ps1\"; $s=[IO.File]::ReadAllText($p)\n$before = ([regex]::Matches($s,\u0027(?\u003c![A-Za-z-])Md(?= [\\$\u0027\u0027\"(@])\u0027)).Count\n$s=[regex]::Replace($s,\u0027(?\u003c![A-Za-z-])Md(?= [\\$\u0027\u0027\"(@])\u0027,\u0027MdCell\u0027)\n$s=$s.Replace(\u0027function Md { param($S)\u0027,\u0027function MdCell { param($S)\u0027)\n$o=\"[void]`$sb.Append(`\"  v=```$(timeout 10 ```$t --version 2\u003e/dev/null | head -n1)``n`\")\"\n\"found timeout line: \" + $s.Contains($o)\n$s=$s.Replace($o,\"[void]`$sb.Append(`\"  v=```$(timeout 10 ```$t --version 2\u003e/dev/null \u003c /dev/null | head -n1)``n`\")\")\n$o2=\"echo `\"APTCOUNT|``$(apt-mark showmanual 2\u003e/dev/null | wc -l)``\"``n\"\n[IO.File]::WriteAllText($p,$s,(New-Object Text.UTF8Encoding($false)))\n\"replaced Md usages: $before; remaining \u0027Md \u0027 tokens: \" + ([regex]::Matches($s,\u0027(?\u003c![A-Za-z-])Md \u0027)).Count\nSelect-String -Path $p -Pattern \u0027timeout 10|function MdCell\u0027 | % { $_.Line.Trim() }\n$errs=$null;$tok=$null; [void][System.Management.Automation.Language.Parser]::ParseFile($p,[ref]$tok,[ref]$errs); \"parse errors: \" + @($errs).Count","description":"Rename Md helper (alias clash) and stop probe tools from reading stdin"}`
+- `PowerShell` -- `{"command":"$p=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\\40-build-catalog.ps1\u0027\n$s=[IO.File]::ReadAllText($p)\n$before = ([regex]::Matches($s,\u0027(?\u003c![A-Za-z-])Md(?= [\\$\u0027\u0027\"(@])\u0027)).Count\n$s=[regex]::Replace($s,\u0027(?\u003c![A-Za-z-])Md(?= [\\$\u0027\u0027\"(@])\u0027,\u0027MdCell\u0027)\n$s=$s.Replace(\u0027function Md { param($S)\u0027,\u0027function MdCell { param($S)\u0027)\n[IO.File]::WriteAllText($p,$s,(New-Object Text.UTF8Encoding($false)))\n\"replaced: $before ; leftover \u0027Md \u0027 tokens: \" + ([regex]::Matches($s,\u0027(?\u003c![A-Za-z-])Md \u0027)).Count\nSelect-String -Path $p -Pattern \u0027function MdCell\u0027 | % { $_.Line.Trim() }","description":"Rename the Md helper to MdCell"}`
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\40-build-catalog.ps1`
+```diff
+- timeout 10 `$t --version 2>/dev/null | head -n1)
++ timeout 10 `$t --version 2>/dev/null < /dev/null | head -n1)
+```
+- `Grep` -- pattern `timeout 10` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\40-build-catalog.ps1`
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\40-build-catalog.ps1`
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\40-build-catalog.ps1`
+```diff
+- timeout 10 `$t --version 2>/dev/null | head -n1)`n")
++ timeout 10 `$t --version 2>/dev/null < /dev/null | head -n1)`n")
+```
+- `PowerShell` -- `{"command":"$d=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\u0027\n$errs=$null;$tok=$null; [void][System.Management.Automation.Language.Parser]::ParseFile(\"$d\\40-build-catalog.ps1\",[ref]$tok,[ref]$errs); \"parse errors: \" + @($errs).Count\n$out = powershell.exe -NoProfile -ExecutionPolicy Bypass -File \"$d\\40-build-catalog.ps1\" -DryRun 2\u003e\u00261 | ForEach-Object { \"$_\" }\n\"40 EXIT: $LASTEXITCODE\"\n$out | Select-String -Pattern \u0027^\\S+\\s+\\d\\d:\\d\\d|\\[(ERROR|WARN)\\]|Exception|SUMMARY|wsl |catalog-write|unmanifested\u0027 | Select-Object -Last 12 | % { if($_.Line.Length -gt 250){$_.Line.Substring(0,250)}else{$_.Line} }","description":"Re-run catalog dry run","timeout":400000}`
+- `PowerShell` -- `{"command":"$sp=\"C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\[REDACTED]\\scratchpad\"\n$arc=Join-Path $sp \u0027fontdl\\IosevkaTerm.tar.xz\u0027\n$out=Join-Path $sp \u0027fontdl-out\u0027; Remove-Item $out -Recurse -Force -ErrorAction SilentlyContinue; New-Item -ItemType Directory -Force $out | Out-Null\n$code=@\u0027\n. $args[0]\n$r = Invoke-Native -File (Get-Command tar.exe).Source -Arguments @(\u0027-xf\u0027, $args[1], \u0027-C\u0027, $args[2], \[REDACTED]-*.ttf\u0027) -TimeoutSec 300\n\"tar exit: $($r.ExitCode) err: $($r.Error)\"\n$f = @(Get-ChildItem $args[2] -File)\n\"extracted: $($f.Count) files, total MB: \" + [math]::Round(($f | Measure-Object Length -Sum).Sum/1MB,1)\n\"sample: \" + (($f | Select-Object -First 3 | % Name) -join \u0027, \u0027)\n\"non-mono leaked: \" + @($f | ? { $_.Name -notlike \[REDACTED]-*\u0027 }).Count\nif (-not (\u0027ToolkitNative.Win32\u0027 -as [type])) {\n    Add-Type -Namespace ToolkitNative -Name Win32 -MemberDefinition \u0027[System.Runtime.InteropServices.DllImport(\"user32.dll\", SetLastError=true, CharSet=System.Runtime.InteropServices.CharSet.Auto)] public static extern System.IntPtr SendMessageTimeout(System.IntPtr hWnd, uint Msg, System.UIntPtr wParam, System.IntPtr lParam, uint fuFlags, uint uTimeout, out System.UIntPtr lpdwResult);\u0027\n}\n\"Add-Type compiled: \" + (\u0027ToolkitNative.Win32\u0027 -as [type]).FullName\n$m = (\u0027ToolkitNative.Win32\u0027 -as [type]).GetMethod(\u0027SendMessageTimeout\u0027); \"method params: \" + (($m.GetParameters() | % { $_.ParameterType.Name }) -join \u0027,\u0027)\n\u0027@\n$tmp=Join-Path $env:TEMP \u0027tkdbg6.ps1\u0027; [IO.File]::WriteAllText($tmp,$code)\npowershell.exe -NoProfile -ExecutionPolicy Bypass -File $tmp \u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\\_lib.ps1\u0027 $arc $out 2\u003e\u00261 | % { \"$_\" }","description":"Test font extraction pattern and the Win32 type compile in scratch","timeout":300000}`
+- `PowerShell` -- `{"command":"$sp=\"C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\[REDACTED]\\scratchpad\"\nRemove-Item (Join-Path $sp \u0027fontdl-out\u0027) -Recurse -Force -ErrorAction SilentlyContinue\n$p=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\toolkit.json\u0027\n$s=[IO.File]::ReadAllText($p)\n$o=\u0027per-user fonts: %LOCALAPPDATA%\\\\Microsoft\\\\Windows\\\\Fonts (about 60 MB, C:); Acer has it system-wide\u0027\n\"found: \" + $s.Contains($o)\n$s=$s.Replace($o,\u0027per-user fonts: %LOCALAPPDATA%\\\\Microsoft\\\\Windows\\\\Fonts (27 TTF files, about 380 MB, C:, cannot be redirected); Acer has it system-wide\u0027)\n[IO.File]::WriteAllText($p,$s,(New-Object Text.UTF8Encoding($false)))\n[void](Get-Content $p -Raw | ConvertFrom-Json); \"manifest still valid JSON\"","description":"Correct font size in manifest and clean scratch"}`
+- `Write` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\README.md`
+```
+---
+type: note
+status: sprout
+created: 2026-10-13
+updated: 2026-10-13
+course: Life
+track:
+  - laptop
+  - windows
+tags:
+  - note
+  - laptop
+related:
+  - "[[Old Laptop Rebuild - Build 4 Windows Toolkit Findings]]"
+  - "[[Installations]]"
+---
+# Windows Toolkit scripts: run order and rollback
+
+One manifest (`..\toolkit.json`) drives every script. Run them as files, one at a time, in a **normal** (not elevated) shell unless a row says otherwise. Quote the full path. All scripts are ASCII only, safe to run twice, take `-DryRun` (except `11`, which is dry by default and needs `-Apply`), log to `D:\WSL\ops\windows\logs\`, and write a result JSON to `..\results\<host>\`.
+
+Command template (Windows PowerShell 5.1 or PowerShell 7):
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "<full path to script>" [switches]
+```
+
+## Run order (Dell, then Acer)
+| Step | Script | Shell | Does | Notes |
+|---|---|---|---|---|
+| 1 | `00-preflight.ps1` | normal | read-only: machine, vault, manifest, scripts, config secret scan, plan | no changes |
+| 2 | `10-install-toolkit.ps1` | normal | installs and adopts tools, the font, PSFzf, standalone uv, uv Python | UAC prompts for Git, GitHub CLI, Starship, Node. Close editors first (Git upgrade) |
+| 3 | `11-node-lts-swap.ps1 -Apply` | normal, **fresh window, Claude Code and editors closed** | Dell only: Node 22 to LTS 24 | by hand; two UAC prompts; npm globals survive |
+| 4 | `20-apply-configs.ps1` | normal | profiles (managed block), Starship, git ignore, delta include, bat, fd, Terminal merge, git settings, env vars | backups to `D:\Backup\Toolkit\<timestamp>\` |
+| 5 | `99-verify.ps1 -WriteLock` | normal, fresh window | manifest versus reality; Dell writes `toolkit.lock.json` | PENDING items wait for step 6 |
+| 6 | `04-admin-remove.ps1 -IncludePython -Apply` | **elevated** | Dell only: retires Python 3.13.5 and Chocolatey | lives in `D:\WSL\ops\windows`; refuses until a standalone uv exists |
+| 7 | `99-verify.ps1` again | normal, fresh window | PENDING items turn into PASS | |
+| 8 | `40-build-catalog.ps1` | normal | writes `..\catalog\Tool Catalog - <host>.md` and `.json` | Phase 5 |
+
+Only step 6 needs an elevated shell.
+
+## What each script never does
+- `10` never installs Tailscale, never touches Node 22 (step 3 does), never removes anything.
+- `20` never deletes: a replaced file is copied to `D:\Backup\Toolkit\<timestamp>\` first. It never touches VS Code, MCP or Claude Code settings, identity or `safe.directory` entries in git, or the Build 3 cache variables.
+- `40` never prints `.bashrc`, environment values of secrets, MCP arguments or URLs, and never shuts WSL down.
+
+## Placement (Build 3 layout contract)
+Every tool here is small, installer-forced to C: (MSIX, MSI, per-user portable) or already placed by Build 3. Per-user fonts (27 TTFs, about 380 MB) cannot be redirected. Nothing in this toolkit creates a junction. Caches stay on D: through the Build 3 variables, which the scripts verify but never change.
+
+## Deviations from the earlier design notes (live check won)
+- The Starship and zoxide guards use a PowerShell global variable, not `$env:STARSHIP_SHELL`. Starship's init sets that environment variable, and child processes inherit it, so a guard on it would leave a nested `pwsh` inside `pwsh` without a prompt.
+- The uv standalone installer is the official `uv-installer.ps1` for 0.12.19, downloaded and checked against a pinned SHA-256, run with `UV_NO_MODIFY_PATH=1`; the script adds `~\.local\bin` to the user PATH itself.
+- Corepack is not enabled (needs admin under Program Files); pnpm comes from winget.
+- `bat` and `fd` configs are reconstructions from the Installations note until the Acer paste-back replaces them. On the Acer an existing file is kept and reported as DIFF.
+
+## Rollback
+- Files: `powershell.exe -NoProfile -ExecutionPolicy Bypass -File "...\20-apply-configs.ps1" -RestoreFrom "D:\Backup\Toolkit\<timestamp>"` copies every backed-up file back.
+- Git: `git config --global --unset <key>` for each key in `toolkit.json` `gitSettings`; remove the `include.path` line and the `credential.https://github.com.helper` entries with `git config --global --edit`.
+- Environment variables: remove `STARSHIP_CONFIG` and `TOOLKIT_VAULT_ROOT` in System Properties, Environment Variables (user).
+- Tools: `winget uninstall --id <Id> --exact`. The per-user font files are in `%LOCALAPPDATA%\Microsoft\Windows\Fonts` (names start `IosevkaTermNerdFontMono-`) with matching values under `HKCU:\Software\Microsoft\Windows NT\CurrentVersion\Fonts`.
+- Node: `winget install --id OpenJS.NodeJS.22 --exact` brings Node 22 back.
+
+## Test overrides (for maintenance only)
+`20-apply-configs.ps1` accepts `-TerminalSettingsPath`, `-TestProfileDir` and `-BackupBase` so the Terminal merge and the profile block can be exercised on copies. `-Only` takes config ids (`starship,git-ignore,git-delta,bat,fd-ignore,profile-ps5,profile-pwsh,terminal,git-settings,env`) or tool ids for `10`.
+
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Old Laptop Rebuild - Build 4 Windows Toolkit Findings.md`
+```diff
+- ## Left for Build 5 and later
++ ## Resumed run, 2026-10-13: Phase 1 verification, decisions, Phase 3 build
+
+### Decisions (answered 2026-10-13: "implement every D")
+D1 to D6, D11 and D13 to D16 are implemented as recommended; D7 to D10 moved to Build 5 (E1 to E4); D12 stands. Extra scope the user approved: PSFzf as a manifest module (D13), bat and fd configs (D14), and one shared `_lib.ps1` plus `11-node-lts-swap.ps1` (the Node swap is a replacement, so it is a gated script of its own).
+
+### Live changes since the 2026-10-11/12 audit
+| Item | Audit | Live 2026-10-13 |
+|---|---|---|
+| C: / D: free | 39.5 / 363.9 GiB | 145.4 / 450.2 GiB (Build 3 done) |
+| Cache variables | unset | all set (D:\Cache\...); npm cache is `D:\Cache\npm`, not `D:\npm-cache` |
+| Windows Ollama | 0.24.0 | 0.40.3 at D:\Apps\Ollama; port 11434 still answered by the WSL 0.18.3 |
+| Tailscale, PowerShell 7, Starship, font, zoxide, fzf, fd, bat, delta, NanaZip, pnpm | absent | still absent (as designed) |
+| Dell Command Update | not checked | 5.7.0 installed |
+| `C:\Users\Anant Gupta\AGENTS.md` | not checked | does not exist (pointer line target for Phase 5) |
+| WSL configs vs Acer snapshot | 13 of 17 differ | catalog probe: 29 comparable files, 10 match, 12 differ, 7 missing |
+
+### Contradictions logged (live machine won)
+1. The Acer snapshot (10-11) is stale. Vault notes written 2026-10-12 say the Acer already has PowerShell 7 and 5.1 profiles (Starship, zoxide, UTF-8, VS Code hook), fzf, fd, bat, delta, zoxide, PSFzf, `%APPDATA%\bat\config`, `%APPDATA%\fd\ignore`, delta in its Windows `.gitconfig`, standalone uv 0.12.19 and VS Code on `D:\Apps`. The Acer run therefore starts with a read-only paste-back and keeps its own bat and fd files.
+2. `VERSIONS.md` and `MANIFEST.md` exist in the snapshot (the 10-11 audit said they did not).
+3. `04-admin-remove.ps1 -IncludePython` deletes `C:\Python313`, so the separate `pip uninstall uv` step in D2 is dropped.
+4. winget portables may install without a PATH entry (Acer, 2026-10-12): `10` repairs it with a hard link in `WinGet\Links`.
+5. The design guard `$env:STARSHIP_SHELL` would suppress the prompt in nested shells (the variable is inherited by child processes); the block uses a global PowerShell variable.
+6. Font archive extracts to 27 TTFs, 379 MB (not the 60 MB estimate).
+7. The Dell's Codex config carries a WSL path (`/mnt/c/.../node_repl`) that does not resolve on Windows; reported by `99-verify`, owned by Build 6.
+8. `Md` is a built-in alias of `mkdir` in PowerShell, so a helper function with that name silently called `New-Item`.
+
+### Files written (vault: `Old Laptop Rebuild\Windows Toolkit\`)
+`toolkit.json` (47 entries), `_scripts\` (`_lib.ps1`, `00-preflight.ps1`, `10-install-toolkit.ps1`, `11-node-lts-swap.ps1`, `20-apply-configs.ps1`, `40-build-catalog.ps1`, `99-verify.ps1`, `README.md`), `configs\` (`starship.toml` and `git\ignore` byte-identical to the Acer's, SHA-256 `9EF71378...` and `546B86DB...`; `git\delta.gitconfig`; `powershell\managed-block.ps1`; `terminal\toolkit-fragment.json`; `bat\config`; `fd\ignore`), empty `results\` and `catalog\`.
+
+### Checks run in Phase 3 (all read-only or on copies)
+| Check | Result |
+|---|---|
+| Parse every script with `Parser::ParseFile`; ASCII-only byte scan | 7 of 7 clean, 0 non-ASCII bytes |
+| `00-preflight.ps1` (real run) | exit 0; 16 install/upgrade actions planned, 2 PENDING (Python, Chocolatey), 1 MANUAL (Node 22) |
+| `10-install-toolkit.ps1 -DryRun`, `20-apply-configs.ps1 -DryRun`, `11-node-lts-swap.ps1`, `40-build-catalog.ps1 -DryRun` | all exit 0 |
+| Terminal merge on a copy of the Dell settings and on the Acer snapshot settings | scheme, font, defaults, keybindings, pwsh profile, Ubuntu rename all applied; Acer conda profiles kept; second run UNCHANGED |
+| Profile block on the Dell profile copy | opam, Kiro and `New-PyEnv` kept; second run UNCHANGED |
+| Profile block on an Acer-style profile (BOM, CRLF, duplicate Starship/zoxide/PSFzf/VS Code hook) | duplicates commented with `# [toolkit-superseded]`, BOM and CRLF kept, result parses clean |
+| Profile with two statements on one line | MANUAL, file untouched |
+| Managed block executed in clean Windows PowerShell 5.1 | loads, UTF-8 set, no error |
+| uv 0.12.19 installer | downloaded to scratch, SHA-256 `F44CF877...` pinned, `UV_NO_MODIFY_PATH` supported |
+| Font archive | SHA-256 matches the published `SHA-256.txt`; bsdtar wildcard extracts exactly 27 Mono TTFs |
+| `99-verify.ps1` before any install | runs end to end; 47 expected FAILs (nothing installed yet), 24 MCP entries read by name only |
+
+### Errors found while building, with root cause
+| Error | Root cause | Fix |
+|---|---|---|
+| `Resolve-Cmd` returned `C` for every tool | a one-element array returned from a function is unrolled to a string, then `[0]` took its first character | wrap in `@()` and cast |
+| "Argument types do not match" writing result JSON | `@(<List[object]>)` inside an `[ordered]` literal | use `.ToArray()` |
+| winget version always empty for `--id` queries | with `--id`, winget prints a single-space table, so splitting on two spaces found nothing | regex `Id\s+Version` |
+| Backup file name too long | flattened full path in the leaf name | 8-char hash plus leaf name |
+| `-Only a,b` matched nothing | `powershell -File` passes the comma list as one string | split on commas |
+| `Md` helper created directories | alias precedence over functions | renamed `MdCell` |
+| WSL probe returned no hashes | a probed tool read stdin, which was the piped script itself | `</dev/null` on each probe |
+| `Contains` overload error reading MCP JSON | `Dictionary` has `ContainsKey`, not `Contains` | test `Keys -contains` |
+| Stderr "#< CLIXML" counted as a profile error | PowerShell wraps progress in CLIXML on redirected stderr | strip it, keep real error text |
+
+## Left for Build 5 and later
+```
+- `PowerShell` -- `{"command":"$p=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Old Laptop Rebuild - Build 4 Windows Toolkit Findings.md\u0027\n$s=[IO.File]::ReadAllText($p)\n$s=$s.Replace(\u0027updated: 2026-10-12\u0027,\u0027updated: 2026-10-13\u0027)\n$s=$s.Replace(\u0027next: \"User answers the Phase 2 decisions (D1 to D12); then Phase 3 writes the manifest, configs and scripts\"\u0027,\u0027next: \"Phase 4: user runs the Dell scripts in README order (10, 11, 20, 99, 04-admin-remove, 99) and pastes the outputs; then Phase 5 catalog and guide\"\u0027)\n[IO.File]::WriteAllText($p,$s,(New-Object Text.UTF8Encoding($false)))\nSelect-String -Path $p -Pattern \u0027^(updated|next):\u0027 | % { $_.Line }","description":"Update findings note frontmatter"}`
+- `PowerShell` -- `{"command":"$rd=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\results\\DESKTOP-3VBG0JH\u0027\n$all = Get-ChildItem $rd -File\n$keep = $all | ? { $_.Name -eq \[REDACTED].json\u0027 -or $_.Name -like \u002700-preflight-2*\u0027 } | Sort LastWriteTime -Descending | Select-Object -First 2\n$rm = $all | ? { $keep.Name -notcontains $_.Name }\n\"removing {0} test result files, keeping: {1}\" -f $rm.Count, (($keep|%Name) -join \u0027, \u0027)\n$rm | Remove-Item -Force\nGet-ChildItem $rd -Name\n$d=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\u0027\nforeach($f in Get-ChildItem $d -Filter *.ps1){ $b=[IO.File]::ReadAllBytes($f.FullName); $bad=0; foreach($x in $b){if($x -gt 127){$bad++}}; $e=$null;$t=$null;[void][System.Management.Automation.Language.Parser]::ParseFile($f.FullName,[ref]$t,[ref]$e); \"{0,-24} nonASCII={1} parseErr={2}\" -f $f.Name,$bad,@($e).Count }\n\"Dell profile untouched, PATH untouched: \" + ((Get-FileHash \u0027D:\\Users\\_Anant\\10_Areas\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1\u0027).Hash.Substring(0,12))\n\"user env STARSHIP_CONFIG still unset: \" + (-not [Environment]::GetEnvironmentVariable(\u0027STARSHIP_CONFIG\u0027,\u0027User\u0027))","description":"Clean test result files and re-verify scripts and untouched state"}`
 
 ## Actions Taken
 
 **Files created:**
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\_lib.ps1`
+- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\00-preflight.ps1`
+- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\10-install-toolkit.ps1`
+- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\11-node-lts-swap.ps1`
+- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\20-apply-configs.ps1`
+- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\40-build-catalog.ps1`
+- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\99-verify.ps1`
+- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\README.md`
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\configs\bat\config`
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\configs\fd\ignore`
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\configs\git\delta.gitconfig`
@@ -1595,7 +3370,7 @@ function Get-ToolPlan {
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\toolkit.json`
 
 **Files modified:**
-_None_
+- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Old Laptop Rebuild - Build 4 Windows Toolkit Findings.md`
 
 **Files deleted (heuristic, from Bash commands):**
 _None detected_
@@ -1606,5 +3381,31 @@ _None detected_
 TK="/d/Users/_Anant/10_Areas/Documents/Jarvis/40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild/Windows Toolkit/configs"
 cp "$SNAP/starship.toml" "$TK/starship.toml"; cp "$SNAP/git/ignore" "$TK/git/ignore"
 sha256sum "$TK/starship.toml" "$TK/git/ignore"; file "$TK/starship.toml" "$TK/git/ignore"; grep -c $'\r' "$TK/starship.toml" "$TK/git/ignore"; wc -c "$TK/starship.toml" "$TK/git/ignore"`
+- `cd "/d/Users/_Anant/10_Areas/Documents/Jarvis/40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild/Windows Toolkit/_scripts" && python3 - <<'EOF'
+import re
+p='99-verify.ps1'
+s=open(p,encoding='ascii').read()
+a=s.index("Test-Section 'E MCP launch commands (names only)' {")
+b=s.index("# ------------------------------------------------------------------ lock")
+new='''Test-Section 'E MCP launch commands (names only)' {
+    $inv = Get-McpInventory
+    $seen = 0
+    foreach ($r in $inv) {
+        $id = 'mcp-' + $r.file + '-' + $r.name
+        if ($r.name -like '(*') { Add-Result $id 'INFO' $r.note; continue }
+        $seen++
+        if (-not $r.command) { Add-Result $id 'INFO' $r.note @{ purpose = $r.purpose }; continue }
+        if ($r.resolves) { Add-Result $id 'PASS' ("command '{0}' resolves" -f $r.command) @{ command = $r.command; purpose = $r.purpose } }
+        else { Add-Result $id 'WARN' ("command '{0}' does not resolve" -f $r.command) @{ command = $r.command } }
+    }
+    Add-Result 'mcp-total' 'INFO' ("{0} server entries inspected (names and command names only; args, env and urls are never read into output)" -f $seen)
+}
+
+'''
+s=s[:a]+new+s[b:]
+open(p,'w',encoding='ascii',newline='\n').write(s)
+print('ok')
+EOF
+grep -n "Get-McpInventory" 99-verify.ps1`
 
 

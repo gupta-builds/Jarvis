@@ -2,7 +2,7 @@
 type: note
 status: seedling
 created: 2026-10-11
-updated: 2026-10-12
+updated: 2026-10-13
 course: Life
 track:
   - laptop
@@ -19,7 +19,7 @@ related:
   - "[[VS Code - Windows]]"
   - "[[VS Code - Terminal Environments]]"
   - "[[Old Laptop Rebuild - Windows Prompts (Build 3 C Drive Cleanup and Build 4 Terminal Parity)]]"
-next: "User answers the Phase 2 decisions (D1 to D12); then Phase 3 writes the manifest, configs and scripts"
+next: "Phase 4: user runs the Dell scripts in README order (10, 11, 20, 99, 04-admin-remove, 99) and pastes the outputs; then Phase 5 catalog and guide"
 ---
 # Old Laptop Rebuild - Build 4 Windows Toolkit Findings
 
@@ -155,6 +155,63 @@ None so far. Files created: this note only. Scratch audit scripts live in the se
 | Git Bash mangled `/mnt/c/...` path to `C:/Program Files/Git/mnt/...` | MSYS path conversion | run `wsl.exe` from PowerShell |
 | 2026-10-12: Dell, `codex` CLI: `Error: daemon executable not found at C:\Users\Anant Gupta\.codex\packages\app-server-daemon\current\bin\codex.exe`, plus a Windows sandbox install that failed on every retry | Same C:-space cleanup that created the `codex-cleanup-quarantine-2026-09-20` folder (see [[C Drive Bloat - Failure Log and Prevention Rules]], failure #8) also redirected `.codex\packages` to `D:\Cache\codex\packages` via a directory junction, but the `app-server-daemon` package under that target was left with a populated `releases\` folder, a stale 0-byte `install.lock` (dated 2026-09-26), and no `current` pointer. The daemon binary and the Windows sandbox setup exe (`codex-windows-sandbox-setup.exe`) both live under `releases\<version>\`, reachable only through `current`, so both failed the same way regardless of retries. The separate npm-vendored `codex.exe` used for one-shot commands was unaffected, which is why `codex doctor` ran fine while the persistent daemon did not. | Fixed: removed the stale `install.lock`, created `current` as a directory junction to `releases\0.162.1-x86_64-pc-windows-msvc` (matching `auto-update-version`), confirmed via `codex app-server daemon start` and `codex doctor` that the background server now reports `running (persistent mode)`, `appServerVersion 0.162.1`. No admin, no reinstall, no file deleted other than the stale lock. |
 | 2026-10-12: `agy` (Antigravity CLI) unrecognized on the Dell's Windows side | Antigravity the GUI app was installed (2.12.2, `%LOCALAPPDATA%\Programs\antigravity`) but outdated, and its CLI shim has never been created. Like VS Code and Cursor, Antigravity only writes a `resources\app\bin\agy(.cmd)` shim and puts it on PATH after the user runs "Install 'agy' command in PATH" from its own Command Palette (Ctrl+Shift+P) at least once; nothing in the installed tree ships that shim up front. | Partially fixed: `winget upgrade --id Google.Antigravity --exact` brought it to 2.22.0 (matches the Acer's export and the D12 "no Bun/Yazi/lazygit on Windows" tier's sibling decision to adopt installed versions). Still open: launch Antigravity once and run "Install 'agy' command in PATH" from the Command Palette; this step cannot be scripted since it is a one-time in-app action, not a filesystem change. |
+
+## Resumed run, 2026-10-13: Phase 1 verification, decisions, Phase 3 build
+
+### Decisions (answered 2026-10-13: "implement every D")
+D1 to D6, D11 and D13 to D16 are implemented as recommended; D7 to D10 moved to Build 5 (E1 to E4); D12 stands. Extra scope the user approved: PSFzf as a manifest module (D13), bat and fd configs (D14), and one shared `_lib.ps1` plus `11-node-lts-swap.ps1` (the Node swap is a replacement, so it is a gated script of its own).
+
+### Live changes since the 2026-10-11/12 audit
+| Item | Audit | Live 2026-10-13 |
+|---|---|---|
+| C: / D: free | 39.5 / 363.9 GiB | 145.4 / 450.2 GiB (Build 3 done) |
+| Cache variables | unset | all set (D:\Cache\...); npm cache is `D:\Cache\npm`, not `D:\npm-cache` |
+| Windows Ollama | 0.24.0 | 0.40.3 at D:\Apps\Ollama; port 11434 still answered by the WSL 0.18.3 |
+| Tailscale, PowerShell 7, Starship, font, zoxide, fzf, fd, bat, delta, NanaZip, pnpm | absent | still absent (as designed) |
+| Dell Command Update | not checked | 5.7.0 installed |
+| `C:\Users\Anant Gupta\AGENTS.md` | not checked | does not exist (pointer line target for Phase 5) |
+| WSL configs vs Acer snapshot | 13 of 17 differ | catalog probe: 29 comparable files, 10 match, 12 differ, 7 missing |
+
+### Contradictions logged (live machine won)
+1. The Acer snapshot (10-11) is stale. Vault notes written 2026-10-12 say the Acer already has PowerShell 7 and 5.1 profiles (Starship, zoxide, UTF-8, VS Code hook), fzf, fd, bat, delta, zoxide, PSFzf, `%APPDATA%\bat\config`, `%APPDATA%\fd\ignore`, delta in its Windows `.gitconfig`, standalone uv 0.12.19 and VS Code on `D:\Apps`. The Acer run therefore starts with a read-only paste-back and keeps its own bat and fd files.
+2. `VERSIONS.md` and `MANIFEST.md` exist in the snapshot (the 10-11 audit said they did not).
+3. `04-admin-remove.ps1 -IncludePython` deletes `C:\Python313`, so the separate `pip uninstall uv` step in D2 is dropped.
+4. winget portables may install without a PATH entry (Acer, 2026-10-12): `10` repairs it with a hard link in `WinGet\Links`.
+5. The design guard `$env:STARSHIP_SHELL` would suppress the prompt in nested shells (the variable is inherited by child processes); the block uses a global PowerShell variable.
+6. Font archive extracts to 27 TTFs, 379 MB (not the 60 MB estimate).
+7. The Dell's Codex config carries a WSL path (`/mnt/c/.../node_repl`) that does not resolve on Windows; reported by `99-verify`, owned by Build 6.
+8. `Md` is a built-in alias of `mkdir` in PowerShell, so a helper function with that name silently called `New-Item`.
+
+### Files written (vault: `Old Laptop Rebuild\Windows Toolkit\`)
+`toolkit.json` (47 entries), `_scripts\` (`_lib.ps1`, `00-preflight.ps1`, `10-install-toolkit.ps1`, `11-node-lts-swap.ps1`, `20-apply-configs.ps1`, `40-build-catalog.ps1`, `99-verify.ps1`, `README.md`), `configs\` (`starship.toml` and `git\ignore` byte-identical to the Acer's, SHA-256 `9EF71378...` and `546B86DB...`; `git\delta.gitconfig`; `powershell\managed-block.ps1`; `terminal\toolkit-fragment.json`; `bat\config`; `fd\ignore`), empty `results\` and `catalog\`.
+
+### Checks run in Phase 3 (all read-only or on copies)
+| Check | Result |
+|---|---|
+| Parse every script with `Parser::ParseFile`; ASCII-only byte scan | 7 of 7 clean, 0 non-ASCII bytes |
+| `00-preflight.ps1` (real run) | exit 0; 16 install/upgrade actions planned, 2 PENDING (Python, Chocolatey), 1 MANUAL (Node 22) |
+| `10-install-toolkit.ps1 -DryRun`, `20-apply-configs.ps1 -DryRun`, `11-node-lts-swap.ps1`, `40-build-catalog.ps1 -DryRun` | all exit 0 |
+| Terminal merge on a copy of the Dell settings and on the Acer snapshot settings | scheme, font, defaults, keybindings, pwsh profile, Ubuntu rename all applied; Acer conda profiles kept; second run UNCHANGED |
+| Profile block on the Dell profile copy | opam, Kiro and `New-PyEnv` kept; second run UNCHANGED |
+| Profile block on an Acer-style profile (BOM, CRLF, duplicate Starship/zoxide/PSFzf/VS Code hook) | duplicates commented with `# [toolkit-superseded]`, BOM and CRLF kept, result parses clean |
+| Profile with two statements on one line | MANUAL, file untouched |
+| Managed block executed in clean Windows PowerShell 5.1 | loads, UTF-8 set, no error |
+| uv 0.12.19 installer | downloaded to scratch, SHA-256 `F44CF877...` pinned, `UV_NO_MODIFY_PATH` supported |
+| Font archive | SHA-256 matches the published `SHA-256.txt`; bsdtar wildcard extracts exactly 27 Mono TTFs |
+| `99-verify.ps1` before any install | runs end to end; 47 expected FAILs (nothing installed yet), 24 MCP entries read by name only |
+
+### Errors found while building, with root cause
+| Error | Root cause | Fix |
+|---|---|---|
+| `Resolve-Cmd` returned `C` for every tool | a one-element array returned from a function is unrolled to a string, then `[0]` took its first character | wrap in `@()` and cast |
+| "Argument types do not match" writing result JSON | `@(<List[object]>)` inside an `[ordered]` literal | use `.ToArray()` |
+| winget version always empty for `--id` queries | with `--id`, winget prints a single-space table, so splitting on two spaces found nothing | regex `Id\s+Version` |
+| Backup file name too long | flattened full path in the leaf name | 8-char hash plus leaf name |
+| `-Only a,b` matched nothing | `powershell -File` passes the comma list as one string | split on commas |
+| `Md` helper created directories | alias precedence over functions | renamed `MdCell` |
+| WSL probe returned no hashes | a probed tool read stdin, which was the piped script itself | `</dev/null` on each probe |
+| `Contains` overload error reading MCP JSON | `Dictionary` has `ContainsKey`, not `Contains` | test `Keys -contains` |
+| Stderr "#< CLIXML" counted as a profile error | PowerShell wraps progress in CLIXML on redirected stderr | strip it, keep real error text |
 
 ## Left for Build 5 and later
 VS Code settings and extensions, the MCP registry and `sync-mcp.ps1`, Claude Code settings, Miniconda relocation, the pagefile, and all Build 3 items.

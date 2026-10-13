@@ -1,32 +1,188 @@
 {
     "script":  "20-apply-configs",
     "host":  "DESKTOP-3VBG0JH",
-    "machine":  "acer",
+    "machine":  "dell",
     "dryRun":  false,
-    "started":  "2026-10-13T00:41:36",
-    "finished":  "2026-10-13T00:41:36",
+    "started":  "2026-10-13T01:02:11",
+    "finished":  "2026-10-13T01:02:13",
     "admin":  false,
-    "manifestSha256":  "F8449C836949F4BF3847901874906E213AA2BAF9ABF3A2BD1E09809F4DA70733",
+    "manifestSha256":  "1148540EEA4E16CE17D955AACA684E62911ECDA1AE29861DD385788EBDE6CFA5",
     "vaultRoot":  "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis",
-    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-20-apply-configs-20261013-004136.log",
+    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-20-apply-configs-20261013-010211.log",
     "counts":  {
-                   "MANUAL":  2
+                   "CHANGED":  11,
+                   "PASS":  8
                },
     "items":  [
                   {
+                      "id":  "starship",
+                      "status":  "CHANGED",
+                      "detail":  "wrote C:\\Users\\Anant Gupta\\.config\\starship.toml; hash matches source; backup ",
+                      "backup":  null,
+                      "sha256":  "9EF7137822AA311445172696D150ED8E6D8C5CD84F5FCF7829D96EE0FA81D1E2",
+                      "target":  "C:\\Users\\Anant Gupta\\.config\\starship.toml"
+                  },
+                  {
+                      "id":  "git-ignore",
+                      "status":  "CHANGED",
+                      "detail":  "wrote C:\\Users\\Anant Gupta\\.config\\git\\ignore; hash matches source; backup D:\\Backup\\Toolkit\\20261013-010211\\427664AB_ignore",
+                      "backup":  "D:\\Backup\\Toolkit\\20261013-010211\\427664AB_ignore",
+                      "sha256":  "546B86DBE5D2AA141915726FB99966DE0664263AB33C17C460CD50EA3C6E0E50",
+                      "target":  "C:\\Users\\Anant Gupta\\.config\\git\\ignore"
+                  },
+                  {
+                      "id":  "git-delta",
+                      "status":  "CHANGED",
+                      "detail":  "wrote C:\\Users\\Anant Gupta\\.config\\git\\delta.gitconfig; hash matches source; backup ",
+                      "backup":  null,
+                      "sha256":  "91DE9847A2993F7EC2950A3F20FF6D1A72DF778B87C1817B5554780BEDD840F8",
+                      "target":  "C:\\Users\\Anant Gupta\\.config\\git\\delta.gitconfig"
+                  },
+                  {
+                      "id":  "bat",
+                      "status":  "CHANGED",
+                      "detail":  "wrote C:\\Users\\Anant Gupta\\AppData\\Roaming\\bat\\config; hash matches source; backup ",
+                      "backup":  null,
+                      "sha256":  "FD064DBC4718C2A38DC7D5B250609D62EBC386A3B97B6353009D4348D95D4C8A",
+                      "target":  "C:\\Users\\Anant Gupta\\AppData\\Roaming\\bat\\config"
+                  },
+                  {
+                      "id":  "fd-ignore",
+                      "status":  "CHANGED",
+                      "detail":  "wrote C:\\Users\\Anant Gupta\\AppData\\Roaming\\fd\\ignore; hash matches source; backup ",
+                      "backup":  null,
+                      "sha256":  "A97264C09BFF11356068FED1BB45BD241798431071EE2B1C78C9FF849FA651E0",
+                      "target":  "C:\\Users\\Anant Gupta\\AppData\\Roaming\\fd\\ignore"
+                  },
+                  {
                       "id":  "profile-ps5",
-                      "status":  "MANUAL",
-                      "detail":  "C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\c49292f8-66cc-4fcf-be7d-2fa48b988728\\scratchpad\\prof-shared\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1: a superseded statement shares lines 1-1 with other code; edit the profile by hand and re-run",
-                      "target":  "C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\c49292f8-66cc-4fcf-be7d-2fa48b988728\\scratchpad\\prof-shared\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1"
+                      "status":  "CHANGED",
+                      "detail":  "block written to D:\\Users\\_Anant\\10_Areas\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1 ; backup D:\\Backup\\Toolkit\\20261013-010211\\5236C5E2_Microsoft.PowerShell_profile.ps1",
+                      "backup":  "D:\\Backup\\Toolkit\\20261013-010211\\5236C5E2_Microsoft.PowerShell_profile.ps1",
+                      "blockSha256":  "2F6B24B4DB41E765F071483F8AFF14EC5F0E810D11E49EF93C5B368CAF8483E9",
+                      "target":  "D:\\Users\\_Anant\\10_Areas\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1"
                   },
                   {
                       "id":  "profile-pwsh",
-                      "status":  "MANUAL",
-                      "detail":  "C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\c49292f8-66cc-4fcf-be7d-2fa48b988728\\scratchpad\\prof-shared\\PowerShell\\Microsoft.PowerShell_profile.ps1: a superseded statement shares lines 1-1 with other code; edit the profile by hand and re-run",
-                      "target":  "C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\c49292f8-66cc-4fcf-be7d-2fa48b988728\\scratchpad\\prof-shared\\PowerShell\\Microsoft.PowerShell_profile.ps1"
+                      "status":  "CHANGED",
+                      "detail":  "block written to D:\\Users\\_Anant\\10_Areas\\Documents\\PowerShell\\Microsoft.PowerShell_profile.ps1 ; backup ",
+                      "backup":  null,
+                      "blockSha256":  "2F6B24B4DB41E765F071483F8AFF14EC5F0E810D11E49EF93C5B368CAF8483E9",
+                      "target":  "D:\\Users\\_Anant\\10_Areas\\Documents\\PowerShell\\Microsoft.PowerShell_profile.ps1"
+                  },
+                  {
+                      "id":  "terminal",
+                      "status":  "CHANGED",
+                      "detail":  "merged into C:\\Users\\Anant Gupta\\AppData\\Local\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json; backup D:\\Backup\\Toolkit\\20261013-010211\\3CD52749_settings.json",
+                      "backup":  "D:\\Backup\\Toolkit\\20261013-010211\\3CD52749_settings.json",
+                      "sha256":  "10E3BD2CD52CE59E7C3C1D2802EA18E55C079B993FBEF06D91D12F534ED491F2",
+                      "target":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json"
+                  },
+                  {
+                      "id":  "git-settings",
+                      "status":  "CHANGED",
+                      "detail":  "10 setting(s) changed; 2 already correct. core.longpaths: \u0027\u0027 -\u003e \u0027true\u0027 | core.fsmonitor: \u0027\u0027 -\u003e \u0027true\u0027 | core.untrackedCache: \u0027\u0027 -\u003e \u0027true\u0027 | core.autocrlf: \u0027false\u0027 -\u003e \u0027input\u0027 | push.autoSetupRemote: \u0027\u0027 -\u003e \u0027true\u0027 | fetch.prune: \u0027\u0027 -\u003e \u0027true\u0027 | rerere.enabled: \u0027\u0027 -\u003e \u0027true\u0027 | credential.https://github.com.helper: set to gh auth git-credential | credential.https://gist.github.com.helper: set to gh auth git-credential | include.path: added the shared delta include"
+                  },
+                  {
+                      "id":  "env-STARSHIP_CONFIG",
+                      "status":  "CHANGED",
+                      "detail":  "STARSHIP_CONFIG=C:\\Users\\Anant Gupta\\.config\\starship.toml (was \u0027\u0027)"
+                  },
+                  {
+                      "id":  "env-TOOLKIT_VAULT_ROOT",
+                      "status":  "CHANGED",
+                      "detail":  "TOOLKIT_VAULT_ROOT=D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis (was \u0027\u0027)"
+                  },
+                  {
+                      "id":  "envchk-UV_CACHE_DIR",
+                      "status":  "PASS",
+                      "detail":  "UV_CACHE_DIR=D:\\Cache\\uv (Build 3, untouched)"
+                  },
+                  {
+                      "id":  "envchk-PIP_CACHE_DIR",
+                      "status":  "PASS",
+                      "detail":  "PIP_CACHE_DIR=D:\\Cache\\pip (Build 3, untouched)"
+                  },
+                  {
+                      "id":  "envchk-HF_HOME",
+                      "status":  "PASS",
+                      "detail":  "HF_HOME=D:\\Cache\\huggingface (Build 3, untouched)"
+                  },
+                  {
+                      "id":  "envchk-NUGET_PACKAGES",
+                      "status":  "PASS",
+                      "detail":  "NUGET_PACKAGES=D:\\Cache\\nuget (Build 3, untouched)"
+                  },
+                  {
+                      "id":  "envchk-GRADLE_USER_HOME",
+                      "status":  "PASS",
+                      "detail":  "GRADLE_USER_HOME=D:\\Cache\\gradle (Build 3, untouched)"
+                  },
+                  {
+                      "id":  "envchk-PLAYWRIGHT_BROWSERS_PATH",
+                      "status":  "PASS",
+                      "detail":  "PLAYWRIGHT_BROWSERS_PATH=D:\\Cache\\ms-playwright (Build 3, untouched)"
+                  },
+                  {
+                      "id":  "envchk-PUPPETEER_CACHE_DIR",
+                      "status":  "PASS",
+                      "detail":  "PUPPETEER_CACHE_DIR=D:\\Cache\\puppeteer (Build 3, untouched)"
+                  },
+                  {
+                      "id":  "envchk-OLLAMA_MODELS",
+                      "status":  "PASS",
+                      "detail":  "OLLAMA_MODELS=D:\\AI\\ollama-models (Build 3, untouched)"
                   }
               ],
     "hashTable":  [
-
+                      {
+                          "id":  "starship",
+                          "target":  "C:\\Users\\Anant Gupta\\.config\\starship.toml",
+                          "source":  "9EF7137822AA311445172696D150ED8E6D8C5CD84F5FCF7829D96EE0FA81D1E2",
+                          "target_hash":  "9EF7137822AA311445172696D150ED8E6D8C5CD84F5FCF7829D96EE0FA81D1E2",
+                          "match":  true
+                      },
+                      {
+                          "id":  "git-ignore",
+                          "target":  "C:\\Users\\Anant Gupta\\.config\\git\\ignore",
+                          "source":  "546B86DBE5D2AA141915726FB99966DE0664263AB33C17C460CD50EA3C6E0E50",
+                          "target_hash":  "546B86DBE5D2AA141915726FB99966DE0664263AB33C17C460CD50EA3C6E0E50",
+                          "match":  true
+                      },
+                      {
+                          "id":  "git-delta",
+                          "target":  "C:\\Users\\Anant Gupta\\.config\\git\\delta.gitconfig",
+                          "source":  "91DE9847A2993F7EC2950A3F20FF6D1A72DF778B87C1817B5554780BEDD840F8",
+                          "target_hash":  "91DE9847A2993F7EC2950A3F20FF6D1A72DF778B87C1817B5554780BEDD840F8",
+                          "match":  true
+                      },
+                      {
+                          "id":  "bat",
+                          "target":  "C:\\Users\\Anant Gupta\\AppData\\Roaming\\bat\\config",
+                          "source":  "FD064DBC4718C2A38DC7D5B250609D62EBC386A3B97B6353009D4348D95D4C8A",
+                          "target_hash":  "FD064DBC4718C2A38DC7D5B250609D62EBC386A3B97B6353009D4348D95D4C8A",
+                          "match":  true
+                      },
+                      {
+                          "id":  "fd-ignore",
+                          "target":  "C:\\Users\\Anant Gupta\\AppData\\Roaming\\fd\\ignore",
+                          "source":  "A97264C09BFF11356068FED1BB45BD241798431071EE2B1C78C9FF849FA651E0",
+                          "target_hash":  "A97264C09BFF11356068FED1BB45BD241798431071EE2B1C78C9FF849FA651E0",
+                          "match":  true
+                      },
+                      {
+                          "id":  "profile-ps5",
+                          "target":  "D:\\Users\\_Anant\\10_Areas\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1",
+                          "source":  "2F6B24B4DB41E765F071483F8AFF14EC5F0E810D11E49EF93C5B368CAF8483E9",
+                          "target_hash":  "2F6B24B4DB41E765F071483F8AFF14EC5F0E810D11E49EF93C5B368CAF8483E9",
+                          "match":  true
+                      },
+                      {
+                          "id":  "profile-pwsh",
+                          "target":  "D:\\Users\\_Anant\\10_Areas\\Documents\\PowerShell\\Microsoft.PowerShell_profile.ps1",
+                          "source":  "2F6B24B4DB41E765F071483F8AFF14EC5F0E810D11E49EF93C5B368CAF8483E9",
+                          "target_hash":  "2F6B24B4DB41E765F071483F8AFF14EC5F0E810D11E49EF93C5B368CAF8483E9",
+                          "match":  true
+                      }
                   ]
 }

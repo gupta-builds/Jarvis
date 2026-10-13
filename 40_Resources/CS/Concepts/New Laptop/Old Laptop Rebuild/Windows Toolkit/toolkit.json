@@ -60,7 +60,7 @@
     {
       "id": "iosevkaterm-nfm", "name": "IosevkaTerm Nerd Font Mono", "category": "Shell and terminal", "method": "font", "detect": "font",
       "machines": ["dell", "acer"], "policy": "install", "uac": false,
-      "location": "per-user fonts: %LOCALAPPDATA%\\Microsoft\\Windows\\Fonts (about 60 MB, C:); Acer has it system-wide",
+      "location": "per-user fonts: %LOCALAPPDATA%\\Microsoft\\Windows\\Fonts (27 TTF files, about 380 MB, C:, cannot be redirected); Acer has it system-wide",
       "configs": ["terminal"],
       "purpose": "Glyph font for Starship icons. Registers in Windows as the family IosevkaTerm NFM.",
       "when": "Set as the Terminal and VS Code terminal font face. Use the registered name IosevkaTerm NFM, not the long name.",

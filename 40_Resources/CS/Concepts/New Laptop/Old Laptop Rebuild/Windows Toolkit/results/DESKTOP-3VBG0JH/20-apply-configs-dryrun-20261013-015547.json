@@ -1,0 +1,26 @@
+{
+    "script":  "20-apply-configs",
+    "host":  "DESKTOP-3VBG0JH",
+    "machine":  "dell",
+    "dryRun":  true,
+    "started":  "2026-10-13T01:55:47",
+    "finished":  "2026-10-13T01:55:47",
+    "admin":  false,
+    "manifestSha256":  "A85E83A917A81B8BC009AEB4430E55A26F11DAACEFF6DA83720C5A93FFE74FC5",
+    "vaultRoot":  "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis",
+    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-20-apply-configs-20261013-015547.log",
+    "counts":  {
+                   "PLAN":  1
+               },
+    "items":  [
+                  {
+                      "id":  "terminal",
+                      "status":  "PLAN",
+                      "detail":  "[DRYRUN] would merge scheme, defaults, actions, keybindings, pwsh profile and rename Ubuntu to \u0027Ubuntu (Dell)\u0027 in C:\\Users\\Anant Gupta\\AppData\\Local\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json; preview: D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\results\\DESKTOP-3VBG0JH\\terminal-settings-preview-20261013-015547.json",
+                      "target":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json"
+                  }
+              ],
+    "hashTable":  [
+
+                  ]
+}

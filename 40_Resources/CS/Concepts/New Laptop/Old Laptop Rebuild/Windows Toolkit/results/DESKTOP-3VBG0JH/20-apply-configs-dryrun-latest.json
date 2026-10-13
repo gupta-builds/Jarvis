@@ -3,20 +3,21 @@
     "host":  "DESKTOP-3VBG0JH",
     "machine":  "dell",
     "dryRun":  true,
-    "started":  "2026-10-13T01:19:26",
-    "finished":  "2026-10-13T01:19:26",
+    "started":  "2026-10-13T02:01:37",
+    "finished":  "2026-10-13T02:01:38",
     "admin":  false,
-    "manifestSha256":  "3C04918D8FF9E28CC3618ECCB8E2EA052B9EEE6C8C9CCC302276FFA022913E7F",
+    "manifestSha256":  "4E4A8D15CFEE15DC9E674B51DBE6FAB1F3730A951C20957AC9E4BB1F3C817634",
     "vaultRoot":  "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis",
-    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-20-apply-configs-20261013-011926.log",
+    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-20-apply-configs-20261013-020137.log",
     "counts":  {
                    "PLAN":  1
                },
     "items":  [
                   {
-                      "id":  "path-order",
+                      "id":  "terminal",
                       "status":  "PLAN",
-                      "detail":  "[DRYRUN] would move C:\\Users\\Anant Gupta\\.local\\bin to the front of the user PATH (all other entries kept in order)"
+                      "detail":  "[DRYRUN] would merge scheme, defaults, actions, keybindings, pwsh profile and rename Ubuntu to \u0027Ubuntu (Dell)\u0027 in C:\\Users\\Anant Gupta\\AppData\\Local\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json; preview: D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\results\\DESKTOP-3VBG0JH\\terminal-settings-preview-20261013-020137.json",
+                      "target":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json"
                   }
               ],
     "hashTable":  [

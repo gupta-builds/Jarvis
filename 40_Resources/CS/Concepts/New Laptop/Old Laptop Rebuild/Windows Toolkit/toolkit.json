@@ -19,7 +19,7 @@
   },
   "pins": {
     "uv": { "version": "0.12.19", "installerUrl": "https://github.com/astral-sh/uv/releases/download/0.12.19/uv-installer.ps1", "installerSha256": "F44CF87798D181653F4C160EE28DF6353CCF0AC4EFEA16C9A32ABFF694C8F45B" },
-    "font": { "release": "v3.5.1", "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.1/IosevkaTerm.tar.xz", "sha256": "054a4a369cdcc5d57e9bc91ea56dfefd66c71c253dcb0c0d7b72c0810373da26", "family": "IosevkaTerm NFM", "filePattern": "IosevkaTermNerdFontMono-*.ttf", "regularFile": "IosevkaTermNerdFontMono-Regular.ttf" },
+    "font": { "release": "v3.5.1", "url": "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.5.1/IosevkaTerm.tar.xz", "sha256": "054a4a369cdcc5d57e9bc91ea56dfefd66c71c253dcb0c0d7b72c0810373da26", "family": "IosevkaTerm NFM", "filePattern": "IosevkaTermNerdFontMono-*.ttf", "regularFile": "IosevkaTermNerdFontMono-Regular.ttf", "baseFamily": "IosevkaTerm NF", "basePattern": "IosevkaTermNerdFont-*.ttf", "terminalFace": "IosevkaTerm Nerd Font" },
     "psfzf": { "version": "2.7.12" },
     "python": { "uvSpec": "3.13" }
   },
@@ -40,7 +40,7 @@
       "machines": ["dell", "acer"], "policy": "verify", "detect": "winget",
       "location": "MSIX (forced to C:)",
       "configs": ["terminal"],
-      "purpose": "Terminal host with the Tokyo Night Storm scheme and the IosevkaTerm NFM font.",
+      "purpose": "Terminal host: One Half Dark scheme and the IosevkaTerm Nerd Font face, both identical to the Acer; Tokyo Night Storm kept as an extra scheme.",
       "when": "Every interactive session. The Dell stays on 1.24 on purpose.",
       "keyCommands": ["wt", "wt -d . pwsh", "wt new-tab -p \"Ubuntu (Dell)\"", "Ctrl+Shift+F find", "Alt+Shift+D duplicate pane"],
       "runsWhere": "Windows",
@@ -60,10 +60,10 @@
     {
       "id": "iosevkaterm-nfm", "name": "IosevkaTerm Nerd Font Mono", "category": "Shell and terminal", "method": "font", "detect": "font",
       "machines": ["dell", "acer"], "policy": "install", "uac": false,
-      "location": "per-user fonts: %LOCALAPPDATA%\\Microsoft\\Windows\\Fonts (27 TTF files, about 380 MB, C:, cannot be redirected); Acer has it system-wide",
+      "location": "per-user fonts: %LOCALAPPDATA%\\Microsoft\\Windows\\Fonts (54 TTF files in two sets, about 760 MB, C:, cannot be redirected); Acer has it system-wide",
       "configs": ["terminal"],
-      "purpose": "Glyph font for Starship icons. Registers in Windows as the family IosevkaTerm NFM.",
-      "when": "Set as the Terminal and VS Code terminal font face. Use the registered name IosevkaTerm NFM, not the long name.",
+      "purpose": "Glyph font for Starship icons. Two sets from one archive: the normal set (Terminal face IosevkaTerm Nerd Font, GDI name IosevkaTerm NF) and the Mono set (IosevkaTerm NFM, used by VS Code).",
+      "when": "Windows Terminal face is IosevkaTerm Nerd Font (same as the Acer). VS Code terminals use IosevkaTerm NFM. Both sets are installed.",
       "keyCommands": ["(New-Object System.Drawing.Text.InstalledFontCollection).Families | ? Name -like 'Iosevka*'"],
       "runsWhere": "Windows",
       "agentNotes": "No winget package exists. Source is Nerd Fonts v3.5.1 IosevkaTerm.tar.xz with a pinned SHA-256."

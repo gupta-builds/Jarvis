@@ -1,0 +1,23 @@
+{
+    "script":  "10-install-toolkit",
+    "host":  "DESKTOP-3VBG0JH",
+    "machine":  "dell",
+    "dryRun":  true,
+    "started":  "2026-10-13T02:01:34",
+    "finished":  "2026-10-13T02:01:37",
+    "admin":  false,
+    "manifestSha256":  "4E4A8D15CFEE15DC9E674B51DBE6FAB1F3730A951C20957AC9E4BB1F3C817634",
+    "vaultRoot":  "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis",
+    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-10-install-toolkit-20261013-020134.log",
+    "counts":  {
+                   "PLAN":  1
+               },
+    "items":  [
+                  {
+                      "id":  "iosevkaterm-nfm",
+                      "status":  "PLAN",
+                      "detail":  "[DRYRUN] would install (family not registered)"
+                  }
+              ],
+    "plannedActions":  1
+}

@@ -1,0 +1,62 @@
+{
+    "script":  "11-node-lts-swap",
+    "host":  "DESKTOP-3VBG0JH",
+    "machine":  "dell",
+    "dryRun":  false,
+    "started":  "2026-10-13T01:50:18",
+    "finished":  "2026-10-13T01:51:11",
+    "admin":  true,
+    "manifestSha256":  "3C04918D8FF9E28CC3618ECCB8E2EA052B9EEE6C8C9CCC302276FFA022913E7F",
+    "vaultRoot":  "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis",
+    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-11-node-lts-swap-20261013-015018.log",
+    "counts":  {
+                   "PASS":  4,
+                   "INFO":  2
+               },
+    "items":  [
+                  {
+                      "id":  "node-state",
+                      "status":  "INFO",
+                      "detail":  "OpenJS.NodeJS.22 = 22.16.0; OpenJS.NodeJS.LTS = "
+                  },
+                  {
+                      "id":  "npm-globals-before",
+                      "status":  "INFO",
+                      "detail":  "@openai/codex@0.160.0, firecrawl-cli@1.19.21, mcp-remote@0.2.1, openclaw@2026.3.13, opencode-ai@1.18.31",
+                      "globals":  [
+                                      "@openai/codex@0.160.0",
+                                      "firecrawl-cli@1.19.21",
+                                      "mcp-remote@0.2.1",
+                                      "openclaw@2026.3.13",
+                                      "opencode-ai@1.18.31"
+                                  ]
+                  },
+                  {
+                      "id":  "node-running",
+                      "status":  "PASS",
+                      "detail":  "no node.exe running"
+                  },
+                  {
+                      "id":  "node22-uninstall",
+                      "status":  "PASS",
+                      "detail":  "Node 22 removed (winget exit 0)"
+                  },
+                  {
+                      "id":  "node-lts-install",
+                      "status":  "PASS",
+                      "detail":  "node 24.20.0 at C:\\Program Files\\nodejs\\node.exe (winget exit 0)"
+                  },
+                  {
+                      "id":  "npm-globals-after",
+                      "status":  "PASS",
+                      "detail":  "all 5 global packages survived: @openai/codex@0.160.0, firecrawl-cli@1.19.21, mcp-remote@0.2.1, openclaw@2026.3.13, opencode-ai@1.18.31",
+                      "globals":  [
+                                      "@openai/codex@0.160.0",
+                                      "firecrawl-cli@1.19.21",
+                                      "mcp-remote@0.2.1",
+                                      "openclaw@2026.3.13",
+                                      "opencode-ai@1.18.31"
+                                  ]
+                  }
+              ]
+}

@@ -3,31 +3,20 @@
     "host":  "DESKTOP-3VBG0JH",
     "machine":  "dell",
     "dryRun":  true,
-    "started":  "2026-10-13T01:19:25",
-    "finished":  "2026-10-13T01:19:25",
+    "started":  "2026-10-13T02:01:34",
+    "finished":  "2026-10-13T02:01:37",
     "admin":  false,
-    "manifestSha256":  "3C04918D8FF9E28CC3618ECCB8E2EA052B9EEE6C8C9CCC302276FFA022913E7F",
+    "manifestSha256":  "4E4A8D15CFEE15DC9E674B51DBE6FAB1F3730A951C20957AC9E4BB1F3C817634",
     "vaultRoot":  "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis",
-    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-10-install-toolkit-20261013-011925.log",
+    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-10-install-toolkit-20261013-020134.log",
     "counts":  {
-                   "OK":  1,
                    "PLAN":  1
                },
     "items":  [
                   {
-                      "id":  "uv-python",
+                      "id":  "iosevkaterm-nfm",
                       "status":  "PLAN",
-                      "detail":  "[DRYRUN] would install (no uv-managed python)"
-                  },
-                  {
-                      "id":  "uvx",
-                      "status":  "OK",
-                      "detail":  "present (version 0.12.19)",
-                      "drive":  "C:",
-                      "path":  "C:\\Users\\Anant Gupta\\.local\\bin\\uvx.exe",
-                      "policy":  "verify",
-                      "version":  "0.12.19",
-                      "sizeMB":  0.3
+                      "detail":  "[DRYRUN] would install (family not registered)"
                   }
               ],
     "plannedActions":  1

@@ -257,7 +257,7 @@ function Apply-Terminal {
     $bk = Backup-Target $wtp
     Write-Utf8NoBom -Path $wtp -Text ($j2 + "`n")
     $chk = Get-Content -LiteralPath $wtp -Raw | ConvertFrom-Json
-    $ok = ($chk.defaultProfile -eq $frag.defaultProfile) -and ($chk.profiles.defaults.font.face -eq 'IosevkaTerm NFM') -and ($chk.profiles.defaults.colorScheme -eq 'Tokyo Night Storm') -and (@($chk.schemes | Where-Object { $_.name -eq 'Tokyo Night Storm' }).Count -eq 1)
+    $ok = ($chk.defaultProfile -eq $frag.defaultProfile) -and ($chk.profiles.defaults.font.face -eq $frag.defaults.font.face) -and ($chk.profiles.defaults.colorScheme -eq $frag.defaults.colorScheme) -and (@($chk.schemes | Where-Object { $_.name -eq $frag.scheme.name }).Count -eq 1)
     if ($ok) { Add-Result $Cfg.id 'CHANGED' ("merged into {0}; backup {1}" -f $wtp, $bk) @{ target = $wtp; sha256 = (Get-FileSha256 $wtp); backup = $bk } }
     else { Add-Result $Cfg.id 'FAIL' ("settings.json did not re-read as expected; restore from {0}" -f $bk) }
 }

@@ -131,9 +131,9 @@ Test-Section 'C Terminal, git, environment' {
             $frag = Get-Content -LiteralPath (Join-Path $global:TK.Root 'configs\terminal\toolkit-fragment.json') -Raw | ConvertFrom-Json
             $checks = @(
                 @('default profile is PowerShell 7', ($s.defaultProfile -ieq $frag.defaultProfile)),
-                @('font face IosevkaTerm NFM', ($s.profiles.defaults.font.face -eq 'IosevkaTerm NFM')),
-                @('scheme Tokyo Night Storm applied', ($s.profiles.defaults.colorScheme -eq 'Tokyo Night Storm')),
-                @('scheme defined once', (@($s.schemes | Where-Object { $_.name -eq 'Tokyo Night Storm' }).Count -eq 1)),
+                @(('font face ' + $frag.defaults.font.face), ($s.profiles.defaults.font.face -eq $frag.defaults.font.face)),
+                @(('scheme ' + $frag.defaults.colorScheme + ' applied'), ($s.profiles.defaults.colorScheme -eq $frag.defaults.colorScheme)),
+                @('extra scheme defined once', (@($s.schemes | Where-Object { $_.name -eq $frag.scheme.name }).Count -eq 1)),
                 @('opacity 85, acrylic, cursor #98C379', (($s.profiles.defaults.opacity -eq 85) -and ($s.profiles.defaults.useAcrylic -eq $true) -and ($s.profiles.defaults.cursorColor -eq '#98C379'))),
                 @('keybindings ctrl+c ctrl+v ctrl+shift+f alt+shift+d', (@($s.keybindings | Where-Object { $_.keys -in 'ctrl+c', 'ctrl+v', 'ctrl+shift+f', 'alt+shift+d' }).Count -ge 4)),
                 @('pwsh profile entry present', (@($s.profiles.list | Where-Object { $_.guid -ieq $frag.powershellProfile.guid }).Count -ge 1)),
@@ -145,7 +145,7 @@ Test-Section 'C Terminal, git, environment' {
     } else { Add-Result 'wt-settings' 'FAIL' 'Windows Terminal package not found' }
     # font files + family (fresh process)
     $fontTool = $m.tools | Where-Object { $_.id -eq 'iosevkaterm-nfm' }
-    if (Test-FontFamily $m.pins.font.family) { Add-Result 'font-family' 'PASS' ("family '{0}' registered (seen by a fresh process)" -f $m.pins.font.family) } else { Add-Result 'font-family' 'FAIL' ("family '{0}' not registered; sign out/in once, then re-run" -f $m.pins.font.family) }
+    foreach ($fam in @($m.pins.font.baseFamily, $m.pins.font.family)) { if (Test-FontFamily $fam) { Add-Result ('font-family-' + ($fam -replace ' ', '-')) 'PASS' ("family '{0}' registered (seen by a fresh process)" -f $fam) } else { Add-Result ('font-family-' + ($fam -replace ' ', '-')) 'FAIL' ("family '{0}' not registered; sign out/in once, then re-run" -f $fam) } }
     # git
     $git = Resolve-Cmd 'git'
     if ($git) {

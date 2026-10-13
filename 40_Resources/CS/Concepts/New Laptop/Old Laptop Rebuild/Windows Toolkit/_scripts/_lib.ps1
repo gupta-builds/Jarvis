@@ -405,7 +405,7 @@ function Get-ToolState {
         } catch { $s.detail = 'Get-AppxPackage failed: ' + $_.Exception.Message }
     } elseif ($detect -eq 'font') {
         $fam = $global:TK.Manifest.pins.font.family
-        if (Test-FontFamily $fam) { $s.installed = $true; $s.version = $global:TK.Manifest.pins.font.release; $s.via = 'font'; $s.detail = $fam }
+        if ((Test-FontFamily $fam) -and (Test-FontFamily $global:TK.Manifest.pins.font.baseFamily)) { $s.installed = $true; $s.version = $global:TK.Manifest.pins.font.release; $s.via = 'font'; $s.detail = $fam }
     } elseif ($detect -eq 'psmodule') {
         $v5 = Get-PSModuleVersion -Module $Tool.moduleName
         $pw = Resolve-Cmd 'pwsh'

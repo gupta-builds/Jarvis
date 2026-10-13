@@ -240,5 +240,22 @@ Confirmed good by the run: all hashes match the Acer's (starship `9EF71378...`, 
 ### Machine difference noted by the user
 Terminal font face: the Dell uses `IosevkaTerm NFM` (Mono build); the Acer uses `IosevkaTerm Nerd Font` (normal build). Recorded as a DIFF with this reason for the parity matrix; no script change was made for it. Open for Phase 6: whether the Acer run keeps its own face.
 
+### Phase 4 second round (01:46 to 01:56)
+| Step | Result |
+|---|---|
+| `10 -Only uv-python` | uv-managed CPython 3.13.15 installed (21 MB download) |
+| `20-apply-configs.ps1` | everything UNCHANGED except the Terminal merge and `path-order`: `~\.local\bin` is now first on the user PATH (old value in `D:\Backup\Toolkit\20261013-014706\user-path-before.txt`) |
+| `11-node-lts-swap.ps1 -Apply` (elevated) | Node 22.16.0 removed, Node 24.20.0 installed, npm 11.19.0, all 5 npm globals survived |
+| `04-admin-remove.ps1 -IncludePython` dry run, then `-Apply` (elevated) | Python 3.13.5 and Chocolatey gone; Machine PATH rewritten from the raw value (still ExpandString, 5 `%` entries kept, saved to `logs\machine-path-before-20261013-0152.txt`); C: free 144.76 to 145.20 GiB |
+| `99-verify.ps1 -WriteLock` | 102 PASS, 1 WARN (`node_repl`, Build 6), 12 INFO, 1 FAIL (Terminal scheme); lock not written |
+
+**Terminal scheme, decided 2026-10-13:** the live file had `One Half Dark` at 01:47:06 and again at 01:47:44, after the apply script set Tokyo Night Storm twice; something in the Terminal Settings screen saved it back. D5 is revised by the user: **One Half Dark is the standard on both laptops** (identical to the Acer, so no difference); Tokyo Night Storm stays defined in `schemes` as an extra choice. `toolkit-fragment.json`, `20-apply-configs.ps1` and `99-verify.ps1` now read the scheme name from the fragment.
+
+**Result at 01:57:** the user ran `99-verify.ps1 -WriteLock` again: 104 PASS, 0 FAIL, 1 WARN (`node_repl`, Build 6); `toolkit.lock.json` written.
+
+**Terminal font, revised by the user 2026-10-13:** the Dell's face becomes `IosevkaTerm Nerd Font`, identical to the Acer (the Mono set stays installed for VS Code, which uses `IosevkaTerm NFM`). Facts read from the font files with `GlyphTypeface`: `IosevkaTermNerdFont-*.ttf` has Windows family `IosevkaTerm NF` and typographic family `IosevkaTerm Nerd Font` (the name Windows Terminal matches); the Mono set has `IosevkaTerm NFM` and `IosevkaTerm Nerd Font Mono`. The same verified archive holds both sets (27 files each). `10` now installs both sets and skips files already present; `toolkit-fragment.json`, `20` and `99` read the face from the fragment.
+
+Known quirk: the Terminal step compares JSON text, so it can report CHANGED when Windows Terminal reorders keys in its own file. It is harmless.
+
 ## Left for Build 5 and later
 VS Code settings and extensions, the MCP registry and `sync-mcp.ps1`, Claude Code settings, Miniconda relocation, the pagefile, and all Build 3 items.

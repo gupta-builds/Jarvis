@@ -2,7 +2,7 @@
 type: note
 status: seedling
 created: 2026-10-11
-updated: 2026-10-11
+updated: 2026-10-12
 course: Life
 track:
   - laptop
@@ -153,6 +153,8 @@ None so far. Files created: this note only. Scratch audit scripts live in the se
 |---|---|---|
 | First WSL audit showed most tools "NOT FOUND" | `wsl.exe -- bash script` is non-interactive and does not load `~/.local/bin`, nvm or cargo | rerun with an explicit PATH; toolkit scripts set PATH themselves |
 | Git Bash mangled `/mnt/c/...` path to `C:/Program Files/Git/mnt/...` | MSYS path conversion | run `wsl.exe` from PowerShell |
+| 2026-10-12: Dell, `codex` CLI: `Error: daemon executable not found at C:\Users\Anant Gupta\.codex\packages\app-server-daemon\current\bin\codex.exe`, plus a Windows sandbox install that failed on every retry | Same C:-space cleanup that created the `codex-cleanup-quarantine-2026-09-20` folder (see [[C Drive Bloat - Failure Log and Prevention Rules]], failure #8) also redirected `.codex\packages` to `D:\Cache\codex\packages` via a directory junction, but the `app-server-daemon` package under that target was left with a populated `releases\` folder, a stale 0-byte `install.lock` (dated 2026-09-26), and no `current` pointer. The daemon binary and the Windows sandbox setup exe (`codex-windows-sandbox-setup.exe`) both live under `releases\<version>\`, reachable only through `current`, so both failed the same way regardless of retries. The separate npm-vendored `codex.exe` used for one-shot commands was unaffected, which is why `codex doctor` ran fine while the persistent daemon did not. | Fixed: removed the stale `install.lock`, created `current` as a directory junction to `releases\0.162.1-x86_64-pc-windows-msvc` (matching `auto-update-version`), confirmed via `codex app-server daemon start` and `codex doctor` that the background server now reports `running (persistent mode)`, `appServerVersion 0.162.1`. No admin, no reinstall, no file deleted other than the stale lock. |
+| 2026-10-12: `agy` (Antigravity CLI) unrecognized on the Dell's Windows side | Antigravity the GUI app was installed (2.12.2, `%LOCALAPPDATA%\Programs\antigravity`) but outdated, and its CLI shim has never been created. Like VS Code and Cursor, Antigravity only writes a `resources\app\bin\agy(.cmd)` shim and puts it on PATH after the user runs "Install 'agy' command in PATH" from its own Command Palette (Ctrl+Shift+P) at least once; nothing in the installed tree ships that shim up front. | Partially fixed: `winget upgrade --id Google.Antigravity --exact` brought it to 2.22.0 (matches the Acer's export and the D12 "no Bun/Yazi/lazygit on Windows" tier's sibling decision to adopt installed versions). Still open: launch Antigravity once and run "Install 'agy' command in PATH" from the Command Palette; this step cannot be scripted since it is a one-time in-app action, not a filesystem change. |
 
 ## Left for Build 5 and later
 VS Code settings and extensions, the MCP registry and `sync-mcp.ps1`, Claude Code settings, Miniconda relocation, the pagefile, and all Build 3 items.

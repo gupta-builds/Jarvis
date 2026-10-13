@@ -3,15 +3,14 @@
     "host":  "DESKTOP-3VBG0JH",
     "machine":  "dell",
     "dryRun":  false,
-    "started":  "2026-10-13T01:01:16",
-    "finished":  "2026-10-13T01:01:22",
+    "started":  "2026-10-13T01:00:36",
+    "finished":  "2026-10-13T01:00:39",
     "admin":  false,
     "manifestSha256":  "1148540EEA4E16CE17D955AACA684E62911ECDA1AE29861DD385788EBDE6CFA5",
     "vaultRoot":  "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis",
-    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-11-node-lts-swap-20261013-010116.log",
+    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-11-node-lts-swap-20261013-010036.log",
     "counts":  {
                    "FAIL":  1,
-                   "PASS":  1,
                    "INFO":  2
                },
     "items":  [
@@ -34,13 +33,8 @@
                   },
                   {
                       "id":  "node-running",
-                      "status":  "PASS",
-                      "detail":  "no node.exe running"
-                  },
-                  {
-                      "id":  "node22-uninstall",
                       "status":  "FAIL",
-                      "detail":  "Node 22 is still installed (22.16.0); winget exit -1978335184. Nothing else was changed."
+                      "detail":  "12 node.exe process(es), started by: cmd x12. Close those apps (editors, Claude Desktop, Claude Code, terminals) before -Apply; command lines are never printed."
                   }
               ]
 }

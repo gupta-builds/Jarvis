@@ -1,0 +1,26 @@
+{
+    "script":  "10-install-toolkit",
+    "host":  "DESKTOP-3VBG0JH",
+    "machine":  "dell",
+    "dryRun":  false,
+    "started":  "2026-10-13T02:02:28",
+    "finished":  "2026-10-13T02:03:30",
+    "admin":  false,
+    "manifestSha256":  "4E4A8D15CFEE15DC9E674B51DBE6FAB1F3730A951C20957AC9E4BB1F3C817634",
+    "vaultRoot":  "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis",
+    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-10-install-toolkit-20261013-020228.log",
+    "counts":  {
+                   "INSTALLED":  1
+               },
+    "items":  [
+                  {
+                      "id":  "iosevkaterm-nfm",
+                      "status":  "INSTALLED",
+                      "detail":  "54 TTF files, 760.1 MB, families \u0027IosevkaTerm NF\u0027 and \u0027IosevkaTerm NFM\u0027 registered",
+                      "drive":  "C:",
+                      "version":  "v3.5.1",
+                      "sizeMB":  760.1
+                  }
+              ],
+    "plannedActions":  1
+}

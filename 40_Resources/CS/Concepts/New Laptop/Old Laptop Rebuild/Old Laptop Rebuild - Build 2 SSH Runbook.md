@@ -17,6 +17,8 @@ next: Complete the Tunnel CLI's interactive sign-in and service test, then colle
 # Old Laptop Rebuild - Build 2 SSH Runbook
 
 ## Gate
+> Update 2026-10-13: WSL is 3.0.3.0 stable and systemd is `running`; the `systemd-binfmt.service` caveats in the rows below are historical.
+
 This is a planned runbook, not authorization. Every network exposure, service enablement, Tailscale login/admin action, and Phase 4 operation requires the user's explicit approval. Stop at the first failed check. Never run `wsl --shutdown` from inside WSL.
 
 ## Phase 4 sequence

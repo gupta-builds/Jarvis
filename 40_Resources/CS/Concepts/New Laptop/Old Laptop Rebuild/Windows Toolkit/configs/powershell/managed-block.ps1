@@ -19,6 +19,13 @@ if (Get-Module -ListAvailable -Name PSFzf) {
         Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r' -PSReadlineChordSetLocation 'Alt+c' -TabExpansion -EnableFd -GitKeyBindings
     } catch { }
 }
+# PowerShell 7 turns a bare ~ into the Windows home before wsl.exe sees it ("wsl ~" then fails). Pass it through as a literal.
+function wsl {
+    if ($args.Count -gt 0 -and ($args[0] -ceq '~' -or $args[0] -ieq $HOME)) {
+        $toolkitRest = @($args | Select-Object -Skip 1)
+        & "$env:SystemRoot\System32\wsl.exe" --cd '~' @toolkitRest
+    } else { & "$env:SystemRoot\System32\wsl.exe" @args }
+}
 if ($env:TERM_PROGRAM -eq 'vscode') {
     $toolkitVsInit = Join-Path $HOME '.config\vscode-env\init.ps1'
     if (Test-Path $toolkitVsInit) { . $toolkitVsInit }

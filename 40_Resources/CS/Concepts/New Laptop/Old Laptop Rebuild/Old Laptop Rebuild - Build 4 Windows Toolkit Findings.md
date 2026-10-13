@@ -251,11 +251,17 @@ Terminal font face: the Dell uses `IosevkaTerm NFM` (Mono build); the Acer uses 
 
 **Terminal scheme, decided 2026-10-13:** the live file had `One Half Dark` at 01:47:06 and again at 01:47:44, after the apply script set Tokyo Night Storm twice; something in the Terminal Settings screen saved it back. D5 is revised by the user: **One Half Dark is the standard on both laptops** (identical to the Acer, so no difference); Tokyo Night Storm stays defined in `schemes` as an extra choice. `toolkit-fragment.json`, `20-apply-configs.ps1` and `99-verify.ps1` now read the scheme name from the fragment.
 
-**Result at 01:57:** the user ran `99-verify.ps1 -WriteLock` again: 104 PASS, 0 FAIL, 1 WARN (`node_repl`, Build 6); `toolkit.lock.json` written.
-
-**Terminal font, revised by the user 2026-10-13:** the Dell's face becomes `IosevkaTerm Nerd Font`, identical to the Acer (the Mono set stays installed for VS Code, which uses `IosevkaTerm NFM`). Facts read from the font files with `GlyphTypeface`: `IosevkaTermNerdFont-*.ttf` has Windows family `IosevkaTerm NF` and typographic family `IosevkaTerm Nerd Font` (the name Windows Terminal matches); the Mono set has `IosevkaTerm NFM` and `IosevkaTerm Nerd Font Mono`. The same verified archive holds both sets (27 files each). `10` now installs both sets and skips files already present; `toolkit-fragment.json`, `20` and `99` read the face from the fragment.
-
 Known quirk: the Terminal step compares JSON text, so it can report CHANGED when Windows Terminal reorders keys in its own file. It is harmless.
 
+### `wsl ~` failure in PowerShell 7 (2026-10-13)
+| Item | Detail |
+|---|---|
+| Symptom | `wsl ~` printed `/bin/bash: line 1: C:\Users\Anant Gupta: command not found` |
+| Root cause | PowerShell 7 expands a bare `~` (also one passed through a variable or splat) to the Windows home before `wsl.exe` sees it, so WSL tried to run the Windows path as a command. Windows PowerShell 5.1 does not expand it, which is why it used to work. Reproduced: `wsl ~ pwd` fails, `wsl '~' pwd` and `wsl --cd '~' -- pwd` print `/home/anant_gupta` |
+| Fix | the managed profile block now defines `function wsl` that turns a leading `~` into `--cd '~'` (a quoted literal is not expanded) and passes everything else straight to `wsl.exe`; `wsl -e`, `wsl -d Ubuntu -- ...`, `wsl --cd /tmp` and `wsl -l -q` were tested through it |
+| To apply | `20-apply-configs.ps1 -Only profile-ps5,profile-pwsh`, then open a new window |
+| Until then | `wsl --cd '~'` works in any shell |
+
+The Build 5 readiness audit (what the Build 1 to 3 notes claimed versus the live machine) is recorded in [[Old Laptop Rebuild - Index]], section "Readiness audit, 2026-10-13".
 ## Left for Build 5 and later
 VS Code settings and extensions, the MCP registry and `sync-mcp.ps1`, Claude Code settings, Miniconda relocation, the pagefile, and all Build 3 items.

@@ -23,6 +23,9 @@ next: Complete the user-authenticated VS Code Tunnel service test, obtain Acer c
 ## Scope and status
 Phase 2 items 1 through 6 are applied. Tailscale runs on Dell WSL and Acer Windows only, and Dell Tailscale SSH is active. On 2026-10-12, user-provided output confirmed the 75-second idle test passed, Acer `tailscale.exe ping dell-wsl` reached the direct endpoint, and plain Acer `ssh.exe` ran a Git status command on Dell. Earlier Acer Remote-SSH terminal output showed the canonical Dell WSL repo, user, path and Git status. Systemd remains degraded only on the known `systemd-binfmt.service` read-only flush; the user directed continuation without an unsafe workaround or prerelease update. The admin policy allows member-to-own-device SSH in check mode; key expiry is disabled. Do not alter the existing uncommitted hook or the internship repo's dirty worktree. No Windows user-level VS Code setting, Settings Sync control, WSL config, OpenSSH service, or editor data was changed.
 
+> [!NOTE] Update 2026-10-13
+> The systemd gate described below is resolved. The live Dell WSL is 3.0.3.0 (stable, released 2026-10-09), kernel 6.18.54.1, and `systemctl is-system-running` returns `running` with zero failed units; no workaround or prerelease was used. Phase 4.1 and 4.5 can be treated as PASS without the "known degraded" caveat; a repeat idle test on 3.0.3 is optional. The remaining Phase 4 items (host-key comparison, clone inventory, transfer measurement, Tunnel sign-in, sync-check from the Acer, port-2222 decision, repo pilot) are unchanged and carried into Build 5 as WAITING USER.
+
 ## Before and after
 | Area | Before | After / evidence |
 |---|---|---|

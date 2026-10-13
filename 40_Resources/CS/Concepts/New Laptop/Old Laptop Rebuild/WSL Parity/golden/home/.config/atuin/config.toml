@@ -1,0 +1,22 @@
+# atuin 18.x. Golden config, Build 5b. Only non-default keys are set (the Acer file was the 16 KB commented default dump
+# plus filter_mode, filter_mode_shell_up_key_binding and enter_accept). Docs: https://docs.atuin.sh/ (configuration).
+# History stays LOCAL: no account, no sync, no update ping.
+auto_sync = false                                # explicit, even though atuin only syncs when logged in
+update_check = false                             # no network call to api.atuin.sh
+filter_mode = "global"                           # [acer] Ctrl-R searches all history
+filter_mode_shell_up_key_binding = "directory"   # [acer] Up arrow searches commands run in this directory
+enter_accept = true                              # [acer] Enter runs the selected command
+secrets_filter = true                            # default; built-in AWS/GitHub/Slack/npm/etc. patterns
+
+# Build 5b: keep pasted API keys out of history. atuin's built-in filter does not know Anthropic/OpenAI/Firecrawl style keys.
+# Unanchored Rust regexes, matched against the whole command line before it is stored.
+history_filter = [
+  '(?i)(api[_-]?key|secret|token|passw(or)?d)\s*[=:]\s*\S{8,}',
+  '^\s*export\s+\w*(KEY|TOKEN|SECRET|PASSWORD)\w*=',
+  'sk-[A-Za-z0-9_-]{20,}',
+  'fc-[A-Za-z0-9]{20,}',
+  'gh[pousr]_[A-Za-z0-9]{30,}',
+  'github_pat_[A-Za-z0-9_]{30,}',
+  'Bearer\s+[A-Za-z0-9._-]{15,}',
+  'AKIA[0-9A-Z]{16}',
+]

@@ -1,0 +1,22 @@
+# lazygit >= 0.64 (diffRenderers replaced the old custom-pager config in v0.64.0). Golden config, Build 5b.
+# delta's --navigate does not work inside lazygit (lazygit docs), so it is not passed here.
+git:
+  diffRenderers:
+    - type: "stdinFilter"
+      name: "delta"
+      colorArg: "always"
+      command: "delta --dark --paging=never"   # --dark kept (not {{colorScheme}}) so it also works on lazygit 0.64 and 0.65
+  autoFetch: true
+  autoRefresh: true
+
+gui:
+  nerdFontsVersion: "3"
+  showFileTree: true
+  showCommandLog: false
+  # Build 5b: Tokyo Night Storm accents to match Starship, tmux and Yazi
+  theme:
+    activeBorderColor: ['#7aa2f7', 'bold']
+    inactiveBorderColor: ['#565f89']
+    selectedLineBgColor: ['#283457']
+
+promptToReturnFromSubprocess: true

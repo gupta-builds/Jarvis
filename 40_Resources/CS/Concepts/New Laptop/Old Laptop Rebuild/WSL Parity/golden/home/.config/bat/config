@@ -1,0 +1,10 @@
+# bat 0.24+. Golden config, Build 5b. Style flags are the Windows Toolkit's (Build 4) so Windows and WSL behave the same.
+--style=numbers,changes,header
+--paging=auto
+--italic-text=always
+# Tokyo Night Storm to match Starship, tmux, Yazi and lazygit. bat ships no Tokyo Night theme, so the theme is the Yazi flavor's tmTheme
+# copied to ~/.config/bat/themes/tokyonight_storm.tmTheme by 37-toolkit-apply.sh, then `bat cache --build`.
+--theme="tokyonight_storm"
+--map-syntax "*.jsonl:JSON"
+--map-syntax "*.mdc:Markdown"
+--map-syntax ".envrc:Bash"

@@ -1,0 +1,14 @@
+# fd global ignore (~/.config/fd/ignore). Build 5b: the Windows Toolkit list plus .next and .turbo. Keep Windows and WSL lists in step.
+.git
+node_modules
+__pycache__
+.venv
+.cache
+.pytest_cache
+.mypy_cache
+.ruff_cache
+dist
+build
+target
+.next
+.turbo

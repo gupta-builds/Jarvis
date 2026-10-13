@@ -1,0 +1,13 @@
+# ripgrep config. ripgrep only reads this if RIPGREP_CONFIG_PATH points here (set by ~/.config/toolkit/env.sh). One flag per line,
+# `--flag=value` form, no quotes. Command-line flags override it; `rg --no-config` ignores it; `rg --debug` shows the file in use.
+--smart-case
+--hidden
+--glob=!.git/
+--glob=!node_modules/
+--glob=!.venv/
+--glob=!target/
+--glob=!dist/
+--glob=!build/
+--glob=!.next/
+--max-columns=200
+--max-columns-preview

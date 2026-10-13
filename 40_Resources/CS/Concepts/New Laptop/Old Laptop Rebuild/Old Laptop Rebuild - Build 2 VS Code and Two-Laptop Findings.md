@@ -2,7 +2,7 @@
 type: note
 status: seedling
 created: 2026-10-07
-updated: 2026-10-11
+updated: 2026-10-12
 course: Life
 track:
   - laptop
@@ -13,15 +13,15 @@ related:
   - "[[Old Laptop Rebuild - Index]]"
   - "[[Old Laptop Rebuild - Build 1 WSL Findings]]"
   - "[[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]]"
-next: Await a stable WSL release with the binfmt fix; then recheck systemd and continue Phase 4 at admin/SSH validation
+next: Complete the user-authenticated VS Code Tunnel service test, obtain Acer clone inventory and transfer evidence, then seek exact approval for the optional OpenSSH fallback and repo pilot
 ---
 # Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings
 
 ## One-Line Answer
-==WSL-side VS Code and user-level developer safety parity are applied and verified; Tailscale is now live on Dell WSL and Acer Windows, with direct ping evidence in both directions. The Dell host remains degraded on systemd-binfmt, and Acer SSH host-key verification and Remote-SSH checks are incomplete.==
+==WSL-side VS Code parity is applied; the Acer has reached the Dell's canonical repo by plain SSH and Remote-SSH, and the post-idle Tailscale route returned direct. Remaining Phase 4 gates are the tunnel service test, Acer inventory/transfer evidence, and explicit choices for fallback SSH and the repo pilot.==
 
 ## Scope and status
-Phase 2 items 1 through 6 are applied. The user has since installed/authenticated Tailscale on Dell Ubuntu WSL and Acer Windows and enabled Dell Tailscale SSH. No repo was modified. No Windows user-level VS Code file, Settings Sync control, WSL configuration, SSH server, editor-server data, or Miniconda installation was changed. Tailscale is the sole network component enabled so far. Phase 4 is in progress while waiting for the stable systemd fix; admin-console policy/key-expiry and Acer SSH/Remote-SSH verification remain incomplete.
+Phase 2 items 1 through 6 are applied. Tailscale runs on Dell WSL and Acer Windows only, and Dell Tailscale SSH is active. On 2026-10-12, user-provided output confirmed the 75-second idle test passed, Acer `tailscale.exe ping dell-wsl` reached the direct endpoint, and plain Acer `ssh.exe` ran a Git status command on Dell. Earlier Acer Remote-SSH terminal output showed the canonical Dell WSL repo, user, path and Git status. Systemd remains degraded only on the known `systemd-binfmt.service` read-only flush; the user directed continuation without an unsafe workaround or prerelease update. The admin policy allows member-to-own-device SSH in check mode; key expiry is disabled. Do not alter the existing uncommitted hook or the internship repo's dirty worktree. No Windows user-level VS Code setting, Settings Sync control, WSL config, OpenSSH service, or editor data was changed.
 
 ## Before and after
 | Area | Before | After / evidence |
@@ -152,6 +152,38 @@ Worktree dependency proposal after Q4/Q5: use per-worktree dependency installs o
 
 ### Miniconda and editor capacity
 No Miniconda install or environment rebuild was started. Existing space/disk measurements and the package cost decision belong to the subsequent approved item 9. User approval is required before installation.
+
+## Phase 4 checkpoint — live refresh 2026-10-12
+| Step | Status | Evidence and remaining work |
+|---|---|---|
+| 4.1 Preconditions | PASS with known systemd caveat | Live WSL reports `degraded`; the sole failed unit remains `systemd-binfmt.service`. `tailscaled` is active, `RunSSH=true`, networking mode is mirrored, and WSL has no conventional listener on 22/2222. A corrected Windows PowerShell query returned no Dell Windows Tailscale/OpenSSH services or 22/2222 listeners. The user chose to continue Phase 4 without a workaround or prerelease update. |
+| 4.2 OpenSSH fallback | WAITING USER DECISION | `sshd` and `ssh.socket` are inactive/not installed; no listener on 22/2222. The primary Tailscale SSH path now works. Ask if the optional keyed port-2222 fallback is still wanted before writing/running its sudo script. |
+| 4.3 Tailscale | PASS | User already installed and authenticated Tailscale on Dell WSL and Acer Windows, set Dell `dell-wsl` with `RunSSH=true`, and disabled Dell key expiry. Live Dell-to-Acer `tailscale ping -c 2 100.84.91.11` returned directly via `10.5.8.252:41641` in 16 ms. No installation or `tailscale up` repeated. |
+| 4.4 Admin console | PASS, user-provided | The user pasted the active SSH policy: `autogroup:member` to `autogroup:self`, users `autogroup:nonroot` and `root`, action `check`; general access remains allow-all. The Acer `gupta-builds` and Dell `dell-wsl` are the user's own devices. No policy changed or broadened. Key expiry is disabled per the user. |
+| 4.5 Idle/reachability | PASS, user-provided | After closing WSL/editor/Codex sessions, `wsl-idle-test.ps1` reported Ubuntu still running after 75 seconds with no WSL command during the wait. The Acer then pinged Dell through DERP initially and directly via `10.5.8.253:41641` in 7 ms. |
+| 4.6 Acer handoff | HANDOFF READY; inventory pending | Acer is on Windows Tailscale; its earlier PowerShell showed no WSL distro name and Windows `ssh.exe`/`tailscale.exe`. Acer-side scan of old repo clones and the optional Acer-WSL route check have not been returned. Do not retire any clone until the inventory and preservation review are complete. |
+| 4.7 SSH/Remote-SSH | PASS for working path; transfer pending | New plain `ssh.exe` output ran `hostname`, `pwd`, and `git status` against Dell: `DESKTOP-3VBG0JH`, `/home/anant_gupta`, `## main...origin/main`, and the pre-existing modified hook. Earlier user-provided Acer Remote-SSH terminal output verified the same canonical repository, user and WSL path. No large-transfer measurement yet. The first key was accepted, but the user has not shown an independent comparison against Tailscale's advertised SSH host-key fingerprint; verify that now from Acer Windows before treating host identity as independently validated. |
+| 4.8 VS Code Tunnel | CLI ready; authentication/service pending | Downloaded the official Linux standalone CLI 1.141.0 to `~/tools/vscode-tunnel-cli/code`; `tunnel --help` works, `tunnel status` reports no active tunnel/service, and `systemctl --user is-system-running` reports `running`. The ordinary WSL `code` command resolves to the Windows VS Code CLI, so do not use it to host a Dell WSL tunnel. User must authenticate interactively with the Linux CLI before installing/testing its service. |
+| 4.9 Same-page check | Local PASS; Acer SSH invocation pending | Created executable `~/tools/sync-check`. Local run fetched only the two named shared repos and reported Node 24.14.1, pnpm 10.33.2, Python 3.12.3, uv 0.12.23. `second-brain-claudekit`: `main`, ahead 0/behind 0, dirty count 1 (the existing hook). `internship-research-loop`: `dell-latitude/deadline-quota-and-reseed-fixes`, 6 ahead/5 behind `origin/master`, dirty count 26. The `git fetch` updated Git remote metadata only. Acer must run `ssh.exe anant_gupta@dell-wsl '~/tools/sync-check'` and return the report. From Dell, `ssh ...@dell-wsl` cannot resolve because this node was brought up with `--accept-dns=false`; do not alter DNS for this test. A self-connection to Dell's own Tailscale IP returned connection refused, so it is not a valid substitute for the Acer-side SSH run. |
+| 4.10 Internship directive | PASS | Backed up and patched the vault directive under `Codebases/internship-research-loop/` with one dated supersession line and link to Locked Decisions. The live repo copy is absent at the named path, and its worktree is already dirty; no live repo file was touched. The second-brain completion gate remains unchanged. |
+| 4.11 Repo pilot | WAITING USER APPROVAL | No branch or repo edit was made. The internship checkout is dirty (26 paths) and has no upstream configured; its fetched head is 6 ahead/5 behind `origin/master`. The second-brain checkout has its pre-existing modified hook. Refresh the read-only candidate audit and obtain exact repo/change approval before selecting a clean pilot. |
+
+### Changes made in this checkpoint
+| Item | Before | After |
+|---|---|---|
+| Same-page checker | `~/tools/sync-check` absent | Created with mode 0700, `bash -n` passes; reports the two shared repos and four tool versions. `git fetch origin` updates remote metadata only. |
+| Linux Tunnel CLI | No standalone Linux CLI; `code` resolves to Windows VS Code | Downloaded the official `cli-alpine-x64` archive to a temporary directory, extracted version 1.141.0 to `~/tools/vscode-tunnel-cli/code`, and set mode 0700. Tunnel status remains empty; no account sign-in or tunnel service yet. |
+| Internship directive | No single-host supersession line | Dated 2026-10-12 line added under `Final completion gate` in the vault note after a backup. The similarly named live repo file does not exist at the specified path; its worktree is dirty and was not edited. |
+| Runbook, handoff, findings, Index, session log | Last updated 2026-10-11 | Dated backups created before updating the phase ledger and recording user-provided evidence. No Windows VS Code settings, Tailscale policy, SSH service, WSL config, or repo source file changed. |
+
+Commands/actions with state effects: created and `chmod 700`'d `~/tools/sync-check`; that script ran `git fetch origin` on the two named repos (fetch metadata only); downloaded/extracted the standalone Linux CLI and set its executable mode; copied dated backups of the five checkpoint notes/log; patched the vault internship directive and checkpoint notes. No commit/push, branch change, package installation requiring sudo, sign-in, service enablement, VHDX/config edit, or editor cleanup occurred.
+
+### Errors during this checkpoint
+- A first Windows PowerShell service/listener query failed because shell quoting corrupted `$_` inside `Where-Object`; the corrected single-quoted PowerShell command ran and returned no matching Windows services/listeners.
+- `code tunnel --help` through the default WSL `code` command did not reach a Linux CLI. `type -a code` showed it resolves to the Windows VS Code application; the separate Linux CLI was installed for the Dell WSL host instead.
+- The attempted official `cli-linux-x64` download URL returned HTTP 404. The current official Remote Tunnels documentation's standalone example uses `cli-alpine-x64`; downloading and running that archive succeeded at version 1.141.0.
+- Plain `ssh anant_gupta@dell-wsl` from Dell WSL failed DNS resolution. Root cause is this WSL node was deliberately started with `--accept-dns=false`; MagicDNS resolution is available on Acer Windows and must be tested there.
+- `tailscale ssh` to Dell's own tailnet IP returned `connect: connection refused`. This self-dial is not the Acer-to-Dell test; the Acer's supplied plain SSH result succeeds. Cause of the self-dial behavior is not established, so it is not generalized to peer connections.
 
 ## Growth Rules
 | Growth source | Standing rule | One check command |

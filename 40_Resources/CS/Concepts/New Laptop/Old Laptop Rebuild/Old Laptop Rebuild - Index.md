@@ -2,7 +2,7 @@
 type: note
 status: sprout
 created: 2026-10-04
-updated: 2026-10-11
+updated: 2026-10-12
 course: Life
 track:
   - laptop
@@ -14,7 +14,7 @@ related:
   - "[[Ubuntu - WSL]]"
   - "[[Installations]]"
   - "[[Old Laptop Rebuild - Prompt 1 WSL]]"
-next: Await a stable WSL release containing the binfmt fix, then recheck systemd and continue Phase 4 at the admin/SSH validation steps
+next: Finish the approved Phase 4 Tunnel authentication/service test, then close the Acer identity/inventory and remaining explicit fallback/pilot decisions
 ---
 # Old Laptop Rebuild - Index
 
@@ -57,7 +57,7 @@ The Acer's cloud copy has landed on the Dell's Windows VS Code, with Acer-only p
 ## Session sequence
 1. WSL layer ([[Old Laptop Rebuild - Prompt 1 WSL]]): audit, `.wslconfig`, tool parity, WSL-side cleanup, Jarvis log.
 2. Build 2 (WSL VS Code and the two-laptop SSH workflow): see [[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]].
-3. Build 3, Windows C: cleanup, Google Drive mirror, D: baseline and Windows-side WSL host settings (pagefile, AppData, Temp and crash dumps, quarantine, startup and tasks, Defender exclusions, D: offload). Prompt in [[Old Laptop Rebuild - Windows Prompts (Build 3 C Drive Cleanup and Build 4 Terminal Parity)]], run with the WizTree screenshots attached.
+3. Build 3, Windows C: cleanup, Google Drive mirror, D: baseline and Windows-side WSL host settings (pagefile, AppData, Temp and crash dumps, quarantine, startup and tasks, Defender exclusions, D: offload). Prompt in [[Old Laptop Rebuild - Windows Prompts (Build 3 C Drive Cleanup and Build 4 Terminal Parity)]], run with the WizTree screenshots attached. Executed 2026-10-12 and closed in [[Old Laptop Rebuild - Build 3b C Drive Snapshot Structure and Watch]] (C: free 39.5 to 136 GB, C: and D: structure contract, weekly clean and daily watch tasks).
 4. Acer dotfile snapshot: exported 2026-10-11 into `Old Laptop Rebuild/Acer Dotfile Snapshot/` (with its `_scripts`), so terminal configs are copied from the Acer instead of rebuilt from notes. Build 4 uses it.
 5. Build 4, scripted Windows toolkit on both laptops (PowerShell 7, Windows Terminal, Starship, fonts, shared config hashes, WSL config parity from the snapshot) plus a catalog and agent guide for AI tools. Same note; the Dell inventory is the "Old Laptop" section of [[Installations]].
 6. Build 5, Windows VS Code and MCP wiring (extensions 39/34, settings, MCP registry), with the stale Acer paths from Build 2's findings.
@@ -69,6 +69,9 @@ Each session writes `Old Laptop Rebuild - Build N <layer> Findings.md` here, wit
 ## Dated campaign amendment — 2026-10-11
 Phase 4 remains **in progress** while waiting for a stable WSL release containing the `systemd-binfmt` fix. The user's choice is to wait for stable; this is not a pause of the phase or campaign. WSL 3.0.1.0 remains live and degraded only because the binfmt flush is read-only; do not install the prerelease or apply a workaround. Follow the detailed live facts and item-by-item ledger in [[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]].
 
-Current handoff: Build 2 Phase 4 still needs the stable update and recheck, actual SSH-policy inspection, host-key match and Acer SSH/Remote-SSH checks, optional port-2222 decision, meaningful transfer approval, clone inventory, and post-service idle test. Then the unrun sudo package script and Build 2 items 7-9 remain, as do sync-check, Tunnels, directive and repo pilot gates. The Acer snapshot exists at `Acer Dotfile Snapshot/` (MANIFEST/VERSIONS dated 2026-10-11); use it as Build 4's source, but run Build 3 first. Build 3 Windows work, Build 4 Windows parity, Build 5 Windows VS Code/MCP and Build 6 cross-machine verification are not complete. See the Build 2 campaign ledger for named owners and exact next actions.
+Current handoff: The user has directed Phase 4 to continue with the known `systemd-binfmt.service` degradation; no workaround or prerelease update was applied. On 2026-10-12 the corrected 75-second idle test passed, Acer Tailscale ping switched from DERP to direct, and plain Acer Windows SSH executed commands against Dell's canonical checkout. Earlier Acer Remote-SSH terminal evidence also showed the Dell WSL repo, user and path. Key expiry is disabled and the pasted Access Controls policy permits member-to-own-device SSH in check mode. Still pending: independent comparison of the already accepted SSH host key against Tailscale's advertised key, Acer clone/worktree inventory, approved harmless large-transfer measurement, Acer invocation of `~/tools/sync-check`, and VS Code Tunnel interactive authentication plus persistent-service test. The optional keyed port-2222 fallback still needs a direct yes/no decision. Phase 4.10's dated line is in the vault directive. Phase 4.11 pilot needs exact repo/change approval; no branch or repo edit has been made. Then the unrun bubblewrap/socat sudo script and Build 2 items 7-9 remain. Builds 3-6 remain in this Index's stated order. See the 2026-10-12 checkpoint in Build 2 Findings and Runbook.
 
 Live 2026-10-11 disk/service refresh: WSL `/` has 901 GiB free; C: 39.46 GiB free; D: 363.80 GiB free. Tailscale ping first used DERP and later went direct, so route is variable; no MTU change. No listeners on 22/2222 or Dell Windows Tailscale/OpenSSH service were observed. Current editor/Codex processes prevented an idle-test rerun. Historical 2026-10-07 duplicate-Python-registration hypothesis is superseded: latest journal evidence is the read-only `binfmt_misc` flush failure described in Build 2 findings.
+
+## Campaign amendment — 2026-10-12
+The stable-WSL wait is no longer a gate to the demonstrated SSH workflow. The user explicitly directed Phase 4 to continue while recording the sole `systemd-binfmt.service` read-only-flush failure as a known degraded condition. Do not apply an unsafe workaround or install a prerelease. The idle test passed for 75 seconds and the Acer reconnected afterward by direct Tailscale path; plain Windows SSH reached the canonical Dell WSL checkout, and prior Remote-SSH terminal evidence confirmed the same. Phase 4 remains incomplete until its listed authentication, Acer inventory/transfer, same-page SSH invocation, and approval-gated choices are closed.

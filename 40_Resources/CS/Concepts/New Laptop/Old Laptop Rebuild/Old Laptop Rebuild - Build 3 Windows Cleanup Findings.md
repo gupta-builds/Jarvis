@@ -17,7 +17,7 @@ related:
   - "[[Installations]]"
   - "[[Google Drive Sync Policy]]"
   - "[[Old Laptop Rebuild - Windows Prompts (Build 3 C Drive Cleanup and Build 4 Terminal Parity)]]"
-next: "User reviews the Phase 2 checkpoint, runs diag-pagefile-bitlocker.ps1 elevated, then replies 'go A' or edits the Tier A list"
+next: "Build 3 is executed and closed by [[Old Laptop Rebuild - Build 3b C Drive Snapshot Structure and Watch]] (2026-10-12): C: free 39.5 to 136 GB, weekly clean and daily watch registered. Remaining items are listed there."
 ---
 # Old Laptop Rebuild - Build 3 Windows Cleanup Findings
 

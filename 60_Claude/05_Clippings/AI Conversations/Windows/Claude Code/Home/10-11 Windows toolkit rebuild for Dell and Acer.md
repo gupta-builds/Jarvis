@@ -5,27 +5,28 @@ source_app: claude-code
 source_os: windows
 title: "Windows toolkit rebuild for Dell and Acer"
 started_at: 2026-10-11T18:57:39
-ended_at: 2026-10-12T22:56:02
-exported_at: 2026-10-12T23:00:05
-duration_minutes: 1678.4
+ended_at: 2026-10-12T23:29:26
+exported_at: 2026-10-12T23:30:04
+duration_minutes: 1711.8
 project: Home
 cwd: 'C:\Users\Anant Gupta'
 session_id: cf4ca032-4c13-47e2-add0-c255f2ad1fc7
 status: raw
-turn_count: 21
+turn_count: 23
 tools_used:
   Agent: 4
-  Bash: 4
-  Edit: 3
-  PowerShell: 18
-  Read: 15
-  Write: 9
+  Bash: 5
+  Edit: 16
+  Grep: 1
+  PowerShell: 27
+  Read: 18
+  Write: 17
 tokens:
-  input: 234
-  output: 342920
-  cache_creation: 2529510
-  cache_read: 15870102
-  total: 18742766
+  input: 372
+  output: 649091
+  cache_creation: 2922119
+  cache_read: 34800638
+  total: 38372220
 cost_usd: null
 model:
   - "claude-sonnet-5-5"
@@ -38,6 +39,7 @@ files_touched:
   - "C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\cf4ca032-4c13-47e2-add0-c255f2ad1fc7\\scratchpad\\audit-wsl.out"
   - "C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\cf4ca032-4c13-47e2-add0-c255f2ad1fc7\\scratchpad\\audit-wsl.sh"
   - "C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\cf4ca032-4c13-47e2-add0-c255f2ad1fc7\\scratchpad\\audit-wsl2.sh"
+  - "C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\cf4ca032-4c13-47e2-add0-c255f2ad1fc7\\scratchpad\\scan-c.out"
   - "C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\cf4ca032-4c13-47e2-add0-c255f2ad1fc7\\scratchpad\\scan-c.ps1"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Acer Live State — 2026-09-16.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Codebases\\windows-home\\VS Code - Windows.md"
@@ -45,6 +47,7 @@ files_touched:
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Old Laptop Rebuild - Build 1 WSL Findings.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Old Laptop Rebuild - Build 3 Windows Cleanup Findings.md"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Old Laptop Rebuild - Build 3b C Drive Snapshot Structure and Watch.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Old Laptop Rebuild - Build 4 Windows Toolkit Findings.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Old Laptop Rebuild - Index.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Old Laptop Rebuild - Windows Prompts (Build 3 C Drive Cleanup and Build 4 Terminal Parity).md"
@@ -54,6 +57,12 @@ files_touched:
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\VS Code - Terminal Environments.md"
   - "D:\\WSL\\ops\\windows\\03-user-tidy.ps1"
   - "D:\\WSL\\ops\\windows\\04-admin-remove.ps1"
+  - "D:\\WSL\\ops\\windows\\05-user-deep-clean.ps1"
+  - "D:\\WSL\\ops\\windows\\06-admin-deep-clean.ps1"
+  - "D:\\WSL\\ops\\windows\\07-register-watch-tasks.ps1"
+  - "D:\\WSL\\ops\\windows\\08-finish-cleanup.ps1"
+  - "D:\\WSL\\ops\\windows\\watch-c.ps1"
+  - "D:\\WSL\\ops\\windows\\weekly-clean.ps1"
 tags:
   - input
   - ai-conversation
@@ -2430,6 +2439,88 @@ First the cause of the elevated-shell failure. It was my bug, not your shell. Th
 
 Then the deep dive. Starting with read-only scans to turn the WizTree screenshots into exact folder lists, because I won't delete anything from a screenshot alone.
 
+The four scripts that were written passed to disk. Parse-checking them and dry-running the safe ones now. The watcher is read-only, so I'm running it for real to produce the first history row.
+
+The reversible version was accepted. Parse-checking it and dry-running it now, which only reads and writes a log.
+
+The dry run works but listed every Temp item, so I'm reading the sections that matter.
+
+## Result
+
+I fixed the elevated script and wrote the rest of the cleanup, the weekly task and the watcher. Nothing destructive has run. The new elevated scripts, `06-admin-deep-clean.ps1` and `07-register-watch-tasks.ps1`, passed a syntax check but not a dry run, because a dry run needs an elevated shell. `04-admin-remove.ps1` also has not been re-run since its fix.
+
+**Why the elevated shell failed:** the fault was my check, `IsInRole('Administrator')`, which asks for a group literally named "Administrator". Your shell was elevated all along. It now uses the proper role check.
+
+**One write was denied:** the first version of `05-user-deep-clean.ps1` was blocked by the auto-mode classifier as irreversible local destruction. I did not retry it. I rewrote it to be reversible: uninstalled-app folders and outdated installers are moved into `D:\Quarantine\[REDACTED]`, game saves go to `D:\Backup\GameSaves`, and only regenerable caches and old Temp are deleted.
+
+The dry run caught a bug that would have moved your live `.wslconfig` out of the profile. That is fixed, and the dry run now lists only the two dated backups.
+
+## Run these, in this order
+
+Elevated PowerShell first. Run each as a dry run, read the list, then add `-Apply`:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\windows\04-admin-remove.ps1
+powershell -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\windows\04-admin-remove.ps1 -Apply
+powershell -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\windows\06-admin-deep-clean.ps1
+powershell -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\windows\06-admin-deep-clean.ps1 -Apply
+```
+
+Then a normal shell. Close Vivaldi first, or its cache is skipped:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\windows\05-user-deep-clean.ps1 -Apply
+```
+
+Last, elevated again, to create the two scheduled tasks:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\windows\07-register-watch-tasks.ps1 -Apply
+Start-ScheduledTask -TaskName Toolkit-Watch-C
+```
+
+## What the screenshots and scans showed
+
+- **Dell Optimizer is not fully gone.** Its 759 MB installer still sits in `InstallShield Installation Information`, plus about 1.5 GB of copies in Temp. Script 06 removes the leftover only because its uninstall entry no longer exists.
+- **A 3.0 GB `UcmUcsiCx.sys` crash dump** sits in `Windows\LiveKernelReports`. A USB-C driver is hanging, so it will keep coming back. The weekly clean removes it and the watcher alerts on it. I couldn't read the folder without admin, so the 3.0 GB figure is from your screenshot.
+- **Microsoft 365 left about 2.5 GB** of Outlook and Office data in `AppData\Local\Microsoft`. The Teams Meeting Add-in is also still installed, and script 06 removes it.
+- **Orphan app folders:** Brave, Opera, Steam, Medal, WPS (`kingsoft`), Riot, JetBrains and similar, about 5 GB in total.
+- **Game saves are not junk.** `EldenRing`, `Baba_Is_You` and the Aim Lab data hold save files, so they are archived rather than deleted.
+- **The `.jdks` Corretto JDK is unused.** It has no Java extension and no IDE behind it, so it goes to quarantine too.
+
+## Installers in Downloads
+
+Script 05 moves only the outdated installers to quarantine. That is old versions of PowerToys, Kiro, Cursor, Loom, Vivaldi, Jan, Dell Command Update, `gh` and Miniconda. Installers of the current versions of your apps stay, which was your earlier rule.
+
+For a completely empty Downloads folder, add `-AllInstallers`. I left that choice to you because your two instructions conflict. The PDFs, the `.crt` file and the images are never touched.
+
+## Weekly task and watcher
+
+- **`Toolkit-Weekly-Clean`:** Sundays at 03:30, removes old Temp, kernel dumps, error reports and updater caches.
+- **`Toolkit-Watch-C`:** daily at 08:00, read-only. It writes history to `D:\WSL\ops\windows\watch\`, and it alerts by toast and in `ALERTS.txt`.
+- **What it alerts on:** C: free under 80 GiB, WSL swap or VHDX growth, uptime over 21 days, Syncthing down, and the quarantine review date.
+- **First run:** it already ran once here and alerted correctly on the 3.5 GB of Temp.
+
+## Your questions
+
+- **Windows Installer and Package Cache:** leave both alone. They shrink as products are uninstalled.
+- **Battery cap:** use BIOS (F2) with Custom 75-80, and set AC Recovery to power on after a power loss. Instructions are in the note.
+- **Tailscale in WSL:** noted, and I'm not touching it.
+- **How much is left, honestly:** from dry-run sizes I expect C: free near 130 to 135 GiB. That is an estimate, not a measurement. It's the sum of about 11 GiB from script 05, 4 GiB from script 06 and 2.5 GiB from script 04, on top of today's 116.9 GiB.
+- **Still on C:** Windows (33 GB), the pagefile (16 GB), Docker (3.7 GB), Spotify (7 GB), Google Drive cache (4.2 GB) and Vivaldi (5.2 GB).
+- **Not done after this build:** Python 3.13.5 and Chocolatey, which wait for Build 4's `uv`. Also .NET 8, Spotify and Google Drive relocation, and `D:\WSL\Installers\wsl-ubuntu.tar` (73 GB, a D: item for the `_Anant` build).
+
+## Decisions for you
+
+- **Teams and the Store apps:** run script 06 with `-StoreApps` to remove Teams, LinkedIn, Netflix and HP Printer Control (about 2.1 GB). Say if you want WhatsApp gone too.
+- **Spotify:** its 7 GB cache also holds offline downloads. Move the download location to `D:\Cache\Spotify` in Spotify's settings.
+- **Obsolete Jarvis tasks:** `ClaudeKit-Sync-All` and `SecondBrainClaudekit-JarvisSync` are disabled. I didn't touch them since they are Jarvis-side.
+- **Windows Ollama startup shortcut:** it conflicts with the WSL Ollama on port 11434.
+
+All of this, including the snapshot, the structure, the Windows-owned files explained, the watch design and the run order, is written in the vault note `Old Laptop Rebuild - Build 3b C Drive Snapshot Structure and Watch.md`. It has an empty "After" table for you to fill in after the run. I did not update the Index or the session log yet.
+
+Paste the output of each script back to me and I'll check it before moving on.
+
 ### Tool Calls
 
 - `Edit` -- `D:\WSL\ops\windows\04-admin-remove.ps1`
@@ -2455,6 +2546,1188 @@ Get-ChildItem C:\Users,C:\ProgramData -Recurse -Force -File -Include *.iso,*.dmp
 
 ```
 - `PowerShell` -- `{"command":"$sp=\u0027C:\\Users\\ANANTG~1\\AppData\\Local\\Temp\\claude\\C--Users-Anant-Gupta\\[REDACTED]\\scratchpad\u0027\npowershell -NoProfile -ExecutionPolicy Bypass -File \"$sp\\scan-c.ps1\" \u003e \"$sp\\scan-c.out\" 2\u003e\u00261\n(Get-Item \"$sp\\scan-c.out\").Length","description":"Run read-only C: size scan to a file","timeout":600000}`
+- `Read` -- `C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\cf4ca032-4c13-47e2-add0-c255f2ad1fc7\scratchpad\scan-c.out`
+- `PowerShell` -- `{"command":"$ErrorActionPreference=\u0027SilentlyContinue\u0027\n\"=== installed (ARP, all hives) names\"; (Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*,HKLM:\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*,HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\* | Where DisplayName | Select -Expand DisplayName | Sort -Unique) -join \u0027 | \u0027\n\"=== appx (current user, non-framework)\"; (Get-AppxPackage | Where {-not $_.IsFramework -and $_.SignatureKind -ne \u0027System\u0027} | Select -Expand Name | Sort) -join \u0027 | \u0027\n\"=== running procs of interest\"; Get-Process | Where ProcessName -match \u0027spotify|vivaldi|steam|medal|rize|cluely|gitkraken|code|cursor|kiro|slack|discord|zoom|obsidian|syncthing|docker|ollama\u0027 | Group ProcessName | Select Name,Count | Format-Table -AutoSize | Out-String\n\"=== Local\\Microsoft top\"; Get-ChildItem \"$env:LOCALAPPDATA\\Microsoft\" -Force -Directory | ForEach-Object { [pscustomobject]@{GB=[math]::Round(((Get-ChildItem $_.FullName -Recurse -Force -File | Measure Length -Sum).Sum/1GB),3);N=$_.Name} } | Sort GB -Desc | Select -First 12 | ForEach-Object { \"{0,7:N3} {1}\" -f $_.GB,$_.N }\n\"=== Local\\Packages top\"; Get-ChildItem \"$env:LOCALAPPDATA\\Packages\" -Force -Directory | ForEach-Object { [pscustomobject]@{GB=[math]::Round(((Get-ChildItem $_.FullName -Recurse -Force -File | Measure Length -Sum).Sum/1GB),3);N=$_.Name} } | Sort GB -Desc | Select -First 12 | ForEach-Object { \"{0,7:N3} {1}\" -f $_.GB,$_.N }\n\"=== Local\\Programs\"; Get-ChildItem \"$env:LOCALAPPDATA\\Programs\" -Force | Select -Expand Name\n\"=== jdks refs\"; Select-String -Path \"$env:APPDATA\\Code\\User\\settings.json\",\"$env:APPDATA\\Cursor\\User\\settings.json\" -Pattern \u0027jdks|java\\.home|jdt\\.ls\u0027 | ForEach-Object { $_.Line.Trim() }\nGet-ChildItem \"$env:USERPROFILE\\.jdks\" -Directory | Select -Expand Name\n\"=== unknown folders contents (first 4 entries)\"; foreach($p in \"$env:LOCALAPPDATA\\GitKrakenCLI\",\"$env:LOCALAPPDATA\\Steam\",\"$env:LOCALAPPDATA\\cluely-updater\",\"$env:LOCALAPPDATA\\Rize\",\"$env:APPDATA\\Rize\",\"$env:USERPROFILE\\AppData\\LocalLow\\Statespace\",\"$env:APPDATA\\com.clace.desktop\",\"$env:LOCALAPPDATA\\Respondus\",\"$env:LOCALAPPDATA\\BraveSoftware\"){ \"-- $p\"; Get-ChildItem $p -Force | Select -First 4 -Expand Name }\n\"=== Run values all hives (names)\"; foreach($k in \u0027HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\u0027,\u0027HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\u0027,\u0027HKLM:\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Run\u0027){ \"$k : \" + ((Get-Item $k).Property -join \u0027, \u0027) }\n\"=== existing scheduled tasks (non-Microsoft)\"; Get-ScheduledTask | Where { $_.TaskPath -eq \u0027\\\u0027 } | Select TaskName,State | Format-Table -AutoSize | Out-String","description":"Map candidate leftovers to installed apps","timeout":300000}`
+- `PowerShell` -- `{"command":"$ErrorActionPreference=\u0027SilentlyContinue\u0027\n\"=== wslconfig (no secrets expected)\"; Get-Content \"$env:USERPROFILE\\.wslconfig\"\n\"=== D:\\WSL layout\"; Get-ChildItem D:\\WSL -Force | ForEach-Object { [pscustomobject]@{N=$_.Name;Dir=$_.PSIsContainer;GB=[math]::Round(((Get-ChildItem $_.FullName -Recurse -Force -File | Measure Length -Sum).Sum/1GB),2)} } | Format-Table -AutoSize | Out-String\nGet-ChildItem D:\\WSL -Recurse -Force -Include *.vhdx,*.vhd -File | Select FullName,@{n=\u0027GB\u0027;e={[math]::Round($_.Length/1GB,2)}},LastWriteTime | Format-Table -AutoSize | Out-String -Width 200\n\"=== D:\\WSL\\ops\"; Get-ChildItem D:\\WSL\\ops -Force | Select -Expand Name\n\"=== Storage Sense / policies\"; Get-ItemProperty \u0027HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\StorageSense\\Parameters\\StoragePolicy\u0027 | Select 01,02,04,08,32,256,512,1024,2048\n\"=== WER / reporting\"; Get-ItemProperty \u0027HKLM:\\SOFTWARE\\Microsoft\\Windows\\Windows Error Reporting\u0027 | Select Disabled\n\"=== free space\"; Get-PSDrive C,D | ForEach-Object { \"{0}: free {1:N2} GiB\" -f $_.Name,($_.Free/1GB) }\n\"=== Dell Optimizer leftovers\"; Test-Path \u0027C:\\Program Files (x86)\\InstallShield Installation Information\\{[REDACTED]}\u0027; Get-Process | Where ProcessName -match \u0027Optimizer|_is\u0027 | Select ProcessName","description":"Read WSL config, D:\\WSL layout, storage policy","timeout":300000}`
+- `PowerShell` -- `{"command":"$ErrorActionPreference=\u0027SilentlyContinue\u0027\n\"=== java extension?\"; Get-ChildItem \"$env:USERPROFILE\\.vscode\\extensions\" -Directory | Where Name -match \u0027java|redhat\u0027 | Select -Expand Name\n\"=== D:\\WSL\\Installers top\"; Get-ChildItem D:\\WSL\\Installers -Force | Select Name,@{n=\u0027GB\u0027;e={[math]::Round((($_|Get-ChildItem -Recurse -Force -File -EA SilentlyContinue|Measure Length -Sum).Sum+$_.Length*[int](-not $_.PSIsContainer))/1GB,2)}},LastWriteTime | Format-Table -AutoSize | Out-String -Width 200\n\"=== InstallShield GUID key\"; Test-Path \u0027HKLM:\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\{[REDACTED]}\u0027; Test-Path \u0027HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\{[REDACTED]}\u0027\n\"=== vault folder listing\"; Get-ChildItem \u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\u0027 -Force | Select -Expand Name\n\"=== findings note head\"; Get-Content \u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Old Laptop Rebuild - Build 4 Windows Toolkit Findings.md\u0027 -TotalCount 22\n\"=== Downloads non-installer items\"; Get-ChildItem \u0027D:\\Users\\_Anant\\Downloads\u0027 -Force | Where { $_.Extension -notin \u0027.exe\u0027,\u0027.msi\u0027 } | Select -Expand Name\n\"=== codex in .codex-temp running?\"; Get-Process codex | Select Path -Unique","description":"Check Java extension, WSL Installers, vault conventions"}`
+- `Write` -- `D:\WSL\ops\windows\05-user-deep-clean.ps1`
+```
+<#
+05-user-deep-clean.ps1   (normal PowerShell, NOT admin)
+Default is a DRY RUN. Add -Apply to delete. Run 06-admin-deep-clean.ps1 first (it uninstalls the Teams Meeting Add-in).
+What it does:
+  A  removes AppData and profile folders of apps that are already uninstalled (explicit list, nothing is guessed)
+  B  archives game save data to D:\Backup\GameSaves instead of deleting it
+  C  removes updater and app caches (skips any app that is running - close it and re-run)
+  D  purges old files from Temp (keeps anything newer than 2 days and the Claude scratch folder)
+  E  moves .wslconfig backup files out of the profile root
+  F  deletes OUTDATED installers in Downloads (-AllInstallers deletes every .exe/.msi there)
+Never touches: Syncthing, Docker, Google DriveFS, VS Code/Cursor/Kiro User folders, Spotify offline data, WSL, the vault.
+#>
+param([switch]$Apply, [switch]$AllInstallers)
+$ErrorActionPreference = 'Continue'
+$log = "D:\WSL\ops\windows\logs\05-user-deep-clean-$(Get-Date -Format yyyyMMdd-HHmm).log"
+Start-Transcript -Path $log | Out-Null
+if (-not $Apply) { Write-Host '*** DRY RUN (nothing changes). Re-run with -Apply ***' -ForegroundColor Yellow }
+$startFree = (Get-PSDrive C).Free / 1GB
+$script:planned = 0.0; $script:freed = 0.0; $script:left = @()
+
+$L = $env:LOCALAPPDATA; $R = $env:APPDATA; $LL = Join-Path $env:USERPROFILE 'AppData\LocalLow'; $H = $env:USERPROFILE
+
+function Get-MB($p) {
+  $it = Get-Item -LiteralPath $p -Force -ErrorAction SilentlyContinue
+  if (-not $it) { return 0 }
+  if (-not $it.PSIsContainer) { return [math]::Round($it.Length / 1MB, 1) }
+  [math]::Round(((Get-ChildItem -LiteralPath $p -Recurse -Force -File -ErrorAction SilentlyContinue | Measure-Object Length -Sum).Sum) / 1MB, 1)
+}
+function Test-Running($names) { foreach ($n in $names) { if (Get-Process -Name $n -ErrorAction SilentlyContinue) { return $n } }; return $null }
+function Remove-Safe($p, $why, $procs) {
+  if (-not (Test-Path -LiteralPath $p)) { return }
+  $r = if ($procs) { Test-Running $procs } else { $null }
+  if ($r) { Write-Host ("  SKIP (running: {0})  {1}" -f $r, $p) -ForegroundColor Yellow; $script:left += "$p (close $r, re-run)"; return }
+  $mb = Get-MB $p
+  Write-Host ("  {0,9:N1} MB  {1}   [{2}]" -f $mb, $p, $why)
+  $script:planned += $mb
+  if (-not $Apply) { return }
+  $it = Get-Item -LiteralPath $p -Force
+  if ($it.LinkType) { cmd /c rmdir "$p" | Out-Null }
+  else {
+    Remove-Item -LiteralPath $p -Recurse -Force -ErrorAction SilentlyContinue
+    if (Test-Path -LiteralPath $p) { cmd /c rd /s /q "\\?\$p" 2>$null }
+  }
+  if (Test-Path -LiteralPath $p) { Write-Host '     STILL PRESENT (locked or needs admin)' -ForegroundColor Yellow; $script:left += $p } else { $script:freed += $mb }
+}
+
+Write-Host "`n--- A  Folders of apps that are already uninstalled"
+$orphans = @(
+  @("$L\BraveSoftware", 'Brave not installed'),
+  @("$L\Respondus", 'Respondus removed'),
+  @("$L\Opera Software", 'Opera removed'),
+  @("$L\Steam", 'Steam removed'),
+  @("$L\guardian-browser-updater", 'guardian-browser removed'),
+  @("$L\cluely-updater", 'Cluely not installed'),
+  @("$L\Microsoft\Outlook", 'Microsoft 365 removed (offline address book etc)'),
+  @("$L\Microsoft\Office", 'Microsoft 365 removed'),
+  @("$L\Microsoft\Olk", 'new Outlook removed'),
+  @("$L\Microsoft\TeamsMeetingAddinMsis", 'Teams add-in (run 06 first)'),
+  @("$L\Microsoft\TeamsMeetingAdd-in", 'Teams add-in (run 06 first)'),
+  @("$R\Medal", 'Medal orphan'),
+  @("$R\kingsoft", 'WPS not installed'),
+  @("$R\Opera Software", 'Opera removed'),
+  @("$R\riot-client-ux", 'Riot removed'),
+  @("$R\JetBrains", 'IntelliJ removed'),
+  @("$R\Cognosphere", 'HoYoverse removed'),
+  @("$R\WinRAR", 'WinRAR removed'),
+  @("$R\mongodb", 'MongoDB shell removed'),
+  @("$R\com.clace.desktop", 'clace removed'),
+  @("$LL\miHoYo", 'HoYoverse removed'),
+  @("$H\mongosh-2.5.9-win32-x64", 'MongoDB shell portable copy'),
+  @("$H\WPS Cloud Files", 'WPS not installed'),
+  @("$H\.idea", 'IntelliJ removed'),
+  @("$H\.jdks", 'Corretto JDK from IntelliJ; no Java extension or IDE uses it')
+)
+foreach ($o in $orphans) { Remove-Safe $o[0] $o[1] $null }
+# empty shells only
+foreach ($e in "$L\Programs\Python", "$L\Programs\Common", "$H\OneDrive") {
+  if ((Test-Path -LiteralPath $e) -and ((Get-MB $e) -lt 1)) { Remove-Safe $e 'empty leftover (under 1 MB)' $null }
+}
+
+Write-Host "`n--- B  Game saves: archived, not deleted (D:\Backup\GameSaves)"
+$saves = @(@("$R\EldenRing", 'EldenRing'), @("$R\Baba_Is_You", 'Baba_Is_You'), @("$LL\Statespace", 'AimLab_Statespace'))
+foreach ($s in $saves) {
+  if (-not (Test-Path -LiteralPath $s[0])) { continue }
+  $dst = Join-Path 'D:\Backup\GameSaves' $s[1]
+  Write-Host ("  {0,9:N1} MB  {1}  ->  {2}" -f (Get-MB $s[0]), $s[0], $dst)
+  if ($Apply) {
+    New-Item -ItemType Directory -Force -Path $dst | Out-Null
+    robocopy $s[0] $dst /E /COPY:DAT /R:1 /W:1 /NFL /NDL /NJH /NJS /NP | Out-Null
+    $a = (Get-ChildItem -LiteralPath $s[0] -Recurse -Force -File -ErrorAction SilentlyContinue | Measure-Object).Count
+    $b = (Get-ChildItem -LiteralPath $dst -Recurse -Force -File -ErrorAction SilentlyContinue | Measure-Object).Count
+    if ($LASTEXITCODE -lt 8 -and $b -ge $a) { Remove-Safe $s[0] 'archived and verified' $null } else { Write-Host "     copy not verified ($a vs $b files), original kept" -ForegroundColor Red }
+  }
+}
+
+Write-Host "`n--- C  Caches (apps that are running are skipped)"
+foreach ($u in 'loom-updater', 'obsidian-updater', 'todoist-updater', 'antigravity-updater', 'bitwarden-updater', '16x-prompt-updater', 'SquirrelTemp', 'electron', 'ms-playwright-mcp', 'next-swc') {
+  Remove-Safe (Join-Path $L $u) 'downloaded updater or cache, re-created on demand' $null
+}
+$vb = Join-Path $L 'Vivaldi\User Data'
+if (Test-Path -LiteralPath $vb) {
+  foreach ($d in Get-ChildItem -LiteralPath $vb -Directory -Force -ErrorAction SilentlyContinue) {
+    foreach ($c in 'Cache', 'Code Cache', 'GPUCache', 'DawnCache', 'GrShaderCache', 'ShaderCache') {
+      Remove-Safe (Join-Path $d.FullName $c) 'Vivaldi cache' @('vivaldi')
+    }
+  }
+}
+$np = Join-Path $R 'npm\node_modules\@openai'
+if (Test-Path -LiteralPath $np) {
+  Get-ChildItem -LiteralPath $np -Directory -Force -Filter '.codex-*' -ErrorAction SilentlyContinue | ForEach-Object { Remove-Safe $_.FullName 'half-finished npm update (rename temp)' $null }
+}
+foreach ($app in 'Code', 'Cursor', 'Kiro', 'Todoist') {
+  $rep = Join-Path $R "$app\Crashpad\reports"
+  if (Test-Path -LiteralPath $rep) { Get-ChildItem -LiteralPath $rep -File -Force -ErrorAction SilentlyContinue | Where-Object { $_.LastWriteTime -lt (Get-Date).AddDays(-2) } | ForEach-Object { Remove-Safe $_.FullName 'crash report' $null } }
+}
+Write-Host '  Spotify cache (Local\Spotify, 7 GB) is NOT touched: it also holds offline downloads.'
+Write-Host '  To shrink it: Spotify > Settings > Storage > set downloads location to D:\Cache\Spotify, then clear cache there.'
+
+Write-Host "`n--- D  Temp older than 2 days"
+$cut = (Get-Date).AddDays(-2)
+foreach ($t in $env:TEMP, "$L\Temp", 'D:\Cache\Temp') {
+  if (-not (Test-Path -LiteralPath $t)) { continue }
+  $seen = @{}
+  Get-ChildItem -LiteralPath $t -Force -ErrorAction SilentlyContinue | Where-Object { $_.Name -ne 'claude' -and $_.LastWriteTime -lt $cut } | ForEach-Object {
+    if (-not $seen.ContainsKey($_.FullName)) { $seen[$_.FullName] = 1; Remove-Safe $_.FullName 'old temp' $null }
+  }
+  if ($env:TEMP -eq "$L\Temp") { break }
+}
+
+Write-Host "`n--- E  .wslconfig backups out of the profile root"
+$bk = 'D:\WSL\ops\backups\wslconfig'
+Get-ChildItem -LiteralPath $H -Force -File -Filter '.wslconfig.*' -ErrorAction SilentlyContinue | ForEach-Object {
+  Write-Host ("  move {0} -> {1}" -f $_.FullName, $bk)
+  if ($Apply) { New-Item -ItemType Directory -Force -Path $bk | Out-Null; Move-Item -LiteralPath $_.FullName -Destination $bk -Force }
+}
+
+Write-Host "`n--- F  Downloads: installers"
+$dl = [Environment]::ExpandEnvironmentVariables((Get-ItemProperty 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders').'{[REDACTED]}')
+Write-Host "  folder: $dl"
+$outdated = 'PowerToysSetup-0.98.0*', 'kiro-ide-0.11.131*', 'CursorUserSetup-x64-2.6.12*', 'Loom Setup 0.352.4*', 'Vivaldi.7.9.3970*', 'Jan_0.7.9*', 'Dell-Command-Update-*5.6.0*', 'gh_2.89.0*', 'Miniconda3-latest*', 'LockDownBrowser*', 'Merget_*', 'Wispr Flow Setup*'
+Get-ChildItem -LiteralPath $dl -File -Force -ErrorAction SilentlyContinue | Where-Object { $_.Extension -in '.exe', '.msi' } | ForEach-Object {
+  $f = $_; $hit = $AllInstallers -or ($outdated | Where-Object { $f.Name -like $_ })
+  if ($hit) { Remove-Safe $f.FullName $(if ($AllInstallers) { 'installer (-AllInstallers)' } else { 'outdated installer' }) $null }
+  else { Write-Host ("  keep (current): {0}" -f $f.Name) }
+}
+Write-Host '  Not touched: PDFs, svg, png, sample.txt, obsidian-local-rest-api.crt (may be referenced by Obsidian config).'
+
+$endFree = (Get-PSDrive C).Free / 1GB
+Write-Host ("`nPLANNED {0:N2} GiB   FREED {1:N2} GiB" -f ($script:planned / 1024), ($script:freed / 1024))
+if ($script:left.Count) { Write-Host 'LEFT BEHIND:'; $script:left | ForEach-Object { Write-Host "  $_" } }
+Write-Host ("END  C: free {0:N2} -> {1:N2} GiB   log: {2}" -f $startFree, $endFree, $log)
+Stop-Transcript | Out-Null
+
+```
+- `Write` -- `D:\WSL\ops\windows\06-admin-deep-clean.ps1`
+```
+<#
+06-admin-deep-clean.ps1   (ELEVATED PowerShell)
+Default is a DRY RUN. Add -Apply to make changes.
+  1  Windows kernel crash dumps (LiveKernelReports, Minidump, MEMORY.DMP) and error-report queues
+  2  Dell Optimizer InstallShield leftover (759 MB) - only if its uninstall entry is gone
+  3  Google Updater download cache, empty OneDriveTemp, Teams Meeting Add-in
+  4  -StoreApps : also remove MSTeams, LinkedIn, Netflix, HP Printer Control Store apps (about 2.1 GB of app data)
+  5  Reports only: restore-point storage, driver-store size, component-store analysis (-Analyze, takes minutes)
+Never touches: C:\Windows\Installer, Package Cache, WinSxS, System Volume Information, C:\inetpub, C:\Recovery.
+#>
+param([switch]$Apply, [switch]$StoreApps, [switch]$Analyze)
+$ErrorActionPreference = 'Continue'
+if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) { throw 'Run this from an elevated PowerShell.' }
+$log = "D:\WSL\ops\windows\logs\06-admin-deep-clean-$(Get-Date -Format yyyyMMdd-HHmm).log"
+Start-Transcript -Path $log | Out-Null
+if (-not $Apply) { Write-Host '*** DRY RUN (nothing changes). Re-run with -Apply ***' -ForegroundColor Yellow }
+$startFree = (Get-PSDrive C).Free / 1GB
+
+function Get-MB($p) { $s = (Get-ChildItem -LiteralPath $p -Recurse -Force -File -ErrorAction SilentlyContinue | Measure-Object Length -Sum).Sum; [math]::Round($s / 1MB, 1) }
+function Clear-Folder($p, $why) {
+  if (-not (Test-Path -LiteralPath $p)) { Write-Host "   absent: $p"; return }
+  Write-Host ("   {0,9:N1} MB  {1}   [{2}]" -f (Get-MB $p), $p, $why)
+  if ($Apply) {
+    Get-ChildItem -LiteralPath $p -Force -ErrorAction SilentlyContinue | ForEach-Object {
+      Remove-Item -LiteralPath $_.FullName -Recurse -Force -ErrorAction SilentlyContinue
+      if (Test-Path -LiteralPath $_.FullName) { takeown /f $_.FullName /r /d y 2>$null | Out-Null; icacls $_.FullName /grant 'Administrators:(OI)(CI)F' /t /c 2>$null | Out-Null; cmd /c rd /s /q "\\?\$($_.FullName)" 2>$null; Remove-Item -LiteralPath $_.FullName -Force -ErrorAction SilentlyContinue }
+    }
+    Write-Host ("      now {0:N1} MB" -f (Get-MB $p))
+  }
+}
+
+Write-Host "`n--- 1 Crash dumps and error-report queues (contents only, folders stay)"
+Clear-Folder 'C:\Windows\LiveKernelReports' 'kernel watchdog dumps; the UcmUcsiCx (USB-C) dump alone was 3 GB'
+Clear-Folder 'C:\Windows\Minidump' 'bugcheck minidumps'
+if (Test-Path 'C:\Windows\MEMORY.DMP') { Write-Host ("   {0:N1} MB  C:\Windows\MEMORY.DMP" -f ((Get-Item 'C:\Windows\MEMORY.DMP' -Force).Length / 1MB)); if ($Apply) { Remove-Item 'C:\Windows\MEMORY.DMP' -Force -ErrorAction SilentlyContinue } }
+foreach ($w in 'ReportArchive', 'ReportQueue', 'Temp') { Clear-Folder "C:\ProgramData\Microsoft\Windows\WER\$w" 'Windows Error Reporting' }
+Clear-Folder 'C:\Windows\Temp' 'system temp'
+
+Write-Host "`n--- 2 Dell Optimizer InstallShield leftover"
+$g = '{[REDACTED]}'
+$arp = (Test-Path "HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\$g") -or (Test-Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$g")
+$sh = "C:\Program Files (x86)\InstallShield Installation Information\$g"
+if ($arp) { Write-Host '   uninstall entry still exists, left alone' }
+elseif (Test-Path -LiteralPath $sh) {
+  Write-Host ("   {0,9:N1} MB  {1}   [no uninstall entry any more]" -f (Get-MB $sh), $sh)
+  if ($Apply) { Remove-Item -LiteralPath $sh -Recurse -Force -ErrorAction SilentlyContinue; Write-Host ("      exists now: {0}" -f (Test-Path -LiteralPath $sh)) }
+} else { Write-Host '   already gone' }
+
+Write-Host "`n--- 3 Other leftovers"
+Clear-Folder 'C:\Program Files (x86)\Google\GoogleUpdater\crx_cache' 'Google Updater download cache'
+if ((Test-Path 'C:\OneDriveTemp') -and ((Get-MB 'C:\OneDriveTemp') -lt 1)) { Write-Host '   C:\OneDriveTemp (empty)'; if ($Apply) { Remove-Item 'C:\OneDriveTemp' -Recurse -Force -ErrorAction SilentlyContinue } }
+$keys = 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*', 'HKLM:\SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*'
+Get-ItemProperty $keys -ErrorAction SilentlyContinue | Where-Object { $_.DisplayName -match '^Microsoft Teams Meeting Add-in' } | ForEach-Object {
+  $guid = [regex]::Match($_.UninstallString, '\{[0-9A-Fa-f-]{36}\}').Value
+  Write-Host "   $($_.DisplayName): msiexec /X$guid /qn /norestart"
+  if ($Apply -and $guid) { $p = Start-Process msiexec.exe -ArgumentList "/X$guid /qn /norestart" -Wait -PassThru; Write-Host "      exit $($p.ExitCode)" }
+}
+
+if ($StoreApps) {
+  Write-Host "`n--- 4 Store apps (all users)"
+  foreach ($n in 'MSTeams', '7EE7776C.LinkedInforWindows', '4DF9E0F8.Netflix', 'AD2F1837.HPPrinterControl') {
+    $pk = Get-AppxPackage -AllUsers -Name $n -ErrorAction SilentlyContinue
+    if (-not $pk) { Write-Host "   absent: $n"; continue }
+    Write-Host "   remove $n"
+    if ($Apply) { $pk | Remove-AppxPackage -AllUsers -ErrorAction SilentlyContinue }
+  }
+} else { Write-Host "`n--- 4 Store apps skipped (add -StoreApps to remove MSTeams, LinkedIn, Netflix, HP Printer Control)" }
+
+Write-Host "`n--- 5 Reports (read-only)"
+Write-Host '   restore-point storage:'; vssadmin list shadowstorage 2>&1 | Where-Object { $_ -match 'Used|Allocated|Maximum|For volume' } | ForEach-Object { "     $_" }
+$ds = (Get-ChildItem 'C:\Windows\System32\DriverStore\FileRepository' -Recurse -Force -File -ErrorAction SilentlyContinue | Measure-Object Length -Sum).Sum
+Write-Host ("   DriverStore: {0:N2} GiB (old driver versions are NOT removed by this script)" -f ($ds / 1GB))
+if ($Analyze) { Write-Host '   component store analysis (a few minutes):'; Dism /Online /Cleanup-Image /AnalyzeComponentStore | Select-String 'Size|Reclaimable|Recommended|Last Cleanup' | ForEach-Object { "     $($_.Line)" } }
+
+Write-Host ("`nEND  C: free {0:N2} -> {1:N2} GiB   log: {2}" -f $startFree, ((Get-PSDrive C).Free / 1GB), $log)
+Stop-Transcript | Out-Null
+
+```
+- `Write` -- `D:\WSL\ops\windows\watch-c.ps1`
+```
+<#
+watch-c.ps1   READ-ONLY watcher (never deletes anything)
+Runs daily from the Toolkit-Watch-C scheduled task. Appends one row to watch\watch-history.csv,
+rewrites watch\latest.json, and writes watch\ALERTS.txt (removed when everything is fine).
+Pass -Quiet to skip the Windows toast.
+#>
+param([switch]$Quiet)
+$ErrorActionPreference = 'SilentlyContinue'
+$dir = 'D:\WSL\ops\windows\watch'
+New-Item -ItemType Directory -Force -Path $dir | Out-Null
+function GB($b) { [math]::Round(([double]$b) / 1GB, 2) }
+function DirGB($p) { if (Test-Path -LiteralPath $p) { GB ((Get-ChildItem -LiteralPath $p -Recurse -Force -File -ErrorAction SilentlyContinue | Measure-Object Length -Sum).Sum) } else { 0 } }
+function FileGB($p) { if (Test-Path -LiteralPath $p) { GB (Get-Item -LiteralPath $p -Force).Length } else { 0 } }
+
+$c = Get-PSDrive C; $d = Get-PSDrive D
+$pf = Get-CimInstance Win32_PageFileUsage | Select-Object -First 1
+$bat = Get-CimInstance Win32_Battery | Select-Object -First 1
+$boot = (Get-CimInstance Win32_OperatingSystem).LastBootUpTime
+$row = [ordered]@{
+  time            = (Get-Date).ToString('s')
+  c_free_gb       = GB $c.Free
+  d_free_gb       = GB $d.Free
+  pagefile_use_mb = $pf.CurrentUsage
+  temp_user_gb    = DirGB $env:TEMP
+  temp_d_gb       = DirGB 'D:\Cache\Temp'
+  live_kernel_gb  = DirGB 'C:\Windows\LiveKernelReports'
+  wer_gb          = DirGB 'C:\ProgramData\Microsoft\Windows\WER'
+  cache_dot_gb    = DirGB "$env:USERPROFILE\.cache"
+  npm_roaming_gb  = DirGB "$env:APPDATA\npm"
+  spotify_gb      = DirGB "$env:LOCALAPPDATA\Spotify"
+  packages_gb     = DirGB "$env:LOCALAPPDATA\Packages"
+  driveFS_gb      = DirGB "$env:LOCALAPPDATA\Google\DriveFS"
+  ubuntu_vhdx_gb  = FileGB 'D:\WSL\Ubuntu\ext4.vhdx'
+  docker_vhdx_gb  = FileGB 'D:\WSL\Docker\DockerDesktopWSL\disk\docker_data.vhdx'
+  wsl_swap_gb     = FileGB 'D:\WSL\swap.vhdx'
+  backup_gb       = DirGB 'D:\Backup'
+  quarantine_gb   = DirGB 'D:\Quarantine'
+  battery_pct     = $bat.EstimatedChargeRemaining
+  on_ac           = [int]($bat.BatteryStatus -eq 2)
+  uptime_days     = [math]::Round(((Get-Date) - $boot).TotalDays, 1)
+  syncthing_up    = [int][bool](Get-Process syncthing)
+}
+
+$alerts = @()
+if ($row.c_free_gb -lt 60)  { $alerts += "CRITICAL: C: free is $($row.c_free_gb) GiB (limit 60)" }
+elseif ($row.c_free_gb -lt 80) { $alerts += "WARN: C: free is $($row.c_free_gb) GiB (limit 80)" }
+if ($row.d_free_gb -lt 100) { $alerts += "WARN: D: free is $($row.d_free_gb) GiB (limit 100)" }
+if ($row.live_kernel_gb -gt 0.5) { $alerts += "WARN: LiveKernelReports holds $($row.live_kernel_gb) GiB (USB-C / driver watchdog dumps; weekly clean removes them, update Dell drivers if they return)" }
+if ($row.temp_user_gb -gt 3) { $alerts += "WARN: user Temp is $($row.temp_user_gb) GiB" }
+if ($row.wsl_swap_gb -gt 4) { $alerts += "WARN: WSL swap.vhdx is $($row.wsl_swap_gb) GiB (memory pressure inside WSL)" }
+if ($row.pagefile_use_mb -gt 12288) { $alerts += "WARN: pagefile in use $($row.pagefile_use_mb) MB of 16-32 GB" }
+if ($row.packages_gb -gt 4) { $alerts += "NOTE: Local\Packages is $($row.packages_gb) GiB" }
+if ($row.uptime_days -gt 21) { $alerts += "NOTE: up for $($row.uptime_days) days - pick a night to reboot for updates" }
+if (-not $row.syncthing_up) { $alerts += 'WARN: Syncthing is not running' }
+$q = Get-ChildItem 'D:\Quarantine' -Directory -Filter 'c-cleanup-review-*' | Select-Object -First 1
+if ($q -and $q.Name -match '(\d{4}-\d{2}-\d{2})$') { if ((Get-Date) -ge [datetime]$Matches[1]) { $alerts += "NOTE: quarantine review date $($Matches[1]) has arrived: $($q.FullName) ($($row.quarantine_gb) GiB)" } }
+
+$csv = Join-Path $dir 'watch-history.csv'
+$hist = if (Test-Path $csv) { Import-Csv $csv } else { @() }
+$old = $hist | Where-Object { [datetime]$_.time -lt (Get-Date).AddDays(-6) } | Select-Object -Last 1
+if ($old) {
+  foreach ($k in 'ubuntu_vhdx_gb', 'docker_vhdx_gb') {
+    $grow = [double]$row[$k] - [double]$old.$k
+    if ($grow -gt 5) { $alerts += ("WARN: {0} grew {1:N1} GiB in a week" -f $k, $grow) }
+  }
+  $drop = [double]$old.c_free_gb - [double]$row.c_free_gb
+  if ($drop -gt 10) { $alerts += ("WARN: C: free fell {0:N1} GiB in a week" -f $drop) }
+}
+$obj = [pscustomobject]$row
+if (Test-Path $csv) { $obj | Export-Csv -Path $csv -Append -NoTypeInformation } else { $obj | Export-Csv -Path $csv -NoTypeInformation }
+($row | ConvertTo-Json) | Set-Content -Path (Join-Path $dir 'latest.json') -Encoding ASCII
+
+$af = Join-Path $dir 'ALERTS.txt'
+if ($alerts.Count) {
+  (@("Alerts at $($row.time)") + $alerts) | Set-Content -Path $af -Encoding ASCII
+  if (-not $Quiet) {
+    try {
+      [void][Windows.UI.Notifications.ToastNotificationManager, Windows.UI.Notifications, ContentType = WindowsRuntime]
+      $xml = [Windows.UI.Notifications.ToastNotificationManager]::GetTemplateContent([Windows.UI.Notifications.ToastTemplateType]::ToastText02)
+      $t = $xml.GetElementsByTagName('text')
+      [void]$t.Item(0).AppendChild($xml.CreateTextNode('Laptop watch: ' + $alerts.Count + ' alert(s)'))
+      [void]$t.Item(1).AppendChild($xml.CreateTextNode($alerts[0]))
+      [Windows.UI.Notifications.ToastNotificationManager]::CreateToastNotifier('Toolkit Watch').Show([Windows.UI.Notifications.ToastNotification]::new($xml))
+    } catch { }
+  }
+} elseif (Test-Path $af) { Remove-Item $af -Force }
+$row.GetEnumerator() | ForEach-Object { '{0,-16} {1}' -f $_.Key, $_.Value }
+if ($alerts.Count) { '--- ALERTS'; $alerts }
+
+```
+- `Write` -- `D:\WSL\ops\windows\weekly-clean.ps1`
+```
+<#
+weekly-clean.ps1   SAFE routine cleanup, run weekly by the Toolkit-Weekly-Clean scheduled task.
+Only regenerable files older than a threshold are removed. Pass -DryRun to list instead of delete.
+It never touches: installed programs, Spotify data, Docker, WSL, Syncthing, Google DriveFS, editors' User folders,
+C:\Windows\Installer, Package Cache, WinSxS, restore points, the vault, the Claude scratch folder in Temp.
+#>
+param([switch]$DryRun)
+$ErrorActionPreference = 'SilentlyContinue'
+$logDir = 'D:\WSL\ops\windows\logs'
+$log = Join-Path $logDir ("weekly-clean-{0}.log" -f (Get-Date -Format yyyyMMdd-HHmm))
+Start-Transcript -Path $log | Out-Null
+$startFree = (Get-PSDrive C).Free / 1GB
+$script:mb = 0.0
+if ($DryRun) { Write-Host '*** DRY RUN ***' }
+
+function Purge-Old($path, $days, $label, $skipNames) {
+  if (-not (Test-Path -LiteralPath $path)) { return }
+  $cut = (Get-Date).AddDays(-$days); $sum = 0.0
+  Get-ChildItem -LiteralPath $path -Force | Where-Object { $_.LastWriteTime -lt $cut -and ($skipNames -notcontains $_.Name) } | ForEach-Object {
+    $s = if ($_.PSIsContainer) { (Get-ChildItem -LiteralPath $_.FullName -Recurse -Force -File | Measure-Object Length -Sum).Sum } else { $_.Length }
+    $sum += [double]$s
+    if (-not $DryRun) {
+      if ($_.LinkType) { cmd /c rmdir "$($_.FullName)" | Out-Null } else { Remove-Item -LiteralPath $_.FullName -Recurse -Force -ErrorAction SilentlyContinue }
+    }
+  }
+  $script:mb += $sum / 1MB
+  Write-Host ("  {0,9:N1} MB  {1}  (older than {2} d)" -f ($sum / 1MB), $label, $days)
+}
+
+Purge-Old $env:TEMP 7 'user Temp' @('claude')
+Purge-Old 'D:\Cache\Temp' 7 'D:\Cache\Temp' @()
+Purge-Old 'C:\Windows\Temp' 7 'Windows Temp' @()
+Purge-Old 'C:\Windows\LiveKernelReports' 3 'LiveKernelReports' @()
+Purge-Old 'C:\Windows\Minidump' 7 'Minidump' @()
+foreach ($w in 'ReportArchive', 'ReportQueue') { Purge-Old "C:\ProgramData\Microsoft\Windows\WER\$w" 14 "WER $w" @() }
+Purge-Old (Join-Path $env:LOCALAPPDATA 'CrashDumps') 7 'user CrashDumps' @()
+foreach ($u in 'loom-updater', 'obsidian-updater', 'todoist-updater', 'antigravity-updater', 'bitwarden-updater', '16x-prompt-updater', 'SquirrelTemp') {
+  Purge-Old (Join-Path $env:LOCALAPPDATA $u) 14 $u @()
+}
+foreach ($app in 'Code', 'Cursor', 'Kiro', 'Todoist') { Purge-Old (Join-Path $env:APPDATA "$app\Crashpad\reports") 7 "$app crash reports" @() }
+if (-not $DryRun) { Delete-DeliveryOptimizationCache -Force -ErrorAction SilentlyContinue }
+# keep 60 days of logs
+Get-ChildItem $logDir -Filter *.log -File | Where-Object { $_.LastWriteTime -lt (Get-Date).AddDays(-60) } | ForEach-Object { if (-not $DryRun) { Remove-Item $_.FullName -Force } }
+
+Write-Host ("TOTAL {0:N2} GiB   C: free {1:N2} -> {2:N2} GiB" -f ($script:mb / 1024), $startFree, ((Get-PSDrive C).Free / 1GB))
+Stop-Transcript | Out-Null
+if (-not $DryRun) { & 'D:\WSL\ops\windows\watch-c.ps1' | Out-Null }
+
+```
+- `Write` -- `D:\WSL\ops\windows\07-register-watch-tasks.ps1`
+```
+<#
+07-register-watch-tasks.ps1   (ELEVATED PowerShell)
+Default is a DRY RUN. Add -Apply to register two scheduled tasks (safe to re-run; it replaces them):
+  Toolkit-Weekly-Clean   Sundays 03:30   runs weekly-clean.ps1  (removes old regenerable files)
+  Toolkit-Watch-C        daily 08:00     runs watch-c.ps1       (read-only, writes history, alerts and a toast)
+Both run as you, with highest privileges, whether on AC or battery. If the laptop is off at the trigger time they run at next start.
+Remove later with:  Unregister-ScheduledTask -TaskName Toolkit-Weekly-Clean -Confirm:$false
+#>
+param([switch]$Apply)
+$ErrorActionPreference = 'Stop'
+if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)) { throw 'Run this from an elevated PowerShell.' }
+if (-not $Apply) { Write-Host '*** DRY RUN (nothing registered). Re-run with -Apply ***' -ForegroundColor Yellow }
+$dir = 'D:\WSL\ops\windows'
+foreach ($f in 'weekly-clean.ps1', 'watch-c.ps1') { if (-not (Test-Path (Join-Path $dir $f))) { throw "missing $dir\$f" } }
+$me = "$env:USERDOMAIN\$env:USERNAME"
+$prin = New-ScheduledTaskPrincipal -UserId $me -LogonType Interactive -RunLevel Highest
+$set = New-ScheduledTaskSettingsSet -StartWhenAvailable -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries -ExecutionTimeLimit (New-TimeSpan -Hours 1) -MultipleInstances IgnoreNew
+$defs = @(
+  @{ Name = 'Toolkit-Weekly-Clean'; Script = 'weekly-clean.ps1'; Trigger = (New-ScheduledTaskTrigger -Weekly -DaysOfWeek Sunday -At 3:30AM); Desc = 'Weekly safe cleanup of regenerable files (D:\WSL\ops\windows\weekly-clean.ps1)' },
+  @{ Name = 'Toolkit-Watch-C';      Script = 'watch-c.ps1';      Trigger = (New-ScheduledTaskTrigger -Daily -At 8:00AM); Desc = 'Daily read-only disk, WSL, battery and cache watcher (D:\WSL\ops\windows\watch-c.ps1)' }
+)
+foreach ($d in $defs) {
+  $act = New-ScheduledTaskAction -Execute 'powershell.exe' -Argument ('-NoProfile -ExecutionPolicy Bypass -WindowStyle Hidden -File "{0}\{1}"' -f $dir, $d.Script)
+  Write-Host ("  {0}: {1}  as {2}  trigger {3}" -f $d.Name, $d.Script, $me, $d.Trigger.CimClass.CimClassName)
+  if ($Apply) { Register-ScheduledTask -TaskName $d.Name -Action $act -Trigger $d.Trigger -Principal $prin -Settings $set -Description $d.Desc -Force | Out-Null }
+}
+if ($Apply) { Get-ScheduledTask -TaskName 'Toolkit-*' | Select-Object TaskName, State | Format-Table -AutoSize | Out-String | Write-Host
+  Write-Host 'Test now:  Start-ScheduledTask -TaskName Toolkit-Watch-C ; then read D:\WSL\ops\windows\watch\latest.json' }
+
+```
+- `PowerShell` -- `{"command":"foreach($f in \u002704-admin-remove\u0027,\[REDACTED]\u0027,\[REDACTED]\u0027,\u0027weekly-clean\u0027,\u0027watch-c\u0027){ $p=\"D:\\WSL\\ops\\windows\\$f.ps1\"; $e=$null;$t=$null;[System.Management.Automation.Language.Parser]::ParseFile($p,[ref]$t,[ref]$e)|Out-Null; \"{0}: {1} parse errors\" -f $f,$e.Count; $e|%{\"   \"+$_.Message+\" line \"+$_.Extent.StartLineNumber} }\n$nonAscii = Select-String -Path D:\\WSL\\ops\\windows\\0[4-7]*.ps1,D:\\WSL\\ops\\windows\\weekly-clean.ps1,D:\\WSL\\ops\\windows\\watch-c.ps1 -Pattern \u0027[^\\x00-\\x7F]\u0027 | Measure-Object; \"non-ASCII lines: $($nonAscii.Count)\"\n\"--- weekly-clean dry run\"; powershell -NoProfile -ExecutionPolicy Bypass -File D:\\WSL\\ops\\windows\\weekly-clean.ps1 -DryRun 2\u003e\u00261 | Out-String -Width 200\n\"--- watch-c real run\"; powershell -NoProfile -ExecutionPolicy Bypass -File D:\\WSL\\ops\\windows\\watch-c.ps1 -Quiet 2\u003e\u00261 | Out-String -Width 200","description":"Parse-check scripts, dry-run weekly clean, run watcher","timeout":400000}`
+- `Write` -- `D:\WSL\ops\windows\05-user-deep-clean.ps1`
+```
+<#
+05-user-deep-clean.ps1   (normal PowerShell, NOT admin)
+Default is a DRY RUN. Add -Apply to act. Run 06-admin-deep-clean.ps1 first (it uninstalls the Teams Meeting Add-in).
+REVERSIBLE by design:
+  A  folders of apps that are already uninstalled  -> MOVED to D:\Quarantine\c-deep-clean-review-<date+30d>\
+  B  game saves                                    -> MOVED to D:\Backup\GameSaves\ (kept permanently)
+  F  outdated installers in Downloads              -> MOVED to the same quarantine (-AllInstallers moves every .exe/.msi)
+Only regenerable files are DELETED:
+  C  updater/app caches (apps that are running are skipped), D  Temp older than 2 days
+  E  .wslconfig backup files are moved to D:\WSL\ops\backups\wslconfig
+Never touches: Syncthing, Docker, Google DriveFS, editor User folders, Spotify offline data, WSL, the vault.
+After the quarantine review date, delete the quarantine folder yourself (watch-c.ps1 reminds you).
+#>
+param([switch]$Apply, [switch]$AllInstallers)
+$ErrorActionPreference = 'Continue'
+$log = "D:\WSL\ops\windows\logs\05-user-deep-clean-$(Get-Date -Format yyyyMMdd-HHmm).log"
+Start-Transcript -Path $log | Out-Null
+if (-not $Apply) { Write-Host '*** DRY RUN (nothing changes). Re-run with -Apply ***' -ForegroundColor Yellow }
+$startFree = (Get-PSDrive C).Free / 1GB
+$script:movedMB = 0.0; $script:deletedMB = 0.0; $script:left = @()
+$qroot = 'D:\Quarantine\c-deep-clean-review-' + (Get-Date).AddDays(30).ToString('yyyy-MM-dd')
+$L = $env:LOCALAPPDATA; $R = $env:APPDATA; $LL = Join-Path $env:USERPROFILE 'AppData\LocalLow'; $H = $env:USERPROFILE
+
+function Get-MB($p) {
+  $it = Get-Item -LiteralPath $p -Force -ErrorAction SilentlyContinue
+  if (-not $it) { return 0 }
+  if (-not $it.PSIsContainer) { return [math]::Round($it.Length / 1MB, 1) }
+  [math]::Round(((Get-ChildItem -LiteralPath $p -Recurse -Force -File -ErrorAction SilentlyContinue | Measure-Object Length -Sum).Sum) / 1MB, 1)
+}
+function Test-Running($names) { foreach ($n in $names) { if (Get-Process -Name $n -ErrorAction SilentlyContinue) { return $n } }; return $null }
+
+# Move a file or folder to a destination root (reversible). Links are never followed.
+function Move-To($p, $destRoot, $why) {
+  if (-not (Test-Path -LiteralPath $p)) { return }
+  $it = Get-Item -LiteralPath $p -Force
+  if ($it.LinkType) { Write-Host "  SKIP (link): $p" -ForegroundColor Yellow; return }
+  $mb = Get-MB $p
+  $dest = Join-Path $destRoot (($p -replace '^[A-Za-z]:\\', '') -replace '[\\ ]', '_')
+  Write-Host ("  {0,9:N1} MB  {1}  ->  {2}   [{3}]" -f $mb, $p, $dest, $why)
+  if (-not $Apply) { return }
+  New-Item -ItemType Directory -Force -Path (Split-Path $dest) | Out-Null
+  if ($it.PSIsContainer) {
+    robocopy $p $dest /E /MOVE /XJ /COPY:DAT /R:1 /W:1 /NFL /NDL /NJH /NJS /NP | Out-Null
+    $rc = $LASTEXITCODE
+    if (Test-Path -LiteralPath $p) { Remove-Item -LiteralPath $p -Recurse -Force -ErrorAction SilentlyContinue }
+    if ((Test-Path -LiteralPath $p) -or $rc -ge 8) { Write-Host "     PARTIAL (robocopy $rc): some files are locked, close the app and re-run" -ForegroundColor Yellow; $script:left += $p } else { $script:movedMB += $mb }
+  } else {
+    Move-Item -LiteralPath $p -Destination $dest -Force -ErrorAction SilentlyContinue
+    if (Test-Path -LiteralPath $p) { $script:left += $p } else { $script:movedMB += $mb }
+  }
+}
+# Delete regenerable files only.
+function Delete-Cache($p, $why, $procs) {
+  if (-not (Test-Path -LiteralPath $p)) { return }
+  $r = if ($procs) { Test-Running $procs } else { $null }
+  if ($r) { Write-Host ("  SKIP (running: {0})  {1}" -f $r, $p) -ForegroundColor Yellow; $script:left += "$p (close $r, re-run)"; return }
+  $it = Get-Item -LiteralPath $p -Force
+  if ($it.LinkType) { Write-Host "  SKIP (link): $p" -ForegroundColor Yellow; return }
+  $mb = Get-MB $p
+  Write-Host ("  {0,9:N1} MB  {1}   [{2}]" -f $mb, $p, $why)
+  if (-not $Apply) { return }
+  Remove-Item -LiteralPath $p -Recurse -Force -ErrorAction SilentlyContinue
+  if (Test-Path -LiteralPath $p) { cmd /c rd /s /q "\\?\$p" 2>$null }
+  if (Test-Path -LiteralPath $p) { $script:left += $p } else { $script:deletedMB += $mb }
+}
+
+Write-Host "`n--- A  Folders of apps that are already uninstalled  (quarantine: $qroot)"
+$orphans = @(
+  @("$L\BraveSoftware", 'Brave not installed'), @("$L\Respondus", 'Respondus removed'), @("$L\Opera Software", 'Opera removed'),
+  @("$L\Steam", 'Steam removed'), @("$L\guardian-browser-updater", 'guardian-browser removed'), @("$L\cluely-updater", 'Cluely not installed'),
+  @("$L\Microsoft\Outlook", 'Microsoft 365 removed'), @("$L\Microsoft\Office", 'Microsoft 365 removed'), @("$L\Microsoft\Olk", 'new Outlook removed'),
+  @("$L\Microsoft\TeamsMeetingAddinMsis", 'Teams add-in'), @("$L\Microsoft\TeamsMeetingAdd-in", 'Teams add-in'),
+  @("$R\Medal", 'Medal orphan'), @("$R\kingsoft", 'WPS not installed'), @("$R\Opera Software", 'Opera removed'), @("$R\riot-client-ux", 'Riot removed'),
+  @("$R\JetBrains", 'IntelliJ removed'), @("$R\Cognosphere", 'HoYoverse removed'), @("$R\WinRAR", 'WinRAR removed'), @("$R\mongodb", 'MongoDB shell removed'),
+  @("$R\com.clace.desktop", 'clace removed'), @("$LL\miHoYo", 'HoYoverse removed'),
+  @("$H\mongosh-2.5.9-win32-x64", 'MongoDB shell portable copy'), @("$H\WPS Cloud Files", 'WPS not installed'), @("$H\.idea", 'IntelliJ removed'),
+  @("$H\.jdks", 'Corretto JDK from IntelliJ; no Java extension or IDE uses it')
+)
+foreach ($o in $orphans) { Move-To $o[0] $qroot $o[1] }
+foreach ($e in "$L\Programs\Python", "$L\Programs\Common", "$H\OneDrive") {
+  if ((Test-Path -LiteralPath $e) -and ((Get-MB $e) -lt 1)) { Move-To $e $qroot 'empty leftover (under 1 MB)' }
+}
+Write-Host '  Run-key / startup leftovers (registry values, names only):'
+$run = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Run'
+foreach ($v in 'Medal', 'RiotClient', 'Steam', 'Opera Stable', 'Opera Browser Assistant', 'clace') {
+  if (Get-ItemProperty $run -Name $v -ErrorAction SilentlyContinue) { Write-Host "    Run value: $v"; if ($Apply) { Remove-ItemProperty $run $v -ErrorAction SilentlyContinue } }
+}
+foreach ($k in 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run', 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\StartupFolder') {
+  foreach ($v in 'Medal', 'RiotClient', 'Riot Vanguard', 'Steam', 'DubbingAI', 'Opera Stable', 'Opera Browser Assistant', 'clace', 'Send to OneNote.lnk') {
+    if (Get-ItemProperty $k -Name $v -ErrorAction SilentlyContinue) { Write-Host "    StartupApproved value: $v"; if ($Apply) { Remove-ItemProperty $k $v -ErrorAction SilentlyContinue } }
+  }
+}
+
+Write-Host "`n--- B  Game saves: moved to D:\Backup\GameSaves (kept)"
+foreach ($s in @(@("$R\EldenRing", 'EldenRing'), @("$R\Baba_Is_You", 'Baba_Is_You'), @("$LL\Statespace", 'AimLab_Statespace'))) {
+  if (Test-Path -LiteralPath $s[0]) { Move-To $s[0] 'D:\Backup\GameSaves' 'game save data, kept' }
+}
+
+Write-Host "`n--- C  Caches (deleted; apps that are running are skipped)"
+foreach ($u in 'loom-updater', 'obsidian-updater', 'todoist-updater', 'antigravity-updater', 'bitwarden-updater', '16x-prompt-updater', 'SquirrelTemp', 'electron', 'ms-playwright-mcp', 'next-swc') {
+  Delete-Cache (Join-Path $L $u) 'downloaded updater or cache, re-created on demand' $null
+}
+$vb = Join-Path $L 'Vivaldi\User Data'
+if (Test-Path -LiteralPath $vb) {
+  foreach ($d in Get-ChildItem -LiteralPath $vb -Directory -Force -ErrorAction SilentlyContinue) {
+    foreach ($c in 'Cache', 'Code Cache', 'GPUCache', 'DawnCache', 'GrShaderCache', 'ShaderCache') { Delete-Cache (Join-Path $d.FullName $c) 'Vivaldi cache' @('vivaldi') }
+  }
+}
+$np = Join-Path $R 'npm\node_modules\@openai'
+if (Test-Path -LiteralPath $np) { Get-ChildItem -LiteralPath $np -Directory -Force -Filter '.codex-*' -ErrorAction SilentlyContinue | ForEach-Object { Delete-Cache $_.FullName 'half-finished npm update (rename temp)' $null } }
+foreach ($app in 'Code', 'Cursor', 'Kiro', 'Todoist') {
+  $rep = Join-Path $R "$app\Crashpad\reports"
+  if (Test-Path -LiteralPath $rep) { Get-ChildItem -LiteralPath $rep -File -Force -ErrorAction SilentlyContinue | Where-Object { $_.LastWriteTime -lt (Get-Date).AddDays(-2) } | ForEach-Object { Delete-Cache $_.FullName 'crash report' $null } }
+}
+Write-Host '  Spotify cache (Local\Spotify, 7 GB) is NOT touched: it also holds offline downloads.'
+Write-Host '  To shrink it: Spotify > Settings > Storage, move the downloads location to D:\Cache\Spotify.'
+
+Write-Host "`n--- D  Temp older than 2 days (deleted; the Claude scratch folder is skipped)"
+$cut = (Get-Date).AddDays(-2)
+foreach ($t in (@("$L\Temp", 'D:\Cache\Temp') | Select-Object -Unique)) {
+  if (-not (Test-Path -LiteralPath $t)) { continue }
+  Get-ChildItem -LiteralPath $t -Force -ErrorAction SilentlyContinue | Where-Object { $_.Name -ne 'claude' -and $_.LastWriteTime -lt $cut } | ForEach-Object { Delete-Cache $_.FullName 'old temp' $null }
+}
+
+Write-Host "`n--- E  .wslconfig backups out of the profile root"
+$bk = 'D:\WSL\ops\backups\wslconfig'
+Get-ChildItem -LiteralPath $H -Force -File -Filter '.wslconfig.*' -ErrorAction SilentlyContinue | ForEach-Object {
+  Write-Host ("  move {0} -> {1}" -f $_.FullName, $bk)
+  if ($Apply) { New-Item -ItemType Directory -Force -Path $bk | Out-Null; Move-Item -LiteralPath $_.FullName -Destination $bk -Force }
+}
+
+Write-Host "`n--- F  Downloads: installers (moved to quarantine)"
+$dl = [Environment]::ExpandEnvironmentVariables((Get-ItemProperty 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders').'{[REDACTED]}')
+Write-Host "  folder: $dl"
+$outdated = 'PowerToysSetup-0.98.0*', 'kiro-ide-0.11.131*', 'CursorUserSetup-x64-2.6.12*', 'Loom Setup 0.352.4*', 'Vivaldi.7.9.3970*', 'Jan_0.7.9*', 'Dell-Command-Update-*5.6.0*', 'gh_2.89.0*', 'Miniconda3-latest*', 'LockDownBrowser*', 'Merget_*', 'Wispr Flow Setup*'
+Get-ChildItem -LiteralPath $dl -File -Force -ErrorAction SilentlyContinue | Where-Object { $_.Extension -in '.exe', '.msi' } | ForEach-Object {
+  $f = $_; $hit = $AllInstallers -or ($outdated | Where-Object { $f.Name -like $_ })
+  if ($hit) { Move-To $f.FullName $qroot $(if ($AllInstallers) { 'installer (-AllInstallers)' } else { 'outdated installer' }) }
+  else { Write-Host ("  keep (current): {0}" -f $f.Name) }
+}
+Write-Host '  Not touched: PDFs, svg, png, sample.txt, obsidian-local-rest-api.crt (may be referenced by Obsidian config).'
+
+$endFree = (Get-PSDrive C).Free / 1GB
+Write-Host ("`nMOVED to quarantine/backup {0:N2} GiB   DELETED (caches) {1:N2} GiB" -f ($script:movedMB / 1024), ($script:deletedMB / 1024))
+if ($script:left.Count) { Write-Host 'LEFT BEHIND (locked or running):'; $script:left | ForEach-Object { Write-Host "  $_" } }
+Write-Host ("END  C: free {0:N2} -> {1:N2} GiB   log: {2}" -f $startFree, $endFree, $log)
+Stop-Transcript | Out-Null
+
+```
+- `PowerShell` -- `{"command":"$p=\u0027D:\\WSL\\ops\\windows\\05-user-deep-clean.ps1\u0027; $e=$null;$t=$null;[System.Management.Automation.Language.Parser]::ParseFile($p,[ref]$t,[ref]$e)|Out-Null; \"parse errors: $($e.Count)\"; $e|%{$_.Message+\" line \"+$_.Extent.StartLineNumber}\n\"non-ASCII: \" + (Select-String -Path $p -Pattern \u0027[^\\x00-\\x7F]\u0027 | Measure-Object).Count\npowershell -NoProfile -ExecutionPolicy Bypass -File $p 2\u003e\u00261 | Out-String -Width 230","description":"Parse-check and dry-run the user deep clean","timeout":400000}`
+- `Grep` -- pattern `^---|MOVED|END  C|SKIP|keep \(current\)|Run value|StartupApproved value|move ` path `C:\Users\Anant Gupta\.claude\projects\C--Users-Anant-Gupta\cf4ca032-4c13-47e2-add0-c255f2ad1fc7\tool-results\baok9hscc.txt`
+- `Edit` -- `D:\WSL\ops\windows\05-user-deep-clean.ps1`
+```diff
+- Get-ChildItem -LiteralPath $H -Force -File -Filter '.wslconfig.*' -ErrorAction SilentlyContinue | ForEach-Object {
++ Get-ChildItem -LiteralPath $H -Force -File -ErrorAction SilentlyContinue | Where-Object { $_.Name -match '^\.wslconfig\..+' -and $_.Name -ne '.wslconfig' } | ForEach-Object {
+```
+- `Edit` -- `D:\WSL\ops\windows\05-user-deep-clean.ps1`
+```diff
+-   Write-Host ("  {0,9:N1} MB  {1}  ->  {2}   [{3}]" -f $mb, $p, $dest, $why)
+  if (-not $Apply) { return }
++   Write-Host ("  {0,9:N1} MB  {1}  ->  {2}   [{3}]" -f $mb, $p, $dest, $why)
+  if (-not $Apply) { $script:plannedMB += $mb; return }
+```
+- `Edit` -- `D:\WSL\ops\windows\05-user-deep-clean.ps1`
+```diff
+-   Write-Host ("  {0,9:N1} MB  {1}   [{2}]" -f $mb, $p, $why)
+  if (-not $Apply) { return }
+  Remove-Item
++   Write-Host ("  {0,9:N1} MB  {1}   [{2}]" -f $mb, $p, $why)
+  if (-not $Apply) { $script:plannedMB += $mb; return }
+  Remove-Item
+```
+- `Edit` -- `D:\WSL\ops\windows\05-user-deep-clean.ps1`
+```diff
+- $script:movedMB = 0.0; $script:deletedMB = 0.0; $script:left = @()
++ $script:movedMB = 0.0; $script:deletedMB = 0.0; $script:plannedMB = 0.0; $script:left = @()
+```
+- `Edit` -- `D:\WSL\ops\windows\05-user-deep-clean.ps1`
+```diff
+- Write-Host ("`nMOVED to quarantine/backup
++ if (-not $Apply) { Write-Host ("`nDRY RUN would free about {0:N2} GiB on C:" -f ($script:plannedMB / 1024)) }
+Write-Host ("`nMOVED to quarantine/backup
+```
+- `PowerShell` -- `{"command":"$p=\u0027D:\\WSL\\ops\\windows\\05-user-deep-clean.ps1\u0027; $e=$null;$t=$null;[System.Management.Automation.Language.Parser]::ParseFile($p,[ref]$t,[ref]$e)|Out-Null; \"parse errors: $($e.Count)\"\n$out = powershell -NoProfile -ExecutionPolicy Bypass -File $p 2\u003e\u00261\n$out | Select-String -Pattern \u0027^---|DRY RUN would|MOVED|END  C|move C:|SKIP \\(link\u0027 | ForEach-Object { $_.Line }\n\"--- section A/B/F lines (sizes)\"; $out | Select-String -Pattern \u0027^\\s+[\\d,\\.]+ MB\u0027 | Where-Object { $_.Line -match \u0027Quarantine|GameSaves\u0027 } | ForEach-Object { ($_.Line -replace \u0027\\s+-\u003e.*\\[\u0027,\u0027 [\u0027) }","description":"Re-run dry run and summarize planned moves","timeout":400000}`
+- `Write` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Old Laptop Rebuild - Build 3b C Drive Snapshot Structure and Watch.md`
+```
+---
+type: note
+status: seedling
+created: 2026-10-12
+updated: 2026-10-12
+course: Life
+track:
+  - laptop
+  - windows
+tags:
+  - note
+  - laptop
+  - storage
+related:
+  - "[[Old Laptop Rebuild - Index]]"
+  - "[[Old Laptop Rebuild - Build 3 Windows Cleanup Findings]]"
+  - "[[Old Laptop Rebuild - Build 4 Windows Toolkit Findings]]"
+  - "[[C Drive Bloat - Failure Log and Prevention Rules]]"
+  - "[[Installations]]"
+next: "Run 04, 06, 05, 07 in that order (see Run order), then re-scan with WizTree and fill the 'After' column"
+---
+
+# Build 3b - C drive snapshot, structure and watch
+
+Dell Latitude 5530 (`C:\Users\Anant Gupta`). Written 2026-10-12 after Build 3 scripts 01 and 02 ran. This note is the reference for what C: looks like, where things belong, what Windows owns, and what watches it from now on. The `_Anant` folder on D: is deliberately out of scope (next build). Google Drive data is not relied on yet.
+
+## 1. Snapshot (WizTree, 2026-10-12 evening, before scripts 04 to 07)
+
+C: total 251.9 GB, used 135.0 GB, free 116.9 GB, reserved space 2.1 GB. Before Build 3 free was 39.5 GB.
+
+| Area | Size | What it is | Verdict |
+|---|---|---|---|
+| `C:\Users\Anant Gupta` | 65.4 GB | profile (AppData 56.5, dot folders about 8) | main target |
+| `C:\Windows` | 33.5 GB | WinSxS 12.0, System32 9.5 (DriverStore about 4.5), Installer 1.8, LiveKernelReports 3.0 (USB-C dump) | only LiveKernelReports is removable |
+| `pagefile.sys` | 16.0 GB | commit backing (WSL pushes commit to 43 GB) | keep, set in Build 3 |
+| `$MFT` | 1.7 GB | NTFS file table | keep |
+| `C:\Program Files` | 16.2 GB | WindowsApps 6.6, Docker 3.7, WSL 1.1, PowerToys 0.9, dotnet 0.5, Logi 0.5 | installs |
+| `C:\ProgramData` | 5.0 GB | LogiOptionsPlus 1.4, Package Cache 0.64, Microsoft 0.49, Malwarebytes 0.28, Epic 0.14, chocolatey 0.13 | partly removable |
+| `System Volume Information` | 2.9 GB | restore points | keep, watch |
+| `C:\Program Files (x86)` | 5.1 GB | Microsoft (Edge, WebView) 3.9, InstallShield 0.76 (Dell Optimizer leftover), Google 0.30 | partly removable |
+| `C:\Python313` | 0.29 GB | choco python313 | removable after uv (Build 4) |
+
+AppData\Local 42.5 GB: Programs 7.1, Spotify 7.0, Vivaldi 5.2, Microsoft 4.7 (Outlook 1.0, Office 0.9, Olk 0.5 are Microsoft 365 leftovers), Google 4.2 (DriveFS), Packages 3.6 (MSTeams 1.9, WhatsApp 0.5), Temp 3.5, hermes junction 2.1.
+AppData\Roaming 13.9 GB: Kiro 1.8, Cursor 1.8, npm 1.8 (global CLIs, keep), Code 1.6, Claude 0.8, Zoom 0.9, Medal 0.8, kingsoft 0.7, Opera 0.4, riot-client-ux 0.3, JetBrains 0.2.
+File types: .dmp 3.7 GB (19 files), .iso 1.4 GB (2 Docker images, keep), .msi 2.9 GB (Windows\Installer, keep), .tmp 0.9 GB, .db-wal 0.8 GB, .vscdb 0.8 GB (editor state, keep).
+
+## 2. What Build 3 did and what it left (verified live)
+
+Done: caches and temp cleared, Claude VM bundle and Jan stale data deleted, Miniconda, opam, hermes and codex packages moved to D: with junctions, Ollama reinstalled on `D:\Apps`, component store cleaned (about 22 GB), 13 Store apps and 6 programs removed, OneDrive removed, pagefile fixed on C:. Syncthing was moved to `D:\Apps\Syncthing` by hand. Both `.relocating` folders, the npm cache, Riot metadata, Dell Optimizer package and 3 dead services were removed in the follow-up. Installers of three removed apps were deleted.
+
+Cause of the earlier errors: opam files carry the System attribute, the user shell could not delete them (6,860 denials) and PowerShell asked a prompt per folder. Fixed by `takeown`, `icacls`, `attrib` and `cmd rd` from an elevated shell.
+
+## 3. What Windows owns on C: and what we may configure
+
+| Item | Size | Do not delete because | Configurable |
+|---|---|---|---|
+| `Windows\WinSxS` | 12 GB real | component store, hard-linked | only via DISM `/StartComponentCleanup` (Windows also runs it weekly itself) |
+| `Windows\Installer` | 1.8 GB | MSI repair and uninstall files | none; it shrinks as products are uninstalled |
+| `ProgramData\Package Cache` | 0.64 GB | repair and uninstall of VC++, .NET, PowerToys | same as above |
+| `Program Files (x86)\InstallShield Installation Information` | 0.76 GB | uninstall data | Dell Optimizer entry is orphaned and removed by script 06 |
+| `System Volume Information` | 2.9 GB | restore points, shadow copies | `vssadmin resize shadowstorage /for=C: /on=C: /maxsize=<N>GB`; script 06 reports current use |
+| `pagefile.sys` / `swapfile.sys` | 16 GB / 16 MB | virtual memory | size set to 16-32 GB; hibernate is off so no `hiberfil.sys` |
+| `$MFT`, `$LogFile`, `$Secure` | about 2 GB | NTFS metadata | none |
+| `Windows\LiveKernelReports` | 3.0 GB | not needed | safe to empty; recurs because a USB-C (`UcmUcsiCx`) driver hangs; update Dell drivers if it returns |
+| `C:\inetpub` | 0 | Microsoft security hardening folder (2025) | keep, even though it is empty |
+| `C:\Recovery`, `C:\Dell`, `$Recycle.Bin`, `Documents and Settings` | tiny | WinRE, Dell update logs, links | keep |
+| Reserved storage | 2.1 GB | update staging | `DISM /Online /Set-ReservedStorageState` can disable it; not worth the update risk |
+| `Windows\System32\DriverStore` | about 4.5 GB | driver packages | old versions can be pruned with `pnputil /delete-driver`; script 06 only reports the size |
+
+## 4. Structure (the contract)
+
+C: holds Windows, Program Files installs, ProgramData for services, the user profile, `pagefile.sys`, and anything with a kernel driver or service (Docker, WSL, Tailscale if installed). Everything regenerable, large or portable lives on D:.
+
+| D: folder | Purpose | Redirected by |
+|---|---|---|
+| `D:\Apps` | apps that accept an install path (miniconda3, Ollama, opamroot, Syncthing) | installer location, junction for legacy paths |
+| `D:\Cache\<tool>` | disposable caches, one folder named after the tool | `npm` via `~/.npmrc`; `UV_CACHE_DIR`, `PIP_CACHE_DIR`, `HF_HOME`, `NUGET_PACKAGES`, `GRADLE_USER_HOME`, `PLAYWRIGHT_BROWSERS_PATH`, `PUPPETEER_CACHE_DIR`, `TEMP`, `TMP` (= `D:\Cache\Temp`) |
+| `D:\AI` | models and agents | `OLLAMA_MODELS=D:\AI\ollama-models`, hermes junction |
+| `D:\WSL` | distro, Docker and swap VHDX, ops scripts | `.wslconfig`, Docker setting |
+| `D:\WSL\ops\windows` | all scripts, logs and the watch history | - |
+| `D:\Backup\GameSaves` | game saves moved off C: (kept) | script 05 |
+| `D:\Quarantine` | reversible deletions with a review date | script 05 |
+| `D:\Dev`, `D:\Tools`, `D:\Installers` | new: projects, portable CLIs, installers | not created yet; create when first used |
+
+Rules: new app = try an install path on D:, else leave on C: (Store, drivers). New cache = set its environment variable first. Never use a junction when a variable exists; keep the existing three (miniconda3, hermes, codex packages) because their contents hold absolute paths. Do not delete the `miniconda3` junction.
+
+## 5. Scripts and run order (`D:\WSL\ops\windows`)
+
+| Order | Script | Shell | Does |
+|---|---|---|---|
+| 1 | `04-admin-remove.ps1` | elevated | Logi Options+ and plugin service, VC++ 2010 and 2012, .NET 9, `ProgramData\Epic`. `-IncludeDotnet8`, `-IncludePython` are gated |
+| 2 | `06-admin-deep-clean.ps1` | elevated | LiveKernelReports, WER, Dell Optimizer leftover, Google updater cache, Teams add-in, optional `-StoreApps`, reports |
+| 3 | `05-user-deep-clean.ps1` | normal | moves uninstalled-app folders and outdated installers to quarantine, saves to `D:\Backup`, deletes caches and old Temp |
+| 4 | `07-register-watch-tasks.ps1` | elevated | creates the two scheduled tasks |
+
+Every script is a dry run until `-Apply`. Bugs found while writing them: the first elevated check used the string `Administrator` (no such group; fixed with the role enum), and the `.wslconfig` backup filter also matched the live file (fixed, dry run now lists only the two dated backups).
+
+## 6. Watch design
+
+| What | How | Where |
+|---|---|---|
+| Weekly clean | scheduled task `Toolkit-Weekly-Clean`, Sunday 03:30, old Temp, kernel dumps, WER, updater caches, crash reports, Delivery Optimization | log in `D:\WSL\ops\windows\logs` |
+| Daily watch | `Toolkit-Watch-C`, 08:00, read-only | `watch\watch-history.csv`, `latest.json`, `ALERTS.txt`, toast |
+| Alerts | C: free under 80 (warn) or 60 (critical); D: free under 100; LiveKernelReports over 0.5 GB; Temp over 3 GB; WSL swap over 4 GB; ext4 or Docker VHDX growth over 5 GB per week; C: falling over 10 GB per week; pagefile use; uptime over 21 days; Syncthing down; quarantine review date | |
+| Jarvis | analysis of `latest.json` and history belongs to the existing `Jarvis-WeeklyReview` (LLM), not to the cleanup task | not wired yet |
+
+Not scheduled on purpose: Spotify cache, Vivaldi cache (apps are open; they are cleaned by script 05 when closed), DISM `/ResetBase`, driver pruning, anything touching Google DriveFS.
+
+## 7. Battery and always-on (Dell BIOS, F2 at boot)
+
+Cap charge at 80 percent: Power Management, Battery Configuration, Custom with start 75 and stop 80 (or Primary AC Use). Set AC Recovery to power on after power loss. Windows side done by hand: never sleep on AC, disk never off, lid close does nothing, power button shuts down. Syncthing runs at logon, so after an unplanned reboot it stays down until sign-in; the daily watcher alerts if it is down. Auto sign-in was not enabled (weakens BitLocker).
+
+## 8. Honest accounting
+
+Expected from dry-run sizes (not measured): script 05 about 10.9 GiB, script 06 about 4 GiB (LiveKernelReports 3.0 from the screenshot, not readable without admin), script 04 about 2.5 GiB. That would put C: free near 130 to 135 GiB. Still on C: after that: Windows 33 GB, pagefile 16 GB, Docker 3.7, Spotify 7 (offline downloads), Google DriveFS 4.2 (not touched), Vivaldi 5.2, editors about 8, and the 1.9 GB Teams package unless `-StoreApps` is used.
+
+Not done after this build: Python 3.13.5 and Chocolatey (need the standalone uv from Build 4), .NET 8 (check Dell Command Update first), Spotify and DriveFS relocation, `D:\WSL\Installers\wsl-ubuntu.tar` (73 GB, D: item for the `_Anant` build), obsolete disabled tasks `ClaudeKit-Sync-All` and `SecondBrainClaudekit-JarvisSync`, the Windows Ollama startup shortcut (conflicts with the WSL Ollama on port 11434), Medal-like unknowns (Rize, GitKrakenCLI), and the Build 4 toolkit itself.
+
+## 9. After (fill in after the run)
+
+| Metric | Before | After |
+|---|---|---|
+| C: free | 116.9 GB | |
+| Users | 65.4 GB | |
+| ProgramData | 5.0 GB | |
+| Windows | 33.5 GB | |
+| Quarantine on D: | 2.4 GB | |
+
+```
+
+## You
+
+Teams and the Store apps: run script 06 with -StoreApps to remove Teams, LinkedIn, Netflix and HP Printer Control (about 2.1 GB). Say if you want WhatsApp gone too.
+- Spotify: its 7 GB cache also holds offline downloads. Move the download location to D:\Cache\Spotify in Spotify's settings. need to be removed and moved.
+
+```
+
+<pasted_content id="238b">
+PS C:\WINDOWS\system32> powershell -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\windows\04-admin-remove.ps1
+*** DRY RUN (nothing changes). Re-run with -Apply ***
+
+--- 1 Logi Options+ and Logi Plugin Service
+   Logi Options+: C:\Program Files\LogiOptionsPlus\logioptionsplus_updater.exe --uninstall --full --shadow
+   Logi Plugin Service 6.4.2.3414
+     msiexec /X{[REDACTED]} /qn /norestart
+   leftover: C:\ProgramData\LogiOptionsPlus
+   leftover: C:\Program Files\LogiOptionsPlus
+
+--- 2 Visual C++ 2010 and 2012 redistributables (2015-2022 stays)
+   Microsoft Visual C++ 2010  x64 Redistributable - 10.0.30319 10.0.30319
+     msiexec /X{[REDACTED]} /qn /norestart
+   Microsoft Visual C++ 2010  x86 Redistributable - 10.0.30319 10.0.30319
+     msiexec /X{[REDACTED]} /qn /norestart
+   Microsoft Visual C++ 2012 Redistributable (x64) - 11.0.61030 11.0.61030.0
+     C:\ProgramData\Package Cache\{[REDACTED]}\vcredist_x64.exe /uninstall /quiet
+   Microsoft Visual C++ 2012 Redistributable (x86) - 11.0.61030 11.0.61030.0
+     C:\ProgramData\Package Cache\{[REDACTED]}\vcredist_x86.exe /uninstall /quiet
+
+--- 3 .NET 9.x (and 8.x with -IncludeDotnet8). 10.x stays.
+   Microsoft Windows Desktop Runtime - 9.0.7 (x64) 9.0.7.35017
+     C:\ProgramData\Package Cache\{[REDACTED]}\[REDACTED].0.7-win-x64.exe /uninstall /quiet
+   Microsoft .NET Runtime - 9.0.7 (x64) 72.28.35968
+     msiexec /X{[REDACTED]} /qn /norestart
+   Microsoft Windows Desktop Runtime - 9.0.7 (x64) 72.28.35985
+     msiexec /X{[REDACTED]} /qn /norestart
+   .NET 8.x kept (use -IncludeDotnet8 after checking Dell Command Update still opens)
+
+--- 4 Epic leftovers
+   C:\ProgramData\Epic
+
+--- 5 Python 3.13.5 and Chocolatey: skipped (needs -IncludePython after uv is installed)
+
+END  C: free 118.47 -> 118.47 GiB   log: D:\WSL\ops\windows\logs\[REDACTED].log
+PS C:\WINDOWS\system32> powershell -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\windows\04-admin-remove.ps1 -Apply
+
+--- 1 Logi Options+ and Logi Plugin Service
+   Logi Options+: C:\Program Files\LogiOptionsPlus\logioptionsplus_updater.exe --uninstall --full --shadow
+
+--- 2 Visual C++ 2010 and 2012 redistributables (2015-2022 stays)
+   Microsoft Visual C++ 2010  x64 Redistributable - 10.0.30319 10.0.30319
+     msiexec /X{[REDACTED]} /qn /norestart
+     exit 0 (3010 = reboot needed)
+   Microsoft Visual C++ 2010  x86 Redistributable - 10.0.30319 10.0.30319
+     msiexec /X{[REDACTED]} /qn /norestart
+     exit 0 (3010 = reboot needed)
+   Microsoft Visual C++ 2012 Redistributable (x64) - 11.0.61030 11.0.61030.0
+     C:\ProgramData\Package Cache\{[REDACTED]}\vcredist_x64.exe /uninstall /quiet
+     exit 0
+   Microsoft Visual C++ 2012 Redistributable (x86) - 11.0.61030 11.0.61030.0
+     C:\ProgramData\Package Cache\{[REDACTED]}\vcredist_x86.exe /uninstall /quiet
+     exit 0
+
+--- 3 .NET 9.x (and 8.x with -IncludeDotnet8). 10.x stays.
+   Microsoft Windows Desktop Runtime - 9.0.7 (x64) 9.0.7.35017
+     C:\ProgramData\Package Cache\{[REDACTED]}\[REDACTED].0.7-win-x64.exe /uninstall /quiet
+     exit 0
+   Microsoft .NET Runtime - 9.0.7 (x64) 72.28.35968
+     msiexec /X{[REDACTED]} /qn /norestart
+     exit 1605 (3010 = reboot needed)
+   Microsoft Windows Desktop Runtime - 9.0.7 (x64) 72.28.35985
+     msiexec /X{[REDACTED]} /qn /norestart
+     exit 1605 (3010 = reboot needed)
+   .NET 8.x kept (use -IncludeDotnet8 after checking Dell Command Update still opens)
+
+--- 4 Epic leftovers
+   C:\ProgramData\Epic
+
+--- 5 Python 3.13.5 and Chocolatey: skipped (needs -IncludePython after uv is installed)
+
+END  C: free 118.47 -> 121.28 GiB   log: D:\WSL\ops\windows\logs\[REDACTED].log
+Reboot afterwards if any exit code was 3010.
+PS C:\WINDOWS\system32> powershell -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\windows\06-admin-deep-clean.ps1
+*** DRY RUN (nothing changes). Re-run with -Apply ***
+
+--- 1 Crash dumps and error-report queues (contents only, folders stay)
+     3,070.5 MB  C:\Windows\LiveKernelReports   [kernel watchdog dumps; the UcmUcsiCx (USB-C) dump alone was 3 GB]
+         0.0 MB  C:\Windows\Minidump   [bugcheck minidumps]
+         0.0 MB  C:\ProgramData\Microsoft\Windows\WER\ReportArchive   [Windows Error Reporting]
+         0.0 MB  C:\ProgramData\Microsoft\Windows\WER\ReportQueue   [Windows Error Reporting]
+         0.0 MB  C:\ProgramData\Microsoft\Windows\WER\Temp   [Windows Error Reporting]
+         4.8 MB  C:\Windows\Temp   [system temp]
+
+--- 2 Dell Optimizer InstallShield leftover
+       758.6 MB  C:\Program Files (x86)\InstallShield Installation Information\{[REDACTED]}   [no uninstall entry any more]
+
+--- 3 Other leftovers
+       288.3 MB  C:\Program Files (x86)\Google\GoogleUpdater\crx_cache   [Google Updater download cache]
+   C:\OneDriveTemp (empty)
+   Microsoft Teams Meeting Add-in for Microsoft Office: msiexec /X{[REDACTED]} /qn /norestart
+
+--- 4 Store apps skipped (add -StoreApps to remove MSTeams, LinkedIn, Netflix, HP Printer Control)
+
+--- 5 Reports (read-only)
+   restore-point storage:
+        For volume: (C:)\\?\Volume{[REDACTED]}\
+        Used Shadow Copy Storage space: 3.57 GB (1%)
+        Allocated Shadow Copy Storage space: 4.01 GB (1%)
+        Maximum Shadow Copy Storage space: 5.04 GB (1%)
+   DriverStore: 4.92 GiB (old driver versions are NOT removed by this script)
+
+END  C: free 121.29 -> 121.29 GiB   log: D:\WSL\ops\windows\logs\[REDACTED].log
+PS C:\WINDOWS\system32> powershell -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\windows\06-admin-deep-clean.ps1 -Apply
+
+--- 1 Crash dumps and error-report queues (contents only, folders stay)
+     3,070.5 MB  C:\Windows\LiveKernelReports   [kernel watchdog dumps; the UcmUcsiCx (USB-C) dump alone was 3 GB]
+      now 0.0 MB
+         0.0 MB  C:\Windows\Minidump   [bugcheck minidumps]
+      now 0.0 MB
+         0.0 MB  C:\ProgramData\Microsoft\Windows\WER\ReportArchive   [Windows Error Reporting]
+      now 0.0 MB
+         0.0 MB  C:\ProgramData\Microsoft\Windows\WER\ReportQueue   [Windows Error Reporting]
+      now 0.0 MB
+         0.0 MB  C:\ProgramData\Microsoft\Windows\WER\Temp   [Windows Error Reporting]
+      now 0.0 MB
+         4.8 MB  C:\Windows\Temp   [system temp]
+      now 0.0 MB
+
+--- 2 Dell Optimizer InstallShield leftover
+       758.6 MB  C:\Program Files (x86)\InstallShield Installation Information\{[REDACTED]}   [no uninstall entry any more]
+      exists now: False
+
+--- 3 Other leftovers
+       288.3 MB  C:\Program Files (x86)\Google\GoogleUpdater\crx_cache   [Google Updater download cache]
+      now 0.0 MB
+   C:\OneDriveTemp (empty)
+   Microsoft Teams Meeting Add-in for Microsoft Office: msiexec /X{[REDACTED]} /qn /norestart
+      exit 0
+
+--- 4 Store apps skipped (add -StoreApps to remove MSTeams, LinkedIn, Netflix, HP Printer Control)
+
+--- 5 Reports (read-only)
+   restore-point storage:
+        For volume: (C:)\\?\Volume{[REDACTED]}\
+        Used Shadow Copy Storage space: 3.57 GB (1%)
+        Allocated Shadow Copy Storage space: 4.01 GB (1%)
+        Maximum Shadow Copy Storage space: 5.04 GB (1%)
+   DriverStore: 4.92 GiB (old driver versions are NOT removed by this script)
+
+END  C: free 121.29 -> 125.33 GiB   log: D:\WSL\ops\windows\logs\[REDACTED].log
+PS C:\WINDOWS\system32> powershell -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\windows\07-register-watch-tasks.ps1 -Apply
+  Toolkit-Weekly-Clean: weekly-clean.ps1  as DESKTOP-3VBG0JH\Anant Gupta  trigger MSFT_TaskWeeklyTrigger
+  Toolkit-Watch-C: watch-c.ps1  as DESKTOP-3VBG0JH\Anant Gupta  trigger MSFT_TaskDailyTrigger
+
+TaskName             State
+--------             -----
+Toolkit-Watch-C      Ready
+Toolkit-Weekly-Clean Ready
+
+
+
+Test now:  Start-ScheduledTask -TaskName Toolkit-Watch-C ; then read D:\WSL\ops\windows\watch\latest.json
+PS C:\WINDOWS\system32> Start-ScheduledTask -TaskName Toolkit-Watch-C
+PS C:\WINDOWS\system32>
+</pasted_content id="238b">
+
+```
+
+```
+
+<pasted_content id="238b">
+
+MOVED to quarantine/backup 8.26 GiB   DELETED (caches) 3.89 GiB
+LEFT BEHIND (locked or running):
+  C:\Users\Anant Gupta\AppData\Local\Respondus
+  C:\Users\Anant Gupta\AppData\Local\Temp\DEL4F5F.tmp
+  C:\Users\Anant Gupta\AppData\Local\Temp\DEL5AB9.tmp
+  C:\Users\Anant Gupta\AppData\Local\Temp\DEL8340.tmp
+END  C: free 125.33 -> 136.37 GiB   log: D:\WSL\ops\windows\logs\[REDACTED].log
+PS C:\Users\Anant Gupta>
+</pasted_content id="238b">
+
+```. 
+
+Now, this is going to be taking care of literally everything that was missed. So, let's remove the scripts that were written out, let's take care of all the empty folders and files and that are created randomly across an are just clutter. Make sure that everything is neat and tidy and we are done with the c clean up process. Now that the clean up scheduled task is also running. Make sure to list out the notes correctly inside jarvis about the build that has taken place over here inside the New Laptop folder about the old laptop (where we are working). This is going to be wrapping up everything required for the cleanup. Finish it completely so that the next task can be taken up now.
+
+## Claude
+
+The elevated runs all went through: C: free is now 136.4 GiB, up from 116.9. Two things in your output need a closer look. Script 05 left the Respondus folder and three Temp files behind. And `.NET 9` MSIs exited with code 1605, which I read as "already removed with the bundle", but I'll verify.
+
+I'm checking the live state before writing the finishing script.
+
+Now the notes. I'm recording the real run results in the Build 3b note and closing the Build 3 note, then adding one pointer line to the Index and one append-only line to the session log.
+
+Two of the edits need a read first. I'm reading the relevant lines and redoing them.
+
+## Result
+
+The C: cleanup is done except for two commands that only you can run, because they need your shell. C: free is now **136.4 GiB**, up from 39.5 GiB at the start of Build 3. The watcher is running with no alerts.
+
+## Run these last two steps
+
+First, elevated PowerShell, removes Teams, LinkedIn, Netflix and HP Printer Control (WhatsApp stays):
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\windows\06-admin-deep-clean.ps1 -StoreApps -Apply
+```
+
+Then, also elevated. It will close Spotify for you, so save anything first:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\windows\08-finish-cleanup.ps1 -Apply -CloseSpotify
+```
+
+Script 08 is new, and I only dry-ran it from a normal shell. Dry-run first if you'd rather read the list before applying. It does the following:
+
+- **Locked leftover:** removes the Respondus cache that script 05 couldn't delete.
+- **Empty folders:** removes 14 verified-empty leftover folders from removed apps (Adobe, Dell, JetBrains, Logi, old Office and similar). Each is checked to hold no files first.
+- **Spotify:**
+  - points offline storage at `D:\Cache\Spotify`
+  - caps the cache at 1 GB
+  - empties the 6.4 GB `Local\Spotify\Data` folder
+
+  Any offline downloads in there are lost and will re-download. The key names it writes to Spotify's `prefs` file come from community documentation, not Spotify, so check Settings > Storage after the next launch. The `prefs` file is backed up first.
+- **Downloads:** moves the 10 remaining installers to the quarantine folder, so Downloads starts clean. Your PDFs, images and the Obsidian `.crt` stay where they are.
+- **Old scripts:** archives the finished one-time scripts to `D:\WSL\ops\windows\archive\build3-20261012`. It refuses to do this until the Store apps are gone, so run the 06 command first.
+
+I expect about 145 GiB free afterwards. That is an estimate until the next watcher reading.
+
+## What stays in `D:\WSL\ops\windows`
+
+- `weekly-clean.ps1` and `watch-c.ps1`: needed by the two scheduled tasks, so don't move them.
+- `04-admin-remove.ps1`: kept because removing Python 3.13.5, Chocolatey and .NET 8 still has to wait for Build 4's `uv`.
+- `08-finish-cleanup.ps1`, plus `logs`, `watch` and the `backup-20261012-1807` registry backups (the rollback for script 02).
+
+## Left alone on purpose
+
+About 50 dot-folders in your profile (`.adal`, `.agents`, `.hermes`, `.openhands` and so on) look empty but hold agent skill junctions, many of them broken. They sit under your agent settings, so I did not remove them. I suggest a separate small task for them.
+
+## Notes written to the vault
+
+- **New note:** `Old Laptop Rebuild - Build 3b C Drive Snapshot Structure and Watch`. It covers the snapshot, the run results measured from the logs, the C:/D: layout rules, what Windows owns, the watch design, and what's still open.
+- **Updated:** the Build 3 findings note and the Index now link to it, and there's one new line in the session log.
+
+The "now" column in the note's after-table is only partly filled. I'll fill in the rest from the next watch reading.
+
+## Still open for later builds
+
+- Python 3.13.5 and Chocolatey, after Build 4's `uv`.
+- .NET 8, after checking Dell Command Update still opens.
+- The Windows Ollama startup shortcut, which conflicts with the WSL Ollama.
+- The 73 GB `D:\WSL\Installers\wsl-ubuntu.tar` and the Google Drive cache, both for the `_Anant` build.
+- The 80% battery cap and AC Recovery, which are BIOS steps for you.
+
+Paste the output of both commands when they finish and I'll confirm the final numbers. Then Build 4 (the toolkit) is next.
+
+### Tool Calls
+
+- `PowerShell` -- `{"command":"$ErrorActionPreference=\u0027SilentlyContinue\u0027\n\"=== C/D free\"; Get-PSDrive C,D | % { \"{0}: {1:N2} GiB\" -f $_.Name,($_.Free/1GB) }\n\"=== watch latest + alerts\"; Get-Content D:\\WSL\\ops\\windows\\watch\\latest.json; if(Test-Path D:\\WSL\\ops\\windows\\watch\\ALERTS.txt){ Get-Content D:\\WSL\\ops\\windows\\watch\\ALERTS.txt } else { \u0027no ALERTS.txt (all clear)\u0027 }\nGet-ScheduledTask Toolkit-* | Get-ScheduledTaskInfo | Select TaskName,LastRunTime,LastTaskResult,NextRunTime | Format-Table -AutoSize | Out-String\n\"=== removed? Logi / .NET9 / VC / Teams add-in / Epic / Dell\"; (Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*,HKLM:\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\* | Where DisplayName -match \u0027Logi|\\.NET.* 9\\.|Desktop Runtime - 9|Visual C\\+\\+ 201[02]|Teams Meeting|Optimizer\u0027 | Select -Expand DisplayName) -join \u0027 | \u0027\n\"epic: \" + (Test-Path C:\\ProgramData\\Epic); \"logi pf: \" + (Test-Path \u0027C:\\Program Files\\LogiOptionsPlus\u0027); \"logi pd: \" + (Test-Path C:\\ProgramData\\LogiOptionsPlus)\n\"=== Respondus\"; Get-ChildItem \"$env:LOCALAPPDATA\\Respondus\" -Recurse -Force | Select -First 5 FullName,Length; Get-Process | Where ProcessName -match \u0027respondus|lockdown\u0027 | Select ProcessName\n\"=== Store apps still present\"; Get-AppxPackage -AllUsers | Where Name -match \u0027MSTeams|LinkedIn|Netflix|HPPrinterControl|WhatsApp\u0027 | Select Name | Format-Table -HideTableHeaders | Out-String\n\"=== Spotify\"; Get-Process Spotify -EA SilentlyContinue | Measure | % { \"running procs: $($_.Count)\" }\nGet-ChildItem \"$env:LOCALAPPDATA\\Spotify\" -Force | % { [pscustomobject]@{N=$_.Name;GB=[math]::Round(((Get-ChildItem $_.FullName -Recurse -Force -File -EA SilentlyContinue|Measure Length -Sum).Sum+0)/1GB,2)} } | Format-Table -AutoSize | Out-String\n\"prefs file exists: \" + (Test-Path \"$env:APPDATA\\Spotify\\prefs\"); (Select-String -Path \"$env:APPDATA\\Spotify\\prefs\" -Pattern \u0027^storage\\.\u0027 | % { $_.Line })\n\"=== ops folder\"; Get-ChildItem D:\\WSL\\ops\\windows -Force | Select Name,Length | Format-Table -AutoSize | Out-String\n\"=== quarantine + backup\"; Get-ChildItem D:\\Quarantine,D:\\Backup -Force | Select FullName | Format-Table -HideTableHeaders | Out-String\n\"=== top-level empty dirs (no files at any depth) in cleanup roots\"\nforeach($r in \"$env:LOCALAPPDATA\",\"$env:APPDATA\",\"$env:USERPROFILE\\AppData\\LocalLow\",\"$env:USERPROFILE\",\"C:\\ProgramData\",\"C:\\Program Files\",\"C:\\Program Files (x86)\",\"C:\\\"){ Get-ChildItem $r -Directory -Force | Where { -not $_.LinkType -and -not ($_.Attributes -band \u0027System\u0027) } | Where { -not (Get-ChildItem $_.FullName -Recurse -Force -File -EA SilentlyContinue | Select -First 1) } | % { \"$($_.FullName)\" } }\n\"=== zero-byte files, profile root and AppData top levels\"\nGet-ChildItem $env:USERPROFILE -File -Force | Where Length -eq 0 | % FullName","description":"Verify results, Spotify state, empty folders","timeout":300000}`
+- `Write` -- `D:\WSL\ops\windows\08-finish-cleanup.ps1`
+```
+<#
+08-finish-cleanup.ps1   (ELEVATED PowerShell; a dry run also works from a normal shell)
+Default is a DRY RUN. Add -Apply to act. Run 06 -StoreApps -Apply FIRST.
+  1  Respondus cache folder that script 05 could not remove
+  2  empty leftover folders of removed apps (explicit list; each is checked to contain no files)
+  3  Spotify: close it (-CloseSpotify), set offline storage to D:\Cache\Spotify, cap the cache, empty Local\Spotify\Data
+  4  Downloads: move the remaining installers (.exe/.msi) to quarantine (-KeepInstallers skips this)
+  5  archive the finished one-time scripts to D:\WSL\ops\windows\archive\build3-20261012
+Kept in place: 04-admin-remove.ps1 (Python/Chocolatey/.NET 8 wait for Build 4), weekly-clean.ps1, watch-c.ps1, logs, watch, backup-20261012-1807.
+Not touched: the ~50 empty-looking agent dot-folders (.adal, .agents, .hermes ...): they hold skill junctions, a separate task.
+#>
+param([switch]$Apply, [switch]$CloseSpotify, [switch]$KeepInstallers)
+$ErrorActionPreference = 'Continue'
+$admin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+if ($Apply -and -not $admin) { throw 'Run -Apply from an elevated PowerShell.' }
+$log = "D:\WSL\ops\windows\logs\08-finish-cleanup-$(Get-Date -Format yyyyMMdd-HHmm).log"
+Start-Transcript -Path $log | Out-Null
+if (-not $Apply) { Write-Host '*** DRY RUN (nothing changes). Re-run with -Apply ***' -ForegroundColor Yellow }
+$startFree = (Get-PSDrive C).Free / 1GB
+$L = $env:LOCALAPPDATA; $R = $env:APPDATA
+
+function Get-MB($p) { $it = Get-Item -LiteralPath $p -Force -ErrorAction SilentlyContinue; if (-not $it) { return 0 }; if (-not $it.PSIsContainer) { return [math]::Round($it.Length / 1MB, 1) }; [math]::Round(((Get-ChildItem -LiteralPath $p -Recurse -Force -File -ErrorAction SilentlyContinue | Measure-Object Length -Sum).Sum) / 1MB, 1) }
+function Remove-Force($p) {
+  Remove-Item -LiteralPath $p -Recurse -Force -ErrorAction SilentlyContinue
+  if (Test-Path -LiteralPath $p) { takeown /f "$p" /r /d y 2>$null | Out-Null; icacls "$p" /grant "$($env:USERNAME):(OI)(CI)F" /t /c 2>$null | Out-Null; cmd /c rd /s /q "\\?\$p" 2>$null }
+  -not (Test-Path -LiteralPath $p)
+}
+
+Write-Host "`n--- 1 Respondus cache (app already uninstalled)"
+$rs = "$L\Respondus"
+if (Test-Path -LiteralPath $rs) { Write-Host ("   {0:N1} MB  {1}" -f (Get-MB $rs), $rs); if ($Apply) { Write-Host ("   removed: {0}" -f (Remove-Force $rs)) } } else { Write-Host '   already gone' }
+
+Write-Host "`n--- 2 Empty leftover folders (removed only if they contain no files)"
+$empties = @("$L\DBG", "$L\main.kts.compiled.cache", "$L\ms-playwright-go", "$L\PackageManagement", "$L\PeerDistRepub", "$L\NEO", "$R\Adobe", "$R\Dell",
+  'C:\Program Files\JetBrains', 'C:\Program Files\HPPrintScanDoctor', 'C:\Program Files\Logi', 'C:\Program Files (x86)\Microsoft Office', 'C:\Program Files (x86)\Temp', 'C:\ProgramData\Logishrd')
+foreach ($e in $empties) {
+  if (-not (Test-Path -LiteralPath $e)) { continue }
+  $it = Get-Item -LiteralPath $e -Force
+  if ($it.LinkType) { Write-Host "   skip (link): $e"; continue }
+  if (Get-ChildItem -LiteralPath $e -Recurse -Force -File -ErrorAction SilentlyContinue | Select-Object -First 1) { Write-Host "   skip (has files): $e"; continue }
+  if (($e -like 'C:\Program Files*' -or $e -like 'C:\ProgramData*') -and -not $admin) { Write-Host "   needs admin (skipped in this dry run): $e"; continue }
+  Write-Host "   empty: $e"
+  if ($Apply) { Write-Host ("      removed: {0}" -f (Remove-Force $e)) }
+}
+
+Write-Host "`n--- 3 Spotify"
+$sp = Get-Process -Name Spotify -ErrorAction SilentlyContinue
+if ($sp -and -not $CloseSpotify) { Write-Host '   Spotify is running. Quit it from the tray, or re-run with -CloseSpotify. Skipped.' -ForegroundColor Yellow }
+else {
+  if ($sp) { Write-Host '   closing Spotify'; if ($Apply) { Stop-Process -Name Spotify -Force -ErrorAction SilentlyContinue; Start-Sleep -Seconds 3 } }
+  $prefs = "$R\Spotify\prefs"; $data = "$L\Spotify\Data"
+  Write-Host ("   cache to empty: {0:N2} GB  {1}" -f ((Get-MB $data) / 1024), $data)
+  Write-Host '   prefs: storage.location="D:\\Cache\\Spotify"  and  storage.size=1024 (MB cache cap)   [key names from community docs, check Settings > Storage after launch]'
+  if ($Apply) {
+    New-Item -ItemType Directory -Force -Path 'D:\Cache\Spotify', 'D:\WSL\ops\backups' | Out-Null
+    if (Test-Path -LiteralPath $prefs) {
+      Copy-Item -LiteralPath $prefs -Destination ("D:\WSL\ops\backups\spotify-prefs-{0}.bak" -f (Get-Date -Format yyyyMMdd-HHmm)) -Force
+      $lines = @(Get-Content -LiteralPath $prefs | Where-Object { $_ -notmatch '^storage\.location=' -and $_ -notmatch '^storage\.size=' })
+      $lines += 'storage.location="D:\\Cache\\Spotify"'; $lines += 'storage.size=1024'
+      [IO.File]::WriteAllLines($prefs, $lines, (New-Object System.Text.UTF8Encoding($false)))
+      Write-Host '   prefs updated (backup in D:\WSL\ops\backups)'
+    } else { Write-Host '   no prefs file yet; start Spotify once, quit it, re-run' -ForegroundColor Yellow }
+    if (Test-Path -LiteralPath $data) { Get-ChildItem -LiteralPath $data -Force -ErrorAction SilentlyContinue | ForEach-Object { Remove-Item -LiteralPath $_.FullName -Recurse -Force -ErrorAction SilentlyContinue }; Write-Host ("   Data now {0:N2} GB" -f ((Get-MB $data) / 1024)) }
+  }
+}
+
+Write-Host "`n--- 4 Downloads installers"
+$dl = [Environment]::ExpandEnvironmentVariables((Get-ItemProperty 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders').'{[REDACTED]}')
+$q = 'D:\Quarantine\[REDACTED]\Downloads_installers'
+if ($KeepInstallers) { Write-Host '   skipped (-KeepInstallers)' }
+else {
+  Get-ChildItem -LiteralPath $dl -File -Force -ErrorAction SilentlyContinue | Where-Object { $_.Extension -in '.exe', '.msi' } | ForEach-Object {
+    Write-Host ("   {0,7:N1} MB  {1}" -f ($_.Length / 1MB), $_.Name)
+    if ($Apply) { New-Item -ItemType Directory -Force -Path $q | Out-Null; Move-Item -LiteralPath $_.FullName -Destination $q -Force -ErrorAction SilentlyContinue }
+  }
+  Write-Host ('   left in Downloads (your documents, review by hand): ' + ((Get-ChildItem -LiteralPath $dl -File -Force -ErrorAction SilentlyContinue | Where-Object { $_.Name -ne 'desktop.ini' -and $_.Extension -notin '.exe', '.msi' } | Select-Object -ExpandProperty Name) -join ', '))
+}
+
+Write-Host "`n--- 5 Archive finished one-time scripts"
+$gone = -not (Get-AppxPackage -AllUsers -ErrorAction SilentlyContinue | Where-Object { $_.Name -match 'MSTeams|LinkedInforWindows|Netflix|HPPrinterControl' })
+$arc = 'D:\WSL\ops\windows\archive\build3-20261012'
+$files = '01-user-cleanup.ps1', '02-admin-cleanup.ps1', '03-user-tidy.ps1', '05-user-deep-clean.ps1', '06-admin-deep-clean.ps1', '07-register-watch-tasks.ps1', 'diag-pagefile-bitlocker.ps1', '[REDACTED].txt'
+if (-not $admin) { Write-Host '   (cannot check Store apps without admin; shown as a plan only)' }
+elseif (-not $gone) { Write-Host '   Store apps still installed: run 06-admin-deep-clean.ps1 -StoreApps -Apply first. Archive skipped.' -ForegroundColor Yellow }
+if ($gone -or -not $admin) {
+  foreach ($f in $files) {
+    $src = "D:\WSL\ops\windows\$f"
+    if (-not (Test-Path -LiteralPath $src)) { continue }
+    Write-Host "   $f -> $arc"
+    if ($Apply) { New-Item -ItemType Directory -Force -Path $arc | Out-Null; Move-Item -LiteralPath $src -Destination $arc -Force }
+  }
+}
+
+Write-Host ("`nEND  C: free {0:N2} -> {1:N2} GiB   log: {2}" -f $startFree, ((Get-PSDrive C).Free / 1GB), $log)
+Stop-Transcript | Out-Null
+
+```
+- `PowerShell` -- `{"command":"$p=\u0027D:\\WSL\\ops\\windows\\08-finish-cleanup.ps1\u0027; $e=$null;$t=$null;[System.Management.Automation.Language.Parser]::ParseFile($p,[ref]$t,[ref]$e)|Out-Null; \"parse errors: $($e.Count)\"; $e|%{$_.Message+\" line \"+$_.Extent.StartLineNumber}\n\"non-ASCII: \" + (Select-String -Path $p -Pattern \u0027[^\\x00-\\x7F]\u0027 | Measure-Object).Count\npowershell -NoProfile -ExecutionPolicy Bypass -File $p 2\u003e\u00261 | Out-String -Width 200\n\"--- is 06 apply path ok? list current-user Store apps to be removed\"; Get-AppxPackage | Where Name -match \u0027^MSTeams$|LinkedInforWindows|Netflix|HPPrinterControl\u0027 | Select Name,@{n=\u0027MB\u0027;e={[math]::Round(((Get-ChildItem \"$env:LOCALAPPDATA\\Packages\\$($_.PackageFamilyName)\" -Recurse -Force -File -EA SilentlyContinue|Measure Length -Sum).Sum)/1MB)}} | Format-Table -AutoSize | Out-String","description":"Parse-check and dry-run the finishing script","timeout":300000}`
+- `Edit` -- `D:\WSL\ops\windows\08-finish-cleanup.ps1`
+```diff
+- $gone = -not (Get-AppxPackage -AllUsers -ErrorAction SilentlyContinue | Where-Object { $_.Name -match 'MSTeams|LinkedInforWindows|Netflix|HPPrinterControl' })
++ $gone = $false
+if ($admin) { try { $gone = -not (Get-AppxPackage -AllUsers -ErrorAction Stop | Where-Object { $_.Name -match 'MSTeams|LinkedInforWindows|Netflix|HPPrinterControl' }) } catch { $gone = $false } }
+```
+- `Edit` -- `D:\WSL\ops\windows\08-finish-cleanup.ps1`
+```diff
+- if ($gone -or -not $admin) {
++ if ($gone -or (-not $admin -and -not $Apply)) {
+```
+- `PowerShell` -- `{"command":"$p=\u0027D:\\WSL\\ops\\windows\\08-finish-cleanup.ps1\u0027; $e=$null;$t=$null;[System.Management.Automation.Language.Parser]::ParseFile($p,[ref]$t,[ref]$e)|Out-Null; \"parse errors: $($e.Count)\"\n(powershell -NoProfile -ExecutionPolicy Bypass -File $p 2\u003e\u00261 | Out-String -Width 200) -split \"`n\" | Select-String -Pattern \u0027Store|archive|error|Access\u0027 | ForEach-Object { $_.Line }\n$v=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\u0027\n\"=== Index status lines\"; Select-String -Path \"$v\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Old Laptop Rebuild - Index.md\" -Pattern \u0027Build 3|Build 4|^status|^updated|^next\u0027 | % { \"{0}: {1}\" -f $_.LineNumber,$_.Line }\n\"=== Build 3 findings head\"; Get-Content \"$v\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Old Laptop Rebuild - Build 3 Windows Cleanup Findings.md\" -TotalCount 24\n\"=== session log tail\"; Get-Content \"$v\\60_Claude\\07_AI_Information\\Session Logs\\log.md\" -Tail 4 | % { if($_.Length -gt 260){$_.Substring(0,260)+\u0027...\u0027}else{$_} }","description":"Re-check script, read Index, Build 3 note head, log tail"}`
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Old Laptop Rebuild - Build 3b C Drive Snapshot Structure and Watch.md`
+```diff
+- ## 9. After (fill in after the run)
+
+| Metric | Before | After |
+|---|---|---|
+| C: free | 116.9 GB | |
+| Users | 65.4 GB | |
+| ProgramData | 5.0 GB | |
+| Windows | 33.5 GB | |
+| Quarantine on D: | 2.4 GB | |
++ ## 9. Run results (2026-10-12 night, from the logs, measured)
+
+| Step | Result |
+|---|---|
+| 04 | Logi Options+ and Plugin Service, VC++ 2010 and 2012, .NET 9 removed (the two .NET 9 MSIs returned 1605 = already gone with their bundle), `ProgramData\Epic` removed. C: free 118.5 to 121.3 GiB |
+| 06 | LiveKernelReports 3,070 MB emptied, Dell Optimizer InstallShield leftover 759 MB removed, Google updater cache 288 MB, Teams Meeting Add-in uninstalled. C: free 121.3 to 125.3 GiB. Restore points use 3.57 of 5.04 GB (fine) |
+| 05 | 8.26 GiB moved (quarantine and game saves), 3.89 GiB caches and old Temp deleted. C: free 125.3 to 136.4 GiB. Left: `Local\Respondus` (locked) and three `DEL*.tmp` files (Windows installer temp, weekly task removes them) |
+| 07 | `Toolkit-Weekly-Clean` (Sundays 03:30) and `Toolkit-Watch-C` (daily 08:00) registered. First watch run exit 0, no alerts |
+
+Measured end state before the finishing step: **C: free 136.4 GiB (was 39.5 at the start of Build 3), D: free 449.8 GiB**, quarantine 6.28 GiB, no alerts. All items on the removal list are gone from the registry.
+
+## 10. Finishing step (script 08) and final layout of the ops folder
+
+`06-admin-deep-clean.ps1 -StoreApps -Apply` removes the Store apps MSTeams (1.9 GB), LinkedIn (0.2 GB), Netflix and HP Printer Control (WhatsApp stays). `08-finish-cleanup.ps1 -Apply -CloseSpotify` then: removes the locked Respondus cache, removes 14 verified-empty leftover folders (Adobe, Dell, JetBrains, Logi, old Office and similar), moves the remaining ten installers in Downloads to quarantine, sets Spotify offline storage to `D:\Cache\Spotify` with a 1 GB cache cap and empties `Local\Spotify\Data` (6.4 GB; offline downloads there are lost and re-download), and archives the finished scripts. The Spotify prefs key names come from community documentation, not Spotify, so check Settings > Storage after the next launch. The prefs file is backed up first.
+
+Expected after both: about 145 GiB free (estimate, to be replaced by the next watch reading).
+
+`D:\WSL\ops\windows` after the finish: `04-admin-remove.ps1` (kept: Python 3.13.5, Chocolatey and .NET 8 wait for Build 4), `08-finish-cleanup.ps1`, `weekly-clean.ps1` and `watch-c.ps1` (used by the tasks, do not move), `logs\`, `watch\`, `backup-20261012-1807\` (registry backups for the rollback of script 02), and `archive\build3-20261012\` (scripts 01 to 03, 05 to 07, pagefile diagnostics). Archive these further to the vault or delete them after the quarantine review.
+
+## 11. Still open (not cleanup, carried forward)
+
+- About 50 dot-folders in the profile (`.adal`, `.agents`, `.hermes`, `.openhands`, `.qoder` and similar) look empty but hold agent skill junctions, many pointing at `C:\Users\Anant Gupta\.agents\skills\*`, which does not exist. A separate task, because it sits under agent settings.
+- Python 3.13.5 and Chocolatey after the standalone uv (Build 4); .NET 8 after checking Dell Command Update; Windows Ollama startup shortcut (conflicts with the WSL Ollama on 11434); obsolete disabled tasks `ClaudeKit-Sync-All`, `SecondBrainClaudekit-JarvisSync`; Rize and GitKrakenCLI are unknown tools left in place; WhatsApp (0.5 GB) kept.
+- D: items for the `_Anant` build: `D:\WSL\Installers\wsl-ubuntu.tar` (73 GB), Google DriveFS cache on C: (4.2 GB), `D:\Quarantine` review on 2026-11-01 and 2026-11-11.
+- Battery cap to 80 percent and AC Recovery are BIOS steps for the user (section 7).
+
+## 12. After the finish (fill in from the next watch reading)
+
+| Metric | Start of Build 3 | Before 3b | Now |
+|---|---|---|---|
+| C: free | 39.5 GB | 116.9 GB | 136.4 GB (145 expected after script 08) |
+| Users | | 65.4 GB | |
+| ProgramData | | 5.0 GB | |
+| Windows | | 33.5 GB | |
+| Quarantine on D: | | 2.4 GB | 6.28 GB |
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Old Laptop Rebuild - Build 3b C Drive Snapshot Structure and Watch.md`
+```diff
+- next: "Run 04, 06, 05, 07 in that order (see Run order), then re-scan with WizTree and fill the 'After' column"
++ next: "Run 06 -StoreApps, then 08-finish-cleanup.ps1 (section 10); then Build 4 (toolkit) and the _Anant build on D:"
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Old Laptop Rebuild - Build 3 Windows Cleanup Findings.md`
+```diff
+- next: "User reviews the Phase 2 checkpoint, runs diag-pagefile-bitlocker.ps1 elevated, then replies 'go A' or edits the Tier A list"
++ next: "Build 3 is executed and closed by [[Old Laptop Rebuild - Build 3b C Drive Snapshot Structure and Watch]] (2026-10-12): C: free 39.5 to 136 GB, weekly clean and daily watch registered. Remaining items are listed there."
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Old Laptop Rebuild - Index.md`
+```diff
+- run with the WizTree screenshots attached.
++ run with the WizTree screenshots attached. Executed 2026-10-12 and closed in [[Old Laptop Rebuild - Build 3b C Drive Snapshot Structure and Watch]] (C: free 39.5 to 136 GB, C: and D: structure contract, weekly clean and daily watch tasks).
+```
+- `Bash` -- `printf '%s\n' '2026-10-12 - Dell Build 3b: finished the Windows C: cleanup. C: free 39.5 to 136 GB (about 145 expected after the final script). Wrote the C snapshot, structure contract and watch design to Old Laptop Rebuild - Build 3b C Drive Snapshot Structure and Watch; registered Toolkit-Weekly-Clean and Toolkit-Watch-C scheduled tasks; scripts 04 and 06 to 08 live in D:\WSL\ops\windows. Open: Python/Chocolatey after uv, agent dot-folder junctions, _Anant build.' >> "/d/Users/_Anant/10_Areas/Documents/Jarvis/60_Claude/07_AI_Information/Session Logs/log.md"; tail -c 300 "/d/Users/_Anant/10_Areas/Documents/Jarvis/60_Claude/07_AI_Information/Session Logs/log.md"`
+```
+cture contract and watch design to Old Laptop Rebuild - Build 3b C Drive Snapshot Structure and Watch; registered Toolkit-Weekly-Clean and Toolkit-Watch-C scheduled tasks; scripts 04 and 06 to 08 live in D:\WSL\ops\windows. Open: Python/Chocolatey after uv, agent dot-folder junctions, _Anant build.
+```
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Old Laptop Rebuild - Build 3 Windows Cleanup Findings.md`
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Old Laptop Rebuild - Index.md`
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Old Laptop Rebuild - Build 3 Windows Cleanup Findings.md`
+```diff
+- next: "User reviews the Phase 2 checkpoint, runs diag-pagefile-bitlocker.ps1 elevated, then replies 'go A' or edits the Tier A list"
++ next: "Build 3 is executed and closed by [[Old Laptop Rebuild - Build 3b C Drive Snapshot Structure and Watch]] (2026-10-12): C: free 39.5 to 136 GB, weekly clean and daily watch registered. Remaining items are listed there."
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Old Laptop Rebuild - Index.md`
+```diff
+- run with the WizTree screenshots attached.
++ run with the WizTree screenshots attached. Executed 2026-10-12 and closed in [[Old Laptop Rebuild - Build 3b C Drive Snapshot Structure and Watch]] (C: free 39.5 to 136 GB, C: and D: structure contract, weekly clean and daily watch tasks).
+```
 
 ## Actions Taken
 
@@ -2465,12 +3738,20 @@ Get-ChildItem C:\Users,C:\ProgramData -Recurse -Force -File -Include *.iso,*.dmp
 - `C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\cf4ca032-4c13-47e2-add0-c255f2ad1fc7\scratchpad\audit-wsl.sh`
 - `C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\cf4ca032-4c13-47e2-add0-c255f2ad1fc7\scratchpad\audit-wsl2.sh`
 - `C:\Users\ANANTG~1\AppData\Local\Temp\claude\C--Users-Anant-Gupta\cf4ca032-4c13-47e2-add0-c255f2ad1fc7\scratchpad\scan-c.ps1`
+- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Old Laptop Rebuild - Build 3b C Drive Snapshot Structure and Watch.md`
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Old Laptop Rebuild - Build 4 Windows Toolkit Findings.md`
 - `D:\WSL\ops\windows\03-user-tidy.ps1`
 - `D:\WSL\ops\windows\04-admin-remove.ps1`
+- `D:\WSL\ops\windows\05-user-deep-clean.ps1`
+- `D:\WSL\ops\windows\06-admin-deep-clean.ps1`
+- `D:\WSL\ops\windows\07-register-watch-tasks.ps1`
+- `D:\WSL\ops\windows\08-finish-cleanup.ps1`
+- `D:\WSL\ops\windows\watch-c.ps1`
+- `D:\WSL\ops\windows\weekly-clean.ps1`
 
 **Files modified:**
-_None_
+- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Old Laptop Rebuild - Build 3 Windows Cleanup Findings.md`
+- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Old Laptop Rebuild - Index.md`
 
 **Files deleted (heuristic, from Bash commands):**
 _None detected_
@@ -2480,5 +3761,6 @@ _None detected_
 - `cd "C:/Users/ANANTG~1/AppData/Local/Temp/claude/C--Users-Anant-Gupta/cf4ca032-4c13-47e2-add0-c255f2ad1fc7/scratchpad" && powershell.exe -NoProfile -ExecutionPolicy Bypass -File audit-winget.ps1 > audit-winget.out 2>&1; cat audit-winget.out`
 - `S="/c/Users/Anant Gupta/AppData/Local/Temp/claude/C--Users-Anant-Gupta/cf4ca032-4c13-47e2-add0-c255f2ad1fc7/scratchpad"; cd "$S"; (wsl.exe -d Ubuntu -- bash "/mnt/c/Users/Anant Gupta/AppData/Local/Temp/claude/C--Users-Anant-Gupta/cf4ca032-4c13-47e2-add0-c255f2ad1fc7/scratchpad/audit-wsl.sh" | tr -d '\000') > audit-wsl.out 2>&1; powershell.exe -NoProfile -ExecutionPolicy Bypass -File audit-mcp.ps1 > audit-mcp.out 2>&1; wc -l audit-wsl.out audit-mcp.out`
 - `cd "/c/Users/Anant Gupta/AppData/Local/Temp/claude/C--Users-Anant-Gupta/cf4ca032-4c13-47e2-add0-c255f2ad1fc7/scratchpad"; cat audit-wsl.out; echo ----; cat audit-mcp.out`
+- `printf '%s\n' '2026-10-12 - Dell Build 3b: finished the Windows C: cleanup. C: free 39.5 to 136 GB (about 145 expected after the final script). Wrote the C snapshot, structure contract and watch design to Old Laptop Rebuild - Build 3b C Drive Snapshot Structure and Watch; registered Toolkit-Weekly-Clean and Toolkit-Watch-C scheduled tasks; scripts 04 and 06 to 08 live in D:\WSL\ops\windows. Open: Python/Chocolatey after uv, agent dot-folder junctions, _Anant build.' >> "/d/Users/_Anant/10_Areas/Documents/Jarvis/60_Claude/07_AI_Information/Session Logs/log.md"; tail -c 300 "/d/Users/_Anant/10_Areas/Documents/Jarvis/60_Claude/07_AI_Information/Session Logs/log.md"`
 
 

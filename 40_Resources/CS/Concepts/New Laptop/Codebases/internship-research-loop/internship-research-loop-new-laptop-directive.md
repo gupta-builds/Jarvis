@@ -1,5 +1,6 @@
 ---
 created: 2026-09-26
+updated: 2026-10-12
 type: project
 status: active
 tags:
@@ -78,7 +79,7 @@ Shared WSL/GitHub-CLI base tooling (WSL verification, `gh auth login`, apt packa
 Documented in the repo itself, not duplicated here — see `CLAUDE.md`'s "Two-laptop workflow" entry (added 2026-09-26, in the Auto-mode classifier notes section): `dell-latitude` / `acer-predator`, new work on `<machine>/<topic>` branches merged via PR, `master` deliberately left without GitHub branch protection because `run.yml`/`recheck.yml` already commit to it directly from Actions (a "require PR" rule has no clean bot-bypass on a personal free-tier public repo).
 
 ## Final completion gate
-
+- [2026-10-12] Superseded for shared-laptop work by the single-host design: the Acer uses Remote-SSH to the canonical Dell checkout; see [[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]].
 The migration is complete only when all are true:
 
 - [ ] PR #12 is merged; local `master` on the new laptop matches `origin/master` exactly.

@@ -110,6 +110,17 @@ Test-Section 'B Config hashes' {
     }
 }
 
+Test-Section 'B2 User PATH order' {
+    $po = $m.configs | Where-Object { $_.kind -eq 'path-order' } | Select-Object -First 1
+    if ($po) {
+        $want = [Environment]::ExpandEnvironmentVariables($po.prefer)
+        $rawUser = [string][Microsoft.Win32.Registry]::CurrentUser.OpenSubKey('Environment').GetValue('Path', '', [Microsoft.Win32.RegistryValueOptions]::DoNotExpandEnvironmentNames)
+        $first = ($rawUser -split ';' | Where-Object { $_ } | Select-Object -First 1)
+        if ($first -and ([Environment]::ExpandEnvironmentVariables($first).TrimEnd('\') -ieq $want.TrimEnd('\'))) { Add-Result 'cfg-path-order' 'PASS' ("{0} is first on the user PATH" -f $want) }
+        else { Add-Result 'cfg-path-order' 'FAIL' ("first user PATH entry is '{0}', expected {1}; run 20-apply-configs.ps1" -f $first, $want) }
+    }
+}
+
 Test-Section 'C Terminal, git, environment' {
     # terminal
     $pkg = Get-ChildItem (Join-Path $env:LOCALAPPDATA 'Packages') -Filter 'Microsoft.WindowsTerminal_*' -Directory -ErrorAction SilentlyContinue | Select-Object -First 1
@@ -149,7 +160,7 @@ Test-Section 'C Terminal, git, environment' {
         }
         $inc = (Invoke-Native -File $git -Arguments @('config', '--global', '--get-all', 'include.path') -TimeoutSec 30).Output
         if ($inc -match [regex]::Escape($m.gitDeltaInclude)) { Add-Result 'git-delta-include' 'PASS' 'shared delta include is active' } else { Add-Result 'git-delta-include' 'FAIL' 'shared delta include missing' }
-        $pager = (Invoke-Native -File $git -Arguments @('config', '--global', '--get', 'core.pager') -TimeoutSec 30).Output.Trim()
+        $pager = (Invoke-Native -File $git -Arguments @('config', '--includes', '--global', '--get', 'core.pager') -TimeoutSec 30).Output.Trim()
         if ($pager -eq 'delta') { Add-Result 'git-pager' 'PASS' 'core.pager=delta' } else { Add-Result 'git-pager' 'FAIL' ("core.pager is '{0}'" -f $pager) }
     }
     $gh = Resolve-Cmd 'gh'

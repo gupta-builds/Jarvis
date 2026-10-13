@@ -3,12 +3,12 @@
     "host":  "DESKTOP-3VBG0JH",
     "machine":  "dell",
     "dryRun":  true,
-    "started":  "2026-10-13T01:00:23",
-    "finished":  "2026-10-13T01:00:27",
+    "started":  "2026-10-13T01:19:27",
+    "finished":  "2026-10-13T01:19:32",
     "admin":  false,
-    "manifestSha256":  "1148540EEA4E16CE17D955AACA684E62911ECDA1AE29861DD385788EBDE6CFA5",
+    "manifestSha256":  "3C04918D8FF9E28CC3618ECCB8E2EA052B9EEE6C8C9CCC302276FFA022913E7F",
     "vaultRoot":  "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis",
-    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-11-node-lts-swap-20261013-010023.log",
+    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-11-node-lts-swap-20261013-011927.log",
     "counts":  {
                    "PLAN":  1,
                    "INFO":  2,
@@ -35,7 +35,7 @@
                   {
                       "id":  "node-running",
                       "status":  "WARN",
-                      "detail":  "[DRYRUN] 12 node.exe process(es), started by: cmd x12. Close those apps (editors, Claude Desktop, Claude Code, terminals) before -Apply; command lines are never printed."
+                      "detail":  "[DRYRUN] 16 node.exe process(es), started by: cmd x16. Close those apps (editors, Claude Desktop, Claude Code, terminals) before -Apply; command lines are never printed."
                   },
                   {
                       "id":  "node-swap",

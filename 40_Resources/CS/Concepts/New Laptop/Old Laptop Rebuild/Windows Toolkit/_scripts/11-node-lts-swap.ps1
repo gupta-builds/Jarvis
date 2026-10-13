@@ -1,6 +1,7 @@
 <#
 11-node-lts-swap.ps1 - Dell only, by hand. Replaces Node.js 22 (winget OpenJS.NodeJS.22) with Node.js LTS (OpenJS.NodeJS.LTS, 24.x).
-Default is a DRY RUN. Add -Apply to change anything. Run in a NORMAL shell; Windows asks for UAC twice (uninstall, install).
+Default is a DRY RUN (works in a normal shell). Add -Apply to change anything; -Apply must run in an ELEVATED PowerShell,
+because the Node 22 MSI refuses a non-elevated removal (Windows Installer error 1730, reported by winget as exit code 1603).
 Before -Apply: close VS Code, Cursor, Kiro, Antigravity, Claude Desktop and every terminal that runs node, npm or a dev server.
 npm global packages live in %APPDATA%\npm and survive; the script lists them before and after to prove it.
 Exit codes are printed (1605 = already gone, 3010 = reboot needed).
@@ -30,6 +31,11 @@ try {
     Add-Result 'node-state' 'INFO' ("OpenJS.NodeJS.22 = {0}; OpenJS.NodeJS.LTS = {1}" -f $v22, $vLts)
     $before = Get-NpmGlobals
     Add-Result 'npm-globals-before' 'INFO' ($before -join ', ') @{ globals = $before }
+
+    if ($Apply -and -not (Test-IsAdmin)) {
+        Add-Result 'node-elevation' 'FAIL' 'Open an elevated PowerShell (right-click Windows Terminal, Run as administrator) and run this command again. Nothing was changed.'
+        Complete-Toolkit
+    }
 
     if (-not $v22 -and $vLts) { Add-Result 'node-swap' 'OK' ("Node LTS {0} already installed and Node 22 is gone" -f $vLts); Complete-Toolkit }
     if (-not $v22 -and -not $vLts) { Add-Result 'node-swap' 'MANUAL' 'Neither Node 22 nor LTS was installed through winget. Run 10-install-toolkit.ps1 to install LTS.'; Complete-Toolkit }

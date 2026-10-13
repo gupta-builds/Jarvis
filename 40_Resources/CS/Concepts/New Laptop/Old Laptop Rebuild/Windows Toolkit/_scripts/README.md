@@ -29,14 +29,14 @@ powershell.exe -NoProfile -ExecutionPolicy Bypass -File "<full path to script>" 
 |---|---|---|---|---|
 | 1 | `00-preflight.ps1` | normal | read-only: machine, vault, manifest, scripts, config secret scan, plan | no changes |
 | 2 | `10-install-toolkit.ps1` | normal | installs and adopts tools, the font, PSFzf, standalone uv, uv Python | UAC prompts for Git, GitHub CLI, Starship, Node. Close editors first (Git upgrade) |
-| 3 | `11-node-lts-swap.ps1 -Apply` | normal, **fresh window, Claude Code and editors closed** | Dell only: Node 22 to LTS 24 | by hand; two UAC prompts; npm globals survive |
-| 4 | `20-apply-configs.ps1` | normal | profiles (managed block), Starship, git ignore, delta include, bat, fd, Terminal merge, git settings, env vars | backups to `D:\Backup\Toolkit\<timestamp>\` |
+| 3 | `11-node-lts-swap.ps1 -Apply` | **elevated**, Claude Code and editors closed | Dell only: Node 22 to LTS 24 | the Node 22 MSI refuses a non-elevated removal (error 1730); npm globals survive; dry run works in a normal shell |
+| 4 | `20-apply-configs.ps1` | normal | profiles (managed block), Starship, git ignore, delta include, bat, fd, Terminal merge, git settings, env vars, user PATH order (standalone uv first) | backups to `D:\Backup\Toolkit\<timestamp>\`; the old user PATH is saved as `user-path-before.txt` there |
 | 5 | `99-verify.ps1 -WriteLock` | normal, fresh window | manifest versus reality; Dell writes `toolkit.lock.json` | PENDING items wait for step 6 |
 | 6 | `04-admin-remove.ps1 -IncludePython -Apply` | **elevated** | Dell only: retires Python 3.13.5 and Chocolatey | lives in `D:\WSL\ops\windows`; refuses until a standalone uv exists |
 | 7 | `99-verify.ps1` again | normal, fresh window | PENDING items turn into PASS | |
 | 8 | `40-build-catalog.ps1` | normal | writes `..\catalog\Tool Catalog - <host>.md` and `.json` | Phase 5 |
 
-Only step 6 needs an elevated shell.
+Steps 3 and 6 need an elevated shell. Closing order on the Dell: 10 (also `-Only uv-python`), 20, then 3 and 6 elevated with Claude Code closed, then 99 `-WriteLock` in a fresh normal window. `04-admin-remove.ps1` was patched on 2026-10-13 (backup in `D:\WSL\ops\windows\archive\`): its uv gate now checks every uv on PATH and requires a uv-managed Python 3.13, and it rewrites the Machine PATH from the raw registry value so `%SystemRoot%` entries and the REG_EXPAND_SZ type survive; the old value is saved to `D:\WSL\ops\windows\logs\machine-path-before-<time>.txt`.
 
 ## What each script never does
 - `10` never installs Tailscale, never touches Node 22 (step 3 does), never removes anything.

@@ -417,10 +417,17 @@ function Get-ToolState {
     } elseif ($detect -eq 'uv-python') {
         $uvp = [Environment]::ExpandEnvironmentVariables('%USERPROFILE%\.local\bin\uv.exe')
         if (Test-Path -LiteralPath $uvp) {
-            $r = Invoke-Native -File $uvp -Arguments @('python', 'list', '--only-installed') -TimeoutSec 60
+            # Count only interpreters that uv itself manages (folders in uv's python dir); system Pythons such as C:\Python313 do not count.
+            $r = Invoke-Native -File $uvp -Arguments @('python', 'dir') -TimeoutSec 60
+            $pdir = $r.Output.Trim()
             $spec = $global:TK.Manifest.pins.python.uvSpec
-            $m = [regex]::Match($r.Output, ('cpython-(' + [regex]::Escape($spec) + '\.\d+)'))
-            if ($m.Success) { $s.installed = $true; $s.version = $m.Groups[1].Value; $s.via = 'uv-python' }
+            if ($pdir -and (Test-Path -LiteralPath $pdir)) {
+                $found = @(Get-ChildItem -LiteralPath $pdir -Directory -ErrorAction SilentlyContinue | Where-Object { $_.Name -match ('^cpython-' + [regex]::Escape($spec) + '\.\d+-') } | Sort-Object Name -Descending)
+                if ($found.Count -gt 0) {
+                    $mv = [regex]::Match($found[0].Name, '^cpython-(\d+\.\d+\.\d+)')
+                    $s.installed = $true; $s.version = $mv.Groups[1].Value; $s.via = 'uv-python'; $s.path = $found[0].FullName
+                }
+            }
         }
     }
     if ($Tool.policy -eq 'absent' -and (-not $s.installed) -and $Tool.exe) {
@@ -481,6 +488,26 @@ function Backup-Target {
     Write-Utf8NoBom -Path $idx -Text (ConvertTo-Json -InputObject $global:TK.Backups.ToArray() -Depth 4)
     Write-Log ("backup: {0} -> {1}" -f $Path, $dest)
     return $dest
+}
+
+# ---------------------------------------------------------------- PATH helper
+function Get-PathWithFirst {
+    # Pure string function. Returns RawPath with the Preferred folder first; other entries keep their order and text
+    # (so %VARIABLES% stay unexpanded) and later duplicates of the preferred folder are dropped.
+    param([string]$RawPath, [string]$Preferred)
+    $want = $Preferred.TrimEnd('\')
+    $entries = @($RawPath -split ';' | Where-Object { $_ })
+    $head = $Preferred
+    $rest = New-Object System.Collections.Generic.List[string]
+    $taken = $false
+    foreach ($e in $entries) {
+        if ([Environment]::ExpandEnvironmentVariables($e).TrimEnd('\') -ieq $want) {
+            if (-not $taken) { $head = $e; $taken = $true }
+            continue
+        }
+        $rest.Add($e)
+    }
+    return ((@($head) + $rest.ToArray()) -join ';')
 }
 
 # ---------------------------------------------------------------- MCP inventory (names and command names only)

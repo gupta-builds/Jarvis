@@ -5,29 +5,29 @@ source_app: claude-code
 source_os: windows
 title: "Windows toolkit rebuild Build 4"
 started_at: 2026-10-12T23:45:48
-ended_at: 2026-10-13T00:53:37
-exported_at: 2026-10-13T01:00:03
-duration_minutes: 67.8
+ended_at: 2026-10-13T01:23:29
+exported_at: 2026-10-13T01:30:03
+duration_minutes: 97.7
 project: Home
 cwd: 'C:\Users\Anant Gupta'
 session_id: c49292f8-66cc-4fcf-be7d-2fa48b988728
 status: raw
-turn_count: 6
+turn_count: 8
 tools_used:
   Agent: 1
   Bash: 3
-  Edit: 9
+  Edit: 22
   Glob: 2
-  Grep: 1
-  PowerShell: 41
-  Read: 27
+  Grep: 5
+  PowerShell: 53
+  Read: 31
   Write: 14
 tokens:
-  input: 346
-  output: 585793
-  cache_creation: 1246759
-  cache_read: 50930317
-  total: 52763215
+  input: 470
+  output: 689323
+  cache_creation: 1511946
+  cache_read: 82470540
+  total: 84672279
 cost_usd: null
 model:
   - "claude-sonnet-5-5"
@@ -3351,6 +3351,385 @@ D1 to D6, D11 and D13 to D16 are implemented as recommended; D7 to D10 moved to 
 - `PowerShell` -- `{"command":"$p=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Old Laptop Rebuild - Build 4 Windows Toolkit Findings.md\u0027\n$s=[IO.File]::ReadAllText($p)\n$s=$s.Replace(\u0027updated: 2026-10-12\u0027,\u0027updated: 2026-10-13\u0027)\n$s=$s.Replace(\u0027next: \"User answers the Phase 2 decisions (D1 to D12); then Phase 3 writes the manifest, configs and scripts\"\u0027,\u0027next: \"Phase 4: user runs the Dell scripts in README order (10, 11, 20, 99, 04-admin-remove, 99) and pastes the outputs; then Phase 5 catalog and guide\"\u0027)\n[IO.File]::WriteAllText($p,$s,(New-Object Text.UTF8Encoding($false)))\nSelect-String -Path $p -Pattern \u0027^(updated|next):\u0027 | % { $_.Line }","description":"Update findings note frontmatter"}`
 - `PowerShell` -- `{"command":"$rd=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\results\\DESKTOP-3VBG0JH\u0027\n$all = Get-ChildItem $rd -File\n$keep = $all | ? { $_.Name -eq \[REDACTED].json\u0027 -or $_.Name -like \u002700-preflight-2*\u0027 } | Sort LastWriteTime -Descending | Select-Object -First 2\n$rm = $all | ? { $keep.Name -notcontains $_.Name }\n\"removing {0} test result files, keeping: {1}\" -f $rm.Count, (($keep|%Name) -join \u0027, \u0027)\n$rm | Remove-Item -Force\nGet-ChildItem $rd -Name\n$d=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\u0027\nforeach($f in Get-ChildItem $d -Filter *.ps1){ $b=[IO.File]::ReadAllBytes($f.FullName); $bad=0; foreach($x in $b){if($x -gt 127){$bad++}}; $e=$null;$t=$null;[void][System.Management.Automation.Language.Parser]::ParseFile($f.FullName,[ref]$t,[ref]$e); \"{0,-24} nonASCII={1} parseErr={2}\" -f $f.Name,$bad,@($e).Count }\n\"Dell profile untouched, PATH untouched: \" + ((Get-FileHash \u0027D:\\Users\\_Anant\\10_Areas\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1\u0027).Hash.Substring(0,12))\n\"user env STARSHIP_CONFIG still unset: \" + (-not [Environment]::GetEnvironmentVariable(\u0027STARSHIP_CONFIG\u0027,\u0027User\u0027))","description":"Clean test result files and re-verify scripts and untouched state"}`
 
+## You
+
+```
+
+<pasted_content id="a8e4">
+Output
+
+```
+PS C:\Users\Anant Gupta> powershell.exe -NoProfile -ExecutionPolicy Bypass -File "D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\11-node-lts-swap.ps1" -Apply
+01:01:16 [STEP] === 11-node-lts-swap on DESKTOP-3VBG0JH (Dell Latitude 5530) role=dell dryRun=False admin=False
+01:01:17 [INFO] Toolkit root: D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit
+01:01:17 [INFO] Vault root:   D:\Users\_Anant\10_Areas\Documents\Jarvis
+01:01:17 [INFO] Log file:     D:\WSL\ops\windows\logs\[REDACTED].log
+01:01:18 [INFO] INFO     node-state             OpenJS.NodeJS.22 = 22.16.0; OpenJS.NodeJS.LTS =
+01:01:19 [INFO] INFO     npm-globals-before     @openai/codex@0.160.0, firecrawl-cli@1.19.21, mcp-remote@0.2.1, openclaw@2026.3.13, opencode-ai@1.18.31
+01:01:19 [OK] PASS     node-running           no node.exe running
+01:01:19 [STEP] Uninstalling Node 22 (a UAC prompt appears).
+01:01:19 [INFO] winget uninstall --id OpenJS.NodeJS.22 --exact --source winget --accept-source-agreements --disable-interactivity --silent
+01:01:22 [INFO]     | Found Node.js [OpenJS.NodeJS.22]
+01:01:22 [INFO]     | Starting package uninstall...
+01:01:22 [INFO]     | Uninstall failed with exit code: 1603
+01:01:22 [INFO] winget exit code -1978335184
+01:01:22 [ERROR] FAIL     node22-uninstall       Node 22 is still installed (22.16.0); winget exit -1978335184. Nothing else was changed.
+
+ID                       STATUS    DETAIL
+node-state               INFO      OpenJS.NodeJS.22 = 22.16.0; OpenJS.NodeJS.LTS =
+npm-globals-before       INFO      @openai/codex@0.160.0, firecrawl-cli@1.19.21, mcp-remote@0.2.1, openclaw@2026.3.13, opencode-ai@1.18.31
+node-running             PASS      no node.exe running
+node22-uninstall         FAIL      Node 22 is still installed (22.16.0); winget exit -1978335184. Nothing else was changed.
+
+01:01:22 [STEP] SUMMARY: FAIL=1  INFO=2  PASS=1
+01:01:22 [INFO] Result JSON: D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\results\DESKTOP-3VBG0JH\[REDACTED].json
+01:01:22 [ERROR] 1 required failure(s). Exit code 1.
+```
+
+```
+er read into output)
+lock-write               FAIL      not written: 2 check(s) failed
+
+01:04:58 [STEP] SUMMARY: FAIL=3  INFO=12  PASS=97  PENDING=3  WARN=1
+01:04:58 [INFO] Result JSON: D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\results\DESKTOP-3VBG0JH\[REDACTED].json
+01:04:58 [ERROR] 3 required failure(s). Exit code 1.
+```
+
+
+```
+
+░▒▓ 󰍲  C:\WINDOWS\system32   
+❯ powershell.exe -NoProfile -ExecutionPolicy Bypass -File "D:\WSL\ops\windows\04-admin-remove.ps1" -IncludePython
+*** DRY RUN (nothing changes). Re-run with -Apply ***
+
+--- 1 Logi Options+ and Logi Plugin Service
+
+--- 2 Visual C++ 2010 and 2012 redistributables (2015-2022 stays)
+
+--- 3 .NET 9.x (and 8.x with -IncludeDotnet8). 10.x stays.
+   .NET 8.x kept (use -IncludeDotnet8 after checking Dell Command Update still opens)
+
+--- 4 Epic leftovers
+
+--- 5 Python 3.13.5 (choco python313), then Chocolatey
+   STOP: no standalone uv found yet. Install uv first (Build 4), then re-run with -IncludePython.
+
+END  C: free 144.91 -> 144.91 GiB   log: D:\WSL\ops\windows\logs\[REDACTED].log
+
+░▒▓ 󰍲  C:\WINDOWS\system32   
+❯
+
+```
+</pasted_content id="a8e4">
+
+```, all the scripts were run. The first script was run perfectly and the rest are provided to you over here. The elevated shell along with the normal shell outputs. Go through the runs by each of them and make the necessary changes accordingly. Do not write a script for this change that i am explaining: the terminal font is mono whereas the acer laptop is just the nornmal with no mono. The terminal settings have been configured are seen as shown correctly. Now, let's make sure that all the scripts are run perfectly. Making sure that this phase has been completed. Go through the outputs provided in detail but also look through the information yourself and provide me with the last set of scripts that need to run to close this phase off.
+
+## Claude
+
+Reading the actual logs and result files first, not just the pasted snippets.
+
+Two causes found: Node's MSI refused with "Error 1730: you must be an Administrator", so the swap has to run from the elevated shell, and `uv-python` was a false positive. Now the 99-verify results.
+
+Now the `git-pager` check in 99 and the elevation requirement in 11.
+
+Now the PATH-order step in `20-apply-configs.ps1` (manifest entry, function, and a matching check in 99).
+
+Now the two defects in `04-admin-remove.ps1`: the uv gate that can never pass, and the Machine PATH rewrite that would flatten `%SystemRoot%` entries. I'm backing the script up first.
+
+Parse-checking everything that changed, then dry runs of the new and changed steps.
+
+Recording the Phase 4 review in the findings note.
+
+## Phase 4 is not closed yet: three checks still fail, and the cause of each is understood
+
+Everything in the Dell install and config runs worked. The three failures are a Node uninstall that needs an elevated shell, a missing lock file that depends on it, and a wrong check in `99-verify`. Reading the logs also turned up two more problems that your run did not hit yet. All of them are fixed and dry-run tested, but only your runs will prove the fixes.
+
+### What the runs showed
+**Worked:**
+- Everything in `10-install-toolkit` installed, except Node, which is a hand step.
+- All config files hash-match the Acer's.
+- Both PowerShell profiles load with one Starship and zoxide init.
+- The Terminal merge is correct, as you confirmed.
+
+**Failed, with causes:**
+
+| Failure | Cause | Fix |
+|---|---|---|
+| Node 22 uninstall (exit 1603) | The event log shows MSI error 1730, "You must be an Administrator to remove this application". The MSI is per-machine and refuses a non-elevated removal. | `11 -Apply` now requires the elevated shell and refuses early otherwise. |
+| `git-pager` check | `git config --global --get` ignores included files, and the pager lives in the delta include. Delta is active (`git config --get core.pager` returns `delta`). | The check now uses `--includes`. |
+| `04-admin-remove` dry run: "STOP: no standalone uv" | `Get-Command uv` returns only the first match, which is the pip uv that script exists to remove, so its gate could never pass. | I patched that gate in your Build 3 script (backup in `D:\WSL\ops\windows\archive\`). |
+| `lock-write` | A consequence of the Node and pager failures. | None needed. |
+
+**Two more problems the review caught:**
+- **`uv-python` false positive:** it reported "present 3.13.5", but that is the Chocolatey `C:\Python313`. uv's own folder only holds 3.11.15. Removing Python now would have left you with no 3.13. Detection now counts only uv-managed Pythons, and the patched `04` refuses to run until one exists.
+- **Wrong uv would win:** Hermes' `uv` 0.11.28 is entry 2 on your user PATH, and the standalone uv is entry 11. After Python goes, `uv` would resolve to Hermes' copy. `20-apply-configs` now moves `~\.local\bin` to the front of the user PATH and saves the old value first.
+
+**Also patched in `04`:** it rewrote the Machine PATH in a way that would have turned your `%SystemRoot%` entries into plain text. It now edits the raw registry value, keeps the type, and saves the old value to `D:\WSL\ops\windows\logs\`.
+
+The font difference you described is recorded: the Dell uses the Mono build and the Acer the normal one. I made no change for it.
+
+### Last set of commands
+Each path is the full one; the scripts folder is `...\Windows Toolkit\_scripts\`.
+
+**A. Normal shell.** Installs the uv-managed Python 3.13, which must exist before Python is removed.
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\10-install-toolkit.ps1" -Only uv-python
+```
+
+**B. Normal shell.** Re-run; everything else reports UNCHANGED, and the PATH order is the new part.
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\20-apply-configs.ps1"
+```
+
+Now **exit Claude Code, Claude Desktop and the editors**. The Node swap fails if `node.exe` is running. Then use the **elevated** window for C and D.
+
+**C. Elevated.** Swap Node 22 for LTS 24.
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\11-node-lts-swap.ps1" -Apply
+```
+
+**D. Elevated.** Retire Python and Chocolatey. Run the dry run first and check that it now prints the removal plan instead of `STOP`.
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "D:\WSL\ops\windows\04-admin-remove.ps1" -IncludePython
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "D:\WSL\ops\windows\04-admin-remove.ps1" -IncludePython -Apply
+```
+
+**E. Fresh normal window, opened after D.** This confirms everything and writes the lock.
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\99-verify.ps1" -WriteLock
+```
+
+### What to expect
+- **A:** a one-time download of Python 3.13 (about 100 MB).
+- **C:** two UAC prompts, and the npm globals (Codex, mcp-remote and three others) are listed before and after.
+- **D:** if any step prints exit code 3010, reboot, then run E.
+- **E:** the only acceptable non-PASS lines are the `INFO` rows, the `node_repl` WARN (a stale Codex path owned by Build 6), and nothing PENDING.
+
+After E, reopen Claude Code and tell me. I'll read the logs and `99-verify-latest.json` myself and declare Phase 4 closed only if no FAIL and no PENDING remain and `toolkit.lock.json` exists. Phase 5 (catalog and agent guide) and the Acer run sheet follow in the next session.
+
+### Tool Calls
+
+- `PowerShell` -- `{"command":"$rd=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\results\\DESKTOP-3VBG0JH\u0027\nGet-ChildItem $rd | Sort LastWriteTime | % { \"{0}  {1}  {2}\" -f $_.LastWriteTime.ToString(\u0027HH:mm:ss\u0027),$_.Length,$_.Name }\n\"--- logs\"\nGet-ChildItem \u0027D:\\WSL\\ops\\windows\\logs\u0027 -Filter \u0027toolkit-*\u0027 | Sort LastWriteTime | % { \"{0}  {1}\" -f $_.LastWriteTime.ToString(\u0027HH:mm:ss\u0027),$_.Name }\n\"--- backups\"\nGet-ChildItem \u0027D:\\Backup\\Toolkit\u0027 -Recurse -File -ErrorAction SilentlyContinue | % { $_.FullName }","description":"List toolkit results, logs and backups from the real runs"}`
+- `PowerShell` -- `{"command":"$l=\u0027D:\\WSL\\ops\\windows\\logs\u0027\n\"=================== 10-install log\"\nGet-Content \"$l\\[REDACTED].log\" | % { if($_.Length -gt 230){$_.Substring(0,230)}else{$_} }","description":"Read the real install run log"}`
+- `PowerShell` -- `{"command":"$l=\u0027D:\\WSL\\ops\\windows\\logs\u0027\nforeach($f in \[REDACTED].log\u0027,\[REDACTED].log\u0027){ \"=================== $f\"; Get-Content \"$l\\$f\" | % { if($_.Length -gt 230){$_.Substring(0,230)}else{$_} } }\n\"=================== 20-apply log\"\nGet-Content \"$l\\[REDACTED].log\" | % { if($_.Length -gt 260){$_.Substring(0,260)}else{$_} }","description":"Read the Node swap attempts and the apply-configs log"}`
+- `PowerShell` -- `{"command":"$dl=\"$env:LOCALAPPDATA\\Packages\\Microsoft.[REDACTED]\\LocalState\\DiagOutputDir\"\n$f = Get-ChildItem $dl -File -ErrorAction SilentlyContinue | Where-Object { $_.LastWriteTime -gt (Get-Date).AddHours(-2) -and $_.LastWriteTime -lt (Get-Date \u00272026-10-13 01:02:00\u0027) } | Sort LastWriteTime\n$f | % { \"{0} {1}\" -f $_.LastWriteTime.ToString(\u0027HH:mm:ss\u0027), $_.Name }\n$last = $f | Where-Object { $_.LastWriteTime.ToString(\u0027HH:mm\u0027) -in \u002701:01\u0027,\u002701:00\u0027 } | Select-Object -Last 1\nif($last){ \"--- $($last.Name) (relevant lines)\"; Get-Content $last.FullName | Select-String -Pattern \u0027uninstall|1603|msiexec|MSI|ExitCode|exit code|elevat|Installer|NodeJS|product code|ProductCode\u0027 | Select-Object -First 40 | % { $_.Line.Substring(0,[math]::Min(220,$_.Line.Length)) } }\n\"--- Node uninstall registry entries\"\nGet-ItemProperty \u0027HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*\u0027,\u0027HKLM:\\SOFTWARE\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*\u0027 -ErrorAction SilentlyContinue | ? DisplayName -like \u0027Node.js*\u0027 | % { \"{0} | {1} | {2} | {3}\" -f $_.DisplayName,$_.DisplayVersion,$_.PSChildName,$_.UninstallString }\n\"--- system event: MsiInstaller errors around 01:01\"\nGet-WinEvent -FilterHashtable @{LogName=\u0027Application\u0027;ProviderName=\u0027MsiInstaller\u0027;StartTime=(Get-Date \u00272026-10-13 00:59:00\u0027)} -ErrorAction SilentlyContinue | Select-Object -First 6 | % { \"{0} id={1} {2}\" -f $_.TimeCreated.ToString(\u0027HH:mm:ss\u0027),$_.Id,($_.Message -replace \"\\s+\",\" \").Substring(0,[math]::Min(300,$_.Message.Length)) }","description":"Find the cause of the MSI 1603 on Node 22 uninstall"}`
+- `PowerShell` -- `{"command":"$uv=\"$env:USERPROFILE\\.local\\bin\\uv.exe\"\n\"uv: \" + (\u0026 $uv --version)\n\"--- uv python list --only-installed\"\n\u0026 $uv python list --only-installed\n\"--- uv python dir\"\n\u0026 $uv python dir\n\"--- managed dir content\"\n$dir = (\u0026 $uv python dir); if(Test-Path $dir){ Get-ChildItem $dir -Directory | % Name } else { \"(managed dir does not exist: no uv-managed Python installed)\" }","description":"Check whether a uv-managed Python exists"}`
+- `PowerShell` -- `{"command":"$j = Get-Content \u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\results\\DESKTOP-3VBG0JH\\99-verify-latest.json\u0027 -Raw | ConvertFrom-Json\n\"counts: \" + (($j.counts.PSObject.Properties | % { \"$($_.Name)=$($_.Value)\" }) -join \u0027 \u0027)\n\"--- everything not PASS\"\n$j.items | ? { $_.status -ne \u0027PASS\u0027 } | % { \"{0,-9} {1,-34} {2}\" -f $_.status,$_.id,$_.detail }\n\"--- shells / starship / startup\"\n$j.items | ? { $_.id -match \u0027^(shell|startup|starship|zoxide|font|wt-|cfg-|uv|git-)\u0027 } | % { \"{0,-9} {1,-34} {2}\" -f $_.status,$_.id,$_.detail } | Select-Object -First 45","description":"Read the 99-verify result JSON"}`
+- `PowerShell` -- `{"command":"\"core.pager (--global --get):        \u0027\" + (git config --global --get core.pager) + \"\u0027\"\n\"core.pager (--includes --global):    \u0027\" + (git config --includes --global --get core.pager) + \"\u0027\"\n\"core.pager (effective, no scope):    \u0027\" + (git config --get core.pager) + \"\u0027\"\n\"--- raw Machine PATH registry value (kind + any % tokens)\"\n$k=[Microsoft.Win32.Registry]::LocalMachine.OpenSubKey(\u0027SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Environment\u0027)\n\"kind: \" + $k.GetValueKind(\u0027Path\u0027)\n$raw=$k.GetValue(\u0027Path\u0027,$null,[Microsoft.Win32.RegistryValueOptions]::DoNotExpandEnvironmentNames)\n\"entries: \" + ($raw -split \u0027;\u0027 | ? {$_}).Count + \"; entries with % tokens: \" + (($raw -split \u0027;\u0027 | ? { $_ -match \u0027%\u0027 }) -join \u0027 | \u0027)\n\"--- Get-Command uv (default) vs -All\"\n(Get-Command uv).Source\n(Get-Command uv -All | % Source) -join \u0027 ; \u0027\n\"--- conflict file vs original\"\n$rd=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\results\\DESKTOP-3VBG0JH\u0027\n(Get-FileHash \"$rd\\[REDACTED].json\").Hash.Substring(0,12)\n(Get-FileHash \"$rd\\11-node-lts-swap-latest.[REDACTED].json\").Hash.Substring(0,12)","description":"Check git include behaviour, raw Machine PATH and uv command resolution"}`
+- `PowerShell` -- `{"command":"$k=[Microsoft.Win32.Registry]::CurrentUser.OpenSubKey(\u0027Environment\u0027)\n\"user PATH kind: \" + $k.GetValueKind(\u0027Path\u0027)\n$raw=$k.GetValue(\u0027Path\u0027,$null,[Microsoft.Win32.RegistryValueOptions]::DoNotExpandEnvironmentNames)\n$e=@($raw -split \u0027;\u0027 | ? {$_})\n\"entries: $($e.Count)\"\nfor($i=0;$i -lt [math]::Min(6,$e.Count);$i++){ \"{0}: {1}\" -f ($i+1),$e[$i] }\n\"index of .local\\bin: \" + ([array]::FindIndex($e,[Predicate[string]]{ param($x) $x -like \u0027*\\.local\\bin\u0027 }) + 1)\n\"entries with % tokens: \" + (($e | ? { $_ -match \u0027%\u0027 }).Count)\n\"--- other uv copies\"\nforeach($p in \"$env:LOCALAPPDATA\\hermes\\bin\\uv.exe\",\"$env:USERPROFILE\\.local\\bin\\uv.exe\",\"C:\\Python313\\Scripts\\uv.exe\"){ if(Test-Path $p){ \"{0} =\u003e {1}\" -f $p,(\u0026 $p --version) } }","description":"Inspect user PATH order and the other uv copies"}`
+- `Grep` -- pattern `uv-python'` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\_lib.ps1`
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\_lib.ps1`
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\_lib.ps1`
+```diff
+-             $r = Invoke-Native -File $uvp -Arguments @('python', 'list', '--only-installed') -TimeoutSec 60
+            $spec = $global:TK.Manifest.pins.python.uvSpec
+            $m = [regex]::Match($r.Output, ('cpython-(' + [regex]::Escape($spec) + '\.\d+)'))
+            if ($m.Success) { $s.installed = $true; $s.version = $m.Groups[1].Value; $s.via = 'uv-python' }
++             # Count only interpreters that uv itself manages (folders in uv's python dir); system Pythons such as C:\Python313 do not count.
+            $r = Invoke-Native -File $uvp -Arguments @('python', 'dir') -TimeoutSec 60
+            $pdir = $r.Output.Trim()
+            $spec = $global:TK.Manifest.pins.python.uvSpec
+            if ($pdir -and (Test-Path -LiteralPath $pdir)) {
+                $found = @(Get-ChildItem -LiteralPath $pdir -Directory -ErrorAction SilentlyContinue | Where-Object { $_.Name -match ('^cpython-' + [regex]::Escape($spec) + '\.\d+-') } | Sort-Object Name -Descending)
+                if ($found.Count -gt 0) {
+                    $mv = [regex]::Match($found[0].Name, '^cpython-(\d+\.\d+\.\d+)')
+                    $s.installed = $true; $s.version = $mv.Groups[1].Value; $s.via = 'uv-python'; $s.path = $found[0].FullName
+                }
+            }
+```
+- `Grep` -- pattern `core.pager` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\99-verify.ps1`
+- `Grep` -- pattern `Initialize-Toolkit|\$dry = ` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\11-node-lts-swap.ps1`
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\99-verify.ps1`
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\11-node-lts-swap.ps1`
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\99-verify.ps1`
+```diff
+- @('config', '--global', '--get', 'core.pager')
++ @('config', '--includes', '--global', '--get', 'core.pager')
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\11-node-lts-swap.ps1`
+```diff
+- Default is a DRY RUN. Add -Apply to change anything. Run in a NORMAL shell; Windows asks for UAC twice (uninstall, install).
++ Default is a DRY RUN (works in a normal shell). Add -Apply to change anything; -Apply must run in an ELEVATED PowerShell,
+because the Node 22 MSI refuses a non-elevated removal (Windows Installer error 1730, reported by winget as exit code 1603).
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\11-node-lts-swap.ps1`
+```diff
+-     if (-not $v22 -and $vLts) { Add-Result 'node-swap' 'OK'
++     if ($Apply -and -not (Test-IsAdmin)) {
+        Add-Result 'node-elevation' 'FAIL' 'Open an elevated PowerShell (right-click Windows Terminal, Run as administrator) and run this command again. Nothing was changed.'
+        Complete-Toolkit
+    }
+
+    if (-not $v22 -and $vLts) { Add-Result 'node-swap' 'OK'
+```
+- `Grep` -- pattern `'git' \{ Apply-GitSettings \}|^function Apply-Env|\$hashRows = ` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\20-apply-configs.ps1`
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\20-apply-configs.ps1`
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\20-apply-configs.ps1`
+```diff
+- # ------------------------------------------------------------------ run
+try {
++ function Apply-PathOrder {
+    # Puts the preferred folder (the standalone uv in ~\.local\bin) first on the USER path, keeping the registry value type
+    # and every other entry. The old value is saved to the backup folder first. Machine PATH is not touched here.
+    param($Cfg)
+    $want = [Environment]::ExpandEnvironmentVariables($Cfg.prefer)
+    $key = [Microsoft.Win32.Registry]::CurrentUser.OpenSubKey('Environment', $true)
+    try {
+        $raw = [string]$key.GetValue('Path', '', [Microsoft.Win32.RegistryValueOptions]::DoNotExpandEnvironmentNames)
+        $new = Get-PathWithFirst -RawPath $raw -Preferred $want
+        if ($new -ceq $raw) { Add-Result $Cfg.id 'UNCHANGED' ("{0} is already first on the user PATH" -f $want); return }
+        if ($dry) { Add-Result $Cfg.id 'PLAN' ("[DRYRUN] would move {0} to the front of the user PATH (all other entries kept in order)" -f $want); return }
+        $base = $global:TK.BackupBase; if (-not $base) { $base = 'D:\Backup\Toolkit' }
+        $dir = Join-Path $base $global:TK.Ts
+        New-Item -ItemType Directory -Force -Path $dir | Out-Null
+        $bk = Join-Path $dir 'user-path-before.txt'
+        Write-Utf8NoBom -Path $bk -Text $raw
+        $kind = $key.GetValueKind('Path')
+        $key.SetValue('Path', $new, $kind)
+        [Environment]::SetEnvironmentVariable('TOOLKIT_PATH_REFRESH', '1', 'User')
+        [Environment]::SetEnvironmentVariable('TOOLKIT_PATH_REFRESH', $null, 'User')
+        Update-SessionPath
+        $chk = [string]$key.GetValue('Path', '', [Microsoft.Win32.RegistryValueOptions]::DoNotExpandEnvironmentNames)
+        $first = ($chk -split ';' | Where-Object { $_ } | Select-Object -First 1)
+        if ([Environment]::ExpandEnvironmentVariables($first).TrimEnd('\') -ieq $want.TrimEnd('\')) {
+            Add-Result $Cfg.id 'CHANGED' ("{0} is now first on the user PATH; old value saved to {1}; open a new window to use it" -f $want, $bk) @{ backup = $bk }
+        } else { Add-Result $Cfg.id 'FAIL' ("PATH did not re-read as expected; old value is in {0}" -f $bk) }
+    } finally { $key.Close() }
+}
+
+# ------------------------------------------------------------------ run
+try {
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\20-apply-configs.ps1`
+```diff
+-                 'git' { Apply-GitSettings }
+            }
++                 'git' { Apply-GitSettings }
+                'path-order' { Apply-PathOrder $cfg }
+            }
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\_lib.ps1`
+```diff
+- # ---------------------------------------------------------------- MCP inventory (names and command names only)
++ # ---------------------------------------------------------------- PATH helper
+function Get-PathWithFirst {
+    # Pure string function. Returns RawPath with the Preferred folder first; other entries keep their order and text
+    # (so %VARIABLES% stay unexpanded) and later duplicates of the preferred folder are dropped.
+    param([string]$RawPath, [string]$Preferred)
+    $want = $Preferred.TrimEnd('\')
+    $entries = @($RawPath -split ';' | Where-Object { $_ })
+    $head = $Preferred
+    $rest = New-Object System.Collections.Generic.List[string]
+    $taken = $false
+    foreach ($e in $entries) {
+        if ([Environment]::ExpandEnvironmentVariables($e).TrimEnd('\') -ieq $want) {
+            if (-not $taken) { $head = $e; $taken = $true }
+            continue
+        }
+        $rest.Add($e)
+    }
+    return ((@($head) + $rest.ToArray()) -join ';')
+}
+
+# ---------------------------------------------------------------- MCP inventory (names and command names only)
+```
+- `PowerShell` -- `{"command":"$p=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\toolkit.json\u0027\n$s=[IO.File]::ReadAllText($p)\n$old=\u0027    { \"id\": \"git-settings\", \"kind\": \"git\" }\u0027\n\"found: \" + $s.Contains($old)\n$new=\u0027    { \"id\": \"git-settings\", \"kind\": \"git\" },\u0027 + \"`n\" + \u0027    { \"id\": \"path-order\", \"kind\": \"path-order\", \"prefer\": \"%USERPROFILE%\\\\.local\\\\bin\", \"note\": \"Standalone uv must win over the Hermes uv (0.11.28) that sits earlier on the user PATH.\" }\u0027\n$s=$s.Replace($old,$new)\n[IO.File]::WriteAllText($p,$s,(New-Object Text.UTF8Encoding($false)))\n$j=Get-Content $p -Raw | ConvertFrom-Json; \"valid JSON; configs: \" + (($j.configs | % id) -join \u0027, \u0027)\n# unit test of the pure PATH function\n. \u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\\_lib.ps1\u0027\n$raw=\u0027C:\\a\\hermes;C:\\b\\hermes\\bin;%USERPROFILE%\\x;C:\\Users\\Anant Gupta\\.local\\bin;C:\\z\u0027\n$want=\u0027C:\\Users\\Anant Gupta\\.local\\bin\u0027\n$n = Get-PathWithFirst -RawPath $raw -Preferred $want\n\"result : $n\"\n\"idempotent: \" + ((Get-PathWithFirst -RawPath $n -Preferred $want) -ceq $n)\n\"absent -\u003e prepended: \" + (Get-PathWithFirst -RawPath \u0027C:\\a;C:\\b\u0027 -Preferred $want)\n\"duplicate dropped: \" + (Get-PathWithFirst -RawPath \u0027C:\\a;C:\\Users\\Anant Gupta\\.local\\bin\\;C:\\b;C:\\Users\\Anant Gupta\\.local\\bin\u0027 -Preferred $want)","description":"Add path-order to the manifest and unit-test the PATH function"}`
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\99-verify.ps1`
+```diff
+- Test-Section 'C Terminal, git, environment' {
++ Test-Section 'B2 User PATH order' {
+    $po = $m.configs | Where-Object { $_.kind -eq 'path-order' } | Select-Object -First 1
+    if ($po) {
+        $want = [Environment]::ExpandEnvironmentVariables($po.prefer)
+        $rawUser = [string][Microsoft.Win32.Registry]::CurrentUser.OpenSubKey('Environment').GetValue('Path', '', [Microsoft.Win32.RegistryValueOptions]::DoNotExpandEnvironmentNames)
+        $first = ($rawUser -split ';' | Where-Object { $_ } | Select-Object -First 1)
+        if ($first -and ([Environment]::ExpandEnvironmentVariables($first).TrimEnd('\') -ieq $want.TrimEnd('\'))) { Add-Result 'cfg-path-order' 'PASS' ("{0} is first on the user PATH" -f $want) }
+        else { Add-Result 'cfg-path-order' 'FAIL' ("first user PATH entry is '{0}', expected {1}; run 20-apply-configs.ps1" -f $first, $want) }
+    }
+}
+
+Test-Section 'C Terminal, git, environment' {
+```
+- `PowerShell` -- `{"command":"$p=\u0027D:\\WSL\\ops\\windows\\04-admin-remove.ps1\u0027\n$bk=\u0027D:\\WSL\\ops\\windows\\archive\\04-admin-remove.ps1.bak-20261013\u0027\nNew-Item -ItemType Directory -Force (Split-Path $bk) | Out-Null\nCopy-Item $p $bk -Force\n\"backup: $bk  hash: \" + (Get-FileHash $bk).Hash.Substring(0,12) + \" == original: \" + ((Get-FileHash $p).Hash -eq (Get-FileHash $bk).Hash)","description":"Back up the Build 3 admin-remove script before patching it"}`
+- `Edit` -- `D:\WSL\ops\windows\04-admin-remove.ps1`
+```diff
+-   if (-not (Get-Command uv -ErrorAction SilentlyContinue | Where-Object { $_.Source -notmatch 'Python313' })) {
+    Write-Host '   STOP: no standalone uv found yet. Install uv first (Build 4), then re-run with -IncludePython.' -ForegroundColor Red
+  } else {
++   # Build 4 fix 2026-10-13: Get-Command without -All returns only the FIRST uv on PATH, which is the pip copy this step removes,
+  # so the old gate could never pass. Check every uv on PATH and the standalone install folder, and require a uv-managed Python 3.13.
+  $uvStandalone = [bool](Get-Command uv -All -ErrorAction SilentlyContinue | Where-Object { $_.Source -notmatch 'Python313' }) -or (Test-Path (Join-Path $env:USERPROFILE '.local\bin\uv.exe'))
+  $uvPyDir = Join-Path $env:APPDATA 'uv\python'
+  $uvPy313 = (Test-Path $uvPyDir) -and [bool](Get-ChildItem $uvPyDir -Directory -ErrorAction SilentlyContinue | Where-Object { $_.Name -match '^cpython-3\.13\.' })
+  if (-not $uvStandalone) {
+    Write-Host '   STOP: no standalone uv found yet. Install uv first (Build 4), then re-run with -IncludePython.' -ForegroundColor Red
+  } elseif (-not $uvPy313) {
+    Write-Host '   STOP: no uv-managed Python 3.13 yet. Run 10-install-toolkit.ps1 -Only uv-python first, so a Python exists after C:\Python313 is removed.' -ForegroundColor Red
+  } else {
+```
+- `Edit` -- `D:\WSL\ops\windows\04-admin-remove.ps1`
+```diff
+-       $mp = ([Environment]::GetEnvironmentVariable('Path', 'Machine') -split ';') | Where-Object { $_ -and ($_ -notmatch 'chocolatey|Python313') }
+      [Environment]::SetEnvironmentVariable('Path', ($mp -join ';'), 'Machine')
++       # Build 4 fix 2026-10-13: edit the RAW registry value so %SystemRoot% entries and the REG_EXPAND_SZ type survive; save the old value first.
+      $envKey = [Microsoft.Win32.Registry]::LocalMachine.OpenSubKey('SYSTEM\CurrentControlSet\Control\Session Manager\Environment', $true)
+      $oldPath = [string]$envKey.GetValue('Path', '', [Microsoft.Win32.RegistryValueOptions]::DoNotExpandEnvironmentNames)
+      $pathBackup = "D:\WSL\ops\windows\logs\machine-path-before-$(Get-Date -Format yyyyMMdd-HHmm).txt"
+      [IO.File]::WriteAllText($pathBackup, $oldPath)
+      $mp = ($oldPath -split ';') | Where-Object { $_ -and ($_ -notmatch 'chocolatey|Python313') }
+      $envKey.SetValue('Path', ($mp -join ';'), [Microsoft.Win32.RegistryValueKind]::ExpandString)
+      $envKey.Close()
+      [Environment]::SetEnvironmentVariable('TOOLKIT_PATH_REFRESH', '1', 'Machine')
+      [Environment]::SetEnvironmentVariable('TOOLKIT_PATH_REFRESH', $null, 'Machine')
+      Write-Host "   machine PATH rewritten (old value saved to $pathBackup); open new windows to pick it up"
+```
+- `PowerShell` -- `{"command":"$d=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\u0027\nforeach($f in (Get-ChildItem $d -Filter *.ps1) + (Get-Item \u0027D:\\WSL\\ops\\windows\\04-admin-remove.ps1\u0027)){ $b=[IO.File]::ReadAllBytes($f.FullName); $bad=0; foreach($x in $b){if($x -gt 127){$bad++}}; $e=$null;$t=$null;[void][System.Management.Automation.Language.Parser]::ParseFile($f.FullName,[ref]$t,[ref]$e); \"{0,-24} nonASCII={1} parseErr={2}\" -f $f.Name,$bad,@($e).Count }\nfunction Run($name,$argsList){ $o = powershell.exe -NoProfile -ExecutionPolicy Bypass -File \"$d\\$name\" @argsList 2\u003e\u00261 | % { \"$_\" }; \"--- $name $($argsList -join \u0027 \u0027) -\u003e exit $LASTEXITCODE\"; $o | Select-String -Pattern \u0027^(\\S+)\\s+(PASS|FAIL|PLAN|OK|INSTALLED|UNCHANGED|CHANGED|MANUAL|WARN|PENDING|INFO)\\s\u0027 | % { if($_.Line.Length -gt 200){$_.Line.Substring(0,200)}else{$_.Line} } }\nRun \u002710-install-toolkit.ps1\u0027 @(\u0027-DryRun\u0027,\u0027-Only\u0027,\u0027uv-python,uvx\u0027)\nRun \u002720-apply-configs.ps1\u0027 @(\u0027-DryRun\u0027,\u0027-Only\u0027,\u0027path-order\u0027)\nRun \u002711-node-lts-swap.ps1\u0027 @()\n\"--- 11 -Apply from this NON-elevated shell must refuse and change nothing\"\nRun \u002711-node-lts-swap.ps1\u0027 @(\u0027-Apply\u0027,\u0027-IgnoreRunning\u0027)","description":"Parse-check and dry-run the changed steps","timeout":300000}`
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\README.md`
+```diff
+- | 3 | `11-node-lts-swap.ps1 -Apply` | normal, **fresh window, Claude Code and editors closed** | Dell only: Node 22 to LTS 24 | by hand; two UAC prompts; npm globals survive |
+| 4 | `20-apply-configs.ps1` | normal | profiles (managed block), Starship, git ignore, delta include, bat, fd, Terminal merge, git settings, env vars | backups to `D:\Backup\Toolkit\<timestamp>\` |
++ | 3 | `11-node-lts-swap.ps1 -Apply` | **elevated**, Claude Code and editors closed | Dell only: Node 22 to LTS 24 | the Node 22 MSI refuses a non-elevated removal (error 1730); npm globals survive; dry run works in a normal shell |
+| 4 | `20-apply-configs.ps1` | normal | profiles (managed block), Starship, git ignore, delta include, bat, fd, Terminal merge, git settings, env vars, user PATH order (standalone uv first) | backups to `D:\Backup\Toolkit\<timestamp>\`; the old user PATH is saved as `user-path-before.txt` there |
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\README.md`
+```diff
+- Only step 6 needs an elevated shell.
++ Steps 3 and 6 need an elevated shell. Closing order on the Dell: 10 (also `-Only uv-python`), 20, then 3 and 6 elevated with Claude Code closed, then 99 `-WriteLock` in a fresh normal window. `04-admin-remove.ps1` was patched on 2026-10-13 (backup in `D:\WSL\ops\windows\archive\`): its uv gate now checks every uv on PATH and requires a uv-managed Python 3.13, and it rewrites the Machine PATH from the raw registry value so `%SystemRoot%` entries and the REG_EXPAND_SZ type survive; the old value is saved to `D:\WSL\ops\windows\logs\machine-path-before-<time>.txt`.
+```
+- `PowerShell` -- `{"command":"$rd=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\results\\DESKTOP-3VBG0JH\u0027\n$c=\"$rd\\11-node-lts-swap-latest.[REDACTED].json\"\nif((Get-FileHash $c).Hash -eq (Get-FileHash \"$rd\\[REDACTED].json\").Hash){ Remove-Item $c -Force; \"removed identical Syncthing conflict copy\" } else { \"kept: differs\" }","description":"Remove the byte-identical Syncthing conflict copy"}`
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Old Laptop Rebuild - Build 4 Windows Toolkit Findings.md`
+```diff
+- ## Left for Build 5 and later
++ ## Phase 4: Dell run review (2026-10-13, 00:52 to 01:06)
+
+### State-changing commands the user ran, with results
+| Time | Command | Result |
+|---|---|---|
+| 00:52 | `10-install-toolkit.ps1` | exit 0. Installed: PowerShell 7.6.6, Starship 1.26.0, IosevkaTerm NFM (27 TTFs, 379.2 MB, SHA-256 verified), zoxide 0.10.0, fzf 0.74.4, PSFzf 2.7.12 (5.1 and 7), fd 10.5.0, bat 0.26.1, delta 0.20.1, NanaZip 7.0.1843, pnpm 12.11.2, standalone uv 0.12.19. Upgraded: Git 2.52.0 to 2.55.0, GitHub CLI 2.89.0 to 2.102.0. Node left MANUAL |
+| 01:00 | `11-node-lts-swap.ps1 -Apply` (twice) | first stopped on 12 running `node.exe` (children of `cmd`, started by MCP servers); second reached the uninstall and failed, see errors |
+| 01:02 | `20-apply-configs.ps1` | exit 0. 11 CHANGED: starship.toml, git ignore, delta include, bat, fd, both profiles (backup of the Dell profile in `D:\Backup\Toolkit\20261013-010211\`), Terminal merge, 10 git settings, `STARSHIP_CONFIG`, `TOOLKIT_VAULT_ROOT`. Build 3 cache variables untouched and correct |
+| 01:04 | `99-verify.ps1 -WriteLock` | 97 PASS, 3 FAIL, 3 PENDING, 1 WARN; lock not written |
+| 01:06 | `04-admin-remove.ps1 -IncludePython` (elevated, dry run) | printed `STOP: no standalone uv found yet` |
+
+Confirmed good by the run: all hashes match the Acer's (starship `9EF71378...`, ignore `546B86DB...`), both profiles load with one Starship init (5.1 in 2.5 s because of opam, 7 in 1.3 s), `starship prompt` renders, font family registered in a fresh process, Terminal shows the new scheme and font (user confirmed visually).
+
+### Errors found in the run, with root cause
+| Error | Root cause | Fix |
+|---|---|---|
+| Node 22 uninstall: winget exit 1603 | the event log says MSI error 1730, "You must be an Administrator to remove this application"; the MSI was installed per machine and the non-elevated removal is refused | `11 -Apply` now requires an elevated shell and refuses early otherwise |
+| `uv-python` reported "present 3.13.5" | `uv python list` also lists system interpreters; 3.13.5 is the Chocolatey `C:\Python313`. uv's own folder holds only 3.11.15, so removing Python would have left no 3.13 | detection now counts only folders in `uv python dir`; `10 -Only uv-python` installs 3.13 |
+| `git-pager` FAIL | `git config --global --get` does not follow includes; the pager is set in `delta.gitconfig`. Delta is active (`git config --get core.pager` returns `delta`) | check uses `--includes` |
+| 04 dry run: "no standalone uv found" | `Get-Command uv` returns only the first match, the pip copy being removed, so the gate could never pass | script patched (backup `D:\WSL\ops\windows\archive\04-admin-remove.ps1.bak-20261013`): `Get-Command -All` plus the standalone folder, and a uv-managed Python 3.13 is now required |
+| (found by review) Machine PATH rewrite | `04` wrote the expanded PATH back with `SetEnvironmentVariable`, which turns a REG_EXPAND_SZ value with `%SystemRoot%` entries into plain text | rewrites the raw registry value as ExpandString and saves the old value |
+| (found by review) wrong uv would win after Python is gone | Hermes' uv 0.11.28 is entry 2 of the user PATH, the standalone uv entry 11 | new `path-order` step in `20` moves `~\.local\bin` to the front of the user PATH, old value saved |
+| Syncthing conflict copy of a result JSON | two quick writes of the same `latest` file; byte-identical | removed |
+
+### Machine difference noted by the user
+Terminal font face: the Dell uses `IosevkaTerm NFM` (Mono build); the Acer uses `IosevkaTerm Nerd Font` (normal build). Recorded as a DIFF with this reason for the parity matrix; no script change was made for it. Open for Phase 6: whether the Acer run keeps its own face.
+
+## Left for Build 5 and later
+```
+
 ## Actions Taken
 
 **Files created:**
@@ -3371,6 +3750,7 @@ D1 to D6, D11 and D13 to D16 are implemented as recommended; D7 to D10 moved to 
 
 **Files modified:**
 - `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Old Laptop Rebuild - Build 4 Windows Toolkit Findings.md`
+- `D:\WSL\ops\windows\04-admin-remove.ps1`
 
 **Files deleted (heuristic, from Bash commands):**
 _None detected_

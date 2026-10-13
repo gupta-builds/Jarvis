@@ -213,5 +213,32 @@ D1 to D6, D11 and D13 to D16 are implemented as recommended; D7 to D10 moved to 
 | `Contains` overload error reading MCP JSON | `Dictionary` has `ContainsKey`, not `Contains` | test `Keys -contains` |
 | Stderr "#< CLIXML" counted as a profile error | PowerShell wraps progress in CLIXML on redirected stderr | strip it, keep real error text |
 
+## Phase 4: Dell run review (2026-10-13, 00:52 to 01:06)
+
+### State-changing commands the user ran, with results
+| Time | Command | Result |
+|---|---|---|
+| 00:52 | `10-install-toolkit.ps1` | exit 0. Installed: PowerShell 7.6.6, Starship 1.26.0, IosevkaTerm NFM (27 TTFs, 379.2 MB, SHA-256 verified), zoxide 0.10.0, fzf 0.74.4, PSFzf 2.7.12 (5.1 and 7), fd 10.5.0, bat 0.26.1, delta 0.20.1, NanaZip 7.0.1843, pnpm 12.11.2, standalone uv 0.12.19. Upgraded: Git 2.52.0 to 2.55.0, GitHub CLI 2.89.0 to 2.102.0. Node left MANUAL |
+| 01:00 | `11-node-lts-swap.ps1 -Apply` (twice) | first stopped on 12 running `node.exe` (children of `cmd`, started by MCP servers); second reached the uninstall and failed, see errors |
+| 01:02 | `20-apply-configs.ps1` | exit 0. 11 CHANGED: starship.toml, git ignore, delta include, bat, fd, both profiles (backup of the Dell profile in `D:\Backup\Toolkit\20261013-010211\`), Terminal merge, 10 git settings, `STARSHIP_CONFIG`, `TOOLKIT_VAULT_ROOT`. Build 3 cache variables untouched and correct |
+| 01:04 | `99-verify.ps1 -WriteLock` | 97 PASS, 3 FAIL, 3 PENDING, 1 WARN; lock not written |
+| 01:06 | `04-admin-remove.ps1 -IncludePython` (elevated, dry run) | printed `STOP: no standalone uv found yet` |
+
+Confirmed good by the run: all hashes match the Acer's (starship `9EF71378...`, ignore `546B86DB...`), both profiles load with one Starship init (5.1 in 2.5 s because of opam, 7 in 1.3 s), `starship prompt` renders, font family registered in a fresh process, Terminal shows the new scheme and font (user confirmed visually).
+
+### Errors found in the run, with root cause
+| Error | Root cause | Fix |
+|---|---|---|
+| Node 22 uninstall: winget exit 1603 | the event log says MSI error 1730, "You must be an Administrator to remove this application"; the MSI was installed per machine and the non-elevated removal is refused | `11 -Apply` now requires an elevated shell and refuses early otherwise |
+| `uv-python` reported "present 3.13.5" | `uv python list` also lists system interpreters; 3.13.5 is the Chocolatey `C:\Python313`. uv's own folder holds only 3.11.15, so removing Python would have left no 3.13 | detection now counts only folders in `uv python dir`; `10 -Only uv-python` installs 3.13 |
+| `git-pager` FAIL | `git config --global --get` does not follow includes; the pager is set in `delta.gitconfig`. Delta is active (`git config --get core.pager` returns `delta`) | check uses `--includes` |
+| 04 dry run: "no standalone uv found" | `Get-Command uv` returns only the first match, the pip copy being removed, so the gate could never pass | script patched (backup `D:\WSL\ops\windows\archive\04-admin-remove.ps1.bak-20261013`): `Get-Command -All` plus the standalone folder, and a uv-managed Python 3.13 is now required |
+| (found by review) Machine PATH rewrite | `04` wrote the expanded PATH back with `SetEnvironmentVariable`, which turns a REG_EXPAND_SZ value with `%SystemRoot%` entries into plain text | rewrites the raw registry value as ExpandString and saves the old value |
+| (found by review) wrong uv would win after Python is gone | Hermes' uv 0.11.28 is entry 2 of the user PATH, the standalone uv entry 11 | new `path-order` step in `20` moves `~\.local\bin` to the front of the user PATH, old value saved |
+| Syncthing conflict copy of a result JSON | two quick writes of the same `latest` file; byte-identical | removed |
+
+### Machine difference noted by the user
+Terminal font face: the Dell uses `IosevkaTerm NFM` (Mono build); the Acer uses `IosevkaTerm Nerd Font` (normal build). Recorded as a DIFF with this reason for the parity matrix; no script change was made for it. Open for Phase 6: whether the Acer run keeps its own face.
+
 ## Left for Build 5 and later
 VS Code settings and extensions, the MCP registry and `sync-mcp.ps1`, Claude Code settings, Miniconda relocation, the pagefile, and all Build 3 items.

@@ -1,0 +1,40 @@
+{
+    "script":  "11-node-lts-swap",
+    "host":  "DESKTOP-3VBG0JH",
+    "machine":  "dell",
+    "dryRun":  false,
+    "started":  "2026-10-13T01:19:32",
+    "finished":  "2026-10-13T01:19:35",
+    "admin":  false,
+    "manifestSha256":  "3C04918D8FF9E28CC3618ECCB8E2EA052B9EEE6C8C9CCC302276FFA022913E7F",
+    "vaultRoot":  "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis",
+    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-11-node-lts-swap-20261013-011932.log",
+    "counts":  {
+                   "FAIL":  1,
+                   "INFO":  2
+               },
+    "items":  [
+                  {
+                      "id":  "node-state",
+                      "status":  "INFO",
+                      "detail":  "OpenJS.NodeJS.22 = 22.16.0; OpenJS.NodeJS.LTS = "
+                  },
+                  {
+                      "id":  "npm-globals-before",
+                      "status":  "INFO",
+                      "detail":  "@openai/codex@0.160.0, firecrawl-cli@1.19.21, mcp-remote@0.2.1, openclaw@2026.3.13, opencode-ai@1.18.31",
+                      "globals":  [
+                                      "@openai/codex@0.160.0",
+                                      "firecrawl-cli@1.19.21",
+                                      "mcp-remote@0.2.1",
+                                      "openclaw@2026.3.13",
+                                      "opencode-ai@1.18.31"
+                                  ]
+                  },
+                  {
+                      "id":  "node-elevation",
+                      "status":  "FAIL",
+                      "detail":  "Open an elevated PowerShell (right-click Windows Terminal, Run as administrator) and run this command again. Nothing was changed."
+                  }
+              ]
+}

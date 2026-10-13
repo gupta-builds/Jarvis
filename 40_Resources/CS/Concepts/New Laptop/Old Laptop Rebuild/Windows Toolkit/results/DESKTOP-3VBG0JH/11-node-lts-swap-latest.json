@@ -3,12 +3,12 @@
     "host":  "DESKTOP-3VBG0JH",
     "machine":  "dell",
     "dryRun":  false,
-    "started":  "2026-10-13T01:00:36",
-    "finished":  "2026-10-13T01:00:39",
+    "started":  "2026-10-13T01:19:32",
+    "finished":  "2026-10-13T01:19:35",
     "admin":  false,
-    "manifestSha256":  "1148540EEA4E16CE17D955AACA684E62911ECDA1AE29861DD385788EBDE6CFA5",
+    "manifestSha256":  "3C04918D8FF9E28CC3618ECCB8E2EA052B9EEE6C8C9CCC302276FFA022913E7F",
     "vaultRoot":  "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis",
-    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-11-node-lts-swap-20261013-010036.log",
+    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-11-node-lts-swap-20261013-011932.log",
     "counts":  {
                    "FAIL":  1,
                    "INFO":  2
@@ -32,9 +32,9 @@
                                   ]
                   },
                   {
-                      "id":  "node-running",
+                      "id":  "node-elevation",
                       "status":  "FAIL",
-                      "detail":  "12 node.exe process(es), started by: cmd x12. Close those apps (editors, Claude Desktop, Claude Code, terminals) before -Apply; command lines are never printed."
+                      "detail":  "Open an elevated PowerShell (right-click Windows Terminal, Run as administrator) and run this command again. Nothing was changed."
                   }
               ]
 }

@@ -5,8 +5,8 @@ created: 2026-10-11
 tags:
   - input
 notes:
-  - "[[_Rebuild - Index]]"
-next: "[[_Rebuild - Index]]"
+  - "[[Old Laptop Rebuild - Index]]"
+next: "[[Old Laptop Rebuild - Index]]"
 ---
 
 # Acer Dotfile Snapshot - MANIFEST

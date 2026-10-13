@@ -10,7 +10,7 @@ track:
 tags:
   - note
 related:
-  - "[[_Rebuild - Index]]"
+  - "[[Old Laptop Rebuild - Index]]"
   - "[[Old Laptop Rebuild - Build 1 WSL Findings]]"
   - "[[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]]"
 next: Complete the user-authenticated VS Code Tunnel service test, obtain Acer clone inventory and transfer evidence, then seek exact approval for the optional OpenSSH fallback and repo pilot
@@ -22,9 +22,6 @@ next: Complete the user-authenticated VS Code Tunnel service test, obtain Acer c
 
 ## Scope and status
 Phase 2 items 1 through 6 are applied. Tailscale runs on Dell WSL and Acer Windows only, and Dell Tailscale SSH is active. On 2026-10-12, user-provided output confirmed the 75-second idle test passed, Acer `tailscale.exe ping dell-wsl` reached the direct endpoint, and plain Acer `ssh.exe` ran a Git status command on Dell. Earlier Acer Remote-SSH terminal output showed the canonical Dell WSL repo, user, path and Git status. Systemd remains degraded only on the known `systemd-binfmt.service` read-only flush; the user directed continuation without an unsafe workaround or prerelease update. The admin policy allows member-to-own-device SSH in check mode; key expiry is disabled. Do not alter the existing uncommitted hook or the internship repo's dirty worktree. No Windows user-level VS Code setting, Settings Sync control, WSL config, OpenSSH service, or editor data was changed.
-
-> [!NOTE] Update 2026-10-13
-> The systemd gate described below is resolved. The live Dell WSL is 3.0.3.0 (stable, released 2026-10-09), kernel 6.18.54.1, and `systemctl is-system-running` returns `running` with zero failed units; no workaround or prerelease was used. Phase 4.1 and 4.5 can be treated as PASS without the "known degraded" caveat; a repeat idle test on 3.0.3 is optional. The remaining Phase 4 items (host-key comparison, clone inventory, transfer measurement, Tunnel sign-in, sync-check from the Acer, port-2222 decision, repo pilot) are unchanged and carried into Build 5 as WAITING USER.
 
 ## Before and after
 | Area | Before | After / evidence |
@@ -203,7 +200,7 @@ Commands/actions with state effects: created and `chmod 700`'d `~/tools/sync-che
 2026-10-07: C: is 93% used with about 20.08 GiB free; pagefile allocation is 32,247 MB with 6,471 MB peak. D: has 363.80 GiB free. Do not shrink D:-resident Ubuntu VHDX to solve C: pressure; no C: data changed. See [[C Drive Bloat - Failure Log and Prevention Rules]].
 
 ## Remaining queue after the systemd gate and Phase 4
-No failure workaround or unsafe WSL change is authorized. WSL 3.0.2 is currently prerelease and the user chose to wait for a stable build with the binfmt fix. When a stable update is available, recheck the failed unit and systemd health, then continue Phase 4 with the Access Controls check, verified Acer host key, SSH/Remote-SSH, and the idle test after closing every WSL/editor/Docker/Codex session. The keyed port-2222 fallback remains in locked R3, but this live audit found OpenSSH absent; confirm it remains desired before separately approved installation. After Phase 4, reconcile and schedule the pending bubblewrap/socat sudo script, Build 2 item 7 repo audit/pilot, item 8 editor-server cleanup proposal and approval, item 9 Miniconda disk/package estimate and install approval, optional Tunnels and sync-check/repo actions with their own gates, then Builds 3-6 in [[_Rebuild - Index]] order.
+No failure workaround or unsafe WSL change is authorized. WSL 3.0.2 is currently prerelease and the user chose to wait for a stable build with the binfmt fix. When a stable update is available, recheck the failed unit and systemd health, then continue Phase 4 with the Access Controls check, verified Acer host key, SSH/Remote-SSH, and the idle test after closing every WSL/editor/Docker/Codex session. The keyed port-2222 fallback remains in locked R3, but this live audit found OpenSSH absent; confirm it remains desired before separately approved installation. After Phase 4, reconcile and schedule the pending bubblewrap/socat sudo script, Build 2 item 7 repo audit/pilot, item 8 editor-server cleanup proposal and approval, item 9 Miniconda disk/package estimate and install approval, optional Tunnels and sync-check/repo actions with their own gates, then Builds 3-6 in [[Old Laptop Rebuild - Index]] order.
 
 ## Dated live refresh and campaign ledger — 2026-10-11
 Phase 4 is **in progress**, not paused: the user chose to wait for a stable WSL release containing Microsoft's binfmt fix. The system update is a waiting prerequisite; independent preparation and the wider campaign continue. Current official release page still labels WSL 3.0.1 latest stable and 3.0.2 prerelease; issue #41783 is closed as fixed in 3.0.2. Live Dell WSL remains 3.0.1.0, `systemctl is-system-running=degraded`, with only `systemd-binfmt.service` failed because flushing `binfmt_misc` returns `Read-only file system`. No workaround or prerelease installation was made.

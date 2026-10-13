@@ -12,12 +12,12 @@ tags:
   - laptop
   - wsl
 related:
-  - "[[_Rebuild - Index]]"
+  - "[[Old Laptop Rebuild - Index]]"
   - "[[Old Laptop Rebuild - Prompt 1 WSL]]"
   - "[[Ubuntu - WSL]]"
   - "[[Installations]]"
   - "[[WSL New Laptop Master Plan — Verified 2026-09-11]]"
-next: Run the corrected 75-second idle test from Windows PowerShell with every other WSL/editor session closed; then Build 2 may resume its gate
+next: "Run the corrected 75-second idle test from Windows PowerShell with every other WSL/editor session closed; then Build 2 may resume its gate"
 ---
 # Old Laptop Rebuild - Build 1 WSL Findings
 ## One-Line Answer

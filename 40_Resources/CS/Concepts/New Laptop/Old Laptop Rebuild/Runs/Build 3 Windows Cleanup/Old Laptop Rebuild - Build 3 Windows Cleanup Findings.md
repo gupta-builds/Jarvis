@@ -12,7 +12,7 @@ tags:
   - laptop
   - disk
 related:
-  - "[[_Rebuild - Index]]"
+  - "[[Old Laptop Rebuild - Index]]"
   - "[[C Drive Bloat - Failure Log and Prevention Rules]]"
   - "[[Installations]]"
   - "[[Google Drive Sync Policy]]"

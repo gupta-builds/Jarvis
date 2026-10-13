@@ -12,13 +12,13 @@ tags:
   - note
   - laptop
 related:
-  - "[[_Rebuild - Index]]"
+  - "[[Old Laptop Rebuild - Index]]"
   - "[[C Drive Bloat - Failure Log and Prevention Rules]]"
   - "[[Old Laptop Rebuild - Build 1 WSL Findings]]"
   - "[[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]]"
   - "[[Installations]]"
   - "[[Google Drive Sync Policy]]"
-next: History. Build 3's prompt below was run (see the Build 3 findings in this folder). The Build 4 section is superseded by [[Old Laptop Rebuild - Build 4 Prompt (Windows Toolkit)]]; do not run it from here.
+next: "History. Build 3's prompt below was run (see the Build 3 findings in this folder). The Build 4 section is superseded by [[Old Laptop Rebuild - Build 4 Prompt (Windows Toolkit)]]; do not run it from here."
 ---
 # Old Laptop Rebuild - Windows Prompts (Build 3 C Drive Cleanup and Build 4 Terminal Parity)
 

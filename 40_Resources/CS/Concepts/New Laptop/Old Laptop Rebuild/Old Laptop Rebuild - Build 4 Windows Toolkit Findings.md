@@ -12,7 +12,7 @@ tags:
   - laptop
   - terminal
 related:
-  - "[[_Rebuild - Index]]"
+  - "[[Old Laptop Rebuild - Index]]"
   - "[[Old Laptop Rebuild - Build 3 Windows Cleanup Findings]]"
   - "[[Old Laptop Rebuild - Build 1 WSL Findings]]"
   - "[[Installations]]"
@@ -253,15 +253,5 @@ Terminal font face: the Dell uses `IosevkaTerm NFM` (Mono build); the Acer uses 
 
 Known quirk: the Terminal step compares JSON text, so it can report CHANGED when Windows Terminal reorders keys in its own file. It is harmless.
 
-### `wsl ~` failure in PowerShell 7 (2026-10-13)
-| Item | Detail |
-|---|---|
-| Symptom | `wsl ~` printed `/bin/bash: line 1: C:\Users\Anant Gupta: command not found` |
-| Root cause | PowerShell 7 expands a bare `~` (also one passed through a variable or splat) to the Windows home before `wsl.exe` sees it, so WSL tried to run the Windows path as a command. Windows PowerShell 5.1 does not expand it, which is why it used to work. Reproduced: `wsl ~ pwd` fails, `wsl '~' pwd` and `wsl --cd '~' -- pwd` print `/home/anant_gupta` |
-| Fix | the managed profile block now defines `function wsl` that turns a leading `~` into `--cd '~'` (a quoted literal is not expanded) and passes everything else straight to `wsl.exe`; `wsl -e`, `wsl -d Ubuntu -- ...`, `wsl --cd /tmp` and `wsl -l -q` were tested through it |
-| To apply | `20-apply-configs.ps1 -Only profile-ps5,profile-pwsh`, then open a new window |
-| Until then | `wsl --cd '~'` works in any shell |
-
-The Build 5 readiness audit (what the Build 1 to 3 notes claimed versus the live machine) is recorded in [[_Rebuild - Index]], section "Readiness audit, 2026-10-13".
 ## Left for Build 5 and later
 VS Code settings and extensions, the MCP registry and `sync-mcp.ps1`, Claude Code settings, Miniconda relocation, the pagefile, and all Build 3 items.

@@ -10,13 +10,13 @@ tags:
   - ssh
   - tailscale
 related:
-  - "[[_Rebuild - Index]]"
+  - "[[Old Laptop Rebuild - Index]]"
   - "[[Old Laptop Rebuild - Prompt 1 WSL]]"
   - "[[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]]"
   - "[[internship-research-loop-new-laptop-directive]]"
   - "[[second-brain-claudekit-new-laptop-directive]]"
   - "[[Cross-Laptop Sync - Known Failure Modes and Prevention]]"
-next: Fold these ten locked decisions into a rewrite of Old Laptop Rebuild - Prompt 2, plus the one .wslconfig addition that belongs to Prompt 1
+next: "Fold these ten locked decisions into a rewrite of Old Laptop Rebuild - Prompt 2, plus the one .wslconfig addition that belongs to Prompt 1"
 ---
 # Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem
 

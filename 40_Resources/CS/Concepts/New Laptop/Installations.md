@@ -200,12 +200,12 @@ Real installed state as of 2026-09-19, confirmed via each tool's own `--version`
 
 `Old Laptop`: `40_Resources/CS/Concepts/New Laptop/Installations`. Everything above this heading describes the Acer (new laptop). This section is the installed-tool record for the Dell Latitude 5530, written 2026-10-11 from live queries on the machine and reconciled with [[Old Laptop Rebuild - Build 1 WSL Findings]], [[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]] and [[Old Laptop Rebuild - Build 3 Windows Cleanup Findings]]. Where a build note and the machine disagreed, the machine is shown.
 
-Machine: i7-1255U (10 cores, 12 threads), 32 GB RAM, Intel Iris Xe only (no NVIDIA GPU), one 1 TB NVMe split into C: (252 GB) and D: (700 GB). Windows 11 Pro build 26300, user `C:\Users\Anant Gupta`. WSL 3.0.3.0 (stable, updated by 2026-10-13), kernel 6.18.54.1, distro `Ubuntu` (Ubuntu 24.04.4), Linux user `anant_gupta`, mirrored networking, swap on `D:\WSL\swap.vhdx`. This is the always-on SSH host for the Acer: Tailscale runs inside this WSL only and is never installed on this laptop's Windows side.
+Machine: i7-1255U (10 cores, 12 threads), 32 GB RAM, Intel Iris Xe only (no NVIDIA GPU), one 1 TB NVMe split into C: (252 GB) and D: (700 GB). Windows 11 Pro build 26300, user `C:\Users\Anant Gupta`. WSL 3.0.1.0, kernel 6.18.40.1, distro `Ubuntu` (Ubuntu 24.04.4), Linux user `anant_gupta`, mirrored networking, swap on `D:\WSL\swap.vhdx`. This is the always-on SSH host for the Acer: Tailscale runs inside this WSL only and is never installed on this laptop's Windows side.
 
 ### Where things stand
 - WSL is rebuilt and configured (Builds 1 and 2). Its terminal configs were reconstructed from notes and mostly differ from the Acer's real files (see "Config parity" below).
-- The Windows side was rebuilt on 2026-10-13 by Build 4: PowerShell 7 (default shell), Starship, IosevkaTerm Nerd Font, zoxide, fzf, fd, bat, delta, NanaZip, pnpm, Node 24, standalone uv 0.12.19, Git 2.55 and GitHub CLI 2.102, with shared configs written by `Windows Toolkit\_scripts`. The tables below are the 2026-10-11 pre-rebuild record; Build 4 Phase 7 replaces them with the final state.
-- Build 3 removed most of the "not carrying forward" list (Microsoft 365, OneDrive, WinRAR, Respondus, Dell Optimizer, MongoDB Shell, Logi Options+); Malwarebytes and Edge remain. The tables below list some of them because they predate the removals.
+- The Windows side is a pre-rebuild state: no PowerShell 7, no Starship, no Nerd Font, Windows Terminal on defaults, and a PowerShell profile that only loads opam, Kiro shell integration and a `New-PyEnv` helper. Build 3 (cleanup) has audited it and has not changed anything yet. Build 4 installs and configures the terminal toolkit.
+- Several C: items are pending removal or review in Build 3 (Microsoft 365, Malwarebytes, Respondus, MongoDB Shell, WinRAR, Dell Optimizer and SupportAssist plugin, stray executables). They are listed here as installed because they still are.
 
 ### Windows side (live 2026-10-11)
 Install source: `winget` means a winget package id, `Store` an MSIX package, `direct` an installer without a winget id, `npm` or `pip` a global package. Location is from the live PATH or install record, `C: (small)` where the installer records none.
@@ -260,7 +260,7 @@ Obsidian 1.9.12, Slack, Discord, Zoom, Telegram, WhatsApp (Store), Spotify, Viva
 Microsoft 365 Apps 16.0.20430 (4.7 GiB), Teams and the Teams Meeting add-in, Outlook (new), Microsoft Edge 155, Mail and Calendar, Power Automate, Dev Home, Bing apps, and the .NET and Visual C++ runtimes. Dell Command Update 5.7, Dell Optimizer, SupportAssist OS Recovery plugin, Dell Core Services, Intel graphics software, Realtek audio driver. Respondus LockDown Browser, two Malwarebytes entries, HP Smart.
 
 ### WSL side (Ubuntu 24.04.4, live 2026-10-11)
-`systemctl is-system-running` reports `running` with no failed units since WSL 3.0.3 (the `systemd-binfmt.service` failure of 3.0.1 was fixed upstream). Root filesystem 55 GB used of 1007 GB.
+`systemctl is-system-running` reports `degraded` because `systemd-binfmt.service` fails on WSL 3.0.1 (fixed upstream in 3.0.2). Root filesystem 55 GB used of 1007 GB.
 
 **apt packages (manual)**
 git 2.43.0, git-lfs 3.4.1, gh 2.45.0 (Ubuntu repo), ripgrep 14.1.0, fd-find 9.0.0 (`fd` symlink in `~/.local/bin`), bat 0.24.0 (`bat` symlink), fzf 0.44.1, jq 1.7, tmux 3.4, ncdu 1.19, direnv 2.32.1, bubblewrap, wslu 3.2.3, build-essential, curl, wget, unzip, python3-pip, Tailscale 1.104.1 (Tailscale apt repository; `RunSSH=true`, node `dell-wsl`).

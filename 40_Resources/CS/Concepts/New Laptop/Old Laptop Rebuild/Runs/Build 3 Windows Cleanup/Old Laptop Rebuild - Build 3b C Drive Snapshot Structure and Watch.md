@@ -12,7 +12,7 @@ tags:
   - laptop
   - storage
 related:
-  - "[[_Rebuild - Index]]"
+  - "[[Old Laptop Rebuild - Index]]"
   - "[[Old Laptop Rebuild - Build 3 Windows Cleanup Findings]]"
   - "[[Old Laptop Rebuild - Build 4 Windows Toolkit Findings]]"
   - "[[C Drive Bloat - Failure Log and Prevention Rules]]"

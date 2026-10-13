@@ -17,8 +17,6 @@ next: Complete the Tunnel CLI's interactive sign-in and service test, then colle
 # Old Laptop Rebuild - Build 2 SSH Runbook
 
 ## Gate
-> Update 2026-10-13: WSL is 3.0.3.0 stable and systemd is `running`; the `systemd-binfmt.service` caveats in the rows below are historical.
-
 This is a planned runbook, not authorization. Every network exposure, service enablement, Tailscale login/admin action, and Phase 4 operation requires the user's explicit approval. Stop at the first failed check. Never run `wsl --shutdown` from inside WSL.
 
 ## Phase 4 sequence
@@ -37,7 +35,7 @@ This is a planned runbook, not authorization. Every network exposure, service en
 | 4.11 Repo pilot/worktree setting | **Only after approval:** one repo at a time; create `<machine>/<topic>` branch and change only approved editor/toolchain contract. | Review diff, run checks, commit/push/PR only with separate explicit approval. |
 
 ## Queued work after Phase 4
-After Phase 4, reconcile and schedule the unrun `/mnt/d/WSL/ops/build2-sudo-step.sh` (bubblewrap/socat), Build 2 item 7 repo contract audit and pilot, item 8 editor-server cleanup proposal and approval, item 9 Miniconda package/disk estimate and install approval, and any separately approved Tunnels, sync-check, directive, or repo steps. Then proceed to Builds 3-6 in [[_Rebuild - Index]] order. Keep each existing approval gate: no repo edits or Git publication, editor deletion, Miniconda install, sign-in, Windows settings/sync changes, or vault sync changes without the required approval.
+After Phase 4, reconcile and schedule the unrun `/mnt/d/WSL/ops/build2-sudo-step.sh` (bubblewrap/socat), Build 2 item 7 repo contract audit and pilot, item 8 editor-server cleanup proposal and approval, item 9 Miniconda package/disk estimate and install approval, and any separately approved Tunnels, sync-check, directive, or repo steps. Then proceed to Builds 3-6 in [[Old Laptop Rebuild - Index]] order. Keep each existing approval gate: no repo edits or Git publication, editor deletion, Miniconda install, sign-in, Windows settings/sync changes, or vault sync changes without the required approval.
 
 ## Proposed configuration details
 Fallback SSH hardening, only for the keyed OpenSSH fallback: `PasswordAuthentication no`, `KbdInteractiveAuthentication no`, `PermitRootLogin no`, `AllowUsers anant_gupta`, `AllowTcpForwarding yes`; listen on port 2222. Ubuntu 24.04 can use `ssh.socket` activation, so after installing the drop-in, run `sshd -t`, `systemctl daemon-reload`, then enable/restart `ssh.socket` and verify with `ss -ltn`. Tailscale SSH takes tailnet port 22. It authenticates the device through tailnet identity and does not validate a client SSH key pair; any OS user on an allowed tailnet device can connect as the configured WSL account. ACLs therefore need to restrict allowed devices/users tightly.

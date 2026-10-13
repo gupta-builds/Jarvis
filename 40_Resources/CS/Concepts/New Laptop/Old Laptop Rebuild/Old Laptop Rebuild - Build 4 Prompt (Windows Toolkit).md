@@ -13,12 +13,12 @@ tags:
   - laptop
   - prompt
 related:
-  - "[[_Rebuild - Index]]"
+  - "[[Old Laptop Rebuild - Index]]"
   - "[[Old Laptop Rebuild - Build 4 Windows Toolkit Findings]]"
   - "[[Old Laptop Rebuild - Build 3b C Drive Snapshot Structure and Watch]]"
   - "[[C Drive Bloat - Failure Log and Prevention Rules]]"
   - "[[Installations]]"
-next: Run in Claude Code (PowerShell, Dell, Sonnet 5.5, high effort). It resumes at the Phase 2 checkpoint; answer D1 to D12.
+next: "Run in Claude Code (PowerShell, Dell, Sonnet 5.5, high effort). It resumes at the Phase 2 checkpoint; answer D1 to D12."
 ---
 # Old Laptop Rebuild - Build 4 Prompt (Windows Toolkit)
 

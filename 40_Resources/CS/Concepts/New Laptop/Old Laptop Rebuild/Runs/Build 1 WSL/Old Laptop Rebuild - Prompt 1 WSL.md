@@ -10,7 +10,7 @@ track:
 tags:
   - note
 related:
-  - "[[_Rebuild - Index]]"
+  - "[[Old Laptop Rebuild - Index]]"
   - "[[Old Laptop Rebuild - Build 1 WSL Findings]]"
   - "[[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]]"
   - "[[Old Laptop Rebuild - Build 2 SSH Runbook]]"

@@ -1,0 +1,24 @@
+{
+    "script":  "10-install-toolkit",
+    "host":  "DESKTOP-3VBG0JH",
+    "machine":  "dell",
+    "dryRun":  false,
+    "started":  "2026-10-13T01:46:50",
+    "finished":  "2026-10-13T01:46:53",
+    "admin":  false,
+    "manifestSha256":  "3C04918D8FF9E28CC3618ECCB8E2EA052B9EEE6C8C9CCC302276FFA022913E7F",
+    "vaultRoot":  "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis",
+    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-10-install-toolkit-20261013-014650.log",
+    "counts":  {
+                   "INSTALLED":  1
+               },
+    "items":  [
+                  {
+                      "id":  "uv-python",
+                      "status":  "INSTALLED",
+                      "detail":  "cpython 3.13.15 (uv exit 0)",
+                      "version":  "3.13.15"
+                  }
+              ],
+    "plannedActions":  1
+}

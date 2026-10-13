@@ -51,6 +51,10 @@ Phase 3 accepted Decision 3 from [[Codebases - Two-Laptop SSH Workflow - Locked 
 | C: free | 28.65 GiB (30,760,812,544 bytes) | 26.30 GiB (28,242,063,360 bytes); only the authorized `.wslconfig`/backup changed, so other movement is external |
 | D: free | 365.64 GiB (392,607,379,456 bytes) | 363.97 GiB (390,805,831,680 bytes) before trim/host reclaim |
 ## Health Findings
+
+> [!NOTE] Build 5 correction, 2026-10-13
+> WSL 3.0.3.0 (stable, 2026-10-09) fixed the `systemd-binfmt` read-only flush (WSL issue 41783). Live: `systemctl is-system-running` is `running` with zero failed units. Every statement below that says systemd is degraded, or that waits for a stable release, is closed; no prerelease and no workaround was installed.
+
 - `CheckConnection` remains noisy under mirrored networking: 5 events in the last hour, 59 in 6 hours, 137 in 24 hours, and 116 over the current approximately 22-hour boot. The boot-wide mean was one line every 666 seconds, but events arrive in short clusters. Mirrored mode stays because both Obsidian MCP TCP endpoints were reachable at `127.0.0.1:27123` and `:27124`.
 - One current-boot `WaitForBootProcess` timeout occurred while systemd took longer than 10 seconds. Systemd subsequently reached `running` with zero failed units. Treat it as a lifecycle symptom to re-check after `wsl --update`, not corruption.
 - The WSL interop registration is named `/proc/sys/fs/binfmt_misc/WSLInterop-late`. Ubuntu's `wslview` 3.2.3 hardcodes the older `WSLInterop` name, so `wslview --version` falsely reports that interoperability is disabled even though `powershell.exe` and `wsl.exe` execute successfully. `wslu` is installed but browser handoff is not currently healthy.

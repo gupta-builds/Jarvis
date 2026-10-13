@@ -24,6 +24,10 @@ next: Complete the user-authenticated VS Code Tunnel service test, obtain Acer c
 Phase 2 items 1 through 6 are applied. Tailscale runs on Dell WSL and Acer Windows only, and Dell Tailscale SSH is active. On 2026-10-12, user-provided output confirmed the 75-second idle test passed, Acer `tailscale.exe ping dell-wsl` reached the direct endpoint, and plain Acer `ssh.exe` ran a Git status command on Dell. Earlier Acer Remote-SSH terminal output showed the canonical Dell WSL repo, user, path and Git status. Systemd remains degraded only on the known `systemd-binfmt.service` read-only flush; the user directed continuation without an unsafe workaround or prerelease update. The admin policy allows member-to-own-device SSH in check mode; key expiry is disabled. Do not alter the existing uncommitted hook or the internship repo's dirty worktree. No Windows user-level VS Code setting, Settings Sync control, WSL config, OpenSSH service, or editor data was changed.
 
 ## Before and after
+
+> [!NOTE] Build 5 correction, 2026-10-13
+> bubblewrap 0.9.0 is installed; only `socat` was missing, and `31-wsl-sudo-step.sh` installs it. Miniconda, ruff, shellcheck and shfmt are installed (Build 5).
+
 | Area | Before | After / evidence |
 |---|---|---|
 | Remote WSL settings | Machine settings file absent | `~/.vscode-server/data/Machine/settings.json` created; JSON read-back valid; bash profile, Python activation, Linux interpreter, Jupyter exclusions, watcher exclusions, sandbox off |
@@ -55,6 +59,10 @@ Commands applied in WSL after dated backups:
 The first VS Code CLI command failed because the shell inherited a stale `VSCODE_IPC_HOOK_CLI` socket path. Root cause: the CLI targeted a dead IPC socket even though the current server had live sockets. Re-running with the live socket path succeeded. Installing Jupyter auto-installed `ms-toolsai.vscode-jupyter-cell-tags` and `ms-toolsai.vscode-jupyter-slideshow`; both were removed because they are not in the target list. The stale C/C++ extension pack was removed as a whole, not as an individual pack member. No repeated failure remains. A final `claude mcp list` from `/tmp` confirmed the three requested MCPs connected. Unrelated pre-existing user/plugin entries also reported `gbrain` connection closed (cause not established), `pencil` executable missing at an old Cursor extension path, and several remote servers needing authentication. These were not edited; smallest next diagnostic is a targeted `claude mcp get gbrain`/`claude mcp get pencil` and inspect the corresponding launch path, without printing credentials.
 
 ## Build 1 gate and host status
+
+> [!NOTE] Build 5 correction, 2026-10-13
+> WSL 3.0.3.0 (stable, 2026-10-09) fixed the `systemd-binfmt` read-only flush (WSL issue 41783). Live: `systemctl is-system-running` is `running` with zero failed units. Every statement below that says systemd is degraded, or that waits for a stable release, is closed; no prerelease and no workaround was installed.
+
 The user's corrected idle-test output is PASS: after Ubuntu was started, the test made no WSL call for 75 seconds, then `wsl -l --running --quiet` listed Ubuntu. This exceeds the default 60-second VM idle timer. The prior FAIL was the Windows PowerShell 5.1 output decoding bug documented in Build 1 findings, not a stopped distro. The sparse conversion refusal was Microsoft’s potential-corruption safeguard. The host script design incorrectly made an optional sparse conversion fatal; the safe refusal is now recorded as SKIPPED and independent checks continue.
 
 The post-update host report checked config/start, memory, processors, swap, and `wslview`; `wslview --version` works. It counted zero `CheckConnection` journal events over 120 seconds. On 2026-10-11, Phase 4.1 read-only recheck returned `systemctl is-system-running=degraded`; the sole failed unit is `systemd-binfmt.service`, `Result=exit-code`, `ExecMainStatus=1`. The live journal gives the exact line `Failed to flush binfmt_misc rules, ignoring: Read-only file system`. The unit then exits nonzero. Its current one-shot operation is to reset and register Linux `binfmt_misc` handlers. Microsoft issue [WSL #41783](https://github.com/microsoft/WSL/issues/41783) documents this exact WSL 3.0.1 behavior: systemd tries to clear handlers by writing `-1` to `/proc/sys/fs/binfmt_misc/status`; WSL rejects that flush because the registry is kernel-global/read-only in this context, then the unit exits with an error. A Microsoft WSL maintainer closed the issue as fixed in WSL 3.0.2. The [3.0.2 release listing](https://github.com/microsoft/WSL/releases/tag/3.0.2) currently labels it pre-release. No workaround was attempted; the user chose to wait for a stable release.
@@ -128,6 +136,15 @@ No Windows user-level file or sync setting was changed. The synced settings cont
 Actual WSLENV is not empty as the 2026-10-04 snapshot claimed: current decoded Windows value is `ELECTRON_RUN_AS_NODE/w:`. This is a live contradiction to carry into Build 3. Microsoft documents machine-scoped `machine` and `machine-overridable` settings as excluded from sync and remote extensions as not synced ([VS Code Settings Sync](https://code.visualstudio.com/docs/configure/settings-sync)). Path-specific keys to consider excluding or converting to machine scope are `todo-tree.ripgrep.ripgrep`, `python-envs.pythonProjects`, and `python.defaultInterpreterPath`. VS Code's settings schema marks `settingsSync.ignoredSettings` itself as disallowed from the ignored list; its cross-device behavior should be tested before relying on it. Do not edit or sync any Windows file in this build.
 
 ## Corrections older notes need
+
+> [!NOTE] Build 5 correction, 2026-10-13: the six corrections below were applied or re-verified
+> 1. pnpm key `enableGlobalVirtualStore`: written into Locked Decisions, Decision 7.
+> 2. second-brain checkout: live path is `~/projects/ai/claude/second-brain-claudekit` on the Dell (`ai/second-brain-claudekit` on the Acer); no root package manifest. Written into Decision 4.
+> 3. internship-research-loop is not a live uv project (no `pyproject.toml` in the checkout). Written into Decision 4.
+> 4. WSLENV is `ELECTRON_RUN_AS_NODE/w:` (not empty): recorded here, no other note relied on the empty value.
+> 5. The Acer `ssh.exe` did show an unknown-host prompt; the fingerprint comparison with Tailscale's advertised key is still WAITING USER.
+> 6. `settingsSync.ignoredSettings` is absent: Settings Sync stays live; Build 6 validates it.
+
 List for later editing; older notes were not edited here:
 1. Locked Decisions: pnpm 10.33.2 uses `enableGlobalVirtualStore`; do not prescribe `virtualStoreType: global` unless pnpm is upgraded to a version that supports it.
 2. Clone notes: second-brain has no root package manifest/lockfile; confirm this is the live nested checkout path and avoid pnpm settings there.
@@ -154,6 +171,13 @@ Worktree dependency proposal after Q4/Q5: use per-worktree dependency installs o
 No Miniconda install or environment rebuild was started. Existing space/disk measurements and the package cost decision belong to the subsequent approved item 9. User approval is required before installation.
 
 ## Phase 4 checkpoint — live refresh 2026-10-12
+
+> [!NOTE] Build 5 correction, 2026-10-13
+> Ledger rows 4.4, 4.9 and 4.10 below are stale: later sections show them passed. Row 4.1's systemd caveat is closed by WSL 3.0.3.0.
+
+> [!NOTE] Build 5 correction, 2026-10-13
+> WSL 3.0.3.0 (stable, 2026-10-09) fixed the `systemd-binfmt` read-only flush (WSL issue 41783). Live: `systemctl is-system-running` is `running` with zero failed units. Every statement below that says systemd is degraded, or that waits for a stable release, is closed; no prerelease and no workaround was installed.
+
 | Step | Status | Evidence and remaining work |
 |---|---|---|
 | 4.1 Preconditions | PASS with known systemd caveat | Live WSL reports `degraded`; the sole failed unit remains `systemd-binfmt.service`. `tailscaled` is active, `RunSSH=true`, networking mode is mirrored, and WSL has no conventional listener on 22/2222. A corrected Windows PowerShell query returned no Dell Windows Tailscale/OpenSSH services or 22/2222 listeners. The user chose to continue Phase 4 without a workaround or prerelease update. |

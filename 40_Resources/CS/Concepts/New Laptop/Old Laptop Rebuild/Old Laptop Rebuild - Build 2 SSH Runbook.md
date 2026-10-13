@@ -17,6 +17,10 @@ next: Complete the Tunnel CLI's interactive sign-in and service test, then colle
 # Old Laptop Rebuild - Build 2 SSH Runbook
 
 ## Gate
+
+> [!NOTE] Build 5 correction, 2026-10-13
+> WSL 3.0.3.0 (stable, 2026-10-09) fixed the `systemd-binfmt` read-only flush (WSL issue 41783). Live: `systemctl is-system-running` is `running` with zero failed units. Every statement below that says systemd is degraded, or that waits for a stable release, is closed; no prerelease and no workaround was installed.
+
 This is a planned runbook, not authorization. Every network exposure, service enablement, Tailscale login/admin action, and Phase 4 operation requires the user's explicit approval. Stop at the first failed check. Never run `wsl --shutdown` from inside WSL.
 
 ## Phase 4 sequence

@@ -42,7 +42,7 @@ Living reference notes here: [[C Drive Bloat - Failure Log and Prevention Rules]
 | 2 | WSL VS Code and two-laptop SSH | run; Phase 4 items open, carried into Build 5 | [[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]] | [[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]] |
 | 3 | Windows C: cleanup (plus 3b snapshot, structure, watch) | run, done 2026-10-12; C: free 39.5 to about 136 GiB | [[Old Laptop Rebuild - Windows Prompts (Build 3 C Drive Cleanup and Build 4 Terminal Parity)]] | [[Old Laptop Rebuild - Build 3 Windows Cleanup Findings]], [[Old Laptop Rebuild - Build 3b C Drive Snapshot Structure and Watch]] |
 | 4 | Windows toolkit on both laptops (PowerShell 7, Terminal, Starship, font, configs, catalog and agent guide) | audit and design done, **prompt ready, decisions D1 to D12 unanswered** | [[Old Laptop Rebuild - Build 4 Prompt (Windows Toolkit)]] | [[Old Laptop Rebuild - Build 4 Windows Toolkit Findings]] |
-| 5 | WSL parity and the D: drive (config parity, Build 2 leftovers, the 36.75 GiB `wsl-ubuntu.tar`, Google Drive and the `_Anant` folders) | **prompt ready** | [[Old Laptop Rebuild - Build 5 Prompt (WSL Parity and D Drive)]] | written by the run |
+| 5 | WSL parity and the D: drive (config parity, Build 2 leftovers, the 36.75 GiB `wsl-ubuntu.tar`, Google Drive and the `_Anant` folders) | **run 2026-10-13: parity, tools, Miniconda, cleanup and timers done; open: three user commands (sudo step, export, quarantine) and the Acer fix list; `_Anant` consolidation is a separate later build** | [[Old Laptop Rebuild - Build 5 Prompt (WSL Parity and D Drive)]] | [[Old Laptop Rebuild - Build 5 WSL and D Drive Findings]], [[Old Laptop Rebuild - Anant Folder Consolidation and Drive Plan (later build)]] |
 | 6 | Windows VS Code and MCP wiring (extensions, settings, MCP registry, stale Acer paths, agent dot-folder skill junctions) | prompt not written (was "Build 5" before 2026-10-13) | - | - |
 | 7 | dev-only profile and a final verification pass against the Acer | prompt not written (was "Build 6") | - | - |
 
@@ -62,12 +62,12 @@ Build 4 (Windows) and Build 5 (WSL) touch different layers and can run in either
 
 ## Current state in four lines (2026-10-13)
 - Dell Windows: C: about 136 GiB free (about 145 after the last finishing script), D: about 450 GiB; Python 3.13.5, Chocolatey, .NET 8 and the pip `uv` are waiting on Build 4's standalone `uv`.
-- Dell WSL: 3.0.1.0, Ubuntu 24.04, mirrored, systemd degraded only by `systemd-binfmt` (fix is in WSL 3.0.2 prerelease; the user chose to wait for stable); 13 of 17 config files still differ from the Acer's; Ollama runs in WSL and blocks the Windows one.
+- Dell WSL: 3.0.1.0, Ubuntu 24.04, mirrored, systemd degraded only by `systemd-binfmt` (fix is in WSL 3.0.2 prerelease; the user chose to wait for stable); configs now match the Acer's real files (Build 5; 3 intentional differences); Ollama still runs in WSL until the user runs the sudo step.
 - Tailscale: Dell WSL `dell-wsl` and Acer Windows connected directly; plain SSH to the canonical checkout proven.
 - Open items by build: see the table above and [[Old Laptop Rebuild - Build 5 Prompt (WSL Parity and D Drive)]].
 
 ## Stale notes to fix when touched
-Found by the 2026-10-13 reading pass. The live machine wins over each of these.
+Found by the 2026-10-13 reading pass. The live machine wins over each of these. **Build 5 (2026-10-13) patched by heading: the tarball path and size (Build 3b already corrected), Ollama and 'Dell retired' in Ubuntu - WSL, bubblewrap, ledger rows 4.4 / 4.9 / 4.10, the pnpm key and second-brain / internship paths in Locked Decisions, the six Build 2 corrections, the systemd statements, the Acer `.wslconfig` values, and the Installations Old Laptop WSL section. Still open: Docker auto-start in VS Code - Windows (Build 7) and the Windows half of Installations (Build 4).**
 - `wsl-ubuntu.tar` is 36.75 GiB, not 73 (the Build 3b note was corrected). The old WSL Session Briefing puts it at `D:\Installers\`; it is `D:\WSL\Installers\`.
 - [[Ubuntu - WSL]], the WSL master plan and the briefing say Ollama is Windows-only and the Dell is retired; both are out of date (a WSL Ollama runs; the Dell is the canonical host). The decommission checklist is superseded.
 - bubblewrap is installed on the Dell; `socat` is not. Build 2 notes still say both are missing.

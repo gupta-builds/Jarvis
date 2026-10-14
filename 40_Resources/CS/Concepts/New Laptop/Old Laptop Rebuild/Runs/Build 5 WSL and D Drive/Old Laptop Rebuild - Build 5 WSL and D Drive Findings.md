@@ -165,7 +165,7 @@ Commands the user ran: none yet in this build.
 |---|---|
 | sudo step | User ran `build5-sudo-step.sh`: socat installed, WSL Ollama disabled, succeeded |
 | Golden configs | `WSL Parity/golden/home` applied with `37-toolkit-apply.sh` (13 files, 0 fails); see [[WSL Toolkit Config Reference]] |
-| Upgrades | gh 2.102.0, fzf 0.74.5, rg 15.2.0, fd 10.5.0, bat 0.26.1, lazygit 0.66.1, sesh 2.33.0, gh-dash 4.26.1, node 24.21.0; previous binaries in `~/.local/bin/.prev/`; tmux held at 3.4 (3.8 needs `sudo apt install -y bison`) |
+| Upgrades | gh 2.102.0, fzf 0.74.5, rg 15.2.0, fd 10.5.0, bat 0.26.1, lazygit 0.66.1, sesh 2.33.0, gh-dash 4.26.1, node 24.21.0; previous binaries in `~/.local/bin/.prev/`; tmux held at 3.4 at that time (superseded: 3.8 built on 2026-10-14, see the final section below) |
 | Tarball | Export of the old Ubuntu from 2026-01-15. 21.7 GB of 36.75 GiB is a Rust `target/` folder from `boom`; also 3.5 GB `src/boom`, 1 GB `/root/boom`, toolchains and caches. Nothing references it. Quarantine after a verified export |
 | DCIM duplicates | 916 groups, 918 extra copies, 3,799 MiB; every extra copy verified with `cmp`; deletion run with `62-dcim-dedupe.sh --apply`, log in `~/.local/state/dcim-delete-*.tsv` |
 | Repo audit scope | 18 own repos (the 55 `.git` entries include 37 third-party clones under `second-brain-claudekit/sandbox`). Editor contract added (untracked) to opspilot, safereach, Learning-Tracker-Tool; `jan` and `boom` are upstream clones, skipped |
@@ -174,6 +174,25 @@ Commands the user ran: none yet in this build.
 | Tailscale | No need to turn it off for the export; do not use `tailscale down` (persists). Clean stop: `sudo systemctl stop tailscaled` |
 | Quarantine path | Now `D:\Backup\Quarantine` |
 Corrections to Build 5: `core.fsmonitor` was a no-op on Linux and was removed; my cleanup deleted `~/.cache/node` (Corepack pin) and pnpm was restored to 10.33.2. Waiting on the user: run `60-build5b-host.ps1`, decide the pnpm major and tmux version. Future work: [[Old Laptop Rebuild - C Drive AI Platforms Audit (future build)]].
+
+## Build 5 final (2026-10-14): host-script run, tmux 3.8, pnpm 12.4.2, DCIM result
+| Topic | Result |
+|---|---|
+| Laptop | Restarted and updated by the user before this run; WSL up, tailscale/timers fine, D: 452 GiB free |
+| Host script run 1 (08:55) | ChatGPT Classic 1.2026.190.0 REMOVED; new ChatGPT (`OpenAI.Codex` 26.1007.9446.0) kept and healthy. Cursor: broken install and stale state quarantined into `D:\Backup\Quarantine` (`cursor-broken-install-2026-10-14`, `cursor-state-*`, `cursor-oldlogs-2026-10-14`), but the reinstall FAILED: winget answered "found an existing package already installed ... no available upgrade" (exit -1978335189) because its registry entry outlived the folder I had just moved. Export prompt returned empty (winget had eaten the console input), so Export and Quarantine were skipped: no export manifest, so the 36.75 GiB tar was correctly NOT moved |
+| Fix (script `60-build5b-host.ps1`, Cursor stage) | `winget uninstall` of the stale entry, then `winget install --force`, both fed `$null` on stdin so the later Read-Host prompts keep working. Cursor, then Export plus Quarantine, now run as separate invocations (commands below) |
+| Cursor state | Not yet re-installed at the time of writing: `Programs\cursor` is absent; the next run of the Cursor stage installs it. `%APPDATA%\Cursor` user data (settings, extensions, history) was NOT moved except Crashpad, process-monitor, blob_storage, update-supervisor and logs older than 7 days |
+| DCIM duplicates | DONE: `62-dcim-dedupe.sh --apply` finished before the restart; 918 files deleted (3,799 MiB), 0 left on disk, log `~/.local/state/dcim-delete-20261013-195126.tsv` maps each deleted path to the kept copy. Empty folders left behind were not removed |
+| tmux | 3.8 installed in `~/.local/bin` WITHOUT sudo (no `bison` needed: the release tarball ships a generated `cmd-parse.c`; `38` stubs yacc). apt tmux 3.4 remains at `/usr/bin/tmux` as fallback; `38 --rollback tmux` restores the previous binary. Tested on a throwaway socket: golden `.tmux.conf` loads with no errors, `escape-time 10`, `history-limit 100000`, `allow-passthrough on`, `set-clipboard external`, sesh binds `prefix T` (picker) and `prefix L` (last) present |
+| pnpm | 12.4.2 pinned with Corepack to match the Acer (user decision). Store moved to `store/v11`; old v10 store is orphaned (reclaimable). No own repo declares `packageManager`: pinning it per repo is a later, per-repo approval |
+| Config verification | `37-toolkit-apply.sh --dry-run`: changed=0, same=34, fails=0. starship prompt, atuin 18.23.0 (hook active, no errors in `doctor`), lazygit 0.66.1, sesh 2.33.0, yazi 26.9.1, gh-dash 4.26.1, bat theme `tokyonight_storm` registered, rg config via `RIPGREP_CONFIG_PATH`, fzf 0.74.5, delta 0.20.1, git include wired (`zdiff3`, no `core.fsmonitor`), `.bashrc` syntax ok with zoxide and atuin hooks |
+| Scripts changed | `38-toolkit-upgrade.sh` default set now includes `pnpm` and `tmux` (yacc stub, idempotent check, version table fixed); `60-build5b-host.ps1` Cursor stage as above |
+| Decisions closed | pnpm 12.4.2 and tmux 3.8 on both laptops (user). Acer `core.autocrlf=input` stays the recommendation in the handoff note |
+
+### Final commands for the user (no sudo is needed any more)
+1. Windows PowerShell (not WSL), repair and test Cursor: `powershell -ExecutionPolicy Bypass -File D:\WSL\ops\60-build5b-host.ps1 -Stages Cursor` and type YES. If it still fails, send the log path it prints.
+2. Windows PowerShell, fresh WSL export and old-tar quarantine (10 to 25 minutes of WSL downtime; Tailscale returns by itself): `powershell -ExecutionPolicy Bypass -File D:\WSL\ops\60-build5b-host.ps1 -Stages Export,Quarantine`, YES twice. If the prompt ever skips by itself again, run `-Stages Export` alone.
+3. Acer WSL: follow [[Acer Session Handoff - Toolkit Sync (Build 5b)]] (steps run `36`, `37`, `38`; `38` now also pins pnpm 12.4.2 and builds tmux 3.8; close tmux first).
 
 ## Growth rules
 Standing rule: nothing is removed unless it is a regenerable cache or the user approved it; every move goes to a dated quarantine; every config change keeps a timestamped backup in `~/.config/.toolkit-backups/`.

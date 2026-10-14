@@ -96,6 +96,7 @@ Prompt 2's scope is `~/projects` and the 18 repos under it. The vaults already h
 
 > [!NOTE] Build 5 correction, 2026-10-13
 > pnpm 10.33.2 uses the key `enableGlobalVirtualStore`, not `virtualStoreType: global`. Only set it on repos that really use pnpm, and measure first.
+> Update 2026-10-14: both laptops now run pnpm 12.4.2 (user matched the Acer). The key above was verified for 10.33.2 only; on 12.4.2 `pnpm config get` shows neither key set, so check pnpm.io before setting any global-virtual-store option.
 
 Both repos' package managers already support exactly this scenario natively — this needs a specific setting, not just an awareness that "caches help":
 - **`second-brain-claudekit` (pnpm):** pnpm's own documentation (`pnpm.io/git-worktrees`, `pnpm.io/global-virtual-store`) describes this exact use case by name ("pnpm + Git Worktrees for Multi-Agent Development"). Default pnpm already hardlinks package contents from a shared content-addressable store into each project's `node_modules/.pnpm` — real bytes aren't duplicated, but the hardlink *directory structure* is still rebuilt per worktree, which costs real time at scale. The documented fix for exactly this scenario is `virtualStoreType: global` in `pnpm-workspace.yaml` (or `.npmrc`): every worktree's `node_modules` becomes pure symlinks into one shared global store, "near-zero per-worktree overhead." **Set this explicitly for `second-brain-claudekit`, don't rely on pnpm's default per-project behavior.**

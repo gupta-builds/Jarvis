@@ -2,13 +2,13 @@
 # 38-toolkit-upgrade.sh (Build 5b, 2026-10-13). Conservative, reversible, user-space upgrades of the WSL toolkit. No sudo.
 # Every download is pinned to an exact version and verified against a pinned SHA-256 (GitHub release asset digests, read 2026-10-13).
 # The previous binary is moved to ~/.local/bin/.prev/<tool>.<timestamp> first, so any tool can be rolled back.
-# Usage: 38-toolkit-upgrade.sh [--dry-run] [--only gh,fzf,rg,fd,bat,lazygit,sesh,ghdash,node,tmux] [--rollback TOOL]
-# Default set (everything except tmux): gh fzf rg fd bat lazygit sesh ghdash node. tmux builds from source and only runs when asked
-# (--only tmux) AND no tmux server is running, because a 3.8 client cannot attach to a 3.4 server.
+# Usage: 38-toolkit-upgrade.sh [--dry-run] [--only gh,fzf,rg,fd,bat,lazygit,sesh,ghdash,node,pnpm,tmux] [--rollback TOOL]
+# Default set: gh fzf rg fd bat lazygit sesh ghdash node pnpm tmux. pnpm is pinned to 12.4.2 via corepack (both laptops, user decision 2026-10-14).
+# tmux 3.8 builds from source (static libevent, yacc stub, no sudo) and is skipped while a tmux server is running, because a 3.8 client cannot attach to a 3.4 server.
 # NOT upgraded on purpose: git, jq, direnv, ncdu (apt; no AI-dev benefit, risk of config drift), uv (0.13 is a new minor), starship,
 # yazi, delta, zoxide, atuin (already the latest release), claude, codex (already the latest release).
 set -uo pipefail
-DRY=0; ONLY="gh,fzf,rg,fd,bat,lazygit,sesh,ghdash,node"; ROLL=""
+DRY=0; ONLY="gh,fzf,rg,fd,bat,lazygit,sesh,ghdash,node,pnpm,tmux"; ROLL=""
 while [ $# -gt 0 ]; do
   case "$1" in
     --dry-run) DRY=1 ;; --only) shift; ONLY="${1:-}" ;; --rollback) shift; ROLL="${1:-}" ;;
@@ -79,10 +79,23 @@ if want node; then
   fi
 fi
 
+if want pnpm; then
+  export NVM_DIR="$HOME/.nvm"
+  # shellcheck disable=SC1091
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+  if [ "$(pnpm --version 2>/dev/null | tail -n 1)" = "12.4.2" ]; then say "  pnpm already 12.4.2"
+  elif [ "$DRY" = 1 ]; then say "  would run: corepack enable ; corepack prepare pnpm@12.4.2 --activate"
+  else
+    corepack enable >/dev/null 2>&1
+    corepack prepare pnpm@12.4.2 --activate >/dev/null 2>&1 || fail "corepack prepare pnpm@12.4.2"
+    say "  pnpm $(pnpm --version 2>&1 | tail -n 1)"
+  fi
+fi
+
 if want tmux; then
   LE="$HOME/.local/libevent-2.1.13"
   if tmux ls >/dev/null 2>&1; then say "  tmux: a server is running; refusing to build (kill it first: tmux kill-server)"
-  elif have tmux "tmux 3.8" && [ "$(command -v tmux)" = "$BIN/tmux" ]; then say "  tmux already 3.8"
+  elif [ "$(tmux -V 2>&1)" = "tmux 3.8" ] && [ "$(command -v tmux)" = "$BIN/tmux" ]; then say "  tmux already 3.8"
   elif [ "$DRY" = 1 ]; then say "  would build libevent 2.1.13 (static, ~/.local/libevent) and tmux 3.8 into ~/.local/bin"
   elif ! { command -v gcc >/dev/null && command -v make >/dev/null && command -v pkg-config >/dev/null; }; then fail "tmux build needs gcc, make, pkg-config"
   else
@@ -102,6 +115,6 @@ if want tmux; then
 fi
 
 say "== versions now"
-for t in gh fzf rg fd bat lazygit sesh tmux node pnpm; do printf '  %-8s %s\n' "$t" "$({ "$t" --version 2>&1 || "$t" -V 2>&1; } | head -n 1 | cut -c1-70) [$(command -v "$t")]"; done
+for t in gh fzf rg fd bat lazygit sesh tmux node pnpm; do printf '  %-8s %s\n' "$t" "$({ if [ "$t" = tmux ]; then tmux -V; else "$t" --version; fi; } 2>&1 | head -n 1 | cut -c1-70) [$(command -v "$t")]"; done
 say "== done: fails=$FAILS ; previous binaries are in $PREV ; rollback: $0 --rollback <tool>"
 [ "$FAILS" -eq 0 ]

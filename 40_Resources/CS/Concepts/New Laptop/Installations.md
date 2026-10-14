@@ -115,7 +115,7 @@ Combined footprint: roughly 500MB-700MB installed. Immaterial against a 310GB C:
 
 ## Full software list - WSL side (Ubuntu 24.04, inside the distro)
 
-Real installed state as of 2026-09-19, confirmed via each tool's own `--version` unless noted otherwise. Full build history and the debate behind each pick: [[Acer Live State - 2026-09-16#WSL configuration round 2 - 2026-09-19]].
+Real installed state as of 2026-09-19, confirmed via each tool's own `--version` unless noted otherwise. Full build history and the debate behind each pick: [[Acer Live State — 2026-09-16#WSL configuration round 2 - 2026-09-19]].
 
 | Tool | Purpose | Install method | Status |
 |---|---|---|---|
@@ -145,7 +145,7 @@ Real installed state as of 2026-09-19, confirmed via each tool's own `--version`
 | `CRThaze/tmux-handlr` | AI agent status + push notification when away from terminal | TPM plugin | Installed alongside the plugin above (not a replacement); ntfy topic wiring queued not confirmed |
 | chafa | Yazi image-preview fallback | `apt` (1.14.0) | **Insufficient** - Yazi needs >=1.16.0; a static-binary upgrade is queued, not confirmed |
 | direnv | per-directory env loading | `apt` | **Not installed** - blocked twice by a sudo password unavailable in the install session; needs a human-run `sudo apt install -y direnv` |
-| Docker | containers | Docker Desktop's WSL integration (not installed yet) | Planned - see [[WSL New Laptop Master Plan - Verified 2026-09-11#Maintenance Cadence]] for the separate disk-image redirect it will need |
+| Docker | containers | Docker Desktop's WSL integration (not installed yet) | Planned - see [[WSL New Laptop Master Plan — Verified 2026-09-11#Maintenance Cadence]] for the separate disk-image redirect it will need |
 
 ## Drive placement — quick reference (corrected 2026-09-15)
 
@@ -204,8 +204,8 @@ Machine: i7-1255U (10 cores, 12 threads), 32 GB RAM, Intel Iris Xe only (no NVID
 
 ### Where things stand
 - WSL is rebuilt and configured (Builds 1, 2 and 5). Since Build 5 (2026-10-13) its terminal configs are the Acer's real files, copied from the dotfile snapshot with `30-wsl-config-parity.sh` (see "Config parity" below); systemd runs with zero failed units; Miniconda and `jupyter-base` match the Acer.
-- The Windows side was a pre-rebuild state on 2026-10-11 (the tables below record that state). Build 4 installed PowerShell 7 as the default shell, Starship, the Iosevka font, Node 24, standalone uv and related tools on 2026-10-13; see [[Old Laptop Rebuild - Build 4 Windows Toolkit Findings]] for the current Windows inventory.
-- Several C: items are pending removal or review in Build 3 (Microsoft 365, Malwarebytes, Respondus, MongoDB Shell, WinRAR, Dell Optimizer and SupportAssist plugin, stray executables). They are listed here as installed because they still are.
+- The Windows side was rebuilt on 2026-10-13 by Build 4: PowerShell 7 (default shell), Starship, IosevkaTerm Nerd Font, zoxide, fzf, fd, bat, delta, NanaZip, pnpm, Node 24, standalone uv 0.12.19, Git 2.55 and GitHub CLI 2.102, with shared configs written by `Windows Toolkit\_scripts` (see [[Old Laptop Rebuild - Build 4 Windows Toolkit Findings]]). The Windows tables below are the 2026-10-11 pre-rebuild record; Build 4b replaces them with the final state.
+- Build 3 (2026-10-12) removed most of the "not carrying forward" list (Microsoft 365, OneDrive, WinRAR, Respondus, Dell Optimizer, MongoDB Shell, Logi Options+, Teams, LinkedIn, Netflix, HP Printer Control, Python 3.13.5 and Chocolatey went with Builds 3 and 4). Malwarebytes and Edge were still listed on 2026-10-13. The tables below predate the removals.
 
 ### Windows side (live 2026-10-11)
 Install source: `winget` means a winget package id, `Store` an MSIX package, `direct` an installer without a winget id, `npm` or `pip` a global package. Location is from the live PATH or install record, `C: (small)` where the installer records none.

@@ -18,8 +18,11 @@ related:
   - "[[Old Laptop Rebuild - Build 3b C Drive Snapshot Structure and Watch]]"
   - "[[C Drive Bloat - Failure Log and Prevention Rules]]"
   - "[[Installations]]"
-next: "Run in Claude Code (PowerShell, Dell, Sonnet 5.5, high effort). It resumes at the Phase 2 checkpoint; answer D1 to D12."
+next: "Filed. Ran 2026-10-13 (Phases 1 to 4). The remainder is Build 4b: see the Index."
 ---
+> [!NOTE] Filed 2026-10-14
+> This prompt ran on 2026-10-13 and finished Phases 1 to 4 (104 PASS). Do not send it again. The remainder (Phase 5 catalog and agent guide, Phase 6 Acer run sheet, Phase 7 notes, .NET 8) is **Build 4b**, listed in [[Old Laptop Rebuild - Index]]. Decisions D1 to D16 are answered in [[Old Laptop Rebuild - Build 4 Windows Toolkit Findings]].
+
 # Old Laptop Rebuild - Build 4 Prompt (Windows Toolkit)
 
 Version 3, written 2026-10-13. It replaces the Build 4 section of the old combined prompt note (kept as history in `Runs/Build 3 Windows Cleanup/`). What changed since version 2: Build 3 is finished (C: has about 136 GiB free), Phases 1 and 2 of this build were already done in an earlier session and are written to the findings note, Chocolatey and Python 3.13.5 are approved for removal once the standalone uv is in place, and the lessons from Build 3's scripts are part of the rules.

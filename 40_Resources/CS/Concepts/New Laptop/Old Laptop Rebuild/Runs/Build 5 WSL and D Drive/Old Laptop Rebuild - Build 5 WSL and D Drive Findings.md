@@ -16,7 +16,7 @@ related:
   - "[[Old Laptop Rebuild - Anant Folder Consolidation and Drive Plan (later build)]]"
   - "[[Google Drive Sync Policy]]"
   - "[[Installations]]"
-next: "User runs three things: the sudo step (socat + disable WSL Ollama), the export script 50 (then 51 to quarantine the old tar), and the Acer fix list below. Then the later _Anant consolidation build."
+next: "Status 2026-10-14: sudo step done, DCIM dedupe done, ChatGPT Classic removed. Still open for you: Cursor repair and the fresh WSL export plus old-tar quarantine (60-build5b-host.ps1 stages). Acer applies the Build 5b handoff. See the Index ledgers."
 ---
 # Old Laptop Rebuild - Build 5 WSL and D Drive Findings
 

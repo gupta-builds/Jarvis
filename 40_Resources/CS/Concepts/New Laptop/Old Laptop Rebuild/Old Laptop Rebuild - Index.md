@@ -20,7 +20,7 @@ related:
   - "[[WSL Toolkit Config Reference]]"
   - "[[Old Laptop Rebuild - Anant Folder Consolidation and Drive Plan (later build)]]"
   - "[[Old Laptop Rebuild - C Drive AI Platforms Audit (future build)]]"
-next: "1) You run three Dell host commands (Cursor repair, fresh WSL export plus old-tar quarantine, .NET 8 after the Dell Command Update check). 2) Send the Acer 5b handoff on the Acer. 3) Write and send the Build 4b prompt (catalog, agent guide, Acer run sheet). 4) Write Builds 6, 7 and 8."
+next: "1) Send the Build 4b prompt on the Dell (Claude Code in PowerShell, Sonnet 5.5, effort high). 2) Send the Acer 5b handoff on the Acer. 3) Write Builds 6, 7 and 8."
 ---
 # Old Laptop Rebuild - Index
 
@@ -44,7 +44,7 @@ next: "1) You run three Dell host commands (Cursor repair, fresh WSL export plus
 | 2 | WSL VS Code and two-laptop SSH | run; Dell part done, Acer-side Phase 4 items still open (see Acer ledger) | [[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]] | [[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]] |
 | 3 | Windows C: cleanup, snapshot, structure, watch | run, done; C: 39.5 to 145 GiB (140.9 GiB free on 2026-10-14) | [[Old Laptop Rebuild - Windows Prompts (Build 3 C Drive Cleanup and Build 4 Terminal Parity)]] | [[Old Laptop Rebuild - Build 3 Windows Cleanup Findings]], [[Old Laptop Rebuild - Build 3b C Drive Snapshot Structure and Watch]] |
 | 4 | Windows toolkit | Phases 1 to 4 run 2026-10-13 (104 PASS, lock written); **Build 4b open** | [[Old Laptop Rebuild - Build 4 Prompt (Windows Toolkit)]] | [[Old Laptop Rebuild - Build 4 Windows Toolkit Findings]] |
-| 4b | Catalog, agent guide, Acer run sheet, Installations Windows half, .NET 8 | **prompt not written** | - | continues the Build 4 findings |
+| 4b | Closes Builds 1 to 5 on the Dell: Cursor repair, WSL export and tar quarantine, .NET 8, Ollama, catalog, agent guide, Acer run sheet, Installations, Firecrawl key, startup apps, Build 5 leftovers, and the Tailscale/SSH items from Build 2 (separate Part B) | **prompt ready** | [[Old Laptop Rebuild - Build 4b Prompt (Dell Leftovers and Tailscale)]] | continues the Build 4 findings, "Build 4b" section |
 | 5 | Dell WSL parity and tools | run 2026-10-13/14; three user host commands still open | [[Old Laptop Rebuild - Build 5 Prompt (WSL Parity and D Drive)]] | [[Old Laptop Rebuild - Build 5 WSL and D Drive Findings]] |
 | 5b | Acer WSL toolkit sync | **ready, not run** | [[Acer Session Handoff - Toolkit Sync (Build 5b)]] | the handoff note's Results section |
 | 6 | Windows VS Code, MCP and Claude Code wiring, AI platforms audit | prompt not written | - | plan: [[Old Laptop Rebuild - C Drive AI Platforms Audit (future build)]] |
@@ -54,8 +54,8 @@ next: "1) You run three Dell host commands (Cursor repair, fresh WSL export plus
 ## Dell: what is left (live-checked 2026-10-14)
 | # | Item | Owner | Build | Detail |
 |---|---|---|---|---|
-| D1 | Cursor is not installed | you | 5 | `Programs\cursor\Cursor.exe` absent; broken install is quarantined. Run `powershell -ExecutionPolicy Bypass -File D:\WSL\ops\60-build5b-host.ps1 -Stages Cursor`, type YES |
-| D2 | No fresh WSL export; the 36.75 GiB `wsl-ubuntu.tar` is still in `D:\WSL\Installers` | you | 5 | `... 60-build5b-host.ps1 -Stages Export,Quarantine`, YES twice. WSL is down 10 to 25 minutes; Tailscale returns by itself. The tar moves only after a verified export |
+| D1 | Cursor installed 2026-10-14 but its self-update fails ("Moving: resources", access denied) | you | 5 | `Programs\cursor\Cursor.exe` absent; broken install is quarantined. Run `powershell -ExecutionPolicy Bypass -File D:\WSL\ops\60-build5b-host.ps1 -Stages Cursor`, type YES |
+| D2 | No fresh WSL export (the 2026-10-14 command passed `-Stages Export,Quarantine` and nothing ran: `-File` sends the comma list as one string); the 36.75 GiB `wsl-ubuntu.tar` is still in `D:\WSL\Installers` | you | 5 | `... 60-build5b-host.ps1 -Stages Export,Quarantine`, YES twice. WSL is down 10 to 25 minutes; Tailscale returns by itself. The tar moves only after a verified export |
 | D3 | .NET 8 runtimes still installed (8.0.25, 8.0.26) | you, elevated | 4b | check that Dell Command Update 5.7.0 does not need them, then `04-admin-remove.ps1 -IncludeDotnet8` (dry run first) |
 | D4 | Catalog and agent guide not written | session | 4b | `catalog/` is empty; no "Tool Use Cases and Agent Guide" note |
 | D5 | `Installations` Windows half still pre-rebuild | session | 4b | two bullets corrected on 2026-10-14; the tables are not |

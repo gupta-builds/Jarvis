@@ -16,7 +16,8 @@ related:
   - "[[internship-research-loop-new-laptop-directive]]"
   - "[[second-brain-claudekit-new-laptop-directive]]"
   - "[[Cross-Laptop Sync - Known Failure Modes and Prevention]]"
-next: "Fold these ten locked decisions into a rewrite of Old Laptop Rebuild - Prompt 2, plus the one .wslconfig addition that belongs to Prompt 1"
+updated: 2026-10-14
+next: "Fold these eleven locked decisions into a rewrite of Old Laptop Rebuild - Prompt 2, plus the one .wslconfig addition that belongs to Prompt 1"
 ---
 # Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem
 
@@ -111,6 +112,20 @@ VS Code's Remote Tunnels (confirmed, `code.visualstudio.com/docs/remote/tunnels`
 
 ## Decision 10 — this is not a devcontainer, and nothing here changes that
 No new research changed this from the prior brief: Remote-SSH runs VS Code's backend on one specific physical machine; nothing here is portable or reproducible across hosts the way a devcontainer definition would be. If reproducibility across unrelated machines is ever wanted later, that's an additive, separate project — not a reason to delay this one.
+
+## Decision 11 — concurrent-session model: one filesystem, not a sync race; separation is by task, not by physical machine
+
+> [!NOTE] Added 2026-10-14, from a planning-session Q&A, not yet exercised live
+> This decision answers "what actually happens if the Dell and the Acer touch the same checkout at once" and "where does global config/conversation state land" — both came up as open questions and have a precise mechanical answer, not a "depends."
+
+Under the single-canonical-host design there is **one filesystem** for everything under `~/projects` on the Dell. A Remote-SSH session driven from the Acer is not a second copy racing the Dell's — it is a second live process pointed at the exact same files. This is a narrower, more dangerous failure mode than the vaults' own Syncthing sync-conflict mechanic (see the case study below): a plain concurrent save on the same checkout has **no conflict-copy safety net at all**, it just silently overwrites.
+
+- **Worktree separation is by concurrently-active task, not by which physical machine is driving.** Decision 4's `<machine>/<topic>` branch naming is attribution, not the actual safety mechanism — the mechanism is that each concurrently-active session gets its own `git worktree add` directory, so two editors never share an inode. If a Dell-native session and an Acer-driven Remote-SSH session are ever open on the same branch/checkout path at the same time, that is the violation, regardless of whose name is on the branch.
+- **No automated lock enforces "one session owns a branch at a time."** This is a discipline rule, not software — nothing warns you when it's violated. The planned `~/tools/sync-check` (SSH Runbook step 4.9) reports branch/ahead-behind/dirty state, not "is a live session currently open elsewhere" — that gap stays open.
+- **Global Claude Code config (`~/.claude/settings.json`, `~/.claude.json`, skills, memory) follows the execution host, not the human's physical seat.** A Remote-SSH session into `dell-wsl` always reads the Dell's global config, never the Acer's, because the `claude`/`codex` process and the Remote-SSH workspace-extension host both run on the Dell. Build 2 item 5 already closed the one safety-critical gap this caused (Acer's secret-file deny-rules were missing from the Dell's `~/.claude/settings.json`; now applied). Any other Acer-only global skill/setting still will not appear on the Dell — nothing syncs this going forward, by the same one-way-visibility-only logic as the `.claude`-mirror decision elsewhere in this vault.
+- **Conversation transcripts land wherever the process ran, not wherever the human sat.** A Claude Code session driven from the Acer via Remote-SSH writes its transcript to the Dell's `~/.claude/projects/...`, same as a native Dell session. This should mean the existing WSL Claude Code capture pipeline (see memory `project_ai_conversation_archive.md`) already covers Remote-SSH-driven sessions — not yet live-verified for that specific trigger path, so confirm rather than assume. Acer-only local work (never touching `~/projects` on the Dell) needs the Acer's own separate capture pipeline, which is a distinct, unverified item.
+
+**Real-world precedent for the "no safety net" risk, from this vault's own history, not hypothetical:** two Dell-side Claude Code sessions editing the Old Laptop Rebuild notes concurrently on 2026-10-13 produced 15 Syncthing `.sync-conflict-*` files (see `Runs\_backups\sync-conflicts-20261013\`). No content was lost there only because Syncthing was watching those files and wrote conflict copies — the exact protection a plain code checkout under this design does not have. The Index's own response was procedural ("one owner per note" — only the session closing a build edits the Index/Runs Index) rather than technical, because no technical lock exists. The same discipline-not-software gap applies to code worktrees.
 
 ---
 

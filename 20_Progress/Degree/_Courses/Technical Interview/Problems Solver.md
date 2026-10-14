@@ -2,7 +2,7 @@
 type: evergreen
 status: sprout
 created: 2026-09-29
-updated: 2026-10-08
+updated: 2026-10-13
 tags:
   - technical-interview
   - leetcode
@@ -11,33 +11,45 @@ notes:
   - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/How to Solve Problems|How to Solve Problems]]"
   - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041 Relation|CSCI 4041 Relation]]"
   - "[[40_Resources/CS/Repos]]"
-next: "Build the dated weekly map and choose a daily problem load for the 2026-10-12 to 2026-12-28 interview-prep window"
+next: "Start the dated Week 1 tasks and append actual results; keep planned, independent, assisted and recall counts separate"
 ---
-# Problems Solver — TIP103 Problem-Solving Plan
-==Daily problem practice has not started. This note holds candidate resources; it does not yet set the daily load or weekly problem selections.==
-The personal interview-preparation window runs from 2026-10-12 through the hard deadline on 2026-12-28, as recorded in [[20_Progress/Degree/_Courses/Technical Interview/Preparation & Sources|Preparation & Sources]]. TIP103's course deadline is unknown and separate. The daily schedule and weekly problem map remain to be built from the correct syllabus and existing course materials. [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Weekly Set|Weekly Set]] is still a template, and [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/How to Solve Problems|How to Solve Problems]] contains proposed solving rules, not a record of daily practice already completed. The user reports that the Unit 1-4 session problems were solved in class; those solutions are separate from the daily-practice count.
-## The Daily Rule
-The previously proposed target was 7 problems per day: 5 LeetCode problems (3 hard, 1 easy, 1 medium) and 2 interview-based questions. This target has not been tested or executed. Do not treat it as a fixed requirement; set a feasible daily load when the dated weekly map is built.
-## Easy/Medium Candidate Sources
-[[60_Claude/10_Source_Summaries/Github Ingestion/Jobs Starred/tech-interview-handbook|Tech Interview Handbook]]'s [Grind 75](https://www.techinterviewhandbook.org/grind75/) and **the Pareto Problem Set** ([amanmanazir.com/leetcode](https://www.amanmanazir.com/leetcode), curator "veganaiZe," 49 fixed questions) are candidate easy/medium sources. The previous 100+ target assumed a 15-week plan and is not the target for this dated window. The Pareto set is already placed by topic into [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List|Detailed Problems List]]'s CSCI 4041 weeks; those placements are reference material, not the new interview-prep weekly map. The same source's [algorithm cheatsheets](https://www.techinterviewhandbook.org/algorithms/study-cheatsheet/) remain available for pre-solve review.
-## Hard-Question Candidate Source — liquidslr
-[[60_Claude/10_Source_Summaries/Github Ingestion/Jobs Starred/interview-company-wise-problems|liquidslr/leetcode-company-wise-problems]] (31.1k stars - confirmed 2026-10-04 that this and the vault note's older URL `interview-company-wise-problems` are the same repo, just renamed) is the selected candidate hard-question source, chosen over `snehasishroy/leetcode-companywise-interview-questions` as documented below. If retained in the weekly map, filter a relevant company's list to hard difficulty and use frequency where the CSV provides it. The earlier approximate 70-problem target belonged to a longer plan and is not set for this window.
-## Interview-Based Question Sources
-[[60_Claude/10_Source_Summaries/Github Ingestion/Jobs Starred/coding-interview-university|Coding Interview University]] and [[60_Claude/10_Source_Summaries/Github Ingestion/Jobs Starred/tech-interview-handbook|Tech Interview Handbook]] are candidate sources for conceptual checks, communication practice, and interview-style prompts. Their use and daily count will be decided in the dated weekly map.
-## Assessment / OA Practice Candidates
-The older syllabus paste says TIP103 uses HackerRank assessments; this has not been verified against the downloaded course-specific syllabus. HackerRank's own [Interview Preparation Kit](https://www.hackerrank.com/interview/preparation-kits), [perixtar/Tech-OA-Interview-Questions](https://github.com/perixtar/Tech-OA-Interview-Questions), and official company practice pages remain candidate OA resources. Their use in the dated plan is undecided.
-## Resources Considered and Rejected
-This records earlier source comparisons, not a final problem inventory for the 2026-10-12 to 2026-12-28 plan. Easy/medium alternatives previously compared include Blind 75, NeetCode 150, Grind 169, AlgoMonster, and Sean Prashad's list. Hard-source alternatives included `snehasishroy/leetcode-companywise-interview-questions`, AlgoExpert, and Elements of Programming Interviews. Recheck choices against the actual number of weeks and topic sequence before selecting problems. `DSA Common To Share All` remains excluded from this build per the user's earlier scope decision.
-## Deprioritized For Now
-[[60_Claude/10_Source_Summaries/Github Ingestion/Jobs Starred/system-design-primer|System Design Primer]] is outside the current coding-problem pool. Revisit only if the interview-prep target or a specific application calls for system design.
-## How This Plan Is Used
-[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Weekly Set|Weekly Set]] is rewritten each week: it names the live topic-block from [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041 Relation|CSCI 4041 Relation]], then lists that week's actual pulled problems with direct links, sourced from the resources above. Every problem actually solved is logged as its own note (destination folder still to be decided — the next build item once this plan is running for a real week) and follows [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/How to Solve Problems|How to Solve Problems]]'s three rules without exception. Once enough solved-problem notes exist, they get surfaced here and from [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041 Relation|CSCI 4041 Relation]] through a Dataview query rather than a hand-maintained list, since the volume will make manual linking impractical.
-## Status
+# Problems Solver - Resources, cadence and evidence
+The dated practice selections are in [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List|Detailed Problems List]] and [[20_Progress/Degree/_Courses/Technical Interview/DSA|DSA]]. This note records why the sources are used and logs actual execution; the baseline remains 0 independent practice problems.
+## Confirmed resource roles
+| Resource | Decision after this audit |
+|---|---|
+| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List\|Captured Pareto set]]; [original landing URL](https://www.amanmanazir.com/leetcode) | Retain all 49 existing entries. The current landing page redirects to an email signup; the old curator attribution is not newly verified. Each selected problem’s current contract and difficulty was checked on LeetCode. |
+| [Grind 75](https://www.techinterviewhandbook.org/grind75/) and [FAQ](https://www.techinterviewhandbook.org/grind75/faq) | Retain as the main ranked public pool and algorithm-sheet reference. Its public pool has 169 entries and includes hard questions. The older claim that it contains no hard questions was wrong. |
+| [[60_Claude/10_Source_Summaries/Github Ingestion/Jobs Starred/interview-company-wise-problems\|liquidslr source note]]; [repository](https://github.com/liquidslr/leetcode-company-wise-problems) | Retain for additional named hard/transfer questions and later employer-specific review. The inspected Google/Amazon All CSVs include Difficulty, Title, Frequency, Acceptance Rate, Link and Topics. Treat their declared 2025 snapshot as historical evidence, not current frequency or a target-employer decision. |
+| [Coding Interview University](https://github.com/jwasham/coding-interview-university) | Retain as a topic checklist and source of conceptual review. It is not a fixed bank of two daily interview problems. The weekly oral questions are planning checks derived from the mapped sources. |
+| [HackerRank Preparation Kit](https://www.hackerrank.com/interview/preparation-kits) | Retain; eight exact public challenges were read and scheduled. Keep public practice separate from the private graded CodePath assessments. |
+| [perixtar Tech-OA-Interview-Questions](https://github.com/perixtar/Tech-OA-Interview-Questions) | Secondary candidate when a concrete OA requires an additional source. No unnamed question from this repository is counted in the current plan. |
+| Existing CSCI coding/paper homework and projects | Retain as source-grounded study/drill material; all 40 current coding tasks and 45 paper questions are indexed. |
+| DSA Common To Share All / System Design Primer | The former remains excluded by user instruction; system design is outside the current coding core. |
+No new paid platform, arbitrary company rotation or anonymous daily problem slot is needed for the present plan.
+## Workload
+91 required LeetCode selections include 14 Hard questions. The eight required HackerRank tasks include two labeled Hard. Eleven optional LeetCode extensions include seven Hard questions. This replaces the untested three-hard-per-day / seven-total-per-day assumption with the confirmed 20-25 then 12-15 hour budgets.
+First attempts are capped at 30 minutes for LeetCode Easy, 45 for Medium and 75 for Hard, including UMPIRE and immediate review. A cap ending without a working independent answer is logged as unresolved, not solved. A hard label is not a guarantee of interview relevance; the catalog’s purpose, prerequisites and fit grade supply that decision.
+## Daily and weekly cadence
+- Follow the dated P1 assignments in DSA after the mapped study block. Sunday uses oral recall and failed-pattern review.
+- On a missed day, move its P1 work into the next available required-work block before optional work; retain the missed date and the actual attempt date in the ledger. Do not extend December 28 silently.
+- Plan retrieval at approximately +1, +3 and +7 days and a later weekly check. These are review attempts, not fresh unique problems.
+- The changing platform Daily Challenge is optional: inspect its full statement, fit and prerequisites before substituting it for a same-topic P1 slot. Future challenge titles are not known or preassigned.
+- Use W10’s two timed OA sets and W11’s six fixed mocks. Treat a previously seen question as a timed reattempt, not an unseen interview simulation.
+## Independent solving and note destination
+Follow [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/How to Solve Problems|How to Solve Problems]]. The student writes code manually. Captured session prompts are reviewed as records; existing in-class solutions are not counted as new independent work.
+When a real problem is attempted, its note belongs directly in the existing `20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/` folder, named `LC - <id> <title>.md` or `HR - <slug>.md`. Do not create empty solved notes. Record problem URL, exact source bundle, plan, manual solution when written, edge cases, time/space bounds, hint use and next retrieval date. Retain the original problem statement’s contract when adapting professor code.
+## Execution ledger
+| Actual date | Problem/task ID | Elapsed | Independent / assisted | Result and failing cases | Next retrieval |
+|---|---|---|---|---|---|
+No independent attempts have been logged in this build. Append rows only from real execution; do not mark a row complete because its source file or schedule exists.
+## Current state
 | Item | State |
 |---|---|
-| Daily rule | Not established; the older 7-per-day proposal has not been run |
-| Problem-pool targets | Earlier 100+ easy/medium and ~70 hard estimates assumed a 15-week plan. Recalculate for the 2026-10-12 to 2026-12-28 window before selecting problems. |
-| Resource stack | Locked 2026-10-04 after a direct competitor search (web + vault) confirmed nothing beats the picks above — see Resources Considered and Rejected |
-| Solved-problem note location/template | Not yet decided — next build item |
-| Dataview surfacing of solved problems | Planned, not yet built — waiting on enough real notes to query |
-| Current execution | 0 daily LeetCode or interview-practice problems; Homework 1-3 complete; Unit 1-4 session problems solved in class per user report and not counted toward daily practice |
+| Syllabus | Correct Direct-to-Student PDF extracted and reconciled |
+| Units 1-5 | All landed captures mapped; 21 incomplete alternate entries held |
+| Resource choices | Confirmed roles above; exact selected statements checked |
+| Weekly schedule | Eleven dated preparation weeks and December 28 closeout in DSA |
+| Homework 1-3 | Complete, per user and notes |
+| Unit 5 solving | Unknown |
+| Independent practice | 0 at baseline |

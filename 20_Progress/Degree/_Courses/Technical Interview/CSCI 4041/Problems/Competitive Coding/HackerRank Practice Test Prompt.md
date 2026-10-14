@@ -3,6 +3,7 @@ type: class
 input_kind: project
 status: sprout
 created: 2026-08-30
+updated: 2026-10-13
 area:
   - "[[CSCI 4041 Board]]"
   - "[[DSA]]"
@@ -15,6 +16,9 @@ related:
   - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Introduction to Algorithms|Introduction to Algorithms]]"
 ---
 # HackerRank Practice Test Prompt
+
+## Execution status
+This is a legacy guided walkthrough prompt. It is not the current independent-practice plan. Any answers generated through it count as assisted work. Use [[20_Progress/Degree/_Courses/Technical Interview/DSA|DSA]] for dated assignments and [[20_Progress/Degree/_Courses/Technical Interview/Problems Solver#Execution ledger|the execution ledger]] for actual results. The fixed nine-question format belongs to this historical prompt, not every HackerRank assessment. Weekly vault notes now live under `CSCI 4041/Weekly/`.
 
 ## Purpose
 Standalone prompt for a fresh Claude Desktop (Sonnet 5, high effort, Cowork mode) session to solve a HackerRank practice test strictly from CSCI 4041 professor materials, with zero reliance on training data or web search. Paste the block below verbatim into that session, then attach the question screenshots.
@@ -55,19 +59,19 @@ Questions will arrive as images pasted into this chat, one or more at a time, po
 Two directories are authoritative. Read from them with your filesystem tools (open/list/read the actual files - do not answer from a directory listing alone).
 
 Directory A - Jarvis vault notes (my own distilled notes on this course):
-`D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\Degree\CSCI 4041`
+`D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\_Courses\Technical Interview\CSCI 4041`
 This includes, and you must treat all of the following as in-scope and re-check them for every single question, not just once at the start of the session:
-- `D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\Degree\CSCI 4041\Concepts` (all subfolders: Algorithms, Data Structures & Methods, Graphs, Trees, plus DSA.md, Introduction to Algorithms.md, Time Complexity.md)
-- `D:\Users\_Anant\10_Areas\Documents\Jarvis\20_Progress\Degree\CSCI 4041\Textbook` (Chapter - 1 & 2.md, Chapter - 3 & 4.md, Chapter - 6 & 12.md, Chapter - 7 & 10.md, Chapter - 11.md, Chapter - 13.md, Chapter - 14.md, Chapter - 15.md, Chapter - 18.md, Chapter - 20.md, Chapter - 21.md, Chapter - 22.md, Chapter - 23.md, Chapter - 24.md, Introduction to Algorithms.md)
+- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\_Courses\Technical Interview\CSCI 4041\Concepts` (all subfolders: Algorithms, Data Structures & Methods, Graphs, Trees, plus DSA.md, Introduction to Algorithms.md, Time Complexity.md)
+- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\_Courses\Technical Interview\CSCI 4041\Textbook` (Chapter - 1 & 2.md, Chapter - 3 & 4.md, Chapter - 6 & 12.md, Chapter - 7 & 10.md, Chapter - 11.md, Chapter - 13.md, Chapter - 14.md, Chapter - 15.md, Chapter - 18.md, Chapter - 20.md, Chapter - 21.md, Chapter - 22.md, Chapter - 23.md, Chapter - 24.md, Introduction to Algorithms.md)
 - Every weekly note in the root of that folder: `Week - 1 & 2.md`, `Week - 3.md`, `Week - 4.md`, `Week - 5.md`, `Week - 6.md`, `Week - 7.md`, `Week - 8.md`, `Week - 9.md`, `Week - 10.md`, `Week - 11.md`, `Week - 12.md`, `Week - 13.md`, `Week - 14.md`. These are mandatory reading for every question, not optional context - my professor's specific framing and emphasis live here.
 - `CSCI 4041 Board.md` for how the course topics are organized.
 
 Directory B - UMN class workspace (the professor's raw, original materials):
-`D:\Users\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4041`
+`D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4041`
 This includes, and is equally mandatory:
-- `D:\Users\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4041\Lectures` and every `Week - N` subfolder inside it (Week - 1 & 2 through Week - 14) - these .ipynb notebooks are the professor's actual lecture code and are the primary source for coding-question style.
-- `D:\Users\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4041\Textbook` (Introduction to Algorithms - DSA.pdf, ITA Part 1.pdf)
-- `D:\Users\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4041\Homework\Coding` (CodingHW_1 through CodingHW_9, plus the Ch10/Ch11/Ch12/Ch6/Ch20 notebooks) - use these to confirm the professor's problem-style and function conventions, never as the source of an actual test answer.
+- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4041\Lectures` and every `Week - N` subfolder inside it (Week - 1 & 2 through Week - 14) - these .ipynb notebooks are the professor's actual lecture code and are the primary source for coding-question style.
+- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4041\Textbook` (Introduction to Algorithms - DSA.pdf, ITA Part 1.pdf)
+- `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4041\Homework\Coding` (CodingHW_2 through CodingHW_9; CodingHW_1 is absent from the inspected workspace, plus the Ch10/Ch11/Ch12/Ch6/Ch20 notebooks) - use these to confirm the professor's problem-style and function conventions, never as the source of an actual test answer.
 - `Midterm_Project` and `Final Project` subfolders only if a question's topic maps onto AVL/Red-Black/Multiway trees or graph material covered there - otherwise skip them.
 - Ignore any "Additional Material" shortcut file if you encounter one.
 

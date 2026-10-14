@@ -85,10 +85,12 @@ if want tmux; then
   elif have tmux "tmux 3.8" && [ "$(command -v tmux)" = "$BIN/tmux" ]; then say "  tmux already 3.8"
   elif [ "$DRY" = 1 ]; then say "  would build libevent 2.1.13 (static, ~/.local/libevent) and tmux 3.8 into ~/.local/bin"
   elif ! { command -v gcc >/dev/null && command -v make >/dev/null && command -v pkg-config >/dev/null; }; then fail "tmux build needs gcc, make, pkg-config"
-  elif ! { command -v yacc >/dev/null || command -v bison >/dev/null; }; then
-    say "  tmux 3.8 needs yacc/bison, which is not installed. One sudo line, then rerun with --only tmux:  sudo apt install -y bison"
-    say "  (tmux stays on the apt 3.4 until then; the golden .tmux.conf works on 3.4 and 3.8)"
   else
+    # configure insists on yacc, but the release tarball ships a pre-generated cmd-parse.c, so a no-op stub is enough (no sudo needed)
+    if ! { command -v yacc >/dev/null || command -v bison >/dev/null; }; then
+      mkdir -p "$W/stub"; printf '#!/bin/sh\nexit 0\n' > "$W/stub/yacc"; chmod +x "$W/stub/yacc"; export PATH="$W/stub:$PATH"
+      say "  no yacc/bison: using a stub (the tarball ships cmd-parse.c)"
+    fi
     if ! ( cd "$W" && fetch https://github.com/libevent/libevent/releases/download/release-2.1.13-stable/libevent-2.1.13-stable.tar.gz f7e9383b8c0baa81b687e5b5eecc01beefaf1b19b64151d95ed61647fe7a315c le.tgz \
       && tar -xzf le.tgz && cd libevent-2.1.13-stable && ./configure --prefix="$LE" --disable-shared --disable-openssl --disable-samples --disable-libevent-regress >/dev/null && make -j4 >/dev/null && make install >/dev/null ); then fail "libevent build"; fi
     if ! ( cd "$W" && fetch https://github.com/tmux/tmux/releases/download/3.8/tmux-3.8.tar.gz e79c699c7e949dccd0a4a125e17b8d1261e311b16979dbc8eb34542f3966d82e tmux.tgz \

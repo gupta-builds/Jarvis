@@ -3,7 +3,7 @@ type: class
 input_kind: preparation
 status: sprout
 created: 2026-09-09
-updated: 2026-10-13
+updated: 2026-10-14
 area:
   - "[[CSCI 4511W Board]]"
 tags:
@@ -70,6 +70,23 @@ Lecture 02 is Week 2. Do not relabel it as the Week 1 introductory lecture. Lect
 ### Long Quiz 1 verified scope and constraints
 Lecture 10, slide 2, states October 14, 45 minutes, two pages of notes, and all topics including that lecture. The user confirms this scope on October 13. The Board states individual effort and no collaboration. The Fall 2024 sample permits any notes and textbook access; that historical rule does not override the current two-page limit. Whether current textbook access, calculators, electronic notes, or printed-sheet sides are permitted remains unverified.
 Discussion 5 is an explicit review source. Its worked examples cover vacuum-agent scoring, IDDFS versus BFS/UCS, admissibility constraints, five-queens hill climbing, randomness/simulated annealing, and eight-puzzle heuristics. This is useful practice coverage, not evidence that nondeterministic and partially observable search are excluded; Lecture 10 explicitly includes them.
+### Sample Long Quiz — Verified Solutions (longquiz1-f24)
+Solved resourced (open discussion/lecture/textbook, with Python verification), not as a timed 45-minute/2-page dry run — that dry run is still a separate open gate below. Every numeric claim here was independently recomputed, not copied from Discussion 5; the two agree everywhere checked.
+**Answer key**
+| Q | Answer |
+|---|---|
+| 1a | 0 pts, under Discussion 5's "count clean rooms after the action" convention. Flag: the alternate before-action convention gives −1 instead — both verified by brute force over all 16 initial dirt patterns × all slip-outcome sequences, no convention stated on the quiz itself. |
+| 1b | All 4 rooms start dirty; agent Sucks the start room, then all 4 remaining movement attempts slip, so the other 3 rooms are never reached. |
+| 2a | IDDFS's advantage over BFS is memory: a DFS-sized frontier instead of an entire exponential level. |
+| 2b | Prefer UCS over IDDFS when action costs are unequal and the cheapest-cost (not merely shallowest) solution is required. |
+| 3a-e | Yes / No / Yes / Yes / No — each checked against `h(n) ≤ cheapest remaining path cost` at every node, not just the endpoints; compatible cost assignments given in 3a,c,d, violated inequality named in 3b,e. |
+| 4a | Board (a,b,c,d,e rows)=(4,3,1,5,2): swap a-d or b-c, both reach value 10 (tie, either valid). |
+| 4b | Board=(4,3,1,2,5): no improving successor exists (best neighbor ties current at value 8) — strict-improvement steepest-ascent stays put. All 10 successor values for both boards recomputed in Python and matched Discussion 5 exactly. |
+| 5 | Randomness (restarts, occasional worse moves, SA's `e^(ΔE/T)` acceptance) escapes local optima/plateaus that strict hill climbing can't; no finite-run guarantee of success. |
+| 6 | h1 No (scaling by 2 overestimates — one misplaced tile can cost 1 move), h2 Yes (single-tile Manhattan distance is a true lower bound), h3 Yes (each misplaced odd tile needs ≥1 move), h4 No (max inherits h1's overestimate). Counterexample: current `1 2 3/4 5 6/7 _ 8` → goal `1 2 3/4 5 6/7 8 _`, true cost 1, h1=h4=2. |
+**New source conflict found this pass:** `HW & Exams/HW/ps1.pdf` on disk is the *Fall 2026* PS1 (25% slip, +2/clean room, 100 steps) — not the Fall 2024 parameters this practice quiz's own Q1 bullet list specifies (20% slip, +1/clean room, 5 steps). Used only the quiz's self-contained numbers; do not pull vacuum-world constants from that ps1.pdf for this quiz.
+**Reusable mistakes this paper tests:** (1) before- vs after-action reward timing changes the vacuum score by one action's cost — always state the convention; (2) "lowest possible" (adversarial) is not "expected" (80%-success-weighted); (3) fewest-actions (IDDFS/BFS) and cheapest-path (UCS/A*) diverge whenever costs are unequal; (4) admissible bounds *h* against the global cheapest remaining cost, consistent is the local per-edge triangle inequality — not interchangeable; (5) scaling or max-ing a non-admissible heuristic component does not fix it; (6) a tied best-neighbor value (not strictly better) still means strict-improvement hill climbing halts, even with several tied neighbors.
+Full per-question worked derivations, page/slide citations, and verification transcripts are in this session's conversation (2026-10-14); not duplicated here in full to avoid drift from this summary.
 The user's stated constraints are asleep by 11 p.m., wake at 8 a.m., begin review around noon, quiz at 1 p.m. Noon to the quiz leaves one hour. At the user's stated 7 p.m. starting point, the quiz is about 18 hours away, not 24. No additional morning study blocks have been committed. Readiness cannot be inferred from the time available or the existence of notes.
 ### Completion gates for the review
 - [x] Repair and verify the course AIMA environment in the requested Code directory.
@@ -78,7 +95,8 @@ The user's stated constraints are asleep by 11 p.m., wake at 8 a.m., begin revie
 - [ ] Answer the eight Week 1 closed-note questions and record actual misses.
 - [ ] Reconcile Lecture 07 into Week 4, then write source-grounded Week 5 and Week 6 notes from Lectures 08-10 and Chapter 4.
 - [ ] Review all remaining lectures, discussions, assignment mistakes, and available short quizzes; retain a question-level error list.
-- [ ] Solve the sample long quiz under current 45-minute/two-page conditions, then check Discussion 5's explanations.
+- [x] Solve the sample long quiz resourced and verify against Discussion 5 (done 2026-10-14; see Sample Long Quiz section above).
+- [ ] Re-solve the sample long quiz cold, under actual 45-minute/two-page conditions, to test retrieval rather than resourced derivation.
 - [ ] Prepare the permitted two-page notes after the concept/practice pass and verify the remaining resource rules.
 No authenticated Canvas or Gradescope session was used. This environment has no connected course-browser login tool, and no course URL was supplied. Online completeness remains unresolved.
 ## Where the Points Actually Are

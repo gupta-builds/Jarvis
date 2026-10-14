@@ -3,13 +3,13 @@ type: class
 input_kind: preparation
 status: sprout
 created: 2026-09-29
-updated: 2026-10-08
+updated: 2026-10-13
 deadline: 2026-12-28
 area:
   - "[[20_Progress/Degree/_Courses/Technical Interview/Technical Interview|Technical Interview]]"
 tags:
   - "#class"
-next: "Before the 2026-10-12 start, establish the daily problem routine and week-by-week map from verified course materials; finish the interview-prep build by 2026-12-28"
+next: "Recover the missed October 12 planning day on October 13; audit and refresh Units 1-5 this week from landed transcripts and verified CSCI 4041 sources, then keep the December 28 interview-prep deadline"
 ---
 # Technical Interview — Preparation & Sources
 ==The personal preparation plan runs from 2026-10-12 through its hard deadline on 2026-12-28. TIP103's own deadline remains unknown and is not this plan's deadline.==
@@ -20,7 +20,20 @@ This is the personal interview-preparation plan, not the TIP103 course schedule.
 
 **Progress baseline:** daily problem-solving execution is 0. Homework 1-3 are complete. The session problems transcribed for Units 1-4 were already solved during the course sessions; retain their prompts as records and do not solve them again during capture. Session work and transcript capture are not counted as daily LeetCode or interview-practice execution. The user reports completing Unit 1, Session 1.
 
-The weekly map and daily problem schedule have not yet been built. This note establishes their planning window and starting baseline; it does not assign topic weeks or choose problem sets.
+**Day 1 recovery:** The plan's first day was Monday, October 12 and was missed. Tuesday, October 13 is Day 2 and carries the missed setup and audit work. Keep the December 28 deadline fixed. From the start of October 13 to the December 28 deadline is 10 weeks and 6 days; the original October 12-December 28 span contains 11 full Monday-to-Sunday weeks plus the deadline day.
+
+**This week's scope (October 13-18):** establish the complete, source-backed map for TIP103 Units 1-5 and refresh the covered material. Unit 1-4 session prompts are already solved in class. Read and index their captured prompts, identify the concepts and methods each prompt tests, and compare those against the relevant CSCI 4041 lecture, textbook, and concept notes. Do not re-solve the captured session prompts. Unit 5 transcript/session content is not currently established in the vault, so its exact coverage and questions remain an evidence gap until the source is found. The downloaded TIP103 syllabus PDF is the intended authority, but it has not yet been extracted; do not use the older University Partnership copy as current syllabus evidence.
+
+| Day | Recovery work | Completion evidence |
+|---|---|---|
+| Tue Oct 13 (Day 2) | Restore the Day 1 baseline; inventory Units 1-4 transcripts and the Homework 1-3 artifacts; extract and verify the correct TIP103 syllabus if tooling allows. | Course sources and status table reconciled; unknowns labeled. |
+| Wed Oct 14 | Crosswalk Unit 1-2 transcript prompts to the supporting CSCI 4041 notes and record missing interview-specific skills. | Per-session concept and source map for Units 1-2. |
+| Thu Oct 15 | Crosswalk Unit 3-4 transcript prompts to the supporting CSCI 4041 notes; distinguish covered mechanics from interview execution. | Per-session concept and source map for Units 3-4. |
+| Fri Oct 16 | Locate Unit 5 session/transcript and syllabus evidence; if absent, record the exact missing source instead of guessing its topic. | Unit 5 evidence status established. |
+| Sat Oct 17 | Consolidate the Units 1-5 coverage/gap matrix; add textbook/lecture links and mark which topics need new notes or drills. | Reviewable coverage and gap matrix. |
+| Sun Oct 18 | Turn the verified gaps into the next dated weekly problem map; select independent problems only after this audit. | Ordered next-step map; no transcript prompt is counted as new practice. |
+
+The date-by-date work above is a recovery plan, not evidence that the work has already happened. Independent daily problem-solving execution remains 0 until a new problem is attempted and logged.
 ## Course Assessment Notes - Provisional
 Grading is entirely HackerRank unit assessments - no exam, paper, or project grade in CodePath's own structure. Pass at least 6 of 12 gradeable units by the final day, each assessment needs 30 of 60 points, up to 2 attempts per unit, and a **weekly submission** (at least one assessment attempt from any unit, every week) is required regardless of how many units are already passed. The real leverage point is that weekly-submission requirement - skipping a week entirely is the actual failure mode this course punishes, not a low score on any one attempt, since attempts and unit choice are otherwise flexible. A university layer (attendance, extra quizzes) may sit on top of this per [[20_Progress/Degree/_Courses/Technical Interview/Technical Interview|Technical Interview]]'s own unresolved-verification note - check the LMS before assuming CodePath's structure is the whole grade.
 ## Assessment Mechanics in the Copied Syllabus - Provisional
@@ -30,8 +43,21 @@ The automatic 48-hour late extension on every HackerRank assessment is the lowes
 - **[[20_Progress/Degree/_Courses/Technical Interview/Technical Interview|Technical Interview]] has two internal schedule tables that number units differently from each other** (the 16-week sample's Unit 1-10 lecture-topic numbering vs. the grading section's Unit 1-12 HackerRank-assessment numbering) - never assume a "Unit N" mentioned in one table means the same thing in the other, and cross-check both against the live CodePath portal before trusting either.
 - **University policy overrides CodePath's standard syllabus wherever they conflict** - CodePath's own document repeats this caveat under nearly every section.
 - **The borrowed CSCI 4041 material is topical, not structural, overlap** - [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041 Relation|CSCI 4041 Relation]] maps most of TIP103's nine syllabus topics onto it, but UMPIRE, Union-Find, and backtracking-flavored DP have no matching note there - don't assume a revision pass on that folder alone covers everything TIP103 will ask.
+## Unit 1-5 Audit Status
+The landed session transcripts cover Units 1-4, two sessions per unit. Their session prompts were solved during the original course sessions, as reported by the user. Homework 1-3 is complete. The independent daily interview-practice count is 0. These are three separate measures and must stay separate in the log.
+
+| Unit | Landed session coverage | Existing CSCI 4041 support | Known gap to close |
+|---|---|---|---|
+| 1 | Session 1: strings, arrays, UPI. Session 2: strings/arrays, list and string manipulation. | CSCI 4041 has complexity and algorithm-analysis references, but no dedicated string-pattern note. | Add explicit string/array invariants, indexing and edge-case review, frequency/dictionary patterns, two-pointer and sliding-window practice where the transcript supports them, plus UMPIRE/communication practice. Verify exact prompt inventory from the transcripts. |
+| 2 | Session 1: Python functions, lists, strings, dictionaries. Session 2: lists, dictionaries, sets. | Hashing is covered in CSCI 4041 Week 8, CLRS Chapter 11, and the Hashing concept note. | Bridge Python operations to interview pattern selection and complexity; verify which set/dictionary patterns the actual prompts use. |
+| 3 | Session 1: recursion and recursive-function structure. Session 2: stacks, queues, two pointers, strings/arrays. | Recursion and recurrences in Week 3 / CLRS Chapters 3-4; stacks and queues in Week 4 / CLRS 10.1.3 / Elementary Data Structures. | Add call-stack tracing, base/progress/termination checks, iterative-vs-recursive tradeoffs, and interview explanation. The exact two-pointer question mapping must come from transcript review. |
+| 4 | Session 1: Python classes and linked lists. Session 2: binary trees and tree operations. | Linked lists and rooted-tree representation in Week 4 / CLRS Chapter 10; BST operations in Week 5 / CLRS Chapter 12; Elementary Data Structures note. | Bridge Python object/reference behavior to pointer changes; validate tree traversal and operation coverage from prompts. Balance, rotations, and advanced tree analysis are broader CSCI review, not assumed TIP103 coverage. |
+| 5 | No Unit 5 transcript or session evidence is currently indexed in the course note. | Existing CSCI materials include heaps in Week 5 / CLRS Chapter 6 and hashing in Week 8 / CLRS Chapter 11, among many other topics. | Do not assign a TIP103 topic from the older syllabus copy. Find the Unit 5 transcript/course portal entry and verify its topic, prompts, and related assessment before planning it. |
+
+This is a working crosswalk from the landed transcript introductions and the existing CSCI 4041 relation map. It does not establish the official TIP103 unit order or assessments. The local course-specific syllabus PDF has not been successfully extracted during this pass, so schedule, unit-to-assessment mapping, grading, and policies remain unresolved. The current public-facing course note contains a clearly labeled older-edition syllabus copy; it is excluded from this audit's evidence.
+
 ## Study Cadence
-The daily problem routine and weekly topic map for the October 12-December 28 interview-preparation window have not been set. Older workflow notes describe a daily-7 rule and a one-topic-ahead rhythm, but these are prior planning assumptions, not evidence of work already completed or confirmed requirements from the course-specific syllabus. Establish the routine and weekly map after the correct syllabus and existing course material are reconciled.
+The dated recovery plan above covers the missed Day 1 setup and the current Units 1-5 audit. The full October 13-December 28 weekly problem map and daily problem schedule remain to be built from verified topic coverage. Older workflow notes describe a daily-7 target and one-topic-ahead rhythm; neither is evidence of completed execution or a confirmed requirement of the correct syllabus. Choose a feasible routine only after the unit audit is complete.
 ## Resources & Source Directories
 **Live course material** (once logged in): CodePath Course Portal and HackerRank - the actual unit content and assessments. A `TIP 103` folder now exists at `D:\Users\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4041\TIP 103\` for CodePath-specific material as it's gathered - currently empty as of 2026-09-29, the first thing to fill once the portal has been logged into.
 **The borrowed course's original source** - `D:\Users\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4041\` holds everything CSCI 4041 actually ran on: `Textbook\` (the real CLRS-style PDF, `Introduction to Algorithms - DSA.pdf`, plus `ITA Part 1.pdf`), `Lectures\Week - N\` (one folder per week, the real slides/notebooks this vault's Weekly notes were built from), `Homework\Coding\` and `Homework\Paper\`, `Midterm_Project\`, and `Final Project\`. This is the ground truth to pull from when [[Technical Interview Workflow]]'s textbook-enrichment rule calls for widening a thin chapter note - go to the real PDF, not general knowledge of CLRS.

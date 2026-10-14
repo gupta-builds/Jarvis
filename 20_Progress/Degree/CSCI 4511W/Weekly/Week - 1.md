@@ -59,7 +59,7 @@ For this review, start with [1.1](https://aimacode.github.io/aima-exercises/intr
 ## Key ideas (short)
 - **Rational agent**: choose actions that maximize expected performance from available evidence. Human imitation is a different goal; the Turing test provides a behavioral criterion for it.
 - **PEAS** gives the vocabulary for specifying what an agent *is* — formal treatment arrives in Ch 2, but the intro lecture introduced all four terms.
-- **Vacuum World** is the course's canonical toy domain: two rooms, dirt states, three actions — concrete enough to trace every PEAS component without ambiguity.
+- **Vacuum World** starts with a two-room toy domain. PS1 and the sample quiz use different four-room versions; action sets, slip probabilities, and scoring must come from the specific prompt.
 - Turing's move: replace a philosophical question with a behavioral test, then pre-empt 9 classes of objection. The nine-objection structure is the real content of the 1950 paper.
 - **Learning machines**: Turing separates initial structure, education, and experience. His proposal includes reward and punishment, symbolic instruction, evolutionary variation, and random search; it is broader than supervised learning.
 ## Concepts created today
@@ -67,7 +67,7 @@ No concept note was created during the original Week 1 capture. These canonical 
 - [[20_Progress/Degree/CSCI 4511W/Concepts/Concept - PEAS Framework|PEAS Framework]]
 - [[20_Progress/Degree/CSCI 4511W/Concepts/Concept - Rational Agent|Rational Agent]]
 ## Examples worth keeping
-- **Vacuum World**: Two rooms (A and B), each dirty or clean; agent at one position; actions are MoveLeft, MoveRight, Suck. Performance measure rewards clean rooms and penalizes excess moves. Every PEAS component is traceable on one line.
+- **Vacuum World** (Chapter 2/AIMA reconstruction): two rooms, each dirty or clean; agent at one location; movement and suction actions. The local `TrivialVacuumEnvironment` uses `Left`, `Right`, and `Suck`, awarding 10 for cleaning dirt and charging 1 per move. The sample quiz instead awards clean-room points each step and charges each non-Nop action.
 - **Autonomous taxi** (Ch 1 worked example): Optimized only for "arrive quickly," the taxi will speed, run red lights, and trade passenger safety for time. Illustrates that the performance measure IS the agent design — a bad specification produces harmful behavior regardless of agent capability.
 ## Lecture
 ### Lecture 9/9/2026 — Course Intro (live capture)
@@ -77,7 +77,7 @@ No concept note was created during the original Week 1 capture. These canonical 
 3. **Actuators** — how the agent acts on the environment
 4. **Sensors** — how the agent perceives the environment
 #### Vacuum World
-*(heading present in capture but content not recorded during lecture — see Examples worth keeping above for the full example from Chapter 1)*
+*(Heading present in capture but content not recorded during lecture. The Chapter 2/AIMA reconstruction above is separate from this protected capture.)*
 ### Discussion 9/11/2026 — Turing 1950
 Reading: A. M. Turing, "Computing Machinery and Intelligence," *Mind* 59(236) (1950): 433-460 (`turing.pdf` in course source folder). The local reprint says volume 49; the [publisher record](https://doi.org/10.1093/mind/LIX.236.433) confirms volume 59.
 No live discussion-section capture exists for this session. Key claims from the paper are recorded in [[20_Progress/Degree/CSCI 4511W/Discussion/Discussion 1 — Turing 1950|Discussion 1 — Turing 1950]].
@@ -111,7 +111,7 @@ Answer before rereading. Record which answer fails, then return to its source. N
 ==Week 1 connects an observable test of human-like behavior with the book's engineering target: choosing actions that maximize expected performance in a specified task environment.==
 
 *Mechanism:* Chapter 1 distinguishes four research goals using human/rational and thought/behavior axes. The book chooses rational action because it is broader than correct inference and supports general mathematical analysis. Turing's imitation criterion addresses a different question: whether a machine's written behavior can be distinguished from a person's. PEAS specifies the task in which an agent acts. The performance measure evaluates success externally; an internal utility function may help an agent choose actions, but these are different objects. Computing a perfectly rational action can itself be intractable.
-- Lecture example/scenario: Vacuum World — Performance = clean rooms minus excess moves; Environment = two rooms with independent dirt states; Actuators = MoveLeft, MoveRight, Suck; Sensors = current room + dirty/clean. The whole PEAS spec fits on one line.
+- Introductory example, reconstructed from Chapter 2: Vacuum World. Specify the cleaning objective and movement cost, two-room environment, movement/suction actuators, and location/dirt sensors. The original September 9 board example is missing, so its exact numeric scoring is unknown.
 - Textbook connection: [[20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 1|Chapter 1]] §1.1.4 explains why rational action beats logicism when knowledge is partial, and the worked taxi example shows why a badly specified performance measure produces instrumentally harmful behavior regardless of agent capability.
 - Concept links: [[20_Progress/Degree/CSCI 4511W/Concepts/Concept - PEAS Framework|PEAS Framework]] and [[20_Progress/Degree/CSCI 4511W/Concepts/Concept - Rational Agent|Rational Agent]].
 > [!WARNING]
@@ -121,7 +121,7 @@ Answer before rereading. Record which answer fails, then return to its source. N
 > Week 1 establishes task vocabulary, distinguishes human imitation from rational action, and introduces learning as an alternative to programming every intelligent response.
 ## Flashcards
 #cards/csci4511w
-What is the **Vacuum World performance measure**?::Rewards clean rooms; penalizes excess moves. The exact tradeoff matters — a measure that only rewards "clean" without penalizing unnecessary suck calls produces wasteful behavior even in a simple two-room world. #cards/csci4511w
+Why must you check the **Vacuum World performance measure** in each prompt?::The textbook, AIMA implementation, PS1, and sample quiz use different reward and cost conventions. A score is meaningful only after specifying the time horizon, initial state, action costs, and whether scoring occurs before or after each action. #cards/csci4511w
 Why is the **rational-agent** approach broader than the laws-of-thought approach?::Correct inference is one mechanism for good action. Reflexes and learned policies can also act rationally, and decisions under uncertainty require expected-outcome reasoning. #cards/csci4511w
 What does Turing replace "Can machines think?" with, and why?::The **Imitation Game** — because "think" is too vague to define rigorously. The game tests whether a machine's written responses are indistinguishable from a person's, isolating intellectual from physical capacity. #cards/csci4511w
 What is Turing's response to the **Argument from Consciousness** (Jefferson 1949)?::Insisting the machine must genuinely feel leads to solipsism — the only way to know a *human* thinks is to be that person. The Imitation Game replaces the unprovable subjective criterion with a behavioral one both sides can evaluate. #cards/csci4511w

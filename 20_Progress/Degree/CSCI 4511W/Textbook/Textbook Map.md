@@ -3,13 +3,13 @@ type: class
 input_kind: textbook
 status: sprout
 created: 2026-09-09
-updated: 2026-10-02
+updated: 2026-10-13
 area:
   - "[[CSCI 4511W Board]]"
 tags:
   - "#class"
   - "#Textbook"
-next: "Run Chapter 5 Gemini Notebook prompts from [[20_Progress/Degree/Repetitive Things|Repetitive Things]] before Week 7 (10/19); add Lecture 07 connection to Chapter - 3 and Weeks 5–6 connections to Chapter - 4 once those lecture PDFs land"
+next: "Reconcile Chapters 3-4 with available Lectures 07-10 and complete the Week 5-6 layer before Long Quiz 1"
 ---
 # CSCI 4511W — Textbook Map
 ==Resolved 2026-09-15: the entire semester's reading list is one textbook, Russell & Norvig's *Artificial Intelligence: A Modern Approach* (4th ed.), Chapters 2-9 - the earlier "second uncited source for Chapter 7" concern was a scrambled-paste artifact, not a real gap.== Cross-referenced against the full Schedule section in [[CSCI 4511W Board]].
@@ -38,4 +38,5 @@ Due 12/14, inside its own module ("Modern Approaches: Vector Semantics"), with n
 ## Standard
 Each chapter note, once created, follows [[Textbook Template]] - one highlight anchor, bolded key concepts, a worked example, a connection back to the matching lecture, and flashcards.
 ## Status
+October 13 verification: the primary source folder contains Lectures 07-10, so earlier statements below that they have not landed are historical. Chapter 1 occupies PDF pp. 30-94 in the 2,145-page local file and was checked again this session. Assigned quiz coverage reaches Chapter 4 §4.4 and Lecture 10. [[20_Progress/Degree/CSCI 4511W/Preparation|Preparation]] records every local course source and the author-linked online exercise banks. Later lecture-to-textbook reconciliation and personal recall remain open.
 Four chapter notes are now written. Chapters 1–2 were reviewed directly from the local 4th-edition PDF on 2026-09-20. Chapter 1 is background rather than a dated Canvas reading; Chapter 2 is the first scheduled textbook unit. Chapters 3 and 4 were generated from the NotebookLM prompts in [[20_Progress/Degree/Repetitive Things|Repetitive Things]] (prompts added 2026-09-28) and reconciled on 2026-10-02: merged from 5-part (Ch.3) and 2-part (Ch.4) concatenated fragments into single well-formed notes, fixed frontmatter, stripped garbled citation artifacts, and added Key Concepts for all sections. Lecture connections for Lectures 07 (Ch.3 §3.6) and Weeks 5–6 (Ch.4) remain pending until those lecture PDFs land. The notes are self-contained source-grounded study notes; the weekly lecture-synthesis layer remains separate, per [[Weekly Standard]].

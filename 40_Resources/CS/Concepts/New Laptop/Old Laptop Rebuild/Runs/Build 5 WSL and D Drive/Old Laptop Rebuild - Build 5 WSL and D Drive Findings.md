@@ -160,6 +160,21 @@ Commands the user ran: none yet in this build.
 - VHDX shrinking is not built in; reports in [microsoft/WSL#4699](https://github.com/microsoft/WSL/issues/4699), [#10703](https://github.com/microsoft/WSL/issues/10703), [#12103](https://github.com/microsoft/WSL/issues/12103). Community-reported, not official.
 - [Advanced Drive for desktop configuration](https://support.google.com/a/answer/7644837): `ContentCachePath`, `ContentCacheMaxKbytes`, registry scopes. [Customize Drive for desktop settings](https://support.google.com/drive/answer/13470231): new backup folders cannot be configured in the app from 2026-06-15, Photos backup ends 2026-08-10, Mirror applies to My Drive in a chosen folder, and the local cache cannot sit inside a mirrored folder.
 
+## Build 5b (2026-10-13, later): toolkit upgrade, tarball, duplicates, Cursor, ChatGPT
+| Topic | Result |
+|---|---|
+| sudo step | User ran `build5-sudo-step.sh`: socat installed, WSL Ollama disabled, succeeded |
+| Golden configs | `WSL Parity/golden/home` applied with `37-toolkit-apply.sh` (13 files, 0 fails); see [[WSL Toolkit Config Reference]] |
+| Upgrades | gh 2.102.0, fzf 0.74.5, rg 15.2.0, fd 10.5.0, bat 0.26.1, lazygit 0.66.1, sesh 2.33.0, gh-dash 4.26.1, node 24.21.0; previous binaries in `~/.local/bin/.prev/`; tmux held at 3.4 (3.8 needs `sudo apt install -y bison`) |
+| Tarball | Export of the old Ubuntu from 2026-01-15. 21.7 GB of 36.75 GiB is a Rust `target/` folder from `boom`; also 3.5 GB `src/boom`, 1 GB `/root/boom`, toolchains and caches. Nothing references it. Quarantine after a verified export |
+| DCIM duplicates | 916 groups, 918 extra copies, 3,799 MiB; every extra copy verified with `cmp`; deletion run with `62-dcim-dedupe.sh --apply`, log in `~/.local/state/dcim-delete-*.tsv` |
+| Repo audit scope | 18 own repos (the 55 `.git` entries include 37 third-party clones under `second-brain-claudekit/sandbox`). Editor contract added (untracked) to opspilot, safereach, Learning-Tracker-Tool; `jan` and `boom` are upstream clones, skipped |
+| Cursor | Interrupted in-place update 3.19.7 to 3.19.13 on 2026-09-06; `Cursor.exe` stranded in `_\`; repair in `60-build5b-host.ps1` (user runs) |
+| ChatGPT | Classic = `OpenAI.ChatGPT-Desktop`, new "ChatGPT" = `OpenAI.Codex`; Classic removal in `60-build5b-host.ps1` |
+| Tailscale | No need to turn it off for the export; do not use `tailscale down` (persists). Clean stop: `sudo systemctl stop tailscaled` |
+| Quarantine path | Now `D:\Backup\Quarantine` |
+Corrections to Build 5: `core.fsmonitor` was a no-op on Linux and was removed; my cleanup deleted `~/.cache/node` (Corepack pin) and pnpm was restored to 10.33.2. Waiting on the user: run `60-build5b-host.ps1`, decide the pnpm major and tmux version. Future work: [[Old Laptop Rebuild - C Drive AI Platforms Audit (future build)]].
+
 ## Growth rules
 Standing rule: nothing is removed unless it is a regenerable cache or the user approved it; every move goes to a dated quarantine; every config change keeps a timestamped backup in `~/.config/.toolkit-backups/`.
 | What grows or drifts | Rule | One check command |

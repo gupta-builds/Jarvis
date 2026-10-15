@@ -2,7 +2,7 @@
 type: note
 status: sprout
 created: 2026-10-13
-updated: 2026-10-13
+updated: 2026-10-15
 course: Life
 track:
   - laptop
@@ -16,7 +16,7 @@ related:
   - "[[Old Laptop Rebuild - Anant Folder Consolidation and Drive Plan (later build)]]"
   - "[[Google Drive Sync Policy]]"
   - "[[Installations]]"
-next: "Status 2026-10-14: sudo step done, DCIM dedupe done, ChatGPT Classic removed. Still open for you: Cursor repair and the fresh WSL export plus old-tar quarantine (60-build5b-host.ps1 stages). Acer applies the Build 5b handoff. See the Index ledgers."
+next: "Status 2026-10-15: closed on the Dell. Cursor repaired, fresh WSL export verified (54.47 GiB, no import test) and the old tar quarantined, leftovers moved (Build 4b). Only the Acer applying the Build 5b handoff is open. See the Index ledgers."
 ---
 # Old Laptop Rebuild - Build 5 WSL and D Drive Findings
 

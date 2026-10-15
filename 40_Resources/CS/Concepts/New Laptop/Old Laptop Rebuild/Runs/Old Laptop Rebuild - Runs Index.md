@@ -2,7 +2,7 @@
 type: note
 status: sprout
 created: 2026-10-13
-updated: 2026-10-14
+updated: 2026-10-15
 course: Life
 track:
   - laptop
@@ -15,7 +15,7 @@ related:
   - "[[Old Laptop Rebuild - Index]]"
   - "[[Old Laptop Rebuild - Index History (to 2026-10-12)]]"
   - "[[C Drive Bloat - Failure Log and Prevention Rules]]"
-next: "When Build 4b, 5b, 6, 7 or 8 closes, add its folder and a results row here"
+next: "When Build 5b, 6, 7 or 8 closes, add its folder and a results row here"
 ---
 # Old Laptop Rebuild - Runs Index
 
@@ -27,8 +27,9 @@ Everything that has already been run for the Dell rebuild: the prompt that was s
 | `Build 1 WSL/` | prompt and findings |
 | `Build 2 VS Code and Two-Laptop/` | prompt and findings (Acer-side Phase 4 items are still open and live in the Index) |
 | `Build 3 Windows Cleanup/` | the combined prompt note (Build 3 ran; its Build 4 half is superseded), the findings, and the 3b snapshot and watch note |
-| `Build 4 Windows Toolkit/` | prompt and findings (Phases 1 to 4 ran; Build 4b continues them) |
-| `Build 5 WSL and D Drive/` | prompt and findings (three Dell host commands and the Acer sync are still open) |
+| `Build 4 Windows Toolkit/` | prompt and findings (Phases 1 to 4 ran; the Build 4b results are the last section of the findings note) |
+| `Build 4b Dell Leftovers and Tailscale/` | the Build 4b prompt (its results live in the Build 4 findings note, section "Build 4b") |
+| `Build 5 WSL and D Drive/` | prompt and findings (closed on the Dell 2026-10-15; only the Acer sync is open) |
 | `_backups/` | every dated `.bak`, `.pre-*` and pre-merge copy, the two Index copies from the Windows and WSL sessions, and `sync-conflicts-20261013/` |
 | this folder | [[Old Laptop Rebuild - Index History (to 2026-10-12)]] and this note |
 
@@ -39,14 +40,15 @@ Everything that has already been run for the Dell rebuild: the prompt that was s
 | Build 2, WSL VS Code and two-laptop SSH | 2026-10-07 to 10-12 | [[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]] | [[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]] | Tailscale in WSL, direct path to the Acer, plain SSH to the canonical checkout proven; Acer-side items open |
 | Build 3, Windows C: cleanup | 2026-10-11 to 10-12 | [[Old Laptop Rebuild - Windows Prompts (Build 3 C Drive Cleanup and Build 4 Terminal Parity)]] | [[Old Laptop Rebuild - Build 3 Windows Cleanup Findings]], [[Old Laptop Rebuild - Build 3b C Drive Snapshot Structure and Watch]] | C: free 39.5 to about 145 GiB, caches and apps moved to D:, layout contract, weekly clean and daily watch tasks |
 | Build 4, Windows toolkit (Phases 1 to 4) | 2026-10-11 to 10-13 | [[Old Laptop Rebuild - Build 4 Prompt (Windows Toolkit)]] | [[Old Laptop Rebuild - Build 4 Windows Toolkit Findings]] | PowerShell 7, Starship, font, zoxide, fzf, fd, bat, delta, NanaZip, pnpm, Node 24, standalone uv installed; Python 3.13.5 and Chocolatey removed; 104 PASS; Terminal One Half Dark with `IosevkaTerm Nerd Font`; catalog and Acer run not done |
-| Build 5, Dell WSL parity and tools | 2026-10-13 to 10-14 | [[Old Laptop Rebuild - Build 5 Prompt (WSL Parity and D Drive)]] | [[Old Laptop Rebuild - Build 5 WSL and D Drive Findings]] | configs equal to the Acer's (27 exact), golden set applied, ruff, shellcheck, shfmt, Miniconda, tmux 3.8, pnpm 12.4.2, 5.9 GB of caches freed, upkeep timers, DCIM duplicates deleted (3,799 MiB), socat in, WSL Ollama off, ChatGPT Classic removed; Cursor repair and the fresh export are still waiting for you |
+| Build 4b, Dell leftovers and Tailscale | 2026-10-14 to 10-15 | [[Old Laptop Rebuild - Build 4b Prompt (Dell Leftovers and Tailscale)]] | section "Build 4b" of [[Old Laptop Rebuild - Build 4 Windows Toolkit Findings]] | Cursor root cause fixed (force-kill during its updater), WSL exported (54.47 GiB, listing verified, no import test) and the old tar quarantined, Windows Ollama up, OpenClaw and dead startup entries removed, catalog, agent guide, Installations and Acer run sheet written, Build 5 leftovers quarantined; Firecrawl key removed from `.bashrc` but still accepted by Firecrawl |
+| Build 5, Dell WSL parity and tools | 2026-10-13 to 10-14 | [[Old Laptop Rebuild - Build 5 Prompt (WSL Parity and D Drive)]] | [[Old Laptop Rebuild - Build 5 WSL and D Drive Findings]] | configs equal to the Acer's (27 exact), golden set applied, ruff, shellcheck, shfmt, Miniconda, tmux 3.8, pnpm 12.4.2, 5.9 GB of caches freed, upkeep timers, DCIM duplicates deleted (3,799 MiB), socat in, WSL Ollama off, ChatGPT Classic removed; Cursor repair, the fresh export and the tar quarantine were finished in Build 4b |
 
 Note on the Build 5 prompt: this folder holds the copy that was filed. A later copy with the readiness-audit corrections (WSL 3.0.3.0, the `wsl ~` start instructions) sits in `_backups/sync-conflicts-20261013/`.
 
 ## Parent folder map (`New Laptop/`, classified 2026-10-14)
 | Note or folder | Role | State | Action taken |
 |---|---|---|---|
-| [[Installations]] | living inventory | WSL half current, Windows half pre-rebuild | two bullets corrected; Build 4b rewrites the tables |
+| [[Installations]] | living inventory | both halves current as of 2026-10-15 | Windows tables rewritten in Build 4b; Acer Windows side and Growth-rules pointers added |
 | [[Ubuntu - WSL]] | living WSL reference, now also the Acer audit | current | none |
 | [[New Laptop Setup]] | original Acer setup plan | historical | none |
 | `Acer Live State 2026-09-16` | Acer snapshot | historical | none |
@@ -58,4 +60,4 @@ Note on the Build 5 prompt: this folder holds the copy that was filed. A later c
 | `Sync/` | Cross-Laptop Sync builds 1 to 13 with their own roadmap, plus the Drive policy | its prompts (Build 7, Build 11) already ran | none |
 
 ## What still has no run
-Build 4b (catalog, agent guide, Acer run sheet), Build 5b (the Acer handoff note is ready), Builds 6, 7 and 8 (prompts not written). The Index holds the open-work ledgers for the Dell and the Acer.
+Build 5b and the Windows toolkit run on the Acer (both handoffs are ready), and Builds 6, 7 and 8 (prompts not written). New living notes from Build 4b: [[Machine Toolkit - Tool Use Cases and Agent Guide]] and, in `Windows Toolkit/`, [[Acer Run Sheet - Windows Toolkit]]. The Index holds the open-work ledgers for the Dell and the Acer.

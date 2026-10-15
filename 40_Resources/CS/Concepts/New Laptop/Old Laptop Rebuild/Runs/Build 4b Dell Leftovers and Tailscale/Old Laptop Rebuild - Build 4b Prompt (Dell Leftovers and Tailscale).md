@@ -2,7 +2,7 @@
 type: note
 status: sprout
 created: 2026-10-14
-updated: 2026-10-14
+updated: 2026-10-15
 course: Life
 track:
   - laptop
@@ -20,9 +20,12 @@ related:
   - "[[Old Laptop Rebuild - Build 2 SSH Runbook]]"
   - "[[Old Laptop Rebuild - Build 2 Acer Handoff]]"
   - "[[Acer Session Handoff - Toolkit Sync (Build 5b)]]"
-next: "Send this prompt in Claude Code (PowerShell, Dell, Sonnet 5.5, effort high). It is a back-and-forth session that closes Builds 1 to 5 on the Dell. Then Build 5b on the Acer."
+next: "Ran 2026-10-14 and 15; do not send again. Results: section Build 4b of the Build 4 findings note. Open: the Firecrawl key (Index item D1) and everything that needs the Acer."
 ---
 # Old Laptop Rebuild - Build 4b Prompt (Dell Leftovers and Tailscale)
+
+> [!NOTE] Ran 2026-10-14 and 2026-10-15
+> This prompt is finished and filed under Runs/. Results, commands, root causes and Growth rules are in the Build 4b section of [[Old Laptop Rebuild - Build 4 Windows Toolkit Findings]]. Two deviations from the text below: Cursor's auto-update was kept on (the user's decision) and the root cause was fixed in the script instead, and Part B1 and B2 were declined.
 
 Written 2026-10-14. It closes everything still open on the Dell for Builds 1 to 5: the Build 4 remainder, the Build 5 host steps that failed on 2026-10-14, and the Tailscale and SSH items left from Build 2.
 

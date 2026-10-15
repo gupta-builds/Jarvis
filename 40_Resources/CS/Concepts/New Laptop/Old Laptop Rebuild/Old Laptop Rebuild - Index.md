@@ -20,12 +20,12 @@ related:
   - "[[WSL Toolkit Config Reference]]"
   - "[[Old Laptop Rebuild - Anant Folder Consolidation and Drive Plan (later build)]]"
   - "[[Old Laptop Rebuild - C Drive AI Platforms Audit (future build)]]"
-next: "1) You: Dell-side host-key read and the Acer WSL update script. 2) Dell session: Acer parity matrix and one 20-apply-configs.ps1 run. 3) Decide the Acer's 4 local-only internship commits. 4) Discussion: the role of WSL on the Acer. 5) Revoke the Firecrawl key (Dell D1). 6) Write Builds 6, 7 and 8."
+next: "1) You: the Acer WSL update script. 2) Dell session: Acer parity matrix and one 20-apply-configs.ps1 run. 3) Decide the Acer's 4 local-only internship commits. 4) Discussion: the role of WSL on the Acer. 5) Revoke the Firecrawl key (Dell D1). 6) Write Builds 6, 7 and 8."
 ---
 # Old Laptop Rebuild - Index
 
 ## One-Line Answer
-==The old Dell (Latitude 5530) is rebuilt to match the Acer in sessions run one layer at a time. Builds 1 to 5 are closed on the Dell (2026-10-15). On the same day the Acer visit ran and finished: Build 5b (WSL toolkit sync, including socat and the narrowed `~/.mcp.env`), the Windows toolkit Parts 0 to 3, and the Build 2 SSH items. Two user actions remain (the Dell-side host-key read and the WSL platform update script), plus the decisions in the Acer ledger. Then the discussion about what WSL is for on the Acer.==
+==The old Dell (Latitude 5530) is rebuilt to match the Acer in sessions run one layer at a time. Builds 1 to 5 are closed on the Dell (2026-10-15). On the same day the Acer visit ran and finished: Build 5b (WSL toolkit sync, including socat and the narrowed `~/.mcp.env`), the Windows toolkit Parts 0 to 3, and the Build 2 SSH items. One user action remains (the WSL platform update script), plus the decisions in the Acer ledger. Then the discussion about what WSL is for on the Acer.==
 
 ## Where things are (reorganised 2026-10-14)
 | Place | Holds |
@@ -41,7 +41,7 @@ next: "1) You: Dell-side host-key read and the Acer WSL update script. 2) Dell s
 | Build | Layer | State | Prompt | Findings |
 |---|---|---|---|---|
 | 1 | WSL layer | run, done | [[Old Laptop Rebuild - Prompt 1 WSL]] | [[Old Laptop Rebuild - Build 1 WSL Findings]] |
-| 2 | WSL VS Code and two-laptop SSH | run; Dell part done; Acer-side items run 2026-10-15 (only the independent host-key comparison and the repo pilot approval remain) | [[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]] | [[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]] |
+| 2 | WSL VS Code and two-laptop SSH | run; Dell part done; Acer-side items run 2026-10-15 (only the repo pilot approval remains; host key MATCH 2026-10-15) | [[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]] | [[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]] |
 | 3 | Windows C: cleanup, snapshot, structure, watch | run, done; C: 39.5 to 145 GiB (140.9 GiB free on 2026-10-14) | [[Old Laptop Rebuild - Windows Prompts (Build 3 C Drive Cleanup and Build 4 Terminal Parity)]] | [[Old Laptop Rebuild - Build 3 Windows Cleanup Findings]], [[Old Laptop Rebuild - Build 3b C Drive Snapshot Structure and Watch]] |
 | 4 | Windows toolkit | run 2026-10-13 (104 PASS, lock written); finished by Build 4b on 2026-10-15 (catalog, agent guide, Installations, Acer run sheet); the Acer parity run waits for the Acer | [[Old Laptop Rebuild - Build 4 Prompt (Windows Toolkit)]] | [[Old Laptop Rebuild - Build 4 Windows Toolkit Findings]] |
 | 4b | Closed Builds 1 to 5 on the Dell: Cursor root cause, WSL export and tar quarantine, Windows Ollama, startup cleanup, OpenClaw removal, catalog, agent guide, Acer run sheet, Installations, Build 5 leftovers, and the Tailscale/SSH decisions (Part B) | **run 2026-10-14 and 15, closed on the Dell** | [[Old Laptop Rebuild - Build 4b Prompt (Dell Leftovers and Tailscale)]] | the "Build 4b" section of [[Old Laptop Rebuild - Build 4 Windows Toolkit Findings]] |
@@ -71,7 +71,7 @@ Closed in Build 4b, no longer listed: Cursor repair, fresh export and tar quaran
 | # | Item | State | Where it is written |
 |---|---|---|---|
 | A1 | Build 5b WSL toolkit sync | **DONE.** Golden configs applied (`changed=13 same=21 fails=0`); tmux 3.8, pnpm 12.4.2, gh 2.102.0, rg 15.2.0, fd 10.5.0, bat 0.26.1, lazygit 0.66.1, sesh 2.33.0, delta 0.20.1, atuin 18.23.0, uv 0.12.23, ruff, shellcheck, shfmt, socat 1.8.0.0. `~/.mcp.env` is now loaded only by `claude`, `codex`, `kiro-cli`, `agy` and `opencode` (wrapper functions); MCP verified connected | [[Acer Session Handoff - Toolkit Sync (Build 5b)]], Results and follow-up |
-| A2 | Build 2 SSH items | **DONE** except the independent host-key comparison. **You run in Dell WSL:** `sudo bash` on `WSL Parity/_scripts/71-hostkey-fingerprint.sh` (it compares the Dell key with `SHA256:PHOUaZNkip9YvF80hW6WbG5emclHt7rIYMfWf3VzxHA` and prints MATCH or DIFFERENT; plain `ssh-keygen -lf` does not work on Tailscale's key file). Passed: Tailscale placement, direct ping, plain `ssh.exe`, `sync-check` over SSH (identical to the Dell), Acer WSL route, clone inventory. Measured: 17 MB bundle in 2.4 s, 512 MiB stream at 2.5 MiB/s (slow, cause unknown, nothing changed) | [[Old Laptop Rebuild - Build 2 Acer Handoff]], "Acer visit results" |
+| A2 | Build 2 SSH items | **DONE, including the independent host-key comparison (MATCH, 2026-10-15).** **You run in Dell WSL:** `sudo bash` on `WSL Parity/_scripts/71-hostkey-fingerprint.sh` (it compares the Dell key with `SHA256:PHOUaZNkip9YvF80hW6WbG5emclHt7rIYMfWf3VzxHA` and prints MATCH or DIFFERENT; plain `ssh-keygen -lf` does not work on Tailscale's key file). Passed: Tailscale placement, direct ping, plain `ssh.exe`, `sync-check` over SSH (identical to the Dell), Acer WSL route, clone inventory. Measured: 17 MB bundle in 2.4 s, 512 MiB stream at 2.5 MiB/s (slow, cause unknown, nothing changed) | [[Old Laptop Rebuild - Build 2 Acer Handoff]], "Acer visit results" |
 | A3 | Acer audit findings of 2026-10-13 | `.wslconfig` fixed and live (swap at `D:\WSL\wsl-swap.vhdx`, old swap quarantined); weekly clean no longer deletes `~/.cache/node`. **You run from Windows PowerShell (closes WSL, Docker and editors): `powershell.exe -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\70-acer-wsl-update.ps1 -Apply`** to move WSL 2.7.14.0 to the Dell's 3.0.3.0 (dry run already done, no `-Apply` needed to preview). Disk (39 GiB, 72 percent used) is part of the discussion below | [[Ubuntu - WSL]], "Acer toolkit sync and swap fix - 2026-10-15" |
 | A4 | Windows toolkit on the Acer | **DONE** (Parts 0 to 3; `99-verify.ps1` 0 FAIL; catalog `Tool Catalog - GUPTA-BUILDS`). The Dell now writes the parity matrix and runs `20-apply-configs.ps1` once for the promoted bat and fd files. More Windows pieces for the Tailscale and Remote-SSH workflow are expected (Build 6 and the discussion) | [[Acer Run Sheet - Windows Toolkit]], "Acer run log" |
 | A5 | **Acer internship clone holds 4 commits that exist nowhere else** (branch `acer-predator/repo-environment-setup`, upstream deleted on GitHub) | protected by a verified Git bundle in `D:\Backup\repo-bundles\`; decision pending (push the branch, or bring the commits to the Dell session; the Dell checkout is 6 ahead, 5 behind, 23 to 25 dirty files, and not a uv project, while the Acer commits adopt uv) | [[Old Laptop Rebuild - Build 2 Acer Handoff]] |
@@ -82,7 +82,7 @@ Closed in Build 4b, no longer listed: Cursor repair, fresh export and tar quaran
 Per-repo `packageManager` pins stay a per-repo approval for both laptops.
 
 ## Order
-1. You: the Dell-side host-key read (A2) and the WSL update script (A3). Then the Dell session reads both Windows result sets, writes the parity matrix and runs `20-apply-configs.ps1` once (A4, A7). Decide A5. Then the discussion A9.
+1. You: the WSL update script (A3). Then the Dell session reads both Windows result sets, writes the parity matrix and runs `20-apply-configs.ps1` once (A4, A7). Decide A5. Then the discussion A9.
 2. Dell, whenever you like: D1 (revoke the Firecrawl key), then D2 to D11.
 3. Build 6 (Windows VS Code, MCP and Claude Code wiring; reaches the Acer through Settings Sync), then Build 7.
 4. Build 8 only after you answer the Drive questions.

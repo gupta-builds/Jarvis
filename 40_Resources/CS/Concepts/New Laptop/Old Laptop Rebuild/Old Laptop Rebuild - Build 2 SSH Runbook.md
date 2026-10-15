@@ -12,7 +12,7 @@ tags:
 related:
   - "[[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]]"
   - "[[Old Laptop Rebuild - Build 2 Acer Handoff]]"
-next: "Open: independent host-key comparison via a user-run Dell read, per-repo pilot approval (4.11). Everything else in Phase 4 is PASS or declined. Acer visit done 2026-10-15."
+next: "Phase 4 closed on 2026-10-15 except 4.11 (per-repo pilot approval, needs the user). Host-key comparison MATCH."
 ---
 # Old Laptop Rebuild - Build 2 SSH Runbook
 
@@ -56,7 +56,7 @@ Tailscale installation/authentication and `tailscale up --ssh` are complete. Key
 - [x] User reports key expiry is disabled for `dell-wsl`.
 - [x] User checked Access Controls: existing own-device SSH rule is in check mode; no policy edit needed.
 - [x] Port-2222 OpenSSH fallback: declined 2026-10-15 (Tailscale SSH works; mirrored networking would also need a Hyper-V firewall allow rule). Nothing installed.
-- [ ] Independently compare the already-accepted Acer host key against Tailscale's advertised SSH key. **Still open (2026-10-15):** the Acer's own `tailscale.exe status --json` also has no `SSH_HostKeys` for the Dell, so the fallback applies: a user-run read on the Dell (steps in the Build 2 Acer Handoff, section "Acer visit results"). Stability is confirmed: `known_hosts` and `ssh-keyscan` both give `SHA256:PHOUaZNkip9YvF80hW6WbG5emclHt7rIYMfWf3VzxHA`. The Dell holds the host keys in `/var/lib/tailscale/ssh/` (`ssh_host_ed25519_key`, `_rsa_key`, `_ecdsa_key`); the user runs `WSL Parity/_scripts/71-hostkey-fingerprint.sh` (run in Dell WSL: `sudo bash <that file>`; it prints the Dell key's fingerprint and says MATCH or DIFFERENT). `ssh-keygen -lf` cannot read Tailscale's PKCS8 key file.
+- [x] (CLOSED 2026-10-15, MATCH) Independently compare the already-accepted Acer host key against Tailscale's advertised SSH key. **Still open (2026-10-15):** the Acer's own `tailscale.exe status --json` also has no `SSH_HostKeys` for the Dell, so the fallback applies: a user-run read on the Dell (steps in the Build 2 Acer Handoff, section "Acer visit results"). Stability is confirmed: `known_hosts` and `ssh-keyscan` both give `SHA256:PHOUaZNkip9YvF80hW6WbG5emclHt7rIYMfWf3VzxHA`. The Dell holds the host keys in `/var/lib/tailscale/ssh/` (`ssh_host_ed25519_key`, `_rsa_key`, `_ecdsa_key`); the user runs `WSL Parity/_scripts/71-hostkey-fingerprint.sh` (run in Dell WSL: `sudo bash <that file>`; it prints the Dell key's fingerprint and says MATCH or DIFFERENT). `ssh-keygen -lf` cannot read Tailscale's PKCS8 key file.
 - [x] Acer plain SSH and VS Code Remote-SSH commands completed; the Acer WSL route test passed on 2026-10-15 (no Tailscale in WSL).
 - [x] Re-run idle test after all relevant sessions close; Ubuntu remained running after 75 seconds.
 - [x] Continue with degraded systemd by user direction; no workaround or prerelease is authorized.
@@ -92,3 +92,6 @@ Run from the Acer. Full evidence and the clone table: [[Old Laptop Rebuild - Bui
 | 4.9 same-page check | PASS from the Acer over SSH, identical to the Dell's local run. |
 | 4.11 | still waiting for a per-repo approval; the Acer clones are clean candidates only for second-brain-claudekit, which has no unique work. |
 Gotcha found: Tailscale SSH "check" mode asks for a browser confirmation after a period of inactivity. A non-interactive run prints a `login.tailscale.com/a/...` URL and waits; the user opens it once and the command proceeds.
+
+## Host-key comparison closed (2026-10-15)
+Closed 2026-10-15: the user ran `71-hostkey-fingerprint.sh` on the Dell (and the equivalent openssl one-liner); both printed `SHA256:PHOUaZNkip9YvF80hW6WbG5emclHt7rIYMfWf3VzxHA`, equal to the key the Acer accepted. RESULT: MATCH. Step 4.7 is now fully PASS apart from the transfer-speed observation. Only 4.11 (per-repo pilot approval) is open in Phase 4.

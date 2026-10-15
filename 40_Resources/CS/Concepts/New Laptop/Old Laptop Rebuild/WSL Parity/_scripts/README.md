@@ -10,3 +10,5 @@ Run order for the user (scripts marked DONE were already run by Claude with the 
 Acer run (2026-10-15, from the Acer): `37-toolkit-apply.sh` and `38-toolkit-upgrade.sh` ran with 0 fails; `36-wsl-check.sh` now detects the vault root and the swap file name. Do not run `30-wsl-config-parity.sh` or `31-wsl-sudo-step.sh` on the Acer: `30` would overwrite the golden configs with the old snapshot, and `31` disables a WSL Ollama service that does not exist there. For `socat` on the Acer use `sudo apt-get update && sudo apt-get install -y socat bubblewrap`.
 
 70-acer-wsl-update.ps1 (Acer, 2026-10-15): updates the WSL platform from Windows PowerShell. Dry run by default; `-Apply` asks for YES, runs `wsl --update` and `wsl --shutdown`, restarts the distro and prints version, systemd, memory, swap and Tailscale checks. Copy at `D:\WSL\ops\70-acer-wsl-update.ps1`. Never run it from inside WSL.
+
+71-hostkey-fingerprint.sh (2026-10-15): run on the Dell in WSL with sudo. Prints the fingerprint of Tailscale SSH's ed25519 host key and compares it with the one the Acer accepted. Needed because `ssh-keygen -lf` rejects Tailscale's PKCS8 key file.

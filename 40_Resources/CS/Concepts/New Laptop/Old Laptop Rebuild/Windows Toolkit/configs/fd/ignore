@@ -1,12 +1,13 @@
-# Reconstructed from the Installations note (Acer, 2026-10-12). The Acer keeps its real file until it is promoted from the Acer paste-back.
-.git
-node_modules
-__pycache__
-.venv
-.cache
-.pytest_cache
-.mypy_cache
-.ruff_cache
-dist
-build
-target
+.git/
+node_modules/
+__pycache__/
+.venv/
+venv/
+.conda/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+dist/
+build/
+*.pyc

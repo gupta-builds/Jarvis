@@ -3,17 +3,16 @@
     "host":  "GUPTA-BUILDS",
     "machine":  "acer",
     "dryRun":  false,
-    "started":  "2026-10-15T17:05:15",
-    "finished":  "2026-10-15T17:05:36",
+    "started":  "2026-10-15T17:34:15",
+    "finished":  "2026-10-15T17:34:35",
     "admin":  false,
     "manifestSha256":  "4E4A8D15CFEE15DC9E674B51DBE6FAB1F3730A951C20957AC9E4BB1F3C817634",
     "vaultRoot":  "D:\\_Anant\\20_Progress\\Documents\\Jarvis",
-    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-99-verify-20261015-170515.log",
+    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-99-verify-20261015-173415.log",
     "counts":  {
-                   "INFO":  22,
-                   "DIFF":  18,
-                   "PASS":  37,
-                   "FAIL":  21
+                   "DIFF":  15,
+                   "PASS":  61,
+                   "INFO":  22
                },
     "items":  [
                   {
@@ -117,12 +116,12 @@
                   },
                   {
                       "id":  "gh",
-                      "status":  "DIFF",
-                      "detail":  "version 2.101.0 on C:, 40.8 MB; Dell lock has 2.102.0",
+                      "status":  "PASS",
+                      "detail":  "version 2.102.0 on C:, 40.9 MB",
                       "drive":  "C:",
                       "path":  "C:\\Program Files\\GitHub CLI\\gh.exe",
-                      "version":  "2.101.0",
-                      "sizeMB":  40.8
+                      "version":  "2.102.0",
+                      "sizeMB":  40.9
                   },
                   {
                       "id":  "ripgrep",
@@ -180,8 +179,12 @@
                   },
                   {
                       "id":  "pnpm",
-                      "status":  "FAIL",
-                      "detail":  "not installed / not detected (pnpm)"
+                      "status":  "PASS",
+                      "detail":  "version 12.11.2 on C:, 51.5 MB",
+                      "drive":  "C:",
+                      "path":  "C:\\Users\\anant\\AppData\\Local\\Microsoft\\WinGet\\Packages\\pnpm.pnpm_Microsoft.Winget.Source_8wekyb3d8bbwe\\pnpm.exe",
+                      "version":  "12.11.2",
+                      "sizeMB":  51.5
                   },
                   {
                       "id":  "uv",
@@ -194,8 +197,12 @@
                   },
                   {
                       "id":  "uv-python",
-                      "status":  "FAIL",
-                      "detail":  "not installed / not detected (uv-managed Python)"
+                      "status":  "PASS",
+                      "detail":  "version 3.13.15 on C:; cpython 3.13.15",
+                      "drive":  "C:",
+                      "path":  "C:\\Users\\anant\\AppData\\Roaming\\uv\\python\\cpython-3.13.15-windows-x86_64-none",
+                      "version":  "3.13.15",
+                      "sizeMB":  null
                   },
                   {
                       "id":  "winget",
@@ -280,8 +287,12 @@
                   },
                   {
                       "id":  "mcp-remote",
-                      "status":  "FAIL",
-                      "detail":  "not installed / not detected (mcp-remote)"
+                      "status":  "PASS",
+                      "detail":  "version 0.2.1 on D:",
+                      "drive":  "D:",
+                      "path":  "D:\\AI\\npm-global\\mcp-remote.ps1",
+                      "version":  "0.2.1",
+                      "sizeMB":  0
                   },
                   {
                       "id":  "npx",
@@ -338,32 +349,33 @@
                   },
                   {
                       "id":  "cfg-git-delta",
-                      "status":  "FAIL",
-                      "detail":  "C:\\Users\\anant\\.config\\git\\delta.gitconfig missing"
+                      "status":  "PASS",
+                      "detail":  "C:\\Users\\anant\\.config\\git\\delta.gitconfig sha256 91DE9847A299... matches source",
+                      "sha256":  "91DE9847A2993F7EC2950A3F20FF6D1A72DF778B87C1817B5554780BEDD840F8"
                   },
                   {
                       "id":  "cfg-bat",
-                      "status":  "DIFF",
-                      "detail":  "C:\\Users\\anant\\AppData\\Roaming\\bat\\config is this machine\u0027s own file (kept by design until promoted)",
-                      "sha256":  "F613417D1CF8F71A72F2568F64A05F35AECC76AAD8A26881BA3C0D84A7C4A710",
-                      "sourceSha256":  "FD064DBC4718C2A38DC7D5B250609D62EBC386A3B97B6353009D4348D95D4C8A"
+                      "status":  "PASS",
+                      "detail":  "C:\\Users\\anant\\AppData\\Roaming\\bat\\config sha256 F613417D1CF8... matches source",
+                      "sha256":  "F613417D1CF8F71A72F2568F64A05F35AECC76AAD8A26881BA3C0D84A7C4A710"
                   },
                   {
                       "id":  "cfg-fd-ignore",
-                      "status":  "DIFF",
-                      "detail":  "C:\\Users\\anant\\AppData\\Roaming\\fd\\ignore is this machine\u0027s own file (kept by design until promoted)",
-                      "sha256":  "6A549EAF097171C6B35B0A31CB08CC41B53F0064C8858475AB3C4C191EC18DC7",
-                      "sourceSha256":  "A97264C09BFF11356068FED1BB45BD241798431071EE2B1C78C9FF849FA651E0"
+                      "status":  "PASS",
+                      "detail":  "C:\\Users\\anant\\AppData\\Roaming\\fd\\ignore sha256 6A549EAF0971... matches source",
+                      "sha256":  "6A549EAF097171C6B35B0A31CB08CC41B53F0064C8858475AB3C4C191EC18DC7"
                   },
                   {
                       "id":  "cfg-profile-ps5",
-                      "status":  "FAIL",
-                      "detail":  "D:\\_Anant\\20_Progress\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1: block present=False, hash ok=False, parse errors=0, active starship init lines=1"
+                      "status":  "PASS",
+                      "detail":  "D:\\_Anant\\20_Progress\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1: block hash matches, parses clean, one starship init",
+                      "blockSha256":  "C98CB5199290C43642B0931384E7C7A26C2A66F453A30EADAE417903105D4B39"
                   },
                   {
                       "id":  "cfg-profile-pwsh",
-                      "status":  "FAIL",
-                      "detail":  "D:\\_Anant\\20_Progress\\Documents\\PowerShell\\Microsoft.PowerShell_profile.ps1: block present=False, hash ok=False, parse errors=0, active starship init lines=1"
+                      "status":  "PASS",
+                      "detail":  "D:\\_Anant\\20_Progress\\Documents\\PowerShell\\Microsoft.PowerShell_profile.ps1: block hash matches, parses clean, one starship init",
+                      "blockSha256":  "C98CB5199290C43642B0931384E7C7A26C2A66F453A30EADAE417903105D4B39"
                   },
                   {
                       "id":  "cfg-path-order",
@@ -387,7 +399,7 @@
                   },
                   {
                       "id":  "wt-extra-scheme-defined-once",
-                      "status":  "FAIL",
+                      "status":  "PASS",
                       "detail":  "extra scheme defined once"
                   },
                   {
@@ -407,7 +419,7 @@
                   },
                   {
                       "id":  "wt-ubuntu-profile-named-ubuntu-24-04-acer",
-                      "status":  "FAIL",
+                      "status":  "PASS",
                       "detail":  "Ubuntu profile named \u0027Ubuntu-24.04 (Acer)\u0027"
                   },
                   {
@@ -437,48 +449,48 @@
                   },
                   {
                       "id":  "git-core.autocrlf",
-                      "status":  "FAIL",
-                      "detail":  "core.autocrlf is \u0027\u0027, expected \u0027input\u0027"
+                      "status":  "PASS",
+                      "detail":  "core.autocrlf=input"
                   },
                   {
                       "id":  "git-pull.rebase",
-                      "status":  "FAIL",
-                      "detail":  "pull.rebase is \u0027\u0027, expected \u0027true\u0027"
+                      "status":  "PASS",
+                      "detail":  "pull.rebase=true"
                   },
                   {
                       "id":  "git-push.autoSetupRemote",
-                      "status":  "FAIL",
-                      "detail":  "push.autoSetupRemote is \u0027\u0027, expected \u0027true\u0027"
+                      "status":  "PASS",
+                      "detail":  "push.autoSetupRemote=true"
                   },
                   {
                       "id":  "git-fetch.prune",
-                      "status":  "FAIL",
-                      "detail":  "fetch.prune is \u0027\u0027, expected \u0027true\u0027"
+                      "status":  "PASS",
+                      "detail":  "fetch.prune=true"
                   },
                   {
                       "id":  "git-rerere.enabled",
-                      "status":  "FAIL",
-                      "detail":  "rerere.enabled is \u0027\u0027, expected \u0027true\u0027"
+                      "status":  "PASS",
+                      "detail":  "rerere.enabled=true"
                   },
                   {
                       "id":  "git-init.defaultBranch",
-                      "status":  "FAIL",
-                      "detail":  "init.defaultBranch is \u0027\u0027, expected \u0027main\u0027"
+                      "status":  "PASS",
+                      "detail":  "init.defaultBranch=main"
                   },
                   {
                       "id":  "git-cred-https://github.com",
-                      "status":  "FAIL",
-                      "detail":  "https://github.com helper not set to gh"
+                      "status":  "PASS",
+                      "detail":  "https://github.com uses gh auth git-credential"
                   },
                   {
                       "id":  "git-cred-https://gist.github.com",
-                      "status":  "FAIL",
-                      "detail":  "https://gist.github.com helper not set to gh"
+                      "status":  "PASS",
+                      "detail":  "https://gist.github.com uses gh auth git-credential"
                   },
                   {
                       "id":  "git-delta-include",
-                      "status":  "FAIL",
-                      "detail":  "shared delta include missing"
+                      "status":  "PASS",
+                      "detail":  "shared delta include is active"
                   },
                   {
                       "id":  "git-pager",
@@ -492,13 +504,13 @@
                   },
                   {
                       "id":  "env-STARSHIP_CONFIG",
-                      "status":  "FAIL",
-                      "detail":  "STARSHIP_CONFIG is \u0027\u0027, expected \u0027C:\\Users\\anant\\.config\\starship.toml\u0027"
+                      "status":  "PASS",
+                      "detail":  "STARSHIP_CONFIG=C:\\Users\\anant\\.config\\starship.toml"
                   },
                   {
                       "id":  "env-TOOLKIT_VAULT_ROOT",
-                      "status":  "FAIL",
-                      "detail":  "TOOLKIT_VAULT_ROOT is \u0027\u0027, expected \u0027D:\\_Anant\\20_Progress\\Documents\\Jarvis\u0027"
+                      "status":  "PASS",
+                      "detail":  "TOOLKIT_VAULT_ROOT=D:\\_Anant\\20_Progress\\Documents\\Jarvis"
                   },
                   {
                       "id":  "env-UV_CACHE_DIR",
@@ -542,13 +554,15 @@
                   },
                   {
                       "id":  "shell-powershell-5.1",
-                      "status":  "FAIL",
-                      "detail":  "profile did not initialise Starship/zoxide. output=\u0027LOADED:False:False:\u0027 error=\u0027\u0027"
+                      "status":  "PASS",
+                      "detail":  "profile loads; Starship and zoxide initialised; startup 1178 ms",
+                      "startupMs":  1178
                   },
                   {
                       "id":  "shell-pwsh-7",
-                      "status":  "FAIL",
-                      "detail":  "profile did not initialise Starship/zoxide. output=\u0027LOADED:False:False:\u0027 error=\u0027\u0027"
+                      "status":  "PASS",
+                      "detail":  "profile loads; Starship and zoxide initialised; startup 1038 ms",
+                      "startupMs":  1038
                   },
                   {
                       "id":  "starship-config",
@@ -558,7 +572,7 @@
                   {
                       "id":  "starship-render",
                       "status":  "PASS",
-                      "detail":  "starship prompt rendered 72 characters"
+                      "detail":  "starship prompt rendered 298 characters"
                   },
                   {
                       "id":  "zoxide-init",

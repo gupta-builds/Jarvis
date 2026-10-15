@@ -1,0 +1,45 @@
+{
+    "script":  "40-build-catalog",
+    "host":  "GUPTA-BUILDS",
+    "machine":  "acer",
+    "dryRun":  false,
+    "started":  "2026-10-15T17:30:21",
+    "finished":  "2026-10-15T17:30:38",
+    "admin":  false,
+    "manifestSha256":  "4E4A8D15CFEE15DC9E674B51DBE6FAB1F3730A951C20957AC9E4BB1F3C817634",
+    "vaultRoot":  "D:\\_Anant\\20_Progress\\Documents\\Jarvis",
+    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-40-build-catalog-20261015-173021.log",
+    "counts":  {
+                   "PASS":  1,
+                   "INFO":  4
+               },
+    "items":  [
+                  {
+                      "id":  "tools",
+                      "status":  "INFO",
+                      "detail":  "41 manifest tools catalogued"
+                  },
+                  {
+                      "id":  "unmanifested",
+                      "status":  "INFO",
+                      "detail":  "winget rows 131, npm globals 2, ~/.local/bin files 17, uv tools 1, choco packages 0"
+                  },
+                  {
+                      "id":  "mcp",
+                      "status":  "INFO",
+                      "detail":  "13 MCP entries (names and command names only)"
+                  },
+                  {
+                      "id":  "wsl",
+                      "status":  "INFO",
+                      "detail":  "distro Ubuntu-24.04: 31 tools found, 29 config files compared with the Acer snapshot (21 match, 8 differ, 0 missing)"
+                  },
+                  {
+                      "id":  "catalog-write",
+                      "status":  "PASS",
+                      "detail":  "wrote D:\\_Anant\\20_Progress\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\catalog\\Tool Catalog - GUPTA-BUILDS.md and D:\\_Anant\\20_Progress\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\catalog\\tool-catalog-GUPTA-BUILDS.json",
+                      "json":  "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\catalog\\tool-catalog-GUPTA-BUILDS.json",
+                      "md":  "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\catalog\\Tool Catalog - GUPTA-BUILDS.md"
+                  }
+              ]
+}

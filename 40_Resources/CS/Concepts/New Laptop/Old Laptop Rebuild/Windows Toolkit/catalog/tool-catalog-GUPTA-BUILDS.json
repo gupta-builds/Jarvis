@@ -1,0 +1,2343 @@
+{
+    "facts":  {
+                  "host":  "GUPTA-BUILDS",
+                  "machine":  "acer",
+                  "label":  "Acer",
+                  "generated":  "2026-10-15T17:30:38",
+                  "manifestSha256":  "4E4A8D15CFEE15DC9E674B51DBE6FAB1F3730A951C20957AC9E4BB1F3C817634",
+                  "lockHost":  "DESKTOP-3VBG0JH",
+                  "lockCreated":  "2026-10-13T02:04:53",
+                  "vaultRoot":  "D:\\_Anant\\20_Progress\\Documents\\Jarvis",
+                  "drives":  [
+                                 {
+                                     "drive":  "C:",
+                                     "freeGiB":  166.5,
+                                     "usedGiB":  149.3
+                                 },
+                                 {
+                                     "drive":  "D:",
+                                     "freeGiB":  518.5,
+                                     "usedGiB":  118.1
+                                 }
+                             ]
+              },
+    "tools":  [
+                  {
+                      "id":  "pwsh",
+                      "name":  "PowerShell 7",
+                      "category":  "Shell and terminal",
+                      "policy":  "install",
+                      "installed":  true,
+                      "version":  "7.6.7",
+                      "path":  "C:\\Users\\anant\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe",
+                      "drive":  "C:",
+                      "sizeMB":  null,
+                      "location":  "MSIX under Program Files\\WindowsApps (forced to C:, about 120 MB)",
+                      "configs":  [
+                                      "profile-pwsh"
+                                  ],
+                      "purpose":  "Modern cross-platform shell and the default Windows Terminal profile.",
+                      "when":  "Default interactive shell for all Windows work. Use Windows PowerShell 5.1 only for legacy scripts.",
+                      "keyCommands":  [
+                                          "pwsh",
+                                          "pwsh -NoProfile -File script.ps1",
+                                          "$PSVersionTable.PSVersion",
+                                          "notepad $PROFILE"
+                                      ],
+                      "runsWhere":  "Windows",
+                      "agentNotes":  "Run scripts with pwsh -NoProfile -File. The profile lives in Documents\\PowerShell (Documents is redirected to D:). The 5.1 profile is separate."
+                  },
+                  {
+                      "id":  "wt",
+                      "name":  "Windows Terminal",
+                      "category":  "Shell and terminal",
+                      "policy":  "verify",
+                      "installed":  true,
+                      "version":  "1.24.12741.0",
+                      "path":  null,
+                      "drive":  null,
+                      "sizeMB":  null,
+                      "location":  "MSIX (forced to C:)",
+                      "configs":  [
+                                      "terminal"
+                                  ],
+                      "purpose":  "Terminal host: One Half Dark scheme and the IosevkaTerm Nerd Font face, both identical to the Acer; Tokyo Night Storm kept as an extra scheme.",
+                      "when":  "Every interactive session. The Dell stays on 1.24 on purpose.",
+                      "keyCommands":  [
+                                          "wt",
+                                          "wt -d . pwsh",
+                                          "wt new-tab -p \"Ubuntu (Dell)\"",
+                                          "Ctrl+Shift+F find",
+                                          "Alt+Shift+D duplicate pane"
+                                      ],
+                      "runsWhere":  "Windows",
+                      "agentNotes":  "settings.json is merged by 20-apply-configs.ps1 from configs\\terminal\\toolkit-fragment.json. Do not hand-edit defaults; machine profiles are preserved."
+                  },
+                  {
+                      "id":  "starship",
+                      "name":  "Starship",
+                      "category":  "Shell and terminal",
+                      "policy":  "install",
+                      "installed":  true,
+                      "version":  "1.26.0",
+                      "path":  "C:\\Program Files\\starship\\bin\\starship.exe",
+                      "drive":  "C:",
+                      "sizeMB":  12.5,
+                      "location":  "MSI in C:\\Program Files\\starship (tiny)",
+                      "configs":  [
+                                      "starship"
+                                  ],
+                      "purpose":  "Cross-shell prompt. One starship.toml for Windows and both WSLs.",
+                      "when":  "Always on in PowerShell. Check the config with starship print-config.",
+                      "keyCommands":  [
+                                          "starship --version",
+                                          "starship print-config",
+                                          "starship prompt",
+                                          "starship explain",
+                                          "starship timings"
+                                      ],
+                      "runsWhere":  "Windows (and WSL separately)",
+                      "agentNotes":  "STARSHIP_CONFIG points to ~\\.config\\starship.toml. The managed profile block initialises it once per session."
+                  },
+                  {
+                      "id":  "iosevkaterm-nfm",
+                      "name":  "IosevkaTerm Nerd Font Mono",
+                      "category":  "Shell and terminal",
+                      "policy":  "install",
+                      "installed":  true,
+                      "version":  "v3.5.1",
+                      "path":  null,
+                      "drive":  null,
+                      "sizeMB":  null,
+                      "location":  "per-user fonts: %LOCALAPPDATA%\\Microsoft\\Windows\\Fonts (54 TTF files in two sets, about 760 MB, C:, cannot be redirected); Acer has it system-wide",
+                      "configs":  [
+                                      "terminal"
+                                  ],
+                      "purpose":  "Glyph font for Starship icons. Two sets from one archive: the normal set (Terminal face IosevkaTerm Nerd Font, GDI name IosevkaTerm NF) and the Mono set (IosevkaTerm NFM, used by VS Code).",
+                      "when":  "Windows Terminal face is IosevkaTerm Nerd Font (same as the Acer). VS Code terminals use IosevkaTerm NFM. Both sets are installed.",
+                      "keyCommands":  [
+                                          "(New-Object System.Drawing.Text.InstalledFontCollection).Families | ? Name -like \u0027Iosevka*\u0027"
+                                      ],
+                      "runsWhere":  "Windows",
+                      "agentNotes":  "No winget package exists. Source is Nerd Fonts v3.5.1 IosevkaTerm.tar.xz with a pinned SHA-256."
+                  },
+                  {
+                      "id":  "zoxide",
+                      "name":  "zoxide",
+                      "category":  "Shell and terminal",
+                      "policy":  "install",
+                      "installed":  true,
+                      "version":  "0.10.0",
+                      "path":  "C:\\Users\\anant\\AppData\\Local\\Microsoft\\WinGet\\Links\\zoxide.exe",
+                      "drive":  "C:",
+                      "sizeMB":  1.2,
+                      "location":  "winget portable in %LOCALAPPDATA%\\Microsoft\\WinGet\\Packages (tiny, C:)",
+                      "configs":  [
+                                      "profile-ps5",
+                                      "profile-pwsh"
+                                  ],
+                      "purpose":  "Smart directory jumper that learns frequent folders.",
+                      "when":  "Use z \u003cpart-of-path\u003e instead of cd for folders you visit often.",
+                      "keyCommands":  [
+                                          "z \u003cname\u003e",
+                                          "zi",
+                                          "zoxide query \u003cname\u003e",
+                                          "zoxide add .",
+                                          "zoxide remove \u003cpath\u003e"
+                                      ],
+                      "runsWhere":  "Windows (and WSL separately)",
+                      "agentNotes":  "Initialised once by the managed profile block. Agents should not rely on z in non-interactive shells."
+                  },
+                  {
+                      "id":  "fzf",
+                      "name":  "fzf",
+                      "category":  "Shell and terminal",
+                      "policy":  "install",
+                      "installed":  true,
+                      "version":  "0.74.4",
+                      "path":  "C:\\Users\\anant\\AppData\\Local\\Microsoft\\WinGet\\Links\\fzf.exe",
+                      "drive":  "C:",
+                      "sizeMB":  5.9,
+                      "location":  "winget portable (tiny, C:)",
+                      "configs":  [
+                                      "profile-ps5",
+                                      "profile-pwsh"
+                                  ],
+                      "purpose":  "Fuzzy finder for files, history and command output.",
+                      "when":  "Ctrl+T files, Ctrl+R history, Alt+C folders (through PSFzf), or pipe any list into fzf.",
+                      "keyCommands":  [
+                                          "fzf",
+                                          "fd -t f | fzf",
+                                          "git branch | fzf",
+                                          "Get-Process | Out-String -Stream | fzf",
+                                          "fzf --preview \"bat --color=always {}\""
+                                      ],
+                      "runsWhere":  "Windows (and WSL separately)",
+                      "agentNotes":  "Interactive tool. Agents should use rg or fd directly, not fzf."
+                  },
+                  {
+                      "id":  "psfzf",
+                      "name":  "PSFzf",
+                      "category":  "Shell and terminal",
+                      "policy":  "install",
+                      "installed":  true,
+                      "version":  "2.7.12",
+                      "path":  null,
+                      "drive":  null,
+                      "sizeMB":  null,
+                      "location":  "PowerShell Gallery module in Documents\\WindowsPowerShell\\Modules and Documents\\PowerShell\\Modules (Documents is on D:)",
+                      "configs":  [
+                                      "profile-ps5",
+                                      "profile-pwsh"
+                                  ],
+                      "purpose":  "Gives fzf its PowerShell key bindings (Ctrl+T, Ctrl+R, Alt+C).",
+                      "when":  "Loaded automatically by the managed profile block when the module exists.",
+                      "keyCommands":  [
+                                          "Get-Module -ListAvailable PSFzf",
+                                          "Set-PsFzfOption -PSReadlineChordProvider \u0027Ctrl+t\u0027"
+                                      ],
+                      "runsWhere":  "Windows PowerShell 5.1 and PowerShell 7 (installed separately)",
+                      "agentNotes":  "Never enable -EnableAliasFuzzySetLocation: it defines an alias named fd that shadows fd.exe."
+                  },
+                  {
+                      "id":  "fd",
+                      "name":  "fd",
+                      "category":  "Shell and terminal",
+                      "policy":  "install",
+                      "installed":  true,
+                      "version":  "10.5.0",
+                      "path":  "C:\\Users\\anant\\AppData\\Local\\Microsoft\\WinGet\\Links\\fd.exe",
+                      "drive":  "C:",
+                      "sizeMB":  3.9,
+                      "location":  "winget portable (tiny, C:)",
+                      "configs":  [
+                                      "fd-ignore"
+                                  ],
+                      "purpose":  "Fast, friendly replacement for find.",
+                      "when":  "Find files by name. It respects .gitignore and the global ignore file.",
+                      "keyCommands":  [
+                                          "fd \u003cpattern\u003e",
+                                          "fd -e md",
+                                          "fd -t d \u003cname\u003e",
+                                          "fd -H -I \u003cname\u003e",
+                                          "fd \u003cpattern\u003e -x \u003ccommand\u003e {}"
+                                      ],
+                      "runsWhere":  "Windows (and WSL separately)",
+                      "agentNotes":  "Global ignore file is %APPDATA%\\fd\\ignore. Use -H -I to see hidden and ignored files."
+                  },
+                  {
+                      "id":  "bat",
+                      "name":  "bat",
+                      "category":  "Shell and terminal",
+                      "policy":  "install",
+                      "installed":  true,
+                      "version":  "0.26.1",
+                      "path":  "C:\\Users\\anant\\AppData\\Local\\Microsoft\\WinGet\\Links\\bat.exe",
+                      "drive":  "C:",
+                      "sizeMB":  7,
+                      "location":  "winget portable (tiny, C:)",
+                      "configs":  [
+                                      "bat"
+                                  ],
+                      "purpose":  "cat with syntax highlighting and git change markers. Also the fzf preview renderer.",
+                      "when":  "View a file in the terminal. Use --plain for copyable output.",
+                      "keyCommands":  [
+                                          "bat \u003cfile\u003e",
+                                          "bat --plain \u003cfile\u003e",
+                                          "bat -r 10:40 \u003cfile\u003e",
+                                          "bat --list-languages",
+                                          "bat --list-themes"
+                                      ],
+                      "runsWhere":  "Windows (and WSL separately)",
+                      "agentNotes":  "Config is %APPDATA%\\bat\\config. For reading a file in an agent session prefer the agent\u0027s own Read tool."
+                  },
+                  {
+                      "id":  "delta",
+                      "name":  "delta",
+                      "category":  "Core CLI",
+                      "policy":  "install",
+                      "installed":  true,
+                      "version":  "0.20.1",
+                      "path":  "C:\\Users\\anant\\AppData\\Local\\Microsoft\\WinGet\\Links\\delta.exe",
+                      "drive":  "C:",
+                      "sizeMB":  7.3,
+                      "location":  "winget portable (tiny, C:)",
+                      "configs":  [
+                                      "git-delta",
+                                      "git-settings"
+                                  ],
+                      "purpose":  "Readable git diff and git log -p pager.",
+                      "when":  "Automatic after the shared git include is applied. Bypass with git --no-pager.",
+                      "keyCommands":  [
+                                          "git diff",
+                                          "git log -p",
+                                          "git show",
+                                          "git --no-pager diff",
+                                          "delta file1 file2"
+                                      ],
+                      "runsWhere":  "Windows (and WSL separately)",
+                      "agentNotes":  "Agents should call git --no-pager so output stays plain."
+                  },
+                  {
+                      "id":  "git",
+                      "name":  "Git",
+                      "category":  "Core CLI",
+                      "policy":  "latest",
+                      "installed":  true,
+                      "version":  "2.55.0",
+                      "path":  "C:\\Program Files\\Git\\cmd\\git.exe",
+                      "drive":  "C:",
+                      "sizeMB":  403.6,
+                      "location":  "C:\\Program Files\\Git (about 400 MB, installer is Inno Setup)",
+                      "configs":  [
+                                      "git-settings",
+                                      "git-ignore",
+                                      "git-delta"
+                                  ],
+                      "purpose":  "Version control. Windows global config is shared by the toolkit.",
+                      "when":  "Windows-side repos only. Projects live in WSL ext4, never under /mnt.",
+                      "keyCommands":  [
+                                          "git status -sb",
+                                          "git log --oneline -n 20",
+                                          "git config --global --list --show-origin",
+                                          "git switch -c \u003cmachine\u003e/\u003ctopic\u003e",
+                                          "git worktree add ../x \u003cbranch\u003e"
+                                      ],
+                      "runsWhere":  "Windows (WSL has its own git)",
+                      "agentNotes":  "core.autocrlf is input. Identity and safe.directory entries are machine specific and are never touched."
+                  },
+                  {
+                      "id":  "gh",
+                      "name":  "GitHub CLI",
+                      "category":  "Core CLI",
+                      "policy":  "latest",
+                      "installed":  true,
+                      "version":  "2.102.0",
+                      "path":  "C:\\Program Files\\GitHub CLI\\gh.exe",
+                      "drive":  "C:",
+                      "sizeMB":  40.9,
+                      "location":  "C:\\Program Files\\GitHub CLI (tiny)",
+                      "configs":  [
+                                      "git-settings"
+                                  ],
+                      "purpose":  "GitHub from the terminal and the git credential helper for github.com.",
+                      "when":  "PRs, issues, auth. gh auth status shows the login without printing the token.",
+                      "keyCommands":  [
+                                          "gh auth status",
+                                          "gh pr create --fill",
+                                          "gh pr list",
+                                          "gh repo clone \u003cowner\u003e/\u003crepo\u003e",
+                                          "gh run watch"
+                                      ],
+                      "runsWhere":  "Windows (WSL has its own gh)",
+                      "agentNotes":  "Never print gh auth token. The credential helper is gh auth git-credential."
+                  },
+                  {
+                      "id":  "ripgrep",
+                      "name":  "ripgrep",
+                      "category":  "Core CLI",
+                      "policy":  "install",
+                      "installed":  true,
+                      "version":  "15.2.0",
+                      "path":  "C:\\Users\\anant\\.local\\bin\\rg.exe",
+                      "drive":  "C:",
+                      "sizeMB":  4,
+                      "location":  "winget portable (tiny, C:)",
+                      "configs":  [
+                                      null
+                                  ],
+                      "purpose":  "Fast recursive text search.",
+                      "when":  "Search file contents. It respects .gitignore.",
+                      "keyCommands":  [
+                                          "rg \u003cpattern\u003e",
+                                          "rg -n -i \u003cpattern\u003e -g \"*.md\"",
+                                          "rg -l \u003cpattern\u003e",
+                                          "rg --files | rg \u003cname\u003e",
+                                          "rg -C 3 \u003cpattern\u003e"
+                                      ],
+                      "runsWhere":  "Windows (and WSL separately)",
+                      "agentNotes":  "Preferred over grep or Select-String for large trees."
+                  },
+                  {
+                      "id":  "jq",
+                      "name":  "jq",
+                      "category":  "Core CLI",
+                      "policy":  "install",
+                      "installed":  true,
+                      "version":  "1.8.2",
+                      "path":  "C:\\Users\\anant\\AppData\\Local\\Microsoft\\WinGet\\Links\\jq.exe",
+                      "drive":  "C:",
+                      "sizeMB":  1,
+                      "location":  "winget portable (tiny, C:)",
+                      "configs":  [
+                                      null
+                                  ],
+                      "purpose":  "Query and reshape JSON.",
+                      "when":  "Inspect JSON from APIs, logs and config files.",
+                      "keyCommands":  [
+                                          "jq . file.json",
+                                          "jq -r \u0027.items[].name\u0027 file.json",
+                                          "jq \u0027keys\u0027 file.json",
+                                          "Get-Content f.json | jq .",
+                                          "jq -s . a.json b.json"
+                                      ],
+                      "runsWhere":  "Windows (and WSL separately)",
+                      "agentNotes":  "Use for JSON files that hold secrets only with a filter that prints names, never values."
+                  },
+                  {
+                      "id":  "ffmpeg",
+                      "name":  "FFmpeg",
+                      "category":  "Core CLI",
+                      "policy":  "install",
+                      "installed":  true,
+                      "version":  "9.0.1",
+                      "path":  "C:\\Users\\anant\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-9.0.1-full_build\\bin\\ffmpeg.exe",
+                      "drive":  "C:",
+                      "sizeMB":  648.2,
+                      "location":  "winget portable full build (about 200 MB, C:)",
+                      "configs":  [
+                                      null
+                                  ],
+                      "purpose":  "Audio and video conversion.",
+                      "when":  "Convert, trim or extract media.",
+                      "keyCommands":  [
+                                          "ffmpeg -i in.mp4 out.mp3",
+                                          "ffmpeg -i in.mov -vcodec libx264 out.mp4",
+                                          "ffmpeg -ss 00:00:10 -t 5 -i in.mp4 clip.mp4",
+                                          "ffprobe in.mp4"
+                                      ],
+                      "runsWhere":  "Windows",
+                      "agentNotes":  "Always pass -n or -y explicitly so it never prompts."
+                  },
+                  {
+                      "id":  "nanazip",
+                      "name":  "NanaZip",
+                      "category":  "Core CLI",
+                      "policy":  "install",
+                      "installed":  true,
+                      "version":  "7.0.1843.0",
+                      "path":  "C:\\Program Files\\WindowsApps\\40174MouriNaruto.NanaZip_7.0.1843.0_x64__gnj4mf6z9tkrc",
+                      "drive":  "C:",
+                      "sizeMB":  null,
+                      "location":  "MSIX (forced to C:)",
+                      "configs":  [
+                                      null
+                                  ],
+                      "purpose":  "The one archive tool (replaces WinRAR). Supports 7z, zip, tar, xz, rar extraction.",
+                      "when":  "Open or create archives from Explorer. Use tar.exe for tar.xz in scripts.",
+                      "keyCommands":  [
+                                          "tar -tf file.tar.xz",
+                                          "tar -xf file.tar.xz -C \u003cdir\u003e",
+                                          "Right-click \u003e NanaZip"
+                                      ],
+                      "runsWhere":  "Windows",
+                      "agentNotes":  "No stable console executable on PATH. Scripts use the built-in tar.exe (bsdtar)."
+                  },
+                  {
+                      "id":  "node",
+                      "name":  "Node.js LTS",
+                      "category":  "Runtimes",
+                      "policy":  "install",
+                      "installed":  true,
+                      "version":  "24.19.0",
+                      "path":  "C:\\Program Files\\nodejs\\node.exe",
+                      "drive":  "C:",
+                      "sizeMB":  100.9,
+                      "location":  "C:\\Program Files\\nodejs (about 100 MB, kept on C: because MCP configs reference it)",
+                      "configs":  [
+                                      null
+                                  ],
+                      "purpose":  "JavaScript runtime for npx, MCP servers and CLI tools.",
+                      "when":  "Always. LTS 24 matches both WSL installs.",
+                      "keyCommands":  [
+                                          "node --version",
+                                          "npm ls -g --depth=0",
+                                          "npx -y \u003cpackage\u003e",
+                                          "npm config get cache"
+                                      ],
+                      "runsWhere":  "Windows (WSL uses nvm)",
+                      "agentNotes":  "The Dell moves from 22 to 24 through 11-node-lts-swap.ps1 (by hand). npm cache is D:\\npm-cache via ~/.npmrc."
+                  },
+                  {
+                      "id":  "npm",
+                      "name":  "npm",
+                      "category":  "Runtimes",
+                      "policy":  "verify",
+                      "installed":  true,
+                      "version":  "11.17.0",
+                      "path":  "C:\\Program Files\\nodejs\\npm.ps1",
+                      "drive":  "C:",
+                      "sizeMB":  100.9,
+                      "location":  "ships with Node",
+                      "configs":  [
+                                      null
+                                  ],
+                      "purpose":  "Node package manager and the carrier of global CLIs (Codex, mcp-remote).",
+                      "when":  "Install or update global CLI tools.",
+                      "keyCommands":  [
+                                          "npm ls -g --depth=0",
+                                          "npm install -g \u003cpkg\u003e@\u003cversion\u003e",
+                                          "npm config get cache",
+                                          "npm outdated -g"
+                                      ],
+                      "runsWhere":  "Windows",
+                      "agentNotes":  "Global packages live in %APPDATA%\\npm and survive a Node major upgrade."
+                  },
+                  {
+                      "id":  "pnpm",
+                      "name":  "pnpm",
+                      "category":  "Runtimes",
+                      "policy":  "install",
+                      "installed":  true,
+                      "version":  "12.11.2",
+                      "path":  "C:\\Users\\anant\\AppData\\Local\\Microsoft\\WinGet\\Packages\\pnpm.pnpm_Microsoft.Winget.Source_8wekyb3d8bbwe\\pnpm.exe",
+                      "drive":  "C:",
+                      "sizeMB":  51.5,
+                      "location":  "winget portable (tiny, C:). Corepack stays disabled because enabling it needs admin under Program Files",
+                      "configs":  [
+                                      null
+                                  ],
+                      "purpose":  "Fast disk-efficient JavaScript package manager.",
+                      "when":  "JavaScript projects that use a pnpm-lock.yaml. Projects themselves live in WSL.",
+                      "keyCommands":  [
+                                          "pnpm install",
+                                          "pnpm add \u003cpkg\u003e",
+                                          "pnpm dlx \u003cpkg\u003e",
+                                          "pnpm store path"
+                                      ],
+                      "runsWhere":  "Windows (WSL has its own via Corepack)",
+                      "agentNotes":  "Do not run corepack enable on Windows."
+                  },
+                  {
+                      "id":  "uv",
+                      "name":  "uv",
+                      "category":  "Runtimes",
+                      "policy":  "install",
+                      "installed":  true,
+                      "version":  "0.12.19",
+                      "path":  "C:\\Users\\anant\\.local\\bin\\uv.exe",
+                      "drive":  "C:",
+                      "sizeMB":  40.5,
+                      "location":  "%USERPROFILE%\\.local\\bin (tiny, C:). Cache is D:\\Cache\\uv through UV_CACHE_DIR",
+                      "configs":  [
+                                      null
+                                  ],
+                      "purpose":  "Python project, tool and interpreter manager (standalone installer, supports uv self update).",
+                      "when":  "All Python work. The pip copy in C:\\Python313 is retired after this one is verified.",
+                      "keyCommands":  [
+                                          "uv init",
+                                          "uv add \u003cpkg\u003e",
+                                          "uv run \u003cscript\u003e",
+                                          "uv tool install \u003ctool\u003e",
+                                          "uvx \u003ctool\u003e",
+                                          "uv self update"
+                                      ],
+                      "runsWhere":  "Windows (WSL has its own)",
+                      "agentNotes":  "Machine PATH precedes user PATH, so the pip uv wins until Python is removed by 04-admin-remove.ps1 -IncludePython."
+                  },
+                  {
+                      "id":  "uv-python",
+                      "name":  "uv-managed Python",
+                      "category":  "Runtimes",
+                      "policy":  "install",
+                      "installed":  true,
+                      "version":  "3.13.15",
+                      "path":  "C:\\Users\\anant\\AppData\\Roaming\\uv\\python\\cpython-3.13.15-windows-x86_64-none",
+                      "drive":  "C:",
+                      "sizeMB":  null,
+                      "location":  "%APPDATA%\\uv\\python (about 100 MB per version, C:)",
+                      "configs":  [
+                                      null
+                                  ],
+                      "purpose":  "Python interpreter installed and owned by uv instead of a system install.",
+                      "when":  "uv picks it automatically for uv venv and uv run.",
+                      "keyCommands":  [
+                                          "uv python list",
+                                          "uv python install 3.13",
+                                          "uv python find",
+                                          "uv venv"
+                                      ],
+                      "runsWhere":  "Windows",
+                      "agentNotes":  "There is no python.exe on PATH after the Chocolatey Python is retired. Use uv run python or a project .venv."
+                  },
+                  {
+                      "id":  "winget",
+                      "name":  "winget",
+                      "category":  "Core CLI",
+                      "policy":  "verify",
+                      "installed":  true,
+                      "version":  "1.29.380",
+                      "path":  "C:\\Users\\anant\\AppData\\Local\\Microsoft\\WindowsApps\\winget.exe",
+                      "drive":  "C:",
+                      "sizeMB":  null,
+                      "location":  "App Installer (forced to C:)",
+                      "configs":  [
+                                      null
+                                  ],
+                      "purpose":  "The package manager for everything on Windows.",
+                      "when":  "Install or upgrade tools. Always pass --exact and --source winget.",
+                      "keyCommands":  [
+                                          "winget list",
+                                          "winget upgrade",
+                                          "winget install --id \u003cId\u003e --exact --source winget",
+                                          "winget show --id \u003cId\u003e --exact",
+                                          "winget export -o file.json"
+                                      ],
+                      "runsWhere":  "Windows",
+                      "agentNotes":  "A portable package may install without a PATH entry. Check Get-Command \u003ctool\u003e afterwards."
+                  },
+                  {
+                      "id":  "claude-code",
+                      "name":  "Claude Code",
+                      "category":  "AI platforms",
+                      "policy":  "verify",
+                      "installed":  true,
+                      "version":  "2.1.301",
+                      "path":  "C:\\Users\\anant\\.local\\bin\\claude.exe",
+                      "drive":  "C:",
+                      "sizeMB":  259.2,
+                      "location":  "native installer in %USERPROFILE%\\.local\\bin (C:)",
+                      "configs":  [
+                                      null
+                                  ],
+                      "purpose":  "Primary agent CLI for terminal and vault work.",
+                      "when":  "Coding, file work and vault tasks from a shell.",
+                      "keyCommands":  [
+                                          "claude",
+                                          "claude --version",
+                                          "claude mcp list",
+                                          "claude update",
+                                          "claude -p \"\u003cprompt\u003e\""
+                                      ],
+                      "runsWhere":  "Windows (WSL has its own)",
+                      "agentNotes":  "Settings and MCP registry belong to Build 6. This toolkit only verifies the binary."
+                  },
+                  {
+                      "id":  "codex",
+                      "name":  "Codex CLI",
+                      "category":  "AI platforms",
+                      "policy":  "install",
+                      "installed":  true,
+                      "version":  "0.162.1",
+                      "path":  "D:\\AI\\npm-global\\codex.ps1",
+                      "drive":  "D:",
+                      "sizeMB":  0,
+                      "location":  "npm global in %APPDATA%\\npm (small, C:); packages junction at D:\\Cache\\codex\\packages",
+                      "configs":  [
+                                      null
+                                  ],
+                      "purpose":  "OpenAI agent CLI.",
+                      "when":  "Second-opinion coding runs and sandboxed tasks.",
+                      "keyCommands":  [
+                                          "codex",
+                                          "codex --version",
+                                          "codex doctor",
+                                          "codex mcp list",
+                                          "codex exec \"\u003cprompt\u003e\""
+                                      ],
+                      "runsWhere":  "Windows (WSL has its own)",
+                      "agentNotes":  "Pinned to the version recorded in toolkit.lock.json. Daemon needs .codex\\packages\\app-server-daemon\\current to exist."
+                  },
+                  {
+                      "id":  "claude-desktop",
+                      "name":  "Claude Desktop",
+                      "category":  "AI platforms",
+                      "policy":  "verify",
+                      "installed":  true,
+                      "version":  "2.42304.0.0",
+                      "path":  null,
+                      "drive":  null,
+                      "sizeMB":  null,
+                      "location":  "per-user app (forced to C:), VM bundle under %APPDATA%\\Claude",
+                      "configs":  [
+                                      null
+                                  ],
+                      "purpose":  "Chat app with MCP servers and Cowork.",
+                      "when":  "Conversational work with MCP-connected tools.",
+                      "keyCommands":  [
+                                          "Start Menu \u003e Claude"
+                                      ],
+                      "runsWhere":  "Windows",
+                      "agentNotes":  "Configured MCP server names are listed in the catalog. Values are never read."
+                  },
+                  {
+                      "id":  "cursor",
+                      "name":  "Cursor",
+                      "category":  "AI platforms",
+                      "policy":  "verify",
+                      "installed":  true,
+                      "version":  "3.24.9",
+                      "path":  null,
+                      "drive":  null,
+                      "sizeMB":  null,
+                      "location":  "per-user app (forced to C:)",
+                      "configs":  [
+                                      null
+                                  ],
+                      "purpose":  "AI-first code editor.",
+                      "when":  "Editor sessions with its agent.",
+                      "keyCommands":  [
+                                          "cursor .",
+                                          "cursor --version"
+                                      ],
+                      "runsWhere":  "Windows",
+                      "agentNotes":  "Cursor sessions are archived by the Jarvis Cursor pipeline."
+                  },
+                  {
+                      "id":  "antigravity",
+                      "name":  "Antigravity",
+                      "category":  "AI platforms",
+                      "policy":  "verify",
+                      "installed":  true,
+                      "version":  "2.13.0",
+                      "path":  null,
+                      "drive":  null,
+                      "sizeMB":  null,
+                      "location":  "per-user app (forced to C:)",
+                      "configs":  [
+                                      null
+                                  ],
+                      "purpose":  "Google agent IDE.",
+                      "when":  "Agent-first editor sessions.",
+                      "keyCommands":  [
+                                          "agy --version",
+                                          "Command Palette \u003e Install \u0027agy\u0027 command in PATH (one-time)"
+                                      ],
+                      "runsWhere":  "Windows",
+                      "agentNotes":  "The agy shim exists only after the one-time in-app step."
+                  },
+                  {
+                      "id":  "docker-desktop",
+                      "name":  "Docker Desktop",
+                      "category":  "AI platforms",
+                      "policy":  "verify",
+                      "installed":  true,
+                      "version":  "4.91.0",
+                      "path":  null,
+                      "drive":  null,
+                      "sizeMB":  null,
+                      "location":  "C:\\Program Files\\Docker; disk image on D:\\WSL\\Docker",
+                      "configs":  [
+                                      null
+                                  ],
+                      "purpose":  "Container engine. Needed by Dev Containers and some MCP servers.",
+                      "when":  "Container and Dev Container work. Auto-start is off by choice.",
+                      "keyCommands":  [
+                                          "docker version",
+                                          "docker ps",
+                                          "docker system df",
+                                          "docker compose up -d"
+                                      ],
+                      "runsWhere":  "Windows (WSL integration)",
+                      "agentNotes":  "If the engine pipe is missing, Docker Desktop is not running. Start it, do not reinstall."
+                  },
+                  {
+                      "id":  "ollama",
+                      "name":  "Ollama (Windows)",
+                      "category":  "AI platforms",
+                      "policy":  "verify",
+                      "installed":  true,
+                      "version":  "0.34.1",
+                      "path":  null,
+                      "drive":  null,
+                      "sizeMB":  null,
+                      "location":  "D:\\Apps\\Ollama (Dell); models in D:\\AI\\ollama-models via OLLAMA_MODELS",
+                      "configs":  [
+                                      null
+                                  ],
+                      "purpose":  "Local model runtime.",
+                      "when":  "Local models. On the Dell a WSL Ollama currently holds port 11434 (Build 5 decides which serves).",
+                      "keyCommands":  [
+                                          "ollama list",
+                                          "ollama run \u003cmodel\u003e",
+                                          "ollama ps",
+                                          "ollama --version"
+                                      ],
+                      "runsWhere":  "Windows (and WSL on the Dell)",
+                      "agentNotes":  "ollama --version may print the WSL server version while the Windows client differs. The startup shortcut stays until Build 5."
+                  },
+                  {
+                      "id":  "vscode",
+                      "name":  "VS Code",
+                      "category":  "AI platforms",
+                      "policy":  "verify",
+                      "installed":  true,
+                      "version":  "1.142.0",
+                      "path":  null,
+                      "drive":  null,
+                      "sizeMB":  null,
+                      "location":  "per-user installer (Dell on C:, Acer on D:\\Apps)",
+                      "configs":  [
+                                      null
+                                  ],
+                      "purpose":  "Main editor. Settings, extensions and MCP wiring belong to Build 6.",
+                      "when":  "Editing, remote-WSL and remote-SSH work.",
+                      "keyCommands":  [
+                                          "code .",
+                                          "code --list-extensions",
+                                          "code --version",
+                                          "code --install-extension \u003cid\u003e"
+                                      ],
+                      "runsWhere":  "Windows",
+                      "agentNotes":  "Settings Sync is live. Never write Windows VS Code user files from a script in this build."
+                  },
+                  {
+                      "id":  "mcp-remote",
+                      "name":  "mcp-remote",
+                      "category":  "MCP prerequisites",
+                      "policy":  "install",
+                      "installed":  true,
+                      "version":  "0.2.1",
+                      "path":  "D:\\AI\\npm-global\\mcp-remote.ps1",
+                      "drive":  "D:",
+                      "sizeMB":  0,
+                      "location":  "npm global in %APPDATA%\\npm (tiny)",
+                      "configs":  [
+                                      null
+                                  ],
+                      "purpose":  "Bridge for remote HTTP MCP servers that only speak stdio to a client.",
+                      "when":  "A client config uses npx mcp-remote \u003curl\u003e.",
+                      "keyCommands":  [
+                                          "npx -y mcp-remote \u003curl\u003e",
+                                          "npm ls -g mcp-remote"
+                                      ],
+                      "runsWhere":  "Windows",
+                      "agentNotes":  "May not print a version; presence on PATH is the check."
+                  },
+                  {
+                      "id":  "npx",
+                      "name":  "npx",
+                      "category":  "MCP prerequisites",
+                      "policy":  "verify",
+                      "installed":  true,
+                      "version":  "11.17.0",
+                      "path":  "C:\\Program Files\\nodejs\\npx.ps1",
+                      "drive":  "C:",
+                      "sizeMB":  100.9,
+                      "location":  "ships with Node",
+                      "configs":  [
+                                      null
+                                  ],
+                      "purpose":  "Runs Node-based MCP servers without installing them.",
+                      "when":  "MCP config entries of the form npx -y \u003cpackage\u003e.",
+                      "keyCommands":  [
+                                          "npx -y \u003cpackage\u003e",
+                                          "npx --version"
+                                      ],
+                      "runsWhere":  "Windows",
+                      "agentNotes":  "Resolves only if Node is on PATH."
+                  },
+                  {
+                      "id":  "uvx",
+                      "name":  "uvx",
+                      "category":  "MCP prerequisites",
+                      "policy":  "verify",
+                      "installed":  true,
+                      "version":  "0.12.19",
+                      "path":  "C:\\Users\\anant\\.local\\bin\\uvx.exe",
+                      "drive":  "C:",
+                      "sizeMB":  0.3,
+                      "location":  "ships with the standalone uv",
+                      "configs":  [
+                                      null
+                                  ],
+                      "purpose":  "Runs Python-based MCP servers and tools in isolated environments.",
+                      "when":  "MCP config entries of the form uvx \u003cpackage\u003e.",
+                      "keyCommands":  [
+                                          "uvx \u003ctool\u003e",
+                                          "uvx --from \u003cpkg\u003e \u003ccmd\u003e",
+                                          "uvx --version"
+                                      ],
+                      "runsWhere":  "Windows",
+                      "agentNotes":  "Comes from the standalone uv, not the pip uv."
+                  },
+                  {
+                      "id":  "docker-cli",
+                      "name":  "Docker CLI",
+                      "category":  "MCP prerequisites",
+                      "policy":  "verify",
+                      "installed":  true,
+                      "version":  "29.8.0",
+                      "path":  "C:\\Users\\anant\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe",
+                      "drive":  "C:",
+                      "sizeMB":  42.7,
+                      "location":  "C:\\Program Files\\Docker\\Docker\\resources\\bin",
+                      "configs":  [
+                                      null
+                                  ],
+                      "purpose":  "Command used by MCP servers shipped as containers.",
+                      "when":  "MCP config entries of the form docker run.",
+                      "keyCommands":  [
+                                          "docker --version",
+                                          "docker run --rm \u003cimage\u003e"
+                                      ],
+                      "runsWhere":  "Windows",
+                      "agentNotes":  "Only the command resolution is verified; the engine may be stopped."
+                  },
+                  {
+                      "id":  "tailscale-acer",
+                      "name":  "Tailscale (Acer, Windows side)",
+                      "category":  "Per machine",
+                      "policy":  "verify",
+                      "installed":  true,
+                      "version":  "1.104.1",
+                      "path":  null,
+                      "drive":  null,
+                      "sizeMB":  null,
+                      "location":  "C:\\Program Files\\Tailscale",
+                      "configs":  [
+                                      null
+                                  ],
+                      "purpose":  "Tailnet client used by the Acer to SSH into the Dell\u0027s WSL.",
+                      "when":  "Remote-SSH to the canonical host (dell-wsl).",
+                      "keyCommands":  [
+                                          "tailscale status",
+                                          "tailscale ssh dell-wsl",
+                                          "ssh dell-wsl"
+                                      ],
+                      "runsWhere":  "Acer Windows only",
+                      "agentNotes":  "Never installed by a script. Never inside the Acer\u0027s WSL."
+                  },
+                  {
+                      "id":  "yazi",
+                      "name":  "Yazi",
+                      "category":  "WSL-first (catalog only)",
+                      "policy":  "catalog-only",
+                      "installed":  null,
+                      "version":  null,
+                      "path":  null,
+                      "drive":  null,
+                      "sizeMB":  null,
+                      "location":  "WSL ~/.local/bin",
+                      "configs":  [
+                                      null
+                                  ],
+                      "purpose":  "Terminal file manager with the Tokyo Night Storm flavor.",
+                      "when":  "Browse files inside WSL.",
+                      "keyCommands":  [
+                                          "yazi",
+                                          "y (shell wrapper)",
+                                          "q quit",
+                                          "~ help"
+                                      ],
+                      "runsWhere":  "WSL",
+                      "agentNotes":  "Windows Yazi is not part of this toolkit."
+                  },
+                  {
+                      "id":  "lazygit",
+                      "name":  "lazygit",
+                      "category":  "WSL-first (catalog only)",
+                      "policy":  "catalog-only",
+                      "installed":  null,
+                      "version":  null,
+                      "path":  null,
+                      "drive":  null,
+                      "sizeMB":  null,
+                      "location":  "WSL ~/.local/bin",
+                      "configs":  [
+                                      null
+                                  ],
+                      "purpose":  "Git TUI wired to delta.",
+                      "when":  "Stage, commit and rebase interactively in WSL.",
+                      "keyCommands":  [
+                                          "lazygit",
+                                          "? help",
+                                          "space stage",
+                                          "c commit"
+                                      ],
+                      "runsWhere":  "WSL",
+                      "agentNotes":  "Interactive only."
+                  },
+                  {
+                      "id":  "tmux",
+                      "name":  "tmux",
+                      "category":  "WSL-first (catalog only)",
+                      "policy":  "catalog-only",
+                      "installed":  null,
+                      "version":  null,
+                      "path":  null,
+                      "drive":  null,
+                      "sizeMB":  null,
+                      "location":  "WSL apt",
+                      "configs":  [
+                                      null
+                                  ],
+                      "purpose":  "Terminal multiplexer, Ctrl-a prefix, resurrect and continuum.",
+                      "when":  "Long-running sessions over SSH.",
+                      "keyCommands":  [
+                                          "tmux new -s \u003cname\u003e",
+                                          "tmux attach -t \u003cname\u003e",
+                                          "tmux ls",
+                                          "Ctrl-a d detach"
+                                      ],
+                      "runsWhere":  "WSL",
+                      "agentNotes":  "Agent status plugins show per-pane agent state."
+                  },
+                  {
+                      "id":  "atuin",
+                      "name":  "atuin",
+                      "category":  "WSL-first (catalog only)",
+                      "policy":  "catalog-only",
+                      "installed":  null,
+                      "version":  null,
+                      "path":  null,
+                      "drive":  null,
+                      "sizeMB":  null,
+                      "location":  "WSL ~/.local/bin",
+                      "configs":  [
+                                      null
+                                  ],
+                      "purpose":  "Shell history search, local only.",
+                      "when":  "Ctrl+R in WSL bash.",
+                      "keyCommands":  [
+                                          "atuin search \u003ctext\u003e",
+                                          "atuin stats",
+                                          "atuin history list"
+                                      ],
+                      "runsWhere":  "WSL",
+                      "agentNotes":  "History can hold secrets typed on the command line. Never print it."
+                  },
+                  {
+                      "id":  "sesh",
+                      "name":  "sesh",
+                      "category":  "WSL-first (catalog only)",
+                      "policy":  "catalog-only",
+                      "installed":  null,
+                      "version":  null,
+                      "path":  null,
+                      "drive":  null,
+                      "sizeMB":  null,
+                      "location":  "WSL ~/.local/bin",
+                      "configs":  [
+                                      null
+                                  ],
+                      "purpose":  "tmux session manager that uses zoxide.",
+                      "when":  "Jump between project sessions.",
+                      "keyCommands":  [
+                                          "sesh list",
+                                          "sesh connect \u003cname\u003e"
+                                      ],
+                      "runsWhere":  "WSL",
+                      "agentNotes":  "Interactive only."
+                  },
+                  {
+                      "id":  "ncdu",
+                      "name":  "ncdu",
+                      "category":  "WSL-first (catalog only)",
+                      "policy":  "catalog-only",
+                      "installed":  null,
+                      "version":  null,
+                      "path":  null,
+                      "drive":  null,
+                      "sizeMB":  null,
+                      "location":  "WSL apt",
+                      "configs":  [
+                                      null
+                                  ],
+                      "purpose":  "Disk usage browser.",
+                      "when":  "Find what fills a WSL folder.",
+                      "keyCommands":  [
+                                          "ncdu ~",
+                                          "ncdu -x /",
+                                          "d delete (careful)"
+                                      ],
+                      "runsWhere":  "WSL",
+                      "agentNotes":  "On Windows use WizTree instead."
+                  }
+              ],
+    "unmanifested":  {
+                         "winget":  [
+                                        {
+                                            "name":  "Acer Configuration Manager",
+                                            "id":  "ARP\\Machine\\X86\\{22165EE8-F79D-4400-A6FB-8E35391B8BEF}",
+                                            "version":  "2.9.25180"
+                                        },
+                                        {
+                                            "name":  "App Installer",
+                                            "id":  "Microsoft.AppInstaller",
+                                            "version":  "1.29.380.0"
+                                        },
+                                        {
+                                            "name":  "AV1 Video Extension",
+                                            "id":  "MSIX\\Microsoft.AV1VideoExtension_2.0.35.0_x64__8wekyb3d8bbwe",
+                                            "version":  "2.0.35.0"
+                                        },
+                                        {
+                                            "name":  "AVC Encoder Video Extension",
+                                            "id":  "MSIX\\Microsoft.AVCEncoderVideoExtension_1.1.47.0_x64__8wekyb3d8bbwe",
+                                            "version":  "1.1.47.0"
+                                        },
+                                        {
+                                            "name":  "ChatGPT",
+                                            "id":  "MSIX\\OpenAI.Codex_26.1007.9446.0_x64__2p2nqsd0c76g0",
+                                            "version":  "26.1007.9446.0"
+                                        },
+                                        {
+                                            "name":  "Command Palette",
+                                            "id":  "MSIX\\Microsoft.CommandPalette_0.12.12365.0_x64__8wekyb3d8bbwe",
+                                            "version":  "0.12.12365.0"
+                                        },
+                                        {
+                                            "name":  "Copilot",
+                                            "id":  "ARP\\Machine\\X86\\Microsoft Copilot",
+                                            "version":  "155.0.4283.45"
+                                        },
+                                        {
+                                            "name":  "Copilot",
+                                            "id":  "Microsoft.365Copilot",
+                                            "version":  "155.0.4283.45"
+                                        },
+                                        {
+                                            "name":  "Dev Home",
+                                            "id":  "MSIX\\Microsoft.Windows.DevHome_0.1700.597.0_x64__8wekyb3d8bbwe",
+                                            "version":  "0.1700.597.0"
+                                        },
+                                        {
+                                            "name":  "DevToys",
+                                            "id":  "MSIX\\64360VelerSoftware.DevToys_1.0.14.0_x64__j80j2txgjg9dj",
+                                            "version":  "1.0.14.0"
+                                        },
+                                        {
+                                            "name":  "Discord",
+                                            "id":  "Discord.Discord",
+                                            "version":  "1.0.9262"
+                                        },
+                                        {
+                                            "name":  "DTS Sound Unbound",
+                                            "id":  "MSIX\\DTSInc.DTSSoundUnbound_2026.3.31.0_x64__t5j2fzbtdg37r",
+                                            "version":  "2026.3.31.0"
+                                        },
+                                        {
+                                            "name":  "DTS:X Ultra",
+                                            "id":  "MSIX\\DTSInc.DTSXUltra_1.14.2.0_x64__t5j2fzbtdg37r",
+                                            "version":  "1.14.2.0"
+                                        },
+                                        {
+                                            "name":  "Game Bar",
+                                            "id":  "MSIX\\Microsoft.XboxGamingOverlay_7.326.8061.0_x64__8wekyb3d8bbwe",
+                                            "version":  "7.326.8061.0"
+                                        },
+                                        {
+                                            "name":  "Game Speech Window",
+                                            "id":  "MSIX\\Microsoft.XboxSpeechToTextOverlay_1.111.30001.0_x64__8wekyb3d8bbwe",
+                                            "version":  "1.111.30001.0"
+                                        },
+                                        {
+                                            "name":  "Get Help",
+                                            "id":  "MSIX\\Microsoft.GetHelp_10.2409.42492.0_x64__8wekyb3d8bbwe",
+                                            "version":  "10.2409.42492.0"
+                                        },
+                                        {
+                                            "name":  "Google Drive",
+                                            "id":  "Google.GoogleDrive",
+                                            "version":  "130.0.2.0"
+                                        },
+                                        {
+                                            "name":  "HEIF Image Extension",
+                                            "id":  "MSIX\\Microsoft.HEIFImageExtension_1.2.48.0_x64__8wekyb3d8bbwe",
+                                            "version":  "1.2.48.0"
+                                        },
+                                        {
+                                            "name":  "Intel? Graphics Software",
+                                            "id":  "MSIX\\AppUp.IntelArcSoftware_26.36.2702.0_x64__8j3eq9eme6ctt",
+                                            "version":  "26.36.2702.0"
+                                        },
+                                        {
+                                            "name":  "Intel? Rapid Storage Technology Application",
+                                            "id":  "MSIX\\AppUp.IntelOptaneMemoryandStorageManagement_20.0.1024.0_x64__8j3eq9eme6ctt",
+                                            "version":  "20.0.1024.0"
+                                        },
+                                        {
+                                            "name":  "Jan",
+                                            "id":  "Jan.Jan",
+                                            "version":  "0.8.4"
+                                        },
+                                        {
+                                            "name":  "KiroCrew 0.6.0",
+                                            "id":  "ARP\\User\\X64\\67c9cbdc-0708-5589-adc4-9c43c4e62ddb",
+                                            "version":  "0.6.0"
+                                        },
+                                        {
+                                            "name":  "Local AI Manager for Microsoft 365",
+                                            "id":  "MSIX\\aimgr_0.20.62.0_x64__8wekyb3d8bbwe",
+                                            "version":  "0.20.62.0"
+                                        },
+                                        {
+                                            "name":  "Loom 0.375.0",
+                                            "id":  "Loom.Loom",
+                                            "version":  "0.375.0"
+                                        },
+                                        {
+                                            "name":  "Microsoft .Net Native Framework Package 1.3",
+                                            "id":  "MSIX\\Microsoft.NET.Native.Framework.1.3_1.3.24211.0_x64__8wekyb3d8bbwe",
+                                            "version":  "1.3.24211.0"
+                                        },
+                                        {
+                                            "name":  "Microsoft .Net Native Framework Package 1.3",
+                                            "id":  "MSIX\\Microsoft.NET.Native.Framework.1.3_1.3.24211.0_x86__8wekyb3d8bbwe",
+                                            "version":  "1.3.24211.0"
+                                        },
+                                        {
+                                            "name":  "Microsoft .Net Native Framework Package 1.7",
+                                            "id":  "MSIX\\Microsoft.NET.Native.Framework.1.7_1.7.27413.0_x64__8wekyb3d8bbwe",
+                                            "version":  "1.7.27413.0"
+                                        },
+                                        {
+                                            "name":  "Microsoft .Net Native Framework Package 1.7",
+                                            "id":  "MSIX\\Microsoft.NET.Native.Framework.1.7_1.7.27413.0_x86__8wekyb3d8bbwe",
+                                            "version":  "1.7.27413.0"
+                                        },
+                                        {
+                                            "name":  "Microsoft .Net Native Framework Package 2.2",
+                                            "id":  "MSIX\\Microsoft.NET.Native.Framework.2.2_2.2.29512.0_x64__8wekyb3d8bbwe",
+                                            "version":  "2.2.29512.0"
+                                        },
+                                        {
+                                            "name":  "Microsoft .Net Native Framework Package 2.2",
+                                            "id":  "MSIX\\Microsoft.NET.Native.Framework.2.2_2.2.29512.0_x86__8wekyb3d8bbwe",
+                                            "version":  "2.2.29512.0"
+                                        },
+                                        {
+                                            "name":  "Microsoft .Net Native Runtime Package 1.4",
+                                            "id":  "MSIX\\Microsoft.NET.Native.Runtime.1.4_1.4.24201.0_x64__8wekyb3d8bbwe",
+                                            "version":  "1.4.24201.0"
+                                        },
+                                        {
+                                            "name":  "Microsoft .Net Native Runtime Package 1.4",
+                                            "id":  "MSIX\\Microsoft.NET.Native.Runtime.1.4_1.4.24201.0_x86__8wekyb3d8bbwe",
+                                            "version":  "1.4.24201.0"
+                                        },
+                                        {
+                                            "name":  "Microsoft .Net Native Runtime Package 1.7",
+                                            "id":  "MSIX\\Microsoft.NET.Native.Runtime.1.7_1.7.27422.0_x64__8wekyb3d8bbwe",
+                                            "version":  "1.7.27422.0"
+                                        },
+                                        {
+                                            "name":  "Microsoft .Net Native Runtime Package 1.7",
+                                            "id":  "MSIX\\Microsoft.NET.Native.Runtime.1.7_1.7.27422.0_x86__8wekyb3d8bbwe",
+                                            "version":  "1.7.27422.0"
+                                        },
+                                        {
+                                            "name":  "Microsoft .Net Native Runtime Package 2.2",
+                                            "id":  "Microsoft.DotNet.Native.Runtime",
+                                            "version":  "2.2.28604.0"
+                                        },
+                                        {
+                                            "name":  "Microsoft .Net Native Runtime Package 2.2",
+                                            "id":  "Microsoft.DotNet.Native.Runtime",
+                                            "version":  "2.2.28604.0"
+                                        },
+                                        {
+                                            "name":  "Microsoft 365 Apps for enterprise - en-us",
+                                            "id":  "Microsoft.Office",
+                                            "version":  "16.0.20430.20146"
+                                        },
+                                        {
+                                            "name":  "Microsoft 365 companion apps",
+                                            "id":  "MSIX\\Microsoft.M365Companions_2.2605.21000.0_x64__8wekyb3d8bbwe",
+                                            "version":  "2.2605.21000.0"
+                                        },
+                                        {
+                                            "name":  "Microsoft Bing",
+                                            "id":  "MSIX\\Microsoft.BingSearch_1.1.43.0_x64__8wekyb3d8bbwe",
+                                            "version":  "1.1.43.0"
+                                        },
+                                        {
+                                            "name":  "Microsoft Edge",
+                                            "id":  "Microsoft.Edge",
+                                            "version":  "155.0.4283.45"
+                                        },
+                                        {
+                                            "name":  "Microsoft Edge",
+                                            "id":  "MSIX\\Microsoft.MicrosoftEdge.Stable_153.0.4234.32_neutral__8wekyb3d8bbwe",
+                                            "version":  "153.0.4234.32"
+                                        },
+                                        {
+                                            "name":  "Microsoft OneDrive",
+                                            "id":  "Microsoft.OneDrive",
+                                            "version":  "26.178.0913.0007"
+                                        },
+                                        {
+                                            "name":  "Microsoft Photos",
+                                            "id":  "MSIX\\Microsoft.Windows.Photos_2026.11090.22001.0_x64__8wekyb3d8bbwe",
+                                            "version":  "2026.11090.22001.0"
+                                        },
+                                        {
+                                            "name":  "Microsoft Sticky Notes",
+                                            "id":  "MSIX\\Microsoft.MicrosoftStickyNotes_6.1.4.0_x64__8wekyb3d8bbwe",
+                                            "version":  "6.1.4.0"
+                                        },
+                                        {
+                                            "name":  "Microsoft Store",
+                                            "id":  "MSIX\\Microsoft.WindowsStore_22608.1401.6.0_x64__8wekyb3d8bbwe",
+                                            "version":  "22608.1401.6.0"
+                                        },
+                                        {
+                                            "name":  "Microsoft Teams",
+                                            "id":  "Microsoft.Teams",
+                                            "version":  "26246.1604.5133.838"
+                                        },
+                                        {
+                                            "name":  "Microsoft Teams Meeting Add-in for Microsoft Office",
+                                            "id":  "ARP\\Machine\\X64\\{A7AB73A3-CB10-4AA5-9D38-6AEFFBDE4C91}",
+                                            "version":  "1.26.21803"
+                                        },
+                                        {
+                                            "name":  "Microsoft Visual C++ 2015 UWP Desktop Runtime Package",
+                                            "id":  "Microsoft.VCLibs.Desktop.14",
+                                            "version":  "14.0.33728.0"
+                                        },
+                                        {
+                                            "name":  "Microsoft Visual C++ 2015 UWP Desktop Runtime Package",
+                                            "id":  "Microsoft.VCLibs.Desktop.14",
+                                            "version":  "14.0.33728.0"
+                                        },
+                                        {
+                                            "name":  "Microsoft Visual C++ 2015 UWP Runtime Package",
+                                            "id":  "Microsoft.VCLibs.14",
+                                            "version":  "14.0.33519.0"
+                                        },
+                                        {
+                                            "name":  "Microsoft Visual C++ 2015 UWP Runtime Package",
+                                            "id":  "Microsoft.VCLibs.14",
+                                            "version":  "14.0.33519.0"
+                                        },
+                                        {
+                                            "name":  "Microsoft Visual C++ v14 Redistributable (x64) - 14.50.35719",
+                                            "id":  "Microsoft.VCRedist.2015+.x64",
+                                            "version":  "14.50.35719.0"
+                                        },
+                                        {
+                                            "name":  "Microsoft Visual C++ v14 Redistributable (x86) - 14.50.35719",
+                                            "id":  "Microsoft.VCRedist.2015+.x86",
+                                            "version":  "14.50.35719.0"
+                                        },
+                                        {
+                                            "name":  "Microsoft Windows Application Compatibility Fix Database",
+                                            "id":  "ARP\\Machine\\X64\\{22221111-1111-1111-1111-111111111111}.sdb",
+                                            "version":  "Unknown"
+                                        },
+                                        {
+                                            "name":  "Microsoft.Office.ActionsServer",
+                                            "id":  "MSIX\\Microsoft.Office.ActionsServer_16.0.20430.20146_neutral__8wekyb3d8bbwe",
+                                            "version":  "16.0.20430.20146"
+                                        },
+                                        {
+                                            "name":  "Microsoft.UI.Xaml.2.7",
+                                            "id":  "Microsoft.UI.Xaml.2.7",
+                                            "version":  "7.2409.9001.0"
+                                        },
+                                        {
+                                            "name":  "Microsoft.UI.Xaml.2.7",
+                                            "id":  "Microsoft.UI.Xaml.2.7",
+                                            "version":  "7.2409.9001.0"
+                                        },
+                                        {
+                                            "name":  "Microsoft.UI.Xaml.2.8",
+                                            "id":  "Microsoft.UI.Xaml.2.8",
+                                            "version":  "8.2511.26001.0"
+                                        },
+                                        {
+                                            "name":  "Microsoft.UI.Xaml.2.8",
+                                            "id":  "Microsoft.UI.Xaml.2.8",
+                                            "version":  "8.2501.31001.0"
+                                        },
+                                        {
+                                            "name":  "Mobile devices",
+                                            "id":  "MSIX\\MicrosoftWindows.CrossDevice_1.26082.74.0_x64__cw5n1h2txyewy",
+                                            "version":  "1.26082.74.0"
+                                        },
+                                        {
+                                            "name":  "MSN Weather",
+                                            "id":  "MSIX\\Microsoft.BingWeather_4.54.63045.0_x64__8wekyb3d8bbwe",
+                                            "version":  "4.54.63045.0"
+                                        },
+                                        {
+                                            "name":  "NordVPN",
+                                            "id":  "ARP\\Machine\\X86\\{525B5784-FD9C-4491-BF5F-A272FB5567A0}",
+                                            "version":  "2.0.26252.0"
+                                        },
+                                        {
+                                            "name":  "NVIDIA App 11.0.9.565",
+                                            "id":  "ARP\\Machine\\X64\\{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_Display.NvApp",
+                                            "version":  "11.0.9.565"
+                                        },
+                                        {
+                                            "name":  "NVIDIA FrameView SDK 1.9.12728.38614306",
+                                            "id":  "ARP\\Machine\\X64\\{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_FrameViewSdk",
+                                            "version":  "1.9.12728.38614306"
+                                        },
+                                        {
+                                            "name":  "NVIDIA Graphics Driver 617.42",
+                                            "id":  "ARP\\Machine\\X64\\{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_Display.Driver",
+                                            "version":  "617.42"
+                                        },
+                                        {
+                                            "name":  "NVIDIA HD Audio Driver 1.4.6.3",
+                                            "id":  "ARP\\Machine\\X64\\{B2FE1952-0186-46C3-BAEC-A80AA35AC5B8}_HDAudio.Driver",
+                                            "version":  "1.4.6.3"
+                                        },
+                                        {
+                                            "name":  "NVIDIA PhysX System Software 9.26.0703",
+                                            "id":  "Nvidia.PhysX",
+                                            "version":  "9.26.0703"
+                                        },
+                                        {
+                                            "name":  "Obsidian",
+                                            "id":  "Obsidian.Obsidian",
+                                            "version":  "1.13.7"
+                                        },
+                                        {
+                                            "name":  "OfficePushNotificationsUtility",
+                                            "id":  "MSIX\\Microsoft.OfficePushNotificationUtility_16.0.20430.20146_neutral__8wekyb3d8bbwe",
+                                            "version":  "16.0.20430.20146"
+                                        },
+                                        {
+                                            "name":  "Paint",
+                                            "id":  "MSIX\\Microsoft.Paint_11.2605.81.0_x64__8wekyb3d8bbwe",
+                                            "version":  "11.2605.81.0"
+                                        },
+                                        {
+                                            "name":  "Phone Link",
+                                            "id":  "MSIX\\Microsoft.YourPhone_1.26082.121.0_x64__8wekyb3d8bbwe",
+                                            "version":  "1.26082.121.0"
+                                        },
+                                        {
+                                            "name":  "PowerToys (Preview) x64",
+                                            "id":  "XP89DCGQ3K6VLD",
+                                            "version":  "0.101.2362.0"
+                                        },
+                                        {
+                                            "name":  "PowerToys FileLocksmith Context Menu",
+                                            "id":  "MSIX\\Microsoft.PowerToys.FileLocksmithContextMenu_0.101.2362.0_neutral__8wekyb3d8bbwe",
+                                            "version":  "0.101.2362.0"
+                                        },
+                                        {
+                                            "name":  "PowerToys ImageResizer Context Menu",
+                                            "id":  "MSIX\\Microsoft.PowerToys.ImageResizerContextMenu_0.101.2362.0_neutral__8wekyb3d8bbwe",
+                                            "version":  "0.101.2362.0"
+                                        },
+                                        {
+                                            "name":  "PowerToys PowerRename Context Menu",
+                                            "id":  "MSIX\\Microsoft.PowerToys.PowerRenameContextMenu_0.101.2362.0_neutral__8wekyb3d8bbwe",
+                                            "version":  "0.101.2362.0"
+                                        },
+                                        {
+                                            "name":  "PredatorSense Config",
+                                            "id":  "ARP\\Machine\\X64\\{CEEEB388-6571-4937-83F1-262EAB9E8E8B}",
+                                            "version":  "5.1.519"
+                                        },
+                                        {
+                                            "name":  "PredatorSense for Notebook",
+                                            "id":  "MSIX\\ULICTekInc.PredatorSenseforNotebook_5.1.519.0_x64__nt9dgb7efx6bt",
+                                            "version":  "5.1.519.0"
+                                        },
+                                        {
+                                            "name":  "PredatorSense Installer",
+                                            "id":  "ARP\\Machine\\X86\\{50626813-48c2-49a4-9a70-79ba40508ee1}",
+                                            "version":  "5.1.519"
+                                        },
+                                        {
+                                            "name":  "Quick Assist",
+                                            "id":  "MSIX\\MicrosoftCorporationII.QuickAssist_2.0.35.0_x64__8wekyb3d8bbwe",
+                                            "version":  "2.0.35.0"
+                                        },
+                                        {
+                                            "name":  "Raw Image Extension",
+                                            "id":  "MSIX\\Microsoft.RawImageExtension_2.5.35.0_x64__8wekyb3d8bbwe",
+                                            "version":  "2.5.35.0"
+                                        },
+                                        {
+                                            "name":  "Realtek Audio Control",
+                                            "id":  "MSIX\\RealtekSemiconductorCorp.RealtekAudioControl_1.52.356.0_x64__dt26b99r8h8gj",
+                                            "version":  "1.52.356.0"
+                                        },
+                                        {
+                                            "name":  "Revo Uninstaller 2.7.0",
+                                            "id":  "RevoUninstaller.RevoUninstaller",
+                                            "version":  "2.7.0"
+                                        },
+                                        {
+                                            "name":  "Riot Client",
+                                            "id":  "ARP\\User\\X64\\Riot Game Riot_Client.",
+                                            "version":  "Unknown"
+                                        },
+                                        {
+                                            "name":  "Riot Vanguard",
+                                            "id":  "ARP\\Machine\\X64\\Riot Vanguard",
+                                            "version":  "Unknown"
+                                        },
+                                        {
+                                            "name":  "Slack",
+                                            "id":  "SlackTechnologies.Slack",
+                                            "version":  "4.52.178"
+                                        },
+                                        {
+                                            "name":  "Snipping Tool",
+                                            "id":  "MSIX\\Microsoft.ScreenSketch_11.2608.41.0_x64__8wekyb3d8bbwe",
+                                            "version":  "11.2608.41.0"
+                                        },
+                                        {
+                                            "name":  "Spotify - Music and Podcasts",
+                                            "id":  "MSIX\\SpotifyAB.SpotifyMusic_1.304.258.0_x64__zpdnekdrzrea0",
+                                            "version":  "1.304.258.0"
+                                        },
+                                        {
+                                            "name":  "Start Experiences App",
+                                            "id":  "MSIX\\Microsoft.StartExperiencesApp_1.398.2.0_x64__8wekyb3d8bbwe",
+                                            "version":  "1.398.2.0"
+                                        },
+                                        {
+                                            "name":  "Store Experience Host",
+                                            "id":  "MSIX\\Microsoft.StorePurchaseApp_22608.1401.1.0_x64__8wekyb3d8bbwe",
+                                            "version":  "22608.1401.1.0"
+                                        },
+                                        {
+                                            "name":  "SumatraPDF",
+                                            "id":  "SumatraPDF.SumatraPDF",
+                                            "version":  "3.6.1"
+                                        },
+                                        {
+                                            "name":  "Telegram Desktop",
+                                            "id":  "Telegram.TelegramDesktop",
+                                            "version":  "7.2.8"
+                                        },
+                                        {
+                                            "name":  "Todoist 9.30.0",
+                                            "id":  "Doist.Todoist",
+                                            "version":  "9.30.0"
+                                        },
+                                        {
+                                            "name":  "User Experience Improvement Program Service",
+                                            "id":  "ARP\\Machine\\X64\\{323EA05D-046D-449D-9D7C-89243C957CCE}",
+                                            "version":  "5.00.3026"
+                                        },
+                                        {
+                                            "name":  "User Experience Improvement Program V5",
+                                            "id":  "MSIX\\AcerIncorporated.UserExperienceImprovementProgramV_5.0.3030.0_x64__48frkmn4z8aw4",
+                                            "version":  "5.0.3030.0"
+                                        },
+                                        {
+                                            "name":  "VALORANT",
+                                            "id":  "ARP\\User\\X64\\Riot Game valorant.live",
+                                            "version":  "Unknown"
+                                        },
+                                        {
+                                            "name":  "vibe",
+                                            "id":  "Thewh1teagle.vibe",
+                                            "version":  "3.2.2"
+                                        },
+                                        {
+                                            "name":  "Vivaldi",
+                                            "id":  "ARP\\User\\X64\\Vivaldi",
+                                            "version":  "8.2.4133.87"
+                                        },
+                                        {
+                                            "name":  "VP9 Video Extensions",
+                                            "id":  "MSIX\\Microsoft.VP9VideoExtensions_1.2.20.0_x64__8wekyb3d8bbwe",
+                                            "version":  "1.2.20.0"
+                                        },
+                                        {
+                                            "name":  "Web Media Extensions",
+                                            "id":  "MSIX\\Microsoft.WebMediaExtensions_2.1.51.0_x64__8wekyb3d8bbwe",
+                                            "version":  "2.1.51.0"
+                                        },
+                                        {
+                                            "name":  "WebP Image Extension",
+                                            "id":  "MSIX\\Microsoft.WebpImageExtension_1.2.31.0_x64__8wekyb3d8bbwe",
+                                            "version":  "1.2.31.0"
+                                        },
+                                        {
+                                            "name":  "WhatsApp",
+                                            "id":  "9NKSQGP7F2NH",
+                                            "version":  "2.2639.100.0"
+                                        },
+                                        {
+                                            "name":  "WinAppRuntime.Main.1.8",
+                                            "id":  "MSIX\\MicrosoftCorporationII.WinAppRuntime.Main.1.8_8000.994.2142.0_x64__8wekyb3d8bbwe",
+                                            "version":  "8000.994.2142.0"
+                                        },
+                                        {
+                                            "name":  "WinAppRuntime.Main.2",
+                                            "id":  "MSIX\\MicrosoftCorporationII.WinAppRuntime.Main.2_2.5.1.0_x64__8wekyb3d8bbwe",
+                                            "version":  "2.5.1.0"
+                                        },
+                                        {
+                                            "name":  "WinAppRuntime.Singleton",
+                                            "id":  "MSIX\\MicrosoftCorporationII.WinAppRuntime.Singleton_8002.5.1.0_x64__8wekyb3d8bbwe",
+                                            "version":  "8002.5.1.0"
+                                        },
+                                        {
+                                            "name":  "Windows App Runtime DDLM 8000.806.2252.0-x6",
+                                            "id":  "MSIX\\Microsoft.WinAppRuntime.DDLM.8000.806.2252.0-x6_8000.806.2252.0_x64__8wekyb3d8bbwe",
+                                            "version":  "8000.806.2252.0"
+                                        },
+                                        {
+                                            "name":  "Windows App Runtime DDLM 8000.806.2252.0-x8",
+                                            "id":  "MSIX\\Microsoft.WinAppRuntime.DDLM.8000.806.2252.0-x8_8000.806.2252.0_x86__8wekyb3d8bbwe",
+                                            "version":  "8000.806.2252.0"
+                                        },
+                                        {
+                                            "name":  "Windows Application Compatibility Enhancements",
+                                            "id":  "MSIX\\Microsoft.ApplicationCompatibilityEnhancements_1.2511.9.0_x64__8wekyb3d8bbwe",
+                                            "version":  "1.2511.9.0"
+                                        },
+                                        {
+                                            "name":  "Windows Calculator",
+                                            "id":  "MSIX\\Microsoft.WindowsCalculator_11.2607.0.0_x64__8wekyb3d8bbwe",
+                                            "version":  "11.2607.0.0"
+                                        },
+                                        {
+                                            "name":  "Windows Camera",
+                                            "id":  "MSIX\\Microsoft.WindowsCamera_2026.2607.1.0_x64__8wekyb3d8bbwe",
+                                            "version":  "2026.2607.1.0"
+                                        },
+                                        {
+                                            "name":  "Windows Clock",
+                                            "id":  "MSIX\\Microsoft.WindowsAlarms_11.2607.6.0_x64__8wekyb3d8bbwe",
+                                            "version":  "11.2607.6.0"
+                                        },
+                                        {
+                                            "name":  "Windows Media Player",
+                                            "id":  "MSIX\\Microsoft.ZuneMusic_11.2607.16.0_x64__8wekyb3d8bbwe",
+                                            "version":  "11.2607.16.0"
+                                        },
+                                        {
+                                            "name":  "Windows Notepad",
+                                            "id":  "MSIX\\Microsoft.WindowsNotepad_11.2607.14.0_x64__8wekyb3d8bbwe",
+                                            "version":  "11.2607.14.0"
+                                        },
+                                        {
+                                            "name":  "Windows Package Manager Source (winget) V2",
+                                            "id":  "MSIX\\Microsoft.Winget.Source_2026.1015.2221.10_neutral__8wekyb3d8bbwe",
+                                            "version":  "2026.1015.2221.10"
+                                        },
+                                        {
+                                            "name":  "Windows Security",
+                                            "id":  "MSIX\\Microsoft.SecHealthUI_1000.29628.1000.0_x64__8wekyb3d8bbwe",
+                                            "version":  "1000.29628.1000.0"
+                                        },
+                                        {
+                                            "name":  "Windows Sound Recorder",
+                                            "id":  "MSIX\\Microsoft.WindowsSoundRecorder_11.2607.1.0_x64__8wekyb3d8bbwe",
+                                            "version":  "11.2607.1.0"
+                                        },
+                                        {
+                                            "name":  "Windows Subsystem for Linux",
+                                            "id":  "Microsoft.WSL",
+                                            "version":  "2.7.14.0"
+                                        },
+                                        {
+                                            "name":  "WindowsAppRuntime.1.2",
+                                            "id":  "Microsoft.WindowsAppRuntime.1.2",
+                                            "version":  "1.2.5"
+                                        },
+                                        {
+                                            "name":  "WindowsAppRuntime.1.2",
+                                            "id":  "Microsoft.WindowsAppRuntime.1.2",
+                                            "version":  "1.2.5"
+                                        },
+                                        {
+                                            "name":  "WindowsAppRuntime.1.7",
+                                            "id":  "Microsoft.WindowsAppRuntime.1.7",
+                                            "version":  "1.7.9"
+                                        },
+                                        {
+                                            "name":  "WindowsAppRuntime.1.7",
+                                            "id":  "Microsoft.WindowsAppRuntime.1.7",
+                                            "version":  "1.7.9"
+                                        },
+                                        {
+                                            "name":  "WindowsAppRuntime.1.8",
+                                            "id":  "Microsoft.WindowsAppRuntime.1.8",
+                                            "version":  "\u003e 1.8.10"
+                                        },
+                                        {
+                                            "name":  "WindowsAppRuntime.1.8",
+                                            "id":  "Microsoft.WindowsAppRuntime.1.8",
+                                            "version":  "\u003e 1.8.10"
+                                        },
+                                        {
+                                            "name":  "WindowsAppRuntime.2",
+                                            "id":  "Microsoft.WindowsAppRuntime.2",
+                                            "version":  "2.5.1.0"
+                                        },
+                                        {
+                                            "name":  "WindowsAppRuntime.2",
+                                            "id":  "Microsoft.WindowsAppRuntime.2",
+                                            "version":  "2.5.1.0"
+                                        },
+                                        {
+                                            "name":  "Wispr Flow",
+                                            "id":  "WisprFlow.WisprFlow",
+                                            "version":  "1.6.1147"
+                                        },
+                                        {
+                                            "name":  "WizTree v4.32",
+                                            "id":  "AntibodySoftware.WizTree",
+                                            "version":  "4.32"
+                                        },
+                                        {
+                                            "name":  "XBOX",
+                                            "id":  "MSIX\\Microsoft.GamingApp_2609.1001.16.0_x64__8wekyb3d8bbwe",
+                                            "version":  "2609.1001.16.0"
+                                        },
+                                        {
+                                            "name":  "Xbox Identity Provider",
+                                            "id":  "MSIX\\Microsoft.XboxIdentityProvider_12.130.16001.0_x64__8wekyb3d8bbwe",
+                                            "version":  "12.130.16001.0"
+                                        },
+                                        {
+                                            "name":  "Xbox TCUI",
+                                            "id":  "MSIX\\Microsoft.Xbox.TCUI_1.24.10001.0_x64__8wekyb3d8bbwe",
+                                            "version":  "1.24.10001.0"
+                                        },
+                                        {
+                                            "name":  "Yazi",
+                                            "id":  "sxyazi.yazi",
+                                            "version":  "26.9.1"
+                                        },
+                                        {
+                                            "name":  "Zoom Workplace (64-bit)",
+                                            "id":  "Zoom.Zoom",
+                                            "version":  "7.1.46825"
+                                        }
+                                    ],
+                         "npmGlobals":  [
+                                            {
+                                                "name":  "@openai/codex",
+                                                "version":  "0.162.1"
+                                            },
+                                            {
+                                                "name":  "mcp-remote",
+                                                "version":  "0.2.1"
+                                            }
+                                        ],
+                         "localBin":  [
+                                          "claude.exe",
+                                          "claude.exe.old.1792002663781.2332",
+                                          "claude.exe.old.1792092220308.35208",
+                                          "mineru-api.exe",
+                                          "mineru-kit.exe",
+                                          "mineru-models-download.exe",
+                                          "mineru-openai-server.exe",
+                                          "mineru-router.exe",
+                                          "mineru-webui.exe",
+                                          "mineru.exe",
+                                          "python3.12.exe",
+                                          "python3.13.exe",
+                                          "python3.14.exe",
+                                          "rg.exe",
+                                          "uv.exe",
+                                          "uvw.exe",
+                                          "uvx.exe"
+                                      ],
+                         "uvTools":  [
+                                         "mineru v4.0.10"
+                                     ],
+                         "choco":  [
+
+                                   ]
+                     },
+    "mcp":  [
+                {
+                    "file":  "Claude Desktop",
+                    "name":  "(file absent)",
+                    "command":  null,
+                    "resolves":  null,
+                    "purpose":  "",
+                    "note":  "file not present"
+                },
+                {
+                    "file":  "Claude Code (home .mcp.json)",
+                    "name":  "(file absent)",
+                    "command":  null,
+                    "resolves":  null,
+                    "purpose":  "",
+                    "note":  "file not present"
+                },
+                {
+                    "file":  "Claude Code (user scope)",
+                    "name":  "jarvis",
+                    "command":  null,
+                    "resolves":  null,
+                    "purpose":  "Jarvis Obsidian vault through the Local REST API (127.0.0.1:27123).",
+                    "note":  "remote/url server, no local launch command (url not printed)"
+                },
+                {
+                    "file":  "Claude Code (user scope)",
+                    "name":  "the-plan",
+                    "command":  null,
+                    "resolves":  null,
+                    "purpose":  "The Plan Obsidian vault through the Local REST API (127.0.0.1:27124).",
+                    "note":  "remote/url server, no local launch command (url not printed)"
+                },
+                {
+                    "file":  "VS Code",
+                    "name":  "io.github.upstash/context7",
+                    "command":  null,
+                    "resolves":  null,
+                    "purpose":  "Current library and framework documentation lookup.",
+                    "note":  "remote/url server, no local launch command (url not printed)"
+                },
+                {
+                    "file":  "VS Code",
+                    "name":  "io.github.github/github-mcp-server",
+                    "command":  null,
+                    "resolves":  null,
+                    "purpose":  "Official GitHub MCP server (remote).",
+                    "note":  "remote/url server, no local launch command (url not printed)"
+                },
+                {
+                    "file":  "VS Code",
+                    "name":  "firecrawl/firecrawl-mcp-server",
+                    "command":  "npx",
+                    "resolves":  true,
+                    "purpose":  "Web scraping and search.",
+                    "note":  ""
+                },
+                {
+                    "file":  "VS Code",
+                    "name":  "the-plan",
+                    "command":  null,
+                    "resolves":  null,
+                    "purpose":  "The Plan Obsidian vault through the Local REST API (127.0.0.1:27124).",
+                    "note":  "remote/url server, no local launch command (url not printed)"
+                },
+                {
+                    "file":  "VS Code",
+                    "name":  "jarvis",
+                    "command":  null,
+                    "resolves":  null,
+                    "purpose":  "Jarvis Obsidian vault through the Local REST API (127.0.0.1:27123).",
+                    "note":  "remote/url server, no local launch command (url not printed)"
+                },
+                {
+                    "file":  "Codex",
+                    "name":  "jarvis",
+                    "command":  null,
+                    "resolves":  null,
+                    "purpose":  "Jarvis Obsidian vault through the Local REST API (127.0.0.1:27123).",
+                    "note":  "remote/url server, no local launch command (url not printed)"
+                },
+                {
+                    "file":  "Codex",
+                    "name":  "the-plan",
+                    "command":  null,
+                    "resolves":  null,
+                    "purpose":  "The Plan Obsidian vault through the Local REST API (127.0.0.1:27124).",
+                    "note":  "remote/url server, no local launch command (url not printed)"
+                },
+                {
+                    "file":  "Codex",
+                    "name":  "github",
+                    "command":  null,
+                    "resolves":  null,
+                    "purpose":  "GitHub issues, PRs and repos.",
+                    "note":  "remote/url server, no local launch command (url not printed)"
+                },
+                {
+                    "file":  "Codex",
+                    "name":  "cua_repl",
+                    "command":  null,
+                    "resolves":  null,
+                    "purpose":  "Codex built-in computer-use helper (purpose not verified).",
+                    "note":  "remote/url server, no local launch command (url not printed)"
+                }
+            ],
+    "configs":  [
+                    {
+                        "id":  "starship",
+                        "kind":  "copy",
+                        "target":  "C:\\Users\\anant\\.config\\starship.toml",
+                        "sha256":  "9EF7137822AA311445172696D150ED8E6D8C5CD84F5FCF7829D96EE0FA81D1E2",
+                        "sourceSha256":  "9EF7137822AA311445172696D150ED8E6D8C5CD84F5FCF7829D96EE0FA81D1E2",
+                        "status":  "MATCH"
+                    },
+                    {
+                        "id":  "git-ignore",
+                        "kind":  "copy",
+                        "target":  "C:\\Users\\anant\\.config\\git\\ignore",
+                        "sha256":  "546B86DBE5D2AA141915726FB99966DE0664263AB33C17C460CD50EA3C6E0E50",
+                        "sourceSha256":  "546B86DBE5D2AA141915726FB99966DE0664263AB33C17C460CD50EA3C6E0E50",
+                        "status":  "MATCH"
+                    },
+                    {
+                        "id":  "git-delta",
+                        "kind":  "copy",
+                        "target":  "C:\\Users\\anant\\.config\\git\\delta.gitconfig",
+                        "sha256":  "91DE9847A2993F7EC2950A3F20FF6D1A72DF778B87C1817B5554780BEDD840F8",
+                        "sourceSha256":  "91DE9847A2993F7EC2950A3F20FF6D1A72DF778B87C1817B5554780BEDD840F8",
+                        "status":  "MATCH"
+                    },
+                    {
+                        "id":  "bat",
+                        "kind":  "copy",
+                        "target":  "C:\\Users\\anant\\AppData\\Roaming\\bat\\config",
+                        "sha256":  "F613417D1CF8F71A72F2568F64A05F35AECC76AAD8A26881BA3C0D84A7C4A710",
+                        "sourceSha256":  "FD064DBC4718C2A38DC7D5B250609D62EBC386A3B97B6353009D4348D95D4C8A",
+                        "status":  "DIFF"
+                    },
+                    {
+                        "id":  "fd-ignore",
+                        "kind":  "copy",
+                        "target":  "C:\\Users\\anant\\AppData\\Roaming\\fd\\ignore",
+                        "sha256":  "6A549EAF097171C6B35B0A31CB08CC41B53F0064C8858475AB3C4C191EC18DC7",
+                        "sourceSha256":  "A97264C09BFF11356068FED1BB45BD241798431071EE2B1C78C9FF849FA651E0",
+                        "status":  "DIFF"
+                    },
+                    {
+                        "id":  "profile-ps5",
+                        "kind":  "profile",
+                        "target":  "D:\\_Anant\\20_Progress\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1",
+                        "sha256":  "14BD19C5ED2EFDD70C3E3EF8154DF81EFD782A75823CDE962E78BB2A20086581",
+                        "sourceSha256":  null,
+                        "status":  "BLOCK-PRESENT"
+                    },
+                    {
+                        "id":  "profile-pwsh",
+                        "kind":  "profile",
+                        "target":  "D:\\_Anant\\20_Progress\\Documents\\PowerShell\\Microsoft.PowerShell_profile.ps1",
+                        "sha256":  "9F456ACFE814EFDE0C3C85520AB37B477A5D812FA8F02F67BD5D56373B1FAB33",
+                        "sourceSha256":  null,
+                        "status":  "BLOCK-PRESENT"
+                    }
+                ],
+    "env":  [
+                {
+                    "name":  "STARSHIP_CONFIG",
+                    "value":  "C:\\Users\\anant\\.config\\starship.toml"
+                },
+                {
+                    "name":  "TOOLKIT_VAULT_ROOT",
+                    "value":  "D:\\_Anant\\20_Progress\\Documents\\Jarvis"
+                },
+                {
+                    "name":  "UV_CACHE_DIR",
+                    "value":  "D:\\Apps\\uv-cache"
+                },
+                {
+                    "name":  "PIP_CACHE_DIR",
+                    "value":  null
+                },
+                {
+                    "name":  "HF_HOME",
+                    "value":  null
+                },
+                {
+                    "name":  "NUGET_PACKAGES",
+                    "value":  null
+                },
+                {
+                    "name":  "GRADLE_USER_HOME",
+                    "value":  null
+                },
+                {
+                    "name":  "PLAYWRIGHT_BROWSERS_PATH",
+                    "value":  null
+                },
+                {
+                    "name":  "PUPPETEER_CACHE_DIR",
+                    "value":  null
+                },
+                {
+                    "name":  "OLLAMA_MODELS",
+                    "value":  null
+                }
+            ],
+    "path":  [
+                 "C:\\WINDOWS\\system32",
+                 "C:\\WINDOWS",
+                 "C:\\WINDOWS\\System32\\Wbem",
+                 "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\",
+                 "C:\\WINDOWS\\System32\\OpenSSH\\",
+                 "C:\\Program Files\\NVIDIA Corporation\\NVIDIA App\\NvDLISR",
+                 "C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common",
+                 "C:\\Program Files\\starship\\bin\\",
+                 "C:\\Program Files\\nodejs\\",
+                 "C:\\Program Files\\Git\\cmd",
+                 "C:\\Program Files\\Tailscale\\",
+                 "C:\\Program Files\\GitHub CLI\\",
+                 "C:\\Users\\anant\\.local\\bin",
+                 "D:\\Apps\\Hermes\\bin",
+                 "C:\\Users\\anant\\AppData\\Local\\agy\\bin",
+                 "\\\\?\\C:\\Users\\anant\\AppData\\Local\\Programs\\Jan\\resources\\bin",
+                 "C:\\Users\\anant\\AppData\\Local\\Microsoft\\WindowsApps",
+                 "C:\\Users\\anant\\AppData\\Local\\PowerToys\\DSCModules\\",
+                 "D:\\Apps\\Microsoft VS Code\\bin",
+                 "D:\\Apps\\Cursor\\resources\\app\\bin",
+                 "C:\\Users\\anant\\AppData\\Local\\Microsoft\\WinGet\\Packages\\BurntSushi.ripgrep.MSVC_Microsoft.Winget.Source_8wekyb3d8bbwe\\ripgrep-15.2.0-x86_64-pc-windows-msvc",
+                 "C:\\Users\\anant\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-9.0.1-full_build\\bin",
+                 "C:\\Users\\anant\\AppData\\Local\\Programs\\Cua\\cua-driver\\bin",
+                 "C:\\Users\\anant\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin",
+                 "C:\\Users\\anant\\AppData\\Local\\Programs\\Ollama"
+             ],
+    "wsl":  {
+                "probed":  true,
+                "distro":  "Ubuntu-24.04",
+                "tools":  [
+                              {
+                                  "tool":  "starship",
+                                  "path":  "/usr/local/bin/starship",
+                                  "version":  "starship 1.26.0"
+                              },
+                              {
+                                  "tool":  "yazi",
+                                  "path":  "/home/anant_gupta/.local/bin/yazi",
+                                  "version":  "Yazi"
+                              },
+                              {
+                                  "tool":  "lazygit",
+                                  "path":  "/home/anant_gupta/.local/bin/lazygit",
+                                  "version":  "commit=b741725a2413fc9cbc01529cab0e7cc654ad2054, build date=2026-10-11T09:23:32Z, build source=binaryRelease, version=0.66.1, os=linux, arch=amd64, git version=2.43.0"
+                              },
+                              {
+                                  "tool":  "delta",
+                                  "path":  "/home/anant_gupta/.cargo/bin/delta",
+                                  "version":  "delta 0.20.1"
+                              },
+                              {
+                                  "tool":  "zoxide",
+                                  "path":  "/home/anant_gupta/.local/bin/zoxide",
+                                  "version":  "zoxide 0.10.0"
+                              },
+                              {
+                                  "tool":  "atuin",
+                                  "path":  "/home/anant_gupta/.atuin/bin/atuin",
+                                  "version":  "atuin 18.23.0 (78366dca8c4941731e06a2f81c0980cc2ccc3836)"
+                              },
+                              {
+                                  "tool":  "sesh",
+                                  "path":  "/home/anant_gupta/.local/bin/sesh",
+                                  "version":  "sesh version 2.33.0"
+                              },
+                              {
+                                  "tool":  "tmux",
+                                  "path":  "/home/anant_gupta/.local/bin/tmux",
+                                  "version":  ""
+                              },
+                              {
+                                  "tool":  "ncdu",
+                                  "path":  "/usr/bin/ncdu",
+                                  "version":  "ncdu 1.19"
+                              },
+                              {
+                                  "tool":  "fd",
+                                  "path":  "/home/anant_gupta/.local/bin/fd",
+                                  "version":  "fd 10.5.0"
+                              },
+                              {
+                                  "tool":  "fdfind",
+                                  "path":  "/usr/bin/fdfind",
+                                  "version":  "fdfind 9.0.0"
+                              },
+                              {
+                                  "tool":  "bat",
+                                  "path":  "/home/anant_gupta/.local/bin/bat",
+                                  "version":  "bat 0.26.1 (979ba22)"
+                              },
+                              {
+                                  "tool":  "batcat",
+                                  "path":  "/usr/bin/batcat",
+                                  "version":  "bat 0.24.0"
+                              },
+                              {
+                                  "tool":  "fzf",
+                                  "path":  "/home/anant_gupta/.local/bin/fzf",
+                                  "version":  "0.74.5 (c0a193e0)"
+                              },
+                              {
+                                  "tool":  "rg",
+                                  "path":  "/home/anant_gupta/.local/bin/rg",
+                                  "version":  "ripgrep 15.2.0 (rev e89fff89ac)"
+                              },
+                              {
+                                  "tool":  "jq",
+                                  "path":  "/usr/bin/jq",
+                                  "version":  "jq-1.7"
+                              },
+                              {
+                                  "tool":  "git",
+                                  "path":  "/usr/bin/git",
+                                  "version":  "git version 2.43.0"
+                              },
+                              {
+                                  "tool":  "gh",
+                                  "path":  "/home/anant_gupta/.local/bin/gh",
+                                  "version":  "gh version 2.102.0 (2026-09-30)"
+                              },
+                              {
+                                  "tool":  "npm",
+                                  "path":  "/mnt/c/Program Files/nodejs/npm",
+                                  "version":  "11.17.0"
+                              },
+                              {
+                                  "tool":  "uv",
+                                  "path":  "/home/anant_gupta/.local/bin/uv",
+                                  "version":  "uv 0.12.23 (x86_64-unknown-linux-gnu)"
+                              },
+                              {
+                                  "tool":  "pwsh",
+                                  "path":  "/home/anant_gupta/.local/bin/pwsh",
+                                  "version":  "PowerShell 7.6.6"
+                              },
+                              {
+                                  "tool":  "claude",
+                                  "path":  "/home/anant_gupta/.local/bin/claude",
+                                  "version":  "2.1.301 (Claude Code)"
+                              },
+                              {
+                                  "tool":  "codex",
+                                  "path":  "/mnt/d/AI/npm-global/codex",
+                                  "version":  ""
+                              },
+                              {
+                                  "tool":  "agy",
+                                  "path":  "/home/anant_gupta/.local/bin/agy",
+                                  "version":  "1.2.12"
+                              },
+                              {
+                                  "tool":  "semgrep",
+                                  "path":  "/home/anant_gupta/.local/bin/semgrep",
+                                  "version":  "1.177.0"
+                              },
+                              {
+                                  "tool":  "ruff",
+                                  "path":  "/home/anant_gupta/.local/bin/ruff",
+                                  "version":  "ruff 0.17.1"
+                              },
+                              {
+                                  "tool":  "shfmt",
+                                  "path":  "/home/anant_gupta/.local/bin/shfmt",
+                                  "version":  "v3.14.1"
+                              },
+                              {
+                                  "tool":  "shellcheck",
+                                  "path":  "/home/anant_gupta/.local/bin/shellcheck",
+                                  "version":  "ShellCheck - shell script analysis tool"
+                              },
+                              {
+                                  "tool":  "direnv",
+                                  "path":  "/usr/bin/direnv",
+                                  "version":  "2.32.1"
+                              },
+                              {
+                                  "tool":  "chafa",
+                                  "path":  "/home/anant_gupta/.local/bin/chafa",
+                                  "version":  "Chafa version 1.18.2"
+                              },
+                              {
+                                  "tool":  "docker",
+                                  "path":  "/mnt/c/Users/anant/AppData/Local/Programs/DockerDesktop/resources/bin/docker",
+                                  "version":  ""
+                              }
+                          ],
+                "localBin":  [
+                                 "agy",
+                                 "agy.1790539300030658733.old",
+                                 "bat",
+                                 "bwrap",
+                                 "chafa",
+                                 "claude",
+                                 "fd",
+                                 "fzf",
+                                 "gh",
+                                 "lazygit",
+                                 "pwsh",
+                                 "pysemgrep",
+                                 "rg",
+                                 "ruff",
+                                 "semgrep",
+                                 "sesh",
+                                 "shellcheck",
+                                 "shfmt",
+                                 "tmux",
+                                 "uv",
+                                 "uvx",
+                                 "win32yank.exe",
+                                 "wsl-check.sh",
+                                 "ya",
+                                 "yazi",
+                                 "zoxide"
+                             ],
+                "aptManualCount":  "46",
+                "aptManual":  "base-files bash bat bison bsdutils bubblewrap build-essential ca-certificates chafa coreutils curl dash debianutils diffutils direnv fd-find findutils fzf gh git git-lfs gnupg grep gzip hostname init jq libattr1 libevent-dev libncurses-dev login ncdu ncurses-base ncurses-bin pkg-config python3.12-venv ripgrep socat tmux ubuntu-minimal ubuntu-wsl unzip util-linux wget wslu zip",
+                "hashes":  [
+                               {
+                                   "file":  ".config/atuin/config.toml",
+                                   "status":  "DIFF",
+                                   "sha256":  "233230565b49f72c0363b4a1a5b0bb6625d1e98ab3a5c7a27b7fdb24f5e47e3e",
+                                   "acerSha256":  "202e9c7d5866b85f1e7eb4c5121c5584c7dc0d2a15ec72ed08fc5b15a5a6ba3d"
+                               },
+                               {
+                                   "file":  ".config/gh-dash/config.yml",
+                                   "status":  "DIFF",
+                                   "sha256":  "182c04b2361e2d0b201a43d6abffe5308e7887801b77121a9c18703dab4a748b",
+                                   "acerSha256":  "0ae0b07b0fa89ad58f1352c4736ad3945aa3b01e9d47858fe38fc1af4fea65c9"
+                               },
+                               {
+                                   "file":  ".config/git/ignore",
+                                   "status":  "DIFF",
+                                   "sha256":  "1973e18e4c1da43f6064ee0392981d1950b4c368905a4019ef36515916b5f029",
+                                   "acerSha256":  "546b86dbe5d2aa141915726fb99966de0664263ab33c17c460cd50ea3c6e0e50"
+                               },
+                               {
+                                   "file":  ".config/lazygit/config.yml",
+                                   "status":  "DIFF",
+                                   "sha256":  "8728e3ccc72c138f3bac8fd489909e3b5a9d79daab65db7d100ba2352c34098a",
+                                   "acerSha256":  "c640b3eb4e3c06aaf7bba5b6fc98f5c3d38e7e877f3dba0a51fa561d10dab6bf"
+                               },
+                               {
+                                   "file":  ".config/ncdu/config",
+                                   "status":  "MATCH",
+                                   "sha256":  "17e6016af0fcb3a2807b2307c7215ea40cfeca0999a88549eb9c31c48ee52f8b",
+                                   "acerSha256":  "17e6016af0fcb3a2807b2307c7215ea40cfeca0999a88549eb9c31c48ee52f8b"
+                               },
+                               {
+                                   "file":  ".config/sesh/sesh.toml",
+                                   "status":  "DIFF",
+                                   "sha256":  "d5c431eb6f8c3a8dc6d2e29cc5b5b0e9c1b20f04b36c564ca70d5bd249c7cd37",
+                                   "acerSha256":  "c58823532726da1fda8b099ddd8577e221c7ea9133add702d89da83d02b4a445"
+                               },
+                               {
+                                   "file":  ".config/starship.toml",
+                                   "status":  "DIFF",
+                                   "sha256":  "240e17ba6b30e397165eec30e23a068e2e104c74c32f12ae9c588877c67d4a8b",
+                                   "acerSha256":  "171ec4c85e66ba84b66778da124e5c9cdd0cbd48a59be21ecd44670e828bc56c"
+                               },
+                               {
+                                   "file":  ".config/yazi/flavors/tokyonight-storm.yazi/flavor.toml",
+                                   "status":  "MATCH",
+                                   "sha256":  "2802dff04778b33b75780113a9ab9b2a2fac0a37d2270ac9f865070eb452d784",
+                                   "acerSha256":  "2802dff04778b33b75780113a9ab9b2a2fac0a37d2270ac9f865070eb452d784"
+                               },
+                               {
+                                   "file":  ".config/yazi/flavors/tokyonight-storm.yazi/LICENSE",
+                                   "status":  "MATCH",
+                                   "sha256":  "45eee6a8f2c347cf16aa5f159e2b3f0dc9cd9fcc7735dad65b6b5034759d2b0f",
+                                   "acerSha256":  "45eee6a8f2c347cf16aa5f159e2b3f0dc9cd9fcc7735dad65b6b5034759d2b0f"
+                               },
+                               {
+                                   "file":  ".config/yazi/flavors/tokyonight-storm.yazi/LICENSE-tmtheme",
+                                   "status":  "MATCH",
+                                   "sha256":  "031aa73354ebc32bbe92452fb55b3b026f4efecc68b12bad72f35998e675310f",
+                                   "acerSha256":  "031aa73354ebc32bbe92452fb55b3b026f4efecc68b12bad72f35998e675310f"
+                               },
+                               {
+                                   "file":  ".config/yazi/flavors/tokyonight-storm.yazi/preview.png",
+                                   "status":  "MATCH",
+                                   "sha256":  "dc6cc3dc0fb5474e1c6f39770d56129173414084423a6f9914a7b3a4d5a609e7",
+                                   "acerSha256":  "dc6cc3dc0fb5474e1c6f39770d56129173414084423a6f9914a7b3a4d5a609e7"
+                               },
+                               {
+                                   "file":  ".config/yazi/flavors/tokyonight-storm.yazi/README.md",
+                                   "status":  "MATCH",
+                                   "sha256":  "ce1b9b3ba69c7ab94a1c81e3e24456a9e4ecafeffab838db573ceb2c82704ab2",
+                                   "acerSha256":  "ce1b9b3ba69c7ab94a1c81e3e24456a9e4ecafeffab838db573ceb2c82704ab2"
+                               },
+                               {
+                                   "file":  ".config/yazi/flavors/tokyonight-storm.yazi/tmtheme.xml",
+                                   "status":  "MATCH",
+                                   "sha256":  "f7ec0efdd79239a11bb5928694d70823170d380313a5f0001141bdb6ce91701a",
+                                   "acerSha256":  "f7ec0efdd79239a11bb5928694d70823170d380313a5f0001141bdb6ce91701a"
+                               },
+                               {
+                                   "file":  ".config/yazi/init.lua",
+                                   "status":  "MATCH",
+                                   "sha256":  "8f164363757a49d42f72b11867f23483d96f5d88262a62f8ec0e6a41760a8982",
+                                   "acerSha256":  "8f164363757a49d42f72b11867f23483d96f5d88262a62f8ec0e6a41760a8982"
+                               },
+                               {
+                                   "file":  ".config/yazi/keymap.toml",
+                                   "status":  "MATCH",
+                                   "sha256":  "15aaf7cf172c07eee56621a6d7c30241051f17388f553356e85e5f3efbbdf8f4",
+                                   "acerSha256":  "15aaf7cf172c07eee56621a6d7c30241051f17388f553356e85e5f3efbbdf8f4"
+                               },
+                               {
+                                   "file":  ".config/yazi/package.toml",
+                                   "status":  "MATCH",
+                                   "sha256":  "80f53082707f97d4099b79d57e67013956f8a82673c929bcea70915fca957c26",
+                                   "acerSha256":  "80f53082707f97d4099b79d57e67013956f8a82673c929bcea70915fca957c26"
+                               },
+                               {
+                                   "file":  ".config/yazi/plugins/full-border.yazi/LICENSE",
+                                   "status":  "MATCH",
+                                   "sha256":  "06a2b04a7ed4f030a87d10b884fc1a2215c5e91b371f69dfe173448e834f3752",
+                                   "acerSha256":  "06a2b04a7ed4f030a87d10b884fc1a2215c5e91b371f69dfe173448e834f3752"
+                               },
+                               {
+                                   "file":  ".config/yazi/plugins/full-border.yazi/main.lua",
+                                   "status":  "MATCH",
+                                   "sha256":  "08b950c4eea9d85787f28dff186728747114ed92bac9ee5e82e82c955c711cde",
+                                   "acerSha256":  "08b950c4eea9d85787f28dff186728747114ed92bac9ee5e82e82c955c711cde"
+                               },
+                               {
+                                   "file":  ".config/yazi/plugins/full-border.yazi/README.md",
+                                   "status":  "MATCH",
+                                   "sha256":  "4e54b081fc453dcdbad9e7c37331886da17d8c2937b186331e0fc6d9d1fbafb3",
+                                   "acerSha256":  "4e54b081fc453dcdbad9e7c37331886da17d8c2937b186331e0fc6d9d1fbafb3"
+                               },
+                               {
+                                   "file":  ".config/yazi/plugins/git.yazi/LICENSE",
+                                   "status":  "MATCH",
+                                   "sha256":  "06a2b04a7ed4f030a87d10b884fc1a2215c5e91b371f69dfe173448e834f3752",
+                                   "acerSha256":  "06a2b04a7ed4f030a87d10b884fc1a2215c5e91b371f69dfe173448e834f3752"
+                               },
+                               {
+                                   "file":  ".config/yazi/plugins/git.yazi/main.lua",
+                                   "status":  "MATCH",
+                                   "sha256":  "da7bb904295aa11795fbfac1f72a96ff041ade50ddef9c7f6dd3463550141024",
+                                   "acerSha256":  "da7bb904295aa11795fbfac1f72a96ff041ade50ddef9c7f6dd3463550141024"
+                               },
+                               {
+                                   "file":  ".config/yazi/plugins/git.yazi/README.md",
+                                   "status":  "MATCH",
+                                   "sha256":  "704f3dd510b90f2579339b82623002d1bd30059e649751d12264c66fcc081acf",
+                                   "acerSha256":  "704f3dd510b90f2579339b82623002d1bd30059e649751d12264c66fcc081acf"
+                               },
+                               {
+                                   "file":  ".config/yazi/plugins/git.yazi/types.lua",
+                                   "status":  "MATCH",
+                                   "sha256":  "b6c2a0592a3206b8d7b9338f3b41828cf100b3662f248d8c99d273d314283186",
+                                   "acerSha256":  "b6c2a0592a3206b8d7b9338f3b41828cf100b3662f248d8c99d273d314283186"
+                               },
+                               {
+                                   "file":  ".config/yazi/plugins/smart-filter.yazi/LICENSE",
+                                   "status":  "MATCH",
+                                   "sha256":  "06a2b04a7ed4f030a87d10b884fc1a2215c5e91b371f69dfe173448e834f3752",
+                                   "acerSha256":  "06a2b04a7ed4f030a87d10b884fc1a2215c5e91b371f69dfe173448e834f3752"
+                               },
+                               {
+                                   "file":  ".config/yazi/plugins/smart-filter.yazi/main.lua",
+                                   "status":  "MATCH",
+                                   "sha256":  "ebf16105d1788ac3ac75c782c192521e24ebefff157346349a81b34e47a00ed5",
+                                   "acerSha256":  "ebf16105d1788ac3ac75c782c192521e24ebefff157346349a81b34e47a00ed5"
+                               },
+                               {
+                                   "file":  ".config/yazi/plugins/smart-filter.yazi/README.md",
+                                   "status":  "MATCH",
+                                   "sha256":  "ca7001f355de202fd33d97100aa65c4ba15c9d71ad8593d2e97d0243332abd51",
+                                   "acerSha256":  "ca7001f355de202fd33d97100aa65c4ba15c9d71ad8593d2e97d0243332abd51"
+                               },
+                               {
+                                   "file":  ".config/yazi/theme.toml",
+                                   "status":  "MATCH",
+                                   "sha256":  "1846941eb7fb944d4fdd255fe007e97d7525f7ee63b06300774494c9358673a4",
+                                   "acerSha256":  "1846941eb7fb944d4fdd255fe007e97d7525f7ee63b06300774494c9358673a4"
+                               },
+                               {
+                                   "file":  ".config/yazi/yazi.toml",
+                                   "status":  "DIFF",
+                                   "sha256":  "1403f5df02cd004b7c62f32da64bf1d536e33d3353b36681b64c5578336494f9",
+                                   "acerSha256":  "9205060954c85e7928c8bd182638536893744807be4853fdfdaf03f6e7af9373"
+                               },
+                               {
+                                   "file":  ".tmux.conf",
+                                   "status":  "DIFF",
+                                   "sha256":  "033d3ccef73927acbabfd86601458542f38501907bcd28cc82fb1b7cce029aa3",
+                                   "acerSha256":  "0e0c1f44a45a91ac13bcebac58f05ba54531c7a9096b80d811fdd3a235621832"
+                               }
+                           ],
+                "note":  ""
+            }
+}

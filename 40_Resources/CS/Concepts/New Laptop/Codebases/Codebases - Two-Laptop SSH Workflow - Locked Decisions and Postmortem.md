@@ -16,7 +16,7 @@ related:
   - "[[internship-research-loop-new-laptop-directive]]"
   - "[[second-brain-claudekit-new-laptop-directive]]"
   - "[[Cross-Laptop Sync - Known Failure Modes and Prevention]]"
-updated: 2026-10-14
+updated: 2026-10-15
 next: "Fold these eleven locked decisions into a rewrite of Old Laptop Rebuild - Prompt 2, plus the one .wslconfig addition that belongs to Prompt 1"
 ---
 # Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem
@@ -153,3 +153,18 @@ Under the single-canonical-host design there is **one filesystem** for everythin
 - `docs.astral.sh/uv/concepts/cache` — uv's hardlink/copy-on-write global cache and its same-filesystem requirement.
 - `code.visualstudio.com/docs/remote/tunnels` — Remote Tunnels' VS-Code-must-be-running constraint.
 - This vault: `internship-research-loop-new-laptop-directive.md`, `second-brain-claudekit-new-laptop-directive.md`, `Old Laptop Rebuild - Prompt 1 WSL.md`, `Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow.md`, `Old Laptop Rebuild - Index.md`, `Cross-Laptop Sync - Known Failure Modes and Prevention.md`.
+
+## packageManager register (2026-10-15, read-only audit of the Dell's canonical repos)
+Decision 11 and the Build 5b decision on pnpm 12.4.2 mean a pin belongs in each repo's `package.json`, but only where the repo really uses that manager. The audit found that a blanket `pnpm@12.4.2` would be wrong for most repos. Nothing was changed in any repo. Each row is a separate, per-repo approval, done in its own `<machine>/pin-package-manager` branch or worktree, one repo at a time, and only when the working tree is clean enough to review the diff.
+| Repo (under `~/projects`) | Lockfiles found | `packageManager` today | Proposed pin | Blocker or note |
+|---|---|---|---|---|
+| `hub/portfolio` | `pnpm-lock.yaml` | none | `pnpm@12.4.2` | 114 dirty files on `post-frontend`; pin only after that work is committed or moved |
+| `hub/Learning-Tracker-Tool` | `pnpm-lock.yaml` | none | `pnpm@12.4.2` | 2 dirty files; clean candidate for the first pilot |
+| `hub/Assisto_website` | `pnpm-lock.yaml` and `package-lock.json` (mixed) | none | `pnpm@12.4.2` after deleting the stale `package-lock.json` | 73 dirty files; choose one manager first |
+| `hackathon/Resq`, `hackathon/opspilot`, `hackathon/safereach`, `hub/DNA_BJJ_APP`, `hub/GymMangment_app_demo` | `package-lock.json` | none | `npm@11.x` (match the Node 24 npm) | npm repos: do not pin pnpm; pin npm only if you want Corepack to enforce it |
+| `hub/boom-tracer` | `package-lock.json` and `bun.lockb` (mixed) | none | decide npm or bun first | mixed lockfiles |
+| `ai/claude/ecc` | `package-lock.json` and `yarn.lock` | `yarn@4.9.2` (upstream clone) | leave | upstream's pin; do not edit |
+| `ai/jan` | `yarn.lock` | `yarn@4.5.3` (upstream clone) | leave | upstream's pin; do not edit |
+| `hub/CausalOps`, `hub/tradingview`, `work/internship-research-loop`, `ai/claude/second-brain-claudekit`, `work/gupta-builds`, `ai/claude/adx-worktree-throwaway-test` | none (no `package.json`) | n/a | none | Python or docs repos; they need a Python pin (`.python-version`, `uv.lock`) instead, not a Node one |
+| `umn/boom` | `Cargo.lock` | n/a | none | Rust |
+Acer clones: only `second-brain-claudekit` and `internship-research-loop` exist as shared clones there, and neither has a `package.json`. The Acer's internship clone already commits `pyproject.toml` and `uv.lock` (four unpushed commits, see [[Old Laptop Rebuild - Build 2 Acer Handoff]]); the Dell's checkout has neither, so that repo's Python pin needs one decision across both laptops before any build touches it. Remember `~/.cache/node` must never be deleted: Corepack reads its pin from there.

@@ -168,3 +168,16 @@ This section closes the problems list of the 2026-10-13 audit above, from a live
 | 6 Toolkit parity | **Done** with Build 5b: golden configs applied (`changed=13 same=21 fails=0`), starship is LF and has the python and conda segments, tmux has current-directory splits, history-limit 100000, renumber-windows, escape-time 10 and passthrough, gh-dash maps three Acer repos, git has the shared include and `autocrlf=input`, `.bashrc` hooks are guarded. ruff, shellcheck and shfmt are installed. `socat` is the only missing tool (needs sudo). pnpm stays on 12.4.2. |
 | 7 Backup and two-laptop closure | Two-laptop closure done on 2026-10-15 (see [[Old Laptop Rebuild - Build 2 Acer Handoff]]); the independent host-key comparison is the one open item. The Dell has a verified WSL export; the Acer has none, so take one before any disk resize. |
 Version note: the Acer WSL is 2.7.14.0 and the Dell is 3.0.3.0. The Acer runs fine with its current file; updating WSL is a host step the user may choose later (`wsl --update` from Windows PowerShell, never from inside WSL).
+
+### What is on the Acer WSL disk, and what is still to decide (2026-10-15, read-only inventory)
+Taken so the discussion about WSL's role (now that the Dell hosts the code and the Acer reaches it over Tailscale SSH) starts from facts. Nothing was removed.
+| Item | Size | Regenerable? |
+|---|---|---|
+| `~/.cache` (uv 7.5 GB, node 0.1 GB, others small) | 7.7 GB | uv cache yes; `~/.cache/node` NEVER (Corepack pin) |
+| `~/.vscode-server` (extensions 2.5 GB, bin 0.7 GB, data 0.9 GB) | 4.1 GB | yes, rebuilt on the next WSL window |
+| `~/miniconda3` (`jupyter-base`) | 3.8 GB | rebuildable from the spec in `~/conda/specs` |
+| `~/.codex` | 2.1 GB | agent state, review before touching |
+| `~/.local` (uv tools, binaries, `.prev` rollbacks) | 1.8 GB | partly |
+| `~/.rustup`, `~/.cargo`, `~/.nvm`, `~/.npm` | 1.5, 0.5, 0.7, 0.9 GB | toolchains and caches |
+| `~/projects` | 252 MB, plus `scratch/gpu-smoke-test` 5.3 GB on disk | clones are small; the scratch project is the large one |
+`/` is 39 GiB (72 percent used), `ext4.vhdx` is 28.9 GiB on D:. The WSL platform update (2.7.14.0 to 3.0.3.0) is scripted as `70-acer-wsl-update.ps1`, run from Windows PowerShell. Planned discussion, after all builds: what the Acer's WSL is for when the Dell hosts the code; what to do with the two Acer clones and `gpu-smoke-test`; whether to resize, shrink or rebuild the disk (take a `wsl --export` first; the Acer has none yet); how Remote-SSH, the Windows toolkit and Tailscale divide the work.

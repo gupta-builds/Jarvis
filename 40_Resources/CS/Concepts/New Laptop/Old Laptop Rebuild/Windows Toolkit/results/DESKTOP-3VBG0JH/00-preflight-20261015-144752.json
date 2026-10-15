@@ -1,0 +1,600 @@
+{
+    "script":  "00-preflight",
+    "host":  "DESKTOP-3VBG0JH",
+    "machine":  "dell",
+    "dryRun":  false,
+    "started":  "2026-10-15T14:47:52",
+    "finished":  "2026-10-15T14:48:15",
+    "admin":  false,
+    "manifestSha256":  "4E4A8D15CFEE15DC9E674B51DBE6FAB1F3730A951C20957AC9E4BB1F3C817634",
+    "vaultRoot":  "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis",
+    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-00-preflight-20261015-144752.log",
+    "counts":  {
+                   "INFO":  10,
+                   "PASS":  30,
+                   "OK":  37,
+                   "PLAN":  2,
+                   "MANUAL":  1
+               },
+    "items":  [
+                  {
+                      "id":  "env-drives",
+                      "status":  "INFO",
+                      "detail":  "C: free 138.5 GiB, D: free 404.7 GiB",
+                      "freeC":  138.5,
+                      "freeD":  404.7
+                  },
+                  {
+                      "id":  "env-powershell",
+                      "status":  "INFO",
+                      "detail":  "PowerShell 5.1.26100.9711, admin=False, execution policy (effective) Bypass"
+                  },
+                  {
+                      "id":  "env-winget",
+                      "status":  "PASS",
+                      "detail":  "winget at C:\\Users\\Anant Gupta\\AppData\\Local\\Microsoft\\WindowsApps\\winget.exe"
+                  },
+                  {
+                      "id":  "env-vault",
+                      "status":  "PASS",
+                      "detail":  "vault root D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis",
+                      "vaultRoot":  "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis"
+                  },
+                  {
+                      "id":  "env-machine",
+                      "status":  "PASS",
+                      "detail":  "dell (Dell Latitude 5530) detected"
+                  },
+                  {
+                      "id":  "env-network",
+                      "status":  "PASS",
+                      "detail":  "github.com reachable (HTTP 200)"
+                  },
+                  {
+                      "id":  "script-_lib.ps1",
+                      "status":  "PASS",
+                      "detail":  "ASCII only, parses clean"
+                  },
+                  {
+                      "id":  "script-00-preflight.ps1",
+                      "status":  "PASS",
+                      "detail":  "ASCII only, parses clean"
+                  },
+                  {
+                      "id":  "script-10-install-toolkit.ps1",
+                      "status":  "PASS",
+                      "detail":  "ASCII only, parses clean"
+                  },
+                  {
+                      "id":  "script-11-node-lts-swap.ps1",
+                      "status":  "PASS",
+                      "detail":  "ASCII only, parses clean"
+                  },
+                  {
+                      "id":  "script-20-apply-configs.ps1",
+                      "status":  "PASS",
+                      "detail":  "ASCII only, parses clean"
+                  },
+                  {
+                      "id":  "script-40-build-catalog.ps1",
+                      "status":  "PASS",
+                      "detail":  "ASCII only, parses clean"
+                  },
+                  {
+                      "id":  "script-99-verify.ps1",
+                      "status":  "PASS",
+                      "detail":  "ASCII only, parses clean"
+                  },
+                  {
+                      "id":  "manifest-ids",
+                      "status":  "PASS",
+                      "detail":  "47 tools, ids unique"
+                  },
+                  {
+                      "id":  "config-src-starship",
+                      "status":  "PASS",
+                      "detail":  "sha256 9EF7137822AA... matches the Acer snapshot hash",
+                      "sha256":  "9EF7137822AA311445172696D150ED8E6D8C5CD84F5FCF7829D96EE0FA81D1E2"
+                  },
+                  {
+                      "id":  "config-src-git-ignore",
+                      "status":  "PASS",
+                      "detail":  "sha256 546B86DBE5D2... matches the Acer snapshot hash",
+                      "sha256":  "546B86DBE5D2AA141915726FB99966DE0664263AB33C17C460CD50EA3C6E0E50"
+                  },
+                  {
+                      "id":  "config-src-git-delta",
+                      "status":  "PASS",
+                      "detail":  "sha256 91DE9847A299...",
+                      "sha256":  "91DE9847A2993F7EC2950A3F20FF6D1A72DF778B87C1817B5554780BEDD840F8"
+                  },
+                  {
+                      "id":  "config-src-bat",
+                      "status":  "PASS",
+                      "detail":  "sha256 FD064DBC4718...",
+                      "sha256":  "FD064DBC4718C2A38DC7D5B250609D62EBC386A3B97B6353009D4348D95D4C8A"
+                  },
+                  {
+                      "id":  "config-src-fd-ignore",
+                      "status":  "PASS",
+                      "detail":  "sha256 A97264C09BFF...",
+                      "sha256":  "A97264C09BFF11356068FED1BB45BD241798431071EE2B1C78C9FF849FA651E0"
+                  },
+                  {
+                      "id":  "config-src-profile-ps5",
+                      "status":  "PASS",
+                      "detail":  "sha256 FE107AD65F53...",
+                      "sha256":  "FE107AD65F537620BE5EDFFAB9FCB5D6B2B1A8BBA6FA494B19AB3B1576821185"
+                  },
+                  {
+                      "id":  "config-src-profile-pwsh",
+                      "status":  "PASS",
+                      "detail":  "sha256 FE107AD65F53...",
+                      "sha256":  "FE107AD65F537620BE5EDFFAB9FCB5D6B2B1A8BBA6FA494B19AB3B1576821185"
+                  },
+                  {
+                      "id":  "config-src-terminal",
+                      "status":  "PASS",
+                      "detail":  "sha256 983940F4A8A5...",
+                      "sha256":  "983940F4A8A56FEC30502B94D066C7FE48C04D5C42DA171C15CF50AFFF4C3F9D"
+                  },
+                  {
+                      "id":  "profile-profile-ps5",
+                      "status":  "INFO",
+                      "detail":  "D:\\Users\\_Anant\\10_Areas\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1 exists, 2635 bytes, sha256 AA1FF8DF2F68..., managed block present=True, parse errors=0, secret-like hits=0",
+                      "sha256":  "AA1FF8DF2F682E33555A52AA688D611B2D531738C35225DA7189BC57EFBED54B",
+                      "path":  "D:\\Users\\_Anant\\10_Areas\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1"
+                  },
+                  {
+                      "id":  "profile-profile-pwsh",
+                      "status":  "INFO",
+                      "detail":  "D:\\Users\\_Anant\\10_Areas\\Documents\\PowerShell\\Microsoft.PowerShell_profile.ps1 exists, 1710 bytes, sha256 FE107AD65F53..., managed block present=True, parse errors=0, secret-like hits=0",
+                      "sha256":  "FE107AD65F537620BE5EDFFAB9FCB5D6B2B1A8BBA6FA494B19AB3B1576821185",
+                      "path":  "D:\\Users\\_Anant\\10_Areas\\Documents\\PowerShell\\Microsoft.PowerShell_profile.ps1"
+                  },
+                  {
+                      "id":  "terminal-settings",
+                      "status":  "INFO",
+                      "detail":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json parses as JSON, sha256 E0A4D6A5CA87...",
+                      "path":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json"
+                  },
+                  {
+                      "id":  "git-global",
+                      "status":  "INFO",
+                      "detail":  "global .gitconfig present; core.autocrlf=input (will become input)"
+                  },
+                  {
+                      "id":  "lock",
+                      "status":  "INFO",
+                      "detail":  "toolkit.lock.json present (host DESKTOP-3VBG0JH, 2026-10-13T02:04:53)"
+                  },
+                  {
+                      "id":  "pwsh",
+                      "status":  "OK",
+                      "detail":  "installed=True version=7.6.7 -\u003e none (present, adopted)",
+                      "path":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe",
+                      "version":  "7.6.7",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "wt",
+                      "status":  "OK",
+                      "detail":  "installed=True version=1.24.12741.0 -\u003e none (present, adopted)",
+                      "path":  null,
+                      "version":  "1.24.12741.0",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "starship",
+                      "status":  "OK",
+                      "detail":  "installed=True version=1.26.0 -\u003e none (present, adopted)",
+                      "path":  "C:\\Program Files\\starship\\bin\\starship.exe",
+                      "version":  "1.26.0",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "iosevkaterm-nfm",
+                      "status":  "OK",
+                      "detail":  "installed=True version=v3.5.1 -\u003e none (family registered)",
+                      "path":  null,
+                      "version":  "v3.5.1",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "zoxide",
+                      "status":  "OK",
+                      "detail":  "installed=True version=0.10.0 -\u003e none (present, adopted)",
+                      "path":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Microsoft\\WinGet\\Packages\\ajeetdsouza.zoxide_Microsoft.Winget.Source_8wekyb3d8bbwe\\zoxide.exe",
+                      "version":  "0.10.0",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "fzf",
+                      "status":  "OK",
+                      "detail":  "installed=True version=0.74.4 -\u003e none (present, adopted)",
+                      "path":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Microsoft\\WinGet\\Packages\\junegunn.fzf_Microsoft.Winget.Source_8wekyb3d8bbwe\\fzf.exe",
+                      "version":  "0.74.4",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "psfzf",
+                      "status":  "OK",
+                      "detail":  "installed=True version=2.7.12 -\u003e none (present in both editions)",
+                      "path":  null,
+                      "version":  "2.7.12",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "fd",
+                      "status":  "OK",
+                      "detail":  "installed=True version=10.5.0 -\u003e none (present, adopted)",
+                      "path":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Microsoft\\WinGet\\Packages\\sharkdp.fd_Microsoft.Winget.Source_8wekyb3d8bbwe\\fd-v10.5.0-x86_64-pc-windows-msvc\\fd.exe",
+                      "version":  "10.5.0",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "bat",
+                      "status":  "OK",
+                      "detail":  "installed=True version=0.26.1 -\u003e none (present, adopted)",
+                      "path":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Microsoft\\WinGet\\Packages\\sharkdp.bat_Microsoft.Winget.Source_8wekyb3d8bbwe\\bat-v0.26.1-x86_64-pc-windows-msvc\\bat.exe",
+                      "version":  "0.26.1",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "delta",
+                      "status":  "OK",
+                      "detail":  "installed=True version=0.20.1 -\u003e none (present, adopted)",
+                      "path":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Microsoft\\WinGet\\Packages\\dandavison.delta_Microsoft.Winget.Source_8wekyb3d8bbwe\\delta-0.20.1-x86_64-pc-windows-msvc\\delta.exe",
+                      "version":  "0.20.1",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "git",
+                      "status":  "PLAN",
+                      "detail":  "installed=True version=2.55.0 -\u003e upgrade (policy latest)",
+                      "path":  "C:\\Program Files\\Git\\cmd\\git.exe",
+                      "version":  "2.55.0",
+                      "installed":  true,
+                      "action":  "upgrade"
+                  },
+                  {
+                      "id":  "gh",
+                      "status":  "PLAN",
+                      "detail":  "installed=True version=2.102.0 -\u003e upgrade (policy latest)",
+                      "path":  "C:\\Program Files\\GitHub CLI\\gh.exe",
+                      "version":  "2.102.0",
+                      "installed":  true,
+                      "action":  "upgrade"
+                  },
+                  {
+                      "id":  "ripgrep",
+                      "status":  "OK",
+                      "detail":  "installed=True version=15.1.0 -\u003e none (present, adopted)",
+                      "path":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Microsoft\\WinGet\\Packages\\BurntSushi.ripgrep.MSVC_Microsoft.Winget.Source_8wekyb3d8bbwe\\ripgrep-15.1.0-x86_64-pc-windows-msvc\\rg.exe",
+                      "version":  "15.1.0",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "jq",
+                      "status":  "OK",
+                      "detail":  "installed=True version=1.8.2 -\u003e none (present, adopted)",
+                      "path":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Microsoft\\WinGet\\Packages\\jqlang.jq_Microsoft.Winget.Source_8wekyb3d8bbwe\\jq.exe",
+                      "version":  "1.8.2",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "ffmpeg",
+                      "status":  "OK",
+                      "detail":  "installed=True version=8.1.2 -\u003e none (present, adopted)",
+                      "path":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-8.1.2-full_build\\bin\\ffmpeg.exe",
+                      "version":  "8.1.2",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "nanazip",
+                      "status":  "OK",
+                      "detail":  "installed=True version=7.0.1843.0 -\u003e none (present, adopted)",
+                      "path":  "C:\\Program Files\\WindowsApps\\40174MouriNaruto.NanaZip_7.0.1843.0_x64__gnj4mf6z9tkrc",
+                      "version":  "7.0.1843.0",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "node",
+                      "status":  "MANUAL",
+                      "detail":  "installed=True version=24.20.0 -\u003e manual (OpenJS.NodeJS.22 is installed; run 11-node-lts-swap.ps1 by hand)",
+                      "path":  "C:\\Program Files\\nodejs\\node.exe",
+                      "version":  "24.20.0",
+                      "installed":  true,
+                      "action":  "manual"
+                  },
+                  {
+                      "id":  "npm",
+                      "status":  "OK",
+                      "detail":  "installed=True version=11.19.0 -\u003e none (present)",
+                      "path":  "C:\\Program Files\\nodejs\\npm.ps1",
+                      "version":  "11.19.0",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "pnpm",
+                      "status":  "OK",
+                      "detail":  "installed=True version=12.11.2 -\u003e none (present, adopted)",
+                      "path":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Microsoft\\WinGet\\Packages\\pnpm.pnpm_Microsoft.Winget.Source_8wekyb3d8bbwe\\pnpm.exe",
+                      "version":  "12.11.2",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "uv",
+                      "status":  "OK",
+                      "detail":  "installed=True version=0.12.19 -\u003e none (standalone uv at pin)",
+                      "path":  "C:\\Users\\Anant Gupta\\.local\\bin\\uv.exe",
+                      "version":  "0.12.19",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "uv-python",
+                      "status":  "OK",
+                      "detail":  "installed=True version=3.13.15 -\u003e none (present)",
+                      "path":  "C:\\Users\\Anant Gupta\\AppData\\Roaming\\uv\\python\\cpython-3.13.15-windows-x86_64-none",
+                      "version":  "3.13.15",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "python-choco",
+                      "status":  "OK",
+                      "detail":  "installed=False version=- -\u003e none (already retired)",
+                      "path":  null,
+                      "version":  null,
+                      "installed":  false,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "choco",
+                      "status":  "OK",
+                      "detail":  "installed=False version=- -\u003e none (already retired)",
+                      "path":  null,
+                      "version":  null,
+                      "installed":  false,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "miniconda",
+                      "status":  "OK",
+                      "detail":  "installed=True version=py313_25.11.1-1 -\u003e none (present)",
+                      "path":  null,
+                      "version":  "py313_25.11.1-1",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "opam",
+                      "status":  "OK",
+                      "detail":  "installed=True version=2.5.0 -\u003e none (present)",
+                      "path":  null,
+                      "version":  "2.5.0",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "winget",
+                      "status":  "OK",
+                      "detail":  "installed=True version=1.29.380 -\u003e none (present)",
+                      "path":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Microsoft\\WindowsApps\\winget.exe",
+                      "version":  "1.29.380",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "claude-code",
+                      "status":  "OK",
+                      "detail":  "installed=True version=2.1.300 -\u003e none (present)",
+                      "path":  "C:\\Users\\Anant Gupta\\.local\\bin\\claude.exe",
+                      "version":  "2.1.300",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "codex",
+                      "status":  "OK",
+                      "detail":  "installed=True version=0.162.1 -\u003e none (present, adopted)",
+                      "path":  "C:\\Users\\Anant Gupta\\AppData\\Roaming\\npm\\codex.ps1",
+                      "version":  "0.162.1",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "claude-desktop",
+                      "status":  "OK",
+                      "detail":  "installed=True version=2.37337.1.0 -\u003e none (present)",
+                      "path":  null,
+                      "version":  "2.37337.1.0",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "cursor",
+                      "status":  "OK",
+                      "detail":  "installed=True version=3.24.18 -\u003e none (present)",
+                      "path":  null,
+                      "version":  "3.24.18",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "kiro",
+                      "status":  "OK",
+                      "detail":  "installed=True version=1.0.395 -\u003e none (present)",
+                      "path":  null,
+                      "version":  "1.0.395",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "antigravity",
+                      "status":  "OK",
+                      "detail":  "installed=True version=2.22.0 -\u003e none (present)",
+                      "path":  null,
+                      "version":  "2.22.0",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "docker-desktop",
+                      "status":  "OK",
+                      "detail":  "installed=True version=4.56.0 -\u003e none (present)",
+                      "path":  null,
+                      "version":  "4.56.0",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "ollama",
+                      "status":  "OK",
+                      "detail":  "installed=True version=0.40.3 -\u003e none (present)",
+                      "path":  null,
+                      "version":  "0.40.3",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "vscode",
+                      "status":  "OK",
+                      "detail":  "installed=True version=1.142.0 -\u003e none (present)",
+                      "path":  null,
+                      "version":  "1.142.0",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "mcp-remote",
+                      "status":  "OK",
+                      "detail":  "installed=True version=0.2.1 -\u003e none (present, adopted)",
+                      "path":  "C:\\Users\\Anant Gupta\\AppData\\Roaming\\npm\\mcp-remote.ps1",
+                      "version":  "0.2.1",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "npx",
+                      "status":  "OK",
+                      "detail":  "installed=True version=11.19.0 -\u003e none (present)",
+                      "path":  "C:\\Program Files\\nodejs\\npx.ps1",
+                      "version":  "11.19.0",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "uvx",
+                      "status":  "OK",
+                      "detail":  "installed=True version=0.12.19 -\u003e none (present)",
+                      "path":  "C:\\Users\\Anant Gupta\\.local\\bin\\uvx.exe",
+                      "version":  "0.12.19",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "docker-cli",
+                      "status":  "OK",
+                      "detail":  "installed=True version=29.1.3 -\u003e none (present)",
+                      "path":  "C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe",
+                      "version":  "29.1.3",
+                      "installed":  true,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "tailscale-dell",
+                      "status":  "OK",
+                      "detail":  "installed=False version=- -\u003e none (absent as required)",
+                      "path":  null,
+                      "version":  null,
+                      "installed":  false,
+                      "action":  "none"
+                  },
+                  {
+                      "id":  "plan-total",
+                      "status":  "INFO",
+                      "detail":  "2 install/upgrade action(s) planned for 10-install-toolkit.ps1"
+                  },
+                  {
+                      "id":  "env-UV_CACHE_DIR",
+                      "status":  "PASS",
+                      "detail":  "UV_CACHE_DIR=D:\\Cache\\uv"
+                  },
+                  {
+                      "id":  "env-PIP_CACHE_DIR",
+                      "status":  "PASS",
+                      "detail":  "PIP_CACHE_DIR=D:\\Cache\\pip"
+                  },
+                  {
+                      "id":  "env-HF_HOME",
+                      "status":  "PASS",
+                      "detail":  "HF_HOME=D:\\Cache\\huggingface"
+                  },
+                  {
+                      "id":  "env-NUGET_PACKAGES",
+                      "status":  "PASS",
+                      "detail":  "NUGET_PACKAGES=D:\\Cache\\nuget"
+                  },
+                  {
+                      "id":  "env-GRADLE_USER_HOME",
+                      "status":  "PASS",
+                      "detail":  "GRADLE_USER_HOME=D:\\Cache\\gradle"
+                  },
+                  {
+                      "id":  "env-PLAYWRIGHT_BROWSERS_PATH",
+                      "status":  "PASS",
+                      "detail":  "PLAYWRIGHT_BROWSERS_PATH=D:\\Cache\\ms-playwright"
+                  },
+                  {
+                      "id":  "env-PUPPETEER_CACHE_DIR",
+                      "status":  "PASS",
+                      "detail":  "PUPPETEER_CACHE_DIR=D:\\Cache\\puppeteer"
+                  },
+                  {
+                      "id":  "env-OLLAMA_MODELS",
+                      "status":  "PASS",
+                      "detail":  "OLLAMA_MODELS=D:\\AI\\ollama-models"
+                  },
+                  {
+                      "id":  "env-STARSHIP_CONFIG",
+                      "status":  "INFO",
+                      "detail":  "STARSHIP_CONFIG=C:\\Users\\Anant Gupta\\.config\\starship.toml"
+                  },
+                  {
+                      "id":  "env-TOOLKIT_VAULT_ROOT",
+                      "status":  "INFO",
+                      "detail":  "TOOLKIT_VAULT_ROOT=D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis"
+                  },
+                  {
+                      "id":  "junction-miniconda",
+                      "status":  "PASS",
+                      "detail":  "C:\\Users\\Anant Gupta\\miniconda3 -\u003e D:\\Apps\\miniconda3"
+                  },
+                  {
+                      "id":  "junction-opam",
+                      "status":  "PASS",
+                      "detail":  "C:\\opamroot -\u003e D:\\Apps\\opamroot"
+                  }
+              ],
+    "freeD":  404.7,
+    "plannedActions":  2,
+    "freeC":  138.5
+}

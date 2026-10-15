@@ -2,7 +2,7 @@
 type: note
 status: seedling
 created: 2026-10-07
-updated: 2026-10-12
+updated: 2026-10-15
 course: Life
 track:
   - laptop
@@ -12,7 +12,7 @@ tags:
 related:
   - "[[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]]"
   - "[[Old Laptop Rebuild - Build 2 Acer Handoff]]"
-next: Complete the Tunnel CLI's interactive sign-in and service test, then collect Acer clone inventory, independent host-key check, and remote sync-check output
+next: "Acer visit only: independent host-key comparison, sync-check over SSH, large Git transfer, clone and worktree inventory, optional Acer WSL route test (all in Old Laptop Rebuild - Build 2 Acer Handoff). Port-2222 fallback and VS Code Tunnel were declined 2026-10-15."
 ---
 # Old Laptop Rebuild - Build 2 SSH Runbook
 
@@ -27,14 +27,14 @@ This is a planned runbook, not authorization. Every network exposure, service en
 | Step | Actor and command/action | Expected check |
 |---|---|---|
 | 4.1 Preconditions | **Codex, read-only:** verify Build 1 host script and 75-second idle PASS; systemd status; listeners 22/2222 in Dell WSL and Windows; Windows `sshd`/Tailscale services; Dell `tailscaled`, `dell-wsl`, `RunSSH=true`. | Rechecked 2026-10-12: Tailscale active and SSH advertised; no listeners or Dell-Windows services. `systemd-binfmt.service` remains the sole failure from the read-only binfmt flush. User directs continuation with this known degraded condition; stable WSL recheck remains deferred, not a gate. |
-| 4.2 Optional OpenSSH fallback | **Not yet approved.** Tailscale is already installed and authenticated; do not reinstall it. Read-only check says `openssh-server` is not installed, `sshd` is absent, and `ssh.socket` is not found. First ask if keyed port-2222 fallback is still desired. Only if confirmed and separately approved, **Codex** writes `/mnt/d/WSL/ops/build2-tailscale-ssh-step.sh`; **user with sudo** inspects/runs it. It checks `/dev/net/tun` only if needed, installs OpenSSH (not Tailscale), adds port 2222 and fallback hardening, runs `sshd -t`, accounts for Ubuntu `ssh.socket`, then enables the selected service/socket. | No change until approval. If selected, script exits 0, `sshd -t` succeeds, fallback listens only on 2222; Tailscale continues owning tailnet port 22. |
+| 4.2 Optional OpenSSH fallback | **Not yet approved.** Tailscale is already installed and authenticated; do not reinstall it. Read-only check says `openssh-server` is not installed, `sshd` is absent, and `ssh.socket` is not found. First ask if keyed port-2222 fallback is still desired. Only if confirmed and separately approved, **Codex** writes `/mnt/d/WSL/ops/build2-tailscale-ssh-step.sh`; **user with sudo** inspects/runs it. It checks `/dev/net/tun` only if needed, installs OpenSSH (not Tailscale), adds port 2222 and fallback hardening, runs `sshd -t`, accounts for Ubuntu `ssh.socket`, then enables the selected service/socket. | **DECLINED 2026-10-15 (user approved the recommendation to skip):** nothing installed, no listener. Reasons: Tailscale SSH already works end to end; under mirrored networking the Hyper-V firewall default for inbound is Block, so port 2222 would also need an explicit allow rule, which adds exposure and a second path to patch. If ever selected: script exits 0, `sshd -t` succeeds, fallback listens only on 2222; Tailscale continues owning tailnet port 22. |
 | 4.3 Tailscale bring-up | **Already done by user:** installed/authenticated on Dell Ubuntu WSL, `sudo tailscale up --ssh --hostname=dell-wsl --accept-dns=false`. **Codex, read-only:** verify status, prefs, route, and interface MTUs. | `dell-wsl`, `RunSSH=true`, active tailscaled. Direct Dell-to-Acer ping returned via `10.5.8.252:41641` in 5 ms. MTUs measured: `tailscale0=1280`, `eth0/eth1=1500`; no manual MTU change. |
 | 4.4 Admin console | **User in browser, completed:** Tailscale Admin Console → Machines → `dell-wsl`; Access controls. | Key expiry is disabled. User pasted the actual `check` rule from `autogroup:member` to `autogroup:self` for nonroot/root users. No policy edit was needed or made. |
 | 4.5 Idle/reachability | **User in Windows PowerShell, completed:** after closing every WSL terminal, VS Code/Cursor, Docker operation and Codex session, run `D:\WSL\ops\wsl-idle-test.ps1`. | PASS on 2026-10-12: Ubuntu remained Running for 75 seconds with no WSL call during the wait. Acer then pinged Dell directly. |
 | 4.6 Acer handoff | **Codex:** handoff updated 2026-10-12 with existing Acer Windows Tailscale and new SSH evidence. **Acer user/Codex:** inventory local clones/worktrees and read-only check Acer WSL placement if needed. | SSH/Remote-SSH evidence is in; clone inventory and Acer WSL placement/route result remain pending. |
 | 4.7 Acer live round trip | **Acer user/Codex, completed for shell and Remote-SSH:** `tailscale ping dell-wsl`; plain `ssh.exe anant_gupta@dell-wsl`; Remote-SSH to the canonical repo. | PASS for workspace path: Acer ping switched to direct `10.5.8.253:41641` in 7 ms; plain SSH and Remote-SSH ran on Dell WSL. The accepted host key still lacks an independent advertised-key comparison; large transfer remains pending. |
-| 4.8 Tunnels fallback | **Ask user first.** If approved: user signs in; Codex tests `code tunnel service install` or equivalent and service persistence, with no assumption of background reliability. | Tunnel reachable after logout/restart test, or fallback documented unusable. |
-| 4.9 Same-page check | **Codex:** create `~/tools/sync-check`, read-only per repo. It runs `git fetch`, reports branch, ahead/behind and dirty count, plus node/pnpm/python/uv versions. Run locally, then `ssh anant_gupta@dell-wsl '~/tools/sync-check'` from Acer. | Local and SSH reports match. `git fetch` contacts GitHub but does not change working files; no push/merge. |
+| 4.8 Tunnels fallback | **Ask user first.** If approved: user signs in; Codex tests `code tunnel service install` or equivalent and service persistence, with no assumption of background reliability. | **DECLINED 2026-10-15:** no sign-in, no service. The Linux CLI binary stays at `~/tools/vscode-tunnel-cli/code` (not signed in, no service; safe to delete). Remote-SSH over Tailscale is the supported route. |
+| 4.9 Same-page check | **Codex:** create `~/tools/sync-check`, read-only per repo. It runs `git fetch`, reports branch, ahead/behind and dirty count, plus node/pnpm/python/uv versions. Run locally, then `ssh anant_gupta@dell-wsl '~/tools/sync-check'` from Acer. | Local and SSH reports match. `git fetch` contacts GitHub but does not change working files; no push/merge. **Local run PASS on the Dell 2026-10-15** (second-brain-claudekit `main` 0/0, dirty 1; internship-research-loop 6 ahead/5 behind `origin/master`, dirty 25). The SSH run from the Acer waits for the Acer visit (Acer handoff step 3b); ignore its `node`/`pnpm`/`uv` lines, which read `not-installed` over a non-interactive shell. |
 | 4.10 Directive patch | **Codex, completed in vault:** backed up and patched `Codebases/internship-research-loop/internship-research-loop-new-laptop-directive.md` under `Final completion gate` with one dated supersession line and link to Locked Decisions. | PASS; no live repo file changed, second-brain gate unchanged. |
 | 4.11 Repo pilot/worktree setting | **Only after approval:** one repo at a time; create `<machine>/<topic>` branch and change only approved editor/toolchain contract. | Review diff, run checks, commit/push/PR only with separate explicit approval. |
 
@@ -55,8 +55,8 @@ Tailscale installation/authentication and `tailscale up --ssh` are complete. Key
 - [x] Dell WSL Tailscale is active, `dell-wsl`, `RunSSH=true`; both directions have direct-ping output.
 - [x] User reports key expiry is disabled for `dell-wsl`.
 - [x] User checked Access Controls: existing own-device SSH rule is in check mode; no policy edit needed.
-- [ ] User confirms whether port-2222 OpenSSH fallback is still desired; no service/install change without approval.
-- [ ] Independently compare the already-accepted Acer host key against Tailscale's advertised SSH key.
+- [x] Port-2222 OpenSSH fallback: declined 2026-10-15 (Tailscale SSH works; mirrored networking would also need a Hyper-V firewall allow rule). Nothing installed.
+- [ ] Independently compare the already-accepted Acer host key against Tailscale's advertised SSH key. Waits for the Acer: read the Dell's `SSH_HostKeys` from the Acer's own `tailscale.exe status --json` (the Dell's `Self` entry has none); see Acer handoff step 3b.
 - [x] Acer plain SSH and VS Code Remote-SSH commands completed; Acer WSL route test remains optional and pending.
 - [x] Re-run idle test after all relevant sessions close; Ubuntu remained running after 75 seconds.
 - [x] Continue with degraded systemd by user direction; no workaround or prerelease is authorized.

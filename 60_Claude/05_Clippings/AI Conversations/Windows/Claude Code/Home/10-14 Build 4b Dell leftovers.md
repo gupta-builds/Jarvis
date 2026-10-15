@@ -5,42 +5,56 @@ source_app: claude-code
 source_os: windows
 title: "Build 4b Dell leftovers"
 started_at: 2026-10-14T10:02:29
-ended_at: 2026-10-15T13:48:53
-exported_at: 2026-10-15T14:30:03
-duration_minutes: 1666.4
+ended_at: 2026-10-15T14:54:53
+exported_at: 2026-10-15T15:00:03
+duration_minutes: 1732.4
 project: Home
 cwd: 'C:\Users\Anant Gupta'
 session_id: c4ce8d15-6db3-4bd7-9640-3040d61f09e2
 status: raw
-turn_count: 12
+turn_count: 14
 tools_used:
-  Bash: 22
-  Edit: 12
-  Glob: 3
-  Grep: 3
-  PowerShell: 36
-  Read: 8
+  Bash: 33
+  Edit: 16
+  Glob: 5
+  Grep: 8
+  PowerShell: 49
+  Read: 20
   ToolSearch: 1
   WebSearch: 1
-  Write: 4
+  Write: 7
 tokens:
-  input: 404
-  output: 300845
-  cache_creation: 1786378
-  cache_read: 30507584
-  total: 32595211
+  input: 638
+  output: 562641
+  cache_creation: 2416970
+  cache_read: 70472307
+  total: 73452556
 cost_usd: null
 model:
   - "claude-sonnet-5-5"
 files_touched:
   - "D:\\Cache\\Temp\\claude\\C--Users-Anant-Gupta\\c4ce8d15-6db3-4bd7-9640-3040d61f09e2\\tasks\\bumtlwj4g.output"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Installations.md"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Machine Toolkit - Tool Use Cases and Agent Guide.md"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Old Laptop Rebuild - Build 2 Acer Handoff.md"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Old Laptop Rebuild - Build 2 SSH Runbook.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Old Laptop Rebuild - Index.md"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Runs\\Build 2 VS Code and Two-Laptop\\Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings.md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Runs\\Build 4 Windows Toolkit\\Old Laptop Rebuild - Build 4 Prompt (Windows Toolkit).md"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Runs\\Build 4 Windows Toolkit\\Old Laptop Rebuild - Build 4 Windows Toolkit Findings.md"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Runs\\Old Laptop Rebuild - Runs Index.md"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\\_lib.ps1"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\\40-build-catalog.ps1"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\\README.md"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\Acer Run Sheet - Windows Toolkit.md"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\catalog\\Tool Catalog - DESKTOP-3VBG0JH.md"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\WSL Parity\\Acer Session Handoff - Toolkit Sync (Build 5b).md"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\VS Code - MCP and Secrets.md"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\AGENTS.md"
   - "D:\\WSL\\ops\\60-build5b-host.ps1"
   - "D:\\WSL\\ops\\windows\\05-startup-cleanup.ps1"
   - "D:\\WSL\\ops\\windows\\06-ollama-check.ps1"
+  - "D:\\WSL\\ops\\windows\\07-build5-leftovers.ps1"
   - "D:\\WSL\\ops\\windows\\firecrawl-key-move.sh"
 tags:
   - input
@@ -1547,14 +1561,918 @@ real .bashrc assignment lines: 1
 - `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Runs\Build 4 Windows Toolkit\Old Laptop Rebuild - Build 4 Prompt (Windows Toolkit).md`
 - `PowerShell` -- `{"command":"$s=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\\40-build-catalog.ps1\u0027; powershell.exe -NoProfile -ExecutionPolicy Bypass -File $s -DryRun 2\u003e\u00261 | Select -Last 30; \"exit=$LASTEXITCODE\"","description":"Dry-run the catalog builder","timeout":400000}`
 
+## You
+
+
+
+<pasted_content id="79bf">
+░▒▓ 󰍲  ~ 
+❯ powershell -ExecutionPolicy Bypass -File "D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\40-build-catalog.ps1"
+14:07:32 [STEP] === 40-build-catalog on DESKTOP-3VBG0JH (Dell Latitude 5530) role=dell dryRun=False admin=False
+14:07:32 [INFO] Toolkit root: D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit
+14:07:32 [INFO] Vault root:   D:\Users\_Anant\10_Areas\Documents\Jarvis
+14:07:32 [INFO] Log file:     D:\WSL\ops\windows\logs\[REDACTED].log
+14:07:32 [STEP] --- Tools
+14:07:32 [INFO] pwsh               installed=True version=7.6.7
+14:07:33 [INFO] wt                 installed=True version=1.24.12741.0
+14:07:34 [INFO] starship           installed=True version=1.26.0
+14:07:34 [INFO] iosevkaterm-nfm    installed=True version=v3.5.1
+14:07:34 [INFO] zoxide             installed=True version=0.10.0
+14:07:34 [INFO] fzf                installed=True version=0.74.4
+14:07:36 [INFO] psfzf              installed=True version=2.7.12
+14:07:36 [INFO] fd                 installed=True version=10.5.0
+14:07:36 [INFO] bat                installed=True version=0.26.1
+14:07:36 [INFO] delta              installed=True version=0.20.1
+14:07:37 [INFO] git                installed=True version=2.55.0
+14:07:37 [INFO] gh                 installed=True version=2.102.0
+14:07:37 [INFO] ripgrep            installed=True version=15.1.0
+14:07:37 [INFO] jq                 installed=True version=1.8.2
+14:07:37 [INFO] ffmpeg             installed=True version=8.1.2
+14:07:37 [INFO] nanazip            installed=True version=7.0.1843.0
+14:07:37 [INFO] node               installed=True version=24.20.0
+14:07:38 [INFO] npm                installed=True version=11.19.0
+14:07:39 [INFO] pnpm               installed=True version=12.11.2
+14:07:39 [INFO] uv                 installed=True version=0.12.19
+14:07:39 [INFO] uv-python          installed=True version=3.13.15
+14:07:39 [INFO] python-choco       installed=False version=
+14:07:39 [INFO] choco              installed=False version=
+14:07:40 [INFO] miniconda          installed=True version=py313_25.11.1-1
+14:07:40 [INFO] opam               installed=True version=2.5.0
+14:07:40 [INFO] winget             installed=True version=1.29.380
+14:07:40 [INFO] claude-code        installed=True version=2.1.300
+14:07:41 [INFO] codex              installed=True version=0.162.1
+14:07:41 [INFO] claude-desktop     installed=True version=2.37337.1.0
+14:07:42 [INFO] cursor             installed=True version=3.24.18
+14:07:43 [INFO] kiro               installed=True version=1.0.395
+14:07:43 [INFO] antigravity        installed=True version=2.22.0
+14:07:44 [INFO] docker-desktop     installed=True version=4.56.0
+14:07:45 [INFO] ollama             installed=True version=0.40.3
+14:07:45 [INFO] vscode             installed=True version=1.142.0
+14:07:46 [INFO] mcp-remote         installed=True version=0.2.1
+14:07:46 [INFO] npx                installed=True version=11.19.0
+14:07:46 [INFO] uvx                installed=True version=0.12.19
+14:07:47 [INFO] docker-cli         installed=True version=29.1.3
+14:07:47 [INFO] tailscale-dell     installed=False version=
+14:07:47 [INFO] yazi               installed=n/a version=
+14:07:47 [INFO] lazygit            installed=n/a version=
+14:07:47 [INFO] tmux               installed=n/a version=
+14:07:47 [INFO] atuin              installed=n/a version=
+14:07:47 [INFO] sesh               installed=n/a version=
+14:07:47 [INFO] ncdu               installed=n/a version=
+14:07:47 [INFO] INFO     tools                  46 manifest tools catalogued
+14:07:47 [STEP] --- Unmanifested software
+14:07:50 [INFO] INFO     unmanifested           winget rows 129, npm globals 4, ~/.local/bin files 7, uv tools 0, choco packages 0
+14:07:50 [STEP] --- MCP, configs, environment
+14:07:51 [INFO] INFO     mcp                    24 MCP entries (names and command names only)
+14:07:51 [STEP] --- WSL read-only probe
+14:08:01 [INFO] INFO     wsl                    distro Ubuntu: 34 tools found, 29 config files compared with the Acer snapshot (21 match, 8 differ, 0 missing)
+14:08:01 [OK] PASS     catalog-write          wrote D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\catalog\Tool Catalog - DESKTOP-3VBG0JH.md and D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\catalog\[REDACTED].json
+
+ID                       STATUS    DETAIL
+tools                    INFO      46 manifest tools catalogued
+unmanifested             INFO      winget rows 129, npm globals 4, ~/.local/bin files 7, uv tools 0, choco packages 0
+mcp                      INFO      24 MCP entries (names and command names only)
+wsl                      INFO      distro Ubuntu: 34 tools found, 29 config files compared with the Acer snapshot (21 match, 8 differ, 0 missing)
+catalog-write            PASS      wrote D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Wind...
+
+14:08:01 [STEP] SUMMARY: INFO=4  PASS=1
+14:08:01 [INFO] Result JSON: D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\results\DESKTOP-3VBG0JH\[REDACTED].json
+14:08:01 [OK] No required failures. Exit code 0.
+</pasted_content id="79bf">
+
+
+## Claude
+
+The catalog is written (46 tools, no required failures). You haven't pasted the `--remove` output, so I'm checking the actual `.bashrc` state myself. I'm also reading the generated catalog and the vault's `AGENTS.md`, which governs where I may write.
+
+Quick checks on what I just wrote: no em dashes, nothing key-shaped, and the last Growth-rule command must really print 0 on this machine, otherwise it's a false check.
+
+The `.bashrc` check prints 0, so that Growth rule is valid. Git Bash mangled the `/mnt` path I passed, so I'll check the file itself from PowerShell.
+
+Status: I'm writing the Acer run sheet next. First I'm confirming exactly how the scripts detect the Acer and which switches each one accepts, so the sheet's commands are right the first time.
+
+`-Only` already splits on commas (fixed in Build 4), and the role is detected from the vault path, so `-Machine acer` is a safety override rather than a requirement. Writing the Acer run sheet now.
+
+I wrote a whole section where you asked for one pointer line. Trimming it to a single line.
+
+Dry-run both shells, then exercise the helper's move logic for real against a fake `HOME` (so none of your actual data is touched).
+
+I have the structure and style of the findings note. Before writing Build 4b, B5 needs the Build 2 runbook checklist and findings ledger. I'm locating the Part B rows in both.
+
+Reading the exact ledger and checklist rows I have to patch (B5), so the edits match their wording.
+
+I'll patch both notes with a script that asserts each target string matches exactly once before replacing, so no ledger row can be silently missed or double-edited.
+
+Part B5 is done. Before writing the Build 4b section, I'm grabbing the live numbers for its before-and-after table so the table is measured, not remembered.
+
+C1 is written. Everything I can finish without you is done, and two items need you.
+
+## Done and verified this round
+
+- **A5:** [[Machine Toolkit - Tool Use Cases and Agent Guide]] is written next to `Installations`. It has no em dashes and no key-like strings.
+- **A6:** the Windows half of `Installations` is rewritten from the catalog and lock. The backup is in `Runs/_backups/`.
+- **A7:** [[Acer Run Sheet - Windows Toolkit]] starts with a read-only Part 0. I ran its command template on the Dell and it exited 0 (OK=37, PASS=30).
+- **B4 and B5:**
+  - The Build 2 Acer handoff now says where the Acer reads the Dell's host key and how to run `sync-check` over SSH.
+  - The Build 5b handoff has one pointer line.
+  - The runbook checklist and findings ledger rows are patched; B1 and B2 are recorded as declined.
+- **C1:** the "Build 4b" section is in the Build 4 findings note.
+- **A9 finding:** none of the seven Run-key apps started at the last boot. The "Docker starts despite its setting" premise isn't reproducible, so no change was needed.
+
+## Two things need you
+
+**1. Run the last Dell script (A10).** It's dry-run clean, the Cursor server has exited so nothing blocks it, and the move logic was tested on a fake `HOME`. It quarantines Cursor's server snapshots and agent-worker data (2.0 GB each, not the 1.2 GB you noted) and the old pnpm `v10` stores. It also disables the 30-minute backfill task. It leaves the 1.8 GB pnpm `v3` store alone, since you didn't approve it.
+
+```powershell
+powershell -ExecutionPolicy Bypass -File D:\WSL\ops\windows\07-build5-leftovers.ps1 -Apply
+```
+
+**2. Firecrawl (A8) is still not closed.** The key was removed from `.bashrc` and stored nowhere. But Firecrawl's API still accepted it at 13:37, 13:47 and 14:06, so the revocation hasn't taken effect on their side.
+
+- In the dashboard, check which key shows "last used" around 14:06. That was my status check, and it is the one still alive.
+- Revoke that key. I can no longer test it, since the value is gone, so please confirm in the dashboard.
+
+## One thing to know
+
+The Build 5 note says 27 WSL configs match the Acer, but the catalog compares 8 of 29 as different from the old Acer snapshot. They are probably the files the golden set deliberately changed (starship LF, tmux 3.8). I haven't verified that file by file, and it's logged as unverified.
+
+When you paste the `07` output, I'll do the last part: patch the Index, Runs Index and Build 5 status lines, move the prompt into `Runs/Build 4b Dell Leftovers and Tailscale/`, add the session-log line, and give you the final done/waiting list.
+
+### Tool Calls
+
+- `Bash` -- `wsl.exe -d Ubuntu --exec bash -c 'echo "FIRECRAWL assignment lines in .bashrc: $(grep -c "FIRECRAWL_API_KEY=" ~/.bashrc)"; echo "comment lines: $(grep -c "^# Firecrawl secrets" ~/.bashrc)"; ls -t /mnt/d/WSL/ops/windows/logs/firecrawl-key-move-*.log | head -2; ls -d /mnt/d/Backup/dotfiles-* 2>/dev/null; echo "mcp.env FIRECRAWL lines: $(grep -c FIRECRAWL_API_KEY ~/.mcp.env)"' 2>&1`
+```
+FIRECRAWL assignment lines in .bashrc: 0
+comment lines: 0
+/mnt/d/WSL/ops/windows/logs/[REDACTED].log
+/mnt/d/WSL/ops/windows/logs/[REDACTED].log
+/mnt/d/Backup/[REDACTED]
+mcp.env FIRECRAWL lines: 0
+```
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\catalog\Tool Catalog - DESKTOP-3VBG0JH.md`
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\AGENTS.md`
+- `Bash` -- `wsl.exe -d Ubuntu --exec bash -c 'for f in $(ls -t /mnt/d/WSL/ops/windows/logs/firecrawl-key-move-2026101514*.log | head -3); do echo "== $(basename $f)"; cut -c1-200 $f; done' 2>&1`
+```
+ls: cannot access '/mnt/d/WSL/ops/windows/logs/[REDACTED]*.log': No such file or directory
+```
+- `PowerShell` -- `{"command":"\"C:\\Python313 exists: \" + (Test-Path \u0027C:\\Python313\u0027); \"choco dir: \" + (Test-Path \u0027C:\\ProgramData\\chocolatey\u0027); Get-Command python,py,python3 -ErrorAction SilentlyContinue | Select Name,Source | Format-Table | Out-String; Get-ItemProperty \u0027HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*\u0027,\u0027HKLM:\\Software\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*\u0027,\u0027HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*\u0027 -ErrorAction SilentlyContinue | ? {$_.DisplayName -match \u0027^Python 3\\.13|Python Launcher\u0027} | Select DisplayName,InstallLocation | Format-List | Out-String; (Get-Command pnpm).Source; pnpm --version; Get-Content \"D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\toolkit.lock.json\" -Raw | Select-String \u0027\"pnpm\"[^}]{0,200}\u0027 | % { $_.Matches[0].Value -replace \u0027\\s+\u0027,\u0027 \u0027 }","description":"Check Python leftovers and pnpm version versus the lock"}`
+- `Glob` -- pattern `New Laptop/Installations.md` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts`
+- `Bash` -- `wsl.exe -d Ubuntu --exec bash -c 'cd /mnt/d/WSL/ops/windows/logs; for f in $(ls -t firecrawl-key-move-20261015-14*.log | head -3 | sort); do echo "== $f"; cut -c1-220 $f; done' 2>&1`
+```
+== [REDACTED].log
+14:06:33 firecrawl-key-move apply=0 remove=1  log=/mnt/d/WSL/ops/windows/logs/[REDACTED].log
+14:06:33 found assignment at /home/anant_gupta/.bashrc line 154 (comment line above it: 1); old key length 35
+14:06:34 Firecrawl API says the key in .bashrc -> HTTP 200  (401/403 = revoked; 200 = STILL ACCEPTED by Firecrawl)
+14:06:34 NOTE: this key still works at Firecrawl. In the dashboard, the key whose 'last used' time is now (14:06) is the one to revoke.
+14:06:34 /home/anant_gupta/.mcp.env perms: 600; already defines FIRECRAWL_API_KEY: 0
+14:06:34 backup of .bashrc with the key blanked: /mnt/d/Backup/[REDACTED]/bashrc.redacted
+14:06:34 removed line(s) 153-154 from /home/anant_gupta/.bashrc
+14:06:34 ~/.bashrc still contains the old key: 0  | any FIRECRAWL_API_KEY= line left in .bashrc: 0
+14:06:34 /home/anant_gupta/.mcp.env defines FIRECRAWL_API_KEY: 0 (expected 0 after --remove; nothing stored)
+14:06:34 scanning the config files that can hold an MCP key for the OLD key; file paths only
+14:06:34 no other file in those locations holds the old key
+14:06:34 Restart Claude Code, Cursor and VS Code so MCP servers drop the old key.
+14:06:34 DONE. Log: /mnt/d/WSL/ops/windows/logs/[REDACTED].log
+== [REDACTED].log
+14:07:04 firecrawl-key-move apply=0 remove=1  log=/mnt/d/WSL/ops/windows/logs/[REDACTED].log
+14:07:04 STOP: expected exactly 1 'export FIRECRAWL_API_KEY=' line in /home/anant_gupta/.bashrc, found 0
+```
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Installations.md`
+- `Write` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Machine Toolkit - Tool Use Cases and Agent Guide.md`
+```
+---
+type: note
+status: sprout
+created: 2026-10-15
+updated: 2026-10-15
+course: Life
+track:
+  - laptop
+  - windows
+  - wsl
+tags:
+  - note
+  - laptop
+related:
+  - "[[Installations]]"
+  - "[[Tool Catalog - DESKTOP-3VBG0JH]]"
+  - "[[Old Laptop Rebuild - Index]]"
+  - "[[Old Laptop Rebuild - Build 4 Windows Toolkit Findings]]"
+  - "[[WSL Toolkit Config Reference]]"
+  - "[[VS Code - MCP and Secrets]]"
+  - "[[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]]"
+---
+# Machine Toolkit - Tool Use Cases and Agent Guide
+
+## One-Line Answer
+==Start every task in PowerShell 7 on Windows or bash in WSL, keep code on the WSL ext4 disk, reach the vault through the Jarvis MCP, and treat the generated catalog as the version truth and this note as the "when and how" truth.==
+
+Written for the Dell Latitude 5530 (host `DESKTOP-3VBG0JH`) on 2026-10-15 from the live catalog [[Tool Catalog - DESKTOP-3VBG0JH]] and `toolkit.lock.json`. The Acer runs the same toolkit; where it differs, the card says so. Versions live in the catalog, never here, so this note does not rot when a tool updates. Regenerate the catalog with `40-build-catalog.ps1`.
+
+## Agent front page
+
+### Which shell for what
+| Job | Shell | Why |
+|---|---|---|
+| Windows admin, winget, app installs, scheduled tasks, anything under `C:\` or `D:\Apps` | PowerShell 7 (`pwsh`) | Default shell and Windows Terminal profile. Profile block is managed by the toolkit. |
+| Legacy scripts written for 5.1, the toolkit `.ps1` files | `powershell.exe` (5.1) | Toolkit scripts are ASCII-only and 5.1-safe. Run them with `-File`. |
+| Code, git, Node, Python projects, tmux sessions | bash in WSL (`Ubuntu`, user `anant_gupta`) | Projects live on ext4 where git and file watchers are fast. |
+| Reaching the Dell from the Acer | `ssh` over Tailscale (node `dell-wsl`) or VS Code Remote-SSH | Tailscale runs inside the Dell's WSL only. |
+
+### Where things live
+- **Projects:** `~/projects/<group>/<repo>` inside WSL. Never work on code under `/mnt/c` or `/mnt/d`: it is slow, breaks file watching, and mixes line endings. The canonical checkout of each shared repo is on the Dell.
+- **Vault (Jarvis):** `D:\Users\_Anant\10_Areas\Documents\Jarvis`, from WSL `/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis`. Prefer the `jarvis` MCP server for notes. Never write to the vault root or `50_Archive/` ([[AGENTS]] has the write contract).
+- **Drive layout contract:** C: holds Windows, installers, drivers and the profile. `D:\Apps`, `D:\Cache\<tool>`, `D:\AI`, `D:\WSL`, `D:\Backup` hold the rest. A new tool sets its environment variable first (`UV_CACHE_DIR`, `PIP_CACHE_DIR`, `HF_HOME`, `NUGET_PACKAGES`, `GRADLE_USER_HOME`, `PLAYWRIGHT_BROWSERS_PATH`, `PUPPETEER_CACHE_DIR`, `OLLAMA_MODELS`).
+- **Quarantine, not delete:** `D:\Backup\Quarantine`. Only regenerable caches are ever deleted. `~/.cache/node` in WSL is never deleted (it holds the Corepack pin).
+- **WSL backups:** `D:\Backup\WSL\ubuntu-<stamp>.tar` plus a manifest. No import test has been run, so treat it as verified-listing only.
+- **Ops scripts and logs:** `D:\WSL\ops\` and `D:\WSL\ops\windows\logs\`.
+
+### Which AI platform for what
+| Platform | Use it for |
+|---|---|
+| Claude Code (Windows and WSL) | Primary agent: coding, file work, vault tasks, scripts. |
+| Codex CLI | Second-opinion runs and sandboxed tasks. Pinned in `toolkit.lock.json`. |
+| Claude Desktop | Chat with MCP servers and Cowork. |
+| Cursor | Editor sessions with its agent. Sessions are archived by the Jarvis Cursor pipeline. Auto-update stays on: close every Cursor window, including "Cursor Agents", before accepting an update. |
+| Kiro, Antigravity (`agy`) | Spec-driven and agent-first editor sessions. Dell only for Kiro. |
+| Ollama | Local models. The Dell has no discrete GPU, so heavy local work belongs on the Acer (RTX 5070 Ti). |
+
+### MCP servers by name and purpose
+`jarvis` (Jarvis vault over the Local REST API, `127.0.0.1:27123`), `the-plan` (The Plan vault, `127.0.0.1:27124`), `jarvis-fs` and `the-plan-fs` (filesystem access to those vault folders), `github` (issues, PRs, repos), `firecrawl` (web search and scrape), `pencil` (`.pen` design files), `gbrain` (runs through `wsl.exe`), `context7` (library docs, VS Code), `cua_repl` and `node_repl` (Codex helpers; the Codex `node_repl` path points into WSL and does not resolve on Windows). Names only: values are never read or printed. WSL reaches the Windows-side REST APIs on `127.0.0.1` because networking is mirrored.
+
+### Sync boundaries
+| Channel | Carries | Never carries |
+|---|---|---|
+| Git and GitHub | Code. Backup and PR channel. Parallel work uses worktrees on `<machine>/<topic>` branches. | Secrets, build output. |
+| Syncthing | The vaults between the laptops. A `*.sync-conflict-*` file means two writers: diff, merge, move it to `Runs/_backups/`. | Code and cache trees. |
+| Google Drive for desktop | Nothing yet. No mirror is on until codebases and cache trees leave the mirrored root. | Jarvis and The Plan stay out of any Drive mirror. |
+| Settings Sync (VS Code) | Windows VS Code user files, live between the laptops. | Do not write Windows VS Code, Cursor, MCP or Claude Code settings from a script unless asked. |
+No sync daemon ever touches a code checkout.
+
+### Secrets rules
+- Secret values live in user environment variables (Windows) or `~/.mcp.env` (WSL, mode 600, sourced by `.bashrc`). Store or rotate with the hidden-prompt scripts, never by pasting into a chat or a note.
+- Claude Code is denied `Read` on `.env`, `.mcp.env`, `.credentials.json`, `~/.ssh` and similar. Do not work around it.
+- Never print `gh auth token`, environment values or any key. Print names and lengths only. Never put a key in `.bashrc` again (a plaintext Firecrawl key was removed from it on 2026-10-15).
+- Scheduled jobs and WSL services do not inherit the Windows environment: they must load secrets themselves.
+
+### Gotchas that bite agents
+- `python` on the Windows PATH currently resolves to the Hermes agent venv, not a system Python. Use `uv run python` or a project `.venv`. The old Python 3.13.5 and Chocolatey are gone (their uninstall registrations linger in winget).
+- `winget list` showing a tool does not mean it is on PATH. Check `(Get-Command <tool>).Source`.
+- Do not run `corepack enable` on Windows. In WSL, pnpm comes from Corepack and is pinned.
+- Never run `wsl --shutdown` from inside a session. Host steps go into a script the user runs.
+- A PowerShell alias can shadow a binary (PSFzf's fuzzy `fd` alias is kept off for this reason).
+- Native tools writing to stderr can abort a PowerShell 5.1 script that sets `$ErrorActionPreference = 'Stop'`, even with `2>$null`. Capture with `Continue` or run through a helper.
+- `powershell -File` passes a comma list as one string. Take a single string parameter and split it.
+
+## Cards by task
+
+### Move around and look at things
+**PowerShell 7 and Windows Terminal.** Default interactive shell, hosted in Windows Terminal (One Half Dark, IosevkaTerm Nerd Font, same as the Acer). Use 5.1 only for legacy scripts.
+```powershell
+pwsh -NoProfile -File script.ps1
+wt new-tab -p "Ubuntu (Dell)"
+notepad $PROFILE
+```
+Config: managed profile block in `Documents\PowerShell` and `Documents\WindowsPowerShell` (Documents is on D:). Gotcha: do not hand-edit Terminal defaults, `20-apply-configs.ps1` merges them. *Agent: run scripts with `pwsh -NoProfile -File`; never edit the managed profile block.*
+
+**Starship, zoxide, fzf (+PSFzf), fd, bat.** Prompt, directory jumping, fuzzy picking, file finding, file viewing. All interactive except fd.
+```powershell
+z <part-of-path>            # jump
+fd -e md <name>             # find files
+bat --plain <file>          # view
+fd -t f | fzf --preview "bat --color=always {}"
+starship explain
+```
+Config: `~\.config\starship.toml`, `%APPDATA%\fd\ignore`, `%APPDATA%\bat\config`. Gotchas: fzf and zoxide do nothing in non-interactive shells; `fd -H -I` shows hidden and ignored files. *Agent: use `rg` and `fd` directly, never fzf or z.*
+
+**ripgrep and jq.** Search contents and reshape JSON.
+```powershell
+rg -n -i "<pattern>" -g "*.md"
+rg -l "<pattern>"
+jq -r '.items[].name' file.json
+jq 'keys' file.json
+```
+Gotcha: on JSON that holds secrets, print key names only. *Agent: prefer `rg` over `Select-String` for big trees.*
+
+**NanaZip and tar.** Archives. NanaZip has no console exe; scripts use `tar.exe` (bsdtar).
+```powershell
+tar -tf file.tar.xz
+tar -xf file.tar.xz -C <dir>
+```
+Gotcha: Windows `tar.exe` cannot read every pax name in a WSL export (56 entries skipped in the 2026-10-14 tar); list WSL exports with GNU tar inside WSL. *Agent: verify WSL tars with GNU tar in WSL, not `tar.exe`.*
+
+### Read and change code (git)
+**Git, delta, GitHub CLI.** Windows-side repos only. Code lives in WSL.
+```powershell
+git status -sb
+git --no-pager diff
+git switch -c <machine>/<topic>
+git worktree add ../<topic> <branch>
+gh pr create --fill
+gh auth status
+```
+Config: `~\.config\git\ignore`, `~\.config\git\delta.gitconfig`, global gitconfig (identity and safe.directory are machine-specific and never touched). Gotchas: one worktree per concurrently active task; delta paginates, so pass `--no-pager`. *Agent: always `git --no-pager`; never print `gh auth token`.*
+
+**lazygit, yazi, tmux, sesh, atuin, ncdu (WSL only).** Terminal tooling inside Ubuntu.
+```bash
+lazygit
+yazi
+tmux new -s <name>      # prefix is Ctrl-a
+sesh list
+ncdu -x ~
+```
+Config: `~/.config/{lazygit,yazi,sesh,atuin,ncdu}`, `~/.tmux.conf`, all from the golden set ([[WSL Toolkit Config Reference]]). Gotchas: atuin history can hold secrets; ncdu `d` deletes. *Agent: these are interactive, do not drive them; use plain git and `rg`.*
+
+### Run code (runtimes)
+**Node, npm, npx, pnpm.** Windows has Node LTS; WSL has its own (nvm, Corepack-pinned pnpm). Projects run in WSL.
+```powershell
+node --version
+npx -y <package>
+npm ls -g --depth=0
+pnpm store path
+```
+Gotchas: npm cache is `D:\npm-cache`; do not run `corepack enable` on Windows; `~/.cache/node` in WSL is never deleted. *Agent: run project commands in WSL, not through `/mnt`.*
+
+**uv and uv-managed Python.** All Python work, standalone uv first on PATH.
+```powershell
+uv run python script.py
+uv venv
+uv add <pkg>
+uv tool install <tool>
+uvx <tool>
+```
+Gotchas: no system `python.exe` for projects; the PATH `python` is the Hermes venv. *Agent: use `uv run`, create a project `.venv`, never `pip install` globally.*
+
+**Miniconda and opam.** Notebook coursework only (conda) and OCaml coursework (opam). Neither is on PATH.
+```powershell
+& "$env:USERPROFILE\miniconda3\Scripts\conda.exe" env list
+opam switch list
+```
+Gotchas: the `C:\Users\Anant Gupta\miniconda3` junction and the `C:\opamroot` junction point to D: and must stay; opam files carry the System attribute, so never bulk-delete them. *Agent: use uv for anything that is not a notebook or OCaml.*
+
+### Talk to AI agents
+**Claude Code.**
+```powershell
+claude
+claude mcp list
+claude -p "<prompt>"
+claude update
+```
+Gotchas: the Windows and WSL copies differ slightly in version; settings and MCP registry belong to the Build 6 wiring. *Agent: read before editing; follow the vault write contract.*
+
+**Codex CLI.**
+```powershell
+codex exec "<prompt>"
+codex mcp list
+codex doctor
+```
+Gotcha: the config's `node_repl` entry points into WSL and does not resolve on Windows (known, tracked for Build 6). *Agent: use `codex exec` for bounded, explicitly specified tasks.*
+
+**Cursor.** `cursor .` opens the editor. Updates arrive as a popup: quit all Cursor windows (including "Cursor Agents") and any process Cursor started, then accept. An interrupted update broke the install twice (2026-09-06, 2026-10-14); the cause was a force-kill while the updater ran. *Agent: never kill Cursor processes; never run a script that stops Cursor while its updater state is checking, downloading or updating.*
+
+**Claude Desktop, Kiro, Antigravity.** App-based. `agy` exists only after the one-time in-app "install agy command" step. *Agent: not drivable from a shell.*
+
+### Containers and local models
+**Docker Desktop and Docker CLI.** Containers and Dev Containers. Auto-start is off by choice (the Run-key entry is disabled in StartupApproved).
+```powershell
+docker version
+docker ps
+docker system df
+```
+Gotchas: if the engine pipe is missing, start Docker Desktop, do not reinstall. The disk image is on `D:\WSL\Docker`. *Agent: check the engine is up before any `docker run`.*
+
+**Ollama (Windows).** The Windows server owns `127.0.0.1:11434`; the WSL Ollama service is disabled. Models are in `D:\AI\ollama-models`. It is started by hand when needed; its Startup shortcut is disabled.
+```powershell
+powershell -ExecutionPolicy Bypass -File D:\WSL\ops\windows\06-ollama-check.ps1 -Apply
+ollama list
+ollama ps
+```
+Gotchas: installed models are two cloud models and `nomic-embed-text`; the Iris Xe has no GPU acceleration for big models. *Agent: ask before pulling any model (disk and RAM).*
+
+### Reach the Dell, keep it healthy
+**Tailscale SSH (Dell WSL).** Node `dell-wsl`, Acer node `gupta-builds`. Tailscale is installed inside WSL only; never on the Dell's Windows side, never in the Acer's WSL.
+```bash
+tailscale status
+tailscale debug prefs | grep RunSSH
+~/tools/sync-check          # repo divergence and dirty-file check
+```
+Gotcha: a WSL export or restart takes the Dell offline for 10 to 25 minutes; Tailscale returns by itself. *Agent: do not restart WSL; ask the user to run the host script.*
+
+**Maintenance jobs.** Windows: `Toolkit-Weekly-Clean` (Sundays 03:30, regenerable caches only) and `Toolkit-Watch-C` (daily, read-only C: watcher). WSL: user timers `wsl-clean.timer` and `wsl-watch.timer`.
+```powershell
+powershell -ExecutionPolicy Bypass -File D:\WSL\ops\windows\weekly-clean.ps1 -DryRun
+Get-ScheduledTaskInfo -TaskName Toolkit-Weekly-Clean
+```
+```bash
+systemctl --user list-timers --all
+```
+*Agent: run dry runs only; anything that deletes goes into a script the user runs.*
+
+**winget.** Install and upgrade everything on Windows.
+```powershell
+winget upgrade
+winget install --id <Id> --exact --source winget
+winget show --id <Id> --exact
+```
+Gotchas: silent installs skip the location picker (use `--location D:\Apps\<Name>` where supported); a portable package may have no PATH entry. *Agent: ask before installing or uninstalling anything.*
+
+## Growth rules
+| Standing rule | Check command |
+|---|---|
+| Tool versions match `toolkit.lock.json` | `powershell -ExecutionPolicy Bypass -File "<toolkit>\_scripts\99-verify.ps1"` |
+| Config hashes match the shared source | the "Config files and hashes" table in the catalog; `99-verify.ps1` compares them |
+| The font is registered | `(New-Object System.Drawing.Text.InstalledFontCollection).Families \| ? Name -like 'Iosevka*'` |
+| Environment variables are set | the "Environment variables" table in the catalog; `[Environment]::GetEnvironmentVariable('OLLAMA_MODELS','User')` |
+| Shell startup stays fast | `Measure-Command { pwsh -NoProfile -Command exit }` versus `Measure-Command { pwsh -Command exit }` |
+| The catalog is fresh | `facts.generated` in `tool-catalog-<host>.json`; rebuild with `40-build-catalog.ps1` when older than the last install |
+| New secrets never enter a shell rc | `grep -c "API_KEY=" ~/.bashrc` must print 0 |
+
+```
+- `Bash` -- `f="/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis/40_Resources/CS/Concepts/New Laptop/Machine Toolkit - Tool Use Cases and Agent Guide.md"; wsl.exe -d Ubuntu --exec bash -c 'f="$1"; echo "em dashes: $(grep -c "—" "$f")"; echo "key-like tokens (fc-/sk-/ghp_/xox/AKIA): $(grep -cE "(fc-[A-Za-z0-9]{16,}|sk-[A-Za-z0-9]{16,}|ghp_[A-Za-z0-9]{16,}|xox[bp]-|AKIA[A-Z0-9]{12,})" "$f")"; echo "bashrc API_KEY= lines: $(grep -c "API_KEY=" ~/.bashrc)"; grep -n "API_KEY=\|_TOKEN=\|SECRET=" ~/.bashrc | sed -E "s/=.*/=<redacted>/" | head' _ "$f" 2>&1`
+```
+grep: C:/Program Files/Git/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis/40_Resources/CS/Concepts/New Laptop/Machine Toolkit - Tool Use Cases and Agent Guide.md: No such file or directory
+em dashes: 
+grep: C:/Program Files/Git/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis/40_Resources/CS/Concepts/New Laptop/Machine Toolkit - Tool Use Cases and Agent Guide.md: No such file or directory
+key-like tokens (fc-/sk-/ghp_/xox/AKIA): 
+bashrc API_KEY= lines: 0
+```
+- `PowerShell` -- `{"command":"$f=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Machine Toolkit - Tool Use Cases and Agent Guide.md\u0027; $t=[IO.File]::ReadAllText($f,[Text.Encoding]::UTF8); \"chars: \" + $t.Length; \"em dashes: \" + ([regex]::Matches($t,[string][char]0x2014)).Count; \"key-like tokens: \" + ([regex]::Matches($t,\u0027(fc-[A-Za-z0-9]{16,}|sk-[A-Za-z0-9]{16,}|ghp_[A-Za-z0-9]{16,}|xox[bp]-|AKIA[A-Z0-9]{12,})\u0027)).Count; \"non-ASCII chars: \" + ([regex]::Matches($t,\u0027[^\\x00-\\x7F]\u0027)).Count; \"BOM: \" + ([IO.File]::ReadAllBytes($f)[0] -eq 0xEF)","description":"Verify guide has no em dashes, secrets or BOM"}`
+- `PowerShell` -- `{"command":"$inst=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Installations.md\u0027\n$bk=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Runs\\_backups\\Installations (pre-Build 4b 2026-10-15).md\u0027\nCopy-Item -LiteralPath $inst -Destination $bk -Force; \"backup: \" + (Test-Path -LiteralPath $bk) + \" \" + (Get-Item -LiteralPath $bk).Length\n$t=[IO.File]::ReadAllText($inst,[Text.Encoding]::UTF8); \"CRLF: \" + $t.Contains(\"`r`n\"); \"markers: \" + $t.Contains(\u0027### Windows side (live 2026-10-11)\u0027) + \" \" + $t.Contains(\u0027### WSL side (Ubuntu 24.04.4, live 2026-10-11)\u0027) + \" \" + $t.Contains(\u0027- The Windows side was rebuilt on 2026-10-13 by Build 4\u0027)","description":"Back up Installations and check patch markers"}`
+- `PowerShell` -- `{"command":"$inst=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Installations.md\u0027\n$t=[IO.File]::ReadAllText($inst,[Text.Encoding]::UTF8)\n\n# 1. the two status bullets\n$b1=$t.IndexOf(\u0027- The Windows side was rebuilt on 2026-10-13 by Build 4\u0027)\n$b2=$t.IndexOf(\u0027### Windows side (live 2026-10-11)\u0027)\n$bullets=@\u0027\n- The Windows side was rebuilt by Build 4 (2026-10-13) and finished by Build 4b (2026-10-15): PowerShell 7 (default shell), Starship, IosevkaTerm Nerd Font, zoxide, fzf, fd, bat, delta, NanaZip, pnpm, Node 24, standalone uv, Git 2.55 and GitHub CLI 2.102, with shared configs written by `Windows Toolkit\\_scripts`. The tables below are the live 2026-10-15 state, generated from [[Tool Catalog - DESKTOP-3VBG0JH]] and `toolkit.lock.json`. How to use each tool: [[Machine Toolkit - Tool Use Cases and Agent Guide]].\n- Build 3 and Build 4 removed most of the \"not carrying forward\" list (Microsoft 365, OneDrive, WinRAR, Respondus, Dell Optimizer, MongoDB Shell, Logi Options+, Teams, LinkedIn, Netflix, HP Printer Control, Epic, Python 3.13.5 and Chocolatey). Build 4b removed the OpenClaw gateway (npm package, startup entry and `~\\.openclaw`) and the dangling E START App shortcut on 2026-10-14. Malwarebytes (two entries) and Edge are still installed.\n\n\u0027@\n$t=$t.Substring(0,$b1)+$bullets+$t.Substring($b2)\n\n# 2. the Windows tables\n$s1=$t.IndexOf(\u0027### Windows side (live 2026-10-11)\u0027)\n$s2=$t.IndexOf(\u0027### WSL side (Ubuntu 24.04.4, live 2026-10-11)\u0027)\n$win=@\u0027\n### Windows side (live 2026-10-15, from the catalog and `toolkit.lock.json`)\nSource: `winget` is a winget package id, `Store` an MSIX package, `direct` an installer without a winget id, `npm` a global package. Per-tool purpose, commands and gotchas are in [[Machine Toolkit - Tool Use Cases and Agent Guide]]; exact paths and sizes are in the catalog.\n\n**Shell, terminal and fonts**\n| Tool | Version | Source | Location | Note |\n|---|---|---|---|---|\n| PowerShell 7 | 7.6.7 | winget | WindowsApps alias | default shell and Terminal profile; profile block in `Documents\\PowerShell` (Documents is on D:) |\n| Windows PowerShell | 5.1 | built in | System32 | legacy scripts only; profile in `Documents\\WindowsPowerShell`; keeps the opam, Kiro and `New-PyEnv` blocks |\n| Windows Terminal | 1.24.12741.0 | winget / Store | WindowsApps | One Half Dark scheme and IosevkaTerm Nerd Font, same as the Acer; Tokyo Night Storm kept as an extra scheme; stays on 1.24 on purpose |\n| Starship | 1.26.0 | winget | `C:\\Program Files\\starship` | one `starship.toml` for Windows and both WSLs |\n| IosevkaTerm Nerd Font | v3.5.1 | direct (Nerd Fonts archive) | per-user fonts on C: (about 760 MB, 54 TTFs) | no winget package; Terminal uses the normal set, VS Code the Mono set (NFM) |\n| zoxide, fzf, PSFzf, fd, bat, delta | 0.10.0, 0.74.4, 2.7.12, 10.5.0, 0.26.1, 0.20.1 | winget (PSFzf: PowerShell Gallery) | WinGet Packages | configs from the toolkit: `%APPDATA%\\fd\\ignore`, `%APPDATA%\\bat\\config`, shared delta include |\n\n**CLI tools, runtimes and package managers**\n| Tool | Version | Source | Location | Note |\n|---|---|---|---|---|\n| Git | 2.55.0 | winget | `C:\\Program Files\\Git` | `core.autocrlf=input`; identity and safe.directory entries are machine-specific |\n| GitHub CLI | 2.102.0 | winget | `C:\\Program Files\\GitHub CLI` | credential helper for github.com |\n| ripgrep, jq, FFmpeg | 15.1.0, 1.8.2, 8.1.2 | winget | WinGet Packages | |\n| NanaZip | 7.0.1843.0 | Store | WindowsApps | no console exe; scripts use `tar.exe` |\n| Node.js LTS, npm | 24.20.0, 11.19.0 | winget | `C:\\Program Files\\nodejs` | moved from 22 to 24 in Build 4; npm cache `D:\\npm-cache` |\n| pnpm | 12.11.2 | winget | WinGet Packages | Windows copy only; WSL pnpm is 12.4.2 through Corepack. Do not run `corepack enable` on Windows |\n| uv, uv-managed Python | 0.12.19, 3.13.15 | standalone installer | `C:\\Users\\Anant Gupta\\.local\\bin` | first on PATH; `python` on PATH currently resolves to the Hermes agent venv, so use `uv run python` |\n| Miniconda | py313_25.11.1-1 | winget | `D:\\Apps\\miniconda3`, junction `C:\\Users\\Anant Gupta\\miniconda3` | notebooks only; not on PATH; keep the junction |\n| opam (OCaml) | 2.5.0 | winget | `D:\\Apps\\opamroot`, junction `C:\\opamroot` | OCaml coursework; opam files carry the System attribute |\n| winget | 1.29.380 | built in | WindowsApps | |\n| npm globals | `@openai/codex` 0.162.1, `firecrawl-cli` 1.19.21, `mcp-remote` 0.2.1, `opencode-ai` 1.18.31 | npm | `AppData\\Roaming\\npm` | `openclaw` was removed 2026-10-14 |\n| Python 3.13.5, Chocolatey | gone | | | files are gone since Build 4; 11 stale Python uninstall registrations still show in `winget list` (open item) |\n| .NET runtimes | 8.0.25 / 8.0.26 and 10.0.9 | winget | `C:\\Program Files\\dotnet` | the 8.x set is kept on purpose: WSL Settings is pinned to the .NET 8 desktop runtime. Dell apps (TechHub, DTP, MyDell) run on 10 |\n\n**AI platforms, agents and models**\n| Tool | Version | Source | Location | Note |\n|---|---|---|---|---|\n| Claude Code | 2.1.300 | native installer | `C:\\Users\\Anant Gupta\\.local\\bin\\claude.exe` | WSL copy is 2.1.299 |\n| Codex CLI | 0.162.1 | npm | `AppData\\Roaming\\npm` | pinned in the lock |\n| Claude Desktop | 2.37337.1.0 | winget | `AppData` (forced to C:) | MCP names: jarvis, the-plan, jarvis-fs, github |\n| Cursor | 3.24.18 | winget | `AppData\\Local\\Programs\\cursor` | reinstalled 2026-10-14 after an interrupted self-update; auto-update stays on |\n| Kiro, Antigravity | 1.0.395, 2.22.0 | winget | `AppData\\Local\\Programs` | `agy` shim needs the one-time in-app step |\n| ChatGPT (Store, package OpenAI.Codex) | 26.1007 | Store | WindowsApps | ChatGPT Classic is removed |\n| Ollama | 0.40.3 | winget | `D:\\Apps\\Ollama` | serves `127.0.0.1:11434` when started by hand; models in `D:\\AI\\ollama-models` (two cloud models and `nomic-embed-text`); startup shortcut disabled; WSL Ollama is disabled |\n| Jan | 0.8.6 | winget | AppData | |\n| Docker Desktop, Docker CLI | 4.56.0, 29.1.3 | winget | `C:\\Program Files\\Docker`; disk image `D:\\WSL\\Docker` | auto-start is off |\n| VS Code | 1.142.0 | winget | `AppData\\Local\\Programs\\Microsoft VS Code` | on C: here, on D: on the Acer; Settings Sync is live |\n| MCP prerequisites | npx 11.19.0, uvx 0.12.19, mcp-remote 0.2.1 | | | all resolve; 24 MCP entries across Claude Desktop, Claude Code, VS Code and Codex (names only in the catalog) |\n\n**Productivity, communication and media**\nObsidian 1.9.12, Slack, Discord, Zoom, Telegram, WhatsApp (Store), Spotify, Vivaldi 8.2, Todoist, Loom, Bitwarden, Postman, Google Drive for desktop 132, Syncthing (`D:\\Apps\\Syncthing`), PowerToys 0.100, WizTree 4.31, Revo Uninstaller 2.7.2, CrystalDiskInfo, Zoom, Voquill, Wispr Flow, 16x Prompt, Mail and Calendar. Also present and not in the manifest: Hermes agent (on PATH).\n\n**Microsoft and Dell packages**\nMicrosoft Edge 155, Dell Command Update (Store 5.7.42 and Universal 5.7.2), Dell Core Services, Dell SupportAssist OS Recovery plugin, Intel graphics software, Realtek audio, two Malwarebytes entries (5.0.0.113 Store and 5.7.1.346), WhatsApp and Windows system components.\n\n**Startup behavior**\nAll seven Run-key entries (Discord, GoogleDriveFS, Rize, Spotify, Docker Desktop, Voquill, Slack) are disabled through `StartupApproved`, and the Startup-folder items Wispr Flow and Ollama are disabled too. The E START App and OpenClaw Gateway shortcuts were quarantined on 2026-10-14. Reversible: the values and an `undo.txt` are in `D:\\Backup\\Quarantine\\[REDACTED]`.\n\n**Open Windows items:** Malwarebytes (two entries), WhatsApp, Rize and GitKrakenCLI keep-or-remove; stale Python 3.13.5 uninstall registrations; Defender exclusions and the BIOS battery cap (need admin or BIOS).\n\n\u0027@\n$t=$t.Substring(0,$s1)+$win+$t.Substring($s2)\n\n# 3. frontmatter date\n$t=[regex]::Replace($t,\u0027(?m)^updated: 2026-10-11$\u0027,\u0027updated: 2026-10-15\u0027,1)\n[IO.File]::WriteAllText($inst,$t,(New-Object Text.UTF8Encoding($false)))\n$chk=[IO.File]::ReadAllText($inst,[Text.Encoding]::UTF8)\n\"new chars: \" + $chk.Length + \"; em dashes I added: \" + ([regex]::Matches($win+$bullets,[string][char]0x2014)).Count + \"; WSL heading kept: \" + $chk.Contains(\u0027### WSL side (Ubuntu 24.04.4, live 2026-10-11)\u0027) + \"; old pre-rebuild table gone: \" + (-not $chk.Contains(\u0027| Windows PowerShell | 5.1.26100 | built in | System32 | only shell\u0027))","description":"Patch the Windows half of Installations by heading"}`
+- `PowerShell` -- `{"command":"$tk=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\u0027; $j=Get-Content \"$tk\\toolkit.json\" -Raw | ConvertFrom-Json; \"--- machines:\"; $j.machines | ConvertTo-Json -Depth 6; \"--- acer-only / per-machine tools:\"; $j.tools | ? { $_.machines -and ($_.machines -ne \u0027both\u0027) } | Select id,machines,policy | Format-Table | Out-String; Get-ChildItem $tk -Recurse -Depth 1 | Select -Expand FullName | % { $_.Substring($tk.Length) } | Select -First 40","description":"Read toolkit manifest machine section and folder layout"}`
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\README.md`
+- `Glob` -- pattern `**/Acer Session Handoff*.md` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop`
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Old Laptop Rebuild - Build 2 Acer Handoff.md`
+- `Bash` -- `wsl.exe -d Ubuntu --exec bash -c 'head -40 ~/tools/sync-check' 2>&1`
+```
+#!/usr/bin/env bash
+set -uo pipefail
+
+# Read-only working-tree report for the two shared canonical checkouts.
+# `git fetch` updates Git metadata (remote-tracking refs), but never edits the
+# checked-out branch, index, or working files. No push, merge, or checkout.
+
+projects_root="$HOME/projects"
+repos=(
+  "$projects_root/ai/claude/second-brain-claudekit"
+  "$projects_root/work/internship-research-loop"
+)
+
+version_or_missing() {
+  local label="$1"; shift
+  if command -v "$1" >/dev/null 2>&1; then
+    printf '%s=' "$label"
+    "$@" 2>&1 | head -n 1
+  else
+    printf '%s=not-installed\n' "$label"
+  fi
+}
+
+printf 'host=%s user=%s\n' "$(hostname)" "$(id -un)"
+printf 'versions\n'
+version_or_missing node node --version
+version_or_missing pnpm pnpm --version
+version_or_missing python python3 --version
+version_or_missing uv uv --version
+
+for repo in "${repos[@]}"; do
+  printf '\nrepo=%s\n' "$repo"
+  if [[ ! -d "$repo/.git" && ! -f "$repo/.git" ]]; then
+    printf 'result=missing-checkout\n'
+    continue
+  fi
+  top=$(git -C "$repo" rev-parse --show-toplevel 2>/dev/null) || {
+    printf 'result=not-a-git-worktree\n'
+    continue
+  }
+```
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\WSL Parity\Acer Session Handoff - Toolkit Sync (Build 5b).md`
+- `Grep` -- pattern `^\s*param\(|\$Machine|computerName|function Initialize-Toolkit|Get-Role|role =|\$global:TK.Role|Acer` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts`
+- `Grep` -- pattern `\$Only|-split` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts`
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\_lib.ps1`
+- `Write` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\Acer Run Sheet - Windows Toolkit.md`
+```
+---
+type: note
+status: sprout
+created: 2026-10-15
+updated: 2026-10-15
+course: Life
+track:
+  - laptop
+  - windows
+tags:
+  - note
+  - laptop
+related:
+  - "[[Old Laptop Rebuild - Index]]"
+  - "[[Old Laptop Rebuild - Build 4 Windows Toolkit Findings]]"
+  - "[[Machine Toolkit - Tool Use Cases and Agent Guide]]"
+  - "[[Installations]]"
+  - "[[Acer Session Handoff - Toolkit Sync (Build 5b)]]"
+next: "Run Part 0 (read-only) on the Acer, paste the output back to the Dell session, then continue with Part 1 only after the parity matrix says what differs."
+---
+# Acer Run Sheet - Windows Toolkit
+
+## One-Line Answer
+==Run Part 0 on the Acer first (it changes nothing), paste the tables back, and only then run the install and config steps; the Dell has already been through all of them and its versions are recorded in `toolkit.lock.json`.==
+
+## Who this is for
+The Claude session or the user on the Acer, Windows side, in a **normal** (not elevated) PowerShell. The Dell session has no access to the Acer. This sheet covers the Windows toolkit only. The WSL toolkit is a separate visit note: [[Acer Session Handoff - Toolkit Sync (Build 5b)]]. Do both in one Acer visit.
+
+## What is different on the Acer (read this first)
+| Item | Dell | Acer | Why it matters |
+|---|---|---|---|
+| Vault root | `D:\Users\_Anant\10_Areas\Documents\Jarvis` | `D:\_Anant\20_Progress\Documents\Jarvis` | The scripts find the vault by environment variable, then by candidate paths that contain `AGENTS.md`. The role (`acer`) is detected from this path. Pass `-Machine acer` anyway. |
+| Computer name | `DESKTOP-3VBG0JH` | blank in the manifest | Role detection must not rely on the name. |
+| Tailscale | absent on Windows (runs inside the Dell's WSL as `dell-wsl`) | installed on Windows as `gupta-builds` | Verify only. Never install it in the Acer's WSL. Never reinstall or sign out on Windows. |
+| GPU | Intel Iris Xe only | RTX 5070 Ti | Heavy local models belong here, not on the Dell. |
+| Kiro, Miniconda, opam | present (Dell-only in the manifest) | not part of this toolkit | Do not install them. |
+| Chocolatey and Python 3.13.5 | retired on the Dell | not part of this toolkit | Do not run `04-admin-remove.ps1` or `11-node-lts-swap.ps1` on the Acer. Both are Dell-only. |
+| Font | per-user install on C: (about 760 MB, two sets) | system-wide | The install script adopts what exists. |
+| VS Code | on C: | on D:\Apps | The scripts only verify it. They never write VS Code, MCP or Claude Code settings. Settings Sync is live. |
+| Terminal Ubuntu profile | `Ubuntu (Dell)` | `Ubuntu-24.04 (Acer)` | Machine profiles are preserved by the Terminal merge. |
+| Node | LTS 24 (was 22) | check; the sheet does not change it | `10-install-toolkit.ps1` installs LTS if missing. Any Node major change is a decision for the user. |
+
+## Where the scripts are on the Acer
+Syncthing carries the vault. Wait until it finishes, then:
+```powershell
+$V  = 'D:\_Anant\20_Progress\Documents\Jarvis'
+$TK = "$V\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit"
+Test-Path "$TK\_scripts\00-preflight.ps1"      # must print True
+Test-Path "$V\AGENTS.md"                        # must print True
+```
+If the vault is elsewhere: `ls D:\_Anant\*\Documents` and set `$V` to the folder that contains `AGENTS.md`, or set the user variable `TOOLKIT_VAULT_ROOT` to it.
+
+Command template for every script (quote the full path, run as a file):
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$TK\_scripts\<script>.ps1" -Machine acer [switches]
+```
+Every script prints a result table (`ID STATUS DETAIL`), writes a log to `D:\WSL\ops\windows\logs\` and a result JSON to `$TK\results\<host>\`. A script that fails a required check exits non-zero. Statuses: `PASS`, `INFO`, `PLAN` (dry run), `PENDING`, `DIFF` (differs from the source, nothing was overwritten), `WARN`, `FAIL`.
+
+## Part 0 - read-only paste-back (run this first, nothing changes)
+The Acer already has parts of the toolkit from 2026-10-12 (fzf, fd, bat, delta, zoxide, PSFzf), so start by finding out exactly what is present.
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$TK\_scripts\00-preflight.ps1" -Machine acer
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$TK\_scripts\10-install-toolkit.ps1" -Machine acer -DryRun
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$TK\_scripts\20-apply-configs.ps1" -Machine acer -DryRun
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$TK\_scripts\99-verify.ps1" -Machine acer
+```
+Do not pass `-WriteLock` on the Acer: only the Dell writes `toolkit.lock.json`. `00` prints the machine, vault, manifest, a secret scan of the shared configs and the plan. `10 -DryRun` lists what it would install or adopt. `20 -DryRun` lists each config as MATCH, DIFF or MISSING without writing. `99-verify` compares the manifest with reality; Dell-only rows show as skipped.
+
+**Paste back** the four result tables (the `ID STATUS DETAIL` blocks) plus the four result JSON paths, and this one-liner:
+```powershell
+winget list --disable-interactivity | Select-String -Pattern 'Tailscale|PowerShell|Starship|NanaZip|Docker|Ollama|Cursor|Antigravity|Visual Studio Code|Claude'
+```
+The Dell session reads both result sets and writes the parity matrix (PASS or DIFF with a reason). Do Part 1 only after that, or if the user says go.
+
+## Part 1 - install and adopt (normal shell, UAC prompts)
+Close editors first (the Git upgrade replaces files in use). UAC prompts appear for Git, GitHub CLI, Starship and Node; accept them.
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$TK\_scripts\10-install-toolkit.ps1" -Machine acer
+```
+Prints one line per tool (`installed=... version=...`) and a summary. It continues past a single failed package. It never installs Tailscale, never removes anything and never touches Node's major version. Needs: internet, `winget`.
+
+## Part 2 - apply the shared configs
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$TK\_scripts\20-apply-configs.ps1" -Machine acer
+```
+Writes (after a timestamped backup to `D:\Backup\Toolkit\<timestamp>\`): the managed profile block in both PowerShell profiles, `starship.toml`, the global git ignore, the shared delta include, bat and fd configs, the Terminal fragment merged into `settings.json` (Acer profiles preserved), git settings and the toolkit environment variables, and the user PATH order (standalone uv first). An existing bat or fd file is kept and reported as `DIFF`: the Acer's real files are the source, so a DIFF there means the shared copy in the vault needs updating, not the Acer. Tell the Dell session. Roll back with `-RestoreFrom "D:\Backup\Toolkit\<timestamp>"`.
+
+## Part 3 - verify and catalog
+Open a **fresh** terminal window (PATH and profile must reload), then:
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$TK\_scripts\99-verify.ps1" -Machine acer
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$TK\_scripts\40-build-catalog.ps1" -Machine acer
+```
+The second writes `$TK\catalog\Tool Catalog - <host>.md` and `.json`. It never prints secrets or `.bashrc`. Paste back the `99-verify` table and the catalog's file name; Syncthing carries the catalog to the Dell.
+
+## Do not run on the Acer
+`11-node-lts-swap.ps1`, `04-admin-remove.ps1`, `60-build5b-host.ps1`, `05-startup-cleanup.ps1`, `06-ollama-check.ps1` and anything in `D:\WSL\ops` that belongs to the Dell. Never `wsl --shutdown` from inside WSL.
+
+## After it ran
+Say so in the Dell session. It reads both result sets (`results\DESKTOP-3VBG0JH` and the Acer's folder) and writes the parity matrix into [[Old Laptop Rebuild - Build 4 Windows Toolkit Findings]]. Known differences to expect: Terminal version (the Dell stays on 1.24), VS Code location, font scope, Kiro and the Dell-only runtimes, and pnpm: the Windows winget pnpm is 12.11.2 on the Dell while the WSL pnpm on both laptops is Corepack-pinned to 12.4.2.
+
+```
+- `PowerShell` -- `{"command":"$V=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\u0027; $TK=\"$V\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\"; \"AGENTS.md: \" + (Test-Path \"$V\\AGENTS.md\") + \"  preflight: \" + (Test-Path \"$TK\\_scripts\\00-preflight.ps1\")\npowershell.exe -NoProfile -ExecutionPolicy Bypass -File \"$TK\\_scripts\\00-preflight.ps1\" -Machine dell 2\u003e\u00261 | Select -Last 14; \"exit=$LASTEXITCODE\"\n$f=\"$TK\\Acer Run Sheet - Windows Toolkit.md\"; $t=[IO.File]::ReadAllText($f,[Text.Encoding]::UTF8); \"em dashes: \" + ([regex]::Matches($t,[string][char]0x2014)).Count + \"; non-ASCII: \" + ([regex]::Matches($t,\u0027[^\\x00-\\x7F]\u0027)).Count + \"; key-like: \" + ([regex]::Matches($t,\u0027(fc-[A-Za-z0-9]{16,}|sk-[A-Za-z0-9]{16,}|ghp_[A-Za-z0-9]{16,})\u0027)).Count","description":"Run the run sheet\u0027s command template read-only on the Dell and scan the note","timeout":180000}`
+- `Bash` -- `wsl.exe -d Ubuntu --exec bash -c '~/tools/sync-check 2>&1 | cut -c1-200' 2>&1; wsl.exe -d Ubuntu --exec bash -c 'tailscale status --json 2>/dev/null | python3 -c "import sys,json; d=json.load(sys.stdin); s=d[\"Self\"]; print(\"Self keys:\", sorted(k for k in s.keys() if \"SSH\" in k or \"Host\" in k)); print(\"Self SSH_HostKeys present:\", bool(s.get(\"SSH_HostKeys\")))" 2>&1; tailscale ip -4 2>&1; tailscale version 2>&1 | head -1' 2>&1`
+```
+host=DESKTOP-3VBG0JH user=anant_gupta
+versions
+node=not-installed
+pnpm=not-installed
+python=Python 3.12.3
+uv=not-installed
+
+repo=/home/anant_gupta/projects/ai/claude/second-brain-claudekit
+root=/home/anant_gupta/projects/ai/claude/second-brain-claudekit
+branch=main
+fetch=ok
+compare_ref=origin/main ahead=0 behind=0
+dirty_count=1
+
+repo=/home/anant_gupta/projects/work/internship-research-loop
+root=/home/anant_gupta/projects/work/internship-research-loop
+branch=dell-latitude/deadline-quota-and-reseed-fixes
+fetch=ok
+compare_ref=origin/master ahead=6 behind=5
+dirty_count=25
+Self keys: ['HostName']
+Self SSH_HostKeys present: False
+100.94.129.113
+1.104.1
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Old Laptop Rebuild - Build 2 Acer Handoff.md`
+```diff
+- ### 4. Inventory the Acer's existing clones
++ ### 3b. Where to read the Dell's advertised host key, and the sync-check run (added 2026-10-15)
+**Host key source.** The Dell cannot supply the key for this comparison: its own `tailscale status --json` has a `Self` entry with no `SSH_HostKeys` (checked 2026-10-15, Tailscale 1.104.1). The only independent source is the **Acer's** Tailscale view of the Dell: `tailscale.exe status --json`, then the `Peer` entry whose `DNSName` starts with `dell-wsl` (full name `dell-wsl.tail0c1d06.ts.net`, `100.94.129.113`), field `SSH_HostKeys`. That is exactly what the Step 3 snippet reads. If the Acer's peer entry also has no `SSH_HostKeys`, stop and report that; the fallback is a Dell-side read that needs `sudo`, which the user runs. Never rewrite `known_hosts`.
+
+**sync-check over SSH (read-only).** Run from the Acer, then compare with the Dell's own run below:
+```powershell
+ssh dell-wsl '~/tools/sync-check'
+```
+It prints `host=`, tool versions, then for each of the two canonical repos: `branch`, `fetch=ok`, `compare_ref ... ahead/behind`, `dirty_count`. `git fetch` only updates remote-tracking refs; nothing in the working tree changes. **Ignore the `node`, `pnpm` and `uv` lines over plain SSH:** they print `not-installed` because nvm and `~/.local/bin` are set up in the interactive `.bashrc`, which a non-interactive SSH command does not load. The repo lines are the real check.
+
+Dell's own run on 2026-10-15 (local, same script):
+| Repo | Branch | Versus | Ahead / behind | Dirty |
+|---|---|---|---|---|
+| `second-brain-claudekit` | `main` | `origin/main` | 0 / 0 | 1 |
+| `internship-research-loop` | `dell-latitude/deadline-quota-and-reseed-fixes` | `origin/master` | 6 / 5 | 25 |
+The second repo has diverged from `origin/master` and has 25 dirty files. Do not reset, stash, commit or push either repo from the Acer. Report what the Acer sees; the Dell session decides.
+
+### 4. Inventory the Acer's existing clones
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Old Laptop Rebuild - Build 2 Acer Handoff.md`
+```diff
+- updated: 2026-10-12
+course: Life
++ updated: 2026-10-15
+course: Life
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\WSL Parity\Acer Session Handoff - Toolkit Sync (Build 5b).md`
+```diff
+- ## Rules for this session
++ ## Same visit, also do (added 2026-10-15)
+Do these in the same Acer visit, in this order, and write results in their own notes: (1) the Windows toolkit read-only paste-back in [[Acer Run Sheet - Windows Toolkit]] (Part 0); (2) the Build 2 SSH items in [[Old Laptop Rebuild - Build 2 Acer Handoff]]: independent host-key comparison, `ssh dell-wsl '~/tools/sync-check'`, the large Git transfer measurement, the clone and worktree inventory, and the optional Acer WSL route test.
+
+## Rules for this session
+```
+- `Edit` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\WSL Parity\Acer Session Handoff - Toolkit Sync (Build 5b).md`
+```diff
+- ## Same visit, also do (added 2026-10-15)
+Do these in the same Acer visit, in this order, and write results in their own notes: (1) the Windows toolkit read-only paste-back in [[Acer Run Sheet - Windows Toolkit]] (Part 0); (2) the Build 2 SSH items in [[Old Laptop Rebuild - Build 2 Acer Handoff]]: independent host-key comparison, `ssh dell-wsl '~/tools/sync-check'`, the large Git transfer measurement, the clone and worktree inventory, and the optional Acer WSL route test.
+
+## Rules for this session
++ Same visit (added 2026-10-15): also run Part 0 of [[Acer Run Sheet - Windows Toolkit]] and the Build 2 SSH items in [[Old Laptop Rebuild - Build 2 Acer Handoff]] (host-key comparison, sync-check over SSH, large Git transfer, clone inventory, optional WSL route test).
+
+## Rules for this session
+```
+- `PowerShell` -- `{"command":"$inst=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Installations.md\u0027\n$t=[IO.File]::ReadAllText($inst,[Text.Encoding]::UTF8)\n$a=$t.IndexOf(\u0027### How to refresh this section\u0027); $a -ge 0 | Out-Null\n$acer=@\u0027\n### Acer, Windows side (planned, not run)\nThe Acer is the reference for the toolkit\u0027s configs, so the Dell was built to match it. The Windows toolkit has not been run on the Acer yet; it already has fzf, fd, bat, delta, zoxide and PSFzf from 2026-10-12. Differences to expect: vault root `D:\\_Anant\\20_Progress\\Documents\\Jarvis`, Tailscale installed on Windows as `gupta-builds` (never in the Acer\u0027s WSL), the RTX 5070 Ti, VS Code on D:\\Apps, the font installed system-wide, and no Kiro, Miniconda, opam or Chocolatey retirement. The run order, with a read-only first step, is in `Windows Toolkit\\Acer Run Sheet - Windows Toolkit` ([[Acer Run Sheet - Windows Toolkit]]). When the Acer ran it, this section gets the parity matrix (PASS or DIFF with a reason).\n\n### Growth rules\nThe standing rules and one check command each (tool versions, config hashes, font registration, environment variables, startup time, catalog freshness, no secrets in shell rc files) are in [[Machine Toolkit - Tool Use Cases and Agent Guide#Growth rules]].\n\n\u0027@.Replace(\"`r`n\",\"`n\")\n$t=$t.Insert($a,$acer)\n$t=$t.Replace(\u0027Zoom, Voquill, Wispr Flow, 16x Prompt, Mail and Calendar.\u0027,\u0027Voquill, Wispr Flow, 16x Prompt, Mail and Calendar.\u0027)\n$old=\u0027Build 4 turns them into repeatable scripts.\u0027\n$new=\u0027They are superseded by `40-build-catalog.ps1` (Windows Toolkit), which regenerates `Tool Catalog - \u003chost\u003e` on demand; re-run it and re-read the catalog instead of these commands.\u0027\n\"refresh sentence found: \" + $t.Contains($old); $t=$t.Replace($old,$new)\n[IO.File]::WriteAllText($inst,$t,(New-Object Text.UTF8Encoding($false)))\n$c=[IO.File]::ReadAllText($inst,[Text.Encoding]::UTF8); \"sections present: \" + $c.Contains(\u0027### Acer, Windows side (planned, not run)\u0027) + \" \" + $c.Contains(\u0027### Growth rules\u0027) + \"; zoom dup gone: \" + (-not $c.Contains(\u0027Zoom, Voquill\u0027)) + \"; chars \" + $c.Length","description":"Add Acer Windows side and Growth rules pointers to Installations"}`
+- `PowerShell` -- `{"command":"$boot=(Get-CimInstance Win32_OperatingSystem).LastBootUpTime; \"last boot: $boot\"; foreach($n in \u0027Docker Desktop\u0027,\u0027com.docker.backend\u0027,\u0027com.docker.build\u0027,\u0027vpnkit\u0027,\u0027Slack\u0027,\u0027Spotify\u0027,\u0027Discord\u0027,\u0027Rize\u0027,\u0027Voquill\u0027,\u0027GoogleDriveFS\u0027,\u0027Wispr Flow\u0027){ $p=Get-Process -Name $n -ErrorAction SilentlyContinue | Sort StartTime | Select -First 1; if($p){ $pp=(Get-CimInstance Win32_Process -Filter \"ProcessId=$($p.Id)\").ParentProcessId; $pn=(Get-Process -Id $pp -ErrorAction SilentlyContinue).Name; \u0027{0,-18} started {1}  ({2:N0} min after boot)  parent={3}\u0027 -f $n,$p.StartTime,($p.StartTime-$boot).TotalMinutes,$pn } else { \u0027{0,-18} not running\u0027 -f $n } }\n\"--- Docker auto-start sources:\"; Get-ItemProperty \u0027HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\StartupApproved\\Run\u0027 | Select \u0027Docker Desktop\u0027 | Format-List | Out-String; Get-ScheduledTask | ? { $_.Actions.Execute -match \u0027docker\u0027 -or $_.TaskName -match \u0027docker\u0027 } | Select TaskName,State; Get-Service | ? Name -match \u0027docker\u0027 | Select Name,StartType,Status | Format-Table | Out-String; (Get-Content \"$env:APPDATA\\Docker\\settings-store.json\" -Raw | Select-String \u0027\"(AutoStart|OpenUIOnStartupDisabled|DisplayedOnboarding)\"[^,]*\u0027 -AllMatches).Matches.Value","description":"Check which startup apps actually launched at boot and Docker sources"}`
+- `Bash` -- `wsl.exe -d Ubuntu --exec bash -c 'cd ~; for d in .cursor-server .cursor .vscode-server .config/Cursor; do [ -d "$d" ] && echo "== $d: $(du -sh "$d" 2>/dev/null | cut -f1)"; done; echo "--- biggest under .cursor-server (depth 4):"; du -h --max-depth=4 ~/.cursor-server 2>/dev/null | sort -rh | head -8; echo "--- snapshots/globalStorage dirs:"; find ~ -maxdepth 6 \( -name snapshots -o -name globalStorage \) -path "*ursor*" -type d 2>/dev/null | while read d; do echo "$(du -sh "$d" 2>/dev/null | cut -f1)  $d"; done; echo "--- pnpm:"; pnpm --version 2>/dev/null; pnpm store path 2>/dev/null; ls -d ~/.local/share/pnpm/store/* ~/.pnpm-store/* 2>/dev/null; for d in ~/.local/share/pnpm/store/* ~/.pnpm-store/*; do [ -d "$d" ] && echo "$(du -sh "$d" 2>/dev/null | cut -f1)  $d"; done' 2>&1`
+```
+== .cursor-server: 4.7G
+== .cursor: 71M
+== .vscode-server: 4.9G
+--- biggest under .cursor-server (depth 4):
+4.7G	/home/anant_gupta/.cursor-server
+4.0G	/home/anant_gupta/.cursor-server/data
+2.0G	/home/anant_gupta/.cursor-server/data/snapshots
+2.0G	/home/anant_gupta/.cursor-server/data/User/globalStorage/anysphere.cursor-agent-worker
+2.0G	/home/anant_gupta/.cursor-server/data/User/globalStorage
+2.0G	/home/anant_gupta/.cursor-server/data/User
+1.4G	/home/anant_gupta/.cursor-server/data/snapshots/stores/[REDACTED]
+1.4G	/home/anant_gupta/.cursor-server/data/snapshots/stores
+--- snapshots/globalStorage dirs:
+2.0G  /home/anant_gupta/.cursor-server/data/User/globalStorage
+2.0G  /home/anant_gupta/.cursor-server/data/snapshots
+--- pnpm:
+/home/anant_gupta/.local/share/pnpm/store/v10
+/home/anant_gupta/.local/share/pnpm/store/v3
+/home/anant_gupta/.pnpm-store/v10
+28M  /home/anant_gupta/.local/share/pnpm/store/v10
+1.8G  /home/anant_gupta/.local/share/pnpm/store/v3
+510M  /home/anant_gupta/.pnpm-store/v10
+```
+- `Bash` -- `wsl.exe -d Ubuntu --exec bash -c 'export NVM_DIR="$HOME/.nvm"; . "$NVM_DIR/nvm.sh" >/dev/null 2>&1; node --version; pnpm --version; echo "active store: $(pnpm store path)"; echo "store-dir config: $(pnpm config get store-dir 2>/dev/null)"; echo "--- last-used / newest file per store:"; for d in ~/.local/share/pnpm/store/v10 ~/.local/share/pnpm/store/v3 ~/.pnpm-store/v10; do printf "%s  newest mtime: " "$d"; find "$d" -type f -printf "%TY-%Tm-%Td\n" 2>/dev/null | sort | tail -1; done; echo "--- repos with node_modules referencing a store (sample via .modules.yaml):"; for y in $(find ~/projects -maxdepth 4 -path "*/node_modules/.modules.yaml" 2>/dev/null | head -12); do echo "$(dirname $(dirname $y)): $(grep -E "^storeDir:" $y)"; done' 2>&1`
+```
+v24.21.0
+12.4.2
+active store: /mnt/c/.pnpm-store/v11
+store-dir config: undefined
+--- last-used / newest file per store:
+/home/anant_gupta/.local/share/pnpm/store/v10  newest mtime: /home/anant_gupta/.local/share/pnpm/store/v3  newest mtime: 2026-02-22
+/home/anant_gupta/.pnpm-store/v10  newest mtime: 2026-08-20
+--- repos with node_modules referencing a store (sample via .modules.yaml):
+```
+- `Bash` -- `wsl.exe -d Ubuntu --exec bash -c 'cd ~; export NVM_DIR="$HOME/.nvm"; . "$NVM_DIR/nvm.sh" >/dev/null 2>&1; echo "cwd: $(pwd)"; echo "active store from ~: $(pnpm store path)"; cd ~/projects/work/internship-research-loop 2>/dev/null && echo "from repo: $(pnpm store path)"; ls -d /mnt/c/.pnpm-store 2>&1; for d in ~/.local/share/pnpm/store/v10 ~/.local/share/pnpm/store/v3 ~/.pnpm-store/v10 ~/.local/share/pnpm/store/v11 ~/.pnpm-store/v11; do [ -d "$d" ] && echo "exists $(du -sh $d 2>/dev/null | cut -f1) $d newest: $(find $d -type f -printf "%TY-%Tm-%Td\n" 2>/dev/null | sort | tail -1)"; done; echo "pnpm home dir: $(ls -d ~/.local/share/pnpm 2>/dev/null && ls ~/.local/share/pnpm/store)"' 2>&1`
+```
+cwd: /home/anant_gupta
+active store from ~: /home/anant_gupta/.local/share/pnpm/store/v11
+from repo: /home/anant_gupta/.local/share/pnpm/store/v11
+ls: cannot access '/mnt/c/.pnpm-store': No such file or directory
+exists 28M /home/anant_gupta/.local/share/pnpm/store/v10 newest: 
+exists 1.8G /home/anant_gupta/.local/share/pnpm/store/v3 newest: 2026-02-22
+exists 510M /home/anant_gupta/.pnpm-store/v10 newest: 2026-08-20
+pnpm home dir: /home/anant_gupta/.local/share/pnpm
+v10
+v3
+```
+- `Bash` -- `wsl.exe -d Ubuntu --exec bash -c 'cd ~; echo "--- globalStorage children:"; du -sh ~/.cursor-server/data/User/globalStorage/* 2>/dev/null | sort -rh | head; ls -1A ~/.cursor-server/data/User/globalStorage | head -20; echo "--- snapshots children:"; du -sh ~/.cursor-server/data/snapshots/* 2>/dev/null; echo "--- newest file in each:"; for d in ~/.cursor-server/data/snapshots ~/.cursor-server/data/User/globalStorage; do printf "%s: " "$d"; find "$d" -type f -printf "%TY-%Tm-%Td\n" 2>/dev/null | sort | tail -1; done; echo "--- running cursor-server processes: $(pgrep -fc "[c]ursor-server")"; echo "--- cursor-agent-worker contents:"; ls -1A ~/.cursor-server/data/User/globalStorage/anysphere.cursor-agent-worker | head; echo "--- task:"' 2>&1; powershell.exe -NoProfile -Command 'Get-ScheduledTask -TaskName ConversationCapture-Backfill-WSL | % { "{0} state={1} author={2}" -f $_.TaskName,$_.State,$_.Principal.UserId; $_.Triggers | % { "trigger repetition interval: " + $_.Repetition.Interval }; $_.Actions | % { "action: " + $_.Execute + " " + $_.Arguments }; "last run: " + (Get-ScheduledTaskInfo -TaskName $_.TaskName).LastRunTime }; Get-Process Cursor -ErrorAction SilentlyContinue | Measure | % { "windows Cursor processes: " + $_.Count }'`
+```
+Exit code 1
+--- globalStorage children:
+2.0G	/home/anant_gupta/.cursor-server/data/User/globalStorage/anysphere.cursor-agent-worker
+252K	/home/anant_gupta/.cursor-server/data/User/globalStorage/anysphere.cursor-commits
+36K	/home/anant_gupta/.cursor-server/data/User/globalStorage/anysphere.cursor-mcp
+8.0K	/home/anant_gupta/.cursor-server/data/User/globalStorage/vscode.json-language-features
+8.0K	/home/anant_gupta/.cursor-server/data/User/globalStorage/anysphere.cursor-retrieval
+anysphere.cursor-agent-worker
+anysphere.cursor-commits
+anysphere.cursor-mcp
+anysphere.cursor-retrieval
+vscode.json-language-features
+--- snapshots children:
+39M	/home/anant_gupta/.cursor-server/data/snapshots/codebases
+564M	/home/anant_gupta/.cursor-server/data/snapshots/roots
+156K	/home/anant_gupta/.cursor-server/data/snapshots/state
+1.4G	/home/anant_gupta/.cursor-server/data/snapshots/stores
+--- newest file in each:
+/home/anant_gupta/.cursor-server/data/snapshots: 2026-10-14
+/home/anant_gupta/.cursor-server/data/User/globalStorage: 2026-10-14
+--- running cursor-server processes: 1
+--- cursor-agent-worker contents:
+agent-cli
+[REDACTED].62535.pid
+[REDACTED].install
+[REDACTED].log
+[REDACTED].owner.json
+[REDACTED].restart.json
+[REDACTED].spec
+worker-data
+--- task:
+ConversationCapture-Backfill-WSL state=Ready author=Anant Gupta
+trigger repetition interval: PT30M
+action: wscript.exe //B "D:\Users\_Anant\10_Areas\Documents\Jarvis\30_Order\System\claude-workflow\scripts\backfill-wsl-silent.vbs"
+last run: 10/15/2026 14:45:02
+windows Cursor processes: 0
+```
+- `Bash` -- `cat > /d/WSL/ops/windows/build5-leftovers.sh <<'EOF'
+#!/usr/bin/env bash
+# build5-leftovers.sh  (Build 4b, A10, 2026-10-15)  ASCII only. Helper for 07-build5-leftovers.ps1; no quoting passes through PowerShell.
+#   build5-leftovers.sh check                 prints cursor_server=<n> and SIZE|<name>|<size or missing>|<path> for each item
+#   build5-leftovers.sh move cursor <dest>    moves the Cursor server items (snapshots, agent-worker) into <dest> (a /mnt/d path)
+#   build5-leftovers.sh move pnpm <dest>      moves the old pnpm v10 stores into <dest>
+# Items (all under $HOME). pnpm v3 (1.8 GB, last written 2026-02-22) is deliberately NOT listed: it was not approved.
+mode="${1:-check}"; group="${2:-}"; dest="${3:-}"
+declare -A path=(
+  [cursor-snapshots]="$HOME/.cursor-server/data/snapshots"
+  [cursor-agent-worker]="$HOME/.cursor-server/data/User/globalStorage/anysphere.cursor-agent-worker"
+  [pnpm-v10-share]="$HOME/.local/share/pnpm/store/v10"
+  [pnpm-v10-home]="$HOME/.pnpm-store/v10"
+)
+cursor_items=(cursor-snapshots cursor-agent-worker)
+pnpm_items=(pnpm-v10-share pnpm-v10-home)
+if [ "$mode" = "check" ]; then
+  echo "cursor_server=$(pgrep -fc '[c]ursor-server')"
+  for k in "${cursor_items[@]}" "${pnpm_items[@]}"; do
+    p="${path[$k]}"
+    if [ -e "$p" ]; then echo "SIZE|$k|$(du -sh "$p" 2>/dev/null | cut -f1)|$p"; else echo "SIZE|$k|missing|$p"; fi
+  done
+  exit 0
+fi
+if [ "$mode" = "move" ]; then
+  case "$group" in cursor) items=("${cursor_items[@]}") ;; pnpm) items=("${pnpm_items[@]}") ;; *) echo "bad group"; exit 2 ;; esac
+  case "$dest" in /mnt/d/Backup/Quarantine/*) ;; *) echo "STOP: destination must be under /mnt/d/Backup/Quarantine"; exit 2 ;; esac
+  mkdir -p "$dest" || exit 3
+  for k in "${items[@]}"; do
+    p="${path[$k]}"
+    [ -e "$p" ] || { echo "MOVED|$k|absent|0"; continue; }
+    mv "$p" "$dest/$k"; rc=$?
+    echo "MOVED|$k|$dest/$k|$rc"
+  done
+  exit 0
+fi
+echo "usage: check | move cursor|pnpm <dest>"; exit 2
+EOF
+sed -i 's/\r$//' /d/WSL/ops/windows/build5-leftovers.sh; grep -c $'\r' /d/WSL/ops/windows/build5-leftovers.sh; LC_ALL=C grep -c -P '[^\x00-\x7F]' /d/WSL/ops/windows/build5-leftovers.sh; echo written`
+```
+0
+0
+written
+```
+- `Write` -- `D:\WSL\ops\windows\07-build5-leftovers.ps1`
+```
+# 07-build5-leftovers.ps1  (Build 4b, A10, 2026-10-15)  ASCII only. PowerShell 5.1 and 7 safe. No admin needed.
+#   powershell -ExecutionPolicy Bypass -File D:\WSL\ops\windows\07-build5-leftovers.ps1            (dry run: reports sizes and blockers, changes nothing)
+#   powershell -ExecutionPolicy Bypass -File D:\WSL\ops\windows\07-build5-leftovers.ps1 -Apply     (does what is safe, skips what is blocked)
+# What it handles (approved by Anant on 2026-10-14; repo pilot and packageManager pins are NOT part of this script):
+#   1. Cursor server data in WSL: ~/.cursor-server/data/snapshots and .../globalStorage/anysphere.cursor-agent-worker.
+#      Moved to D:\Backup\Quarantine only when NO cursor-server process runs in WSL and NO Cursor runs on Windows. It never stops or kills anything.
+#   2. Old pnpm stores: ~/.local/share/pnpm/store/v10 and ~/.pnpm-store/v10 (pnpm 12.4.2 uses store/v11). v3 (1.8 GB) is NOT touched.
+#   3. Scheduled task ConversationCapture-Backfill-WSL (starts wsl.exe every 30 minutes): disabled, not deleted. Undo: Enable-ScheduledTask.
+# Nothing is deleted. Undo for the moves: move the folders back (undo.txt in the quarantine folder lists the paths).
+param([switch]$Apply)
+$ErrorActionPreference = 'Stop'
+$dry = -not $Apply
+$date = Get-Date -Format 'yyyy-MM-dd'
+$logDir = 'D:\WSL\ops\windows\logs'
+if (-not (Test-Path $logDir)) { New-Item -ItemType Directory -Path $logDir -Force | Out-Null }
+$stamp = Get-Date -Format 'yyyyMMdd-HHmmss'
+$log = Join-Path $logDir ('build5-leftovers-' + $stamp + '.log')
+try { Start-Transcript -Path (Join-Path $logDir ('build5-leftovers-' + $stamp + '.transcript.txt')) -Force | Out-Null } catch { }
+function Log([string]$m) { $l = (Get-Date -Format 'HH:mm:ss') + ' ' + $m; Write-Host $l; Add-Content -Path $log -Value $l -Encoding ASCII }
+Log ("build 5 leftovers. DryRun={0}  Log: {1}" -f $dry, $log)
+
+$Distro = 'Ubuntu'
+$helper = ((wsl.exe -d $Distro --exec wslpath -a 'D:\WSL\ops\windows\build5-leftovers.sh') -join '').Trim()
+$wslDest = "/mnt/d/Backup/Quarantine/build5-leftovers-$date"
+$winDest = "D:\Backup\Quarantine\build5-leftovers-$date"
+
+# ---- state
+$out = @(wsl.exe -d $Distro --exec bash $helper check 2>$null)
+$srv = 0; $items = @()
+foreach ($o in $out) {
+  if ($o -match '^cursor_server=(\d+)') { $srv = [int]$Matches[1] }
+  elseif ($o -match '^SIZE\|([^|]*)\|([^|]*)\|(.*)$') { $items += [pscustomobject]@{ name = $Matches[1]; size = $Matches[2]; path = $Matches[3] } }
+}
+$winCursor = @(Get-Process -Name Cursor -ErrorAction SilentlyContinue).Count
+Log ("  cursor-server processes in WSL: {0}   Cursor processes on Windows: {1}" -f $srv, $winCursor)
+foreach ($i in $items) { Log ("  {0,-20} {1,8}  {2}" -f $i.name, $i.size, $i.path) }
+Log '  pnpm store v3 (1.8 GB, last written 2026-02-22) is left alone: not approved'
+
+$undo = New-Object System.Collections.ArrayList
+# ---- 1. Cursor server data
+Log '== 1 Cursor server data'
+if ($srv -gt 0 -or $winCursor -gt 0) {
+  Log '  BLOCKED: Cursor is running (the WSL server keeps an agent worker with these folders open). Nothing was moved.'
+  Log '  Close every Cursor window (including Cursor Agents), wait until `wsl.exe -d Ubuntu --exec pgrep -fa cursor-server` prints nothing (the server exits by itself after a while), then re-run.'
+  Log '  This script never kills Cursor or its server.'
+} elseif ($dry) { Log ("  [dry run] would move snapshots and agent-worker to {0}" -f $winDest) }
+else {
+  $r = @(wsl.exe -d $Distro --exec bash $helper move cursor $wslDest 2>$null)
+  $r | ForEach-Object { Log ('  ' + $_) }
+  foreach ($x in $r) { if ($x -match '^MOVED\|([^|]*)\|(/mnt/d[^|]*)\|0$') { [void]$undo.Add(("move back: {0} -> {1}" -f $Matches[2], ($items | Where-Object { $_.name -eq $Matches[1] }).path)) } }
+}
+# ---- 2. old pnpm stores
+Log '== 2 old pnpm stores (v10)'
+if ($dry) { Log ("  [dry run] would move store/v10 and ~/.pnpm-store/v10 to {0}" -f $winDest) }
+else {
+  $r = @(wsl.exe -d $Distro --exec bash $helper move pnpm $wslDest 2>$null)
+  $r | ForEach-Object { Log ('  ' + $_) }
+  foreach ($x in $r) { if ($x -match '^MOVED\|([^|]*)\|(/mnt/d[^|]*)\|0$') { [void]$undo.Add(("move back: {0} -> {1}" -f $Matches[2], ($items | Where-Object { $_.name -eq $Matches[1] }).path)) } }
+}
+# ---- 3. backfill task
+Log '== 3 ConversationCapture-Backfill-WSL'
+$t = Get-ScheduledTask -TaskName 'ConversationCapture-Backfill-WSL' -ErrorAction SilentlyContinue
+if (-not $t) { Log '  task not found' }
+else {
+  Log ("  state now: {0}" -f $t.State)
+  if ($t.State -eq 'Disabled') { Log '  already disabled' }
+  elseif ($dry) { Log '  [dry run] would disable it (undo: Enable-ScheduledTask -TaskName ConversationCapture-Backfill-WSL)' }
+  else {
+    try { Disable-ScheduledTask -TaskName 'ConversationCapture-Backfill-WSL' | Out-Null; Log ("  disabled; state now {0}" -f (Get-ScheduledTask -TaskName 'ConversationCapture-Backfill-WSL').State); [void]$undo.Add('re-enable: Enable-ScheduledTask -TaskName ConversationCapture-Backfill-WSL') }
+    catch { Log ("  FAILED to disable: {0}. Try once from an elevated PowerShell." -f $_.Exception.Message) }
+  }
+}
+if (-not $dry -and $undo.Count -gt 0) {
+  if (-not (Test-Path $winDest)) { New-Item -ItemType Directory -Path $winDest -Force | Out-Null }
+  [IO.File]::WriteAllLines((Join-Path $winDest 'undo.txt'), [string[]](@('Undo steps for 07-build5-leftovers.ps1 run ' + (Get-Date -Format 's')) + @($undo)), (New-Object Text.ASCIIEncoding))
+  Log ("  undo steps written: {0}\undo.txt" -f $winDest)
+}
+if ($dry) { Log 'DRY RUN: nothing changed.' }
+Log "DONE. Log: $log"
+try { Stop-Transcript | Out-Null } catch { }
+
+```
+- `PowerShell` -- `{"command":"$f=\u0027D:\\WSL\\ops\\windows\\07-build5-leftovers.ps1\u0027; \"non-ASCII: \" + @([IO.File]::ReadAllBytes($f) | ? {$_ -gt 127}).Count; foreach($h in \u0027powershell.exe\u0027,\u0027pwsh.exe\u0027){ \"=== dry run $h\"; \u0026 $h -NoProfile -ExecutionPolicy Bypass -File $f; \"exit=$LASTEXITCODE\" }\n\"=== helper move test on a fake HOME\"; wsl.exe -d Ubuntu --exec bash -c \u0027rm -rf /tmp/fh; mkdir -p /tmp/fh/.local/share/pnpm/store/v10 /tmp/fh/.pnpm-store/v10 /tmp/fh/.pnpm-store/v3; echo a \u003e /tmp/fh/.local/share/pnpm/store/v10/x; echo b \u003e /tmp/fh/.pnpm-store/v10/y; echo c \u003e /tmp/fh/.pnpm-store/v3/keep; H=$(wslpath -a \"D:\\WSL\\ops\\windows\\build5-leftovers.sh\"); HOME=/tmp/fh bash $H move pnpm /mnt/d/Backup/Quarantine/_test-b5; echo \"--- after:\"; find /tmp/fh /mnt/d/Backup/Quarantine/_test-b5 -type f | sort; echo \"--- bad dest refused:\"; HOME=/tmp/fh bash $H move pnpm /tmp/elsewhere; rm -rf /tmp/fh /mnt/d/Backup/Quarantine/_test-b5; echo cleaned\u0027","description":"Dry-run the leftovers script and test the move helper on a fake HOME","timeout":120000}`
+- `Grep` -- pattern `^#{1,3} ` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Runs\Build 4 Windows Toolkit\Old Laptop Rebuild - Build 4 Windows Toolkit Findings.md`
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Runs\Old Laptop Rebuild - Runs Index.md`
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Runs\Build 4 Windows Toolkit\Old Laptop Rebuild - Build 4 Windows Toolkit Findings.md`
+- `Grep` -- pattern `(?i)(checklist|ledger|status|host key|host-key|2222|tunnel|sync-check|large|worktree inventory|route test|\[ \]|\[x\])` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Old Laptop Rebuild - Build 2 SSH Runbook.md`
+- `Grep` -- pattern `(?i)(ledger|status|host key|host-key|2222|tunnel|sync-check|large|worktree|route test|PENDING|OPEN|DONE)` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Runs\Build 2 VS Code and Two-Laptop\Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings.md`
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Runs\Build 2 VS Code and Two-Laptop\Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings.md`
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Runs\Build 2 VS Code and Two-Laptop\Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings.md`
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Old Laptop Rebuild - Build 2 SSH Runbook.md`
+- `PowerShell` -- `{"command":"$root=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\u0027\nfunction Patch($path, $pairs) {\n  $t=[IO.File]::ReadAllText($path,[Text.Encoding]::UTF8); $ok=$true\n  foreach($p in $pairs){ $n=([regex]::Matches($t,[regex]::Escape($p[0]))).Count; if($n -ne 1){ Write-Host (\"  NOT UNIQUE ({0}x): {1}\" -f $n, $p[0].Substring(0,[Math]::Min(70,$p[0].Length))); $ok=$false } }\n  if(-not $ok){ return $false }\n  foreach($p in $pairs){ $t=$t.Replace($p[0],$p[1]) }\n  [IO.File]::WriteAllText($path,$t,(New-Object Text.UTF8Encoding($false))); return $true\n}\n$rb=\"$root\\Old Laptop Rebuild - Build 2 SSH Runbook.md\"\n$d=\u00272026-10-15\u0027\n$r1=Patch $rb @(\n ,@(\u0027updated: 2026-10-12\u0027,\u0027updated: 2026-10-15\u0027)\n ,@(\u0027next: Complete the Tunnel CLI\u0027\u0027s interactive sign-in and service test, then collect Acer clone inventory, independent host-key check, and remote sync-check output\u0027,\u0027next: \"Acer visit only: independent host-key comparison, sync-check over SSH, large Git transfer, clone and worktree inventory, optional Acer WSL route test (all in Old Laptop Rebuild - Build 2 Acer Handoff). Port-2222 fallback and VS Code Tunnel were declined 2026-10-15.\"\u0027)\n ,@(\u0027| No change until approval. If selected, script exits 0, `sshd -t` succeeds, fallback listens only on 2222; Tailscale continues owning tailnet port 22. |\u0027,\u0027| **DECLINED 2026-10-15 (user approved the recommendation to skip):** nothing installed, no listener. Reasons: Tailscale SSH already works end to end; under mirrored networking the Hyper-V firewall default for inbound is Block, so port 2222 would also need an explicit allow rule, which adds exposure and a second path to patch. If ever selected: script exits 0, `sshd -t` succeeds, fallback listens only on 2222; Tailscale continues owning tailnet port 22. |\u0027)\n ,@(\u0027| Tunnel reachable after logout/restart test, or fallback documented unusable. |\u0027,\u0027| **DECLINED 2026-10-15:** no sign-in, no service. The Linux CLI binary stays at `~/tools/vscode-tunnel-cli/code` (not signed in, no service; safe to delete). Remote-SSH over Tailscale is the supported route. |\u0027)\n ,@(\u0027| Local and SSH reports match. `git fetch` contacts GitHub but does not change working files; no push/merge. |\u0027,\u0027| Local and SSH reports match. `git fetch` contacts GitHub but does not change working files; no push/merge. **Local run PASS on the Dell 2026-10-15** (second-brain-claudekit `main` 0/0, dirty 1; internship-research-loop 6 ahead/5 behind `origin/master`, dirty 25). The SSH run from the Acer waits for the Acer visit (Acer handoff step 3b); ignore its `node`/`pnpm`/`uv` lines, which read `not-installed` over a non-interactive shell. |\u0027)\n ,@(\u0027- [ ] User confirms whether port-2222 OpenSSH fallback is still desired; no service/install change without approval.\u0027,\u0027- [x] Port-2222 OpenSSH fallback: declined 2026-10-15 (Tailscale SSH works; mirrored networking would also need a Hyper-V firewall allow rule). Nothing installed.\u0027)\n ,@(\u0027- [ ] Independently compare the already-accepted Acer host key against Tailscale\u0027\u0027s advertised SSH key.\u0027,\u0027- [ ] Independently compare the already-accepted Acer host key against Tailscale\u0027\u0027s advertised SSH key. Waits for the Acer: read the Dell\u0027\u0027s `SSH_HostKeys` from the Acer\u0027\u0027s own `tailscale.exe status --json` (the Dell\u0027\u0027s `Self` entry has none); see Acer handoff step 3b.\u0027)\n)\n\"runbook patched: $r1\"\n$fn=\"$root\\Runs\\Build 2 VS Code and Two-Laptop\\Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings.md\"\n$r2=Patch $fn @(\n ,@(\u0027| 4.2 OpenSSH fallback | WAITING USER DECISION | `sshd` and `ssh.socket` are inactive/not installed; no listener on 22/2222. The primary Tailscale SSH path now works. Ask if the optional keyed port-2222 fallback is still wanted before writing/running its sudo script. |\u0027,\u0027| 4.2 OpenSSH fallback | DECLINED 2026-10-15 | `sshd` and `ssh.socket` are not installed; no listener on 22/2222 (re-checked 2026-10-14). Tailscale SSH works end to end. Under mirrored networking the Hyper-V firewall default for inbound is Block, so 2222 would also need an explicit allow rule: extra exposure for no gain. `[REDACTED].sh` was not written. |\u0027)\n ,@(\u0027| 4.8 VS Code Tunnel | CLI ready; authentication/service pending |\u0027,\u0027| 4.8 VS Code Tunnel | DECLINED 2026-10-15 (CLI left unsigned) |\u0027)\n ,@(\u0027Acer must run `ssh.exe anant_gupta@dell-wsl \u0027\u0027~/tools/sync-check\u0027\u0027` and return the report.\u0027,\u0027Re-run on the Dell 2026-10-15: both repos fetched ok; second-brain 0/0 dirty 1; internship-research-loop 6 ahead/5 behind, dirty 25. Over a non-interactive shell the `node`/`pnpm`/`uv` lines print `not-installed` (nvm and `~/.local/bin` live in the interactive `.bashrc`); the repo lines are the check. Acer must run `ssh.exe anant_gupta@dell-wsl \u0027\u0027~/tools/sync-check\u0027\u0027` and return the report (steps in Old Laptop Rebuild - Build 2 Acer Handoff, 3b).\u0027)\n ,@(\u0027| B2 P4.2 optional OpenSSH fallback | Absent | No `sshd`, `ssh.socket`, or 22/2222 listener on Dell WSL; no Dell Windows service/listener | WAITING USER | User decision/approval | Confirm omit or approve hardened tailnet-only fallback; then reviewed sudo script and test |\u0027,\u0027| B2 P4.2 optional OpenSSH fallback | Absent | No `sshd`, `ssh.socket`, or 22/2222 listener on Dell WSL; no Dell Windows service/listener | DECLINED 2026-10-15 | User approved the skip recommendation | None; revisit only if Tailscale SSH stops being enough |\u0027)\n ,@(\u0027| B2 P4.8 Tunnels fallback | Not tested | Sign-in/service install not authorized | WAITING USER | User approval | Present exact plan; no install/sign-in until approved |\u0027,\u0027| B2 P4.8 Tunnels fallback | Not tested | Sign-in/service install not authorized | DECLINED 2026-10-15 | User approved the skip recommendation | None; the unsigned CLI at `~/tools/vscode-tunnel-cli/code` can be deleted |\u0027)\n ,@(\u0027| B2 P4.9 same-page sync-check | Not run | `~/tools/sync-check` includes `git fetch`; no fetch approval | WAITING USER | User approval | Review script and obtain exact sync-check/fetch approval before execution |\u0027,\u0027| B2 P4.9 same-page sync-check | Local PASS (2026-10-15) | Dell run fetched both repos ok, repo lines recorded in row 4.9 above | WAITING ACER | Acer visit | Run `ssh dell-wsl \u0027\u0027~/tools/sync-check\u0027\u0027` from the Acer (Acer handoff 3b) |\u0027)\n ,@(\u0027| 4.6 Acer handoff | HANDOFF READY; inventory pending |\u0027,\u0027| 4.6 Acer handoff | HANDOFF READY (completed 2026-10-15 with steps 3b); inventory pending |\u0027)\n)\n\"findings ledger patched: $r2\"","description":"Patch Build 2 runbook checklist and findings ledger rows with asserts"}`
+- `PowerShell` -- `{"command":"$fn=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Runs\\Build 2 VS Code and Two-Laptop\\Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings.md\u0027\n$t=[IO.File]::ReadAllText($fn,[Text.Encoding]::UTF8)\n$o1=\u0027next: Complete the user-authenticated VS Code Tunnel service test, obtain Acer clone inventory and transfer evidence, then seek exact approval for the optional OpenSSH fallback and repo pilot\u0027\n$n1=\u0027next: \"Acer visit: host-key comparison, sync-check over SSH, large Git transfer and clone inventory. Tunnel and port-2222 fallback declined 2026-10-15. Repo pilot still needs per-repo approval.\"\u0027\n$o2=\u0027Remaining Phase 4 gates are the tunnel service test, Acer inventory/transfer evidence, and explicit choices for fallback SSH and the repo pilot.\u0027\n$n2=\u0027Remaining Phase 4 items need the Acer (host-key comparison, sync-check over SSH, transfer evidence, clone inventory) plus the per-repo pilot approval; the tunnel and the port-2222 fallback were declined on 2026-10-15.\u0027\n\"o1 once: \" + ([regex]::Matches($t,[regex]::Escape($o1)).Count) + \"; o2 once: \" + ([regex]::Matches($t,[regex]::Escape($o2)).Count)\n$t=$t.Replace($o1,$n1).Replace($o2,$n2)\n$t=[regex]::Replace($t,\u0027(?m)^updated: \\d{4}-\\d{2}-\\d{2}$\u0027,\u0027updated: 2026-10-15\u0027,1)\n[IO.File]::WriteAllText($fn,$t,(New-Object Text.UTF8Encoding($false))); \"done\"","description":"Fix stale next and summary lines in Build 2 findings"}`
+- `PowerShell` -- `{"command":"Get-PSDrive C,D | % { \u0027{0}: free {1:N1} GiB\u0027 -f $_.Name, ($_.Free/1GB) }; \"Cursor: \" + (Get-Item \"$env:LOCALAPPDATA\\Programs\\cursor\\Cursor.exe\").VersionInfo.ProductVersion; \"Cursor procs: \" + @(Get-Process Cursor -ErrorAction SilentlyContinue).Count; wsl.exe -d Ubuntu --exec systemctl is-system-running; \"quarantine contents:\"; Get-ChildItem D:\\Backup\\Quarantine -Directory | % { \u0027{0,-48} {1}\u0027 -f $_.Name, ((Get-ChildItem $_.FullName -Recurse -Force -File -ErrorAction SilentlyContinue | Measure Length -Sum).Sum/1GB).ToString(\u0027N2\u0027) + \u0027 GiB\u0027 }; \"backups: \"; Get-ChildItem D:\\Backup\\WSL | Select Name,@{n=\u0027GiB\u0027;e={[math]::Round($_.Length/1GB,2)}} | Format-Table -AutoSize | Out-String; (Get-Item D:\\WSL\\Installers -ErrorAction SilentlyContinue).Name; Get-ChildItem D:\\WSL\\Installers -ErrorAction SilentlyContinue | Select Name,Length","description":"Capture live after-state numbers for the findings table"}`
+- `PowerShell` -- `{"command":"$fn=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Runs\\Build 4 Windows Toolkit\\Old Laptop Rebuild - Build 4 Windows Toolkit Findings.md\u0027\n$bk=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Runs\\_backups\\Old Laptop Rebuild - Build 4 Windows Toolkit Findings (pre-Build 4b 2026-10-15).md\u0027\nCopy-Item -LiteralPath $fn -Destination $bk -Force\n$sec=@\u0027\n\n## Build 4b (2026-10-14 to 2026-10-15): Dell leftovers and Tailscale\nRun from the prompt [[Old Laptop Rebuild - Build 4b Prompt (Dell Leftovers and Tailscale)]]. Scripts wrote nothing without `-Apply`; the user ran every state-changing script. Results below are live measurements.\n\n### Sources used\nCursor update failure research (community threads, no official fix found): [Windows inno_updater: Access is denied (os error 5)](https://forum.cursor.com/t/[REDACTED]/168867), [Windows auto-updater fails with access denied error](https://forum.cursor.com/t/windows-auto-updater-fails-with-access-denied-error/158940), [Windows updater fails with dual install](https://forum.cursor.com/t/[REDACTED]/159479), [Windows updater serves unpublished 3.19.19](https://forum.cursor.com/t/[REDACTED]/171123). Tailscale SSH and VS Code Tunnel documentation was not re-read: both Part B decisions were skip (B1, B2), so nothing was installed from them.\n\n### Before and after\n| Item | Before (brief, 2026-10-14) | After (live, 2026-10-15) |\n|---|---|---|\n| Cursor | \"Moving: resources\" error, install described as broken at 3.19.7 | complete install, 3.24.18 (`winget list` and `package.json` agree), launched by Claude, 21 processes for 90 s, updater `checking` then `idle`, closed gracefully to 0 processes |\n| Cursor self-update | interrupted twice (2026-09-06, 2026-10-14) | stays on; root cause fixed in `60-build5b-host.ps1` (no force-kill, waits for updater idle) |\n| WSL export | none; script printed only \"DONE\" | `D:\\Backup\\WSL\\ubuntu-20261014-233219.tar`, 58,487,982,080 bytes (54.47 GiB), 1,114,217 entries, SHA-256 `[REDACTED]`, manifest and `.sha256`. **No import test was run** |\n| Old `wsl-ubuntu.tar` (36.75 GiB) | `D:\\WSL\\Installers` | `D:\\Backup\\Quarantine\\[REDACTED]` with README; delete only by hand after review |\n| WSL after the export | n/a | `systemctl is-system-running` = running, `tailscale status` lists `dell-wsl` and `gupta-builds`, `RunSSH` true, `wsl-clean` and `wsl-watch` timers active |\n| .NET 8 | installed | kept on purpose: `C:\\Program Files\\WSL\\wslsettings` is pinned to the .NET 8 desktop runtime; dry run listed exactly 5 packages |\n| Windows Ollama | not running | 0.40.3 from `D:\\Apps\\Ollama`, `OLLAMA_MODELS=D:\\AI\\ollama-models`, `127.0.0.1:11434` owned by that process, `ollama list` shows 3 models, startup shortcut disabled |\n| Startup folder | E START App, OpenClaw Gateway, Ollama, Wispr Flow | E START App and OpenClaw Gateway quarantined; Ollama and Wispr Flow disabled in StartupApproved |\n| OpenClaw | npm 2026.3.13 (538 packages), `~\\.openclaw` with 31 skill junctions | `npm uninstall -g openclaw` exit 0, `~\\.openclaw` quarantined (links removed, targets in `~\\.agents\\skills` untouched), `openclaw` no longer resolves |\n| Run-key apps (7) | said to start at logon | all 7 disabled in StartupApproved; at the 2026-10-14 04:39 boot none started by itself |\n| Firecrawl key in WSL `.bashrc` | plaintext at lines 153-154 | removed (0 assignment lines); nothing stored anywhere. **Firecrawl\u0027s API still accepted that key at 14:06: revocation not confirmed (open)** |\n| Tool catalog | `catalog\\` empty | `Tool Catalog - DESKTOP-3VBG0JH.md` and `.json`, 46 tools, 24 MCP entries, 34 WSL tools, PASS |\n| Agent guide | none | [[Machine Toolkit - Tool Use Cases and Agent Guide]] |\n| `Installations` Windows half | pre-rebuild tables | rewritten from the catalog and lock; Acer and Growth-rules pointers added; backup in `Runs/_backups/` |\n| Acer run sheet | none | [[Acer Run Sheet - Windows Toolkit]]; its command template was run read-only on the Dell (exit 0, OK=37, PASS=30) |\n| Weekly clean | never ran | dry run clean (0.01 GiB); first scheduled run Sunday 2026-10-18 03:30 |\n| Build 5 leftovers | Cursor server data 4.0 GB, old pnpm stores, backfill task | **script ready, not yet run:** `07-build5-leftovers.ps1` (dry run clean) |\n| C: free / D: free | 140.9 / 451.2 GiB | 138.5 / 404.7 GiB (D: carries the 54.47 GiB export; +36.75 GiB comes back when the old tar is deleted after 2026-11-14) |\n\n### State-changing commands\n| When | Who | Command | Result |\n|---|---|---|---|\n| 2026-10-14 11:51 | Claude | launched Cursor (test), then `CloseMainWindow` on each window | 90 s healthy; first close left the \"Cursor Agents\" window, second close ended all 15 processes |\n| 2026-10-14 23:31 | user | `05-startup-cleanup.ps1 -Apply` | both startup items and their stale registry values handled, `~\\.openclaw` quarantined, npm package removed (538 packages, 22 s); `undo.txt` in `D:\\Backup\\Quarantine\\[REDACTED]` |\n| 2026-10-14 23:32 | user | `60-build5b-host.ps1 -Stages Export -Apply` | `wsl --terminate`, export 13.9 min, tar 54.47 GiB; script then died on `tar -tf` (see errors) before restarting the distro |\n| 2026-10-14 23:46 | Claude | `wsl -d Ubuntu --exec true` | distro restarted; not `wsl --shutdown` |\n| 2026-10-15 12:57 | user | `60-build5b-host.ps1 -Stages Verify -Apply` | GNU tar 1,114,217 entries, exit 0; SHA-256 2.2 min; manifest written (malformed, see errors) |\n| 2026-10-15 13:05 | user | `... -Stages Quarantine -Apply` | refused to move the old tar: \"does not match its manifest\" (correct behavior, bad manifest) |\n| 2026-10-15 13:08 | Claude | rewrote the manifest as 8 proper lines, kept the bad one as `.manifest.txt.malformed` | Quarantine dry run reached its confirmation prompt |\n| 2026-10-15 13:11 | user | `... -Stages Quarantine -Apply` | old tar moved to `[REDACTED]` |\n| 2026-10-15 13:18 | user | `06-ollama-check.ps1 -Apply` | server started, owned by `D:\\Apps\\Ollama\\ollama.exe`, `ollama list` ok |\n| 2026-10-15 13:37 | user | `04-admin-remove.ps1 -IncludeDotnet8` (elevated, dry run only) | listed the 5 .NET 8 packages; nothing removed |\n| 2026-10-15 14:06 | user | `firecrawl-key-move.sh --remove` | `.bashrc` lines 153-154 removed, redacted backup in `D:\\Backup\\[REDACTED]`, no other file in the scan list held the key |\n| 2026-10-15 14:07 | user | `40-build-catalog.ps1` | PASS, catalog written |\n| 2026-10-15 | Claude | vault writes: the agent guide, the Acer run sheet, the Installations Windows block (backup first), Build 2 handoff step 3b, one pointer line in the Build 5b handoff, runbook and ledger rows, this section | each checked for em dashes, key-like strings and unique-match patches |\n\n### Errors and root causes\n| Error | Root cause | Fix |\n|---|---|---|\n| Cursor \"Moving: resources ... os error 5\" | the launch test in `60-build5b-host.ps1` force-killed Cursor about 30 s after launch, while the updater was in `downloading` to `updating` (09:42:49 to 09:43:00 in `main.log`); the updater could not finish moving `resources` | script now waits for updater idle, closes windows gracefully, never `Stop-Process`; a later launch finished the update |\n| Possible contributing factor | the GitHub MCP server runs on Cursor\u0027s own `resources\\app\\resources\\helpers\\node.exe`, which holds a handle inside `resources\\` (the forum threads name the same cause) | rule in the guide: quit every Cursor window and its child processes before accepting an update |\n| `-Stages Export,Quarantine` printed only \"DONE\" | `powershell -File` passes a comma list as one string; `[string[]]` got `\"Export,Quarantine\"` and every `-contains` failed | `-Stages` is now a single string split on commas; tested through `-File` |\n| First fix still failed | `$Stages` is a typed `[string]` parameter, so assigning the split array back coerced it to one string again | separate variable `$StageList` |\n| Export crashed after writing the tar | `tar.exe -tf` wrote \"Archive entry has empty or unreadable filename ... skipping\" to stderr (56 entries, Windows tar cannot read some pax names); with `$ErrorActionPreference = \u0027Stop\u0027` in PS 5.1 that became a terminating error even with `2\u003e$null` | verify with GNU tar inside WSL (1,114,217 entries, exit 0), through a helper `.sh`; the distro restarts before verification so a failure cannot leave WSL down |\n| Inline `bash -c \u0027...\u0027` returned nothing | PS 5.1 mangles embedded double quotes in native arguments | logic moved into `verify-tar.sh`, `build5-leftovers.sh`; no quoting crosses PowerShell |\n| Quarantine refused | the manifest was one long line: in `@(\u0027file=\u0027 + $tar, \u0027bytes=\u0027 + $size, ...)` the comma binds tighter than `+`, so the array became one string | each element parenthesized; manifest rewritten from the logged values (the `.sha256` file matched the logged hash first) |\n| Firecrawl script hung | `bash -ic` for verification blocks without a terminal under the full `.bashrc`; then recursive `grep` over `/mnt/c` is very slow; and a spliced edit fused `fi` and `say` | verification sources only `~/.mcp.env`; scan limited to a fixed list of config files; syntax checked with `bash -n` and a dummy-file test |\n| `04-admin-remove.ps1` dry run needs elevation | the script checks admin before it plans | run the dry run elevated |\n| Ollama `/api/version` timed out once | first-call warm-up; a retry returned 0.40.3 | none |\n| Firecrawl key still accepted after \"revocation\" | unknown. A fake key and no key both return 401, so the check discriminates; the key in `.bashrc` returned 200 at 13:37, 13:47 and 14:06 | open: revoke the most recently used key in the dashboard; confirm with a status-only check on the key you still hold |\n| `sync-check` over a non-interactive shell prints `node`, `pnpm`, `uv` as `not-installed` | nvm and `~/.local/bin` are set up in the interactive `.bashrc` | documented in the Acer handoff (3b); repo lines are the check |\n| `pnpm store path` printed `/mnt/c/.pnpm-store/v11` | `wsl.exe --exec` starts in a Windows directory and pnpm picks the store from the current directory\u0027s filesystem; from `~` it is `~/.local/share/pnpm/store/v11` | none; do not draw conclusions from `pnpm store path` run from a `/mnt` directory |\n\n### Contradictions logged (live machine won)\n| Vault or brief said | Live |\n|---|---|\n| Index D1: `Cursor.exe` absent, install broken | complete, 3.24.18 |\n| Brief: Cursor 3.19.7 and 3.19.13 | 3.24.18 |\n| Index D8: Run key still starts Discord, GoogleDriveFS, Rize, Spotify, Docker, Voquill, Slack | all disabled; none started at boot; Spotify and Wispr Flow were started by hand hours later |\n| Brief: Docker starts although its setting says off | not reproduced: StartupApproved 03, `AutoStart: false`, no Docker process after boot |\n| Index: pnpm 12.4.2 on both laptops | WSL on both is 12.4.2 through Corepack; the Windows winget pnpm is 12.11.2 and is what `toolkit.lock.json` records |\n| \"Python 3.13.5 is gone\" | files gone; 11 stale uninstall registrations still show in `winget list`; `python` on PATH is the Hermes venv |\n| Cursor snapshots and globalStorage \"1.2 GB each\" | 2.0 GB each (`snapshots`, `anysphere.cursor-agent-worker`) |\n| Catalog prose (Ollama row: WSL Ollama holds 11434, shortcut stays until Build 5; Docker CLI size) | predates Build 5; manifest and catalog left unchanged so `toolkit.lock.json` stays valid; the agent guide carries the correct facts |\n| Build 5: \"27 configs exact\" | the catalog compares 8 of 29 WSL files as DIFF against the old Acer snapshot (atuin, gh-dash, git ignore, lazygit, sesh, starship.toml, yazi.toml, tmux.conf); likely the golden set deliberately changing them (starship LF, tmux 3.8), not verified file by file |\n| Codex `node_repl` | still resolves NO (WSL path in the Windows config), Build 6 |\n\n### Left, and who owns it\n- **You:** run `07-build5-leftovers.ps1 -Apply` (Cursor server data, old pnpm v10 stores, backfill task); revoke the Firecrawl key that is still accepted; keep or remove Malwarebytes (two entries), WhatsApp, Rize, GitKrakenCLI; stale Python uninstall registrations; Defender exclusions and the BIOS battery cap; delete the old tar and the `.malformed` manifest after review; per-repo `packageManager` pins (Decision 11, one repo at a time).\n- **The Acer:** [[Acer Run Sheet - Windows Toolkit]] Part 0 onward, [[Acer Session Handoff - Toolkit Sync (Build 5b)]], and the Build 2 items in [[Old Laptop Rebuild - Build 2 Acer Handoff]] (host-key comparison, sync-check over SSH, large Git transfer, clone inventory, optional WSL route test).\n- **Later builds:** Codex `node_repl`, MCP registry, VS Code and Claude Code settings (Build 6); startup profile and final verification (Build 7); `D:\\_Anant` and Drive (Build 8).\n\n### Growth rules\n| Standing rule | Check |\n|---|---|\n| Never kill an app whose updater may be running; read its state first | `Select-String \u0027update#setState\u0027 (newest %APPDATA%\\Cursor\\logs\\*\\main.log) \\| Select -Last 1` must end in `idle` before any script stops Cursor |\n| A comma list through `powershell -File` is one string: take a string parameter and split it, in a new variable | run the script with `-Stages A,B` and read the first log line |\n| In PS 5.1 with `$ErrorActionPreference = \u0027Stop\u0027`, native stderr can abort a script even with `2\u003e$null`: use `Continue` around the call or a helper | grep new scripts for `2\u003e$null` next to a native tool |\n| Do not pass quoted multi-word commands through `wsl.exe` from PS 5.1: call a helper `.sh` | the helper prints its own output; parse it |\n| Parenthesize every `\u0027key=\u0027 + $v` inside an `@(a, b)` list | `($lines).Count` must equal the number of elements |\n| Verify a WSL export with GNU tar inside WSL, record entries and SHA-256, and say no import test was run | the `.manifest.txt` next to the tar must have 8 lines |\n| Test a destructive script against dummy data first | `FC_TEST_*` style overrides, then the real dry run |\n| No key in any shell rc file; revoke at the provider and confirm with a status-only call | `grep -c \"API_KEY=\" ~/.bashrc` prints 0 |\n| Judge startup behavior by process start time versus last boot, not by the Run key | `(Get-CimInstance Win32_OperatingSystem).LastBootUpTime` against `(Get-Process \u003cname\u003e).StartTime` |\n| A pnpm store path is only meaningful from the project\u0027s own filesystem | run `pnpm store path` from `~` or the repo, never from a `/mnt` directory |\n\u0027@\n$t=[IO.File]::ReadAllText($fn,[Text.Encoding]::UTF8)\nif($t.Contains(\u0027## Build 4b (2026-10-14 to 2026-10-15)\u0027)){ \"already has Build 4b section; stopping\" } else {\n # flip the closing-status rows\n $rep=@(\n  @(\u0027| .NET 8 | OPEN | runtimes 8.0.25 and 8.0.26 still installed next to 10.0.9; removal is `04-admin-remove.ps1 -IncludeDotnet8` after the Dell Command Update check (DCU 5.7.0 present) |\u0027,\u0027| .NET 8 | KEPT ON PURPOSE (Build 4b, 2026-10-15) | WSL Settings is pinned to the .NET 8 desktop runtime; dry run lists 5 packages and nothing was removed |\u0027),\n  @(\u0027| Phase 5: catalog (`40-build-catalog.ps1`, real run) | OPEN | `Windows Toolkit\\catalog\\` is empty |\u0027,\u0027| Phase 5: catalog (`40-build-catalog.ps1`, real run) | DONE (Build 4b) | `catalog\\Tool Catalog - DESKTOP-3VBG0JH.md` and `.json`, PASS 2026-10-15 |\u0027),\n  @(\u0027| Phase 5: \"Machine Toolkit - Tool Use Cases and Agent Guide\" note | OPEN | no such note exists in the vault |\u0027,\u0027| Phase 5: \"Machine Toolkit - Tool Use Cases and Agent Guide\" note | DONE (Build 4b) | written next to `Installations` |\u0027),\n  @(\u0027| Phase 6: Acer run sheet and Acer paste-back | OPEN | Acer already has pieces of the toolkit from its own 2026-10-12 sessions; needs a read-only paste-back first |\u0027,\u0027| Phase 6: Acer run sheet and Acer paste-back | RUN SHEET DONE (Build 4b); paste-back waits for the Acer | `Windows Toolkit\\Acer Run Sheet - Windows Toolkit`, Part 0 is read-only |\u0027),\n  @(\u0027| Phase 7: rewrite the Windows half of `Installations`, log line, close the build | OPEN | `Installations` still describes the Windows side as pre-rebuild |\u0027,\u0027| Phase 7: rewrite the Windows half of `Installations`, log line, close the build | DONE (Build 4b) | Windows tables rewritten from the catalog; Acer and Growth-rules pointers added |\u0027)\n )\n foreach($r in $rep){ $c=([regex]::Matches($t,[regex]::Escape($r[0]))).Count; if($c -ne 1){ \"NOT UNIQUE ($c): \" + $r[0].Substring(0,50) } else { $t=$t.Replace($r[0],$r[1]) } }\n $t=$t.TrimEnd(\"`r\",\"`n\")+\"`n\"+$sec.Replace(\"`r`n\",\"`n\")\n $t=[regex]::Replace($t,\u0027(?m)^updated: \\d{4}-\\d{2}-\\d{2}$\u0027,\u0027updated: 2026-10-15\u0027,1)\n [IO.File]::WriteAllText($fn,$t,(New-Object Text.UTF8Encoding($false)))\n $c=[IO.File]::ReadAllText($fn,[Text.Encoding]::UTF8)\n \"written; chars \" + $c.Length + \"; em dashes in new section: \" + ([regex]::Matches($sec,[string][char]0x2014)).Count + \"; key-like: \" + ([regex]::Matches($sec,\u0027(fc-[A-Za-z0-9]{16,}|sk-[A-Za-z0-9]{16,}|ghp_[A-Za-z0-9]{16,})\u0027)).Count\n}","description":"Append the Build 4b section and flip Build 4 closing rows"}`
+
 ## Actions Taken
 
 **Files created:**
+- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Machine Toolkit - Tool Use Cases and Agent Guide.md`
+- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\Acer Run Sheet - Windows Toolkit.md`
 - `D:\WSL\ops\windows\05-startup-cleanup.ps1`
 - `D:\WSL\ops\windows\06-ollama-check.ps1`
+- `D:\WSL\ops\windows\07-build5-leftovers.ps1`
 - `D:\WSL\ops\windows\firecrawl-key-move.sh`
 
 **Files modified:**
+- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Old Laptop Rebuild - Build 2 Acer Handoff.md`
+- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\WSL Parity\Acer Session Handoff - Toolkit Sync (Build 5b).md`
 - `D:\WSL\ops\60-build5b-host.ps1`
 
 **Files deleted (heuristic, from Bash commands):**
@@ -1596,5 +2514,54 @@ powershell.exe -NoProfile -Command '$u=[Environment]::GetEnvironmentVariable("FI
 - `wsl.exe -d Ubuntu --exec bash -c 'f=/mnt/d/WSL/ops/windows/firecrawl-key-move.sh; bash -n $f && echo "syntax ok"; t=$(mktemp -d); printf "%s\n" "alias x=1" "# Firecrawl secrets" "export FIRECRAWL_API_KEY=fc-0000000000000000000000000000dead" "" "export Y=2" > $t/bashrc; chmod 640 $t/bashrc; echo "=== A: --remove on dummy"; time (FC_TEST_RC=$t/bashrc FC_TEST_BK=$t/bk FC_TEST_ENV=$t/none timeout 100 bash $f --remove 2>&1 | tail -8); echo "--- dummy result:"; cat $t/bashrc; echo "perms $(stat -c %a $t/bashrc)"; echo "=== B: --apply path stops on a rejected new key? (fake key via stdin; dummy files)"; printf "%s\n" "alias x=1" "# Firecrawl secrets" "export FIRECRAWL_API_KEY=fc-0000000000000000000000000000dead" > $t/b2; printf "export A=1\n" > $t/env2; chmod 600 $t/env2; FC_TEST_RC=$t/b2 FC_TEST_BK=$t/bk2 FC_TEST_ENV=$t/env2 timeout 60 bash $f --apply <<< "fc-1111111111111111111111111111beef" 2>&1 | tail -4; echo "b2 unchanged lines: $(wc -l < $t/b2); env2: $(cat $t/env2)"; echo "=== C: real dry run"; bash $f 2>&1 | tail -3; echo "real .bashrc assignment lines: $(grep -c "^export FIRECRAWL_API_KEY=" ~/.bashrc)"; rm -rf $t' 2>&1`
 - `wsl.exe -d Ubuntu --exec bash -c 'f=/mnt/d/WSL/ops/windows/firecrawl-key-move.sh; sed -n "80,99p" $f; for n in 60 70 80 88 95; do head -$n $f > /tmp/part.sh; printf "%s: " $n; bash -n /tmp/part.sh 2>&1 | head -1; echo; done; rm -f /tmp/part.sh' 2>&1`
 - `wsl.exe -d Ubuntu --exec bash -c 'f=/mnt/d/WSL/ops/windows/firecrawl-key-move.sh; bash -n $f && echo "syntax ok" || exit 1; t=$(mktemp -d); printf "%s\n" "alias x=1" "# Firecrawl secrets" "export FIRECRAWL_API_KEY=fc-0000000000000000000000000000dead" "" "export Y=2" > $t/bashrc; chmod 640 $t/bashrc; echo "=== A: --remove on dummy"; time (FC_TEST_RC=$t/bashrc FC_TEST_BK=$t/bk FC_TEST_ENV=$t/none timeout 100 bash $f --remove 2>&1 | tail -7); echo "--- dummy result:"; cat $t/bashrc; echo "perms $(stat -c %a $t/bashrc)"; echo "=== C: real dry run"; bash $f 2>&1 | tail -3; echo "real .bashrc assignment lines: $(grep -c "^export FIRECRAWL_API_KEY=" ~/.bashrc)"; rm -rf $t' 2>&1`
+- `wsl.exe -d Ubuntu --exec bash -c 'echo "FIRECRAWL assignment lines in .bashrc: $(grep -c "FIRECRAWL_API_KEY=" ~/.bashrc)"; echo "comment lines: $(grep -c "^# Firecrawl secrets" ~/.bashrc)"; ls -t /mnt/d/WSL/ops/windows/logs/firecrawl-key-move-*.log | head -2; ls -d /mnt/d/Backup/dotfiles-* 2>/dev/null; echo "mcp.env FIRECRAWL lines: $(grep -c FIRECRAWL_API_KEY ~/.mcp.env)"' 2>&1`
+- `wsl.exe -d Ubuntu --exec bash -c 'for f in $(ls -t /mnt/d/WSL/ops/windows/logs/firecrawl-key-move-2026101514*.log | head -3); do echo "== $(basename $f)"; cut -c1-200 $f; done' 2>&1`
+- `wsl.exe -d Ubuntu --exec bash -c 'cd /mnt/d/WSL/ops/windows/logs; for f in $(ls -t firecrawl-key-move-20261015-14*.log | head -3 | sort); do echo "== $f"; cut -c1-220 $f; done' 2>&1`
+- `f="/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis/40_Resources/CS/Concepts/New Laptop/Machine Toolkit - Tool Use Cases and Agent Guide.md"; wsl.exe -d Ubuntu --exec bash -c 'f="$1"; echo "em dashes: $(grep -c "—" "$f")"; echo "key-like tokens (fc-/sk-/ghp_/xox/AKIA): $(grep -cE "(fc-[A-Za-z0-9]{16,}|sk-[A-Za-z0-9]{16,}|ghp_[A-Za-z0-9]{16,}|xox[bp]-|AKIA[A-Z0-9]{12,})" "$f")"; echo "bashrc API_KEY= lines: $(grep -c "API_KEY=" ~/.bashrc)"; grep -n "API_KEY=\|_TOKEN=\|SECRET=" ~/.bashrc | sed -E "s/=.*/=<redacted>/" | head' _ "$f" 2>&1`
+- `wsl.exe -d Ubuntu --exec bash -c 'head -40 ~/tools/sync-check' 2>&1`
+- `wsl.exe -d Ubuntu --exec bash -c '~/tools/sync-check 2>&1 | cut -c1-200' 2>&1; wsl.exe -d Ubuntu --exec bash -c 'tailscale status --json 2>/dev/null | python3 -c "import sys,json; d=json.load(sys.stdin); s=d[\"Self\"]; print(\"Self keys:\", sorted(k for k in s.keys() if \"SSH\" in k or \"Host\" in k)); print(\"Self SSH_HostKeys present:\", bool(s.get(\"SSH_HostKeys\")))" 2>&1; tailscale ip -4 2>&1; tailscale version 2>&1 | head -1' 2>&1`
+- `wsl.exe -d Ubuntu --exec bash -c 'cd ~; for d in .cursor-server .cursor .vscode-server .config/Cursor; do [ -d "$d" ] && echo "== $d: $(du -sh "$d" 2>/dev/null | cut -f1)"; done; echo "--- biggest under .cursor-server (depth 4):"; du -h --max-depth=4 ~/.cursor-server 2>/dev/null | sort -rh | head -8; echo "--- snapshots/globalStorage dirs:"; find ~ -maxdepth 6 \( -name snapshots -o -name globalStorage \) -path "*ursor*" -type d 2>/dev/null | while read d; do echo "$(du -sh "$d" 2>/dev/null | cut -f1)  $d"; done; echo "--- pnpm:"; pnpm --version 2>/dev/null; pnpm store path 2>/dev/null; ls -d ~/.local/share/pnpm/store/* ~/.pnpm-store/* 2>/dev/null; for d in ~/.local/share/pnpm/store/* ~/.pnpm-store/*; do [ -d "$d" ] && echo "$(du -sh "$d" 2>/dev/null | cut -f1)  $d"; done' 2>&1`
+- `wsl.exe -d Ubuntu --exec bash -c 'export NVM_DIR="$HOME/.nvm"; . "$NVM_DIR/nvm.sh" >/dev/null 2>&1; node --version; pnpm --version; echo "active store: $(pnpm store path)"; echo "store-dir config: $(pnpm config get store-dir 2>/dev/null)"; echo "--- last-used / newest file per store:"; for d in ~/.local/share/pnpm/store/v10 ~/.local/share/pnpm/store/v3 ~/.pnpm-store/v10; do printf "%s  newest mtime: " "$d"; find "$d" -type f -printf "%TY-%Tm-%Td\n" 2>/dev/null | sort | tail -1; done; echo "--- repos with node_modules referencing a store (sample via .modules.yaml):"; for y in $(find ~/projects -maxdepth 4 -path "*/node_modules/.modules.yaml" 2>/dev/null | head -12); do echo "$(dirname $(dirname $y)): $(grep -E "^storeDir:" $y)"; done' 2>&1`
+- `wsl.exe -d Ubuntu --exec bash -c 'cd ~; export NVM_DIR="$HOME/.nvm"; . "$NVM_DIR/nvm.sh" >/dev/null 2>&1; echo "cwd: $(pwd)"; echo "active store from ~: $(pnpm store path)"; cd ~/projects/work/internship-research-loop 2>/dev/null && echo "from repo: $(pnpm store path)"; ls -d /mnt/c/.pnpm-store 2>&1; for d in ~/.local/share/pnpm/store/v10 ~/.local/share/pnpm/store/v3 ~/.pnpm-store/v10 ~/.local/share/pnpm/store/v11 ~/.pnpm-store/v11; do [ -d "$d" ] && echo "exists $(du -sh $d 2>/dev/null | cut -f1) $d newest: $(find $d -type f -printf "%TY-%Tm-%Td\n" 2>/dev/null | sort | tail -1)"; done; echo "pnpm home dir: $(ls -d ~/.local/share/pnpm 2>/dev/null && ls ~/.local/share/pnpm/store)"' 2>&1`
+- `wsl.exe -d Ubuntu --exec bash -c 'cd ~; echo "--- globalStorage children:"; du -sh ~/.cursor-server/data/User/globalStorage/* 2>/dev/null | sort -rh | head; ls -1A ~/.cursor-server/data/User/globalStorage | head -20; echo "--- snapshots children:"; du -sh ~/.cursor-server/data/snapshots/* 2>/dev/null; echo "--- newest file in each:"; for d in ~/.cursor-server/data/snapshots ~/.cursor-server/data/User/globalStorage; do printf "%s: " "$d"; find "$d" -type f -printf "%TY-%Tm-%Td\n" 2>/dev/null | sort | tail -1; done; echo "--- running cursor-server processes: $(pgrep -fc "[c]ursor-server")"; echo "--- cursor-agent-worker contents:"; ls -1A ~/.cursor-server/data/User/globalStorage/anysphere.cursor-agent-worker | head; echo "--- task:"' 2>&1; powershell.exe -NoProfile -Command 'Get-ScheduledTask -TaskName ConversationCapture-Backfill-WSL | % { "{0} state={1} author={2}" -f $_.TaskName,$_.State,$_.Principal.UserId; $_.Triggers | % { "trigger repetition interval: " + $_.Repetition.Interval }; $_.Actions | % { "action: " + $_.Execute + " " + $_.Arguments }; "last run: " + (Get-ScheduledTaskInfo -TaskName $_.TaskName).LastRunTime }; Get-Process Cursor -ErrorAction SilentlyContinue | Measure | % { "windows Cursor processes: " + $_.Count }'`
+- `cat > /d/WSL/ops/windows/build5-leftovers.sh <<'EOF'
+#!/usr/bin/env bash
+# build5-leftovers.sh  (Build 4b, A10, 2026-10-15)  ASCII only. Helper for 07-build5-leftovers.ps1; no quoting passes through PowerShell.
+#   build5-leftovers.sh check                 prints cursor_server=<n> and SIZE|<name>|<size or missing>|<path> for each item
+#   build5-leftovers.sh move cursor <dest>    moves the Cursor server items (snapshots, agent-worker) into <dest> (a /mnt/d path)
+#   build5-leftovers.sh move pnpm <dest>      moves the old pnpm v10 stores into <dest>
+# Items (all under $HOME). pnpm v3 (1.8 GB, last written 2026-02-22) is deliberately NOT listed: it was not approved.
+mode="${1:-check}"; group="${2:-}"; dest="${3:-}"
+declare -A path=(
+  [cursor-snapshots]="$HOME/.cursor-server/data/snapshots"
+  [cursor-agent-worker]="$HOME/.cursor-server/data/User/globalStorage/anysphere.cursor-agent-worker"
+  [pnpm-v10-share]="$HOME/.local/share/pnpm/store/v10"
+  [pnpm-v10-home]="$HOME/.pnpm-store/v10"
+)
+cursor_items=(cursor-snapshots cursor-agent-worker)
+pnpm_items=(pnpm-v10-share pnpm-v10-home)
+if [ "$mode" = "check" ]; then
+  echo "cursor_server=$(pgrep -fc '[c]ursor-server')"
+  for k in "${cursor_items[@]}" "${pnpm_items[@]}"; do
+    p="${path[$k]}"
+    if [ -e "$p" ]; then echo "SIZE|$k|$(du -sh "$p" 2>/dev/null | cut -f1)|$p"; else echo "SIZE|$k|missing|$p"; fi
+  done
+  exit 0
+fi
+if [ "$mode" = "move" ]; then
+  case "$group" in cursor) items=("${cursor_items[@]}") ;; pnpm) items=("${pnpm_items[@]}") ;; *) echo "bad group"; exit 2 ;; esac
+  case "$dest" in /mnt/d/Backup/Quarantine/*) ;; *) echo "STOP: destination must be under /mnt/d/Backup/Quarantine"; exit 2 ;; esac
+  mkdir -p "$dest" || exit 3
+  for k in "${items[@]}"; do
+    p="${path[$k]}"
+    [ -e "$p" ] || { echo "MOVED|$k|absent|0"; continue; }
+    mv "$p" "$dest/$k"; rc=$?
+    echo "MOVED|$k|$dest/$k|$rc"
+  done
+  exit 0
+fi
+echo "usage: check | move cursor|pnpm <dest>"; exit 2
+EOF
+sed -i 's/\r$//' /d/WSL/ops/windows/build5-leftovers.sh; grep -c $'\r' /d/WSL/ops/windows/build5-leftovers.sh; LC_ALL=C grep -c -P '[^\x00-\x7F]' /d/WSL/ops/windows/build5-leftovers.sh; echo written`
 
 

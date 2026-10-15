@@ -2,7 +2,7 @@
 type: note
 status: seedling
 created: 2026-10-07
-updated: 2026-10-12
+updated: 2026-10-15
 course: Life
 track:
   - laptop
@@ -62,6 +62,22 @@ Compare the printed ED25519 fingerprint exactly to `SHA256:PHOUaZNkip9YvF80hW6Wb
 Run a large but read-only Git transfer check by fetching a substantial repository's refs/objects from GitHub on the Dell and measuring before/after bytes, or use an approved read-only large-object transfer. Do not clone a second working copy for this test. Report transfer size and duration. The live Tailscale path check must show `tailscale ping` direct; if it is relay-only, report that rather than assuming success.
 
 Optional Acer WSL route test: without installing Tailscale inside Acer WSL, run `ssh anant_gupta@dell-wsl 'hostname'` and `tailscale ping dell-wsl` from an Acer WSL terminal. Whether Windows-side Tailscale provides that route to Acer WSL is not established by the docs and is **to be tested on the Acer**. If it fails, do not install Tailscale in Acer WSL and do not create wrappers; report the exact failure and ask the user before revisiting the locked design.
+
+### 3b. Where to read the Dell's advertised host key, and the sync-check run (added 2026-10-15)
+**Host key source.** The Dell cannot supply the key for this comparison: its own `tailscale status --json` has a `Self` entry with no `SSH_HostKeys` (checked 2026-10-15, Tailscale 1.104.1). The only independent source is the **Acer's** Tailscale view of the Dell: `tailscale.exe status --json`, then the `Peer` entry whose `DNSName` starts with `dell-wsl` (full name `dell-wsl.tail0c1d06.ts.net`, `100.94.129.113`), field `SSH_HostKeys`. That is exactly what the Step 3 snippet reads. If the Acer's peer entry also has no `SSH_HostKeys`, stop and report that; the fallback is a Dell-side read that needs `sudo`, which the user runs. Never rewrite `known_hosts`.
+
+**sync-check over SSH (read-only).** Run from the Acer, then compare with the Dell's own run below:
+```powershell
+ssh dell-wsl '~/tools/sync-check'
+```
+It prints `host=`, tool versions, then for each of the two canonical repos: `branch`, `fetch=ok`, `compare_ref ... ahead/behind`, `dirty_count`. `git fetch` only updates remote-tracking refs; nothing in the working tree changes. **Ignore the `node`, `pnpm` and `uv` lines over plain SSH:** they print `not-installed` because nvm and `~/.local/bin` are set up in the interactive `.bashrc`, which a non-interactive SSH command does not load. The repo lines are the real check.
+
+Dell's own run on 2026-10-15 (local, same script):
+| Repo | Branch | Versus | Ahead / behind | Dirty |
+|---|---|---|---|---|
+| `second-brain-claudekit` | `main` | `origin/main` | 0 / 0 | 1 |
+| `internship-research-loop` | `dell-latitude/deadline-quota-and-reseed-fixes` | `origin/master` | 6 / 5 | 25 |
+The second repo has diverged from `origin/master` and has 25 dirty files. Do not reset, stash, commit or push either repo from the Acer. Report what the Acer sees; the Dell session decides.
 
 ### 4. Inventory the Acer's existing clones
 For both `second-brain-claudekit` and `internship-research-loop`, locate every clone and worktree on the Acer, then record path, branch/upstream, ahead/behind, dirty count, untracked files, and dependency/output sizes. Do not delete or overwrite anything. Identify whether each is canonical, a local-only backup, or a worktree. Present a per-path retirement/relabel proposal; retire only after the user approves and verifies needed commits/uncommitted files are protected. GitHub protects pushed commits only, not uncommitted work, ignored dependencies, or logs. Do not touch either vault's sync mechanism.

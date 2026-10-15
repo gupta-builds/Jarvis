@@ -3,33 +3,31 @@
     "host":  "DESKTOP-3VBG0JH",
     "machine":  "dell",
     "dryRun":  false,
-    "started":  "2026-10-13T00:38:03",
-    "finished":  "2026-10-13T00:38:28",
+    "started":  "2026-10-15T14:47:52",
+    "finished":  "2026-10-15T14:48:15",
     "admin":  false,
-    "manifestSha256":  "F8449C836949F4BF3847901874906E213AA2BAF9ABF3A2BD1E09809F4DA70733",
+    "manifestSha256":  "4E4A8D15CFEE15DC9E674B51DBE6FAB1F3730A951C20957AC9E4BB1F3C817634",
     "vaultRoot":  "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis",
-    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-00-preflight-20261013-003803.log",
+    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-00-preflight-20261015-144752.log",
     "counts":  {
-                   "MANUAL":  1,
+                   "INFO":  10,
                    "PASS":  30,
-                   "OK":  11,
-                   "PLAN":  16,
-                   "PENDING":  2,
-                   "WARN":  10,
-                   "INFO":  10
+                   "OK":  37,
+                   "PLAN":  2,
+                   "MANUAL":  1
                },
     "items":  [
                   {
                       "id":  "env-drives",
                       "status":  "INFO",
-                      "detail":  "C: free 145.4 GiB, D: free 450.2 GiB",
-                      "freeC":  145.4,
-                      "freeD":  450.2
+                      "detail":  "C: free 138.5 GiB, D: free 404.7 GiB",
+                      "freeC":  138.5,
+                      "freeD":  404.7
                   },
                   {
                       "id":  "env-powershell",
                       "status":  "INFO",
-                      "detail":  "PowerShell 5.1.26100.9549, admin=False, execution policy (effective) Bypass"
+                      "detail":  "PowerShell 5.1.26100.9711, admin=False, execution policy (effective) Bypass"
                   },
                   {
                       "id":  "env-winget",
@@ -125,155 +123,156 @@
                   {
                       "id":  "config-src-profile-ps5",
                       "status":  "PASS",
-                      "detail":  "sha256 CD64EEF39B2C...",
-                      "sha256":  "CD64EEF39B2C94FC880E1805265A013D69AD38FC79C1181D9714C33FF0989BCC"
+                      "detail":  "sha256 FE107AD65F53...",
+                      "sha256":  "FE107AD65F537620BE5EDFFAB9FCB5D6B2B1A8BBA6FA494B19AB3B1576821185"
                   },
                   {
                       "id":  "config-src-profile-pwsh",
                       "status":  "PASS",
-                      "detail":  "sha256 CD64EEF39B2C...",
-                      "sha256":  "CD64EEF39B2C94FC880E1805265A013D69AD38FC79C1181D9714C33FF0989BCC"
+                      "detail":  "sha256 FE107AD65F53...",
+                      "sha256":  "FE107AD65F537620BE5EDFFAB9FCB5D6B2B1A8BBA6FA494B19AB3B1576821185"
                   },
                   {
                       "id":  "config-src-terminal",
                       "status":  "PASS",
-                      "detail":  "sha256 780A89F81BCF...",
-                      "sha256":  "780A89F81BCF4EC0466CCE2DF03F7A3FF18D8522D5A6EF9807C114CF720C5BA9"
+                      "detail":  "sha256 983940F4A8A5...",
+                      "sha256":  "983940F4A8A56FEC30502B94D066C7FE48C04D5C42DA171C15CF50AFFF4C3F9D"
                   },
                   {
                       "id":  "profile-profile-ps5",
                       "status":  "INFO",
-                      "detail":  "D:\\Users\\_Anant\\10_Areas\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1 exists, 890 bytes, sha256 C8789CCD6741..., managed block present=False, parse errors=0, secret-like hits=0",
-                      "sha256":  "C8789CCD67417DEC53FF947533C7D29FE27DF3483D1BEB58E2C9C38B75FBF61F",
+                      "detail":  "D:\\Users\\_Anant\\10_Areas\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1 exists, 2635 bytes, sha256 AA1FF8DF2F68..., managed block present=True, parse errors=0, secret-like hits=0",
+                      "sha256":  "AA1FF8DF2F682E33555A52AA688D611B2D531738C35225DA7189BC57EFBED54B",
                       "path":  "D:\\Users\\_Anant\\10_Areas\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1"
                   },
                   {
                       "id":  "profile-profile-pwsh",
                       "status":  "INFO",
-                      "detail":  "D:\\Users\\_Anant\\10_Areas\\Documents\\PowerShell\\Microsoft.PowerShell_profile.ps1 does not exist yet; it will be created",
+                      "detail":  "D:\\Users\\_Anant\\10_Areas\\Documents\\PowerShell\\Microsoft.PowerShell_profile.ps1 exists, 1710 bytes, sha256 FE107AD65F53..., managed block present=True, parse errors=0, secret-like hits=0",
+                      "sha256":  "FE107AD65F537620BE5EDFFAB9FCB5D6B2B1A8BBA6FA494B19AB3B1576821185",
                       "path":  "D:\\Users\\_Anant\\10_Areas\\Documents\\PowerShell\\Microsoft.PowerShell_profile.ps1"
                   },
                   {
                       "id":  "terminal-settings",
                       "status":  "INFO",
-                      "detail":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json parses as JSON, sha256 6579DE891049...",
+                      "detail":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json parses as JSON, sha256 E0A4D6A5CA87...",
                       "path":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json"
                   },
                   {
                       "id":  "git-global",
                       "status":  "INFO",
-                      "detail":  "global .gitconfig present; core.autocrlf=false (will become input)"
+                      "detail":  "global .gitconfig present; core.autocrlf=input (will become input)"
                   },
                   {
                       "id":  "lock",
                       "status":  "INFO",
-                      "detail":  "no toolkit.lock.json yet (this host will create it after 99-verify -WriteLock)"
+                      "detail":  "toolkit.lock.json present (host DESKTOP-3VBG0JH, 2026-10-13T02:04:53)"
                   },
                   {
                       "id":  "pwsh",
-                      "status":  "PLAN",
-                      "detail":  "installed=False version=- -\u003e install (not installed)",
-                      "path":  null,
-                      "version":  null,
-                      "installed":  false,
-                      "action":  "install"
+                      "status":  "OK",
+                      "detail":  "installed=True version=7.6.7 -\u003e none (present, adopted)",
+                      "path":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe",
+                      "version":  "7.6.7",
+                      "installed":  true,
+                      "action":  "none"
                   },
                   {
                       "id":  "wt",
-                      "status":  "PLAN",
-                      "detail":  "installed=False version=- -\u003e install (not installed)",
+                      "status":  "OK",
+                      "detail":  "installed=True version=1.24.12741.0 -\u003e none (present, adopted)",
                       "path":  null,
-                      "version":  null,
-                      "installed":  false,
-                      "action":  "install"
+                      "version":  "1.24.12741.0",
+                      "installed":  true,
+                      "action":  "none"
                   },
                   {
                       "id":  "starship",
-                      "status":  "PLAN",
-                      "detail":  "installed=False version=- -\u003e install (not installed)",
-                      "path":  null,
-                      "version":  null,
-                      "installed":  false,
-                      "action":  "install"
+                      "status":  "OK",
+                      "detail":  "installed=True version=1.26.0 -\u003e none (present, adopted)",
+                      "path":  "C:\\Program Files\\starship\\bin\\starship.exe",
+                      "version":  "1.26.0",
+                      "installed":  true,
+                      "action":  "none"
                   },
                   {
                       "id":  "iosevkaterm-nfm",
-                      "status":  "PLAN",
-                      "detail":  "installed=False version=- -\u003e install (family not registered)",
+                      "status":  "OK",
+                      "detail":  "installed=True version=v3.5.1 -\u003e none (family registered)",
                       "path":  null,
-                      "version":  null,
-                      "installed":  false,
-                      "action":  "install"
+                      "version":  "v3.5.1",
+                      "installed":  true,
+                      "action":  "none"
                   },
                   {
                       "id":  "zoxide",
-                      "status":  "PLAN",
-                      "detail":  "installed=False version=- -\u003e install (not installed)",
-                      "path":  null,
-                      "version":  null,
-                      "installed":  false,
-                      "action":  "install"
+                      "status":  "OK",
+                      "detail":  "installed=True version=0.10.0 -\u003e none (present, adopted)",
+                      "path":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Microsoft\\WinGet\\Packages\\ajeetdsouza.zoxide_Microsoft.Winget.Source_8wekyb3d8bbwe\\zoxide.exe",
+                      "version":  "0.10.0",
+                      "installed":  true,
+                      "action":  "none"
                   },
                   {
                       "id":  "fzf",
-                      "status":  "PLAN",
-                      "detail":  "installed=False version=- -\u003e install (not installed)",
-                      "path":  null,
-                      "version":  null,
-                      "installed":  false,
-                      "action":  "install"
+                      "status":  "OK",
+                      "detail":  "installed=True version=0.74.4 -\u003e none (present, adopted)",
+                      "path":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Microsoft\\WinGet\\Packages\\junegunn.fzf_Microsoft.Winget.Source_8wekyb3d8bbwe\\fzf.exe",
+                      "version":  "0.74.4",
+                      "installed":  true,
+                      "action":  "none"
                   },
                   {
                       "id":  "psfzf",
-                      "status":  "PLAN",
-                      "detail":  "installed=False version=- -\u003e install (5.1 missing=True 7 missing=False)",
+                      "status":  "OK",
+                      "detail":  "installed=True version=2.7.12 -\u003e none (present in both editions)",
                       "path":  null,
-                      "version":  null,
-                      "installed":  false,
-                      "action":  "install"
+                      "version":  "2.7.12",
+                      "installed":  true,
+                      "action":  "none"
                   },
                   {
                       "id":  "fd",
-                      "status":  "PLAN",
-                      "detail":  "installed=False version=- -\u003e install (not installed)",
-                      "path":  null,
-                      "version":  null,
-                      "installed":  false,
-                      "action":  "install"
+                      "status":  "OK",
+                      "detail":  "installed=True version=10.5.0 -\u003e none (present, adopted)",
+                      "path":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Microsoft\\WinGet\\Packages\\sharkdp.fd_Microsoft.Winget.Source_8wekyb3d8bbwe\\fd-v10.5.0-x86_64-pc-windows-msvc\\fd.exe",
+                      "version":  "10.5.0",
+                      "installed":  true,
+                      "action":  "none"
                   },
                   {
                       "id":  "bat",
-                      "status":  "PLAN",
-                      "detail":  "installed=False version=- -\u003e install (not installed)",
-                      "path":  null,
-                      "version":  null,
-                      "installed":  false,
-                      "action":  "install"
+                      "status":  "OK",
+                      "detail":  "installed=True version=0.26.1 -\u003e none (present, adopted)",
+                      "path":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Microsoft\\WinGet\\Packages\\sharkdp.bat_Microsoft.Winget.Source_8wekyb3d8bbwe\\bat-v0.26.1-x86_64-pc-windows-msvc\\bat.exe",
+                      "version":  "0.26.1",
+                      "installed":  true,
+                      "action":  "none"
                   },
                   {
                       "id":  "delta",
-                      "status":  "PLAN",
-                      "detail":  "installed=False version=- -\u003e install (not installed)",
-                      "path":  null,
-                      "version":  null,
-                      "installed":  false,
-                      "action":  "install"
+                      "status":  "OK",
+                      "detail":  "installed=True version=0.20.1 -\u003e none (present, adopted)",
+                      "path":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Microsoft\\WinGet\\Packages\\dandavison.delta_Microsoft.Winget.Source_8wekyb3d8bbwe\\delta-0.20.1-x86_64-pc-windows-msvc\\delta.exe",
+                      "version":  "0.20.1",
+                      "installed":  true,
+                      "action":  "none"
                   },
                   {
                       "id":  "git",
                       "status":  "PLAN",
-                      "detail":  "installed=True version=2.52.0 -\u003e upgrade (policy latest)",
+                      "detail":  "installed=True version=2.55.0 -\u003e upgrade (policy latest)",
                       "path":  "C:\\Program Files\\Git\\cmd\\git.exe",
-                      "version":  "2.52.0",
+                      "version":  "2.55.0",
                       "installed":  true,
                       "action":  "upgrade"
                   },
                   {
                       "id":  "gh",
                       "status":  "PLAN",
-                      "detail":  "installed=True version=2.89.0 -\u003e upgrade (policy latest)",
+                      "detail":  "installed=True version=2.102.0 -\u003e upgrade (policy latest)",
                       "path":  "C:\\Program Files\\GitHub CLI\\gh.exe",
-                      "version":  "2.89.0",
+                      "version":  "2.102.0",
                       "installed":  true,
                       "action":  "upgrade"
                   },
@@ -306,93 +305,93 @@
                   },
                   {
                       "id":  "nanazip",
-                      "status":  "PLAN",
-                      "detail":  "installed=False version=- -\u003e install (not installed)",
-                      "path":  null,
-                      "version":  null,
-                      "installed":  false,
-                      "action":  "install"
+                      "status":  "OK",
+                      "detail":  "installed=True version=7.0.1843.0 -\u003e none (present, adopted)",
+                      "path":  "C:\\Program Files\\WindowsApps\\40174MouriNaruto.NanaZip_7.0.1843.0_x64__gnj4mf6z9tkrc",
+                      "version":  "7.0.1843.0",
+                      "installed":  true,
+                      "action":  "none"
                   },
                   {
                       "id":  "node",
                       "status":  "MANUAL",
-                      "detail":  "installed=True version=22.16.0 -\u003e manual (major 22 installed, 24 wanted; run 11-node-lts-swap.ps1 by hand)",
+                      "detail":  "installed=True version=24.20.0 -\u003e manual (OpenJS.NodeJS.22 is installed; run 11-node-lts-swap.ps1 by hand)",
                       "path":  "C:\\Program Files\\nodejs\\node.exe",
-                      "version":  "22.16.0",
+                      "version":  "24.20.0",
                       "installed":  true,
                       "action":  "manual"
                   },
                   {
                       "id":  "npm",
                       "status":  "OK",
-                      "detail":  "installed=True version=10.9.2 -\u003e none (present)",
+                      "detail":  "installed=True version=11.19.0 -\u003e none (present)",
                       "path":  "C:\\Program Files\\nodejs\\npm.ps1",
-                      "version":  "10.9.2",
+                      "version":  "11.19.0",
                       "installed":  true,
                       "action":  "none"
                   },
                   {
                       "id":  "pnpm",
-                      "status":  "PLAN",
-                      "detail":  "installed=False version=- -\u003e install (not installed)",
-                      "path":  null,
-                      "version":  null,
-                      "installed":  false,
-                      "action":  "install"
+                      "status":  "OK",
+                      "detail":  "installed=True version=12.11.2 -\u003e none (present, adopted)",
+                      "path":  "C:\\Users\\Anant Gupta\\AppData\\Local\\Microsoft\\WinGet\\Packages\\pnpm.pnpm_Microsoft.Winget.Source_8wekyb3d8bbwe\\pnpm.exe",
+                      "version":  "12.11.2",
+                      "installed":  true,
+                      "action":  "none"
                   },
                   {
                       "id":  "uv",
-                      "status":  "PLAN",
-                      "detail":  "installed=False version=- -\u003e install 0.12.19 (standalone uv missing or not at pin)",
-                      "path":  null,
-                      "version":  null,
-                      "installed":  false,
-                      "action":  "install"
+                      "status":  "OK",
+                      "detail":  "installed=True version=0.12.19 -\u003e none (standalone uv at pin)",
+                      "path":  "C:\\Users\\Anant Gupta\\.local\\bin\\uv.exe",
+                      "version":  "0.12.19",
+                      "installed":  true,
+                      "action":  "none"
                   },
                   {
                       "id":  "uv-python",
-                      "status":  "PLAN",
-                      "detail":  "installed=False version=- -\u003e install (no uv-managed python)",
-                      "path":  null,
-                      "version":  null,
-                      "installed":  false,
-                      "action":  "install"
+                      "status":  "OK",
+                      "detail":  "installed=True version=3.13.15 -\u003e none (present)",
+                      "path":  "C:\\Users\\Anant Gupta\\AppData\\Roaming\\uv\\python\\cpython-3.13.15-windows-x86_64-none",
+                      "version":  "3.13.15",
+                      "installed":  true,
+                      "action":  "none"
                   },
                   {
                       "id":  "python-choco",
-                      "status":  "PENDING",
-                      "detail":  "installed=True version=3.13.5 -\u003e pending-retire (elevated: powershell -File \"D:\\WSL\\ops\\windows\\04-admin-remove.ps1\" -IncludePython -Apply)",
-                      "path":  "C:\\Python313\\python.exe",
-                      "version":  "3.13.5",
-                      "installed":  true,
-                      "action":  "pending-retire"
+                      "status":  "OK",
+                      "detail":  "installed=False version=- -\u003e none (already retired)",
+                      "path":  null,
+                      "version":  null,
+                      "installed":  false,
+                      "action":  "none"
                   },
                   {
                       "id":  "choco",
-                      "status":  "PENDING",
-                      "detail":  "installed=True version=2.4.3 -\u003e pending-retire (same elevated command as python-choco)",
-                      "path":  "C:\\ProgramData\\chocolatey\\bin\\choco.exe",
-                      "version":  "2.4.3",
-                      "installed":  true,
-                      "action":  "pending-retire"
+                      "status":  "OK",
+                      "detail":  "installed=False version=- -\u003e none (already retired)",
+                      "path":  null,
+                      "version":  null,
+                      "installed":  false,
+                      "action":  "none"
                   },
                   {
                       "id":  "miniconda",
-                      "status":  "WARN",
-                      "detail":  "installed=False version=- -\u003e missing (verify-only tool is missing)",
+                      "status":  "OK",
+                      "detail":  "installed=True version=py313_25.11.1-1 -\u003e none (present)",
                       "path":  null,
-                      "version":  null,
-                      "installed":  false,
-                      "action":  "missing"
+                      "version":  "py313_25.11.1-1",
+                      "installed":  true,
+                      "action":  "none"
                   },
                   {
                       "id":  "opam",
-                      "status":  "WARN",
-                      "detail":  "installed=False version=- -\u003e missing (verify-only tool is missing)",
+                      "status":  "OK",
+                      "detail":  "installed=True version=2.5.0 -\u003e none (present)",
                       "path":  null,
-                      "version":  null,
-                      "installed":  false,
-                      "action":  "missing"
+                      "version":  "2.5.0",
+                      "installed":  true,
+                      "action":  "none"
                   },
                   {
                       "id":  "winget",
@@ -406,83 +405,83 @@
                   {
                       "id":  "claude-code",
                       "status":  "OK",
-                      "detail":  "installed=True version=2.1.296 -\u003e none (present)",
+                      "detail":  "installed=True version=2.1.300 -\u003e none (present)",
                       "path":  "C:\\Users\\Anant Gupta\\.local\\bin\\claude.exe",
-                      "version":  "2.1.296",
+                      "version":  "2.1.300",
                       "installed":  true,
                       "action":  "none"
                   },
                   {
                       "id":  "codex",
                       "status":  "OK",
-                      "detail":  "installed=True version=0.160.0 -\u003e none (present, adopted)",
+                      "detail":  "installed=True version=0.162.1 -\u003e none (present, adopted)",
                       "path":  "C:\\Users\\Anant Gupta\\AppData\\Roaming\\npm\\codex.ps1",
-                      "version":  "0.160.0",
+                      "version":  "0.162.1",
                       "installed":  true,
                       "action":  "none"
                   },
                   {
                       "id":  "claude-desktop",
-                      "status":  "WARN",
-                      "detail":  "installed=False version=- -\u003e missing (verify-only tool is missing)",
+                      "status":  "OK",
+                      "detail":  "installed=True version=2.37337.1.0 -\u003e none (present)",
                       "path":  null,
-                      "version":  null,
-                      "installed":  false,
-                      "action":  "missing"
+                      "version":  "2.37337.1.0",
+                      "installed":  true,
+                      "action":  "none"
                   },
                   {
                       "id":  "cursor",
-                      "status":  "WARN",
-                      "detail":  "installed=False version=- -\u003e missing (verify-only tool is missing)",
+                      "status":  "OK",
+                      "detail":  "installed=True version=3.24.18 -\u003e none (present)",
                       "path":  null,
-                      "version":  null,
-                      "installed":  false,
-                      "action":  "missing"
+                      "version":  "3.24.18",
+                      "installed":  true,
+                      "action":  "none"
                   },
                   {
                       "id":  "kiro",
-                      "status":  "WARN",
-                      "detail":  "installed=False version=- -\u003e missing (verify-only tool is missing)",
+                      "status":  "OK",
+                      "detail":  "installed=True version=1.0.395 -\u003e none (present)",
                       "path":  null,
-                      "version":  null,
-                      "installed":  false,
-                      "action":  "missing"
+                      "version":  "1.0.395",
+                      "installed":  true,
+                      "action":  "none"
                   },
                   {
                       "id":  "antigravity",
-                      "status":  "WARN",
-                      "detail":  "installed=False version=- -\u003e missing (verify-only tool is missing)",
+                      "status":  "OK",
+                      "detail":  "installed=True version=2.22.0 -\u003e none (present)",
                       "path":  null,
-                      "version":  null,
-                      "installed":  false,
-                      "action":  "missing"
+                      "version":  "2.22.0",
+                      "installed":  true,
+                      "action":  "none"
                   },
                   {
                       "id":  "docker-desktop",
-                      "status":  "WARN",
-                      "detail":  "installed=False version=- -\u003e missing (verify-only tool is missing)",
+                      "status":  "OK",
+                      "detail":  "installed=True version=4.56.0 -\u003e none (present)",
                       "path":  null,
-                      "version":  null,
-                      "installed":  false,
-                      "action":  "missing"
+                      "version":  "4.56.0",
+                      "installed":  true,
+                      "action":  "none"
                   },
                   {
                       "id":  "ollama",
-                      "status":  "WARN",
-                      "detail":  "installed=False version=- -\u003e missing (verify-only tool is missing)",
+                      "status":  "OK",
+                      "detail":  "installed=True version=0.40.3 -\u003e none (present)",
                       "path":  null,
-                      "version":  null,
-                      "installed":  false,
-                      "action":  "missing"
+                      "version":  "0.40.3",
+                      "installed":  true,
+                      "action":  "none"
                   },
                   {
                       "id":  "vscode",
-                      "status":  "WARN",
-                      "detail":  "installed=False version=- -\u003e missing (verify-only tool is missing)",
+                      "status":  "OK",
+                      "detail":  "installed=True version=1.142.0 -\u003e none (present)",
                       "path":  null,
-                      "version":  null,
-                      "installed":  false,
-                      "action":  "missing"
+                      "version":  "1.142.0",
+                      "installed":  true,
+                      "action":  "none"
                   },
                   {
                       "id":  "mcp-remote",
@@ -496,20 +495,20 @@
                   {
                       "id":  "npx",
                       "status":  "OK",
-                      "detail":  "installed=True version=10.9.2 -\u003e none (present)",
+                      "detail":  "installed=True version=11.19.0 -\u003e none (present)",
                       "path":  "C:\\Program Files\\nodejs\\npx.ps1",
-                      "version":  "10.9.2",
+                      "version":  "11.19.0",
                       "installed":  true,
                       "action":  "none"
                   },
                   {
                       "id":  "uvx",
-                      "status":  "WARN",
-                      "detail":  "installed=False version=- -\u003e missing (verify-only tool is missing)",
-                      "path":  null,
-                      "version":  null,
-                      "installed":  false,
-                      "action":  "missing"
+                      "status":  "OK",
+                      "detail":  "installed=True version=0.12.19 -\u003e none (present)",
+                      "path":  "C:\\Users\\Anant Gupta\\.local\\bin\\uvx.exe",
+                      "version":  "0.12.19",
+                      "installed":  true,
+                      "action":  "none"
                   },
                   {
                       "id":  "docker-cli",
@@ -532,7 +531,7 @@
                   {
                       "id":  "plan-total",
                       "status":  "INFO",
-                      "detail":  "16 install/upgrade action(s) planned for 10-install-toolkit.ps1"
+                      "detail":  "2 install/upgrade action(s) planned for 10-install-toolkit.ps1"
                   },
                   {
                       "id":  "env-UV_CACHE_DIR",
@@ -577,12 +576,12 @@
                   {
                       "id":  "env-STARSHIP_CONFIG",
                       "status":  "INFO",
-                      "detail":  "STARSHIP_CONFIG=(unset, will be set by 20-apply-configs)"
+                      "detail":  "STARSHIP_CONFIG=C:\\Users\\Anant Gupta\\.config\\starship.toml"
                   },
                   {
                       "id":  "env-TOOLKIT_VAULT_ROOT",
                       "status":  "INFO",
-                      "detail":  "TOOLKIT_VAULT_ROOT=(unset, will be set by 20-apply-configs)"
+                      "detail":  "TOOLKIT_VAULT_ROOT=D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis"
                   },
                   {
                       "id":  "junction-miniconda",
@@ -595,7 +594,7 @@
                       "detail":  "C:\\opamroot -\u003e D:\\Apps\\opamroot"
                   }
               ],
-    "freeD":  450.2,
-    "plannedActions":  16,
-    "freeC":  145.4
+    "freeD":  404.7,
+    "plannedActions":  2,
+    "freeC":  138.5
 }

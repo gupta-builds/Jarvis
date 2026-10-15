@@ -278,9 +278,104 @@ Phases 1 to 4 ran on the Dell on 2026-10-13. The run is filed here under `Runs/`
 | Python 3.13.5 and Chocolatey | REMOVED | `C:\Python313` and `C:\ProgramData\chocolatey` absent on 2026-10-14 |
 | Windows Terminal | DONE | default profile PowerShell 7, scheme `One Half Dark`, font `IosevkaTerm Nerd Font` (live settings file) |
 | `wsl ~` fix in the PowerShell 7 profile block | DONE | `function wsl` present in the live profile |
-| .NET 8 | OPEN | runtimes 8.0.25 and 8.0.26 still installed next to 10.0.9; removal is `04-admin-remove.ps1 -IncludeDotnet8` after the Dell Command Update check (DCU 5.7.0 present) |
-| Phase 5: catalog (`40-build-catalog.ps1`, real run) | OPEN | `Windows Toolkit\catalog\` is empty |
-| Phase 5: "Machine Toolkit - Tool Use Cases and Agent Guide" note | OPEN | no such note exists in the vault |
-| Phase 6: Acer run sheet and Acer paste-back | OPEN | Acer already has pieces of the toolkit from its own 2026-10-12 sessions; needs a read-only paste-back first |
-| Phase 7: rewrite the Windows half of `Installations`, log line, close the build | OPEN | `Installations` still describes the Windows side as pre-rebuild |
+| .NET 8 | KEPT ON PURPOSE (Build 4b, 2026-10-15) | WSL Settings is pinned to the .NET 8 desktop runtime; dry run lists 5 packages and nothing was removed |
+| Phase 5: catalog (`40-build-catalog.ps1`, real run) | DONE (Build 4b) | `catalog\Tool Catalog - DESKTOP-3VBG0JH.md` and `.json`, PASS 2026-10-15 |
+| Phase 5: "Machine Toolkit - Tool Use Cases and Agent Guide" note | DONE (Build 4b) | written next to `Installations` |
+| Phase 6: Acer run sheet and Acer paste-back | RUN SHEET DONE (Build 4b); paste-back waits for the Acer | `Windows Toolkit\Acer Run Sheet - Windows Toolkit`, Part 0 is read-only |
+| Phase 7: rewrite the Windows half of `Installations`, log line, close the build | DONE (Build 4b) | Windows tables rewritten from the catalog; Acer and Growth-rules pointers added |
 | Codex config carries a WSL path (`node_repl`) | OPEN, Build 6 | reported by `99-verify` |
+
+## Build 4b (2026-10-14 to 2026-10-15): Dell leftovers and Tailscale
+Run from the prompt [[Old Laptop Rebuild - Build 4b Prompt (Dell Leftovers and Tailscale)]]. Scripts wrote nothing without `-Apply`; the user ran every state-changing script. Results below are live measurements.
+
+### Sources used
+Cursor update failure research (community threads, no official fix found): [Windows inno_updater: Access is denied (os error 5)](https://forum.cursor.com/t/windows-inno-updater-access-is-denied-os-error-5-deleting-resources-reproduced-3-times/168867), [Windows auto-updater fails with access denied error](https://forum.cursor.com/t/windows-auto-updater-fails-with-access-denied-error/158940), [Windows updater fails with dual install](https://forum.cursor.com/t/windows-updater-fails-with-dual-install-system-wide-per-user-and-leaks-2gb-of-temp-folders/159479), [Windows updater serves unpublished 3.19.19](https://forum.cursor.com/t/windows-updater-serves-unpublished-3-19-19-fails-to-swap-install/171123). Tailscale SSH and VS Code Tunnel documentation was not re-read: both Part B decisions were skip (B1, B2), so nothing was installed from them.
+
+### Before and after
+| Item | Before (brief, 2026-10-14) | After (live, 2026-10-15) |
+|---|---|---|
+| Cursor | "Moving: resources" error, install described as broken at 3.19.7 | complete install, 3.24.18 (`winget list` and `package.json` agree), launched by Claude, 21 processes for 90 s, updater `checking` then `idle`, closed gracefully to 0 processes |
+| Cursor self-update | interrupted twice (2026-09-06, 2026-10-14) | stays on; root cause fixed in `60-build5b-host.ps1` (no force-kill, waits for updater idle) |
+| WSL export | none; script printed only "DONE" | `D:\Backup\WSL\ubuntu-20261014-233219.tar`, 58,487,982,080 bytes (54.47 GiB), 1,114,217 entries, SHA-256 `aa82d751d9fe5a66ad418dffbaf5c1730cc1814ff94a416b0eea62bc5508b9c1`, manifest and `.sha256`. **No import test was run** |
+| Old `wsl-ubuntu.tar` (36.75 GiB) | `D:\WSL\Installers` | `D:\Backup\Quarantine\wsl-tar-review-2026-11-14` with README; delete only by hand after review |
+| WSL after the export | n/a | `systemctl is-system-running` = running, `tailscale status` lists `dell-wsl` and `gupta-builds`, `RunSSH` true, `wsl-clean` and `wsl-watch` timers active |
+| .NET 8 | installed | kept on purpose: `C:\Program Files\WSL\wslsettings` is pinned to the .NET 8 desktop runtime; dry run listed exactly 5 packages |
+| Windows Ollama | not running | 0.40.3 from `D:\Apps\Ollama`, `OLLAMA_MODELS=D:\AI\ollama-models`, `127.0.0.1:11434` owned by that process, `ollama list` shows 3 models, startup shortcut disabled |
+| Startup folder | E START App, OpenClaw Gateway, Ollama, Wispr Flow | E START App and OpenClaw Gateway quarantined; Ollama and Wispr Flow disabled in StartupApproved |
+| OpenClaw | npm 2026.3.13 (538 packages), `~\.openclaw` with 31 skill junctions | `npm uninstall -g openclaw` exit 0, `~\.openclaw` quarantined (links removed, targets in `~\.agents\skills` untouched), `openclaw` no longer resolves |
+| Run-key apps (7) | said to start at logon | all 7 disabled in StartupApproved; at the 2026-10-14 04:39 boot none started by itself |
+| Firecrawl key in WSL `.bashrc` | plaintext at lines 153-154 | removed (0 assignment lines); nothing stored anywhere. **Firecrawl's API still accepted that key at 14:06: revocation not confirmed (open)** |
+| Tool catalog | `catalog\` empty | `Tool Catalog - DESKTOP-3VBG0JH.md` and `.json`, 46 tools, 24 MCP entries, 34 WSL tools, PASS |
+| Agent guide | none | [[Machine Toolkit - Tool Use Cases and Agent Guide]] |
+| `Installations` Windows half | pre-rebuild tables | rewritten from the catalog and lock; Acer and Growth-rules pointers added; backup in `Runs/_backups/` |
+| Acer run sheet | none | [[Acer Run Sheet - Windows Toolkit]]; its command template was run read-only on the Dell (exit 0, OK=37, PASS=30) |
+| Weekly clean | never ran | dry run clean (0.01 GiB); first scheduled run Sunday 2026-10-18 03:30 |
+| Build 5 leftovers | Cursor server data 4.0 GB, old pnpm stores, backfill task | **script ready, not yet run:** `07-build5-leftovers.ps1` (dry run clean) |
+| C: free / D: free | 140.9 / 451.2 GiB | 138.5 / 404.7 GiB (D: carries the 54.47 GiB export; +36.75 GiB comes back when the old tar is deleted after 2026-11-14) |
+
+### State-changing commands
+| When | Who | Command | Result |
+|---|---|---|---|
+| 2026-10-14 11:51 | Claude | launched Cursor (test), then `CloseMainWindow` on each window | 90 s healthy; first close left the "Cursor Agents" window, second close ended all 15 processes |
+| 2026-10-14 23:31 | user | `05-startup-cleanup.ps1 -Apply` | both startup items and their stale registry values handled, `~\.openclaw` quarantined, npm package removed (538 packages, 22 s); `undo.txt` in `D:\Backup\Quarantine\startup-cleanup-2026-10-14` |
+| 2026-10-14 23:32 | user | `60-build5b-host.ps1 -Stages Export -Apply` | `wsl --terminate`, export 13.9 min, tar 54.47 GiB; script then died on `tar -tf` (see errors) before restarting the distro |
+| 2026-10-14 23:46 | Claude | `wsl -d Ubuntu --exec true` | distro restarted; not `wsl --shutdown` |
+| 2026-10-15 12:57 | user | `60-build5b-host.ps1 -Stages Verify -Apply` | GNU tar 1,114,217 entries, exit 0; SHA-256 2.2 min; manifest written (malformed, see errors) |
+| 2026-10-15 13:05 | user | `... -Stages Quarantine -Apply` | refused to move the old tar: "does not match its manifest" (correct behavior, bad manifest) |
+| 2026-10-15 13:08 | Claude | rewrote the manifest as 8 proper lines, kept the bad one as `.manifest.txt.malformed` | Quarantine dry run reached its confirmation prompt |
+| 2026-10-15 13:11 | user | `... -Stages Quarantine -Apply` | old tar moved to `wsl-tar-review-2026-11-14` |
+| 2026-10-15 13:18 | user | `06-ollama-check.ps1 -Apply` | server started, owned by `D:\Apps\Ollama\ollama.exe`, `ollama list` ok |
+| 2026-10-15 13:37 | user | `04-admin-remove.ps1 -IncludeDotnet8` (elevated, dry run only) | listed the 5 .NET 8 packages; nothing removed |
+| 2026-10-15 14:06 | user | `firecrawl-key-move.sh --remove` | `.bashrc` lines 153-154 removed, redacted backup in `D:\Backup\dotfiles-20261015-140633`, no other file in the scan list held the key |
+| 2026-10-15 14:07 | user | `40-build-catalog.ps1` | PASS, catalog written |
+| 2026-10-15 | Claude | vault writes: the agent guide, the Acer run sheet, the Installations Windows block (backup first), Build 2 handoff step 3b, one pointer line in the Build 5b handoff, runbook and ledger rows, this section | each checked for em dashes, key-like strings and unique-match patches |
+
+### Errors and root causes
+| Error | Root cause | Fix |
+|---|---|---|
+| Cursor "Moving: resources ... os error 5" | the launch test in `60-build5b-host.ps1` force-killed Cursor about 30 s after launch, while the updater was in `downloading` to `updating` (09:42:49 to 09:43:00 in `main.log`); the updater could not finish moving `resources` | script now waits for updater idle, closes windows gracefully, never `Stop-Process`; a later launch finished the update |
+| Possible contributing factor | the GitHub MCP server runs on Cursor's own `resources\app\resources\helpers\node.exe`, which holds a handle inside `resources\` (the forum threads name the same cause) | rule in the guide: quit every Cursor window and its child processes before accepting an update |
+| `-Stages Export,Quarantine` printed only "DONE" | `powershell -File` passes a comma list as one string; `[string[]]` got `"Export,Quarantine"` and every `-contains` failed | `-Stages` is now a single string split on commas; tested through `-File` |
+| First fix still failed | `$Stages` is a typed `[string]` parameter, so assigning the split array back coerced it to one string again | separate variable `$StageList` |
+| Export crashed after writing the tar | `tar.exe -tf` wrote "Archive entry has empty or unreadable filename ... skipping" to stderr (56 entries, Windows tar cannot read some pax names); with `$ErrorActionPreference = 'Stop'` in PS 5.1 that became a terminating error even with `2>$null` | verify with GNU tar inside WSL (1,114,217 entries, exit 0), through a helper `.sh`; the distro restarts before verification so a failure cannot leave WSL down |
+| Inline `bash -c '...'` returned nothing | PS 5.1 mangles embedded double quotes in native arguments | logic moved into `verify-tar.sh`, `build5-leftovers.sh`; no quoting crosses PowerShell |
+| Quarantine refused | the manifest was one long line: in `@('file=' + $tar, 'bytes=' + $size, ...)` the comma binds tighter than `+`, so the array became one string | each element parenthesized; manifest rewritten from the logged values (the `.sha256` file matched the logged hash first) |
+| Firecrawl script hung | `bash -ic` for verification blocks without a terminal under the full `.bashrc`; then recursive `grep` over `/mnt/c` is very slow; and a spliced edit fused `fi` and `say` | verification sources only `~/.mcp.env`; scan limited to a fixed list of config files; syntax checked with `bash -n` and a dummy-file test |
+| `04-admin-remove.ps1` dry run needs elevation | the script checks admin before it plans | run the dry run elevated |
+| Ollama `/api/version` timed out once | first-call warm-up; a retry returned 0.40.3 | none |
+| Firecrawl key still accepted after "revocation" | unknown. A fake key and no key both return 401, so the check discriminates; the key in `.bashrc` returned 200 at 13:37, 13:47 and 14:06 | open: revoke the most recently used key in the dashboard; confirm with a status-only check on the key you still hold |
+| `sync-check` over a non-interactive shell prints `node`, `pnpm`, `uv` as `not-installed` | nvm and `~/.local/bin` are set up in the interactive `.bashrc` | documented in the Acer handoff (3b); repo lines are the check |
+| `pnpm store path` printed `/mnt/c/.pnpm-store/v11` | `wsl.exe --exec` starts in a Windows directory and pnpm picks the store from the current directory's filesystem; from `~` it is `~/.local/share/pnpm/store/v11` | none; do not draw conclusions from `pnpm store path` run from a `/mnt` directory |
+
+### Contradictions logged (live machine won)
+| Vault or brief said | Live |
+|---|---|
+| Index D1: `Cursor.exe` absent, install broken | complete, 3.24.18 |
+| Brief: Cursor 3.19.7 and 3.19.13 | 3.24.18 |
+| Index D8: Run key still starts Discord, GoogleDriveFS, Rize, Spotify, Docker, Voquill, Slack | all disabled; none started at boot; Spotify and Wispr Flow were started by hand hours later |
+| Brief: Docker starts although its setting says off | not reproduced: StartupApproved 03, `AutoStart: false`, no Docker process after boot |
+| Index: pnpm 12.4.2 on both laptops | WSL on both is 12.4.2 through Corepack; the Windows winget pnpm is 12.11.2 and is what `toolkit.lock.json` records |
+| "Python 3.13.5 is gone" | files gone; 11 stale uninstall registrations still show in `winget list`; `python` on PATH is the Hermes venv |
+| Cursor snapshots and globalStorage "1.2 GB each" | 2.0 GB each (`snapshots`, `anysphere.cursor-agent-worker`) |
+| Catalog prose (Ollama row: WSL Ollama holds 11434, shortcut stays until Build 5; Docker CLI size) | predates Build 5; manifest and catalog left unchanged so `toolkit.lock.json` stays valid; the agent guide carries the correct facts |
+| Build 5: "27 configs exact" | the catalog compares 8 of 29 WSL files as DIFF against the old Acer snapshot (atuin, gh-dash, git ignore, lazygit, sesh, starship.toml, yazi.toml, tmux.conf); likely the golden set deliberately changing them (starship LF, tmux 3.8), not verified file by file |
+| Codex `node_repl` | still resolves NO (WSL path in the Windows config), Build 6 |
+
+### Left, and who owns it
+- **You:** run `07-build5-leftovers.ps1 -Apply` (Cursor server data, old pnpm v10 stores, backfill task); revoke the Firecrawl key that is still accepted; keep or remove Malwarebytes (two entries), WhatsApp, Rize, GitKrakenCLI; stale Python uninstall registrations; Defender exclusions and the BIOS battery cap; delete the old tar and the `.malformed` manifest after review; per-repo `packageManager` pins (Decision 11, one repo at a time).
+- **The Acer:** [[Acer Run Sheet - Windows Toolkit]] Part 0 onward, [[Acer Session Handoff - Toolkit Sync (Build 5b)]], and the Build 2 items in [[Old Laptop Rebuild - Build 2 Acer Handoff]] (host-key comparison, sync-check over SSH, large Git transfer, clone inventory, optional WSL route test).
+- **Later builds:** Codex `node_repl`, MCP registry, VS Code and Claude Code settings (Build 6); startup profile and final verification (Build 7); `D:\_Anant` and Drive (Build 8).
+
+### Growth rules
+| Standing rule | Check |
+|---|---|
+| Never kill an app whose updater may be running; read its state first | `Select-String 'update#setState' (newest %APPDATA%\Cursor\logs\*\main.log) \| Select -Last 1` must end in `idle` before any script stops Cursor |
+| A comma list through `powershell -File` is one string: take a string parameter and split it, in a new variable | run the script with `-Stages A,B` and read the first log line |
+| In PS 5.1 with `$ErrorActionPreference = 'Stop'`, native stderr can abort a script even with `2>$null`: use `Continue` around the call or a helper | grep new scripts for `2>$null` next to a native tool |
+| Do not pass quoted multi-word commands through `wsl.exe` from PS 5.1: call a helper `.sh` | the helper prints its own output; parse it |
+| Parenthesize every `'key=' + $v` inside an `@(a, b)` list | `($lines).Count` must equal the number of elements |
+| Verify a WSL export with GNU tar inside WSL, record entries and SHA-256, and say no import test was run | the `.manifest.txt` next to the tar must have 8 lines |
+| Test a destructive script against dummy data first | `FC_TEST_*` style overrides, then the real dry run |
+| No key in any shell rc file; revoke at the provider and confirm with a status-only call | `grep -c "API_KEY=" ~/.bashrc` prints 0 |
+| Judge startup behavior by process start time versus last boot, not by the Run key | `(Get-CimInstance Win32_OperatingSystem).LastBootUpTime` against `(Get-Process <name>).StartTime` |
+| A pnpm store path is only meaningful from the project's own filesystem | run `pnpm store path` from `~` or the repo, never from a `/mnt` directory |

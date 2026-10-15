@@ -252,7 +252,7 @@ Source: `winget` is a winget package id, `Store` an MSIX package, `direct` an in
 | MCP prerequisites | npx 11.19.0, uvx 0.12.19, mcp-remote 0.2.1 | | | all resolve; 24 MCP entries across Claude Desktop, Claude Code, VS Code and Codex (names only in the catalog) |
 
 **Productivity, communication and media**
-Obsidian 1.9.12, Slack, Discord, Zoom, Telegram, WhatsApp (Store), Spotify, Vivaldi 8.2, Todoist, Loom, Bitwarden, Postman, Google Drive for desktop 132, Syncthing (`D:\Apps\Syncthing`), PowerToys 0.100, WizTree 4.31, Revo Uninstaller 2.7.2, CrystalDiskInfo, Zoom, Voquill, Wispr Flow, 16x Prompt, Mail and Calendar. Also present and not in the manifest: Hermes agent (on PATH).
+Obsidian 1.9.12, Slack, Discord, Zoom, Telegram, WhatsApp (Store), Spotify, Vivaldi 8.2, Todoist, Loom, Bitwarden, Postman, Google Drive for desktop 132, Syncthing (`D:\Apps\Syncthing`), PowerToys 0.100, WizTree 4.31, Revo Uninstaller 2.7.2, CrystalDiskInfo, Voquill, Wispr Flow, 16x Prompt, Mail and Calendar. Also present and not in the manifest: Hermes agent (on PATH).
 
 **Microsoft and Dell packages**
 Microsoft Edge 155, Dell Command Update (Store 5.7.42 and Universal 5.7.2), Dell Core Services, Dell SupportAssist OS Recovery plugin, Intel graphics software, Realtek audio, two Malwarebytes entries (5.0.0.113 Store and 5.7.1.346), WhatsApp and Windows system components.
@@ -307,8 +307,13 @@ Build 5 (2026-10-13) replaced the Dell's reconstructed files with the Acer's rea
 ### Windows terminal on the Acer (from its snapshot)
 The Acer's Windows side is also incomplete: Windows Terminal is on defaults (One Half Dark, `IosevkaTerm Nerd Font`, 85 percent acrylic, default profile Windows PowerShell), no PowerShell profile exists, the global git config has only `longpaths`, `fsmonitor` and `untrackedCache` (plus redacted identity), and Yazi, lazygit, bat, delta and gh-dash exist only inside its WSL. Its winget export includes PowerShell 7, Starship, Tailscale, NanaZip, ripgrep, jq, Yazi (installed, unconfigured), Node LTS, Docker Desktop, Ollama, VS Code, Cursor, Claude and Antigravity. Build 4 completes this side on both laptops.
 
+### Acer, Windows side (planned, not run)
+The Acer is the reference for the toolkit's configs, so the Dell was built to match it. The Windows toolkit has not been run on the Acer yet; it already has fzf, fd, bat, delta, zoxide and PSFzf from 2026-10-12. Differences to expect: vault root `D:\_Anant\20_Progress\Documents\Jarvis`, Tailscale installed on Windows as `gupta-builds` (never in the Acer's WSL), the RTX 5070 Ti, VS Code on D:\Apps, the font installed system-wide, and no Kiro, Miniconda, opam or Chocolatey retirement. The run order, with a read-only first step, is in `Windows Toolkit\Acer Run Sheet - Windows Toolkit` ([[Acer Run Sheet - Windows Toolkit]]). When the Acer ran it, this section gets the parity matrix (PASS or DIFF with a reason).
+
+### Growth rules
+The standing rules and one check command each (tool versions, config hashes, font registration, environment variables, startup time, catalog freshness, no secrets in shell rc files) are in [[Machine Toolkit - Tool Use Cases and Agent Guide#Growth rules]].
 ### How to refresh this section
-Run on the Dell and re-read: `winget list`, `choco list`, `npm ls -g --depth=0` (Windows and WSL), `uv tool list`, `cargo install --list`, `code --list-extensions --show-versions` (Windows and WSL), `apt-mark showmanual`, and `ls ~/.local/bin`. The inventory scripts used for this section were `wsl-inventory.sh` and `win-inventory.ps1`; Build 4 turns them into repeatable scripts.
+Run on the Dell and re-read: `winget list`, `choco list`, `npm ls -g --depth=0` (Windows and WSL), `uv tool list`, `cargo install --list`, `code --list-extensions --show-versions` (Windows and WSL), `apt-mark showmanual`, and `ls ~/.local/bin`. The inventory scripts used for this section were `wsl-inventory.sh` and `win-inventory.ps1`; They are superseded by `40-build-catalog.ps1` (Windows Toolkit), which regenerates `Tool Catalog - <host>` on demand; re-run it and re-read the catalog instead of these commands.
 
 ## Flashcards
 

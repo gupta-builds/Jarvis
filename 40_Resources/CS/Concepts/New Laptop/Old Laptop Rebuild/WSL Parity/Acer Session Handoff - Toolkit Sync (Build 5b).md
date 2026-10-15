@@ -32,6 +32,8 @@ ls "$P/golden/home" "$P/_scripts"
 ```
 If the path does not exist, find the vault with `ls /mnt/d/_Anant/*/Documents` and adjust; the scripts accept `--vault <path>`.
 
+Same visit (added 2026-10-15): also run Part 0 of [[Acer Run Sheet - Windows Toolkit]] and the Build 2 SSH items in [[Old Laptop Rebuild - Build 2 Acer Handoff]] (host-key comparison, sync-check over SSH, large Git transfer, clone inventory, optional WSL route test).
+
 ## Rules for this session
 - Read-only first; every script has `--dry-run`. Back up before editing (the scripts do it for you).
 - Never print `.bashrc` broadly, `~/.mcp.env`, tokens, keys or auth files. Never copy secrets into the vault.

@@ -5,36 +5,40 @@ source_app: claude-code
 source_os: windows
 title: "Build 4b Dell leftovers"
 started_at: 2026-10-14T10:02:29
-ended_at: 2026-10-14T23:59:43
-exported_at: 2026-10-15T12:30:03
-duration_minutes: 837.2
+ended_at: 2026-10-15T13:14:15
+exported_at: 2026-10-15T13:30:04
+duration_minutes: 1631.8
 project: Home
 cwd: 'C:\Users\Anant Gupta'
 session_id: c4ce8d15-6db3-4bd7-9640-3040d61f09e2
 status: raw
-turn_count: 6
+turn_count: 10
 tools_used:
-  Bash: 10
-  Edit: 11
-  Glob: 1
-  PowerShell: 23
-  Read: 3
+  Bash: 14
+  Edit: 12
+  Glob: 2
+  Grep: 1
+  PowerShell: 30
+  Read: 4
   ToolSearch: 1
   WebSearch: 1
-  Write: 1
+  Write: 3
 tokens:
-  input: 222
-  output: 171239
-  cache_creation: 1146857
-  cache_read: 12788123
-  total: 14106441
+  input: 306
+  output: 235209
+  cache_creation: 1643158
+  cache_read: 19974659
+  total: 21853332
 cost_usd: null
 model:
   - "claude-sonnet-5-5"
 files_touched:
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Old Laptop Rebuild - Index.md"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\VS Code - MCP and Secrets.md"
   - "D:\\WSL\\ops\\60-build5b-host.ps1"
   - "D:\\WSL\\ops\\windows\\05-startup-cleanup.ps1"
+  - "D:\\WSL\\ops\\windows\\06-ollama-check.ps1"
+  - "D:\\WSL\\ops\\windows\\firecrawl-key-move.sh"
 tags:
   - input
   - ai-conversation
@@ -805,10 +809,348 @@ compare_ref=origin/master ahead=6 behind=5
 dirty_count=25
 ```
 
+## You
+
+```
+
+<pasted_content id="79bf">
+
+░▒▓ 󰍲  ~ 
+❯ powershell -ExecutionPolicy Bypass -File D:\WSL\ops\60-build5b-host.ps1 -Stages Verify -Apply
+12:57:21 Build 5b host script. Stages: Verify  DryRun=False  Log: D:\WSL\ops\windows\logs\[REDACTED].log
+12:57:21 == Stage Verify
+Verify ubuntu-20261014-233219.tar (54.47 GiB) and write its manifest? WSL is started if it is stopped.  Type YES to continue (anything else skips): YES
+12:57:34   verifying D:\Backup\WSL\ubuntu-20261014-233219.tar  size 58,487,982,080 bytes (54.47 GiB)
+12:58:45   helper output: entries=1114217 | rc=0 | notes=0
+12:58:45   GNU tar -tf OK: 1,114,217 entries, exit 0, 0 stderr lines other than xattr notices, 1.2 min
+13:00:55   SHA-256 [REDACTED] (2.2 min)
+13:00:55   manifest written: D:\Backup\WSL\ubuntu-20261014-233219.tar.manifest.txt
+13:00:55 DONE. Log: D:\WSL\ops\windows\logs\[REDACTED].log
+
+░▒▓ 󰍲  ~ 
+took 3m43s ❯ powershell -ExecutionPolicy Bypass -File D:\WSL\ops\60-build5b-host.ps1 -Stages Quarantine -Apply
+13:05:38 Build 5b host script. Stages: Quarantine  DryRun=False  Log: D:\WSL\ops\windows\logs\[REDACTED].log
+13:05:38 == Stage Quarantine (old tar)
+13:05:38   newest export does not match its manifest: not moving the old tar
+13:05:38 DONE. Log: D:\WSL\ops\windows\logs\[REDACTED].log
+
+░▒▓ 󰍲  ~ 
+took 5s ❯
+</pasted_content id="79bf">
+
+```
+
+## Claude
+
+The Quarantine stage refused to move the old tar, which is the safe direction, but the manifest should match. Reading the manifest and the check side by side.
+
+The manifest is now 8 proper lines and Quarantine's check passes. I kept the malformed original as `ubuntu-20261014-233219.tar.manifest.txt.malformed` in `D:\Backup\WSL`, in case you want to see it. The dry run reaches the confirmation prompt, which proves the check now matches.
+
+## Run this next
+
+Type `YES` at the prompt. It moves the old 36.75 GiB tar to `D:\Backup\Quarantine\wsl-tar-review-<date+30 days>` with a README, and deletes nothing.
+
+```powershell
+powershell -ExecutionPolicy Bypass -File D:\WSL\ops\60-build5b-host.ps1 -Stages Quarantine -Apply
+```
+
+## Pending on you
+
+- **A8, Firecrawl key:** it is in WSL `~/.bashrc` at lines 153-154. Rotate it in the Firecrawl dashboard, then tell me it's done. I'll then read the vault's secrets notes and move the new key out of `.bashrc` into a `chmod 600` env file.
+- **A3, .NET 8:** my recommendation was to keep it. WSL Settings (`wslsettings`) is pinned to the 8.x desktop runtime, so I'd only show you the dry run. Tell me if you want that or want to skip it.
+
+After the Quarantine run I'll move on to A4 (Windows Ollama), A5 to A7 (catalog, agent guide, Installations, Acer run sheet) and the rest. I'll start by reading the Build 4 prompt's Phases 5 to 7, since they are the spec for those.
+
+### Tool Calls
+
+- `PowerShell` -- `{"command":"$m=\u0027D:\\Backup\\WSL\\ubuntu-20261014-233219.tar.manifest.txt\u0027; Get-Content $m | % { \u0027[{0}]\u0027 -f $_ }; (Get-Item \u0027D:\\Backup\\WSL\\ubuntu-20261014-233219.tar\u0027).Length; Get-ChildItem D:\\Backup\\WSL | Select Name,Length; [IO.File]::ReadAllBytes($m)[0..12] -join \u0027,\u0027; Select-String -Path D:\\WSL\\ops\\60-build5b-host.ps1 -Pattern \u0027does not match its manifest\u0027 -Context 4,0 | % { $_.Context.PreContext; $_.Line }","description":"Compare manifest contents with the Quarantine check"}`
+- `PowerShell` -- `{"command":"$f=\u0027D:\\WSL\\ops\\60-build5b-host.ps1\u0027; $s=[IO.File]::ReadAllText($f)\n$old=\"`$lines = @(\u0027file=\u0027 + `$tar, \u0027bytes=\u0027 + `$size, \u0027entries=\u0027 + `$entries, \u0027sha256=\u0027 + `$hash, \u0027verified=GNU tar listing (exit 0) + sha256; NO import test was run\u0027, \u0027created=\u0027 + (Get-Date -Format \u0027s\u0027), \u0027distro=\u0027 + `$Distro, \u0027vhdx_bytes=\u0027 + `$vb)\"\n$new=\"`$lines = @((\u0027file=\u0027 + `$tar), (\u0027bytes=\u0027 + `$size), (\u0027entries=\u0027 + `$entries), (\u0027sha256=\u0027 + `$hash), \u0027verified=GNU tar listing (exit 0) + sha256; NO import test was run\u0027, (\u0027created=\u0027 + (Get-Date -Format \u0027s\u0027)), (\u0027distro=\u0027 + `$Distro), (\u0027vhdx_bytes=\u0027 + `$vb))   # parentheses matter: comma binds tighter than +\"\n\"found: \" + $s.Contains($old); $s=$s.Replace($old,$new); [IO.File]::WriteAllText($f,$s,(New-Object Text.ASCIIEncoding))\n\"non-ASCII: \" + @([IO.File]::ReadAllBytes($f) | ? {$_ -gt 127}).Count; $null=[scriptblock]::Create($s); \"parse ok\"\n# exercise the exact fixed expression with the verified values\n$tar=\u0027D:\\Backup\\WSL\\ubuntu-20261014-233219.tar\u0027; $size=58487982080; $entries=1114217; $hash=\[REDACTED]\u0027; $Distro=\u0027Ubuntu\u0027; $vb=115507986432\n$lines = @((\u0027file=\u0027 + $tar), (\u0027bytes=\u0027 + $size), (\u0027entries=\u0027 + $entries), (\u0027sha256=\u0027 + $hash), \u0027verified=GNU tar listing (exit 0) + sha256; NO import test was run\u0027, (\u0027created=2026-10-15T13:00:55\u0027), (\u0027distro=\u0027 + $Distro), (\u0027vhdx_bytes=\u0027 + $vb))\n\"lines: \" + $lines.Count","description":"Fix manifest array expression and check element count"}`
+- `PowerShell` -- `{"command":"$tar=\u0027D:\\Backup\\WSL\\ubuntu-20261014-233219.tar\u0027; $man=$tar+\u0027.manifest.txt\u0027; $sha=(Get-Content ($tar+\u0027.sha256\u0027)).Split(\u0027 \u0027)[0]; \"sha256 file matches logged hash: \" + ($sha -eq \[REDACTED]\u0027)\n$size=(Get-Item $tar).Length; $lines=@((\u0027file=\u0027+$tar),(\u0027bytes=\u0027+$size),\u0027entries=1114217\u0027,(\u0027sha256=\u0027+$sha),\u0027verified=GNU tar listing (exit 0) + sha256; NO import test was run\u0027,\u0027created=2026-10-15T13:00:55\u0027,\u0027distro=Ubuntu\u0027,\u0027vhdx_bytes=115507986432\u0027)\nCopy-Item $man ($man+\u0027.malformed\u0027) ; [IO.File]::WriteAllLines($man,[string[]]$lines,(New-Object Text.ASCIIEncoding)); Get-Content $man\n\"=== dry run Quarantine\"; powershell.exe -NoProfile -ExecutionPolicy Bypass -File D:\\WSL\\ops\\60-build5b-host.ps1 -Stages Quarantine | Select -Last 4","description":"Rewrite the manifest and dry-run Quarantine"}`
+
+## You
+
+ A8, Firecrawl key: it is in WSL ~/.bashrc at lines 153-154. Rotate it in the Firecrawl dashboard, then tell me it's done. I'll then read the vault's secrets notes and move the new key out of .bashrc into a chmod 600 env file. rotated and this is the output: ```
+
+<pasted_content id="79bf">
+░▒▓ 󰍲  ~ 
+took 5s ❯ powershell -ExecutionPolicy Bypass -File D:\WSL\ops\60-build5b-host.ps1 -Stages Quarantine -Apply
+13:11:09 Build 5b host script. Stages: Quarantine  DryRun=False  Log: D:\WSL\ops\windows\logs\[REDACTED].log
+13:11:09 == Stage Quarantine (old tar)
+A verified newer export exists (D:\Backup\WSL\ubuntu-20261014-233219.tar). Move the old 36.75 GiB tar into quarantine?  Type YES to continue (anything else skips): YES
+13:11:12   moved to D:\Backup\Quarantine\[REDACTED] (nothing deleted)
+13:11:12 DONE. Log: D:\WSL\ops\windows\logs\[REDACTED].log
+</pasted_content id="79bf">
+
+```
+
+## Claude
+
+The old tar is quarantined and nothing was deleted. Since you've confirmed the rotation, A8 is next. First I'm finding the vault's secrets notes, so the new key goes where your own conventions say.
+
+`.bashrc` already sources a global `~/.mcp.env` (line 150). That is the pattern to use, and I won't open that file. I'm reading the vault's convention note.
+
+Real test next: a syntax check, a CR/non-ASCII check, then the actual dry run in WSL. The dry run does hit Firecrawl's API with the old key, which also tells us whether your rotation took effect.
+
+## Round recap
+
+- **A2 is finished.** The old tar is in `D:\Backup\Quarantine\[REDACTED]`, and the verified export and its manifest are in `D:\Backup\WSL`. No import test was run.
+- **A8 is blocked on you.** The old Firecrawl key still works: Firecrawl's API returns HTTP 200 for it, and the check returns 401 for fake and missing keys. So the key was not revoked. I never saw either value.
+- **A11 is done.** The weekly-clean dry run would remove only 0.01 GiB. The first scheduled run is 2026-10-18 03:30.
+- **A3 and A4** are ready for you to run, below.
+
+## Your commands
+
+**1. Finish the Firecrawl rotation (A8).**
+
+- In the Firecrawl dashboard, **delete or revoke the old API key**, and keep only the new one.
+- Then run the check below. It should now say `HTTP 401` for the old key.
+- Then run the apply. It prompts once for the new key with hidden input, checks that the API accepts it, writes it to `~/.mcp.env` (mode 600, already sourced at `.bashrc` line 150), and removes lines 153-154 from `.bashrc`.
+
+```bash
+bash /mnt/d/WSL/ops/windows/firecrawl-key-move.sh
+bash /mnt/d/WSL/ops/windows/firecrawl-key-move.sh --apply
+```
+
+**2. Start and check Windows Ollama (A4).** This starts it for this session only. The startup shortcut stays disabled.
+
+```powershell
+powershell -ExecutionPolicy Bypass -File D:\WSL\ops\windows\06-ollama-check.ps1 -Apply
+```
+
+**3. .NET 8 dry run (A3), in an elevated PowerShell.** The dry run needs elevation too. My recommendation stays "keep": WSL Settings is pinned to .NET 8 desktop. Read the dry-run list before deciding anything.
+
+```powershell
+powershell -ExecutionPolicy Bypass -File D:\WSL\ops\windows\04-admin-remove.ps1 -IncludeDotnet8
+```
+
+Paste the three outputs back. In the meantime I'm starting the Phase 5 to 7 reading (catalog, agent guide, Installations, Acer run sheet) from the Build 4 prompt.
+
+### Tool Calls
+
+- `Grep` -- pattern `(?i)(secret|\.env|api key|chmod 600|credential)` path `D:\Users\_Anant\10_Areas\Documents\Jarvis`
+- `Glob` -- pattern `**/*{ecret,Env,env.d,ecrets}*.md` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources`
+- `Bash` -- `wsl.exe -d Ubuntu --exec bash -c 'sed -n "148,160p" ~/.bashrc | sed -E "s/(KEY=).*/\1<redacted>/"; echo ---; ls -la ~/.config/secrets ~/.secrets ~/.env* 2>&1 | head; echo ---; grep -n -E "source .*(env|secret)|\. .*(env|secret)" ~/.bashrc | sed -E "s/(KEY=).*/\1<redacted>/" | head' 2>&1`
+```
+# Global MCP secrets (shared by Cursor, Claude Code, and any other MCP-capable tool)
+if [[ -f "$HOME/.mcp.env" ]]; then
+  source "$HOME/.mcp.env"
+fi
+
+# Firecrawl secrets
+export FIRECRAWL_API_KEY=<redacted>
+
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+---
+ls: cannot access '/home/anant_gupta/.config/secrets': No such file or directory
+ls: cannot access '/home/anant_gupta/.secrets': No such file or directory
+ls: cannot access '/home/anant_gupta/.env*': No such file or directory
+---
+125:. "$HOME/.cargo/env"
+131:. "$HOME/.local/bin/env"
+150:  source "$HOME/.mcp.env"
+197:    source "$HOME/.config/vscode-env/init.sh"
+230:[ -f "$HOME/.config/toolkit/env.sh" ] && . "$HOME/.config/toolkit/env.sh"
+```
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\VS Code - MCP and Secrets.md`
+- `Bash` -- `wsl.exe -d Ubuntu --exec bash -c 'ls -l ~/.bashrc ~/.mcp.env 2>&1 | sed -E "s/^(.{10}).* ([0-9]+) .* (\/.*)$/\1 \3/"; stat -c "%a %U" ~/.mcp.env 2>&1; echo "bashrc assignment lines: $(grep -c "^export FIRECRAWL_API_KEY=" ~/.bashrc)"; echo "golden has FIRECRAWL: $(grep -rl FIRECRAWL "/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis/40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild/WSL Parity/golden" 2>/dev/null | wc -l)"; echo "mcp.env defines FIRECRAWL: $(grep -c FIRECRAWL_API_KEY ~/.mcp.env 2>/dev/null)"; echo "mcp.env export-style lines: $(grep -c "^export " ~/.mcp.env 2>/dev/null) of $(grep -c "=" ~/.mcp.env 2>/dev/null)"; which curl' 2>&1
+powershell.exe -NoProfile -Command '$u=[Environment]::GetEnvironmentVariable("FIRECRAWL_API_KEY","User"); "Windows user env FIRECRAWL_API_KEY set: " + [bool]$u; "WSLENV: " + $env:WSLENV'`
+```
+-rw-r--r-- /home/anant_gupta/.bashrc
+-rw------- /home/anant_gupta/.mcp.env
+600 anant_gupta
+bashrc assignment lines: 1
+golden has FIRECRAWL: 0
+mcp.env defines FIRECRAWL: 0
+mcp.env export-style lines: 4 of 4
+/usr/bin/curl
+Windows user env FIRECRAWL_API_KEY set: False
+WSLENV: WT_SESSION:WT_PROFILE_ID:
+```
+- `Write` -- `D:\WSL\ops\windows\firecrawl-key-move.sh`
+```
+#!/usr/bin/env bash
+# firecrawl-key-move.sh  (Build 4b, A8, 2026-10-15)  ASCII only. Run INSIDE WSL.
+#   bash /mnt/d/WSL/ops/windows/firecrawl-key-move.sh            dry run: changes nothing, asks for nothing, prints no secret
+#   bash /mnt/d/WSL/ops/windows/firecrawl-key-move.sh --apply    does it (prompts once for the NEW key, hidden input)
+# What --apply does:
+#   1. asks Firecrawl's own API whether the OLD key (still in ~/.bashrc) is rejected. If it still works the rotation is not done: stops.
+#   2. prompts for the NEW key (hidden), checks the API accepts it, then writes it to ~/.mcp.env (chmod 600, which ~/.bashrc already sources, line 150).
+#   3. removes the "# Firecrawl secrets" comment and the export line from ~/.bashrc (a copy with the key line blanked goes to D:\Backup\dotfiles-<stamp>\).
+#   4. verifies: a fresh interactive bash sees the key (length only), ~/.bashrc no longer holds the old key, and lists other files that still hold the old key (paths only).
+# Secret values are never printed, logged or put on a command line (curl reads its header from a process substitution).
+set -u
+apply=0; [ "${1:-}" = "--apply" ] && apply=1
+logdir=/mnt/d/WSL/ops/windows/logs; mkdir -p "$logdir"
+stamp=$(date +%Y%m%d-%H%M%S)
+log="$logdir/firecrawl-key-move-$stamp.log"
+say() { echo "$(date +%H:%M:%S) $*" | tee -a "$log"; }
+rc="$HOME/.bashrc"; envf="$HOME/.mcp.env"
+say "firecrawl-key-move apply=$apply  log=$log"
+
+# HTTP status of Firecrawl's credit-usage endpoint for a key (status code only). 200 = key valid, 401/403 = rejected.
+fc_status() {
+  local k="$1" c
+  for v in v2 v1; do
+    c=$(curl -s -o /dev/null -m 20 -w '%{http_code}' --config <(printf 'header = "Authorization: Bearer %s"\n' "$k") "https://api.firecrawl.dev/$v/team/credit-usage" 2>/dev/null)
+    case "$c" in 200|401|402|403) echo "$c"; return ;; esac
+  done
+  echo "${c:-000}"
+}
+
+# ---- locate the old key in ~/.bashrc
+n=$(grep -c '^export FIRECRAWL_API_KEY=' "$rc")
+if [ "$n" != "1" ]; then say "STOP: expected exactly 1 'export FIRECRAWL_API_KEY=' line in $rc, found $n"; exit 2; fi
+lineno=$(grep -n '^export FIRECRAWL_API_KEY=' "$rc" | cut -d: -f1)
+cmt=0; [ "$lineno" -gt 1 ] && [ "$(sed -n "$((lineno - 1))p" "$rc")" = "# Firecrawl secrets" ] && cmt=1
+old=$(grep '^export FIRECRAWL_API_KEY=' "$rc" | head -1 | cut -d= -f2-)
+old=${old%\"}; old=${old#\"}; old=${old%\'}; old=${old#\'}
+say "found assignment at $rc line $lineno (comment line above it: $cmt); old key length ${#old}"
+ostat=$(fc_status "$old")
+say "Firecrawl API says OLD key -> HTTP $ostat  (401/403 = revoked, good; 200 = STILL VALID, rotation not done)"
+envperm=$(stat -c %a "$envf" 2>/dev/null || echo missing)
+say "$envf perms: $envperm; already defines FIRECRAWL_API_KEY: $(grep -c '^\(export \)\?FIRECRAWL_API_KEY=' "$envf" 2>/dev/null)"
+
+if [ "$apply" = "0" ]; then
+  say "DRY RUN: would prompt for the new key, check it, write it to $envf (600), remove line(s) $((lineno - cmt))-$lineno from $rc, back up a redacted $rc, then verify. Nothing changed."
+  exit 0
+fi
+
+# ---- apply
+if [ "$ostat" = "200" ]; then say "STOP: the OLD key still works. Revoke/rotate it in the Firecrawl dashboard first, then re-run."; exit 3; fi
+[ "$ostat" = "000" ] && say "WARNING: could not reach the Firecrawl API to test the old key (network?). Continuing is your call: Ctrl+C now to stop."
+read -rsp 'Paste the NEW Firecrawl API key (hidden, then Enter): ' new; echo
+if [ -z "$new" ] || [[ "$new" =~ [[:space:]\'\"] ]]; then say "STOP: empty key or it contains whitespace/quotes"; exit 4; fi
+if [ "$new" = "$old" ]; then say "STOP: the new key is identical to the old one"; exit 4; fi
+case "$new" in fc-*) ;; *) say "note: new key does not start with fc- (length ${#new}); continuing only if the API accepts it" ;; esac
+nstat=$(fc_status "$new")
+say "Firecrawl API says NEW key -> HTTP $nstat"
+if [ "$nstat" != "200" ]; then say "STOP: the API did not accept the new key (expected 200). Nothing was written."; exit 5; fi
+
+bk="/mnt/d/Backup/dotfiles-$stamp"; mkdir -p "$bk"
+sed -E 's/^(export FIRECRAWL_API_KEY=).*/\1<removed>/' "$rc" > "$bk/bashrc.redacted"
+[ -f "$envf" ] && cp -p "$envf" "$HOME/.mcp.env.bak-$stamp" && chmod 600 "$HOME/.mcp.env.bak-$stamp" && say "rollback copy of $envf: $HOME/.mcp.env.bak-$stamp (holds secrets: delete it once everything works)"
+say "backup of .bashrc with the key blanked: $bk/bashrc.redacted"
+
+umask 077
+tmp=$(mktemp "$HOME/.mcp.env.new.XXXXXX")
+{ [ -f "$envf" ] && grep -v '^\(export \)\?FIRECRAWL_API_KEY=' "$envf"; printf "export FIRECRAWL_API_KEY='%s'\n" "$new"; } > "$tmp"
+chmod 600 "$tmp"; mv -f "$tmp" "$envf"; chmod 600 "$envf"
+say "wrote FIRECRAWL_API_KEY to $envf (perms $(stat -c %a "$envf"))"
+
+tmp=$(mktemp "$HOME/.bashrc.new.XXXXXX")
+awk -v ln="$lineno" -v c="$cmt" 'NR==ln {next} (c==1 && NR==ln-1) {next} {print}' "$rc" > "$tmp"
+chmod --reference="$rc" "$tmp"; mv -f "$tmp" "$rc"
+say "removed line(s) $((lineno - cmt))-$lineno from $rc"
+
+# ---- verify (lengths and counts only)
+len=$(env -i HOME="$HOME" PATH="$PATH" TERM=dumb bash -ic 'echo ${#FIRECRAWL_API_KEY}' 2>/dev/null | tail -1)
+say "fresh interactive bash sees FIRECRAWL_API_KEY with length: $len (new key length ${#new})"
+say "~/.bashrc still contains the old key: $(grep -cF -- "$old" "$rc")  | any FIRECRAWL_API_KEY= line left in .bashrc: $(grep -c 'FIRECRAWL_API_KEY=' "$rc")"
+say "scanning other config locations for the OLD (revoked) key; file paths only"
+for root in "$HOME/.config" "$HOME/.cursor" "$HOME/.codex" "$HOME/.gemini" "$HOME/.agents" "$HOME/.claude.json" "$HOME/.profile" "$HOME/.bash_profile" "$HOME/.zshrc" \
+            "/mnt/c/Users/Anant Gupta/.claude.json" "/mnt/c/Users/Anant Gupta/.cursor" "/mnt/c/Users/Anant Gupta/.codex" "/mnt/c/Users/Anant Gupta/.config" "/mnt/c/Users/Anant Gupta/AppData/Roaming/Code/User" "/mnt/c/Users/Anant Gupta/AppData/Roaming/Cursor/User"; do
+  [ -e "$root" ] || continue
+  grep -rIlF --exclude='auth.json' --exclude='.credentials.json' --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=snapshots --exclude-dir=extensions -- "$old" "$root" 2>/dev/null | sed 's/^/   still holds old key: /' | tee -a "$log"
+done
+say "scan done. The old key is revoked, so leftovers are harmless but should be cleaned up. Restart Claude Code, Cursor and VS Code so MCP servers pick up the new key."
+say "DONE. Log: $log"
+
+```
+- `Bash` -- `wsl.exe -d Ubuntu --exec bash -c 'f=/mnt/d/WSL/ops/windows/firecrawl-key-move.sh; echo "CRs: $(grep -c $'"'"'\r'"'"' $f)  non-ASCII lines: $(LC_ALL=C grep -c -P "[^\x00-\x7F]" $f)"; bash -n $f && echo "syntax ok"; bash $f' 2>&1`
+```
+CRs: 0  non-ASCII lines: 0
+syntax ok
+13:12:56 firecrawl-key-move apply=0  log=/mnt/d/WSL/ops/windows/logs/[REDACTED].log
+13:12:56 found assignment at /home/anant_gupta/.bashrc line 154 (comment line above it: 1); old key length 35
+13:12:57 Firecrawl API says OLD key -> HTTP 200  (401/403 = revoked, good; 200 = STILL VALID, rotation not done)
+13:12:57 /home/anant_gupta/.mcp.env perms: 600; already defines FIRECRAWL_API_KEY: 0
+13:12:57 DRY RUN: would prompt for the new key, check it, write it to /home/anant_gupta/.mcp.env (600), remove line(s) 153-154 from /home/anant_gupta/.bashrc, back up a redacted /home/anant_gupta/.bashrc, then verify. Nothing changed.
+```
+- `Bash` -- `wsl.exe -d Ubuntu --exec bash -c 'for v in v2 v1; do echo "fake key via $v: $(curl -s -o /dev/null -m 20 -w "%{http_code}" -H "Authorization: Bearer fc-0000000000000000000000000000dead" https://api.firecrawl.dev/$v/team/credit-usage)"; done; echo "no key via v2: $(curl -s -o /dev/null -m 20 -w "%{http_code}" https://api.firecrawl.dev/v2/team/credit-usage)"' 2>&1`
+```
+fake key via v2: 401
+fake key via v1: 401
+no key via v2: 401
+```
+- `PowerShell` -- `{"command":"$s=\u0027D:\\WSL\\ops\\windows\u0027; Get-ChildItem $s -File | Select Name,Length,LastWriteTime | Format-Table -AutoSize | Out-String; Select-String -Path \"$s\\weekly-clean.ps1\",\"$s\\04-admin-remove.ps1\" -Pattern \u0027^\\s*param|\\[switch\\]|\\[string\u0027 | % { $_.Filename + \u0027:\u0027 + $_.LineNumber + \u0027: \u0027 + $_.Line.Trim() }; Get-ScheduledTask -TaskName Toolkit-Weekly-Clean | Select -Expand Actions | Select Execute,Arguments | Format-List; (Get-ScheduledTaskInfo -TaskName Toolkit-Weekly-Clean) | Select NextRunTime,LastRunTime,LastTaskResult | Format-List","description":"Inspect weekly-clean and admin-remove parameters and task"}`
+- `PowerShell` -- `{"command":"\"=== A11 weekly-clean -DryRun\"; powershell.exe -NoProfile -ExecutionPolicy Bypass -File D:\\WSL\\ops\\windows\\weekly-clean.ps1 -DryRun 2\u003e\u00261 | Select -First 40; \"exit=$LASTEXITCODE\"; \"=== A3 04-admin-remove (not elevated, dry run)\"; powershell.exe -NoProfile -ExecutionPolicy Bypass -File D:\\WSL\\ops\\windows\\04-admin-remove.ps1 -IncludeDotnet8 2\u003e\u00261 | Select -First 40; \"exit=$LASTEXITCODE\"","description":"Dry-run weekly-clean and the .NET 8 removal","timeout":120000}`
+- `Write` -- `D:\WSL\ops\windows\06-ollama-check.ps1`
+```
+# 06-ollama-check.ps1  (Build 4b, A4, 2026-10-15)  ASCII only. PowerShell 5.1 and 7 safe. No admin needed.
+#   powershell -ExecutionPolicy Bypass -File D:\WSL\ops\windows\06-ollama-check.ps1            (dry run: only reports, starts nothing)
+#   powershell -ExecutionPolicy Bypass -File D:\WSL\ops\windows\06-ollama-check.ps1 -Apply     (starts the Windows Ollama server if it is not running, then checks it)
+# Checks: OLLAMA_MODELS is D:\AI\ollama-models, ollama.exe is the D:\Apps\Ollama one, port 11434 is owned by that Windows process, 'ollama list' answers.
+# Ollama is started for this session only. Its Startup-folder shortcut stays disabled (StartupApproved = 03); the Dell has no discrete GPU, so heavy models belong on the Acer.
+param([switch]$Apply)
+$ErrorActionPreference = 'Stop'
+$dry = -not $Apply
+$logDir = 'D:\WSL\ops\windows\logs'
+if (-not (Test-Path $logDir)) { New-Item -ItemType Directory -Path $logDir -Force | Out-Null }
+$stamp = Get-Date -Format 'yyyyMMdd-HHmmss'
+$log = Join-Path $logDir ('ollama-check-' + $stamp + '.log')
+try { Start-Transcript -Path (Join-Path $logDir ('ollama-check-' + $stamp + '.transcript.txt')) -Force | Out-Null } catch { }
+function Log([string]$m) { $l = (Get-Date -Format 'HH:mm:ss') + ' ' + $m; Write-Host $l; Add-Content -Path $log -Value $l -Encoding ASCII }
+Log ("ollama check. DryRun={0}  Log: {1}" -f $dry, $log)
+
+$exe = 'D:\Apps\Ollama\ollama.exe'
+$models = [Environment]::GetEnvironmentVariable('OLLAMA_MODELS', 'User')
+Log ("  OLLAMA_MODELS (user env): {0}   expected D:\AI\ollama-models   {1}" -f $models, $(if ($models -eq 'D:\AI\ollama-models') { 'OK' } else { 'MISMATCH' }))
+Log ("  models folder exists: {0}" -f (Test-Path 'D:\AI\ollama-models'))
+Log ("  {0} exists: {1}" -f $exe, (Test-Path $exe))
+if (Test-Path $exe) { Log ("  version: {0}" -f (Get-Item $exe).VersionInfo.ProductVersion) }
+
+function Get-Listener { Get-NetTCPConnection -LocalPort 11434 -State Listen -ErrorAction SilentlyContinue | Select-Object -First 1 }
+$l = Get-Listener
+if ($l) { Log ("  port 11434 already listening, owner pid {0}" -f $l.OwningProcess) }
+else {
+  Log '  nothing listens on 11434'
+  if ($dry) { Log ("  [dry run] would start: {0} serve (hidden), wait up to 30 s" -f $exe) }
+  else {
+    # the server inherits OLLAMA_MODELS from the user environment; set it for this process too in case this shell predates the variable
+    if ($models) { $env:OLLAMA_MODELS = $models }
+    Start-Process -FilePath $exe -ArgumentList 'serve' -WindowStyle Hidden | Out-Null
+    for ($i = 0; $i -lt 30 -and -not (Get-Listener); $i++) { Start-Sleep -Seconds 1 }
+    $l = Get-Listener
+    if ($l) { Log ("  started; port 11434 owner pid {0}" -f $l.OwningProcess) } else { Log '  FAILED: nothing listening after 30 s' }
+  }
+}
+if ($l) {
+  $p = Get-CimInstance Win32_Process -Filter ("ProcessId={0}" -f $l.OwningProcess)
+  Log ("  owner process: {0}  path: {1}" -f $p.Name, $p.ExecutablePath)
+  Log ("  owned by the Windows D:\Apps\Ollama binary: {0}" -f ($p.ExecutablePath -like 'D:\Apps\Ollama\*'))
+  Log ("  bound address: {0}" -f $l.LocalAddress)
+  try { $v = Invoke-RestMethod -Uri 'http://127.0.0.1:11434/api/version' -TimeoutSec 10; Log ("  API version: {0}" -f $v.version) } catch { Log ("  API call failed: {0}" -f $_.Exception.Message) }
+  $prev = $ErrorActionPreference; $ErrorActionPreference = 'Continue'
+  $out = @(& $exe list 2>&1 | ForEach-Object { "$_" })
+  $ErrorActionPreference = $prev
+  Log ("  'ollama list' exit code {0}, {1} line(s):" -f $LASTEXITCODE, $out.Count)
+  $out | Select-Object -First 15 | ForEach-Object { Log ('    ' + $_) }
+}
+Log ("  Startup shortcut state (03 = disabled): {0}" -f (((Get-ItemProperty 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\StartupFolder' -Name 'Ollama.lnk' -ErrorAction SilentlyContinue).'Ollama.lnk')[0]))
+if ($dry) { Log 'DRY RUN: nothing changed.' }
+Log "DONE. Log: $log"
+try { Stop-Transcript | Out-Null } catch { }
+
+```
+- `PowerShell` -- `{"command":"$f=\u0027D:\\WSL\\ops\\windows\\06-ollama-check.ps1\u0027; \"non-ASCII: \" + @([IO.File]::ReadAllBytes($f) | ? {$_ -gt 127}).Count; foreach($h in \u0027powershell.exe\u0027,\u0027pwsh.exe\u0027){ \"=== dry run $h\"; \u0026 $h -NoProfile -ExecutionPolicy Bypass -File $f; \"exit=$LASTEXITCODE\" }","description":"Dry-run the Ollama check script in both shells","timeout":60000}`
+- `Edit` -- `D:\WSL\ops\windows\06-ollama-check.ps1`
+```diff
+- if (Test-Path $exe) { Log ("  version: {0}" -f (Get-Item $exe).VersionInfo.ProductVersion) }
+
++ 
+```
+- `PowerShell` -- `{"command":"$f=\u0027D:\\WSL\\ops\\windows\\06-ollama-check.ps1\u0027; $null=[scriptblock]::Create([IO.File]::ReadAllText($f)); \"parse ok\"; powershell.exe -NoProfile -ExecutionPolicy Bypass -File $f | Select -Last 4","description":"Re-run Ollama dry run after edit","timeout":60000}`
+
 ## Actions Taken
 
 **Files created:**
 - `D:\WSL\ops\windows\05-startup-cleanup.ps1`
+- `D:\WSL\ops\windows\06-ollama-check.ps1`
+- `D:\WSL\ops\windows\firecrawl-key-move.sh`
 
 **Files modified:**
 - `D:\WSL\ops\60-build5b-host.ps1`
@@ -839,5 +1181,10 @@ grep -n 'Stages' 60-build5b-host.ps1 | head -20`
 - `printf '%s\n' '#!/usr/bin/env bash' '# verify-tar.sh <tar path>  (Build 4b, 2026-10-14)  Lists a tar with GNU tar; prints: entries=N, rc=N, notes=N (stderr lines other than xattr notices).' 'tar_path="$1"' 'err=/tmp/tar-verify.err' 'set -o pipefail' 'n=$(tar -tf "$tar_path" 2>"$err" | wc -l)' 'rc=${PIPESTATUS[0]}' 'echo "entries=$n"' 'echo "rc=$rc"' 'echo "notes=$(grep -vc LIBARCHIVE.xattr "$err")"' > /d/WSL/ops/windows/verify-tar.sh; od -c /d/WSL/ops/windows/verify-tar.sh | head -3; grep -c $'\r' /d/WSL/ops/windows/verify-tar.sh`
 - `printf '%s\n' '#!/usr/bin/env bash' '# verify-tar.sh <tar path>  (Build 4b, 2026-10-14)  Lists a tar with GNU tar. Prints entries=N, rc=<tar exit code>, notes=<stderr lines other than xattr notices>.' 'tar_path="$1"' 'list=$(mktemp /tmp/tar-verify-list.XXXXXX)' 'err=$(mktemp /tmp/tar-verify-err.XXXXXX)' 'tar -tf "$tar_path" > "$list" 2> "$err"' 'rc=$?' 'echo "entries=$(wc -l < "$list")"' 'echo "rc=$rc"' 'echo "notes=$(grep -vc LIBARCHIVE.xattr "$err")"' 'rm -f "$list" "$err"' > /d/WSL/ops/windows/verify-tar.sh; cat /d/WSL/ops/windows/verify-tar.sh | tail -8`
 - `wsl.exe -d Ubuntu --exec bash -c 'tailscale debug prefs 2>/dev/null | grep -E "RunSSH|ControlURL" | sed -E "s/ +/ /g"; systemctl --user list-timers --all --no-pager 2>/dev/null | grep -E "wsl-(clean|watch)" | awk "{print \$(NF-1), \$NF}"; ~/tools/sync-check 2>&1 | tail -6' 2>&1`
+- `wsl.exe -d Ubuntu --exec bash -c 'sed -n "148,160p" ~/.bashrc | sed -E "s/(KEY=).*/\1<redacted>/"; echo ---; ls -la ~/.config/secrets ~/.secrets ~/.env* 2>&1 | head; echo ---; grep -n -E "source .*(env|secret)|\. .*(env|secret)" ~/.bashrc | sed -E "s/(KEY=).*/\1<redacted>/" | head' 2>&1`
+- `wsl.exe -d Ubuntu --exec bash -c 'ls -l ~/.bashrc ~/.mcp.env 2>&1 | sed -E "s/^(.{10}).* ([0-9]+) .* (\/.*)$/\1 \3/"; stat -c "%a %U" ~/.mcp.env 2>&1; echo "bashrc assignment lines: $(grep -c "^export FIRECRAWL_API_KEY=" ~/.bashrc)"; echo "golden has FIRECRAWL: $(grep -rl FIRECRAWL "/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis/40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild/WSL Parity/golden" 2>/dev/null | wc -l)"; echo "mcp.env defines FIRECRAWL: $(grep -c FIRECRAWL_API_KEY ~/.mcp.env 2>/dev/null)"; echo "mcp.env export-style lines: $(grep -c "^export " ~/.mcp.env 2>/dev/null) of $(grep -c "=" ~/.mcp.env 2>/dev/null)"; which curl' 2>&1
+powershell.exe -NoProfile -Command '$u=[Environment]::GetEnvironmentVariable("FIRECRAWL_API_KEY","User"); "Windows user env FIRECRAWL_API_KEY set: " + [bool]$u; "WSLENV: " + $env:WSLENV'`
+- `wsl.exe -d Ubuntu --exec bash -c 'f=/mnt/d/WSL/ops/windows/firecrawl-key-move.sh; echo "CRs: $(grep -c $'"'"'\r'"'"' $f)  non-ASCII lines: $(LC_ALL=C grep -c -P "[^\x00-\x7F]" $f)"; bash -n $f && echo "syntax ok"; bash $f' 2>&1`
+- `wsl.exe -d Ubuntu --exec bash -c 'for v in v2 v1; do echo "fake key via $v: $(curl -s -o /dev/null -m 20 -w "%{http_code}" -H "Authorization: Bearer fc-0000000000000000000000000000dead" https://api.firecrawl.dev/$v/team/credit-usage)"; done; echo "no key via v2: $(curl -s -o /dev/null -m 20 -w "%{http_code}" https://api.firecrawl.dev/v2/team/credit-usage)"' 2>&1`
 
 

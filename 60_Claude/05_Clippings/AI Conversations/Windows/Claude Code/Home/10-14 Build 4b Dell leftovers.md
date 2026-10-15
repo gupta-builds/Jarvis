@@ -6,7 +6,7 @@ source_os: windows
 title: "Build 4b Dell leftovers"
 started_at: 2026-10-14T10:02:29
 ended_at: 2026-10-15T13:48:53
-exported_at: 2026-10-15T14:00:03
+exported_at: 2026-10-15T14:30:03
 duration_minutes: 1666.4
 project: Home
 cwd: 'C:\Users\Anant Gupta'

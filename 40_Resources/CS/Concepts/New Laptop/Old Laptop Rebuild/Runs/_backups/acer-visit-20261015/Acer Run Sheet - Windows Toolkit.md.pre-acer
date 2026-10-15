@@ -1,0 +1,100 @@
+---
+type: note
+status: sprout
+created: 2026-10-15
+updated: 2026-10-15
+course: Life
+track:
+  - laptop
+  - windows
+tags:
+  - note
+  - laptop
+related:
+  - "[[Old Laptop Rebuild - Index]]"
+  - "[[Old Laptop Rebuild - Build 4 Windows Toolkit Findings]]"
+  - "[[Machine Toolkit - Tool Use Cases and Agent Guide]]"
+  - "[[Installations]]"
+  - "[[Acer Session Handoff - Toolkit Sync (Build 5b)]]"
+next: "Run Part 0 (read-only) on the Acer, paste the output back to the Dell session, then continue with Part 1 only after the parity matrix says what differs."
+---
+# Acer Run Sheet - Windows Toolkit
+
+## One-Line Answer
+==Run Part 0 on the Acer first (it changes nothing), paste the tables back, and only then run the install and config steps; the Dell has already been through all of them and its versions are recorded in `toolkit.lock.json`.==
+
+## Who this is for
+The Claude session or the user on the Acer, Windows side, in a **normal** (not elevated) PowerShell. The Dell session has no access to the Acer. This sheet covers the Windows toolkit only. The WSL toolkit is a separate visit note: [[Acer Session Handoff - Toolkit Sync (Build 5b)]]. Do both in one Acer visit.
+
+## What is different on the Acer (read this first)
+| Item | Dell | Acer | Why it matters |
+|---|---|---|---|
+| Vault root | `D:\Users\_Anant\10_Areas\Documents\Jarvis` | `D:\_Anant\20_Progress\Documents\Jarvis` | The scripts find the vault by environment variable, then by candidate paths that contain `AGENTS.md`. The role (`acer`) is detected from this path. Pass `-Machine acer` anyway. |
+| Computer name | `DESKTOP-3VBG0JH` | blank in the manifest | Role detection must not rely on the name. |
+| Tailscale | absent on Windows (runs inside the Dell's WSL as `dell-wsl`) | installed on Windows as `gupta-builds` | Verify only. Never install it in the Acer's WSL. Never reinstall or sign out on Windows. |
+| GPU | Intel Iris Xe only | RTX 5070 Ti | Heavy local models belong here, not on the Dell. |
+| Kiro, Miniconda, opam | present (Dell-only in the manifest) | not part of this toolkit | Do not install them. |
+| Chocolatey and Python 3.13.5 | retired on the Dell | not part of this toolkit | Do not run `04-admin-remove.ps1` or `11-node-lts-swap.ps1` on the Acer. Both are Dell-only. |
+| Font | per-user install on C: (about 760 MB, two sets) | system-wide | The install script adopts what exists. |
+| VS Code | on C: | on D:\Apps | The scripts only verify it. They never write VS Code, MCP or Claude Code settings. Settings Sync is live. |
+| Terminal Ubuntu profile | `Ubuntu (Dell)` | `Ubuntu-24.04 (Acer)` | Machine profiles are preserved by the Terminal merge. |
+| Node | LTS 24 (was 22) | check; the sheet does not change it | `10-install-toolkit.ps1` installs LTS if missing. Any Node major change is a decision for the user. |
+
+## Where the scripts are on the Acer
+Syncthing carries the vault. Wait until it finishes, then:
+```powershell
+$V  = 'D:\_Anant\20_Progress\Documents\Jarvis'
+$TK = "$V\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit"
+Test-Path "$TK\_scripts\00-preflight.ps1"      # must print True
+Test-Path "$V\AGENTS.md"                        # must print True
+```
+If the vault is elsewhere: `ls D:\_Anant\*\Documents` and set `$V` to the folder that contains `AGENTS.md`, or set the user variable `TOOLKIT_VAULT_ROOT` to it.
+
+Command template for every script (quote the full path, run as a file):
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$TK\_scripts\<script>.ps1" -Machine acer [switches]
+```
+Every script prints a result table (`ID STATUS DETAIL`), writes a log to `D:\WSL\ops\windows\logs\` and a result JSON to `$TK\results\<host>\`. A script that fails a required check exits non-zero. Statuses: `PASS`, `INFO`, `PLAN` (dry run), `PENDING`, `DIFF` (differs from the source, nothing was overwritten), `WARN`, `FAIL`.
+
+## Part 0 - read-only paste-back (run this first, nothing changes)
+The Acer already has parts of the toolkit from 2026-10-12 (fzf, fd, bat, delta, zoxide, PSFzf), so start by finding out exactly what is present.
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$TK\_scripts\00-preflight.ps1" -Machine acer
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$TK\_scripts\10-install-toolkit.ps1" -Machine acer -DryRun
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$TK\_scripts\20-apply-configs.ps1" -Machine acer -DryRun
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$TK\_scripts\99-verify.ps1" -Machine acer
+```
+Do not pass `-WriteLock` on the Acer: only the Dell writes `toolkit.lock.json`. `00` prints the machine, vault, manifest, a secret scan of the shared configs and the plan. `10 -DryRun` lists what it would install or adopt. `20 -DryRun` lists each config as MATCH, DIFF or MISSING without writing. `99-verify` compares the manifest with reality; Dell-only rows show as skipped.
+
+**Paste back** the four result tables (the `ID STATUS DETAIL` blocks) plus the four result JSON paths, and this one-liner:
+```powershell
+winget list --disable-interactivity | Select-String -Pattern 'Tailscale|PowerShell|Starship|NanaZip|Docker|Ollama|Cursor|Antigravity|Visual Studio Code|Claude'
+```
+The Dell session reads both result sets and writes the parity matrix (PASS or DIFF with a reason). Do Part 1 only after that, or if the user says go.
+
+## Part 1 - install and adopt (normal shell, UAC prompts)
+Close editors first (the Git upgrade replaces files in use). UAC prompts appear for Git, GitHub CLI, Starship and Node; accept them.
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$TK\_scripts\10-install-toolkit.ps1" -Machine acer
+```
+Prints one line per tool (`installed=... version=...`) and a summary. It continues past a single failed package. It never installs Tailscale, never removes anything and never touches Node's major version. Needs: internet, `winget`.
+
+## Part 2 - apply the shared configs
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$TK\_scripts\20-apply-configs.ps1" -Machine acer
+```
+Writes (after a timestamped backup to `D:\Backup\Toolkit\<timestamp>\`): the managed profile block in both PowerShell profiles, `starship.toml`, the global git ignore, the shared delta include, bat and fd configs, the Terminal fragment merged into `settings.json` (Acer profiles preserved), git settings and the toolkit environment variables, and the user PATH order (standalone uv first). An existing bat or fd file is kept and reported as `DIFF`: the Acer's real files are the source, so a DIFF there means the shared copy in the vault needs updating, not the Acer. Tell the Dell session. Roll back with `-RestoreFrom "D:\Backup\Toolkit\<timestamp>"`.
+
+## Part 3 - verify and catalog
+Open a **fresh** terminal window (PATH and profile must reload), then:
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$TK\_scripts\99-verify.ps1" -Machine acer
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$TK\_scripts\40-build-catalog.ps1" -Machine acer
+```
+The second writes `$TK\catalog\Tool Catalog - <host>.md` and `.json`. It never prints secrets or `.bashrc`. Paste back the `99-verify` table and the catalog's file name; Syncthing carries the catalog to the Dell.
+
+## Do not run on the Acer
+`11-node-lts-swap.ps1`, `04-admin-remove.ps1`, `60-build5b-host.ps1`, `05-startup-cleanup.ps1`, `06-ollama-check.ps1` and anything in `D:\WSL\ops` that belongs to the Dell. Never `wsl --shutdown` from inside WSL.
+
+## After it ran
+Say so in the Dell session. It reads both result sets (`results\DESKTOP-3VBG0JH` and the Acer's folder) and writes the parity matrix into [[Old Laptop Rebuild - Build 4 Windows Toolkit Findings]]. Known differences to expect: Terminal version (the Dell stays on 1.24), VS Code location, font scope, Kiro and the Dell-only runtimes, and pnpm: the Windows winget pnpm is 12.11.2 on the Dell while the WSL pnpm on both laptops is Corepack-pinned to 12.4.2.

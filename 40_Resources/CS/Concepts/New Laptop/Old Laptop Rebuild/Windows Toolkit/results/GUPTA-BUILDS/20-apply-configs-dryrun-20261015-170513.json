@@ -1,0 +1,128 @@
+{
+    "script":  "20-apply-configs",
+    "host":  "GUPTA-BUILDS",
+    "machine":  "acer",
+    "dryRun":  true,
+    "started":  "2026-10-15T17:05:13",
+    "finished":  "2026-10-15T17:05:15",
+    "admin":  false,
+    "manifestSha256":  "4E4A8D15CFEE15DC9E674B51DBE6FAB1F3730A951C20957AC9E4BB1F3C817634",
+    "vaultRoot":  "D:\\_Anant\\20_Progress\\Documents\\Jarvis",
+    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-20-apply-configs-20261015-170513.log",
+    "counts":  {
+                   "PLAN":  8,
+                   "UNCHANGED":  2,
+                   "DIFF":  2,
+                   "WARN":  1
+               },
+    "items":  [
+                  {
+                      "id":  "starship",
+                      "status":  "UNCHANGED",
+                      "detail":  "C:\\Users\\anant\\.config\\starship.toml already matches the source",
+                      "target":  "C:\\Users\\anant\\.config\\starship.toml",
+                      "sha256":  "9EF7137822AA311445172696D150ED8E6D8C5CD84F5FCF7829D96EE0FA81D1E2"
+                  },
+                  {
+                      "id":  "git-ignore",
+                      "status":  "UNCHANGED",
+                      "detail":  "C:\\Users\\anant\\.config\\git\\ignore already matches the source",
+                      "target":  "C:\\Users\\anant\\.config\\git\\ignore",
+                      "sha256":  "546B86DBE5D2AA141915726FB99966DE0664263AB33C17C460CD50EA3C6E0E50"
+                  },
+                  {
+                      "id":  "git-delta",
+                      "status":  "PLAN",
+                      "detail":  "[DRYRUN] would write C:\\Users\\anant\\.config\\git\\delta.gitconfig (source sha256 91DE9847A299...)"
+                  },
+                  {
+                      "id":  "bat",
+                      "status":  "DIFF",
+                      "detail":  "kept this machine\u0027s own file (C:\\Users\\anant\\AppData\\Roaming\\bat\\config); differs from the shared copy by design until promoted",
+                      "target":  "C:\\Users\\anant\\AppData\\Roaming\\bat\\config",
+                      "sha256":  "F613417D1CF8F71A72F2568F64A05F35AECC76AAD8A26881BA3C0D84A7C4A710",
+                      "sourceSha256":  "FD064DBC4718C2A38DC7D5B250609D62EBC386A3B97B6353009D4348D95D4C8A"
+                  },
+                  {
+                      "id":  "fd-ignore",
+                      "status":  "DIFF",
+                      "detail":  "kept this machine\u0027s own file (C:\\Users\\anant\\AppData\\Roaming\\fd\\ignore); differs from the shared copy by design until promoted",
+                      "target":  "C:\\Users\\anant\\AppData\\Roaming\\fd\\ignore",
+                      "sha256":  "6A549EAF097171C6B35B0A31CB08CC41B53F0064C8858475AB3C4C191EC18DC7",
+                      "sourceSha256":  "A97264C09BFF11356068FED1BB45BD241798431071EE2B1C78C9FF849FA651E0"
+                  },
+                  {
+                      "id":  "profile-ps5",
+                      "status":  "PLAN",
+                      "detail":  "[DRYRUN] would insert/refresh the managed block in D:\\_Anant\\20_Progress\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1 lines 1-1 superseded; lines 2-2 superseded; lines 8-12 superseded; lines 14-14 superseded; lines 15-15 superseded; lines 19-23 superseded",
+                      "target":  "D:\\_Anant\\20_Progress\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1"
+                  },
+                  {
+                      "id":  "profile-pwsh",
+                      "status":  "PLAN",
+                      "detail":  "[DRYRUN] would insert/refresh the managed block in D:\\_Anant\\20_Progress\\Documents\\PowerShell\\Microsoft.PowerShell_profile.ps1 lines 1-1 superseded; lines 2-2 superseded; lines 8-12 superseded; lines 14-14 superseded; lines 15-15 superseded; lines 19-23 superseded",
+                      "target":  "D:\\_Anant\\20_Progress\\Documents\\PowerShell\\Microsoft.PowerShell_profile.ps1"
+                  },
+                  {
+                      "id":  "terminal",
+                      "status":  "PLAN",
+                      "detail":  "[DRYRUN] would merge scheme, defaults, actions, keybindings, pwsh profile and rename Ubuntu to \u0027Ubuntu-24.04 (Acer)\u0027 in C:\\Users\\anant\\AppData\\Local\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json; preview: D:\\_Anant\\20_Progress\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\results\\GUPTA-BUILDS\\terminal-settings-preview-20261015-170513.json",
+                      "target":  "C:\\Users\\anant\\AppData\\Local\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json"
+                  },
+                  {
+                      "id":  "git-delta-include",
+                      "status":  "WARN",
+                      "detail":  "delta or its include file is missing; pager include skipped"
+                  },
+                  {
+                      "id":  "git-settings",
+                      "status":  "PLAN",
+                      "detail":  "8 setting(s) would change; 3 already correct. core.autocrlf: \u0027\u0027 -\u003e \u0027input\u0027 | pull.rebase: \u0027\u0027 -\u003e \u0027true\u0027 | push.autoSetupRemote: \u0027\u0027 -\u003e \u0027true\u0027 | fetch.prune: \u0027\u0027 -\u003e \u0027true\u0027 | rerere.enabled: \u0027\u0027 -\u003e \u0027true\u0027 | init.defaultBranch: \u0027\u0027 -\u003e \u0027main\u0027 | credential.https://github.com.helper: would reset and set to gh auth git-credential | credential.https://gist.github.com.helper: would reset and set to gh auth git-credential"
+                  },
+                  {
+                      "id":  "path-order",
+                      "status":  "PLAN",
+                      "detail":  "[DRYRUN] would move C:\\Users\\anant\\.local\\bin to the front of the user PATH (all other entries kept in order)"
+                  },
+                  {
+                      "id":  "env-STARSHIP_CONFIG",
+                      "status":  "PLAN",
+                      "detail":  "[DRYRUN] would set STARSHIP_CONFIG=C:\\Users\\anant\\.config\\starship.toml (was \u0027\u0027)"
+                  },
+                  {
+                      "id":  "env-TOOLKIT_VAULT_ROOT",
+                      "status":  "PLAN",
+                      "detail":  "[DRYRUN] would set TOOLKIT_VAULT_ROOT=D:\\_Anant\\20_Progress\\Documents\\Jarvis (was \u0027\u0027)"
+                  }
+              ],
+    "hashTable":  [
+                      {
+                          "id":  "starship",
+                          "target":  "C:\\Users\\anant\\.config\\starship.toml",
+                          "source":  "9EF7137822AA311445172696D150ED8E6D8C5CD84F5FCF7829D96EE0FA81D1E2",
+                          "target_hash":  "9EF7137822AA311445172696D150ED8E6D8C5CD84F5FCF7829D96EE0FA81D1E2",
+                          "match":  true
+                      },
+                      {
+                          "id":  "git-ignore",
+                          "target":  "C:\\Users\\anant\\.config\\git\\ignore",
+                          "source":  "546B86DBE5D2AA141915726FB99966DE0664263AB33C17C460CD50EA3C6E0E50",
+                          "target_hash":  "546B86DBE5D2AA141915726FB99966DE0664263AB33C17C460CD50EA3C6E0E50",
+                          "match":  true
+                      },
+                      {
+                          "id":  "bat",
+                          "target":  "C:\\Users\\anant\\AppData\\Roaming\\bat\\config",
+                          "source":  "FD064DBC4718C2A38DC7D5B250609D62EBC386A3B97B6353009D4348D95D4C8A",
+                          "target_hash":  "F613417D1CF8F71A72F2568F64A05F35AECC76AAD8A26881BA3C0D84A7C4A710",
+                          "match":  false
+                      },
+                      {
+                          "id":  "fd-ignore",
+                          "target":  "C:\\Users\\anant\\AppData\\Roaming\\fd\\ignore",
+                          "source":  "A97264C09BFF11356068FED1BB45BD241798431071EE2B1C78C9FF849FA651E0",
+                          "target_hash":  "6A549EAF097171C6B35B0A31CB08CC41B53F0064C8858475AB3C4C191EC18DC7",
+                          "match":  false
+                      }
+                  ]
+}

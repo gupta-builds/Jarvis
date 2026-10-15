@@ -2,7 +2,7 @@
 type: note
 status: sprout
 created: 2026-10-13
-updated: 2026-10-13
+updated: 2026-10-15
 course: Life
 track:
   - laptop
@@ -14,7 +14,7 @@ related:
   - "[[Old Laptop Rebuild - Index]]"
   - "[[Old Laptop Rebuild - Build 5 WSL and D Drive Findings]]"
   - "[[Old Laptop Rebuild - Anant Folder Consolidation and Drive Plan (later build)]]"
-next: "The Acer session runs steps 1 to 7, then fills in the Results section at the bottom of this note."
+next: "Done on the Acer 2026-10-15 except socat (user runs the apt command in the Results section). Nothing else to run from this note."
 ---
 # Acer Session Handoff - Toolkit Sync (Build 5b)
 
@@ -80,10 +80,20 @@ Same visit (added 2026-10-15): also run Part 0 of [[Acer Run Sheet - Windows Too
 - RESOLVED 2026-10-14 by the user: pnpm 12.4.2 on both (matches the Acer), tmux 3.8 on both (latest). Only the per-repo `packageManager` pin is left to approve.
 - Whether the Acer WSL should also use `core.autocrlf=input` (recommended) or stay `false`.
 
-## Results (the Acer session fills this in; patch this heading, keep it dated)
-- Date and time:
-- `wsl-check.sh` output:
-- Step 3 summary line (`changed=... same=... fails=...`):
-- Step 4 versions printed at the end:
-- Items from the table that could not be done, with the exact error:
-- Real `.wslconfig` values and `/proc/swaps`:
+## Results (filled in by the Acer session, 2026-10-15 16:41 to 17:10 CDT)
+- Date and time: 2026-10-15, host `gupta-builds` (Windows 11, WSL Ubuntu-24.04, WSL 2.7.14.0, kernel 6.18.33.2), user `anant_gupta`.
+- `wsl-check.sh` baseline before changes: config 30 MATCH and 1 DIFF (`.gitconfig`, expected). Tools: node 24.21.0, pnpm 12.11.2 (floated), uv 0.12.17, ruff/shfmt/shellcheck/socat missing, claude 2.1.301, codex 0.160.0, tmux 3.7c, delta 0.19.2, lazygit 0.65.1, atuin 18.22.0, sesh 2.30.1; systemd running, 0 failed units; `/` 39 GiB, 26 GiB used.
+- `wsl-check.sh` after changes: tools node 24.21.0, pnpm 12.4.2, uv 0.12.23, ruff 0.17.1, shfmt 3.14.1, shellcheck 0.11.0, claude 2.1.301, codex 0.162.1, tmux 3.8, delta 0.20.1, lazygit 0.66.1, atuin 18.23.0, sesh 2.33.0, bwrap 0.9.0, socat still MISSING. Config: 22 MATCH, 9 DIFF. The 9 are the golden set replacing the old September snapshot on purpose: atuin, gh-dash, git ignore, lazygit, sesh, starship (now LF), yazi.toml, `.tmux.conf`, `.gitconfig`. They are not drift.
+- Step 3 summary line: `changed=13 same=21 fails=0`, backup `~/.config/.toolkit-backups/20261015-164133`, 33 golden files secret-scanned clean.
+- Step 4 versions printed at the end: gh 2.102.0, fzf 0.74.5, rg 15.2.0, fd 10.5.0, bat 0.26.1, lazygit 0.66.1, sesh 2.33.0, tmux 3.8 (built from source with no sudo, the previous 3.7c binary is in `~/.local/bin/.prev`), node v24.21.0, pnpm 12.4.2, gh-dash 4.26.1; `fails=0`. Done by hand because `38` does not cover them: delta 0.20.1 and atuin 18.23.0 (release tarballs, SHA-256 checked against the GitHub release digests, old binaries in `.prev`), shellcheck 0.11.0 and shfmt 3.14.1 (checksum checked), ruff 0.17.1 (`uv tool`), uv 0.12.23 (`uv self update`), codex 0.162.1 (`npm i -g`), `atuin history prune`.
+- Step 5 (TPM): `tpm/bin/install_plugins` reported all six plugins installed. The new `.tmux.conf` loads on a throwaway server with escape-time 10, history-limit 100000, allow-passthrough on, set-clipboard external, renumber-windows on, `prefix T` (sesh picker), `prefix L` (sesh last) and `prefix g` (lazygit popup).
+- Step 7 checks: `ya pkg list` shows git, full-border, smart-filter and the `tokyonight-storm` flavor; `starship explain` works; `bat --list-themes` shows `tokyonight_storm` (after `bat cache --build`, because the first run reported an incompatible cache from the older bat); `git config --show-origin --get core.pager` returns `file:/home/anant_gupta/.config/git/shared.gitconfig delta`; `core.fsmonitor` unset; `core.autocrlf=input`; `push.autoSetupRemote`, `fetch.prune`, `rerere.enabled` true through the include.
+- Table items and outcome:
+  - 1 done. 2 done. 3 done (golden starship is LF and has the python and conda segments). 4 done. 5 done. 8 done (golden atuin plus prune). 9 done (tools above). 10 done: chafa 1.18.2 and direnv 2.32.1 were already installed.
+  - 6 done: `repoPaths` maps `gupta-builds/second-brain-claudekit`, `gupta-builds/gupta-builds` and `gupta-builds/internship-research-loop` to their `~/projects` ext4 paths.
+  - 7 done with one deliberate exception: each JARVIS hook is guarded with `command -v`, `~/.local/bin` is added to PATH only if absent, the duplicate nvm load is gone, `bash -n` passes, new-shell startup 0.57 s. `~/.mcp.env` is still sourced in every interactive shell because the MCP servers read their keys from the shell environment. Narrowing it needs those keys moved into each tool's own config (user decision). Backup `~/.config/.toolkit-backups/acer-20261015-164344-bashrc`.
+  - 11 verified, see the last bullet. 12 done: pnpm 12.4.2 through Corepack. No shared repo declares `packageManager`, so the per-repo pin is still a per-repo approval. 13 closed: `~/.config/tmux-handlr/ntfy.env` exists (mode 600, 90 bytes) and the tmux config points the plugin at `agent-ntfy-notify.sh`; the topic value was not read or recorded. 14 ignored. 15 done: tmux 3.8.
+- Found and fixed beyond the table: the Acer's `~/tools/weekly-cache-cleanup.sh` (Sunday 03:00 systemd timer) deleted `~/.cache/node`, which holds the Corepack pnpm pin. That is how pnpm floated to 12.11.2. The deletion block is removed (comment left in its place), backup `~/.config/.toolkit-backups/acer-20261015-164110`.
+- Items that could not be done: `socat` needs sudo. Do NOT run `31-wsl-sudo-step.sh` on the Acer: it also runs `systemctl disable --now ollama`, which fails here because the Acer has no WSL Ollama service, and with `set -e` it would stop before its checks. Use: `sudo apt-get update && sudo apt-get install -y socat bubblewrap`, then `socat -V | sed -n 2p`.
+- Real `.wslconfig` values and `/proc/swaps`: `C:\Users\anant\.wslconfig` has `memory=20GB`, `processors=18`, `swapFile=D:\\WSL\\wsl-swap.vhdx`, `swap=8GB`, `networkingMode=mirrored`, `firewall=true`, `dnsTunneling=true`, `autoProxy=true`, and under `[experimental]` `sparseVhd=true`, `autoMemoryReclaim=gradual`. Live: `free -h` 19 GiB total, `nproc` 18, `/proc/swaps` lists `/dev/sdc` partition 8,388,608 KB. This replaced the earlier launch-failing file; the swap VHDX now lives at `D:\WSL\wsl-swap.vhdx` (grows as used, 68 MB at the last read). The old `D:\WSL\swap.vhdx` (36 MB, last written 2026-09-20) was moved, not deleted, to `D:\Backup\Quarantine\swap-vhdx-review-2026-10-15` with a README (review 2026-11-15).
+- Notes for the golden set owner (the Dell session): (a) `36-wsl-check.sh` had the Dell's vault path and the old swap file name hard-coded; it now detects both and works on both laptops (backup in `Runs/_backups/acer-visit-20261015/`). (b) `37` leaves `core.autocrlf` alone, so it was set by hand to `input`. (c) The shared Windows bat and fd configs are marked "reconstructed"; the Acer's own files are the real ones (see the Acer Run Sheet note). (d) `38-toolkit-upgrade.sh` does not cover delta, atuin, uv, codex, ruff, shellcheck or shfmt; they were done by hand as listed above.

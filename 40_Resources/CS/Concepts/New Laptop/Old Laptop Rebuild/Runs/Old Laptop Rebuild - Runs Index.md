@@ -60,4 +60,4 @@ Note on the Build 5 prompt: this folder holds the copy that was filed. A later c
 | `Sync/` | Cross-Laptop Sync builds 1 to 13 with their own roadmap, plus the Drive policy | its prompts (Build 7, Build 11) already ran | none |
 
 ## What still has no run
-Build 5b and the Windows toolkit run on the Acer (both handoffs are ready), and Builds 6, 7 and 8 (prompts not written). New living notes from Build 4b: [[Machine Toolkit - Tool Use Cases and Agent Guide]] and, in `Windows Toolkit/`, [[Acer Run Sheet - Windows Toolkit]]. The Index holds the open-work ledgers for the Dell and the Acer.
+Build 5b ran on the Acer on 2026-10-15 (done except `socat`, which needs the user's sudo) together with the Build 2 SSH items; its results are in the handoff note and the Build 2 Acer Handoff. The Windows toolkit has had Part 0 and Part 2 on the Acer; Part 1 and Part 3 wait for the user. Builds 6, 7 and 8 (prompts not written) still have no run. New living notes from Build 4b: [[Machine Toolkit - Tool Use Cases and Agent Guide]] and, in `Windows Toolkit/`, [[Acer Run Sheet - Windows Toolkit]]. The Index holds the open-work ledgers for the Dell and the Acer.

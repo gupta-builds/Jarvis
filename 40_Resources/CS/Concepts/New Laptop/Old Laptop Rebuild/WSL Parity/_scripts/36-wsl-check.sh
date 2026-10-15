@@ -3,13 +3,19 @@
 # Usage: 36-wsl-check.sh [config|tools|disk|swap|editors|backup|dtree|all]   (default: all)
 set -uo pipefail
 export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/miniconda3/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
-SNAP="/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis/40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild/Acer Dotfile Snapshot"
+# Vault root differs per laptop (Dell: D:\Users\_Anant\10_Areas, Acer: D:\_Anant\20_Progress). First one that has the snapshot wins.
+REL="40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild/Acer Dotfile Snapshot"; SNAP=""
+for base in "${VAULT:-}" /mnt/d/Users/_Anant/10_Areas/Documents/Jarvis /mnt/d/_Anant/20_Progress/Documents/Jarvis; do
+  [ -n "$base" ] && [ -d "$base/$REL" ] && { SNAP="$base/$REL"; break; }; done
+WCFG=$(ls /mnt/c/Users/*/.wslconfig 2>/dev/null | head -n 1)
+SWAPF=$(tr -d '\r' < "$WCFG" 2>/dev/null | sed -n 's/^[Ss]wap[Ff]ile=//p' | head -n 1 | sed -E 's#^([A-Za-z]):#/mnt/\L\1#; s#\\+#/#g')
+[ -n "$SWAPF" ] || SWAPF=/mnt/d/WSL/swap.vhdx
 what="${1:-all}"
 want() { [ "$what" = all ] || [ "$what" = "$1" ]; }
 
 if want config; then
   echo "== config hashes vs the Acer snapshot (MATCH or MATCH-LF expected; gh-dash, .gitconfig, wsl.conf differ on purpose)"
-  tail -n +2 "$SNAP/hashes-wsl.txt" | while IFS=$'\t' read -r rel _src sh ch _sz _st; do
+  [ -n "$SNAP" ] || { echo "  snapshot folder not found (set VAULT=)"; } ; [ -n "$SNAP" ] && tail -n +2 "$SNAP/hashes-wsl.txt" | while IFS=$'\t' read -r rel _src sh ch _sz _st; do
     [ "$sh" = n/a ] && continue
     case "$rel" in wsl/etc/*) live=/etc/${rel#wsl/etc/};; wsl/home/*) live=$HOME/${rel#wsl/home/};; *) continue;; esac
     [ -e "$live" ] || { echo "MISSING   $rel"; continue; }
@@ -41,8 +47,8 @@ if want disk; then
   if [ -f "$HOME/.local/state/wsl-watch/ALERT" ]; then cat "$HOME/.local/state/wsl-watch/ALERT"; else echo "  watcher: no alert"; fi
 fi
 if want swap; then
-  echo "== swap"; free -m | awk '/Swap/{print "  swap used " $3 " MB of " $2 " MB"}'; ls -l /mnt/d/WSL/swap.vhdx | awk '{printf "  swap.vhdx %.0f MB\n", $5/1048576}'
-  grep -E '^(swap|swapfile|memory|processors)' /mnt/c/Users/*/.wslconfig 2>/dev/null | tr -d '\r' | sed 's/^/  /'
+  echo "== swap"; free -m | awk '/Swap/{print "  swap used " $3 " MB of " $2 " MB"}'; ls -l "$SWAPF" 2>/dev/null | awk -v f="$SWAPF" '{printf "  %s %.0f MB\n", f, $5/1048576}'
+  grep -i -E '^(swap|swapfile|memory|processors)' "$WCFG" 2>/dev/null | tr -d '\r' | sed 's/^/  /'
 fi
 if want editors; then
   echo "== editor servers and caches"; du -sh ~/.vscode-server ~/.cursor-server ~/.vscode-remote-containers ~/.npm/_npx ~/.cache ~/miniconda3 2>/dev/null | sed 's/^/  /'
@@ -52,7 +58,7 @@ if want backup; then
   echo "== tarball and export backup"
   ls -l /mnt/d/WSL/Installers/wsl-ubuntu.tar 2>&1 | awk '{print "  old tar: " $5 " bytes"}'
   ls /mnt/d/Backup/WSL/ubuntu-*.tar 2>/dev/null | sed 's/^/  export: /'
-  ls -d /mnt/d/Quarantine/wsl-tar-review-* 2>/dev/null | sed 's/^/  quarantine: /'
+  ls -d /mnt/d/Backup/Quarantine/wsl-tar-review-* /mnt/d/Quarantine/wsl-tar-review-* 2>/dev/null | sed 's/^/  quarantine: /'
 fi
 if want dtree; then
   echo "== D: tree and Drive"; ls /mnt/d/_Anant /mnt/d/Users/_Anant 2>&1 | sed 's/^/  /'

@@ -16,7 +16,7 @@ related:
   - "[[Machine Toolkit - Tool Use Cases and Agent Guide]]"
   - "[[Installations]]"
   - "[[Acer Session Handoff - Toolkit Sync (Build 5b)]]"
-next: "Run Part 0 (read-only) on the Acer, paste the output back to the Dell session, then continue with Part 1 only after the parity matrix says what differs."
+next: "User runs Part 1 (UAC) and then Part 3 on the Acer; the Dell session reads both result sets and writes the parity matrix."
 ---
 # Acer Run Sheet - Windows Toolkit
 
@@ -98,3 +98,11 @@ The second writes `$TK\catalog\Tool Catalog - <host>.md` and `.json`. It never p
 
 ## After it ran
 Say so in the Dell session. It reads both result sets (`results\DESKTOP-3VBG0JH` and the Acer's folder) and writes the parity matrix into [[Old Laptop Rebuild - Build 4 Windows Toolkit Findings]]. Known differences to expect: Terminal version (the Dell stays on 1.24), VS Code location, font scope, Kiro and the Dell-only runtimes, and pnpm: the Windows winget pnpm is 12.11.2 on the Dell while the WSL pnpm on both laptops is Corepack-pinned to 12.4.2.
+
+## Acer run log, 2026-10-15
+Run from the Acer, Windows side, by a Claude Code session started from WSL. Order followed: Part 0, then Part 2. Part 1 and Part 3 are waiting for the user (UAC prompts, closed editors).
+**Gotcha that stopped the first attempt:** when the scripts are started from a session or shell that inherited PowerShell 7's `PSModulePath`, Windows PowerShell 5.1 loads PowerShell 7's `Microsoft.PowerShell.Utility` first and every script fails with "The term 'Get-FileHash' is not recognized". Nothing had run. Fix: before starting a script from such a shell, reset the variable: `$env:PSModulePath = [Environment]::GetEnvironmentVariable('PSModulePath','Machine')`. A normal Windows PowerShell 5.1 window does not need it. Not a toolkit bug, but worth a line in `_lib.ps1` (`Initialize-Toolkit`) if you want it to guard itself.
+**Part 0 results (read-only):** preflight 47 manifest entries, 5 planned actions; `10 -DryRun` would upgrade Git (2.55.0 to latest) and GitHub CLI (2.101.0 to latest), install pnpm 12.11.2, install a uv-managed Python and install mcp-remote 0.2.1; Node is reported MANUAL because the manifest looks for `OpenJS.NodeJS.22` (the Acer has Node 24.19.0 and the sheet says not to change it). `99-verify` before Part 2 (versions compared with the Dell lock): the Acer is ahead on PowerShell 7.6.7, ripgrep 15.2.0, ffmpeg 9.0.1, Claude Code 2.1.301, Codex 0.162.1, Cursor 3.24.9, Docker Desktop 4.91.0, Docker CLI 29.8.0 and VS Code 1.142.0; it is behind on GitHub CLI 2.101.0 (lock 2.102.0), Node 24.19.0 (lock 24.20.0), npm 11.17.0, Ollama 0.34.1 (lock 0.40.3) and Antigravity 2.13.0 (lock 2.22.0). Tailscale 1.104.1 PASS.
+**Part 2 results (applied):** starship and git ignore unchanged (hashes equal); delta include written; both profile blocks written; Terminal merged; 9 git settings changed (3 were already correct); user PATH now has `C:\Users\anant\.local\bin` first; `STARSHIP_CONFIG` and `TOOLKIT_VAULT_ROOT` set. bat and fd are DIFF and were kept (below). Backups: `D:\Backup\Toolkit\20261015-170556` (restore with `-RestoreFrom`).
+**bat and fd (promotion decision for the Dell session):** the shared copies are reconstructed. Real Acer bat config is the same three options but quotes the style value (`--style="numbers,changes,header"`) and has no header comment; the real Acer fd ignore has trailing slashes on directories and also lists `venv/`, `.conda/`, `.ipynb_checkpoints/` and `*.pyc`, which the shared copy lacks. Promote the Acer's files into `configs/` if you want them as the source; the Dell then re-runs `20-apply-configs.ps1`.
+**Still to run (user):** Part 1, then a fresh terminal and Part 3. Remaining `99-verify` FAILs before Part 2 that Part 2 should clear: profile blocks, git keys, the two environment variables, delta include, Terminal Ubuntu profile name and the single extra scheme. Re-run `99-verify` after Part 1 and check which remain.

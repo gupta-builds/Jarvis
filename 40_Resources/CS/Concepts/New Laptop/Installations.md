@@ -307,8 +307,24 @@ Build 5 (2026-10-13) replaced the Dell's reconstructed files with the Acer's rea
 ### Windows terminal on the Acer (from its snapshot)
 The Acer's Windows side is also incomplete: Windows Terminal is on defaults (One Half Dark, `IosevkaTerm Nerd Font`, 85 percent acrylic, default profile Windows PowerShell), no PowerShell profile exists, the global git config has only `longpaths`, `fsmonitor` and `untrackedCache` (plus redacted identity), and Yazi, lazygit, bat, delta and gh-dash exist only inside its WSL. Its winget export includes PowerShell 7, Starship, Tailscale, NanaZip, ripgrep, jq, Yazi (installed, unconfigured), Node LTS, Docker Desktop, Ollama, VS Code, Cursor, Claude and Antigravity. Build 4 completes this side on both laptops.
 
-### Acer, Windows side (planned, not run)
-The Acer is the reference for the toolkit's configs, so the Dell was built to match it. The Windows toolkit has not been run on the Acer yet; it already has fzf, fd, bat, delta, zoxide and PSFzf from 2026-10-12. Differences to expect: vault root `D:\_Anant\20_Progress\Documents\Jarvis`, Tailscale installed on Windows as `gupta-builds` (never in the Acer's WSL), the RTX 5070 Ti, VS Code on D:\Apps, the font installed system-wide, and no Kiro, Miniconda, opam or Chocolatey retirement. The run order, with a read-only first step, is in `Windows Toolkit\Acer Run Sheet - Windows Toolkit` ([[Acer Run Sheet - Windows Toolkit]]). When the Acer ran it, this section gets the parity matrix (PASS or DIFF with a reason).
+### Acer, WSL side (live 2026-10-15, after Build 5b)
+Host `gupta-builds`, Ubuntu 24.04 on WSL 2.7.14.0 (kernel 6.18.33.2), user `anant_gupta`, `.wslconfig` 20 GB, 18 CPUs, 8 GiB swap at `D:\WSL\wsl-swap.vhdx`, mirrored networking. The versions below replace the 2026-09-19 table above where they differ.
+| Tool | Version | Source |
+|---|---|---|
+| tmux | 3.8 | built from source into `~/.local/bin` (no sudo); the 3.7c binary is in `~/.local/bin/.prev` |
+| node, npm, pnpm | 24.21.0, 11.19.0, 12.4.2 | nvm; pnpm pinned through Corepack (`~/.cache/node` is no longer deleted by the weekly clean) |
+| uv, ruff, conda | 0.12.23, 0.17.1, 26.7.1 | `uv self update`, `uv tool`, Miniconda in `~/miniconda3` |
+| shellcheck, shfmt | 0.11.0, 3.14.1 | release binaries, checksum verified |
+| gh, gh-dash | 2.102.0, 4.26.1 | release binary in `~/.local/bin`, gh extension |
+| fzf, ripgrep, fd, bat | 0.74.5, 15.2.0, 10.5.0, 0.26.1 | release binaries (bat theme `tokyonight_storm` built) |
+| lazygit, sesh, delta, atuin | 0.66.1, 2.33.0, 0.20.1, 18.23.0 | release binaries; delta and atuin replaced in place, old copies in `.prev` |
+| claude, codex | 2.1.301, 0.162.1 | own installer, npm |
+| starship, yazi/ya, zoxide, chafa, direnv, bubblewrap | 1.26.0, 26.9.1, 0.10.0, 1.18.2, 2.32.1, 0.9.0 | unchanged |
+| socat | missing | needs `sudo apt-get install -y socat` (user) |
+Configs are the golden set in [[WSL Toolkit Config Reference]] (`37-toolkit-apply.sh`, `changed=13 same=21 fails=0`); git has the shared include (`core.pager=delta`, `zdiff3`, `autocrlf=input`, no `core.fsmonitor`); the `.bashrc` JARVIS block is guarded and loads `~/.config/toolkit/env.sh` through one source line. Tailscale is not installed in this WSL (it runs on Windows only).
+
+### Acer, Windows side (2026-10-15: Part 0 and Part 2 of the run sheet done; Part 1 and Part 3 waiting)
+The Acer is the reference for the toolkit's configs, so the Dell was built to match it. On 2026-10-15 Part 0 (read-only) and Part 2 (apply configs) ran on the Acer: PowerShell 7.6.7, Terminal 1.24, Starship 1.26.0, zoxide, fzf 0.74.4, fd 10.5.0, bat 0.26.1, delta 0.20.1, ripgrep 15.2.0, NanaZip, Git 2.55.0, standalone uv 0.12.19, Claude Code 2.1.301, Codex 0.162.1, Docker 4.91.0 and Tailscale 1.104.1 were already present. Part 2 wrote the managed profile block in both PowerShell profiles, the delta include, nine git settings, the Terminal merge, `STARSHIP_CONFIG`, `TOOLKIT_VAULT_ROOT` and the user PATH order. Part 1 still has to install: Git and GitHub CLI upgrades (UAC), pnpm 12.11.2 (Windows copy), uv-managed Python and mcp-remote. Its bat and fd files are the real ones and differ from the shared reconstructed copies (kept by design). Differences to expect: vault root `D:\_Anant\20_Progress\Documents\Jarvis`, Tailscale installed on Windows as `gupta-builds` (never in the Acer's WSL), the RTX 5070 Ti, VS Code on D:\Apps, the font installed system-wide, and no Kiro, Miniconda, opam or Chocolatey retirement. The run order, with a read-only first step, is in `Windows Toolkit\Acer Run Sheet - Windows Toolkit` ([[Acer Run Sheet - Windows Toolkit]]). When the Acer ran it, this section gets the parity matrix (PASS or DIFF with a reason).
 
 ### Growth rules
 The standing rules and one check command each (tool versions, config hashes, font registration, environment variables, startup time, catalog freshness, no secrets in shell rc files) are in [[Machine Toolkit - Tool Use Cases and Agent Guide#Growth rules]].

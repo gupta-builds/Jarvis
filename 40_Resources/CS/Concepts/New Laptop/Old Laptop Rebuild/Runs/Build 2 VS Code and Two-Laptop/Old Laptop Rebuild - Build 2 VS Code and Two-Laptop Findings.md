@@ -13,7 +13,7 @@ related:
   - "[[Old Laptop Rebuild - Index]]"
   - "[[Old Laptop Rebuild - Build 1 WSL Findings]]"
   - "[[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]]"
-next: "Acer visit: host-key comparison, sync-check over SSH, large Git transfer and clone inventory. Tunnel and port-2222 fallback declined 2026-10-15. Repo pilot still needs per-repo approval."
+next: "Acer visit done 2026-10-15. Open: Dell-side read for the host-key comparison, repo pilot approval, decision on the Acer's 4 local-only internship commits."
 ---
 # Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings
 
@@ -284,3 +284,13 @@ The Acer snapshot is present at `Acer Dotfile Snapshot/`, dated 2026-10-11; MANI
 | Active listeners and tailnet daemons | `systemctl is-active tailscaled ssh ssh.socket 2>/dev/null; ss -ltnp` |
 | WSL distro/VHDX growth (Windows) | `Get-Item D:\WSL\Ubuntu\ext4.vhdx,D:\WSL\swap.vhdx | Select FullName,Length,LastWriteTime` |
 | Repo dependency/worktree growth | `git -C ~/projects/<repo> worktree list --porcelain; find ~/projects -xdev -type d \( -name node_modules -o -name .venv \) -prune -exec du -sh {} +` |
+
+## Acer visit ledger update, 2026-10-15
+Rows 4.6, 4.7 and 4.9 above were closed from the Acer on 2026-10-15; the evidence is in [[Old Laptop Rebuild - Build 2 Acer Handoff]] (section "Acer visit results") and [[Old Laptop Rebuild - Build 2 SSH Runbook]] (section "Acer checkpoint").
+| Row | State now |
+|---|---|
+| 4.6 Acer handoff, inventory | PASS. Two WSL clones; no Windows-side clones found. The internship clone holds 4 local-only commits, backed up as a verified Git bundle. |
+| 4.7 round trip | PASS for shell, Acer WSL route and sync-check. Host-key independent comparison OPEN (no `SSH_HostKeys` on the Acer's view of the Dell; key stability confirmed). Transfer measured: 17 MB bundle in 2.4 s; 512 MiB stream 2.5 MiB/s. |
+| 4.9 same-page check | PASS from the Acer, identical to the Dell. |
+| 4.11 repo pilot | still waiting for a per-repo approval. |
+Growth rule added: `ssh <host> 'cd <repo> && git bundle create - --all' | wc -c` is a read-only way to size a repo's transfer cost without cloning or writing anything.

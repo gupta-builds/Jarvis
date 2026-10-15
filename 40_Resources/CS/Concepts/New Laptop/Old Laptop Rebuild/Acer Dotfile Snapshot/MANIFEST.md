@@ -7,6 +7,7 @@ tags:
 notes:
   - "[[Old Laptop Rebuild - Index]]"
 next: "[[Old Laptop Rebuild - Index]]"
+updated: 2026-10-15
 ---
 
 # Acer Dotfile Snapshot - MANIFEST
@@ -95,3 +96,6 @@ None. Every requested WSL source path existed and passed the secret scan.
 ## Scope
 
 Nothing under `~/.claude`, `~/.codex`, `~/.cursor`, `~/.kiro`, `~/.ssh`, `~/.mcp.json`, or `~/.mcp.env` was read or exported - the scripts never reference those paths, and both carry a defense-in-depth check that would exclude-and-log any source path matching those markers even if one were ever added. A full-text secret-pattern grep across the final snapshot folder (token/API-key/password/secret/private-key-header/Bearer patterns) turned up no real secret values - every hit was either the scripts' own pattern definitions, or harmless documentation/placeholder text inside copied configs (e.g. `atuin`'s commented-out example lines, a `.gitignore` comment).
+
+## Status after 2026-10-15
+The hashes in this note describe the Acer before the golden toolkit. Nine WSL files and the WSL `.wslconfig` have changed since on purpose; see "After Build 5b" in [[VERSIONS]]. The Windows snapshot files (`starship.toml`, git ignore) still match the shared Windows Toolkit sources.

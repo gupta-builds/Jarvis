@@ -12,7 +12,7 @@ tags:
 related:
   - "[[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]]"
   - "[[Old Laptop Rebuild - Build 2 Acer Handoff]]"
-next: "Acer visit only: independent host-key comparison, sync-check over SSH, large Git transfer, clone and worktree inventory, optional Acer WSL route test (all in Old Laptop Rebuild - Build 2 Acer Handoff). Port-2222 fallback and VS Code Tunnel were declined 2026-10-15."
+next: "Open: independent host-key comparison via a user-run Dell read, per-repo pilot approval (4.11). Everything else in Phase 4 is PASS or declined. Acer visit done 2026-10-15."
 ---
 # Old Laptop Rebuild - Build 2 SSH Runbook
 
@@ -31,10 +31,10 @@ This is a planned runbook, not authorization. Every network exposure, service en
 | 4.3 Tailscale bring-up | **Already done by user:** installed/authenticated on Dell Ubuntu WSL, `sudo tailscale up --ssh --hostname=dell-wsl --accept-dns=false`. **Codex, read-only:** verify status, prefs, route, and interface MTUs. | `dell-wsl`, `RunSSH=true`, active tailscaled. Direct Dell-to-Acer ping returned via `10.5.8.252:41641` in 5 ms. MTUs measured: `tailscale0=1280`, `eth0/eth1=1500`; no manual MTU change. |
 | 4.4 Admin console | **User in browser, completed:** Tailscale Admin Console → Machines → `dell-wsl`; Access controls. | Key expiry is disabled. User pasted the actual `check` rule from `autogroup:member` to `autogroup:self` for nonroot/root users. No policy edit was needed or made. |
 | 4.5 Idle/reachability | **User in Windows PowerShell, completed:** after closing every WSL terminal, VS Code/Cursor, Docker operation and Codex session, run `D:\WSL\ops\wsl-idle-test.ps1`. | PASS on 2026-10-12: Ubuntu remained Running for 75 seconds with no WSL call during the wait. Acer then pinged Dell directly. |
-| 4.6 Acer handoff | **Codex:** handoff updated 2026-10-12 with existing Acer Windows Tailscale and new SSH evidence. **Acer user/Codex:** inventory local clones/worktrees and read-only check Acer WSL placement if needed. | SSH/Remote-SSH evidence is in; clone inventory and Acer WSL placement/route result remain pending. |
-| 4.7 Acer live round trip | **Acer user/Codex, completed for shell and Remote-SSH:** `tailscale ping dell-wsl`; plain `ssh.exe anant_gupta@dell-wsl`; Remote-SSH to the canonical repo. | PASS for workspace path: Acer ping switched to direct `10.5.8.253:41641` in 7 ms; plain SSH and Remote-SSH ran on Dell WSL. The accepted host key still lacks an independent advertised-key comparison; large transfer remains pending. |
+| 4.6 Acer handoff | **Codex:** handoff updated 2026-10-12 with existing Acer Windows Tailscale and new SSH evidence. **Acer user/Codex:** inventory local clones/worktrees and read-only check Acer WSL placement if needed. | PASS 2026-10-15: no Tailscale inside the Acer WSL (no binary, no package, `tailscaled` inactive); Acer WSL reaches `dell-wsl:22` through the Windows route; clone inventory done (two WSL clones, none on the Windows side). The Acer's internship clone has 4 commits that exist only locally (bundle backup made). |
+| 4.7 Acer live round trip | **Acer user/Codex, completed for shell and Remote-SSH:** `tailscale ping dell-wsl`; plain `ssh.exe anant_gupta@dell-wsl`; Remote-SSH to the canonical repo. | PASS for workspace path: Acer ping switched to direct `10.5.8.253:41641` in 7 ms; plain SSH and Remote-SSH ran on Dell WSL. The accepted host key still lacks an independent advertised-key comparison (the Acer's own `status --json` has no `SSH_HostKeys` for the Dell; key stability confirmed with `ssh-keyscan`). Large transfer measured 2026-10-15: 17 MB Git bundle in 2.4 s, 512 MiB stream at 2.5 MiB/s on a direct path. |
 | 4.8 Tunnels fallback | **Ask user first.** If approved: user signs in; Codex tests `code tunnel service install` or equivalent and service persistence, with no assumption of background reliability. | **DECLINED 2026-10-15:** no sign-in, no service. The Linux CLI binary stays at `~/tools/vscode-tunnel-cli/code` (not signed in, no service; safe to delete). Remote-SSH over Tailscale is the supported route. |
-| 4.9 Same-page check | **Codex:** create `~/tools/sync-check`, read-only per repo. It runs `git fetch`, reports branch, ahead/behind and dirty count, plus node/pnpm/python/uv versions. Run locally, then `ssh anant_gupta@dell-wsl '~/tools/sync-check'` from Acer. | Local and SSH reports match. `git fetch` contacts GitHub but does not change working files; no push/merge. **Local run PASS on the Dell 2026-10-15** (second-brain-claudekit `main` 0/0, dirty 1; internship-research-loop 6 ahead/5 behind `origin/master`, dirty 25). The SSH run from the Acer waits for the Acer visit (Acer handoff step 3b); ignore its `node`/`pnpm`/`uv` lines, which read `not-installed` over a non-interactive shell. |
+| 4.9 Same-page check | **Codex:** create `~/tools/sync-check`, read-only per repo. It runs `git fetch`, reports branch, ahead/behind and dirty count, plus node/pnpm/python/uv versions. Run locally, then `ssh anant_gupta@dell-wsl '~/tools/sync-check'` from Acer. | Local and SSH reports match. `git fetch` contacts GitHub but does not change working files; no push/merge. **Local run PASS on the Dell 2026-10-15** (second-brain-claudekit `main` 0/0, dirty 1; internship-research-loop 6 ahead/5 behind `origin/master`, dirty 25). **The SSH run from the Acer PASSED on 2026-10-15** with repo lines identical to the Dell's (second-brain-claudekit 0/0 dirty 1; internship-research-loop 6/5 dirty 25); ignore its `node`/`pnpm`/`uv` lines, which read `not-installed` over a non-interactive shell. |
 | 4.10 Directive patch | **Codex, completed in vault:** backed up and patched `Codebases/internship-research-loop/internship-research-loop-new-laptop-directive.md` under `Final completion gate` with one dated supersession line and link to Locked Decisions. | PASS; no live repo file changed, second-brain gate unchanged. |
 | 4.11 Repo pilot/worktree setting | **Only after approval:** one repo at a time; create `<machine>/<topic>` branch and change only approved editor/toolchain contract. | Review diff, run checks, commit/push/PR only with separate explicit approval. |
 
@@ -56,8 +56,8 @@ Tailscale installation/authentication and `tailscale up --ssh` are complete. Key
 - [x] User reports key expiry is disabled for `dell-wsl`.
 - [x] User checked Access Controls: existing own-device SSH rule is in check mode; no policy edit needed.
 - [x] Port-2222 OpenSSH fallback: declined 2026-10-15 (Tailscale SSH works; mirrored networking would also need a Hyper-V firewall allow rule). Nothing installed.
-- [ ] Independently compare the already-accepted Acer host key against Tailscale's advertised SSH key. Waits for the Acer: read the Dell's `SSH_HostKeys` from the Acer's own `tailscale.exe status --json` (the Dell's `Self` entry has none); see Acer handoff step 3b.
-- [x] Acer plain SSH and VS Code Remote-SSH commands completed; Acer WSL route test remains optional and pending.
+- [ ] Independently compare the already-accepted Acer host key against Tailscale's advertised SSH key. **Still open (2026-10-15):** the Acer's own `tailscale.exe status --json` also has no `SSH_HostKeys` for the Dell, so the fallback applies: a user-run read on the Dell (steps in the Build 2 Acer Handoff, section "Acer visit results"). Stability is confirmed: `known_hosts` and `ssh-keyscan` both give `SHA256:PHOUaZNkip9YvF80hW6WbG5emclHt7rIYMfWf3VzxHA`.
+- [x] Acer plain SSH and VS Code Remote-SSH commands completed; the Acer WSL route test passed on 2026-10-15 (no Tailscale in WSL).
 - [x] Re-run idle test after all relevant sessions close; Ubuntu remained running after 75 seconds.
 - [x] Continue with degraded systemd by user direction; no workaround or prerelease is authorized.
 
@@ -81,3 +81,14 @@ This refresh supersedes the earlier pending rows above where the new evidence is
 | 4.11 | **Waiting exact user approval** | No pilot branch or repo edit. Internship is dirty (26 paths); second-brain has one pre-existing hook change. Identify/audit a clean pilot candidate and approve the exact repo, branch, and files before any repository change. Commits, pushes and PRs remain separately gated.
 
 Systemd status explanation: Phase 4 is proceeding at the user's direction with `systemd-binfmt.service` still degraded. The service is not needed for the Tailscale SSH workflow demonstrated here; no workaround was used. Recheck after a stable WSL fix becomes available, but it is not a prerequisite for the already-proven remote shell path.
+
+## Acer checkpoint, 2026-10-15
+Run from the Acer. Full evidence and the clone table: [[Old Laptop Rebuild - Build 2 Acer Handoff]], section "Acer visit results".
+| Step | Result |
+|---|---|
+| 4.1 to 4.5 | unchanged, PASS. WSL on the Dell has run 1 day 10 hours since the last restart; direct path 4 to 13 ms. |
+| 4.6 Acer handoff and inventory | PASS, with one risk: the Acer's internship clone has 4 unpushed commits (bundle backup `D:\Backup\repo-bundles\internship-research-loop-acer-20261015.bundle`). |
+| 4.7 round trip | PASS for ping, plain `ssh.exe`, and Acer WSL; host-key independent comparison open; transfer measured but slow (2.5 MiB/s on a 512 MiB stream). |
+| 4.9 same-page check | PASS from the Acer over SSH, identical to the Dell's local run. |
+| 4.11 | still waiting for a per-repo approval; the Acer clones are clean candidates only for second-brain-claudekit, which has no unique work. |
+Gotcha found: Tailscale SSH "check" mode asks for a browser confirmation after a period of inactivity. A non-interactive run prints a `login.tailscale.com/a/...` URL and waits; the user opens it once and the command proceeds.

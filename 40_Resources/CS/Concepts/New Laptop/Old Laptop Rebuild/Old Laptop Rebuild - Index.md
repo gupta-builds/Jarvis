@@ -20,12 +20,12 @@ related:
   - "[[WSL Toolkit Config Reference]]"
   - "[[Old Laptop Rebuild - Anant Folder Consolidation and Drive Plan (later build)]]"
   - "[[Old Laptop Rebuild - C Drive AI Platforms Audit (future build)]]"
-next: "1) One Acer visit: the Build 5b handoff, Part 0 of the Windows run sheet, and the Build 2 SSH items. 2) Revoke the Firecrawl key that the API still accepts (Dell item D1). 3) Write Builds 6, 7 and 8."
+next: "1) Acer, short second visit: socat apt command, Dell-side host-key read, Windows run sheet Part 1 (UAC) and Part 3. 2) Decide the Acer's 4 local-only internship commits. 3) Revoke the Firecrawl key (Dell D1). 4) Write Builds 6, 7 and 8."
 ---
 # Old Laptop Rebuild - Index
 
 ## One-Line Answer
-==The old Dell (Latitude 5530) is rebuilt to match the Acer in sessions run one layer at a time. Builds 1 to 5 are closed on the Dell (2026-10-15), with a short list of items that only you can do; nothing has run on the Acer yet, and its two handoffs (WSL toolkit and Windows toolkit) are ready.==
+==The old Dell (Latitude 5530) is rebuilt to match the Acer in sessions run one layer at a time. Builds 1 to 5 are closed on the Dell (2026-10-15). On the same day the Acer visit ran: Build 5b (WSL toolkit sync) and the Build 2 SSH items are done, and the Windows toolkit got Part 0 and Part 2. What is left is a short list that only you can do (sudo for socat, UAC prompts for Part 1, one Dell-side read for the host-key check, and decisions).==
 
 ## Where things are (reorganised 2026-10-14)
 | Place | Holds |
@@ -41,12 +41,12 @@ next: "1) One Acer visit: the Build 5b handoff, Part 0 of the Windows run sheet,
 | Build | Layer | State | Prompt | Findings |
 |---|---|---|---|---|
 | 1 | WSL layer | run, done | [[Old Laptop Rebuild - Prompt 1 WSL]] | [[Old Laptop Rebuild - Build 1 WSL Findings]] |
-| 2 | WSL VS Code and two-laptop SSH | run; Dell part done, Acer-side Phase 4 items still open (see Acer ledger) | [[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]] | [[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]] |
+| 2 | WSL VS Code and two-laptop SSH | run; Dell part done; Acer-side items run 2026-10-15 (only the independent host-key comparison and the repo pilot approval remain) | [[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]] | [[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]] |
 | 3 | Windows C: cleanup, snapshot, structure, watch | run, done; C: 39.5 to 145 GiB (140.9 GiB free on 2026-10-14) | [[Old Laptop Rebuild - Windows Prompts (Build 3 C Drive Cleanup and Build 4 Terminal Parity)]] | [[Old Laptop Rebuild - Build 3 Windows Cleanup Findings]], [[Old Laptop Rebuild - Build 3b C Drive Snapshot Structure and Watch]] |
 | 4 | Windows toolkit | run 2026-10-13 (104 PASS, lock written); finished by Build 4b on 2026-10-15 (catalog, agent guide, Installations, Acer run sheet); the Acer parity run waits for the Acer | [[Old Laptop Rebuild - Build 4 Prompt (Windows Toolkit)]] | [[Old Laptop Rebuild - Build 4 Windows Toolkit Findings]] |
 | 4b | Closed Builds 1 to 5 on the Dell: Cursor root cause, WSL export and tar quarantine, Windows Ollama, startup cleanup, OpenClaw removal, catalog, agent guide, Acer run sheet, Installations, Build 5 leftovers, and the Tailscale/SSH decisions (Part B) | **run 2026-10-14 and 15, closed on the Dell** | [[Old Laptop Rebuild - Build 4b Prompt (Dell Leftovers and Tailscale)]] | the "Build 4b" section of [[Old Laptop Rebuild - Build 4 Windows Toolkit Findings]] |
 | 5 | Dell WSL parity and tools | run 2026-10-13/14; closed on the Dell 2026-10-15 (export verified, old tar quarantined, Cursor repaired, leftovers moved) | [[Old Laptop Rebuild - Build 5 Prompt (WSL Parity and D Drive)]] | [[Old Laptop Rebuild - Build 5 WSL and D Drive Findings]] |
-| 5b | Acer WSL toolkit sync | **ready, not run** | [[Acer Session Handoff - Toolkit Sync (Build 5b)]] | the handoff note's Results section |
+| 5b | Acer WSL toolkit sync | **run 2026-10-15 on the Acer; done except `socat` (needs your sudo)** | [[Acer Session Handoff - Toolkit Sync (Build 5b)]] | the handoff note's Results section |
 | 6 | Windows VS Code, MCP and Claude Code wiring, AI platforms audit | prompt not written | - | plan: [[Old Laptop Rebuild - C Drive AI Platforms Audit (future build)]] |
 | 7 | Dev-only profile and final verification against the Acer (startup apps and Docker auto-start were checked in 4b: nothing auto-starts) | prompt not written | - | - |
 | 8 | `D:\_Anant` consolidation and Google Drive | plan only, needs your answers | - | plan: [[Old Laptop Rebuild - Anant Folder Consolidation and Drive Plan (later build)]] |
@@ -67,18 +67,20 @@ Builds 1 to 5 are closed on the Dell. What remains is yours or automatic; nothin
 | D10 | Quarantine folders to review | you | `build5-leftovers-2026-10-15` (Cursor server data 3.9 GiB, pnpm v10 stores 0.4 GiB, `undo.txt`), the 2026-10-14 Cursor and startup folders; pnpm store `v3` (1.8 GiB, last written 2026-02-22) was not approved and is still in place |
 | D11 | Disabled Jarvis tasks `ClaudeKit-Sync-All`, `SecondBrainClaudekit-JarvisSync`; `ConversationCapture-Backfill-WSL` now disabled too | you | left disabled on purpose; re-enable with `Enable-ScheduledTask` if wanted |
 Closed in Build 4b, no longer listed: Cursor repair, fresh export and tar quarantine, .NET 8 (kept on purpose for WSL Settings), catalog, agent guide, Installations rewrite, Windows Ollama, Run-key and Startup-folder cleanup (nothing auto-starts), OpenClaw, VS Code Tunnel and port-2222 fallback (both declined).
-## Acer: what is left (nothing has been run there from this folder)
-| # | Item | Where it is written |
-|---|---|---|
-| A1 | **The one ready build:** Build 5b, steps 1 to 7 and the 15-row fix table (git keys, starship CRLF, tmux, gh-dash paths, `.bashrc` hardening, atuin, tool versions, chafa and direnv, `.wslconfig`, pnpm 12.4.2, tmux 3.8) | [[Acer Session Handoff - Toolkit Sync (Build 5b)]] |
-| A2 | Build 2 SSH items: independent host-key comparison (read from the Acer's own `tailscale.exe status --json`), `ssh dell-wsl '~/tools/sync-check'`, clone and worktree inventory, large-transfer check, optional WSL route test | [[Old Laptop Rebuild - Build 2 Acer Handoff]], steps 3 to 5 |
-| A3 | Acer audit findings from 2026-10-13: Acer WSL is 2.7.14.0 (Dell is 3.0.3.0); saved `.wslconfig` (20GB, 18 CPUs, swap on D:) is not active until you cold-restart WSL; the Ubuntu disk is 40 GiB and 70 percent used; uv cache 7.5 GiB; its weekly clean deletes `~/.cache/node` (the Corepack pin) and pnpm floated to 12.11.2; recurring DNS-check errors | [[Ubuntu - WSL]], section "Acer audit and launch correction - 2026-10-13" |
-| A4 | Windows toolkit parity: Part 0 is a read-only paste-back (the Acer already has pieces from 2026-10-12); the Dell then writes the parity matrix | [[Acer Run Sheet - Windows Toolkit]] |
-| A5 | Acer Windows host: its Drive backup scope, Drive account question | the Drive plan note |
-Recommendation: fold A2 and A3 into the same Acer session as A1 (one Acer visit), with A3's `wsl --shutdown` and WSL update left as host steps for you.
+## Acer: what is left (visit of 2026-10-15 done; live-checked on `gupta-builds`)
+| # | Item | State | Where it is written |
+|---|---|---|---|
+| A1 | Build 5b WSL toolkit sync | **DONE** except `socat`. Golden configs applied (`changed=13 same=21 fails=0`), tmux 3.8, pnpm 12.4.2, gh 2.102.0, rg 15.2.0, fd 10.5.0, bat 0.26.1, lazygit 0.66.1, sesh 2.33.0, delta 0.20.1, atuin 18.23.0, uv 0.12.23, ruff, shellcheck, shfmt installed. **You run:** `sudo apt-get update && sudo apt-get install -y socat bubblewrap` (not `31-wsl-sudo-step.sh`: it also disables a WSL Ollama service that does not exist on the Acer and would stop early) | [[Acer Session Handoff - Toolkit Sync (Build 5b)]], Results |
+| A2 | Build 2 SSH items | **DONE** except the independent host-key comparison: the Acer's view of the Dell has no `SSH_HostKeys`, so it needs a Dell-side read you run with sudo (command in the Acer Handoff). Passed: Tailscale placement, direct ping, plain `ssh.exe`, `sync-check` over SSH (identical to the Dell), Acer WSL route, clone inventory. Measured: 17 MB bundle in 2.4 s, 512 MiB stream at 2.5 MiB/s (slow, cause unknown, nothing changed) | [[Old Laptop Rebuild - Build 2 Acer Handoff]], "Acer visit results" |
+| A3 | Acer audit findings of 2026-10-13 | `.wslconfig` is fixed and live (20 GB, 18 CPUs, 8 GiB swap at `D:\WSL\wsl-swap.vhdx`; the old 36 MB `swap.vhdx` is in `D:\Backup\Quarantine\swap-vhdx-review-2026-10-15`); the weekly clean no longer deletes `~/.cache/node`; pnpm back on 12.4.2. **Still open:** WSL is 2.7.14.0 while the Dell is 3.0.3.0 (updating is a host step and your decision); the Ubuntu disk is 40 GiB and 72 percent used; recurring DNS-check journal noise | [[Ubuntu - WSL]], section "Acer toolkit sync and swap fix - 2026-10-15" |
+| A4 | Windows toolkit on the Acer | **Part 0 and Part 2 done.** Part 0 found 5 install actions; Part 2 wrote the managed profile blocks, git settings, delta include, Terminal merge, PATH order and two environment variables. **Waiting:** Part 1 (Git and GitHub CLI upgrade with UAC, pnpm 12.11.2, uv Python, mcp-remote) and Part 3 (verify and catalog), then the Dell writes the parity matrix | [[Acer Run Sheet - Windows Toolkit]], section "Acer run log, 2026-10-15" |
+| A5 | **Acer internship clone holds 4 commits that exist nowhere else** (branch `acer-predator/repo-environment-setup`, upstream deleted on GitHub) | protected by a verified Git bundle in `D:\Backup\repo-bundles\`; you decide: push the branch, or bring the commits to the Dell session (the Dell checkout is 6 ahead and 5 behind with 25 dirty files, and its note says the repo is not a uv project while the Acer commits adopt uv) | [[Old Laptop Rebuild - Build 2 Acer Handoff]] |
+| A6 | Acer Windows host: Drive backup scope, Drive account question | unchanged | the Drive plan note |
+| A7 | Shared bat and fd configs in `Windows Toolkit/configs/` are "reconstructed"; the Acer's own files are the real ones and differ | decide whether to promote the Acer's files into the shared source (then the Dell re-runs `20-apply-configs.ps1`) | [[Acer Run Sheet - Windows Toolkit]] |
+Per-repo `packageManager` pins (none of your repos set one) stay a per-repo approval for both laptops.
 
 ## Order
-1. One Acer visit, in this order: the Windows run sheet Part 0 (read-only), the Build 5b WSL handoff, the Build 2 SSH items. The Dell session then reads the paste-backs and writes the parity matrix.
+1. Acer, short second visit: the `socat` apt command (A1), the Dell-side host-key read (A2), Part 1 of the Windows run sheet with its UAC prompts (A4), then Part 3 (verify and catalog). The Dell session then reads both result sets and writes the parity matrix. Decide A5 and A7.
 2. Dell, whenever you like: D1 (revoke the Firecrawl key), then D2 to D11.
 3. Build 6 (Windows VS Code, MCP and Claude Code wiring; reaches the Acer through Settings Sync), then Build 7.
 4. Build 8 only after you answer the Drive questions.
@@ -100,6 +102,8 @@ Recommendation: fold A2 and A3 into the same Acer session as A1 (one Acer visit)
 - **Dell WSL:** 3.0.3.0, systemd running, both upkeep timers on, tmux 3.8, pnpm 12.4.2 through Corepack, WSL Ollama off. No key in `.bashrc`. Cursor server data and the old pnpm v10 stores are in the quarantine.
 - **Tailscale:** `dell-wsl` and `gupta-builds` connected, `RunSSH` true. Tailscale SSH is the only path: port-2222 fallback and VS Code Tunnel were declined.
 - **WSL export:** `D:\Backup\WSL\ubuntu-20261014-233219.tar` (54.47 GiB, 1,114,217 entries, SHA-256 in the manifest); listing verified with GNU tar, **no import test run**.
+- **Acer WSL (2026-10-15):** Ubuntu 24.04 on WSL 2.7.14.0, kernel 6.18.33.2, systemd running with 0 failed units, 19 GiB RAM, 18 CPUs, 8 GiB swap, `/` 39 GiB with 11 GiB free; tmux 3.8, pnpm 12.4.2 through Corepack (the weekly clean no longer deletes its pin), golden configs applied, guarded `.bashrc`. Tailscale is on the Windows side only (1.104.1, `gupta-builds`).
+- **Acer Windows (2026-10-15):** managed profile blocks written to both PowerShell profiles, git settings (`autocrlf=input`, `pull.rebase`, `push.autoSetupRemote`, `fetch.prune`, `rerere`, `init.defaultBranch`), `STARSHIP_CONFIG` and `TOOLKIT_VAULT_ROOT` set, `~\.local\bin` first on PATH. Backups in `D:\Backup\Toolkit\20261015-170556`.
 ## Stale notes (status)
 Patched on 2026-10-13/14: the tarball path and size, Ollama and "Dell retired" in [[Ubuntu - WSL]], bubblewrap, Build 2 ledger rows, the pnpm key, the six Build 2 corrections, the systemd statements, the Acer `.wslconfig` values, the Installations WSL section and two Installations Windows bullets.
 Still open: Docker auto-start wording in [[VS Code - Windows]] (the Run-key entry exists but is disabled in StartupApproved, and Docker did not start at boot); [[Old Laptop Decommission Checklist]], `WSL New Laptop Master Plan` and [[WSL Session Briefing]] are historical (their Ollama and "Dell retired" statements are out of date; the live machine wins).

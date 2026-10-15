@@ -2,7 +2,7 @@
 type: note
 status: sprout
 created: 2026-10-13
-updated: 2026-10-13
+updated: 2026-10-15
 course: Life
 track:
   - laptop
@@ -15,7 +15,7 @@ related:
   - "[[Old Laptop Rebuild - Build 5 WSL and D Drive Findings]]"
   - "[[Installations]]"
   - "[[Acer Live State — 2026-09-16]]"
-next: "Acer session runs the handoff note; both laptops then report `wsl-check.sh` output so the two columns below match."
+next: "Both laptops now match; re-run wsl-check.sh config on each after any golden change."
 ---
 # WSL Toolkit Config Reference
 
@@ -139,3 +139,8 @@ Decision (user, 2026-10-14): match the Acer. Both laptops use pnpm 12.4.2 (the D
 
 ## Sources
 tmux CHANGES (3.4 to 3.8); Yazi docs (configuration, flavors, image-preview, cli); lazygit `docs/Config.md` and `Custom_DiffRenderers.md`; delta "Get started" and "Merge conflicts"; git-config manual; atuin configuration reference (docs.atuin.sh, page flagged as not the latest release); sesh README and `sesh.schema.json`; fzf README and CHANGELOG; starship config docs; gh-dash configuration and repo-paths pages; bat README; ripgrep GUIDE; fd README; ncdu manual 2.9; Acer Live State (WSL rounds 1 and 2).
+
+## Acer applied state (2026-10-15)
+Column "Acer (recorded)" in the version matrix above is now out of date. After Build 5b the Acer matches the Dell on every row: tmux 3.8, pnpm 12.4.2, node 24.21.0, uv 0.12.23, gh 2.102.0, gh-dash 4.26.1, fzf 0.74.5, ripgrep 15.2.0, fd 10.5.0, bat 0.26.1, lazygit 0.66.1, sesh 2.33.0, delta 0.20.1, atuin 18.23.0, ruff 0.17.1, shellcheck 0.11.0, shfmt 3.14.1. Differences that remain on purpose: claude 2.1.301 on the Acer, `gh-dash` `repoPaths`, git identity and credential sections, and `.wslconfig`.
+Things the scripts do not cover, done by hand on the Acer and worth adding to `38-toolkit-upgrade.sh` if you want one command for both laptops: delta, atuin, uv, codex, ruff, shellcheck, shfmt. `37-toolkit-apply.sh` does not set `core.autocrlf`; set `input` by hand. `36-wsl-check.sh` now detects the vault root and the swap file name, so it runs unchanged on both laptops.
+The `~/.cache/node` rule applies to every machine: nothing may delete it (the Acer's weekly clean did, which floated pnpm to 12.11.2).

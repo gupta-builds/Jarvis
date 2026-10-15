@@ -7,6 +7,7 @@ tags:
 notes:
   - "[[Old Laptop Rebuild - Index]]"
 next: "[[Old Laptop Rebuild - Index]]"
+updated: 2026-10-15
 ---
 
 # Acer Dotfile Snapshot - VERSIONS
@@ -106,3 +107,6 @@ The vault's existing notes say the Windows side runs Yazi with a Tokyo Night Sto
 | ncdu | n/a | yes (1.19) |
 | IosevkaTerm Nerd Font | yes (system-wide) | n/a (rendering is done by Windows Terminal, not WSL) |
 | Cascadia Code/Mono, Ubuntu Sans Mono | yes (per-user) | n/a |
+
+## After Build 5b (2026-10-15)
+This snapshot is the Acer as of 2026-10-11, before the golden toolkit. It is kept as the history the Dell was built from; do not edit it. Live Acer versions now: tmux 3.8, pnpm 12.4.2, uv 0.12.23, gh 2.102.0, ripgrep 15.2.0, fd 10.5.0, bat 0.26.1, lazygit 0.66.1, sesh 2.33.0, delta 0.20.1, atuin 18.23.0, ruff 0.17.1, shellcheck 0.11.0, shfmt 3.14.1, claude 2.1.301, codex 0.162.1, chafa 1.18.2. The source of truth for configs is `WSL Parity/golden/` ([[WSL Toolkit Config Reference]]). `wsl-check.sh config` reports 9 files that differ from this snapshot on purpose (atuin, gh-dash, git ignore, lazygit, sesh, starship, yazi.toml, `.tmux.conf`, `.gitconfig`).

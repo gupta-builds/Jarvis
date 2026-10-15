@@ -2,7 +2,7 @@
 type: concept
 status: sprout
 created: 2026-01-17
-updated: 2026-10-13
+updated: 2026-10-15
 course: Life
 track:
   - laptop
@@ -155,3 +155,16 @@ The distro's `ext4.vhdx` was moved to D:, but C: keeps filling up anyway - what 
 #cards/laptop
 An install session reports a tool is blocked because `sudo` needs a password it has no way to enter - what should it do about the shell hook that depends on that tool?::Not add the hook. A `direnv hook`/`eval` line for a binary that doesn't exist yet would break every future shell start with a "command not found" error - correct behavior is to install the binary first, verify it exists, and only then add anything that depends on it.
 #cards/laptop
+
+## Acer toolkit sync and swap fix - 2026-10-15
+This section closes the problems list of the 2026-10-13 audit above, from a live session on the Acer.
+| Audit item | State now |
+|---|---|
+| 1 Weekly clean deletes `~/.cache/node` | **Fixed.** The deletion block in `~/tools/weekly-cache-cleanup.sh` is removed (a comment explains why). Corepack pnpm is pinned to 12.4.2 again. |
+| 2 Small Linux disk | Open. `/` is 39 GiB with 11 GiB free (72 percent used) after the toolkit upgrade. An offline resize with a backup is a user decision; compaction would not help. |
+| 3 Storage candidates | Unchanged (uv cache, VS Code Server 4.1 GB, Miniconda 3.8 GB). No cleanup ran. |
+| 4 `.wslconfig` | **Fixed and live.** Launch and swap problems were fixed with a new swap path. The file now has `memory=20GB`, `processors=18`, `swapFile=D:\\WSL\\wsl-swap.vhdx`, `swap=8GB`, `networkingMode=mirrored`, `firewall=true`, `dnsTunneling=true`, `autoProxy=true` and, under `[experimental]`, `sparseVhd=true` and `autoMemoryReclaim=gradual`. `free -h` shows 19 GiB, `nproc` 18, `/proc/swaps` 8,388,608 KB on `/dev/sdc`. The old `D:\WSL\swap.vhdx` (36 MB) is in `D:\Backup\Quarantine\swap-vhdx-review-2026-10-15`; do not recreate it. |
+| 5 DNS-check noise | Not re-investigated. `dnsTunneling=true` is now set on purpose. |
+| 6 Toolkit parity | **Done** with Build 5b: golden configs applied (`changed=13 same=21 fails=0`), starship is LF and has the python and conda segments, tmux has current-directory splits, history-limit 100000, renumber-windows, escape-time 10 and passthrough, gh-dash maps three Acer repos, git has the shared include and `autocrlf=input`, `.bashrc` hooks are guarded. ruff, shellcheck and shfmt are installed. `socat` is the only missing tool (needs sudo). pnpm stays on 12.4.2. |
+| 7 Backup and two-laptop closure | Two-laptop closure done on 2026-10-15 (see [[Old Laptop Rebuild - Build 2 Acer Handoff]]); the independent host-key comparison is the one open item. The Dell has a verified WSL export; the Acer has none, so take one before any disk resize. |
+Version note: the Acer WSL is 2.7.14.0 and the Dell is 3.0.3.0. The Acer runs fine with its current file; updating WSL is a host step the user may choose later (`wsl --update` from Windows PowerShell, never from inside WSL).

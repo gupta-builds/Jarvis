@@ -12,7 +12,7 @@ tags:
 related:
   - "[[Old Laptop Rebuild - Build 2 SSH Runbook]]"
   - "[[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]]"
-next: Independently compare the already-accepted Acer SSH host key, inventory Acer clones/worktrees, and run ~/tools/sync-check over SSH
+next: "Acer visit done 2026-10-15. Open: Dell-side read for the independent host-key comparison, and the decision about the Acer's 4 local-only internship commits (backed up as a bundle)."
 ---
 # Old Laptop Rebuild - Build 2 Acer Handoff
 
@@ -87,3 +87,34 @@ Return evidence for: Tailscale Windows connected; no Tailscale inside Acer WSL; 
 
 ## References
 [Tailscale SSH](https://tailscale.com/kb/1193/tailscale-ssh), [Tailscale WSL 2](https://tailscale.com/kb/1295/install-windows-wsl2), [VS Code Remote SSH](https://code.visualstudio.com/docs/remote/ssh).
+
+## Acer visit results (2026-10-15)
+Run from the Acer (host `gupta-builds`) by a Claude Code session. Evidence only; no repo, `known_hosts`, Tailscale setting or synced VS Code file was changed.
+
+| Step | Result | Evidence |
+|---|---|---|
+| 1 Tailscale placement | PASS | Windows Tailscale 1.104.1 is connected as `gupta-builds` (`100.84.91.11`). Inside the Acer WSL there is no `tailscale` binary, no package, and `tailscaled` is not active. |
+| 2 Config | not touched | The existing accepted `known_hosts` entry and Windows OpenSSH were used as they are. No SSH config or VS Code setting was written. |
+| 3 Route | PASS | `tailscale.exe ping`: direct `via 10.5.8.253:41641`, 4 to 5 ms (13 ms in a later sample). The control plane shows `dell-wsl` online with relay `ord`. |
+| 3 Remote command | PASS | `ssh.exe anant_gupta@dell-wsl` ran `hostname` (`DESKTOP-3VBG0JH`) and `uptime` (up 1 day 10 hours). Tailscale SSH asked for its extra "check" authentication once; it passed. |
+| 3 Host key comparison | **PARTIAL, independent part still open** | The Acer's own `tailscale.exe status --json` has a `dell-wsl.tail0c1d06.ts.net` peer entry with **no `SSH_HostKeys` field** (Tailscale 1.104.1). Per this note, nothing was rewritten. Consistency check instead: the `known_hosts` entry and the key served right now by `ssh-keyscan` are both `SHA256:PHOUaZNkip9YvF80hW6WbG5emclHt7rIYMfWf3VzxHA`, equal to the fingerprint the user accepted. That proves the key is stable, not that it is the one Tailscale advertises. To close it, the user reads the key on the Dell (needs sudo; the exact file location was not verified, so list it first): in Dell WSL run `sudo find /var/lib/tailscale -iname '*ssh_host*'` and then `sudo ssh-keygen -lf <the .pub file or the private key path it prints>`, and compare with the fingerprint above. |
+| 3b sync-check over SSH | PASS | `ssh.exe anant_gupta@dell-wsl '~/tools/sync-check'`: second-brain-claudekit `main`, `origin/main` 0/0, dirty 1; internship-research-loop `dell-latitude/deadline-quota-and-reseed-fixes`, `origin/master` 6 ahead and 5 behind, dirty 25. Identical to the Dell's own run of 2026-10-15. The `node`, `pnpm`, `uv` lines read `not-installed`, as predicted for a non-interactive shell. |
+| 3 Large transfer | measured, slow | A `git bundle` of second-brain-claudekit (17,039,678 bytes) streamed over SSH to a byte counter (nothing written on either side) took 2.38 s, 6.8 MiB/s. A 512 MiB stream from `/dev/zero` took 197 s, **2.5 MiB/s**, with a direct 4 to 13 ms path. That is slow for a direct path. Cause not established (one SSH stream through the Dell's userspace Tailscale, the `tailscale0` MTU of 1280 and mirrored networking are candidates). No setting was changed. The largest repo history on the Dell is `jan` at 1.5 GB; do not clone it over this link without testing first. |
+| 3 Acer WSL route (optional) | PASS | Acer WSL has no Tailscale. `dell-wsl` resolves to `100.94.129.113` there, `tcp/22` is reachable, and `ssh` with a temporary known-hosts file holding only the verified key ran `hostname` on the Dell. A plain `ssh` from WSL stops at "Host key verification failed" until WSL's own `known_hosts` has the entry, which is expected. If the user wants it, run the first connection interactively and compare the printed fingerprint with the one above. |
+| 4 Clone inventory | done, one risk found | See below. |
+| 5 Codex execution location | not re-tested | The 2026-10-12 Remote-SSH evidence stands (extension host on the Dell WSL server). A GUI VS Code window is needed to re-check it. |
+
+### Clone and worktree inventory (Acer)
+Searched: both WSL clones by name under `~/projects`; Windows side by name at depth 2 under `C:\Users\anant`, `D:\_Anant\{10_Areas,20_Progress,30_Resources,00_Inbox,99_Archive}`, `D:\Apps`, `D:\AI`, `D:\Games`, and at depth 5 under the vault PARA folders, `.claude` and `workplace`. No Windows-side clone of either repo was found. One earlier depth-4 sweep of `D:\Apps` and `D:\Cache` did not finish, so those two were only checked at depth 2.
+
+| Path | Branch and upstream | Ahead / behind | Dirty | Size | Worktrees | Role and proposal |
+|---|---|---|---|---|---|---|
+| `~/projects/ai/second-brain-claudekit` | `main`, `origin/main` | 0 / 0 (fetched) | 0 | 211 MB | none | Clean local clone, last commit 4 weeks ago. Relabel as "behind the Dell canonical checkout, no unique work". Retire only after the user approves. |
+| `~/projects/work/internship-research-loop` | `acer-predator/repo-environment-setup`, upstream **gone** on origin | 4 / 5 against `origin/master` | 0 | 40 MB (`.venv` 33 MB) | none | **Holds 4 commits that exist nowhere else** (2026-10-03): `645a6c5` remove `.agents` mirror, Codex config only under `.codex`; `3e986c7` move 21 mirrored skill files into `.codex/skills`; `51b0377` adopt uv, commit `pyproject.toml` and `uv.lock`; `e0788fe` ignore machine-local settings, env files and tool caches. 24 files, 541 insertions. Do not retire this clone. |
+| `~/projects/work/gupta-builds` | `main`, `origin/main` | in sync | 1 untracked | 0.5 MB | none | Not a shared repo. |
+| `~/projects/scratch/gpu-smoke-test` | `main`, no commits, no upstream | n/a | 6 untracked | 5.3 GB | none | Scratch; not a shared repo. |
+
+Protection made without touching the repo: `D:\Backup\repo-bundles\internship-research-loop-acer-20261015.bundle` (1.6 MB, `git bundle verify` says "complete history", SHA-256 `64e07ec865aaa0b45bb5eecebffe054f4d472407b2af53a1ae6a4f992353257a`, `.sha256` file beside it). Decision for the user: push `acer-predator/repo-environment-setup` to GitHub, or bring the four commits to the Dell session. Note that the Dell's internship checkout is itself 6 ahead and 5 behind `origin/master` with 25 dirty files, and the Dell note says that repo is not a uv project, while the Acer's commit `51b0377` adopts uv, so the two histories need a deliberate merge. Nothing was pushed, reset, stashed or deleted.
+
+### Still open after this visit
+Independent host-key comparison (a Dell-side read); the user's decision on the internship branch; Remote-SSH execution-location re-check in a GUI window; clone retirement approvals.

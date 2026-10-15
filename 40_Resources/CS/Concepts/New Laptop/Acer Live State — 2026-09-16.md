@@ -2,7 +2,7 @@
 type: note
 status: sprout
 created: 2026-09-16
-updated: 2026-09-19
+updated: 2026-10-15
 course: Life
 track:
   - laptop
@@ -226,3 +226,11 @@ Install+inspect confirmed all seven work as installed: `zoxide` (0.10.0, real di
 ### Full real state after this round
 
 Confirmed installed and working: `git`, `git-lfs`, `ripgrep`, `fd`/`bat` (symlinked), `fzf`, `jq`, `gh` (2.45.0), `wslu`, `nvm`+Node (24.21.0), `pnpm` (12.4.2), `uv` (0.12.17), `rustup`/`cargo`, `kiro-cli` (2.22.0), `codex`, `claude` (2.1.277), `agy`/Antigravity (1.2.6), `starship` (1.26.0, tuned), `yazi` (26.9.1, full config), `tmux` (3.4, full config), `win32yank`, `ncdu` (configured), `semgrep` (1.177.0), `delta` (0.19.2), `lazygit` (configured), `zoxide` (0.10.0), `sesh` (installed, config pending), `atuin` (installed, history imported, tuning pending), `gh-dash` (installed, config pending), `tmux-agent-status` (`samleeney`, vetted), `tmux-handlr` (installed, ntfy pending). Not installed: `direnv` (blocked), Docker Desktop, Cursor CLI (deliberately). `chafa` installed but at an insufficient version (1.14.0, needs >=1.16.0).
+
+## Build 5b and Build 2 closure on the Acer - 2026-10-15
+A live session on `gupta-builds` applied the Dell's golden WSL toolkit and ran the Build 2 SSH checks. The earlier "fix-pass queued, not yet confirmed complete" items above are now confirmed: chafa is 1.18.2, direnv is installed, atuin has the golden config, `sesh.toml` and gh-dash `repoPaths` are real, and the tmux-handlr ntfy topic is configured (`~/.config/tmux-handlr/ntfy.env`, mode 600; the value was not read).
+- WSL toolkit: tmux 3.8, pnpm 12.4.2, gh 2.102.0, rg 15.2.0, fd 10.5.0, bat 0.26.1, lazygit 0.66.1, sesh 2.33.0, delta 0.20.1, atuin 18.23.0, uv 0.12.23, ruff 0.17.1, shellcheck 0.11.0, shfmt 3.14.1. Details: [[Acer Session Handoff - Toolkit Sync (Build 5b)]].
+- Root cause found for the pnpm drift: the Sunday cache cleanup deleted Corepack's state in `~/.cache/node`. Fixed.
+- `.wslconfig` now points swap at `D:\WSL\wsl-swap.vhdx`; the old swap file is quarantined.
+- Two-laptop workflow: Tailscale only on Windows, direct path to `dell-wsl`, `sync-check` over SSH matches the Dell, the Acer WSL reaches the Dell through the Windows route. Open: independent host-key comparison. Found: 4 internship commits exist only on the Acer (backed up as a Git bundle). Full table: [[Old Laptop Rebuild - Build 2 Acer Handoff]].
+- Windows toolkit: Part 0 and Part 2 done, Part 1 and Part 3 waiting ([[Acer Run Sheet - Windows Toolkit]]).

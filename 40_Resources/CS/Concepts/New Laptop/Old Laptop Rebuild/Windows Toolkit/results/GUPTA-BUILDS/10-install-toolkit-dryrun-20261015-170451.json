@@ -1,0 +1,340 @@
+{
+    "script":  "10-install-toolkit",
+    "host":  "GUPTA-BUILDS",
+    "machine":  "acer",
+    "dryRun":  true,
+    "started":  "2026-10-15T17:04:51",
+    "finished":  "2026-10-15T17:05:12",
+    "admin":  false,
+    "manifestSha256":  "4E4A8D15CFEE15DC9E674B51DBE6FAB1F3730A951C20957AC9E4BB1F3C817634",
+    "vaultRoot":  "D:\\_Anant\\20_Progress\\Documents\\Jarvis",
+    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-10-install-toolkit-20261015-170451.log",
+    "counts":  {
+                   "OK":  29,
+                   "PLAN":  5,
+                   "MANUAL":  1
+               },
+    "items":  [
+                  {
+                      "id":  "pwsh",
+                      "status":  "OK",
+                      "detail":  "present, adopted (version 7.6.7)",
+                      "drive":  "C:",
+                      "path":  "C:\\Users\\anant\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe",
+                      "policy":  "install",
+                      "version":  "7.6.7",
+                      "sizeMB":  null
+                  },
+                  {
+                      "id":  "wt",
+                      "status":  "OK",
+                      "detail":  "present, adopted (version 1.24.12741.0)",
+                      "drive":  null,
+                      "path":  null,
+                      "policy":  "verify",
+                      "version":  "1.24.12741.0",
+                      "sizeMB":  null
+                  },
+                  {
+                      "id":  "starship",
+                      "status":  "OK",
+                      "detail":  "present, adopted (version 1.26.0)",
+                      "drive":  "C:",
+                      "path":  "C:\\Program Files\\starship\\bin\\starship.exe",
+                      "policy":  "install",
+                      "version":  "1.26.0",
+                      "sizeMB":  12.5
+                  },
+                  {
+                      "id":  "iosevkaterm-nfm",
+                      "status":  "OK",
+                      "detail":  "family registered (version v3.5.1)",
+                      "drive":  null,
+                      "path":  null,
+                      "policy":  "install",
+                      "version":  "v3.5.1",
+                      "sizeMB":  null
+                  },
+                  {
+                      "id":  "zoxide",
+                      "status":  "OK",
+                      "detail":  "present, adopted (version 0.10.0)",
+                      "drive":  "C:",
+                      "path":  "C:\\Users\\anant\\AppData\\Local\\Microsoft\\WinGet\\Links\\zoxide.exe",
+                      "policy":  "install",
+                      "version":  "0.10.0",
+                      "sizeMB":  1.2
+                  },
+                  {
+                      "id":  "fzf",
+                      "status":  "OK",
+                      "detail":  "present, adopted (version 0.74.4)",
+                      "drive":  "C:",
+                      "path":  "C:\\Users\\anant\\AppData\\Local\\Microsoft\\WinGet\\Links\\fzf.exe",
+                      "policy":  "install",
+                      "version":  "0.74.4",
+                      "sizeMB":  5.9
+                  },
+                  {
+                      "id":  "psfzf",
+                      "status":  "OK",
+                      "detail":  "present in both editions (version 2.7.12)",
+                      "drive":  null,
+                      "path":  null,
+                      "policy":  "install",
+                      "version":  "2.7.12",
+                      "sizeMB":  null
+                  },
+                  {
+                      "id":  "fd",
+                      "status":  "OK",
+                      "detail":  "present, adopted (version 10.5.0)",
+                      "drive":  "C:",
+                      "path":  "C:\\Users\\anant\\AppData\\Local\\Microsoft\\WinGet\\Links\\fd.exe",
+                      "policy":  "install",
+                      "version":  "10.5.0",
+                      "sizeMB":  3.9
+                  },
+                  {
+                      "id":  "bat",
+                      "status":  "OK",
+                      "detail":  "present, adopted (version 0.26.1)",
+                      "drive":  "C:",
+                      "path":  "C:\\Users\\anant\\AppData\\Local\\Microsoft\\WinGet\\Links\\bat.exe",
+                      "policy":  "install",
+                      "version":  "0.26.1",
+                      "sizeMB":  7
+                  },
+                  {
+                      "id":  "delta",
+                      "status":  "OK",
+                      "detail":  "present, adopted (version 0.20.1)",
+                      "drive":  "C:",
+                      "path":  "C:\\Users\\anant\\AppData\\Local\\Microsoft\\WinGet\\Links\\delta.exe",
+                      "policy":  "install",
+                      "version":  "0.20.1",
+                      "sizeMB":  7.3
+                  },
+                  {
+                      "id":  "git",
+                      "status":  "PLAN",
+                      "detail":  "[DRYRUN] would upgrade (policy latest)"
+                  },
+                  {
+                      "id":  "gh",
+                      "status":  "PLAN",
+                      "detail":  "[DRYRUN] would upgrade (policy latest)"
+                  },
+                  {
+                      "id":  "ripgrep",
+                      "status":  "OK",
+                      "detail":  "present, adopted (version 15.2.0)",
+                      "drive":  "C:",
+                      "path":  "C:\\Users\\anant\\.local\\bin\\rg.exe",
+                      "policy":  "install",
+                      "version":  "15.2.0",
+                      "sizeMB":  4
+                  },
+                  {
+                      "id":  "jq",
+                      "status":  "OK",
+                      "detail":  "present, adopted (version 1.8.2)",
+                      "drive":  "C:",
+                      "path":  "C:\\Users\\anant\\AppData\\Local\\Microsoft\\WinGet\\Links\\jq.exe",
+                      "policy":  "install",
+                      "version":  "1.8.2",
+                      "sizeMB":  1
+                  },
+                  {
+                      "id":  "ffmpeg",
+                      "status":  "OK",
+                      "detail":  "present, adopted (version 9.0.1)",
+                      "drive":  "C:",
+                      "path":  "C:\\Users\\anant\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-9.0.1-full_build\\bin\\ffmpeg.exe",
+                      "policy":  "install",
+                      "version":  "9.0.1",
+                      "sizeMB":  648.2
+                  },
+                  {
+                      "id":  "nanazip",
+                      "status":  "OK",
+                      "detail":  "present, adopted (version 7.0.1843.0)",
+                      "drive":  "C:",
+                      "path":  "C:\\Program Files\\WindowsApps\\40174MouriNaruto.NanaZip_7.0.1843.0_x64__gnj4mf6z9tkrc",
+                      "policy":  "install",
+                      "version":  "7.0.1843.0",
+                      "sizeMB":  null
+                  },
+                  {
+                      "id":  "node",
+                      "status":  "MANUAL",
+                      "detail":  "OpenJS.NodeJS.22 is installed; run 11-node-lts-swap.ps1 by hand"
+                  },
+                  {
+                      "id":  "npm",
+                      "status":  "OK",
+                      "detail":  "present (version 11.17.0)",
+                      "drive":  "C:",
+                      "path":  "C:\\Program Files\\nodejs\\npm.ps1",
+                      "policy":  "verify",
+                      "version":  "11.17.0",
+                      "sizeMB":  100.9
+                  },
+                  {
+                      "id":  "pnpm",
+                      "status":  "PLAN",
+                      "detail":  "[DRYRUN] would install 12.11.2 (not installed)"
+                  },
+                  {
+                      "id":  "uv",
+                      "status":  "OK",
+                      "detail":  "standalone uv at pin (version 0.12.19)",
+                      "drive":  "C:",
+                      "path":  "C:\\Users\\anant\\.local\\bin\\uv.exe",
+                      "policy":  "install",
+                      "version":  "0.12.19",
+                      "sizeMB":  40.5
+                  },
+                  {
+                      "id":  "uv-python",
+                      "status":  "PLAN",
+                      "detail":  "[DRYRUN] would install (no uv-managed python)"
+                  },
+                  {
+                      "id":  "winget",
+                      "status":  "OK",
+                      "detail":  "present (version 1.29.380)",
+                      "drive":  "C:",
+                      "path":  "C:\\Users\\anant\\AppData\\Local\\Microsoft\\WindowsApps\\winget.exe",
+                      "policy":  "verify",
+                      "version":  "1.29.380",
+                      "sizeMB":  null
+                  },
+                  {
+                      "id":  "claude-code",
+                      "status":  "OK",
+                      "detail":  "present (version 2.1.301)",
+                      "drive":  "C:",
+                      "path":  "C:\\Users\\anant\\.local\\bin\\claude.exe",
+                      "policy":  "verify",
+                      "version":  "2.1.301",
+                      "sizeMB":  259.2
+                  },
+                  {
+                      "id":  "codex",
+                      "status":  "OK",
+                      "detail":  "present, adopted (version 0.162.1)",
+                      "drive":  "D:",
+                      "path":  "D:\\AI\\npm-global\\codex.ps1",
+                      "policy":  "install",
+                      "version":  "0.162.1",
+                      "sizeMB":  0
+                  },
+                  {
+                      "id":  "claude-desktop",
+                      "status":  "OK",
+                      "detail":  "present (version 2.42304.0.0)",
+                      "drive":  null,
+                      "path":  null,
+                      "policy":  "verify",
+                      "version":  "2.42304.0.0",
+                      "sizeMB":  null
+                  },
+                  {
+                      "id":  "cursor",
+                      "status":  "OK",
+                      "detail":  "present (version 3.24.9)",
+                      "drive":  null,
+                      "path":  null,
+                      "policy":  "verify",
+                      "version":  "3.24.9",
+                      "sizeMB":  null
+                  },
+                  {
+                      "id":  "antigravity",
+                      "status":  "OK",
+                      "detail":  "present (version 2.13.0)",
+                      "drive":  null,
+                      "path":  null,
+                      "policy":  "verify",
+                      "version":  "2.13.0",
+                      "sizeMB":  null
+                  },
+                  {
+                      "id":  "docker-desktop",
+                      "status":  "OK",
+                      "detail":  "present (version 4.91.0)",
+                      "drive":  null,
+                      "path":  null,
+                      "policy":  "verify",
+                      "version":  "4.91.0",
+                      "sizeMB":  null
+                  },
+                  {
+                      "id":  "ollama",
+                      "status":  "OK",
+                      "detail":  "present (version 0.34.1)",
+                      "drive":  null,
+                      "path":  null,
+                      "policy":  "verify",
+                      "version":  "0.34.1",
+                      "sizeMB":  null
+                  },
+                  {
+                      "id":  "vscode",
+                      "status":  "OK",
+                      "detail":  "present (version 1.142.0)",
+                      "drive":  null,
+                      "path":  null,
+                      "policy":  "verify",
+                      "version":  "1.142.0",
+                      "sizeMB":  null
+                  },
+                  {
+                      "id":  "mcp-remote",
+                      "status":  "PLAN",
+                      "detail":  "[DRYRUN] would install 0.2.1 (not installed)"
+                  },
+                  {
+                      "id":  "npx",
+                      "status":  "OK",
+                      "detail":  "present (version 11.17.0)",
+                      "drive":  "C:",
+                      "path":  "C:\\Program Files\\nodejs\\npx.ps1",
+                      "policy":  "verify",
+                      "version":  "11.17.0",
+                      "sizeMB":  100.9
+                  },
+                  {
+                      "id":  "uvx",
+                      "status":  "OK",
+                      "detail":  "present (version 0.12.19)",
+                      "drive":  "C:",
+                      "path":  "C:\\Users\\anant\\.local\\bin\\uvx.exe",
+                      "policy":  "verify",
+                      "version":  "0.12.19",
+                      "sizeMB":  0.3
+                  },
+                  {
+                      "id":  "docker-cli",
+                      "status":  "OK",
+                      "detail":  "present (version 29.8.0)",
+                      "drive":  "C:",
+                      "path":  "C:\\Users\\anant\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe",
+                      "policy":  "verify",
+                      "version":  "29.8.0",
+                      "sizeMB":  42.7
+                  },
+                  {
+                      "id":  "tailscale-acer",
+                      "status":  "OK",
+                      "detail":  "present (version 1.104.1)",
+                      "drive":  null,
+                      "path":  null,
+                      "policy":  "verify",
+                      "version":  "1.104.1",
+                      "sizeMB":  null
+                  }
+              ],
+    "plannedActions":  5
+}

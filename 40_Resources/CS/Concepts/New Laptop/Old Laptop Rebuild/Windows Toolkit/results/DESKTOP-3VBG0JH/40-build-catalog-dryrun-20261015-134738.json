@@ -1,0 +1,43 @@
+{
+    "script":  "40-build-catalog",
+    "host":  "DESKTOP-3VBG0JH",
+    "machine":  "dell",
+    "dryRun":  true,
+    "started":  "2026-10-15T13:47:38",
+    "finished":  "2026-10-15T13:48:41",
+    "admin":  false,
+    "manifestSha256":  "4E4A8D15CFEE15DC9E674B51DBE6FAB1F3730A951C20957AC9E4BB1F3C817634",
+    "vaultRoot":  "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis",
+    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-40-build-catalog-20261015-134738.log",
+    "counts":  {
+                   "PLAN":  1,
+                   "INFO":  4
+               },
+    "items":  [
+                  {
+                      "id":  "tools",
+                      "status":  "INFO",
+                      "detail":  "46 manifest tools catalogued"
+                  },
+                  {
+                      "id":  "unmanifested",
+                      "status":  "INFO",
+                      "detail":  "winget rows 129, npm globals 4, ~/.local/bin files 7, uv tools 0, choco packages 0"
+                  },
+                  {
+                      "id":  "mcp",
+                      "status":  "INFO",
+                      "detail":  "24 MCP entries (names and command names only)"
+                  },
+                  {
+                      "id":  "wsl",
+                      "status":  "INFO",
+                      "detail":  "distro Ubuntu: 34 tools found, 29 config files compared with the Acer snapshot (21 match, 8 differ, 0 missing)"
+                  },
+                  {
+                      "id":  "catalog-write",
+                      "status":  "PLAN",
+                      "detail":  "[DRYRUN] would write \u0027Tool Catalog - DESKTOP-3VBG0JH.md\u0027 (42970 chars) and tool-catalog-DESKTOP-3VBG0JH.json"
+                  }
+              ]
+}

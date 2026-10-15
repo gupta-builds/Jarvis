@@ -5,35 +5,38 @@ source_app: claude-code
 source_os: windows
 title: "Build 4b Dell leftovers"
 started_at: 2026-10-14T10:02:29
-ended_at: 2026-10-15T13:14:15
-exported_at: 2026-10-15T13:30:04
-duration_minutes: 1631.8
+ended_at: 2026-10-15T13:48:53
+exported_at: 2026-10-15T14:00:03
+duration_minutes: 1666.4
 project: Home
 cwd: 'C:\Users\Anant Gupta'
 session_id: c4ce8d15-6db3-4bd7-9640-3040d61f09e2
 status: raw
-turn_count: 10
+turn_count: 12
 tools_used:
-  Bash: 14
+  Bash: 22
   Edit: 12
-  Glob: 2
-  Grep: 1
-  PowerShell: 30
-  Read: 4
+  Glob: 3
+  Grep: 3
+  PowerShell: 36
+  Read: 8
   ToolSearch: 1
   WebSearch: 1
-  Write: 3
+  Write: 4
 tokens:
-  input: 306
-  output: 235209
-  cache_creation: 1643158
-  cache_read: 19974659
-  total: 21853332
+  input: 404
+  output: 300845
+  cache_creation: 1786378
+  cache_read: 30507584
+  total: 32595211
 cost_usd: null
 model:
   - "claude-sonnet-5-5"
 files_touched:
+  - "D:\\Cache\\Temp\\claude\\C--Users-Anant-Gupta\\c4ce8d15-6db3-4bd7-9640-3040d61f09e2\\tasks\\bumtlwj4g.output"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Old Laptop Rebuild - Index.md"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Runs\\Build 4 Windows Toolkit\\Old Laptop Rebuild - Build 4 Prompt (Windows Toolkit).md"
+  - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\\40-build-catalog.ps1"
   - "D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\VS Code - MCP and Secrets.md"
   - "D:\\WSL\\ops\\60-build5b-host.ps1"
   - "D:\\WSL\\ops\\windows\\05-startup-cleanup.ps1"
@@ -1145,6 +1148,405 @@ try { Stop-Transcript | Out-Null } catch { }
 ```
 - `PowerShell` -- `{"command":"$f=\u0027D:\\WSL\\ops\\windows\\06-ollama-check.ps1\u0027; $null=[scriptblock]::Create([IO.File]::ReadAllText($f)); \"parse ok\"; powershell.exe -NoProfile -ExecutionPolicy Bypass -File $f | Select -Last 4","description":"Re-run Ollama dry run after edit","timeout":60000}`
 
+## You
+
+The key was revoked and a new key has initialized, remove the key entirely: ```
+
+<pasted_content id="79bf">
+░▒▓ 󰍲  ~ 
+took 6s ❯ bash /mnt/d/WSL/ops/windows/firecrawl-key-move.sh
+13:15:47 firecrawl-key-move apply=0  log=/mnt/d/WSL/ops/windows/logs/[REDACTED].log
+13:15:47 found assignment at /home/anant_gupta/.bashrc line 154 (comment line above it: 1); old key length 35
+13:15:47 Firecrawl API says OLD key -> HTTP 200  (401/403 = revoked, good; 200 = STILL VALID, rotation not done)
+13:15:47 /home/anant_gupta/.mcp.env perms: 600; already defines FIRECRAWL_API_KEY: 0
+13:15:47 DRY RUN: would prompt for the new key, check it, write it to /home/anant_gupta/.mcp.env (600), remove line(s) 153-154 from /home/anant_gupta/.bashrc, back up a redacted /home/anant_gupta/.bashrc, then verify. Nothing changed.
+
+░▒▓ 󰍲  ~ 
+❯ bash /mnt/d/WSL/ops/windows/firecrawl-key-move.sh --apply
+13:16:14 firecrawl-key-move apply=1  log=/mnt/d/WSL/ops/windows/logs/[REDACTED].log
+13:16:14 found assignment at /home/anant_gupta/.bashrc line 154 (comment line above it: 1); old key length 35
+13:16:14 Firecrawl API says OLD key -> HTTP 200  (401/403 = revoked, good; 200 = STILL VALID, rotation not done)
+13:16:14 /home/anant_gupta/.mcp.env perms: 600; already defines FIRECRAWL_API_KEY: 0
+13:16:14 STOP: the OLD key still works. Revoke/rotate it in the Firecrawl dashboard first, then re-run.
+</pasted_content id="79bf">
+
+```. Outputs: ```
+
+<pasted_content id="79bf">
+
+░▒▓ 󰍲  ~ 
+❯ powershell -ExecutionPolicy Bypass -File D:\WSL\ops\windows\06-ollama-check.ps1 -Apply
+13:18:18 ollama check. DryRun=False  Log: D:\WSL\ops\windows\logs\[REDACTED].log
+13:18:18   OLLAMA_MODELS (user env): D:\AI\ollama-models   expected D:\AI\ollama-models   OK
+13:18:18   models folder exists: True
+13:18:18   D:\Apps\Ollama\ollama.exe exists: True
+13:18:21   nothing listens on 11434
+13:18:27   started; port 11434 owner pid 23656
+13:18:27   owner process: ollama.exe  path: D:\Apps\Ollama\ollama.exe
+13:18:27   owned by the Windows D:\Apps\Ollama binary: True
+13:18:27   bound address: 127.0.0.1
+13:18:37   API call failed: The operation has timed out.
+13:18:49   'ollama list' exit code 0, 4 line(s):
+13:18:49     NAME                       ID              SIZE      MODIFIED
+13:18:50     minimax-m2.7:cloud         06daa293c105    -         6 months ago
+13:18:50     qwen3.5:cloud              a7bf6f7891c3    -         6 months ago
+13:18:50     nomic-embed-text:latest    0a109f422b47    274 MB    6 months ago
+13:18:50   Startup shortcut state (03 = disabled): 3
+13:18:50 DONE. Log: D:\WSL\ops\windows\logs\[REDACTED].log
+</pasted_content id="79bf">
+
+```, ```
+
+<pasted_content id="79bf">
+Loading personal and system profiles took 2815ms.
+
+░▒▓ 󰍲  C:\WINDOWS\system32    
+❯ powershell -ExecutionPolicy Bypass -File D:\WSL\ops\windows\04-admin-remove.ps1 -IncludeDotnet8
+*** DRY RUN (nothing changes). Re-run with -Apply ***
+
+--- 1 Logi Options+ and Logi Plugin Service
+
+--- 2 Visual C++ 2010 and 2012 redistributables (2015-2022 stays)
+
+--- 3 .NET 9.x (and 8.x with -IncludeDotnet8). 10.x stays.
+   Microsoft ASP.NET Core 8.0.25 - Shared Framework (x64) 8.0.25.26112
+     C:\ProgramData\Package Cache\{[REDACTED]}\[REDACTED].exe /uninstall /quiet
+   Microsoft Windows Desktop Runtime - 8.0.26 (x64) 8.0.26.35920
+     C:\ProgramData\Package Cache\{[REDACTED]}\[REDACTED].0.26-win-x64.exe /uninstall /quiet
+   Microsoft .NET Runtime - 8.0.26 (x64) 64.104.50421
+     msiexec /X{[REDACTED]} /qn /norestart
+   Microsoft ASP.NET Core 8.0.25 Shared Framework (x64) 8.0.25.26112
+     msiexec /X{[REDACTED]} /qn /norestart
+   Microsoft Windows Desktop Runtime - 8.0.26 (x64) 64.104.50433
+     msiexec /X{[REDACTED]} /qn /norestart
+
+--- 4 Epic leftovers
+
+--- 5 Python 3.13.5 and Chocolatey: skipped (needs -IncludePython after uv is installed)
+
+END  C: free 137.23 -> 137.23 GiB   log: D:\WSL\ops\windows\logs\[REDACTED].log
+
+░▒▓ 󰍲  C:\WINDOWS\system32    
+took 3s ❯
+</pasted_content id="79bf">
+
+```
+
+## Claude
+
+Reading this round: Ollama works (server owned by `D:\Apps\Ollama\ollama.exe`, bound to 127.0.0.1, `ollama list` answered). The `/api/version` call timed out at the first warm-up, so I'll recheck that. The .NET dry run lists exactly the five 8.x packages, and I'm keeping them (reason at the end). But the script still reported the old key as **HTTP 200 at 13:16**, so I'm re-checking that against the API now rather than assuming either way.
+
+Status: the removal logic works up to the scan, and the scan is what hung. I'm rewriting it to be bounded: small config-type files only, limited depth, and a 40-second cap per location.
+
+The syntax check failed (`unexpected end of file`), and that is why the run hung until my timeout. My splice broke the file's tail. Looking at it.
+
+The syntax error persists, though it now fails fast. I'll look at the tail directly instead of guessing.
+
+The cause is `fisay`: the block I spliced in lacks a trailing newline, so `fi` and `say` fused into one word. One-character fix, then the real re-test.
+
+The catalog script exists and already has a secret-pattern guard that refuses to write if any text looks like a key. I'm reading the Phase 5 to 7 spec lines, then dry-running it.
+
+The catalog dry run is clean: no required failures, and it would write a 42,970-character catalog plus a JSON file. It counts 46 manifest tools, 24 MCP entries (names only) and 34 WSL tools. The WSL probe shows **8 of 29** WSL config files differing from the Acer snapshot. That is the real current gap, and I'll carry it into the parity matrix.
+
+## Recap
+
+- **A4 verified.** Windows Ollama 0.40.3 runs from `D:\Apps\Ollama` with `OLLAMA_MODELS=D:\AI\ollama-models`. It is bound to 127.0.0.1:11434, and `ollama list` shows 3 models (2 cloud, plus `nomic-embed-text`). The earlier API timeout was only the first warm-up. The startup shortcut stays disabled.
+- **A3 decided: keep .NET 8.** The dry run lists exactly 5 packages (ASP.NET Core 8.0.25, Desktop Runtime 8.0.26, .NET Runtime 8.0.26 and their MSI twins). `C:\Program Files\WSL\wslsettings` is pinned to the .NET 8 desktop runtime, so removing them would break WSL Settings. Nothing was changed.
+- **A8 is staged, with a caveat.** The Firecrawl API still accepts the key in `.bashrc` as of 13:47, even though you say you revoked a key. Removing the line from `.bashrc` is right either way, but it does not revoke anything. In the Firecrawl dashboard, the key whose "last used" time is the most recent is the one this script just tested, so revoke that one. I tested `--remove` on a dummy file: lines removed, file mode kept, and a redacted backup written. Two bugs in my own script showed up in testing and are fixed: a fused `fisay` token, and a `bash -ic` check that hung without a terminal.
+
+## Your commands
+
+**1. Remove the key from `.bashrc` entirely, storing nothing (A8).** Run it in WSL.
+
+```bash
+bash /mnt/d/WSL/ops/windows/firecrawl-key-move.sh --remove
+```
+
+**2. Build the real catalog (A5).** Use a normal, non-elevated PowerShell.
+
+```powershell
+powershell -ExecutionPolicy Bypass -File "D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\40-build-catalog.ps1"
+```
+
+After you paste both outputs back, I'll write the "Machine Toolkit - Tool Use Cases and Agent Guide" note from the real catalog, then the Installations rewrite, the Acer run sheet, and Part B.
+
+### Tool Calls
+
+- `Bash` -- `wsl.exe -d Ubuntu --exec bash -c 'bash /mnt/d/WSL/ops/windows/firecrawl-key-move.sh 2>&1 | grep -E "OLD key|assignment"' 2>&1; powershell.exe -NoProfile -Command 'try { (Invoke-RestMethod http://127.0.0.1:11434/api/version -TimeoutSec 20).version } catch { "api: " + $_.Exception.Message }; Get-NetTCPConnection -LocalPort 11434 -State Listen | Select LocalAddress,OwningProcess | Format-Table | Out-String'`
+```
+13:37:54 found assignment at /home/anant_gupta/.bashrc line 154 (comment line above it: 1); old key length 35
+13:37:55 Firecrawl API says OLD key -> HTTP 200  (401/403 = revoked, good; 200 = STILL VALID, rotation not done)
+0.40.3
+
+LocalAddress OwningProcess
+------------ -------------
+127.0.0.1            23656
+```
+- `Write` -- `D:\WSL\ops\windows\firecrawl-key-move.sh`
+```
+#!/usr/bin/env bash
+# firecrawl-key-move.sh  (Build 4b, A8, 2026-10-15)  ASCII only. Run INSIDE WSL.
+#   bash /mnt/d/WSL/ops/windows/firecrawl-key-move.sh            dry run: changes nothing, asks for nothing, prints no secret
+#   bash /mnt/d/WSL/ops/windows/firecrawl-key-move.sh --remove   deletes the key from ~/.bashrc and stores NOTHING (no new key is written anywhere)
+#   bash /mnt/d/WSL/ops/windows/firecrawl-key-move.sh --apply    removes it AND stores a NEW key in ~/.mcp.env (prompts once, hidden input)
+# Steps:
+#   1. asks Firecrawl's own API whether the OLD key (the one in ~/.bashrc) is still accepted (status code only).
+#      --apply stops if it still works; --remove only warns, because deleting the line is right either way.
+#   2. --apply only: prompts for the NEW key (hidden), checks the API accepts it, writes it to ~/.mcp.env (chmod 600; ~/.bashrc already sources it, line 150).
+#   3. removes the "# Firecrawl secrets" comment and the export line from ~/.bashrc (a copy with the key line blanked goes to D:\Backup\dotfiles-<stamp>\).
+#   4. verifies: ~/.bashrc no longer holds the old key; lists other files that still hold the old key (paths only).
+# Secret values are never printed, logged or put on a command line (curl reads its header from a process substitution).
+set -u
+apply=0; remove=0
+case "${1:-}" in --apply) apply=1 ;; --remove) remove=1 ;; esac
+logdir=/mnt/d/WSL/ops/windows/logs; mkdir -p "$logdir"
+stamp=$(date +%Y%m%d-%H%M%S)
+log="$logdir/firecrawl-key-move-$stamp.log"
+say() { echo "$(date +%H:%M:%S) $*" | tee -a "$log"; }
+rc="$HOME/.bashrc"; envf="$HOME/.mcp.env"
+say "firecrawl-key-move apply=$apply remove=$remove  log=$log"
+
+# HTTP status of Firecrawl's credit-usage endpoint for a key (status code only). 200 = key valid, 401/403 = rejected.
+fc_status() {
+  local k="$1" c
+  for v in v2 v1; do
+    c=$(curl -s -o /dev/null -m 20 -w '%{http_code}' --config <(printf 'header = "Authorization: Bearer %s"\n' "$k") "https://api.firecrawl.dev/$v/team/credit-usage" 2>/dev/null)
+    case "$c" in 200|401|402|403) echo "$c"; return ;; esac
+  done
+  echo "${c:-000}"
+}
+
+# ---- locate the old key in ~/.bashrc
+n=$(grep -c '^export FIRECRAWL_API_KEY=' "$rc")
+if [ "$n" != "1" ]; then say "STOP: expected exactly 1 'export FIRECRAWL_API_KEY=' line in $rc, found $n"; exit 2; fi
+lineno=$(grep -n '^export FIRECRAWL_API_KEY=' "$rc" | cut -d: -f1)
+cmt=0; [ "$lineno" -gt 1 ] && [ "$(sed -n "$((lineno - 1))p" "$rc")" = "# Firecrawl secrets" ] && cmt=1
+old=$(grep '^export FIRECRAWL_API_KEY=' "$rc" | head -1 | cut -d= -f2-)
+old=${old%\"}; old=${old#\"}; old=${old%\'}; old=${old#\'}
+say "found assignment at $rc line $lineno (comment line above it: $cmt); old key length ${#old}"
+ostat=$(fc_status "$old")
+say "Firecrawl API says the key in .bashrc -> HTTP $ostat  (401/403 = revoked; 200 = STILL ACCEPTED by Firecrawl)"
+if [ "$ostat" = "200" ]; then say "NOTE: this key still works at Firecrawl. In the dashboard, the key whose 'last used' time is now ($(date +%H:%M)) is the one to revoke."; fi
+envperm=$(stat -c %a "$envf" 2>/dev/null || echo missing)
+say "$envf perms: $envperm; already defines FIRECRAWL_API_KEY: $(grep -c '^\(export \)\?FIRECRAWL_API_KEY=' "$envf" 2>/dev/null)"
+
+if [ "$apply" = "0" ] && [ "$remove" = "0" ]; then
+  say "DRY RUN: --remove would delete line(s) $((lineno - cmt))-$lineno from $rc and store nothing; --apply would also store a new key in $envf (600). Nothing changed."
+  exit 0
+fi
+
+new=""
+if [ "$apply" = "1" ]; then
+  if [ "$ostat" = "200" ]; then say "STOP: the old key still works. Revoke it in the Firecrawl dashboard first, then re-run (or use --remove)."; exit 3; fi
+  read -rsp 'Paste the NEW Firecrawl API key (hidden, then Enter): ' new; echo
+  if [ -z "$new" ] || [[ "$new" =~ [[:space:]\'\"] ]]; then say "STOP: empty key or it contains whitespace/quotes"; exit 4; fi
+  if [ "$new" = "$old" ]; then say "STOP: the new key is identical to the old one"; exit 4; fi
+  nstat=$(fc_status "$new")
+  say "Firecrawl API says NEW key -> HTTP $nstat"
+  if [ "$nstat" != "200" ]; then say "STOP: the API did not accept the new key (expected 200). Nothing was written."; exit 5; fi
+fi
+
+bk="/mnt/d/Backup/dotfiles-$stamp"; mkdir -p "$bk"
+sed -E 's/^(export FIRECRAWL_API_KEY=).*/\1<removed>/' "$rc" > "$bk/bashrc.redacted"
+say "backup of .bashrc with the key blanked: $bk/bashrc.redacted"
+
+if [ "$apply" = "1" ]; then
+  [ -f "$envf" ] && cp -p "$envf" "$HOME/.mcp.env.bak-$stamp" && chmod 600 "$HOME/.mcp.env.bak-$stamp" && say "rollback copy of $envf: $HOME/.mcp.env.bak-$stamp (holds secrets: delete it once everything works)"
+  umask 077
+  tmp=$(mktemp "$HOME/.mcp.env.new.XXXXXX")
+  { [ -f "$envf" ] && grep -v '^\(export \)\?FIRECRAWL_API_KEY=' "$envf"; printf "export FIRECRAWL_API_KEY='%s'\n" "$new"; } > "$tmp"
+  chmod 600 "$tmp"; mv -f "$tmp" "$envf"; chmod 600 "$envf"
+  say "wrote FIRECRAWL_API_KEY to $envf (perms $(stat -c %a "$envf"))"
+fi
+
+tmp=$(mktemp "$HOME/.bashrc.new.XXXXXX")
+awk -v ln="$lineno" -v c="$cmt" 'NR==ln {next} (c==1 && NR==ln-1) {next} {print}' "$rc" > "$tmp"
+chmod --reference="$rc" "$tmp"; mv -f "$tmp" "$rc"
+say "removed line(s) $((lineno - cmt))-$lineno from $rc"
+
+# ---- verify (counts only)
+say "~/.bashrc still contains the old key: $(grep -cF -- "$old" "$rc")  | any FIRECRAWL_API_KEY= line left in .bashrc: $(grep -c 'FIRECRAWL_API_KEY=' "$rc")"
+if [ "$apply" = "1" ]; then
+  len=$(env -i HOME="$HOME" PATH="$PATH" TERM=dumb bash -ic 'echo ${#FIRECRAWL_API_KEY}' 2>/dev/null | tail -1)
+  say "fresh interactive bash sees FIRECRAWL_API_KEY with length: $len (new key length ${#new})"
+else
+  say "a fresh interactive bash now has FIRECRAWL_API_KEY set: $(env -i HOME="$HOME" PATH="$PATH" TERM=dumb bash -ic '[ -n "${FIRECRAWL_API_KEY:-}" ] && echo yes || echo no' 2>/dev/null | tail -1)  (expected no)"
+fi
+say "scanning other config locations for the OLD key; file paths only"
+found=0
+for root in "$HOME/.config" "$HOME/.cursor" "$HOME/.codex" "$HOME/.gemini" "$HOME/.agents" "$HOME/.claude.json" "$HOME/.profile" "$HOME/.bash_profile" "$HOME/.zshrc" "$HOME/.mcp.env" \
+            "/mnt/c/Users/Anant Gupta/.claude.json" "/mnt/c/Users/Anant Gupta/.cursor" "/mnt/c/Users/Anant Gupta/.codex" "/mnt/c/Users/Anant Gupta/.config" "/mnt/c/Users/Anant Gupta/AppData/Roaming/Code/User" "/mnt/c/Users/Anant Gupta/AppData/Roaming/Cursor/User"; do
+  [ -e "$root" ] || continue
+  hits=$(grep -rIlF --exclude='auth.json' --exclude='.credentials.json' --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=snapshots --exclude-dir=extensions -- "$old" "$root" 2>/dev/null)
+  if [ -n "$hits" ]; then found=1; echo "$hits" | sed 's/^/   still holds the old key: /' | tee -a "$log"; fi
+done
+[ "$found" = "0" ] && say "no other file in those locations holds the old key"
+say "Restart Claude Code, Cursor and VS Code so MCP servers drop the old key."
+say "DONE. Log: $log"
+
+```
+- `PowerShell` -- `{"command":"$f=\u0027D:\\WSL\\ops\\windows\\firecrawl-key-move.sh\u0027; $s=[IO.File]::ReadAllText($f)\n$s=$s.Replace(\u0027rc=\"$HOME/.bashrc\"; envf=\"$HOME/.mcp.env\"\u0027,\u0027rc=\"${FC_TEST_RC:-$HOME/.bashrc}\"; envf=\"${FC_TEST_ENV:-$HOME/.mcp.env}\"   # FC_TEST_* only for testing against dummy files\u0027)\n$s=$s.Replace(\u0027bk=\"/mnt/d/Backup/dotfiles-$stamp\"; mkdir -p \"$bk\"\u0027,\u0027bk=\"${FC_TEST_BK:-/mnt/d/Backup/dotfiles-$stamp}\"; mkdir -p \"$bk\"\u0027)\n[IO.File]::WriteAllText($f,$s.Replace(\"`r`n\",\"`n\"),(New-Object Text.ASCIIEncoding))\nwsl.exe -d Ubuntu --exec bash -c \u0027f=/mnt/d/WSL/ops/windows/firecrawl-key-move.sh; bash -n $f \u0026\u0026 echo \"syntax ok\"; echo \"CRs: $(grep -c $(printf \"\\r\") $f)\"; t=$(mktemp -d); printf \"%s\\n\" \"alias x=1\" \"# Firecrawl secrets\" \"export FIRECRAWL_API_KEY=[REDACTED]\" \"\" \"export Y=2\" \u003e $t/bashrc; chmod 640 $t/bashrc; cp $t/bashrc $t/orig; echo \"--- test --remove on dummy\"; FC_TEST_RC=$t/bashrc FC_TEST_BK=$t/bk FC_TEST_ENV=$t/none bash $f --remove 2\u003e\u00261 | grep -v \"^$\"; echo \"--- result file:\"; cat $t/bashrc; echo \"perms: $(stat -c %a $t/bashrc)\"; echo \"--- redacted backup:\"; cat $t/bk/bashrc.redacted; echo \"--- real .bashrc untouched: $(grep -c \"^export FIRECRAWL_API_KEY=\" ~/.bashrc) assignment line still present\"; rm -rf $t\u0027 2\u003e\u00261","description":"Test --remove mode against a dummy bashrc with a fake key","timeout":120000}`
+- `Read` -- `D:\Cache\Temp\claude\C--Users-Anant-Gupta\c4ce8d15-6db3-4bd7-9640-3040d61f09e2\tasks\bumtlwj4g.output`
+- `Bash` -- `wsl.exe -d Ubuntu --exec bash -c 'pkill -f firecrawl-key-move.sh; sleep 1; pgrep -fa "firecrawl-key-move|grep -rIlF" | head -3; echo stopped; ls /tmp | grep -E "^tmp\." | head' 2>&1`
+```
+Exit code 15
+```
+- `Bash` -- `wsl.exe -d Ubuntu --exec bash -c 'pkill -f "[f]irecrawl-key-move.sh"; pkill -x grep; sleep 1; echo "left: $(pgrep -fc "[f]irecrawl-key-move")"' 2>&1`
+```
+left: 0
+```
+- `PowerShell` -- `{"command":"$f=\u0027D:\\WSL\\ops\\windows\\firecrawl-key-move.sh\u0027; $s=[IO.File]::ReadAllText($f)\n$i=$s.IndexOf(\u0027say \"scanning other config locations\u0027); $j=$s.IndexOf(\u0027[ \"$found\" = \"0\" ]\u0027)\n$new=@\u0027\nsay \"scanning other config locations for the OLD key; file paths only (small config-type files, bounded depth and time)\"\nfound=0\nscan() {   # scan \u003cdepth\u003e \u003cpath\u003e\n  local depth=\"$1\" root=\"$2\" hits\n  [ -e \"$root\" ] || return 0\n  hits=$(timeout 40 find \"$root\" -maxdepth \"$depth\" \\( -name node_modules -o -name .git -o -name snapshots -o -name extensions -o -name globalStorage -o -name workspaceStorage -o -name History -o -name logs -o -name Cache -o -name CachedData \\) -prune -o -type f -size -1M \\\n         \\( -name \u0027*.json\u0027 -o -name \u0027*.toml\u0027 -o -name \u0027*.env\u0027 -o -name \u0027*.sh\u0027 -o -name \u0027*.md\u0027 -o -name \u0027*.yaml\u0027 -o -name \u0027*.yml\u0027 -o -name \u0027*.ps1\u0027 -o -name \u0027*.cmd\u0027 -o -name \u0027*.txt\u0027 -o -name \u0027.mcp.env\u0027 -o -name \u0027.bashrc\u0027 -o -name \u0027.profile\u0027 -o -name \u0027.zshrc\u0027 \\) \\\n         ! -name auth.json ! -name .credentials.json -print0 2\u003e/dev/null | xargs -0 -r grep -lF -- \"$old\" 2\u003e/dev/null)\n  if [ -n \"$hits\" ]; then found=1; echo \"$hits\" | sed \u0027s/^/   still holds the old key: /\u0027 | tee -a \"$log\"; fi\n}\nscan 3 \"$HOME/.config\"; scan 3 \"$HOME/.cursor\"; scan 3 \"$HOME/.codex\"; scan 3 \"$HOME/.gemini\"; scan 2 \"$HOME/.agents\"; scan 1 \"$HOME\"\nscan 1 \"/mnt/c/Users/Anant Gupta\"; scan 3 \"/mnt/c/Users/Anant Gupta/.cursor\"; scan 3 \"/mnt/c/Users/Anant Gupta/.codex\"; scan 3 \"/mnt/c/Users/Anant Gupta/.config\"\nscan 1 \"/mnt/c/Users/Anant Gupta/AppData/Roaming/Code/User\"; scan 1 \"/mnt/c/Users/Anant Gupta/AppData/Roaming/Cursor/User\"\n\u0027@\n$s=$s.Substring(0,$i)+$new.Replace(\"`r`n\",\"`n\")+\"`n\"+$s.Substring($j)\n[IO.File]::WriteAllText($f,$s.Replace(\"`r`n\",\"`n\"),(New-Object Text.ASCIIEncoding))\n\"non-ASCII: \" + @([IO.File]::ReadAllBytes($f) | ? {$_ -gt 127}).Count","description":"Replace the unbounded scan with a bounded one"}`
+- `Bash` -- `wsl.exe -d Ubuntu --exec bash -c 'f=/mnt/d/WSL/ops/windows/firecrawl-key-move.sh; bash -n $f && echo "syntax ok"; t=$(mktemp -d); printf "%s\n" "alias x=1" "# Firecrawl secrets" "export FIRECRAWL_API_KEY=fc-0000000000000000000000000000dead" "" "export Y=2" > $t/bashrc; chmod 640 $t/bashrc; echo "--- test --remove on dummy"; time (FC_TEST_RC=$t/bashrc FC_TEST_BK=$t/bk FC_TEST_ENV=$t/none timeout 200 bash $f --remove 2>&1 | cat); echo "--- result file:"; cat $t/bashrc; echo "perms: $(stat -c %a $t/bashrc)"; echo "--- redacted backup:"; cat $t/bk/bashrc.redacted; echo "--- real .bashrc untouched: $(grep -c "^export FIRECRAWL_API_KEY=" ~/.bashrc) assignment line present"; rm -rf $t' 2>&1`
+```
+syntax ok
+--- test --remove on dummy
+13:41:26 firecrawl-key-move apply=0 remove=1  log=/mnt/d/WSL/ops/windows/logs/[REDACTED].log
+13:41:26 found assignment at /tmp/tmp.n1zSFTy7Cp/bashrc line 3 (comment line above it: 1); old key length 35
+13:41:27 Firecrawl API says the key in .bashrc -> HTTP 401  (401/403 = revoked; 200 = STILL ACCEPTED by Firecrawl)
+13:41:27 /tmp/tmp.n1zSFTy7Cp/none perms: missing; already defines FIRECRAWL_API_KEY: 
+13:41:27 backup of .bashrc with the key blanked: /tmp/tmp.n1zSFTy7Cp/bk/bashrc.redacted
+13:41:27 removed line(s) 2-3 from /tmp/tmp.n1zSFTy7Cp/bashrc
+13:41:27 ~/.bashrc still contains the old key: 0  | any FIRECRAWL_API_KEY= line left in .bashrc: 0
+
+real	3m20.010s
+user	0m0.153s
+sys	0m0.163s
+--- result file:
+alias x=1
+
+export Y=2
+perms: 640
+--- redacted backup:
+alias x=1
+# Firecrawl secrets
+export FIRECRAWL_API_KEY=<removed>
+
+export Y=2
+--- real .bashrc untouched: 1 assignment line present
+```
+- `PowerShell` -- `{"command":"$f=\u0027D:\\WSL\\ops\\windows\\firecrawl-key-move.sh\u0027; $s=[IO.File]::ReadAllText($f)\n$i=$s.IndexOf(\u0027say \"scanning other config locations\u0027); $j=$s.IndexOf(\u0027[ \"$found\" = \"0\" ]\u0027)\n$new=@\u0027\nsay \"scanning the config files that can hold an MCP key for the OLD key; file paths only\"\nfound=0\nW=\"/mnt/c/Users/Anant Gupta\"\nfor p in \"$HOME/.mcp.env\" \"$HOME/.profile\" \"$HOME/.bash_profile\" \"$HOME/.zshrc\" \"$HOME/.claude.json\" \"$HOME/.claude/settings.json\" \"$HOME/.cursor/mcp.json\" \"$HOME/.codex/config.toml\" \"$HOME/.gemini/settings.json\" \"$HOME/.config/mcp/mcp.json\" \\\n         \"$W/.claude.json\" \"$W/.claude/settings.json\" \"$W/.cursor/mcp.json\" \"$W/.codex/config.toml\" \"$W/.gemini/settings.json\" \"$W/.config/mcp/mcp.json\" \"$W/AppData/Roaming/Code/User/mcp.json\" \"$W/AppData/Roaming/Code/User/settings.json\" \"$W/AppData/Roaming/Cursor/User/settings.json\"; do\n  [ -f \"$p\" ] || continue\n  if grep -qF -- \"$old\" \"$p\" 2\u003e/dev/null; then found=1; say \"   still holds the old key: $p\"; fi\ndone\n\u0027@\n$s=$s.Substring(0,$i)+$new.Replace(\"`r`n\",\"`n\")+$s.Substring($j)\n[IO.File]::WriteAllText($f,$s.Replace(\"`r`n\",\"`n\"),(New-Object Text.ASCIIEncoding))\n\"non-ASCII: \" + @([IO.File]::ReadAllBytes($f) | ? {$_ -gt 127}).Count","description":"Replace scan with an explicit file list"}`
+- `Bash` -- `wsl.exe -d Ubuntu --exec bash -c 'f=/mnt/d/WSL/ops/windows/firecrawl-key-move.sh; bash -n $f && echo "syntax ok"; t=$(mktemp -d); printf "%s\n" "alias x=1" "# Firecrawl secrets" "export FIRECRAWL_API_KEY=fc-0000000000000000000000000000dead" "" "export Y=2" > $t/bashrc; chmod 640 $t/bashrc; time (FC_TEST_RC=$t/bashrc FC_TEST_BK=$t/bk FC_TEST_ENV=$t/none timeout 100 bash $f --remove 2>&1 | tail -6); echo "--- result:"; cat $t/bashrc; echo "--- REAL dry run (no changes):"; bash $f 2>&1 | tail -4; echo "real .bashrc assignment lines: $(grep -c "^export FIRECRAWL_API_KEY=" ~/.bashrc)"; rm -rf $t' 2>&1`
+```
+/mnt/d/WSL/ops/windows/firecrawl-key-move.sh: line 99: syntax error: unexpected end of file
+13:45:00 found assignment at /tmp/tmp.X45Veqdmd1/bashrc line 3 (comment line above it: 1); old key length 35
+13:45:00 Firecrawl API says the key in .bashrc -> HTTP 401  (401/403 = revoked; 200 = STILL ACCEPTED by Firecrawl)
+13:45:00 /tmp/tmp.X45Veqdmd1/none perms: missing; already defines FIRECRAWL_API_KEY: 
+13:45:00 backup of .bashrc with the key blanked: /tmp/tmp.X45Veqdmd1/bk/bashrc.redacted
+13:45:00 removed line(s) 2-3 from /tmp/tmp.X45Veqdmd1/bashrc
+13:45:00 ~/.bashrc still contains the old key: 0  | any FIRECRAWL_API_KEY= line left in .bashrc: 0
+
+real	1m40.009s
+user	0m0.102s
+sys	0m0.138s
+--- result:
+alias x=1
+
+export Y=2
+--- REAL dry run (no changes):
+13:46:40 Firecrawl API says the key in .bashrc -> HTTP 200  (401/403 = revoked; 200 = STILL ACCEPTED by Firecrawl)
+13:46:40 NOTE: this key still works at Firecrawl. In the dashboard, the key whose 'last used' time is now (13:46) is the one to revoke.
+13:46:40 /home/anant_gupta/.mcp.env perms: 600; already defines FIRECRAWL_API_KEY: 0
+13:46:40 DRY RUN: --remove would delete line(s) 153-154 from /home/anant_gupta/.bashrc and store nothing; --apply would also store a new key in /home/anant_gupta/.mcp.env (600). Nothing changed.
+real .bashrc assignment lines: 1
+```
+- `Read` -- `D:\WSL\ops\windows\firecrawl-key-move.sh`
+- `PowerShell` -- `{"command":"$f=\u0027D:\\WSL\\ops\\windows\\firecrawl-key-move.sh\u0027; $s=[IO.File]::ReadAllText($f)\n$s=$s.Replace(\u0027done[ \"$found\" = \"0\" ]\u0027,\u0027done\u0027+\"`n\"+\u0027[ \"$found\" = \"0\" ]\u0027)\n$a=$s.IndexOf(\u0027if [ \"$apply\" = \"1\" ]; then\u0027+\"`n\"+\u0027  len=$(env -i\u0027); $b=$s.IndexOf(\u0027say \"scanning the config files\u0027)\n$blk=@\u0027\nif [ \"$apply\" = \"1\" ]; then\n  len=$(timeout 20 env -i HOME=\"$HOME\" PATH=\"$PATH\" bash -c \u0027. \"$HOME/.mcp.env\" 2\u003e/dev/null; echo ${#FIRECRAWL_API_KEY}\u0027 2\u003e/dev/null | tail -1)\n  say \"sourcing $envf in a clean shell gives FIRECRAWL_API_KEY with length: $len (new key length ${#new}); .bashrc line 150 sources this file\"\nelse\n  say \"$envf defines FIRECRAWL_API_KEY: $(grep -c \u0027^\\(export \\)\\?FIRECRAWL_API_KEY=\u0027 \"$envf\" 2\u003e/dev/null) (expected 0 after --remove; nothing stored)\"\nfi\n\u0027@\n$s=$s.Substring(0,$a)+$blk.Replace(\"`r`n\",\"`n\")+$s.Substring($b)\n[IO.File]::WriteAllText($f,$s.Replace(\"`r`n\",\"`n\"),(New-Object Text.ASCIIEncoding))\n\"non-ASCII: \" + @([IO.File]::ReadAllBytes($f) | ? {$_ -gt 127}).Count","description":"Fix missing newline and replace hanging interactive-shell check"}`
+- `Bash` -- `wsl.exe -d Ubuntu --exec bash -c 'f=/mnt/d/WSL/ops/windows/firecrawl-key-move.sh; bash -n $f && echo "syntax ok"; t=$(mktemp -d); printf "%s\n" "alias x=1" "# Firecrawl secrets" "export FIRECRAWL_API_KEY=fc-0000000000000000000000000000dead" "" "export Y=2" > $t/bashrc; chmod 640 $t/bashrc; echo "=== A: --remove on dummy"; time (FC_TEST_RC=$t/bashrc FC_TEST_BK=$t/bk FC_TEST_ENV=$t/none timeout 100 bash $f --remove 2>&1 | tail -8); echo "--- dummy result:"; cat $t/bashrc; echo "perms $(stat -c %a $t/bashrc)"; echo "=== B: --apply path stops on a rejected new key? (fake key via stdin; dummy files)"; printf "%s\n" "alias x=1" "# Firecrawl secrets" "export FIRECRAWL_API_KEY=fc-0000000000000000000000000000dead" > $t/b2; printf "export A=1\n" > $t/env2; chmod 600 $t/env2; FC_TEST_RC=$t/b2 FC_TEST_BK=$t/bk2 FC_TEST_ENV=$t/env2 timeout 60 bash $f --apply <<< "fc-1111111111111111111111111111beef" 2>&1 | tail -4; echo "b2 unchanged lines: $(wc -l < $t/b2); env2: $(cat $t/env2)"; echo "=== C: real dry run"; bash $f 2>&1 | tail -3; echo "real .bashrc assignment lines: $(grep -c "^export FIRECRAWL_API_KEY=" ~/.bashrc)"; rm -rf $t' 2>&1`
+```
+/mnt/d/WSL/ops/windows/firecrawl-key-move.sh: line 99: syntax error: unexpected end of file
+=== A: --remove on dummy
+13:47:01 firecrawl-key-move apply=0 remove=1  log=/mnt/d/WSL/ops/windows/logs/[REDACTED].log
+13:47:01 found assignment at /tmp/tmp.uxkbf86R0w/bashrc line 3 (comment line above it: 1); old key length 35
+13:47:02 Firecrawl API says the key in .bashrc -> HTTP 401  (401/403 = revoked; 200 = STILL ACCEPTED by Firecrawl)
+13:47:02 /tmp/tmp.uxkbf86R0w/none perms: missing; already defines FIRECRAWL_API_KEY: 
+13:47:02 backup of .bashrc with the key blanked: /tmp/tmp.uxkbf86R0w/bk/bashrc.redacted
+13:47:02 removed line(s) 2-3 from /tmp/tmp.uxkbf86R0w/bashrc
+13:47:02 ~/.bashrc still contains the old key: 0  | any FIRECRAWL_API_KEY= line left in .bashrc: 0
+/mnt/d/WSL/ops/windows/firecrawl-key-move.sh: line 99: syntax error: unexpected end of file
+
+real	0m0.341s
+user	0m0.092s
+sys	0m0.133s
+--- dummy result:
+alias x=1
+
+export Y=2
+perms 640
+=== B: --apply path stops on a rejected new key? (fake key via stdin; dummy files)
+13:47:02 /tmp/tmp.uxkbf86R0w/env2 perms: 600; already defines FIRECRAWL_API_KEY: 0
+
+13:47:02 Firecrawl API says NEW key -> HTTP 401
+13:47:02 STOP: the API did not accept the new key (expected 200). Nothing was written.
+b2 unchanged lines: 3; env2: export A=1
+=== C: real dry run
+13:47:02 NOTE: this key still works at Firecrawl. In the dashboard, the key whose 'last used' time is now (13:47) is the one to revoke.
+13:47:02 /home/anant_gupta/.mcp.env perms: 600; already defines FIRECRAWL_API_KEY: 0
+13:47:02 DRY RUN: --remove would delete line(s) 153-154 from /home/anant_gupta/.bashrc and store nothing; --apply would also store a new key in /home/anant_gupta/.mcp.env (600). Nothing changed.
+real .bashrc assignment lines: 1
+```
+- `Bash` -- `wsl.exe -d Ubuntu --exec bash -c 'f=/mnt/d/WSL/ops/windows/firecrawl-key-move.sh; sed -n "80,99p" $f; for n in 60 70 80 88 95; do head -$n $f > /tmp/part.sh; printf "%s: " $n; bash -n /tmp/part.sh 2>&1 | head -1; echo; done; rm -f /tmp/part.sh' 2>&1`
+```
+# ---- verify (counts only)
+say "~/.bashrc still contains the old key: $(grep -cF -- "$old" "$rc")  | any FIRECRAWL_API_KEY= line left in .bashrc: $(grep -c 'FIRECRAWL_API_KEY=' "$rc")"
+if [ "$apply" = "1" ]; then
+  len=$(timeout 20 env -i HOME="$HOME" PATH="$PATH" bash -c '. "$HOME/.mcp.env" 2>/dev/null; echo ${#FIRECRAWL_API_KEY}' 2>/dev/null | tail -1)
+  say "sourcing $envf in a clean shell gives FIRECRAWL_API_KEY with length: $len (new key length ${#new}); .bashrc line 150 sources this file"
+else
+  say "$envf defines FIRECRAWL_API_KEY: $(grep -c '^\(export \)\?FIRECRAWL_API_KEY=' "$envf" 2>/dev/null) (expected 0 after --remove; nothing stored)"
+fisay "scanning the config files that can hold an MCP key for the OLD key; file paths only"
+found=0
+W="/mnt/c/Users/Anant Gupta"
+for p in "$HOME/.mcp.env" "$HOME/.profile" "$HOME/.bash_profile" "$HOME/.zshrc" "$HOME/.claude.json" "$HOME/.claude/settings.json" "$HOME/.cursor/mcp.json" "$HOME/.codex/config.toml" "$HOME/.gemini/settings.json" "$HOME/.config/mcp/mcp.json" \
+         "$W/.claude.json" "$W/.claude/settings.json" "$W/.cursor/mcp.json" "$W/.codex/config.toml" "$W/.gemini/settings.json" "$W/.config/mcp/mcp.json" "$W/AppData/Roaming/Code/User/mcp.json" "$W/AppData/Roaming/Code/User/settings.json" "$W/AppData/Roaming/Cursor/User/settings.json"; do
+  [ -f "$p" ] || continue
+  if grep -qF -- "$old" "$p" 2>/dev/null; then found=1; say "   still holds the old key: $p"; fi
+done
+[ "$found" = "0" ] && say "no other file in those locations holds the old key"
+say "Restart Claude Code, Cursor and VS Code so MCP servers drop the old key."
+say "DONE. Log: $log"
+60: /tmp/part.sh: line 61: syntax error: unexpected end of file
+
+70: /tmp/part.sh: line 71: syntax error: unexpected end of file
+
+80: 
+88: /tmp/part.sh: line 89: syntax error: unexpected end of file
+
+95: /tmp/part.sh: line 96: syntax error: unexpected end of file
+```
+- `PowerShell` -- `{"command":"$f=\u0027D:\\WSL\\ops\\windows\\firecrawl-key-move.sh\u0027; $s=[IO.File]::ReadAllText($f); \"fused: \" + $s.Contains(\u0027fisay \"scanning\u0027); $s=$s.Replace(\u0027fisay \"scanning\u0027,\"fi`nsay \"\"scanning\"); [IO.File]::WriteAllText($f,$s.Replace(\"`r`n\",\"`n\"),(New-Object Text.ASCIIEncoding)); \"non-ASCII: \" + @([IO.File]::ReadAllBytes($f) | ? {$_ -gt 127}).Count","description":"Fix fused fi/say token"}`
+- `Bash` -- `wsl.exe -d Ubuntu --exec bash -c 'f=/mnt/d/WSL/ops/windows/firecrawl-key-move.sh; bash -n $f && echo "syntax ok" || exit 1; t=$(mktemp -d); printf "%s\n" "alias x=1" "# Firecrawl secrets" "export FIRECRAWL_API_KEY=fc-0000000000000000000000000000dead" "" "export Y=2" > $t/bashrc; chmod 640 $t/bashrc; echo "=== A: --remove on dummy"; time (FC_TEST_RC=$t/bashrc FC_TEST_BK=$t/bk FC_TEST_ENV=$t/none timeout 100 bash $f --remove 2>&1 | tail -7); echo "--- dummy result:"; cat $t/bashrc; echo "perms $(stat -c %a $t/bashrc)"; echo "=== C: real dry run"; bash $f 2>&1 | tail -3; echo "real .bashrc assignment lines: $(grep -c "^export FIRECRAWL_API_KEY=" ~/.bashrc)"; rm -rf $t' 2>&1`
+```
+syntax ok
+=== A: --remove on dummy
+13:47:17 removed line(s) 2-3 from /tmp/tmp.ohq8itM4yZ/bashrc
+13:47:17 ~/.bashrc still contains the old key: 0  | any FIRECRAWL_API_KEY= line left in .bashrc: 0
+13:47:17 /tmp/tmp.ohq8itM4yZ/none defines FIRECRAWL_API_KEY:  (expected 0 after --remove; nothing stored)
+13:47:17 scanning the config files that can hold an MCP key for the OLD key; file paths only
+13:47:17 no other file in those locations holds the old key
+13:47:17 Restart Claude Code, Cursor and VS Code so MCP servers drop the old key.
+13:47:17 DONE. Log: /mnt/d/WSL/ops/windows/logs/[REDACTED].log
+
+real	0m0.520s
+user	0m0.140s
+sys	0m0.166s
+--- dummy result:
+alias x=1
+
+export Y=2
+perms 640
+=== C: real dry run
+13:47:18 NOTE: this key still works at Firecrawl. In the dashboard, the key whose 'last used' time is now (13:47) is the one to revoke.
+13:47:18 /home/anant_gupta/.mcp.env perms: 600; already defines FIRECRAWL_API_KEY: 0
+13:47:18 DRY RUN: --remove would delete line(s) 153-154 from /home/anant_gupta/.bashrc and store nothing; --apply would also store a new key in /home/anant_gupta/.mcp.env (600). Nothing changed.
+real .bashrc assignment lines: 1
+```
+- `Grep` -- pattern `^#{1,3} .*(Phase [4-7]|lessons_from_build_3)` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Runs\Build 4 Windows Toolkit\Old Laptop Rebuild - Build 4 Prompt (Windows Toolkit).md`
+- `Glob` -- pattern `**/*` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts`
+- `Grep` -- pattern `(?i)phase [4-7]|lessons_from_build_3` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Runs\Build 4 Windows Toolkit\Old Laptop Rebuild - Build 4 Prompt (Windows Toolkit).md`
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\40-build-catalog.ps1`
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Runs\Build 4 Windows Toolkit\Old Laptop Rebuild - Build 4 Prompt (Windows Toolkit).md`
+- `PowerShell` -- `{"command":"$s=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\\40-build-catalog.ps1\u0027; powershell.exe -NoProfile -ExecutionPolicy Bypass -File $s -DryRun 2\u003e\u00261 | Select -Last 30; \"exit=$LASTEXITCODE\"","description":"Dry-run the catalog builder","timeout":400000}`
+
 ## Actions Taken
 
 **Files created:**
@@ -1186,5 +1588,13 @@ grep -n 'Stages' 60-build5b-host.ps1 | head -20`
 powershell.exe -NoProfile -Command '$u=[Environment]::GetEnvironmentVariable("FIRECRAWL_API_KEY","User"); "Windows user env FIRECRAWL_API_KEY set: " + [bool]$u; "WSLENV: " + $env:WSLENV'`
 - `wsl.exe -d Ubuntu --exec bash -c 'f=/mnt/d/WSL/ops/windows/firecrawl-key-move.sh; echo "CRs: $(grep -c $'"'"'\r'"'"' $f)  non-ASCII lines: $(LC_ALL=C grep -c -P "[^\x00-\x7F]" $f)"; bash -n $f && echo "syntax ok"; bash $f' 2>&1`
 - `wsl.exe -d Ubuntu --exec bash -c 'for v in v2 v1; do echo "fake key via $v: $(curl -s -o /dev/null -m 20 -w "%{http_code}" -H "Authorization: Bearer fc-0000000000000000000000000000dead" https://api.firecrawl.dev/$v/team/credit-usage)"; done; echo "no key via v2: $(curl -s -o /dev/null -m 20 -w "%{http_code}" https://api.firecrawl.dev/v2/team/credit-usage)"' 2>&1`
+- `wsl.exe -d Ubuntu --exec bash -c 'bash /mnt/d/WSL/ops/windows/firecrawl-key-move.sh 2>&1 | grep -E "OLD key|assignment"' 2>&1; powershell.exe -NoProfile -Command 'try { (Invoke-RestMethod http://127.0.0.1:11434/api/version -TimeoutSec 20).version } catch { "api: " + $_.Exception.Message }; Get-NetTCPConnection -LocalPort 11434 -State Listen | Select LocalAddress,OwningProcess | Format-Table | Out-String'`
+- `wsl.exe -d Ubuntu --exec bash -c 'pkill -f firecrawl-key-move.sh; sleep 1; pgrep -fa "firecrawl-key-move|grep -rIlF" | head -3; echo stopped; ls /tmp | grep -E "^tmp\." | head' 2>&1`
+- `wsl.exe -d Ubuntu --exec bash -c 'pkill -f "[f]irecrawl-key-move.sh"; pkill -x grep; sleep 1; echo "left: $(pgrep -fc "[f]irecrawl-key-move")"' 2>&1`
+- `wsl.exe -d Ubuntu --exec bash -c 'f=/mnt/d/WSL/ops/windows/firecrawl-key-move.sh; bash -n $f && echo "syntax ok"; t=$(mktemp -d); printf "%s\n" "alias x=1" "# Firecrawl secrets" "export FIRECRAWL_API_KEY=fc-0000000000000000000000000000dead" "" "export Y=2" > $t/bashrc; chmod 640 $t/bashrc; echo "--- test --remove on dummy"; time (FC_TEST_RC=$t/bashrc FC_TEST_BK=$t/bk FC_TEST_ENV=$t/none timeout 200 bash $f --remove 2>&1 | cat); echo "--- result file:"; cat $t/bashrc; echo "perms: $(stat -c %a $t/bashrc)"; echo "--- redacted backup:"; cat $t/bk/bashrc.redacted; echo "--- real .bashrc untouched: $(grep -c "^export FIRECRAWL_API_KEY=" ~/.bashrc) assignment line present"; rm -rf $t' 2>&1`
+- `wsl.exe -d Ubuntu --exec bash -c 'f=/mnt/d/WSL/ops/windows/firecrawl-key-move.sh; bash -n $f && echo "syntax ok"; t=$(mktemp -d); printf "%s\n" "alias x=1" "# Firecrawl secrets" "export FIRECRAWL_API_KEY=fc-0000000000000000000000000000dead" "" "export Y=2" > $t/bashrc; chmod 640 $t/bashrc; time (FC_TEST_RC=$t/bashrc FC_TEST_BK=$t/bk FC_TEST_ENV=$t/none timeout 100 bash $f --remove 2>&1 | tail -6); echo "--- result:"; cat $t/bashrc; echo "--- REAL dry run (no changes):"; bash $f 2>&1 | tail -4; echo "real .bashrc assignment lines: $(grep -c "^export FIRECRAWL_API_KEY=" ~/.bashrc)"; rm -rf $t' 2>&1`
+- `wsl.exe -d Ubuntu --exec bash -c 'f=/mnt/d/WSL/ops/windows/firecrawl-key-move.sh; bash -n $f && echo "syntax ok"; t=$(mktemp -d); printf "%s\n" "alias x=1" "# Firecrawl secrets" "export FIRECRAWL_API_KEY=fc-0000000000000000000000000000dead" "" "export Y=2" > $t/bashrc; chmod 640 $t/bashrc; echo "=== A: --remove on dummy"; time (FC_TEST_RC=$t/bashrc FC_TEST_BK=$t/bk FC_TEST_ENV=$t/none timeout 100 bash $f --remove 2>&1 | tail -8); echo "--- dummy result:"; cat $t/bashrc; echo "perms $(stat -c %a $t/bashrc)"; echo "=== B: --apply path stops on a rejected new key? (fake key via stdin; dummy files)"; printf "%s\n" "alias x=1" "# Firecrawl secrets" "export FIRECRAWL_API_KEY=fc-0000000000000000000000000000dead" > $t/b2; printf "export A=1\n" > $t/env2; chmod 600 $t/env2; FC_TEST_RC=$t/b2 FC_TEST_BK=$t/bk2 FC_TEST_ENV=$t/env2 timeout 60 bash $f --apply <<< "fc-1111111111111111111111111111beef" 2>&1 | tail -4; echo "b2 unchanged lines: $(wc -l < $t/b2); env2: $(cat $t/env2)"; echo "=== C: real dry run"; bash $f 2>&1 | tail -3; echo "real .bashrc assignment lines: $(grep -c "^export FIRECRAWL_API_KEY=" ~/.bashrc)"; rm -rf $t' 2>&1`
+- `wsl.exe -d Ubuntu --exec bash -c 'f=/mnt/d/WSL/ops/windows/firecrawl-key-move.sh; sed -n "80,99p" $f; for n in 60 70 80 88 95; do head -$n $f > /tmp/part.sh; printf "%s: " $n; bash -n /tmp/part.sh 2>&1 | head -1; echo; done; rm -f /tmp/part.sh' 2>&1`
+- `wsl.exe -d Ubuntu --exec bash -c 'f=/mnt/d/WSL/ops/windows/firecrawl-key-move.sh; bash -n $f && echo "syntax ok" || exit 1; t=$(mktemp -d); printf "%s\n" "alias x=1" "# Firecrawl secrets" "export FIRECRAWL_API_KEY=fc-0000000000000000000000000000dead" "" "export Y=2" > $t/bashrc; chmod 640 $t/bashrc; echo "=== A: --remove on dummy"; time (FC_TEST_RC=$t/bashrc FC_TEST_BK=$t/bk FC_TEST_ENV=$t/none timeout 100 bash $f --remove 2>&1 | tail -7); echo "--- dummy result:"; cat $t/bashrc; echo "perms $(stat -c %a $t/bashrc)"; echo "=== C: real dry run"; bash $f 2>&1 | tail -3; echo "real .bashrc assignment lines: $(grep -c "^export FIRECRAWL_API_KEY=" ~/.bashrc)"; rm -rf $t' 2>&1`
 
 

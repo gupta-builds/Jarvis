@@ -3,16 +3,18 @@ type: class
 input_kind: board
 status: sprout
 created: 2026-09-07
-updated: 2026-09-15
+updated: 2026-10-14
 area:
   - "[[Fall'26 Syllabus]]"
   - "[[APAS]]"
 tags:
   - "#class"
-next: "Submit Project 1 (swish) to Gradescope before 2026-10-02 11:59pm, then sign up for the oral exam slot - Week 4 is fully captured"
+next: "Upload the verified Lab 5 zip to Gradescope before 2026-10-14 11:59pm, confirm the remote result and lab attendance; see [[20_Progress/Degree/CSCI 4061/Labs/Lab - 5]]."
 ---
 # CSCI 4061 — Introduction to Operating Systems
 Fall'26, 4 credits, in person. Closes the Introduction to Operating Systems sub-requirement of the Computer Science Core — the last open CS Core sub-req per [[APAS]], so this class finishes CS Core outright. Real syllabus pasted in full by the user 2026-09-08, from the course's Canvas page.
+## Lab 5 status (2026-10-14)
+[[20_Progress/Degree/CSCI 4061/Labs/Lab - 5|Lab 5]] is implemented and locally verified in the course dev container: 5/5 supplied tests, 1.0/1.0, plus uneven/empty-range checks and Valgrind. The actual `Labs/lab05-code/lab05-code.zip` was extracted, rebuilt, and passed the same suite. The Canvas instructions supplied by the user give the deadline as October 14, 2026, 11:59pm. Gradescope submission/results and attendance remain unverified; the lab note holds the reasoning, reproducible commands, and error log.
 ## Current Grade
 > [!DANGER] Estimated ceiling, not an earned grade — recompute once [[Hit or Miss - Miss]] gets the full Canvas pass
 > Computed 2026-09-24 from [[Hit or Miss - Miss]] against this course's own weights and drop policy. This is the **maximum grade still reachable** if everything remaining is aced, degraded only by weight already lost to misses logged so far — not a real transcript grade, since most of the semester's weight hasn't happened yet.

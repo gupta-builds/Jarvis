@@ -242,3 +242,6 @@ excalidraw.log
 /.opencode/skills/obsidian-cli/
 /.opencode/skills/obsidian-markdown/
 /.opencode/skills/openartifacts-publish/
+
+# Machine-local OpenCode alias container; canonical files remain in copilot/skills.
+/.opencode/skills/

@@ -2,7 +2,7 @@
 type: evergreen
 status: sprout
 created: 2026-10-02
-updated: 2026-10-14
+updated: 2026-10-15
 tags:
   - evergreen
   - laptop
@@ -75,3 +75,7 @@ Obsidian's separate memory defect and the verified exclusions are recorded in [[
 At 23:18 on 2026-10-14, the restored Windows scheduled task completed with `LastTaskResult: 0` and logged `nothing to do` after a clean pull. Syncthing reported idle, zero errors, zero pending files/deletions/bytes, and 100% peer completion. All three old transcript stash bodies matched the current transcripts; differences were export timestamps. Unique historical Excalidraw and Dell verification details were restored with dates. All 99 stashed file versions, three stash commit refs, patches, and a verified Git bundle were retained before the stale stash entries were dropped.
 The backup script also now repairs already-tracked, ignored junction aliases against each laptop's own index before committing. It only untracks verified junctions whose canonical target under `copilot/skills/` is tracked; physical files remain. A disposable reproduction passed in both PowerShell 5.1 and 7. Three separate local Git tests passed for incoming untracked files, pending commits, and safe failure on a genuine conflict. Native Git output is logged as plain text so a normal fetch message does not appear as a PowerShell `NativeCommandError`.
 Backups: `D:\_Anant\99_Archive\Syncthing Conflict Reconciliation 2026-10-14\`. `approved-merge-result.json` records both parents and the final tree. `reviewed-stash-manifest.json` records all recovered versions; `reviewed-histories-and-stashes.bundle` passed verification. Dedicated local refs under `refs/backup/sync-reconciliation-20261014/` retain all three original stash commits. The separate Dell runtime and its scheduled-task result remain unverified from this machine.
+
+## 2026-10-15 ignored junction-container deletion
+The out-of-sync alert was a real Syncthing folder error: `.opencode/skills` was deleted remotely but still held ten ignored local junctions. No authored notes or conflict copies were involved. The 2026-10-14 fix excluded individual aliases but left their parent indexed. Adding `/.opencode/skills` to `.stignore` excludes both the directory and its contents. A trailing slash would exclude only the contents and leave the same problem possible. The matching Git ignore rule is `/.opencode/skills/`.
+A live rescan returned idle, zero errors, and zero pending files/deletions/bytes. Ten junction targets and all 39 canonical skill hashes were verified unchanged. The Git backup had deferred on every tick because of that real folder error; its history was 29 commits behind when this session began. Backups of ignore files, current working files, alias targets, and canonical hashes are in `D:\_Anant\99_Archive\Syncthing Repair 2026-10-15\`. The normal scheduled process is being used to publish the fix and catch up history. The local `.stignore` change reaches the other machine through Git, not through Syncthing.

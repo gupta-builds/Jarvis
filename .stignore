@@ -82,6 +82,11 @@
 30_Order/System/cursor-workflow/scripts/__pycache__
 30_Order/System/jarvis-memory/__pycache__
 
+// OpenCode skills is a machine-local junction container. Ignore the directory
+// itself without a trailing slash so a remote delete cannot remove its aliases
+// or deadlock on individually ignored children (2026-10-15).
+/.opencode/skills
+
 // Windows junction aliases. The canonical skill content lives under copilot/skills
 // and is synced there. These aliases cannot be materialized consistently by
 // Syncthing on Windows, so syncing them creates directory/type errors.

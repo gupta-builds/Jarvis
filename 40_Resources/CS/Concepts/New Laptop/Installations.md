@@ -2,7 +2,7 @@
 type: note
 status: sprout
 created: 2026-09-13
-updated: 2026-10-11
+updated: 2026-10-15
 course: Life
 track:
   - laptop
@@ -204,61 +204,63 @@ Machine: i7-1255U (10 cores, 12 threads), 32 GB RAM, Intel Iris Xe only (no NVID
 
 ### Where things stand
 - WSL is rebuilt and configured (Builds 1, 2 and 5). Since Build 5 (2026-10-13) its terminal configs are the Acer's real files, copied from the dotfile snapshot with `30-wsl-config-parity.sh` (see "Config parity" below); systemd runs with zero failed units; Miniconda and `jupyter-base` match the Acer.
-- The Windows side was rebuilt on 2026-10-13 by Build 4: PowerShell 7 (default shell), Starship, IosevkaTerm Nerd Font, zoxide, fzf, fd, bat, delta, NanaZip, pnpm, Node 24, standalone uv 0.12.19, Git 2.55 and GitHub CLI 2.102, with shared configs written by `Windows Toolkit\_scripts` (see [[Old Laptop Rebuild - Build 4 Windows Toolkit Findings]]). The Windows tables below are the 2026-10-11 pre-rebuild record; Build 4b replaces them with the final state.
-- Build 3 (2026-10-12) removed most of the "not carrying forward" list (Microsoft 365, OneDrive, WinRAR, Respondus, Dell Optimizer, MongoDB Shell, Logi Options+, Teams, LinkedIn, Netflix, HP Printer Control, Python 3.13.5 and Chocolatey went with Builds 3 and 4). Malwarebytes and Edge were still listed on 2026-10-13. The tables below predate the removals.
-
-### Windows side (live 2026-10-11)
-Install source: `winget` means a winget package id, `Store` an MSIX package, `direct` an installer without a winget id, `npm` or `pip` a global package. Location is from the live PATH or install record, `C: (small)` where the installer records none.
+- The Windows side was rebuilt by Build 4 (2026-10-13) and finished by Build 4b (2026-10-15): PowerShell 7 (default shell), Starship, IosevkaTerm Nerd Font, zoxide, fzf, fd, bat, delta, NanaZip, pnpm, Node 24, standalone uv, Git 2.55 and GitHub CLI 2.102, with shared configs written by `Windows Toolkit\_scripts`. The tables below are the live 2026-10-15 state, generated from [[Tool Catalog - DESKTOP-3VBG0JH]] and `toolkit.lock.json`. How to use each tool: [[Machine Toolkit - Tool Use Cases and Agent Guide]].
+- Build 3 and Build 4 removed most of the "not carrying forward" list (Microsoft 365, OneDrive, WinRAR, Respondus, Dell Optimizer, MongoDB Shell, Logi Options+, Teams, LinkedIn, Netflix, HP Printer Control, Epic, Python 3.13.5 and Chocolatey). Build 4b removed the OpenClaw gateway (npm package, startup entry and `~\.openclaw`) and the dangling E START App shortcut on 2026-10-14. Malwarebytes (two entries) and Edge are still installed.
+### Windows side (live 2026-10-15, from the catalog and `toolkit.lock.json`)
+Source: `winget` is a winget package id, `Store` an MSIX package, `direct` an installer without a winget id, `npm` a global package. Per-tool purpose, commands and gotchas are in [[Machine Toolkit - Tool Use Cases and Agent Guide]]; exact paths and sizes are in the catalog.
 
 **Shell, terminal and fonts**
-| Tool | Version | Source | Location | State |
+| Tool | Version | Source | Location | Note |
 |---|---|---|---|---|
-| Windows PowerShell | 5.1.26100 | built in | System32 | only shell; profile at `D:\Users\_Anant\10_Areas\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1` (opam env, Kiro integration, `New-PyEnv`; no Starship) |
-| Windows Terminal | 1.24.12741 | winget / Store | WindowsApps alias | default profile Windows PowerShell; no color scheme or font set; profiles: PowerShell, cmd, Azure Cloud Shell, Ubuntu, two Anaconda prompts |
-| PowerShell 7 | not installed | | | Build 4 |
-| Starship, Nerd Font (IosevkaTerm), zoxide, fzf, fd, bat, delta, lazygit, yazi | not installed | | | Build 4 decides the Windows set; Cascadia Code and Cascadia Mono are the only developer fonts found (a search for Iosevka, Nerd, JetBrains, FiraCode and Hack fonts returned nothing) |
+| PowerShell 7 | 7.6.7 | winget | WindowsApps alias | default shell and Terminal profile; profile block in `Documents\PowerShell` (Documents is on D:) |
+| Windows PowerShell | 5.1 | built in | System32 | legacy scripts only; profile in `Documents\WindowsPowerShell`; keeps the opam, Kiro and `New-PyEnv` blocks |
+| Windows Terminal | 1.24.12741.0 | winget / Store | WindowsApps | One Half Dark scheme and IosevkaTerm Nerd Font, same as the Acer; Tokyo Night Storm kept as an extra scheme; stays on 1.24 on purpose |
+| Starship | 1.26.0 | winget | `C:\Program Files\starship` | one `starship.toml` for Windows and both WSLs |
+| IosevkaTerm Nerd Font | v3.5.1 | direct (Nerd Fonts archive) | per-user fonts on C: (about 760 MB, 54 TTFs) | no winget package; Terminal uses the normal set, VS Code the Mono set (NFM) |
+| zoxide, fzf, PSFzf, fd, bat, delta | 0.10.0, 0.74.4, 2.7.12, 10.5.0, 0.26.1, 0.20.1 | winget (PSFzf: PowerShell Gallery) | WinGet Packages | configs from the toolkit: `%APPDATA%\fd\ignore`, `%APPDATA%\bat\config`, shared delta include |
 
 **CLI tools, runtimes and package managers**
 | Tool | Version | Source | Location | Note |
 |---|---|---|---|---|
-| Git | 2.52.0 | winget | `C:\Program Files\Git` | update to 2.55 available; global config has `core.autocrlf=false`, `pull.rebase=true`, `init.defaultbranch=main`, and safe.directory entries for WSL repos |
-| GitHub CLI | 2.89.0 | winget | `C:\Program Files\GitHub CLI` | |
-| ripgrep | 15.1.0 | winget | `AppData\Local\Microsoft\WinGet\Packages` | |
-| jq | 1.8.2 | winget | WinGet Packages | |
-| FFmpeg | 8.1.2 | winget | C: (small) | |
-| OpenSSH client | built in | Windows | `System32\OpenSSH` | `ssh-agent` service disabled; no `sshd` and no Tailscale on this side |
-| Node.js | 22.16.0 | winget (`OpenJS.NodeJS.22`) | `C:\Program Files\nodejs` | no nvm-windows; no pnpm |
-| npm globals | `@openai/codex` 0.160.0, `firecrawl-cli` 1.19.21, `mcp-remote` 0.2.1, `openclaw` 2026.3.13, `opencode-ai` 1.18.31 | npm | `AppData\Roaming\npm` | npm cache is `D:\npm-cache`; a stale 4.3 GiB copy remains in `AppData\Local\npm-cache` |
-| Python | 3.13.5 | winget and Chocolatey (`python313`) | `C:\Python313` | duplicate install paths |
-| uv | 0.11.26 | pip, into `C:\Python313\Scripts` | | not the standalone installer; Acer note records 0.12.17 standalone |
-| Miniconda3 | py313_25.11.1 | winget | `C:\Users\Anant Gupta\miniconda3` (7.1 GiB) | the plan says `D:\conda` |
-| opam (OCaml) | 2.5.0 | winget | root `C:\opamroot` (2.4 GiB) | |
-| Chocolatey | 2.4.3 | direct | `C:\ProgramData\chocolatey` | 12 packages: python313, vcredist140, vcredist2015 and Windows KB patches; use winget for new installs |
-| MongoDB Shell | 2.5.9 | winget | C: (small) | on the "not carrying forward" list |
-| WinRAR | 7.01 | winget | C: | replace with NanaZip or 7-Zip; "not carrying forward" |
+| Git | 2.55.0 | winget | `C:\Program Files\Git` | `core.autocrlf=input`; identity and safe.directory entries are machine-specific |
+| GitHub CLI | 2.102.0 | winget | `C:\Program Files\GitHub CLI` | credential helper for github.com |
+| ripgrep, jq, FFmpeg | 15.1.0, 1.8.2, 8.1.2 | winget | WinGet Packages | |
+| NanaZip | 7.0.1843.0 | Store | WindowsApps | no console exe; scripts use `tar.exe` |
+| Node.js LTS, npm | 24.20.0, 11.19.0 | winget | `C:\Program Files\nodejs` | moved from 22 to 24 in Build 4; npm cache `D:\npm-cache` |
+| pnpm | 12.11.2 | winget | WinGet Packages | Windows copy only; WSL pnpm is 12.4.2 through Corepack. Do not run `corepack enable` on Windows |
+| uv, uv-managed Python | 0.12.19, 3.13.15 | standalone installer | `C:\Users\Anant Gupta\.local\bin` | first on PATH; `python` on PATH currently resolves to the Hermes agent venv, so use `uv run python` |
+| Miniconda | py313_25.11.1-1 | winget | `D:\Apps\miniconda3`, junction `C:\Users\Anant Gupta\miniconda3` | notebooks only; not on PATH; keep the junction |
+| opam (OCaml) | 2.5.0 | winget | `D:\Apps\opamroot`, junction `C:\opamroot` | OCaml coursework; opam files carry the System attribute |
+| winget | 1.29.380 | built in | WindowsApps | |
+| npm globals | `@openai/codex` 0.162.1, `firecrawl-cli` 1.19.21, `mcp-remote` 0.2.1, `opencode-ai` 1.18.31 | npm | `AppData\Roaming\npm` | `openclaw` was removed 2026-10-14 |
+| Python 3.13.5, Chocolatey | gone | | | files are gone since Build 4; 11 stale Python uninstall registrations still show in `winget list` (open item) |
+| .NET runtimes | 8.0.25 / 8.0.26 and 10.0.9 | winget | `C:\Program Files\dotnet` | the 8.x set is kept on purpose: WSL Settings is pinned to the .NET 8 desktop runtime. Dell apps (TechHub, DTP, MyDell) run on 10 |
 
 **AI platforms, agents and models**
 | Tool | Version | Source | Location | Note |
 |---|---|---|---|---|
-| Claude Code (Windows) | 2.1.296 | native installer | `C:\Users\Anant Gupta\.local\bin\claude.exe` | |
-| Codex CLI (Windows) | 0.160.0 | npm | `AppData\Roaming\npm` | the WSL copy is 0.162.1 |
-| Codex app and ChatGPT desktop | 26.1007 and 1.2026.190 | Store | WindowsApps | |
-| Claude Desktop | 2.31226 | winget | `AppData` (VM bundle 10.6 GiB under Roaming) | MCP servers configured by name: jarvis, the-plan, jarvis-fs, github |
-| Cursor | 3.19.13 | winget | `AppData\Local\Programs` | |
-| Kiro | 1.0.395 | winget | `AppData\Local\Programs` | |
-| Antigravity | 2.12.2 | winget | AppData | |
-| Ollama | 0.24.0 | winget | `AppData\Local\Programs` (6.5 GiB) | models in `D:\AI\ollama-models` (`OLLAMA_MODELS` set at user scope) |
-| Jan | 0.8.3 | winget | AppData | models 3.3 GiB under Roaming |
-| Cluely, 16x Prompt, Voquill, Wispr Flow | various | direct | AppData | voice and prompt helpers; start with Windows |
-| Docker Desktop | 4.56.0 | winget | `C:\Program Files\Docker` | disk image on `D:\WSL\Docker`; not running; auto-start is enabled in the Run key |
-| VS Code | 1.141.0 | winget | `C:\Users\Anant Gupta\AppData\Local\Programs\Microsoft VS Code` | on C: here, on D: on the Acer; 40 extensions from Settings Sync |
+| Claude Code | 2.1.300 | native installer | `C:\Users\Anant Gupta\.local\bin\claude.exe` | WSL copy is 2.1.299 |
+| Codex CLI | 0.162.1 | npm | `AppData\Roaming\npm` | pinned in the lock |
+| Claude Desktop | 2.37337.1.0 | winget | `AppData` (forced to C:) | MCP names: jarvis, the-plan, jarvis-fs, github |
+| Cursor | 3.24.18 | winget | `AppData\Local\Programs\cursor` | reinstalled 2026-10-14 after an interrupted self-update; auto-update stays on |
+| Kiro, Antigravity | 1.0.395, 2.22.0 | winget | `AppData\Local\Programs` | `agy` shim needs the one-time in-app step |
+| ChatGPT (Store, package OpenAI.Codex) | 26.1007 | Store | WindowsApps | ChatGPT Classic is removed |
+| Ollama | 0.40.3 | winget | `D:\Apps\Ollama` | serves `127.0.0.1:11434` when started by hand; models in `D:\AI\ollama-models` (two cloud models and `nomic-embed-text`); startup shortcut disabled; WSL Ollama is disabled |
+| Jan | 0.8.6 | winget | AppData | |
+| Docker Desktop, Docker CLI | 4.56.0, 29.1.3 | winget | `C:\Program Files\Docker`; disk image `D:\WSL\Docker` | auto-start is off |
+| VS Code | 1.142.0 | winget | `AppData\Local\Programs\Microsoft VS Code` | on C: here, on D: on the Acer; Settings Sync is live |
+| MCP prerequisites | npx 11.19.0, uvx 0.12.19, mcp-remote 0.2.1 | | | all resolve; 24 MCP entries across Claude Desktop, Claude Code, VS Code and Codex (names only in the catalog) |
 
-**Productivity, communication and media (forced to C:)**
-Obsidian 1.9.12, Slack, Discord, Zoom, Telegram, WhatsApp (Store), Spotify, Vivaldi 8.2, Todoist, Loom, Bitwarden, Postman, Syncthing (runs from `D:\Apps\Syncthing\syncthing-windows-amd64-v2.1.5\syncthing-windows-amd64-v2.1.5\syncthing.exe` as of 2026-10-12, moved out of Downloads to a stable location), Google Drive for desktop 132 (not running), PowerToys 0.100, Logi Options+, WizTree 4.31, Revo Uninstaller 2.7.2, CrystalDiskInfo, Steam, RiotClient and Medal (startup entries), Netflix and LinkedIn (Store).
+**Productivity, communication and media**
+Obsidian 1.9.12, Slack, Discord, Zoom, Telegram, WhatsApp (Store), Spotify, Vivaldi 8.2, Todoist, Loom, Bitwarden, Postman, Google Drive for desktop 132, Syncthing (`D:\Apps\Syncthing`), PowerToys 0.100, WizTree 4.31, Revo Uninstaller 2.7.2, CrystalDiskInfo, Zoom, Voquill, Wispr Flow, 16x Prompt, Mail and Calendar. Also present and not in the manifest: Hermes agent (on PATH).
 
 **Microsoft and Dell packages**
-Microsoft 365 Apps 16.0.20430 (4.7 GiB), Teams and the Teams Meeting add-in, Outlook (new), Microsoft Edge 155, Mail and Calendar, Power Automate, Dev Home, Bing apps, and the .NET and Visual C++ runtimes. Dell Command Update 5.7, Dell Optimizer, SupportAssist OS Recovery plugin, Dell Core Services, Intel graphics software, Realtek audio driver. Respondus LockDown Browser, two Malwarebytes entries, HP Smart.
+Microsoft Edge 155, Dell Command Update (Store 5.7.42 and Universal 5.7.2), Dell Core Services, Dell SupportAssist OS Recovery plugin, Intel graphics software, Realtek audio, two Malwarebytes entries (5.0.0.113 Store and 5.7.1.346), WhatsApp and Windows system components.
 
+**Startup behavior**
+All seven Run-key entries (Discord, GoogleDriveFS, Rize, Spotify, Docker Desktop, Voquill, Slack) are disabled through `StartupApproved`, and the Startup-folder items Wispr Flow and Ollama are disabled too. The E START App and OpenClaw Gateway shortcuts were quarantined on 2026-10-14. Reversible: the values and an `undo.txt` are in `D:\Backup\Quarantine\startup-cleanup-2026-10-14`.
+
+**Open Windows items:** Malwarebytes (two entries), WhatsApp, Rize and GitKrakenCLI keep-or-remove; stale Python 3.13.5 uninstall registrations; Defender exclusions and the BIOS battery cap (need admin or BIOS).
 ### WSL side (Ubuntu 24.04.4, live 2026-10-11)
 `systemctl is-system-running` reports `running` with zero failed units since WSL 3.0.3.0 (the `systemd-binfmt` failure of 3.0.1 is fixed). Root filesystem about 52 GB used of 1007 GB after the Build 5 cache cleanup.
 

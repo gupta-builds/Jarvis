@@ -13,6 +13,9 @@ tags:
 next: "[[What MCPs]]"
 ---
 # AI Workflow Implementation Plan
+> [!WARNING]
+> Superseded. This is a March 2026 ChatGPT-era plan and its tool hierarchy and budget no longer apply. Current guidance: [[Claude Pro Workflow]] for Claude usage and [[Jarvis OS — North Star]] for the system. Do not read this on a cold start. Archiving it is the owner's call.
+
 Based on your current subscriptions, learning goals, and the Gen AI Mastermind curriculum, here's a comprehensive workflow designed for a CS student aspiring to become an AI/ML engineer.
 ## Current Subscription Analysis
 **What you have:**

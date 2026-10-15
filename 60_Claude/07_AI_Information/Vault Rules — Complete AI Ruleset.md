@@ -2,67 +2,26 @@
 type: evergreen
 status: tree
 created: 2026-05-31
-updated: 2026-06-11
+updated: 2026-10-15
 tags:
   - system
   - ai-agents
   - rules
 notes:
   - "[[AI_CONTEXT]]"
-  - "[[HUMAN_WRITING]]"
-  - "[[Jarvis Writing and Formatting]]"
-  - "[[Agent Operating Guide]]"
+  - "[[Tool Calls]]"
+  - "[[Orchestration]]"
+  - "[[Memory Management]]"
 ---
-# Vault Rules — Operational Reference
+# Vault Rules (redirect)
 
-This file holds the tool-selection table and the session-end protocol. The formatting spec (blank lines, markers, frontmatter, quality gate, safety rules, source ingestion) now lives in [[Jarvis Writing and Formatting]]. Placement rules live in [[40_Resources/Obsidian/Jarvis Vault Architecture]]. The cold-start read order and strategy live in [[Jarvis OS — North Star]].
+This file's content has been merged into the Standards in `30_Order/Standards/AI Loop/`. Read those directly:
 
-**The single test:** open any two instruction files — if a sentence is true in both, one is wrong and must become a pointer.
+- **Tool selection** (reading, writing, MCP) is in [[Tool Calls]].
+- **When to spawn a subagent** is in [[Orchestration]].
+- **Session end protocol and log entry format** is in [[Memory Management]].
+- **Formatting spec** is in [[Jarvis Writing and Formatting]].
+- **Placement rules** are in [[40_Resources/Obsidian/Jarvis Vault Architecture]].
+- **Cold-start read order** is in [[AI_CONTEXT]].
 
-## Tool Selection
-
-### Reading Files
-
-| Situation | Tool |
-|---|---|
-| Any text file or Markdown note | `Read` |
-| PDF file | Python pypdf via `Bash` |
-| Image file | `Read` (multimodal) |
-| Live URL | `WebFetch` |
-| Search file contents | `Grep` |
-| Find files by pattern | `Glob` |
-| Directory listing | `Bash` (ls) |
-
-### Writing Files
-
-| Situation | Tool |
-|---|---|
-| Patching an existing file by heading | `Edit` (patch only — do not rewrite) |
-| Creating a new file | `Write` |
-| Full rewrite of an existing file | `Read` first, then `Write` |
-
-### MCP Filesystem Tools
-
-Prefer `Read`, `Edit`, `Write`, `Grep`, `Glob` over `mcp__filesystem__*` equivalents. Use MCP filesystem tools only when the core tools cannot perform the operation. Never use MCP tools to read plugin `data.json` files unless explicitly asked.
-
-### Subagents
-
-- Use subagents for broad exploration requiring 3+ queries
-- `subagent_type: Explore` for finding files without a known path
-- `subagent_type: research-distiller` for long technical PDFs requiring section-by-section extraction
-- Do not spawn subagents for tasks completable inline with 1–2 tool calls
-
-## Session End Protocol
-
-After any meaningful vault changes, append a concise entry to `60_Claude/07_AI_Information/Session Logs/log.md`.
-
-Format:
-```
-## [YYYY-MM-DD] [operation] | [title or subject]
-- What was created or changed
-- Why it matters
-- Open questions
-- Next action if one exists
-```
-
-Update `updated:` in the frontmatter of any note that changed meaningfully. Do not update dashboards just to create activity.
+No unique content remains here. It exists only to keep inbound wikilinks working.

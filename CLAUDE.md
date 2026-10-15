@@ -2,7 +2,7 @@
 type: ai
 status: sprout
 created: 2026-04-03
-updated: 2026-05-26
+updated: 2026-10-15
 tags:
   - evergreen
   - "#ai"
@@ -35,44 +35,34 @@ Full folder definitions: [[40_Resources/Obsidian/Jarvis Vault Architecture]]. Ro
 2. **Preserve frontmatter** — Never remove or rename frontmatter keys unless explicitly asked.
 3. **Search before creating** — Use MCP search to check if a note already exists before creating a new one.
 4. **Respect maturity** — Notes with `status: tree` are stable; propose changes before modifying.
-5. **Read `HUMAN_WRITING.md` and `30_Order/` before writing** — `HUMAN_WRITING` governs voice; `30_Order/Templates/` and `30_Order/Workflows/` govern how each note type is shaped and filed. See [[40_Resources/Obsidian/Jarvis Vault Architecture]] for where each note goes.
-6. **Use `60_Claude/07_AI_Information/AI_CONTEXT.md` for continuity** — read the manifest, dashboard, and session log before assuming current project state. The wikilink `[[AI_CONTEXT]]` resolves to the same file.
+5. **Follow `30_Order/` strictly before writing** — every note starts from a Template in `30_Order/Templates/`, is shaped by its Standard in `30_Order/Standards/`, and follows its Workflow in `30_Order/Workflows/`. No frontmatter or headings outside them. If the note type has no template, say so and design one first; see [[AGENTS.md]] → "The 30_Order rule". `HUMAN_WRITING` governs voice.
+6. **Use [[AI_CONTEXT]] for continuity** — read its cold-start order, then the dashboard and session log tail, before assuming current project state.
 7. **Use context packs, not vault dumps** — follow [[Claude Pro Workflow]]: read the manifest, dashboard, session log tail, and task-specific notes instead of scanning the whole vault.
-
-6. **No personal-life content in Jarvis** — health, personal finance, relationships, and confessional journaling belong in The Plan (`00_Live/`), not here. `10_Areas/Life/Truths of Life/` is scoped narrowly to builder-identity evidence only. Full rule: [[AGENTS.md]] → Write Contract → Golden rules.
+8. **No personal-life content in Jarvis** — health, personal finance, relationships, and confessional journaling belong in The Plan (`00_Live/`), not here. `10_Areas/Life/Truths of Life/` is scoped narrowly to builder-identity evidence only. Full rule: [[AGENTS.md]] → Write Contract → Golden rules.
 
 ### Note Creation Conventions
 
-When creating new notes, use this frontmatter template:
+Frontmatter comes from the template, never from memory. Templates live in `30_Order/Templates/` (frontmatter-only starters in `Frontmatter/`: `For Evergreen`, `For Inputs`, `For Progress`, `For Classes`, `For Thoughts`, `For Brainstorm`, `For Transcript`, `For AI`, `For Everything`). Property meanings: [[40_Resources/Obsidian/Vault Operating System]]. Note-type to folder to standard mapping: the routing table in [[AGENTS.md]].
 
-```yaml
----
-type: evergreen      # or: input, concept, project, thought, brainstorm
-status: sprout       # seed → sprout → tree (maturity)
-created: YYYY-MM-DD
-tags:
-  - evergreen
-notes:
-  - "[[Related Note 1]]"
-  - "[[Related Note 2]]"
-next: "[[Next Action]]"  # optional
----
-```
+### Which tool for which task
 
-**Type guide:**
-- `evergreen` — Distilled, reusable knowledge (`60_Claude/20_Distilled_Notes/`, `40_Resources/`)
-- `input` — Raw captures, source summaries (`60_Claude/05_Clippings/`, `60_Claude/10_Source_Summaries/`); transcripts and briefs also use `input` — see [[Brief Standard]]
-- `concept` — Course concepts, definitions (`10_Areas/UMN/`, `40_Resources/CS/`)
-- `project` — Active work with outcomes (`20_Progress/`)
-- `thought` / `brainstorm` — Inbox-style captures (`00_Inbox/`)
-- `index` — MOC / content map for a folder (see [[MOC Standard]]) — prose Map + Status + Dataview, not a bare link list
-- `action` — Link-dense map of concrete next steps derived from a brief or note (see [[Action Standard]]); statements only, no checkboxes
+| Task | Use |
+| --- | --- |
+| Open or close the day | `/startday`, `/closeday` |
+| Ingest a clipping, PDF, link, or transcript | `/ingest-clipping`, `/transcript-to-brief`, agent `ingestion` or `research-distiller` |
+| Distill a note, map next steps | `/distill-note`, `/note-to-actions` |
+| Fix AI-sounding prose | `/remove-ai-slop`, agent `anti-slop-editor` |
+| Review a week or vault health | `/weekly-review`, `/ops health-check`, agent `vault-curator` |
+| Drill a concept | agent `learning-agent` |
+| Decide something with real stakes | `/llm-council`, `/challenge`, `/strategy` |
+
+Agent and tool selection rules: [[Orchestration]] and [[Tool Calls]].
 
 ### Output Destinations
 See the routing table in [[AGENTS.md]] → Write Contract → "Where does this note go?".
 
 ### Ingestion Workflow (05_Clippings → 60_Claude)
-Use `/ingest-clipping "filename.md"`. The full step-by-step workflow lives in `.claude/skills/ingest-clipping.md`.
+Use `/ingest-clipping "filename.md"`. The full step-by-step workflow lives in `.claude/skills/ingesting-clipping/`.
 
 ### Query Behavior
 

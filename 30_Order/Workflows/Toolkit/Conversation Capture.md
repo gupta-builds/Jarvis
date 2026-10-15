@@ -2,7 +2,7 @@
 type: evergreen
 status: tree
 created: 2026-05-31
-updated: 2026-05-31
+updated: 2026-10-15
 tags:
   - system
   - workflow
@@ -18,46 +18,29 @@ Capture an LLM conversation so its decisions survive after the chat closes. This
 
 **Use when:** a conversation with any AI (Claude, Codex, Cursor, Kiro, ChatGPT, a local model) produced a decision, a plan, or context worth keeping.
 
-**Moves:** raw transcript → `60_Claude/05_Clippings/AI Conversations/` → summary in `60_Claude/10_Source_Summaries/` (and, once built, the `jarvis-memory` registry under `30_Order/System/`)
+**Moves:** raw transcript → `60_Claude/05_Clippings/AI Conversations/` → summary in `60_Claude/07_AI_Information/AI Conversation - Summaries/` (and the `jarvis-memory` registry under `30_Order/System/` indexes both).
+
+**Serves Standard:** [[Conversations]]. **Template:** [[AI Conversation]].
 
 ## The three layers
 
 Raw conversation is not knowledge yet. Store it in three layers and only promote the durable parts:
 
 1. **Raw archive** — the transcript, untouched, in `05_Clippings/AI Conversations/`.
-2. **Summary** — a short distillation in `10_Source_Summaries/`, using the structure below.
+2. **Summary** — a short distillation in `AI Conversation - Summaries/`, shaped by the [[AI Conversation]] template and the [[Conversations]] Standard.
 3. **Promotion** — only durable decisions become concept notes, project updates, outputs, or `next:` actions. The transcript itself never becomes a durable note.
-
-## Summary structure
-
-```markdown
-## What Was Decided
-## What Changed
-## Important Context
-## Source Claims
-## Inferred Claims
-## Open Questions
-## Follow-Up Actions
-## Related Notes
-## Should Be Promoted?
-```
 
 ## Steps
 
 1. Save the raw transcript to `05_Clippings/AI Conversations/`. Do not edit it.
-2. Write the summary in `10_Source_Summaries/` using the structure above. Keep it short — the value is the decisions, not the back-and-forth.
+2. Write the summary in `AI Conversation - Summaries/` from the [[AI Conversation]] template. Keep it short: the value is the decisions, not the back-and-forth.
 3. Wikilink the project and concept notes the conversation touched.
 4. Promote only what is durable: turn a decision into a project `next:`, a new understanding into a distilled note, an artifact into an output. Leave the rest as summary.
 5. Append a one-line session-log entry noting the import and whether anything was promoted.
 
-## Frontmatter to set (on the summary)
+## Frontmatter
 
-```yaml
-type: input
-status: sprout
-source_app: <claude-code|codex|cursor|kiro|chatgpt|claude-web|ollama|other>
-source_status: mixed
-```
+Comes from the [[AI Conversation]] template. Do not write it from memory.
 
 ## Done when
 

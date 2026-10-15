@@ -2,7 +2,7 @@
 type: project
 status: active
 created: 2026-05-28
-updated: 2026-05-28
+updated: 2026-10-15
 tags:
   - claude
   - ai-workflow
@@ -17,7 +17,10 @@ notes:
 ---
 # Claude Optimization Master Setup
 
-> Full vault audit + external link analysis done 2026-05-28 via Cowork session. This note replaces scattered AI Workflow docs as the canonical Claude setup guide.
+> [!WARNING]
+> Dated snapshot from 2026-05-28, not a standing instruction. It no longer claims to be the canonical Claude setup guide: living guidance is in [[Claude Pro Workflow]], [[Orchestration]], and [[Jarvis OS — North Star]]. Several checklist items below may already be done or dropped. Folder names in this note were corrected to the current tree on 2026-10-15.
+
+Full vault audit and external link analysis done 2026-05-28 via a Cowork session.
 
 ## What I Found In The Vault
 
@@ -93,10 +96,10 @@ Start simple — don't build the full SQLite registry yet:
 
 ```
 60_Claude/05_Clippings/AI Conversations/
-60_Claude/30_Source_Summaries/AI Conversations/
+60_Claude/10_Source_Summaries/AI Conversations/
 ```
 
-Create these two folders. At the end of any significant session, ask Claude: `Summarize this session as a conversation note. Include: decisions made, things tried, open questions, related notes.` Save output to `30_Source_Summaries/AI Conversations/YYYY-MM-DD-topic.md`.
+Create these two folders. At the end of any significant session, ask Claude: `Summarize this session as a conversation note. Include: decisions made, things tried, open questions, related notes.` Save output to `10_Source_Summaries/AI Conversations/YYYY-MM-DD-topic.md`.
 
 This is the highest-leverage week 1 action from the Three-Month plan. It starts the memory compounding loop.
 
@@ -144,11 +147,11 @@ The infrastructure for this is already built. The workflow just needs to be acti
 
 From the AI Field OS already in the vault:
 
-- **AI agents** → `60_Claude/60_Indexes/Field OS/AI Field OS.md`
-- **Trading/finance** → `60_Claude/60_Indexes/Field OS/Trading Field OS.md`
-- **Systems** → `60_Claude/60_Indexes/Field OS/Systems Field OS.md`
-- **Algorithms** → `60_Claude/60_Indexes/Field OS/Algorithms Field OS.md`
-- **Career** → `60_Claude/60_Indexes/Field OS/Career Field OS.md`
+- **AI agents** → `60_Claude/44_Indexes/Field OS/AI Field OS.md`
+- **Trading/finance** → `60_Claude/44_Indexes/Field OS/Trading Field OS.md`
+- **Systems** → `60_Claude/44_Indexes/Field OS/Systems Field OS.md`
+- **Algorithms** → `60_Claude/44_Indexes/Field OS/Algorithms Field OS.md`
+- **Career** → `60_Claude/44_Indexes/Field OS/Career Field OS.md`
 
 Each Field OS has an enrichment queue, proof layer, and drill set. They're ready to run.
 
@@ -209,7 +212,7 @@ Cowork has direct file access to the vault via MCP. It's the right surface for w
 ### Context Pack To Start Every Session
 
 ```
-Read the Jarvis context pack: AGENTS.md, HUMAN_WRITING.md, 60_Claude/7_AI_Information/AI_CONTEXT.md, 00_Dashboard.md, and the tail of 60_Claude/10_Session_Logs/log.md. Then read the specific notes I'm working on. Do not scan the full vault.
+Read the Jarvis context pack: AGENTS.md, HUMAN_WRITING.md, 60_Claude/07_AI_Information/AI_CONTEXT.md, 00_Dashboard.md, and the tail of 60_Claude/07_AI_Information/Session Logs/log.md. Then read the specific notes I'm working on. Do not scan the full vault.
 ```
 
 ### Skills That Already Exist In `.claude/skills/`
@@ -259,7 +262,7 @@ The `Claude Pro Workflow.md` (2026-05-26) is the correct current reference. This
 ## Next Actions
 
 - [ ] `npx skills@latest add mattpocock/skills` in IssueDesk, OpsPilot, or any active repo
-- [ ] Create `60_Claude/05_Clippings/AI Conversations/` and `60_Claude/30_Source_Summaries/AI Conversations/`
+- [ ] Create `60_Claude/05_Clippings/AI Conversations/` and `60_Claude/10_Source_Summaries/AI Conversations/`
 - [ ] Run `/ops morning-start` at the start of next session
 - [ ] Create `CONTEXT.md` in any active project after next `/grill-with-docs` session
 - [ ] Activate one learning track from the AI Field OS (pick: HuggingFace agents or LangChain deep agents)

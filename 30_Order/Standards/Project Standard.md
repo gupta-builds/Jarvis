@@ -7,7 +7,7 @@ tags:
   - system
   - standards
 notes:
-  - "[[30_Order/Templates/Metadata/For Progress|For Progress]]"
+  - "[[30_Order/Templates/Frontmatter/For Progress|For Progress]]"
   - "[[Brief to Progress]]"
   - "[[Vault Rules — Complete AI Ruleset]]"
   - "[[HUMAN_WRITING]]"
@@ -16,7 +16,7 @@ notes:
 ==A project note tracks current state and the single next move so the dashboard can surface it — a project note without a live `next:` is invisible to the system.==
 This is the content standard for `project` notes in `20_Progress/`. The brief in `40_Project_Briefs/` is the thinking; the project note is the doing. Its job is continuity: at any milestone, the note tells you what is true now, what to do next, and what already happened. Update it by appending to the log — never by rewriting history.
 ## Maps To
-- Template: [[30_Order/Templates/Metadata/For Progress|For Progress]]
+- Template: [[30_Order/Templates/Frontmatter/For Progress|For Progress]]
 ## Used By Workflow
 - [[Brief to Progress]] — the create-the-note step reads this Standard first. Write the brief in `40_Project_Briefs/` before the project note exists.
 ## Per-Heading Standard

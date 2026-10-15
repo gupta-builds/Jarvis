@@ -7,7 +7,7 @@ tags:
   - system
   - standards
 notes:
-  - "[[30_Order/Templates/Metadata/For Evergreen|For Evergreen]]"
+  - "[[30_Order/Templates/Frontmatter/For Evergreen|For Evergreen]]"
   - "[[Summary to Distilled]]"
   - "[[Vault Rules — Complete AI Ruleset]]"
   - "[[HUMAN_WRITING]]"
@@ -16,7 +16,7 @@ notes:
 ==An evergreen note distills a reusable mechanism that outlives any single source — it exists because a concept recurred across sources or contexts, not because one source was worth keeping.==
 This is the content standard for `evergreen` notes in `60_Claude/20_Distilled_Notes/` (including `Synthesis/` cross-concept comparisons). The difference from a source summary: a summary is fixed to one source and never extended; an evergreen is owned knowledge that grows as new evidence and contrasts arrive. The difference from a concept note: a concept note is course-facing and exam-scoped; an evergreen is a transferable mechanism that connects work across the vault.
 ## Maps To
-- Template: [[30_Order/Templates/Metadata/For Evergreen|For Evergreen]]
+- Template: [[30_Order/Templates/Frontmatter/For Evergreen|For Evergreen]]
 ## Used By Workflow
 - [[Summary to Distilled]] — the create-the-note step reads this Standard first. Search `20_Distilled_Notes/` for an existing note on the concept and extend it before creating a sibling.
 ## Per-Heading Standard

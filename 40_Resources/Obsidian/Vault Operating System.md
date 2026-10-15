@@ -13,8 +13,7 @@ notes:
   - "[[30_Order/Templates/MOC]]"
 ---
 # Vault Operating System
-This note is the canonical operating contract for Jarvis as an AI second brain.
-## What this vault is for
+## What this note is for
 This note is the **canonical property/field schema** for Jarvis. Read before creating or restructuring notes.
 
 For folder definitions and placement rules → [[40_Resources/Obsidian/Jarvis Vault Architecture]].

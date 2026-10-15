@@ -49,6 +49,9 @@ across all of it:  enrich existing notes in place  ·  capture AI conversations 
 | Strengthen an existing note without rewriting it | [[Enrichment]] |
 | Move an internship (or any application) from found to offer/rejected | [[Internship Pipeline]] |
 | Create a plan, or keep an existing one wired into daily/weekly execution | [[Plan Review Cadence]] |
+| Add or health-check a Graphify mirror of a repo | [[Graphify Folders]] |
+| Keep the AI-toolkit logs fed, rotated, and honest | [[Maintaining Logs]] |
+| Update the Claude Kit Tool Map when a tool changes pipeline stage | [[Tools Tracking]] |
 
 ## Rules every workflow shares
 

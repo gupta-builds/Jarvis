@@ -2,7 +2,7 @@
 type: dashboard
 status: sprout
 created: 2026-07-03
-updated: 2026-07-03
+updated: 2026-10-15
 tags:
   - claude-os
   - ai-infrastructure
@@ -14,6 +14,9 @@ next: "Act on the High rows of the marketplace evaluation; adopt /emerge and /ch
 ---
 # Claude OS — Agentic Setup Registry
 
+> [!WARNING]
+> Written 2026-07-03 and moved here from `07_AI_Information/How to Use Claude/` on 2026-10-15, because it is a tooling registry, not vault orientation. The agent roster was corrected on 2026-10-15. Skill, hook, and MCP counts below were not re-verified. Check them against `.claude/` before trusting a number.
+
 All skills, agents, hooks, and MCP servers across every project. Source material lives in `20_Progress/AI/`. This note is the strategy/registry layer; the operational queryable view is [[20_Progress/AI/Claude OS Dashboard|Claude OS Dashboard]], and the visual layer blueprint is [[10_Areas/Excalidraw/Claude OS Map]]. Per-platform operating guides: [[10_Areas/AI/Claude Code|Claude Code]] · [[10_Areas/AI/Cursor|Cursor]] · [[10_Areas/AI/Kiro|Kiro]] · [[10_Areas/AI/Codex|Codex]].
 
 ---
@@ -22,15 +25,9 @@ All skills, agents, hooks, and MCP servers across every project. Source material
 
 **Path:** `D:\Users\_Anant\10_Areas\Documents\Jarvis\.claude\`
 
-### Agents (5 — all with name/description/tools/model frontmatter as of 2026-07-03)
+### Agents (11)
 
-| Agent | Trigger | Tools beyond Read/Glob/Grep/Edit/Write |
-|-------|---------|-----------------------------------------|
-| research-distiller | Deep ingestion: PDFs, web, transcripts, GitHub repos | Bash, WebFetch |
-| anti-slop-editor | De-slopping any note per HUMAN_WRITING | — |
-| vault-curator | Vault-wide health: links, duplicates, frontmatter, Write Contract | — |
-| learning-agent | Overdue drills, enrichment, spaced repetition | — |
-| career-operator | Internship/resume/portfolio/mentorship briefs | — |
+The current roster, triggers, and tool allowlists live in one place: [[Orchestration]]. The 2026-07-03 version of this note listed only 5 agents; the folder `.claude/agents/` now holds 11.
 
 ### Skills / Commands (14)
 

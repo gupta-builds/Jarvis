@@ -2,6 +2,7 @@
 type: evergreen
 status: sprout
 created: 2026-10-09
+updated: 2026-10-14
 tags:
   - evergreen
   - system
@@ -93,3 +94,10 @@ Everything in steps 1-7 addresses the three plugins directly confirmed as causes
 **The three DevTools "Issues" tab items the user separately flagged (a deprecated-feature warning and a SharedArrayBuffer-restricted warning, both attributed to `plugin:copilot:1921`, plus a Quirks Mode notice).** Checked via the CDP `Audits` domain with a forced page reload to re-trigger load-time issues. Both SharedArrayBuffer-related issues are gone — they required copilot's own code to instantiate the iframe that used `SharedArrayBuffer`, and that plugin's folder no longer exists on disk (confirmed deleted). The Quirks Mode issue is still present and is **not related to copilot or any installed plugin** — it fires on `app://obsidian.md/index.html` itself, Obsidian's own core shell document, which ships without a `<!DOCTYPE html>` declaration. This is an Obsidian-binary characteristic outside this vault's control, informational-only in DevTools, and not a stability or correctness problem. Nothing to fix here.
 
 **Lingering concern.** ~4.1 GB resident for two vault windows is high in absolute terms even though flat. If this climbs on a future relaunch (check with `Get-Process Obsidian | Measure-Object WorkingSet64 -Sum`, not the 32-bit `WorkingSet` property, which overflows negative above ~2 GB on a single process), re-open this note rather than assuming it's the same three plugins — they are confirmed not loaded this time.
+
+## 2026-10-14 recovery of the 2026-10-09 verification record
+The oldest autostash retained an additional Dell verification report that the current note had lost. These are historical observations from 2026-10-09, recovered during the approved Git reconciliation; the Dell was not re-tested in this session. Full original versions are preserved outside the vault in the dated reconciliation archive under `reviewed-stashes/stash-2/`.
+- Four cold launches reportedly finished, with the last two free of console errors. A 12-minute run held 3.8-4.1 GB process memory and 2.9-3.1 GB renderer heap. The report attributed this to the core index because unloading plugins recovered little memory. That attribution was an inference. The 2026-10-14 Acer heap analysis later identified retained Spaced Repetition card strings and substantially reduced memory through transcript exclusions; see [[Acer Session Findings — Obsidian OOM Crash]].
+- A historical 34-commit Git backlog was reconciled at 23:08 on 2026-10-09, with the prior history retained on `backup/dell-pre-reconcile-20261009`. Both a manual run and the next scheduled run reportedly pushed cleanly. This was a separate repair from the 2026-10-14 two-parent merge.
+- The report recorded fixes for the Homepage canvas extension and a wait-for-settings guard in `patchOpeningBehaviour`, plus a missing File Explorer guard in `file-explorer-plus` under `addOnTagChange`. Plugin updates can overwrite those local guards. These source patches were not re-tested on the Dell today.
+- It also recorded disappearance of the 239 ENOENT errors after that earlier Git repair, successful retrying of a locked sync-log append, Excalidraw runtime-log exclusions, and reconciliation of two conflict files. These are dated results, not a claim that the same conditions remain verified now.

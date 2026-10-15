@@ -5,29 +5,29 @@ source_app: claude-code
 source_os: windows
 title: "Build 4b Dell leftovers"
 started_at: 2026-10-14T10:02:29
-ended_at: 2026-10-14T12:05:11
-exported_at: 2026-10-14T23:30:02
-duration_minutes: 122.7
+ended_at: 2026-10-14T23:59:43
+exported_at: 2026-10-15T00:00:03
+duration_minutes: 837.2
 project: Home
 cwd: 'C:\Users\Anant Gupta'
 session_id: c4ce8d15-6db3-4bd7-9640-3040d61f09e2
 status: raw
-turn_count: 4
+turn_count: 6
 tools_used:
-  Bash: 2
-  Edit: 7
+  Bash: 10
+  Edit: 11
   Glob: 1
-  PowerShell: 18
-  Read: 2
+  PowerShell: 23
+  Read: 3
   ToolSearch: 1
   WebSearch: 1
   Write: 1
 tokens:
-  input: 134
-  output: 118368
-  cache_creation: 740354
-  cache_read: 6397146
-  total: 7256002
+  input: 222
+  output: 171239
+  cache_creation: 1146857
+  cache_read: 12788123
+  total: 14106441
 cost_usd: null
 model:
   - "claude-sonnet-5-5"
@@ -493,6 +493,318 @@ try { Stop-Transcript | Out-Null } catch { }
 - `PowerShell` -- `{"command":"$f=\u0027D:\\WSL\\ops\\windows\\05-startup-cleanup.ps1\u0027; \"non-ASCII: \" + @([IO.File]::ReadAllBytes($f) | ? {$_ -gt 127}).Count; foreach($h in \u0027powershell.exe\u0027,\u0027pwsh.exe\u0027){ \"=== dry run under $h\"; \u0026 $h -NoProfile -ExecutionPolicy Bypass -File $f; \"exit=$LASTEXITCODE\" }","description":"Dry-run startup cleanup under PS 5.1 and 7","timeout":120000}`
 - `PowerShell` -- `{"command":"$f=\u0027D:\\WSL\\ops\\windows\\05-startup-cleanup.ps1\u0027; $s=[IO.File]::ReadAllText($f)\n$s=$s.Replace(\u0027foreach ($l in $links) { Log (\"    link: {0} -\u003e {1}\" -f $l.FullName, $l.Target) }\u0027,\u0027foreach ($l in $links) { Log (\"    link: {0} -\u003e {1}\" -f $l.FullName, ($l.Target -join \u0027\u0027;\u0027\u0027)) }\u0027)\n$s=$s.Replace(\u0027[void]$undo.Add((\"recreate link: {0} -\u003e {1}\" -f $l.FullName, $l.Target))\u0027,\u0027[void]$undo.Add((\"recreate link: {0} -\u003e {1}\" -f $l.FullName, ($l.Target -join \u0027\u0027;\u0027\u0027)))\u0027)\n$s=$s.Replace(\u0027  Log (\"  disable Ollama.lnk via StartupApproved (old value {0})\" -f (Hex $old))\n  if (-not $dry) {\u0027,\u0027  if ($old -and $old[0] -eq 3) { Log (\"  Ollama.lnk is already disabled in StartupApproved (value {0}); nothing to do\" -f (Hex $old)) }\n  else {\n  Log (\"  disable Ollama.lnk via StartupApproved (old value {0})\" -f (Hex $old))\n  if (-not $dry) {\u0027)\n$s=$s.Replace(\"[void]`$undo.Add((\"\"registry: set {0}\\Ollama.lnk = hex {1} (2 = enabled)\"\" -f `$saKey, `$(if (`$old) { Hex `$old } else { \[REDACTED]\u0027 })))\n  }\n}\",\"[void]`$undo.Add((\"\"registry: set {0}\\Ollama.lnk = hex {1} (2 = enabled)\"\" -f `$saKey, `$(if (`$old) { Hex `$old } else { \[REDACTED]\u0027 })))\n  }\n  }\n}\")\n[IO.File]::WriteAllText($f,$s,(New-Object Text.ASCIIEncoding))\n\"non-ASCII: \" + @([IO.File]::ReadAllBytes($f) | ? {$_ -gt 127}).Count\n$null=[scriptblock]::Create($s); \"parse ok\"\nforeach($h in \u0027powershell.exe\u0027,\u0027pwsh.exe\u0027){ \"=== dry run under $h\"; \u0026 $h -NoProfile -ExecutionPolicy Bypass -File $f | Select-String -Pattern \u0027Ollama|link: .*firecrawl$|System.String|npm uninstall|DRY RUN|error\u0027 | % {$_.Line}; \"exit=$LASTEXITCODE\" }","description":"Fix link target join and Ollama no-op; retest both shells","timeout":120000}`
 
+## You
+
+```
+
+<pasted_content id="79bf">
+░▒▓ 󰍲  ~ 
+❯ powershell -ExecutionPolicy Bypass -File D:\WSL\ops\windows\05-startup-cleanup.ps1 -Apply
+23:31:40 startup cleanup. DryRun=False  Log: D:\WSL\ops\windows\logs\[REDACTED].log
+23:31:40   quarantine startup item: C:\Users\Anant Gupta\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\E START App.lnk
+23:31:40   quarantine startup item: C:\Users\Anant Gupta\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\OpenClaw Gateway.cmd
+23:31:40   remove stale StartupApproved value 'E START App.lnk' (was 030000000000000000000000)
+23:31:40   remove stale StartupApproved value 'OpenClaw Gateway.cmd' (was 030000000000000000000000)
+23:31:40   remove stale StartupApproved value 'ECNotifier.lnk' (was 020000000000000000000000)
+23:31:40   Ollama.lnk is already disabled in StartupApproved (value 030000000000000000000000); nothing to do
+23:31:40   quarantine C:\Users\Anant Gupta\.openclaw  (0 MB of real files, 31 junction/symlink entries)
+23:31:40     link: C:\Users\Anant Gupta\.openclaw\skills\firecrawl -> C:\Users\Anant Gupta\.agents\skills\firecrawl
+23:31:40     link: C:\Users\Anant Gupta\.openclaw\skills\firecrawl-agent -> C:\Users\Anant Gupta\.agents\skills\firecrawl-agent
+23:31:40     link: C:\Users\Anant Gupta\.openclaw\skills\firecrawl-build-interact -> C:\Users\Anant Gupta\.agents\skills\firecrawl-build-interact
+23:31:40     link: C:\Users\Anant Gupta\.openclaw\skills\firecrawl-build-onboarding -> C:\Users\Anant Gupta\.agents\skills\firecrawl-build-onboarding
+23:31:40     link: C:\Users\Anant Gupta\.openclaw\skills\firecrawl-build-scrape -> C:\Users\Anant Gupta\.agents\skills\firecrawl-build-scrape
+23:31:40     link: C:\Users\Anant Gupta\.openclaw\skills\firecrawl-build-search -> C:\Users\Anant Gupta\.agents\skills\firecrawl-build-search
+23:31:40     link: C:\Users\Anant Gupta\.openclaw\skills\firecrawl-company-directories -> C:\Users\Anant Gupta\.agents\skills\firecrawl-company-directories
+23:31:40     link: C:\Users\Anant Gupta\.openclaw\skills\firecrawl-competitive-intel -> C:\Users\Anant Gupta\.agents\skills\firecrawl-competitive-intel
+23:31:40     link: C:\Users\Anant Gupta\.openclaw\skills\firecrawl-crawl -> C:\Users\Anant Gupta\.agents\skills\firecrawl-crawl
+23:31:40     link: C:\Users\Anant Gupta\.openclaw\skills\firecrawl-dashboard-reporting -> C:\Users\Anant Gupta\.agents\skills\firecrawl-dashboard-reporting
+23:31:40     link: C:\Users\Anant Gupta\.openclaw\skills\firecrawl-deep-research -> C:\Users\Anant Gupta\.agents\skills\firecrawl-deep-research
+23:31:40     link: C:\Users\Anant Gupta\.openclaw\skills\firecrawl-demo-walkthrough -> C:\Users\Anant Gupta\.agents\skills\firecrawl-demo-walkthrough
+23:31:40     link: C:\Users\Anant Gupta\.openclaw\skills\firecrawl-download -> C:\Users\Anant Gupta\.agents\skills\firecrawl-download
+23:31:40     link: C:\Users\Anant Gupta\.openclaw\skills\firecrawl-interact -> C:\Users\Anant Gupta\.agents\skills\firecrawl-interact
+23:31:40     link: C:\Users\Anant Gupta\.openclaw\skills\firecrawl-knowledge-base -> C:\Users\Anant Gupta\.agents\skills\firecrawl-knowledge-base
+23:31:40     link: C:\Users\Anant Gupta\.openclaw\skills\firecrawl-knowledge-ingest -> C:\Users\Anant Gupta\.agents\skills\firecrawl-knowledge-ingest
+23:31:40     link: C:\Users\Anant Gupta\.openclaw\skills\firecrawl-lead-gen -> C:\Users\Anant Gupta\.agents\skills\firecrawl-lead-gen
+23:31:40     link: C:\Users\Anant Gupta\.openclaw\skills\firecrawl-lead-research -> C:\Users\Anant Gupta\.agents\skills\firecrawl-lead-research
+23:31:40     link: C:\Users\Anant Gupta\.openclaw\skills\firecrawl-map -> C:\Users\Anant Gupta\.agents\skills\firecrawl-map
+23:31:40     link: C:\Users\Anant Gupta\.openclaw\skills\firecrawl-market-research -> C:\Users\Anant Gupta\.agents\skills\firecrawl-market-research
+23:31:40     link: C:\Users\Anant Gupta\.openclaw\skills\firecrawl-monitor -> C:\Users\Anant Gupta\.agents\skills\firecrawl-monitor
+23:31:40     link: C:\Users\Anant Gupta\.openclaw\skills\firecrawl-parse -> C:\Users\Anant Gupta\.agents\skills\firecrawl-parse
+23:31:40     link: C:\Users\Anant Gupta\.openclaw\skills\firecrawl-qa -> C:\Users\Anant Gupta\.agents\skills\firecrawl-qa
+23:31:40     link: C:\Users\Anant Gupta\.openclaw\skills\firecrawl-research-index -> C:\Users\Anant Gupta\.agents\skills\firecrawl-research-index
+23:31:40     link: C:\Users\Anant Gupta\.openclaw\skills\firecrawl-research-papers -> C:\Users\Anant Gupta\.agents\skills\firecrawl-research-papers
+23:31:40     link: C:\Users\Anant Gupta\.openclaw\skills\firecrawl-scrape -> C:\Users\Anant Gupta\.agents\skills\firecrawl-scrape
+23:31:40     link: C:\Users\Anant Gupta\.openclaw\skills\firecrawl-search -> C:\Users\Anant Gupta\.agents\skills\firecrawl-search
+23:31:40     link: C:\Users\Anant Gupta\.openclaw\skills\firecrawl-seo-audit -> C:\Users\Anant Gupta\.agents\skills\firecrawl-seo-audit
+23:31:40     link: C:\Users\Anant Gupta\.openclaw\skills\firecrawl-shop -> C:\Users\Anant Gupta\.agents\skills\firecrawl-shop
+23:31:40     link: C:\Users\Anant Gupta\.openclaw\skills\firecrawl-website-design-clone -> C:\Users\Anant Gupta\.agents\skills\firecrawl-website-design-clone
+23:31:40     link: C:\Users\Anant Gupta\.openclaw\skills\firecrawl-workflows -> C:\Users\Anant Gupta\.agents\skills\firecrawl-workflows
+23:31:40   moved to D:\Backup\Quarantine\[REDACTED]\dot-openclaw
+23:31:43   npm uninstall -g openclaw  (version 2026.3.13, at C:\Users\Anant Gupta\AppData\Roaming\npm\node_modules\openclaw)
+23:32:05     npm:
+23:32:05     npm: removed 538 packages in 22s
+23:32:05   npm exit code 0
+23:32:05 == state now
+23:32:05   startup folder E START App.lnk: absent
+23:32:05   startup folder OpenClaw Gateway.cmd: absent
+23:32:05   startup folder Ollama.lnk: present
+23:32:05   startup folder Wispr Flow.lnk: present
+23:32:05   StartupApproved\StartupFolder Wispr Flow.lnk = 030000000000000000000000
+23:32:05   StartupApproved\StartupFolder Ollama.lnk = 030000000000000000000000
+23:32:05   ~\.openclaw exists: False
+23:32:05   openclaw command resolves: False
+23:32:05   undo steps written: D:\Backup\Quarantine\[REDACTED]\undo.txt
+23:32:05 DONE. Log: D:\WSL\ops\windows\logs\[REDACTED].log
+
+░▒▓ 󰍲  ~ 
+took 30s ❯
+
+░▒▓ 󰍲  ~ 
+took 30s ❯ powershell -ExecutionPolicy Bypass -File D:\WSL\ops\60-build5b-host.ps1 -Stages Export -Apply
+23:32:14 Build 5b host script. Stages: Export  DryRun=False  Log: D:\WSL\ops\windows\logs\[REDACTED].log
+23:32:14 == Stage Export
+23:32:14   D: free 450.5 GiB; need at least 80 GiB
+Export the Ubuntu distro now? WSL stops for 10 to 25 minutes; Tailscale SSH to the Dell goes offline and returns by itself afterwards.  Type YES to continue (anything else skips): YES
+23:32:19   wsl --terminate
+The operation completed successfully.
+23:32:31   wsl --export -> D:\Backup\WSL\ubuntu-20261014-233219.tar
+Export in progress, this may take a few minutes. (550 MB)bsdtar: ./home/anant_gupta/.cache/biome/biome-socket-2.2.0: ./home/anant_gupta/.cache/biome/biome-socket-2.2.0: pax format cannot archive sockets
+ (24041 MB)bsdtar: ./home/anant_gupta/.gbrain/brain.pglite/.gbrain-resolve.sock: ./home/anant_gupta/.gbrain/brain.pglite/.gbrain-resolve.sock: pax format cannot archive sockets
+ (41733 MB)bsdtar: ./home/anant_gupta/.codex/app-server-daemon/daemon-updater.sock: ./home/anant_gupta/.codex/app-server-daemon/daemon-updater.sock: pax format cannot archive sockets
+ (41993 MB)bsdtar: ./home/anant_gupta/.codex/ipc/ipc.sock: ./home/anant_gupta/.codex/ipc/ipc.sock: pax format cannot archive sockets
+ (55778 MB)
+
+The operation completed successfully.
+23:46:24   export finished in 13.9 min
+23:46:24   size 58,487,982,080 bytes (54.47 GiB)
+tar.exe : tar.exe: Archive entry has empty or unreadable filename ... skipping
+At D:\WSL\ops\60-build5b-host.ps1:163 char:5
++     & tar.exe -tf $tar 2>$null | ForEach-Object { $entries++ }
++     ~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (tar.exe: Archiv...me ... skipping:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+
+
+░▒▓ 󰍲  ~ 
+</pasted_content id="79bf">
+
+```
+
+## Claude
+
+The startup cleanup worked: both items are quarantined, `openclaw` no longer resolves, and 538 npm packages are removed. The export wrote a 54.47 GiB tar, but the script then crashed on the `tar -tf` check. Under `$ErrorActionPreference = 'Stop'` in PS 5.1, a stderr line from tar becomes a terminating error, and `2>$null` doesn't prevent that. So there is no manifest yet, and the script died before restarting the distro. Checking the current state, read-only.
+
+The helper works under PS 5.1: it returned 1,114,217 entries, tar exit code 0 and 0 unexpected stderr lines, parsed correctly. One more A2 check while WSL is up: `RunSSH`.
+
+## Where things stand
+
+**Startup cleanup is done and verified.** The `E START App` and OpenClaw gateway shortcuts are quarantined in `D:\Backup\Quarantine\[REDACTED]`, with an `undo.txt` there. Their stale StartupApproved values were removed, `~\.openclaw` was moved, and `npm uninstall -g openclaw` removed 538 packages. `openclaw` no longer resolves, and `Ollama.lnk` was already disabled.
+
+**The export itself is fine; only the script's check crashed.** The tar is `D:\Backup\WSL\ubuntu-20261014-233219.tar` (54.47 GiB). The old tar is untouched.
+
+## Why the script crashed
+
+Windows `tar.exe -tf` can't read 56 pax entry names and exits nonzero. In PS 5.1, with `$ErrorActionPreference = 'Stop'`, the stderr line became a terminating error, even with `2>$null`. That killed the script before the manifest and before the distro restart. The "sockets" lines during export are normal, because Linux sockets are runtime-only.
+
+I checked it a second way: GNU tar in WSL lists **1,114,217 entries** with exit 0 and no errors, which is Windows tar's 1,114,161 plus the 56 it skipped. So the archive is sound. *No import test has been run.*
+
+## Fixes and current state
+
+- **Script:** it now restarts the distro right after the export, verifies with GNU tar through a helper (`D:\WSL\ops\windows\verify-tar.sh`), and has a new `Verify` stage. I tested the helper call under PS 5.1 against the real tar. My first version failed that test (PS 5.1 mangles embedded quotes), which is why it uses a helper file.
+- **Recovery:** I restarted Ubuntu myself after the crash, as a normal `wsl -d Ubuntu --exec true`. I did not run `wsl --shutdown`.
+- **WSL after the restart:** systemd `running`, `dell-wsl` and `gupta-builds` connected, `RunSSH` true, and `wsl-clean` and `wsl-watch` timers active.
+- **sync-check (B3):** it ran locally. For `internship-research-loop` it shows branch `dell-latitude/deadline-quota-and-reseed-fixes`, 6 ahead of and 5 behind `origin/master`, and 25 dirty files. That repo has diverged, so I'll look at it with you later rather than assume it's fine.
+
+## Your next commands
+
+Run them separately, and type `YES` at each prompt. The first hashes 54 GiB, so expect a few minutes.
+
+```powershell
+powershell -ExecutionPolicy Bypass -File D:\WSL\ops\60-build5b-host.ps1 -Stages Verify -Apply
+```
+
+```powershell
+powershell -ExecutionPolicy Bypass -File D:\WSL\ops\60-build5b-host.ps1 -Stages Quarantine -Apply
+```
+
+The second moves the 36.75 GiB old tar into `D:\Backup\Quarantine\wsl-tar-review-<date>` with a README. It does nothing unless a valid manifest exists.
+
+After that I'll continue with A3 (.NET 8 dry run), A4 (Ollama start), A5 to A7 (catalog, agent guide, Installations, Acer run sheet), A8 (rotate the Firecrawl key at the provider and tell me when it's done), A10, A11 and Part B.
+
+### Tool Calls
+
+- `PowerShell` -- `{"command":"Get-ChildItem D:\\Backup\\WSL -Force | Select Name,Length,LastWriteTime | Format-Table -AutoSize | Out-String; wsl.exe -l -v; Get-Item D:\\WSL\\Installers\\wsl-ubuntu.tar | Select Length; (Get-PSDrive D).Free/1GB; Get-Content (Get-ChildItem D:\\WSL\\ops\\windows\\logs\\build5b-host-*.log | Sort LastWriteTime | Select -Last 1).FullName | Select -Last 4","description":"Check export artifacts and WSL state"}`
+- `PowerShell` -- `{"command":"wsl.exe -d Ubuntu --exec true; Start-Sleep 15; \"systemd: \" + ((wsl.exe -d Ubuntu --exec systemctl is-system-running 2\u003e\u00261) -join \u0027 \u0027); wsl.exe -d Ubuntu --exec bash -c \u0027/usr/bin/tailscale status 2\u003e\u00261 | head -3; systemctl --user is-active wsl-clean.timer wsl-watch.timer 2\u003e\u00261; systemctl is-active ssh 2\u003e\u00261\u0027 2\u003e\u00261","description":"Restart Ubuntu distro and check services","timeout":90000}`
+- `PowerShell` -- `{"command":"$d=\u0027D:\\Cache\\Temp\\claude\\C--Users-Anant-Gupta\\[REDACTED]\\scratchpad\u0027; New-Item -ItemType Directory -Force $d | Out-Null; $t=\u0027D:\\Backup\\WSL\\ubuntu-20261014-233219.tar\u0027; Start-Process -FilePath cmd.exe -ArgumentList \"/c tar.exe -tf `\"$t`\" \u003e `\"$d\\list.txt`\" 2\u003e `\"$d\\err.txt`\" \u0026 echo %errorlevel% \u003e `\"$d\\exit.txt`\"\" -WindowStyle Hidden; \"started\"","description":"Start tar listing verification in background"}`
+- `Bash` -- `d="/d/Cache/Temp/claude/C--Users-Anant-Gupta/c4ce8d15-6db3-4bd7-9640-3040d61f09e2/scratchpad"; until [ -s "$d/exit.txt" ]; do sleep 10; done; echo "exit: $(cat $d/exit.txt)"; echo "entries: $(wc -l < $d/list.txt)"; echo "stderr lines: $(wc -l < $d/err.txt)"; sort "$d/err.txt" | uniq -c | head -5`
+```
+Command running in background with ID: bwkhuh8qj. Output is being written to: D:\Cache\Temp\claude\C--Users-Anant-Gupta\[REDACTED]\tasks\bwkhuh8qj.output. You will be notified when it completes. To check interim output, use Read on that file path.
+```
+- `Read` -- `D:\WSL\ops\60-build5b-host.ps1`
+- `Bash` -- `d="/d/Cache/Temp/claude/C--Users-Anant-Gupta/c4ce8d15-6db3-4bd7-9640-3040d61f09e2/scratchpad"; ls -la "$d"; wc -l "$d/list.txt" "$d/err.txt" 2>&1; cat "$d/err.txt" | head -5`
+```
+total 113284
+drwxr-xr-x 1 Anant Gupta 197121         0 Oct 14 23:47 .
+drwxr-xr-x 1 Anant Gupta 197121         0 Oct 14 10:02 ..
+-rw-r--r-- 1 Anant Gupta 197121      3920 Oct 14 23:48 err.txt
+-rw-r--r-- 1 Anant Gupta 197121 115966863 Oct 14 23:48 list.txt
+   941151 /d/Cache/Temp/claude/C--Users-Anant-Gupta/[REDACTED]/scratchpad/list.txt
+       56 /d/Cache/Temp/claude/C--Users-Anant-Gupta/[REDACTED]/scratchpad/err.txt
+   941207 total
+tar.exe: Archive entry has empty or unreadable filename ... skipping
+tar.exe: Archive entry has empty or unreadable filename ... skipping
+tar.exe: Archive entry has empty or unreadable filename ... skipping
+tar.exe: Archive entry has empty or unreadable filename ... skipping
+tar.exe: Archive entry has empty or unreadable filename ... skipping
+```
+- `Bash` -- `d="/d/Cache/Temp/claude/C--Users-Anant-Gupta/c4ce8d15-6db3-4bd7-9640-3040d61f09e2/scratchpad"; until [ -s "$d/exit.txt" ]; do sleep 5; done; echo "exit: $(cat $d/exit.txt)"; echo "entries: $(wc -l < $d/list.txt)"; echo "warnings: $(grep -c 'unreadable filename' $d/err.txt)"; echo "other stderr:"; grep -v 'unreadable filename' $d/err.txt | head`
+```
+exit: 0 
+entries: 1114161
+warnings: 56
+other stderr:
+tar.exe: Error exit delayed from previous errors
+```
+- `Bash` -- `cd /tmp 2>/dev/null; wsl.exe -d Ubuntu --exec bash -c 'cd /tmp && s=$(date +%s); tar -tf /mnt/d/Backup/WSL/ubuntu-20261014-233219.tar > /tmp/gnu-list.txt 2> /tmp/gnu-err.txt; echo "gnu tar exit: $?"; echo "entries: $(wc -l < /tmp/gnu-list.txt)"; echo "stderr lines: $(wc -l < /tmp/gnu-err.txt)"; head -3 /tmp/gnu-err.txt; echo "seconds: $(( $(date +%s) - s ))"' 2>&1`
+```
+gnu tar exit: 0
+entries: 1114217
+stderr lines: 110
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.security.capability'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.security.capability'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.security.capability'
+seconds: 80
+```
+- `Bash` -- `wsl.exe -d Ubuntu --exec bash -c 'grep -v "LIBARCHIVE.xattr" /tmp/gnu-err.txt | sort | uniq -c | head; echo ---; cp /tmp/gnu-list.txt /mnt/d/Cache/Temp/claude/C--Users-Anant-Gupta/c4ce8d15-6db3-4bd7-9640-3040d61f09e2/scratchpad/gnu-list.txt; tr -d "\000-\037" < /dev/null; awk "length(\$0)==0" /tmp/gnu-list.txt | wc -l; LC_ALL=C grep -c -P "[\x80-\xff]" /tmp/gnu-list.txt; LC_ALL=C grep -P "[\x80-\xff]" /tmp/gnu-list.txt | head -3 | cut -c1-120' 2>&1`
+```
+---
+0
+183
+./home/anant_gupta/projects/ai/claude/second-brain-claudekit/sandbox/obsidian-second-brain/examples/sample-vault/wiki/lo
+./home/anant_gupta/projects/ai/claude/second-brain-claudekit/sandbox/obsidian-second-brain/examples/sample-vault/Ideas/2
+./home/anant_gupta/projects/hub/portfolio/graphify-out/codebase-memory/graphify-nodes/NOTE `@hooksuseAnimationGate` is d
+```
+- `Edit` -- `D:\WSL\ops\60-build5b-host.ps1`
+```diff
+-     $sw.Restart(); $entries = 0
+    & tar.exe -tf $tar 2>$null | ForEach-Object { $entries++ }
+    if ($LASTEXITCODE -ne 0) { throw "tar -tf failed with exit code $LASTEXITCODE" }
+    Log ('  tar -tf OK, {0:N0} entries, {1:N1} min' -f $entries, $sw.Elapsed.TotalMinutes)
+    $sw.Restart(); $hash = (Get-FileHash -Algorithm SHA256 -Path $tar).Hash.ToLower()
+    Log ('  SHA-256 {0} ({1:N1} min)' -f $hash, $sw.Elapsed.TotalMinutes)
+    $lines = @('file=' + $tar, 'bytes=' + $size, 'entries=' + $entries, 'sha256=' + $hash, 'verified=tar-listing+sha256 (no import test)', 'created=' + (Get-Date -Format 's'), 'distro=' + $Distro, 'vhdx_bytes=' + (Get-Item $vhdx).Length)
+    [System.IO.File]::WriteAllLines($tar + '.manifest.txt', $lines, [System.Text.Encoding]::ASCII)
+    [System.IO.File]::WriteAllText($tar + '.sha256', ($hash + '  ' + (Split-Path $tar -Leaf) + "`n"), [System.Text.Encoding]::ASCII)
+    Log '  restarting the distro so Tailscale and services come back'
+    wsl.exe -d $Distro --exec true; Start-Sleep -Seconds 10
+    Log ('  systemd: ' + ((wsl.exe -d $Distro --exec systemctl is-system-running 2>&1) -join ' '))
+  }
+}
++     # restart FIRST so downtime ends now and a verify problem can never leave WSL down
+    Log '  restarting the distro so Tailscale and services come back'
+    wsl.exe -d $Distro --exec true; Start-Sleep -Seconds 10
+    Log ('  systemd: ' + ((wsl.exe -d $Distro --exec systemctl is-system-running 2>&1) -join ' '))
+    Write-ExportManifest $tar
+  }
+}
+
+# ---------------------------------------------------------------- Verify (manifest for an export that has none)
+if ($StageList -contains 'Verify') {
+  Log '== Stage Verify'
+  $cand = Get-ChildItem 'D:\Backup\WSL' -Filter 'ubuntu-*.tar' -ErrorAction SilentlyContinue | Where-Object { -not (Test-Path ($_.FullName + '.manifest.txt')) } | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+  if (-not $cand) { Log '  no export without a manifest in D:\Backup\WSL' }
+  elseif (Confirm-Stage ('Verify {0} ({1:N2} GiB) and write its manifest? WSL is started if it is stopped.' -f $cand.Name, ($cand.Length / 1GB))) {
+    wsl.exe -d $Distro --exec true; Start-Sleep -Seconds 5
+    Write-ExportManifest $cand.FullName
+  }
+}
+```
+- `Edit` -- `D:\WSL\ops\60-build5b-host.ps1`
+```diff
+- # ---------------------------------------------------------------- Export
+if ($StageList -contains 'Export') {
++ # Verification of an export tar: GNU tar inside WSL lists every entry (Windows tar.exe cannot read ~56 pax names and exits nonzero, which in PS 5.1 aborted
+# the 2026-10-14 run), then SHA-256, then the manifest. No import test is run.
+function Write-ExportManifest([string]$tar) {
+  $sw = [System.Diagnostics.Stopwatch]::StartNew()
+  $size = (Get-Item $tar).Length
+  Log ('  verifying {0}  size {1:N0} bytes ({2:N2} GiB)' -f $tar, $size, ($size / 1GB))
+  if ($size -lt 20GB) { throw 'Export is suspiciously small' }
+  $wslPath = ((wsl.exe -d $Distro --exec wslpath -a $tar) -join '').Trim()
+  if (-not $wslPath.StartsWith('/mnt/')) { throw "could not convert path to WSL form: $wslPath" }
+  $prev = $ErrorActionPreference; $ErrorActionPreference = 'Continue'
+  $out = @(wsl.exe -d $Distro --exec bash -c 'set -o pipefail; tar -tf "$1" 2>/tmp/tar-verify.err | wc -l; echo "rc=${PIPESTATUS[0]}"; echo "notes=$(grep -vc LIBARCHIVE.xattr /tmp/tar-verify.err)"' _ $wslPath 2>$null)
+  $ErrorActionPreference = $prev
+  $entries = [int64]($out[0]); $rc = ($out | Where-Object { $_ -like 'rc=*' } | Select-Object -First 1) -replace 'rc=', ''; $notes = ($out | Where-Object { $_ -like 'notes=*' } | Select-Object -First 1) -replace 'notes=', ''
+  if ($rc -ne '0') { throw "GNU tar -tf failed with exit code $rc" }
+  if ($entries -lt 100000) { throw "suspiciously few entries: $entries" }
+  Log ('  GNU tar -tf OK: {0:N0} entries, exit 0, {1} stderr lines other than xattr notices, {2:N1} min' -f $entries, $notes, $sw.Elapsed.TotalMinutes)
+  $sw.Restart(); $hash = (Get-FileHash -Algorithm SHA256 -Path $tar).Hash.ToLower()
+  Log ('  SHA-256 {0} ({1:N1} min)' -f $hash, $sw.Elapsed.TotalMinutes)
+  $vhdx = 'D:\WSL\Ubuntu\ext4.vhdx'
+  $vb = 0; if (Test-Path $vhdx) { $vb = (Get-Item $vhdx).Length }
+  $lines = @('file=' + $tar, 'bytes=' + $size, 'entries=' + $entries, 'sha256=' + $hash, 'verified=GNU tar listing (exit 0) + sha256; NO import test was run', 'created=' + (Get-Date -Format 's'), 'distro=' + $Distro, 'vhdx_bytes=' + $vb)
+  [System.IO.File]::WriteAllLines($tar + '.manifest.txt', [string[]]$lines, [System.Text.Encoding]::ASCII)
+  [System.IO.File]::WriteAllText($tar + '.sha256', ($hash + '  ' + (Split-Path $tar -Leaf) + "`n"), [System.Text.Encoding]::ASCII)
+  Log ('  manifest written: {0}.manifest.txt' -f $tar)
+}
+
+# ---------------------------------------------------------------- Export
+if ($StageList -contains 'Export') {
+```
+- `Edit` -- `D:\WSL\ops\60-build5b-host.ps1`
+```diff
+- $valid = 'ChatGPT', 'Cursor', 'Export', 'Quarantine'
++ $valid = 'ChatGPT', 'Cursor', 'Export', 'Verify', 'Quarantine'
+```
+- `PowerShell` -- `{"command":"$f=\u0027D:\\WSL\\ops\\60-build5b-host.ps1\u0027; \"non-ASCII: \" + @([IO.File]::ReadAllBytes($f) | ? {$_ -gt 127}).Count\n$t=\"$env:TEMP\\verify-probe.ps1\"; $probe=@\u0027\n$Distro=\u0027Ubuntu\u0027; $tar=\u0027D:\\Backup\\WSL\\ubuntu-20261014-233219.tar\u0027; $ErrorActionPreference=\u0027Stop\u0027\n$wslPath = ((wsl.exe -d $Distro --exec wslpath -a $tar) -join \u0027\u0027).Trim(); \"wslpath: $wslPath\"\n$prev = $ErrorActionPreference; $ErrorActionPreference = \u0027Continue\u0027\n$out = @(wsl.exe -d $Distro --exec bash -c \u0027set -o pipefail; tar -tf \"$1\" 2\u003e/tmp/tar-verify.err | wc -l; echo \"rc=${PIPESTATUS[0]}\"; echo \"notes=$(grep -vc LIBARCHIVE.xattr /tmp/tar-verify.err)\"\u0027 _ $wslPath 2\u003e$null)\n$ErrorActionPreference = $prev\n\"raw: \" + ($out -join \u0027 | \u0027)\n$entries = [int64]($out[0]); $rc = ($out | Where-Object { $_ -like \u0027rc=*\u0027 } | Select-Object -First 1) -replace \u0027rc=\u0027, \u0027\u0027; $notes = ($out | Where-Object { $_ -like \u0027notes=*\u0027 } | Select-Object -First 1) -replace \u0027notes=\u0027, \u0027\u0027\n\"entries=$entries rc=$rc notes=$notes\"\n\u0027@\n[IO.File]::WriteAllText($t,$probe); powershell.exe -NoProfile -ExecutionPolicy Bypass -File $t; Remove-Item $t\n\"=== Verify dry run\"; powershell.exe -NoProfile -ExecutionPolicy Bypass -File $f -Stages Verify,Quarantine; \"exit=$LASTEXITCODE\"","description":"Test the WSL tar-verify call under PS 5.1 and dry-run Verify","timeout":300000}`
+- `Bash` -- `printf '%s\n' '#!/usr/bin/env bash' '# verify-tar.sh <tar path>  (Build 4b, 2026-10-14)  Lists a tar with GNU tar; prints: entries=N, rc=N, notes=N (stderr lines other than xattr notices).' 'tar_path="$1"' 'err=/tmp/tar-verify.err' 'set -o pipefail' 'n=$(tar -tf "$tar_path" 2>"$err" | wc -l)' 'rc=${PIPESTATUS[0]}' 'echo "entries=$n"' 'echo "rc=$rc"' 'echo "notes=$(grep -vc LIBARCHIVE.xattr "$err")"' > /d/WSL/ops/windows/verify-tar.sh; od -c /d/WSL/ops/windows/verify-tar.sh | head -3; grep -c $'\r' /d/WSL/ops/windows/verify-tar.sh`
+```
+0000000   #   !   /   u   s   r   /   b   i   n   /   e   n   v       b
+0000020   a   s   h  \n   #       v   e   r   i   f   y   -   t   a   r
+0000040   .   s   h       <   t   a   r       p   a   t   h   >        
+0
+```
+- `Bash` -- `printf '%s\n' '#!/usr/bin/env bash' '# verify-tar.sh <tar path>  (Build 4b, 2026-10-14)  Lists a tar with GNU tar. Prints entries=N, rc=<tar exit code>, notes=<stderr lines other than xattr notices>.' 'tar_path="$1"' 'list=$(mktemp /tmp/tar-verify-list.XXXXXX)' 'err=$(mktemp /tmp/tar-verify-err.XXXXXX)' 'tar -tf "$tar_path" > "$list" 2> "$err"' 'rc=$?' 'echo "entries=$(wc -l < "$list")"' 'echo "rc=$rc"' 'echo "notes=$(grep -vc LIBARCHIVE.xattr "$err")"' 'rm -f "$list" "$err"' > /d/WSL/ops/windows/verify-tar.sh; cat /d/WSL/ops/windows/verify-tar.sh | tail -8`
+```
+list=$(mktemp /tmp/tar-verify-list.XXXXXX)
+err=$(mktemp /tmp/tar-verify-err.XXXXXX)
+tar -tf "$tar_path" > "$list" 2> "$err"
+rc=$?
+echo "entries=$(wc -l < "$list")"
+echo "rc=$rc"
+echo "notes=$(grep -vc LIBARCHIVE.xattr "$err")"
+rm -f "$list" "$err"
+```
+- `Edit` -- `D:\WSL\ops\60-build5b-host.ps1`
+```diff
+-   $out = @(wsl.exe -d $Distro --exec bash -c 'set -o pipefail; tar -tf "$1" 2>/tmp/tar-verify.err | wc -l; echo "rc=${PIPESTATUS[0]}"; echo "notes=$(grep -vc LIBARCHIVE.xattr /tmp/tar-verify.err)"' _ $wslPath 2>$null)
+  $ErrorActionPreference = $prev
+  $entries = [int64]($out[0]); $rc = ($out | Where-Object { $_ -like 'rc=*' } | Select-Object -First 1) -replace 'rc=', ''; $notes = ($out | Where-Object { $_ -like 'notes=*' } | Select-Object -First 1) -replace 'notes=', ''
+  if ($rc -ne '0') { throw "GNU tar -tf failed with exit code $rc" }
++   $helper = ((wsl.exe -d $Distro --exec wslpath -a 'D:\WSL\ops\windows\verify-tar.sh') -join '').Trim()   # helper file: no quotes pass through PS 5.1 argument handling
+  $out = @(wsl.exe -d $Distro --exec bash $helper $wslPath 2>$null)
+  $ErrorActionPreference = $prev
+  $entries = 0; $rc = 'missing'; $notes = '?'
+  foreach ($o in $out) { if ($o -match '^entries=(\d+)') { $entries = [int64]$Matches[1] } elseif ($o -match '^rc=(\d+)') { $rc = $Matches[1] } elseif ($o -match '^notes=(\d+)') { $notes = $Matches[1] } }
+  Log ('  helper output: ' + ($out -join ' | '))
+  if ($rc -ne '0') { throw "GNU tar -tf failed with exit code $rc" }
+```
+- `PowerShell` -- `{"command":"$t=\"$env:TEMP\\verify-probe.ps1\"; $probe=@\u0027\n$Distro=\u0027Ubuntu\u0027; $tar=\u0027D:\\Backup\\WSL\\ubuntu-20261014-233219.tar\u0027; $ErrorActionPreference=\u0027Stop\u0027\n$wslPath = ((wsl.exe -d $Distro --exec wslpath -a $tar) -join \u0027\u0027).Trim()\n$prev = $ErrorActionPreference; $ErrorActionPreference = \u0027Continue\u0027\n$helper = ((wsl.exe -d $Distro --exec wslpath -a \u0027D:\\WSL\\ops\\windows\\verify-tar.sh\u0027) -join \u0027\u0027).Trim()\n$out = @(wsl.exe -d $Distro --exec bash $helper $wslPath 2\u003e$null)\n$ErrorActionPreference = $prev\n$entries = 0; $rc = \u0027missing\u0027; $notes = \u0027?\u0027\nforeach ($o in $out) { if ($o -match \u0027^entries=(\\d+)\u0027) { $entries = [int64]$Matches[1] } elseif ($o -match \u0027^rc=(\\d+)\u0027) { $rc = $Matches[1] } elseif ($o -match \u0027^notes=(\\d+)\u0027) { $notes = $Matches[1] } }\n\"helper output: \" + ($out -join \u0027 | \u0027); \"parsed entries=$entries rc=$rc notes=$notes\"\n\u0027@\n[IO.File]::WriteAllText($t,$probe); powershell.exe -NoProfile -ExecutionPolicy Bypass -File $t; Remove-Item $t\n$f=\u0027D:\\WSL\\ops\\60-build5b-host.ps1\u0027; \"non-ASCII: \" + @([IO.File]::ReadAllBytes($f) | ? {$_ -gt 127}).Count; $null=[scriptblock]::Create([IO.File]::ReadAllText($f)); \"parse ok\"; powershell.exe -NoProfile -ExecutionPolicy Bypass -File $f -Stages Verify,Quarantine | Select -Last 4","description":"Re-test helper call under PS 5.1 and dry-run again","timeout":300000}`
+- `Bash` -- `wsl.exe -d Ubuntu --exec bash -c 'tailscale debug prefs 2>/dev/null | grep -E "RunSSH|ControlURL" | sed -E "s/ +/ /g"; systemctl --user list-timers --all --no-pager 2>/dev/null | grep -E "wsl-(clean|watch)" | awk "{print \$(NF-1), \$NF}"; ~/tools/sync-check 2>&1 | tail -6' 2>&1`
+```
+	"ControlURL": "https://controlplane.tailscale.com",
+	"RunSSH": true,
+wsl-watch.timer wsl-watch.service
+wsl-clean.timer wsl-clean.service
+repo=/home/anant_gupta/projects/work/internship-research-loop
+root=/home/anant_gupta/projects/work/internship-research-loop
+branch=dell-latitude/deadline-quota-and-reseed-fixes
+fetch=ok
+compare_ref=origin/master ahead=6 behind=5
+dirty_count=25
+```
+
 ## Actions Taken
 
 **Files created:**
@@ -519,5 +831,13 @@ open(p,'w',encoding='ascii',newline='').write(s)
 print(s.count('$StageList'), s.count('$Stages -contains'))
 EOF
 grep -n 'Stages' 60-build5b-host.ps1 | head -20`
+- `d="/d/Cache/Temp/claude/C--Users-Anant-Gupta/c4ce8d15-6db3-4bd7-9640-3040d61f09e2/scratchpad"; until [ -s "$d/exit.txt" ]; do sleep 10; done; echo "exit: $(cat $d/exit.txt)"; echo "entries: $(wc -l < $d/list.txt)"; echo "stderr lines: $(wc -l < $d/err.txt)"; sort "$d/err.txt" | uniq -c | head -5`
+- `d="/d/Cache/Temp/claude/C--Users-Anant-Gupta/c4ce8d15-6db3-4bd7-9640-3040d61f09e2/scratchpad"; ls -la "$d"; wc -l "$d/list.txt" "$d/err.txt" 2>&1; cat "$d/err.txt" | head -5`
+- `d="/d/Cache/Temp/claude/C--Users-Anant-Gupta/c4ce8d15-6db3-4bd7-9640-3040d61f09e2/scratchpad"; until [ -s "$d/exit.txt" ]; do sleep 5; done; echo "exit: $(cat $d/exit.txt)"; echo "entries: $(wc -l < $d/list.txt)"; echo "warnings: $(grep -c 'unreadable filename' $d/err.txt)"; echo "other stderr:"; grep -v 'unreadable filename' $d/err.txt | head`
+- `cd /tmp 2>/dev/null; wsl.exe -d Ubuntu --exec bash -c 'cd /tmp && s=$(date +%s); tar -tf /mnt/d/Backup/WSL/ubuntu-20261014-233219.tar > /tmp/gnu-list.txt 2> /tmp/gnu-err.txt; echo "gnu tar exit: $?"; echo "entries: $(wc -l < /tmp/gnu-list.txt)"; echo "stderr lines: $(wc -l < /tmp/gnu-err.txt)"; head -3 /tmp/gnu-err.txt; echo "seconds: $(( $(date +%s) - s ))"' 2>&1`
+- `wsl.exe -d Ubuntu --exec bash -c 'grep -v "LIBARCHIVE.xattr" /tmp/gnu-err.txt | sort | uniq -c | head; echo ---; cp /tmp/gnu-list.txt /mnt/d/Cache/Temp/claude/C--Users-Anant-Gupta/c4ce8d15-6db3-4bd7-9640-3040d61f09e2/scratchpad/gnu-list.txt; tr -d "\000-\037" < /dev/null; awk "length(\$0)==0" /tmp/gnu-list.txt | wc -l; LC_ALL=C grep -c -P "[\x80-\xff]" /tmp/gnu-list.txt; LC_ALL=C grep -P "[\x80-\xff]" /tmp/gnu-list.txt | head -3 | cut -c1-120' 2>&1`
+- `printf '%s\n' '#!/usr/bin/env bash' '# verify-tar.sh <tar path>  (Build 4b, 2026-10-14)  Lists a tar with GNU tar; prints: entries=N, rc=N, notes=N (stderr lines other than xattr notices).' 'tar_path="$1"' 'err=/tmp/tar-verify.err' 'set -o pipefail' 'n=$(tar -tf "$tar_path" 2>"$err" | wc -l)' 'rc=${PIPESTATUS[0]}' 'echo "entries=$n"' 'echo "rc=$rc"' 'echo "notes=$(grep -vc LIBARCHIVE.xattr "$err")"' > /d/WSL/ops/windows/verify-tar.sh; od -c /d/WSL/ops/windows/verify-tar.sh | head -3; grep -c $'\r' /d/WSL/ops/windows/verify-tar.sh`
+- `printf '%s\n' '#!/usr/bin/env bash' '# verify-tar.sh <tar path>  (Build 4b, 2026-10-14)  Lists a tar with GNU tar. Prints entries=N, rc=<tar exit code>, notes=<stderr lines other than xattr notices>.' 'tar_path="$1"' 'list=$(mktemp /tmp/tar-verify-list.XXXXXX)' 'err=$(mktemp /tmp/tar-verify-err.XXXXXX)' 'tar -tf "$tar_path" > "$list" 2> "$err"' 'rc=$?' 'echo "entries=$(wc -l < "$list")"' 'echo "rc=$rc"' 'echo "notes=$(grep -vc LIBARCHIVE.xattr "$err")"' 'rm -f "$list" "$err"' > /d/WSL/ops/windows/verify-tar.sh; cat /d/WSL/ops/windows/verify-tar.sh | tail -8`
+- `wsl.exe -d Ubuntu --exec bash -c 'tailscale debug prefs 2>/dev/null | grep -E "RunSSH|ControlURL" | sed -E "s/ +/ /g"; systemctl --user list-timers --all --no-pager 2>/dev/null | grep -E "wsl-(clean|watch)" | awk "{print \$(NF-1), \$NF}"; ~/tools/sync-check 2>&1 | tail -6' 2>&1`
 
 

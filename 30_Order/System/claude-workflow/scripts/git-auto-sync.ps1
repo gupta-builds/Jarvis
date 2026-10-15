@@ -119,7 +119,7 @@ function Invoke-PullRebase {
     # "You have unstaged changes") - hit for real on this script's first
     # live run, see Build 7 Findings.
     param([string]$Branch)
-    $output = git pull --rebase --autostash origin $Branch 2>&1 | Out-String
+    $output = git pull --rebase --autostash origin $Branch 2>&1 | ForEach-Object { $_.ToString() } | Out-String
     $output.Trim() -split "`r?`n" | Where-Object { $_ } | ForEach-Object { Write-SyncLog "  $_" }
     if ($LASTEXITCODE -ne 0) {
         # "untracked working tree files would be overwritten" happens when a note
@@ -141,8 +141,8 @@ function Invoke-PullRebase {
             git add -A | Out-Null
             git diff --cached --quiet
             if ($LASTEXITCODE -ne 0) {
-                git commit -m "Auto-sync: pre-pull commit of untracked file(s) colliding with an incoming change" 2>&1 | Out-String | ForEach-Object { $_.Trim() } | Where-Object { $_ } | ForEach-Object { Write-SyncLog "  $_" }
-                $retry = git pull --rebase --autostash origin $Branch 2>&1 | Out-String
+                git commit -m "Auto-sync: pre-pull commit of untracked file(s) colliding with an incoming change" 2>&1 | ForEach-Object { $_.ToString() } | Out-String | ForEach-Object { $_.Trim() } | Where-Object { $_ } | ForEach-Object { Write-SyncLog "  $_" }
+                $retry = git pull --rebase --autostash origin $Branch 2>&1 | ForEach-Object { $_.ToString() } | Out-String
                 $retry.Trim() -split "`r?`n" | Where-Object { $_ } | ForEach-Object { Write-SyncLog "  $_" }
                 if ($LASTEXITCODE -eq 0) { return $true }
                 Write-SyncLog "Retry after untracked-file commit still failed (exit $LASTEXITCODE)."
@@ -221,7 +221,7 @@ function Invoke-CommitIfNeeded {
     }
     $summary = (git diff --cached --stat | Select-Object -Last 1)
     $commitMsg = "Auto-sync: $(Get-Date -Format 'yyyy-MM-dd HH:mm'), $summary"
-    git commit -m $commitMsg 2>&1 | Out-String | ForEach-Object { $_.Trim() } | Where-Object { $_ } | ForEach-Object { Write-SyncLog "  $_" }
+    git commit -m $commitMsg 2>&1 | ForEach-Object { $_.ToString() } | Out-String | ForEach-Object { $_.Trim() } | Where-Object { $_ } | ForEach-Object { Write-SyncLog "  $_" }
     if ($LASTEXITCODE -ne 0) {
         Write-SyncLog "git commit failed (exit $LASTEXITCODE)."
         return $false
@@ -233,7 +233,7 @@ function Invoke-CommitIfNeeded {
 function Invoke-PushWithRebaseRetry {
     param([string]$Branch, [int]$MaxRetries = 1)
 
-    $pushOutput = git push origin $Branch 2>&1 | Out-String
+    $pushOutput = git push origin $Branch 2>&1 | ForEach-Object { $_.ToString() } | Out-String
     if ($LASTEXITCODE -eq 0) {
         Write-SyncLog "Pushed cleanly to origin/$Branch."
         return $true
@@ -247,7 +247,7 @@ function Invoke-PushWithRebaseRetry {
             Write-SyncLog "CONFLICT: rebase during retry $attempt failed. Manual resolution needed."
             return $false
         }
-        $pushOutput = git push origin $Branch 2>&1 | Out-String
+        $pushOutput = git push origin $Branch 2>&1 | ForEach-Object { $_.ToString() } | Out-String
         if ($LASTEXITCODE -eq 0) {
             Write-SyncLog "Pushed cleanly to origin/$Branch after retry $attempt."
             return $true
@@ -271,6 +271,33 @@ function Test-GitIndexLocked {
     # before touching anything costs nothing and avoids starting that race at all.
     param([string]$VaultRoot)
     return (Test-Path (Join-Path $VaultRoot ".git\index.lock"))
+}
+
+function Remove-TrackedSkillAliases {
+    # Each laptop owns its Git index. A synced ignore file cannot untrack an
+    # already tracked junction there, so repair only verified canonical aliases.
+    foreach ($skillRoot in @('.claude/skills', '.opencode/skills')) {
+        $rootPath = Join-Path $VaultRoot $skillRoot
+        if (-not (Test-Path -LiteralPath $rootPath)) { continue }
+        foreach ($alias in @(Get-ChildItem -LiteralPath $rootPath -Directory | Where-Object LinkType -eq 'Junction')) {
+            $targetValue = @($alias.Target)[0]
+            $target = [IO.Path]::GetFullPath([string]$targetValue)
+            $canonicalRoot = [IO.Path]::GetFullPath((Join-Path $VaultRoot 'copilot/skills')) + [IO.Path]::DirectorySeparatorChar
+            if (-not $target.StartsWith($canonicalRoot, [StringComparison]::OrdinalIgnoreCase)) { continue }
+            $relative = $skillRoot + '/' + $alias.Name
+            git check-ignore --no-index --quiet -- ($relative + '/')
+            if ($LASTEXITCODE -ne 0) { continue }
+            $tracked = @(git ls-files -- $relative)
+            if ($tracked.Count -eq 0) { continue }
+            $canonical = $target.Substring($VaultRoot.TrimEnd('\').Length + 1).Replace('\', '/')
+            if (@(git ls-files -- $canonical).Count -eq 0) {
+                throw "Refusing to untrack $relative because its canonical target is not tracked."
+            }
+            git rm -r --cached --ignore-unmatch -- $relative | Out-Null
+            if ($LASTEXITCODE -ne 0) { throw "Could not untrack duplicate alias $relative." }
+            Write-SyncLog "Untracked duplicate junction $relative; physical files and canonical target retained."
+        }
+    }
 }
 
 function Invoke-GitAutoSync {
@@ -315,6 +342,8 @@ function Invoke-GitAutoSync {
         # transfer on the same files. Always resumed in the finally block below.
         Set-SyncthingFolderPaused -Paused $true
         $pausedSyncthing = $true
+
+        Remove-TrackedSkillAliases
 
         # Save local edits before a pull can rewrite the working tree.
         if (Test-WorkingTreeHasConflictMarkers) {

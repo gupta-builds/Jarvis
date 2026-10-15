@@ -1,8 +1,8 @@
 ---
 type: evergreen
-status: seed
+status: sprout
 created: 2026-09-29
-updated: 2026-09-29
+updated: 2026-10-13
 tags:
   - technical-interview
   - leetcode
@@ -10,28 +10,32 @@ notes:
   - "[[20_Progress/Degree/_Courses/Technical Interview/Problems Solver|Problems Solver]]"
   - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/How to Solve Problems|How to Solve Problems]]"
   - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041 Relation|CSCI 4041 Relation]]"
-next: "Confirm the live unit number against the CodePath portal, then fill this week's actual topic-block and pull real problems into the table below"
+next: "Execute October 13 Unit 1-2 review and the two dated LeetCode tasks; log evidence before checking tasks complete"
 ---
-# Weekly Set
-==This is one rolling file, rewritten each week — not a week-numbered archive — always showing only the week currently being solved for.==
-This week's problems, pulled from [[20_Progress/Degree/_Courses/Technical Interview/Problems Solver|Problems Solver]]'s three resources and solved under [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/How to Solve Problems|How to Solve Problems]]'s rules. Rewrite this whole file at the start of each new week rather than appending — a rolling weekly log of what was actually solved belongs on the solved-problem notes themselves and, later, a Dataview query, not here.
-## This Week's Topic-Block
-**Not yet confirmed for a real week.** Per the one-unit-ahead strategy, this should always be the [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041 Relation|CSCI 4041 Relation]] topic-block one unit past wherever the live CodePath cohort actually is — cross-check the real unit number on the CodePath portal before filling this in, since [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041 Relation|CSCI 4041 Relation]]'s own Status table already flags that its two internal schedule tables don't number units the same way. Link the exact `## N. Topic Name` heading from CSCI 4041 Relation here once confirmed.
-## Where to Pull From
-Locked 2026-10-04 (full reasoning in [[20_Progress/Degree/_Courses/Technical Interview/Problems Solver|Problems Solver]]'s Resources Considered and Rejected) — check [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List|Detailed Problems List]] first, since the 49-question Pareto set is already placed there by week.
-- Easy/medium: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List|Detailed Problems List]]'s pre-placed Pareto Problem Set cells for this week first; anything still blank, pull from [Grind 75](https://www.techinterviewhandbook.org/grind75/) filtered to this week's topic tag.
-- Hard (~70 total target, real interview questions, not LeetCode's abstract "hard" tag): [[60_Claude/10_Source_Summaries/Github Ingestion/Jobs Starred/interview-company-wise-problems|liquidslr/leetcode-company-wise-problems]] only — pick a target company's folder, filter to hard. Grind75 carries no hard problems; don't look there.
-- The 2 interview-based questions: [[60_Claude/10_Source_Summaries/Github Ingestion/Jobs Starred/coding-interview-university|Coding Interview University]]'s matching topic section, or [[60_Claude/10_Source_Summaries/Github Ingestion/Jobs Starred/tech-interview-handbook|Tech Interview Handbook]]'s cheatsheet self-checks.
-- OA/assessment practice (as needed, not part of the daily 7): HackerRank's own [Interview Preparation Kit](https://www.hackerrank.com/interview/preparation-kits), [perixtar/Tech-OA-Interview-Questions](https://github.com/perixtar/Tech-OA-Interview-Questions), or an official company page (Amazon's [SDE OA prep](https://www.amazon.jobs/content/en/how-we-hire/university/sde-oa), Google's [Tech Dev Guide](https://github.com/alvinctk/google-tech-dev-guide)) when a specific assessment is coming up.
-## Problems
-| Day | LeetCode Hard (3) | LeetCode Easy (1) | LeetCode Medium (1) | Interview-Based (2) | Solved? |
-|---|---|---|---|---|---|
-| Day 1 | | | | | |
-| Day 2 | | | | | |
-| Day 3 | | | | | |
-| Day 4 | | | | | |
-| Day 5 | | | | | |
-| Day 6 | | | | | |
-| Day 7 | | | | | |
+# Weekly Set - October 12-18, 2026
+Week 1 covers the missed Day 1 recovery and all five landed TIP103 units. Budget: 20-25 hours, planned allocation 22.5. This is the current-week checklist; permanent dates and problem contracts remain in [[20_Progress/Degree/_Courses/Technical Interview/DSA|DSA]] and [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List|Detailed Problems List]].
+## Source work
+- [ ] Oct 13: recover Day 1 setup; read Unit 1 and Unit 2 captures plus the verified syllabus. 📅 2026-10-13
+- [ ] Oct 14: review both Unit 3 sessions and their recursion/stack/queue sources. 📅 2026-10-14
+- [ ] Oct 15: review both Unit 4 sessions and linked-list/tree sources. 📅 2026-10-15
+- [ ] Oct 16: review both Unit 5 sessions and BFS/DFS/topological sources. 📅 2026-10-16
+- [ ] Oct 17: compare all five units, capture gaps and in-class counterparts; preserve the raw source defects. 📅 2026-10-17
+- [ ] Oct 18: oral recall, practice ledger check and Homework 4 gate: retrieve the real prompt/assessment ID before attempting it. 📅 2026-10-18
+## Independent practice
+- [ ] [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 217|LC 217]] - Contains Duplicate (Easy, 30 min) 📅 2026-10-13
+- [ ] [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 242|LC 242]] - Valid Anagram (Easy, 30 min) 📅 2026-10-13
+- [ ] [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 125|LC 125]] - Valid Palindrome (Easy, 30 min) 📅 2026-10-14
+- [ ] [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 704|LC 704]] - Binary Search (Easy, 30 min) 📅 2026-10-14
+- [ ] [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 20|LC 20]] - Valid Parentheses (Easy, 30 min) 📅 2026-10-14
+- [ ] [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 206|LC 206]] - Reverse Linked List (Easy, 30 min) 📅 2026-10-15
+- [ ] [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 232|LC 232]] - Implement Queue using Stacks (Easy, 30 min) 📅 2026-10-15
+- [ ] [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 104|LC 104]] - Maximum Depth of Binary Tree (Easy, 30 min) 📅 2026-10-16
+- [ ] [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 733|LC 733]] - Flood Fill (Easy, 30 min) 📅 2026-10-16
+- [ ] P1.2: [Homework/Paper/Paper HW - 1 (Ch - 2).pdf](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Homework/Paper/Paper HW - 1 (Ch - 2).pdf>) Q2 / p.2, SUM-ARRAY invariant (30 min) 📅 2026-10-16
+## Recall and source gaps
+- [ ] Explain one readable problem contract from each session without re-solving the captured prompts. 📅 2026-10-18
+- [ ] Identify the incomplete alternate-version entries in the catalog; request their source bodies if the portal does not expose them. 📅 2026-10-18
+- [ ] Confirm Unit 5 completion separately from its landed transcript.
+- [ ] Record elapsed time, hints, outcomes and next retrieval in [[20_Progress/Degree/_Courses/Technical Interview/Problems Solver#Execution ledger|the execution ledger]].
 ## Status
-Template only — no real week has run through this file yet.
+All tasks are planned. Homework 1-3 is already complete. Day 1 remains recorded as missed; no study or independent-practice completion is inferred from this checklist. Refresh this display for the next week only after preserving actual attempt records in the ledger.

@@ -3,7 +3,7 @@ type: class
 input_kind: preparation
 status: sprout
 created: 2026-09-08
-updated: 2026-10-01
+updated: 2026-10-14
 area:
   - "[[CSCI 4061 Board]]"
 tags:
@@ -31,6 +31,9 @@ This is the heaviest Fall'26 course by workload (~12 hours/week, per [[CSCI 4061
 - **After every lab or project submission:** record the actual Gradescope/test result and at least one reusable Problem/Fix/Why entry in that lab's or project's own note, per [[Lab Standard]] and [[Project Standard]] - never leave Results as an unfilled template after a real run has happened.
 - **Before each exam:** build out rich concept notes in [[20_Progress/Degree/CSCI 4061/Concepts/C Refresher/C Language|C Refresher]] and this course's own Concepts layer for anything that recurred across three or more weeks, then drill the accumulated `#cards/csci4061` flashcard deck rather than re-reading week notes passively.
 ## Common Mistakes / Traps
+- **Shared storage does not establish completion.** In [[20_Progress/Degree/CSCI 4061/Labs/Lab - 5|Lab 5]], map `MAP_SHARED | MAP_ANONYMOUS` before `fork()`, assign disjoint ranges, and reap every worker before reading results. Ordinary heap/global writes after fork are private; one successful wait only accounts for one child.
+- **Balance the remainder explicitly.** Lab 5 uses `base = N / P`, `r = N % P`, `start = w * base + min(w, r)`, `count = base + (w < r)`. This covers every element exactly once and handles more workers than elements with empty ranges. Quiz answers about floor/ceiling chunking describe different policies; keep them separate from the chosen implementation.
+
 - **Treating `fork()` order as predictable.** Every week-1-through-3 note repeats this warning because it is the single most common wrong assumption in this course's own material: code that only works if the parent happens to run first will pass locally and fail on Gradescope's scheduler.
 - **Skipping error checks to save time.** This course grades error handling directly and separately from correctness (-1 per missed check, -1 per missed cleanup, confirmed in Lec01 and baked into every project's Error Checking Criteria) - an otherwise-correct `swish` implementation that skips a `perror` on a failed `open()` loses real points even if every test passes.
 - **Confusing `wait()`'s raw `status` with the actual exit code.** [[20_Progress/Degree/CSCI 4061/Weekly/Week - 1|Week - 1]] and [[20_Progress/Degree/CSCI 4061/Labs/Lab - 2|Lab - 2]] both hit this directly - the real exit code only exists after `WIFEXITED(status)` confirms normal exit, then `WEXITSTATUS(status)` extracts it.
@@ -52,6 +55,8 @@ Read [[20_Progress/Degree/CSCI 4061/Weekly/Week - 2|Week - 2]], then [[20_Progre
 Read [[20_Progress/Degree/CSCI 4061/Weekly/Week - 3|Week - 3]], then [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 10|Chapter - 10]] for the full signal lifecycle and the three "tricky items" (interrupted system calls, `errno` corruption, reentrancy), and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4|Chapter - 4]] for the i-node/path-resolution mechanism. Complete [[20_Progress/Degree/CSCI 4061/Labs/Lab - 3|Lab - 3]]'s `sigaction()`/`SA_RESTART`/`volatile sig_atomic_t` pattern directly inside the dev container - this is the same mechanism Project 1's Task 4 needs for `SIGTTOU`/`SIGTTIN` handling, just applied to a different signal.
 ### Week 4 — File systems continued, IPC pipes (in progress)
 [[20_Progress/Degree/CSCI 4061/Weekly/Week - 4|Week - 4]] is a scaffold, not a captured week - its `## Lecture` section is explicitly inferred from the syllabus and not yet lecture-verified. Live-capture the real 9/29 and 10/1 lectures into that note directly, then reconcile against [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 4|Chapter - 4]]'s un-lectured sections (hard/symbolic links, `mkdir`/directory reading) once Build 2's source-check pass is confirmed against what was actually taught. Project 1 is due 10/2, right after Thursday's lecture - per the week note's own open question, confirm whether the project actually depends on this week's pipe material before assuming it does.
+### Lab 5 practice for Project 2 and the next exam
+Use [[20_Progress/Degree/CSCI 4061/Labs/Lab - 5|Lab 5]] and [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 15|Chapter 15, section 15.9]] to explain mapping inheritance and completion ordering. Without reopening the implementation, derive the ranges for 40 elements with 3 and 41 workers, explain why `MAP_PRIVATE` loses child results, and trace why a child must exit before reaching the parent's remaining fork iterations. This practice is queued, not recorded as mastered.
 ## Weekly Study Plan
 **~12 hours/week**, per [[CSCI 4061 Board]]'s own Workload section (university policy: 3 hrs/credit x 4 credits) - the heaviest of the six Fall'26 courses. A reasonable split, not itself stated in the syllabus beyond the class/lab time: ~2.5 hrs in the two weekly lectures, ~1 hr in the weekly lab, ~3-4 hrs reading Stevens/Kleppmann plus quiz prep, ~5-6 hrs of project coding and debugging - heavier in weeks a project is due, lighter in weeks one just released.
 Full week-by-week detail below, consolidated from [[CSCI 4061 Board]]'s Schedule and [[20_Progress/Degree/CSCI 4061/Textbook/Textbook Map|Textbook Map]] into one interlinked table.

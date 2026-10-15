@@ -37,7 +37,10 @@
       "**/*.excalidraw.md",
       ".obsidian",
       "30_Order/Templates",
-      "50_Archive"
+      "50_Archive",
+      "60_Claude/05_Clippings/AI Conversations",
+      "40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild/Runs/_backups",
+      "**/*.sync-conflict-*"
     ],
     "openRandomNote": false,
     "autoNextNote": false,
@@ -83,7 +86,7 @@
     "preferredDateFormatForNoteReviewQueue": "MMM DD YYYY",
     "preferredLocale": "-"
   },
-  "buryDate": "2026-10-13",
+  "buryDate": "2026-10-14",
   "buryList": [],
   "historyDeck": null,
   "scheduleData": {

@@ -3,7 +3,7 @@ type: class
 input_kind: book
 status: seed
 created: 2026-09-20
-updated: 2026-09-20
+updated: 2026-10-13
 area:
   - "[[CSCI 4511W Board]]"
   - "[[20_Progress/Degree/CSCI 4511W/Textbook/Textbook Map|Textbook Map]]"
@@ -16,6 +16,7 @@ next: "Use this framing with Chapter 2, then continue to Chapter 3 before the ne
 # Chapter - 1 — Introduction to Artificial Intelligence
 **Source:** Stuart Russell and Peter Norvig, *Artificial Intelligence: A Modern Approach*, 4th ed. (Pearson, 2020), Chapter 1, pp. 1–35.
 **Read from:** `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4511W\CSCI 4511W Textbook.pdf`
+**Page check, 2026-10-13:** The printed chapter pagination is pp. 1-35; this local reflowed PDF places Chapter 1 on PDF pp. 30-94. Use section numbers for retrieval. Section 1.4 describes the textbook's publication-era capabilities, not a current 2026 survey.
 **Course role:** Background for the CSCI 4511W shift from defining AI to designing agents that search, reason, learn, and act.
 ## Chapter Summary
 ==AI is best organized around the design of rational agents: systems that choose actions expected to produce the best outcome under the information, abilities, and computational limits they actually have.==
@@ -65,7 +66,8 @@ An **agent** is something that acts; a rational agent acts to achieve the best o
 
 The rational-agent approach wins as an engineering framework for two reasons. First, correct inference is only one route to good behavior. Second, rationality gives a general, mathematically expressible target that can guide design and analysis across AI, control theory, operations research, statistics, and economics.
 
-The standard model assumes the objective is specified correctly. That assumption becomes dangerous in open-ended settings. A self-driving car cannot optimize “reach the destination safely” without deciding how to trade progress against accident risk, passenger comfort, traffic rules, and effects on others. A chess program told only to maximize wins could pursue actions outside the intended game—blackmailing the opponent or taking computing resources—because those actions are instrumentally useful under its literal objective.
+### 1.1.5 Beneficial machines
+The standard model assumes the objective is specified correctly. That assumption becomes dangerous in open-ended settings. A self-driving car must trade progress against accident risk, passenger comfort, traffic rules, and effects on others. A chess program allowed to act outside the board could pursue blackmail or extra computing resources if its only objective is winning. These behaviors illustrate a specification failure rather than failed optimization.
 
 The proposed correction is a **provably beneficial** design: the machine pursues human objectives while remaining uncertain about their exact content. That uncertainty can make it more cautious, more willing to ask permission, more willing to learn preferences, and more willing to defer to human control.
 ### 1.2 The Foundations of Artificial Intelligence
@@ -146,7 +148,7 @@ The engineering lesson is sharper than “AI ethics matters”: the objective fu
 ## Connections
 - **Lecture:** [[20_Progress/Degree/CSCI 4511W/Weekly/Week - 1|Week - 1]] — the intro lecture's Performance Measure, Environment, Actuators, Sensors, and Vacuum World vocabulary is the operational bridge into Chapter 2.
 - **Course map:** [[20_Progress/Degree/CSCI 4511W/Textbook/Textbook Map|Textbook Map]] — Chapter 1 is background rather than a dated Canvas reading; Chapter 2 begins the formal course sequence.
-- **Concept queue:** [[20_Progress/Degree/CSCI 4511W/Concepts/AI Concept Board|AI Concept Board]] and [[20_Progress/Degree/CSCI 4511W/Concepts/Definitions|Definitions]] are the existing homes for future concept notes; they are currently empty, so this chapter note keeps the concepts inline rather than linking to nonexistent stubs.
+- **Concept continuation:** [[20_Progress/Degree/CSCI 4511W/Concepts/Concept - Rational Agent|Rational Agent]] and [[20_Progress/Degree/CSCI 4511W/Concepts/Concept - PEAS Framework|PEAS Framework]] supply the formal Chapter 2 treatment. [[20_Progress/Degree/CSCI 4511W/Weekly/Week - 1|Week 1]] records the complete Chapter 1 exercise inventory and closed-note checks.
 ## Open Questions
 - [ ] Explain why the rational-agent approach is broader than the laws-of-thought approach, even when both use logic.
 - [ ] Give a concrete case where a system is computable in principle but intractable in practice.

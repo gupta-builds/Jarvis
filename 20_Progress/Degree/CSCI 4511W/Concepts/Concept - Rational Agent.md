@@ -2,7 +2,7 @@
 type: concept
 status: sprout
 created: 2026-10-02
-updated: 2026-10-02
+updated: 2026-10-13
 course: "[[CSCI 4511W Board]]"
 track: ai
 mastery_level: 0
@@ -30,9 +30,9 @@ The decisive word is *expected* — rationality optimizes expected performance, 
 - **Autonomy** increases with experience: over time, a learning agent's behavior becomes independent of its initial prior knowledge, enabling a single design to work across many environment varieties
 ## Contrast / What It Is Not
 - **Rational vs. omniscient**: an omniscient agent knows the actual outcome of its actions before acting — impossible. A rational agent takes the best action given available evidence; if bad outcomes follow from a genuinely good decision, the decision was still rational. The Champs Élysées crossing example: crossing is rational if sensors show no traffic; a cargo door falling from 33,000 feet does not retroactively make it irrational.
-- **Rational vs. human-like**: human behavior is inconsistent, emotionally driven, and has no clean engineering criterion. Rationality is the engineering target precisely because expected utility is mathematically expressible and computable (even under the limits of bounded rationality).
+- **Rational versus human-like:** rationality evaluates expected task performance; the Turing test evaluates human-like written behavior. A precise mathematical criterion does not make its exact optimization computationally feasible. Chapter 1 §1.1.4 identifies limited computation as a separate design constraint.
 - **Rational vs. correct**: rationality is a property of the *decision process* given available information. Correctness is a property of the *outcome*. A rational decision can produce a bad outcome; an incorrect decision process can get lucky. These are orthogonal.
-- **Rational vs. omniscient (bounded rationality)**: when exhaustive computation is too expensive, *limited rationality* takes the best available action within computational bounds. This is still rational relative to actual resources — it is not irrationality.
+- **Limited rationality:** when exact optimization is too expensive, the agent must act appropriately within its computing budget. Resource limits motivate approximations; they do not prove every approximation optimal.
 ## Failure Modes / Misconceptions
 > [!WARNING]
 > **Blaming the agent for bad outcomes**: if the agent observed what was available, applied correct inference, and chose the highest-expected-value action, it acted rationally regardless of what happened. Judging rationality by outcomes confuses rationality with omniscience.
@@ -41,7 +41,7 @@ The decisive word is *expected* — rationality optimizes expected performance, 
 > **Thinking rationality implies a fixed, complete prior**: a rational agent should gather information and learn. An agent that relies entirely on its designer's prior knowledge without updating on percepts is less autonomous and more brittle — it is rational only in environments that perfectly match the designer's assumptions.
 
 > [!WARNING]
-> **Confusing the performance measure with the utility function**: the performance measure is an external criterion defined by the designer. The utility function is the agent's internalized approximation of it. A utility-based agent that poorly approximates the performance measure is still technically "rational" relative to its utility function — but the design is bad.
+> **Confusing the performance measure with the utility function:** the performance measure is the external success criterion. A utility function helps the agent represent preferences internally. Maximizing a mismatched utility function does not establish rationality relative to the specified external performance measure.
 ## Evidence From This Vault
 - [[20_Progress/Degree/CSCI 4511W/Weekly/Week - 2|Week - 2]] — Lecture 02 (9/14) introduced the rational agent concept formally for the first time; the four rationality factors and rationality-vs-omniscience distinction come from Ch 2.2.2-2.2.3.
 - [[20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 2|Chapter - 2]] §2.2.2-2.2.3 — formal definition plus rationality case study in the Vacuum World (conditions under which the simple reflex agent is or is not rational).

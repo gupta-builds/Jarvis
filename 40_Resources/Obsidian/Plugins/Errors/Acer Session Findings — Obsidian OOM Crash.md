@@ -2,6 +2,7 @@
 type: evergreen
 status: sprout
 created: 2026-10-09
+updated: 2026-10-14
 tags:
   - evergreen
   - system
@@ -67,3 +68,12 @@ A folder that isn't named exactly as Obsidian expects cannot be loaded, regardle
 ## What's still genuinely open
 - The OpenAI key and GitHub Copilot tokens from a 2026-09-19/09-28 leak still need rotation at the provider — no automation can do this, it needs the user directly.
 - Whether Omnisearch, Tasks, or hover-editor are worth ever re-enabling is an open product decision, not a bug — Omnisearch in particular may become viable again if the AI Conversations folder's size is substantially reduced (a separate cleanup already in progress elsewhere this session, unrelated to this crash investigation, that happens to help).
+## 2026-10-14 recurrence: Spaced Repetition retained transcript-sized card strings
+The three plugins blamed in the earlier incident were absent from the live loaded-plugin list and their backups were already outside `.obsidian/plugins/`. They did not explain this recurrence. Jarvis alone retained about 2.85 GB of JavaScript heap after forced garbage collection, against a V8 heap limit of 4.40 GB. A local heap snapshot showed 2.58 GB attributed to string nodes. Retainer inspection reached `_QuestionText`, `_Question`, `ParsedQuestionInfo`, and concatenated/sliced card strings. Folder-to-deck conversion was enabled in Spaced Repetition, while raw AI conversation transcripts and reconciliation backups were absent from its folder exclusions.
+Added these three entries to Spaced Repetition's existing `noteFoldersToIgnore` through its running settings manager, preserving every existing exclusion and review setting:
+- `60_Claude/05_Clippings/AI Conversations`.
+- `40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild/Runs/_backups`.
+- `**/*.sync-conflict-*`.
+The installed plugin's own `SettingsUtil.isPathInFoldersToIgnore` and settings description confirm this exclusion list covers both cards and note reviews. Settings were backed up outside the vault before editing. No transcript or scheduling history was deleted. Reloading the plugin alone left old objects retained, so only the Jarvis window was reloaded through `app:reload`; The Plan was not modified.
+After all 26 plugins loaded and Spaced Repetition initialized, heap usage was 760,430,012 bytes after garbage collection, about 73% below the previous retained heap. No runtime errors were captured after that reload. This is direct evidence that excluding transcript and backup content materially reduced the retained memory. It does not prove an indefinite idle period can never crash; long-session observation remains necessary. The local snapshot and analysis summaries are in the Windows temporary directory, not synced into the vault.
+The separate Git rebase loop produced observed ENOENT/indexing errors before repair and still needs its history reconciliation; see [[Cross-Laptop Sync - Operations Reference#2026-10-14 repair and pending Git history review]].

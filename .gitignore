@@ -221,3 +221,24 @@ excalidraw.log
 # every file gets a second, permanent, ever-growing copy in history. Found
 # 2026-09-20 already committed across multiple prior auto-sync commits.
 .stversions/
+# Windows junction aliases duplicate copilot/skills. Track the canonical files only.
+/.claude/skills/copilot-fetch-x/
+/.claude/skills/copilot-read-pdf/
+/.claude/skills/copilot-web-fetch/
+/.claude/skills/copilot-web-search/
+/.claude/skills/copilot-youtube-transcript/
+/.claude/skills/json-canvas/
+/.claude/skills/obsidian-bases/
+/.claude/skills/obsidian-cli/
+/.claude/skills/obsidian-markdown/
+/.claude/skills/openartifacts-publish/
+/.opencode/skills/copilot-fetch-x/
+/.opencode/skills/copilot-read-pdf/
+/.opencode/skills/copilot-web-fetch/
+/.opencode/skills/copilot-web-search/
+/.opencode/skills/copilot-youtube-transcript/
+/.opencode/skills/json-canvas/
+/.opencode/skills/obsidian-bases/
+/.opencode/skills/obsidian-cli/
+/.opencode/skills/obsidian-markdown/
+/.opencode/skills/openartifacts-publish/

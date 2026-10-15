@@ -9,65 +9,95 @@ area:
   - "[[20_Progress/Degree/_Courses/Technical Interview/Technical Interview|Technical Interview]]"
 tags:
   - "#class"
-next: "Recover the missed October 12 planning day on October 13; audit and refresh Units 1-5 this week from landed transcripts and verified CSCI 4041 sources, then keep the December 28 interview-prep deadline"
+next: "Execute the Week 1 all-five-unit refresh from October 13; keep Homework 4 gated on its actual prompt/assessment ID"
 ---
-# Technical Interview — Preparation & Sources
-==The personal preparation plan runs from 2026-10-12 through its hard deadline on 2026-12-28. TIP103's own deadline remains unknown and is not this plan's deadline.==
-> [!WARNING]
-> The grading and policy details below were copied from the University Partnership Students syllabus, not verified against the downloaded course-specific syllabus. Treat those details as provisional until that PDF is checked.
-## Interview-Preparation Lock-In
-This is the personal interview-preparation plan, not the TIP103 course schedule. The lock-in starts Monday, 2026-10-12. The hard interview-preparation deadline is Monday, 2026-12-28. That span contains 11 full Monday-to-Sunday work weeks, from October 12 through December 27, followed by the deadline day on December 28. The TIP103 course deadline is unknown and does not set this plan's deadline.
-
-**Progress baseline:** daily problem-solving execution is 0. Homework 1-3 are complete. The session problems transcribed for Units 1-4 were already solved during the course sessions; retain their prompts as records and do not solve them again during capture. Session work and transcript capture are not counted as daily LeetCode or interview-practice execution. The user reports completing Unit 1, Session 1.
-
-**Day 1 recovery:** The plan's first day was Monday, October 12 and was missed. Tuesday, October 13 is Day 2 and carries the missed setup and audit work. Keep the December 28 deadline fixed. From the start of October 13 to the December 28 deadline is 10 weeks and 6 days; the original October 12-December 28 span contains 11 full Monday-to-Sunday weeks plus the deadline day.
-
-**This week's scope (October 13-18):** establish the complete, source-backed map for TIP103 Units 1-5 and refresh the covered material. Unit 1-4 session prompts are already solved in class. Read and index their captured prompts, identify the concepts and methods each prompt tests, and compare those against the relevant CSCI 4041 lecture, textbook, and concept notes. Do not re-solve the captured session prompts. Unit 5 transcript/session content is not currently established in the vault, so its exact coverage and questions remain an evidence gap until the source is found. The downloaded TIP103 syllabus PDF is the intended authority, but it has not yet been extracted; do not use the older University Partnership copy as current syllabus evidence.
-
-| Day | Recovery work | Completion evidence |
-|---|---|---|
-| Tue Oct 13 (Day 2) | Restore the Day 1 baseline; inventory Units 1-4 transcripts and the Homework 1-3 artifacts; extract and verify the correct TIP103 syllabus if tooling allows. | Course sources and status table reconciled; unknowns labeled. |
-| Wed Oct 14 | Crosswalk Unit 1-2 transcript prompts to the supporting CSCI 4041 notes and record missing interview-specific skills. | Per-session concept and source map for Units 1-2. |
-| Thu Oct 15 | Crosswalk Unit 3-4 transcript prompts to the supporting CSCI 4041 notes; distinguish covered mechanics from interview execution. | Per-session concept and source map for Units 3-4. |
-| Fri Oct 16 | Locate Unit 5 session/transcript and syllabus evidence; if absent, record the exact missing source instead of guessing its topic. | Unit 5 evidence status established. |
-| Sat Oct 17 | Consolidate the Units 1-5 coverage/gap matrix; add textbook/lecture links and mark which topics need new notes or drills. | Reviewable coverage and gap matrix. |
-| Sun Oct 18 | Turn the verified gaps into the next dated weekly problem map; select independent problems only after this audit. | Ordered next-step map; no transcript prompt is counted as new practice. |
-
-The date-by-date work above is a recovery plan, not evidence that the work has already happened. Independent daily problem-solving execution remains 0 until a new problem is attempted and logged.
-## Course Assessment Notes - Provisional
-Grading is entirely HackerRank unit assessments - no exam, paper, or project grade in CodePath's own structure. Pass at least 6 of 12 gradeable units by the final day, each assessment needs 30 of 60 points, up to 2 attempts per unit, and a **weekly submission** (at least one assessment attempt from any unit, every week) is required regardless of how many units are already passed. The real leverage point is that weekly-submission requirement - skipping a week entirely is the actual failure mode this course punishes, not a low score on any one attempt, since attempts and unit choice are otherwise flexible. A university layer (attendance, extra quizzes) may sit on top of this per [[20_Progress/Degree/_Courses/Technical Interview/Technical Interview|Technical Interview]]'s own unresolved-verification note - check the LMS before assuming CodePath's structure is the whole grade.
-## Assessment Mechanics in the Copied Syllabus - Provisional
-The automatic 48-hour late extension on every HackerRank assessment is the lowest-effort safety net in the course - it requires no request, just don't treat the posted deadline as the real one when a week runs long. Passing itself is cheap by design (30/60, 2 attempts) compared to the actual cost center, which is this vault's own added one-unit-ahead system, not CodePath's minimum bar.
-## Source and Mapping Cautions
-- **CodePath's sample schedule has a literal spring-break row copy-pasted from a Spring-semester template** - this Fall'26 section's real week-8 status (if any break exists) is whatever the University LMS shows, not "spring break."
-- **[[20_Progress/Degree/_Courses/Technical Interview/Technical Interview|Technical Interview]] has two internal schedule tables that number units differently from each other** (the 16-week sample's Unit 1-10 lecture-topic numbering vs. the grading section's Unit 1-12 HackerRank-assessment numbering) - never assume a "Unit N" mentioned in one table means the same thing in the other, and cross-check both against the live CodePath portal before trusting either.
-- **University policy overrides CodePath's standard syllabus wherever they conflict** - CodePath's own document repeats this caveat under nearly every section.
-- **The borrowed CSCI 4041 material is topical, not structural, overlap** - [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041 Relation|CSCI 4041 Relation]] maps most of TIP103's nine syllabus topics onto it, but UMPIRE, Union-Find, and backtracking-flavored DP have no matching note there - don't assume a revision pass on that folder alone covers everything TIP103 will ask.
-## Unit 1-5 Audit Status
-The landed session transcripts cover Units 1-4, two sessions per unit. Their session prompts were solved during the original course sessions, as reported by the user. Homework 1-3 is complete. The independent daily interview-practice count is 0. These are three separate measures and must stay separate in the log.
-
-| Unit | Landed session coverage | Existing CSCI 4041 support | Known gap to close |
+# Technical Interview - Personal preparation syllabus
+This is the personal interview-preparation syllabus for October 12 through December 28, 2026, with recovery starting October 13. It uses the verified Direct-to-Student TIP103 syllabus, the five landed units and the completed CSCI 4041 source library.
+## Window and baseline
+| Item | Established state |
+|---|---|
+| Window | Eleven full Monday-Sunday weeks, October 12-December 27, plus the December 28 deadline day |
+| Day 1 | October 12 missed; the October 13 build restores the plan, while study/practice remains pending execution evidence |
+| Budget | User confirmed 20-25 hours/week for the first two weeks, then 12-15 hours/week; plan uses 22.5 and 13.5 |
+| Homework 1-3 | Complete; not outstanding work |
+| Captured Units 1-4 | Session solving reported; retain captures and review their knowledge without re-solving during ingestion |
+| Unit 5 | Landed and mapped; session-solving completion unknown |
+| Independent practice | 0 at baseline |
+| Course deadline | Unknown, separate from the personal December 28 deadline |
+## What each note owns
+| Note | Job |
+|---|---|
+| [[20_Progress/Degree/_Courses/Technical Interview/Technical Interview\|Technical Interview]] | Official syllabus, standard policies, assessment numbering and course evidence |
+| This note | Personal curriculum, competency order, hours, gates and gap handling |
+| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041 Relation\|CSCI 4041 Relation]] | Complete original-file inventory and concept/file crosswalk |
+| [[20_Progress/Degree/_Courses/Technical Interview/DSA\|DSA]] | Dated execution-only files and exact practice assignments |
+| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List\|Detailed Problems List]] | Per-problem fit, statements, sources, prerequisites, dates and all captured/local tasks |
+| [[20_Progress/Degree/_Courses/Technical Interview/Problems Solver\|Problems Solver]] | Resource decisions, solving cadence and append-only execution ledger |
+| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Weekly Set\|Weekly Set]] | Current-week task checklist |
+## Dated curriculum and effort
+The allocations are independent revision/practice budgets, not reserved appointments. Matching live CodePath content can replace its corresponding source-review block; any additional attendance or assessment commitment must be reconciled with the week’s budget. Optional work never displaces a required failed-pattern review.
+| Week / dates | Required knowledge | Checked LeetCode / hard | Other required practice | Budget: source / attempts and drills / recall |
+|---|---|---|---|---|
+| W1 2026-10-12 to 2026-10-18 | Read both sessions for each of Units 1-5; begin with captured three-step UPI, then expand to six-step UMPIRE; review list/string, dictionary/set, recursion, linked-node, tree and graph contracts; establish time/space variables and edge cases. | 9 / 0 | P1.2 | 12h / 5.00h / 5.50h = 22.5h |
+| W2 2026-10-19 to 2026-10-25 | Transfer captured concepts to new contracts; implement core ADTs; distinguish membership from multiplicity, sorted merging from interleaving, BFS levels from DFS order, and BST bounds from ordinary tree traversal. | 11 / 0 | HR1, HR2; C3.1; C3.2; C8.4; P3.4 | 7h / 11.25h / 4.25h = 22.5h |
+| W3 2026-10-26 to 2026-11-01 | Insertion/merge/quick sort, stability and partition invariants; asymptotic bounds and recurrences; binary-search boundaries; heap property, build/extract/update, selection and streaming order statistics. | 9 / 2 | HR3; C4.1; P4.3 | 3h / 9.25h / 1.25h = 13.5h |
+| W4 2026-11-02 to 2026-11-08 | Tree node identity, traversal order, depth versus height, BST search/insert/delete, ancestry, reconstruction and serialization; AVL rotations/invariants and project experiments; optional RB/B-tree comparison. | 10 / 2 | P4.4 | 3h / 8.25h / 2.25h = 13.5h |
+| W5 2026-11-09 to 2026-11-15 | Hash-table collision and probing tradeoffs; average versus worst-case cost; window, prefix-product, prefix-sum and remainder contracts; normalized keys; trie end-of-word and wildcard semantics; bit-vector application. | 11 / 2 | HR4; C5.4 | 1.5h / 10.75h / 1.25h = 13.5h |
+| W6 2026-11-16 to 2026-11-22 | Base case and progress, recursion stack cost, DP state/transition/base/order, memoization versus tabulation, reconstructing a result; backtracking choice/undo/pruning and output-sensitive complexity. | 11 / 1 | HR5; C6.3; P6.1 | 1.5h / 10.50h / 1.50h = 13.5h |
+| W7 2026-11-23 to 2026-11-29 | Greedy choice and exchange/counterexample reasoning; compatible intervals and endpoint rules; weighted scheduling versus unweighted greedy; stock/jump/cooldown contracts; Huffman and knapsack contrasts. | 10 / 2 | HR6; C7.2; P7.4 | 2h / 10.25h / 1.25h = 13.5h |
+| W8 2026-11-30 to 2026-12-06 | Adjacency representations, directed versus undirected edges, BFS/DFS, topological ordering, SCCs, disjoint-set forests, rank/compression, MST cut/safe-edge reasoning and Kruskal/Prim. | 9 / 1 | HR7; C9.3; P9.2 | 2.5h / 9.50h / 1.50h = 13.5h |
+| W9 2026-12-07 to 2026-12-13 | Relaxation, Dijkstra assumptions, Bellman-Ford/DAG paths/APSP; stop-bounded and minimax states; multi-source BFS; maze generation/solving and metric interpretation; optional A-star/paper review. | 7 / 2 | HR8; C9.4 | 3.5h / 8.00h / 2.00h = 13.5h |
+| W10 2026-12-14 to 2026-12-20 | Integrated hash/list and stack designs; platform I/O and timed OA execution; residual capacity, augmenting paths and min-cut as a CSCI extension; review historical company-list provenance. | 4 / 2 | Two timed OA rehearsals | 3h / 7.50h / 3.00h = 13.5h |
+| W11 2026-12-21 to 2026-12-27 | Six fixed timed reattempts, oral explanation, failed-case diagnosis and unaided retrieval; repair the failure ledger and close the deadline inventory. | 0 / 0 | Six timed mocks | 0h / 4.50h / 9.00h = 13.5h |
+## First-five-unit recovery requirements
+| Unit | Refresh scope | Exact study crosswalk | Completion evidence |
 |---|---|---|---|
-| 1 | Session 1: strings, arrays, UPI. Session 2: strings/arrays, list and string manipulation. | CSCI 4041 has complexity and algorithm-analysis references, but no dedicated string-pattern note. | Add explicit string/array invariants, indexing and edge-case review, frequency/dictionary patterns, two-pointer and sliding-window practice where the transcript supports them, plus UMPIRE/communication practice. Verify exact prompt inventory from the transcripts. |
-| 2 | Session 1: Python functions, lists, strings, dictionaries. Session 2: lists, dictionaries, sets. | Hashing is covered in CSCI 4041 Week 8, CLRS Chapter 11, and the Hashing concept note. | Bridge Python operations to interview pattern selection and complexity; verify which set/dictionary patterns the actual prompts use. |
-| 3 | Session 1: recursion and recursive-function structure. Session 2: stacks, queues, two pointers, strings/arrays. | Recursion and recurrences in Week 3 / CLRS Chapters 3-4; stacks and queues in Week 4 / CLRS 10.1.3 / Elementary Data Structures. | Add call-stack tracing, base/progress/termination checks, iterative-vs-recursive tradeoffs, and interview explanation. The exact two-pointer question mapping must come from transcript review. |
-| 4 | Session 1: Python classes and linked lists. Session 2: binary trees and tree operations. | Linked lists and rooted-tree representation in Week 4 / CLRS Chapter 10; BST operations in Week 5 / CLRS Chapter 12; Elementary Data Structures note. | Bridge Python object/reference behavior to pointer changes; validate tree traversal and operation coverage from prompts. Balance, rotations, and advanced tree analysis are broader CSCI review, not assumed TIP103 coverage. |
-| 5 | No Unit 5 transcript or session evidence is currently indexed in the course note. | Existing CSCI materials include heaps in Week 5 / CLRS Chapter 6 and hashing in Week 8 / CLRS Chapter 11, among many other topics. | Do not assign a TIP103 topic from the older syllabus copy. Find the Unit 5 transcript/course portal entry and verify its topic, prompts, and related assessment before planning it. |
-
-This is a working crosswalk from the landed transcript introductions and the existing CSCI 4041 relation map. It does not establish the official TIP103 unit order or assessments. The local course-specific syllabus PDF has not been successfully extracted during this pass, so schedule, unit-to-assessment mapping, grading, and policies remain unresolved. The current public-facing course note contains a clearly labeled older-edition syllabus copy; it is excluded from this audit's evidence.
-
-## Study Cadence
-The dated recovery plan above covers the missed Day 1 setup and the current Units 1-5 audit. The full October 13-December 28 weekly problem map and daily problem schedule remain to be built from verified topic coverage. Older workflow notes describe a daily-7 target and one-topic-ahead rhythm; neither is evidence of completed execution or a confirmed requirement of the correct syllabus. Choose a feasible routine only after the unit audit is complete.
-## Resources & Source Directories
-**Live course material** (once logged in): CodePath Course Portal and HackerRank - the actual unit content and assessments. A `TIP 103` folder now exists at `D:\Users\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4041\TIP 103\` for CodePath-specific material as it's gathered - currently empty as of 2026-09-29, the first thing to fill once the portal has been logged into.
-**The borrowed course's original source** - `D:\Users\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4041\` holds everything CSCI 4041 actually ran on: `Textbook\` (the real CLRS-style PDF, `Introduction to Algorithms - DSA.pdf`, plus `ITA Part 1.pdf`), `Lectures\Week - N\` (one folder per week, the real slides/notebooks this vault's Weekly notes were built from), `Homework\Coding\` and `Homework\Paper\`, `Midterm_Project\`, and `Final Project\`. This is the ground truth to pull from when [[Technical Interview Workflow]]'s textbook-enrichment rule calls for widening a thin chapter note - go to the real PDF, not general knowledge of CLRS.
-**Three notes carry the summary of everything above in Obsidian** rather than the raw source folder: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/CSCI 4041 Board|CSCI 4041 Board]] (what the folder is and where it came from), [[DSA|DSA]] (the week-by-week skeleton), and [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Introduction to Algorithms|Textbook: Introduction to Algorithms]] (the full CLRS chapter map) - read these three before the raw source folder, not instead of it.
-**Problem-solving resources** - locked 2026-10-04 after a direct competitor search (web + vault) found nothing better; full reasoning in [[20_Progress/Degree/_Courses/Technical Interview/Problems Solver|Problems Solver]]'s Resources Considered and Rejected: [[60_Claude/10_Source_Summaries/Github Ingestion/Jobs Starred/tech-interview-handbook|Tech Interview Handbook]] ([Grind 75](https://www.techinterviewhandbook.org/grind75/)) plus the Pareto Problem Set ([amanmanazir.com/leetcode](https://www.amanmanazir.com/leetcode), 49 fixed questions, already placed into [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List|Detailed Problems List]]) are the only easy/medium sources, target 100+ problems; [[60_Claude/10_Source_Summaries/Github Ingestion/Jobs Starred/interview-company-wise-problems|liquidslr/leetcode-company-wise-problems]] is the sole hard-question source, target ~70 (Grind75 carries no hard problems); [[60_Claude/10_Source_Summaries/Github Ingestion/Jobs Starred/coding-interview-university|Coding Interview University]] supplies the conceptual interview-question checklist; [perixtar/Tech-OA-Interview-Questions](https://github.com/perixtar/Tech-OA-Interview-Questions), HackerRank's own [Interview Preparation Kit](https://www.hackerrank.com/interview/preparation-kits), and official company pages (Amazon's [SDE OA prep page](https://www.amazon.jobs/content/en/how-we-hire/university/sde-oa), Google's [Tech Dev Guide](https://github.com/alvinctk/google-tech-dev-guide)) supplement HackerRank's own assessments for OA practice; and [[60_Claude/10_Source_Summaries/Github Ingestion/Jobs Starred/system-design-primer|System Design Primer]] stays deliberately deprioritized - see Problems Solver for why.
-**`DSA Common To Share All`** at `D:\Users\_Anant\10_Areas\Real coding\Resources\DSA Common To Share All\` - catalogued 2026-10-04, then dropped entirely from this build per explicit instruction. It's a generic, course-independent supplementary PDF/sheet pool (concept-first folders, a `DSA Practise\` subfolder, a `Company Wise DSA Materials\` folder). Only one file in it was ever rated genuinely useful (`DSA Imp 170 Questions - Leetcode.pdf`, pattern-and-difficulty-tagged) and even that's excluded - the whole folder is out of scope for Detailed Problems List, Problems Solver, and every weekly pull. Left here as a record that it was checked, not as a live resource.
-## Professor-Specific Notes
-Not applicable in the usual sense - TIP103 is CodePath's own adaptive-paced curriculum rather than a single professor's live class, so there's no lecture-preference pattern to track here. *Ask/confirm:* the real instructor/CRN for this section, and whether the university layers any attendance or quiz requirement on top of CodePath's HackerRank-only grading - both still open per [[20_Progress/Degree/_Courses/Technical Interview/Technical Interview|Technical Interview]]'s own Verification Notes.
-## Open Questions
-- [ ] Confirm the real instructor/CRN on the University LMS.
-- [ ] Confirm the exact final-session calendar date.
-- [ ] Confirm whether any university-added requirement (attendance, extra quizzes) sits on top of CodePath's HackerRank-only grading.
-- [ ] Log into the CodePath portal and fill the empty `TIP 103` source folder with the real unit content once available.
+| 1 | Strings, arrays, UPI; UMPIRE, matrices, two pointers, intervals | [[20_Progress/Degree/_Courses/Technical Interview/_Transcripts/Unit - 1 Problems Transcript\|Both sessions]]; [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041 Relation#B-A Arrays and strings\|B-A Arrays and strings]] | Explain the readable problem contracts, relevant structure operations, edge cases and time/space variables; mark held bodies rather than invent them. |
+| 2 | Dictionaries and frequency maps; header also names heaps; Big O, AI tools, dictionaries and sets | [[20_Progress/Degree/_Courses/Technical Interview/_Transcripts/Unit - 2 Problems Transcript\|Both sessions]]; [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041 Relation#B-H Hashing\|B-H Hashing]] | Explain the readable problem contracts, relevant structure operations, edge cases and time/space variables; mark held bodies rather than invent them. |
+| 3 | Recursion, whole-batch partitioning, linked-list interleaving, expression parsing; Queue simulation, stack/array conditions, two pointers, bracket edits, monotonic next-greater tasks | [[20_Progress/Degree/_Courses/Technical Interview/_Transcripts/Unit - 3 Problems Transcript\|Both sessions]]; [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041 Relation#B-R Recursion\|B-R Recursion]]; [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041 Relation#B-S Stacks and queues\|B-S Stacks and queues]]; [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041 Relation#B-L Linked lists and OOP\|B-L Linked lists and OOP]] | Explain the readable problem contracts, relevant structure operations, edge cases and time/space variables; mark held bodies rather than invent them. |
+| 4 | Python classes, objects and linked nodes; Binary-tree traversal, aggregates, expressions, leaves and equivalence | [[20_Progress/Degree/_Courses/Technical Interview/_Transcripts/Unit - 4 Problems Transcript\|Both sessions]]; [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041 Relation#B-L Linked lists and OOP\|B-L Linked lists and OOP]]; [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041 Relation#B-T Trees and BSTs\|B-T Trees and BSTs]] | Explain the readable problem contracts, relevant structure operations, edge cases and time/space variables; mark held bodies rather than invent them. |
+| 5 | Graph representations, BFS/DFS, paths, components; Weighted path cost, connectivity, path reconstruction, prerequisite cycles, edge orientation, DAG paths | [[20_Progress/Degree/_Courses/Technical Interview/_Transcripts/Unit - 5 Problems Transcript\|Both sessions]]; [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041 Relation#B-G Graph traversal\|B-G Graph traversal]] | Explain the readable problem contracts, relevant structure operations, edge cases and time/space variables; mark held bodies rather than invent them. |
+Week 1 refreshes all five units. Week 2 supplies transfer practice and ADT/graph drills rather than postponing the first complete pass. Review Homework 1-3 as existing evidence. Before Homework 4, confirm its actual prompt and assessment identifier; the filename does not prove it is assessment unit 4. No deadline or private assessment question is invented.
+## Required bridges and source gaps
+| Bridge | Existing evidence | Scheduled treatment |
+|---|---|---|
+| Interview communication | UPI in U1 S1, UMPIRE in later captures; official goals | Explain reasoning in every attempt, two oral checks each week, six W11 mocks |
+| Strings/two pointers/windows | CodePath U1 and U2 captures; Handbook sheets; CLRS 10.1 and optional 32 | W1 refresh, W5 transfer; retain the source distinction |
+| Prefix sums/remainders | U2 S2 Counting Divisible Collections; new LC560 contract | W5 |
+| Heap practice | CSCI Week 5/Chapter 6; U2 header is insufficient practice evidence | W3 |
+| General tree contracts | U4 captures plus CSCI Chapters 10/12; balance assumption is explicit in the capture | W2/W4; include skewed-tree reasoning |
+| Trie design | Verified Handbook/official LC208 and LC211; no dedicated CSCI note | W5; optional combined grid search in W6 |
+| Union-find | Actual CLRS Chapter 19 and CodingHW9 better_kruskal | W8; note-layer gap only |
+| Backtracking versus DP | Recursion, DP notebook and maze project sources; separate interview formulations | W6 and W9 |
+| OA execution | Eight checked public HackerRank challenges | W2-W9 practice, W10 timed rehearsals |
+| Incomplete alternate sets | 21 title-only capture entries | Hold; restore from portal without replacing the raw captures |
+## Reading and practice order
+1. Read the exact captured/official statement and its constraints.
+2. Study the assigned chapter/concept, then the source notebook’s relevant methods and examples.
+3. State the contract, representation, invariant or DP state before writing manual code.
+4. Run the assigned independent attempt within its cap; explain edge cases and time/space bounds.
+5. Log hints/results honestly; use the next-day, three-day, seven-day and later weekly recall windows as planned retrieval, not additional new-problem credit.
+6. Promote an optional extension only after the week’s failed required patterns have been repaired within the budget.
+## Review gates and deadline proof
+- W1: Explain the 78 readable capture contracts without re-solving them; identify the 21 held entries and five unit boundaries.
+- W2: Manually attempt the assigned transfer problems and ADT drills; explain mutations, invariants and graph direction.
+- W3: Explain heap construction versus repeated insertion, logarithmic search boundaries and sorting recurrence/correctness.
+- W4: Explain arbitrary-tree versus BST guarantees, skewed-tree costs and all four AVL rotation cases using the existing project.
+- W5: Explain multiplicity, remainder state, amortized queue behavior and prefix/full-word trie distinction.
+- W6: Write a state/transition/base/order specification before implementation; demonstrate backtracking state restoration.
+- W7: Give a counterexample to an invalid greedy rule and justify the chosen interval compatibility contract.
+- W8: Explain directed cycle detection, DSU operations and one MST safe-edge argument.
+- W9: Explain why any weighted path, fewest hops, minimum total cost and minimum maximum effort are different contracts.
+- W10: Finish two timed OA rehearsals and diagnose errors by contract, model, implementation or communication.
+- W11: Complete six timed mocks and repeat unresolved core patterns from the ledger; report evidence instead of a problem-count-only readiness claim.
+A problem total alone does not prove readiness. By December 28, report actual independent completions, the most recent timed results, explanation quality and unresolved core patterns. The plan contains 91 required LeetCode selections, 8 public HackerRank challenges, 9 coding drills and 7 paper drills; counts are selections, not completions.
+## Source directories and retained references
+- CodePath authority: [Technical Interview/CodePath TIP103 Syllabus.pdf](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Technical Interview/CodePath TIP103 Syllabus.pdf>) and the embedded unit portal links in the captures.
+- CSCI originals: `D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041`; exact files and exclusions are in [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041 Relation#Complete original-file inventory|the inventory]].
+- Existing canonical resources: [[20_Progress/Degree/_Courses/Technical Interview/Problems Solver#Confirmed resource roles|Problems Solver resource decisions]].
+- Retained prior references, not required weekly assignments: [Rutgers CLRS solutions](https://sites.math.rutgers.edu/~ajl213/CLRS/CLRS.html) (edition alignment not checked); [MIT 6.006 Fall 2011](https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-fall-2011/) and [Spring 2020](https://ocw.mit.edu/courses/6-006-introduction-to-algorithms-spring-2020/); [Miniconda documentation](https://docs.conda.io/projects/conda/en/latest/user-guide/index.html); Puru [DSA Drive](https://drive.google.com/drive/folders/1hQwxDwuz5Kw4sdEnxmcsK1Ynpgf11s4N) and [DAA Drive](https://drive.google.com/drive/folders/1CtWO-3T0OzMwvKPWEk2ihqME2NJuK4qR) (their local generic syllabus images are not course authority).
+- `DSA Common To Share All` remains excluded by the user’s earlier decision. System design stays outside this coding-preparation core.
+## Open questions
+- [ ] Retrieve the 21 incomplete alternate prompt bodies and verify the Unit 5 asset-version mismatch from the portal.
+- [ ] Record Unit 5 completion and actual assessment attempts/scores when available.
+- [ ] Check actual cohort deadlines and attendance commitments against each week’s personal effort budget.

@@ -38,7 +38,7 @@ Versions below are as of 2026-10-13. "Acer" is what its snapshot and notes recor
 |---|---|---|---|---|---|
 | starship | 1.26.0 | 1.26.0 | 1.26.0 | release binary | current |
 | yazi + ya | 26.9.1 | 26.9.1 | 26.9.1 | release binary | current; `ya` and `yazi` versions must match exactly |
-| tmux | 3.4 (apt) | 3.7c | 3.8 | apt | 3.8 build needs `sudo apt install -y bison`, then `38 --only tmux` |
+| tmux | 3.8 (built, `~/.local/bin`; apt 3.4 stays as fallback) | 3.7c | 3.8 | source, `38` | DONE on the Dell 2026-10-14, no sudo: configure wants yacc but the release tarball ships a generated `cmd-parse.c`, so `38` uses a no-op yacc stub. Acer: run `38`. |
 | lazygit | 0.66.1 | 0.65.1 | 0.66.1 | release binary | no config renames between 0.64 and 0.66 |
 | delta | 0.20.1 | 0.19.2 | 0.20.1 | release binary | |
 | atuin | 18.23.0 | 18.22.0 | 18.23.0 | installer | |
@@ -53,14 +53,14 @@ Versions below are as of 2026-10-13. "Acer" is what its snapshot and notes recor
 | ncdu | 1.19 (apt) | 1.19 | 2.9 | apt | deliberately not upgraded (2.x is a Zig rewrite; same options still valid) |
 | git | 2.43.0 (apt) | 2.43.0 | newer | apt | no user-space upgrade; see git notes |
 | node | 24.21.0 (24.14.1 kept) | 24.21.0 | 24.21.0 | nvm | globals reinstalled from the old version |
-| pnpm | 10.33.2 | 12.4.2 | 12.x | Corepack | MAJOR GAP, see decision below |
+| pnpm | 12.4.2 (pinned) | 12.4.2 | 12.4.2 | Corepack | DECIDED 2026-10-14: both laptops on 12.4.2; `38` pins it with `corepack prepare pnpm@12.4.2 --activate` |
 | uv | 0.12.23 | 0.12.17 | 0.13.0 | installer | held on 0.12.x on purpose |
 | ruff / shellcheck / shfmt | 0.17.0 / 0.11.0 / 3.14.1 | check | same | uv tool / release binaries | |
 | conda | 26.7.1 | 26.7.1 | | Miniconda in `~/miniconda3` | conda-forge only |
 | claude / codex | 2.1.296 / 0.162.1 | 2.1.277 / check | same | own installers / npm | |
 | win32yank | 0.1.1 | same | 0.1.1 | `~/.local/bin/win32yank.exe` | tmux copy-mode clipboard bridge |
 
-Open decision for the user: pnpm major. The Dell is pinned on 10.33.2 (the Locked Decisions note prescribes `enableGlobalVirtualStore` for 10.x). The Acer floated to 12.4.2 because Corepack was never pinned. Repos shared by both laptops should declare `packageManager` in `package.json` so Corepack picks the same pnpm everywhere. Until decided, do not commit lockfile changes made with the other major.
+Decision (user, 2026-10-14): match the Acer. Both laptops use pnpm 12.4.2 (the Dell moved from 10.33.2; the Acer was already there and only needs the pin so Corepack stops floating). Repos shared by both laptops should declare `"packageManager": "pnpm@12.4.2"` in `package.json`; no own repo had it set, so it is a per-repo change to approve later. Side effects on the Dell: the pnpm store is now `~/.local/share/pnpm/store/v11` (the old v10 store is orphaned and `pnpm store prune` or the weekly clean can reclaim it); Locked Decision 7 mentioned `enableGlobalVirtualStore` for 10.x, but neither that key nor `virtualStoreType` is set on the Dell and `pnpm config get` shows both undefined on 12.4.2, so re-check the exact key against pnpm.io before ever setting it. Do not commit lockfile changes made with a different major.
 
 ## Per-tool reference
 
@@ -135,6 +135,7 @@ Open decision for the user: pnpm major. The Dell is pinned on 10.33.2 (the Locke
 3. `37-toolkit-apply.sh`: golden configs (13 files), bat theme, git include, `.bashrc` source line.
 4. `38-toolkit-upgrade.sh`: gh, fzf, ripgrep, fd, bat, lazygit, sesh, gh-dash reinstall, node 24.21.0.
 5. Corrected my own mistake: `~/.cache/node` held Corepack's pnpm pin and was removed by a cleanup; restored with `corepack prepare pnpm@10.33.2 --activate`.
+6. 2026-10-14 (final decisions): pnpm moved to 12.4.2 (`corepack prepare pnpm@12.4.2 --activate`) to match the Acer; tmux 3.8 built without sudo via the yacc stub and verified (golden `.tmux.conf` loads, `escape-time 10`, `history-limit 100000`, `allow-passthrough on`, sesh binds `T` and `L` present); `37 --dry-run` reports `same=34 changed=0 fails=0`; all tools load.
 
 ## Sources
 tmux CHANGES (3.4 to 3.8); Yazi docs (configuration, flavors, image-preview, cli); lazygit `docs/Config.md` and `Custom_DiffRenderers.md`; delta "Get started" and "Merge conflicts"; git-config manual; atuin configuration reference (docs.atuin.sh, page flagged as not the latest release); sesh README and `sesh.schema.json`; fzf README and CHANGELOG; starship config docs; gh-dash configuration and repo-paths pages; bat README; ripgrep GUIDE; fd README; ncdu manual 2.9; Acer Live State (WSL rounds 1 and 2).

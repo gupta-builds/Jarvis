@@ -50,7 +50,7 @@ If the path does not exist, find the vault with `ls /mnt/d/_Anant/*/Documents` a
 4. Upgrade the binaries (user space, pinned, checksum-verified, reversible).
    `bash "$P/_scripts/38-toolkit-upgrade.sh" --dry-run`
    `bash "$P/_scripts/38-toolkit-upgrade.sh"`
-   Rollback any tool: `bash "$P/_scripts/38-toolkit-upgrade.sh" --rollback <tool>`. The Acer's pnpm and tmux are NOT touched by the default set (see decisions).
+   Rollback any tool: `bash "$P/_scripts/38-toolkit-upgrade.sh" --rollback <tool>`. The default set now ALSO pins pnpm to 12.4.2 (Corepack) and builds tmux 3.8 from source into `~/.local/bin` (static libevent, a no-op yacc stub because the tarball ships `cmd-parse.c`, no sudo). tmux is skipped while a tmux server runs: close every tmux session on the Acer first (`tmux kill-server`), otherwise rerun later with `--only tmux`. The Dell is already on tmux 3.8 and pnpm 12.4.2.
 5. Reload tmux plugins: start tmux, press `Ctrl-a` then `I` (capital i) once so TPM installs any missing plugin.
 6. Fix the Acer-only problems in the table below.
 7. Verify and report: `wsl-check.sh`, `ya pkg list`, `starship explain | head`, `bat --list-themes | grep tokyonight_storm`, `git config --show-origin --get core.pager`. Paste the results in the Results section.
@@ -69,14 +69,13 @@ If the path does not exist, find the vault with `ls /mnt/d/_Anant/*/Documents` a
 | 9 | `lazygit` 0.65.1, `delta` 0.19.2, `sesh` 2.30.1, `atuin` 18.22.0, `gh` 2.45.0, `gh-dash` 4.25.2, `fzf` apt 0.44.1, `ripgrep` 14.1.0, `fd` 9.0.0, `bat` 0.24.0, `uv` 0.12.17, `claude` 2.1.277 | `VERSIONS.md` and `Installations` | Step 4 covers gh, fzf, rg, fd, bat, lazygit, sesh, gh-dash. Update delta, atuin, uv with their own installers; update claude with its own updater. |
 | 10 | `chafa` 1.14.0 is too old for Yazi (needs 1.16+), direnv install was blocked by a sudo prompt in September | `Acer Live State` round 2 | `chafa --version`; if below 1.16, install the static release binary into `~/.local/bin`. `command -v direnv`; if missing: `sudo apt install -y direnv` (user runs it). |
 | 11 | `.wslconfig` in the snapshot says 16GB / 8 CPUs with no swap line; notes say it was corrected to 20GB / 18 CPUs / swap on D: | `Ubuntu - WSL` note, 2026-10-12 correction | In Windows PowerShell: `Get-Content $env:USERPROFILE\.wslconfig`; in WSL: `free -h; nproc; cat /proc/swaps`. Report real values. Do not change it from inside WSL. |
-| 12 | pnpm floated to 12.4.2 (Corepack unpinned) while the Dell is pinned on 10.33.2 | version matrix in [[WSL Toolkit Config Reference]] | Do NOT change yet. Report `pnpm --version` and which shared repos have `packageManager` in `package.json`. The user decides the major. |
+| 12 | pnpm floated to 12.4.2 (Corepack unpinned) while the Dell is pinned on 10.33.2 | version matrix in [[WSL Toolkit Config Reference]] | DECIDED: 12.4.2 on both laptops. Step 4 pins it. Report `pnpm --version` (expect 12.4.2) and which shared repos have `packageManager` in `package.json`; adding `pnpm@12.4.2` there is a per-repo approval. |
 | 13 | `tmux-handlr` ntfy topic never confirmed | `Acer Live State` round 2 | Check `~/.tmux/plugins/tmux-handlr` config for a topic; if none, tell the user (the topic is secret-like, keep it out of the vault). |
 | 14 | `snapshot excluded-wsl.txt` has a junk first line ("Shell cwd was reset") | snapshot | Harmless. Ignore. |
-| 15 | tmux 3.7c vs Dell 3.4 | `VERSIONS.md` | Golden works on both. When the Dell reaches 3.8 (needs `sudo apt install -y bison` there), upgrade the Acer to 3.8 as well so both match. |
+| 15 | tmux 3.7c vs Dell 3.4 | `VERSIONS.md` | DECIDED: both on 3.8. The Dell is on 3.8 already (2026-10-14). Step 4 builds 3.8 on the Acer (close tmux first). Expect `tmux -V` = `tmux 3.8`. |
 
 ## Decisions waiting for the user (do not decide on your own)
-- pnpm major for both laptops (10.33.2 or 12.x) and then pin it in shared repos with `packageManager`.
-- tmux target version for both laptops (3.8 recommended).
+- RESOLVED 2026-10-14 by the user: pnpm 12.4.2 on both (matches the Acer), tmux 3.8 on both (latest). Only the per-repo `packageManager` pin is left to approve.
 - Whether the Acer WSL should also use `core.autocrlf=input` (recommended) or stay `false`.
 
 ## Results (the Acer session fills this in; patch this heading, keep it dated)

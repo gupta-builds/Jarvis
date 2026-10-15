@@ -79,7 +79,7 @@ C: holds Windows, Program Files installs, ProgramData for services, the user pro
 | `D:\WSL` | distro, Docker and swap VHDX, ops scripts | `.wslconfig`, Docker setting |
 | `D:\WSL\ops\windows` | all scripts, logs and the watch history | - |
 | `D:\Backup\GameSaves` | game saves moved off C: (kept) | script 05 |
-| `D:\Quarantine` | reversible deletions with a review date | script 05 |
+| `D:\Backup\Quarantine` (moved there 2026-10-13) | reversible deletions with a review date | script 05 |
 | `D:\Dev`, `D:\Tools`, `D:\Installers` | new: projects, portable CLIs, installers | not created yet; create when first used |
 
 Rules: new app = try an install path on D:, else leave on C: (Store, drivers). New cache = set its environment variable first. Never use a junction when a variable exists; keep the existing three (miniconda3, hermes, codex packages) because their contents hold absolute paths. Do not delete the `miniconda3` junction.

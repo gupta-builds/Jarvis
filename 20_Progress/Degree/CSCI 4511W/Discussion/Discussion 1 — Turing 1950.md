@@ -3,18 +3,18 @@ type: class
 input_kind: discussion
 status: seed
 created: 2026-09-11
-updated: 2026-10-02
+updated: 2026-10-13
 area:
   - "[[CSCI 4511W Board]]"
   - "[[20_Progress/Degree/CSCI 4511W/Weekly/Week - 1|Week - 1]]"
 tags:
   - "#class"
   - "#Discussion"
-next:
+next: "Answer the Week 1 closed-note check; retrieve the actual September 11 TA prompts if available"
 ---
 # Discussion 1 — Turing 1950
 ## Pre-work
-**Reading:** A. M. Turing, "Computing Machinery and Intelligence," *Mind* 49 (1950): 433–460. Source file: `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4511W\Discussion\turing.pdf`
+**Reading:** A. M. Turing, "Computing Machinery and Intelligence," *Mind* 59(236) (1950): 433-460. Source file: `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4511W\Discussion\turing.pdf`. The local reprint incorrectly prints volume 49; the [publisher's record](https://doi.org/10.1093/mind/LIX.236.433) gives volume 59.
 **Discussion date:** Friday, 9/11/2026 (Discussion Section 1 — first graded discussion participation)
 **Live capture status:** None. This note records the paper's own claims, not the classroom session. The in-person discussion was not captured. All content below is sourced directly from the 1950 paper.
 ## Notes
@@ -47,11 +47,12 @@ Turing raises and answers nine objections in §6. All nine are from the paper it
 3. **Mathematical objection** (Gödel 1931, Church, Turing 1937): Discrete-state machines have formal limitations — some questions they cannot answer correctly. Turing: It has not been proved that the human intellect lacks the same limitations. Humans give wrong answers too; the feeling of superiority over a machine that fails on one question is not well-founded.
 4. **Argument from Consciousness** (Jefferson 1949 Lister Oration): A machine can only truly think if it feels its thoughts — grief, pleasure, intent. Turing: Accepting this standard leads to solipsism — the only way to know another *human* thinks is to be that person. In practice we extend the polite convention that everyone thinks. The Imitation Game replaces the unprovable subjective criterion with a behavioral one. Turing acknowledges the mystery of consciousness remains but argues it need not be resolved to answer the question.
 5. **Arguments from Various Disabilities**: Machines can never be kind, learn from experience, use words properly, do something genuinely new, etc. Turing: These objections are mostly founded on induction from existing machines, which have very limited storage. Many claimed disabilities reduce to limited storage capacity. Turing specifically addresses "machines cannot make mistakes" by distinguishing **errors of functioning** (hardware faults) from **errors of conclusion** (false output) — machines can easily commit the latter.
-6. **Lady Lovelace's Objection** (1842): The Analytical Engine "has no pretensions to originate anything; it can only do what we know how to order it to perform." Turing: Machines take him by surprise with high frequency, because he does not work out all consequences in advance. The ability to surprise does not require creative consciousness. Turing also invokes the "skin-of-an-onion" analogy: every mechanically explicable layer we strip away reveals another, and we may eventually find no non-mechanical residue.
+6. **Lady Lovelace's Objection** (1842, as dated in this reprint): The machine can only perform what we know how to order. Turing: the evidence about Babbage's projected machine does not establish a limit on every machine; universality and learning matter. Machines also surprise their programmers because a person does not foresee every consequence of a program. This challenges the objection; it does not prove subjective creativity. The onion analogy appears later in §7.
 7. **Argument from Continuity in the Nervous System**: The nervous system is continuous, not discrete. A discrete-state machine must be different from it. Turing: Under the Imitation Game conditions, a digital computer can approximate a continuous machine well enough that the interrogator cannot distinguish them — demonstrated with a differential analyser example.
 8. **Argument from Informality of Behaviour**: No set of rules can describe what a human should do in every circumstance; humans are governed by "laws of behaviour" (physical laws), not "rules of conduct" (explicit precepts). Turing: The argument conflates the two. Machines need not have explicit rules of conduct; they are subject to laws of behaviour in the same sense humans are. The undistributed middle in the original argument is "if each man had a definite set of rules of conduct he would be no better than a machine — but there are no such rules — so men cannot be machines."
 9. **Argument from Extrasensory Perception**: If telepathy is real, a human participant can detect the interrogator's intent and the machine cannot. Turing: Put the competitors in a "telepathy-proof room." If ESP is admitted the game conditions must be tightened, but the machine can still play.
 ### §7 Learning Machines
+Turing opens this section by admitting that criticizing objections is not strong positive proof. The reactor analogy asks whether one idea can trigger many further ideas; the onion analogy asks whether explaining successive layers of mind leaves any nonmechanical core. He calls these suggestive analogies rather than convincing arguments. This qualification matters when evaluating the strength of his conclusion.
 Turing's positive proposal: instead of programming adult intelligence, build a **child machine** (simple initial state, minimal mechanism) and educate it. The child brain is "like a notebook as one buys it from the stationer's — rather little mechanism, and lots of blank sheets."
 Three components of the adult mind: (a) initial state at birth, (b) education, (c) other experience. Engineering the adult mind means engineering all three.
 Learning maps onto an evolutionary analogy:
@@ -63,6 +64,19 @@ Turing argues the experimenter can speed this up compared to biological evolutio
 Key insight on the "paradox" of learning machines: the machine's operating rules are time-invariant; only lower-level, ephemeral rules (the "contents" of the store) change during learning. Turing compares this to the U.S. Constitution.
 Turing estimates 10^9 binary digits of storage would suffice for satisfactory Imitation Game performance; 10^7 is practically achievable even in 1950.
 Final sentence of the paper: "We can only see a short distance ahead, but we can see plenty there that needs to be done."
+## Primary-source check and review distinctions
+Checked all seven sections of the 22-page local reprint on 2026-10-13. PDF pages 1-3 cover the game and machine restriction; pp. 4-8 cover digital computers and universality; pp. 8-17 cover the prediction and nine objections; pp. 17-22 cover learning machines. The reprint states that a transition table has been deleted on p. 6, so it is not a complete facsimile of the original publication.
+- **Prediction, not experimental result:** §6 predicts that around the year 2000, with roughly $10^9$ storage bits, an average interrogator will have no more than a 70% chance of correct identification after five minutes.
+- **Simulation versus efficiency:** universality establishes the ability to simulate discrete-state computation given suitable resources. It does not establish cheap computation, sufficient resources today, or successful intelligence automatically.
+- **Rules versus learned contents:** fixed operating rules can update stored rules, beliefs, or behavior through experience. Learning does not require violating the machine's transition mechanism.
+- **Modern analogy, explicitly inferred:** rewards and punishments resemble reinforcement learning; variation and selection resemble evolutionary search. The paper also proposes symbolic communication. Reducing this to supervised learning or equating experimenter judgment with a particular loss function loses parts of the proposal.
+- **Turing test versus rational action:** imitation measures distinguishability from human written behavior. Rationality measures expected success on the task. These can disagree.
+## Flashcards
+#cards/csci4511w
+Does Turing's reply to the **consciousness objection** prove subjective experience?::No. It challenges a criterion that we cannot directly verify for other humans either and proposes observable behavior as the working test. #cards/csci4511w
+Why does **universality** not solve intelligence automatically?::Simulation ability does not supply the needed program, resources, learning procedure, or proof that the machine will meet the behavioral criterion. #cards/csci4511w
+How can a machine **learn with fixed operating rules**?::Its fixed mechanism updates stored contents and lower-level rules in response to experience; the underlying update mechanism remains fixed. #cards/csci4511w
+Why are **reward and punishment** insufficient alone in Turing's teaching proposal?::They communicate little information per signal. Additional symbolic or other communication channels can transmit instructions more efficiently. #cards/csci4511w
 ## Action items
 - [ ] Confirm what questions or prompts the TA used to anchor the 9/11 session — not available in this note; check course notes or Canvas discussion board.
 - [ ] For exam preparation: be able to state all nine objections and Turing's response to each from memory, in the correct order.

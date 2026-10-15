@@ -316,6 +316,20 @@ function Invoke-GitAutoSync {
         Set-SyncthingFolderPaused -Paused $true
         $pausedSyncthing = $true
 
+        # Save local edits before a pull can rewrite the working tree.
+        if (Test-WorkingTreeHasConflictMarkers) {
+            Write-SyncLog "=== git-auto-sync end (FAILED, existing conflict markers) ==="
+            exit 1
+        }
+        $null = Invoke-CommitIfNeeded
+        git diff --quiet
+        $unstaged = $LASTEXITCODE
+        git diff --cached --quiet
+        if (($unstaged -ne 0) -or ($LASTEXITCODE -ne 0)) {
+            Write-SyncLog "=== git-auto-sync end (FAILED, local changes could not be committed) ==="
+            exit 1
+        }
+
         if (-not (Invoke-PullRebase -Branch $branch)) {
             # Found 2026-10-08: this path, and the one below it, were the only two
             # exit paths in this whole function that never wrote a matching
@@ -343,7 +357,9 @@ function Invoke-GitAutoSync {
         }
 
         $committed = Invoke-CommitIfNeeded
-        if (-not $committed) {
+        # Retry publishing commits preserved by a previous failed run too.
+        $ahead = [int](git rev-list --count "origin/$branch..HEAD")
+        if ((-not $committed) -and ($ahead -eq 0)) {
             Write-SyncLog "=== git-auto-sync end (nothing to do) ==="
             exit 0
         }

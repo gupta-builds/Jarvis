@@ -2,7 +2,7 @@
 type: concept
 status: sprout
 created: 2026-10-02
-updated: 2026-10-02
+updated: 2026-10-13
 course: "[[CSCI 4511W Board]]"
 track: ai
 mastery_level: 0
@@ -22,12 +22,12 @@ PEAS gives the design checklist that precedes any agent implementation. Each com
 
 - **Performance measure (P)**: what counts as success — the external criterion the agent's actions will be evaluated against. Defined over *sequences of environment states*, not individual actions. Formulation warning: measure what you actually want achieved, not a proxy; a misspecified P produces a rational agent optimizing the wrong objective (King Midas problem — vacuum that scores on dirt volume sucked will dump and re-suck to maximize score).
 - **Environment (E)**: the full domain in which the agent operates — everything the agent does not control. Must be described before choosing a sensor suite; what the sensors can observe depends entirely on what the environment contains.
-- **Actuators (A)**: the output channels through which the agent acts on the environment. Defines the action space. A vacuum agent's actuators are Suck, MoveLeft, MoveRight; a taxi's are steering wheel, accelerator, brake, indicators.
+- **Actuators (A):** the mechanisms through which the agent acts. A vacuum has locomotion and suction mechanisms; `Left`, `Right`, and `Suck` are actions those mechanisms execute. In a software simulation, the action interface represents these mechanisms. A taxi has steering, throttle, braking, and signaling controls.
 - **Sensors (S)**: the input channels through which the agent perceives the environment. Defines the observation space and directly determines the observability axis of the task environment (fully observable if sensors cover the complete state; partially otherwise).
 
 Workflow: state PEAS first, then classify the resulting task environment along the seven property axes (Observability, Agent Number, Determinism, Episodic vs. Sequential, Static vs. Dynamic, Discrete vs. Continuous, Known vs. Unknown), then choose the least complex architecture that handles those properties.
 ## Contrast / What It Is Not
-- **PEAS vs. agent architecture**: PEAS describes the *task* — the external problem structure. Architecture (Simple Reflex, Model-Based, Goal-Based, Utility-Based, Learning) describes the *agent's internals*. A PEAS spec does not determine architecture; the task environment *properties derived from PEAS* do. Partially observable P-environment → forces Model-Based or above.
+- **PEAS versus agent architecture:** PEAS describes the task and interface; architecture describes the agent's internals. Partial observability often makes memory or a world model useful, but does not by itself rule out every rational simple-reflex policy. Architecture choice depends on the full task and performance criterion.
 - **Performance measure vs. utility function**: the performance measure is external — it evaluates sequences of world states from outside the agent. A utility function is internal — it is the agent's internalized representation of that measure. A utility-based agent approximates the performance measure with $U(s)$; they are not the same object.
 - **PEAS vs. the six-tuple for search**: the six-tuple (state space, initial state, goal test, actions, transition model, action-cost function) formalizes how the agent's goal is computed. PEAS specifies why and in what context. PEAS answers "what does success look like and in what world?"; the six-tuple answers "how do we find the action sequence?".
 ## Failure Modes / Misconceptions
@@ -40,7 +40,7 @@ Workflow: state PEAS first, then classify the resulting task environment along t
 > [!WARNING]
 > **Thinking a complete PEAS spec means you have a rational agent**: PEAS specifies the task. A rational agent still requires an architecture that can handle the task environment properties and an action-selection mechanism that maximizes P. PEAS is the prerequisite to agent design, not the design itself.
 ## Evidence From This Vault
-- [[20_Progress/Degree/CSCI 4511W/Weekly/Week - 2|Week - 2]] — Lecture 02 (9/14) introduced the formal PEAS vocabulary for the first time with full Vacuum World and taxi driver worked examples.
+- [[20_Progress/Degree/CSCI 4511W/Weekly/Week - 1|Week 1]] preserves PEAS vocabulary from September 9. [[20_Progress/Degree/CSCI 4511W/Weekly/Week - 2|Week 2]] continues agent/environment definitions and structures in Lecture 02; Chapter 2 supplies the formal PEAS tables.
 - [[20_Progress/Degree/CSCI 4511W/Textbook/Chapter - 2|Chapter - 2]] §2.3.1 — full formalization with the taxi driver PEAS table and five additional agent examples (medical diagnosis, satellite image analysis, part-picking robot, refinery controller, English tutor).
 ## Flashcards
 #cards/csci4511w

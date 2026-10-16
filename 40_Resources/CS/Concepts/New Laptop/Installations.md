@@ -308,7 +308,7 @@ Build 5 (2026-10-13) replaced the Dell's reconstructed files with the Acer's rea
 The Acer's Windows side is also incomplete: Windows Terminal is on defaults (One Half Dark, `IosevkaTerm Nerd Font`, 85 percent acrylic, default profile Windows PowerShell), no PowerShell profile exists, the global git config has only `longpaths`, `fsmonitor` and `untrackedCache` (plus redacted identity), and Yazi, lazygit, bat, delta and gh-dash exist only inside its WSL. Its winget export includes PowerShell 7, Starship, Tailscale, NanaZip, ripgrep, jq, Yazi (installed, unconfigured), Node LTS, Docker Desktop, Ollama, VS Code, Cursor, Claude and Antigravity. Build 4 completes this side on both laptops.
 
 ### Acer, WSL side (live 2026-10-15, after Build 5b)
-Host `gupta-builds`, Ubuntu 24.04 on WSL 2.7.14.0 (kernel 6.18.33.2), user `anant_gupta`, `.wslconfig` 20 GB, 18 CPUs, 8 GiB swap at `D:\WSL\wsl-swap.vhdx`, mirrored networking. The versions below replace the 2026-09-19 table above where they differ.
+Host `gupta-builds`, Ubuntu 24.04 on WSL 3.0.3.0 (kernel 6.18.54.1, updated 2026-10-15), user `anant_gupta`, `.wslconfig` 20 GB, 18 CPUs, 8 GiB swap at `D:\WSL\wsl-swap.vhdx`, mirrored networking. The versions below replace the 2026-09-19 table above where they differ.
 | Tool | Version | Source |
 |---|---|---|
 | tmux | 3.8 | built from source into `~/.local/bin` (no sudo); the 3.7c binary is in `~/.local/bin/.prev` |

@@ -12,3 +12,5 @@ Acer run (2026-10-15, from the Acer): `37-toolkit-apply.sh` and `38-toolkit-upgr
 70-acer-wsl-update.ps1 (Acer, 2026-10-15): updates the WSL platform from Windows PowerShell. Dry run by default; `-Apply` asks for YES, runs `wsl --update` and `wsl --shutdown`, restarts the distro and prints version, systemd, memory, swap and Tailscale checks. Copy at `D:\WSL\ops\70-acer-wsl-update.ps1`. Never run it from inside WSL.
 
 71-hostkey-fingerprint.sh (2026-10-15): run on the Dell in WSL with sudo. Prints the fingerprint of Tailscale SSH's ed25519 host key and compares it with the one the Acer accepted. Needed because `ssh-keygen -lf` rejects Tailscale's PKCS8 key file.
+
+70-acer-wsl-update.ps1 ran on 2026-10-15 18:48: WSL 2.7.14.0 to 3.0.3.0, verified live afterwards. Known cosmetic gap: its `systemd:` line can print blank because it checks a few seconds after the restart; check `systemctl is-system-running` again after a minute (it was `running`).

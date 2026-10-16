@@ -234,3 +234,6 @@ A live session on `gupta-builds` applied the Dell's golden WSL toolkit and ran t
 - `.wslconfig` now points swap at `D:\WSL\wsl-swap.vhdx`; the old swap file is quarantined.
 - Two-laptop workflow: Tailscale only on Windows, direct path to `dell-wsl`, `sync-check` over SSH matches the Dell, the Acer WSL reaches the Dell through the Windows route. Open: independent host-key comparison. Found: 4 internship commits exist only on the Acer (backed up as a Git bundle). Full table: [[Old Laptop Rebuild - Build 2 Acer Handoff]].
 - Windows toolkit: Part 0 and Part 2 done, Part 1 and Part 3 waiting ([[Acer Run Sheet - Windows Toolkit]]).
+
+### WSL platform update, 2026-10-15 18:48
+WSL 2.7.14.0 to 3.0.3.0, kernel 6.18.54.1, systemd running with 0 failed units, `.wslconfig` and swap unchanged and live. Full verification: [[Ubuntu - WSL]], section "WSL platform update". The Acer and the Dell now run the same WSL version.

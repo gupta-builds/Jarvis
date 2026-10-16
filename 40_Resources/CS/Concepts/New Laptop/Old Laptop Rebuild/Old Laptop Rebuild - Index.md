@@ -20,12 +20,12 @@ related:
   - "[[WSL Toolkit Config Reference]]"
   - "[[Old Laptop Rebuild - Anant Folder Consolidation and Drive Plan (later build)]]"
   - "[[Old Laptop Rebuild - C Drive AI Platforms Audit (future build)]]"
-next: "1) You: the Acer WSL update script. 2) Dell session: Acer parity matrix and one 20-apply-configs.ps1 run. 3) Decide the Acer's 4 local-only internship commits. 4) Discussion: the role of WSL on the Acer. 5) Revoke the Firecrawl key (Dell D1). 6) Write Builds 6, 7 and 8."
+next: "1) Dell session: Acer parity matrix and one 20-apply-configs.ps1 run. 2) Decide the Acer's 4 local-only internship commits. 3) Discussion: the role of WSL on the Acer. 4) Revoke the Firecrawl key (Dell D1). 5) Write Builds 6, 7 and 8."
 ---
 # Old Laptop Rebuild - Index
 
 ## One-Line Answer
-==The old Dell (Latitude 5530) is rebuilt to match the Acer in sessions run one layer at a time. Builds 1 to 5 are closed on the Dell (2026-10-15). On the same day the Acer visit ran and finished: Build 5b (WSL toolkit sync, including socat and the narrowed `~/.mcp.env`), the Windows toolkit Parts 0 to 3, and the Build 2 SSH items. One user action remains (the WSL platform update script), plus the decisions in the Acer ledger. Then the discussion about what WSL is for on the Acer.==
+==The old Dell (Latitude 5530) is rebuilt to match the Acer in sessions run one layer at a time. Builds 1 to 5 are closed on the Dell (2026-10-15). On the same day the Acer visit ran and finished: Build 5b (WSL toolkit sync, including socat and the narrowed `~/.mcp.env`), the Windows toolkit Parts 0 to 3, and the Build 2 SSH items. No user-run build step remains; what is left is the decisions in the Acer ledger. Then the discussion about what WSL is for on the Acer.==
 
 ## Where things are (reorganised 2026-10-14)
 | Place | Holds |
@@ -72,7 +72,7 @@ Closed in Build 4b, no longer listed: Cursor repair, fresh export and tar quaran
 |---|---|---|---|
 | A1 | Build 5b WSL toolkit sync | **DONE.** Golden configs applied (`changed=13 same=21 fails=0`); tmux 3.8, pnpm 12.4.2, gh 2.102.0, rg 15.2.0, fd 10.5.0, bat 0.26.1, lazygit 0.66.1, sesh 2.33.0, delta 0.20.1, atuin 18.23.0, uv 0.12.23, ruff, shellcheck, shfmt, socat 1.8.0.0. `~/.mcp.env` is now loaded only by `claude`, `codex`, `kiro-cli`, `agy` and `opencode` (wrapper functions); MCP verified connected | [[Acer Session Handoff - Toolkit Sync (Build 5b)]], Results and follow-up |
 | A2 | Build 2 SSH items | **DONE, including the independent host-key comparison (MATCH, 2026-10-15).** **You run in Dell WSL:** `sudo bash` on `WSL Parity/_scripts/71-hostkey-fingerprint.sh` (it compares the Dell key with `SHA256:PHOUaZNkip9YvF80hW6WbG5emclHt7rIYMfWf3VzxHA` and prints MATCH or DIFFERENT; plain `ssh-keygen -lf` does not work on Tailscale's key file). Passed: Tailscale placement, direct ping, plain `ssh.exe`, `sync-check` over SSH (identical to the Dell), Acer WSL route, clone inventory. Measured: 17 MB bundle in 2.4 s, 512 MiB stream at 2.5 MiB/s (slow, cause unknown, nothing changed) | [[Old Laptop Rebuild - Build 2 Acer Handoff]], "Acer visit results" |
-| A3 | Acer audit findings of 2026-10-13 | `.wslconfig` fixed and live (swap at `D:\WSL\wsl-swap.vhdx`, old swap quarantined); weekly clean no longer deletes `~/.cache/node`. **You run from Windows PowerShell (closes WSL, Docker and editors): `powershell.exe -NoProfile -ExecutionPolicy Bypass -File D:\WSL\ops\70-acer-wsl-update.ps1 -Apply`** to move WSL 2.7.14.0 to the Dell's 3.0.3.0 (dry run already done, no `-Apply` needed to preview). Disk (39 GiB, 72 percent used) is part of the discussion below | [[Ubuntu - WSL]], "Acer toolkit sync and swap fix - 2026-10-15" |
+| A3 | Acer audit findings of 2026-10-13 | `.wslconfig` fixed and live (swap at `D:\WSL\wsl-swap.vhdx`, old swap quarantined); weekly clean no longer deletes `~/.cache/node`. **DONE 2026-10-15 18:48:** WSL 2.7.14.0 to 3.0.3.0 (kernel 6.18.54.1) with `70-acer-wsl-update.ps1`; verified live (systemd running, 0 failed units, 19 GiB, 18 CPUs, 8 GiB swap). Disk (39 GiB, 72 percent used) is part of the discussion below | [[Ubuntu - WSL]], "Acer toolkit sync and swap fix - 2026-10-15" |
 | A4 | Windows toolkit on the Acer | **DONE** (Parts 0 to 3; `99-verify.ps1` 0 FAIL; catalog `Tool Catalog - GUPTA-BUILDS`). The Dell now writes the parity matrix and runs `20-apply-configs.ps1` once for the promoted bat and fd files. More Windows pieces for the Tailscale and Remote-SSH workflow are expected (Build 6 and the discussion) | [[Acer Run Sheet - Windows Toolkit]], "Acer run log" |
 | A5 | **Acer internship clone holds 4 commits that exist nowhere else** (branch `acer-predator/repo-environment-setup`, upstream deleted on GitHub) | protected by a verified Git bundle in `D:\Backup\repo-bundles\`; decision pending (push the branch, or bring the commits to the Dell session; the Dell checkout is 6 ahead, 5 behind, 23 to 25 dirty files, and not a uv project, while the Acer commits adopt uv) | [[Old Laptop Rebuild - Build 2 Acer Handoff]] |
 | A6 | Acer Windows host: Drive backup scope, Drive account question | unchanged | the Drive plan note |
@@ -82,7 +82,7 @@ Closed in Build 4b, no longer listed: Cursor repair, fresh export and tar quaran
 Per-repo `packageManager` pins stay a per-repo approval for both laptops.
 
 ## Order
-1. You: the WSL update script (A3). Then the Dell session reads both Windows result sets, writes the parity matrix and runs `20-apply-configs.ps1` once (A4, A7). Decide A5. Then the discussion A9.
+1. Done: the Acer WSL update (A3). Reopen Docker Desktop (the update closed it). Then the Dell session reads both Windows result sets, writes the parity matrix and runs `20-apply-configs.ps1` once (A4, A7). Decide A5. Then the discussion A9.
 2. Dell, whenever you like: D1 (revoke the Firecrawl key), then D2 to D11.
 3. Build 6 (Windows VS Code, MCP and Claude Code wiring; reaches the Acer through Settings Sync), then Build 7.
 4. Build 8 only after you answer the Drive questions.
@@ -104,7 +104,7 @@ Per-repo `packageManager` pins stay a per-repo approval for both laptops.
 - **Dell WSL:** 3.0.3.0, systemd running, both upkeep timers on, tmux 3.8, pnpm 12.4.2 through Corepack, WSL Ollama off. No key in `.bashrc`. Cursor server data and the old pnpm v10 stores are in the quarantine.
 - **Tailscale:** `dell-wsl` and `gupta-builds` connected, `RunSSH` true. Tailscale SSH is the only path: port-2222 fallback and VS Code Tunnel were declined.
 - **WSL export:** `D:\Backup\WSL\ubuntu-20261014-233219.tar` (54.47 GiB, 1,114,217 entries, SHA-256 in the manifest); listing verified with GNU tar, **no import test run**.
-- **Acer WSL (2026-10-15):** Ubuntu 24.04 on WSL 2.7.14.0, kernel 6.18.33.2, systemd running with 0 failed units, 19 GiB RAM, 18 CPUs, 8 GiB swap, `/` 39 GiB with 11 GiB free; tmux 3.8, pnpm 12.4.2 through Corepack (the weekly clean no longer deletes its pin), golden configs applied, guarded `.bashrc`. Tailscale is on the Windows side only (1.104.1, `gupta-builds`).
+- **Acer WSL (2026-10-15):** Ubuntu 24.04 on WSL 3.0.3.0, kernel 6.18.54.1 (updated 2026-10-15 18:48), systemd running with 0 failed units, 19 GiB RAM, 18 CPUs, 8 GiB swap, `/` 39 GiB with 11 GiB free; tmux 3.8, pnpm 12.4.2 through Corepack (the weekly clean no longer deletes its pin), golden configs applied, guarded `.bashrc`. Tailscale is on the Windows side only (1.104.1, `gupta-builds`).
 - **Acer Windows (2026-10-15, Parts 0 to 3 done):** Git 2.55.0, GitHub CLI 2.102.0, pnpm 12.11.2, uv Python 3.13.15, mcp-remote 0.2.1; managed profile blocks written to both PowerShell profiles, git settings (`autocrlf=input`, `pull.rebase`, `push.autoSetupRemote`, `fetch.prune`, `rerere`, `init.defaultBranch`), `STARSHIP_CONFIG` and `TOOLKIT_VAULT_ROOT` set, `~\.local\bin` first on PATH. Backups in `D:\Backup\Toolkit\20261015-170556`.
 ## Stale notes (status)
 Patched on 2026-10-13/14: the tarball path and size, Ollama and "Dell retired" in [[Ubuntu - WSL]], bubblewrap, Build 2 ledger rows, the pnpm key, the six Build 2 corrections, the systemd statements, the Acer `.wslconfig` values, the Installations WSL section and two Installations Windows bullets.

@@ -5,30 +5,30 @@ source_app: claude-code
 source_os: windows
 title: "Build 4b Dell leftovers"
 started_at: 2026-10-14T10:02:29
-ended_at: 2026-10-16T19:57:36
-exported_at: 2026-10-16T23:30:03
-duration_minutes: 3475.1
+ended_at: 2026-10-17T00:14:09
+exported_at: 2026-10-17T00:30:03
+duration_minutes: 3731.7
 project: Home
 cwd: 'C:\Users\Anant Gupta'
 session_id: c4ce8d15-6db3-4bd7-9640-3040d61f09e2
 status: raw
-turn_count: 19
+turn_count: 21
 tools_used:
-  Bash: 35
+  Bash: 45
   Edit: 16
   Glob: 5
-  Grep: 9
-  PowerShell: 54
-  Read: 20
+  Grep: 11
+  PowerShell: 65
+  Read: 22
   ToolSearch: 1
-  WebSearch: 1
-  Write: 8
+  WebSearch: 2
+  Write: 10
 tokens:
-  input: 676
-  output: 608447
-  cache_creation: 2477298
-  cache_read: 78646145
-  total: 81732566
+  input: 826
+  output: 767391
+  cache_creation: 4019369
+  cache_read: 114453804
+  total: 119241390
 cost_usd: null
 model:
   - "claude-sonnet-5-5"
@@ -56,6 +56,8 @@ files_touched:
   - "D:\\WSL\\ops\\windows\\05-startup-cleanup.ps1"
   - "D:\\WSL\\ops\\windows\\06-ollama-check.ps1"
   - "D:\\WSL\\ops\\windows\\07-build5-leftovers.ps1"
+  - "D:\\WSL\\ops\\windows\\08-quarantine-purge.ps1"
+  - "D:\\WSL\\ops\\windows\\09-remove-leftover-apps.ps1"
   - "D:\\WSL\\ops\\windows\\firecrawl-key-move.sh"
 tags:
   - input
@@ -2671,6 +2673,635 @@ The other prompts have landed from the acer and you can read through them in det
 
 You've hit your session limit · resets 12am (America/Chicago)
 
+## You
+
+Your claude.ai usage limit has reset. Continue the task you were working on when the limit was reached; do not repeat work that is already complete.
+
+## Claude
+
+Weekly clean hasn't run yet: its first scheduled run is tonight/tomorrow (Sunday 2026-10-18 03:30), so there's no log to read. I'll check the task state below and come back to it. First, as you asked, I'm reading what the Acer wrote since I last worked, because its results (especially the `packageManager` question) affect the pilot and the cleanup.
+
+Dry-running the purge script for real. It re-hashes the surviving 54 GiB WSL backup, so this takes a couple of minutes.
+
+The Dell now has everything it needs to finish your list. Three scripts are ready for you to run, and the `packageManager` pilot is done for one of the three repos. I changed nothing on the machine beyond that pilot's local commit; the weekly clean has no log to read yet.
+
+## Weekly clean
+It hasn't run yet. Its first run is Sunday 2026-10-18 03:30, about 27 hours from now, and `LastTaskResult 267011` means "never run". Tell me once it has run and I'll read its log and the watcher alert file.
+
+## Quarantine: nothing is worth keeping
+The quarantine holds 53.77 GiB in 11 folders, and all of it is garbage:
+- leftover app data and installers for already-uninstalled software;
+- an old Codex cleanup folder;
+- the broken Cursor install;
+- a stale temp copy of a Claude config.
+
+The two things worth knowing before you confirm:
+- **Browser profiles:** the Brave and Opera profiles (bookmarks, any saved logins) are included. Neither browser is installed.
+- **Old WSL tar:** it is the older of two backups, and neither has ever had an import test.
+
+The script re-hashes the one surviving WSL backup and checks that WSL, Tailscale and Cursor work before it deletes anything. It writes a context record (names, sizes, file counts, READMEs, the old tar's SHA-256) to `D:\Backup\Quarantine-record\` first. It keeps `D:\Backup\WSL`, `Toolkit`, `dotfiles-*` and `GameSaves`. All 8 checks passed in the dry run.
+
+## Rize, GitKrakenCLI, Python ghosts
+- **Rize:** a 3.6 MB app plus 166 MB of data. The script runs its own uninstaller.
+- **Python:** all 11 registrations can be cleaned properly. The bundle uninstaller and every cached MSI still exist. The script records the Machine PATH before and after to prove it isn't damaged. This also removes `C:\Windows\py.exe`.
+- **GitKrakenCLI:** it is 365 MB, not logs, and it will come back. GitLens (installed in VS Code, Kiro and the WSL server) keeps downloading and updating `gk.exe`; the log shows an install last night. I found [no documented opt-out](https://forum.cursor.com/t/gitlens-mcp-server-auto-added-in-cursor-and-cannot-be-removed/159079). The script clears the folders now. They stay gone only if you uninstall GitLens, which is your call because extension lists sync between laptops.
+
+## `packageManager` pin: what it is, and what I did
+It is one line in a repo's `package.json`: `"packageManager": "pnpm@12.4.2"`. On the Dell `pnpm` is a Corepack shim, so inside that repo it runs *exactly* that version on every machine. It prevents the drift that hit the Acer (its global pnpm floated to 12.11.2). With pnpm 12 the lockfile also records the pnpm version with integrity hashes. Yes, it is useful for pnpm repos. It does nothing for Python repos.
+
+| Repo | Result |
+|---|---|
+| `Learning-Tracker-Tool` | **Done, committed locally** (`51cc182`, branch `dell-latitude/pin-package-manager`, in an isolated worktree so your 2 untracked files are untouched). Frozen install exits 0, Next 16.1.6 runs, lint exits 0. **Not pushed.** |
+| `portfolio` | **Blocked, reverted.** The lockfile on `origin/main` is already broken (duplicate key `@ai-sdk/mistral@3.0.39` at lines 201 and 207), so pnpm wanted to rewrite all of it (5,545 lines), which also floats dependency versions. Its old `onlyBuiltDependencies` block also no longer works under pnpm 12. Fixing this needs your OK. |
+| `Assisto_website` | Not started. It has both `package-lock.json` and `pnpm-lock.yaml`, so you must pick a manager first. |
+
+pnpm 12 also ignores the old build-script allowlist keys, which is why the first repo needed `allowBuilds` set to `false` for sharp and unrs-resolver. That keeps its previous intent. `Learning-Tracker-Tool` is a **team repo** (a collaborator's fork and merges). Pushing the pin would force pnpm 12.4.2 on them. I haven't tested whether older pnpm reads the new lockfile section, so I'd hold the PR until you decide.
+
+## Your commands, in this order
+
+**1. Normal PowerShell.** This adopts the bat and fd configs the Acer promoted, and puts `~\.local\bin` back at the front of your user PATH. The dry run shows something moved it.
+```powershell
+powershell -ExecutionPolicy Bypass -File "D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\_scripts\20-apply-configs.ps1" -Machine dell
+```
+
+**2. Elevated PowerShell.** Rize, GitKrakenCLI folders, the 11 Python registrations.
+```powershell
+powershell -ExecutionPolicy Bypass -File D:\WSL\ops\windows\09-remove-leftover-apps.ps1 -Apply
+```
+
+**3. Normal PowerShell, last.** It takes about 5 minutes, asks for `YES`, and frees about 54 GiB.
+```powershell
+powershell -ExecutionPolicy Bypass -File D:\WSL\ops\windows\08-quarantine-purge.ps1 -Apply
+```
+
+## What I read from the Acer
+It finished Build 5b, Windows Parts 0 to 3, the Build 2 SSH items and its WSL update. Its host-key comparison matched. It also flagged a different problem: **4 internship commits exist only on the Acer**, protected by a verified bundle, with a decision pending. After you paste the three outputs, I'll update the Index and ledgers, copy the quarantine record into the findings, and write the Windows parity matrix from the two catalogs.
+
+### Tool Calls
+
+- `PowerShell` -- `{"command":"$v=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\u0027; $cut=(Get-Date \u00272026-10-15 15:40\u0027); Get-ChildItem $v -Recurse -File -ErrorAction SilentlyContinue | ? { $_.LastWriteTime -gt $cut -and $_.FullName -notmatch \u0027\\\\(50_Archive|_backups|results|logs)\\\\\u0027 } | Sort LastWriteTime | % { \u0027{0:MM-dd HH:mm}  {1,8:N0}  {2}\u0027 -f $_.LastWriteTime,$_.Length,$_.FullName.Substring($v.Length+1) }\n\"--- tasks:\"; Get-ScheduledTask Toolkit-Weekly-Clean,Toolkit-Watch-C | % { $i=Get-ScheduledTaskInfo $_.TaskName; \u0027{0} state={1} last={2} next={3} result={4}\u0027 -f $_.TaskName,$_.State,$i.LastRunTime,$i.NextRunTime,$i.LastTaskResult }; Get-Date","description":"List vault files changed since the last session and check the scheduled tasks"}`
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Old Laptop Rebuild - Index.md`
+- `Read` -- `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\WSL Parity\Acer Session Handoff - Toolkit Sync (Build 5b).md`
+- `Grep` -- pattern `packageManager register` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Codebases\Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem.md`
+- `Grep` -- pattern `^## Acer run log` path `D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\Acer Run Sheet - Windows Toolkit.md`
+- `PowerShell` -- `{"command":"\"=== Quarantine inventory\"; Get-ChildItem D:\\Backup\\Quarantine -Force | % { $s=(Get-ChildItem $_.FullName -Recurse -Force -File -ErrorAction SilentlyContinue | Measure Length,Count -Sum); $top=(Get-ChildItem $_.FullName -Force -ErrorAction SilentlyContinue | Select -First 6 | % Name) -join \u0027, \u0027; \u0027{0,-46} {1,7:N2} GiB {2,7} files  [{3}]\u0027 -f $_.Name,($s[1].Sum/1GB),$s[0].Count,$top }\n\"=== other D:\\Backup\"; Get-ChildItem D:\\Backup -Directory -Force | ? Name -ne \u0027Quarantine\u0027 | % { \u0027{0,-40} {1,8:N3} GiB\u0027 -f $_.Name, ((Get-ChildItem $_.FullName -Recurse -Force -File -ErrorAction SilentlyContinue | Measure Length -Sum).Sum/1GB) }\n\"=== README files in quarantine\"; Get-ChildItem D:\\Backup\\Quarantine -Recurse -Depth 2 -Include README*,*.txt -File -ErrorAction SilentlyContinue | % { \"--- \" + $_.FullName; Get-Content $_.FullName -TotalCount 12 }","description":"Inventory the Dell quarantine and other backups with READMEs","timeout":180000}`
+- `PowerShell` -- `{"command":"\"=== Rize\"; Get-ItemProperty \u0027HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*\u0027,\u0027HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*\u0027,\u0027HKLM:\\Software\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*\u0027 -ErrorAction SilentlyContinue | ? { $_.DisplayName -match \u0027Rize|GitKraken\u0027 } | Select DisplayName,DisplayVersion,Publisher,InstallLocation,UninstallString,QuietUninstallString,PSChildName | Format-List | Out-String -Width 250\nGet-Process | ? { $_.Name -match \u0027rize|gitkraken\u0027 } | Select Name,Id\nTest-Path \"$env:LOCALAPPDATA\\Rize\"; Get-ChildItem \"$env:LOCALAPPDATA\\Rize\" -Force -ErrorAction SilentlyContinue | Select -First 8 Name\n\"=== GitKraken via winget/npm/choco:\"; winget list --disable-interactivity 2\u003e\u00261 | Select-String -Pattern \u0027GitKraken|Rize\u0027\n(Get-Command gk,gitkraken -ErrorAction SilentlyContinue | Select Name,Source | Format-Table | Out-String); npm ls -g --depth=0 2\u003e$null | Select-String -Pattern \u0027gitkraken|gk\u0027\nGet-ChildItem \"$env:LOCALAPPDATA\",\"$env:APPDATA\",\"$env:LOCALAPPDATA\\Programs\" -Directory -ErrorAction SilentlyContinue | ? Name -match \u0027gitkraken|GitKraken|Rize\u0027 | Select FullName\nGet-ChildItem \"$env:USERPROFILE\\.gitkraken\",\"$env:USERPROFILE\\.config\\gitkraken\" -Force -ErrorAction SilentlyContinue | Select -First 5 FullName\n\"=== Python ghosts\"; Get-ItemProperty \u0027HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*\u0027,\u0027HKLM:\\Software\\WOW6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*\u0027,\u0027HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\*\u0027 -ErrorAction SilentlyContinue | ? { $_.DisplayName -match \u0027^Python 3\\.13|^Python Launcher\u0027 } | Select DisplayName,PSChildName,WindowsInstaller,UninstallString,@{n=\u0027Hive\u0027;e={$_.PSPath -replace \u0027^.*::(HKEY_[A-Z_]+).*\u0027,\u0027$1\u0027}} | Format-Table -AutoSize -Wrap | Out-String -Width 250\n\"python files: C:\\Python313=\" + (Test-Path C:\\Python313) + \" py.exe=\" + (Test-Path C:\\Windows\\py.exe) + \" PackageCache python: \" + @(Get-ChildItem \u0027C:\\ProgramData\\Package Cache\u0027 -Recurse -Filter \u0027python-3.13*\u0027 -ErrorAction SilentlyContinue).Count","description":"Identify Rize, GitKrakenCLI and the stale Python registrations","timeout":180000}`
+- `PowerShell` -- `{"command":"\"=== GitKraken hunt\"; Get-AppxPackage *kraken* -ErrorAction SilentlyContinue | Select Name,Version,InstallLocation | Format-List | Out-String\n$roots=\u0027C:\\Users\\Anant Gupta\\AppData\\Local\u0027,\u0027C:\\Users\\Anant Gupta\\AppData\\Roaming\u0027,\u0027C:\\Users\\Anant Gupta\\.local\u0027,\u0027C:\\Users\\Anant Gupta\\bin\u0027,\u0027C:\\Users\\Anant Gupta\\.gitkraken\u0027,\u0027C:\\Program Files\u0027,\u0027C:\\Program Files (x86)\u0027,\u0027D:\\Apps\u0027\nforeach($r in $roots){ if(Test-Path $r){ Get-ChildItem $r -Recurse -Depth 3 -Force -ErrorAction SilentlyContinue | ? { $_.Name -match \u0027^(gk|gitkraken|GitKraken)\u0027 } | Select -First 6 -Expand FullName } }\n\"PATH entries containing kraken: \" + (($env:Path -split \u0027;\u0027) -match \u0027kraken\u0027 -join \u0027; \u0027)\nwinget list --name kraken --disable-interactivity 2\u003e\u00261 | Select -Last 4\n\"=== Rize\"\nGet-ChildItem \"$env:LOCALAPPDATA\\Rize\" -Force | % { \u0027{0,-28} {1}\u0027 -f $_.Name, $(if($_.PSIsContainer){\u0027dir\u0027}else{$_.Length}) }; \"size MB: \" + [math]::Round((Get-ChildItem \"$env:LOCALAPPDATA\\Rize\" -Recurse -Force -File -ErrorAction SilentlyContinue | Measure Length -Sum).Sum/1MB,1)\nGet-ChildItem \"$env:APPDATA\" -Directory -ErrorAction SilentlyContinue | ? Name -match \u0027^Rize\u0027 | Select -Expand FullName\nGet-ChildItem \u0027HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Uninstall\u0027 | % { (Get-ItemProperty $_.PSPath).DisplayName } | ? { $_ -match \u0027rize\u0027 }\nGet-ItemProperty HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run | Select \u0027com.squirrel.Rize.Rize\u0027 | Format-List | Out-String\nGet-ChildItem \"$env:APPDATA\\Microsoft\\Windows\\Start Menu\\Programs\" -Recurse -Filter \u0027*Rize*\u0027 -ErrorAction SilentlyContinue | Select -Expand FullName\n\"=== Python bundle + msi cache\"\n$b=\u0027C:\\Users\\Anant Gupta\\AppData\\Local\\Package Cache\\{[REDACTED]}\u0027; \"bundle dir exists: \" + (Test-Path $b); Get-ChildItem $b -ErrorAction SilentlyContinue | Select Name,Length\n$pc=\u0027{[REDACTED]}\u0027,\u0027{[REDACTED]}\u0027,\u0027{[REDACTED]}\u0027,\u0027{[REDACTED]}\u0027,\u0027{[REDACTED]}\u0027\n$inst=New-Object -ComObject WindowsInstaller.Installer; foreach($g in $pc){ try { $p=$inst.ProductInfo($g,\u0027LocalPackage\u0027); \u0027{0} cached msi: {1} exists={2}\u0027 -f $g,$p,(Test-Path $p) } catch { \u0027{0} not registered with Windows Installer\u0027 -f $g } }","description":"Locate GitKrakenCLI and check Python and Rize uninstall paths","timeout":240000}`
+- `Bash` -- `wsl.exe -d Ubuntu --exec bash -c 'export NVM_DIR="$HOME/.nvm"; . "$NVM_DIR/nvm.sh" >/dev/null 2>&1; echo "corepack: $(command -v corepack)  pnpm: $(command -v pnpm) $(pnpm --version)"; for r in hub/Learning-Tracker-Tool hub/portfolio hub/Assisto_website; do d=~/projects/$r; echo "=== $r"; git -C $d branch --show-current; echo "dirty: $(git -C $d status --porcelain | wc -l)  remote: $(git -C $d remote get-url origin 2>/dev/null | sed -E "s#//[^@]*@#//#")"; git -C $d symbolic-ref refs/remotes/origin/HEAD 2>/dev/null; echo "packageManager: $(grep -c "\"packageManager\"" $d/package.json)  lockfiles: $(ls $d | grep -E "lock|bun" | tr "\n" " ")"; grep -E "^lockfileVersion" $d/pnpm-lock.yaml 2>/dev/null; grep -E "\"(engines|node|pnpm)\"" $d/package.json | head -3; git -C $d worktree list | head -3; done' 2>&1`
+```
+corepack: /home/anant_gupta/.nvm/versions/node/v24.21.0/bin/corepack  pnpm: /home/anant_gupta/.nvm/versions/node/v24.21.0/bin/pnpm 12.4.2
+=== hub/Learning-Tracker-Tool
+backend_setup
+dirty: 2  remote: https://github.com/Shauryya27/Learning-Tracker-Tool.git
+refs/remotes/origin/main
+packageManager: 0  lockfiles: pnpm-lock.yaml 
+lockfileVersion: '9.0'
+/home/anant_gupta/projects/hub/Learning-Tracker-Tool  0fd5d43 [backend_setup]
+=== hub/portfolio
+post-frontend
+dirty: 114  remote: https://github.com/gupta-builds/Portfolio
+refs/remotes/origin/main
+packageManager: 0  lockfiles: pnpm-lock.yaml 
+lockfileVersion: '9.0'
+  "pnpm": {
+/home/anant_gupta/projects/hub/portfolio                         5f29675 [post-frontend]
+/home/anant_gupta/.cursor/worktrees/portfolio__WSL__ubuntu_/nkv  552ea9a (detached HEAD)
+/home/anant_gupta/.cursor/worktrees/portfolio__WSL__ubuntu_/rln  62e9d9a (detached HEAD)
+=== hub/Assisto_website
+feature/assisto-spend-docs
+dirty: 73  remote: git@github.com:gupta-builds/assisto-website.git
+packageManager: 0  lockfiles: package-lock.json pnpm-lock.yaml 
+lockfileVersion: '9.0'
+/home/anant_gupta/projects/hub/Assisto_website  0b9fb83 [feature/assisto-spend-docs]
+```
+- `Bash` -- `wsl.exe -d Ubuntu --exec bash -c 'export NVM_DIR="$HOME/.nvm"; . "$NVM_DIR/nvm.sh" >/dev/null 2>&1; p=$(command -v pnpm); ls -l "$p" | sed -E "s/^.{10} +[0-9]+ [^ ]+ [^ ]+ +[0-9]+ [A-Za-z]+ +[0-9]+ [0-9:]+ //"; echo "corepack $(corepack --version)"; echo "COREPACK env: $(env | grep -c COREPACK)"; ls ~/.cache/node/corepack 2>/dev/null | head; echo "--- worktree convention in locked decisions:"; grep -n -i -E "worktree add|worktrees/|\.worktrees|sibling" "/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis/40_Resources/CS/Concepts/New Laptop/Codebases/Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem.md" | cut -c1-260 | head -8; echo "--- LTT status:"; git -C ~/projects/hub/Learning-Tracker-Tool status --short | head; git -C ~/projects/hub/Learning-Tracker-Tool log --oneline -3; ls ~/projects/hub | head -20' 2>&1`
+```
+/home/anant_gupta/.nvm/versions/node/v24.21.0/bin/pnpm -> ../lib/node_modules/corepack/dist/pnpm.js
+corepack 0.36.0
+COREPACK env: 0
+lastKnownGood.json
+v1
+--- worktree convention in locked decisions:
+123:- **Worktree separation is by concurrently-active task, not by which physical machine is driving.** Decision 4's `<machine>/<topic>` branch naming is attribution, not the actual safety mechanism — the mechanism is that each concurrently-active session ge
+--- LTT status:
+?? .editorconfig
+?? .vscode/
+0fd5d43 fixing setup with git
+a9856ed basic setup
+20d981a daddy0
+Assisto_website
+CausalOps
+DNA_BJJ_APP
+GymMangment_app_demo
+Learning-Tracker-Tool
+boom-tracer
+portfolio
+tradingview
+```
+- `Bash` -- `wsl.exe -d Ubuntu --exec bash -c 'set -u; export NVM_DIR="$HOME/.nvm"; . "$NVM_DIR/nvm.sh" >/dev/null 2>&1
+R=~/projects/hub/Learning-Tracker-Tool; W=~/projects/hub/.worktrees/Learning-Tracker-Tool-pin-package-manager; B=dell-latitude/pin-package-manager
+cd "$R" && git fetch origin --quiet && echo "fetched; origin/main = $(git rev-parse --short origin/main)"
+mkdir -p ~/projects/hub/.worktrees
+git worktree add -b "$B" "$W" origin/main 2>&1 | tail -2
+cd "$W"; echo "worktree: $(pwd)  branch: $(git branch --show-current)"
+echo "--- package.json head before:"; head -12 package.json
+echo "--- pnpm used here BEFORE the pin: $(pnpm --version 2>&1 | tail -1)"' 2>&1`
+```
+fetched; origin/main = 2420403
+branch 'dell-latitude/pin-package-manager' set up to track 'origin/main'.
+HEAD is now at 2420403 Merge branch 'gupt0479-ctrl:main' into main
+worktree: /home/anant_gupta/projects/hub/.worktrees/Learning-Tracker-Tool-pin-package-manager  branch: dell-latitude/pin-package-manager
+--- package.json head before:
+{
+  "name": "learning-tracker-tool",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "next": "16.1.6",
+--- pnpm used here BEFORE the pin: 12.4.2
+```
+- `Bash` -- `wsl.exe -d Ubuntu --exec bash -c 'set -u; export NVM_DIR="$HOME/.nvm"; . "$NVM_DIR/nvm.sh" >/dev/null 2>&1
+W=~/projects/hub/.worktrees/Learning-Tracker-Tool-pin-package-manager; cd "$W"
+git branch --unset-upstream 2>&1 | tail -1
+grep -q "\"packageManager\"" package.json && { echo "already pinned"; exit 0; }
+sed -i "0,/^  \"private\": true,/s//  \"private\": true,\n  \"packageManager\": \"pnpm@12.4.2\",/" package.json
+node -e "const p=require(\"./package.json\"); console.log(\"valid JSON; packageManager =\", p.packageManager)"
+echo "--- git diff:"; git --no-pager diff --stat; git --no-pager diff -U1 | sed -n "1,20p"
+echo "--- pnpm resolved by Corepack in this repo: $(pnpm --version 2>&1 | tail -1)"
+echo "--- frozen install (proves the v9 lockfile is accepted by 12.4.2):"; timeout 600 pnpm install --frozen-lockfile 2>&1 | tail -8; echo "install exit: ${PIPESTATUS[0]}"
+echo "--- lockfile unchanged: $(git status --porcelain pnpm-lock.yaml | wc -l) changes; dirty after install: $(git status --porcelain | wc -l)"
+git status --short | head' 2>&1`
+```
+valid JSON; packageManager = pnpm@12.4.2
+--- git diff:
+ package.json | 1 +
+ 1 file changed, 1 insertion(+)
+diff --git a/package.json b/package.json
+index 37e3138..33a0998 100644
+--- a/package.json
++++ b/package.json
+@@ -4,2 +4,3 @@
+   "private": true,
++  "packageManager": "pnpm@12.4.2",
+   "scripts": {
+--- pnpm resolved by Corepack in this repo: 12.4.2
+--- frozen install (proves the v9 lockfile is accepted by 12.4.2):
+
+Error: ERR_PNPM_IGNORED_BUILDS
+
+  × installing dependencies
+  ╰─▶ Ignored build scripts: sharp@0.34.5, unrs-resolver@1.11.1
+  help: Run "pnpm approve-builds" to pick which dependencies should be allowed
+        to run scripts.
+
+install exit: 1
+--- lockfile unchanged: 1 changes; dirty after install: 3
+ M package.json
+ M pnpm-lock.yaml
+ M pnpm-workspace.yaml
+```
+- `Bash` -- `wsl.exe -d Ubuntu --exec bash -c 'cd ~/projects/hub/.worktrees/Learning-Tracker-Tool-pin-package-manager; echo "== workspace yaml diff"; git --no-pager diff -U2 pnpm-workspace.yaml; echo "== lock diff stat"; git --no-pager diff --stat pnpm-lock.yaml; git --no-pager diff -U1 pnpm-lock.yaml | head -40; echo "== origin version of workspace file:"; git show origin/main:pnpm-workspace.yaml' 2>&1`
+```
+== workspace yaml diff
+diff --git a/pnpm-workspace.yaml b/pnpm-workspace.yaml
+index 581a9d5..3d69787 100644
+--- a/pnpm-workspace.yaml
++++ b/pnpm-workspace.yaml
+@@ -1,2 +1,5 @@
++allowBuilds:
++  sharp: set this to true or false
++  unrs-resolver: set this to true or false
+ ignoredBuiltDependencies:
+   - sharp
+== lock diff stat
+ pnpm-lock.yaml | 158 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 158 insertions(+)
+diff --git a/pnpm-lock.yaml b/pnpm-lock.yaml
+index ade5753..7e5c672 100644
+--- a/pnpm-lock.yaml
++++ b/pnpm-lock.yaml
+@@ -1 +1,159 @@
++---
++lockfileVersion: '9.0'
++
++importers:
++
++  .:
++    configDependencies: {}
++    packageManagerDependencies:
++      pnpm:
++        specifier: 12.4.2
++        version: 12.4.2
++
++packages:
++
++  '@pnpm/exe.android-arm64@12.4.2':
++    resolution: {integrity: [REDACTED]==}
++    cpu: [arm64]
++    os: [android]
++
++  '@pnpm/exe.android-x64@12.4.2':
++    resolution: {integrity: [REDACTED]/[REDACTED]/lwNvDDjraQuZw==}
++    cpu: [x64]
++    os: [android]
++
++  '@pnpm/exe.darwin-arm64@12.4.2':
++    resolution: {integrity: [REDACTED]/Uu+[REDACTED]+ZOHSxy8aGZcvKq8PaQ==}
++    cpu: [arm64]
++    os: [darwin]
++
++  '@pnpm/exe.darwin-x64@12.4.2':
++    resolution: {integrity: [REDACTED]/T5O1Xa4ess+E1ESGo/5yuty7S4JoiIjami+[REDACTED]==}
++    cpu: [x64]
++    os: [darwin]
++
++  '@pnpm/exe.freebsd-x64@12.4.2':
+== origin version of workspace file:
+ignoredBuiltDependencies:
+  - sharp
+  - unrs-resolver
+```
+- `Bash` -- `wsl.exe -d Ubuntu --exec bash -c 'set -u; export NVM_DIR="$HOME/.nvm"; . "$NVM_DIR/nvm.sh" >/dev/null 2>&1
+W=~/projects/hub/.worktrees/Learning-Tracker-Tool-pin-package-manager; cd "$W"
+sed -i "s/^  sharp: set this to true or false$/  sharp: false/; s/^  unrs-resolver: set this to true or false$/  unrs-resolver: false/" pnpm-workspace.yaml
+echo "== workspace file now:"; cat pnpm-workspace.yaml
+echo "== frozen install again:"; timeout 600 pnpm install --frozen-lockfile 2>&1 | tail -6; echo "install exit: ${PIPESTATUS[0]}"
+echo "== proof it runs: next $(pnpm exec next --version 2>&1 | tail -1)"
+echo "== lint:"; timeout 300 pnpm run lint 2>&1 | tail -6; echo "lint exit: ${PIPESTATUS[0]}"
+echo "== status:"; git status --short; git --no-pager diff --stat' 2>&1`
+```
+== workspace file now:
+allowBuilds:
+  sharp: false
+  unrs-resolver: false
+ignoredBuiltDependencies:
+  - sharp
+  - unrs-resolver
+== frozen install again:
+✓ Lockfile passes supply-chain policies (verified 28s ago)
+Lockfile is up to date, resolution step is skipped
+Done in 33ms using pnpm v12.4.2
+install exit: 0
+== proof it runs: next Next.js v16.1.6
+== lint:
+$ eslint
+lint exit: 0
+== status:
+ M package.json
+ M pnpm-lock.yaml
+ M pnpm-workspace.yaml
+ package.json        |   1 +
+ pnpm-lock.yaml      | 158 ++++++++++++++++++++++++++++++++++++++++++++++++++++
+ pnpm-workspace.yaml |   3 +
+ 3 files changed, 162 insertions(+)
+```
+- `Bash` -- `wsl.exe -d Ubuntu --exec bash -c 'set -u; export NVM_DIR="$HOME/.nvm"; . "$NVM_DIR/nvm.sh" >/dev/null 2>&1
+W=~/projects/hub/.worktrees/Learning-Tracker-Tool-pin-package-manager; cd "$W"
+git add package.json pnpm-lock.yaml pnpm-workspace.yaml
+git commit -q -F - <<EOF
+Pin pnpm 12.4.2 through packageManager
+
+Corepack now runs exactly pnpm 12.4.2 in this repo on every machine, and the
+lockfile records the pnpm version with integrity hashes.
+
+pnpm 12 no longer honors ignoredBuiltDependencies alone and refused to install
+until each build script was decided, so allowBuilds keeps the existing intent
+(sharp: false, unrs-resolver: false). The old key stays for older pnpm.
+
+Verified: pnpm install --frozen-lockfile exits 0, next 16.1.6 starts, eslint exits 0.
+
+Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+EOF
+git --no-pager log --oneline -2; git status --short | wc -l; echo "upstream: $(git rev-parse --abbrev-ref @{u} 2>&1 | tail -1)"
+echo; echo "######## portfolio"
+R=~/projects/hub/portfolio; W2=~/projects/hub/.worktrees/portfolio-pin-package-manager; B=dell-latitude/pin-package-manager
+git -C "$R" fetch origin --quiet && echo "origin/main = $(git -C $R rev-parse --short origin/main)"
+git -C "$R" worktree add -b "$B" "$W2" origin/main 2>&1 | tail -1; cd "$W2"; git branch --unset-upstream 2>/dev/null
+echo "branch: $(git branch --show-current)  lockfile: $(ls | grep -E "lock" | tr "\n" " ")"; grep -n "packageManager" package.json | head -2; echo "--- pnpm block in package.json:"; grep -n -A6 "\"pnpm\": {" package.json | head -10; echo "--- workspace file:"; cat pnpm-workspace.yaml 2>/dev/null || echo "(none)"; echo "pnpm before pin: $(pnpm --version | tail -1)"' 2>&1`
+```
+51cc182 Pin pnpm 12.4.2 through packageManager
+2420403 Merge branch 'gupt0479-ctrl:main' into main
+0
+upstream: fatal: no upstream configured for branch 'dell-latitude/pin-package-manager'
+
+######## portfolio
+origin/main = 2e1a5c0
+HEAD is now at 2e1a5c0 Merge pull request #6 from gupta-builds/Chatbot
+branch: dell-latitude/pin-package-manager  lockfile: pnpm-lock.yaml 
+--- pnpm block in package.json:
+17:  "pnpm": {
+18-    "onlyBuiltDependencies": [
+19-      "@clerk/shared",
+20-      "esbuild",
+21-      "sharp"
+22-    ]
+23-  },
+--- workspace file:
+(none)
+pnpm before pin: 12.4.2
+```
+- `Bash` -- `wsl.exe -d Ubuntu --exec bash -c 'set -u; export NVM_DIR="$HOME/.nvm"; . "$NVM_DIR/nvm.sh" >/dev/null 2>&1
+W=~/projects/hub/.worktrees/portfolio-pin-package-manager; cd "$W"
+head -8 package.json
+sed -i "0,/^  \"private\": true,/s//  \"private\": true,\n  \"packageManager\": \"pnpm@12.4.2\",/" package.json
+grep -n "packageManager" package.json || { echo "NO private line; showing keys"; node -e "console.log(Object.keys(require(\"./package.json\")).slice(0,8))"; }
+node -e "console.log(\"valid JSON:\", require(\"./package.json\").packageManager)"
+echo "--- frozen install:"; timeout 900 pnpm install --frozen-lockfile 2>&1 | tail -10; echo "install exit: ${PIPESTATUS[0]}"
+echo "--- status:"; git status --short; git --no-pager diff --stat | tail -4; git --no-pager diff -U1 -- pnpm-workspace.yaml package.json | grep -v "^index" | head -30' 2>&1`
+```
+{
+  "name": "portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "pnpm typegen && pnpm typecheck && next build",
+    "start": "next start",
+5:  "packageManager": "pnpm@12.4.2",
+valid JSON: pnpm@12.4.2
+--- frozen install:
+Error: ERR_PNPM_FROZEN_LOCKFILE_WITH_OUTDATED_LOCKFILE
+
+  × resolve package manager dependencies
+  ╰─▶ Cannot update packageManagerDependencies with "frozen-lockfile" because
+      the lockfile is not up to date
+
+install exit: 1
+--- status:
+ M package.json
+ package.json | 1 +
+ 1 file changed, 1 insertion(+)
+diff --git a/package.json b/package.json
+--- a/package.json
++++ b/package.json
+@@ -4,2 +4,3 @@
+   "private": true,
++  "packageManager": "pnpm@12.4.2",
+   "scripts": {
+```
+- `Bash` -- `wsl.exe -d Ubuntu --exec bash -c 'set -u; export NVM_DIR="$HOME/.nvm"; . "$NVM_DIR/nvm.sh" >/dev/null 2>&1
+W=~/projects/hub/.worktrees/portfolio-pin-package-manager; cd "$W"
+echo "--- lockfile-only:"; timeout 600 pnpm install --lockfile-only 2>&1 | tail -6; echo "exit: ${PIPESTATUS[0]}"
+echo "--- diff stat:"; git --no-pager diff --stat | tail -4
+echo "--- removed lines in lockfile (must be 0 apart from the doc-separator):"; git --no-pager diff -U0 pnpm-lock.yaml | grep -c "^-[^-]"
+echo "--- first 14 added lines:"; git --no-pager diff -U0 pnpm-lock.yaml | grep "^+" | sed -n "2,14p"
+echo "--- main section untouched? importers/packages of the original still byte-identical:"; git show origin/main:pnpm-lock.yaml | tail -n +2 > /tmp/orig.tail; awk "BEGIN{d=0} /^---$/{d++} {print}" pnpm-lock.yaml > /dev/null; git --no-pager diff --numstat pnpm-lock.yaml' 2>&1`
+```
+--- lockfile-only:
+[WARN] The "pnpm" field in package.json is no longer read by pnpm. The following keys were ignored: "pnpm.onlyBuiltDependencies". See https://pnpm.io/settings for the new home of each setting.
+[WARN] Ignoring broken lockfile at /home/anant_gupta/projects/hub/.worktrees/portfolio-pin-package-manager: The lockfile at "/home/anant_gupta/projects/hub/.worktrees/portfolio-pin-package-manager/pnpm-lock.yaml" is broken: duplicate mapping key: @ai-sdk/mistral@3.0.39, set DuplicateKeyPolicy in Options if acceptable (207:3)
+[WARN] deprecated @testing-library/jest-dom@6.10.0: Incorrect minor release with breaking changes (Node >=22 and required @testing-library/dom peer). Use 6.9.1 for the 6.x line, or upgrade to 7.0.0.
+[WARN] 7 deprecated subdependencies found: @clerk/clerk-react@5.61.10, @clerk/types@4.101.27, glob@10.5.0, node-domexception@1.0.0, tsconfck@3.1.6, uuid@8.3.2, whatwg-encoding@3.1.1
+[WARN] Issues with peer dependencies found. Run "pnpm peers check" to list them.
+Done in 13.2s using pnpm v12.4.2
+exit: 0
+--- diff stat:
+ package.json   |     1 +
+ pnpm-lock.yaml | 11222 ++++++++++++++++++++++++++++---------------------------
+ 2 files changed, 5678 insertions(+), 5545 deletions(-)
+--- removed lines in lockfile (must be 0 apart from the doc-separator):
+5301
+--- first 14 added lines:
++---
++lockfileVersion: '9.0'
++
++importers:
++
++  .:
++    configDependencies: {}
++    packageManagerDependencies:
++      pnpm:
++        specifier: 12.4.2
++        version: 12.4.2
++
++packages:
+--- main section untouched? importers/packages of the original still byte-identical:
+5677	5545	pnpm-lock.yaml
+```
+- `Bash` -- `wsl.exe -d Ubuntu --exec bash -c 'set -u
+R=~/projects/hub/portfolio; W=~/projects/hub/.worktrees/portfolio-pin-package-manager
+cd "$W" && git checkout -- . && echo "reverted; dirty now: $(git status --porcelain | wc -l)"
+cd "$R" && git worktree remove --force "$W" && git branch -D dell-latitude/pin-package-manager 2>&1 | tail -1
+echo "worktrees now:"; git worktree list | head -5
+echo "portfolio main checkout untouched: branch=$(git branch --show-current) dirty=$(git status --porcelain | wc -l)"
+echo "--- confirm the duplicate key exists on origin/main (names only):"; git show origin/main:pnpm-lock.yaml | grep -n "^  .@ai-sdk/mistral@3.0.39.:" | head
+echo "--- remaining worktrees under .worktrees:"; ls ~/projects/hub/.worktrees' 2>&1`
+```
+reverted; dirty now: 0
+Deleted branch dell-latitude/pin-package-manager (was 2e1a5c0).
+worktrees now:
+/home/anant_gupta/projects/hub/portfolio                         5f29675 [post-frontend]
+/home/anant_gupta/.cursor/worktrees/portfolio__WSL__ubuntu_/nkv  552ea9a (detached HEAD)
+/home/anant_gupta/.cursor/worktrees/portfolio__WSL__ubuntu_/rln  62e9d9a (detached HEAD)
+portfolio main checkout untouched: branch=post-frontend dirty=114
+--- confirm the duplicate key exists on origin/main (names only):
+201:  '@ai-sdk/mistral@3.0.39':
+207:  '@ai-sdk/mistral@3.0.39':
+--- remaining worktrees under .worktrees:
+Learning-Tracker-Tool-pin-package-manager
+```
+- `PowerShell` -- `{"command":"foreach($q in \[REDACTED]\u0027,\[REDACTED]\u0027){ \"=== $q\"; Get-ChildItem \"D:\\Backup\\Quarantine\\$q\" -Force | % { $f=Get-ChildItem $_.FullName -Recurse -Force -File -ErrorAction SilentlyContinue; $s=($f | Measure-Object Length -Sum).Sum; \u0027{0,-62} {1,8:N2} GiB {2,7:N0} files\u0027 -f $_.Name,($s/1GB),@($f).Count } | Sort-Object { [double]($_ -replace \u0027^.{62}\\s+([\\d\\.,]+) GiB.*\u0027,\u0027$1\u0027) } -Descending }\n\"=== Build 3 notes about these\"; Select-String -Path \u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Runs\\Build 3 Windows Cleanup\\*.md\u0027 -Pattern \u0027Brave|\\.jdks|suspicious|profile-strays|guardian|cluely\u0027 | Select -First 12 | % { $_.Filename + \u0027:\u0027 + $_.LineNumber + \u0027 \u0027 + $_.Line.Trim().Substring(0,[Math]::Min(230,$_.Line.Trim().Length)) }\n\"=== is Brave installed/used?\"; Test-Path \"$env:LOCALAPPDATA\\BraveSoftware\"; Get-Process brave -ErrorAction SilentlyContinue | Measure | % Count","description":"List the contents of the two Build 3 quarantine folders by size and read Build 3\u0027s notes on them","timeout":400000}`
+- `PowerShell` -- `{"command":"\"=== profile-strays\"; Get-ChildItem \u0027D:\\Backup\\Quarantine\\[REDACTED]\\profile-strays\u0027 -Recurse -Force -File | % { \u0027{0,-60} {1,10:N0} bytes  {2:yyyy-MM-dd}\u0027 -f $_.Name,$_.Length,$_.LastWriteTime }\n\"=== old-quarantine top level\"; Get-ChildItem \u0027D:\\Backup\\Quarantine\\[REDACTED]\\old-quarantine\u0027 -Force | % { $f=Get-ChildItem $_.FullName -Recurse -Force -File -ErrorAction SilentlyContinue; \u0027{0,-60} {1,7:N2} GiB {2,7:N0} files\u0027 -f $_.Name,(($f|Measure Length -Sum).Sum/1GB),@($f).Count }\n\"=== Build 3: sensitive and suspicious section\"; $f=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Runs\\Build 3 Windows Cleanup\\Old Laptop Rebuild - Build 3 Windows Cleanup Findings.md\u0027; $l=Get-Content $f; $i=($l | Select-String -Pattern \u0027^### Suspicious files in the profile root\u0027).LineNumber; $l[($i-1)..($i+12)] | % { $_.Substring(0,[Math]::Min(260,$_.Length)) }\n\"=== Brave/Opera profile hints (names only)\"; Get-ChildItem \u0027D:\\Backup\\Quarantine\\[REDACTED]\\Users_Anant_Gupta_AppData_Local_BraveSoftware\u0027 -Recurse -Depth 3 -Directory -ErrorAction SilentlyContinue | ? Name -match \u0027^(Default|Profile \\d+)$\u0027 | Select -Expand FullName\nGet-ChildItem \u0027D:\\Backup\\Quarantine\\[REDACTED]\\Users_Anant_Gupta_AppData_Local_BraveSoftware\u0027 -Recurse -File -ErrorAction SilentlyContinue | ? Name -in \u0027Login Data\u0027,\u0027Bookmarks\u0027,\u0027Web Data\u0027 | Select FullName,Length","description":"Inspect profile-strays, old-quarantine and the Build 3 suspicious-files note","timeout":300000}`
+- `Write` -- `D:\WSL\ops\windows\08-quarantine-purge.ps1`
+```
+# 08-quarantine-purge.ps1  (Build 4b follow-up, 2026-10-17)  ASCII only. PowerShell 5.1 and 7 safe. No admin needed.
+#   powershell -ExecutionPolicy Bypass -File D:\WSL\ops\windows\08-quarantine-purge.ps1            (dry run: checks, inventory, nothing deleted)
+#   powershell -ExecutionPolicy Bypass -File D:\WSL\ops\windows\08-quarantine-purge.ps1 -Apply     (verifies, writes the context record, asks YES, deletes)
+# Purpose: the Dell quarantine existed only so that, if something broke, there was context on what existed before. Everything is working and
+# verified, so the quarantine folders are deleted. The CONTEXT is kept: an inventory record (names, sizes, file counts, READMEs, hashes) is written
+# to D:\Backup\Quarantine-record\ before anything is deleted, and the key facts are copied into the vault by Claude afterwards.
+# NEVER touched: D:\Backup\WSL (the only WSL backup), D:\Backup\Toolkit, D:\Backup\dotfiles-*, D:\Backup\GameSaves, D:\Backup\Quarantine itself (stays, empty).
+# The only extra delete outside the quarantine: the malformed copy of the export manifest (D:\Backup\WSL\*.manifest.txt.malformed).
+param([switch]$Apply)
+$ErrorActionPreference = 'Stop'
+$dry = -not $Apply
+$logDir = 'D:\WSL\ops\windows\logs'
+if (-not (Test-Path $logDir)) { New-Item -ItemType Directory -Path $logDir -Force | Out-Null }
+$stamp = Get-Date -Format 'yyyyMMdd-HHmmss'
+$log = Join-Path $logDir ('quarantine-purge-' + $stamp + '.log')
+try { Start-Transcript -Path (Join-Path $logDir ('quarantine-purge-' + $stamp + '.transcript.txt')) -Force | Out-Null } catch { }
+function Log([string]$m) { $l = (Get-Date -Format 'HH:mm:ss') + ' ' + $m; Write-Host $l; Add-Content -Path $log -Value $l -Encoding ASCII }
+Log ("quarantine purge. DryRun={0}  Log: {1}" -f $dry, $log)
+$q = 'D:\Backup\Quarantine'
+$recDir = 'D:\Backup\Quarantine-record'
+$fail = 0
+
+# ---- 1. checks that everything works and the one surviving WSL backup is intact
+Log '== 1 checks (all must pass before anything is deleted)'
+function Check([string]$name, [bool]$ok, [string]$detail) { if (-not $ok) { $script:fail++ }; Log ("  {0,-4} {1}  {2}" -f $(if ($ok) { 'OK' } else { 'FAIL' }), $name, $detail) }
+$man = Get-ChildItem 'D:\Backup\WSL' -Filter 'ubuntu-*.tar.manifest.txt' -ErrorAction SilentlyContinue | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+if (-not $man) { Check 'surviving WSL export manifest' $false 'none found in D:\Backup\WSL' }
+else {
+  $m = @{}; Get-Content $man.FullName | ForEach-Object { $p = $_.Split('=', 2); if ($p.Count -eq 2) { $m[$p[0]] = $p[1] } }
+  $okSize = (Test-Path $m['file']) -and ((Get-Item $m['file']).Length -eq [int64]$m['bytes'])
+  Check 'surviving WSL export size matches manifest' $okSize ("{0} ({1:N2} GiB)" -f $m['file'], ([int64]$m['bytes'] / 1GB))
+  if ($okSize) {
+    $sw = [Diagnostics.Stopwatch]::StartNew(); $h = (Get-FileHash -Algorithm SHA256 -Path $m['file']).Hash.ToLower()
+    Check 'surviving WSL export SHA-256 matches manifest' ($h -eq $m['sha256']) ("{0:N1} min" -f $sw.Elapsed.TotalMinutes)
+  }
+}
+$sys = ((wsl.exe -d Ubuntu --exec systemctl is-system-running 2>$null) -join '').Trim()
+Check 'WSL Ubuntu systemd running' ($sys -eq 'running') $sys
+$ts = ((wsl.exe -d Ubuntu --exec tailscale status 2>$null) -join ' ')
+Check 'Tailscale lists dell-wsl' ($ts -match 'dell-wsl') ''
+$cur = Join-Path $env:LOCALAPPDATA 'Programs\cursor\Cursor.exe'
+Check 'Cursor installed' (Test-Path $cur) $(if (Test-Path $cur) { (Get-Item $cur).VersionInfo.ProductVersion } else { 'missing' })
+Check 'OpenClaw is gone' (-not (Get-Command openclaw -ErrorAction SilentlyContinue)) ''
+Check 'toolkit lock present' (Test-Path 'D:\Users\_Anant\10_Areas\Documents\Jarvis\40_Resources\CS\Concepts\New Laptop\Old Laptop Rebuild\Windows Toolkit\toolkit.lock.json') ''
+Check 'no Cursor update in progress' (@(Get-Process -Name inno_updater -ErrorAction SilentlyContinue).Count -eq 0) ''
+if ($fail -gt 0) { Log ("STOP: {0} check(s) failed. Nothing was deleted." -f $fail); Log "DONE. Log: $log"; try { Stop-Transcript | Out-Null } catch { }; exit 2 }
+
+# ---- 2. inventory
+Log '== 2 inventory of what would be deleted'
+$items = @(Get-ChildItem $q -Directory -Force -ErrorAction SilentlyContinue)
+$rec = New-Object System.Collections.ArrayList
+[void]$rec.Add("Quarantine context record, written " + (Get-Date -Format 's') + " by 08-quarantine-purge.ps1 on " + $env:COMPUTERNAME)
+[void]$rec.Add("Purpose: what existed in D:\Backup\Quarantine before it was deleted. The files are gone; this list is the context.")
+$total = 0
+foreach ($d in $items) {
+  $files = @(Get-ChildItem -LiteralPath $d.FullName -Recurse -Force -File -ErrorAction SilentlyContinue)
+  $bytes = ($files | Measure-Object Length -Sum).Sum; if (-not $bytes) { $bytes = 0 }
+  $total += $bytes
+  Log ("  {0,-48} {1,8:N2} GiB {2,8:N0} files" -f $d.Name, ($bytes / 1GB), $files.Count)
+  [void]$rec.Add(""); [void]$rec.Add(("== {0}  {1:N2} GiB  {2} files" -f $d.Name, ($bytes / 1GB), $files.Count))
+  foreach ($c in (Get-ChildItem -LiteralPath $d.FullName -Force -ErrorAction SilentlyContinue)) {
+    $cf = @(Get-ChildItem -LiteralPath $c.FullName -Recurse -Force -File -ErrorAction SilentlyContinue); $cb = ($cf | Measure-Object Length -Sum).Sum; if (-not $cb) { $cb = 0 }
+    [void]$rec.Add(("   {0}  {1:N3} GiB  {2} files" -f $c.Name, ($cb / 1GB), $cf.Count))
+  }
+  foreach ($r in (Get-ChildItem -LiteralPath $d.FullName -Force -File -Filter 'README*' -ErrorAction SilentlyContinue)) { [void]$rec.Add("   README: " + ((Get-Content -LiteralPath $r.FullName -TotalCount 6) -join ' | ')) }
+  foreach ($r in (Get-ChildItem -LiteralPath $d.FullName -Force -File -Filter 'undo.txt' -ErrorAction SilentlyContinue)) { [void]$rec.Add("   undo.txt lines: " + @(Get-Content -LiteralPath $r.FullName).Count + " (restore steps for the move that created this folder)") }
+}
+[void]$rec.Add(""); [void]$rec.Add(("TOTAL {0:N2} GiB in {1} folders" -f ($total / 1GB), $items.Count))
+[void]$rec.Add("Old WSL tar ([REDACTED]): written 2026-01-15, 39,454,945,280 bytes, 455,976 entries, SHA-256 [REDACTED]; superseded by D:\Backup\WSL\ubuntu-20261014-233219.tar (no import test was ever run on either).")
+$malformed = Get-ChildItem 'D:\Backup\WSL' -Filter '*.manifest.txt.malformed' -ErrorAction SilentlyContinue
+Log ("  malformed manifest copy to delete: {0}" -f $(if ($malformed) { ($malformed | ForEach-Object Name) -join ', ' } else { 'none' }))
+Log ("  TOTAL {0:N2} GiB" -f ($total / 1GB))
+Log '  NOTE: c-deep-clean-review includes the Brave and Opera browser profiles (bookmarks and any saved logins; neither browser is installed), JetBrains settings, Outlook/Office caches, Medal, WPS and old installers.'
+Log '  NOTE: keep list (not touched): D:\Backup\WSL, D:\Backup\Toolkit, D:\Backup\dotfiles-*, D:\Backup\GameSaves.'
+
+if ($dry) { Log 'DRY RUN: nothing deleted. Re-run with -Apply.'; Log "DONE. Log: $log"; try { Stop-Transcript | Out-Null } catch { }; exit 0 }
+
+# ---- 3. confirm, record, delete
+$a = Read-Host ("Delete {0:N2} GiB in {1} quarantine folders? The context record is written first. Type YES to continue" -f ($total / 1GB), $items.Count)
+if ($a -ne 'YES') { Log 'Not confirmed. Nothing deleted.'; Log "DONE. Log: $log"; try { Stop-Transcript | Out-Null } catch { }; exit 0 }
+if (-not (Test-Path $recDir)) { New-Item -ItemType Directory -Path $recDir -Force | Out-Null }
+$recFile = Join-Path $recDir ('quarantine-record-' + (Get-Date -Format 'yyyy-MM-dd') + '.txt')
+[IO.File]::WriteAllLines($recFile, [string[]]$rec, (New-Object Text.ASCIIEncoding))
+Log ("context record written: {0}" -f $recFile)
+$before = (Get-PSDrive D).Free
+foreach ($d in $items) {
+  Log ("  deleting {0}" -f $d.Name)
+  & cmd.exe /c ('rd /s /q "\\?\' + $d.FullName + '"') 2>&1 | Out-Null
+  if (Test-Path -LiteralPath $d.FullName) { Log ("    STILL THERE after rd: {0} (locked or protected; re-run or delete by hand)" -f $d.Name) } else { Log '    gone' }
+}
+foreach ($f in $malformed) { Remove-Item -LiteralPath $f.FullName -Force; Log ("  deleted {0}" -f $f.Name) }
+$after = (Get-PSDrive D).Free
+Log ("D: free {0:N1} -> {1:N1} GiB (freed {2:N2} GiB)" -f ($before / 1GB), ($after / 1GB), (($after - $before) / 1GB))
+Log ("remaining in {0}: {1}" -f $q, @(Get-ChildItem $q -Force -ErrorAction SilentlyContinue).Count)
+Log "DONE. Log: $log"
+try { Stop-Transcript | Out-Null } catch { }
+
+```
+- `PowerShell` -- `{"command":"$f=\u0027D:\\WSL\\ops\\windows\\08-quarantine-purge.ps1\u0027; \"non-ASCII: \" + @([IO.File]::ReadAllBytes($f) | ? {$_ -gt 127}).Count; $e=$null; $null=[System.Management.Automation.Language.Parser]::ParseFile($f,[ref]$null,[ref]$e); \"parse errors: \" + @($e).Count\npowershell.exe -NoProfile -ExecutionPolicy Bypass -File $f; \"exit=$LASTEXITCODE\"; \"quarantine still intact: \" + @(Get-ChildItem D:\\Backup\\Quarantine -Force).Count + \" folders; record dir exists: \" + (Test-Path D:\\Backup\\Quarantine-record)","description":"Dry-run the quarantine purge script","timeout":900000}`
+- `Write` -- `D:\WSL\ops\windows\09-remove-leftover-apps.ps1`
+```
+# 09-remove-leftover-apps.ps1  (Build 4b follow-up, 2026-10-17)  ASCII only. PowerShell 5.1 and 7 safe.
+#   powershell -ExecutionPolicy Bypass -File D:\WSL\ops\windows\09-remove-leftover-apps.ps1            (dry run: lists what exists, works in a normal shell)
+#   ELEVATED PowerShell:  ... 09-remove-leftover-apps.ps1 -Apply                                       (removes it; needs admin because 10 Python entries are per-machine MSIs)
+# Removes (all approved by Anant on 2026-10-17):
+#   1. Rize: Squirrel uninstall, then its folders, its (already disabled) startup entries.
+#   2. GitKrakenCLI leftovers: %LOCALAPPDATA%\GitKrakenCLI and %LOCALAPPDATA%\gk (logs and an install lock; no program is installed).
+#   3. The 11 stale Python 3.13.5 uninstall registrations (files are gone since Build 4): the bundle's own uninstaller first, then msiexec /x for stragglers.
+# Machine PATH is recorded (type, length, SHA-256) before and after the Python step to prove the uninstall did not damage it.
+param([switch]$Apply)
+$ErrorActionPreference = 'Stop'
+$dry = -not $Apply
+$logDir = 'D:\WSL\ops\windows\logs'
+if (-not (Test-Path $logDir)) { New-Item -ItemType Directory -Path $logDir -Force | Out-Null }
+$stamp = Get-Date -Format 'yyyyMMdd-HHmmss'
+$log = Join-Path $logDir ('remove-leftover-apps-' + $stamp + '.log')
+try { Start-Transcript -Path (Join-Path $logDir ('remove-leftover-apps-' + $stamp + '.transcript.txt')) -Force | Out-Null } catch { }
+function Log([string]$m) { $l = (Get-Date -Format 'HH:mm:ss') + ' ' + $m; Write-Host $l; Add-Content -Path $log -Value $l -Encoding ASCII }
+Log ("remove leftover apps. DryRun={0}  Log: {1}" -f $dry, $log)
+$isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+Log ("  elevated: {0}" -f $isAdmin)
+if ($Apply -and -not $isAdmin) { Log 'STOP: -Apply needs an elevated PowerShell (the Python MSIs are per-machine).'; Log "DONE. Log: $log"; try { Stop-Transcript | Out-Null } catch { }; exit 2 }
+function Size-MB([string]$p) { if (-not (Test-Path -LiteralPath $p)) { return 'absent' }; $s = (Get-ChildItem -LiteralPath $p -Recurse -Force -File -ErrorAction SilentlyContinue | Measure-Object Length -Sum).Sum; if (-not $s) { $s = 0 }; return ('{0:N1} MB' -f ($s / 1MB)) }
+function Remove-Tree([string]$p) { if (Test-Path -LiteralPath $p) { & cmd.exe /c ('rd /s /q "\\?\' + $p + '"') 2>&1 | Out-Null; if (Test-Path -LiteralPath $p) { Log ("    STILL THERE: {0}" -f $p) } else { Log ("    removed {0}" -f $p) } } }
+
+# ---------------------------------------------------------------- 1 Rize
+Log '== 1 Rize'
+$rizeLocal = Join-Path $env:LOCALAPPDATA 'Rize'; $rizeRoam = Join-Path $env:APPDATA 'Rize'
+$runKey = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Run'; $saKey = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\StartupApproved\Run'; $rn = 'com.squirrel.Rize.Rize'
+Log ("  {0}  {1}" -f $rizeLocal, (Size-MB $rizeLocal)); Log ("  {0}  {1}" -f $rizeRoam, (Size-MB $rizeRoam))
+Log ("  Run value present: {0}   StartupApproved value present: {1}" -f [bool](Get-ItemProperty $runKey -Name $rn -ErrorAction SilentlyContinue), [bool](Get-ItemProperty $saKey -Name $rn -ErrorAction SilentlyContinue))
+$rp = @(Get-Process -ErrorAction SilentlyContinue | Where-Object { $_.Name -match '^rize' })
+if ($rp.Count -gt 0) { Log ("  BLOCKED: Rize is running ({0} process). Quit it from its tray icon and re-run." -f $rp.Count) }
+elseif ($dry) { Log '  [dry run] would run Update.exe --uninstall -s, delete both folders and both startup values' }
+else {
+  $u = Join-Path $rizeLocal 'Update.exe'
+  if (Test-Path $u) { $p = Start-Process -FilePath $u -ArgumentList '--uninstall', '-s' -Wait -PassThru; Log ("  Squirrel uninstall exit code {0}" -f $p.ExitCode) }
+  Remove-Tree $rizeLocal; Remove-Tree $rizeRoam
+  foreach ($k in $runKey, $saKey) { if (Get-ItemProperty $k -Name $rn -ErrorAction SilentlyContinue) { Remove-ItemProperty -Path $k -Name $rn; Log ("  removed value {0} from {1}" -f $rn, $k) } }
+}
+
+# ---------------------------------------------------------------- 2 GitKrakenCLI
+Log '== 2 GitKrakenCLI leftovers'
+$gk = @((Join-Path $env:LOCALAPPDATA 'GitKrakenCLI'), (Join-Path $env:LOCALAPPDATA 'gk'))
+foreach ($g in $gk) { Log ("  {0}  {1}" -f $g, (Size-MB $g)) }
+$gp = @(Get-Process -ErrorAction SilentlyContinue | Where-Object { $_.Name -match '^(gk|gitkraken)' })
+if ($gp.Count -gt 0) { Log ("  BLOCKED: {0} GitKraken process running; close it and re-run." -f $gp.Count) }
+elseif ($dry) { Log '  [dry run] would delete both folders' } else { foreach ($g in $gk) { Remove-Tree $g } }
+
+# ---------------------------------------------------------------- 3 Python registrations
+Log '== 3 stale Python 3.13.5 registrations'
+$msi = [ordered]@{
+  '{[REDACTED]}' = 'Documentation'; '{[REDACTED]}' = 'pip Bootstrap'; '{[REDACTED]}' = 'Executables'
+  '{[REDACTED]}' = 'Core Interpreter'; '{[REDACTED]}' = 'Test Suite'; '{[REDACTED]}' = 'Tcl/Tk Support'
+  '{[REDACTED]}' = 'Development Libraries'; '{[REDACTED]}' = 'Standard Library'; '{[REDACTED]}' = 'Add to Path'
+  '{[REDACTED]}' = 'Python Launcher'
+}
+$bundleGuid = '{[REDACTED]}'
+$uk = @('HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall', 'HKLM:\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall')
+function Count-Registered { $n = 0; foreach ($g in $msi.Keys) { foreach ($k in $uk) { if (Test-Path (Join-Path $k $g)) { $n++; break } } }; if (Test-Path ('HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\' + $bundleGuid)) { $n++ }; return $n }
+function Machine-Path { $k = [Microsoft.Win32.Registry]::LocalMachine.OpenSubKey('SYSTEM\CurrentControlSet\Control\Session Manager\Environment'); $v = [string]$k.GetValue('Path', '', [Microsoft.Win32.RegistryValueOptions]::DoNotExpandEnvironmentNames); $t = $k.GetValueKind('Path'); $h = [BitConverter]::ToString([Security.Cryptography.SHA256]::Create().ComputeHash([Text.Encoding]::UTF8.GetBytes($v))).Replace('-', '').Substring(0, 16); return ('type={0} length={1} sha256={2}' -f $t, $v.Length, $h) }
+$before = Count-Registered
+Log ("  registered now: {0} of 11 (10 MSI components + 1 bundle)" -f $before)
+$bundle = Join-Path $env:LOCALAPPDATA ('Package Cache\' + $bundleGuid + '\python-3.13.5-amd64.exe')
+Log ("  bundle uninstaller present: {0}   C:\Python313 present: {1}   C:\Windows\py.exe present: {2}" -f (Test-Path $bundle), (Test-Path 'C:\Python313'), (Test-Path 'C:\Windows\py.exe'))
+Log ("  Machine PATH before: {0}" -f (Machine-Path))
+if ($dry) { Log '  [dry run] would run the bundle uninstaller (/uninstall /quiet /norestart), then msiexec /x for anything still registered, then re-count' }
+else {
+  if (Test-Path $bundle) { $p = Start-Process -FilePath $bundle -ArgumentList '/uninstall', '/quiet', '/norestart' -Wait -PassThru; Log ("  bundle uninstall exit code {0} (0 ok, 3010 reboot needed)" -f $p.ExitCode) } else { Log '  bundle uninstaller missing; going straight to msiexec' }
+  foreach ($g in $msi.Keys) {
+    $still = $false; foreach ($k in $uk) { if (Test-Path (Join-Path $k $g)) { $still = $true } }
+    if ($still) { $p = Start-Process -FilePath 'msiexec.exe' -ArgumentList '/x', $g, '/qn', '/norestart' -Wait -PassThru; Log ("  msiexec /x {0} ({1}) exit code {2} (1605 or 1614 = already gone, 3010 = reboot)" -f $g, $msi[$g], $p.ExitCode) }
+  }
+  $bk = 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Uninstall\' + $bundleGuid
+  if (Test-Path $bk) { Log '  bundle registration still present after uninstall; removing its Uninstall key (registration only, no files)'; Remove-Item -Path $bk -Recurse -Force }
+  Log ("  Machine PATH after:  {0}" -f (Machine-Path))
+  Log ("  registered now: {0} of 11" -f (Count-Registered))
+  Log ("  C:\Windows\py.exe present: {0}" -f (Test-Path 'C:\Windows\py.exe'))
+  $w = (winget list --disable-interactivity 2>$null | Select-String -Pattern 'Python 3\.13\.5|Python Launcher' | Measure-Object).Count
+  Log ("  winget list still shows {0} Python 3.13.5 / Launcher row(s)" -f $w)
+}
+if ($dry) { Log 'DRY RUN: nothing changed.' }
+Log "DONE. Log: $log"
+try { Stop-Transcript | Out-Null } catch { }
+
+```
+- `PowerShell` -- `{"command":"$f=\u0027D:\\WSL\\ops\\windows\\09-remove-leftover-apps.ps1\u0027; \"non-ASCII: \" + @([IO.File]::ReadAllBytes($f) | ? {$_ -gt 127}).Count; foreach($h in \u0027powershell.exe\u0027,\u0027pwsh.exe\u0027){ \"=== dry run $h\"; \u0026 $h -NoProfile -ExecutionPolicy Bypass -File $f; \"exit=$LASTEXITCODE\" }\n\"=== -Apply without elevation must refuse:\"; powershell.exe -NoProfile -ExecutionPolicy Bypass -File $f -Apply | Select -Last 3; \"exit=$LASTEXITCODE\"","description":"Dry-run the app removal script in both shells and check it refuses -Apply unelevated","timeout":180000}`
+- `PowerShell` -- `{"command":"\"=== GitKrakenCLI\"; Get-ChildItem \"$env:LOCALAPPDATA\\GitKrakenCLI\" -Recurse -Force -File -ErrorAction SilentlyContinue | Sort Length -Descending | Select -First 6 | % { \u0027{0,8:N1} MB  {1:yyyy-MM-dd}  {2}\u0027 -f ($_.Length/1MB),$_.LastWriteTime,$_.FullName.Substring(\"$env:LOCALAPPDATA\\GitKrakenCLI\".Length) }\n\"=== Rize Roaming\"; Get-ChildItem \"$env:APPDATA\\Rize\" -Force | % { $s=(Get-ChildItem $_.FullName -Recurse -Force -File -ErrorAction SilentlyContinue | Measure Length -Sum).Sum; \u0027{0,-28} {1,8:N1} MB\u0027 -f $_.Name,($s/1MB) } | Sort-Object -Descending | Select -First 8","description":"Show what is inside the GitKrakenCLI and Rize data folders","timeout":120000}`
+- `PowerShell` -- `{"command":"\"=== log tail (no secrets expected; truncated)\"; Get-Content \"$env:LOCALAPPDATA\\GitKrakenCLI\\gk_cli.log\" -Tail 6 -ErrorAction SilentlyContinue | % { $_.Substring(0,[Math]::Min(200,$_.Length)) }; Get-Content \"$env:LOCALAPPDATA\\GitKrakenCLI\\gk_cli_proxy.log\" -Tail 4 -ErrorAction SilentlyContinue | % { $_.Substring(0,[Math]::Min(200,$_.Length)) }\n\"=== GitLens / GitKraken extensions (Windows VS Code, Cursor, others)\"; code --list-extensions 2\u003e$null | Select-String -Pattern \u0027gitlens|gitkraken\u0027\nforeach($d in \"$env:USERPROFILE\\.vscode\\extensions\",\"$env:USERPROFILE\\.cursor\\extensions\",\"$env:USERPROFILE\\.kiro\\extensions\",\"$env:USERPROFILE\\.antigravity\\extensions\"){ if(Test-Path $d){ Get-ChildItem $d -Directory -ErrorAction SilentlyContinue | ? Name -match \u0027gitlens|gitkraken\u0027 | % { $d.Split(\u0027\\\u0027)[-2] + \u0027: \u0027 + $_.Name } } }\n\"=== gk processes / MCP references\"; Get-Process | ? Name -match \u0027^gk\u0027 | Select Name,Id,StartTime\nSelect-String -Path \"$env:USERPROFILE\\.claude.json\",\"$env:APPDATA\\Code\\User\\mcp.json\",\"$env:USERPROFILE\\.cursor\\mcp.json\" -Pattern \u0027gk\\.exe|GitKraken|gitkraken\u0027 -ErrorAction SilentlyContinue | % { $_.Path + \u0027:\u0027 + $_.LineNumber + \u0027 \u0027 + ($_.Line.Trim().Substring(0,[Math]::Min(120,$_.Line.Trim().Length))) }\nwsl.exe -d Ubuntu --exec bash -c \u0027ls ~/.vscode-server/extensions ~/.cursor-server/extensions 2\u003e/dev/null | grep -i -E \"gitlens|gitkraken\"\u0027","description":"Find which extension installs and updates the GitKraken CLI","timeout":90000}`
+- `WebSearch` -- `{"query":"GitLens disable GitKraken MCP CLI auto install setting \"gitlens\" gk.exe AppData GitKrakenCLI","mode":"standard"}`
+- `PowerShell` -- `{"command":"$f=\u0027D:\\WSL\\ops\\windows\\09-remove-leftover-apps.ps1\u0027; $s=[IO.File]::ReadAllText($f)\n$o=\"elseif (`$dry) { Log \u0027  [dry run] would delete both folders\u0027 } else { foreach (`$g in `$gk) { Remove-Tree `$g } }\"\n$n=\"elseif (`$dry) { Log \u0027  [dry run] would delete both folders\u0027 } else { foreach (`$g in `$gk) { Remove-Tree `$g } }`nLog \u0027  NOTE: the GitLens extension (VS Code, Kiro, WSL VS Code server) downloads and self-updates gk.exe for its GitKraken MCP feature and has no documented opt-out. This folder returns the next time GitLens starts unless GitLens is uninstalled (your decision: extension lists sync between laptops).\u0027\"\n\"found: \" + $s.Contains($o); [IO.File]::WriteAllText($f,$s.Replace($o,$n),(New-Object Text.ASCIIEncoding)); $e=$null; $null=[System.Management.Automation.Language.Parser]::ParseFile($f,[ref]$null,[ref]$e); \"parse errors: \" + @($e).Count\n$tk=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\_scripts\u0027\n\"=== 20-apply-configs dry run\"; powershell.exe -NoProfile -ExecutionPolicy Bypass -File \"$tk\\20-apply-configs.ps1\" -Machine dell -DryRun 2\u003e\u00261 | Select-String -Pattern \u0027bat|fd-ignore|CHANGED|DIFF|FAIL|PLAN|SUMMARY|Exit code\u0027 | Select -First 20 | % { $_.Line }","description":"Add the GitLens note to the script and dry-run the config apply on the Dell","timeout":240000}`
+
 ## Actions Taken
 
 **Files created:**
@@ -2680,6 +3311,8 @@ You've hit your session limit · resets 12am (America/Chicago)
 - `D:\WSL\ops\windows\05-startup-cleanup.ps1`
 - `D:\WSL\ops\windows\06-ollama-check.ps1`
 - `D:\WSL\ops\windows\07-build5-leftovers.ps1`
+- `D:\WSL\ops\windows\08-quarantine-purge.ps1`
+- `D:\WSL\ops\windows\09-remove-leftover-apps.ps1`
 - `D:\WSL\ops\windows\firecrawl-key-move.sh`
 
 **Files modified:**
@@ -2777,5 +3410,81 @@ EOF
 sed -i 's/\r$//' /d/WSL/ops/windows/build5-leftovers.sh; grep -c $'\r' /d/WSL/ops/windows/build5-leftovers.sh; LC_ALL=C grep -c -P '[^\x00-\x7F]' /d/WSL/ops/windows/build5-leftovers.sh; echo written`
 - `tail -c 1800 "/d/Users/_Anant/10_Areas/Documents/Jarvis/60_Claude/07_AI_Information/Session Logs/log.md"`
 - `f="/d/Users/_Anant/10_Areas/Documents/Jarvis/40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild/Runs/Build 4b Dell Leftovers and Tailscale/Old Laptop Rebuild - Build 4b Prompt (Dell Leftovers and Tailscale).md"; head -30 "$f" | cut -c1-200; echo ...; tail -c 1 "/d/Users/_Anant/10_Areas/Documents/Jarvis/60_Claude/07_AI_Information/Session Logs/log.md" | od -c | head -2`
+- `wsl.exe -d Ubuntu --exec bash -c 'export NVM_DIR="$HOME/.nvm"; . "$NVM_DIR/nvm.sh" >/dev/null 2>&1; echo "corepack: $(command -v corepack)  pnpm: $(command -v pnpm) $(pnpm --version)"; for r in hub/Learning-Tracker-Tool hub/portfolio hub/Assisto_website; do d=~/projects/$r; echo "=== $r"; git -C $d branch --show-current; echo "dirty: $(git -C $d status --porcelain | wc -l)  remote: $(git -C $d remote get-url origin 2>/dev/null | sed -E "s#//[^@]*@#//#")"; git -C $d symbolic-ref refs/remotes/origin/HEAD 2>/dev/null; echo "packageManager: $(grep -c "\"packageManager\"" $d/package.json)  lockfiles: $(ls $d | grep -E "lock|bun" | tr "\n" " ")"; grep -E "^lockfileVersion" $d/pnpm-lock.yaml 2>/dev/null; grep -E "\"(engines|node|pnpm)\"" $d/package.json | head -3; git -C $d worktree list | head -3; done' 2>&1`
+- `wsl.exe -d Ubuntu --exec bash -c 'export NVM_DIR="$HOME/.nvm"; . "$NVM_DIR/nvm.sh" >/dev/null 2>&1; p=$(command -v pnpm); ls -l "$p" | sed -E "s/^.{10} +[0-9]+ [^ ]+ [^ ]+ +[0-9]+ [A-Za-z]+ +[0-9]+ [0-9:]+ //"; echo "corepack $(corepack --version)"; echo "COREPACK env: $(env | grep -c COREPACK)"; ls ~/.cache/node/corepack 2>/dev/null | head; echo "--- worktree convention in locked decisions:"; grep -n -i -E "worktree add|worktrees/|\.worktrees|sibling" "/mnt/d/Users/_Anant/10_Areas/Documents/Jarvis/40_Resources/CS/Concepts/New Laptop/Codebases/Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem.md" | cut -c1-260 | head -8; echo "--- LTT status:"; git -C ~/projects/hub/Learning-Tracker-Tool status --short | head; git -C ~/projects/hub/Learning-Tracker-Tool log --oneline -3; ls ~/projects/hub | head -20' 2>&1`
+- `wsl.exe -d Ubuntu --exec bash -c 'set -u; export NVM_DIR="$HOME/.nvm"; . "$NVM_DIR/nvm.sh" >/dev/null 2>&1
+R=~/projects/hub/Learning-Tracker-Tool; W=~/projects/hub/.worktrees/Learning-Tracker-Tool-pin-package-manager; B=dell-latitude/pin-package-manager
+cd "$R" && git fetch origin --quiet && echo "fetched; origin/main = $(git rev-parse --short origin/main)"
+mkdir -p ~/projects/hub/.worktrees
+git worktree add -b "$B" "$W" origin/main 2>&1 | tail -2
+cd "$W"; echo "worktree: $(pwd)  branch: $(git branch --show-current)"
+echo "--- package.json head before:"; head -12 package.json
+echo "--- pnpm used here BEFORE the pin: $(pnpm --version 2>&1 | tail -1)"' 2>&1`
+- `wsl.exe -d Ubuntu --exec bash -c 'set -u; export NVM_DIR="$HOME/.nvm"; . "$NVM_DIR/nvm.sh" >/dev/null 2>&1
+W=~/projects/hub/.worktrees/Learning-Tracker-Tool-pin-package-manager; cd "$W"
+git branch --unset-upstream 2>&1 | tail -1
+grep -q "\"packageManager\"" package.json && { echo "already pinned"; exit 0; }
+sed -i "0,/^  \"private\": true,/s//  \"private\": true,\n  \"packageManager\": \"pnpm@12.4.2\",/" package.json
+node -e "const p=require(\"./package.json\"); console.log(\"valid JSON; packageManager =\", p.packageManager)"
+echo "--- git diff:"; git --no-pager diff --stat; git --no-pager diff -U1 | sed -n "1,20p"
+echo "--- pnpm resolved by Corepack in this repo: $(pnpm --version 2>&1 | tail -1)"
+echo "--- frozen install (proves the v9 lockfile is accepted by 12.4.2):"; timeout 600 pnpm install --frozen-lockfile 2>&1 | tail -8; echo "install exit: ${PIPESTATUS[0]}"
+echo "--- lockfile unchanged: $(git status --porcelain pnpm-lock.yaml | wc -l) changes; dirty after install: $(git status --porcelain | wc -l)"
+git status --short | head' 2>&1`
+- `wsl.exe -d Ubuntu --exec bash -c 'cd ~/projects/hub/.worktrees/Learning-Tracker-Tool-pin-package-manager; echo "== workspace yaml diff"; git --no-pager diff -U2 pnpm-workspace.yaml; echo "== lock diff stat"; git --no-pager diff --stat pnpm-lock.yaml; git --no-pager diff -U1 pnpm-lock.yaml | head -40; echo "== origin version of workspace file:"; git show origin/main:pnpm-workspace.yaml' 2>&1`
+- `wsl.exe -d Ubuntu --exec bash -c 'set -u; export NVM_DIR="$HOME/.nvm"; . "$NVM_DIR/nvm.sh" >/dev/null 2>&1
+W=~/projects/hub/.worktrees/Learning-Tracker-Tool-pin-package-manager; cd "$W"
+sed -i "s/^  sharp: set this to true or false$/  sharp: false/; s/^  unrs-resolver: set this to true or false$/  unrs-resolver: false/" pnpm-workspace.yaml
+echo "== workspace file now:"; cat pnpm-workspace.yaml
+echo "== frozen install again:"; timeout 600 pnpm install --frozen-lockfile 2>&1 | tail -6; echo "install exit: ${PIPESTATUS[0]}"
+echo "== proof it runs: next $(pnpm exec next --version 2>&1 | tail -1)"
+echo "== lint:"; timeout 300 pnpm run lint 2>&1 | tail -6; echo "lint exit: ${PIPESTATUS[0]}"
+echo "== status:"; git status --short; git --no-pager diff --stat' 2>&1`
+- `wsl.exe -d Ubuntu --exec bash -c 'set -u; export NVM_DIR="$HOME/.nvm"; . "$NVM_DIR/nvm.sh" >/dev/null 2>&1
+W=~/projects/hub/.worktrees/Learning-Tracker-Tool-pin-package-manager; cd "$W"
+git add package.json pnpm-lock.yaml pnpm-workspace.yaml
+git commit -q -F - <<EOF
+Pin pnpm 12.4.2 through packageManager
+
+Corepack now runs exactly pnpm 12.4.2 in this repo on every machine, and the
+lockfile records the pnpm version with integrity hashes.
+
+pnpm 12 no longer honors ignoredBuiltDependencies alone and refused to install
+until each build script was decided, so allowBuilds keeps the existing intent
+(sharp: false, unrs-resolver: false). The old key stays for older pnpm.
+
+Verified: pnpm install --frozen-lockfile exits 0, next 16.1.6 starts, eslint exits 0.
+
+Co-Authored-By: Claude Sonnet 5.5 <noreply@anthropic.com>
+EOF
+git --no-pager log --oneline -2; git status --short | wc -l; echo "upstream: $(git rev-parse --abbrev-ref @{u} 2>&1 | tail -1)"
+echo; echo "######## portfolio"
+R=~/projects/hub/portfolio; W2=~/projects/hub/.worktrees/portfolio-pin-package-manager; B=dell-latitude/pin-package-manager
+git -C "$R" fetch origin --quiet && echo "origin/main = $(git -C $R rev-parse --short origin/main)"
+git -C "$R" worktree add -b "$B" "$W2" origin/main 2>&1 | tail -1; cd "$W2"; git branch --unset-upstream 2>/dev/null
+echo "branch: $(git branch --show-current)  lockfile: $(ls | grep -E "lock" | tr "\n" " ")"; grep -n "packageManager" package.json | head -2; echo "--- pnpm block in package.json:"; grep -n -A6 "\"pnpm\": {" package.json | head -10; echo "--- workspace file:"; cat pnpm-workspace.yaml 2>/dev/null || echo "(none)"; echo "pnpm before pin: $(pnpm --version | tail -1)"' 2>&1`
+- `wsl.exe -d Ubuntu --exec bash -c 'set -u; export NVM_DIR="$HOME/.nvm"; . "$NVM_DIR/nvm.sh" >/dev/null 2>&1
+W=~/projects/hub/.worktrees/portfolio-pin-package-manager; cd "$W"
+head -8 package.json
+sed -i "0,/^  \"private\": true,/s//  \"private\": true,\n  \"packageManager\": \"pnpm@12.4.2\",/" package.json
+grep -n "packageManager" package.json || { echo "NO private line; showing keys"; node -e "console.log(Object.keys(require(\"./package.json\")).slice(0,8))"; }
+node -e "console.log(\"valid JSON:\", require(\"./package.json\").packageManager)"
+echo "--- frozen install:"; timeout 900 pnpm install --frozen-lockfile 2>&1 | tail -10; echo "install exit: ${PIPESTATUS[0]}"
+echo "--- status:"; git status --short; git --no-pager diff --stat | tail -4; git --no-pager diff -U1 -- pnpm-workspace.yaml package.json | grep -v "^index" | head -30' 2>&1`
+- `wsl.exe -d Ubuntu --exec bash -c 'set -u; export NVM_DIR="$HOME/.nvm"; . "$NVM_DIR/nvm.sh" >/dev/null 2>&1
+W=~/projects/hub/.worktrees/portfolio-pin-package-manager; cd "$W"
+echo "--- lockfile-only:"; timeout 600 pnpm install --lockfile-only 2>&1 | tail -6; echo "exit: ${PIPESTATUS[0]}"
+echo "--- diff stat:"; git --no-pager diff --stat | tail -4
+echo "--- removed lines in lockfile (must be 0 apart from the doc-separator):"; git --no-pager diff -U0 pnpm-lock.yaml | grep -c "^-[^-]"
+echo "--- first 14 added lines:"; git --no-pager diff -U0 pnpm-lock.yaml | grep "^+" | sed -n "2,14p"
+echo "--- main section untouched? importers/packages of the original still byte-identical:"; git show origin/main:pnpm-lock.yaml | tail -n +2 > /tmp/orig.tail; awk "BEGIN{d=0} /^---$/{d++} {print}" pnpm-lock.yaml > /dev/null; git --no-pager diff --numstat pnpm-lock.yaml' 2>&1`
+- `wsl.exe -d Ubuntu --exec bash -c 'set -u
+R=~/projects/hub/portfolio; W=~/projects/hub/.worktrees/portfolio-pin-package-manager
+cd "$W" && git checkout -- . && echo "reverted; dirty now: $(git status --porcelain | wc -l)"
+cd "$R" && git worktree remove --force "$W" && git branch -D dell-latitude/pin-package-manager 2>&1 | tail -1
+echo "worktrees now:"; git worktree list | head -5
+echo "portfolio main checkout untouched: branch=$(git branch --show-current) dirty=$(git status --porcelain | wc -l)"
+echo "--- confirm the duplicate key exists on origin/main (names only):"; git show origin/main:pnpm-lock.yaml | grep -n "^  .@ai-sdk/mistral@3.0.39.:" | head
+echo "--- remaining worktrees under .worktrees:"; ls ~/projects/hub/.worktrees' 2>&1`
 
 

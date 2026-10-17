@@ -1,42 +1,38 @@
 ---
-type: evergreen
+type: system
 status: sprout
 created: 2026-08-28
-updated: 2026-08-28
+updated: 2026-10-16
 tags:
+  - system
+  - standards
   - internship
-  - humanizer
-  - standard
+system_kind: standard
+family: policy
+maps_to: []
+used_by:
+  - "[[Application Document Preparation]]"
+gold_standard: none
 notes:
+  - "[[Human Writing Standard]]"
   - "[[Humanizer]]"
   - "[[Resume Alteration Standard]]"
   - "[[Cover Letter Alteration Standard]]"
-next:
 ---
 # Humanized Writing Standard
-==The checklist behind [[Humanizer]]'s pass/fail gate.== This is the internship-application-specific instance of a planned global humanizer system — scoped narrowly so resume/cover-letter drafting isn't blocked waiting for that larger build. A starter checklist, not exhaustive; extend it as real drafts surface new patterns worth naming, the same way `internship-research-loop`'s own filter rules only ever get added against real observed data, not speculation.
-
-## Scope
-Applies to every resume content plan and cover-letter draft before it's written as a DOCX (see [[30_Order/Workflows/Internship/Application Document Preparation]]'s `humanize` step). Checks tone and phrasing only — factual/evidence correctness is a separate, prior gate (Resume/Cover Letter Alteration Standard §2), already passed by the time a draft reaches this check.
-
-## Prohibited Patterns (Starter List)
-- **Generic filler claims** — "passionate about," "excited to," "dynamic team player," "results-driven," "hardworking" — vague enough to apply to any candidate, any role.
-- **Inflated/corporate filler words used as padding** — "leverage," "seamless,""cutting-edge," "robust," "delve," "furthermore" — flag when used to sound impressive rather than because it's the plainest accurate word.
-- **Repetitive sentence openers or uniform sentence length** — every bullet/sentence starting with the same structure ("Led X. Led Y. Led Z.") reads as machine-generated rhythm, not human variation.
-- **Overused structural tells** — heavy reliance on em dashes, or three-part parallel lists ("fast, reliable, and scalable") in every paragraph, are patterns worth flagging when they recur mechanically rather than appearing where they're actually the clearest way to say something.
-- **Claims that read as louder than the underlying fact**, even when technically evidence-backed — tone inflation on top of a true fact is still a flag here, separate from the Alteration Standards' factual-inflation rule.
-
-## Required Checks
-- Does every claim still trace to real evidence *after* rewriting for tone? A phrasing pass that quietly drifts a claim away from its source is a regression, not a stylistic improvement — catch it here even though evidence-tracing is nominally a prior gate's job.
-- Does the draft still sound like one consistent person, not a template with company names swapped in?
-- Would a human reading this immediately recognize it as AI-written boilerplate? If yes, that's a fail regardless of whether any single line individually seems fine.
-
-## Output Contract
-Per [[Humanizer#The Contract]]: pass, or fail with specific line-level flags — the exact phrase, which pattern above it violates, and a suggested fix. Never a silent rewrite.
-
-## Explicitly Out of Scope
-The full global humanizer agent/skill/command system, and its use in networking-message drafting — both are separate, larger work tracked outside this internship-specific standard (see [[Humanizer#What's In Scope Here vs. Not]]).
-
-## Done When
-- A resume/cover-letter draft that fails this check gets specific, line-cited flags — never a bare "sounds off."
-- A draft that passes still has 100% of its claims traceable to the same evidence it had before the tone pass.
+==For resumes and cover letters the prose check is the Human Writing Standard plus three checks that only an application document needs.==
+This is the internship-application instance of [[Human Writing Standard]], scoped narrowly so resume and cover-letter drafting is not blocked. It is the pass or fail gate behind [[Humanizer]], applied at the `humanize` step of [[Application Document Preparation]] to every resume content plan and cover-letter draft before it becomes a DOCX. It checks tone and phrasing only. Factual correctness is the earlier gate in [[Resume Alteration Standard]] and [[Cover Letter Alteration Standard]].
+## Checks
+Run all nine checks of [[Human Writing Standard]]; its suspicious-word list already holds the generic claims such as "passionate about" and "results-driven". Then add:
+1. **One person.** The draft reads as one consistent person, not a template with company names swapped in.
+2. **Boilerplate.** A reader would not recognize it at once as AI boilerplate. If they would, it fails even when every line looks fine alone.
+3. **Evidence after tone.** Every claim still traces to the evidence it had before the tone pass. A rewrite that drifts a claim from its source is a regression, caught here even though evidence tracing is the earlier gate's job.
+## Output
+Pass, or fail with line-level flags: the exact phrase, the check it breaks, and a suggested fix. Never a silent rewrite.
+## Out of scope
+The global humanizer agent, skill, and command system, and networking-message drafting. Both are separate, larger work tracked in [[Humanizer]].
+## Done Conditions
+- A failing draft gets line-cited flags, never a bare "sounds off".
+- A passing draft keeps 100% of its claims traceable to the same evidence as before the tone pass.
+## Gold Standard Example
+None. A policy has no instance. Applied in [[Application Document Preparation]].

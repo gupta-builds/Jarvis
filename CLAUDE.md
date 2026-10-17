@@ -42,7 +42,7 @@ Full folder definitions: [[40_Resources/Obsidian/Jarvis Vault Architecture]]. Ro
 
 ### Note Creation Conventions
 
-Frontmatter comes from the template, never from memory. Templates live in `30_Order/Templates/` (frontmatter-only starters in `Frontmatter/`: `For Evergreen`, `For Inputs`, `For Progress`, `For Classes`, `For Thoughts`, `For Brainstorm`, `For Transcript`, `For AI`, `For Everything`). Property meanings: [[40_Resources/Obsidian/Vault Operating System]]. Note-type to folder to standard mapping: the routing table in [[AGENTS.md]].
+Frontmatter comes from the template, never from memory. Find the note type in [[Note Type Registry]]; it names the Template, Standard, and Workflow. `type`, `status`, and every `*_kind` come only from [[Frontmatter Standard]] (17 types, 7 statuses); do not invent a value. The frontmatter-only starters in `30_Order/Templates/Frontmatter/` are for Inbox notes with no family. Property meanings beyond the vocabulary: [[40_Resources/Obsidian/Vault Operating System]]. Folder routing: the table in [[AGENTS.md]]. Check the finished note with [[Vault Lint]], and bring any older note you touch to its Standard ([[Conformance on Touch]]).
 
 ### Which tool for which task
 

@@ -1,27 +1,33 @@
 ---
-type: evergreen
+type: system
 status: sprout
 created: 2026-09-20
-updated: 2026-09-20
+updated: 2026-10-16
 tags:
   - system
   - workflow
+system_kind: workflow
+serves: "[[Discussion Standard]]"
+trigger: A discussion section, paper discussion, reading conversation, or participation task is scheduled.
 notes:
-  - "[[Discussion Standard]]"
   - "[[Discussion Template]]"
   - "[[Course Production Workflow]]"
 ---
 # Discussion Workflow
-Use this for a discussion section, paper discussion, reading conversation, or participation task.
+Capture the reasoning that changed in the discussion and carry the durable part forward.
+## Use when
+A discussion section, paper discussion, reading conversation, or participation task is scheduled or has just happened.
 ## Steps
-1. Read [[Discussion Standard]] and identify the assigned reading/questions, course week, and participation/deadline rule.
-2. Create the note before discussion with linked pre-work and the questions that need an answer.
-3. During or immediately after discussion, record claims, evidence, objections, examples, corrections, and unresolved interpretations. Do not write a fabricated transcript.
-4. Distinguish instructor clarification, student interpretation, source fact, and unresolved question.
-5. Add only concrete follow-up tasks with done conditions.
-6. Propagate durable corrections/examples to the relevant concept, weekly, homework/writing, or exam note.
+1. Read [[Discussion Standard]]. Identify the assigned reading or questions, the course week, and the participation or deadline rule.
+2. Create the note before the discussion from [[Discussion Template]], with the pre-work linked and the live questions listed.
+3. During or right after, record claims, evidence, objections, examples, corrections, and open interpretations. Do not write a fabricated transcript.
+4. Separate instructor clarification, student interpretation, source fact, and unresolved question.
+5. Add task checkboxes only for real follow-up work, each with a done condition.
+6. Carry the durable correction or example to the concept, weekly, writing, or exam note, with a link back here.
+7. Run [[Vault Lint]] on the path.
+## Do not
+Do not invent attendance, consensus, or a professor's position, and do not let discussion evidence silently override a textbook definition or published policy.
 ## Done when
-- Pre-work and the real discussion task are documented.
-- Reasoning and corrections are captured, not just attendance.
-- Unresolved questions and follow-up actions are explicit.
-
+- Pre-work and the real task are documented.
+- Reasoning and corrections are captured, not only attendance.
+- Open questions and follow-ups are explicit.

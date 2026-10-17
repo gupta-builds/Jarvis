@@ -12,6 +12,7 @@ family: policy
 maps_to: []
 used_by:
   - "[[Human Content Writer]]"
+  - "[[Researcher]]"
 gold_standard: none
 notes:
   - "[[HUMAN_WRITING]]"

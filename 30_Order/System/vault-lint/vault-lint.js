@@ -40,7 +40,7 @@ for (const f of files) {
   if (!/\.md$/i.test(f.rel)) { const s2 = f.rel.split('/'); for (let k = 0; k < s2.length; k++) suffixSet.add(s2.slice(k).join('/').toLowerCase()); }
 }
 const resolves = (raw) => {
-  let t = raw.split('|')[0].split('#')[0].trim();
+  let t = raw.split('|')[0].split('#')[0].trim().replace(/\\$/, '');
   if (!t) return true;
   t = t.replace(/\.md$/i, '').toLowerCase();
   return suffixSet.has(t) || suffixSet.has(t + '.md');
@@ -404,6 +404,19 @@ function kitCheck() {
       const wn = parseNote(fs.readFileSync(wf.abs, 'utf8')); const sv = wn.keys.serves ? wn.keys.serves.raw : '';
       if (!isPolicy && wn.hasFm && wn.keys.system_kind && !sv.toLowerCase().includes(path.basename(f.rel, '.md').toLowerCase())) add('warn', wf.rel, `serves does not point back to ${path.basename(f.rel, '.md')}`);
     }
+  }
+  for (const f of mdFiles.filter((x) => x.rel.startsWith('30_Order/Templates/') && fs.statSync(x.abs).size > 0)) {
+    const tn = parseNote(fs.readFileSync(f.abs, 'utf8'));
+    if (!tn.hasFm) { add('warn', f.rel, 'template has no frontmatter'); continue; }
+    const ty = val(tn, 'type');
+    if (!ty) { add('warn', f.rel, 'template has no type'); continue; }
+    if (!VOCAB.types[ty] && ty !== 'generated') { add('error', f.rel, `template type "${ty}" is not in the vocabulary`); continue; }
+    const kk = VOCAB.types[ty] && VOCAB.types[ty].kindKey;
+    const kv = kk ? val(tn, kk) : undefined;
+    if (kv && VOCAB.types[ty].kinds.length && !VOCAB.types[ty].kinds.includes(kv)) add('error', f.rel, `template ${kk}="${kv}" is not in the vocabulary`);
+    const st = val(tn, 'status'); const okSt = VOCAB.statusByType[ty] || [];
+    if (st && okSt.length && !okSt.includes(st)) add('error', f.rel, `template status "${st}" is not allowed for type ${ty}`);
+    if (/\{\{date/.test(fs.readFileSync(f.abs, 'utf8'))) add('error', f.rel, 'template uses {{date}} (use Templater)');
   }
   const wfs = mdFiles.filter((f) => f.rel.startsWith('30_Order/Workflows/') && fs.statSync(f.abs).size > 0);
   for (const f of wfs) {

@@ -29,7 +29,7 @@ This is the standard for the one operating note of a course (`class_kind: prepar
   "match": {"type": "class", "kind": "preparation", "path": "^(20_Progress/Degree|40_Resources/UMN/Previous Classes|10_Areas/Notes)/", "where": {}, "where_not": {}},
   "status": ["seed", "sprout", "tree", "archived"],
   "required_keys": ["type", "class_kind", "status", "created", "updated", "tags", "area", "next"],
-  "key_types": {"created": "date", "updated": "date", "tags": "list", "area": "list", "deadline": "date"},
+  "key_types": {"created": "date", "updated": "date", "tags": "list", "area": "list", "deadline": "date?"},
   "headings": ["Where the Points Actually Are", "Cheapest Points", "The Real Traps", "Study Cadence", "Weekly Study Plan", "Open Question"],
   "optional_headings": ["Must-Do Habits", "Common Mistakes / Traps", "Professor-Specific Notes", "Week-by-Week Instructions"],
   "legacy_match": [

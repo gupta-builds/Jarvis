@@ -13,7 +13,7 @@ maps_to:
   - "[[Discussion Template]]"
 used_by:
   - "[[Discussion Workflow]]"
-gold_standard: "[[20_Progress/Degree/CSCI 4511W/Discussion/Discussion 1 — Turing 1950|Discussion 1 — Turing 1950]]"
+gold_standard: "[[20_Progress/Degree/CSCI 4511W/Discussion/Discussion 1 — Turing 1950|Discussion 1]]"
 notes:
   - "[[Weekly Standard]]"
   - "[[Homework Standard]]"
@@ -68,4 +68,4 @@ Optional. Only for a distinction worth recalling, on `#cards/<course-slug>`.
 - Durable claims were carried to the concept, weekly, or writing note, with a link back.
 - The note passes [[Vault Lint]] for `course-discussion`.
 ## Gold Standard Example
-[[20_Progress/Degree/CSCI 4511W/Discussion/Discussion 1 — Turing 1950|Discussion 1 — Turing 1950]]: Pre-work, Notes, a primary-source check, Flashcards, and Action items. It still uses `input_kind` and hash tags, which the Legacy Shapes table maps.
+[[20_Progress/Degree/CSCI 4511W/Discussion/Discussion 1 — Turing 1950|Discussion 1]] (the Turing 1950 discussion): Pre-work, Notes, a primary-source check, Flashcards, and Action items. It still uses `input_kind` and hash tags, which the Legacy Shapes table maps.

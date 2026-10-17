@@ -35,9 +35,11 @@ Follow the single read order in [[AI_CONTEXT]]. Do not read the full instruction
 
 Every note written into this vault follows a Standard, a Template, and (where one exists) a Workflow from `30_Order/`. This is strict.
 
-- Start from the matching file in `30_Order/Templates/`. Do not write frontmatter or headings that no template defines.
+- Find the note type in [[Note Type Registry]]. It names the Template, Standard, and Workflow, and the folder.
+- Start from the matching file in `30_Order/Templates/`. Do not write frontmatter or headings that no template defines. `type` and `status` come only from [[Frontmatter Standard]].
 - Read the matching Standard in `30_Order/Standards/` for what each heading must contain.
 - Follow the matching Workflow in `30_Order/Workflows/` for the process around it ([[00_Workflows Index]] lists them).
+- Before saving, run [[Vault Lint]] on the note. When you open an older note for any reason, bring it to its Standard in the same edit ([[Conformance on Touch]]).
 - If no template exists for the note type, do not improvise. Say so, and design the Standard, then the Template, then the Workflow, in that order ([[30_Order/00_How This Folder Works|How This Folder Works]]). Until then, write the note to `60_Claude/00_Inbox/`.
 
 ## Write Contract
@@ -62,14 +64,20 @@ Every agent follows this, regardless of which tool is driving. Full version: [[4
 | Summary of one source | `60_Claude/10_Source_Summaries/` | [[Source Summary Standard]] |
 | AI conversation summary | `60_Claude/07_AI_Information/AI Conversation - Summaries/` | [[Conversations]] |
 | Reusable distilled knowledge (a concept, not a source) | `60_Claude/20_Distilled_Notes/`, then promote to `40_Resources/` or `10_Areas/` once stable | [[Evergreen Standard]] |
-| Stable reference material (guide, cheat sheet, plugin doc, link) | `40_Resources/` + backlink to its `10_Areas/` domain | |
+| Stable reference material (guide, cheat sheet, plugin doc, link) | `40_Resources/` + backlink to its `10_Areas/` domain | [[Reference Standard]] |
 | Active project, internship, research, mentorship work | `20_Progress/` under the matching project | [[30_Order/Standards/Project Standard|Project Standard]] |
 | Canonical fact about a life domain | `10_Areas/`, patching by heading; no new top-level files without instruction | |
-| Synthesized project brief | `60_Claude/40_Project_Briefs/` | [[Brief Standard]] |
+| Summary of a meeting, call, or video (people talking) | `60_Claude/40_Project_Briefs/` or next to the project | [[Brief Standard]] |
+| Project spec or plan | `20_Progress/` next to the project | [[Spec and Plan Standard]] |
 | Map of next steps from a brief or note | next to the source note | [[Action Standard]] |
-| Reusable deliverable (story, bullet, prompt) | `60_Claude/40_Project_Briefs/` with `source_concepts:` provenance (no dedicated Outputs folder exists) | |
-| Daily, weekly, monthly review | `10_Areas/Life/Enumerate/` (Periodic Notes) or `60_Claude/30_Reviews/` | [[30_Order/Standards/AI Loop/Review System|Review System]] |
-| Dashboard or index | `60_Claude/44_Indexes/` | [[MOC Standard]] |
+| Reusable deliverable (story, bullet, one-pager, prompt) | next to the project it serves, with `source_concepts:` provenance (there is no Outputs folder) | [[Output Standard]] |
+| Daily note | `10_Areas/Life/Enumerate/Daily/` | [[Daily Note Standard]] |
+| Weekly, monthly, or yearly note | `10_Areas/Life/Enumerate/` | [[Periodic Review Note Standard]] |
+| AI tools review, capability review, audit report | `60_Claude/30_Reviews/` | [[Review Standard]], [[Capability Review Standard]], [[Audit Report Standard]] |
+| Standing plan | `10_Areas/Life/Plans/` | [[Plan Standard]] |
+| Map of a folder (MOC) | in the folder it maps | [[MOC Standard]] |
+| Dashboard, board, or Field OS note | `60_Claude/44_Indexes/` | [[Dashboard Standard]] |
+| Anything a tool wrote (graph export, mirror) | its generator's folder, marked `type: generated` | [[Generated Output Standard]] |
 | Session log entry | append to `60_Claude/07_AI_Information/Session Logs/log.md` | [[Log Standard]] |
 | New template, standard, workflow, or CLI tool | `30_Order/` (only when explicitly building one) | [[30_Order/00_How This Folder Works|How This Folder Works]] |
 | Visualization for a concept, project, or source | `10_Areas/Excalidraw/` | |

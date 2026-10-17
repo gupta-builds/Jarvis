@@ -1,30 +1,22 @@
 ---
 type: class
-input_kind: exam
+class_kind: exam
 status: seed
-created:
-updated:
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags:
+  - class
+  - exam
 area:
 deadline:
-tags:
-  - "#class"
-  - "#Exam"
 next:
 ---
 # <% tp.file.title %>
 ## Topics Covered
-<!-- Link the exact weeks and chapters named by the syllabus or instructor. Do not use vague scope. -->
--
+<!-- Link the exact weeks and chapters the syllabus or instructor names. Separate confirmed, unconfirmed, and out of scope. -->
 ## Format & Resources Allowed
-<!-- Record exam type, time limit, collaboration rules, notes, calculators, AI/tools, and every other stated restriction. -->
-- Format:
-- Time limit:
-- Resources allowed:
+<!-- Type, time limit, collaboration, permitted notes and tools, submission, late rules. Write Unverified where unknown. -->
 ## Study Plan
-<!-- Work backward from the date. Assign real review actions to real days, hardest topics first. -->
-- [ ] 
+<!-- Work backward from the date: real days, real tasks, hardest topics first. -->
 ## Post-Exam Reflection
-<!-- Complete shortly after results return. Record each meaningful miss, its cause, and the change for the next exam. -->
-- What was missed:
-- Why:
-- What that changes for next time:
+<!-- Optional until results return. Each meaningful miss: cause, correction, next action. -->

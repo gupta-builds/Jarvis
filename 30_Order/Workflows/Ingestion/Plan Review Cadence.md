@@ -7,7 +7,7 @@ tags:
   - system
   - workflow
 system_kind: workflow
-serves: "[[Daily Workflow Standard]]"
+serves: "[[Plan Standard]]"
 trigger: A daily or weekly skill runs where a type plan note exists, or a new plan is created.
 notes:
   - "[[00_Workflows Index]]"
@@ -24,7 +24,7 @@ Keep a `type: plan` note wired into daily and weekly execution so it does not be
 3. `/weekly-review`: for each `active` plan whose `review_cadence` includes weekly, append one dated line to Current Progress. If Implementation Status drifted, patch that section by heading.
 4. Staleness: a plan with no new Current Progress entry for two review cycles is flagged in the weekly synthesis, the same bar as Never Miss Twice in [[10_Areas/Life/Plans/Fall 2026/Anti-Drift Rules|Anti-Drift Rules]].
 5. Expiry: a plan past its end date and still `active` is set to `complete` or `archived` in that review.
-6. Creation: follow [[Plans-to-Create]] with [[Plan Template]], and check the Done Conditions of [[Daily Workflow Standard]] before the plan counts as finished.
+6. Creation: follow [[Plans-to-Create]] with [[Plan Template]], and check the Done Conditions of [[Plan Standard]] before the plan counts as finished.
 7. Cleanup: when a plan and its tracker are two files, or two notes both claim to be the current status, merge them before adding content to either.
 ## Do not
 Do not rewrite Current Progress. Do not carry a staleness flag into a third cycle. Do not let a skill read a plan file by a hard-coded name; recheck the skill whenever the folder's file set changes.

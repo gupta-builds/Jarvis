@@ -36,7 +36,7 @@ This is the standard for plugin syntax inside a note: which plugin a given job b
 | Math and code | Latex Suite, fenced code with a language | Decoration |
 Dataview answers questions about notes; Tasks answers questions about actions. Do not build a second action system in inline fields.
 ## Dataview rules
-- Every `FROM` path exists today. Dead paths return nothing and look like an empty answer: 55 were found, among them `60_Claude/30_Source_Summaries`, `60_Claude/50_Reviews`, `10_UMN`, and `10_Areas/UMN`.
+- Every `FROM` path exists today. Dead paths return nothing and look like an empty answer. [[Vault Lint]] finds 93 notes with at least one, among them `20_Progress/UROP`, `10_UMN`, `60_Claude/30_Source_Summaries`, and `60_Claude/10_Session_Logs`.
 - Every field in `WHERE` or `TABLE` exists in at least three matching notes. If a query returns nonsense, fix the metadata before the query.
 - Restrict `FROM` by folder. A vault-wide query is slow.
 - Use DataviewJS only when plain Dataview cannot do it, with one sentence above the block. Never put a string-typed frontmatter value into `innerHTML`.
@@ -50,4 +50,4 @@ Open the note in reading view, or run [[Vault Lint]] on its path: it reports `de
 - No DataviewJS block lacks its one-sentence explanation.
 - No plugin setting, `data.json`, or secret was touched.
 ## Gold Standard Example
-[[00_Dashboard]]: every block reads real frontmatter, and the pattern breaks the moment a note's metadata drifts, which is the reason to keep the schema consistent.
+[[00_Dashboard]]: its Dataview blocks have no dead `FROM` path today and read real frontmatter, and the pattern breaks the moment a note's metadata drifts, which is the reason to keep the schema consistent. It still fails the dashboard family on vocabulary and hygiene, which the next touch fixes.

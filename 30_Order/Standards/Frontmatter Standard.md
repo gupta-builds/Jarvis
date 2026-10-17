@@ -34,7 +34,7 @@ Seventeen values. A note has exactly one.
 | `index` | A MOC: prose map of a folder | none | none |
 | `dashboard` | A live query surface or board | `dashboard_kind` | dashboard, board, habit-board, field-os, depth-ladder, question-bank |
 | `review` | A periodic or one-off review of work | `review_kind` | weekly, monthly, capability, internship-loop, ops, audit, curator, project |
-| `output` | A deliverable made from understanding | `output_kind` | story, bullet, prompt, post, resume, cover-letter |
+| `output` | A deliverable made from understanding | `output_kind` | story, bullet, one-pager, prompt, post, resume, cover-letter |
 | `action` | A link-dense map of next steps | none | none |
 | `tracker` | One application or item moving through stages | none | none |
 | `contact` | A person | none | none |

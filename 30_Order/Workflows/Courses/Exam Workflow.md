@@ -1,38 +1,36 @@
 ---
-type: evergreen
+type: system
 status: sprout
 created: 2026-09-08
-updated: 2026-09-20
+updated: 2026-10-16
 tags:
   - system
   - workflow
+system_kind: workflow
+serves: "[[Exam Standard]]"
+trigger: An exam, long quiz, or final is announced, and again when its results return.
 notes:
-  - "[[Exam Standard]]"
-  - "[[00_Workflows Index]]"
+  - "[[Exam Sheet Template]]"
+  - "[[Exam Material Standard]]"
+  - "[[Exam Material Template]]"
 ---
 # Exam Workflow
-Two separate passes on the same note, at two different times — build the study half before the exam, and do not consider the note finished until the reflection half is filled in after grades come back.
-**Use when:** an exam is announced (create the note, start the study half) and again when results are returned (finish the note, write the reflection half).
-**Moves:** syllabus exam-scope info + the course's own week/chapter notes → `<Course>/Exam/` (or wherever the course files exams), one note per exam.
-**Template:** [[Exam Sheet Template]]
-## Normative procedure
-Create the exam note when the assessment is announced, not the night before. Read the scope from the syllabus, instructor announcement, review sheet, or exam topics list and link exact weeks, textbook sections, concepts, assignments, and practice sources. Record format, duration, collaboration, allowed resources/tools, page limits, submission process, and late/makeup rules. If any rule is unknown, mark it `Unverified` and name the source to check.
-Build the Study Plan backward from the date: scope inventory -> concept-note strengthening -> flashcards -> active questions/problems -> format-matched timed practice -> final error review. Use rich concept notes, assignment mistakes, and planned questions as the core study material. Match practice to the assessment: open-resource work still needs retrieval/navigation practice; individual limited-resource work needs practice without unavailable help.
-After the exam, wait for results if needed, then record each meaningful miss, its cause, evidence, correction, and next action. Distinguish content, reasoning, misreading, timing, confidence, and process errors. Link corrections to concepts and add targeted cards/practice only when reusable. Feed the resulting pattern into the next preparation plan.
+Build the sheet before the exam and finish it after grades come back, so the reflection improves the next exam.
+## Use when
+An assessment is announced (create the sheet and the study half), and again when results return (write the reflection).
 ## Steps
-1. Read [[Exam Standard]] before writing — it governs the note this workflow creates.
-2. As soon as an exam is announced, create the note from [[Exam Sheet Template]] and fill in Topics Covered and Format & Resources Allowed straight from the syllabus or the professor's review announcement — do not guess scope.
-3. Build the Study Plan working backward from the exam date, hardest topics first.
-4. Sit the exam.
-5. The same day results come back, fill in Post-Exam Reflection — what was actually missed and why, not a general impression.
-6. If a pattern emerges (a topic type that keeps costing points, a time-management issue), carry that forward explicitly into the next exam note's Study Plan rather than leaving it buried in this one's reflection.
-## Frontmatter to set
-```yaml
-type: class
-input_kind: exam
-status: seed
-```
+1. Read [[Exam Standard]]. Create the sheet from [[Exam Sheet Template]] as soon as the assessment is announced, not the night before.
+2. Fill Topics Covered and Format & Resources Allowed from the syllabus, the announcement, or the review sheet. Mark any unknown rule `Unverified` and name the source to check.
+3. Link the exact weeks, textbook sections, concepts, assignments, and practice sources. Separate confirmed, unconfirmed, and out-of-scope material.
+4. Build the Study Plan backward from the date: scope check, concept-note strengthening, flashcards, active problems, timed practice that matches the format, final error review. Practice the way the rules allow: open-resource work still needs retrieval practice, and individual limited-resource work needs practice without the unavailable help.
+5. Put any drill bank, practice set, or review map in its own note from [[Exam Material Template]] and link it from the Study Plan.
+6. Sit the exam.
+7. When results return, write the Post-Exam Reflection: each meaningful miss, its cause (content, reasoning, misreading, timing, confidence, or process), the correction, and the next action.
+8. Link each correction to its concept or homework note. Add a card only when the gap is reusable. Carry the pattern into the next sheet's Study Plan and the course Preparation note.
+9. Run [[Vault Lint]] on the path. Set `status: sprout` only after the reflection exists.
+## Do not
+Do not guess scope, carry one assessment's rules to another, or leave the reflection as a placeholder.
 ## Done when
-- Topics Covered and Format & Resources Allowed were filled in before the exam, not reconstructed after.
-- Post-Exam Reflection is filled in within a day or two of grades posting.
-- `status` moved to `sprout` once the reflection half exists.
+- Topics and format were written before the exam, not reconstructed after.
+- The reflection exists within a day or two of grades posting.
+- Corrections are linked to concepts and the next plan.

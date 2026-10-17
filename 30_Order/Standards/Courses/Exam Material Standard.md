@@ -11,11 +11,11 @@ family: course-exam-material
 tier: 1
 maps_to:
   - "[[Exam Material Template]]"
-used_by:
-  - "[[Exam Workflow]]"
+used_by: []
 gold_standard: "[[40_Resources/UMN/Previous Classes/Lib Ed/BIOL 1012/Theme 4/Theme 4 Prediction Drill Bank|Theme 4 Prediction Drill Bank]]"
 notes:
   - "[[Exam Standard]]"
+  - "[[Exam Workflow]]"
   - "[[Homework Standard]]"
 ---
 # Exam Material Standard

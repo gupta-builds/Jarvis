@@ -29,7 +29,7 @@ This is the standard for the sheet of one midterm, final, or long quiz (`class_k
   "match": {"type": "class", "kind": "exam", "path": "^(20_Progress/Degree|40_Resources/UMN/Previous Classes|10_Areas/Notes)/", "where": {}, "where_not": {}},
   "status": ["seed", "sprout", "tree", "archived"],
   "required_keys": ["type", "class_kind", "status", "created", "updated", "tags", "area", "next"],
-  "key_types": {"created": "date", "updated": "date", "tags": "list", "area": "list", "deadline": "date"},
+  "key_types": {"created": "date", "updated": "date", "tags": "list", "area": "list", "deadline": "date?"},
   "headings": ["Topics Covered", "Format & Resources Allowed", "Study Plan"],
   "optional_headings": ["Post-Exam Reflection"],
   "legacy_match": [

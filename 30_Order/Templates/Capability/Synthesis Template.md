@@ -1,8 +1,8 @@
 ---
 type: evergreen
 status: seed
-created: {{date:YYYY-MM-DD}}
-updated: {{date:YYYY-MM-DD}}
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
 tags:
   - evergreen
   - synthesis

@@ -5,49 +5,24 @@ created: <% tp.date.now("YYYY-MM-DD") %>
 updated: <% tp.date.now("YYYY-MM-DD") %>
 tags:
   - brief
-input_kind: transcript
+input_kind: brief
 source_note:
 related_progress: []
 next:
 ---
 # <% tp.file.title %>
-
 **Source:**
 **Transcript:**
 **Date of conversation:**
-
 ## What This Was
-
-One to three sentences: what kind of transcript this is (meeting, video, call, written exchange) and who was involved. Enough that the brief is interpretable without opening the transcript.
-
+<!-- One to three sentences: what kind of conversation, who was in it, and any known limit such as unreliable speaker labels. -->
 ## What Was Decided
-
-Every concrete decision or resolution that came out of the conversation, one bullet each. If a thread never actually resolved, it does not belong here — say so in Open Questions instead of inventing a resolution.
-
-- **Decision:** Full sentence stating what was resolved.
-
+<!-- One bullet per real decision with a bold label. Say so if nothing was decided. -->
 ## Key Threads
-
-The substantive topics worth capturing in depth — the ones that actually mattered, not every tangent the transcript touched. One `###` subheading per thread, ordered by what matters most.
-
-### Thread Name
-
-What was actually discussed on this thread, compressed but complete. Bold the key names and terms on first mention. Link to the vault notes this thread connects to.
-
+<!-- One ### per substantive topic, ordered by what mattered most. Bold key names and link the vault notes each touches. -->
 ## Open Questions
-
-Unresolved threads, ambiguous passages that could not be confidently disambiguated, and anything the transcript assumed as known context that is not yet in the vault.
-
-- [ ] 
-
+<!-- Tasks only, as - [ ] items: unresolved threads, garbled passages, and context the vault lacks. -->
 ## Follow-Up Actions
-
-The high-level next steps only. The full link-dense breakdown happens in the linked action note `/note-to-actions` produces from this brief, not here.
-
-- [ ] 
-
+<!-- High-level next steps as - [ ] items. The linked breakdown is an action note. -->
 ## Related Notes
-
-Confirmed-existing wikilinks to notes this transcript touches. Grep before adding.
-
-- [[ ]]
+<!-- Verified wikilinks only, including the action note when one exists. -->

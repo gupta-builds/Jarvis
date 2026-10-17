@@ -1,23 +1,19 @@
 ---
 type: class
-input_kind: discussion
+class_kind: discussion
 status: seed
-created:
-updated:
-area:
-  - "[[UMN Board]]"
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
 tags:
-  - "#class"
-  - "#Discussion"
+  - class
+  - discussion
+area:
 next:
 ---
 # <% tp.file.title %>
 ## Pre-work
-<!-- Link or summarize the assigned paper, questions, or preparation task. -->
-- 
+<!-- Link the assigned reading or questions, name the source of the discussion material, and list the live questions. -->
 ## Notes
-<!-- Capture claims, objections, examples, and corrections—not a transcript. -->
-- 
+<!-- By claim or question, not by minute: claim, evidence, objection, correction, consequence. -->
 ## Action items
-<!-- Use tasks only for concrete follow-up work created by the discussion. -->
-- [ ]
+<!-- Task checkboxes only for real follow-up work, each with a done condition. -->

@@ -1,42 +1,34 @@
 ---
 type: class
-input_kind: board
+class_kind: board
 status: seed
-created:
-updated:
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags:
+  - class
+  - board
 area:
   - "[[UMN Board]]"
-tags:
-  - "#class"
 next:
 ---
 # <% tp.file.title %>
 ## Source of Truth
-<!-- Name the authoritative syllabus, Canvas page, source folder, or other live source. Record what was checked and when. -->
-
+<!-- Name the live syllabus, learning-management pages, and source folder, what each controls, and the date checked. -->
 ## Instructor & Logistics
-<!-- Record instructor, staff, meeting times, locations, office hours, and communication details from the source. -->
-
+<!-- Instructor, staff, meetings, locations, office hours, and channels, only when verified. -->
 ## Required Materials
-<!-- List only materials the course actually requires. Link local files or vault notes when they exist. -->
-
+<!-- Only what is required or clearly assigned. Link local files and notes that exist. -->
 ## Course Description
-<!-- State the catalog or syllabus description in your own compact wording. -->
-
+<!-- The catalog or syllabus description in compact wording. -->
 ## Prerequisites
-<!-- Record stated prerequisites and clearly label anything inferred or unconfirmed. -->
-
+<!-- Optional. Stated prerequisites, with anything inferred labeled. -->
 ## Learning Objectives
-<!-- Use testable abilities: what the student must explain, apply, implement, or analyze. -->
-
+<!-- Testable abilities: explain, implement, compare, derive. -->
 ## Grading Breakdown
-<!-- Copy weights, counts, and assessment rules from the authoritative source. Do not infer missing details. -->
-
+<!-- Weights, counts, submission, collaboration, and late rules copied from the source. Check that they reconcile. -->
 ## Weekly Schedule
-<!-- Map dates to lectures, readings, discussions, and deadlines. Keep deep lecture notes in Weekly/ notes. -->
-
+<!-- Every known week and date mapped to reading, lecture, discussion, assignment, quiz, and exam. -->
 ## Resources
-<!-- Link to the course folder, textbook map, weekly board, assignments, and other verified resources. -->
-
+<!-- Links to the textbook map, weekly board, preparation note, source folder, and active assignments. -->
 ## Verification Notes
-<!-- Record what was directly verified, what remains uncertain, and the date of the check. -->
+<!-- What was checked, when, what is uncertain, and what would resolve it. -->

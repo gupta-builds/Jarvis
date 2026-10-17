@@ -1,26 +1,27 @@
 ---
-type: index
+type: class
+class_kind: subboard
 status: seed
-created:
-updated:
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
 tags:
-  - moc
+  - class
+  - subboard
 notes: []
 next:
 ---
 # <% tp.file.title %>
 ## Purpose
-<!-- Name the course Board this index serves and what belongs in weekly notes instead. -->
-This indexes the weekly notes for this course; link the finished note to the course Board for grading, schedule, and policy.
+<!-- Name the course Board this index serves, the layer it indexes, and what belongs in the notes it points to. -->
 ## Map
-<!-- Add one sentence per completed week explaining what it covered and how it connects to the prior week. -->
+<!-- One entry per item: a real link and one sentence on what it covers and how it connects to the previous one. -->
 ## Status
-<!-- State whether the weekly-note layer is current, behind, or awaiting lecture capture. -->
+<!-- Ahead, current, behind, or blocked; the earliest incomplete item and the exact missing source or action. -->
 ## Dataview
-<!-- Keep the live query at the bottom. Replace the course folder path before using the template. -->
+<!-- Optional. Replace the folder path with the course's real folder and check that the query returns rows. -->
 ```dataview
 TABLE status, next
 FROM "<course folder path>/Weekly"
-WHERE input_kind = "lecture"
+WHERE class_kind = "week" OR input_kind = "lecture"
 SORT file.name ASC
 ```

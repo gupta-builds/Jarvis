@@ -1,58 +1,34 @@
 ---
-type: evergreen
-status: tree
+type: system
+status: sprout
 created: 2026-05-31
-updated: 2026-05-31
+updated: 2026-10-16
 tags:
   - system
   - workflow
   - enrichment
+system_kind: workflow
+serves: "[[Editing Standard]]"
+trigger: An existing note matters enough to deepen but is thin, with no examples, source anchors, or drills.
 notes:
-  - "[[00_Workflows Index]]"
   - "[[40_Resources/Obsidian/Jarvis Enrichment Engine]]"
-  - "[[40_Resources/Obsidian/Jarvis Vault Architecture]]"
+  - "[[HUMAN_WRITING]]"
 ---
 # Enrichment
-
-Strengthen an existing note without flattening it. The three-month target is 100+ enriched notes, where opening a major note feels like opening a private textbook page: clear, concrete, linked, testable, source-grounded. Enrichment adds depth; it does not rewrite the human voice underneath.
-
-**Use when:** a note has thin content, no examples, no source anchors, or no drills — and it matters enough to deepen.
-
-**Applies in place:** wherever the note already lives (`10_Areas/`, `20_Progress/`, `40_Resources/`, `60_Claude/20_Distilled_Notes/`). Enrichment does not move a note.
-
-**Template:** `30_Order/Templates/Capability/Jarvis Enrichment Template.md`. Full method: [[40_Resources/Obsidian/Jarvis Enrichment Engine]].
-
-## The rule that protects your notes
-
-Preserve the existing note. Append under a `## Jarvis Enrichment` or `## Addendum — Jarvis Enrichment YYYY-MM-DD` heading. Leave the original structure and wording visible. Never silently overwrite a human note with generic AI prose.
-
-## Levels
-
-- **Light** — definition, links, a few questions.
-- **Standard** — definition, mechanism, example, contrast, misconceptions, source anchors, drills.
-- **Deep** — formal model, implementation, worked examples, synthesis, evidence, an output artifact.
-
+Strengthen an existing note without flattening it. Depth is added under the owner's text, never over it.
+## Use when
+A note you rely on has thin content and its family Standard says what is missing. Enrichment applies in place and never moves the note.
 ## Steps
-
-1. Profile the note: what type and track is it, what headings are present, what is missing (examples? contrasts? source anchors? drills?).
-2. Pick a level by how much the note matters and how thin it is.
-3. Retrieve related notes and sources to pull from — enrichment is grounded, not invented.
-4. Draft the enrichment, then run a critic pass against [[HUMAN_WRITING]]: mechanism over vibes, real examples, honest uncertainty.
-5. Append it under the enrichment heading. Add drills (`#cards`) only for concepts already understood.
-6. Update metadata so dashboards can track it.
-
-## Frontmatter to update
-
-```yaml
-enrichment_status: enriched   # was candidate / in-progress
-enrichment_level: standard    # light | standard | deep
-source_status: vault-grounded # or mixed
-updated: YYYY-MM-DD
-```
-
+1. Profile the note: its family, the headings it has, and what the Standard says it lacks (example, contrast, source anchor, failure mode).
+2. Pick a level. *Light* adds a definition, links, and a few questions. *Standard* adds mechanism, an example, a contrast, misconceptions, and source anchors. *Deep* adds a formal model, an implementation, worked examples, and evidence.
+3. Retrieve the related notes and sources first. Enrichment is grounded in the vault, not invented.
+4. Draft the addition, then read it against [[HUMAN_WRITING]]: mechanism over vibes, real examples, honest uncertainty.
+5. Append it under `## Jarvis Enrichment` (or `## Addendum YYYY-MM-DD`), leaving the original structure and wording visible.
+6. Add cards only for concepts the note already explains.
+7. Move `updated`, bring the frontmatter to its Standard ([[Conformance on Touch]]), and add one session-log line naming the note and level.
+## Do not
+Do not rewrite the owner's prose or restructure a `status: tree` note without proposing it first. The keys `enrichment_status` and `enrichment_level` are dormant: no note uses them, so do not add them unless you are running this workflow on purpose, and they are never required.
 ## Done when
-
-- The original content is intact; new depth is appended, not overwritten.
-- The enrichment has mechanism, a concrete example, and source anchors.
-- `enrichment_status` and `enrichment_level` are set.
-- The session log records the note and level.
+- The original text is intact and the addition carries a mechanism, a concrete example, and a source anchor.
+- The note fits its family Standard better than before.
+- The session log has the line.

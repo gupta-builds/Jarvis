@@ -25,7 +25,7 @@ This is the Standard for `type: index` notes: the map of a folder or cluster, an
 {
   "family": "moc",
   "tier": 1,
-  "match": {"type": "index", "kind": null, "path": "", "where": {}, "where_not": {}},
+  "match": {"type": "index", "kind": null, "path": "^(?!20_Progress/Degree/|40_Resources/UMN/|10_Areas/Notes/)", "strict_path": true, "where": {}, "where_not": {}},
   "status": ["seed", "sprout", "tree", "archived"],
   "required_keys": ["type", "status", "created", "updated", "tags", "notes"],
   "key_types": {"created": "date", "updated": "date", "tags": "list", "notes": "list"},

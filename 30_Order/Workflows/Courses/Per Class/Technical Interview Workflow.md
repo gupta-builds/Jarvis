@@ -1,5 +1,6 @@
 ---
-type: evergreen
+type: system
+system_kind: guide
 status: sprout
 created: 2026-09-29
 updated: 2026-10-13

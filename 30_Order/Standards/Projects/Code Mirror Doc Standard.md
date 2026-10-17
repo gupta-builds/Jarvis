@@ -40,7 +40,7 @@ This is the standard for notes that document code that lives in another repo, on
 > [!WARNING]
 > A second `---` frontmatter block pasted into the body, with its own `tags` and `aliases`. Eighteen CausalOps notes carry one. Merge its keys into the real frontmatter.
 ### Title and lead
-`# filename — role` for a file, a plain name for a subsystem. The first paragraph says what the file is for and the boundary it owns. Name the repo path in it.
+`# filename: role` for a file, a plain name for a subsystem. The first paragraph says what the file is for and the boundary it owns. Name the repo path in it.
 ### Content sections
 Free `##` sections that follow the code's own parts. Use these titles when the content exists: `Key Functions`, `Key Constants`, `Invariants` (what must stay true, and what breaks if it does not).
 *Density:* explain behavior and contracts. Do not paste whole files.

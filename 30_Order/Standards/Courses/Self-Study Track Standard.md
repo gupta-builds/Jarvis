@@ -29,7 +29,7 @@ This is the standard for the hub note of one non-degree study track in `20_Progr
   "match": {"type": "class", "kind": "track", "path": "^20_Progress/Degree/_Courses/", "where": {}, "where_not": {}},
   "status": ["seed", "sprout", "tree", "archived"],
   "required_keys": ["type", "class_kind", "status", "created", "updated", "tags", "notes", "next"],
-  "key_types": {"created": "date", "updated": "date", "tags": "list", "notes": "list", "deadline": "date"},
+  "key_types": {"created": "date", "updated": "date", "tags": "list", "notes": "list", "deadline": "date?"},
   "headings": ["What This Is", "Resources", "Verification Notes"],
   "optional_headings": ["Why This One", "Study Plan", "Relation to _Courses Board"],
   "legacy_match": [

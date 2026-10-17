@@ -25,8 +25,8 @@ For strategy → [[Jarvis OS — North Star]].
 
 | Property              | Type    | Use                                                                                                                                        |
 | --------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| `type`                | text    | Note class: `input`, `evergreen`, `concept`, `project`, `thought`, `brainstorm`, `class`, `plan`, `review`, `dashboard`, `index`, `output` |
-| `status`              | text    | State or maturity: `seed`, `sprout`, `tree`, `active`, `paused`, `complete`, `archived`                                                    |
+| `type`                | text    | Note class. The closed list of 17 values, with their `*_kind` subtypes, lives in [[Frontmatter Standard]]. Do not copy it here.            |
+| `status`              | text    | State or maturity. The allowed values per type live in [[Frontmatter Standard]].                                                           |
 | `created`             | date    | Creation date                                                                                                                              |
 | `updated`             | date    | Last meaningful update                                                                                                                     |
 | `tags`                | tags    | Retrieval tags, not folder replacements                                                                                                    |

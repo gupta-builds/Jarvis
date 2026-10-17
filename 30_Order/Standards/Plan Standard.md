@@ -18,7 +18,7 @@ notes:
   - "[[Plans-to-Create]]"
   - "[[HUMAN_WRITING]]"
 ---
-# Daily Workflow Standard
+# Plan Standard
 ==A plan is a note a skill rereads on a schedule; without a stated cadence and a verified status it is a wish list with frontmatter.==
 This is the Standard for `type: plan` notes in `10_Areas/Life/Plans/`. The file keeps its old name until it is renamed Plan Standard. It keeps a plan wired into `/startday`, `/closeday`, and `/weekly-review`. It does not cover the daily or weekly note; those are [[Daily Note Standard]] and [[Periodic Review Note Standard]].
 ## Spec

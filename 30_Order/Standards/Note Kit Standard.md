@@ -21,7 +21,7 @@ notes:
 ---
 # Note Kit Standard
 ==A note kit is one Standard, one Template, and a Workflow only when the process repeats. It is written from real notes of that family, and it must be able to upgrade the old ones.==
-This is the standard for the files in `30_Order` themselves. It exists because the first generation of Standards was written after the notes (39 of 46 in September), described only the newest notes, and left 74% of the vault without a Standard. A kit that cannot be measured, or cannot upgrade an old note, is not finished.
+This is the standard for the files in `30_Order` themselves. The first generation of Standards was written after the notes, described only the newest ones, and left most of the vault without a Standard. A kit that cannot be measured, or cannot upgrade an old note, is not finished.
 ## The contract
 - One family, one kit. The family id is kebab-case and has a row in [[Note Type Registry]] before any file is written.
 - The Standard owns the rules, the Template owns the shape, the Workflow owns the process. No instruction prose in a Template. No steps in a Standard.
@@ -46,9 +46,17 @@ Under `## Spec`, one fenced `json` block per family. The linter reads it, so it 
   "optional_headings": ["Flashcards"]
 }
 ```
-`match.kind` is the value of the type's `*_kind` key. `where` and `where_not` compare other frontmatter keys. `match.path` is the allowed folder: a note of the right type in the wrong folder fails the placement check instead of vanishing as unmapped. `headings` are `##` titles, required and in order. Key types are `date`, `number`, `list`, `text`, `bool`, `wikilink`.
-`legacy_match` is an optional list that recognizes older notes of the family, such as `{"type": "class", "path": "^20_Progress/Degree/", "where": {"input_kind": "lecture"}, "absent": ["class_kind"]}`. A note found this way is scored on every check except mapping, which it fails as `legacy-shape`. That shows how far it is from fit and which upgrade it needs.
-Two more optional fields: `match.strict_path` (true means the Spec matches only inside `match.path`, so a stray note of the same type is not claimed), and `skip_checks` (check numbers from [[Conformance Standard]] that do not apply, for example `[5]` for raw machine exports whose blank lines the exporter writes). Use `skip_checks` only for machine-written families, and say why in the Standard.
+| Field | Meaning |
+|---|---|
+| `match.kind` | Value of the type's `*_kind` key |
+| `match.where`, `match.where_not` | Equality tests on other frontmatter keys |
+| `match.path` | Allowed folder (regex). A note of the right type in the wrong folder fails placement instead of vanishing as unmapped |
+| `match.strict_path` | `true` means the Spec matches only inside `match.path`, so a stray note of the same type is not claimed |
+| `headings` | `##` titles, required and in order |
+| `key_types` | `date`, `number`, `list`, `text`, `bool`, `wikilink`; a `?` suffix (`"date?"`) means the key must exist but may be blank |
+| `legacy_match` | Optional list recognizing older notes, such as `{"type": "class", "path": "^20_Progress/Degree/", "where": {"input_kind": "lecture"}, "absent": ["class_kind"]}`. A note found this way is scored on every check except mapping, which it fails as `legacy-shape` |
+| `skip_checks` | Check numbers from [[Conformance Standard]] that do not apply, such as `[5]` for raw machine exports. Machine-written families only; say why in the Standard |
+| `template` | The Template file a Spec belongs to, when a Standard holds several Specs |
 ## Template anatomy
 - Every required key is present. Predictable values are filled (`status: sprout`). Dates use `<% tp.date.now("YYYY-MM-DD") %>`; `{{date}}` is not allowed. A value never lists choices (`a | b | c`).
 - The title is `# <% tp.file.title %>`. Each spec heading follows in order with exactly one `<!-- -->` line of at most 140 characters saying what goes there.

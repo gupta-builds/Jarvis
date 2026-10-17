@@ -11,7 +11,7 @@ serves: "[[Daily Note Standard]]"
 trigger: The working day starts with /startday or ends with /closeday.
 notes:
   - "[[Better Today]]"
-  - "[[Daily Workflow Standard]]"
+  - "[[Plan Standard]]"
   - "[[Plan Review Cadence]]"
 ---
 # Daily Close Loop

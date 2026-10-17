@@ -139,7 +139,7 @@ What legitimately stays in `60_Claude` long-term is the operating machinery, not
 **Belongs:** `Standards/` (content contracts per note type), `Templates/` (empty scaffolds), `Workflows/` (the process around creating and updating each type), and `System/` (`jarvis-cli`, `jarvis-memory`, sync and Claude workflow tooling).
 **Does not belong:** knowledge, course material, PDFs, attachments. If it is not a standard, template, workflow, or tool, it does not belong here.
 **Who writes:** you. AI reads this folder as mandatory input and edits it only when the explicit task is building a standard, template, workflow, or tool.
-**Workflow:** see [[30_Order/00_How This Folder Works|How This Folder Works]] for the Standard, Template, Workflow split and the rule for adding a new note type.
+**Workflow:** every note type has a row in [[Note Type Registry]] naming its Template, Standard, Workflow, and folder. [[Frontmatter Standard]] owns the `type` and `status` vocabulary, and [[Vault Lint]] measures how many notes fit their Standard (target 90%). See [[30_Order/00_How This Folder Works|How This Folder Works]] for the split and the rule for adding a note type.
 
 ### 40_Resources: reference hub
 

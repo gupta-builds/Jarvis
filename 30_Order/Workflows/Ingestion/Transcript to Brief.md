@@ -1,54 +1,34 @@
 ---
-type: evergreen
-status: tree
+type: system
+status: sprout
 created: 2026-08-08
-updated: 2026-08-08
+updated: 2026-10-16
 tags:
   - system
   - workflow
+system_kind: workflow
+serves: "[[Brief Standard]]"
+trigger: A transcript of people talking is in the vault and worth turning into decisions and threads.
 notes:
+  - "[[Brief Template]]"
+  - "[[For Transcript]]"
   - "[[00_Workflows Index]]"
-  - "[[Brief Standard]]"
-  - "[[40_Resources/Obsidian/Jarvis Vault Architecture]]"
 ---
 # Transcript to Brief
-
-Turn any raw transcript — a meeting, a call, a YouTube video, a written exchange — into a brief that carries the decisions and threads, not the noise. This is the general-purpose entry point the `/transcript-to-brief` skill follows; it is not scoped to mentorship meetings even though the Mentorship Program folder is its first real use.
-
-**Use when:** a transcript has been pasted into the vault and is worth turning into something usable, whether or not you were an active participant in it.
-
-**Moves:** transcript note (wherever it was pasted) → brief note, saved to a sibling `Briefs/`-style folder if one exists next to the transcript's folder, otherwise saved alongside the transcript.
-
-**Template:** [[Brief Template]]
-
+Turn a meeting, call, video, or written exchange into a brief that carries the decisions and threads, not the noise. The `/transcript-to-brief` skill follows this.
+## Use when
+A transcript has been pasted into the vault, whether or not you took part in the conversation.
 ## Steps
-
-1. Confirm the raw transcript exists as its own note, using [[For Transcript]] if it was not already saved with proper frontmatter. **Never edit the raw transcript** — treat it the same as a `05_Clippings/` capture even outside that folder.
-2. Read [[Brief Standard]] before writing the brief body.
-3. Read the transcript once, fully, before asking anything.
-4. Ask, only where the transcript actually requires it:
-	- Disambiguation for garbled passages or unclear speaker attribution that would change what gets written.
-	- Which threads actually mattered enough to become a `### Key Threads` section, versus a passing mention.
-	- Any external context the transcript assumes as known (a project, a person, an acronym) that is not yet in the vault.
-5. Write the brief using [[Brief Template]]'s shape: source lines, What This Was, What Was Decided, Key Threads, Open Questions, Follow-Up Actions, Related Notes.
-6. Check for a sibling folder next to the transcript's folder whose name suggests brief output (`Briefs/`, `Summaries/`, `Debriefs/`). Save there if one exists; otherwise save in the same folder as the transcript.
-7. Wikilink every project, person, and concept the transcript actually touched. Verify each link exists before adding it to frontmatter.
-8. Set `next:` on the brief — usually a pointer at the `/note-to-actions` pass that turns Follow-Up Actions into a full linked action note.
-
-## Frontmatter to set
-
-```yaml
-type: input
-status: sprout
-input_kind: transcript
-source_note: "[[Transcript Filename.md]]"
-next: Run /note-to-actions against this brief
-```
-
+1. Confirm the raw transcript is its own note with `input_kind: transcript`, using [[For Transcript]] if it is not. Never edit it; treat it like a clipping.
+2. Read [[Brief Standard]], then read the whole transcript once before asking anything.
+3. Ask only what the transcript requires: garbled or unattributed passages that change meaning, which threads mattered, and any context it assumes that the vault lacks.
+4. Copy [[Brief Template]] and write the six sections.
+5. Save in a sibling `Briefs/` or `Debriefs/` folder if one exists next to the transcript, otherwise beside it.
+6. Set `source_note` to a quoted wikilink to the transcript, filename only, and verify every other link before adding it.
+7. Set `next` to the `/note-to-actions` pass, then run [[Vault Lint]] on the brief.
+## Do not
+Do not edit the transcript, guess at a garbled passage, or invent a decision for a thread left open.
 ## Done when
-
-- The raw transcript is untouched and saved with `type: input`, `status: seed` frontmatter.
-- The brief exists, saved next to the transcript or in its sibling Briefs-style folder.
-- Every ambiguous or garbled passage was either resolved by asking, or named in Open Questions — never silently guessed.
-- The brief links to every real project, person, and concept it touches.
-- The session log records the import.
+- The raw transcript is untouched and the brief links to it.
+- Every ambiguous passage is resolved by asking or named in Open Questions.
+- Lint reports the brief fits the `brief` family, and the session log records the import.

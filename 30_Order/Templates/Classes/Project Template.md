@@ -1,34 +1,30 @@
 ---
 type: class
-input_kind: project
+class_kind: project
 status: seed
-created:
-updated:
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags:
+  - class
+  - project
 area:
   - "[[UMN Board]]"
 deadline:
 related: []
-tags:
-  - "#class"
 next:
 ---
 # <% tp.file.title %>
 ## Overview
-<!-- State the deliverable, shared scaffold, and constraints in one to three sentences. -->
--
+<!-- What the deliverable requires and the shared scaffold or constraints, in one to three sentences. -->
 ## Project Options
-<!-- Document every option offered. Record what it does, techniques, starting files, and references; mark the chosen option. -->
--
+<!-- Optional. One ### per offered option; mark the chosen one (chosen). Delete if there was no choice. -->
 ## Chosen Project
-<!-- Explain the actual mechanism, parameters, invariants, tests, and implementation decisions precisely enough to rebuild it. -->
--
+<!-- Optional. The mechanism: data model, parameters, invariants, algorithm flow, tests, outputs. -->
 ## Concept Links
-<!-- Link verified weeks, chapters, and concepts genuinely used by the chosen project. -->
-- 
+<!-- Verified links to the concept, week, and textbook notes the project actually used. -->
 ## Work Log
-<!-- Record real progress, decisions, failures, and fixes as they happen. -->
-- 
+<!-- Dated, evidence-backed milestones and failures as they happen. -->
+## Submission
+<!-- Optional. Submission method, required reviews, and what was submitted. -->
 ## Post-Submit Reflection
-<!-- Complete shortly after submission. Name the first failure and the recurring pattern it reveals. -->
-- What failed first?
-- What pattern repeats?
+<!-- Within a day or two of submitting: what failed first and what pattern repeats. -->

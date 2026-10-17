@@ -19,7 +19,7 @@ notes:
   - "[[Per Project Review]]"
   - "[[Internship Loop Review Standard]]"
   - "[[Plan Review Cadence]]"
-  - "[[Daily Workflow Standard]]"
+  - "[[Plan Standard]]"
   - "[[Memory Management]]"
 ---
 # Review System
@@ -28,7 +28,7 @@ This is the map and shared contract for how reviews nest in this vault. It does 
 ## Review layers
 | Layer | Cadence | What it reviews | Standard or skill | Output goes to |
 |---|---|---|---|---|
-| Daily | each working day | the day's plan and scorecard | `/startday`, `/closeday`, [[Daily Workflow Standard]] | the daily note in `10_Areas/Life/Enumerate/Daily/` |
+| Daily | each working day | the day's plan and scorecard | `/startday`, `/closeday`, [[Plan Standard]] | the daily note in `10_Areas/Life/Enumerate/Daily/` |
 | Project | weekly or monthly per project | one project note's truth and stall state | [[Per Project Review]] | the project note's own `## Log` |
 | Plan | each review cycle | a `type: plan` note's progress | [[Plan Review Cadence]] | the plan's Current Progress section |
 | Internship loop | weekly and monthly | the internship pipeline's output | [[Internship Loop Review Standard]] | `60_Claude/30_Reviews/Internship Loop/` |

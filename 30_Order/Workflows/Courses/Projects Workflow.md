@@ -1,38 +1,35 @@
 ---
-type: evergreen
+type: system
 status: sprout
 created: 2026-09-08
-updated: 2026-09-20
+updated: 2026-10-16
 tags:
   - system
   - workflow
+system_kind: workflow
+serves: "[[Course Project Standard|Course Project Standard]]"
+trigger: A course project or multi-week build is assigned.
 notes:
-  - "[[Project Standard]]"
-  - "[[00_Workflows Index]]"
+  - "[[Project Template]]"
+  - "[[Course Production Workflow]]"
 ---
 # Projects Workflow
-Document every option a project offers before committing to one, then keep the note open through the whole build so the post-submit reflection is written from real memory, not reconstructed after the deadline.
-**Use when:** a multi-week course project gets assigned.
-**Moves:** the assignment's option list + the shared starter scaffold → `<Course>/<Project Name>.md` plus a matching working folder, per [[Project Standard]].
-**Template:** [[Project Template]]
-## Normative procedure
-Create the project note when assigned and before choosing an option. Read the full prompt/rubric, every file in the project folder, the shared scaffold, relevant lecture/textbook material, practice files, and any named papers or methods. Document every offered option with purpose, technique, starting files, constraints, evaluation, and references. Mark the selected option only after the choice is real.
-During the build, make `Chosen Project` precise enough to rebuild: data model, parameters, invariants, algorithm flow, test cases, outputs, and implementation decisions. Use Work Log entries for evidence-backed milestones and failures, not a plan written retroactively. Link only concepts/weeks/chapters actually used. Record submission and required reviews, then complete Post-Submit Reflection within a day or two and propagate recurring patterns to concepts and preparation.
+Document every option before committing, then keep the note open through the build so the reflection comes from real memory.
+## Use when
+A midterm project, final project, or multi-week course build is assigned.
 ## Steps
-1. Read [[Project Standard]] (the `Standards/Courses/` one, not the general `20_Progress/` Project Standard) before writing.
-2. As soon as the assignment is out, create the project note from [[Project Template]] and document every option offered under `## Project Options` — even the ones not being picked.
-3. Once an option is chosen, mark it `(chosen)` in its heading and write `## Chosen Project` with the actual mechanism, real parameters, and real test setup — specific enough to rebuild from the note alone.
-4. Link `## Concept Links` to the specific weeks and chapters the chosen approach draws from, verified to exist.
-5. Build the project, using the note's Work Log (from [[Project Template]]) to track real progress, not a plan written in advance.
-6. Within a day or two of submitting, write `## Post-Submit Reflection` — what failed first, and what pattern that suggests for the next project.
-## Frontmatter to set
-```yaml
-type: class
-input_kind: project
-status: seed
-```
+1. Read the course Project Standard (the `Standards/Courses/` one, not the `20_Progress` one). Create the main note from [[Project Template]] when the project is assigned, before choosing an option.
+2. Read the full prompt and rubric, every file in the project folder, the shared scaffold, the lecture and textbook material that introduced it, and any named papers.
+3. Write Overview, and record whether the artifact is a problem set, writing assignment, or final project, because the integrity and collaboration rules may differ.
+4. If options are offered, document every one (purpose, technique, starting files, constraints, references). Mark the chosen one only when the choice is real.
+5. Write Chosen Project with the data model, parameters, invariants, algorithm flow, tests, and outputs, precise enough to rebuild.
+6. Keep the Work Log with dated, evidence-backed milestones and failures. Give the code walkthrough, oral-exam drills, a report, or option notes their own companion notes with `project_role: companion`, linked to this one.
+7. Link Concept Links to the weeks, chapters, and concepts actually used.
+8. Record Submission, then write Post-Submit Reflection within a day or two. Carry recurring patterns to the concept and preparation notes.
+9. Run [[Vault Lint]] on the path.
+## Do not
+Do not claim a result, paper, or test you did not inspect.
 ## Done when
-- Every option the assignment offered is documented, chosen or not.
-- Chosen Project names real specifics, not a generic description of the algorithm.
-- Post-Submit Reflection exists and was written close to submission, not months later.
-- `status` moves to `sprout` once Chosen Project and Concept Links are both filled in.
+- Every offered option is documented.
+- Chosen Project names real parameters and test data.
+- The reflection was written close to submission.

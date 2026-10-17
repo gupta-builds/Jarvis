@@ -1,54 +1,41 @@
 ---
-type: evergreen
+type: system
 status: sprout
 created: 2026-09-20
-updated: 2026-09-20
+updated: 2026-10-16
 tags:
   - system
   - workflow
+system_kind: workflow
+serves: "[[Degree Control Standard]]"
+trigger: A course starts, a term is reset, or a week of course notes is due to be produced.
 notes:
   - "[[Board Standard]]"
   - "[[Weekly Standard]]"
   - "[[Textbook Standard]]"
   - "[[Concept Standard]]"
   - "[[Homework Standard]]"
-  - "[[00_Workflows Index]]"
 ---
 # Course Production Workflow
-This is the orchestration workflow for building a course knowledge system. Read it first, then read the workflow for the note type being created. Standards define what good content contains; this workflow defines the order in which source material becomes connected notes.
-## The production loop
+The order in which source material becomes connected course notes. Read this first, then the workflow for the note type being made.
+## Use when
+A course starts, a term is reset, or a week of notes is due. The Course Production Board holds the dispatch prompts per course.
+## Steps
+1. Read the course Board, the Preparation note, the source-folder instructions, and the Standards. Confirm the source hierarchy, textbook and edition, schedule, grading, and destination folder from authoritative sources.
+2. Create or repair the Textbook Map and the Weekly Board before large batches. Inventory missing source files and empty folders, and never fill a gap from memory.
+3. Per week, read the schedule row. Land or verify the textbook note before lecture ([[Textbook Workflow]]).
+4. Create the weekly note before lecture, with prepared source notes labeled `Pre-lecture source notes` in its Lecture area. Create or update the week's concept notes and mark what class must verify.
+5. During lecture the live capture goes in that Lecture area. Preserve it, and never replace it with an agent transcript.
+6. After lecture, reconcile the capture with the textbook, slides, code, assignments, and concepts. Update only what the actual emphasis or evidence changed.
+7. Produce the week's discussion, lab, homework, project, and quiz notes with their own workflows.
+8. Near an exam, strengthen the canonical concept notes first, then drill and solve format-matched questions ([[Exam Workflow]]). Do not turn every note into a cram note.
+9. Update the Weekly Board, Textbook Map, course Board, concept evidence, and `next` only after links and statuses are accurate.
+## Do not
+Do not invent a date, policy, code result, chapter coverage, discussion statement, or link. Preserve a source conflict instead of choosing.
+## Done when
+- Every note is source-grounded, linked both ways, correctly filed, and honest about uncertainty.
+- A concrete `next` remains when work remains.
 ```text
-Board/source inventory
-  -> textbook map and schedule
-  -> textbook note from landed source / NotebookLM output
-  -> pre-lecture weekly scaffold
-  -> concept notes from the week's available sources
-  -> live lecture capture in the weekly Lecture section
-  -> post-lecture reconciliation
-  -> assignments, discussion, lab, and project notes
-  -> concept/flashcard enrichment
-  -> exam practice and reflection
+Board and source inventory -> textbook map and schedule -> textbook note -> pre-lecture weekly scaffold -> concept notes
+-> live lecture capture -> post-lecture reconciliation -> discussion, lab, homework, project -> flashcards -> exam practice and reflection
 ```
-Do not skip backward links: a new note must connect to its source, its week, and the assessment or concept layer it serves.
-## Start-of-course or course-reset pass
-1. Read the course Board, Preparation note, local source-folder instructions, relevant templates, and course standards.
-2. Confirm the source hierarchy, textbook/edition, schedule, grading, assessment rules, and destination folder from authoritative sources.
-3. Create or repair the Textbook Map and Weekly Board before producing large note batches.
-4. Inventory missing source files, empty course folders, and unresolved questions. Do not fill gaps from memory.
-5. Set `next` to the earliest concrete production or verification action.
-## Weekly production pass
-1. Read the schedule row for the target week and identify all assigned textbook sections, slides/PDFs, notebooks/code, discussions, labs, and deadlines.
-2. Land or verify the textbook note before lecture. Use the established NotebookLM prompt for textbook extraction, then perform the source-check and Obsidian arrangement required by [[Textbook Workflow]].
-3. Create the weekly note before lecture. Put prepared slide/source notes in its `## Lecture` area and label them `Pre-lecture source notes`.
-4. Create/update concept notes for the scheduled material before lecture. Link them from the week and mark anything that must be verified in class.
-5. During lecture, the user writes live capture in that same `## Lecture` area. Preserve the capture; do not replace it with an agent-generated transcript.
-6. After lecture, reconcile the live capture with textbook, slides/PDFs, code, assignments, and concept notes. Update only the notes affected by actual emphasis, correction, or evidence.
-7. Process that week's discussion, lab, homework, project, or quiz notes using their specific workflows.
-8. Update the Weekly Board, Textbook Map, course Board, concept evidence, flashcards, and `next` only after links and statuses are accurate.
-## Assessment and exam pass
-Create assessment notes when assigned, not after submission. Track requirements, collaboration, hidden secondary deadlines, actual work, evidence, feedback, and reflection. When an exam is near, strengthen the canonical concept notes first, then drill flashcards and solve format-matched questions. Do not turn every course note into a cram note.
-## Source and uncertainty gate
-Every factual claim must be grounded in a real course source or labeled `Inferred`/`Unresolved`. If sources conflict, preserve the conflict and ask the user or check the live authoritative source. Never invent a date, policy, code result, chapter coverage, discussion statement, or missing link to make the graph look complete.
-## Completion gate
-A production pass is complete only when the note is source-grounded, linked both ways, correctly filed, honest about uncertainty, and leaves a concrete `next` action when work remains.
-

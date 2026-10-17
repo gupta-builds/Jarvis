@@ -34,7 +34,7 @@ This is the standard for the index of one layer inside a course (`class_kind: su
   "headings": ["Purpose", "Map", "Status"],
   "optional_headings": ["Dataview", "Links"],
   "legacy_match": [
-    {"type": "index", "path": "^(20_Progress/Degree|40_Resources/UMN/Previous Classes|10_Areas/Notes)/[^']*(Weekly Board|Concepts Board|Concept Board|Project - [0-9]+ Board|Readings Log)\\.md$"}
+    {"type": "index", "path": "^(20_Progress/Degree|40_Resources/UMN/Previous Classes|10_Areas/Notes)/.*(Weekly Board|Concepts Board|Concept Board|Project - [0-9]+ Board|Readings Log)\\.md$"}
   ]
 }
 ```

@@ -4,7 +4,7 @@ status: active
 created: 2026-08-09
 updated: 2026-09-15
 deadline: 2026-12-14
-review_cadence: "weekly via /weekly-review (sets next week's One Hard Thing); daily via /startday and /closeday (sets and checks the day's 80/20 split)"
+review_cadence: weekly via /weekly-review (sets next week's One Hard Thing); daily via /startday and /closeday (sets and checks the day's 80/20 split)
 tags:
   - plan
   - fall2026
@@ -20,12 +20,12 @@ notes:
   - "[[10_Areas/Life/Plans/Fall 2026/Fall 2026 Builds|Fall 2026 Builds]]"
   - "[[10_Areas/Life/Plans/Fall 2026/Anti-Drift Rules|Anti-Drift Rules]]"
   - "[[10_Areas/Life/Plans/Fall 2026/Weekly Rhythm|Weekly Rhythm]]"
-  - "[[30_Order/Standards/Daily Workflow Standard|Daily Workflow Standard]]"
-next: "Run the interactive Resume/Cover Letter evidence-bank rebuild (Research Loop Prompt 6) this week - it's the named blocker on every application after it. (System Design's resource is now picked - see [[20_Progress/Degree/_Courses/_Courses Board|_Courses Board]] - that clause is resolved and removed from this field.)"
+  - "[[Plan Standard|Plan Standard]]"
+next: Run the interactive Resume/Cover Letter evidence-bank rebuild (Research Loop Prompt 6) this week - it's the named blocker on every application after it. (System Design's resource is now picked - see [[20_Progress/Degree/_Courses/_Courses Board|_Courses Board]] - that clause is resolved and removed from this field.)
 ---
 # Fall 2026 Plan
 ==Accomplish what is written down, write down only what needs to be accomplished.== The frame this plan runs on - one goal, everything else scoped or cut against it - is [[10_Areas/Life/Plans/Fall 2026/Fall 2026 - The One Thing|Fall 2026 - The One Thing]]. Read that first; this note is the checkable system underneath it.
-- Full process for using this template: [[10_Areas/Life/Plans/Plans-to-Create|Plans-to-Create]]. Cadence and staleness rules: [[30_Order/Standards/Daily Workflow Standard|Daily Workflow Standard]].
+- Full process for using this template: [[10_Areas/Life/Plans/Plans-to-Create|Plans-to-Create]]. Cadence and staleness rules: [[Plan Standard|Plan Standard]].
 
 ## Goal
 Land a real Summer 2027 software engineering or AI/ML internship offer, proven by moving off zero applications sent (0 in `10_Areas/Career/Internships/Tracker/Each One/Applied/` as of 2026-09-07, against 18 already researched in `.../Current/`) before this plan's 2026-12-14 deadline.
@@ -119,4 +119,4 @@ Verified against real files as of 2026-09-07. Nothing here is rounded up.
 - **2026-10-04 (`/weekly-review`, W40)**: Closed out the 2026-09-28 carryover task - confirmed via live Google Calendar and Gmail search that "Fall AI Convention w/ Nexus" never existed (zero matching events or threads). Week-by-week row corrected above. Internship tracker unchanged at 29 in `Current/`, 0 in `Applied/`, 0 in `Result/` since 2026-09-25 - zero net movement on either axis for over a week. `LeetCode & CodePath.md`'s Daily Log still has zero rows three weeks after creation. Daily notes exist for only 3 of the last 7 days (09-28, 09-29, 10-01 - and 10-01 is an unfilled Templater stub); 09-27, 09-30, 10-02, 10-03, 10-04 have no note at all.
 
 ## Update Protocol
-`/startday` sets `today_focus`, `today_80`, and `today_20` on `00_Dashboard.md` each morning - the 80 slot defaults to that week's floor systems (application conversion, LeetCode/CodePath) or the week's One Hard Thing from the table above; the 20 slot absorbs the trivial many (class steps, club admin, TradingView/Portfolio maintenance). `/closeday` checks whether the day's slice of the One Hard Thing actually happened and logs it. `/weekly-review` confirms or overrides next week's One Hard Thing against the table above, and re-verifies Implementation Status against real files - not memory. Two consecutive missed `/weekly-review` runs means a full re-scope conversation before this plan continues, per [[30_Order/Standards/Daily Workflow Standard|Daily Workflow Standard]].
+`/startday` sets `today_focus`, `today_80`, and `today_20` on `00_Dashboard.md` each morning - the 80 slot defaults to that week's floor systems (application conversion, LeetCode/CodePath) or the week's One Hard Thing from the table above; the 20 slot absorbs the trivial many (class steps, club admin, TradingView/Portfolio maintenance). `/closeday` checks whether the day's slice of the One Hard Thing actually happened and logs it. `/weekly-review` confirms or overrides next week's One Hard Thing against the table above, and re-verifies Implementation Status against real files - not memory. Two consecutive missed `/weekly-review` runs means a full re-scope conversation before this plan continues, per [[Plan Standard|Plan Standard]].

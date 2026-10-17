@@ -15,13 +15,13 @@ used_by:
   - "[[Daily Close Loop]]"
 gold_standard: none
 notes:
-  - "[[Daily Workflow Standard]]"
+  - "[[Plan Standard]]"
   - "[[Periodic Review Note Standard]]"
   - "[[Frontmatter Standard]]"
 ---
 # Daily Note Standard
 ==A daily note is the day's plan first and its record second: the plan sections make it fit, and closing the day only adds to it.==
-This is the Standard for the note in `10_Areas/Life/Enumerate/Daily/`. `/startday` writes the plan, `/closeday` may add a record, and the note fits whether or not the day is ever closed. Standing plans are [[Daily Workflow Standard]]; weekly, monthly, and yearly notes are [[Periodic Review Note Standard]].
+This is the Standard for the note in `10_Areas/Life/Enumerate/Daily/`. `/startday` writes the plan, `/closeday` may add a record, and the note fits whether or not the day is ever closed. Standing plans are [[Plan Standard]]; weekly, monthly, and yearly notes are [[Periodic Review Note Standard]].
 ## Spec
 ```json
 {

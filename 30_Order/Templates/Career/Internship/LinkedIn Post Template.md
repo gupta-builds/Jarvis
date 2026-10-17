@@ -1,6 +1,6 @@
 ---
 type: output
-status: draft
+status: sprout
 created:
 source_concepts: []
 posted_date:

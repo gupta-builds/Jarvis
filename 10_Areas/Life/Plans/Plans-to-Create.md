@@ -9,7 +9,7 @@ tags:
   - standards
 notes:
   - "[[30_Order/Templates/Career/Plan Template|Plan Template]]"
-  - "[[30_Order/Standards/Daily Workflow Standard|Daily Workflow Standard]]"
+  - "[[Plan Standard|Plan Standard]]"
   - "[[Plan Review Cadence]]"
   - "[[Plans Board]]"
   - "[[Final Month Plan (Jul 28 - Sep 1)|Final Month Plan (Jul 28 - Sep 1)]]"
@@ -34,7 +34,7 @@ Three checks, before opening the template:
 7. **Update Protocol** — name the exact skill (`/closeday`, `/weekly-review`, a monthly review) and cadence that will touch this note, and what happens on two consecutive misses.
 8. Set the frontmatter `review_cadence:` field to match what Update Protocol says in prose — the two must agree.
 9. **Link the plan from its folder's index or MOC** (e.g. a `00 -` index note) so it's discoverable without already knowing it exists.
-10. **Check it against [[30_Order/Standards/Daily Workflow Standard|Daily Workflow Standard]]'s Done Conditions**, line by line, before calling it finished.
+10. **Check it against [[Plan Standard|Plan Standard]]'s Done Conditions**, line by line, before calling it finished.
 11. **Wire it into [[Plan Review Cadence]]** — confirm which skill will actually read and update this note, and on what trigger.
 12. Log the creation in `60_Claude/07_AI_Information/Session Logs/log.md`.
 ## The One-Source-of-Truth Rule

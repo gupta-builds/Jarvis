@@ -60,7 +60,7 @@ Optional. Official docs or notes the steps came from.
 | `status: seedling` | `seed` | Mechanical |
 | One-Line Answer, Mechanism, Evidence From This Vault, Flashcards | Why This Note Exists, Steps, Checkpoints; drop Flashcards | Judgment |
 | Phase or Day sections, "Decommission steps" | Steps | Judgment |
-| "Live checkpoint — 2026-10-12", "Acer checkpoint" sections | Checkpoints entries | Judgment |
+| Sections titled "Live checkpoint" or "Acer checkpoint" with a date | Checkpoints entries | Judgment |
 | Dotfile snapshots (`.pre-acer`, `.bak-*`, plugin trees) in the same folders | Not notes; keep out of the vault tree | Out of scope here |
 ## Done Conditions
 - The note has Why This Note Exists, Steps, and Checkpoints, with `reference_kind: runbook`.

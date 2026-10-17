@@ -1,23 +1,16 @@
 ---
 type: output
 status: seed
-created: {{date:YYYY-MM-DD}}
-updated: {{date:YYYY-MM-DD}}
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
 tags:
   - output
 track: []
-output_kind:
+output_kind: story
 source_concepts: []
-notes: []
 ---
 # <% tp.file.title %>
-
-## Goal
-
-## Source Concepts
-
-## Draft
-
-## Evidence
-
-## Next Step
+## STAR Format
+<!-- Situation, Task, Action, and Result as four ### headings, each concrete to the project. -->
+## Why This Story Works
+<!-- Three or four reasons an interviewer would care. -->

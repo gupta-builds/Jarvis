@@ -1,47 +1,33 @@
 ---
-type: evergreen
-status: tree
+type: system
+status: sprout
 created: 2026-05-31
-updated: 2026-05-31
+updated: 2026-10-16
 tags:
   - system
   - workflow
+system_kind: workflow
+serves: "[[Evergreen Standard]]"
+trigger: A concept recurs across summaries, or one summary holds an idea worth owning.
 notes:
-  - "[[00_Workflows Index]]"
-  - "[[40_Resources/Obsidian/Jarvis Vault Architecture]]"
+  - "[[Source Summary Standard]]"
+  - "[[Promotion]]"
 ---
 # Summary to Distilled
-
-Turn one or more source summaries into a reusable concept note: knowledge *you* understand, not a record of what a source said. This is where understanding is built.
-
-**Use when:** a concept shows up across summaries, or one summary contains an idea worth owning permanently.
-
-**Moves:** `60_Claude/10_Source_Summaries/` → `60_Claude/20_Distilled_Notes/` (cross-concept comparisons go in `20_Distilled_Notes/Synthesis/`)
-
-**Template:** `30_Order/Templates/Capability/Synthesis Template.md` (or `Deep Dive Template.md` for a single deep concept)
-
+Turn summaries into knowledge you understand: your mechanism in your words, not a record of what a source said.
+## Use when
+The same idea shows up in two or more summaries, or one summary contains something you will reuse. A comparison of two domains is a synthesis note.
 ## Steps
-
-1. Search `20_Distilled_Notes/` for an existing note on the concept. If one exists, extend it instead of creating a sibling.
-2. Read `30_Order/Standards/Evergreen Standard.md` before writing. Write the concept in your own words. Hit at least: a one-line definition, why it matters, the mechanism (how it works), one concrete example from your vault (BOOM, a course, a project), and one contrast with a nearby idea people confuse it with.
-3. Record the failure mode or misconception — the thing that is easy to get wrong.
-4. Cite the source summaries it came from; wikilink them and any related concepts.
-5. State what is still unclear. A distilled note is allowed to be honest about its gaps.
-
-## Frontmatter to set
-
-```yaml
-type: evergreen
-status: sprout        # sprout until reused and trusted, then tree
-track: <ai|systems|algorithms|career|trading>
-source_status: vault-grounded   # or mixed
-enrichment_status: in-progress
-```
-
+1. Search `60_Claude/20_Distilled_Notes/` for the concept. If a note exists, extend it instead of creating a sibling.
+2. Choose the kind. A single idea uses [[Deep Dive Template]] (`evergreen_kind: distilled`). A comparison of two domains uses [[Synthesis Note Template]] and goes in `Synthesis/`.
+3. Read [[Evergreen Standard]], then write the claim in one sentence and the mechanism in your own words with one example from your own work.
+4. Record the failure mode, or what the idea is confused with.
+5. Link the summaries it came from under Evidence and its neighbors under Related. Set `status: seed`.
+6. State what is still unclear. A distilled note may be honest about its gaps.
+7. Run [[Vault Lint]] on the path and add one line to the session log.
+## Do not
+Do not file an implementation plan or an audit here, and do not copy a source's wording in place of the mechanism. Drill dates and `enrichment_*` keys are not set by this workflow.
 ## Done when
-
-- The note teaches the concept without the reader opening the sources.
-- It has a definition, a mechanism, a real example, and a contrast.
-- Gaps are stated, not hidden.
-- It links to its source summaries and its concept neighbors.
-- When the concept is stable and you have reused it, raise `status` to `tree` and consider [[Promotion]].
+- The note teaches the idea without the reader opening the sources.
+- It links its summaries and neighbors and names its gaps.
+- After the idea is reused, raise `status` to `tree` and consider [[Promotion]].

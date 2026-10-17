@@ -1,47 +1,36 @@
 ---
-type: evergreen
-status: tree
+type: system
+status: sprout
 created: 2026-05-31
-updated: 2026-05-31
+updated: 2026-10-16
 tags:
   - system
   - workflow
+system_kind: workflow
+serves: "[[Source Summary Standard]]"
+trigger: A clipping, PDF, web page, or video is worth keeping but too noisy to act on.
 notes:
-  - "[[00_Workflows Index]]"
-  - "[[40_Resources/Obsidian/Jarvis Vault Architecture]]"
+  - "[[Clipping Standard]]"
+  - "[[Repo Evaluation Standard]]"
+  - "[[PDF Extraction]]"
 ---
 # Capture to Summary
-
-Turn a raw source into a source-grounded summary you can actually use. This is the first compression step: raw stays raw, the summary carries the claims.
-
-**Use when:** you have a clipping, web page, video, PDF, or import worth keeping but too noisy to act on.
-
-**Moves:** `60_Claude/05_Clippings/` (raw, untouched) → `60_Claude/10_Source_Summaries/`
-
-**Template:** `30_Order/Templates/Capability/Clipping Distill Template.md`
-
+Turn one raw source into one summary that replaces it: raw stays raw, the summary carries the claims.
+## Use when
+A source sits in `60_Claude/05_Clippings/` (`Web`, `Videos`, `PDFs`) and has no summary yet.
 ## Steps
-
-1. Confirm the raw source is in `05_Clippings/` (under `Web/`, `Videos/`, or `AI Conversations/`). If it is pasted text with no home, drop it there first. **Never edit the raw file.**
-2. Create the summary in `10_Source_Summaries/` (use the matching `Web Ingestion/`, `Video Ingestion/`, or `Github Ingestion/` subfolder). Read `30_Order/Standards/Source Summary Standard.md` before writing.
-3. Extract, in this order: source pointer (URL/path), key claims, what is actually useful to Jarvis, what to ignore, and any entities or concepts worth their own note later.
-4. Label each claim's strength. If the source is weak, partial, or one person's opinion, say so.
-5. Wikilink the raw clipping and any existing concept or project notes the source touches.
-6. Add a one-line promotion recommendation: does any claim deserve a distilled note, or is this reference-only?
-
-## Frontmatter to set
-
-```yaml
-type: input
-status: sprout
-source_url: <link or path>
-source_status: externally-sourced   # or mixed / uncertain
-track: <ai|systems|algorithms|career|trading>   # if it fits one
-```
-
+1. Confirm the raw source is in `05_Clippings/` with its frontmatter complete ([[Clipping Standard]]). Pasted text with no home goes there first. Never edit the body.
+2. For a PDF, extract clean text first with [[PDF Extraction]].
+3. Search `10_Source_Summaries/` for an existing summary of this source and extend it instead.
+4. Copy [[Clipping Distill Template]] into the matching folder: `PDF Ingestion/Read/`, `Web Ingestion/`, or `Video Ingestion/`. A GitHub repo uses [[Repo Evaluation Template]] in `Github Ingestion/` instead.
+5. Write it from [[Source Summary Standard]]: the source line, every key claim, the full content in the source's order, and why it matters here.
+6. Label the strength of each claim. Say when the source is weak, partial, or one person's opinion, and mark your own inference as inferred.
+7. Wikilink the clipping and any existing concept or project the source touches. Write missing targets in the body as `(to create)`.
+8. Add the flashcards last, and a `- [ ]` under Open Questions if any claim deserves a distilled note.
+9. Run [[Vault Lint]] on the path and add one line to the session log.
+## Do not
+Do not edit the clipping, write cards from the raw clip, or use this template for a repository.
 ## Done when
-
-- The summary cites its source and separates claims from your inference.
-- The raw clipping is unchanged.
-- Useful claims are flagged for promotion; noise is named as noise.
-- One line is appended to the session log.
+- Reopening the source reveals nothing the summary lacks.
+- The clipping is unchanged and the summary links to it.
+- The note passes lint for `source-summary` and the log has its line.

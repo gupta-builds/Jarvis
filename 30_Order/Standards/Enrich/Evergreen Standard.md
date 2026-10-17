@@ -1,65 +1,105 @@
 ---
-type: evergreen
+type: system
 status: sprout
 created: 2026-06-01
-updated: 2026-06-01
+updated: 2026-10-16
 tags:
   - system
   - standards
-notes:
-  - "[[30_Order/Templates/Frontmatter/For Evergreen|For Evergreen]]"
+system_kind: standard
+family: distilled
+tier: 1
+maps_to:
+  - "[[Deep Dive Template]]"
+  - "[[Synthesis Note Template]]"
+used_by:
   - "[[Summary to Distilled]]"
-  - "[[Vault Rules — Complete AI Ruleset]]"
+gold_standard: "[[Observability in Backend vs Evaluation in AI]]"
+notes:
+  - "[[Source Summary Standard]]"
+  - "[[Concept Standard]]"
   - "[[HUMAN_WRITING]]"
 ---
 # Evergreen Standard
-==An evergreen note distills a reusable mechanism that outlives any single source — it exists because a concept recurred across sources or contexts, not because one source was worth keeping.==
-This is the content standard for `evergreen` notes in `60_Claude/20_Distilled_Notes/` (including `Synthesis/` cross-concept comparisons). The difference from a source summary: a summary is fixed to one source and never extended; an evergreen is owned knowledge that grows as new evidence and contrasts arrive. The difference from a concept note: a concept note is course-facing and exam-scoped; an evergreen is a transferable mechanism that connects work across the vault.
-## Maps To
-- Template: [[30_Order/Templates/Frontmatter/For Evergreen|For Evergreen]]
-## Used By Workflow
-- [[Summary to Distilled]] — the create-the-note step reads this Standard first. Search `20_Distilled_Notes/` for an existing note on the concept and extend it before creating a sibling.
-## Per-Heading Standard
+==An evergreen note distills a mechanism that outlives any one source. It exists because the idea recurred across sources or work, not because one source was worth keeping.==
+This is the standard for `evergreen` notes in `60_Claude/20_Distilled_Notes/` and the identity notes in `10_Areas/Life/Truths of Life/`. A source summary is fixed to one source and never grows; an evergreen is owned knowledge that grows. A course concept is exam-facing and lives under [[Concept Standard]]. Implementation plans and audits kept in this folder are not evergreen notes; see Legacy Shapes.
+## Spec
+```json
+{
+  "family": "distilled",
+  "tier": 1,
+  "template": "Deep Dive Template",
+  "match": {"type": "evergreen", "kind": "distilled", "path": "^60_Claude/20_Distilled_Notes/", "where": {}, "where_not": {}},
+  "status": ["seed", "sprout", "tree", "archived"],
+  "required_keys": ["type", "status", "created", "updated", "tags", "evergreen_kind", "track", "notes"],
+  "key_types": {"created": "date", "updated": "date", "tags": "list", "notes": "list"},
+  "headings": ["Core Claim", "Mechanism", "Why This Matters Here", "Failure Modes", "Evidence", "Related"],
+  "optional_headings": [],
+  "legacy_match": [{"type": "concept", "path": "^60_Claude/20_Distilled_Notes/"}, {"type": "evergreen", "path": "^60_Claude/20_Distilled_Notes/", "absent": ["evergreen_kind"]}]
+}
+```
+```json
+{
+  "family": "synthesis",
+  "tier": 1,
+  "template": "Synthesis Note Template",
+  "match": {"type": "evergreen", "kind": "synthesis", "path": "^60_Claude/20_Distilled_Notes/Synthesis/", "where": {}, "where_not": {}},
+  "status": ["seed", "sprout", "tree", "archived"],
+  "required_keys": ["type", "status", "created", "updated", "tags", "evergreen_kind", "concepts", "tracks"],
+  "key_types": {"created": "date", "updated": "date", "tags": "list", "concepts": "list", "tracks": "list"},
+  "headings": ["Core Claim", "Where They Converge", "Where They Diverge", "Transfer Value"],
+  "optional_headings": ["Diagnostic Question"],
+  "legacy_match": [{"type": "evergreen", "path": "^60_Claude/20_Distilled_Notes/Synthesis/"}]
+}
+```
+```json
+{
+  "family": "identity-note",
+  "tier": 1,
+  "match": {"type": "evergreen", "kind": "identity", "path": "^10_Areas/Life/Truths of Life/", "strict_path": true, "where": {}, "where_not": {}},
+  "status": ["seed", "sprout", "tree", "archived"],
+  "required_keys": ["type", "status", "created", "updated", "tags", "evergreen_kind"],
+  "key_types": {"created": "date", "updated": "date", "tags": "list"},
+  "headings": ["Log"],
+  "optional_headings": [],
+  "legacy_match": [{"type": "evergreen", "path": "^10_Areas/Life/Truths of Life/"}]
+}
+```
+## Headings
 ### Frontmatter
-`type: evergreen`, `status: sprout` (raise to `tree` only after the concept is reused and trusted), `tags: [evergreen]`, `notes:` linking the source summaries and concept neighbors it came from, `next:` if a concrete next move exists. Synthesis notes add `tracks:` for the domains they bridge.
+`type: evergreen`, `evergreen_kind` (`distilled`, `synthesis`, or `identity`), `status: seed` on first write and `tree` only after the idea has been reused, `track`, and `notes` linking the summaries and neighbors it came from. A synthesis note sets `concepts` and `tracks` (lists) for the ideas and domains it joins.
 > [!WARNING]
-> Promoting straight to `status: tree` on first write, or leaving `notes:` empty so the note is invisible to backlinks and the graph.
+> `status: tree` on first write, or an empty `notes:` that leaves the note out of every backlink.
 ### Core Claim
-The single most important thing the note establishes, in one sentence. This is the `==highlight==` anchor.
-*Density:* one sentence wrapped in `==...==`.
-> [!WARNING]
-> A topic label ("This note is about observability") instead of a claim. The synthesis note's claim: both observability and evaluation answer "why did this system produce this output," with identical reasoning under different vocabulary.
+One sentence in `==highlight==` stating what the note establishes. A topic label is not a claim.
 ### Mechanism
-How it works. Bold named concepts on first use; use `$...$` for notation and explain it. This is where the reusable understanding lives.
-*Density:* the bulk of the note — enough that a reader learns the mechanism without opening the sources. Use a table when mapping two domains (the synthesis note maps backend concept → AI/ML analog row by row).
-> [!WARNING]
-> Restating what one source said rather than explaining the mechanism in your own words. BOOM § subsystems explains *why* Redis sits alongside Kafka (fast internal handoff vs public stream), not just that both exist.
+How it works, in your own words, with named parts in bold and `$...$` for notation. Use a table when mapping two domains row by row.
+*Density:* the bulk of the note. [[BOOM]] explains why Redis sits beside Kafka (fast internal handoff against a public stream), not just that both exist.
 ### Why This Matters Here
-The connection to active work in Jarvis — a named project, course, or decision. No generic importance; name the use.
-*Density:* two to four sentences naming the real application.
-> [!WARNING]
-> "This is an important concept." The synthesis note names the transfer drill: if you built observability for BOOM, you already know how to build evaluation for an ML pipeline.
+Two to four sentences naming the project, course, or decision it serves.
 ### Failure Modes
-Where the mechanism breaks, or the nearby idea it is confused with. Anchor with a `> [!WARNING]` where a real trap exists.
-*Density:* the genuine breakages and confusions.
-> [!WARNING]
-> Skipping this because the note "feels finished." The synthesis note locates the hard cases at boundaries (API/auth/Kafka/workers in BOOM; retrieval/prompt/inference/parsing in AI).
+Where the mechanism breaks, or the neighbor it is confused with, anchored by a `> [!WARNING]` when a real trap exists.
 ### Evidence
-Verified wikilinks to the sources and vault notes that support the note. Grep each before writing.
-*Density:* link the source summaries it distills and the projects that prove it.
-> [!WARNING]
-> Citing sources that do not exist as vault notes, or no evidence at all on a `tree`-bound note.
+Verified wikilinks to the summaries it distills and the work that proves it.
 ### Related
-Wikilinks to nearby concepts. Link real relationships, not every keyword.
-*Density:* the genuine neighbors — three to seven.
-> [!WARNING]
-> Reflexively linking every term mentioned. BOOM § Related links its actual sibling notes (Alerts and Data Flow, Observability and Tracing), not every Rust keyword.
+Three to seven genuine neighbors. Not every keyword.
+### Synthesis headings
+*Core Claim:* the one parallel both domains share. *Where They Converge* and *Where They Diverge:* the mapping, with a table if rows help. *Transfer Value:* what you already know that carries over, as a drill when possible.
+### Identity notes
+Builder-identity evidence only. A dated `## Log` entry of one or two dense sentences, each pointing at shipped work, appended in the weekly, monthly, and yearly review.
+## Legacy Shapes
+| Old shape | New shape | Move |
+|---|---|---|
+| April `type: concept` deep dives (`Career Strategy`, `AI-Assisted Trading`, `Index Fund Investing`, `Mentorship and Networking`, `Scarcity Imprint`) with `Deep Dive`, `Diagnostic Questions`, drill dates | `type: evergreen`, `evergreen_kind: distilled`, the six headings; drop drill keys unless the drill loop is run | judgment |
+| Synthesis notes with `The Parallel`, `The Key Insight`, `Transfer Drill` | `Core Claim`, `Where They Converge`, `Where They Diverge`, `Transfer Value`; add `evergreen_kind: synthesis` | judgment |
+| `Synthesis Index`, `Distilled Notes Board` | Retype `index` or `dashboard` | mechanical |
+| `Sources - Plan/*` implementation plans, audits, restructure plans | Not evergreen; retype by use (`project_kind: plan`, `review_kind: audit`) | judgment |
+| `The Plan/*` staging notes | Move out when The Plan takes them | judgment, needs a yes |
+| `Identities`, `Personality` | Add `evergreen_kind: identity` | mechanical |
 ## Done Conditions
-- The note teaches the mechanism without the reader opening the sources.
-- One highlight (Core Claim); a real mechanism, a named use, a failure mode, and a contrast where one exists.
-- `Evidence` and `Related` link verified vault notes; gaps are stated, not hidden.
-- `status: tree` only after the concept has been reused.
-- Passes all 16 points of [[Vault Rules — Complete AI Ruleset]] Part 12.
+- A reader learns the mechanism without opening the sources.
+- One highlight, a named use, a failure mode, and a contrast where one exists.
+- `Evidence` and `Related` resolve, and gaps are stated.
+- The note passes [[Vault Lint]] for its kind.
 ## Gold Standard Example
-- [[Observability in Backend vs Evaluation in AI]] — a synthesis evergreen: one parallel claim, a domain-mapping table for the mechanism, a named transfer drill, and boundary-located failure modes.
-- [[BOOM]] — a mechanism-rich evergreen: every subsystem explained by *why* it exists, a Mermaid system diagram, and a dense Related section. Use it as the depth bar for the Mechanism section.
+[[Observability in Backend vs Evaluation in AI]]: one parallel claim, a mapping of backend concept to ML analog, and a named transfer drill. It predates the current synthesis headings, which the Legacy Shapes table maps.

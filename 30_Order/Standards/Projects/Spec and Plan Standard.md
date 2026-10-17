@@ -12,8 +12,7 @@ tier: 1
 maps_to:
   - "[[Project Spec Template]]"
   - "[[Project Plan Template]]"
-used_by:
-  - "[[Brief to Progress]]"
+used_by: []
 gold_standard: "[[20_Progress/Internship/Building System/Source of Truth|Source of Truth]]"
 notes:
   - "[[Project Standard]]"
@@ -87,7 +86,7 @@ When a claim turns out wrong, keep the original text and add a dated section: `#
 | `status: tree` or `sprout` | `active`, or `complete` if final | Judgment |
 | Spec headings: What This System Is, The End Goal, Explicit Non-Goals, Out of Scope | What This Is, Non-Goals | Judgment |
 | Plan headings: Path To N, Priority 1..N, Implementation Sequence, Execution Plan | Sequence | Judgment |
-| `## 2026-10-03 — Corrections (original text above kept)` | `## Corrections` with a dated entry inside | Mechanical |
+| A dated heading such as "2026-10-03 Corrections (original text above kept)" | `## Corrections` with a dated entry inside | Mechanical |
 | Portfolio design docs typed `concept` (about 85) | `type: project`, `project_kind: spec` | Judgment |
 | Roadmap with a status table | `project_kind: plan`; the table goes under Current State | Judgment |
 ## Done Conditions

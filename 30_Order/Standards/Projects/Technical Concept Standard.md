@@ -11,8 +11,7 @@ family: technical-concept
 tier: 1
 maps_to:
   - "[[Technical Concept Template]]"
-used_by:
-  - "[[Summary to Distilled]]"
+used_by: []
 gold_standard: none
 notes:
   - "[[Concept Standard]]"
@@ -26,7 +25,7 @@ This is the standard for `concept` notes outside the course folders: tool and te
 {
   "family": "technical-concept",
   "tier": 1,
-  "match": {"type": "concept", "kind": null, "path": "^(20_Progress/Projects/(?!CS/Portfolio)|20_Progress/Internship/|40_Resources/CS/(?!Concepts/New Laptop)|40_Resources/UMN/SAO/)", "where": {}, "where_not": {}},
+  "match": {"type": "concept", "kind": null, "path": "^(20_Progress/Projects/(?!CS/Portfolio)|20_Progress/Internship/|40_Resources/CS/(?!Concepts/New Laptop)|40_Resources/UMN/SAO/)", "strict_path": true, "where": {}, "where_not": {}},
   "status": ["seed", "sprout", "tree", "archived"],
   "required_keys": ["type", "status", "created", "updated", "tags", "track", "used_in", "evidence"],
   "key_types": {"created": "date", "updated": "date", "tags": "list", "track": "list", "used_in": "list", "evidence": "list"},

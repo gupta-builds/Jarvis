@@ -30,7 +30,8 @@ This is the standard for a bounded, graded course project (`class_kind: project`
   "match": {"type": "class", "kind": "project", "path": "^(20_Progress/Degree|40_Resources/UMN/Previous Classes|10_Areas/Notes)/", "where": {}, "where_not": {"project_role": "companion"}},
   "status": ["seed", "sprout", "tree", "archived"],
   "required_keys": ["type", "class_kind", "status", "created", "updated", "tags", "area", "next"],
-  "key_types": {"created": "date", "updated": "date", "tags": "list", "area": "list", "related": "list", "deadline": "date"},
+  "key_types": {"created": "date", "updated": "date", "tags": "list", "area": "list", "related": "list", "deadline": "date?"},
+  "template": "Project Template",
   "headings": ["Overview", "Concept Links", "Work Log", "Post-Submit Reflection"],
   "optional_headings": ["Project Options", "Chosen Project", "Submission"],
   "legacy_match": [

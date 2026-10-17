@@ -23,7 +23,7 @@ A repo needs a graph in Jarvis, a mirror was rebuilt, or a mirror's health check
 1. Check whether the repo is already mapped. If it is, skip to step 5.
 2. Choose the folder `60_Claude/40_Project_Briefs/<RepoName>/`. It must not hold hand-written notes.
 3. Build with `--obsidian --obsidian-dir` pointing at that folder, in the same pass as the graph build.
-4. Create the entry note from [[30_Order/Templates/AI Toolkit/Graphify Notes|Graphify Notes Template]] and fill Source, Mirror, and Last Build.
+4. Create the entry note from [[Graphify Notes Template|Graphify Notes Template]] and fill Source, Mirror, and Last Build.
 5. Run the three-count health check (folder `.md` count, manifest count, `graph.json` nodes) and add a dated row to the entry note.
 6. If the counts disagree, record the gap as an Open Question. Clean up orphans only after confirming in git that they are debris.
 7. Append one line to the session log ([[Memory Management]]).

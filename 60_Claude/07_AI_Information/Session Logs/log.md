@@ -1,4 +1,21 @@
+---
+type: system
+status: sprout
+created: 2026-06-02
+updated: 2026-10-17
+tags:
+  - log
+system_kind: log
+log_shape: narrative
+feeder: Anant and the working agents append continuity at the close of each meaningful session.
+order: newest-last
+scope: Session decisions, verified changes, and next actions belong here; detailed evidence and build records remain in the linked project notes.
+notes:
+  - '[[Builds - Jarvis]]'
+---
 # Session Log
+The `created` date is the earliest tracked version verified in Git, June 2, 2026; the actual creation date is unknown. `order: newest-last` applies to future entries. Earlier entries retain their mixed ordering, original formatting, and unresolved historical links.
+Rotation owner: Anant. The log exceeds the approximate 100 KB rotation threshold. After reviewing its mixed chronology, Anant will choose a month-by-month rotation that retains unchanged entries and links to the rotated files. No rotation or reordering was performed in this session.
 ## [2026-10-12] fix | Codex CLI daemon root-caused and fixed on the Dell; Antigravity updated, `agy` CLI still needs one in-app step
 
 Fixed the Dell's `codex` launch failure (`Error: daemon executable not found at ...\.codex\packages\app-server-daemon\current\bin\codex.exe`) and the Windows sandbox install that failed on every retry. Both traced to the same cause: the same era's C:-space cleanup that produced `codex-cleanup-quarantine-2026-09-20` (see [[C Drive Bloat - Failure Log and Prevention Rules]], failure #8) also redirected `.codex\packages` to `D:\Cache\codex\packages` via a directory junction, but left the `app-server-daemon` package there with a populated `releases\` folder, a stale 0-byte `install.lock` (2026-09-26), and no `current` pointer - so neither the daemon's own `codex.exe` nor the co-located `codex-windows-sandbox-setup.exe` could ever be found, no matter how many times either was retried. The npm-vendored `codex.exe` used for one-shot commands lives elsewhere and was never affected, which is why `codex doctor` reported healthy while the persistent daemon did not.
@@ -1784,3 +1801,10 @@ Rechecked the Dell after its WSL 3.0.1.0 update. The safe sparse conversion was 
 2026-10-15 - Acer WSL platform updated 2.7.14.0 to 3.0.3.0 (kernel 6.18.54.1) by the user-run 70-acer-wsl-update.ps1 and verified live: systemd running, 0 failed units, 19 GiB, 18 CPUs, 8 GiB swap, tmux 3.8, pnpm 12.4.2, socat present, MCP keys still narrowed and working, timers enabled, Dell reachable, no Tailscale in WSL. This closes the Acer builds (5b, 2 Acer items, Windows toolkit Parts 0 to 3). Open: user decisions and the planned WSL-role discussion; Docker Desktop must be reopened.
 2026-10-16 - Created [[20_Progress/Degree/CSCI 4061/Projects/Project - 2 Quiz|Project - 2 Quiz]] with an 18-question answer key checked against the Fall 2026 Project 2 starter code. Recorded the source files and flagged the submission-policy and Bash/SIGPIPE items as quiz-premise claims not independently established by code.
 2026-10-16 - Corrected [[20_Progress/Degree/CSCI 4061/Projects/Project - 2 Quiz|Project - 2 Quiz]] Questions 14 and 15 after auditing the quiz wording against the C signatures and fork setup: workers inherit preloaded matrix data, and the C functions formally accept `self` and `args` as `PyObject *`. Documented the conflicting pipe worker TODO for Q14.
+## [2026-10-17] document | Jarvis build history and restoration inventory
+- Created [[Builds - Jarvis]] with [[Jarvis Build History - July to October 2026]], [[Jarvis Current State - 2026-10-17]], and [[Jarvis Restoration Build Plan]]. The retrospective covers the reviewed July-to-October sources, retains original Sync and Old Laptop IDs, and states coverage and live-host limits.
+- Preserved the session's harness, graph, neural-network, memory, retrieval, and evaluation discussion in [[Jarvis AI Infrastructure - Concepts and Research]]. Kept advanced research conditional on restoring the basic workflows and establishing measured baselines.
+- Updated [[20_Progress/Projects/Jarvis & The Plan/Jarvis|Jarvis]], the three historical plans, [[Jarvis Enrichment Engine]], and [[Portfolio Option A — RAG + Hybrid Search (jarvis-memory Build)]]. Original design text remains with dated corrections; later source addenda supersede misleading historical completion claims.
+- Recorded Anant's October 17 reports that Syncthing works while internship research, conversation syncing, and ingestion are inactive on this laptop. The read-only Acer audit separately found the latest Git auto-sync run failed. Dell, WSL capture, and remote CI were not live-verified; historical successes do not certify current operation.
+- Main-session validation reports all 11 documentation notes passed targeted Vault Lint and original nonblank source-body lines were retained in the five legacy design/reference notes. New documentation links were checked; three unresolved old references remain only as inline-code historical evidence. No configuration, service, task, runtime, or repository history was changed. Legacy log entries remain untouched and are not claimed fully conformant.
+- Next: complete J0 in [[Jarvis Restoration Build Plan]] by reconciling host ownership and missing evidence before executing dependent restoration builds. Added log metadata and an owner-chosen rotation plan without rotating or rewriting prior entries.

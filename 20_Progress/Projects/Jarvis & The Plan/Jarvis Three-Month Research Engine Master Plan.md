@@ -1,8 +1,8 @@
 ---
 type: project
-status: active
+status: paused
 created: 2026-04-24
-updated: 2026-04-24
+updated: 2026-10-17
 tags:
   - project
   - jarvis
@@ -20,17 +20,27 @@ notes:
   - "[[What MCPs]]"
   - "[[Knowledge Enrichment Dashboard]]"
   - "[[Capability Dashboard]]"
-next: Build Week 1 registry hardening and conversation capture spine.
+next: Follow J0 in Jarvis Restoration Build Plan before resuming this historical design.
+project_kind: plan
+related_progress:
+  - '[[Jarvis Restoration Build Plan]]'
 ---
 # Jarvis Three-Month Research Engine Master Plan
+## Goal
+==Keep this original design available while the evidence-backed restoration plan orders current work.==
+## Sequence
+1. Complete J0 in [[Jarvis Restoration Build Plan]] to reconcile the two hosts and the available evidence.
+2. Restore the existing capture, ingestion, and context workflows before selecting further retrieval work.
+3. Reuse the applicable design below only after its prerequisites and completion gates have been checked.
+## Open Questions
+- [ ] Which original milestones have evidence of completion on each laptop?
+- [ ] Which original design choices remain appropriate after the current host inventory?
+The original dated design begins below. Its old links, paths, role assumptions, schedules, and target numbers are historical source text; [[Jarvis Restoration Build Plan]] owns current build order. Read the dated Corrections before acting on any original instruction.
 ## One-Line Mission
 Build Jarvis into my private AI research engine: a vault-native system that all my AI tools can read through Obsidian/MCP, that captures my future LLM conversations, strengthens my existing notes, and answers questions from my own knowledge with evidence.
 ## What Jarvis Is Supposed To Become
-
 Jarvis is not a notes folder with AI sprinkled on top.
-
 Jarvis is a separate project whose output is an operating system for my knowledge:
-
 - a private research engine
 - a learning coach
 - a semantic memory layer
@@ -38,82 +48,54 @@ Jarvis is a separate project whose output is an operating system for my knowledg
 - a source-grounded answer system
 - a conversation recorder for all LLMs I use
 - a place where every concept I care about becomes concrete, connected, and testable
-
 The future state is simple to describe:
-
 > Before any AI helps me, it can ask Jarvis what I already know, what I am working on, what I have tried, what decisions I made, and where the source notes are.
-
 Jarvis should make my AI tools feel less like strangers and more like agents inside my actual life context.
-
 ## Non-Negotiable Principles
-
 ### 1. Jarvis Is The Source Of Context
-
 Every AI I use should treat Jarvis as the context source:
-
 - Codex reads the vault before changing project files.
 - Claude Code reads `AI_CONTEXT`, dashboards, and relevant notes before writing.
 - Kiro specs link to Jarvis notes instead of inventing context.
 - Cursor rules point to Jarvis context files.
 - ChatGPT/Claude web conversations get exported or summarized back into Jarvis.
 - Ollama/local models operate on indexed vault content.
-
 ### 2. Human Notes Are Allowed To Stay Human
-
 Jarvis can edit this vault, but it should not flatten my notes into generic AI prose.
-
 Default enrichment rule:
-
 ```text
 preserve existing note
 append Jarvis Enrichment
 add links, definitions, examples, drills, source anchors
 leave original structure visible
 ```
-
 ### 3. Raw Conversation Is Not Knowledge Yet
-
 LLM conversations are valuable, but raw transcripts are noisy.
-
 Store three layers:
-
 1. raw conversation archive
 2. normalized machine registry
 3. human-useful distillation
-
 Only durable insights get promoted into concept notes, project briefs, outputs, or dashboards.
-
 ### 4. Jarvis Must Say What It Does Not Know
-
 The system is only useful if it can refuse fake certainty.
-
 Every answer should be able to say:
-
 - I found strong support in these notes.
 - I found partial support.
 - This is inferred.
 - The vault does not know this yet.
 - This note needs enrichment.
-
 ### 5. Build The Spine Before The Brain
-
 The first month should not chase fancy UI or agent hype.
-
 The spine is:
-
 - registry
 - indexing
 - conversation capture
 - context packs
 - enrichment queue
 - evaluation set
-
 Once that works, Jarvis can become powerful without becoming chaotic.
-
 ## Current Foundation
-
 Jarvis already has:
-
 - [[AI_CONTEXT]] as shared context manifest
 - [[00_Dashboard]] as control panel
 - [[40_Resources/Obsidian/Vault Operating System]] as schema contract
@@ -125,13 +107,9 @@ Jarvis already has:
 - `.kiro/specs/` as planning/spec layer
 - `.cursor/rules/` as Cursor context wrappers
 - Obsidian Local REST API MCP configuration
-
 The current problem is not lack of structure. The problem is lack of depth, indexing, and operational memory across all tools.
-
 ## Final Three-Month Outcome
-
 By the end of three months, Jarvis should be able to:
-
 1. ingest and index the whole vault
 2. record new AI conversations into a registry
 3. build context packs for any AI/tool
@@ -142,9 +120,7 @@ By the end of three months, Jarvis should be able to:
 8. expose gaps and contradictions
 9. produce research briefs from vault + sources
 10. act as the default memory layer for AI/ML projects I build later
-
 ## Architecture Overview
-
 ```text
 AI tools I use
   -> Obsidian MCP / local files / exports
@@ -155,15 +131,10 @@ AI tools I use
   -> semantic index + graph index
   -> Obsidian dashboards and notes
 ```
-
 ## Core Subsystems
-
 ### A. Vault Substrate
-
 Purpose: make the vault machine-readable and safe to operate on.
-
 Components:
-
 - Markdown note registry
 - frontmatter schema
 - file hash tracking
@@ -171,29 +142,21 @@ Components:
 - metadata health checks
 - enrichment candidate scoring
 - source/citation registry
-
 Main files:
-
 - `30_Order/System/jarvis-cli/`
 - `40_Resources/Obsidian/Vault Operating System.md`
 - `60_Claude/60_Indexes/Vault Health Dashboard.md`
 - `60_Claude/60_Indexes/Knowledge Enrichment Dashboard.md`
-
 ### B. AI Conversation Memory
-
 Purpose: capture LLM conversations so future tools can learn from decisions without reading raw chat dumps.
-
 Storage:
-
 ```text
 60_Claude/05_Clippings/AI Conversations/
 60_Claude/30_Source_Summaries/AI Conversations/
 30_Order/System/jarvis-memory/conversations.sqlite
 30_Order/System/jarvis-memory/conversations.jsonl
 ```
-
 Conversation schema:
-
 ```json
 {
   "conversation_id": "stable id",
@@ -212,34 +175,24 @@ Conversation schema:
   "checksum": ""
 }
 ```
-
 ### C. Context Pack Builder
-
 Purpose: give any AI exactly the relevant Jarvis context for the task.
-
 Pack types:
-
 - `live`: dashboard, session log tail, active projects
 - `project`: project notes, specs, decisions, open tasks
 - `topic`: concept notes, prerequisites, source summaries, related outputs
 - `agent`: tool-specific instructions for Codex, Claude, Cursor, Kiro
 - `research`: vault notes + source summaries + unanswered questions
-
 Context pack rule:
-
 ```text
 small enough to fit
 rich enough to orient
 cited enough to verify
 specific enough to act
 ```
-
 ### D. Semantic Index
-
 Purpose: retrieve by meaning, not just filenames.
-
 Index fields:
-
 - note path
 - heading path
 - chunk text
@@ -251,21 +204,15 @@ Index fields:
 - updated date
 - embedding model
 - hash
-
 Retrieval modes:
-
 - keyword search
 - semantic search
 - hybrid search
 - graph-expanded search
 - recent conversation search
-
 ### E. Knowledge Graph
-
 Purpose: make relationships first-class.
-
 Edges:
-
 - note links
 - prerequisites
 - used_in
@@ -276,22 +223,16 @@ Edges:
 - tracks
 - generated entities
 - conversation-to-note links
-
 Questions graph should answer:
-
 - What should I learn before this?
 - What projects prove this concept?
 - What notes repeat the same idea?
 - What source summaries feed this concept?
 - Which concept has no evidence?
 - Which AI conversation decided this?
-
 ### F. Enrichment Factory
-
 Purpose: turn weak existing notes into strong learning nodes.
-
 Pipeline:
-
 ```text
 candidate note
   -> profile note
@@ -303,13 +244,9 @@ candidate note
   -> update metadata
   -> create drills
 ```
-
 ### G. Query And Answer Engine
-
 Purpose: answer questions from Jarvis with citations and uncertainty.
-
 Answer modes:
-
 - quick answer
 - teach me
 - compare
@@ -320,13 +257,9 @@ Answer modes:
 - build plan
 - what do I know about X?
 - what am I missing about X?
-
 ### H. Research Workbench
-
 Purpose: help me explore AI/ML and other future projects without losing the trail.
-
 Research brief structure:
-
 - question
 - what Jarvis already knows
 - source notes
@@ -336,13 +269,9 @@ Research brief structure:
 - next notes to enrich
 - experiments to run
 - follow-up questions
-
 ### I. Evaluation And Truthfulness
-
 Purpose: prevent Jarvis from becoming a confident hallucination machine.
-
 Checks:
-
 - citation coverage
 - source support
 - contradiction detection
@@ -351,25 +280,15 @@ Checks:
 - retrieval hit-rate
 - human writing check
 - provenance labels
-
 ## Three-Month Build Map
-
 # Month 1 - Build The Spine
-
 Month 1 is about making Jarvis structurally aware of itself.
-
 No flashy interface yet. No pretending it is a perfect AI brain yet.
-
 The deliverable is the backend spine: registry, context packs, conversation capture, indexing, and a reliable enrichment queue.
-
 ## Week 1 - Jarvis Project Spine And Registry Hardening
-
 ### Goal
-
 Turn Jarvis into a visible standalone project with a clear build control plane.
-
 ### Build
-
 1. Create/maintain [[Jarvis]] as the project hub.
 2. Treat this file as the canonical three-month roadmap.
 3. Extend `jarvis_ops.py` into a stable CLI surface.
@@ -388,11 +307,8 @@ Turn Jarvis into a visible standalone project with a clear build control plane.
    - active conversations waiting for distillation
    - open benchmark failures
    - stale projects
-
 ### Implementation Details
-
 Registry tables:
-
 ```text
 notes(id, path, title, type, status, track, hash, updated, indexed_at)
 headings(id, note_id, heading, level, position)
@@ -402,41 +318,28 @@ conversations(id, source_app, title, started_at, raw_path, summary_path, status)
 enrichment_events(id, note_id, level, created, summary)
 benchmarks(id, question, expected_notes, status, last_score)
 ```
-
 ### Deliverables
-
 - Jarvis project hub
 - local registry folder
 - schema file
 - `jarvis status`
 - updated dashboard links
-
 ### Acceptance Test
-
 Run:
-
 ```powershell
 .\30_Order\System\jarvis-cli\jarvis.ps1 health
 .\30_Order\System\jarvis-cli\jarvis.ps1 enrich-candidates --limit 25
 ```
-
 Pass if:
-
 - Jarvis project appears in active projects
 - registry schema is documented
 - candidate queue is reproducible
 - no raw clippings are modified
-
 ## Week 2 - Conversation Capture Spine
-
 ### Goal
-
 Make Jarvis capable of remembering future LLM conversations without dumping chaos into the vault.
-
 ### Why This Matters
-
 You are going to use many AIs:
-
 - Codex
 - Claude Code
 - Kiro
@@ -445,36 +348,26 @@ You are going to use many AIs:
 - Claude web
 - Ollama/local models
 - future AI/ML agents
-
 If those conversations are not captured, your reasoning history disappears. If raw transcripts are dumped blindly, the vault becomes noise.
-
 ### Build
-
 1. Create folders:
-
 ```text
 60_Claude/05_Clippings/AI Conversations/
 60_Claude/30_Source_Summaries/AI Conversations/
 60_Claude/60_Indexes/AI Conversation Dashboard.md
 30_Order/System/jarvis-memory/
 ```
-
 2. Build conversation import command:
-
 ```powershell
 jarvis conversation-import "path/to/export"
 ```
-
 3. Build conversation registry command:
-
 ```powershell
 jarvis conversations
 jarvis conversations --undistilled
 jarvis conversations --project Jarvis
 ```
-
 4. Define conversation distillation template:
-
 ```markdown
 # Conversation Summary
 
@@ -488,53 +381,37 @@ jarvis conversations --project Jarvis
 ## Related Notes
 ## Should Be Promoted?
 ```
-
 ### Initial Adapters
-
 Build in this order:
-
 1. manual Markdown transcript import
 2. Codex/Codex Desktop exported summaries or copied session logs
 3. Claude Code/Claude exported conversation text
 4. Kiro spec conversation notes
 5. ChatGPT export format
 6. Cursor chat export or copied summary
-
 ### Acceptance Test
-
 Import three conversations:
-
 - one Jarvis/Codex conversation
 - one Kiro plan/spec conversation
 - one ChatGPT/Claude web conversation
-
 Pass if:
-
 - all three appear in registry
 - raw files stay in clippings
 - summaries are created in source summaries
 - session log gets one line per import
 - no transcript is promoted as durable knowledge automatically
-
 ## Week 3 - Context Pack Builder For All AIs
-
 ### Goal
-
 Make every AI tool start from Jarvis context.
-
 ### Build
-
 Command:
-
 ```powershell
 jarvis context-pack --mode live
 jarvis context-pack --mode project --project Jarvis
 jarvis context-pack --mode topic --query "MCP and Obsidian"
 jarvis context-pack --mode agent --agent codex
 ```
-
 ### Context Pack Format
-
 ```markdown
 # Jarvis Context Pack
 
@@ -547,76 +424,52 @@ jarvis context-pack --mode agent --agent codex
 ## Safety Rules
 ## Suggested Next Actions
 ```
-
 ### Agent-Specific Requirements
-
 Codex pack:
-
 - AGENTS.md
 - AI_CONTEXT.md
 - current project note
 - relevant files
 - latest session log entries
-
 Claude Code pack:
-
 - CLAUDE.md
 - AI_CONTEXT.md
 - skills/agents involved
 - relevant vault notes
-
 Kiro pack:
-
 - steering files
 - relevant spec folder
 - requirements/design/tasks links
-
 Cursor pack:
-
 - `.cursor/rules`
 - project context
 - coding/spec notes
-
 ChatGPT/Claude web pack:
-
 - compressed project summary
 - relevant notes
 - constraints
 - what not to rewrite
-
 ### Acceptance Test
-
 Ask three tools the same task after giving them a context pack:
-
 > What is Jarvis, what phase is it in, and what should I build next?
-
 Pass if their answers agree on:
-
 - Jarvis as separate project
 - current phase
 - active next action
 - no raw clipping mutation
 - enrichment-first note strategy
-
 ## Week 4 - Index V1 And Enrichment Factory V1
-
 ### Goal
-
 Make Jarvis able to profile any note and decide how to strengthen it.
-
 ### Build
-
 Commands:
-
 ```powershell
 jarvis index
 jarvis note-profile "path/to/note.md"
 jarvis enrich-plan "path/to/note.md"
 jarvis enrich-note "path/to/note.md" --dry-run
 ```
-
 ### Note Profile Should Show
-
 - note type
 - status
 - track
@@ -629,9 +482,7 @@ jarvis enrich-note "path/to/note.md" --dry-run
 - evidence links
 - drill fields
 - recommended enrichment mode
-
 ### Enrichment Plan Should Include
-
 - what to preserve
 - what to append
 - source notes to use
@@ -640,59 +491,39 @@ jarvis enrich-note "path/to/note.md" --dry-run
 - missing contrasts
 - drill suggestions
 - confidence
-
 ### Seed Work
-
 Enrich 25 notes:
-
 - 8 AI/tooling notes
 - 8 algorithms/programming notes
 - 5 systems/UROP notes
 - 4 project/career notes
-
 ### Acceptance Test
-
 Pass if:
-
 - enriched notes keep original content
 - `enrichment_status` is updated
 - each enrichment has source anchors
 - candidate queue decreases
 - no mass rewrite happens
-
 # Month 2 - Build The Brain
-
 Month 2 is where Jarvis starts acting like a knowledge engine.
-
 The goal is semantic retrieval, graph reasoning, question answering, and learning flows.
-
 ## Week 5 - Semantic Search And Chunk Index
-
 ### Goal
-
 Make Jarvis retrieve by meaning.
-
 ### Build
-
 1. Chunk all approved notes.
 2. Create embeddings locally first.
 3. Store embeddings with chunk IDs.
 4. Add semantic search command:
-
 ```powershell
 jarvis semantic-search "why does greedy fail for knapsack"
 ```
-
 5. Add hybrid search:
-
 ```powershell
 jarvis search "observability tracing metrics" --hybrid
 ```
-
 ### Approved Index Sources
-
 Index:
-
 - `10_UMN/`
 - `20_Progress/`
 - `40_Resources/`
@@ -700,13 +531,9 @@ Index:
 - `60_Claude/30_Source_Summaries/`
 - `60_Claude/40_Project_Briefs/`
 - selected conversation summaries
-
 Do not index raw clippings as equal peers.
-
 ### Ranking Formula
-
 Score should combine:
-
 - semantic similarity
 - keyword match
 - title match
@@ -715,31 +542,20 @@ Score should combine:
 - track match
 - graph distance
 - recency when useful
-
 ### Acceptance Test
-
 Create 30 semantic queries.
-
 Pass if top 5 results include expected notes at least 80% of the time.
-
 Example queries:
-
 - "local models for private note analysis"
 - "why tracing beats logs in a distributed system"
 - "how OCaml checks mistakes before runtime"
 - "what makes dynamic programming different from greedy"
 - "what should I build next for Jarvis"
-
 ## Week 6 - Knowledge Graph V1
-
 ### Goal
-
 Make relationships queryable.
-
 ### Build
-
 Commands:
-
 ```powershell
 jarvis graph build
 jarvis graph-neighborhood "OCaml"
@@ -747,9 +563,7 @@ jarvis prerequisites "Dynamic Programming"
 jarvis evidence "Observability and Tracing"
 jarvis gaps --track ai
 ```
-
 ### Graph Edge Types
-
 ```text
 links_to
 backlinked_by
@@ -762,43 +576,28 @@ same_track_as
 contrasts_with
 duplicate_candidate
 ```
-
 ### Graph Dashboards
-
 Create:
-
 - Knowledge Graph Dashboard
 - Orphan Concepts Dashboard
 - Prerequisite Gaps Dashboard
 - Evidence Graph Dashboard
-
 ### Acceptance Test
-
 Ask:
-
 - What concepts support Jarvis?
 - What concepts support AI/ML project readiness?
 - Which notes are central but under-enriched?
 - Which concepts have no proof/evidence?
-
 Pass if the graph returns useful neighborhoods, not only raw link lists.
-
 ## Week 7 - Ask Jarvis V1
-
 ### Goal
-
 Build the first answer engine.
-
 ### Command
-
 ```powershell
 jarvis ask "Explain MCP in the context of my vault"
 ```
-
 ### Answer Contract
-
 Every answer must include:
-
 ```markdown
 ## Answer
 ## Evidence From Jarvis
@@ -807,9 +606,7 @@ Every answer must include:
 ## What Jarvis Does Not Know Yet
 ## Next Useful Action
 ```
-
 ### Modes
-
 ```powershell
 jarvis ask "..." --mode quick
 jarvis ask "..." --mode teach
@@ -817,9 +614,7 @@ jarvis ask "..." --mode compare
 jarvis ask "..." --mode research
 jarvis ask "..." --mode exam
 ```
-
 ### Retrieval Pipeline
-
 ```text
 query
   -> classify intent
@@ -831,34 +626,23 @@ query
   -> answer with citations
   -> uncertainty check
 ```
-
 ### Acceptance Test
-
 Create a benchmark of 75 questions:
-
 - 15 definition questions
 - 15 comparison questions
 - 15 course/exam questions
 - 15 project context questions
 - 15 research synthesis questions
-
 Pass if:
-
 - answer cites sources
 - retrieved notes are relevant
 - uncertainty is explicit
 - no unsupported claims are presented as fact
-
 ## Week 8 - Tutor, Drill, And Learning Path Engine
-
 ### Goal
-
 Make Jarvis teach me.
-
 ### Build
-
 Commands:
-
 ```powershell
 jarvis teach "OCaml"
 jarvis quiz "Time Complexity"
@@ -866,9 +650,7 @@ jarvis drill-due
 jarvis learning-path "AI agents"
 jarvis explain-ladder "Dynamic Programming"
 ```
-
 ### Tutor Modes
-
 - beginner mode
 - 30-second review
 - deep dive
@@ -876,9 +658,7 @@ jarvis explain-ladder "Dynamic Programming"
 - interview mode
 - implementation mode
 - misconception mode
-
 ### Learning Path Output
-
 ```markdown
 # Learning Path
 
@@ -890,51 +670,34 @@ jarvis explain-ladder "Dynamic Programming"
 ## Build/Proof Task
 ## Evidence To Create
 ```
-
 ### Capability Integration
-
 Update only with approval:
-
 - `last_drilled`
 - `next_drill`
 - `mastery_score`
 - `mastery_level`
-
 ### Acceptance Test
-
 For 20 concepts:
-
 - generate a learning path
 - generate quiz questions
 - grade sample answers
 - suggest next drill date
 - produce evidence ideas
-
 # Month 3 - Build The Research Engine
-
 Month 3 turns Jarvis from a good vault assistant into a serious research system.
-
 It should help decide what to study, what to build, what is missing, and what sources to trust.
-
 ## Week 9 - Source Ingestion And Research Feed
-
 ### Goal
-
 Make external sources flow into Jarvis without polluting it.
-
 ### Build
-
 Commands:
-
 ```powershell
 jarvis ingest-source "file.md"
 jarvis ingest-batch --limit 5
 jarvis source-status
 jarvis source-dedupe
 ```
-
 ### Ingestion Pipeline
-
 ```text
 raw source
   -> clipping
@@ -944,9 +707,7 @@ raw source
   -> related note search
   -> promotion recommendation
 ```
-
 ### Source Summary Must Include
-
 - source URL/path
 - source type
 - date accessed
@@ -956,32 +717,21 @@ raw source
 - what should be ignored
 - related notes
 - promotion recommendation
-
 ### Acceptance Test
-
 Process 30 clippings.
-
 Pass if:
-
 - no raw clipping is rewritten
 - each summary cites source
 - duplicates are detected
 - only reusable ideas are promoted
-
 ## Week 10 - Research Brief Generator
-
 ### Goal
-
 Make Jarvis produce serious research briefs for topics I might deep dive into.
-
 ### Command
-
 ```powershell
 jarvis research "AI agents for personal knowledge systems"
 ```
-
 ### Research Brief Structure
-
 ```markdown
 # Research Brief
 
@@ -999,11 +749,8 @@ jarvis research "AI agents for personal knowledge systems"
 ## Project Ideas
 ## Next 7 Days
 ```
-
 ### Research Areas To Seed
-
 Because you are not sure yet where to deep dive in AI/ML, Jarvis should help explore:
-
 - AI agents
 - RAG and GraphRAG
 - local models and Ollama
@@ -1014,29 +761,19 @@ Because you are not sure yet where to deep dive in AI/ML, Jarvis should help exp
 - knowledge graphs
 - data pipelines for AI
 - observability for AI systems
-
 ### Acceptance Test
-
 Create 5 serious research briefs.
-
 Pass if each brief:
-
 - uses vault context
 - identifies what is missing
 - suggests experiments
 - links to notes
 - creates an enrichment queue
-
 ## Week 11 - Truthfulness, Validation, And Contradiction Layer
-
 ### Goal
-
 Make Jarvis trustworthy enough to rely on.
-
 ### Build
-
 Commands:
-
 ```powershell
 jarvis validate-answer "question"
 jarvis source-gaps
@@ -1044,9 +781,7 @@ jarvis contradiction-scan "MCP"
 jarvis stale-knowledge
 jarvis confidence-report
 ```
-
 ### Validation Checks
-
 1. Does the answer cite notes?
 2. Do cited notes actually support the answer?
 3. Is the claim copied, inferred, or external?
@@ -1054,39 +789,26 @@ jarvis confidence-report
 5. Is the note stale?
 6. Does the vault lack enough knowledge?
 7. Is the answer too generic?
-
 ### Confidence Labels
-
 Use:
-
 - `vault-grounded`
 - `source-grounded`
 - `inferred`
 - `uncertain`
 - `missing`
-
 ### Acceptance Test
-
 Build 30 trick questions:
-
 - things not in the vault
 - ambiguous topics
 - stale notes
 - duplicate concepts
 - partially supported claims
-
 Pass if Jarvis admits uncertainty instead of inventing.
-
 ## Week 12 - Operating System, Demo, And Scale Plan
-
 ### Goal
-
 Make Jarvis usable every day and ready for future AI/ML projects.
-
 ### Build Daily Loop
-
 Morning:
-
 ```text
 context pack
 health check
@@ -1095,9 +817,7 @@ top enrichment candidates
 active project next actions
 conversation import reminders
 ```
-
 During work:
-
 ```text
 ask Jarvis
 capture conversations
@@ -1105,9 +825,7 @@ enrich notes
 research topics
 log decisions
 ```
-
 Evening:
-
 ```text
 closeday
 conversation distillation
@@ -1115,9 +833,7 @@ what changed
 what is still open
 next actions
 ```
-
 Weekly:
-
 ```text
 10 notes enriched
 5 conversations distilled
@@ -1126,11 +842,8 @@ Weekly:
 benchmark run
 index rebuild
 ```
-
 ### Final Demo
-
 Jarvis should be able to perform this demo:
-
 1. Import an AI conversation.
 2. Summarize decisions.
 3. Link it to the Jarvis project.
@@ -1140,11 +853,8 @@ Jarvis should be able to perform this demo:
 7. Generate a learning path.
 8. Create a research brief.
 9. Log everything.
-
 ### Acceptance Test
-
 End-of-three-month targets:
-
 - 100+ enriched notes
 - 75 benchmark questions
 - 80%+ answer benchmark pass rate
@@ -1155,19 +865,12 @@ End-of-three-month targets:
 - context packs for Codex, Claude Code, Kiro, Cursor, ChatGPT/Claude web
 - every active project has `next`
 - Jarvis can say what it knows and what it does not know
-
 ## Detailed Workstreams
-
 ## Workstream 1 - Conversation Memory
-
 ### Why
-
 The biggest missing layer is durable conversation memory.
-
 You are going to make many decisions with LLMs. If Jarvis does not capture those decisions, every new AI starts from zero.
-
 ### Build Order
-
 1. manual import folder
 2. registry schema
 3. transcript normalizer
@@ -1176,31 +879,20 @@ You are going to make many decisions with LLMs. If Jarvis does not capture those
 6. conversation dashboard
 7. search over conversations
 8. context-pack integration
-
 ### Done Means
-
 You can ask:
-
 > What did I decide last week about Jarvis retrieval?
-
 and get:
-
 - conversation summary
 - source transcript
 - decisions
 - linked notes
 - open actions
-
 ## Workstream 2 - AI Tool Integration
-
 ### Why
-
 Every AI should become more useful because it can read Jarvis.
-
 ### Integration Policy
-
 All AI tools should follow this pattern:
-
 ```text
 read AI_CONTEXT
 read relevant context pack
@@ -1209,67 +901,46 @@ use Obsidian MCP/local files for note context
 write outputs back to correct Jarvis layer
 append session log
 ```
-
 ### Tool-Specific Integration
-
 Codex:
-
 - implementation
 - CLI scripts
 - vault automation
 - codebase changes
 - testing
-
 Claude Code:
-
 - note operations
 - skills and agents
 - distillation
 - writing quality
-
 Kiro:
-
 - requirements
 - design
 - task planning
 - spec-driven development
-
 Cursor:
-
 - codebase editing
 - project implementation
 - app/UI work
-
 ChatGPT/Claude web:
-
 - long brainstorming
 - research synthesis
 - model comparison
 - high-level planning
-
 Ollama:
-
 - local extraction
 - embeddings
 - private note classification
 - cheap first-pass parsing
-
 ## Workstream 3 - Enrichment Factory
-
 ### Why
-
 The vault already has structure. Now the nodes need depth.
-
 ### Enrichment Levels
-
 Light:
-
 - definition
 - links
 - questions
-
 Standard:
-
 - definition
 - mechanism
 - example
@@ -1277,112 +948,72 @@ Standard:
 - misconceptions
 - source anchors
 - drills
-
 Deep:
-
 - formal model
 - implementation
 - worked examples
 - synthesis
 - evidence
 - output artifact
-
 ### Done Means
-
 Opening any major note feels like opening a private textbook page:
-
 - clear
 - concrete
 - linked
 - testable
 - source-grounded
 - connected to projects
-
 ## Workstream 4 - Retrieval And Answering
-
 ### Why
-
 Jarvis must answer questions from the vault, not behave like generic ChatGPT.
-
 ### Answer Rule
-
 No source, no confidence.
-
 Every serious answer needs:
-
 - cited notes
 - confidence label
 - missing knowledge section
 - suggested next action
-
 ### Done Means
-
 Ask:
-
 > Teach me observability for AI systems using my BOOM notes.
-
 Jarvis retrieves:
-
 - Observability and Tracing
 - API Work
 - BOOM notes
 - outputs/interview stories
 - AI evaluation parallels
-
 Then it explains with your project context.
-
 ## Workstream 5 - Evaluation
-
 ### Why
-
 If Jarvis cannot be tested, it will slowly become vibes.
-
 ### Benchmark Types
-
 Definition:
-
 - What is MCP?
 - What is dynamic programming?
-
 Comparison:
-
 - MCP vs function calling
 - logs vs traces
 - greedy vs DP
-
 Project:
-
 - What did I build in BOOM?
 - What evidence do I have for systems skills?
-
 Learning:
-
 - What should I learn before GraphRAG?
 - Quiz me on OCaml pattern matching.
-
 Research:
-
 - What AI/ML direction fits my current notes?
 - What project could connect agents and observability?
-
 ### Done Means
-
 Weekly benchmark produces:
-
 - pass/fail
 - weak retrieval cases
 - weak answer cases
 - missing note recommendations
 - enrichment actions
-
 ## Workstream 6 - Research Engine
-
 ### Why
-
 You do not yet know exactly which AI/ML direction to deep dive into. Jarvis should help you discover it.
-
 ### Research Engine Jobs
-
 - map a field
 - compare paths
 - find prerequisites
@@ -1391,20 +1022,14 @@ You do not yet know exactly which AI/ML direction to deep dive into. Jarvis shou
 - propose experiments
 - turn experiments into project briefs
 - connect projects to career proof
-
 ### Done Means
-
 Jarvis can help decide:
-
 - Should I study RAG, agents, evals, or multimodal AI next?
 - What do I already know that gives me an advantage?
 - What project should I build to prove it?
 - What notes need enrichment first?
-
 ## Dashboards To Build
-
 ### Required Dashboards
-
 - Jarvis Project Dashboard
 - Conversation Memory Dashboard
 - Knowledge Enrichment Dashboard
@@ -1414,21 +1039,15 @@ Jarvis can help decide:
 - Source Ingestion Dashboard
 - Context Pack Dashboard
 - AI Tool Integration Dashboard
-
 ### Dashboard Philosophy
-
 Dashboards should answer:
-
 - What is active?
 - What is missing?
 - What is due?
 - What changed?
 - What should I do next?
-
 They should not become decorative pages.
-
 ## CLI Commands To Eventually Support
-
 ```powershell
 jarvis status
 jarvis health
@@ -1450,99 +1069,68 @@ jarvis benchmark run
 jarvis validate-answer "question"
 jarvis graph-neighborhood "topic"
 ```
-
 ## File And Folder Targets
-
 ### System Tooling
-
 ```text
 30_Order/System/jarvis-cli/
 30_Order/System/jarvis-memory/
 30_Order/System/jarvis-index/
 30_Order/System/jarvis-prompts/
 ```
-
 ### Conversation Memory
-
 ```text
 60_Claude/05_Clippings/AI Conversations/
 60_Claude/30_Source_Summaries/AI Conversations/
 60_Claude/60_Indexes/AI Conversation Dashboard.md
 ```
-
 ### Research Engine
-
 ```text
 60_Claude/40_Project_Briefs/Research Briefs/
 60_Claude/60_Indexes/Research Engine Dashboard.md
 ```
-
 ### Evaluation
-
 ```text
 60_Claude/50_Reviews/Benchmarks/
 60_Claude/60_Indexes/Jarvis Benchmark Dashboard.md
 ```
-
 ### Context Packs
-
 ```text
 60_Claude/45_Outputs/Context Packs/
 30_Order/System/jarvis-context/
 ```
-
 ## Risks And Guardrails
-
 ### Risk: Transcript Graveyard
-
 Mitigation:
-
 - raw transcripts stay raw
 - summaries are short
 - promotion gate required
 - dashboards show undistilled conversations
-
 ### Risk: AI Slop
-
 Mitigation:
-
 - HUMAN_WRITING gate
 - mechanism over vibes
 - concrete examples
 - no generic summaries
 - source anchors required
-
 ### Risk: Overbuilding Before Retrieval Works
-
 Mitigation:
-
 - first pass uses CLI + SQLite
 - no heavy UI until `ask` works
 - no graph database until graph schema proves useful
-
 ### Risk: Every Tool Has Different Memory
-
 Mitigation:
-
 - AI_CONTEXT stays canonical
 - context packs are generated from Jarvis
 - tool-specific files only point back to shared context
-
 ### Risk: Hallucinated Confidence
-
 Mitigation:
-
 - answer confidence labels
 - citation check
 - validation benchmark
 - "Jarvis does not know yet" section
-
 ## Monthly Milestones
-
 ## End Of Month 1
-
 Jarvis has:
-
 - project hub
 - conversation capture folders
 - registry schema
@@ -1552,13 +1140,9 @@ Jarvis has:
 - enrichment factory V1
 - 25 enriched notes
 - first benchmark set
-
 The system is not fully intelligent yet, but it has memory plumbing.
-
 ## End Of Month 2
-
 Jarvis has:
-
 - semantic search
 - graph index
 - Ask Jarvis V1
@@ -1567,13 +1151,9 @@ Jarvis has:
 - 60 enriched notes total
 - 75 benchmark questions
 - context packs usable by multiple AIs
-
 The system can answer and teach from the vault.
-
 ## End Of Month 3
-
 Jarvis has:
-
 - conversation memory
 - semantic + graph retrieval
 - research brief generator
@@ -1584,13 +1164,9 @@ Jarvis has:
 - answer benchmark above 80%
 - source ingestion pipeline
 - daily/weekly operating cadence
-
 The system becomes a private research engine.
-
 ## The Weekly Operating Rhythm
-
 Every week:
-
 1. import important AI conversations
 2. distill 3-5 conversations
 3. enrich 10 notes
@@ -1599,13 +1175,9 @@ Every week:
 6. create 1 synthesis or research brief
 7. update Jarvis project note
 8. review next build action
-
 This rhythm matters more than any single feature.
-
 ## The Actual Build Order
-
 If there is confusion, build in this order:
-
 1. conversation capture folders and schema
 2. `jarvis status`
 3. `jarvis context-pack`
@@ -1620,11 +1192,8 @@ If there is confusion, build in this order:
 12. research brief generator
 13. validation layer
 14. dashboards polish
-
 ## Definition Of "Insane Jarvis"
-
 Jarvis is working when this becomes normal:
-
 1. I start a new AI/ML project.
 2. I ask Jarvis what I already know.
 3. Jarvis retrieves relevant notes, conversations, sources, projects, and gaps.
@@ -1635,7 +1204,13 @@ Jarvis is working when this becomes normal:
 8. Weak concepts become enriched notes.
 9. New evidence gets linked.
 10. Future AIs inherit the whole trail.
-
 That is the compounding loop.
-
 Jarvis should make every future AI session smarter than the last one.
+## Corrections
+### 2026-10-17: historical design and current build authority
+The original text above is preserved. Its dates, proposed commands, architecture, examples, source claims, and completion targets describe the design at the time. They do not prove that a workflow is installed, enabled, current, or verified on this laptop. The old schedule is paused; no new deadline is assigned here.
+[[Jarvis Build History - July to October 2026]] records what the available history supports. [[Jarvis Current State - 2026-10-17]] distinguishes artifacts, historical deployment records, live observations, and Anant's current reports. [[Jarvis Restoration Build Plan]] now owns the order of current builds. The design in this note remains available as input.
+Historical paths such as `60_Indexes`, `30_Source_Summaries`, `10_Session_Logs`, `45_Outputs`, `50_Reviews`, `10_UMN`, and `60_Jarvis` must be resolved against the current [[Note Type Registry]] and [[Jarvis Vault Architecture]] before use. They are retained in the original text so the history remains legible.
+The early role and mirror proposals must also be read historically. Jarvis now serves execution, technical work, projects, coursework, and career mechanics; personal-life material belongs in The Plan. Cross-vault promotion is a separate decision from transporting the same vault between two laptops. An early broad-sync proposal does not authorize a new mirror or promotion job.
+For the current session, Anant reports that internship research, conversation syncing, and ingestion are not running on this laptop. Syncthing is reported working. These reports do not establish the current state of every remote scheduler or the other laptop.
+The original acceptance percentages, query counts, enrichment totals, and tool recommendations are targets or dated proposals. They are not measured Jarvis results. Evaluate a baseline before adopting more retrieval complexity; [[Jarvis AI Infrastructure - Concepts and Research]] preserves the research options and their evidence requirements.

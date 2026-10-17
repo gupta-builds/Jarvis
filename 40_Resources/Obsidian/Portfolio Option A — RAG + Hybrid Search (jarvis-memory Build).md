@@ -1,8 +1,8 @@
 ---
-type: evergreen
+type: reference
 status: sprout
 created: 2026-07-29
-updated: 2026-07-29
+updated: 2026-10-17
 tags:
   - evergreen
   - jarvis-memory
@@ -12,6 +12,9 @@ notes:
   - "[[40_Resources/Obsidian/Jarvis Vault Architecture]]"
   - "[[60_Claude/10_Source_Summaries/PDF Ingestion/Read/BASWE 15 AI Engineering Projects That Land Jobs (PDF)]]"
 next: "Add an embeddings table to 30_Order/System/jarvis-memory/schema.sql and implement jarvis_semantic_search per North Star 5.4's Week 5 milestone"
+reference_kind: resource
+area:
+  - '[[10_Areas/AI/Claude Code]]'
 ---
 # Portfolio Option A — RAG + Hybrid Search (jarvis-memory Build)
 ==This note lives in `40_Resources/Obsidian/` instead of the CS Portfolio project folder because it isn't a separate portfolio idea — it is [[Jarvis OS — North Star]] Part 5.4's jarvis-memory semantic-search gap, framed as BASWE's Project 6 (RAG + Hybrid Search) so the same build serves two purposes at once: a deployable portfolio project and Jarvis's own missing retrieval engine.== Source: [[PDF's Ingestion Implementation#Portfolio Projects: Pick 1-2, Build Deep - NOTED, CONSIDER|Portfolio Projects — Option A]], resolved in [[00_Execution]] as the one Portfolio project that's a genuine remaining build (Option B, Project 15 Agent Orchestration, is already shipped as CausalOps).
@@ -46,3 +49,8 @@ Per [[PDF's Ingestion Implementation#Portfolio Projects: Pick 1-2, Build Deep - 
 - `30_Order/System/jarvis-memory/server.py`, `schema.sql`, `registry.py` — the real codebase this note's steps apply to
 - [[60_Claude/10_Source_Summaries/PDF Ingestion/Read/BASWE 15 AI Engineering Projects That Land Jobs (PDF)]] — Project 6 spec
 - [[00_Execution]] — the resolved verdict this note executes
+## Corrections
+### 2026-10-17: proposal versus deployment
+The original design and dated observations above remain intact. They are historical input to [[Jarvis Restoration Build Plan]], not confirmation that an unattended workflow or retrieval service operates on this laptop. Use [[Jarvis Current State - 2026-10-17]] for the dated inventory and [[Jarvis Build History - July to October 2026]] for the evidence trail.
+No embedding model, vector database, reranker, cloud provider, service framework, or deployment stack is selected by retaining this proposal. Token savings, portfolio claims, and blocked-command claims quoted from earlier work require a fresh local check before they are used to justify implementation. Enrichment remains source-grounded, preserves human notes, and needs an observed end-to-end run before it is called operational.
+[[Jarvis AI Infrastructure - Concepts and Research]] preserves the conditional research backlog. Restoring the basic workflows and measuring a baseline come first.

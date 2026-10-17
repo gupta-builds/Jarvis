@@ -2,7 +2,7 @@
 type: concept
 status: sprout
 created: 2026-10-04
-updated: 2026-10-07
+updated: 2026-10-17
 course: Life
 track:
   - laptop
@@ -13,15 +13,47 @@ tags:
   - wsl
 related:
   - "[[Old Laptop Rebuild - Index]]"
-  - "[[Old Laptop Rebuild - Prompt 1 WSL]]"
+  - "[[Old Laptop Rebuild - Runs Index]]"
   - "[[Ubuntu - WSL]]"
   - "[[Installations]]"
+  - "[[C Drive Bloat - Failure Log and Prevention Rules]]"
+  - "[[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]]"
+  - "[[WSL Toolkit Config Reference]]"
   - "[[WSL New Laptop Master Plan — Verified 2026-09-11]]"
-next: "Run the corrected 75-second idle test from Windows PowerShell with every other WSL/editor session closed; then Build 2 may resume its gate"
+next: "Closed. Later builds finished what this build deferred (systemd, tools, configs, caches). Open: Firecrawl revocation at the provider, vscode-remote-wsl on C:."
 ---
 # Old Laptop Rebuild - Build 1 WSL Findings
+## Verified outcome (checked live 2026-10-17)
+**Purpose.** Audit the Dell's WSL, repair it in place, bring its tooling toward the Acer, reclaim space and make the Dell the always-on SSH host for the two-laptop workflow.
+**What ran (2026-10-04 to 2026-10-07).** A read-only audit; user-space installs and configs (reconstructed from Acer notes, replaced later by the Acer's real files in Build 5); deletion of 82 verified Git-ignored artifact folders (36.424 GiB) and tool-native cache cleans (5.304 GiB), 41.728 GiB logical in total; a new `.wslconfig`; a host script that updated WSL (2.4.13.0 to 3.0.1.0 on 2026-10-06); and a corrected 75-second idle test that passed on 2026-10-07 with every session closed.
+**Result.** Repair in place was correct: no ext4, I/O, OOM or panic evidence existed, several repos held uncommitted work, and a rebuild would have added risk. The always-on design (both idle timers off, mirrored networking kept) is what the whole two-laptop workflow now stands on.
+
+| Item | Final state (verified 2026-10-17) |
+|---|---|
+| `.wslconfig` | `networkingMode=mirrored`, `firewall=true`, `memory=20GB`, `processors=10`, `swap=8GB`, `swapfile=D:\\WSL\\swap.vhdx`, `vmIdleTimeout=-1`, `[general] instanceIdleTimeout=-1`, `[experimental] autoMemoryReclaim=gradual`, `sparseVhd=true` |
+| WSL platform | 3.0.3.0, kernel 6.18.54.1-1, WSLg 1.0.79 (updated by the user before 2026-10-13) |
+| Health | `systemctl is-system-running` = `running`, 0 failed units; 19 GiB, 10 CPUs, 8 GiB swap on `/dev/sdc`; `D:\WSL\swap.vhdx` exists |
+| Disk | `ext4.vhdx` 107.58 GiB on D: (not sparse; safe sparse conversion was refused and must never be forced), Linux `/` 55 GB used of 1007 GB; Docker data VHDX 33.85 GiB at `D:\WSL\Docker\DockerDesktopWSL\disk\docker_data.vhdx` |
+| Tools now on the Dell WSL | uv 0.12.23, rustc 1.99.0, kiro-cli 2.27.1, agy 1.3.3, delta 0.20.1, lazygit 0.66.1, yazi 26.9.1, sesh 2.33.0, zoxide 0.10.0, atuin 18.23.0, starship 1.26.0, chafa 1.18.3, semgrep installed, tmux 3.8, pnpm 12.4.2, gh 2.102.0, fzf 0.74.5, ripgrep 15.2.0, fd 10.5.0, bat 0.26.1, ruff 0.17.0, shellcheck 0.11.0, shfmt 3.14.1, conda 26.7.1 |
+| Idle gate | passed (75 s, no WSL call) on 2026-10-07 |
+
+**Corrections to the log below (the live machine wins).**
+| The log says | What is true now | Where it was fixed |
+|---|---|---|
+| systemd `degraded` (`systemd-binfmt.service`), "wait for a stable WSL fix" | closed by WSL 3.0.3.0 (stable 2026-10-09; Microsoft issue 41783); no prerelease and no workaround was used | Build 5 |
+| tmux 3.4, pnpm 10.33.2, ripgrep 15.2.0 "keep", Antigravity `agy` "queued", Miniconda "missing" | tmux 3.8, pnpm 12.4.2, `agy` 1.3.3 installed, Miniconda 26.7.1 with `jupyter-base` installed | Builds 5 and 5b |
+| Configs are "reconstructed from Acer notes, not from Acer"; no snapshot found | the Acer snapshot was exported 2026-10-11; Build 5 replaced the reconstructions with the Acer's real files, then both laptops moved to one golden set | Builds 5 and 5b |
+| Plaintext Firecrawl key exposed by a diagnostic; "rotate it" | the key line was **removed from `.bashrc` on 2026-10-15** and nothing was stored in its place; at 14:06 that day Firecrawl's API still accepted the old key, so provider-side revocation is **not confirmed (open)** | Build 4b |
+| `ConversationCapture-Backfill-WSL` starts WSL every 30 minutes (decision pending) | disabled on 2026-10-15 (re-enable with `Enable-ScheduledTask`); the Windows twin keeps running | Build 5 leftovers |
+| C: handoff: 20.08 GiB free, pagefile 32,247 MB | superseded by Build 3 (C: reached 145 GiB on 2026-10-13; 120.8 GiB on 2026-10-17 because the system-managed pagefile grew to 31 GiB) | Build 3 |
+| VHDX decision paper: "do nothing now" | still the decision. A verified export (54.47 GiB, 2026-10-14) now exists; no compaction was ever run | Build 5 |
+| `C:\Users\Anant Gupta\vscode-remote-wsl` 6.29 GiB "needs a decision" | still present on C: (6.5 GiB at the Build 3 scan); never decided | open |
+| Docker CLI "not exposed in this distro" | `docker` inside WSL resolves to the Windows binary through interop; Docker Desktop was not running on 2026-10-17 | informational |
+
+**Carried forward.** Editor-server cleanup and Miniconda moved to Build 5 (done); the Windows-host items to Build 3; SSH and VS Code to Build 2. Open from this build: the Firecrawl revocation at the provider and the `vscode-remote-wsl` decision.
+**Reading guide.** The rest of this note is the original working log, kept as evidence. Where it disagrees with this section, this section wins. Its growth rules and monthly checklist are still valid; the `~/.cache/node` rule from Build 5 applies on top of them.
 ## One-Line Answer
-==Repair in place is complete on the Linux side; WSL 3.0.1.0 runtime verification passed, safe sparse conversion was refused, and the only remaining Build 1 gate is a corrected idle test longer than 60 seconds.==
+==The Dell's WSL was repaired in place, cleaned of 41.7 GiB of regenerable data, retuned as an always-on SSH host and verified with a 75-second idle test; everything below is the 2026-10-04 to 2026-10-07 working log, corrected at the top for what later builds changed.==
 ## Mechanism
 WSL was updated on 2026-10-06 from 2.4.13.0 / kernel 5.15.167.4 to 3.0.1.0 / kernel 6.18.40.1-1; WSLg is 1.0.79. Ubuntu 24.04.4 remains on WSL 2. `/etc/wsl.conf` was not changed. The live VM reports 19 GiB, 10 processors, and 8 GiB swap on `/dev/sdc`; `D:\WSL\swap.vhdx` exists. The current WSL configuration reference lists both timeout keys and the experimental reclaim/sparse keys. WSL 3.0.1 release notes include a fix for configuration handling of non-ASCII characters, but do not say whether each key below is accepted. Runtime output confirms memory, CPU, and swap; the idle keys still need the corrected idle test. `sparseVhd=true` affects newly created VHDs and does not convert this existing disk.
 The distro is healthy enough to repair in place: `systemctl is-system-running` returned `running`, `systemctl --failed` returned zero units, and the full journal search found no ext4 error, I/O error, OOM kill, or kernel panic. The repeated journal replacement messages line up with `ConversationCapture-Backfill-WSL`, a hidden Windows Scheduled Task that runs `wsl.exe` every 30 minutes and lets the distro stop again after a short PowerShell backfill. The seven short boots immediately before the current boot occurred at the same half-hour cadence. That is an unclean lifecycle problem around short-lived starts, not evidence that the ext4 filesystem is corrupt.
@@ -384,7 +416,7 @@ The ncdu config (`-e`, dark color, `.git`/`node_modules` excludes, confirm-quit)
 | Antigravity installer command was rejected before launch | The command guard rejects `rm -f` cleanup embedded in an exec request | Did not retry or work around it; saved the exact official install in `build1-user-step.sh`, invoked as the normal user by the sudo handoff |
 | `yazi --debug` returned `Inappropriate ioctl for device` | Yazi requires a real TTY for that diagnostic path | Did not retry; binary version and config assets were verified, with interactive validation left to normal use |
 | `cargo cache --help` exited 101 | Stable Cargo 1.99 has no manual `cargo cache` subcommand; official cleanup is automatic/age-based | Left 377,965,686 bytes of registry+git cache intact; no manual deletion |
-| A diagnostic `tail ~/.bashrc` exposed an existing plaintext API credential in tool output | The inspection was too broad for a shell file containing exported secrets | The value is not repeated in notes and the credential file/line was not modified; rotate the affected Firecrawl credential because it appeared in this session transcript |
+| A diagnostic `tail ~/.bashrc` exposed an existing plaintext API credential in tool output | The inspection was too broad for a shell file containing exported secrets | The value is not repeated in notes. Rule: never read shell rc files broadly. [Update 2026-10-17: line removed from `.bashrc` on 2026-10-15; revocation at the provider still to be confirmed.] |
 ## Handoffs
 ### Build 2
 - Build 2's prompt was rewritten around [[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]], especially Decision 3: this Dell is the always-on SSH host.
@@ -398,8 +430,8 @@ The ncdu config (`-e`, dark color, `.git`/`node_modules` excludes, confirm-quit)
 ### Windows-host session
 - Docker VHDX: `D:\WSL\Docker\DockerDesktopWSL\disk\docker_data.vhdx`, 36,312,186,880 bytes (33.81 GiB); Docker integration remains unavailable and no prune ran.
 - C:-side candidates remain untouched: `vscode-remote-wsl` 6.29 GiB, old Codex quarantine 2.43 GiB, `%TEMP%\wsl-crashes` 0.54 GiB, and 2.94 GiB of other Temp content from the audit.
-- Review/disable or redesign `ConversationCapture-Backfill-WSL`; it starts WSL every 30 minutes and explains the journal lifecycle noise. Do not change mirrored networking solely because of `CheckConnection` noise.
-- Rotate the Firecrawl credential exposed by the overly broad Phase 3 shell diagnostic; do not paste the replacement into notes or logs.
+- Review/disable or redesign `ConversationCapture-Backfill-WSL`; it starts WSL every 30 minutes and explains the journal lifecycle noise. Do not change mirrored networking solely because of `CheckConnection` noise. [Update 2026-10-17: the task was disabled on 2026-10-15.]
+- Rotate the Firecrawl credential exposed by the overly broad Phase 3 shell diagnostic; do not paste the replacement into notes or logs. [Update 2026-10-17: the key was removed from `.bashrc` on 2026-10-15; provider-side revocation is still unconfirmed.]
 - Terminal and Windows VS Code work remain later-session scope. The original `wsl-host-step.ps1` updated WSL, shut it down, and fatally exited after a safe sparse refusal; it is preserved as `.bak-20261007`. The corrected file is verification-only, with its pre-systemd-check revision preserved as `.pre-systemd-20261007.bak`. The original idle-test script is preserved as `.bak-20261007`.
 ### VHDX decision paper (measured 2026-10-07)
 Linux `/` reports 59,640,709,120 bytes used (55.54 GiB); `D:\WSL\Ubuntu\ext4.vhdx` is 115,507,986,432 bytes (107.58 GiB), not sparse. The 52.03 GiB difference is an upper-bound opportunity, not a promised reclaim: blocks not trimmed/zeroed and filesystem metadata may keep the result larger. D: has 363.80 GiB free; C: has 20.08 GiB free and a 32,247 MB pagefile (6,471 MB peak). Risk labels below are qualitative assessments, not measured failure rates. No VHDX operation was run.

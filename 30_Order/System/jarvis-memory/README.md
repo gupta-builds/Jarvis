@@ -1,48 +1,41 @@
-# jarvis-memory
-
-The data layer for Jarvis's brain. A local SQLite registry of every vault note, exposed to AI tools as an MCP server. This is the foundation the three-month plan builds retrieval, answering, and learning on — started now as a working skeleton so the rest lands smoothly.
-
-## What's here
-
-| File | Role |
-|---|---|
-| `schema.sql` | All registry tables: notes, headings, links, chunks, conversations, enrichment_events, benchmarks. Re-runnable. |
-| `registry.py` | Builds the `notes` index for real (scan → upsert) and exposes `status` / `search`. Other subsystems are stubbed with TODOs. |
-| `server.py` | The MCP server. Exposes `jarvis_status`, `jarvis_search`, `jarvis_reindex` as tools. Grows by adding `@mcp.tool()` functions. |
-| `registry.sqlite` | The database. Generated, **gitignored**, never committed. |
-
-## Prerequisites
-
-- Python 3.10+ on PATH.
-- `pip install mcp` (only needed to run the MCP server, not the CLI).
-
-## Use it as a CLI
-
+---
+type: system
+status: sprout
+created: 2026-06-02
+updated: 2026-10-17
+tags:
+  - system
+  - tooling
+  - memory
+system_kind: spec
+trigger: On demand with registry.py, and as the jarvis-memory MCP server when Claude Code starts it (the server is not registered in the project .mcp.json today).
+owner: Anant, who decides when to reindex and when to add the next capability.
+notes:
+  - "[[Memory Management]]"
+  - "[[Conversations]]"
+---
+# Jarvis Memory
+## Purpose
+A local SQLite registry of every vault note, exposed to AI tools as an MCP server, so an agent finds the few right notes by metadata instead of loading the vault. Today it is a working skeleton: it indexes the `notes` table and offers keyword search over titles and paths. If it is missing, agents fall back to Obsidian search and the `jarvis` MCP. Planned and not built: a chunk index, semantic search, a link graph, conversation rows, an answer engine, and a benchmark. Their tables exist in `schema.sql` (notes, headings, links, chunks, conversations, enrichment_events, benchmarks); only `notes` is filled. Each step adds one function and one MCP tool without restructuring.
+## Trigger
+CLI, from this folder:
 ```powershell
-python registry.py index            # build / refresh the note index
-python registry.py status           # counts by type, track, conversations
+python registry.py index
+python registry.py status
 python registry.py search "observability"
 ```
-
-## Use it as an MCP server
-
-Wired in `.mcp.json` at the vault root as the `jarvis-memory` server (`command: python`, `args: [server.py]`, `env: JARVIS_VAULT_ROOT`). Claude Code starts it automatically. Tools today: `jarvis_status`, `jarvis_search`, `jarvis_reindex`.
-
-## How it grows (the smooth path)
-
-The schema already has the tables for the full plan; adding a capability means filling a table and adding one function + one MCP tool, never restructuring:
-
-1. **Chunk index** — populate `chunks`, add `registry.chunk()`; keyword search already reads notes.
-2. **Semantic search** — add embeddings to `chunks`, a hybrid ranker, and a `jarvis_semantic_search` tool. (Plan Week 5.)
-3. **Graph** — populate `links` with resolved targets; add `jarvis_neighborhood` / `prerequisites`. (Week 6.)
-4. **Conversation memory** — write `conversations` rows from the [[Conversation Capture]] workflow; add `jarvis_conversations`. (Week 2.)
-5. **Answer engine** — add `jarvis_ask` with the citation + confidence contract over chunks + graph. (Week 7.)
-6. **Benchmark** — fill `benchmarks`, add `jarvis_benchmark_run`. (Week 7+.)
-
-Each step is additive. The registry is the single substrate; the MCP server is the single surface.
-
-## Boundaries
-
-- Read-heavy. The registry never edits notes — note writes go through the normal vault workflows and the Write Contract.
-- The database is derived state. Delete `registry.sqlite` and `index` again any time; nothing is lost.
-- Conversation raw text stays in `60_Claude/05_Clippings/AI Conversations/`; the registry only stores pointers and metadata.
+MCP: `server.py` runs `FastMCP("jarvis-memory")` with three tools, `jarvis_status`, `jarvis_search`, and `jarvis_reindex`. It needs `pip install mcp`; the CLI needs only the standard library, with Python 3.10 or newer. The vault's `.mcp.json` registers only the `jarvis` server on 2026-10-17, so register `jarvis-memory` (`command: python`, `args: [server.py]`, `env: JARVIS_VAULT_ROOT`) before expecting Claude Code to start it.
+## Inputs and Outputs
+Reads every Markdown note under the vault root and writes rows to `registry.sqlite` next to `registry.py`. The root comes from `JARVIS_VAULT_ROOT`, then from the first parent folder that holds `00_Dashboard.md` and `.obsidian`, then the working directory. These top-level folders are skipped: `.git`, `.obsidian`, `.claude`, `.cursor`, `.kiro`, `.codex`, `50_Archive`. Conversation text stays in `60_Claude/05_Clippings/AI Conversations/` ([[Conversations]]); the registry will store only pointers and metadata.
+## State
+`registry.sqlite` (and its `-wal` and `-shm` files) is derived state, ignored by this folder's `.gitignore` and by the root `.gitignore`. Delete it and run `index` again at any time; nothing is lost. On 2026-10-17 the file dates from 2026-09-20, so the index is a month stale.
+## Failure Behavior
+Read-heavy: the registry never edits a note, and note writes go through the normal workflows and the Write Contract. The CLI works without the `mcp` package; the server does not start without it. A stale index returns old paths rather than an error, so a search result that points to a missing note means reindex.
+## Verify
+```powershell
+python registry.py index
+python registry.py status
+```
+`index` prints a note count that matches the number of `.md` files outside the skipped folders. `status` shows counts by type and track. I did not run these on 2026-10-17 because Python was unusable in this shell (the Microsoft Store shim).
+## Retire
+Remove the `jarvis-memory` entry from the MCP settings and delete this folder in one commit that states the reason. The database is regenerable, so nothing needs backing up.

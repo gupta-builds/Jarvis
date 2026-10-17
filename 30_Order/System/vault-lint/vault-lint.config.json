@@ -4,7 +4,8 @@
     "^\\.git/",
     "^\\.obsidian/",
     "^blobs/",
-    "^__pycache__/"
+    "^__pycache__/",
+    "^30_Order/System/sync-workflow/Sync Alert Banner\\.md$"
   ],
   "tier4": [
     "^\\.(claude|agents|codex|cursor|opencode|kiro|firecrawl|vscode|stversions|github)/",

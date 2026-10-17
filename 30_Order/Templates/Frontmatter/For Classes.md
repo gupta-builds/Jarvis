@@ -1,12 +1,11 @@
 ---
 type: class
-input_kind:
-status:
-created:
-updated:
-area:
+class_kind:
+status: seed
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
 tags:
-  - "#class"
+  - class
+area:
 next:
 ---
-

@@ -1,31 +1,23 @@
 ---
 type: class
-input_kind: lab
+class_kind: lab
 status: seed
-created:
-updated:
-area:
-  - "[[UMN Board]]"
-deadline:
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
 tags:
-  - "#class"
-  - "#Lab"
+  - class
+  - lab
+area:
 next:
 ---
 # <% tp.file.title %>
 ## Goal
-<!-- State the task in your own words, not the lab title. -->
-- 
+<!-- What the lab was trying to accomplish, in your own words. -->
 ## Procedure / key steps
-<!-- Record the decision points and commands needed to reproduce the work. -->
-- 
+<!-- The decision points and commands needed to redo the lab from this note. -->
 ## Results
-<!-- State the actual output: numbers, tests, screenshots, or a working build. -->
-- 
+<!-- The observed output: numbers, tests, a working build. -->
 ## Errors + fixes
-<!-- Add one Problem/Fix/Why entry for every real error. Explain the mechanism behind the fix. -->
-- Problem:
-- Fix:
-- Why:
+<!-- One entry per real error with Problem, Fix, Why, and Evidence. -->
 ## Flashcards
-<!-- Optional: add only reusable debugging-pattern cards to #cards/<course-slug>. -->
+<!-- Optional. Only reusable debugging patterns, on #cards/<course-slug>. -->

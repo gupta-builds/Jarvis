@@ -1,39 +1,36 @@
 ---
-type: evergreen
+type: system
 status: sprout
 created: 2026-09-08
-updated: 2026-09-20
+updated: 2026-10-16
 tags:
   - system
   - workflow
+system_kind: workflow
+serves: "[[Weekly Standard]]"
+trigger: A course week appears on the verified schedule, and again after its lecture.
 notes:
-  - "[[Week Standard]]"
-  - "[[Weekly Standard]]"
-  - "[[00_Workflows Index]]"
+  - "[[Week Template]]"
+  - "[[Weekly Board Workflow]]"
+  - "[[Textbook Workflow]]"
+  - "[[Concept Workflow]]"
 ---
 # Weekly Workflow
-Create and link a new week note as each course's lectures happen, so a course's `Weekly/` folder never gets more than one week behind real class time.
-**Use when:** a course's lecture(s) for a given week have happened and the material is fresh enough to write up.
-**Moves:** lecture + that week's textbook reading → `<Course>/Weekly/Week - N.md`, indexed from `<Course>/Weekly/Weekly Board.md`.
-**Template:** [[Week Template]]
-## Normative procedure
-Create the week note before lecture from the verified schedule, landed textbook note, assigned slides/PDFs, notebooks/Python, prior concepts, and relevant assignments. Put pre-lecture slide/source notes in the weekly note's `## Lecture` area and label them clearly. During lecture, the user writes live capture in that same area. Preserve human capture; agents may structure, link, and reconcile it afterward but may not delete, overwrite, or replace it with an imagined transcript.
-After lecture, reconcile actual capture with textbook, slides/PDFs, code, assignments, and concepts. Update the textbook delta, synthesis, concepts, Board, assignment notes, open questions, and cards only where evidence warrants it. Update the Weekly Board and Textbook Map after the week note's actual status is known. If the lecture differs from pre-lecture expectations, preserve the difference and label the source.
+Keep a course's `Weekly/` folder ahead of the lecture, with the live capture protected and reconciled afterward.
+## Use when
+A week is scheduled and its textbook note has landed, and again right after the lecture while the material is fresh.
 ## Steps
-1. Read [[Weekly Standard]] before writing — it governs the note this workflow creates.
-2. Create `Week - N.md` in the course's `Weekly/` folder from [[Week Template]], filled in the same day as the lecture where possible.
-3. Read the matching textbook section and write the `## Lecture-to-textbook synthesis` section — this is the step most likely to get skipped under time pressure; do not skip it.
-4. Open the course's `Weekly Board.md` and add one Map sentence for the new week per [[Week Standard]] — same session, not batched for later.
-5. Spawn any new concept notes the week produced, linked from `## Concepts created today`, following [[Concept Standard]].
-6. Update the course's Board note's `next:` field if the new week changes what the immediate next step is.
-## Frontmatter to set
-```yaml
-type: class
-input_kind: lecture
-status: seed
-next: "[[Week - N+1]]"
-```
+1. Read [[Weekly Standard]] and the Board's schedule row. Build a source map: textbook chapter, slides or PDFs, notebooks, labs, assignments, and prior concepts.
+2. Before lecture, create `Week - N` in `Weekly/` from [[Week Template]]. Put pre-lecture slide and source notes under `Lecture`, labeled `Pre-lecture source notes`.
+3. During lecture, the user's live capture goes in the same section, labeled `Live lecture capture`. Agents may structure and link it afterward but never delete, overwrite, or replace it.
+4. After lecture, reconcile the capture with the textbook, slides, code, and assignments. Keep disagreements as source-attributed conflicts until verified.
+5. Write `Textbook integration` as the delta and `Lecture-to-textbook synthesis`. This is the step most likely to be skipped; do not skip it.
+6. Add one Map sentence to the course sub-board in the same session ([[Weekly Board Workflow]]).
+7. Spawn concept notes through [[Concept Workflow]], and update the Board's `next:` if the next step changed.
+8. Run [[Vault Lint]] on the path and fix what it reports.
+## Do not
+Do not create a parallel temporary lecture note that can drift from the week note. Do not turn the week note into a cram dump near an exam; make the concept layer rich instead.
 ## Done when
-- The week note passes [[Weekly Standard]]'s Done Conditions, including the synthesis section.
-- `Weekly Board.md` has a new Map sentence, not just a new frontmatter list entry.
-- Any concept notes the week spawned actually exist, not just linked as stubs.
+- The note has all nine headings with real content and a synthesis section.
+- The sub-board has a new Map sentence.
+- Every concept the week spawned exists, not only as a stub link.

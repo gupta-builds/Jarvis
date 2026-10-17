@@ -1,50 +1,74 @@
 ---
-type: evergreen
+type: system
 status: sprout
 created: 2026-09-04
-updated: 2026-09-04
+updated: 2026-10-16
 tags:
+  - system
+  - standards
   - internship
-  - standard
   - triage
+system_kind: standard
+family: deadline-triage
+tier: 2
+maps_to: []
+used_by: []
+gold_standard: "[[10_Areas/Career/Internships/Tracker/Deadline Tracker]]"
 notes:
   - "[[Internship Pipeline]]"
   - "[[Internship Notes Standard]]"
   - "[[Internship Loop Review Standard]]"
-  - "[[20_Progress/Internship/Building System/V0/Dossier Corrections]]"
-next: "Cadence question resolved 2026-09-05 — see the rewritten §4 below. Next
-  actual gap: no sweep has run against this new cadence yet as of this writing;
-  the first real one is the thing to check."
+  - "[[Internship Review System]]"
 ---
 # Deadline and Intake Triage Standard
-==Was ungoverned.== `10_Areas/Career/Internships/List/Dossiers/_Today/` and `10_Areas/Career/Internships/Tracker/Deadline Tracker.md` both exist and are both populated with real content, but no Standard or Workflow described what they're for or how they get maintained before this note. Written 2026-09-04 by reading both live, plus the one real sweep session that produced them — [[20_Progress/Internship/Building System/V0/Dossier Corrections]] (2026-08-28, "the deadline sweep") — rather than guessing intent from the folder name.
-
-## Scope
-Two related but distinct artifacts, both maintained by the same kind of session (a manual "deadline sweep," not automated code, not a step in [[Internship Pipeline]]):
-- **`List/Dossiers/_Today/`** — pre-dossier intake triage. Holds raw candidate postings pulled from sources the automated `internship-research-loop` doesn't poll (InternDock's manually-browsed guides, `speedyapply`'s raw list dumps, and similar one-off feeds) — logged here *before* a decision is made on whether any of them becomes a real dossier or a manual-find Program note.
-- **`Tracker/Deadline Tracker.md`** — a deadline-sorted view over dossiers that already exist in `List/Dossiers/` (any priority bucket), re-bucketed by urgency relative to the sweep date.
-Neither is a substitute for [[Internship Notes Standard]] (which governs dossier content once written) or [[Internship Loop Review Standard]]'s Weekly Discovery Review (which grades gate/Standard conformance on a sample). This Standard governs intake and deadline currency only.
-
-## 1. `_Today/New Internships Listings.md` — raw intake log
-One dated pass-header per sweep (e.g. `## InternDock Guide 1 (summer-2027-internship-drop-august-2026) — 2026-08-28 pass, "Software Engineering" section, entries 1-125 of 136`), naming the exact source guide/list and exactly which slice of it was covered — never "some entries," always a real count (the real 2026-08-28/08-29 passes cite `1-125 of 136`, `126-136`, `5 previously-unchecked entries`, `full pass (259 rows scanned)`). Under each header, one line per candidate posting: a markdown link (title → URL), then a short clause naming location/work-authorization signal, deadline if stated, and any timing ambiguity worth flagging rather than silently resolving (the real Whiterabbit.ai entry is a confirmed example — its title says "(2026)" not "(2027)," flagged inline rather than dropped or guessed).
-**This is intake, not a gate.** Nothing here has been screened against [[Internship Pipeline]] Step 2's fit test or the four hard gates a real dossier would need to clear — a line on this list is a candidate worth a human look, not a vetted match. A candidate that survives a look either becomes a real dossier (written by hand into the correct priority folder, same frontmatter contract as an automated one — see [[Internship Notes Standard]] §1) or a direct manual-find Program note (skipping the dossier stage entirely, per [[Internship Pipeline]] Step 1's manual-web-clip rule) or is discarded with the reason left implicit (this list doesn't currently record rejections — only what passed a first read as worth listing at all).
-
-## 2. `_Today/No Deadline.md` — confirmed-absent deadlines
-Real dossiers, already written, checked directly (stored posting text, or a live fetch of the posting URL where the stored text didn't say) and confirmed to state no deadline as of the sweep date. Grouped by the same priority-bucket headings the dossiers themselves live under (`1 - AI & ML`, `2 - Fullstack`, etc.) — a plain flat list, one wikilink per dossier, no annotation needed since "no deadline" is the entire finding. States explicitly what's *out of scope* for the pass (a real deadline that exists but falls outside the sweep's stated window is deliberately not listed here — see the sweep's own report for those) — carry that same explicit-scope discipline forward in any future sweep rather than letting "confirmed no deadline" quietly drift into "didn't check."
-
-## 3. `Tracker/Deadline Tracker.md` — urgency-bucketed view
-Five buckets, re-anchored to the sweep's own stated "today" each time it's re-run (the real 2026-08-28 pass defined *Soon* = within 7 days, *Next Week* = 8–14 days, *Next Month* = 15–45 days, *Later* = beyond 45 days, plus a standing *Already Over* bucket for confirmed-lapsed deadlines) — state the cutoff dates explicitly at the top of the note, as the real version does, since "Soon" is meaningless without the anchor date next to it. One line per dossier: wikilink, then the deadline itself, distinguishing a confirmed stated deadline from an inferred/anticipated one (the real Western Digital entries mark two as `(anticipated)` and one as `(anticipated, live-verified)` — keep that distinction, don't collapse it to a bare date). **Already Over is not the same claim as closed** — a lapsed posted deadline doesn't mean the posting stopped accepting applications; per the real note's own caveat, none of the Already Over entries were re-fetched live to confirm the posting is actually gone versus just past its stated date, and that check stays a human task, not an assumption either way.
-
-## 4. Refresh cadence — not scheduled, real gaps acknowledged
-### 4. Refresh cadence — every 3 days, standalone (decided 2026-09-05)
-**Resolved, closing this section's own prior open question.** This sweep runs on its own fixed 3-day cadence, independent of the Weekly Discovery Review and Monthly Promotion Review, via the local-cron mechanism [[30_Order/Workflows/Internship/Internship Review System]] now describes — chosen over folding into the Weekly review for a reason cited to a real incident, not a preference: the 2026-09 Monthly Review built its deadline table by hand from 3 Program notes it happened to already be tracing and missed 3 of 5 real, already-passed deadlines that a corpus-wide `deadline_posted` query caught the next day. A deadline doesn't wait for whichever review's cadence comes next.
-Each sweep: re-anchors `Deadline Tracker.md`'s bucket cutoffs to its own run date, re-runs `_Today/New Internships Listings.md` intake conversion for anything still sitting unconverted past one cycle (flag, don't silently carry forward per the Done When rule below), and queries every live Program note's `deadline_posted`/`deadline_real` directly rather than relying on whichever programs a human happens to be tracking that week. Its output feeds both reviews as a citation (see [[Internship Loop Review Standard]]'s Deadline Sweep Citation / Deadline Sweep Reconciliation sections) and gets a one-line pointer added to [[10_Areas/Career/Internships/Tracker/Main Log|Main Log]] every run, per that note's own maintenance rule.
-
-## Relationship To The Loop Review
-**Resolved 2026-09-05, against the recommendation this section used to make.** This stays a separate, standalone sweep on its own 3-day cadence rather than folding into the Weekly Discovery Review — decided the opposite way from this section's original "recommend folding it in" note, because the real incident that forced the decision (the 2026-09 Monthly Review missing 3 of 5 passed deadlines) showed a 7-day-or-longer cadence is itself too slow for something as time-sensitive as a deadline, regardless of which review it rides alongside. [[Internship Loop Review Standard]]'s Weekly and Monthly reviews both cite this sweep's latest output rather than re-deriving deadline status themselves — see that Standard's Deadline Sweep Citation and Deadline Sweep Reconciliation sections.
-
-## Done When
-- Every `_Today/New Internships Listings.md` pass-header names its exact source and exact entry range covered — no "a sample of" phrasing.
-- Every `No Deadline.md` entry was checked directly (stored text or live fetch), not inferred from the dossier's classification alone.
-- `Deadline Tracker.md`'s bucket cutoff dates are stated in the note itself and match the date of the sweep that last touched it.
-- A `_Today/` intake candidate that's been sitting more than one sweep cycle without converting to a dossier or being discarded is a flagged gap, not silently carried forward forever.
+==Intake logs candidates before anyone decides on them; the Deadline Tracker shows what is due and when. Both are maintained by a sweep, and neither is a gate.==
+This is the standard for two notes kept by the manual deadline sweep: the intake log in `List/Dossiers/_Today/` and `Tracker/Deadline Tracker.md`. They sit outside the automated loop and outside [[Internship Notes Standard]], which governs dossiers once written. The sweep runs every three days on its own cadence ([[Internship Review System]]) and feeds both reviews and the Main Log.
+## Spec
+```json
+{
+  "family": "intake-log",
+  "tier": 2,
+  "match": {"type": "input", "kind": "clipping", "path": "^10_Areas/Career/Internships/List/Dossiers/_Today/", "where": {}, "where_not": {}},
+  "legacy_match": [{"path": "^10_Areas/Career/Internships/List/Dossiers/_Today/(?!No Deadline).*\\.md$"}],
+  "status": ["seed", "sprout", "tree", "archived"],
+  "required_keys": ["type", "input_kind", "status", "created", "updated", "tags"],
+  "key_types": {"created": "date", "updated": "date", "tags": "list"},
+  "headings": [],
+  "optional_headings": []
+}
+```
+```json
+{
+  "family": "deadline-tracker",
+  "tier": 2,
+  "match": {"type": "dashboard", "kind": "dashboard", "path": "^10_Areas/Career/Internships/Tracker/Deadline Tracker\\.md$", "where": {}, "where_not": {}},
+  "legacy_match": [{"path": "^10_Areas/Career/Internships/Tracker/Deadline Tracker\\.md$"}],
+  "status": ["active", "archived"],
+  "required_keys": ["type", "dashboard_kind", "status", "created", "updated", "tags", "sweep_date"],
+  "key_types": {"created": "date", "updated": "date", "tags": "list", "sweep_date": "date"},
+  "headings": ["Already Over", "Soon", "Next Week", "Next Month", "Later"],
+  "optional_headings": []
+}
+```
+## Headings
+### Frontmatter
+Intake log: `type: input`, `input_kind: clipping`. Deadline Tracker: `type: dashboard`, `dashboard_kind: dashboard`, and `sweep_date`, the run date that anchors the bucket cutoffs.
+### Intake log
+One dated pass header per sweep, naming the exact source list and the exact slice covered, such as "entries 1-125 of 136". Never "a sample of". Under it, one line per candidate: a link, then a clause for the location and work-authorization signal, the deadline if stated, and any timing ambiguity flagged in the line instead of resolved by guess. Nothing here has passed Screen. A candidate becomes a dossier with the normal frontmatter, becomes a Program directly as a manual find, or is dropped. One left unconverted after a full sweep cycle is flagged.
+> [!WARNING]
+> Logging a candidate as a match. A line here is worth a human look, not a vetted fit.
+### Deadline Tracker
+Five buckets re-anchored to `sweep_date` on every run: Already Over, Soon (within 7 days), Next Week (8 to 14), Next Month (15 to 45), Later. State the cutoff dates at the top. One line per dossier or Program: a wikilink and the deadline, marking a stated date apart from an anticipated one. Every live Program's `deadline_posted` and `deadline_real`, and every dossier's `deadline_posted` or `own_deadline`, are queried directly, never built from the programs being traced that week.
+Already Over means the date passed, not that the posting closed. Confirm closure by hand.
+## Legacy Shapes
+| Old shape | New shape | Move |
+|---|---|---|
+| Intake log or Deadline Tracker with no frontmatter | Add the keys above | mechanical |
+| `_Today/No Deadline.md` (retired 2026-10-04, holds no dossiers) | Delete, or redefine for a new condition | judgment, needs a yes |
+| Deadline Tracker body with many dated sweeps | Keep only the current sweep; the log of past ones is the Main Log | judgment |
+## Done Conditions
+- Every intake pass header names its source and exact range.
+- The Deadline Tracker states its cutoffs and `sweep_date`, and they match the last run.
+- A candidate left in the intake log past one sweep cycle is flagged.
+## Gold Standard Example
+[[10_Areas/Career/Internships/Tracker/Deadline Tracker]]: cutoffs stated at the top and a bucket per urgency. It has no frontmatter yet and holds more than the current sweep.

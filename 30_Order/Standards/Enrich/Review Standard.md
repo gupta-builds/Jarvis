@@ -1,55 +1,95 @@
 ---
-type: evergreen
+type: system
 status: sprout
 created: 2026-08-11
-updated: 2026-08-20
+updated: 2026-10-16
 tags:
   - system
   - standards
+  - review
+system_kind: standard
+family: ai-review
+tier: 1
+maps_to:
+  - "[[30_Order/Templates/AI Toolkit/AI Weekly Review Template|AI Weekly Review Template]]"
+  - "[[30_Order/Templates/AI Toolkit/AI Monthly Review Template|AI Monthly Review Template]]"
+used_by: []
+gold_standard: "[[60_Claude/30_Reviews/AI/Scheduled/Weekly/AI Tools Weekly Review — 2026-W34]]"
 notes:
-  - "[[AI Weekly Review Template]]"
-  - "[[AI Monthly Review Template]]"
-  - "[[60_Claude/30_Reviews/AI/Toolkit/Tool log]]"
-  - "[[20_Progress/Projects/AI Use/Claude Kit/Log]]"
-  - "[[20_Progress/AI/Claude Code/_All-Projects-Sync-Log]]"
+  - "[[Review System]]"
+  - "[[Logs]]"
+  - "[[60_Claude/30_Reviews/AI/Toolkit/Tool log|Tool log]]"
+  - "[[20_Progress/Projects/AI Use/Claude Kit/Log|Claude Kit Log]]"
   - "[[HUMAN_WRITING]]"
 ---
 # Review Standard
-==A review cites the actual log rows it read — Tool log, Sync-Log, Claude Kit Log — it never summarizes from memory or impression.==
-This is the content standard for `60_Claude/30_Reviews/AI/Scheduled/{Weekly,Monthly}/` reviews — how Claude Code, Cowork, and the sync layer are actually being used and whether anything synced/captured is drifting. It governs a different subject than [[30_Order/Templates/Capability/Weekly Synthesis Template|Weekly Synthesis Template]]/`Monthly Synthesis Template.md`, which review concept mastery (the Capability Engine) — do not conflate the two folders or reuse one template for the other's job.
-## Maps To
-- Templates: [[AI Weekly Review Template|AI Tools Weekly Review Template]], [[AI Monthly Review Template|AI Tools Monthly Review Template]]
-## Used By Workflow
-- Manual, human-triggered — no cron job writes a review. A review is produced by opening the relevant template and working through it against the real logs, the same session or shortly after the period it covers. Nothing here auto-generates from the logs; a human (or an agent explicitly asked to) reads them and writes the review.
-## Per-Heading Standard
+==A review cites the actual log rows it read, from the Tool log, the Sync-Logs, and the Claude Kit Log. It never summarizes from memory or impression.==
+This is the standard for the AI tools reviews in `60_Claude/30_Reviews/AI/Scheduled/{Weekly,Monthly}/`: how Claude Code, Cowork, and the sync layer are used, and whether anything captured is drifting. It is not the Capability Engine review ([[Capability Review Standard]]); do not reuse one template for the other's job. No cron job writes these. A person, or an agent explicitly asked, opens the template and works it against the real logs in the same session or shortly after the period.
+## Spec
+```json
+{
+  "family": "ai-review-weekly",
+  "tier": 1,
+  "match": {"type": "review", "kind": "weekly", "path": "^60_Claude/30_Reviews/AI/", "where": {}, "where_not": {}},
+  "status": ["seed", "sprout", "tree", "complete"],
+  "required_keys": ["type", "status", "created", "updated", "tags", "review_kind", "notes"],
+  "key_types": {"created": "date", "updated": "date", "tags": "list", "notes": "list"},
+  "headings": ["Period Covered", "Sources Reviewed", "What Ran This Period", "Sync & Capture Health", "Findings", "Decided Fixes", "Open Questions", "Next Period's Watch List"],
+  "optional_headings": [],
+  "legacy_match": [
+    {"type": "evergreen", "path": "^60_Claude/30_Reviews/AI/Scheduled/Weekly/"}
+  ]
+}
+```
+```json
+{
+  "family": "ai-review-monthly",
+  "tier": 1,
+  "match": {"type": "review", "kind": "monthly", "path": "^60_Claude/30_Reviews/AI/", "where": {}, "where_not": {}},
+  "status": ["seed", "sprout", "tree", "complete"],
+  "required_keys": ["type", "status", "created", "updated", "tags", "review_kind", "notes"],
+  "key_types": {"created": "date", "updated": "date", "tags": "list", "notes": "list"},
+  "headings": ["Period Covered", "Sources Reviewed", "What Ran This Month", "Sync & Capture Health", "Tool Map Health Check", "Findings", "Decided Fixes", "Open Questions", "Next Month's Watch List"],
+  "optional_headings": [],
+  "legacy_match": [
+    {"type": "evergreen", "path": "^60_Claude/30_Reviews/AI/Scheduled/Monthly/"}
+  ]
+}
+```
+## Headings
 ### Period Covered
-The exact date range, matched to the template's own cadence (calendar week for Weekly, calendar month for Monthly). No partial or rolling windows without saying so explicitly.
+The exact date range: a calendar week for Weekly, a calendar month for Monthly. A partial or rolling window is stated as such.
 ### Sources Reviewed
-Name every log actually opened this pass: [[60_Claude/30_Reviews/AI/Toolkit/Tool log|Tool log]] (skill/tool use), [[20_Progress/AI/Claude Code/_All-Projects-Sync-Log|_All-Projects-Sync-Log]] (sync health across every project mirror), [[20_Progress/Projects/AI Use/Claude Kit/Log|Claude Kit/Log]] (structural changes to the Claude Code tracking layer — absorbed `Write Log.md`'s scope when that file was retired 2026-08-20), and the raw `AI Conversations/` session notes for anything the Tool log flags as worth a closer look.
+Name every log opened this pass: the Tool log, `Sync-Log.md` in `20_Progress/AI/Claude Code/.claude_windows/` and in `.claude_wsl/`, the Claude Kit Log (which absorbed `Write Log.md` on 2026-08-20), and any raw `AI Conversations/` notes the Tool log flags. Monthly adds the month's Weekly reviews and the Tool Map.
 > [!WARNING]
-> Listing a log here that wasn't actually opened. If a log wasn't checked this pass, say so — "Sync-Log not reviewed this week" is honest; a missing citation for a claim about sync health is not.
+> Listing a log that was not opened. "Sync-Log not reviewed this week" is honest; a claim about sync health with no citation is not.
 ### What Ran This Period
-Which skills/agents/commands were used, how often, on what — pulled from Tool log rows in the period, not re-derived from raw sessions. A table or short list, not prose paragraphs.
-*Density:* as long as the Tool log actually has rows for the period. An empty Tool log for the period is itself a finding, not something to pad around.
+Skills, agents, and commands used, how often, on what, taken from Tool log rows and not re-derived from raw sessions. Monthly names this section `What Ran This Month` and adds a trend against last month. A table or short list.
+*Density:* as long as the Tool log has rows. An empty Tool log for the period is a finding.
 ### Sync & Capture Health
-Real numbers from the actual logs: how many sync runs, how many failures/skips and why, whether conversation capture produced a note for every real session in the period (cross-check against `~/.claude/projects/` session counts where feasible, not assumed from the Tool log alone).
+Real counts: sync runs OK, failed, and skipped from the Sync-Logs, and whether capture produced a note for every real session (spot-check against `~/.claude/projects/` session counts).
 > [!WARNING]
-> "Sync looked fine" without a number. State the actual OK/failed count from `_All-Projects-Sync-Log.md` for the period.
+> "Sync looked fine" with no number.
+### Tool Map Health Check
+Monthly only. Anything stuck at `sandbox` or `tested-tools` for more than a full month is named here, not carried forward silently.
 ### Findings
-Named, specific problems — a stale note, a tool that hasn't been used since promotion, a sync gap, a title bug, a session that never got captured. Each finding names the exact file/log row it comes from.
-*Density:* real findings only. "Nothing to report" is a valid, honest finding — do not invent one to fill the section.
+Named problems, each citing the exact file or log row: a stale note, a tool unused since promotion, a sync gap, a session never captured. "Nothing to report" is a valid finding.
 ### Decided Fixes
-Only items where the fix is unambiguous *and* the review has 100% clarity on what happened — per `_docs/Design.md`'s sequencing rule, already adopted for this vault (2026-08-10): a review surfacing a problem is not itself authorization to auto-fix it. An item lands here only when the reviewer is certain, and even then the fix is applied by hand or flagged for the next build session — never by an automated process this review triggers.
-> [!WARNING]
-> Moving a finding here just because it's annoying, not because it's actually understood. If the root cause isn't confirmed, it belongs in Open Questions, not here.
+Only items where the reviewer has 100% clarity. A fix is applied by hand or flagged for the next build session, never by an automated process this review triggers.
 ### Open Questions
-Findings that need more evidence before a fix is safe to name — the honest default for anything not 100% clear. Carries forward to the next review if still unresolved; deleting an open question without resolving it is not allowed.
+Anything not 100% clear, as `- [ ]` tasks. They carry forward; deleting one unresolved is not allowed.
 ### Next Period's Watch List
-What to specifically check next time — a tool recently promoted, a sync leg recently changed, a capture gap recently fixed and now needs confirming it held.
+What to check next time: a tool recently promoted, a sync leg recently changed, a capture gap recently fixed. Monthly names this `Next Month's Watch List`.
+## Legacy Shapes
+| Old shape | New shape | Move |
+|---|---|---|
+| `type: evergreen` | `type: review`, `review_kind: weekly` or `monthly` | mechanical |
+| Citation of `_All-Projects-Sync-Log` (the file no longer exists) | Cite the two `Sync-Log.md` files by path in code | mechanical |
+| Citation of `Write Log` | Cite the Claude Kit Log | mechanical |
+| Sources as `- [ ]` boxes in a template | `- [x]` for opened, plain text for not opened | none |
 ## Done Conditions
-- Every claim in Sync & Capture Health traces to a real log row, cited by file and (where the log has one) date/line.
-- Decided Fixes contains only items with 100% clarity; anything less stays in Open Questions.
-- No `---` in the body; zero blank lines except after a callout; no duplicate frontmatter keys.
-- Passes [[HUMAN_WRITING]]'s core test: no sentence that could be pasted into a generic status-report template unchanged.
+- Every claim in Sync & Capture Health traces to a log row, cited by file and date.
+- Decided Fixes holds only items with 100% clarity.
+- No sentence could be pasted into a generic status report unchanged ([[HUMAN_WRITING]]).
 ## Gold Standard Example
-[[60_Claude/30_Reviews/AI/Scheduled/Weekly/AI Tools Weekly Review — 2026-W34|AI Tools Weekly Review — 2026-W34]] (written 2026-08-20) — the first real Weekly review against this Standard. Notable for what it surfaced at real volume rather than in the abstract: the Tool log had sat empty for its entire nine-day existence until this review forced the pipeline to actually run once, and the one real session available to review used no nameable skill/command at all, which the row-shape design hadn't anticipated. Worth rereading if a future review pass feels like it's just filling in a template — that's the failure mode this example is meant to counter.
+[[60_Claude/30_Reviews/AI/Scheduled/Weekly/AI Tools Weekly Review — 2026-W34]]: the first real weekly review, notable for what it surfaced. The Tool log had been empty for nine days, and the one session reviewed used no nameable skill. It still cites the retired `_All-Projects-Sync-Log`, which the Legacy Shapes table rewrites.

@@ -1,96 +1,69 @@
 ---
-type: evergreen
+type: system
 status: sprout
 created: 2026-07-29
-updated: 2026-08-23
+updated: 2026-10-16
 tags:
+  - system
+  - standards
   - internship
-  - standard
-  - automation
+system_kind: standard
+family: internship-dossier
+tier: 2
+maps_to: []
+used_by: []
+gold_standard: "[[10_Areas/Career/Internships/List/Dossiers/_Career Fair/Computer Integrated Manufacturing (CIM) Engineer Intern - TSMC]]"
 notes:
-  - "[[10_Areas/Career/Internships/List/Dossiers/Dossiers-to-Create]]"
-  - "[[20_Progress/Internship/Building System/Source of Truth]]"
-  - "[[20_Progress/Internship/Building System/System - Build Log]]"
-next: "Referenced by 'Prompt 4/5' in [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]] — the dossier-improvement build should conform to this, not re-derive it."
+  - "[[Internship Pipeline]]"
+  - "[[Program Standard]]"
+  - "[[Deadline and Intake Triage Standard]]"
 ---
 # Internship Notes Standard
-==Was an empty stub until 2026-07-29 despite being cited by [[10_Areas/Career/Internships/List/Dossiers/Dossiers-to-Create]] and every dossier-writing code path — this is the first real content.== Written after a live audit found dossier notes structurally consistent (writer.py's template is applied uniformly) but substantively broken in four ways: unreadable pasted content, zero interlinking (notes float with no MOC/company connection), no distinction between "current" and "removed" dossiers, and a resource-limit spec (see [[20_Progress/Internship/Building System/Source of Truth]]) that exists on paper but not in code. This standard is the contract; the build that makes code match it is tracked in [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]].
-
-## Scope
-Applies to every note `gupta-builds/internship-research-loop` writes into `10_Areas/Career/Internships/List/Dossiers/` (including `Viewed/`). Does not govern Program/Contact/Tracker notes — those have their own templates (`30_Order/Templates/Career/`) and are written by `/promote-dossier`, a separate human-consent step.
-
-## 1. Frontmatter — required fields
-Every dossier carries exactly the fields `vault_writer/writer.py`'s `build_frontmatter()` produces, in this order: `company, title, url, source, terms, locations, target_year, date_posted, date_found, deadline_posted, own_deadline, matched_reason, status, next, notes, preference_tier, tags`. Fail-closed, same as everywhere else in this codebase (`vault_writer/validate.py`'s `REQUIRED_FRONTMATTER_FIELDS`) — a field is present even when `null`/`[]`, never omitted.
-
-**Shipped 2026-07-30 — `notes:` interlink field.** Every dossier carries a `notes:` list (the same convention every other evergreen/MOC-style note in this vault already uses — see `Dossiers MOC.md`, `Source of Truth.md`, `System - Build Log.md`) containing:
-- **Always:** `"[[10_Areas/Career/Internships/List/Dossiers MOC]]"` — a dossier that doesn't point back to the MOC is exactly the "floating note" problem this rule exists to close.
-- **If this dossier is a removal** (moved to `Viewed/` — see §4): also `"[[10_Areas/Career/Internships/List/Dossiers/Viewed/Removed Dossiers MOC]]"`, appended, never replacing the first link — a removed dossier is still a dossier that was once live, its MOC membership is historical fact, not something removal erases.
-
-**Same-company clustering.** No per-company hub note exists anywhere in this vault (Program notes carry a plain `company:` string, not a link — checked directly against the real `Programs/Considering/Software Engineering Intern - Appian.md` note, 2026-07-29) and creating N-1 backfill edits every time a new same-company dossier lands is exactly the kind of accumulating maintenance cost this codebase's zero-LLM/deterministic ethos avoids elsewhere. **Use a tag, not a link list**: `company/<slugified-company-name>` is added to the existing `tags:` array (e.g. `company/appian`, `company/aquatic-capital-management` — same slugification rule as filenames: lowercase, spaces to hyphens, strip `\/:*?"<>|`). Obsidian's tag pane and a `FROM #company/x` Dataview query both cluster same-company dossiers for free, with no write-time lookup of "what else exists for this company" and no risk of a stale link list. If a real need for direct company-to-company wikilinks surfaces later (not hypothetical — an actual workflow that needs it), revisit; don't build the link-list version preemptively.
-
-## 2. Body content — readable, structured, not a raw scrape dump
-Currently every dossier pastes `extract_content()`'s output verbatim under `## Posting (fetched <date>)` — real, observed problems as of 2026-07-29: repeated boilerplate (Conagra's "About Us" paragraph appears twice, verbatim, in the same note), UI chrome mixed into body text (`locationsChicago, Illinois` / `time typeFull time` / `job requisition id...` run together with no structure), and zero section structure (a wall of text, not scannable). This is a real defect, not cosmetic — the whole point of Phase 6 pasting real content was to let a 60-second read replace a page visit; unstructured noise defeats that.
-
-**Fix stays zero-LLM** (see [[CLAUDE|internship-research-loop CLAUDE.md]] in the repo — `ingestion/posting_page.py`'s `extract_content()` is in the unattended path, ships hourly, no exception). The fix is a better deterministic content-structuring pass, not a summarizer:
-- **Dedupe repeated paragraphs.** A paragraph (roughly: a blank-line-delimited block) that appears twice verbatim in the same fetch is boilerplate, not content — keep the first occurrence, drop the rest. Cheap, deterministic, no false-positive risk on genuinely short/simple postings (nothing to dedupe if nothing repeats).
-- **Split the known ATS-chrome key:value run-ons** (`locations`, `time type`, `posted on`, `job requisition id`, `time left to apply`) onto their own lines before the free-text body starts, instead of leaving them jammed against the first sentence of real content.
-- **Section headings, where the source text actually has them** (most real postings already write `Responsibilities` / `Qualifications` / `Requirements` / `Benefits` / `Compensation` as their own line or bolded phrase) — preserve them as real markdown `###` headings instead of flattening everything to plain paragraphs. Do not invent section boundaries the source text doesn't have; a posting with no internal structure stays one block, described as-is, not force-split.
-- **Strip known non-content chrome** already partially handled (nav links, "apply now" buttons) — extend to the patterns found live: "Read More" truncation markers, repeated "Follow Us" / social-link lists, and — the real, distinct Google Careers bug (2026-07-26 audit, `[[20_Progress/Internship/Building System/Runs/Claude Code Prompts]]` Task E) — an entire unrelated search-results-listing page preceding the real posting on some ATS platforms. That's an extraction-target bug (wrong page/wrong `waitFor`), not a formatting one; fix at the fetch layer, not by trying to filter listing-page noise out after the fact.
-
-## 3. Company & degree facts — structured, not just prose
-Mirrors the "Backfill" rule already proven necessary for Program notes (`.claude/skills/promote-dossier/reference/note-templates.md` in the repo, added after the real Appian run found facts written into prose but never backfilled into frontmatter): if a dossier's own posting content states a concrete class-year, degree-level, or citizenship/OPT signal, that fact must be checked against structured filter behavior, not left to silently pass on missing-data permissiveness. Concretely: a PhD-only posting (real example, Optiver "Quantitative Research Intern, PhD," Greenhouse — no structured degree field, so `degrees_eligible()`'s missing-data permissiveness waved it through) should be caught by a content-level degree check, the same shape as the existing OPT content check (`opt_exclusion()` in `ingestion/posting_page.py`) — permissive by default, reject only on an explicit "PhD required"/"PhD only"/"doctoral candidates only" signal, never on "PhD preferred" or a degree merely being listed among several acceptable ones.
-
-## 4. Removal — move, don't delete; mark, don't erase
-`recheck.py` currently deletes a closed-posting dossier outright (`Path(r["path"]).unlink()`). **Changing, 2026-07-29**: a removed dossier moves to `10_Areas/Career/Internships/List/Dossiers/Viewed/` instead of being deleted — the posting closing is real information (a signal about that company's hiring cadence, evidence for why a later duplicate should be rejected, a record of what this pipeline actually saw), and deleting it outright throws that away for no benefit `git log` doesn't already partially provide less usably.
-- On move: append `"[[10_Areas/Career/Internships/List/Dossiers/Viewed/Removed Dossiers MOC]]"` to `notes:` (see §1) — the original Dossiers MOC link and any `company/<slug>` tag stay, unchanged. A removed dossier's history (it was once live, it was in bucket X, it was for company Y) is real and shouldn't disappear because the posting itself closed.
-- Add a `removed_date` and `removed_reason` field to the frontmatter at move time (mirrors `recheck.py`'s own existing `reason` string — `"absent from live feed"` or `"active: false upstream"` — already computed, just not currently persisted anywhere once the file is gone).
-- `status:` should reflect this too — set to `removed` (currently every dossier's `status` is a static `unreviewed`; this is the first real transition the field will ever see, and it existing unused until now is itself evidence this was always the intended design, not a new field to invent).
-- `state/dossier_uids.json` (the uid→path manifest `vault_writer/writer.py` maintains) must be updated to the new post-move path, not left pointing at a file that no longer exists there — a stale manifest entry breaks the next `write_dossier()` idempotency check for that uid.
-- `Viewed/` is a **human triage bin**, never a pipeline write target for new dossiers (per [[20_Progress/Internship/Building System/Source of Truth]]) — only `recheck.py`'s removal path writes here, and only by moving an existing file, never creating a new one directly.
-
-## 5. Resource limits — a notification, not a silent hard stop
-Per [[20_Progress/Internship/Building System/Source of Truth]] and [[10_Areas/Career/Internships/List/Dossiers/Dossiers-to-Create]]: 50 files per priority bucket, 201 total (`List/Dossiers/` excluding `Viewed/`), designed 2026-07-26, still not in code as of this writing. **Clarified 2026-07-29**: hitting a bucket's threshold is a **notification**, surfaced in two places — the vault side (a visible warning on `Dossiers MOC.md` / the Tracker dashboard, so a human opening the vault sees it without reading logs) and the codebase side (a run-log field, and a filed GitHub issue on first crossing — not a hard refusal to write). The point is forcing a human review decision to happen, not silently discarding a real, currently-open posting the same way an exclusion gate would. See [[20_Progress/Internship/Building System/Runs/Claude Code Prompts]] for the exact build spec.
-
-## 6. Field semantics — dates, target_year, the `next` chain, `matched_reason`
-Four fields that read as inconsistent or broken if you don't know the rule behind them. Checked directly against real dossier frontmatter (395 files, 2026-08-23) rather than assumed.
-
-**`date_posted` vs `date_found`.** `date_found` is the date this pipeline discovered/wrote the dossier - effectively "date added to vault." The pipeline sets it itself at write time, so it should always be accurate, and a 395-file sweep confirms it is: every dossier carries a real, present `date_found`. `date_posted` is the upstream source's own claimed posting date, and **must stay null when the source didn't actually provide one** - never defaulted, never guessed. This is real and observed, not hypothetical: both manual-find dossiers sampled (Western Digital, Deepgram) carry `date_posted:` empty, while every loop-discovered dossier sampled (Appian, Uber, Jane Street, Optiver) carries a real ISO date. A null `date_posted` next to a populated `date_found` is the expected shape for a manual find, not a data-loss bug.
-
-**`target_year: []` empty is the expected case, not a bug.** `core/profile.yaml`'s `accept_unrestricted: true` means a posting with no class-year field at all still passes the write gate by permissive design (see [[20_Progress/Internship/Building System/Source of Truth]]'s hard-gate asymmetry: a false exclusion loses a real opportunity for nothing, a false inclusion costs one screening read). A 200-file sample taken directly from real dossier frontmatter (2026-08-23) found `target_year: []` on every single one, with zero exceptions - most postings simply don't state a structured class-year field the extractor can read. Whether that's *always* correct or occasionally hides a real extraction miss on a posting that did state a year is a codebase-side question (grep the real fetched posting body against the frontmatter, not something checkable from the vault side) - this section documents the designed, expected case only.
-
-**The `next` chain.** A Dossier's `next` stays null until promoted, then names the Program note it became (confirmed against the real promoted dossiers: Appian's `next:` is empty since it's still `unreviewed`; Uber's and Deepgram's `next:` point at their Program notes with a plain-text note of when/why). A Program's `next` stays null until an Applying note exists for it, then names that Applying note. Each note in the chain only ever points forward to the next note that actually exists - never a placeholder for a note that hasn't been created yet.
-
-**`matched_reason` required richness.** Should name the *specific* rules a posting satisfied - which term matched, the location signal, the degree signal, the OPT-check outcome, the CS-relevance signal type - not the bare literal string `matched`. This is a real, current, and widespread gap: every loop-discovered dossier sampled directly (Appian, Jane Street, Optiver - three different sources) carries `matched_reason: matched` verbatim, with the real specific signal only appearing in the `> [!NOTE]` callout below the frontmatter, not in the field itself. Manual-find dossiers already do this correctly (Uber's `matched_reason` names the promotion date and target Program note). Implementing this for loop-discovered dossiers means changing `build_matched_reason()` - codebase work, not a vault-side fix.
-
-## 7. Screen decision — recorded on the dossier itself, not a separate note
-Decided 2026-08-23. Step 2 (Screen) of [[Internship Pipeline]] - the fit test every dossier passes before Step 3 (Commit) - was the one step in the whole 9-step pipeline with no artifact of its own: a mental check that left no trace on the note it was applied to. This closes that gap the same way §4 closed the removal gap: additional frontmatter fields on the existing dossier, not a new file.
-
-**Chosen over a separate note type, weighed explicitly against this Standard's own §1 precedent.** §1 chose a `company/<slug>` tag over a per-company hub note specifically because a new file per occurrence is exactly the accumulating-maintenance-cost pattern this codebase's zero-LLM/deterministic ethos avoids elsewhere. A Screen decision happens for every dossier that gets a real look - potentially hundreds, a higher volume than same-company clustering ever was, since clustering only needed one hub note per *company* while Screen would need one note per *dossier* if built as a separate file. The same reasoning applies with more force here, not less. Beyond the volume argument, a Screen decision is also structurally closer to §4's `removed_date`/`removed_reason`/`status: removed` pattern than to anything a separate note would suit: it's a short, single state-transition fact recorded at one moment, on a note that already exists, not a growing body of research that needs its own space to accumulate (that's what the Program note becomes at Step 3, once something actually passes). A separate note would overstate the weight of what's supposed to be a fast, two-question gut check, not a research artifact.
-
-**Fields** (added to the dossier's existing frontmatter at Screen time, not part of `build_frontmatter()`'s automated-write order in §1 - these are added by whoever runs Step 2, same as §4's `removed_*` fields are added by `recheck.py` at move time, not at initial write):
-- `screened_date` - the real date the fit test was actually applied.
-- `screened_decision` - `pass` or `reject`. Deliberately not folded into the existing `status` field - `status` already carries `unreviewed` → `removed`/`promoted` as its own lifecycle (§4), and a Screen rejection is a different kind of fact (a human judgment call, not a posting-closed signal) that would blur those two meanings together if merged. A dossier can carry `screened_decision: pass` and still sit at `status: unreviewed` until it's actually promoted - Screen passing is not the same as committing.
-- `screened_reason` - the *specific* signal that drove the call (which goal-push or personal-fit criterion from Pipeline Step 2, in one clause), never a bare "passed"/"rejected" - the same required-richness rule §6 already states for `matched_reason`, extended here rather than reinvented.
-
-**Contact reachability stays unrecorded here on purpose.** Pipeline Step 2 is explicit that contact reachability is "noted, never a gate" - it doesn't drive the pass/reject call, so it doesn't need its own structured field; if it's genuinely relevant to a specific decision, it belongs in the prose of `screened_reason` or waits for the real Contact note Step 3 creates once something is actually promoted.
-
-**Not retroactive.** Existing dossiers don't get backfilled with empty `screened_*` fields - same convention as §4's `removed_*` fields, added going forward at the moment Screen actually happens to a given dossier, not required on notes that predate this section.
-
-**Not yet automated.** No code in `internship-research-loop` writes these fields today - this section defines the shape for a human (or Claude, assisting one) to record a real Screen decision by hand, the same way `/promote-dossier` is the actual mechanism behind §1-§4's fields even though this Standard describes the shape independent of automation state. Whether a future skill or dashboard view should read/write these fields automatically is a real, separate build question, not decided here.
-
-### 8. Deadline fields — `deadline_posted` / `own_deadline`
-Added 2026-10-04 by the Codex stored-content deadline sweep. Every dossier carries exactly one real deadline, in one of two fields — both present on every dossier, one of them null:
-- **`deadline_posted`** — ISO `YYYY-MM-DD`, only when the posting's own fetched text states one. Same name the promoted Program notes already use ([[Deadline and Intake Triage Standard]] §4). Never inferred, never defaulted. A priority-application date counts (LPL's "Priority Application Date: September 21" is the real example).
-- **`own_deadline`** — ISO `YYYY-MM-DD`, set only when `deadline_posted` is null: a self-imposed forcing date so no live dossier is ever deadline-less.
-**Two formulas, deliberately different.** Going forward, the pipeline writes `own_deadline = date_found + 7 days` at write time — correct because a freshly-written dossier's `date_found` is "now". This one-time Codex sweep over weeks-old dossiers anchors on its run date + 7 instead (`2026-10-11`), since `date_found + 7` would already be in the past for them.
-**Extraction (zero-LLM).** `ingestion/posting_page.py` `extract_deadline()` reads the raw fetched page for four real phrasings (Walleye "The deadline to apply for this opportunity is Friday, July 31", Castleton "Application Deadline: September 1", LPL "Priority Application Date", Moog's Workday "time left to apply — End Date: July 29, 2026"). A year-less date resolves to the occurrence nearest `date_found` (a posting can be found after its deadline: Walleye was found 2026-08-04, deadline July 31 → 2026-07-31). Earliest of several stated dates wins. Month-name dates only until a real numeric example is seen.
-**Enforcement.** Both fields are in `REQUIRED_FRONTMATTER_FIELDS` (fail-closed, present even when null) and `check_format_compliance` rejects a dossier where both or neither carry a value.
-**Not retroactive in code** — existing dossiers get these fields from the Codex sweep, not from the pipeline. `Viewed/` dossiers are exempt (a closed posting needs no deadline).
-**Field order** (current as of 2026-10-03; §1's list above predates `preference_tier` and these two): `company, title, url, source, terms, locations, target_year, date_posted, date_found, deadline_posted, own_deadline, matched_reason, status, next, notes, preference_tier, tags`.
-## Done When
-- Every dossier's `notes:` field resolves (Dossiers MOC, plus Removed Dossiers MOC for anything in `Viewed/`) — no broken/missing links.
-- A same-company second dossier shares its `company/<slug>` tag with the first, verifiable via Obsidian's tag search.
-- A spot-read of five random dossiers shows no duplicated paragraphs and no jammed-together UI-chrome lines.
-- A bucket crossing 50 shows up on `Dossiers MOC.md` without opening `logs/runs.jsonl`.
-- A closed posting's dossier is findable in `Viewed/`, not gone.
-- A dossier that's been through Step 2 carries `screened_date`/`screened_decision`/`screened_reason` - no more silent, untraceable fit-test judgment calls.
+==A dossier is a bot-written posting capture that makes a 60-second decision possible; the vault contract is its frontmatter, its links, and where it lives.==
+This is the vault-side contract for dossiers in `10_Areas/Career/Internships/List/Dossiers/`, including `Viewed/` and `_Career Fair/`. The bot's extraction rules, hard gates, resource limits, and manifest belong to the `internship-research-loop` repo and its Source of Truth, not here. Program, Contact, and Tracker notes have their own Standards.
+## Spec
+```json
+{
+  "family": "internship-dossier",
+  "tier": 2,
+  "match": {"type": "input", "kind": "job-dossier", "path": "^10_Areas/Career/Internships/List/Dossiers/", "where": {}, "where_not": {}},
+  "legacy_match": [{"path": "^10_Areas/Career/Internships/List/Dossiers/(?!_Today/)(?!.*(MOC|to-Create)\\.md$).*\\.md$", "where": {"company": "*"}, "absent": ["type"]}],
+  "status": ["seed", "tree", "archived"],
+  "required_keys": ["type", "input_kind", "company", "title", "url", "source", "terms", "locations", "target_year", "date_posted", "date_found", "matched_reason", "status", "next", "notes", "tags"],
+  "key_types": {"terms": "list", "locations": "list", "target_year": "list", "notes": "list", "tags": "list", "date_posted": "text?", "next": "text?"},
+  "headings": [],
+  "optional_headings": []
+}
+```
+## Headings
+The body is bot output, so headings are not enforced. The frontmatter below is.
+### Frontmatter
+Keys in the bot's order: `company`, `title`, `url`, `source`, `terms`, `locations`, `target_year`, `date_posted`, `date_found`, one deadline field, `matched_reason`, `status`, `next`, `notes`, `preference_tier`, `tags`, plus `type: input` and `input_kind: job-dossier`. `date_posted` stays empty when the source gave none. `target_year: []` is the normal case. `matched_reason` names the rule or signal that matched, never the bare word `matched`.
+> [!WARNING]
+> `matched_reason: matched` on 187 of 356 dossiers. The specific signal sits in the callout below and is missing from the field.
+### Status
+`seed` for a new find, `tree` once promoted to a Program (then `next` names it), `archived` once removed. A removed dossier moves to `Viewed/` and gains `removed_date` and `removed_reason`. Whether a human has looked is `review_state`, not `status`.
+### Deadline
+Exactly one of `deadline_posted` (the posting states it) or `own_deadline` (`date_found` plus 7 days). Never inferred, never defaulted. `Viewed/` dossiers are exempt.
+### Links and tags
+`notes` always holds the Dossiers MOC. A removed dossier also holds the Removed Dossiers MOC. `tags` includes `company/<slug>`, which clusters same-company postings without a hub note.
+### Screen fields
+`screened_date`, `screened_decision` (`pass` or `reject`), and `screened_reason` (the specific signal) are added by whoever runs Pipeline step 2. They are never backfilled.
+### Body and placement
+Title, a `> [!NOTE]` match callout, then `## Posting (fetched DATE)` with the posting text, free of duplicated paragraphs and UI chrome. Priority folders are `1 - AI & ML`, `2 - Fullstack`, `3 - CyS & Finance`, and `Other`. Manual and career-fair finds use the same template with `source: manual` or `CareerFair-Manual`. `Viewed/` is a human triage bin. A closed posting moves there; it is never deleted.
+## Legacy Shapes
+| Old shape | New shape | Move |
+|---|---|---|
+| No `type` or `input_kind` | Add `type: input`, `input_kind: job-dossier` | mechanical |
+| `status: unreviewed` | `status: seed` and `review_state: unreviewed` | mechanical |
+| `status: removed` | `status: archived` | mechanical |
+| `status: promoted` | `status: tree` | mechanical |
+| No `notes:` (242 dossiers) | Add the Dossiers MOC link | mechanical |
+| `deadline_posted` and `own_deadline` both present, one null | Keep only the one that has a value | mechanical |
+| `matched_reason: matched` | Name the signal from the callout | judgment |
+## Done Conditions
+- Frontmatter carries every required key, `status` is in the vocabulary, and exactly one deadline field has a value.
+- `notes` resolves to the MOC, and the `company/<slug>` tag is present.
+- A closed posting is in `Viewed/` with its removal fields, not deleted.
+## Gold Standard Example
+[[10_Areas/Career/Internships/List/Dossiers/_Career Fair/Computer Integrated Manufacturing (CIM) Engineer Intern - TSMC]]: a specific `matched_reason`, the MOC link, and the company tag. It predates `type` and the deadline rule, which the Legacy Shapes table adds.

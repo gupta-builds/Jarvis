@@ -1,52 +1,31 @@
 ---
 type: class
-input_kind: lecture
+class_kind: week
 status: seed
-created:
-updated:
-area:
-  - "[[UMN Board]]"
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
 tags:
-  - "#class"
-  - "#Lecture"
+  - class
+  - lecture
+area:
 next:
 ---
 # <% tp.file.title %>
 ## What you must be able to do
-<!-- Write four to eight testable abilities. Link the matching chapter first in the finished note. -->
--
--
+<!-- Four to eight testable abilities as verbs; link the matching chapter first. -->
 ## Key ideas (short)
-<!-- Give three to six compressed claims; this is not the full lecture capture. -->
--
+<!-- Three to six one-line claims; the short version of the lecture. -->
 ## Concepts created today
-<!-- Add links only for concept notes created from this lecture. -->
--
+<!-- Links to concept notes this lecture produced. -->
 ## Examples worth keeping
-<!-- Keep concrete lecture examples, cases, or numbers that made an idea click. -->
--
+<!-- Real lecture cases, numbers, or scenarios that made an idea click. -->
 ## Lecture
-<!-- Reproduce the lecture's structure with one ### section per major part. Use tabs for nested content. -->
-### 1. Section title
+<!-- Pre-lecture source notes, then live lecture capture, as numbered ### sections. Never overwrite the live capture. -->
 ## Textbook integration
-<!-- State what the textbook adds beyond lecture. Link the actual chapter and name the missing framework or test. -->
-> [!IMPORTANT]
-> Main chapters:
+<!-- What the chapter adds beyond lecture, with the chapter linked. -->
 ## Takeaways (questions to resolve)
-<!-- Use real follow-up questions that can be answered by reading or drilling. -->
-- [ ]
-- [ ]
+<!-- Two to five open questions as - [ ] tasks. -->
 ## Lecture-to-textbook synthesis
-<!-- Use one highlighted definition, then mechanism, lecture example, textbook link, concept links, warning, and summary. -->
-== ==
-*Mechanism:*
-- Lecture example/scenario:
-- Textbook connection:
-- Concept links:
-> [!WARNING]
-> Replace this with the common confusion or failure mode.
-
-> [!SUMMARY]
-> Replace this with what the week is really about in one sentence.
+<!-- One highlighted definition, then mechanism, lecture example, textbook link, concept links, a WARNING, and a SUMMARY. -->
 ## Flashcards
-<!-- Add 3–5+ cards to #cards/<course-slug>; test distinctions and mechanisms, not labels. -->
+<!-- Three to five cards on #cards/<course-slug> testing distinctions and mechanisms. -->

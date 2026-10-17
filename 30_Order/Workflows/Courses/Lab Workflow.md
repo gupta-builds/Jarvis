@@ -1,36 +1,33 @@
 ---
-type: evergreen
+type: system
 status: sprout
 created: 2026-09-08
-updated: 2026-09-20
+updated: 2026-10-16
 tags:
   - system
   - workflow
+system_kind: workflow
+serves: "[[Lab Standard]]"
+trigger: A lab prompt and starter files are available, or a lab session just happened.
 notes:
-  - "[[Lab Standard]]"
-  - "[[00_Workflows Index]]"
+  - "[[Lab Template]]"
+  - "[[Weekly Workflow]]"
+  - "[[Concept Workflow]]"
 ---
 # Lab Workflow
-Capture a lab session's errors and fixes while they're still fresh, right after the lab — not from memory days later once the specifics have blurred.
-**Use when:** a graded or ungraded lab session just happened.
-**Moves:** lab session → `<Course>/Lab/` or the course's assignment folder (wherever the course keeps individually-submitted work), one note per lab.
-**Template:** [[Lab Template]]
-## Normative procedure
-Create the note before or during the lab if the prompt and starter files are available. Read the lab source, tests, paired lecture/textbook material, and actual run output. Record the goal in your own words, the decision points needed to reproduce the work, and the observed result. As each error occurs, write `Problem / Fix / Why / Evidence`; the error log is the durable output, not a polished claim that everything worked.
-Verify tests from output rather than memory. Link the lab to its week and reusable concepts, then propagate durable debugging patterns to the concept, preparation, and exam-practice layers. Keep collaboration/tool rules and required submission steps separate from the implementation chosen.
+Capture a lab's errors and fixes while they are still specific, not from memory days later.
+## Use when
+The lab prompt is available (create the note before or during the lab), or a session just ended.
 ## Steps
-1. Read [[Lab Standard]] before writing — it governs the note this workflow creates, and its Errors + Fixes section is the point.
-2. Create the lab note from [[Lab Template]] during or immediately after the lab session, while the errors hit are still specific in memory.
-3. Fill in Goal and Procedure first, in your own words — not copied from the assignment sheet.
-4. Fill in Errors + Fixes as errors get resolved, not reconstructed afterward — write each one down the moment it's fixed.
-5. Link the lab back to the week it paired with, and to any concept notes it exercised.
-## Frontmatter to set
-```yaml
-type: class
-input_kind: lab
-status: seed
-```
+1. Read [[Lab Standard]]. Its Errors + fixes section is the point of the note.
+2. Create `Lab - N` in the course's `Labs/` folder from [[Lab Template]] using the prompt, starter files, tests, and the paired lecture and textbook material.
+3. Write the Goal and the Procedure in your own words, keeping the decision points: flags, config, commands.
+4. As each error is resolved, write its Problem, Fix, Why, and Evidence on the spot. Take Evidence from the actual test or run output.
+5. Record the observed Results. Keep collaboration rules and required submission steps separate from the implementation you chose.
+6. Link the lab to its week and the concepts it exercised. Carry durable debugging patterns to the concept, preparation, and exam-practice notes.
+7. Run [[Vault Lint]] on the path and fix what it reports.
+## Do not
+Do not claim tests passed without observed output, or paste a full solution only to make the note look complete.
 ## Done when
-- Every real error hit during the lab has a Problem/Fix/Why entry.
-- The note is linked to its paired week.
-- Results are stated plainly, not padded.
+- Every real error has Problem, Fix, Why, and Evidence.
+- Results are plain and the lab is linked to its week.

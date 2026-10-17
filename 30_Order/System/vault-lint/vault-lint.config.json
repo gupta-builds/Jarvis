@@ -1,0 +1,18 @@
+{
+  "out_of_scope": [
+    "^50_Archive/",
+    "^\\.git/",
+    "^\\.obsidian/",
+    "^blobs/",
+    "^__pycache__/"
+  ],
+  "tier4": [
+    "^\\.(claude|agents|codex|cursor|opencode|kiro|firecrawl|vscode|stversions|github)/",
+    "^copilot/",
+    "^20_Progress/AI/[^/]+/.*/(skills|skills-cursor|agents|commands|hooks|rules|context|specs|steering|powers|plans)/",
+    "^60_Claude/05_Clippings/AI Conversations/.*/_(raw|archive)"
+  ],
+  "template_paths": [
+    "^30_Order/Templates/"
+  ]
+}

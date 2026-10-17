@@ -1,36 +1,69 @@
 ---
-type: evergreen
+type: system
 status: sprout
 created: 2026-09-20
-updated: 2026-09-20
+updated: 2026-10-16
 tags:
   - system
   - standards
-notes:
+system_kind: standard
+family: course-textbook-map
+tier: 1
+maps_to:
   - "[[Textbook Map Template]]"
+used_by:
+  - "[[Textbook Map Workflow]]"
+gold_standard: "[[20_Progress/Degree/CSCI 4521/Textbook/Textbook Map|Textbook Map]]"
+notes:
+  - "[[Textbook Standard]]"
+  - "[[Weekly Standard]]"
 ---
 # Textbook Map Standard
 ==The textbook map is a navigation and coverage ledger, not a place to hide chapter summaries.==
-This standard governs `Textbook Map Template.md`. It answers which source sections belong to the course, which chapter notes exist, what is next, and where the schedule or source corpus is incomplete.
-## Frontmatter and scope
-Keep `type: index`, `status`, dates, `tags`, `notes`, and `next`. State the course, textbook edition, and source location in `## Purpose`. If a course uses multiple books or a standalone paper, distinguish them explicitly.
-## Purpose
-Name the authoritative textbook/source and explain how to read the map. Record the mapping rule used: chapter/section, module, week, or assignment. Do not imply that a locally available PDF is assigned unless the Board or syllabus confirms it.
-## Map
-Use one row or bullet per assigned chapter/section/module. Each entry should include the source section, a path-qualified link to its chapter note, the course week/lecture it supports, the due/reading date if verified, and status (`not started`, `prepared`, `captured`, `reconciled`, or `needs review`). A chapter may map to multiple weeks; retain those links instead of duplicating chapter content.
-When an assignment or lecture uses a section not on the published schedule, add it as `source-discovered` and flag it for user verification. When the source has gaps, preserve the gap.
-## Status
-Summarize coverage: notes created, notes awaiting NotebookLM output, notes awaiting Obsidian arrangement, notes awaiting lecture reconciliation, and unresolved source/schedule questions. The status section should make the next production step obvious.
-## Relationship to textbook notes
-Textbook notes are produced from the textbook source and the user's established NotebookLM prompt. The map must not reproduce their content. When a NotebookLM output arrives, first land it in the correct chapter note, then update this map's status and the weekly/concept queues.
-## Dataview
-Keep the query at the bottom. Replace the placeholder source path with the actual course folder and ensure the query's `input_kind: book` matches the textbook note frontmatter. Do not add a query that points at a guessed folder.
-## Update triggers
-Update when the syllabus/modules schedule changes, a chapter note lands, a source is found to be missing/duplicate, or lecture reveals that a different section was actually used. Do not reorder the map merely for aesthetic reasons if doing so obscures schedule order.
-## Done conditions
-- Every assigned source section has one clear map entry.
-- Each chapter link is verified and path-qualified where needed.
-- Reading dates/modules and unresolved gaps are visible.
-- The map contains navigation/status only, not duplicated chapter prose.
-- The Dataview path and `input_kind` are correct.
-
+This is the standard for the one map per course at `<Course>/Textbook/Textbook Map.md`. It answers which source sections belong to the course, which chapter notes exist, what is next, and where the schedule or the source is incomplete. Chapter content lives in the chapter notes of [[Textbook Standard]].
+## Spec
+```json
+{
+  "family": "course-textbook-map",
+  "tier": 1,
+  "match": {"type": "class", "kind": "textbook-map", "path": "^(20_Progress/Degree|40_Resources/UMN/Previous Classes|10_Areas/Notes)/", "where": {}, "where_not": {}},
+  "status": ["seed", "sprout", "tree", "archived"],
+  "required_keys": ["type", "class_kind", "status", "created", "updated", "tags", "area", "next"],
+  "key_types": {"created": "date", "updated": "date", "tags": "list", "area": "list"},
+  "headings": ["Purpose", "Map", "Status"],
+  "optional_headings": ["Dataview"],
+  "legacy_match": [
+    {"type": "class", "path": "^(20_Progress/Degree|40_Resources/UMN/Previous Classes|10_Areas/Notes)/", "where": {"input_kind": "textbook"}, "absent": ["class_kind"]},
+    {"type": "index", "path": "^(20_Progress/Degree|40_Resources/UMN/Previous Classes)/.*Textbook Map\\.md$"}
+  ]
+}
+```
+## Headings
+### Frontmatter
+`class_kind: textbook-map`, `status`, `area` linking the course Board, `tags: [class, textbook]`, and `next` naming the next production step.
+### Purpose
+Name the authoritative textbook or source, its edition and local location, and the mapping rule used (chapter, module, week, or assignment). When a course uses several books or a standalone paper, distinguish them. Do not imply a local PDF is assigned unless the Board or syllabus confirms it.
+> [!WARNING]
+> Putting a chapter summary here instead of the mapping rule.
+### Map
+One row or bullet per assigned section: the source section, a path-qualified link to its chapter note, the week or lecture it supports, the verified reading date, and a status of `not started`, `prepared`, `captured`, `reconciled`, or `needs review`. A chapter that spans weeks keeps one canonical note. A section used by lecture but absent from the schedule is added as `source-discovered` and flagged for verification. Preserve source gaps.
+*Density:* one entry per section, navigation only.
+### Status
+Coverage in a few lines: notes created, awaiting NotebookLM output, awaiting arrangement, awaiting lecture reconciliation, and unresolved source or schedule questions. It should make the next production step obvious.
+### Dataview
+Optional, at the bottom. Query the real course folder with `class_kind = "textbook"`. Never a guessed folder.
+## Legacy Shapes
+| Old shape | New shape | Move |
+|---|---|---|
+| `input_kind: textbook` | `class_kind: textbook-map` | Mechanical |
+| `type: index` with `tags: [moc]` | `type: class`, `class_kind: textbook-map` | Mechanical |
+| A `##` heading per book title or part (CSCI 4061, 4511W, 5304) | Rows inside `Map`, grouped by book | Judgment |
+| `Standard`, `Chapter Notes`, `Methodology`, `Correction (date)` | Fold into `Purpose`, `Map`, or `Status`; dated corrections go in `Status` | Judgment |
+| Dataview with `input_kind = "book"` | `class_kind = "textbook"` | Mechanical |
+## Done Conditions
+- Every assigned source section has one map entry with a verified link.
+- Reading dates and unresolved gaps are visible.
+- The map holds navigation and status only, with no duplicated chapter prose.
+- The Dataview path, if present, is the real folder.
+## Gold Standard Example
+[[20_Progress/Degree/CSCI 4521/Textbook/Textbook Map|Textbook Map]]: Purpose, a verified Map table with status per row, Status, and a Dataview. It still carries `type: index`, which the Legacy Shapes table rewrites.

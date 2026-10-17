@@ -46,7 +46,8 @@ Under `## Spec`, one fenced `json` block per family. The linter reads it, so it 
   "optional_headings": ["Flashcards"]
 }
 ```
-`match.kind` is the value of the type's `*_kind` key. `where` and `where_not` compare other frontmatter keys. `headings` are `##` titles, required and in order. Key types are `date`, `number`, `list`, `text`, `bool`, `wikilink`.
+`match.kind` is the value of the type's `*_kind` key. `where` and `where_not` compare other frontmatter keys. `match.path` is the allowed folder: a note of the right type in the wrong folder fails the placement check instead of vanishing as unmapped. `headings` are `##` titles, required and in order. Key types are `date`, `number`, `list`, `text`, `bool`, `wikilink`.
+`legacy_match` is an optional list that recognizes older notes of the family, such as `{"type": "class", "path": "^20_Progress/Degree/", "where": {"input_kind": "lecture"}, "absent": ["class_kind"]}`. A note found this way is scored on every check except mapping, which it fails as `legacy-shape`. That shows how far it is from fit and which upgrade it needs.
 ## Template anatomy
 - Every required key is present. Predictable values are filled (`status: sprout`). Dates use `<% tp.date.now("YYYY-MM-DD") %>`; `{{date}}` is not allowed. A value never lists choices (`a | b | c`).
 - The title is `# <% tp.file.title %>`. Each spec heading follows in order with exactly one `<!-- -->` line of at most 140 characters saying what goes there.
@@ -80,6 +81,18 @@ No two files in `30_Order` share a name, because wikilinks resolve by name. `X S
   "required_keys": ["type", "status", "created", "updated", "tags", "system_kind", "family", "maps_to", "used_by", "gold_standard"],
   "key_types": {"created": "date", "updated": "date", "tags": "list", "maps_to": "list", "used_by": "list"},
   "headings": ["Done Conditions", "Gold Standard Example"],
+  "optional_headings": []
+}
+```
+```json
+{
+  "family": "system-guide",
+  "tier": 2,
+  "match": {"type": "system", "kind": "guide", "path": "^30_Order/", "where": {}, "where_not": {}},
+  "status": ["seed", "sprout", "tree", "archived"],
+  "required_keys": ["type", "status", "created", "updated", "tags", "system_kind"],
+  "key_types": {"created": "date", "updated": "date", "tags": "list"},
+  "headings": [],
   "optional_headings": []
 }
 ```

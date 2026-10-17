@@ -1,5 +1,11 @@
 ---
 type: contact
+status: active
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags:
+  - internship
+  - contact
 name:
 role:
 company:
@@ -7,24 +13,16 @@ linkedin_url:
 email:
 how_found:
 relationship: cold
+related_programs: []
 last_contact_date:
-tags:
-  - contact
 next:
 ---
-# [Role] - [Company]
+# <% tp.file.title %>
 ## Facts
-What you actually know about this person and why they're relevant to *this specific* internship — not a generic bio. Every fact below needs a source; a fact with no source is a guess, not a fact.
-### Contact
-- Email, LinkedIn URL, and how found — and is it verified, or an MX-validated guess? Say which.
-### Relation
-How is this person actually related to the company — what's their real role, where have they been mentioned publicly (blog, GitHub, a talk)? What about them would give the conversation a genuine personal touch instead of a cold-form message? Concretely, how could this specific person help move me toward the goal in [[Engineer Edge Roadmap]] — not "they might be useful," but the actual mechanism.
+<!-- Sourced facts about each person: how to reach them, how they relate to the company, how they could help. -->
 ## Current Draft
-==The live, unsent message to this person right now.== Build it from [[Mimic]] and edit until it sounds like you, not the template.
-> [!IMPORTANT]
-> Drafting help only. No message here sends itself — every draft is reviewed and sent by hand.
+<!-- The live unsent message built from Mimic; nothing here sends itself. -->
 ## Conversation Log
-Dated entries, newest at the bottom.
-- **YYYY-MM-DD:** Note created.
+<!-- Dated entries of what was really said or sent, newest at the bottom. -->
 ## Next Action
-The single next move — send, follow up, or wait.
+<!-- The single next move: send, follow up, or wait, and the date it depends on. -->

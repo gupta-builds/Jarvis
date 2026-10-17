@@ -1,11 +1,16 @@
 ---
-type: evergreen
+type: system
 status: sprout
 created: 2026-10-15
-updated: 2026-10-15
+updated: 2026-10-16
 tags:
   - system
   - standards
+system_kind: standard
+family: policy
+maps_to: []
+used_by: []
+gold_standard: none
 notes:
   - "[[Tool Calls]]"
   - "[[Memory Management]]"
@@ -14,7 +19,7 @@ notes:
 ---
 # Orchestration
 ==Read wide in a subagent, decide in the main window: the agent returns the conclusion, not the transcript.==
-This is the behavior standard for when a task goes to a subagent, a skill, or stays inline, and how a subagent file is shaped. It governs a different question than [[Tool Calls]]: Tool Calls picks the single tool for one step, Orchestration picks who runs the whole task. Plugin choice (Dataview, Tasks, Kanban) is a third question and lives in the Workflow Chooser of [[AI_CONTEXT]].
+This is the behavior policy for when a task goes to a subagent, a skill, or stays inline, and how an agent file is shaped. It picks who runs the whole task. [[Tool Calls]] picks the single tool for one step. Plugin choice (Dataview, Tasks, Kanban) is a third question, answered by the Workflow Chooser in [[AI_CONTEXT]].
 ## Spawn threshold
 Spawn a subagent when a side task would flood the main conversation with reading you will not reference again: a search that must open twenty notes to find three, a full-source ingestion, a link audit. Keep it inline when one or two tool calls finish the job.
 - Use `Explore` to find files when the path is unknown and the search needs three or more queries.
@@ -23,7 +28,7 @@ Spawn a subagent when a side task would flood the main conversation with reading
 - A subagent starts cold. Brief it with the goal, what is already ruled out, and the exact paths to read.
 ## Skill, agent, or inline
 - **Skill (a `/command`):** a repeatable procedure with a fixed checklist, run in the main window. Examples: `/startday`, `/closeday`, `/ingest-clipping`, `/weekly-review`.
-- **Agent:** isolated context for heavy reading or a distinct role. Examples below.
+- **Agent:** isolated context for heavy reading or a distinct role.
 - **Inline:** everything else.
 ## Agent file shape
 Each agent is `.claude/agents/<name>.md` with frontmatter `name`, `description`, `tools`, and `model`. The description is third person and says when to use it: "Use proactively for... MUST BE USED for...". The `tools` list holds only what the role needs, so a read-only role cannot write.
@@ -43,7 +48,7 @@ Each agent is `.claude/agents/<name>.md` with frontmatter `name`, `description`,
 | `llm-council` | high-stakes decisions needing five advisors | Read, Grep, Glob |
 Counts and tool lists drift. The folder `.claude/agents/` is the truth; fix this table when it disagrees.
 > [!WARNING]
-> Treating a subagent's report as fact. A report describes what the agent intended to do. On 2026-10-15 a survey agent returned a "will report back" line with zero tool uses recorded. Check tool-use counts, and read the files that carry the conclusion before acting on it.
+> Treating a subagent's report as fact. A survey agent once returned a "will report back" line with zero tool uses recorded. Check tool-use counts, and read the files that carry the conclusion before acting on it.
 > [!WARNING]
 > Spawning an agent for a one- or two-call task. The briefing costs more than the work.
 ## Done Conditions

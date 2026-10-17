@@ -1,26 +1,27 @@
 ---
-type: index
+type: class
+class_kind: textbook-map
 status: seed
-created:
-updated:
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
 tags:
-  - moc
-notes: []
+  - class
+  - textbook
+area:
 next:
 ---
 # <% tp.file.title %>
-This is the INDEX of every part/chapter the course covers, with links out to each chapter's own note — not chapter content itself. Individual chapter content uses [[Textbook Template]] and lives in its own `Chapter - N.md` note; this file only maps to those.
 ## Purpose
-<!-- State which textbook(s) the course uses and how this map should be read. -->
+<!-- The authoritative textbook, its edition and local file, and the mapping rule used. -->
 ## Map
-<!-- Add one concise row or bullet per assigned section with a verified chapter link and due date/module. -->
+<!-- One row per assigned section: source, chapter note link, week, verified date, status. -->
 ## Status
-<!-- Record which chapter notes exist, what is next, and any unresolved source or schedule gap. -->
+<!-- Coverage in a few lines and the next production step. -->
 ## Dataview
-<!-- Keep this query at the bottom. Replace the course folder path before using the template. -->
+<!-- Optional. Query the real course folder with class_kind = "textbook". -->
 ```dataview
 TABLE status, next
 FROM "<course folder path>/Textbook"
-WHERE input_kind = "book"
+WHERE class_kind = "textbook"
 SORT file.name ASC
 ```

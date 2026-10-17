@@ -1,102 +1,92 @@
 ---
-type: evergreen
+type: system
 status: sprout
 created: 2026-06-01
-updated: 2026-06-01
+updated: 2026-10-16
 tags:
   - system
   - standards
-notes:
+system_kind: standard
+family: course-week
+tier: 1
+maps_to:
   - "[[Week Template]]"
-  - "[[00_Workflows Index]]"
-  - "[[Vault Rules — Complete AI Ruleset]]"
-  - "[[HUMAN_WRITING]]"
+used_by:
+  - "[[Weekly Workflow]]"
+gold_standard: "[[20_Progress/Degree/CSCI 4061/Weekly/Week - 4|Week - 4]]"
+notes:
+  - "[[Weekly Board Standard]]"
+  - "[[Textbook Standard]]"
+  - "[[Concept Standard]]"
 ---
-# Course Week Standard
-==A week note fuses lecture and textbook into one synthesis that resolves what each source alone leaves ambiguous — the synthesis section is the point, not an afterthought.==
-This is the content standard for `class` / `input_kind: lecture` week notes. Current courses file these at `20_Progress/Degree/<Course>/Weekly/Week - N.md`; older courses predate the `Weekly/` subfolder and keep them flat at the course root — both locations follow this same content standard, only the path differs. The defining move is the `## Lecture-to-textbook synthesis` section: lecture gives the scenario and the application, the textbook gives the named frameworks and tests, and the synthesis states how they fit. The gold standard is the MGMT 3001 week set; match its shape.
-This Standard governs each week's *content*. [[Week Standard]] governs the `Weekly Board.md` index that lists and links every week note in a course — read that one first for the index, this one for what goes inside each entry it points to.
-## Maps To
-- Template: [[Week Template]]
-## Used By Workflow
-- [[Weekly Workflow]] covers when a week note gets created and how it links back to `Weekly Board.md`. See [[00_Workflows Index]] for the surrounding system and read this Standard before writing.
-## Per-Heading Standard
+# Weekly Standard
+==A week note fuses the lecture and the textbook into one synthesis that resolves what each source leaves ambiguous. The synthesis section is the point, not an afterthought.==
+This is the standard for a course week note: one note per week at `<Course>/Weekly/Week - N.md` (older courses keep it flat at the course root; the content rule is the same). The lecture gives the scenario and the application, the textbook gives the named frameworks and tests, and the synthesis states how they fit. The index that lists every week is the sub-board, covered by [[Weekly Board Standard]].
+## Spec
+```json
+{
+  "family": "course-week",
+  "tier": 1,
+  "match": {"type": "class", "kind": "week", "path": "^(20_Progress/Degree|40_Resources/UMN/Previous Classes|10_Areas/Notes)/", "where": {}, "where_not": {}},
+  "status": ["seed", "sprout", "tree", "archived"],
+  "required_keys": ["type", "class_kind", "status", "created", "updated", "tags", "area", "next"],
+  "key_types": {"created": "date", "updated": "date", "tags": "list", "area": "list"},
+  "headings": ["What you must be able to do", "Key ideas (short)", "Concepts created today", "Examples worth keeping", "Lecture", "Textbook integration", "Takeaways (questions to resolve)", "Lecture-to-textbook synthesis", "Flashcards"],
+  "optional_headings": [],
+  "legacy_match": [
+    {"type": "class", "path": "^(20_Progress/Degree|40_Resources/UMN/Previous Classes|10_Areas/Notes)/", "where": {"input_kind": "lecture"}, "absent": ["class_kind"]},
+    {"type": "input", "path": "^(20_Progress/Degree|40_Resources/UMN/Previous Classes|10_Areas/Notes)/", "where": {"input_kind": "lecture"}}
+  ]
+}
+```
+## Headings
 ### Frontmatter
-`type: class`, `input_kind: lecture`, `status: seed` (week notes stay `seed`; the distilled concept note is where maturity grows), `area:` linking the course board and the matching textbook chapter, `tags: [#class, #Lecture]`, and `next:` pointing to the following week. Path-qualify ambiguous links — every course has a `Week - 9`.
-> [!WARNING]
-> A bare `[[Week - 10]]` that resolves to the wrong course's week. Week 9 uses `area:` links to the board, `[[Chapter - 14]]`, and the concept note, with `next:` → Week 10.
+`class_kind: week`, `status: seed` to start, `area` linking the course Board and the matching textbook chapter, `tags: [class, lecture]`, and `next` pointing to the following week. Path-qualify ambiguous links, because every course has a `Week - 9`.
 ### What you must be able to do
-The week's learning objectives as bullets, with the textbook chapter linked first. These are the exam-facing "can I do this" checks.
-*Density:* four to eight objective bullets, each a verb the student must perform ("Distinguish...", "Apply the diversification test...").
+Four to eight learning objectives as verbs the student must perform ("Distinguish...", "Apply..."), with the textbook chapter linked first.
 > [!WARNING]
-> Restating the topic title instead of listing testable abilities. Week 4 opens with `[[Chapter - 6]]` then eight "Distinguish / Explain / Apply / Compare" objectives.
+> Restating the topic title instead of listing testable abilities.
 ### Key ideas (short)
-Three to six compressed claims. Bold the named concept and the key contrast word in each.
-*Density:* one line per idea, no sub-bullets.
-> [!WARNING]
-> Re-explaining the lecture here — this section is the short version, the Lecture section is the long one. Week 9: "Power is potential; influence is power in action; authority is formal right."
+Three to six compressed claims, one line each, with the named concept and the key contrast word in bold. This is the short version of the Lecture section, not a second copy of it.
 ### Concepts created today
-Wikilinks to the concept notes this week produced. Verify each exists or mark `(to create)`.
-*Density:* one to four concept links.
-> [!WARNING]
-> Linking concepts that have no note. Week 9 links `[[Power and Influence]]`, `[[Management Foundations and Leadership]]`, `[[Ethics and Corporate Social Responsibility]]`.
+One to four wikilinks to concept notes this week produced. Each link resolves or is marked `(to create)`.
 ### Examples worth keeping
-Real lecture examples and scenarios — never invented ones. Bold the entity (a company, a named study).
-*Density:* three to six concrete cases.
-> [!WARNING]
-> Generic textbook examples. Week 9: "Heidi vs Howard = gendered perception of the same behavior", "Oprah and Obama = referent power."
+Three to six real lecture cases, with the entity in bold. Never invented examples.
 ### Lecture
-Numbered sections following the lecture's own structure: `### 1. Title` with tab-indented sub-content. Use `$...$` for any notation. This is the full lecture capture.
-*Density:* one `###` per lecture section — Week 9 has 10. Reproduce the lecture, do not compress.
-*Plugins:* `**bold**` on every power base / tactic / named term; `1.`/`-` lists for enumerations.
+The lecture's own structure as numbered `###` sections, with nested content indented by tab and `$...$` for notation. Reproduce it, do not compress it.
+The user's live capture is protected source material. Organize around it and add links, but never delete, overwrite, or paraphrase away its uncertainty, and never replace it with an imagined transcript. Label `Pre-lecture source notes` and `Live lecture capture` so they stay distinguishable.
 > [!WARNING]
-> Collapsing ten lecture sections into a paragraph. Week 9 § Lecture walks sections 1–10 (power vs authority → choosing the right tactic) with the five power bases and ten influence tactics each bolded.
+> Collapsing ten lecture sections into one paragraph.
 ### Textbook integration
-What the chapter adds beyond lecture. Link the chapter. When the chapter is dense, use `### Additions easy to miss` subheadings (Week 4 uses "Textbook additions that are easy to miss" with `### Why firms diversify`, `### Portfolio thinking`, etc.).
-*Density:* capture the frameworks and tests the lecture only gestured at.
-> [!WARNING]
-> Repeating the lecture instead of stating the delta. Week 4 surfaces the **BCG Growth-Share Matrix**, the inverted-U diversification result, and the ownership test — none stated plainly in lecture.
-### Domain links (leadership / entrepreneurship / speaking)
-Optional but present in the gold notes: `### Leadership link`, `### Entrepreneurship link`, `### Speaking skill link` — how the week's concept transfers to the course's applied tracks.
-*Density:* one to three bullets per sub-link, only where a real transfer exists.
-> [!WARNING]
-> Forcing all three when only one applies. Week 4 ties corporate strategy to conceptual skill (leadership), founder scope decisions (entrepreneurship), and a five-step recommendation order (speaking).
+What the chapter adds beyond lecture, with the chapter linked. When the chapter is dense, use `###` sub-headings; optional sub-links to the course's applied tracks appear only where a real transfer exists.
+*Density:* the delta, not a repeat of the lecture.
 ### Takeaways (questions to resolve)
-`- [ ]` Tasks format, never prose. These are real open questions to resolve before the exam.
-*Density:* two to five genuine questions.
-> [!WARNING]
-> Prose paragraphs, or questions already answered in the note. Week 4: "- [ ] At what point do transaction-cost savings stop justifying vertical integration?"
+Two to five genuine open questions as `- [ ]` tasks, never prose.
 ### Lecture-to-textbook synthesis
-==The required section that makes a week note good and is missing from weak ones.== Exact shape:
-- one `==definition anchor==` highlight stating the week's core concept in a sentence (the section's single highlight);
-- `*Mechanism:*` — how lecture and textbook fit, what drives the concept;
-- lecture example/scenario — the concrete case that makes it stick;
-- textbook connection — `[[Chapter - ]]` supplies the framework the lecture applied;
-- concept links — the `[[Concept - ]]` notes;
-- `> [!WARNING]` the common confusion or failure mode, then `> [!SUMMARY]` one sentence on what the week is really about.
+==The section that makes a week note good.== One `==definition anchor==` highlight, then `*Mechanism:*`, the lecture example, the textbook connection, the concept links, a `> [!WARNING]` with the common confusion, and a `> [!SUMMARY]` of what the week is about in one sentence.
 > [!WARNING]
-> Skipping this section, or using more than one highlight in it. Week 9 anchors on "power is the capacity to influence, influence is the process, authority is the formal right", then mechanism → playing high/low example → `[[Chapter - 14]]` → concept links → WARNING (power ≠ authority) → SUMMARY.
+> Skipping the section, or using more than one highlight in it.
 ### Flashcards
-`#cards/[course]` (the gold notes use `#cards/MGMT`). 3–5+ cards testing distinctions and mechanisms, not labels. In the `#cards` section bold only the term meant to be hidden.
-> [!WARNING]
-> Label cards ("Five power bases::Legitimate, reward, coercive, expert, referent" is acceptable as a list-recall card, but prefer distinction cards like "Playing high::Signals rank; useful when rank must be reinforced").
+Three to five or more cards on `#cards/<course-slug>` that test distinctions and mechanisms. In the card section, bold only the term meant to be hidden.
+### Sources and strictness
+Every example, number, and claim has a source anchor or an `Inferred` or `Unresolved` label. When live capture disagrees with the textbook, keep both as source-attributed conflicts until verified.
+## Legacy Shapes
+| Old shape | New shape | Move |
+|---|---|---|
+| `Key ideas (textbook)`, `Key ideas (readings)`, `Key ideas` | `Key ideas (short)`; textbook-sourced items go to Textbook integration | Judgment |
+| `Concepts created / updated today`, `Concept notes` | `Concepts created today` | Mechanical rename |
+| `Labs / Projects`, domain-link headings | `###` under Textbook integration or Examples worth keeping | Judgment |
+| `Self-check`, `Midterm Check`, `Closed-note understanding check` | Takeaways as `- [ ]` tasks | Judgment |
+| No synthesis section (about 47 of 78 notes) | Add `Lecture-to-textbook synthesis` from the note's own lecture and chapter | Judgment |
+| `input_kind: lecture` | `class_kind: week` | Mechanical |
+| `tags: ["#class", "#Lecture"]` | `tags: [class, lecture]` | Mechanical |
+| Template body left unfilled, a `Gold standard:` line, or a second copy of the template appended | Delete the unfilled copy; keep only written content | Mechanical |
+| `type: concept` with `input_kind: lecture` (BIOL Theme notes) | `type: class`, `class_kind: week` | Judgment |
 ## Done Conditions
-- Lecture is captured section-by-section; textbook integration states only the delta.
-- The `## Lecture-to-textbook synthesis` section is present and follows the exact six-part shape with one highlight, a WARNING, and a SUMMARY.
-- Objectives, key ideas, examples, and concept links are all real and verified.
-- `- [ ]` Tasks for takeaways; 3–5+ `#cards/[course]` cards.
-- Passes all 16 points of [[Vault Rules — Complete AI Ruleset]] Part 12.
-## 2026-09-20 Normative Production Addendum
-### Lifecycle
-Create the week note before lecture from the verified schedule, the landed textbook note, assigned slides/PDFs, notebooks or Python files, prior concepts, and relevant assignments. The goal is to be ahead of the lecture. During class, the user's live notes belong in the `## Lecture` section/header. Treat that capture as protected human source material: organize around it and add links, but do not delete, overwrite, silently paraphrase away uncertainty, or replace it with an imagined transcript.
-When no live lecture is happening, the same `## Lecture` area may contain pre-lecture slide/PDF/source notes. Label those as `Pre-lecture source notes` and keep later `Live lecture capture` distinguishable. Do not create a parallel temporary lecture note that can drift away from the weekly note.
-After lecture, reconcile the live capture with textbook, slides/PDFs, code, assignments, and concept notes. Carry forward what was actually emphasized or corrected into the textbook integration, concept notes, Board, assignment notes, and open questions. Preserve disagreements as source-attributed conflicts until verified.
-### Source map and strictness
-Before drafting, list the schedule row, textbook chapter/section, lecture date/capture, slides/PDF/notebook files, labs/projects/assignments, and concepts touched. Read every available source row for the target week; do not rely on a single existing note. Every example, number, code behavior, and claim needs a source anchor or an explicit `Inferred`/`Unresolved` label.
-### Density and exam use
-The Lecture section follows the actual lecture structure and retains mechanisms, derivations, code shape, edge cases, examples, and corrections. Textbook integration states the delta rather than repeating lecture. When an exam is near, make the concept layer rich and use this note to map retrieval and practice; do not turn the weekly note into a giant cram dump.
-### Final gate
-The week is complete only when pre-lecture preparation, protected live capture, post-lecture reconciliation, source-grounded links, real open questions, and mechanism/contrast flashcards are all accounted for. A stub with polished prose but no actual lecture/source reconciliation is not complete.
+- The lecture is captured section by section, and the textbook integration states only the delta.
+- The synthesis section has one highlight, a WARNING, and a SUMMARY.
+- Objectives, ideas, examples, and concept links are real and verified.
+- Takeaways are `- [ ]` tasks and the cards are on the right deck.
+- No unfilled template text or appended template copy remains.
 ## Gold Standard Example
-- [[40_Resources/UMN/Previous Classes/Minor/MGMT 3001/Week - 9|Week - 9]] — power and influence; the cleanest synthesis section.
-- [[40_Resources/UMN/Previous Classes/Minor/MGMT 3001/Week - 4|Week - 4]] — corporate strategy; the strongest "textbook additions easy to miss" and domain-link sections.
+[[20_Progress/Degree/CSCI 4061/Weekly/Week - 4|Week - 4]]: all nine headings filled in the current shape, including the synthesis section.

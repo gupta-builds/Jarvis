@@ -1,46 +1,80 @@
 ---
-type: evergreen
+type: system
 status: sprout
 created: 2026-09-20
-updated: 2026-09-20
+updated: 2026-10-16
 tags:
   - system
   - standards
-notes:
+system_kind: standard
+family: course-textbook
+tier: 1
+maps_to:
   - "[[Textbook Template]]"
-  - "[[Textbook Map Template]]"
+used_by:
+  - "[[Textbook Workflow]]"
+gold_standard: "[[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]]"
+notes:
+  - "[[Textbook Map Standard]]"
+  - "[[Weekly Standard]]"
 ---
 # Textbook Standard
-==A textbook note turns a verified chapter or section into a navigable explanation of its central mechanism, examples, connections, and retrieval questions; it is not a raw export or a decorative summary.==
-This standard governs `Textbook Template.md` and applies to textbook notes produced from the user's established repetitive NotebookLM prompt, then arranged in Obsidian.
-## When to create it
-Create the chapter note when the textbook PDF/source has landed in the course folder and the Textbook Map identifies the section as assigned or relevant. Do not wait until after lecture. The note should be available for pre-lecture concept preparation. If the NotebookLM output is not yet available, create only a clearly marked source/preparation stub; never fill missing chapter content from memory.
-## Source pipeline
-1. Confirm the textbook title/edition, chapter/section, assigned schedule row, and local source file.
-2. Use the user's classic NotebookLM prompt to generate the chapter explanation from the permitted source. Keep the output's substantive coverage, caveats, definitions, examples, equations, and distinctions.
-3. Check the output against the source or trusted source excerpts. Mark uncertain, missing, or potentially hallucinated material for review.
-4. Arrange the landed text for Obsidian: headings that match the chapter's logic, wikilinks to real course notes, readable code/math fences, concise callouts, and consistent frontmatter. This is an editorial pass, not permission to add facts.
-5. Update the Textbook Map, relevant weekly scaffold, concept queue, and `next` status.
-NotebookLM is a transformation aid, not the source of truth. Do not cite an unverified NotebookLM assertion as a textbook fact. Do not expose prompts or private source content when the course workflow does not require it.
-## Frontmatter
-Keep `type: class`, `input_kind: book`, `status`, dates, course `area`, tags, and `next`. Link the course Board, textbook map, and assigned week/chapter. Use the actual edition and chapter identity; never let a generic `Chapter - 1` link resolve to another course.
-## Chapter Summary
-Write the chapter's central claim in one sentence and mark exactly one `==highlight==` anchor. Follow it with a mechanism explanation: what problem the chapter solves, what entities/assumptions it uses, what procedure or model follows, and what result/limitation emerges. Do not start with generic textbook praise.
-## Key Concepts
-For each concept, define it in context, explain its role in the chapter, and name the condition or contrast that prevents misuse. Bold the first occurrence of the concept. Preserve equations/pseudocode/code semantics and explain notation. Do not turn the section into an unconnected glossary.
-## Examples Worth Keeping
-Keep source-grounded worked examples, diagrams described in words, numbers, counterexamples, cases, or code traces that make the mechanism memorable. Explain why the example matters and what would change under a different assumption. Never invent an example and present it as the textbook's.
-## Connections
-Link the actual lecture/week, Textbook Map, and concept notes that exist or are created. State what the textbook adds to lecture, what lecture makes concrete, and what assignment/lab tests. Do not create a forest of speculative links.
-## Flashcards
-Create 3–8 atomic cards on `#cards/<course-slug>` when the chapter contains stable retrieval value. Test definitions in context, conditions, mechanisms, contrasts, equations, edge cases, and application—not only chapter headings. Later, add cards from lecture corrections and exam misses in the relevant concept notes.
-## Quality and reconciliation
-Before lecture, the note is a source-grounded preparation artifact. After lecture, do not overwrite the textbook account to match an ambiguous live note. Add a dated lecture connection or correction and preserve source attribution. If professor convention differs from the textbook, state both and explain which applies in this course.
-## Done conditions
-- Correct source/edition/section and schedule mapping are recorded.
-- NotebookLM output has been source-checked and arranged, not blindly pasted.
-- Exactly one summary highlight and a real mechanism are present.
-- Key concepts include contextual definitions, contrasts, and examples.
-- Links and cards point to real notes and the map/status are updated.
-- Unknowns are marked rather than filled by memory.
-
+==A textbook note turns a verified chapter or section into a navigable explanation of its mechanism, examples, connections, and retrieval questions. It is not a raw export or a decorative summary.==
+This is the standard for a chapter or section note at `<Course>/Textbook/Chapter - N.md`, usually produced from the repeated NotebookLM prompt in [[Repetitive Things]] and then arranged and checked in Obsidian. The index of all chapters is the Textbook Map, covered by [[Textbook Map Standard]]. NotebookLM is a transformation aid, not the source of truth: never state an unverified NotebookLM claim as a textbook fact.
+## Spec
+```json
+{
+  "family": "course-textbook",
+  "tier": 1,
+  "match": {"type": "class", "kind": "textbook", "path": "^(20_Progress/Degree|40_Resources/UMN/Previous Classes|10_Areas/Notes)/", "where": {}, "where_not": {}},
+  "status": ["seed", "sprout", "tree", "archived"],
+  "required_keys": ["type", "class_kind", "status", "created", "updated", "tags", "area", "next"],
+  "key_types": {"created": "date", "updated": "date", "tags": "list", "area": "list"},
+  "headings": ["Chapter Summary", "Key Concepts", "Full Reading Notes", "Worked Example", "Connections", "Open Questions", "Flashcards"],
+  "optional_headings": [],
+  "legacy_match": [
+    {"type": "class", "path": "^(20_Progress/Degree|40_Resources/UMN/Previous Classes|10_Areas/Notes)/(?!.*Textbook Map)", "where": {"input_kind": "book"}, "absent": ["class_kind"]},
+    {"type": "input", "path": "^(20_Progress/Degree|40_Resources/UMN/Previous Classes|10_Areas/Notes)/", "where": {"input_kind": "book"}}
+  ]
+}
+```
+## Headings
+### Frontmatter and source header
+`class_kind: textbook`, `status`, `area` linking the course Board and the Textbook Map, `tags: [class, textbook]`, and `next`. Use the real edition and chapter identity, and path-qualify links so `Chapter - 1` never resolves to another course. Directly under the title, three bold lines: `**Source:**` (book, edition, chapter, pages), `**Read from:**` (the local file), `**Course role:**` (the week it supports and what lecture uses it for).
+### Chapter Summary
+The chapter's central claim in one sentence with exactly one `==highlight==`, then `*Mechanism:*`: what problem the chapter solves, the entities and assumptions, the procedure or model, and the result or limit.
+> [!WARNING]
+> Opening with generic praise for the book instead of the claim.
+### Key Concepts
+Each concept defined in context, its role in the chapter, and the condition or contrast that prevents misuse. Bold the first occurrence. Keep equations and code semantics and explain the notation.
+> [!WARNING]
+> An unconnected glossary.
+### Full Reading Notes
+The chapter section by section as `###` headings that follow the source's own order, with page anchors where known. This is where the detail lives.
+### Worked Example
+Source-grounded worked examples, numbers, counterexamples, or code traces that make the mechanism stick, with why each matters and what changes under a different assumption. Never invent an example and present it as the book's.
+### Connections
+Links to the real lecture week, the Textbook Map entry, and concept notes. State what the textbook adds to lecture, what lecture makes concrete, and what a lab or assignment tests.
+### Open Questions
+Unverified or missing material as `- [ ]` tasks. Mark uncertain NotebookLM output here instead of repairing it from memory.
+### Flashcards
+Three to eight atomic cards on `#cards/<course-slug>` testing definitions in context, conditions, mechanisms, and contrasts.
+### Reconciliation
+Before lecture the note is a source-grounded preparation artifact. After lecture, add a dated correction with attribution; do not rewrite the textbook account to fit an ambiguous capture. If the professor's convention differs from the book, state both and which applies.
+## Legacy Shapes
+| Old shape | New shape | Move |
+|---|---|---|
+| `Examples Worth Keeping` | `Worked Example` | Mechanical rename |
+| A second `Chapter Summary` or duplicated sections (CSCI 4061 Chapter - 3) | Merge into one section each | Judgment |
+| Overview, Core Definitions, Main Algorithms, Correctness Ideas, Complexity, Lecture Emphasis, Examples, Common Pitfalls, Review Checklist (about 14 CSCI 4041-style notes) | Chapter Summary and Key Concepts, Full Reading Notes, Worked Example, Connections | Judgment |
+| `Summary Links`, `Links` | `Connections` | Mechanical rename |
+| `input_kind: book` | `class_kind: textbook` | Mechanical |
+| `type: input`, `input_kind: book` (F'25 CSAPP notes) | `type: class`, `class_kind: textbook` | Judgment |
+| `tags: ["#class", "#Textbook"]` | `tags: [class, textbook]` | Mechanical |
+## Done Conditions
+- Edition, chapter, pages, and schedule mapping are recorded in the source header.
+- NotebookLM output was checked against the source and arranged, not pasted blind.
+- One summary highlight, a real mechanism, and contextual key concepts are present.
+- Links and cards point to real notes, and unknowns are open questions.
+## Gold Standard Example
+[[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|Chapter - 1]]: the source header, all seven headings, page-anchored concepts, and a lecture connection.

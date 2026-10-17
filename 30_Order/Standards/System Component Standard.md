@@ -10,8 +10,7 @@ system_kind: standard
 family: system-component
 tier: 2
 maps_to: []
-used_by:
-  - "[[Building a Note Kit]]"
+used_by: []
 gold_standard: none
 notes:
   - "[[Note Kit Standard]]"

@@ -1,19 +1,25 @@
 ---
-type: evergreen
-status: tree
+type: system
+status: archived
 created: 2026-08-23
-updated: 2026-09-04
+updated: 2026-10-16
 tags:
-  - internship
-  - standard
-  - tracking
+  - system
+  - standards
   - redirect
+system_kind: standard
+family: policy
+maps_to: []
+used_by: []
+gold_standard: none
 notes:
   - "[[30_Order/Standards/Internship/Internship Tracker Standard]]"
-next:
 ---
-# Tracking Standard — Moved
-==Superseded 2026-09-04.== This note's real content (never a general vault convention — its own scope line always read "Applies to every note in `10_Areas/Career/Internships/Tracker/Each One/`") moved to [[30_Order/Standards/Internship/Internship Tracker Standard]], the correctly-located, correctly-named home inside the `30_Order/Standards/Internship/` subfolder created during the internship-system reorg. That subfolder's copy was an empty stub until this move; this file is kept only as a redirect so no existing link breaks. Do not add new content here — edit the Internship Tracker Standard instead.
-
-## Read Instead
-[[30_Order/Standards/Internship/Internship Tracker Standard]] — same content, current, kept up to date. This file is not.
+# Tracking Standard
+==Superseded 2026-09-04: the content moved to the Internship Tracker Standard, and this file is only a redirect.==
+It was never a general vault convention. Its scope line read "every note in `10_Areas/Career/Internships/Tracker/Each One/`". Read [[30_Order/Standards/Internship/Internship Tracker Standard]] instead. Delete this file once the two notes that still name it point at the real Standard.
+## Done Conditions
+- No new content is added here.
+- The two notes that mention `Tracking Standard` now link to the Internship Tracker Standard.
+## Gold Standard Example
+None. A redirect has no instance.

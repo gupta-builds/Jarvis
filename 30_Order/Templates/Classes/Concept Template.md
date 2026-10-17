@@ -1,32 +1,28 @@
 ---
 type: concept
-status: sprout
-created:
-updated:
+status: seed
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags:
+  - concept
 course:
-track:
+track: []
 mastery_level: 0
 prerequisites: []
 used_in: []
 evidence: []
-tags:
-  - concept
-related: []
+notes: []
 ---
 # <% tp.file.title %>
 ## One-Line Answer
-<!-- Write one peer-level sentence and use exactly one ==highlight== anchor. -->
-== ==
+<!-- One peer-level sentence with exactly one ==highlight==. -->
 ## Mechanism
-<!-- Explain how the concept works, including the moving parts and causal sequence. -->
+<!-- Inputs, causal sequence, invariants, output, limits, one sourced example, and where it stops working. -->
 ## Contrast / What It Is Not
-<!-- Name the closest confusing concept and draw the boundary between them. -->
+<!-- The nearest confusable concept and the line between them. -->
 ## Failure Modes / Misconceptions
-<!-- Record a real way this concept is misapplied or breaks. -->
-> [!WARNING]
-> <!-- Replace this with the specific misconception and its correction. -->
+<!-- One real misconception and its correction, anchored with a WARNING callout. -->
 ## Evidence From This Vault
-<!-- Link only to real lecture, project, assignment, or textbook notes where this concept was used. -->
-- 
+<!-- Links to the real lecture, textbook, lab, or homework notes where it was used. -->
 ## Flashcards
-<!-- Add 3–8 atomic mechanism or contrast cards to #cards/<course-slug>. -->
+<!-- Three to eight cards on #cards/<course-slug> that test mechanism and contrast. -->

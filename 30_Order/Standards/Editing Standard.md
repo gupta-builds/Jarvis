@@ -25,7 +25,7 @@ This is the standard for changing a note that already exists. It joins the rules
 1. **Search first.** Extend the canonical note. Most new notes should have been edits.
 2. **Patch by heading.** Change the section that is wrong. Do not rewrite the file to change a paragraph.
 3. **Keep the owner's voice.** Add depth under an `## Addendum` or `## Jarvis Enrichment` heading when the content is theirs; correct in place only when it is plainly wrong. Never replace a human note with generic prose ([[Enrichment]]).
-4. **Preserve frontmatter and wikilinks.** Never rename or remove a key unless a Legacy Shapes table or the user says so. If a link target moves, use a link-aware move ([[Obsidian CLI]] or the vault move tool), not a text replace.
+4. **Preserve frontmatter and wikilinks.** Never rename or remove a key unless a Legacy Shapes table or the user says so. If a link target moves, use a link-aware move (the Obsidian CLI move or the vault move tool), not a text replace.
 5. **Move `updated` only for a meaningful change:** a new section, a changed claim, a new purpose. A typo does not.
 6. **`status: tree` means propose first.** State the change and why, then wait.
 7. **Do not delete or move a note without an explicit instruction.** Before any command that could discard uncommitted work, run `git status` and stash or commit what is there.

@@ -1,29 +1,26 @@
 ---
 type: thought
-thought_kind: reflection
-status: seed
-created:
-related_progress:
+thought_kind: weekly
+status: sprout
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+period: <% tp.date.now("GGGG-[W]WW") %>
+review:
 tags:
-  - thought
-  - "#brainstorm"
+  - weekly
 next:
 ---
-# 52 Weeks
-> [!NOTE] **Summary**: 
+# <% tp.file.title %>
+> [!NOTE] Summary:
 ## Goals
-
-## Productivity 
-
-## Good habits 
-
-## Bad habits 
-
+<!-- The week's top outcomes, 80 first, taken from the Weekly Synthesis. Each one checkable. -->
+## Productivity
+<!-- What landed, with the note, commit, or number that shows it. Evidence, not mood. -->
+## Good habits
+<!-- One or two specific behaviors that worked. -->
+## Bad habits
+<!-- One or two specific behaviors that slipped, named by what happened. -->
 ## Fixes
-
-# Check-in
-> [!QUESTION] Rate yourself on focus, health, discipline, and connection: Where did I abandon myself this week? Where did I show up?
-
-Focus: 
-Discipline:
-Connection:
+<!-- Each fix is one concrete change for next week, not a wish. -->
+## Check-in
+<!-- Optional. Focus and discipline on the work, one line each. Delete if unused. -->

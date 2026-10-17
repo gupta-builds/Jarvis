@@ -1,64 +1,51 @@
 ---
 type: thought
-thought_kind: reflection
-status: seed
+thought_kind: daily
+status: active
+day_state: planned
 created: <% tp.date.now("YYYY-MM-DD") %>
-related_progress:
+updated: <% tp.date.now("YYYY-MM-DD") %>
 tags:
-  - thought
-  - "#journal"
+  - daily
+notes: []
 next:
-lc_count: 0
-study_today: 0
-wins_done: 0
-habits_done: []
 win_project: false
 win_career: false
 win_cleanup: false
 win_review: false
-ac_application: false
-ac_leetcode: false
-ac_class: false
+floor_1: false
+floor_2: false
+floor_3: false
+lc_count: 0
+study_today: 0
+wins_done: 0
+habits_done: []
 ---
 # Did you get better today?
 > [!NOTE] Summary:
-
 ## Morning Plan
+<!-- Fill from the active plan: the goal, one 80 task, two to four 20 items, and the do-not list. -->
 *Goal*:
-
 ### 80 — The One Thing
-> I will [BEHAVIOR] at [TIME] in [LOCATION].
-- [ ] 
-
 ### 20 — Supporting Work
-- [ ] 
-- [ ] 
-- [ ] 
-
-**Do NOT do today:** MCP/tool setup, new agents, repo triage, AI platform comparison
-
-## Fall Daily Wins
-
-| Win      | Target             | Done |
-| -------- | ------------------ | ---- |
-| Project  | shipped something  | `INPUT[toggle:win_project]` |
-| Career   | LC or application  | `INPUT[toggle:win_career]` |
-| Cleanup  | inbox/admin        | `INPUT[toggle:win_cleanup]` |
-| Review   | closeday           | `INPUT[toggle:win_review]` |
-
-## Fall Daily Floor
-
-| Track                | Target                                                          | Topic | Done |
-|-----------------------|------------------------------------------------------------------|-------|------|
-| Application           | Move ≥1 company `Current/` → `Applied/`                          |       | `INPUT[toggle:ac_application]` |
-| LeetCode/CodePath     | ≥5 problems, topic logged                                         |       | `INPUT[toggle:ac_leetcode]` |
-| Fall'26 class step    | one step in 4511W / 4061 / 5304 / 4521 / MGMT 3015 / ENGL 1004    |       | `INPUT[toggle:ac_class]` |
-
+**Do NOT do today:**
+## Daily Wins
+<!-- Four rows. Targets come from the active plan; Done is a toggle. -->
+| Win | Target | Done |
+| --- | --- | --- |
+| Project | | `INPUT[toggle:win_project]` |
+| Career | | `INPUT[toggle:win_career]` |
+| Cleanup | | `INPUT[toggle:win_cleanup]` |
+| Review | | `INPUT[toggle:win_review]` |
+## Daily Floor
+<!-- Rows come from the active plan's Systems table. Never put the term in a heading. -->
+| Track | Target | Topic | Done |
+| --- | --- | --- | --- |
+| | | | `INPUT[toggle:floor_1]` |
+| | | | `INPUT[toggle:floor_2]` |
+| | | | `INPUT[toggle:floor_3]` |
 ## Productivity
+<!-- Optional record. Inputs bound to the frontmatter; habit checkboxes come from the active habit board. -->
 **LeetCode today:** `INPUT[number:lc_count]`
 **Study hours:** `INPUT[number:study_today]`
 **Wins hit:** `INPUT[number:wins_done]` / 4
-
-| Meals | Water (3L target) |
-|-------|-------------------|
-|       |                   |

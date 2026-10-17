@@ -1,31 +1,35 @@
 ---
-type: evergreen
+type: system
 status: sprout
 created: 2026-09-20
-updated: 2026-09-20
+updated: 2026-10-16
 tags:
   - system
   - workflow
+system_kind: workflow
+serves: "[[Textbook Standard]]"
+trigger: A textbook chapter or section is assigned and its source file has landed in the course folder.
 notes:
-  - "[[Textbook Standard]]"
   - "[[Textbook Template]]"
   - "[[Textbook Map Workflow]]"
+  - "[[Repetitive Things]]"
   - "[[Course Production Workflow]]"
 ---
 # Textbook Workflow
-Use this when a textbook chapter/section is assigned and its source PDF or other authoritative material is available. The note must land before the related lecture whenever possible so concept preparation can get ahead of class.
+Land each assigned chapter as a source-checked note before the related lecture, so concept preparation can get ahead of class.
+## Use when
+The Textbook Map lists the section as assigned and the PDF or other authoritative source is available.
 ## Steps
-1. Read [[Textbook Standard]], [[Textbook Template]], the course Board, and the Textbook Map entry.
-2. Confirm the book title/edition, chapter/section, assigned date, local source file, and source hierarchy. If the source is missing, create only a marked preparation task and ask for the source; do not write from memory.
-3. Use the user's established repetitive NotebookLM prompt on the correct landed source. Preserve the prompt's substantive coverage, but treat its output as draft source material requiring checking.
-4. Check definitions, claims, equations, examples, caveats, and section boundaries against the textbook/source. Mark uncertain or missing material; never silently repair with general knowledge.
-5. Arrange the result in Obsidian: valid frontmatter, useful headings, exactly one chapter-summary highlight, readable code/math, deliberate callouts, concise paragraphs, real wikilinks, and no duplicated generic prose.
-6. Fill Key Concepts, Examples Worth Keeping, Connections, and mechanism/contrast flashcards. Link the matching week and create/update concepts only through [[Concept Workflow]].
-7. Update the Textbook Map status and seed the weekly pre-lecture note. After lecture, add only the actual lecture delta/correction; do not overwrite textbook source content to match an ambiguous capture.
-## Failure checks
-Stop and ask for clarification when the assignment mapping conflicts with the syllabus, the NotebookLM output contains unsupported claims, the chapter identity is ambiguous, or a link would resolve to another course.
+1. Read [[Textbook Standard]], the course Board, and the Map entry. Confirm the title, edition, chapter or section, assigned date, and local source file.
+2. If the source is missing, record a marked preparation task and ask for the file. Never write chapter content from memory.
+3. Run the NotebookLM prompt from [[Repetitive Things]] on the landed source. Treat the output as draft material.
+4. Check definitions, claims, equations, examples, and section boundaries against the source. Move anything uncertain to Open Questions; do not repair it with general knowledge.
+5. Create the note from [[Textbook Template]]: fill the source header, one summary highlight, key concepts, reading notes in source order, a worked example, and mechanism and contrast cards.
+6. Link the matching week and the Map entry. Create or update concepts only through [[Concept Workflow]].
+7. Update the Map status and seed the week's pre-lecture note. After lecture, add a dated correction with attribution; do not overwrite the textbook account.
+8. Run [[Vault Lint]] on the path and fix what it reports.
+## Do not
+Do not paste NotebookLM output blind, expose private source content the workflow does not need, or let a generic `Chapter - 1` link resolve to another course. Stop and ask when the schedule and syllabus disagree on the mapping.
 ## Done when
-- The note is source-checked, readable, and mapped to the correct week/section.
-- NotebookLM output has been transformed rather than blindly pasted.
-- Concepts, links, cards, map status, and the pre-lecture queue are updated.
-
+- The note is source-checked, readable, and mapped to the right week and section.
+- Concepts, links, cards, Map status, and the pre-lecture queue are updated.

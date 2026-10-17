@@ -1,31 +1,30 @@
 ---
 type: class
-input_kind: book
+class_kind: textbook
 status: seed
-created:
-updated:
-area:
-  - "[[UMN Board]]"
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
 tags:
-  - "#class"
-  - "#Textbook"
+  - class
+  - textbook
+area:
 next:
 ---
 # <% tp.file.title %>
+**Source:**
+**Read from:**
+**Course role:**
 ## Chapter Summary
-<!-- State the chapter's one-sentence claim and use exactly one ==highlight== anchor. -->
-== ==
-*Mechanism:*
-<!-- Explain how the chapter's claim works. -->
+<!-- The chapter's one-sentence claim with exactly one ==highlight==, then a *Mechanism:* line. -->
 ## Key Concepts
-<!-- Define each concept and explain why it matters here. Bold the concept name on first use. -->
-- **Concept:** 
-## Examples Worth Keeping
-<!-- Keep concrete examples, numbers, cases, or worked reasoning that makes the mechanism memorable. -->
-- 
+<!-- Each concept defined in context, with its role and the condition that prevents misuse. -->
+## Full Reading Notes
+<!-- The chapter section by section in the source's own order, with page anchors. -->
+## Worked Example
+<!-- Source-grounded examples, numbers, or code traces, and why each matters. -->
 ## Connections
-<!-- Link the matching lecture/week, course map, and only concept notes that actually exist or were created. -->
-- Lecture:
-- Concept:
+<!-- Links to the real lecture week, Textbook Map entry, and concept notes. -->
+## Open Questions
+<!-- Unverified or missing material as - [ ] tasks. -->
 ## Flashcards
-<!-- Add 3–8 atomic cards testing mechanisms and contrasts to #cards/<course-slug>. -->
+<!-- Three to eight cards on #cards/<course-slug> testing mechanism, condition, and contrast. -->

@@ -1,56 +1,75 @@
 ---
-type: evergreen
+type: system
 status: sprout
 created: 2026-09-08
-updated: 2026-09-08
+updated: 2026-10-16
 tags:
   - system
   - standards
-notes:
+system_kind: standard
+family: course-lab
+tier: 1
+maps_to:
   - "[[Lab Template]]"
+used_by:
   - "[[Lab Workflow]]"
-  - "[[HUMAN_WRITING]]"
+gold_standard: "[[20_Progress/Degree/CSCI 4061/Labs/Lab - 3|Lab - 3]]"
+notes:
+  - "[[Weekly Standard]]"
+  - "[[Concept Standard]]"
 ---
 # Lab Standard
-==A lab note's real value is its error log — Problem, Fix, Why — because the same class of error costs an hour the first time and should cost a minute the second.==
-This is the content standard for `class` / `input_kind: lab` notes. A lab is graded but usually low-stakes individually — the point of writing it up isn't proving the work happened, it's building a personal debugging reference that gets faster to consult every week it's used.
-## Maps To
-- Template: [[Lab Template]]
-## Used By Workflow
-- [[Lab Workflow]] — when the note gets created relative to the lab session, and how it connects to that week's lecture material.
-## Per-Heading Standard
+==A lab note's real value is its error log: Problem, Fix, Why, Evidence. The same class of error costs an hour the first time and should cost a minute the second.==
+This is the standard for a lab note at `<Course>/Labs/Lab - N.md`. A lab is usually low-stakes on its own, so the write-up is not proof that the work happened. It is a personal debugging reference that gets faster to consult each week.
+## Spec
+```json
+{
+  "family": "course-lab",
+  "tier": 1,
+  "match": {"type": "class", "kind": "lab", "path": "^(20_Progress/Degree|40_Resources/UMN/Previous Classes|10_Areas/Notes)/", "where": {}, "where_not": {}},
+  "status": ["seed", "sprout", "tree", "archived"],
+  "required_keys": ["type", "class_kind", "status", "created", "updated", "tags", "area", "next"],
+  "key_types": {"created": "date", "updated": "date", "tags": "list", "area": "list", "deadline": "date"},
+  "headings": ["Goal", "Procedure / key steps", "Results", "Errors + fixes"],
+  "optional_headings": ["Flashcards"],
+  "legacy_match": [
+    {"type": "class", "path": "^(20_Progress/Degree|40_Resources/UMN/Previous Classes|10_Areas/Notes)/", "where": {"input_kind": "lab"}, "absent": ["class_kind"]}
+  ]
+}
+```
+## Headings
 ### Frontmatter
-`type: class`, `input_kind: lab`, `status: seed` — labs rarely need to mature past `seed`, since the value is the errors-and-fixes log, not a polished writeup. `area:` links the course Board and the week the lab paired with.
+`class_kind: lab`, `status: seed` (labs rarely need to mature past it), `area` linking the course Board and the week the lab paired with, optional `deadline` only when sourced, `tags: [class, lab]`, and `next`.
 ### Goal
-One line: what the lab was actually trying to accomplish, in your own words, not the assignment's title.
+What the lab was trying to accomplish, in your own words, not the assignment title. Separate the required behavior from your chosen implementation.
 *Density:* one sentence.
 > [!WARNING]
-> Copying the assignment title verbatim as the goal — that's a label, not a statement of what you were trying to do.
-### Procedure / Key Steps
-The real sequence followed, compressed to the steps that actually mattered — not every click, but every decision point.
-*Density:* enough steps that redoing the lab from this note alone would work.
+> Copying the assignment title as the goal.
+### Procedure / key steps
+The real sequence, compressed to the decision points: which flag, which config, which command. Enough that redoing the lab from this note alone would work. Record commands, interfaces, and tests from the prompt, starter files, and actual run output.
 > [!WARNING]
-> A procedure so compressed it skips the actual decision points (which flag to pass, which config to change) that were the entire point of the lab.
+> A procedure so compressed it skips the decisions that were the point of the lab.
 ### Results
-What actually came out — a number, a passing test suite, a working build. State it plainly; this section exists to make later review fast, not to be impressive.
-*Density:* short, factual.
-### Errors + Fixes
-==The centerpiece of this Standard.== One entry per real error hit: *Problem:* what broke and how it showed itself. *Fix:* what actually resolved it. *Why:* the underlying mechanism, so the next occurrence of the same class of error gets recognized faster, not just patched again.
-*Density:* every real error hit, however small — this section's value compounds across the semester.
+What actually came out: a number, a passing test suite, a working build, stated plainly. Never claim tests passed without observed output.
+*Density:* short and factual.
+### Errors + fixes
+==The centerpiece.== One entry per real error, however small: *Problem:* the symptom and the smallest reproduction. *Fix:* the change that resolved it. *Why:* the mechanism, so the next error of this class is recognized. *Evidence:* the test or output that proves the fix.
 > [!WARNING]
-> Recording the fix without the *why*. "Added a semicolon" without explaining what class of syntax error produced it doesn't help the next time a similar-looking error shows up in a different form.
+> Recording the fix without the Why. "Added a semicolon" does not help when the same class of error returns in a different form.
 ### Flashcards
-`#cards/[course]`, only for a genuinely reusable debugging pattern from this lab — not every lab needs cards; most of the reusable value already lives in Errors + Fixes.
-> [!WARNING]
-> Forcing flashcards out of a lab that had no real conceptual content, just mechanical setup steps.
+Optional. Only for a reusable debugging pattern, on `#cards/<course-slug>`. After the lab, carry durable discoveries to the week and concept notes. Do not force cards out of mechanical setup.
+## Legacy Shapes
+| Old shape | New shape | Move |
+|---|---|---|
+| `input_kind: lab` | `class_kind: lab` | Mechanical |
+| `tags: ["#class", "#Lab"]` | `tags: [class, lab]` | Mechanical |
+| Entries with Problem and Fix but no Why or Evidence | Add Why and Evidence from the run output | Judgment |
+| Extra `Sources and scope` section | Fold into Goal | Judgment |
+| Extra `Practice for Project 2 and exams` section | Link to the concept or exam material; keep one line here | Judgment |
 ## Done Conditions
-- Procedure is detailed enough to redo the lab from the note alone.
-- Every real error hit has a Problem/Fix/Why entry, not just a Fix.
-- Goal is stated in your own words, not copied from the assignment.
-- No duplicate frontmatter keys; no `---` in the body; zero blank lines except after a callout.
-## 2026-09-20 Normative Production Addendum
-Create the lab note from the prompt, starter files, tests, relevant lecture/textbook material, and actual run output. Record enough command, configuration, interface, and test detail that the lab can be reproduced from the note alone. Separate required behavior from the student's chosen implementation.
-For every failure use `Problem / Fix / Why / Evidence`. `Problem` names the symptom and smallest reproduction; `Fix` names the actual change; `Why` explains the mechanism; `Evidence` states the test/output that proves the fix. Never claim tests passed without observed output. Include edge cases the tests expose and link the reusable mechanism to a concept note.
-After the lab, propagate durable discoveries to the relevant week and concept notes and add the lab to the exam/practice queue when its behavior is likely assessable. Preserve course collaboration/tool rules and do not paste a full solution merely to make the note look complete.
+- The procedure is detailed enough to redo the lab from the note.
+- Every real error has Problem, Fix, Why, and Evidence.
+- The goal is in your own words, and results come from observed output.
+- Durable discoveries were propagated to the week and concept notes.
 ## Gold Standard Example
-None yet in the vault — this Standard is new this session. Update this line once a real lab note exists with a substantive Errors + Fixes section.
+[[20_Progress/Degree/CSCI 4061/Labs/Lab - 3|Lab - 3]]: all four required headings, with a substantive error log and observed results.

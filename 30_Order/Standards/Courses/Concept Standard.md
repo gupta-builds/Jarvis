@@ -1,77 +1,88 @@
 ---
-type: evergreen
+type: system
 status: sprout
 created: 2026-06-01
-updated: 2026-06-01
+updated: 2026-10-16
 tags:
   - system
   - standards
-notes:
+system_kind: standard
+family: course-concept
+tier: 1
+maps_to:
   - "[[Concept Template]]"
+used_by:
+  - "[[Concept Workflow]]"
+gold_standard: "[[20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Arrays and Strings|Arrays and Strings]]"
+notes:
   - "[[Summary to Distilled]]"
-  - "[[Vault Rules — Complete AI Ruleset]]"
   - "[[HUMAN_WRITING]]"
 ---
 # Concept Standard
-==A concept note answers four questions in order — what is it, how does it work, what is it not, where has it shown up — and earns its keep on the third and fourth.==
-This is the content standard for `concept` notes: course concepts and definitions that recur and will appear again on an exam, in an interview, or in another course. A summary records what a source said; a concept note records what *you* understand and can use. The decisive sections are the contrast and the failure modes — a concept with only a definition is a flashcard, not a note.
-## Maps To
-- Template: [[Concept Template]]
-## Used By Workflow
-- [[Summary to Distilled]] — concepts promoted out of source summaries are written here; course concepts are also created directly in Obsidian via the folder template. Read this Standard before writing either way.
-## Per-Heading Standard
+==A concept note answers four questions in order (what is it, how does it work, what is it not, where has it shown up) and earns its keep on the third and fourth.==
+This is the standard for a course `concept` note: a definition that will return on an exam, in an interview, or in another course. A weekly or textbook note records what a source said; a concept note records what you understand and can use. A concept that belongs to a project or tool, not a course, is a different family in [[Note Type Registry]].
+## Spec
+```json
+{
+  "family": "course-concept",
+  "tier": 1,
+  "match": {"type": "concept", "kind": null, "path": "^(20_Progress/Degree|40_Resources/UMN/Previous Classes|10_Areas/Notes)/", "where": {}, "where_not": {}},
+  "status": ["seed", "sprout", "tree", "archived"],
+  "required_keys": ["type", "status", "created", "updated", "tags", "course", "mastery_level", "prerequisites", "used_in", "evidence"],
+  "key_types": {"created": "date", "updated": "date", "tags": "list", "course": "wikilink", "mastery_level": "number", "prerequisites": "list", "used_in": "list", "evidence": "list"},
+  "headings": ["One-Line Answer", "Mechanism", "Contrast / What It Is Not", "Failure Modes / Misconceptions", "Evidence From This Vault", "Flashcards"],
+  "optional_headings": ["Start Here"]
+}
+```
+## Headings
 ### Frontmatter
-`type: concept`, `status: sprout`, `course` and `track` set, `mastery_level: 0` (0–10 integer — not the old `mastery (1/10)` string key), and the relational fields `prerequisites:`, `used_in:`, `evidence:` as wikilink lists (empty `[]` until real). `tags: [concept]`.
+`course` is a quoted wikilink to the course Board. `mastery_level` is a bare number from 0 to 10. `prerequisites`, `used_in`, and `evidence` are wikilink lists, `[]` until real. `tags: [concept]`. Optional: `track` (list), `notes`. Move `status` from `seed` to `sprout` once the mechanism is written, and to `tree` after it survives an exam or a project.
 > [!WARNING]
-> Reusing the invalid `mastery (1/10):` key (a parenthesis in a YAML key), or filling `evidence:` with notes that do not exist. Keep relational fields empty rather than fake.
-> [!WARNING] 2026-10-02: `mastery_level` was quoted in the template itself
-> `Concept Template.md` shipped with `mastery_level: "0"` (a quoted string) instead of `mastery_level: 0` (a bare integer) for over a month before this was caught, and every concept note created from the template inherited the bug. A quoted number is a real, silent problem in this vault, not cosmetic: Obsidian's Properties panel renders a quoted number as its Text type instead of Number, Dataview's numeric comparisons/sorts (`WHERE mastery_level > 5`) silently fail or sort lexically ("10" before "2") against a string, and the Capability Engine's spaced-repetition scheduling (see [[40_Resources/Obsidian/Plugins/Spaced Repetition and Learning Loops]]) depends on `mastery_level` being a real number. The template is now fixed (`mastery_level: 0`, unquoted) - if you ever see `mastery_level: "N"` with quotes on a concept note, that note was created before the fix and its quotes should be stripped.
-> **The general rule this incident demonstrates:** before adding or changing any frontmatter property, on a template or a real note, decide its actual YAML type on purpose and write it accordingly - never let a quote appear "just in case." Numbers (`mastery_level`, any future score/count/weight field) are bare and unquoted. Wikilinks (`course:`, `area:`, `evidence:` entries) are quoted strings (`"[[Note]]"`) because the YAML parser would otherwise choke on the brackets. Dates (`created:`, `updated:`) are bare, unquoted, ISO `YYYY-MM-DD` - Obsidian reads that shape as its native Date type, and quoting it downgrades it to Text and breaks date-based Dataview sorts the same way. Plain enum-like strings (`status:`, `track:`) can go either way stylistically, but should stay consistent within one template. Empty relational fields are `[]`, never an empty quoted string. When a template is touched for any other reason, spend ten seconds checking every property's type is still what Dataview/the Properties panel actually need, not just what looks tidy.
+> Filling `evidence:` with notes that do not exist. Leave it `[]` rather than fake it.
 ### One-Line Answer
-The concept in a single sentence, as you would say it to a peer. This is the `==highlight==` anchor for the note.
-*Density:* one sentence, wrapped in `==...==`.
+The concept in one sentence you would say to a peer, wrapped in a single `==highlight==`. This is the anchor of the note.
+*Density:* one sentence.
 > [!WARNING]
-> A textbook definition copied verbatim, or two sentences. "A team is a group with interdependent work, shared goals, and mutual accountability" — peer-level, not dictionary-level.
+> A textbook definition copied verbatim, or two sentences.
+### Start Here
+Optional. A tiny worked example (a snippet, numbers, a case) read before the mechanism.
 ### Mechanism
-**How** it works, not just what it is. Bold named sub-concepts. Use `$...$` for any notation and explain each symbol in prose.
-*Density:* the core of the note — enough to actually use the concept. Break into the concept's natural parts (the Teams note uses the **IPO** breakdown: Inputs → States → Processes → Outputs).
-*Plugins:* `**bold**` on each named part; `*Label:*` for sub-group intros; callouts only where a real warning or tip lives.
+How it works, not what it is. State the inputs or state, the causal sequence, the invariants and assumptions, the output, complexity or limits where relevant, one source-grounded example, and where it stops working. Programming concepts add code shape, types, and test implications. Math and AI concepts add conditions, representation, and the decision procedure. Bold the named parts and use `$...$` for notation.
+*Density:* the core of the note, enough to use the concept without reopening the source.
 > [!WARNING]
-> Listing features instead of explaining the driving mechanism. Teams § mechanism explains *why* a bad team underperforms a strong individual (coordination cost, loafing, groupthink), not just that teams have inputs.
+> Listing features instead of the driving mechanism.
 ### Contrast / What It Is Not
-The nearby concept it gets confused with, and the distinction. Skip only if nothing is genuinely confusable.
-*Density:* one to three contrasts, each naming the confusable pair and the line between them.
+The nearest concept it gets confused with and the line between them. Skip it only when nothing is genuinely confusable.
+*Density:* one to three contrasts, each naming the pair.
 > [!WARNING]
-> Omitting this section because it is the hardest to write. Teams contrasts task conflict (improves decisions) vs relationship conflict (destroys effort), and cohesion vs groupthink.
+> Omitting this section because it is the hardest to write.
 ### Failure Modes / Misconceptions
-Where the concept breaks or where people get it wrong. A real misconception beats a generic warning. Anchor with a `> [!WARNING]` callout.
-*Density:* the genuine traps — Teams lists six ("calling any group a team", "treating storming as failure", "assuming virtual teams need less structure").
-> [!WARNING]
-> A vague "be careful here" with no specific misconception. Name the wrong belief and the correction.
+Where the concept breaks or where people get it wrong. Name the wrong belief and the correction, and anchor it with a `> [!WARNING]` callout.
 ### Evidence From This Vault
-Verified wikilinks to notes where this concept actually appeared — a lecture, a project, a worked example. This is the retrieval path; Grep each link first.
-*Density:* link the lecture week and any project that used it.
+Verified wikilinks to the lecture week, textbook chapter, lab, or homework where the concept actually appeared. Check each link before writing it.
 > [!WARNING]
-> An empty section, or links to notes that do not exist. Teams links its Week 5 lecture and Chapter 17.
+> An empty section, or links to notes that do not exist.
 ### Flashcards
-`#cards/[track]`, 3–8 cards testing the mechanism and the contrast, not the label. Bold only terms meant to be hidden in review.
-> [!WARNING]
-> Cards that test the definition ("Team::a group...") instead of the distinction ("Task vs relationship conflict::task conflict can improve decisions; relationship conflict damages attention").
+Three to eight cards on `#cards/<course-slug>` that test the mechanism and the contrast, not the label.
+### Provenance
+Every claim traces to a real source. Label inference as `Inferred` and unresolved questions as open. NotebookLM output is an input to check, not an authority.
+## Legacy Shapes
+| Old shape | New shape | Move |
+|---|---|---|
+| Definition, 30-Second Explanation, Mental Model, Complexity, Contrast With, Where It Appears, Common Mistakes, Diagnostic Questions, Teach It To A Beginner, Mini-Test (about 24 notes in CSCI 2041, MGMT 3001, and others) | The six headings above | Judgment: Definition to One-Line Answer, Mental Model and Complexity to Mechanism, Contrast With to Contrast, Common Mistakes to Failure Modes, Where It Appears to Evidence, the rest to Flashcards |
+| MOC, Definition, Core Ideas (Textbook), Core Ideas (Lecture), Proof / Reasoning Toolkit, Complexity + Tradeoffs, Canonical Examples, Practice Map (CSCI 4041 algorithm notes) | The six headings above | Judgment: Core Ideas and Proof to Mechanism, Practice Map to Evidence |
+| `## ==Definition==` | `## One-Line Answer` with the highlight inside | Mechanical |
+| `mastery (1/10): 0` or `mastery_level: "0"` | `mastery_level: 0` | Mechanical |
+| `course: MGMT 3001` as plain text | Quoted wikilink to the Board | Mechanical |
+| `related:`, `topics:` | `notes:`, `tags:` | Mechanical |
+| `week:`, `chapters:`, `prev:`, `next:` | Remove; the links belong in `evidence:` | Mechanical |
+| `status: complete` or `evergreen` | `tree` | Mechanical |
+| A week summary typed `concept` (CSCI 2033 `Concepts_new/Week_N`) | A week note per [[Weekly Standard]] | Judgment |
 ## Done Conditions
-- The note explains how the concept works and what it is not, not merely what it is.
-- One highlight (the One-Line Answer); failure modes and contrast are both present and specific.
-- `evidence:` / Evidence section link real vault notes that prove the concept was used.
-- 3–8 mechanism/contrast flashcards on the correct deck.
-- Passes all 16 points of [[Vault Rules — Complete AI Ruleset]] Part 12.
-## 2026-09-20 Normative Production Addendum
-These rules are mandatory for current course work and operationalize the per-heading requirements above.
-### Creation timing and source coverage
-Create or update a concept when the scheduled topic is known and its textbook note/source has landed, preferably before lecture. A concept may be derived from a textbook, NotebookLM-derived textbook output, lecture slides, Python/notebook code, PDF/paper, lab, project, or repeated question. Search for an existing concept or alias first. After lecture, reconcile the pre-lecture note with the user's live capture and the actual emphasis or corrections.
-### Mechanism minimum
-The Mechanism section must state inputs/state, causal sequence, invariants/assumptions, output, complexity or limitations when relevant, a source-grounded example, and a failure boundary. Programming concepts additionally need code shape/types and test implications; math/AI concepts need conditions, representation, and decision procedure.
-### Provenance and exam enrichment
-Every claim must trace to a real source; label inference and unresolved questions. Verify every wikilink and keep `evidence:` empty rather than inventing a link. NotebookLM is an input for textbook-derived understanding, not an authority that permits unsupported claims. When an exam is near, deepen relevant concepts with derivations, worked examples, comparisons, common traps, and links to practice, then review and extend their mechanism/contrast flashcards.
-### Final gate
-A concept is not done if it only defines a term, has no real contrast/failure mode, points to unverified notes, or cannot support explaining and applying the mechanism without reopening the source.
+- The note explains how the concept works and what it is not, not only what it is.
+- One highlight (the One-Line Answer); the contrast and the failure modes are both specific.
+- Every `evidence:` and Evidence link resolves to a real note.
+- Three to eight mechanism or contrast cards sit on the right deck.
+- The note passes [[Vault Lint]] for the `course-concept` family.
 ## Gold Standard Example
-- [[Teams and Team Effectiveness]] — mechanism-dense (IPO breakdown), explicit contrasts (task vs relationship conflict, cohesion vs groupthink), six named traps, and real course examples. It predates the current template heading names but demonstrates the depth this Standard requires under each.
+[[20_Progress/Degree/CSCI 4061/Concepts/C Refresher/Arrays and Strings|Arrays and Strings]]: all six headings, a worked example in Start Here, and a mechanism that names its own failure boundary. It still carries a quoted `mastery_level` and a `related:` list, which the Legacy Shapes table rewrites.

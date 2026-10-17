@@ -1,11 +1,12 @@
 ---
 type: input
 input_kind:
-status:
-created:
+status: seed
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
 source_url:
-related_progress: []
 tags:
   - input
+notes: []
 next:
 ---

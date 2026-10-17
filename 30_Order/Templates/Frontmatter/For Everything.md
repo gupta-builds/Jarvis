@@ -1,9 +1,9 @@
 ---
-type: "# thought | input | evergreen | class | project | template"
-status: "# seed | sprout | tree | paused | archived"
-created:
-updated:
-area:
-tags:
+type:
+status:
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags: []
+notes: []
 next:
 ---

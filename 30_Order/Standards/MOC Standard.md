@@ -1,52 +1,79 @@
 ---
-type: evergreen
+type: system
 status: sprout
 created: 2026-08-07
-updated: 2026-08-08
+updated: 2026-10-16
 tags:
   - system
   - standards
-notes:
+system_kind: standard
+family: moc
+tier: 1
+maps_to:
   - "[[MOC Template]]"
+used_by: []
+gold_standard: "[[Mentorship Board]]"
+notes:
+  - "[[Dashboard Standard]]"
   - "[[HUMAN_WRITING]]"
 ---
 # MOC Standard
-==A MOC earns its name by explaining a folder in prose — a note that is only a dataview query is an index, not a map.==
-This is the content standard for `type: index` notes (MOCs) anywhere in the vault. A MOC's frontmatter takes the same shape as an evergreen note (`status`, `tags`, `notes`, `next`) — `type: index` is what actually marks it as a map rather than a claim. The template gives the empty shape; this doc gives the content.
-## Maps To
-- Template: [[MOC Template]]
-## Used By Workflow
-- No linear capture→summarize→distill workflow applies — a MOC is maintained inline. Whoever creates or substantially changes a note inside a MOC-governed folder updates that folder's MOC prose in the same session, not later. The vault-curator agent's periodic sweeps are the backstop for anything missed.
-## Per-Heading Standard
+==A MOC earns its name by explaining a folder in prose; a note that is only a query is a dashboard, not a map.==
+This is the Standard for `type: index` notes: the map of a folder or cluster, anywhere in the vault. Whoever creates or substantially changes a note inside a MOC-governed folder updates that MOC in the same session. A MOC has no Workflow for that reason. Query-only pages are [[Dashboard Standard]].
+## Spec
+```json
+{
+  "family": "moc",
+  "tier": 1,
+  "match": {"type": "index", "kind": null, "path": "", "where": {}, "where_not": {}},
+  "status": ["seed", "sprout", "tree", "archived"],
+  "required_keys": ["type", "status", "created", "updated", "tags", "notes"],
+  "key_types": {"created": "date", "updated": "date", "tags": "list", "notes": "list"},
+  "headings": ["Purpose", "Map"],
+  "optional_headings": ["Status", "Dataview", "Links"],
+  "legacy_match": [
+    {"path": "^10_Areas/Life/Plans/Plans Board\\.md$"},
+    {"path": "MOC\\.md$", "where": {"type": "evergreen"}}
+  ]
+}
+```
+## Headings
 ### Frontmatter
-`type: index`, `status:` follows the evergreen maturity model (`seed | sprout | tree`), `created`/`updated`, `tags:` includes `moc`, `notes:` lists the folder's real key notes, `next:` the single next thing this cluster needs.
+`type: index`, `status` (`seed`, `sprout`, or `tree`), dates, `tags` including `moc`, `notes` listing the folder's real key notes, `next` for the one thing the cluster needs. A MOC with `notes: []` for good is an empty map.
 > [!WARNING]
-> A MOC with `notes: []` left empty forever. If the folder has notes worth mapping, `notes:` should list them.
+> `notes:` left empty while the folder has notes worth mapping.
 ### Purpose
-One to three sentences: what this folder or cluster is for and who reads it first. States the reason the cluster exists, not a definition of what a MOC is.
-*Density:* short. If it takes more than three sentences, the folder may need to be split rather than the Purpose padded.
+One to three sentences: why the folder exists and who reads this first.
+*Density:* short. If it takes more than three sentences, split the folder.
 > [!WARNING]
-> "This is the MOC for X" — restating the heading instead of saying why X exists.
+> "This is the MOC for X". That restates the title; say why X exists.
 ### Map
-The actual content. Short-linked prose explaining the key notes in the folder and how they relate — not a bullet list of bare links, sentences that carry information. This is what makes a MOC different from a dataview query.
-*Density:* this is the bulk of the note. Every note worth surfacing gets a sentence, not just a link.
+The bulk of the note. Prose that explains the key notes and how they relate, with each link inside a sentence. Every note worth surfacing gets a sentence, not just a link.
 > [!WARNING]
-> A bullet list of bare `[[Note]]` links with no surrounding sentence. That is an index, not a map.
-### Status
-Optional. A short table or a few lines of current live state, if the folder tracks ongoing work. Omit entirely for reference-only folders.
-> [!WARNING]
-> A stale status table nobody has touched in months. Either update it in the same session as the folder's other changes, or delete the section.
-### Dataview
-Live queries only, at the very bottom, never above the Map's prose. If a query would only repeat what the Map already says, do not add it.
-> [!WARNING]
-> A MOC that is a dataview block above the fold with the rest of the file left empty — the exact failure this Standard exists to fix.
-### Links
-Anything relevant that did not fit naturally into the Map's prose. Keep it short — most links belong woven into the Map, not listed separately.
+> A bullet list of bare `[[Note]]` links. That is an index, not a map.
+### Status (optional)
+A short table of current live state, only for a folder that tracks ongoing work. Update it in the same session as the folder's changes, or delete it.
+### Dataview (optional)
+Live queries only, below the prose, never above it. Skip a query that repeats what the Map says. Every `FROM` folder must exist ([[Dashboard Standard]]).
+```dataview
+TABLE status, updated
+FROM "20_Progress/Mentorship Program"
+SORT updated DESC
+```
+### Links (optional)
+Relevant links that did not fit the Map's sentences, kept short.
+## Legacy Shapes
+| Old shape | New shape | Move |
+|---|---|---|
+| Course Weekly Boards with only Map, Status, Dataview | Add a `## Purpose` sentence | judgment |
+| `status: active` | `tree` if the MOC is current, else `sprout` | mechanical |
+| `type: index` that is only queries (`Vault Health Dashboard`, `Claude Layer Index`) | `dashboard`, per [[Dashboard Standard]] | mechanical |
+| `type: index` Session Index or Tool Usage Rollup in `05_Clippings` | `type: generated`, `gen_kind: index` | mechanical |
+| Long reference docs typed `index` (`Tool Map`, `Every Week`) | The type that fits what the reader does with them | judgment |
+| `type: evergreen`, `tags: [moc]` | `index` | mechanical |
 ## Done Conditions
-- The Map section is prose with inline links, not a bare list.
-- Dataview blocks sit below the prose, never above it.
-- `notes:` frontmatter lists the folder's real key notes, all verified to exist.
-- The MOC was updated in the same session as whatever note change in its folder triggered the update.
-- No duplicate frontmatter keys; no `---` in the body; zero blank lines except after a callout.
+- The Map is prose with inline links, and Dataview blocks sit below it.
+- `notes:` lists real notes, and every link resolves.
+- The MOC was updated in the same session as the change that triggered it.
 ## Gold Standard Example
-- [[20_Progress/AI/Claude Code/MOC]] — a real Purpose→Map→Status→Dataview→Links shape: a purpose paragraph, prose sections explaining sub-areas with inline links, a status table, dataview blocks, and a closing Links section.
+[[Mentorship Board]]: a Purpose paragraph, a Map of sentences that each carry a link, a Status table, a Dataview block below the prose, and a short Links section.

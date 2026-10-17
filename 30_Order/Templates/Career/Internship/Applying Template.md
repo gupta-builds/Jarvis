@@ -1,6 +1,13 @@
 ---
 type: project
-status: Preparing
+project_kind: project
+status: active
+stage: Preparing
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags:
+  - internship
+  - applying
 program:
 tracker:
 company:
@@ -13,38 +20,20 @@ cover_letter:
 contacts: []
 interview_note:
 related_progress: []
-tags:
-  - internship
-  - applying
 next:
 ---
-# [Role] - [Company]
-==Created at the start of real application preparation — before a resume or cover letter exists, not at submission.== `status` moves `Preparing` → `Applied` → `Offer`/`Rejected`/`Withdrawn`. Source-of-truth responsibility transfers here from the paired Tracker note once this exists; see [[30_Order/Workflows/Internship/Application Document Preparation]] for the full drafting sequence and [[30_Order/Standards/Internship/Applying Standard]] for the enforceable field/section rules this template's shape is drawn from.
+# <% tp.file.title %>
 ## Goal
-Get an offer from [Role] - [Company]. One sentence on what winning looks like for this specific program.
+<!-- One sentence on what winning looks like for this program. -->
 ## Current State
-Where this application actually stands right now — funnel stage, what's blocking it, what you're waiting on.
-> [!NOTE]
-> A response rate under 10% signals a resume/targeting problem; responses without offers signal an interview-prep problem — use this split to diagnose, not just log status.
+<!-- Stage, blocker, what you are waiting on, and which diagnosis fits. -->
 ## Interlinks
-One line each — the detail lives on the linked note, not here.
-### Contact
-The real signal worth having on hand, pulled from the Contact note's Conversation Log — not a copy of it.
-### Job Detail
-The most crucial thing to know walking into a call, pulled from the Program note / `job_url` — not a re-summary of the whole posting.
-### Networking
-One line: the strongest real connection found for this company (a contact, a referral lead) — detail lives on the Contact note.
-### Job Description
-One line: what this JD is actually asking for, in its own words — full keyword breakdown lives in the resume/cover-letter content plan, not here.
-### Fit
-One line: how this specific role advances [[10_Areas/Career/Engineer Edge Roadmap]] and connects to real experience — the deeper case lives on the Program note's Program Overview or a Job & Company note.
+<!-- One line each: Contact, Job Detail, Networking, Job Description, Fit. Depth lives on the linked note. -->
 ## Documents
-- **Resume** (`resume_version`): one line — what it leads with for this application.
-- **Cover Letter** (`cover_letter`): one line — what it opens with.
-Both generated per [[30_Order/Workflows/Internship/Application Document Preparation]] — overwritten in place until `date_applied` is set.
+<!-- One line each for the resume and cover letter: what each leads with. -->
 ## Next Action
-The single next physical action. Mirrors `next:` above.
+<!-- The single next move, identical to next in the frontmatter. -->
 ## Open Questions
-- [ ] 
+<!-- Real unknowns as task lines. -->
 ## Log
-- **YYYY-MM-DD:** Created note.
+<!-- Dated, one line per event. -->

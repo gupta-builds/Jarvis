@@ -1,30 +1,23 @@
 ---
 type: class
-input_kind: homework
+class_kind: homework
 status: seed
-created:
-updated:
-area:
-  - "[[UMN Board]]"
-deadline:
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
 tags:
-  - "#class"
-  - "#Homework"
+  - class
+  - homework
+area:
 next:
 ---
 # <% tp.file.title %>
 ## Overview
-<!-- State what the assignment asks you to produce and when it is due. -->
+<!-- What must be produced, for whom, and why; verified due date only. -->
 ## Requirements
-<!-- Translate the prompt into a checklist of deliverables and constraints. -->
--
+<!-- Every deliverable, rule, and submission step as a checklist. -->
 ## Work log
-<!-- Record attempts, decisions, tests, errors, and fixes as they happen. -->
-- 
+<!-- Attempts with evidence, diagnosis, and fix; add a ### Submission when submitted. -->
 ## Concepts used
-<!-- Link only to concepts actually used in the solution. -->
-- 
+<!-- Concepts actually used, each with its role. -->
 ## Post-submit reflection
-<!-- After submission, record the first failure, the underlying pattern, and what to change next time. -->
-- What failed first?
-- What pattern repeats?
+<!-- Optional until feedback: the first failure, the pattern, and what to change. -->

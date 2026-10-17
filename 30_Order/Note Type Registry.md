@@ -99,8 +99,8 @@ To write or fix a note, find its row, open the Standard, copy the Template, foll
 ## AI operations
 | Family | Tier | type / kind | Folder | Template | Standard | Workflow | Kit |
 |---|---|---|---|---|---|---|---|
-| ai-conversation-export | 2 | input / conversation | `60_Claude/05_Clippings/AI Conversations/` | none (script-written) | [[Conversations]] | [[Conversation Capture]] | align |
-| conversation-summary | 1 | input / conversation-summary | `60_Claude/07_AI_Information/AI Conversation - Summaries/` | [[AI Conversation]] | [[Conversations]] | [[Conversation Capture]] | align |
+| ai-conversation-export | 2 | input / ai-conversation | `60_Claude/05_Clippings/AI Conversations/` | none (script-written) | [[Conversations]] | [[Conversation Capture]] | align |
+| conversation-summary | 1 | input / ai-conversation-summary | `60_Claude/07_AI_Information/AI Conversation - Summaries/` | [[AI Conversation]] | [[Conversations]] | [[Conversation Capture]] | align |
 | log | 2 | system / log | `60_Claude/07_AI_Information/Session Logs/`, project Log notes | [[Tool Logs]], [[Write Logs]] | [[Log Standard]], [[Logs]] | [[Maintaining Logs]] | align |
 | ai-review | 1 | review / weekly, monthly | `60_Claude/30_Reviews/AI/` | [[AI Weekly Review Template]], [[AI Monthly Review Template]] | [[Review Standard]], [[Review System]] | none | align |
 | capability-review | 1 | review / capability | `60_Claude/30_Reviews/Weekly Synthesis/` | [[Synthesis Template]] | Capability Review Standard | none | planned |

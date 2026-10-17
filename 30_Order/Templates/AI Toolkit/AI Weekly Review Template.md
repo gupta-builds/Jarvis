@@ -1,34 +1,28 @@
 ---
-type: evergreen
-status: tree
+type: review
+status: sprout
 created: <% tp.date.now("YYYY-MM-DD") %>
 updated: <% tp.date.now("YYYY-MM-DD") %>
 tags:
-  - evergreen
   - review
-  - template
-  - claude-kit
+  - ai-tools
+review_kind: weekly
+notes: []
 ---
-# AI Tools Weekly Review — <% tp.date.now("YYYY") %>-W<% tp.date.now("ww") %>
+# <% tp.file.title %>
 ## Period Covered
-<% tp.date.now("YYYY-MM-DD", -6) %> through <% tp.date.now("YYYY-MM-DD") %>
+<!-- The exact date range of the calendar week, from first day to last. -->
 ## Sources Reviewed
-- [ ] [[60_Claude/30_Reviews/AI/Toolkit/Tool log|Tool log]]
-- [ ] [[20_Progress/AI/Claude Code/_All-Projects-Sync-Log|_All-Projects-Sync-Log]]
-- [ ] [[20_Progress/Projects/AI Use/Claude Kit/Log|Claude Kit/Log]]
-- [ ] Raw `AI Conversations/` session notes (only if the Tool log flags something)
+<!-- Every log opened: Tool log, both Sync-Log files, Claude Kit Log, raw sessions. Mark any not opened. -->
 ## What Ran This Period
-| Skill/Command | Uses | Notes |
-|---|---|---|
+<!-- Skills, agents, commands used, how often, on what, from Tool log rows. Columns: Skill/Command, Uses, Notes. -->
 ## Sync & Capture Health
-- Sync runs this period: OK ___ / failed ___ / skipped ___
-- Sessions captured vs. real sessions run (spot-check): ___
+<!-- Sync runs OK, failed, skipped; sessions captured against real sessions run. State numbers. -->
 ## Findings
--
+<!-- Named problems, each citing the exact file or log row. Nothing to report is a valid finding. -->
 ## Decided Fixes
-_Only items with 100% clarity — see [[Review Standard]]._
--
+<!-- Only items with 100% clarity, applied by hand or flagged for a build session. -->
 ## Open Questions
--
+<!-- Anything not fully clear, as - [ ] tasks. They carry forward. -->
 ## Next Period's Watch List
--
+<!-- What to check next time: a recent promotion, sync change, or capture fix. -->

@@ -29,6 +29,7 @@ This is the content standard for the Weekly Discovery Review and the Monthly Pro
 ```json
 {
   "family": "internship-loop-review-weekly",
+  "template": "Internship Loop Weekly Review Template",
   "tier": 1,
   "match": {"type": "review", "kind": "internship-loop", "path": "^60_Claude/30_Reviews/Internship Loop/Scheduled/Weekly/", "where": {}, "where_not": {}},
   "legacy_match": [{"path": "^60_Claude/30_Reviews/Internship Loop/Scheduled/Weekly/"}],
@@ -42,6 +43,7 @@ This is the content standard for the Weekly Discovery Review and the Monthly Pro
 ```json
 {
   "family": "internship-loop-review-monthly",
+  "template": "Internship Loop Monthly Review Template",
   "tier": 1,
   "match": {"type": "review", "kind": "internship-loop", "path": "^60_Claude/30_Reviews/Internship Loop/Scheduled/Monthly/", "where": {}, "where_not": {}},
   "legacy_match": [{"path": "^60_Claude/30_Reviews/Internship Loop/Scheduled/Monthly/"}],

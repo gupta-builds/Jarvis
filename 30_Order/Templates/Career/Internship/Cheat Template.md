@@ -1,23 +1,23 @@
 ---
 type: evergreen
+evergreen_kind: distilled
 status: sprout
-created:
-updated:
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
 tags:
-  - cheat
   - internship
+  - cheat
 notes: []
 next:
 ---
-# [Tactic Name]
+# <% tp.file.title %>
 ## What It Is
-==The one-sentence version of the trick or shortcut.==
+<!-- The trick or shortcut in one sentence, wrapped in a highlight. -->
 ## Why It Works
-The mechanism — what it exploits about how hiring/recruiting/the platform actually works.
+<!-- The mechanism: what it exploits about how hiring or the platform works. -->
 ## How To Use It
-Concrete steps, not vibes.
+<!-- Concrete steps. -->
 ## Failure Modes
-> [!WARNING]
-> Where this stops working or backfires.
+<!-- A WARNING callout on where it stops working or backfires. -->
 ## Evidence
-- [[ ]] (to create)
+<!-- Links to the real results that produced this cheat. -->

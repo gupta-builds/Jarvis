@@ -58,7 +58,7 @@ The body is the transcript: a `## You` or `## Claude` turn per heading and a `##
 > Writing `status: raw`. `raw` is not a status. The exporter sets `status: seed` and `review_state: raw`.
 `00 - Session Index.md` and `00 - Tool Usage Rollup.md` in each folder are generated: `type: generated`, `gen_kind: index` ([[Generated Output Standard]]), and their Dataview `FROM` path is the folder they sit in.
 ### Summary
-One summary per raw conversation, and only for one that produced a decision or context worth keeping. Path `60_Claude/07_AI_Information/AI Conversation - Summaries/`, file `YYYY-MM-DD-{source-app}-{slug} — Summary.md`. Claude Code summaries may add `source_os`, `tools_used`, `tokens_total`, and `cost_usd`; other tools omit them.
+One summary per raw conversation, and only for one that produced a decision or context worth keeping. Path `60_Claude/07_AI_Information/AI Conversation - Summaries/`, file `YYYY-MM-DD-{source-app}-{slug} - Summary.md`. Existing summaries keep their older names; renaming would break links. Claude Code summaries may add `source_os`, `tools_used`, `tokens_total`, and `cost_usd`; other tools omit them.
 ### What Was Decided
 Each decision in one line with its reason. This section sets `decision_count`. A summary with no decision is not worth keeping.
 ### What Changed

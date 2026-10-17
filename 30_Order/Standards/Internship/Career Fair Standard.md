@@ -27,7 +27,7 @@ This is the standard for the notes a recruiting event leaves in `20_Progress/Int
 {
   "family": "career-fair",
   "tier": 2,
-  "match": {"type": "input", "kind": null, "path": "^20_Progress/Internship/Career Fair", "where": {}, "where_not": {}},
+  "match": {"type": "input", "kind": null, "path": "^20_Progress/Internship/Career Fair", "strict_path": true, "where": {}, "where_not": {}},
   "status": ["seed", "sprout", "tree", "archived"],
   "required_keys": ["type", "input_kind", "status", "created", "updated", "tags"],
   "key_types": {"created": "date", "updated": "date", "tags": "list"},

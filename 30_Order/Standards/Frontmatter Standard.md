@@ -24,7 +24,7 @@ This is the canonical schema for note properties in Jarvis. Before it, the type 
 Seventeen values. A note has exactly one.
 | type | What it is | Kind key | Allowed kinds |
 |---|---|---|---|
-| `input` | Captured or source-derived: a clip, summary, transcript, brief | `input_kind` | clipping, source-summary, pdf-summary, web-summary, video-summary, repo-card, transcript, brief, conversation, conversation-summary, job-dossier |
+| `input` | Captured or source-derived: a clip, summary, transcript, brief | `input_kind` | clipping, source-summary, pdf-summary, web-summary, video-summary, repo-card, transcript, brief, ai-conversation, ai-conversation-summary, job-dossier |
 | `evergreen` | Distilled claim you understand and reuse | `evergreen_kind` | distilled, synthesis, identity |
 | `concept` | One course or technical concept with mechanism and contrast | none | none |
 | `class` | A course workspace note (week, lab, board, textbook) | `class_kind` | week, textbook, textbook-map, lab, homework, exam, exam-material, board, subboard, discussion, preparation, project, syllabus, control, track, audit |

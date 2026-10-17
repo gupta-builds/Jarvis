@@ -1,30 +1,25 @@
 ---
-type: evergreen
+type: reference
 status: sprout
 created: <% tp.date.now("YYYY-MM-DD") %>
 updated: <% tp.date.now("YYYY-MM-DD") %>
 tags:
-  - evergreen
   - graphify
+reference_kind: repo
 repo:
-mirror_folder: "60_Claude/40_Project_Briefs/<RepoName>/"
+mirror_folder:
 last_build:
-notes:
-  - "[[How to use Graphify]]"
+notes: []
 next:
 ---
-# Graphify: <RepoName>
-==One line: what this graph answers about the repo.==
+# <% tp.file.title %>
 ## Source
-The repo path, what it contains, and why it was mapped.
+<!-- The repo path, what it contains, and why it was mapped. -->
 ## Mirror
-Folder: `60_Claude/40_Project_Briefs/<RepoName>/` (graphify-owned, never hand-edited). Report: [[<RepoName>/GRAPH_REPORT|GRAPH_REPORT]]
+<!-- The graphify-owned folder path and a link to its GRAPH_REPORT. Never hand-edit inside it. -->
 ## Last Build
-Date, command used, and whether docs or PDFs changed since (those need a full `/graphify --update`).
+<!-- Date, command used, and whether docs or PDFs changed since. -->
 ## Health Check
-| Date | Folder `.md` count | Manifest count | `graph.json` nodes |
-|---|---|---|---|
-|  |  |  |  |
-A real gap means orphans. Cleanup steps are in [[How to use Graphify]].
+<!-- Dated table: folder .md count, manifest count, graph.json nodes. Add a row each time it runs. -->
 ## Open Questions
-- [ ]
+<!-- Count gaps or doubts as - [ ] tasks. -->

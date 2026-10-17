@@ -1,12 +1,13 @@
 ---
-type: evergreen
+type: system
 status: sprout
 created: 2026-07-26
+updated: 2026-10-16
 tags:
   - system
-  - workflow
   - internship
-  - career
+  - rationale
+system_kind: guide
 notes:
   - "[[Internship Pipeline]]"
   - "[[20_Progress/Internship/Building System/System - Build Log]]"

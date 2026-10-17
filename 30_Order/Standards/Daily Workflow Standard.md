@@ -76,4 +76,4 @@ Which skill touches the note, on what cadence, and what happens after two missed
 - The plan is linked from [[Plans Board]], and no other note in the folder tracks the same thing.
 - A plan past its end date is closed, not left `active`.
 ## Gold Standard Example
-[[10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan|Fall 2026 Plan]]: a Goal with one metric, a dated Timeframe, Systems with done-definitions, a verified Implementation Status, a dated Current Progress log, and an Update Protocol that names the skills.
+[[10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan|Fall 2026 Plan]]: a Goal with one metric, a dated Timeframe, Systems with done-definitions, a verified Implementation Status, a dated Current Progress log, and an Update Protocol that names the skills. It fails only the blank-line check (14 extra blank lines), so it is one cleanup from fitting.

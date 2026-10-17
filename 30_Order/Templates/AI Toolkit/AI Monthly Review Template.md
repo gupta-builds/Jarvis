@@ -1,39 +1,30 @@
 ---
-type: evergreen
-status: tree
-created:
-updated:
+type: review
+status: sprout
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
 tags:
-  - evergreen
   - review
-  - template
-  - claude-kit
+  - ai-tools
+review_kind: monthly
+notes: []
 ---
-# AI Tools Monthly Review — <% tp.date.now("YYYY-MM") %>
+# <% tp.file.title %>
 ## Period Covered
-<% tp.date.now("YYYY-MM-01") %> through <% tp.date.now("YYYY-MM-DD") %>
+<!-- The calendar month, first day to last. -->
 ## Sources Reviewed
-- [ ] All four Weekly reviews from this month
-- [ ] [[60_Claude/30_Reviews/AI/Toolkit/Tool log|Tool log]] (full month)
-- [ ] [[20_Progress/AI/Claude Code/_All-Projects-Sync-Log|_All-Projects-Sync-Log]] (full month)
-- [ ] [[20_Progress/Projects/AI Use/Claude Kit/Log|Claude Kit/Log]] (full month)
-- [ ] [[20_Progress/Projects/AI Use/Claude Kit/Tool Map|Tool Map]]
+<!-- The month's Weekly reviews, Tool log, both Sync-Log files, Claude Kit Log, Tool Map. Mark any not opened. -->
 ## What Ran This Month
-| Skill/Command | Uses | Trend vs. last month |
-|---|---|---|
+<!-- Skills and commands used with a trend against last month. Columns: Skill/Command, Uses, Trend. -->
 ## Sync & Capture Health
-- Sync runs this month: OK ___ / failed ___ / skipped ___
-- Any capture gap that recurred more than once this month:
+<!-- Sync runs OK, failed, skipped, and any capture gap that recurred more than once. -->
 ## Tool Map Health Check
-Cross-check [[20_Progress/Projects/AI Use/Claude Kit/Tool Map|Tool Map]] — anything stuck at `sandbox` or `tested-tools` for more than one full month gets named here, not silently carried forward again.
--
+<!-- Name anything stuck at sandbox or tested-tools for more than a full month. -->
 ## Findings
--
+<!-- Named problems, each citing the exact file or log row. -->
 ## Decided Fixes
-_Only items with 100% clarity — see [[Review Standard]]._
--
+<!-- Only items with 100% clarity. -->
 ## Open Questions
-_Carried forward from Weekly reviews if still unresolved._
--
+<!-- Carried forward from the Weekly reviews if still unresolved, as - [ ] tasks. -->
 ## Next Month's Watch List
--
+<!-- What to check next month. -->

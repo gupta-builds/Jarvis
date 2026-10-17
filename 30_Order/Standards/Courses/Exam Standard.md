@@ -1,58 +1,78 @@
 ---
-type: evergreen
+type: system
 status: sprout
 created: 2026-09-08
-updated: 2026-09-08
+updated: 2026-10-16
 tags:
   - system
   - standards
-notes:
+system_kind: standard
+family: course-exam
+tier: 1
+maps_to:
   - "[[Exam Sheet Template]]"
+used_by:
   - "[[Exam Workflow]]"
-  - "[[HUMAN_WRITING]]"
+gold_standard: none
+notes:
+  - "[[Exam Material Standard]]"
+  - "[[Homework Standard]]"
 ---
 # Exam Standard
-==An exam note is worth less for the cramming it holds than for the reflection it holds after — the post-exam section is what actually improves the next exam.==
-This is the content standard for `class` / `input_kind: exam` notes: midterm and final exam prep sheets. The note has two real jobs, done at two different times: capture the exam's actual scope and format before sitting it, then record precisely what was missed and why immediately after grades come back. Skipping either half turns the note into either an ungrounded study guide or a forgotten artifact.
-## Maps To
-- Template: [[Exam Sheet Template]]
-## Used By Workflow
-- [[Exam Workflow]] — when the sheet gets created relative to the exam date, and what triggers filling in the post-exam half.
-## Per-Heading Standard
+==An exam sheet is worth less for the cramming it holds than for the reflection it holds after: the post-exam section is what improves the next exam.==
+This is the standard for the sheet of one midterm, final, or long quiz (`class_kind: exam`). It does two jobs at two times: before the exam it fixes the real scope and format, and after results it records exactly what was missed and why. Study banks, drill sets, and review maps are a different family ([[Exam Material Standard]]); graded quiz copies stay under [[Homework Standard]].
+## Spec
+```json
+{
+  "family": "course-exam",
+  "tier": 1,
+  "match": {"type": "class", "kind": "exam", "path": "^(20_Progress/Degree|40_Resources/UMN/Previous Classes|10_Areas/Notes)/", "where": {}, "where_not": {}},
+  "status": ["seed", "sprout", "tree", "archived"],
+  "required_keys": ["type", "class_kind", "status", "created", "updated", "tags", "area", "next"],
+  "key_types": {"created": "date", "updated": "date", "tags": "list", "area": "list", "deadline": "date"},
+  "headings": ["Topics Covered", "Format & Resources Allowed", "Study Plan"],
+  "optional_headings": ["Post-Exam Reflection"],
+  "legacy_match": [
+    {"type": "class", "where": {"input_kind": "exam"}, "absent": ["class_kind"]}
+  ]
+}
+```
+## Headings
 ### Frontmatter
-`type: class`, `input_kind: exam`, `status: seed` while studying → `sprout` once the post-exam reflection is filled in. `area:` links the course Board and the specific week/chapter notes the exam covers.
+`class_kind: exam`, `status: seed` while studying and `sprout` once the Post-Exam Reflection is written. `area` lists the course Board and the week and chapter notes the exam covers. Add `deadline` (the exam date) only when a source gives it. `tags: [class, exam]`.
 > [!WARNING]
-> Creating the note the night before with no `area:` links back to what was actually covered — the sheet becomes disconnected from the weeks it's supposed to be reviewing.
+> An empty `area`. The sheet loses its link to the weeks it is meant to review.
 ### Topics Covered
-The exam's actual scope, pulled from the syllabus or the professor's own review announcement — not guessed. Link each topic to its week/chapter note.
-*Density:* every topic named in the syllabus or review session, each with a real link, not a vague theme.
+The exam's scope from the syllabus, the instructor's announcement, or the review sheet, never a guess. Link each topic to its week or chapter note. Separate confirmed, unconfirmed, and out-of-scope material.
+*Density:* every named topic, each with a real link.
 > [!WARNING]
-> Listing "everything so far" instead of the specific topics actually named as in-scope. A midterm rarely covers literally everything covered to date.
+> "Everything so far." A midterm rarely covers all of it.
 ### Format & Resources Allowed
-What kind of exam it is (proctored, take-home, open-note, closed-book), the time limit, and exactly what's allowed in the room — this genuinely changes how you should prepare.
-*Density:* short, factual, pulled directly from the course Board's grading/policy section.
-> [!WARNING]
-> Skipping this because "it's obvious" — CSCI 5304's zero-AI-tools policy and a take-home exam in a different course require completely different prep, and this section is where that distinction gets recorded per-exam.
+Exam type, time limit, collaboration, permitted notes and tools, page limits, submission method, and late or makeup rules. Write `Unverified` and name the source to check when a rule is unknown. Rules do not transfer between assessments: CSCI 4511W short quizzes are open-resource and open-collaboration, while long quizzes are individual, 45 minutes, and limited to two pages of personal notes.
+*Density:* short and factual, taken from the course Board.
 ### Study Plan
-A real plan with a timeline, not a topic list — what gets reviewed which day, and in what order, working backward from the exam date.
-*Density:* enough days to cover every linked topic at least once, with the hardest topics first, not last.
+Worked backward from the date: scope check, concept-note strengthening, flashcards, active problem solving, timed format-matched practice, final error review. Real days, real tasks, hardest topics first.
 > [!WARNING]
-> "Review everything the night before" is not a study plan.
+> "Review everything the night before."
 ### Post-Exam Reflection
-Filled in only after the exam, ideally the same day, before the memory of what was hard fades. What was missed, the actual reason it was missed (misread the question, didn't know the material, ran out of time), and what that implies for the next exam's study plan.
-*Density:* one entry per point lost, where that's knowable — otherwise the general pattern that emerges.
+Optional until results return. For each meaningful miss: the question or topic, the attempted approach, the cause (content gap, misreading, timing, confidence, or process), the correction, and the next action. Link the correction to the concept or homework note, and add a card only when the gap is reusable.
+*Density:* one entry per meaningful miss, or the pattern when no breakdown exists.
 > [!WARNING]
-> Leaving this section as a template placeholder because the exam is already over and done with. This section is the entire reason the note earns `status: sprout`.
+> Leaving it as a placeholder because the exam is over.
+## Legacy Shapes
+| Old shape | New shape | Move |
+|---|---|---|
+| `input_kind: exam` | `class_kind: exam` | Mechanical |
+| `tags: ["#class", "#Exam"]` | `tags: [class, exam]` | Mechanical |
+| Print-notes sheet or theme hub (CSCI 2041 Midterm, BIOL Theme 4 notes) | `class_kind: exam-material` with a Scope line | Judgment |
+| Policy page (HIST 1103 Exams: format, timing, penalties) | Format & Resources Allowed, plus Topics Covered from the syllabus | Judgment |
+| Midterm or Final with no `input_kind` and no headings (CSCI 2021, CSCI 2033) | Leave under the course archive decision | Judgment |
+| Empty `Midterm - 1` | Fill from the Template once the scope is announced | Judgment |
 ## Done Conditions
-- Topics Covered links real week/chapter notes, not vague themes.
-- Format & Resources Allowed is filled in before the exam, not guessed after.
-- Study Plan has an actual day-by-day shape.
-- Post-Exam Reflection is filled in within a day or two of getting results back.
-- No duplicate frontmatter keys; no `---` in the body; zero blank lines except after a callout.
-## 2026-09-20 Normative Production Addendum
-Create the exam sheet as soon as the assessment is announced. Scope comes from the syllabus, instructor announcement, review sheet, or exam topics list—not "everything so far." Link exact weeks, textbook sections, concepts, assignments, and practice sources. Separate confirmed, unconfirmed, and out-of-scope material.
-Record assessment type, time limit, collaboration, permitted notes/tools, page limits, submission method, and late/makeup rules. If a rule is unknown, write `Unverified` and name the source to check. Assessment rules do not transfer between quizzes, exams, and courses: for example, CSCI 4511W short quizzes are open-resource/open-collaboration while long quizzes are individual, 45 minutes, and limited to two pages of personal notes.
-The study plan must work backward from the date through scope check, concept-note strengthening, flashcards, active problem solving, timed format-matched practice, and final error review. Before exams, use weekly notes, textbook integrations, assignment mistakes, concept notes, and planned questions; do not produce only a passive summary.
-After results, record each meaningful miss's question/topic, attempted approach, cause, evidence, correction, and next action. Distinguish content gaps from misreading, timing, confidence, and process errors. Link corrections back to the canonical concept or assignment note and create a targeted card only when the gap is reusable.
+- Topics Covered and Format & Resources Allowed were filled in before the exam, not reconstructed after.
+- Every unknown rule says `Unverified` and names its source.
+- The Study Plan has a day-by-day shape.
+- Post-Exam Reflection is written within a day or two of results, and only then is `status` `sprout`.
+- The note passes [[Vault Lint]] for `course-exam`.
 ## Gold Standard Example
-None yet in the vault — this Standard is new this session, written before any exam under it has actually happened. Update this line once a real exam sheet exists with both halves filled in.
+None yet. No exam sheet in the vault has both halves filled in under this shape. Name the first one here.

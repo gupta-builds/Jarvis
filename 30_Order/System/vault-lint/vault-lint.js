@@ -28,6 +28,7 @@ const files = []; // {rel, abs}
     files.push({ rel: path.relative(ROOT, p).split(path.sep).join('/'), abs: p });
   }
 })(ROOT);
+const dirSet = new Set(); for (const f of files) { const sg = f.rel.split('/'); for (let k = 1; k < sg.length; k++) dirSet.add(sg.slice(0, k).join('/').toLowerCase()); }
 const mdFiles = files.filter((f) => f.rel.toLowerCase().endsWith('.md'));
 
 // ---------- link resolution ----------
@@ -147,11 +148,12 @@ for (const f of mdFiles.filter((x) => x.rel.startsWith('30_Order/Standards/'))) 
 const famSeen = {};
 for (const s of SPECS) { if (famSeen[s.family]) specErrors.push(`${s._file}: duplicate family id ${s.family} (also ${famSeen[s.family]})`); famSeen[s.family] = s._file; }
 
-function matchSpec(note) {
+function matchSpec(note, rel) {
   const type = val(note, 'type');
   const cand = SPECS.filter((s) => {
     const m = s.match || {};
     if (m.type && m.type !== type) return false;
+    if (m.strict_path && m.path && rel !== undefined && !new RegExp(m.path).test(rel)) return false;
     if (m.kind !== null && m.kind !== undefined && VOCAB.types[type] && VOCAB.types[type].kindKey) {
       if (val(note, VOCAB.types[type].kindKey) !== m.kind) return false;
     } else if (m.kind) return false;
@@ -187,13 +189,14 @@ function check(rel, text) {
   const r = { path: rel, family: null, tier: null, fails: [], notes: [] };
   const type = val(n, 'type');
   // tier 3 by legacy type
-  let cand = type ? matchSpec(n) : [];
+  let cand = type ? matchSpec(n, rel) : [];
   let spec = null;
   if (cand.length > 1) {
     cand.sort((a, b) => specificity(b, rel) - specificity(a, rel));
     if (specificity(cand[0], rel) === specificity(cand[1], rel)) { r.fails.push('6:ambiguous'); r.notes.push('ambiguous: ' + cand.map((c) => c.family).join(', ')); }
     spec = cand[0];
   } else if (cand.length === 1) spec = cand[0];
+  if (spec && spec.match.path && !new RegExp(spec.match.path).test(rel) && !r.fails.includes('6:ambiguous')) { const lg = legacyMatch(n, rel); if (lg && lg !== spec) { spec = lg; r.legacy = true; r.fails.push('6:legacy-shape'); } }
   if (!spec) { const lg = legacyMatch(n, rel); if (lg) { spec = lg; r.legacy = true; r.fails.push('6:legacy-shape'); } }
   if (!spec) {
     if (type && VOCAB.types[type] === undefined && GEN_LEGACY.has(type)) r.tier = 3;
@@ -269,6 +272,14 @@ function check(rel, text) {
   if (deadFm) add(3, 'dead-frontmatter-links:' + deadFm);
   if (dead) add(3, 'dead-body-links:' + dead);
   if (deadNames.length) r.dead = [...new Set(deadNames)].slice(0, 6);
+  // dead dataview FROM paths
+  { let inDv = false; const deadFrom = [];
+    for (const l of body) {
+      if (/^\s*```dataview(js)?\s*$/i.test(l)) { inDv = !/js/i.test(l); continue; }
+      if (/^\s*```\s*$/.test(l)) { inDv = false; continue; }
+      if (inDv && /^\s*FROM\b/i.test(l)) for (const m of l.matchAll(/"([^"]+)"/g)) { const p = m[1].replace(/\/$/, '').toLowerCase(); if (!dirSet.has(p) && !suffixSet.has(p.replace(/\.md$/, ''))) deadFrom.push(m[1]); }
+    }
+    if (deadFrom.length) { add(3, 'dead-dataview-from:' + deadFrom.length); r.dead = (r.dead || []).concat(deadFrom.slice(0, 3)); } }
   // F4 placement
   if (spec && spec.match.path && !new RegExp(spec.match.path).test(rel)) add(4, 'wrong-folder');
   // F5 hygiene (tier 1, 2)
@@ -293,6 +304,7 @@ function check(rel, text) {
     const pl = cleanProse(body);
     if (PLACEHOLDER.test(pl)) add(5, 'unresolved-placeholder');
   }
+  if (spec && Array.isArray(spec.skip_checks) && spec.skip_checks.length) r.fails = r.fails.filter((f) => !spec.skip_checks.includes(parseInt(f, 10)));
   r.pass = r.fails.length === 0;
   // which checks failed
   r.failed = [...new Set(r.fails.map((f) => f.split(':')[0]))].sort();
@@ -331,7 +343,7 @@ function kitCheck() {
   for (const e of specErrors) add('error', e.split(':')[0], e);
   if (!VOCAB.ok) add('error', '30_Order/Standards/Frontmatter Standard.md', 'could not read the type vocabulary table');
   const stds = mdFiles.filter((f) => f.rel.startsWith('30_Order/Standards/') && fs.statSync(f.abs).size > 0);
-  const registry = mdFiles.find((f) => f.rel === '30_Order/00_Note Type Registry.md');
+  const registry = mdFiles.find((f) => f.rel === '30_Order/Note Type Registry.md');
   const regText = registry ? fs.readFileSync(registry.abs, 'utf8') : '';
   for (const f of stds) {
     const text = fs.readFileSync(f.abs, 'utf8'); const n = parseNote(text);
@@ -358,9 +370,14 @@ function kitCheck() {
       if (/\{\{/.test(tt)) add('error', tf.rel, 'uses {{ }} date syntax (use Templater)');
       let pair = specs;
       if (specs.length > 1) {
-        const tk = tn.keys.system_kind ? tn.keys.system_kind.raw : null;
+        const ty = tn.keys.type ? tn.keys.type.raw : null;
+        const kk = ty && VOCAB.types[ty] ? VOCAB.types[ty].kindKey : null;
+        const tk = kk && tn.keys[kk] ? tn.keys[kk].raw : (tn.keys.system_kind ? tn.keys.system_kind.raw : null);
         pair = specs.filter((s) => s.match && s.match.kind === tk);
         if (pair.length > 1) pair = pair.filter((s) => !Object.keys(s.match.where || {}).length);
+        const named = specs.filter((s) => s.template && s.template.toLowerCase() === path.basename(tf.rel, '.md').toLowerCase());
+        if (named.length) pair = named;
+        if (!pair.length) pair = specs;
       }
       for (const s of pair) {
         for (const k of s.required_keys || []) if (!tn.keys[k]) add('error', tf.rel, `template missing key ${k} from ${s.family}`);
@@ -392,6 +409,7 @@ function kitCheck() {
   for (const f of wfs) {
     const text = fs.readFileSync(f.abs, 'utf8'); const n = parseNote(text);
     if (!n.keys.system_kind) { add('warn', f.rel, 'legacy Workflow (no system_kind)'); continue; }
+    if (val(n, 'system_kind') !== 'workflow') continue;
     const sv = n.keys.serves ? n.keys.serves.raw : ''; const m = sv.match(/\[\[([^\]|#]+)/);
     if (!m || !resolves(m[1])) add('error', f.rel, 'serves does not resolve');
     const prose = stripCode(n.bodyLines).filter((l) => l !== null).join(' ').replace(/<!--[\s\S]*?-->/g, '');

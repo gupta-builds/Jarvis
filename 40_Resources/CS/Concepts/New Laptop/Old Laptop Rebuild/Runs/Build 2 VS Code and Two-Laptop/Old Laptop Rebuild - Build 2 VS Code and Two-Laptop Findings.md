@@ -1,8 +1,8 @@
 ---
 type: note
-status: seedling
+status: sprout
 created: 2026-10-07
-updated: 2026-10-15
+updated: 2026-10-17
 course: Life
 track:
   - laptop
@@ -11,16 +11,49 @@ tags:
   - note
 related:
   - "[[Old Laptop Rebuild - Index]]"
+  - "[[Old Laptop Rebuild - Runs Index]]"
   - "[[Old Laptop Rebuild - Build 1 WSL Findings]]"
+  - "[[Old Laptop Rebuild - Acer Visit Findings (2026-10-15)]]"
   - "[[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]]"
-next: "Build 2 closed on the Acer side 2026-10-15 (host key MATCH). Open: repo pilot approval, decision on the Acer's 4 local-only internship commits."
+next: "Closed. Open items: the Acer's 4 local-only internship commits, Windows VS Code/MCP wiring (Build 6), and the remaining pnpm-pin repos (per-repo approval)."
 ---
 # Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings
 
-## One-Line Answer
-==WSL-side VS Code parity is applied; the Acer has reached the Dell's canonical repo by plain SSH and Remote-SSH, and the post-idle Tailscale route returned direct. Remaining Phase 4 items need the Acer (host-key comparison, sync-check over SSH, transfer evidence, clone inventory) plus the per-repo pilot approval; the tunnel and the port-2222 fallback were declined on 2026-10-15.==
+## Verified outcome (checked 2026-10-17)
+**Purpose.** Bring the Dell's WSL-side VS Code to parity with the Acer and build the two-laptop workflow: one canonical checkout per shared repo on the Dell's WSL ext4 disk, reached from the Acer over Tailscale SSH or VS Code Remote-SSH, GitHub as the backup and PR channel, no sync daemon touching code. The design decisions are in [[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]].
+**What ran (2026-10-07 to 2026-10-15).** WSL-side Phase 2 items (remote machine settings, a 34-extension set, global Git behaviour keys and a secret-ignore file, Claude deny rules and three user-scope MCP servers, shell environment files); Phase 4 networking (Tailscale installed and signed in by the user on Dell WSL and Acer Windows, admin-console checks, idle test); the `~/tools/sync-check` script; and the Acer visit of 2026-10-15 that closed the remaining checks ([[Old Laptop Rebuild - Acer Visit Findings (2026-10-15)]]).
+**Result.** The workflow works end to end: the Acer reaches the Dell's canonical checkout by plain `ssh.exe` and Remote-SSH over a direct Tailscale path, the SSH host key was independently verified, and `sync-check` gives identical output on both laptops. Two optional pieces were declined on purpose, and the pnpm-pin pilot is partly done.
 
-## Scope and status
+| Item | Final state |
+|---|---|
+| Tailscale | Dell WSL node `dell-wsl` (`100.94.129.113`, 1.104.1, `RunSSH=true`, key expiry disabled; verified live 2026-10-17); Acer Windows node `gupta-builds` (`100.84.91.11`). Nothing on the Dell's Windows side, nothing in the Acer's WSL |
+| SSH | Tailscale SSH only. No `sshd`, nothing listens on 22 or 2222 in the Dell WSL. Access rule: `check`, `autogroup:member` to `autogroup:self`, users `autogroup:nonroot` and `root`; general access `*` to `*` unchanged |
+| Host key | `SHA256:PHOUaZNkip9YvF80hW6WbG5emclHt7rIYMfWf3VzxHA` **MATCH** (2026-10-15, Dell-side read; neither side's `tailscale status --json` carries `SSH_HostKeys`) |
+| Stay-awake | both idle timers `-1`, idle test passed (75 s) on 2026-10-07 and again 2026-10-12 |
+| Acer path | direct 4 to 13 ms; plain `ssh.exe` and Remote-SSH work; a 512 MiB stream ran at only 2.5 MiB/s (cause not found) |
+| Declined 2026-10-15 | the port-2222 OpenSSH fallback (Tailscale SSH works; under mirrored networking the Hyper-V firewall default for inbound is Block, so 2222 would need its own allow rule) and the VS Code Remote Tunnel (the Linux CLI 1.141.0 stays unsigned at `~/tools/vscode-tunnel-cli/code`, safe to delete) |
+| `packageManager` pin pilot | `Learning-Tracker-Tool` committed locally on 2026-10-17 (`51cc182`, unpushed); `portfolio` blocked by a broken lockfile on `origin/main`; `Assisto_website` needs a manager choice. See the Build 4 findings, section "Build 4b follow-up" |
+| Open | the Acer's 4 local-only internship commits; the Acer's Remote-SSH execution-location re-check; Windows VS Code, MCP and Claude Code wiring (Build 6) |
+
+**Corrections to the log below (the live machine wins).**
+| The log says | What is true now |
+|---|---|
+| systemd `degraded`, "wait for a stable WSL release" | closed: WSL 3.0.3.0 (stable 2026-10-09) fixed `systemd-binfmt`; `running`, 0 failed units |
+| The closing ledger lists "Build 3 Tier A", "Build 5 Windows VS Code/MCP", "Build 6 final parity" | that was the **old numbering**. Actual: Build 3 (+3b) Windows cleanup, Build 4 (+4b) Windows toolkit, Build 5 (+5b) WSL parity. Windows VS Code/MCP wiring is now **Build 6** and the final parity pass **Build 7**, neither run yet |
+| bubblewrap and socat "not installed", sudo script unrun | installed (bubblewrap 0.9.0, socat) by the Build 5 sudo step; the sandbox stays off |
+| Miniconda "not installed" | installed in Build 5 (conda 26.7.1, `jupyter-base`) |
+| pnpm 10.33.2 with `enableGlobalVirtualStore` | both laptops run pnpm 12.4.2; neither setting is configured on 12.4.2 and pnpm 12 ignores old `package.json` pnpm keys |
+| host key comparison "from the Acer's view of the Dell" | neither side exposes `SSH_HostKeys`; the Dell-side read matched |
+| Tunnel "CLI ready, authentication pending"; 2222 "waiting user decision" | both declined 2026-10-15 |
+| repo pilot candidate `CausalOps` | the pilot actually run is the `packageManager` pin on `Learning-Tracker-Tool` |
+| editor servers `.vscode-server` 7.74 GiB, `.cursor-server` 3.57 GiB | Build 5 removed regenerable items; now about 5.6 GB and 743 MB (after the Cursor server data was quarantined and then deleted) |
+| C: 20.08 GiB free (2026-10-07 handoff) | superseded by Build 3 (see that note) |
+
+**Reading guide.** The rest is the original log, kept as evidence. Its research (Q1 to Q6, WSL 3.0.1 behaviour, Windows-side findings) and Growth Rules remain valid; its status rows are corrected above and in the ledger below.
+## One-Line Answer
+==WSL-side VS Code parity is applied and the two-laptop workflow is proven: the Acer reaches the Dell's canonical checkout over a direct Tailscale path, the SSH host key matched, and sync-check is identical on both laptops. The port-2222 fallback and the Remote Tunnel were declined; the pnpm-pin pilot is partly done.==
+
+## Scope and status (as of 2026-10-12, historical)
 Phase 2 items 1 through 6 are applied. Tailscale runs on Dell WSL and Acer Windows only, and Dell Tailscale SSH is active. On 2026-10-12, user-provided output confirmed the 75-second idle test passed, Acer `tailscale.exe ping dell-wsl` reached the direct endpoint, and plain Acer `ssh.exe` ran a Git status command on Dell. Earlier Acer Remote-SSH terminal output showed the canonical Dell WSL repo, user, path and Git status. Systemd remains degraded only on the known `systemd-binfmt.service` read-only flush; the user directed continuation without an unsafe workaround or prerelease update. The admin policy allows member-to-own-device SSH in check mode; key expiry is disabled. Do not alter the existing uncommitted hook or the internship repo's dirty worktree. No Windows user-level VS Code setting, Settings Sync control, WSL config, OpenSSH service, or editor data was changed.
 
 ## Before and after
@@ -58,7 +91,7 @@ Commands applied in WSL after dated backups:
 
 The first VS Code CLI command failed because the shell inherited a stale `VSCODE_IPC_HOOK_CLI` socket path. Root cause: the CLI targeted a dead IPC socket even though the current server had live sockets. Re-running with the live socket path succeeded. Installing Jupyter auto-installed `ms-toolsai.vscode-jupyter-cell-tags` and `ms-toolsai.vscode-jupyter-slideshow`; both were removed because they are not in the target list. The stale C/C++ extension pack was removed as a whole, not as an individual pack member. No repeated failure remains. A final `claude mcp list` from `/tmp` confirmed the three requested MCPs connected. Unrelated pre-existing user/plugin entries also reported `gbrain` connection closed (cause not established), `pencil` executable missing at an old Cursor extension path, and several remote servers needing authentication. These were not edited; smallest next diagnostic is a targeted `claude mcp get gbrain`/`claude mcp get pencil` and inspect the corresponding launch path, without printing credentials.
 
-## Build 1 gate and host status
+## Build 1 gate and host status (as of 2026-10-11, historical)
 
 > [!NOTE] Build 5 correction, 2026-10-13
 > WSL 3.0.3.0 (stable, 2026-10-09) fixed the `systemd-binfmt` read-only flush (WSL issue 41783). Live: `systemctl is-system-running` is `running` with zero failed units. Every statement below that says systemd is degraded, or that waits for a stable release, is closed; no prerelease and no workaround was installed.
@@ -170,7 +203,7 @@ Worktree dependency proposal after Q4/Q5: use per-worktree dependency installs o
 ### Miniconda and editor capacity
 No Miniconda install or environment rebuild was started. Existing space/disk measurements and the package cost decision belong to the subsequent approved item 9. User approval is required before installation.
 
-## Phase 4 checkpoint — live refresh 2026-10-12
+## Phase 4 checkpoint — live refresh 2026-10-12 (historical; rows corrected above)
 
 > [!NOTE] Build 5 correction, 2026-10-13
 > Ledger rows 4.4, 4.9 and 4.10 below are stale: later sections show them passed. Row 4.1's systemd caveat is closed by WSL 3.0.3.0.
@@ -180,17 +213,17 @@ No Miniconda install or environment rebuild was started. Existing space/disk mea
 
 | Step | Status | Evidence and remaining work |
 |---|---|---|
-| 4.1 Preconditions | PASS with known systemd caveat | Live WSL reports `degraded`; the sole failed unit remains `systemd-binfmt.service`. `tailscaled` is active, `RunSSH=true`, networking mode is mirrored, and WSL has no conventional listener on 22/2222. A corrected Windows PowerShell query returned no Dell Windows Tailscale/OpenSSH services or 22/2222 listeners. The user chose to continue Phase 4 without a workaround or prerelease update. |
+| 4.1 Preconditions | PASS (systemd caveat closed) | Original evidence: `systemd-binfmt.service` failed on WSL 3.0.1. WSL 3.0.3.0 (stable 2026-10-09) fixed it and `systemctl is-system-running` is `running` with 0 failed units (verified 2026-10-17). `tailscaled` active, `RunSSH=true`, mirrored networking, no listener on 22/2222, no Tailscale or OpenSSH service on the Dell's Windows side. |
 | 4.2 OpenSSH fallback | DECLINED 2026-10-15 | `sshd` and `ssh.socket` are not installed; no listener on 22/2222 (re-checked 2026-10-14). Tailscale SSH works end to end. Under mirrored networking the Hyper-V firewall default for inbound is Block, so 2222 would also need an explicit allow rule: extra exposure for no gain. `build2-tailscale-ssh-step.sh` was not written. |
 | 4.3 Tailscale | PASS | User already installed and authenticated Tailscale on Dell WSL and Acer Windows, set Dell `dell-wsl` with `RunSSH=true`, and disabled Dell key expiry. Live Dell-to-Acer `tailscale ping -c 2 100.84.91.11` returned directly via `10.5.8.252:41641` in 16 ms. No installation or `tailscale up` repeated. |
 | 4.4 Admin console | PASS, user-provided | The user pasted the active SSH policy: `autogroup:member` to `autogroup:self`, users `autogroup:nonroot` and `root`, action `check`; general access remains allow-all. The Acer `gupta-builds` and Dell `dell-wsl` are the user's own devices. No policy changed or broadened. Key expiry is disabled per the user. |
 | 4.5 Idle/reachability | PASS, user-provided | After closing WSL/editor/Codex sessions, `wsl-idle-test.ps1` reported Ubuntu still running after 75 seconds with no WSL command during the wait. The Acer then pinged Dell through DERP initially and directly via `10.5.8.253:41641` in 7 ms. |
 | 4.6 Acer handoff | HANDOFF READY (completed 2026-10-15 with steps 3b); inventory pending | Acer is on Windows Tailscale; its earlier PowerShell showed no WSL distro name and Windows `ssh.exe`/`tailscale.exe`. Acer-side scan of old repo clones and the optional Acer-WSL route check have not been returned. Do not retire any clone until the inventory and preservation review are complete. |
-| 4.7 SSH/Remote-SSH | PASS for working path; transfer pending | New plain `ssh.exe` output ran `hostname`, `pwd`, and `git status` against Dell: `DESKTOP-3VBG0JH`, `/home/anant_gupta`, `## main...origin/main`, and the pre-existing modified hook. Earlier user-provided Acer Remote-SSH terminal output verified the same canonical repository, user and WSL path. No large-transfer measurement yet. The first key was accepted, but the user has not shown an independent comparison against Tailscale's advertised SSH host-key fingerprint; verify that now from Acer Windows before treating host identity as independently validated. |
+| 4.7 SSH/Remote-SSH | PASS | plain `ssh.exe` and Remote-SSH ran on the Dell (2026-10-12); host key MATCH (2026-10-15, Dell-side read); `sync-check` identical from the Acer. Transfer measured and slow: 17 MB bundle in 2.4 s, 512 MiB stream at 2.5 MiB/s, cause unknown. Evidence: [[Old Laptop Rebuild - Acer Visit Findings (2026-10-15)]]. |
 | 4.8 VS Code Tunnel | DECLINED 2026-10-15 (CLI left unsigned) | Downloaded the official Linux standalone CLI 1.141.0 to `~/tools/vscode-tunnel-cli/code`; `tunnel --help` works, `tunnel status` reports no active tunnel/service, and `systemctl --user is-system-running` reports `running`. The ordinary WSL `code` command resolves to the Windows VS Code CLI, so do not use it to host a Dell WSL tunnel. User must authenticate interactively with the Linux CLI before installing/testing its service. |
 | 4.9 Same-page check | Local PASS; Acer SSH invocation pending | Created executable `~/tools/sync-check`. Local run fetched only the two named shared repos and reported Node 24.14.1, pnpm 10.33.2, Python 3.12.3, uv 0.12.23. `second-brain-claudekit`: `main`, ahead 0/behind 0, dirty count 1 (the existing hook). `internship-research-loop`: `dell-latitude/deadline-quota-and-reseed-fixes`, 6 ahead/5 behind `origin/master`, dirty count 26. The `git fetch` updated Git remote metadata only. Re-run on the Dell 2026-10-15: both repos fetched ok; second-brain 0/0 dirty 1; internship-research-loop 6 ahead/5 behind, dirty 25. Over a non-interactive shell the `node`/`pnpm`/`uv` lines print `not-installed` (nvm and `~/.local/bin` live in the interactive `.bashrc`); the repo lines are the check. Acer must run `ssh.exe anant_gupta@dell-wsl '~/tools/sync-check'` and return the report (steps in Old Laptop Rebuild - Build 2 Acer Handoff, 3b). From Dell, `ssh ...@dell-wsl` cannot resolve because this node was brought up with `--accept-dns=false`; do not alter DNS for this test. A self-connection to Dell's own Tailscale IP returned connection refused, so it is not a valid substitute for the Acer-side SSH run. |
 | 4.10 Internship directive | PASS | Backed up and patched the vault directive under `Codebases/internship-research-loop/` with one dated supersession line and link to Locked Decisions. The live repo copy is absent at the named path, and its worktree is already dirty; no live repo file was touched. The second-brain completion gate remains unchanged. |
-| 4.11 Repo pilot | WAITING USER APPROVAL | No branch or repo edit was made. The internship checkout is dirty (26 paths) and has no upstream configured; its fetched head is 6 ahead/5 behind `origin/master`. The second-brain checkout has its pre-existing modified hook. Refresh the read-only candidate audit and obtain exact repo/change approval before selecting a clean pilot. |
+| 4.11 Repo pilot | PILOT DONE, 1 of 3 (2026-10-17) | The pilot became the `packageManager` pin: `Learning-Tracker-Tool` committed locally (`51cc182`, branch `dell-latitude/pin-package-manager`, unpushed); `portfolio` blocked by a broken lockfile on `origin/main`; `Assisto_website` needs a manager choice. Details: Build 4 findings, section "Build 4b follow-up", and the packageManager register in the Locked Decisions note. |
 
 ### Changes made in this checkpoint
 | Item | Before | After |
@@ -224,57 +257,41 @@ Commands/actions with state effects: created and `chmod 700`'d `~/tools/sync-che
 2026-10-07: C: is 93% used with about 20.08 GiB free; pagefile allocation is 32,247 MB with 6,471 MB peak. D: has 363.80 GiB free. Do not shrink D:-resident Ubuntu VHDX to solve C: pressure; no C: data changed. See [[C Drive Bloat - Failure Log and Prevention Rules]].
 
 ## Remaining queue after the systemd gate and Phase 4
-No failure workaround or unsafe WSL change is authorized. WSL 3.0.2 is currently prerelease and the user chose to wait for a stable build with the binfmt fix. When a stable update is available, recheck the failed unit and systemd health, then continue Phase 4 with the Access Controls check, verified Acer host key, SSH/Remote-SSH, and the idle test after closing every WSL/editor/Docker/Codex session. The keyed port-2222 fallback remains in locked R3, but this live audit found OpenSSH absent; confirm it remains desired before separately approved installation. After Phase 4, reconcile and schedule the pending bubblewrap/socat sudo script, Build 2 item 7 repo audit/pilot, item 8 editor-server cleanup proposal and approval, item 9 Miniconda disk/package estimate and install approval, optional Tunnels and sync-check/repo actions with their own gates, then Builds 3-6 in [[Old Laptop Rebuild - Index]] order.
+Closed. WSL 3.0.3.0 (stable) fixed the systemd failure, Phase 4 finished on 2026-10-15, and the queued items ran in Builds 3 to 5; see the final disposition below.
 
-## Dated live refresh and campaign ledger — 2026-10-11
-Phase 4 is **in progress**, not paused: the user chose to wait for a stable WSL release containing Microsoft's binfmt fix. The system update is a waiting prerequisite; independent preparation and the wider campaign continue. Current official release page still labels WSL 3.0.1 latest stable and 3.0.2 prerelease; issue #41783 is closed as fixed in 3.0.2. Live Dell WSL remains 3.0.1.0, `systemctl is-system-running=degraded`, with only `systemd-binfmt.service` failed because flushing `binfmt_misc` returns `Read-only file system`. No workaround or prerelease installation was made.
+## Campaign ledger: final disposition (2026-10-17)
+The 2026-10-11 ledger listed work under an earlier build numbering (Build 3 Tier A/B/C, "Build 5 Windows VS Code/MCP", "Build 6 final parity"). Every row has been settled or re-homed:
+| Original item | Final |
+|---|---|
+| P4.1 systemd gate | closed by WSL 3.0.3.0 |
+| P4.2 OpenSSH fallback on 2222 | declined 2026-10-15 |
+| P4.3 to P4.5 Tailscale bring-up, key expiry, access rule, idle test | done (user, 2026-10-07 to 10-12) |
+| P4.6 to P4.9 Acer handoff, round trip, transfer, `sync-check` | done 2026-10-15 ([[Old Laptop Rebuild - Acer Visit Findings (2026-10-15)]]) |
+| P4.8 VS Code Tunnel | declined 2026-10-15 |
+| P4.10 internship directive supersession line | done 2026-10-12 |
+| P4.11 / item 7 repo contract and pilot | Build 5 read-only audit of 18 repos; pin pilot partly done 2026-10-17 |
+| Item 8 editor-server cleanup | Build 5 removed regenerable items only |
+| Item 9 Miniconda | Build 5 installed conda 26.7.1 with `jupyter-base` |
+| bubblewrap and socat sudo script | Build 5 sudo step |
+| Build 3 Tier A/B/C, pagefile, Drive scope, startup, Defender | Build 3 and 3b (Defender exclusions and the BIOS battery cap are still open) |
+| Build 4 decisions D1 to D12 and toolkit | Build 4 (+4b) |
+| "Build 5 Windows VS Code/MCP", "Build 6 final parity" | now **Build 6** (Windows VS Code, MCP, Claude Code wiring) and **Build 7** (dev-only profile and final verification); not yet run |
+| GitHub fetch/push, branches, PRs | none performed except the local pin commit of 2026-10-17 |
+| Kubernetes / AI infrastructure | out of scope |
 
-Live refresh facts: `tailscaled` active, Tailscale 1.104.1, `RunSSH=true`, Dell `100.94.129.113`, Acer Windows `100.84.91.11`, `/dev/net/tun` present, `tailscale0` MTU 1280. Ping route varied: first `via DERP(ord)` then a later ping went direct via `10.5.8.252:41641`; direct connectivity is observed, but the route is not consistently direct. No WSL listeners on 22/2222 and no Dell Windows Tailscale/OpenSSH service/listener. WSL DNS lookup of the two node short names returned no records; use Tailscale CLI evidence, not assumed MagicDNS resolution. No MTU change. Acer SSH fingerprint remains unverified; no login/Remote-SSH. Active VS Code Server and Codex processes mean the idle test was not rerun. Measured `/` free 901 GiB, D: free 363.80 GiB, C: free 39.46 GiB; these are current reads, not historical screenshot baselines. The editor folders are currently approximate sizes (`~/.vscode-server` 4.5G, `~/.cursor-server` 3.6G, `~/.vscode-remote-containers` 1.1G); active editor processes were found, so no cleanup. Windows services, ports, and space were inspected read-only.
-
-The Acer snapshot is present at `Acer Dotfile Snapshot/`, dated 2026-10-11; MANIFEST reports 39 exported files and hashes, with the expected redaction notes. VERSIONS records exact WSL tool versions, but several Windows tool versions remain path-only/not independently captured. Use the snapshot as Build 4's source of truth and verify it remains available in the vault when that Windows session starts.
-
-| Build/item | Initial status | Action/evidence | Status | Approval or owner | Next action |
-|---|---|---|---|---|---|
-| B2 P4.1 systemd gate | Waiting stable fix | WSL 3.0.1.0; sole failure is read-only binfmt flush; upstream fix is in 3.0.2 prerelease | WAITING USER | User chose stable release | Recheck official stable release and live unit; continue Phase 4 when stable update is available |
-| B2 P4.2 optional OpenSSH fallback | Absent | No `sshd`, `ssh.socket`, or 22/2222 listener on Dell WSL; no Dell Windows service/listener | DECLINED 2026-10-15 | User approved the skip recommendation | None; revisit only if Tailscale SSH stops being enough |
-| B2 P4.3 Tailscale bring-up | User completed | Live Tailscale 1.104.1, active `tailscaled`, `dell-wsl`, `RunSSH=true`; Dell IP verified; no reinstallation or `tailscale up` repeated | PASS | User action already authorized for that exact command | Keep state; no unrelated service/network changes |
-| B2 P4.4 key expiry | User-reported disabled | User's 2026-10-11 console report says key expiry is disabled for `dell-wsl`; not independently inspected in this read-only refresh | PASS (user-reported) | User browser report | Keep recorded as user-observed; recheck if node is recreated or key state changes |
-| B2 P4.4 SSH access policy | Not inspected | Actual policy has not been viewed; no default or ACL behavior assumed | WAITING USER | User browser | Inspect the existing SSH rule and report whether `gupta-builds` is authorized; do not edit/broaden without direction |
-| B2 P4.5 idle/reachability | Prior PASS | 75-second Build 1 idle PASS; current editor/Codex sessions active | WAITING USER | User closes all sessions and runs Windows script | After service work, close all WSL/editor/Docker/Codex sessions; run `D:\WSL\ops\wsl-idle-test.ps1` and return output; no WSL calls during wait |
-| B2 P4.6 Acer handoff / placement | Handoff note exists | Acer Windows is intended Tailscale host; current Acer WSL placement has not been checked in this session | WAITING USER | User at Acer | Read-only verify no Tailscale inside Acer WSL; continue Windows-side tests only |
-| B2 P4.7 Acer live round trip | Partial | User Acer ping was direct; Windows SSH stopped at unverified ED25519 prompt `SHA256:PHOUaZNkip9YvF80hW6WbG5emclHt7rIYMfWf3VzxHA`; no SSH/Remote-SSH completed | WAITING USER | User at Acer + trusted Tailscale key evidence | Compare key before acceptance; then run ping, SSH, Remote-SSH and verify hostname/pwd/canonical repo/status/Git location |
-| B2 P4.7 meaningful Git transfer | Not tested | No transfer run | WAITING USER | Explicit user approval | Present transfer contents/size and before/after evidence plan; run only after approval |
-| B2 P4.8 Tunnels fallback | Not tested | Sign-in/service install not authorized | DECLINED 2026-10-15 | User approved the skip recommendation | None; the unsigned CLI at `~/tools/vscode-tunnel-cli/code` can be deleted |
-| B2 P4.9 same-page sync-check | Local PASS (2026-10-15) | Dell run fetched both repos ok, repo lines recorded in row 4.9 above | WAITING ACER | Acer visit | Run `ssh dell-wsl '~/tools/sync-check'` from the Acer (Acer handoff 3b) |
-| B2 P4.10 internship directive superseded-by | Pending | Live directive read; no edit | WAITING USER | Repo-note approval | Propose exact superseded-by amendment; edit only after approval; leave second-brain gate unchanged |
-| B2 P4.11 repo pilot/worktree | Pending | CausalOps remains proposed, not approved; pnpm 10.33.2 uses `enableGlobalVirtualStore`; uv same-filesystem constraint documented | WAITING USER | User approval per repo/change | Refresh status/contracts/pins/lockfiles/config, present minimal manifest and exact pilot diff; no fetch, mutation, branch, or worktree without approval |
-| B2 item 7 repo contract/pilot | Pending | Same P4.11 pilot remains unapproved; deeper repo audit is queued after Phase 4 checkpoint | WAITING USER | User approval per repo/change | Do the read-only contract/pin/lockfile/editor-config audit, then present exact pilot proposal; no repo edits or branch creation without approval |
-| B2 editor-server cleanup (item 8) | Pending | Approx sizes above; active VS Code/Codex attachment; exact hash/handles inventory incomplete | WAITING USER | User approval | Immediately before cleanup, collect exact paths/bytes/hashes/references/open handles and attached editors; itemize targets; delete only after approval |
-| B2 Miniconda (item 9) | Pending | Acer `jupyter-base` spec exists; Dell Miniconda absent at earlier checkpoint; no current dry-run cost estimate | WAITING USER | User decision/approval | Reconfirm decision; estimate package list, target disk, and size only; install/env creation only after approval |
-| B2 sudo bubblewrap/socat | Script written, unrun | `/mnt/d/WSL/ops/build2-sudo-step.sh` is 462 bytes; exact contents were reviewed; no package verification | WAITING USER | User runs with sudo | After Phase 4 checkpoint, user runs `sudo bash /mnt/d/WSL/ops/build2-sudo-step.sh`; verify packages and sandbox remains disabled |
-| Build 3 Dell Windows/storage | Read-only audit exists; actions pending | Seven WizTree screenshots and prior read-only findings are recorded; live C: 39.46 GiB and D: 363.80 GiB free; no mutation in this WSL session | WAITING USER | User in Windows PowerShell; Tier A approval still separate | Re-measure and follow Build 3 prompt; run approved ASCII scripts only; capture before/after and growth rules |
-| Build 3 Tier A regenerable cleanup | Proposed, not approved | Exact paths/groups and sizes remain in Build 3 findings; group authorization requires user phrase `go A` | WAITING USER | User approval | Re-measure exact targets and affected drive; present complete list; act only after `go A` |
-| Build 3 Tier B personal/app data | Proposed, itemized approvals required | Installed apps, profile data, quarantine, remote WSL server, VM/model/game/installer data and executables are separately approval-gated | WAITING USER | User per item | Recheck target, size, references/open handles; present exact item and wait per-item |
-| Build 3 Tier C protected data | Protected / leave alone | Windows system trees, WSL VHDX, Docker disk, vaults, game saves, unknown-purpose data remain out of cleanup scope absent their specified separate approval | NOT APPLICABLE | User if scope is ever changed | No action in current Build 3; Docker prune never without separate approval |
-| Build 3 pagefile and crash-dump configuration | Diagnostic PASS; changes pending | Elevated diagnostic ran 2026-10-11; D: auto-unlock via external `.BEK` is a hypothesis for boot-time pagefile failure. Staged plan is C: 16,384 MB + D: 32,768 MB, reboot/test, then C: 4,096 MB only if D: works | WAITING USER | User approval and Windows reboot | Reconfirm exact sizes/commit margin and approve Stage 1; verify after reboot before Stage 2; never shrink C: if D: fails |
-| Build 3 Temp, caches, editors, quarantine | Mixed Tier A/B/C | Findings classify exact targets; WSL VHDX and broad AppData are protected; editor server and quarantine are Tier B | WAITING USER | User approvals by tier/item | Re-measure target-specific paths and open handles; proceed only within its tier |
-| Build 3 Docker and WSL VHDX | Protected | `D:\WSL\Ubuntu\ext4.vhdx` and Docker disk cannot be altered/pruned without their specified approval | WAITING USER | Explicit separate user approval | Inventory only; no prune, compact, move, or delete absent exact approval |
-| Build 3 D: folders/offloads and Google Drive scope | Design/review pending | Prompt requires review of installer tar, game archive, recycle-bin contents, Docker/model files and actual Drive scope; Acer vaults must stay outside this code-host workflow | WAITING USER | User review; account sign-in/out is separately gated | Inspect exact paths and app UI; present plan; no sign-in/out or move before approval |
-| Build 3 startup, scheduled tasks, Defender exclusions | Review-only proposals pending | Includes `ConversationCapture-Backfill-WSL`; exclusions are security-impacting and tasks are item-by-item | WAITING USER | User decision per task/exclusion | Inventory and explain impact; run only explicitly approved entries; recheck after each group |
-| Build 3 findings and Growth rules | Not completed | Prior findings include baseline but no final after-measurement or all recurring checks | WAITING USER | User Windows session | Record before/after per drive/group, commands/errors/causes, Drive design and one verified check command per growth source |
-| Acer dotfile snapshot | Previously pending | Snapshot directory, MANIFEST, VERSIONS and SHA-256 logs are present, dated 2026-10-11 | PASS | No approval for read-only snapshot | Use it for Build 4; note Windows exact-version gaps and verify availability at session start |
-| Build 4 Windows terminal parity | Not started | Snapshot available; Build 3 must precede it | WAITING USER | User in Windows PowerShell | Inventory first; use snapshot, label any note-derived config, back up every file and gate installs/replacements/default changes |
-| Build 4 D1-D12 decisions and toolkit | Phase 2 design exists; decisions still open | Existing Build 4 Findings enumerates D1 Node, D2 uv, D3 Miniconda, D4 Git line endings, D5 terminal scheme/font, D6 profile block, D7 WSL configs, D8 Ollama, D9 PowerShell in WSL, D10 lint tools, D11 update policy, D12 Windows-only tools | WAITING USER | User decisions before scripts | Review each recommendation; then use ASCII preflight/install/apply/verify scripts with backups, hashes and drive-cost evidence; Build 3 first |
-| Build 4 Acer execution and catalog | Design only | Snapshot has known profile-path/font/version limitations; Acer Windows/WSL actions require Acer session | WAITING USER | User at Acer and approval for each gate | Preflight profile path and versions; run only after Dell toolkit decisions and Build 4 checks |
-| Build 5 Windows VS Code/MCP | Not started | Settings Sync can propagate to Acer; no Windows user-level changes made | WAITING USER | User approval | Inventory/back up; present exact sync impact; approve settings/extensions/MCP/sign-in separately; validate without secrets |
-| Build 5 Windows VS Code user settings and sync | Not started | Settings Sync is active and may propagate Dell changes to Acer | WAITING USER | Explicit user approval | Compare current state; identify exact settings file/diff and Acer sync impact; backup before edit |
-| Build 5 Windows/WSL extension sets | Not started | Windows and WSL extension sets differ; extension pack removal can uninstall members | WAITING USER | Explicit user approval for changes | Inventory independently; propose exact install/remove list; do not modify pack entries inadvertently |
-| Build 5 MCP registry/endpoints/auth | Not started | MCP registry/sign-in can affect synced Windows setup; secrets must remain unprinted | WAITING USER | Explicit user approval | Backup, present exact registry impact, approve each change/sign-in; verify endpoints by name/status only |
-| Build 6 final parity | Not started | Acer/Dell matrix incomplete | WAITING USER | User and both machines | Verify every layer; mark PASS/DIFF/UNKNOWN; do not claim parity for UNKNOWN rows |
-| Build 6 comparison dimensions | Not started | WSL/tooling; Windows storage/host; terminal tools/config hashes; Windows/WSL VS Code and MCP; canonical repo; Tailscale/SSH; editor execution location; Growth rules | WAITING USER | Both machines and user | Record each dimension as PASS/DIFF/UNKNOWN with evidence; reconcile every remaining ledger item |
-| GitHub fetch/push, branches, commits and PRs | Deferred but retained | No such operation performed | WAITING USER | Separate explicit approvals | Keep each repo-specific operation separately gated; never infer authorization from access-path approval |
-| Kubernetes/AI infrastructure | Out of scope | No installation or enablement | NOT APPLICABLE | Separate future project | Mention only as proposed follow-on |
-
+## SSH runbook as executed (condensed from the retired runbook)
+| Step | What | Final |
+|---|---|---|
+| 4.1 | preconditions | PASS |
+| 4.2 | optional OpenSSH on port 2222 | declined. Reference only, if it is ever wanted: `PasswordAuthentication no`, `KbdInteractiveAuthentication no`, `PermitRootLogin no`, `AllowUsers anant_gupta`, `AllowTcpForwarding yes`, listening on 2222 (Tailscale SSH owns tailnet 22); Ubuntu 24.04 uses `ssh.socket`, so run `sshd -t` and `systemctl daemon-reload` after changing the port; under mirrored networking the Hyper-V firewall default for inbound is Block, so a separate allow rule would be required |
+| 4.3 | `sudo tailscale up --ssh --hostname=dell-wsl --accept-dns=false` (user) | done; `--accept-dns=false` is why the Dell cannot resolve `dell-wsl` itself; `tailscale0` MTU 1280, no manual change |
+| 4.4 | admin console (browser): Machines, `dell-wsl`, Disable key expiry; Access controls: inspect, do not edit | done; no policy change |
+| 4.5 | idle test (`wsl-idle-test.ps1`, every session closed) | PASS |
+| 4.6 to 4.9 | Acer handoff, round trip, `sync-check` | PASS (see the Acer note) |
+| 4.8 | Remote Tunnel | declined |
+| 4.10 | patch the internship directive's completion gate with a dated supersession line | done in the vault; the live repo copy of that file does not exist at the named path and was not touched |
+| 4.11 | repo pilot | see the ledger row above |
+Gotcha: Tailscale SSH "check" mode asks for a browser confirmation after inactivity; a non-interactive run prints a `login.tailscale.com/a/...` URL and waits.
 ### Growth Rules — refreshed checks
 | Growth source | Check command |
 |---|---|

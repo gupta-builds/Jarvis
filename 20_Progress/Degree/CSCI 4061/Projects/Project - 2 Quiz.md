@@ -30,8 +30,8 @@ Answer key checked against the Fall 2026 Project 2 starter code in `csci4061-fa2
 11. **As soon as possible.** A writer that keeps an unnecessary read end open can prevent the pipe from reporting that no readers remain.
 12. **`n` times.** Create `n` child worker processes; the original process coordinates the work.
 13. **`n` times.** `pthread_create()` creates each of the `n` worker threads; the main thread is the coordinator.
-14. **All worker processes read the input matrix files independently.** The pipe worker TODO explicitly directs each worker to open both matrix files and read its assigned elements.
-15. **Two `char *` file-name arguments and an `unsigned` worker count.** `hadamard_main.py` calls each function with `(mat_a_file, mat_b_file, n_workers)`; the C starter parses these with `PyArg_ParseTuple(args, "ssI", ...)`.
+14. **None of the worker processes need to read the input files.** The coordinator reads both matrices before forking, so children inherit access to the input arrays. The worker TODO says to reopen and reread the files, which conflicts with that inherited data and is not necessary for the quiz question.
+15. **Two `PyObject *` arguments.** The formal signature is `(PyObject *self, PyObject *args)`; the actual filenames and worker count are extracted from `args` using `PyArg_ParseTuple(args, "ssI", ...).
 16. **`None`.** The C functions return `Py_RETURN_NONE` after completing the work.
 17. **`NULL`.** This is the Python C API error return; the exception is set separately, as `PyArg_ParseTuple` and utility failures demonstrate.
 18. **Call `print_matrix()` with the result matrix.** The Part 2 test outputs are the printed matrix results.
@@ -42,4 +42,6 @@ Answer key checked against the Fall 2026 Project 2 starter code in `csci4061-fa2
 - `Projects/proj2-code/part1/swish_funcs.h`: pipe descriptors represented through an integer array.
 - `Projects/proj2-code/part2/hadamard.h`, `hadamard_main.py`, and `hadamard_pipe.c`: Python call arguments, worker count, and per-worker file reads.
 - `Projects/proj2-code/part2/hadamard_pipe.c`, `hadamard_shmem.c`, and `hadamard_threads.c`: Python return conventions and required result printing in the TODO descriptions.
-- Questions 3 and 9-11 concern the quiz's submission instructions and process/signal behavior. Their answer wording follows the course quiz choices; the code checks above do not independently establish the Gradescope policy or Bash's signal behavior.
+- Questions 3 and 9-11 concern the quiz's submission instructions and process/signal behavior. Their answer wording follows the course quiz choices; the code checks above do not independently establish the Gradescope policy or Bash's signal behavior. Question 14 follows the fork inheritance model, though the pipe worker TODO separately requests reopening the files.
+
+

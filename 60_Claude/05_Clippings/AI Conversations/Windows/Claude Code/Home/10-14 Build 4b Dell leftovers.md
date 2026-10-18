@@ -5,9 +5,9 @@ source_app: claude-code
 source_os: windows
 title: "Build 4b Dell leftovers"
 started_at: 2026-10-14T10:02:29
-ended_at: 2026-10-17T19:29:57
-exported_at: 2026-10-17T19:30:11
-duration_minutes: 4887.5
+ended_at: 2026-10-17T19:33:44
+exported_at: 2026-10-17T20:00:03
+duration_minutes: 4891.3
 project: Home
 cwd: 'C:\Users\Anant Gupta'
 session_id: c4ce8d15-6db3-4bd7-9640-3040d61f09e2
@@ -18,17 +18,17 @@ tools_used:
   Edit: 16
   Glob: 5
   Grep: 14
-  PowerShell: 118
+  PowerShell: 120
   Read: 49
   ToolSearch: 1
   WebSearch: 2
   Write: 17
 tokens:
-  input: 89080
-  output: 1352357
-  cache_creation: 7653301
-  cache_read: 294975217
-  total: 304069955
+  input: 89090
+  output: 1356273
+  cache_creation: 7659715
+  cache_read: 295470119
+  total: 304575197
 cost_usd: null
 model:
   - "claude-sonnet-5-5"
@@ -4444,6 +4444,49 @@ The messages after this summary are the most recent messages from before compact
 
 My pattern was too broad. I'm re-running the link audit with only the exact deleted-note names, then checking frontmatter and em dashes.
 
+## Documentation close-out: done
+
+Builds 1 to 5 are now documented from verified facts. All the build prompt notes are deleted.
+
+### What changed
+- **Findings notes:** Builds 1, 2, 3, 3b, 4 and 5 now open with a verified outcome and a corrections table. I also rewrote the Index (with the Dell and Acer ledgers and the ordered next actions) and the Runs Index, and added one consolidated `Acer Visit Findings (2026-10-15)` note.
+- **Other notes corrected:** the Locked Decisions note, Installations, the tool guide, the Ubuntu - WSL flashcards, the C Drive Bloat failure log, the AI Platforms Audit, the Drive Plan and the script READMEs.
+- **Deleted (11 notes):**
+  - the 6 build prompts
+  - Index History
+  - the Build 2 SSH Runbook
+  - the Build 2 Acer Handoff
+  - the Acer Session Handoff (Build 5b)
+  - the Acer Run Sheet
+- **Also deleted:** `Runs/_backups` (51 files) and the empty Build 4b folder.
+- **Recovery:** every deleted file is in the vault's git history. Their content now lives in the findings notes, and the Runs Index maps each retired note to where it went.
+- **Links:** I found no wikilinks to any deleted note.
+- **Hygiene:** every note has intact frontmatter, no byte-order mark and no em dashes. The one em dash left is inside a link target (`Acer Live State — 2026-09-16`) that I kept so the link still resolves. A new Syncthing conflict file for the Build 2 note appeared mid-pass. It held a slightly richer line, so I kept that version and removed the conflict file.
+- **Left alone:** the `Sync/` series is a separate programme. Its "Build 7 Prompt" and "Build 11 Prompt" notes and the two Acer prompts in the parent folder are still there.
+- **Session log:** I appended a one-line entry.
+
+## Next course of actions (in order)
+1. **Firecrawl key:** your revoked key still returned HTTP 200 when I tested it. Confirm in the Firecrawl dashboard that it is actually revoked.
+2. **Sunday 2026-10-18, 03:30:** read the weekly clean log, and run `wsl-clean` once.
+3. **Reboot the Dell:** then check C: free space (the pagefile is my inference for the 17.5 GiB drop) and run a Defender full scan.
+4. **Code decisions:** decide what to do with the Acer's 4 local-only internship commits, whether to push the LTT pin, the portfolio lockfile, and the Assisto package manager.
+5. **Optional:** import-test the 36.75 GiB WSL export once. It was only listed and checksummed, never imported.
+6. **Small Dell cleanups:**
+   - Malwarebytes and WhatsApp
+   - GitLens and its GitKraken CLI
+   - `vscode-remote-wsl`
+   - the pnpm v3 store
+7. **Acer items:**
+   - set the cache environment variables
+   - reopen Docker
+   - update Node
+   - look into the slow SSH stream (2.5 MiB/s)
+   - settle what role WSL plays on the Acer
+8. **Write Builds 6, 7 and 8:**
+   - Build 6: Windows VS Code, MCP, Claude Code and the AI audit
+   - Build 7: dev-only profile and final verification
+   - Build 8: the `D:\_Anant` consolidation and Google Drive
+
 ### Tool Calls
 
 - `PowerShell` -- `{"command":"$r=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\u0027; Get-ChildItem -LiteralPath \"$r\\Old Laptop Rebuild\" -Recurse | % { $_.FullName.Substring($r.Length) }; Write-Host ---; Get-ChildItem -LiteralPath $r -Recurse -Filter \u0027*Prompt*\u0027 | % { $_.FullName.Substring($r.Length) }; Get-ChildItem -LiteralPath \"$r\\WSL Parity\",\"$r\\Old Laptop Rebuild\\Windows Toolkit\" -File -ErrorAction SilentlyContinue | % Name","description":"List rebuild folder state and remaining prompt files"}`
@@ -4452,6 +4495,8 @@ My pattern was too broad. I'm re-running the link audit with only the exact dele
 - `PowerShell` -- `{"command":"$d=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Runs\\Build 2 VS Code and Two-Laptop\u0027\n$m=\"$d\\Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings.md\"; $c=\"$d\\Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings.[REDACTED].md\"\nCopy-Item -LiteralPath $c -Destination $m -Force; Remove-Item -LiteralPath $c -Force\n$r=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\u0027\n# link audit: wikilinks to deleted notes\n$pat=\u0027Prompt 1 WSL|Prompt 2 VS Code|Windows Prompts \\(Build 3|Build 4 Prompt \\(Windows|Build 5 Prompt \\(WSL|Build 4b Prompt|Index History|Build 2 SSH Runbook|Build 2 Acer Handoff|Acer Session Handoff|Acer Run Sheet\u0027\nGet-ChildItem -LiteralPath $r -Recurse -Filter *.md -File -ErrorAction SilentlyContinue | ? { $_.FullName -notmatch \u0027\\\\05_Clippings\\\\|\\\\\\.git\\\\|\\\\\\.obsidian\\\\\u0027 } | Select-String -Pattern $pat | % { $_.Path.Substring($r.Length) + \u0027:\u0027 + $_.LineNumber + \u0027: \u0027 + $_.Line.Trim().Substring(0,[Math]::Min(140,$_.Line.Trim().Length)) }","description":"Resolve conflict file and audit links to deleted notes"}`
 - `PowerShell` -- `{"command":"$r=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\u0027\n$pat=\u0027\\[\\[[^\\]]*(Prompt|Index History|SSH Runbook|Acer Handoff|Acer Session Handoff|Acer Run Sheet)[^\\]]*\\]\\]\u0027\nGet-ChildItem -LiteralPath $r -Recurse -Filter *.md -File | ? { $_.FullName -notmatch \u0027\\\\05_Clippings\\\\|\\\\\\.git\\\\|\\\\\\.obsidian\\\\\u0027 } | Select-String -Pattern $pat | % { $_.Path.Substring($r.Length) + \u0027:\u0027 + $_.LineNumber + \u0027: \u0027 + $_.Matches[0].Value }\nWrite-Host \u0027--- sync-conflicts under ORL\u0027; Get-ChildItem -LiteralPath \"$r\\40_Resources\\CS\\Concepts\\New Laptop\" -Recurse -Filter \u0027*sync-conflict*\u0027 | % FullName\nWrite-Host \u0027--- frontmatter/emdash/bom on ORL notes\u0027\n$em=[string][char]0x2014\nGet-ChildItem -LiteralPath \"$r\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\" -Recurse -Filter *.md -File | ? { $_.FullName -notmatch \u0027Acer Dotfile|\\\\golden\\\\|\\\\_scripts\\\\\u0027 } | % {\n $t=[IO.File]::ReadAllText($_.FullName); $b=[IO.File]::ReadAllBytes($_.FullName)\n \u0027{0,-75} fm={1} em={2} bom={3}\u0027 -f $_.Name.Substring(0,[Math]::Min(75,$_.Name.Length)), $t.StartsWith(\"---`n\"), ([regex]::Matches($t,$em)).Count, ($b[0] -eq 0xEF) }","description":"Audit wikilinks, conflicts, frontmatter, em dashes"}`
 - `PowerShell` -- `{"command":"$r=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\u0027\n$pat=\u0027\\[\\[[^\\]]*(Prompt 1 WSL|Prompt 2 VS Code|Windows Prompts|Build 4 Prompt \\(Windows|Build 5 Prompt \\(WSL|Build 4b Prompt|Index History|Build 2 SSH Runbook|Build 2 Acer Handoff|Acer Session Handoff|Acer Run Sheet)[^\\]]*\\]\\]\u0027\nGet-ChildItem -LiteralPath $r -Recurse -Filter *.md -File | ? { $_.FullName -notmatch \u0027\\\\05_Clippings\\\\|\\\\\\.git\\\\|\\\\\\.obsidian\\\\\u0027 } | Select-String -Pattern $pat | % { $_.Path.Substring($r.Length) + \u0027:\u0027 + $_.LineNumber + \u0027: \u0027 + $_.Matches[0].Value }\nWrite-Host \u0027--- conflicts\u0027; Get-ChildItem -LiteralPath \"$r\\40_Resources\\CS\\Concepts\\New Laptop\" -Recurse -Filter \u0027*sync-conflict*\u0027 | % FullName\nWrite-Host \u0027--- notes\u0027\n$em=[string][char]0x2014\nGet-ChildItem -LiteralPath \"$r\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\" -Recurse -Filter *.md -File | ? { $_.FullName -notmatch \u0027Acer Dotfile|\\\\golden\\\\|\\\\_scripts\\\\|README\u0027 } | % {\n $t=[IO.File]::ReadAllText($_.FullName); $b=[IO.File]::ReadAllBytes($_.FullName)\n \u0027{0,-72} fm={1} em={2} bom={3}\u0027 -f $_.Name.Substring(0,[Math]::Min(72,$_.Name.Length)), $t.StartsWith(\"---`n\"), ([regex]::Matches($t,$em)).Count, ($b[0] -eq 0xEF) }","description":"Precise link audit and note hygiene check"}`
+- `PowerShell` -- `{"command":"$r=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\u0027; $em=[string][char]0x2014\nGet-ChildItem -LiteralPath $r -Recurse -Filter *.md -File | ? { $_.FullName -notmatch \u0027Acer Dotfile|\\\\golden\\\\|\\\\_scripts\\\\\u0027 } | Select-String -Pattern $em | % { $_.Path.Split(\u0027\\\u0027)[-1].Substring(0,30) + \u0027:\u0027 + $_.LineNumber + \u0027: \u0027 + $_.Line.Trim().Substring(0,[Math]::Min(150,$_.Line.Trim().Length)) }","description":"Show remaining em dash lines"}`
+- `PowerShell` -- `{"command":"$r=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\u0027; $em=[string][char]0x2014; $u=New-Object Text.UTF8Encoding($false)\nGet-ChildItem -LiteralPath $r -Recurse -Filter *.md -File | ? { $_.FullName -notmatch \u0027Acer Dotfile|\\\\golden\\\\|\\\\_scripts\\\\\u0027 } | % {\n $t=[IO.File]::ReadAllText($_.FullName); if($t.Contains($em)){ $n=($t -split \"`n\" | % { if($_ -notmatch \u0027\\[\\[\u0027 -and $_.Contains($em)){ $_.Replace(\" $em \",\" - \").Replace($em,\"-\") } else { $_ } }) -join \"`n\"\n if($n -ne $t){ [IO.File]::WriteAllText($_.FullName,$n,$u); \"fixed \"+$_.Name.Substring(0,40) } } }\n# check heading anchors referencing changed headings\nGet-ChildItem -LiteralPath $r -Recurse -Filter *.md -File | Select-String -Pattern \u0027Approval Checkpoint|Cache cleanup . measured|Phase 4 checkpoint|refreshed checks|Removal Manifest\u0027 | % { $_.Path.Split(\u0027\\\u0027)[-1].Substring(0,25)+\u0027:\u0027+$_.LineNumber+\u0027: \u0027+$_.Line.Trim() }\n# session log line\n$log=\u0027D:\\Users\\_Anant\\10_Areas\\Documents\\Jarvis\\60_Claude\\07_AI_Information\\Session Logs\\log.md\u0027\n$line=\"2026-10-17 - Old Laptop Rebuild documentation close-out: Builds 1 to 5 findings notes corrected against verified live facts, Index and Runs Index rewritten (Dell and Acer ledgers, next actions), new Acer Visit Findings note; all build prompts, handoffs, run sheet, Index History and Runs/_backups deleted (content kept in findings, recoverable from git).\"\n$c=[IO.File]::ReadAllText($log); if(-not $c.Contains(\u0027documentation close-out\u0027)){ [IO.File]::AppendAllText($log,(\"`n\"+$line+\"`n\"),$u); \u0027log appended\u0027 }","description":"Replace em dashes in prose and append session log line"}`
 
 ## Actions Taken
 

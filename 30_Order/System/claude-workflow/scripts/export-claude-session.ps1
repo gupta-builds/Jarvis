@@ -4,13 +4,27 @@ param(
     [string]$Cwd = "",
     [ValidateSet("ClaudeCode", "Cowork")]
     [string]$SourceApp = "ClaudeCode",
-    [switch]$BackfillAll
+    [switch]$BackfillAll,
+    [switch]$DryRun
 )
 
 $ErrorActionPreference = "Stop"
 
 $VaultRoot = (Resolve-Path (Join-Path $PSScriptRoot "..\..\..\..")).Path
-$OutRoot = Join-Path $VaultRoot "60_Claude\05_Clippings\AI Conversations\Windows"
+$ConvRoot = Join-Path $VaultRoot "60_Claude\05_Clippings\AI Conversations"
+
+# Machine segment (build 5c): output lands in <Machine>\Windows\Claude, with
+# Machine taken from the host name. An unknown host writes nothing (see the
+# dispatch block at the bottom).
+function Get-CaptureMachine {
+    switch ([Environment]::MachineName.ToLowerInvariant()) {
+        'desktop-3vbg0jh' { return 'Dell' }
+        'gupta-builds' { return 'Acer' }
+        default { return $null }
+    }
+}
+$Machine = Get-CaptureMachine
+$OutRoot = if ($Machine) { Join-Path $ConvRoot "$Machine\Windows\Claude" } else { $null }
 
 # ---------------------------------------------------------------------------
 # Pricing (dollars per million tokens). Reused from the WSL exporter's table,
@@ -47,6 +61,7 @@ function Get-ProjectName {
     $norm = $CwdPath.TrimEnd('\', '/').ToLowerInvariant()
     switch ($norm) {
         'c:\users\anant gupta' { return 'Home' }
+        'c:\users\anant' { return 'Home' }
         'd:\users\_anant\10_areas\documents\jarvis' { return 'Jarvis' }
         'd:\users\_anant\10_areas\documents\the plan' { return 'The Plan' }
         default { return (Split-Path -Path $CwdPath.TrimEnd('\', '/') -Leaf) }
@@ -234,6 +249,28 @@ function Ensure-ProjectScaffold {
     }
 }
 
+# Sessions exported before build 5c live under the old Windows\ tree and the
+# Dell\ archive. Their .exported markers count as "already exported", so the
+# machine-aware layout never re-exports them. Read-only; built once per run.
+$script:LegacyIds = $null
+function Test-LegacyExported {
+    param([string]$SessionIdIn)
+    if ($null -eq $script:LegacyIds) {
+        $script:LegacyIds = New-Object 'System.Collections.Generic.HashSet[string]'
+        $patterns = @(
+            'Windows\Claude Code\*\.exported\*.done',
+            'Windows\Cowork\*\.exported\*.done',
+            'Dell\Windows\Claude\*\.exported\*.done',
+            'Dell\Windows\Claude\Cowork\*\.exported\*.done'
+        )
+        foreach ($p in $patterns) {
+            Get-ChildItem -Path (Join-Path $ConvRoot $p) -File -Force -ErrorAction SilentlyContinue |
+                ForEach-Object { [void]$script:LegacyIds.Add($_.BaseName) }
+        }
+    }
+    return $script:LegacyIds.Contains($SessionIdIn)
+}
+
 function Update-Rollups {
     param([string]$ProjectDir)
     $vaultRel = $ProjectDir.Substring($VaultRoot.Length + 1) -replace '\\', '/'
@@ -317,7 +354,7 @@ function Export-Session {
 
     if ($SourceAppIn -eq "ClaudeCode") {
         $projectName = Get-ProjectName -CwdPath $CwdIn
-        $projectDir = Join-Path $OutRoot "Claude Code\$projectName"
+        $projectDir = Join-Path $OutRoot $projectName
         $rawTarget = Split-Path -Path $TranscriptPathIn -Parent
     }
     else {
@@ -330,9 +367,23 @@ function Export-Session {
     $result.ProjectDir = $projectDir
     $result.Project = $projectName
 
+    $markerPath = Join-Path $projectDir ".exported\$SessionIdIn.done"
+    $hasMarker = Test-Path -LiteralPath $markerPath
+    if (-not $hasMarker -and (Test-LegacyExported $SessionIdIn)) {
+        $result.Status = "legacy"
+        return $result
+    }
+    if ($DryRun) {
+        $grown = $true
+        if ($hasMarker) {
+            $grown = (Get-Item -LiteralPath $tpath).LastWriteTimeUtc -gt (Get-Item -LiteralPath $markerPath).LastWriteTimeUtc
+        }
+        $result.Status = if ($grown) { "pending" } else { "dup" }
+        return $result
+    }
+
     Ensure-ProjectScaffold -ProjectDir $projectDir
 
-    $markerPath = Join-Path $projectDir ".exported\$SessionIdIn.done"
     $reuseOutputName = $null
     if (Test-Path -LiteralPath $markerPath) {
         $markerTime = (Get-Item -LiteralPath $markerPath).LastWriteTimeUtc
@@ -735,6 +786,17 @@ function Export-Session {
 # ---------------------------------------------------------------------------
 if ($BackfillAll -or $TranscriptPath) {
 
+    if (-not $Machine) {
+        # Unknown host: write nothing, leave one line in a local (unsynced) log.
+        try {
+            $logDir = Join-Path $env:LOCALAPPDATA "claude-capture"
+            if (-not (Test-Path -LiteralPath $logDir)) { New-Item -ItemType Directory -Path $logDir -Force | Out-Null }
+            Add-Content -LiteralPath (Join-Path $logDir "unknown-host.log") -Value "$((Get-Date).ToString('yyyy-MM-ddTHH:mm:ss')) unknown host '$([Environment]::MachineName)': nothing written"
+        }
+        catch {}
+        exit 0
+    }
+
     if ($BackfillAll) {
         $stats = @{}
         $touchedDirs = New-Object System.Collections.Generic.List[string]
@@ -762,7 +824,7 @@ if ($BackfillAll -or $TranscriptPath) {
                     Write-Warning "Export failed for session $sid : $_"
                 }
                 $key = "ClaudeCode:$($r.Project)"
-                if (-not $stats.ContainsKey($key)) { $stats[$key] = @{ seen = 0; written = 0; junk = 0; dup = 0; error = 0 } }
+                if (-not $stats.ContainsKey($key)) { $stats[$key] = @{ seen = 0; written = 0; junk = 0; dup = 0; legacy = 0; pending = 0; error = 0 } }
                 $stats[$key].seen++
                 $stats[$key][$r.Status]++
                 if ($r.ProjectDir -and ($touchedDirs -notcontains $r.ProjectDir)) { $touchedDirs.Add($r.ProjectDir) }
@@ -784,24 +846,26 @@ if ($BackfillAll -or $TranscriptPath) {
                     Write-Warning "Export failed for Cowork session $sid : $_"
                 }
                 $key = "Cowork:$($r.Project)"
-                if (-not $stats.ContainsKey($key)) { $stats[$key] = @{ seen = 0; written = 0; junk = 0; dup = 0; error = 0 } }
+                if (-not $stats.ContainsKey($key)) { $stats[$key] = @{ seen = 0; written = 0; junk = 0; dup = 0; legacy = 0; pending = 0; error = 0 } }
                 $stats[$key].seen++
                 $stats[$key][$r.Status]++
                 if ($r.ProjectDir -and ($touchedDirs -notcontains $r.ProjectDir)) { $touchedDirs.Add($r.ProjectDir) }
             }
         }
 
-        foreach ($d in $touchedDirs) { Update-Rollups -ProjectDir $d }
+        if (-not $DryRun) {
+            foreach ($d in $touchedDirs) { Update-Rollups -ProjectDir $d }
+        }
 
-        Write-Output "=== Backfill summary ==="
+        Write-Output "=== Backfill summary ($Machine, DryRun=$([bool]$DryRun)) ==="
         foreach ($k in ($stats.Keys | Sort-Object)) {
             $s = $stats[$k]
-            Write-Output "$k -- seen:$($s.seen) written:$($s.written) junk:$($s.junk) dup:$($s.dup) error:$($s.error)"
+            Write-Output "$k -- seen:$($s.seen) written:$($s.written) junk:$($s.junk) dup:$($s.dup) legacy:$($s.legacy) pending:$($s.pending) error:$($s.error)"
         }
     }
     else {
         $r = Export-Session -TranscriptPathIn $TranscriptPath -SessionIdIn $SessionId -CwdIn $Cwd -SourceAppIn $SourceApp
-        if ($r.ProjectDir) { Update-Rollups -ProjectDir $r.ProjectDir }
+        if ($r.ProjectDir -and -not $DryRun) { Update-Rollups -ProjectDir $r.ProjectDir }
         Write-Output "Status: $($r.Status) -- Project: $($r.Project)"
     }
 }

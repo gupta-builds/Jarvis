@@ -110,9 +110,9 @@ Retired on 2026-10-17: every build prompt, the Acer-facing handoff and run-sheet
 | D4 | Defender full scan, exclusions, BIOS battery cap (80 percent) and AC recovery | you | the two suspicious profile-root executables from Build 3 are gone but no full scan has ever run; exclusions need an elevated shell; the BIOS steps are by hand |
 | D5 | `packageManager` pins | you, per repo | `Learning-Tracker-Tool`: local commit `51cc182`, unpushed (team repo; decide the push or PR). `portfolio`: its lockfile on `origin/main` is broken (duplicate `@ai-sdk/mistral@3.0.39`). `Assisto_website`: choose pnpm or npm first |
 | D6 | `internship-research-loop` is 6 ahead / 5 behind `origin/master` with 25 dirty files | you | plus the Acer's 4 local-only commits (A1); the two histories need one deliberate merge |
-| D7 | Malwarebytes (two entries), WhatsApp | you | keep or remove |
-| D8 | GitLens re-downloads the GitKraken CLI (`gk.exe`) | you | uninstalling GitLens stops it (extension lists sync between laptops); 7 hidden Python component registrations remain (harmless) |
-| D9 | `vscode-remote-wsl` (6.5 GiB on C:), pnpm store `v3` (1.8 GiB in WSL) | you | never decided |
+| D7 | Malwarebytes (two entries), WhatsApp | you | decided 2026-10-17: keep both |
+| D8 | GitLens and the GitKraken CLI | DONE 2026-10-17 | GitLens uninstalled in Windows VS Code, Kiro and the WSL server (their folders are marked obsolete and vanish at the next restart of each); `AppData\Local\GitKrakenCLI` and GitLens global storage removed. Watch that Settings Sync does not reinstall it from the Acer. 7 hidden Python component registrations remain (harmless) |
+| D9 | `C:\Users\Anant Gupta\vscode-remote-wsl`, pnpm store `v3` | DONE 2026-10-17 | the folder (only a 0.22 GiB VS Code server download cache by then) and `~/.local/share/pnpm/store/v3` (1.8 GiB) deleted; the WSL pnpm data is now 419 MB (`v11`). C: free read 137.4 GiB afterwards |
 | D10 | Import-test the WSL export once | you | the only way to prove the backup boots; it registers a temporary distro |
 | D11 | Codex config carries a WSL `node_repl` path; skill-junction dot folders (13 named in the audit, dozens in total) | session | Build 6 |
 | D12 | Tasks left disabled on purpose | you | `ClaudeKit-Sync-All`, `SecondBrainClaudekit-JarvisSync`, `ConversationCapture-Backfill-WSL`; re-enable with `Enable-ScheduledTask` |
@@ -134,7 +134,7 @@ Retired on 2026-10-17: every build prompt, the Acer-facing handoff and run-sheet
 3. **Reboot once and read C: free** (D3); then run a **Defender full scan** (D4).
 4. **Decide the code questions:** the Acer's 4 commits (A1/D6), whether to push or PR the Learning-Tracker-Tool pin (D5), how to repair the portfolio lockfile, and which manager Assisto uses.
 5. **Optional safety step:** import-test the WSL export once (D10).
-6. **Small Dell clean-ups** (D7 to D9, D13), each a yes or no.
+6. **Small Dell clean-ups:** D7 to D9 are settled; only D13 remains.
 7. **Acer visit when convenient:** A3, A4, then the WSL-role discussion (A2).
 8. **Write Build 6** (Windows VS Code, MCP and Claude Code wiring plus the AI platforms audit), then Build 7 (dev-only profile, final verification against the Acer). **Build 8** (`D:\_Anant` and Drive) only after you answer the questions in its plan.
 

@@ -16,7 +16,7 @@ TABLE WITHOUT ID
   duration_minutes AS "Duration (min)",
   tokens.total AS "Tokens",
   cost_usd AS "Cost ($)"
-FROM "60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop"
+FROM "60_Claude/05_Clippings/AI Conversations/Dell/WSL/Claude/internship-research-loop"
 WHERE type = "input"
 SORT started_at DESC
 ```

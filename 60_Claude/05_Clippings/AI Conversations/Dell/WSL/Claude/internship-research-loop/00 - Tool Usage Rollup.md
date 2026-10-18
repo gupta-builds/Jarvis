@@ -8,7 +8,7 @@ tags:
 # Tool Usage Rollup — internship-research-loop
 
 ```dataviewjs
-const pages = dv.pages("60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/internship-research-loop").where(p => p.type === "input");
+const pages = dv.pages("60_Claude/05_Clippings/AI Conversations/Dell/WSL/Claude/internship-research-loop").where(p => p.type === "input");
 let toolTotals = {};
 let tokenTotal = 0;
 let costTotal = 0;

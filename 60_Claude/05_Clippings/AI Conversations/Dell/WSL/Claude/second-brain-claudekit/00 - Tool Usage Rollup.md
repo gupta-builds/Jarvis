@@ -8,7 +8,7 @@ tags:
 # Tool Usage Rollup — second-brain-claudekit
 
 ```dataviewjs
-const pages = dv.pages("60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/second-brain-claudekit").where(p => p.type === "input");
+const pages = dv.pages("60_Claude/05_Clippings/AI Conversations/Dell/WSL/Claude/second-brain-claudekit").where(p => p.type === "input");
 let toolTotals = {};
 let tokenTotal = 0;
 let costTotal = 0;

@@ -8,7 +8,7 @@ tags:
 # Tool Usage Rollup — portfolio
 
 ```dataviewjs
-const pages = dv.pages("60_Claude/05_Clippings/AI Conversations/WSL/Claude Code/portfolio").where(p => p.type === "input");
+const pages = dv.pages("60_Claude/05_Clippings/AI Conversations/Dell/WSL/Claude/portfolio").where(p => p.type === "input");
 let toolTotals = {};
 let tokenTotal = 0;
 let costTotal = 0;

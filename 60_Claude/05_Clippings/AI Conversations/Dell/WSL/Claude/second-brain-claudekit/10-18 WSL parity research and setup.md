@@ -5,9 +5,9 @@ source_app: claude-code
 source_os: wsl
 title: "WSL parity research and setup"
 started_at: 2026-10-18T02:38:51
-ended_at: 2026-10-18T02:56:37
-duration_minutes: 18
-exported_at: 2026-10-17T22:01:11
+ended_at: 2026-10-18T02:53:24
+duration_minutes: 15
+exported_at: 2026-10-17T21:53:24
 project: second-brain-claudekit
 cwd: '/home/anant_gupta/projects/ai/claude/second-brain-claudekit'
 session_id: 9191cf6b-b8c4-4dc4-88ce-5efbdcd96354

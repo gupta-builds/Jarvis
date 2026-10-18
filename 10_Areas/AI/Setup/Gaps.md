@@ -2,7 +2,7 @@
 type: action
 status: active
 created: 2026-08-09
-updated: 2026-08-20
+updated: 2026-10-17
 tags:
   - action
   - ai
@@ -42,6 +42,7 @@ Check whether the Cowork sweep is still firing on Windows `SessionEnd` — `60_C
 Wire the `export-ai-session` skill to actually write into the four existing empty subfolders (`Claude Code/`, `Cowork/`, `Cursor/`, `Kiro/`) under `60_Claude/07_AI_Information/AI Conversation - Summaries/`, or delete the subfolders and confirm summaries stay flat — right now neither the code nor the docs say which.
 **Partially resolved 2026-08-20** — `export-ai-session` run once against a real Windows Claude Code session (the 2026-08-19 second-brain-claudekit sync session), producing this vault's first Claude Code distilled summary. Cowork still has zero distilled summaries despite weeks of raw capture; WSL Claude Code likewise still has none.
 Update `60_Claude/05_Clippings/AI Conversations/README.md`, which documents `Claude App/` and `OpenCode/` folders that don't exist on disk.
+**Re-audited 2026-10-17** — the picture above is now two months stale and understates how broken the loop is. Full findings and priority queue: [[60_Claude/30_Reviews/Conversation Capture Layer Audit (2026-10-17)]]. Headline numbers: 7 distilled summaries against roughly 863 raw capture notes; the W34 weekly review is the only one that has ever run, ten-plus weeks silent since; four of the six platforms named in the original multi-platform plan (Codex, Antigravity, Kiro, local models) have zero captured sessions anywhere, only empty scaffold folders on Acer; the capture hook has failed silently at least three separate times with nothing built to catch it; and 14 `_archive-pre-fix*` folders are evidence of two prior rewrite passes that already failed. A real 30_Order Standard/Workflow/Template for this note type now exists (`[[30_Order/Standards/AI Loop/Conversations|Conversations Standard]]`, written 2026-10-15/16) but has not been run against the backlog yet.
 ## Review system
 **Exercised for real 2026-08-20** — `/export-ai-session` run against one real session, [[60_Claude/30_Reviews/AI/Toolkit/Tool log|Tool log.md]] got its first real row (not the empty schema it held since 2026-08-11), and a real Weekly review was written against real Tool log and Sync-Log data ([[60_Claude/30_Reviews/AI/Scheduled/Weekly/AI Tools Weekly Review — 2026-W34]], now [[Review Standard]]'s Gold Standard Example). Still true: nothing runs this automatically — it took an explicit instruction to run it once, not a skill or cron job firing on its own. Still open: still no scheduling mechanism, no automated-fix gate exercised (this pass's Decided Fixes came back empty, honestly, not because the gate was tested against a real candidate fix).
 Point that future automation at `60_Claude/30_Reviews/AI/Conversations/` and `Scheduled/Monthly/` specifically — `Tools/` and `Scheduled/Weekly/` are no longer empty as of this pass, but `Conversations/` and `Monthly/` still are, and both remain disconnected from the working `/weekly-review` skill, which writes to [[60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis Index]] instead (a different subject — concept mastery, not tool/sync health — per the 2026-08-10 decision in Open Threads below).

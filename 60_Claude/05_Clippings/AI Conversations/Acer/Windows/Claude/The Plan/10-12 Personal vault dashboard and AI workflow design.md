@@ -6,7 +6,7 @@ source_os: windows
 title: "Personal vault dashboard and AI workflow design"
 started_at: 2026-10-12T18:36:10
 ended_at: 2026-10-15T16:13:59
-exported_at: 2026-10-18T13:19:22
+exported_at: 2026-10-18T13:33:32
 duration_minutes: 4177.8
 project: The Plan
 cwd: 'D:\_Anant\20_Progress\Documents\The Plan'

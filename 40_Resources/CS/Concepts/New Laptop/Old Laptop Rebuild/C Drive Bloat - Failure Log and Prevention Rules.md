@@ -2,7 +2,7 @@
 type: note
 status: sprout
 created: 2026-10-07
-updated: 2026-10-12
+updated: 2026-10-17
 course: Life
 track:
   - laptop
@@ -13,17 +13,22 @@ tags:
   - disk
 related:
   - "[[Old Laptop Rebuild - Index]]"
+  - "[[Old Laptop Rebuild - Runs Index]]"
   - "[[Old Laptop Rebuild - Build 1 WSL Findings]]"
+  - "[[Old Laptop Rebuild - Build 3 Windows Cleanup Findings]]"
+  - "[[Old Laptop Rebuild - Build 3b C Drive Snapshot Structure and Watch]]"
   - "[[Installations]]"
   - "[[New Laptop Setup]]"
   - "[[Ubuntu - WSL]]"
-next: "Windows-host build (Dell) applies the Dell fixes; Acer gets the monthly check and the env redirects before C: drops under 60 GB free"
+next: "Dell closed except vscode-remote-wsl. Acer: set the cache variables (row 3)."
 ---
 # C Drive Bloat - Failure Log and Prevention Rules
 
 ## One-Line Answer
 ==Moving the WSL disk to D: protected C: from almost nothing: the Dell's C: is 93% used because dozens of small defaults (tool caches, Electron apps, a fallback pagefile, old redirects never cleaned up) each landed on C: separately, and Build 1's 41.7 GiB reclaim happened entirely on D: and inside ext4.==
 
+## Status (2026-10-17)
+All nine failure-log rows are settled on the Dell except row 5 (`vscode-remote-wsl`, still on C:). The Acer still lacks most cache redirects (row 3). C: free on the Dell moved 28.6 GiB (2026-10-04) to 20 (10-07) to 136 (10-12) to 145 (10-13) and read 120.8 on 2026-10-17 because the system-managed pagefile grew to 31 GB; the standing rule is to read C: free after a reboot before suspecting data. The growth rules below remain the maintained part of this note.
 ## Measured state (Dell, read-only scan 2026-10-07)
 | Item | Value | Source |
 |---|---:|---|
@@ -40,14 +45,14 @@ next: "Windows-host build (Dell) applies the Dell fixes; Acer gets the monthly c
 ## Failure log
 | # | What went wrong | Evidence | Root cause | Status |
 |---|---|---|---|---|
-| 1 | Pagefile on C: is 31.5 GiB although Windows is configured for `d:\pagefile.sys` | `Win32_PageFileSetting`: `d:\pagefile.sys`, size 0/0, `AutomaticManagedPagefile` False. `Win32_PageFileUsage`: only `C:\pagefile.sys`, 32,247 MB allocated, peak 6,471 MB | The configured D: file does not get created, so Windows falls back to a RAM-sized file on C:. Why D: fails is a hypothesis; confirm in the event log before changing anything | Open, Windows-host build |
-| 2 | npm cache redirect "missed" | `npm config get cache` now returns `D:\npm-cache`, but `Local\npm-cache` still holds 4.31 GiB | The redirect was set later and the old cache was never removed. It is a stale copy, not live data | Open: verify the D: cache, then delete the C: copy |
-| 3 | uv, Playwright, pip caches default to C: | `UV_CACHE_DIR`, `PIP_CACHE_DIR`, `PLAYWRIGHT_BROWSERS_PATH` unset for the user; `Local\uv` 2.51 GiB, `ms-playwright` 1.34 GiB | Each tool needs its own env var; the D: policy was written per tool, never as a rule | Open |
-| 4 | WSL swap lands on C: | Acer notes; the Dell had no `swapfile=` | `swapfile` defaults to `%TEMP%\swap.vhdx` | Fixed on the Dell by Build 1 (`D:\WSL\swap.vhdx`, 8 GiB) |
-| 5 | Moving the VHDX to D: was read as "WSL is off C:" | Index facts; 9.26 GiB of WSL-adjacent files sit on C: | `vscode-remote-wsl` (6.29), the old Codex quarantine (2.34) and `%TEMP%\wsl-crashes` (0.54) are outside the VHDX | Open, Windows-host build |
+| 1 | Pagefile on C: is 31.5 GiB although Windows is configured for `d:\pagefile.sys` | `Win32_PageFileSetting`: `d:\pagefile.sys`, size 0/0, `AutomaticManagedPagefile` False. `Win32_PageFileUsage`: only `C:\pagefile.sys`, 32,247 MB allocated, peak 6,471 MB | The configured D: file does not get created, so Windows falls back to a RAM-sized file on C:. Why D: fails is a hypothesis; confirm in the event log before changing anything | Closed 2026-10-12 (Build 3): one system-managed `C:\pagefile.sys`, 16,384 to 32,768 MB; the D: file was dropped and the BitLocker external-key auto-unlock explanation was never tested. The file still grows toward 32 GB under memory pressure (31 GB on 2026-10-17), which is normal and shows up as lost C: free space until the next reboot |
+| 2 | npm cache redirect "missed" | `npm config get cache` now returns `D:\npm-cache`, but `Local\npm-cache` still holds 4.31 GiB | The redirect was set later and the old cache was never removed. It is a stale copy, not live data | Closed (Build 3): `Local\npm-cache` is gone; the npm cache is `D:\Cache\npm` |
+| 3 | uv, Playwright, pip caches default to C: | `UV_CACHE_DIR`, `PIP_CACHE_DIR`, `PLAYWRIGHT_BROWSERS_PATH` unset for the user; `Local\uv` 2.51 GiB, `ms-playwright` 1.34 GiB | Each tool needs its own env var; the D: policy was written per tool, never as a rule | Closed on the Dell (Build 3): `UV_CACHE_DIR`, `PIP_CACHE_DIR`, `HF_HOME`, `NUGET_PACKAGES`, `GRADLE_USER_HOME`, `PLAYWRIGHT_BROWSERS_PATH`, `PUPPETEER_CACHE_DIR` all point into `D:\Cache`. **Open on the Acer**: its catalog (2026-10-15) shows only `UV_CACHE_DIR=D:\Apps\uv-cache`; the others, and `OLLAMA_MODELS`, are unset |
+| 4 | WSL swap lands on C: | Acer notes; the Dell had no `swapfile=` | `swapfile` defaults to `%TEMP%\swap.vhdx` | Fixed on the Dell by Build 1 (`D:\WSL\swap.vhdx`, 8 GiB). The Acer fixed its own swap on 2026-10-15 (`D:\WSL\wsl-swap.vhdx`) |
+| 5 | Moving the VHDX to D: was read as "WSL is off C:" | Index facts; 9.26 GiB of WSL-adjacent files sit on C: | `vscode-remote-wsl` (6.29), the old Codex quarantine (2.34) and `%TEMP%\wsl-crashes` (0.54) are outside the VHDX | Partly closed: the 2026-09-20 Codex quarantine and `%TEMP%\wsl-crashes` are gone. `vscode-remote-wsl` (6.5 GiB) is **still on C:** and was never decided |
 | 6 | Electron and Store apps are stuck on C: | [[Installations]] already says so; Spotify 6.38, Vivaldi 5.63, superwhisper 4.82, WisprFlow 1.88 | Their installers offer no location choice | Accepted. Budget for them; clear their caches |
-| 7 | Windows-side editors and agents grow on C: | `.vscode` 4.08, `.codex` 3.36, Local\Programs 14.1 (VS Code installed on C: here, on D: on the Acer) | Install location and extension cache are not redirectable per tool | Open |
-| 8 | A cleanup created more C: data | `codex-cleanup-quarantine-2026-09-20` 2.34 GiB | "Quarantine" moved files to the same drive and nothing reviewed them | Partially closed, 2026-10-12: the folder now lives at `D:\Quarantine\c-cleanup-review-2026-11-01\old-quarantine`, off C:, with a 2026-11-01 review date. Contents not yet reviewed item-by-item. Unrelated to the quarantine move itself, the same-era cleanup also redirected `.codex\packages` to `D:\Cache\codex\packages` via a directory junction and left that target without a `current` release pointer, which broke the Codex CLI's background daemon (`daemon executable not found at ...\.codex\packages\app-server-daemon\current\bin\codex.exe`) and, downstream, Windows sandbox setup. Fixed 2026-10-12: see the session log entry for that date. |
+| 7 | Windows-side editors and agents grow on C: | `.vscode` 4.08, `.codex` 3.36, Local\Programs 14.1 (VS Code installed on C: here, on D: on the Acer) | Install location and extension cache are not redirectable per tool | Accepted. Ollama moved to `D:\Apps\Ollama`; the editors and Electron apps stay on C: |
+| 8 | A cleanup created more C: data | `codex-cleanup-quarantine-2026-09-20` 2.34 GiB | "Quarantine" moved files to the same drive and nothing reviewed them | Closed 2026-10-17: the quarantine and every other review folder were verified and deleted. The 2026-10-12 fix for the Codex daemon (`.codex\packages` junction with a `current` pointer) stands |
 | 9 | Free space was reported from the wrong place | Build 1's 41.7 GiB reclaim changed D: and ext4 only; C: free fell | Different drives; host reclaim also needs trim plus compaction | Rule below |
 
 ## Growth rules (apply to both laptops)
@@ -62,9 +67,10 @@ next: "Windows-host build (Dell) applies the Dell fixes; Acer gets the monthly c
 | Reporting | State the drive with every "reclaimed" number | n/a |
 
 ## What the Acer needs (not measured here)
-The Acer's C: is 315 GB with D: at 637 GB, so the same classes of growth have more room, not no growth. From the vault only: npm cache is on `D:\npm-cache`, known folders are on D:, and Google Drive's DriveFS cache is still on C: with no supported redirect ([[Acer Live State — 2026-09-16]]). Next Acer session: run the check commands above, set `UV_CACHE_DIR`, `PIP_CACHE_DIR` and `PLAYWRIGHT_BROWSERS_PATH`, and record C: free space as the first line of the findings note. Everything in this section is from the vault and has not been measured on the Acer.
+The Acer's C: is about 315 GB (166.5 GiB free on 2026-10-15) with D: at 518.5 GiB free. Its catalog shows npm and uv redirected but the other tool caches and OLLAMA_MODELS not (see row 3); its WSL swap moved to D: on 2026-10-15; DriveFS cache stays on C: with no supported redirect ([[Acer Live State — 2026-09-16]]).
 
-## Hand-offs
-- Windows-host build (Dell): fix #1 (pagefile) first, because it is the largest and recurring item; then #2, #3, #5 and #8 with approval per item. Roaming has not been measured; do that scan before deleting anything there.
-- Build 1 session: add a dated line with C: free space to the handoffs (see [[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]], Follow-up 1).
-- 2026-10-07 Build 1/2 gate recheck: C: has 20.08 GiB free (about 93% used); `Win32_PageFileUsage` reports `C:\pagefile.sys` allocated at 32,247 MB with a 6,471 MB peak. D: has 363.80 GiB free. The Ubuntu VHDX is on D:, so compacting it does not solve C: pressure. No C: file, pagefile, or scheduled task was changed.
+## Hand-offs (closed 2026-10-17)
+The Windows-host build this note was written for ran as Build 3 (plan in the Build 3 findings, execution in 3b). Final state per failure-log row is in the table above. What is still open:
+- **Acer:** set the cache variables (`PIP_CACHE_DIR`, `HF_HOME`, `NUGET_PACKAGES`, `GRADLE_USER_HOME`, `PLAYWRIGHT_BROWSERS_PATH`, `PUPPETEER_CACHE_DIR`) and decide `OLLAMA_MODELS`; its `UV_CACHE_DIR` already points to `D:\Apps\uv-cache`. The Acer has 166.5 GiB free on C: (2026-10-15 catalog), so it is not urgent.
+- **Dell:** decide `vscode-remote-wsl` (6.5 GiB on C:); re-read C: free after the next reboot (the pagefile should shrink back from 31 GB); the daily watcher (`D:\WSL\ops\windows\watch\watch-history.csv`) and the first `Toolkit-Weekly-Clean` run on 2026-10-18 are the standing checks.
+- Reference measurements: C: free 20.08 GiB (2026-10-07), 39.5 (2026-10-11), 136.4 (2026-10-12 night), 145.4 (2026-10-13), 120.8 (2026-10-17).

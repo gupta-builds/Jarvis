@@ -2,7 +2,7 @@
 type: note
 status: sprout
 created: 2026-10-13
-updated: 2026-10-15
+updated: 2026-10-17
 course: Life
 track:
   - laptop
@@ -11,19 +11,56 @@ tags:
   - note
 related:
   - "[[Old Laptop Rebuild - Index]]"
-  - "[[Old Laptop Rebuild - Build 5 Prompt (WSL Parity and D Drive)]]"
+  - "[[Old Laptop Rebuild - Runs Index]]"
   - "[[Old Laptop Rebuild - Build 4 Windows Toolkit Findings]]"
+  - "[[Old Laptop Rebuild - Acer Visit Findings (2026-10-15)]]"
+  - "[[WSL Toolkit Config Reference]]"
   - "[[Old Laptop Rebuild - Anant Folder Consolidation and Drive Plan (later build)]]"
   - "[[Google Drive Sync Policy]]"
   - "[[Installations]]"
-next: "Status 2026-10-15: closed on the Dell, and the Build 5b Acer sync ran the same day (done except socat, which needs the user's sudo). See the Index ledgers."
+next: "Closed on the Dell. Open: D:\\_Anant and Drive (Build 8), per-repo pins, Firecrawl revocation."
 ---
 # Old Laptop Rebuild - Build 5 WSL and D Drive Findings
 
-## One-Line Answer
-==The Dell's WSL configs now match the Acer's real files, the tools, Miniconda, cleanup and watcher timers are in place, and what remains needs sudo, a WSL restart or the Acer: three user commands and an Acer fix list.==
+## Verified outcome (checked live 2026-10-17)
+**Purpose.** Make the Dell's WSL match the Acer's real configuration and tooling, finish the WSL items Build 2 left open, put automatic upkeep in place so the host does not bloat the way C: did, and settle the D: drive questions (the old WSL tarball, a fresh export).
+**Naming.** *Build 5* is the 2026-10-13 run. *Build 5b* is the WSL **golden-config toolkit upgrade**: its Dell part (golden set, tool upgrades, tmux 3.8, pnpm 12.4.2) is in the sections "Build 5b" and "Build 5 final" below, its Acer part is in [[Old Laptop Rebuild - Acer Visit Findings (2026-10-15)]]. The host scripts keep the name `60-build5b-host.ps1`. The export, verification and quarantine steps were finished inside Build 4b (2026-10-14 to 2026-10-17).
+**Result.** Both laptops now take their WSL terminal configs from one golden folder (`WSL Parity/golden/home`) and agree on the tool versions that matter; the Dell has a verified export of its distro and no stale backups.
 
-## Result in short
+| Item | Final state (verified 2026-10-17) |
+|---|---|
+| Config parity | `37-toolkit-apply.sh --dry-run`: **changed=0 same=34 fails=0**; `wsl-check.sh config` lists 8 files as different from the old Acer snapshot (gh-dash, git ignore, lazygit, sesh, starship, yazi.toml, `.gitconfig`, `.tmux.conf`): the golden set replaced them on purpose, so "27 exact matches" (2026-10-13, against the September snapshot) no longer applies |
+| Tool versions | tmux 3.8 (built without sudo), pnpm 12.4.2 (Corepack), node 24.21.0, gh 2.102.0, fzf 0.74.5, ripgrep 15.2.0, fd 10.5.0, bat 0.26.1, lazygit 0.66.1, sesh 2.33.0, ruff 0.17.0, shellcheck 0.11.0, shfmt 3.14.1, conda 26.7.1 (`jupyter-base`) |
+| Upkeep | `wsl-clean.timer` (Sundays, next 2026-10-18 04:39) and `wsl-watch.timer` (daily 06:15, last run today) both active, linger on; the weekly clean never touches `~/.cache/node` |
+| sudo step | done by the user (socat installed, WSL Ollama stopped and disabled; bubblewrap 0.9.0 present, sandbox untouched) |
+| WSL export | `D:\Backup\WSL\ubuntu-20261014-233219.tar`: 58,487,982,080 bytes (54.47 GiB), 1,114,217 entries (GNU tar listing, exit 0), SHA-256 `aa82d751d9fe5a66ad418dffbaf5c1730cc1814ff94a416b0eea62bc5508b9c1`, manifest and `.sha256`; re-hashed OK on 2026-10-17. **No import test has ever been run** (it would register a distro). Windows `tar.exe` cannot read 56 of its entries, so verify with GNU tar inside WSL |
+| Old tarball | `wsl-ubuntu.tar` (36.75 GiB, from 2026-01-15) was moved to quarantine on 2026-10-15 and deleted on 2026-10-17 |
+| Cursor | repaired and on 3.24.18; root cause of its two broken updates: a script force-killed it mid-update (Build 4 findings) |
+| ChatGPT Classic | removed; the new "ChatGPT" app (`OpenAI.Codex`) kept |
+| DCIM duplicates | 918 extra files deleted (3,799 MiB), each verified with `cmp`; log in `~/.local/state/dcim-delete-*.tsv` |
+| Leftovers | Cursor server data and old pnpm v10 stores quarantined 2026-10-15 and deleted 2026-10-17; pnpm store `v3` (1.8 GiB, last written 2026-02-22) remains; `ConversationCapture-Backfill-WSL` disabled |
+| VHDX | `ext4.vhdx` 107.58 GiB, not sparse; decision: do nothing until D: free is under 150 GiB |
+| Not done here | `D:\_Anant` consolidation and the Google Drive mirror (Build 8; needs your answers); editor contract files (`.editorconfig`, `.vscode/extensions.json`) were added untracked to opspilot, safereach and Learning-Tracker-Tool and are not committed |
+
+**Corrections to the log below (the live machine wins).**
+| The log says | What is true now |
+|---|---|
+| "27 of 31 comparable files match by SHA-256" | true on 2026-10-13 against the September snapshot; after Build 5b both laptops equal the golden set, and equal each other |
+| "Docker `AutoStart` is false, but the Run key still starts it" | the Run-key value exists but is disabled in `StartupApproved`; Docker Desktop did not start at the 2026-10-14 boot |
+| tmux 3.4, node 24.14.1, pnpm 10.33.2 "stay behind the Acer by design" | tmux 3.8, node 24.21.0, pnpm 12.4.2 (user decision 2026-10-14, matching the Acer) |
+| "Commands for the user" (sudo step, `50`/`51` export scripts) and "Final commands for the user" | all run or replaced: the export ran through `60-build5b-host.ps1` (stages Export, Verify, Quarantine); `50-wsl-export-verify.ps1` and `51-quarantine-old-tar.ps1` were not used |
+| Cursor "not yet re-installed"; reinstall fails on a stale winget entry | fixed (uninstall stale entry, then `--force`), then the real cause was found; Cursor 3.24.18 runs |
+| The 2026-10-14 `-Stages Export,Quarantine` run printed only "DONE" | `powershell -File` passes a comma list as one string; fixed by splitting a string parameter |
+| Waiting: Tunnel sign-in, port 2222, repo pilot, Firecrawl rotation, backfill task, Cursor state | Tunnel and 2222 declined 2026-10-15; backfill disabled; Cursor data quarantined and deleted; Firecrawl key removed from `.bashrc` (provider revocation unconfirmed); repo pilot: pin done on one repo (Build 4 findings) |
+| "pnpm store moved to v11; old v10 store orphaned" | the v10 stores were quarantined and deleted; v11 is in use; v3 remains |
+| Sync-conflict files "left alone, read before discarding" | the `sync-conflicts-20261013` folder is empty on 2026-10-17 (its files were removed by someone before this documentation pass and were never committed to git); whether their unique lines had been merged cannot be re-checked, so the live notes are the authority. Lesson kept: only the session that closes a build edits the Index, and a conflict file must be diffed before it is discarded |
+| Repo audit: Learning-Tracker-Tool listed as a clean pilot candidate | it was used for the pin pilot (2 untracked editor-contract files, no tracked changes) |
+
+**Reading guide.** Everything below is the original working log; headings are dated. "Waiting on you or the Acer" at the end is closed by this section. The Growth rules at the end of this note remain the maintained part.
+## One-Line Answer
+==The Dell's WSL now runs the same golden configs and nearly the same tool versions as the Acer, has automatic upkeep, a verified export of its distro and no stale backups; what is left is the D:\_Anant and Drive work (Build 8) and per-repo decisions.==
+
+## Result in short (2026-10-13, historical)
 - Config parity done: 27 of 31 comparable files match by SHA-256, starship matches after LF normalisation, and the 3 that differ do so on purpose (gh-dash `repoPaths`, merged `.gitconfig`, `wsl.conf` spacing).
 - Installed in user space: ruff 0.17.0, shellcheck 0.11.0, shfmt 3.14.1 (checksum-verified), Miniconda (conda 26.7.1) with `jupyter-base`.
 - Freed about 5.9 GB of regenerable caches. Weekly cleanup and daily watcher run as systemd user timers.
@@ -49,7 +86,7 @@ next: "Status 2026-10-15: closed on the Dell, and the Build 5b Acer sync ran the
 | Tarball | unverified | tar -tf OK, 455,976 entries (57 s); SHA-256 `d4a23e9195a20ffeed82b7eba706de89474935f502f08224c7203eb013eac326` (543 s over `/mnt/d`) |
 | pnpm | 10.33.2 | 10.33.2 (briefly 12.11.2 by my mistake, restored; see Errors) |
 
-## Commands for the user (exact)
+## Commands for the user (2026-10-13, historical; superseded by the host script stages)
 1. Sudo step (socat, disable WSL Ollama, verify; sandbox stays off):
    `sudo bash /mnt/d/WSL/ops/build5-sudo-step.sh`
    Afterwards: `wsl-check.sh tools` should show socat, and `ss -ltn | grep 11434` should print nothing. Then start the Windows Ollama from `D:\Apps\Ollama`.
@@ -94,22 +131,22 @@ Commands the user ran: none yet in this build.
 | `.wslconfig`, `wsl.conf` | PASS | as intended; Hyper-V firewall default inbound is Block (see Dell-side findings) |
 | Config parity | PASS | see Before and after |
 | Tools | PASS | user-space tools in; tmux 3.4, node 24.14.1, pnpm 10.33.2 stay behind the Acer by design |
-| socat | WAITING USER | sudo |
-| WSL Ollama | WAITING USER | sudo |
+| socat | DONE | installed by the user via the sudo step (2026-10-13) |
+| WSL Ollama | DONE | stopped and disabled by the same sudo step; Windows Ollama serves 11434 when started |
 | bubblewrap, sandbox | PASS / off | 0.9.0 installed, sandbox untouched |
 | Editor servers, caches | PASS | regenerable items cleaned; Cursor state items WAITING USER decision |
 | Miniconda, jupyter-base | PASS | |
 | Upkeep timers | PASS | first scheduled runs 2026-10-14 06:15 (watch), 2026-10-18 04:30 (clean) |
 | VHDX sparse / compaction | PASS (decided: do nothing) | host script 52 available |
 | Tarball integrity | PASS | |
-| Fresh export, quarantine of old tar | WAITING USER | scripts 50, 51 |
+| Fresh export, quarantine of old tar | DONE | export 2026-10-14 (54.47 GiB), verified, old tar quarantined 2026-10-15 and deleted 2026-10-17; see the Build 4 findings, "Build 4b follow-up" |
 | BS\DCIM duplicate report | PASS | 916 groups, 1,834 files, 595 groups span both folders, 3.7 GiB reclaimable; the report is kept outside the vault at `~/.local/state/dcim-duplicates-20261013.tsv` because it lists personal photo names |
 | `_Anant` consolidation, Drive mirror | WAITING USER (later build) | contradictions logged |
 | Drive stale folder list | BLOCKED | Google no longer lets new backup folders be configured in the app from 2026-06-15; handled in the later build, verify in the app |
 | Drive cache | PASS (decided: leave on C:) | `ContentCachePath` could move the content cache, which is about 2 MiB; the 4.2 GiB is metadata; no registry value touched |
 | Repo contract audit | PASS (read-only) | see below |
-| ConversationCapture-Backfill-WSL | WAITING USER | Ready, starts `wsl.exe` periodically, harmless with idle timers off |
-| Host-key comparison, Acer clone and worktree inventory, large transfer, Tunnel sign-in, sync-check from the Acer, port 2222 decision, repo pilot, Firecrawl key rotation | WAITING USER / Acer | not attempted |
+| ConversationCapture-Backfill-WSL | DONE | disabled 2026-10-15 (re-enable with `Enable-ScheduledTask`) |
+| Host-key comparison, Acer clone and worktree inventory, large transfer, Tunnel sign-in, sync-check from the Acer, port 2222 decision, repo pilot, Firecrawl key rotation | DONE / DECLINED | Acer items done 2026-10-15; Tunnel and 2222 declined; pin pilot done on one repo; Firecrawl key removed from `.bashrc`, provider revocation unconfirmed |
 | 18 divergent repos | not touched | as instructed |
 
 ## Repo contract audit (read-only, 18 repos at depth 4; 55 `.git` entries counting nested trees)
@@ -134,7 +171,7 @@ Commands the user ran: none yet in this build.
 
 ## Dell-side findings (not Acer)
 - The Hyper-V firewall for the WSL VM has default inbound action Block with `firewall=true` and mirrored networking: listeners inside WSL (dev servers, Ollama) are not reachable from the LAN. Tailscale is unaffected. Left as is (no network exposure changes without asking).
-- Docker Desktop: `AutoStart` is false in its settings, but the Run key still starts it (Index notes); `IntegratedWslDistros` already lists Ubuntu, so integration is on although the `docker-desktop` distro is stopped. Build 7 decides.
+- Docker Desktop: `AutoStart` is false in its settings and the Run-key value is disabled in `StartupApproved` (corrected 2026-10-17: it does not start at logon); `IntegratedWslDistros` already lists Ubuntu, so integration is on although the `docker-desktop` distro is stopped.
 - The Windows `.wslconfig` matches the facts; there is no `.wslgconfig`; the registry lists two distros (Ubuntu, docker-desktop), both on D:.
 - Windows C: holds WSL-related files but none that change WSL settings: editor remote-WSL extension scripts (VS Code, Cursor), Hermes agent docs, a Kiro task file `wsl-session-not-recognized.meta.json`, `AppData\Local\wsl`. Nothing to fix in them.
 - Sync-conflict files exist in the vault and were left alone: `Build 4 Windows Toolkit Findings.sync-conflict-20261013-020344-VYYX3J5.md`, `Prompt 1 WSL.sync-conflict-20261013-144400-VYYX3J5.md` and `Build 5 Prompt (WSL Parity and D Drive).sync-conflict-20261013-144400-VYYX3J5.md`. Read and compare them before discarding any.
@@ -189,10 +226,10 @@ Corrections to Build 5: `core.fsmonitor` was a no-op on Linux and was removed; m
 | Scripts changed | `38-toolkit-upgrade.sh` default set now includes `pnpm` and `tmux` (yacc stub, idempotent check, version table fixed); `60-build5b-host.ps1` Cursor stage as above |
 | Decisions closed | pnpm 12.4.2 and tmux 3.8 on both laptops (user). Acer `core.autocrlf=input` stays the recommendation in the handoff note |
 
-### Final commands for the user (no sudo is needed any more)
+### Final commands for the user (2026-10-14, historical; all run)
 1. Windows PowerShell (not WSL), repair and test Cursor: `powershell -ExecutionPolicy Bypass -File D:\WSL\ops\60-build5b-host.ps1 -Stages Cursor` and type YES. If it still fails, send the log path it prints.
 2. Windows PowerShell, fresh WSL export and old-tar quarantine (10 to 25 minutes of WSL downtime; Tailscale returns by itself): `powershell -ExecutionPolicy Bypass -File D:\WSL\ops\60-build5b-host.ps1 -Stages Export,Quarantine`, YES twice. If the prompt ever skips by itself again, run `-Stages Export` alone.
-3. Acer WSL: follow [[Acer Session Handoff - Toolkit Sync (Build 5b)]] (steps run `36`, `37`, `38`; `38` now also pins pnpm 12.4.2 and builds tmux 3.8; close tmux first).
+3. Acer WSL: follow [[Old Laptop Rebuild - Acer Visit Findings (2026-10-15)]] (steps run `36`, `37`, `38`; `38` now also pins pnpm 12.4.2 and builds tmux 3.8; close tmux first).
 
 ## Growth rules
 Standing rule: nothing is removed unless it is a regenerable cache or the user approved it; every move goes to a dated quarantine; every config change keeps a timestamped backup in `~/.config/.toolkit-backups/`.
@@ -208,5 +245,5 @@ Standing rule: nothing is removed unless it is a regenerable cache or the user a
 | Alerts | the daily watcher writes `~/.local/state/wsl-watch/ALERT`; the Windows watcher owns host-side numbers | `cat ~/.local/state/wsl-watch/ALERT; tail -n 3 ~/.local/state/wsl-watch/history.csv` |
 All scripts live in `Old Laptop Rebuild/WSL Parity/_scripts/` (see its README); `wsl-check.sh`, `wsl-clean.sh` and `wsl-watch.sh` are also installed in `~/.local/bin`.
 
-## Waiting on you or the Acer
-Acer: apply the nine items above; verify `.wslconfig`; host-key fingerprint comparison; clone and worktree inventory; large-transfer measurement; `ssh.exe anant_gupta@dell-wsl '~/tools/sync-check'`. You: the three commands above; VS Code Tunnel sign-in; port-2222 decision; repo pilot choice; Firecrawl key rotation at the provider (the key is still in plaintext in the Dell `.bashrc`); the ConversationCapture-Backfill-WSL decision; Cursor snapshots and globalStorage; the Drive questions in the consolidation note.
+## Waiting on you or the Acer (closed 2026-10-17)
+See the verified outcome at the top. Still open from this build: the Firecrawl revocation at the provider; pnpm store `v3` (1.8 GiB) if you want it reclaimed; the Drive and `D:\_Anant` questions (Build 8); per-repo `packageManager` pins.

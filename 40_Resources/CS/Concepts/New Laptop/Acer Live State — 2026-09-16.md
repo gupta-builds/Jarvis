@@ -229,11 +229,11 @@ Confirmed installed and working: `git`, `git-lfs`, `ripgrep`, `fd`/`bat` (symlin
 
 ## Build 5b and Build 2 closure on the Acer - 2026-10-15
 A live session on `gupta-builds` applied the Dell's golden WSL toolkit and ran the Build 2 SSH checks. The earlier "fix-pass queued, not yet confirmed complete" items above are now confirmed: chafa is 1.18.2, direnv is installed, atuin has the golden config, `sesh.toml` and gh-dash `repoPaths` are real, and the tmux-handlr ntfy topic is configured (`~/.config/tmux-handlr/ntfy.env`, mode 600; the value was not read).
-- WSL toolkit: tmux 3.8, pnpm 12.4.2, gh 2.102.0, rg 15.2.0, fd 10.5.0, bat 0.26.1, lazygit 0.66.1, sesh 2.33.0, delta 0.20.1, atuin 18.23.0, uv 0.12.23, ruff 0.17.1, shellcheck 0.11.0, shfmt 3.14.1. Details: [[Acer Session Handoff - Toolkit Sync (Build 5b)]].
+- WSL toolkit: tmux 3.8, pnpm 12.4.2, gh 2.102.0, rg 15.2.0, fd 10.5.0, bat 0.26.1, lazygit 0.66.1, sesh 2.33.0, delta 0.20.1, atuin 18.23.0, uv 0.12.23, ruff 0.17.1, shellcheck 0.11.0, shfmt 3.14.1. Details: [[Old Laptop Rebuild - Acer Visit Findings (2026-10-15)]].
 - Root cause found for the pnpm drift: the Sunday cache cleanup deleted Corepack's state in `~/.cache/node`. Fixed.
 - `.wslconfig` now points swap at `D:\WSL\wsl-swap.vhdx`; the old swap file is quarantined.
-- Two-laptop workflow: Tailscale only on Windows, direct path to `dell-wsl`, `sync-check` over SSH matches the Dell, the Acer WSL reaches the Dell through the Windows route. Open: independent host-key comparison. Found: 4 internship commits exist only on the Acer (backed up as a Git bundle). Full table: [[Old Laptop Rebuild - Build 2 Acer Handoff]].
-- Windows toolkit: Part 0 and Part 2 done, Part 1 and Part 3 waiting ([[Acer Run Sheet - Windows Toolkit]]).
+- Two-laptop workflow: Tailscale only on Windows, direct path to `dell-wsl`, `sync-check` over SSH matches the Dell, the Acer WSL reaches the Dell through the Windows route. Open: independent host-key comparison. Found: 4 internship commits exist only on the Acer (backed up as a Git bundle). Full table: [[Old Laptop Rebuild - Acer Visit Findings (2026-10-15)]].
+- Windows toolkit: Part 0 and Part 2 done, Part 1 and Part 3 waiting ([[Old Laptop Rebuild - Acer Visit Findings (2026-10-15)]]).
 
 ### WSL platform update, 2026-10-15 18:48
 WSL 2.7.14.0 to 3.0.3.0, kernel 6.18.54.1, systemd running with 0 failed units, `.wslconfig` and swap unchanged and live. Full verification: [[Ubuntu - WSL]], section "WSL platform update". The Acer and the Dell now run the same WSL version.

@@ -6,7 +6,7 @@ tags:
   - project-brief
 notes:
   - "[[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]]"
-  - "[[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]]"
+  - "[[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]]"
   - "[[Cross-Laptop Sync - Build Roadmap]]"
   - "[[Cross-Laptop Sync - Build 4 Findings]]"
   - "[[second-brain-claudekit-jarvis-unison-sync]]"
@@ -19,13 +19,13 @@ next: "[[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]]
 
 **Superseded, 2026-10-04 — see [[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]].** The short version below still holds; the detailed, research-backed lock-down (Tailscale placement, Tailscale SSH vs OpenSSH, the `.wslconfig` stay-awake fix neither prompt currently sets, retiring the existing dual-checkout model, and more) lives in that note now, not here.
 
-Run [[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]] (as rewritten per the locked note above, not as originally written). This isn't a fresh architecture decision — it already specifies the Dell-as-host, Remote-SSH-over-Tailscale, GitHub-as-backup, worktrees-for-parallel-work design from the pasted suggestion. The underlying call ("don't live-sync codebases") was already made and paid for in [[Cross-Laptop Sync - Build Roadmap]]: Build 4 found a live Next.js app's `.git`, `node_modules`, and `.env.local` had synced by accident inside what was assumed to be a curated config folder. That's the concrete failure behind "syncing seems impossible" — it happened once, here, and the fix was "codebases stay GitHub-only," not "try harder to sync them."
+Run [[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]] (as rewritten per the locked note above, not as originally written). This isn't a fresh architecture decision — it already specifies the Dell-as-host, Remote-SSH-over-Tailscale, GitHub-as-backup, worktrees-for-parallel-work design from the pasted suggestion. The underlying call ("don't live-sync codebases") was already made and paid for in [[Cross-Laptop Sync - Build Roadmap]]: Build 4 found a live Next.js app's `.git`, `node_modules`, and `.env.local` had synced by accident inside what was assumed to be a curated config folder. That's the concrete failure behind "syncing seems impossible" — it happened once, here, and the fix was "codebases stay GitHub-only," not "try harder to sync them."
 
 **It is not a devcontainer.** A devcontainer defines a portable environment (usually Docker) that runs identically on any host you point it at. Remote-SSH does the opposite: VS Code's backend runs on one physical machine — the Dell — and the Acer is a display into it. Nothing here is portable. If the Dell is off or off Tailscale, you lose access; the design's own fallback is the Acer cloning fresh from GitHub and pushing a branch. A devcontainer could be layered in later for reproducibility, but it answers a different question than the one in front of you.
 
 **Your three worries, answered directly:**
 - *Will you still need `git clone`?* Yes, once — on the Dell, which already has all 18 shared repos checked out. The Acer doesn't need its own full checkout for daily work, since it's editing the Dell's checkout remotely.
-- *Does the Acer's detailed WSL/tool setup stop mattering?* No. [[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]] uses the Acer's documented state (in `40_Resources/CS/Concepts/New Laptop`) as the target the Dell gets brought up to match — VS Code extensions, git config, Claude Code deny-rules, MCP wiring. The detail becomes the spec, not dead weight.
+- *Does the Acer's detailed WSL/tool setup stop mattering?* No. [[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]] uses the Acer's documented state (in `40_Resources/CS/Concepts/New Laptop`) as the target the Dell gets brought up to match — VS Code extensions, git config, Claude Code deny-rules, MCP wiring. The detail becomes the spec, not dead weight.
 - *Does Remote-SSH strand local work?* Only Acer-local things stay Acer-local anyway — the discrete GPU and the planned local models (Ollama/Jan/Hermes/Kronos) are Acer hardware-bound regardless of this decision, not shared-repo work.
 
 **One thing to correct before you proceed:** [[second-brain-claudekit-jarvis-unison-sync]] already exists, but it's a **one-way mirror** (`force_source: true`, WSL checkout → vault) of `.claude/agents`, `.claude/commands`, `.claude/hooks`, `CLAUDE.md`, `README.md`, `_docs` — built for visibility/review, not the two-way unison sync you described wanting. Given Build 4's incident, that's the safer shape and I'd leave it one-way for now. If you actually want true two-way `.claude`-folder sync across repos, that's a separate, narrower, and still-nonzero-risk build — give it its own numbered build the way vault sync got Builds 0–10, don't fold it into running Prompt 2.
@@ -60,7 +60,7 @@ Per [[Folder Map]] and [[Gaps]], re-verified live rather than trusted as current
 
 ## Proposed builds (not started — sequencing is yours to set)
 
-- **A — Rewrite, then run, Prompt 2.** Fold the ten decisions in [[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]] into [[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]] (plus the one `.wslconfig` addition that belongs to [[Old Laptop Rebuild - Prompt 1 WSL]]) before executing either.
+- **A — Rewrite, then run, Prompt 2.** Fold the ten decisions in [[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]] into [[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]] (plus the one `.wslconfig` addition that belongs to [[Old Laptop Rebuild - Build 1 WSL Findings]]) before executing either.
 - **B — `.claude`-mirror direction.** Confirm one-way stays, or scope two-way sync as its own numbered build with its own failure-mode review (same discipline as [[Cross-Laptop Sync - Known Failure Modes and Prevention]]).
 - **C — Watchdog layer.** One scheduled check that verifies the mechanisms themselves: Tool log freshness, Weekly/Monthly review cadence, and that every capture Scheduled Task actually exists on the current machine — alerts (not silence) when any goes stale past a threshold. This is the highest-leverage fix of the three, since it would have caught every failure listed above on its own.
 - **D — Wire or kill Cowork and Kiro.** Cowork's pipeline exists but is dead; either revive and verify it, or stop carrying it as "built."

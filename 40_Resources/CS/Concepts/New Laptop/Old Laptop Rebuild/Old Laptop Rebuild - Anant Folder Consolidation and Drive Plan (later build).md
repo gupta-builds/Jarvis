@@ -2,7 +2,7 @@
 type: note
 status: sprout
 created: 2026-10-13
-updated: 2026-10-13
+updated: 2026-10-17
 course: Life
 track:
   - laptop
@@ -55,7 +55,7 @@ next: "A separate later build, not Build 5. Before it starts, the user answers t
 | `20_Progress` | Documents (the Jarvis vault at `20_Progress\Documents\Jarvis`, same as the Acer), UMN, Real coding | `Users\_Anant\10_Areas\Documents`, `...\UMN`, `...\Real coding` |
 | `30_Resources` | Media, Music, Videos, Favorites, reference files | `Users\_Anant\Media`, `Music`, `Videos`, `Favorites` |
 | `99_Archive` | everything old; both `99_Archive` trees merge here | `D:\_Anant\99_Archive`, `Users\_Anant\99_Archive` |
-| outside the mirrored folder | regenerable trees (`.conda`, `node_modules`, `.venv`), `D:\Apps`, `D:\Cache`, `D:\AI`, `D:\WSL`, `D:\Backup`, `D:\Quarantine` | stay on D: as now |
+| outside the mirrored folder | regenerable trees (`.conda`, `node_modules`, `.venv`), `D:\Apps`, `D:\Cache`, `D:\AI`, `D:\WSL`, `D:\Backup` (including `D:\Backup\Quarantine`, empty since 2026-10-17) | stay on D: as now |
 
 ## Order of work for the later build
 1. Read-only: confirm the Drive mode in the app (Preferences, Folders from Drive), list what each account backs up, decide the Acer backup scope.
@@ -63,7 +63,7 @@ next: "A separate later build, not Build 5. Before it starts, the user answers t
 3. Close Obsidian, pause Syncthing and Drive. Move each folder into `D:\_Anant`. Change each known folder through Windows (Properties, Location) or the User Shell Folders keys, one at a time, and check each.
 4. Fix the places that hold the old vault path: Syncthing folder path, Obsidian vault registration, Jarvis MCP, `AGENTS.md`, VS Code workspace files, the WSL notes (`/mnt/d/Users/_Anant/...`).
 5. Re-run the hash manifest and compare. Only then review what to keep.
-6. Empty `D:\Users` goes to `D:\Quarantine` for review before any delete.
+6. Empty `D:\Users` goes to `D:\Backup\Quarantine` for review before any delete (keep a text record of what it held, as the 2026-10-17 purge did).
 7. Bring the regenerable trees out of the mirrored area, then turn the mirror on.
 
 ## Duplicate and tidy candidates found so far (report only, nothing moved)
@@ -83,3 +83,4 @@ next: "A separate later build, not Build 5. Before it starts, the user answers t
 - Open consequence: with two different accounts, "mirror on both" means two separate cloud copies unless the accounts are unified or a shared folder is used. Decide which account owns the shared content before the build.
 - The Dell's Drive cache (4.17 GB in `%LOCALAPPDATA%\Google\DriveFS`, mostly metadata) stays where it is.
 - Quarantine location changed: reviews now live in `D:\Backup\Quarantine` (it was `D:\Quarantine`). New scripts use the new path.
+- Status 2026-10-17: nothing in this plan has been started. The Dell facts above still hold; the Acer's catalog shows `TOOLKIT_VAULT_ROOT=D:\_Anant\20_Progress\Documents\Jarvis`, and the Dell's is `D:\Users\_Anant\10_Areas\Documents\Jarvis`. The questions above are still open and are Build 8's starting point.

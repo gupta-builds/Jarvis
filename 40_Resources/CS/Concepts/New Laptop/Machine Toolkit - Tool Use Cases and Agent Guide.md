@@ -188,7 +188,7 @@ Gotcha: the config's `node_repl` entry points into WSL and does not resolve on W
 
 **Cursor.** `cursor .` opens the editor. Updates arrive as a popup: quit all Cursor windows (including "Cursor Agents") and any process Cursor started, then accept. An interrupted update broke the install twice (2026-09-06, 2026-10-14); the cause was a force-kill while the updater ran. *Agent: never kill Cursor processes; never run a script that stops Cursor while its updater state is checking, downloading or updating.*
 
-**Claude Desktop, Kiro, Antigravity.** App-based. `agy` exists only after the one-time in-app "install agy command" step. *Agent: not drivable from a shell.*
+**Claude Desktop, Kiro, Antigravity.** App-based; Antigravity's `agy` CLI resolves on Windows (1.3.5) and in WSL (1.3.3). *Agent: the apps are not drivable from a shell.*
 
 ### Containers and local models
 **Docker Desktop and Docker CLI.** Containers and Dev Containers. Auto-start is off by choice (the Run-key entry is disabled in StartupApproved).

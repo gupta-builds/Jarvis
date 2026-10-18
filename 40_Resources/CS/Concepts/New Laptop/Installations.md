@@ -2,7 +2,7 @@
 type: note
 status: sprout
 created: 2026-09-13
-updated: 2026-10-15
+updated: 2026-10-17
 course: Life
 track:
   - laptop
@@ -205,7 +205,7 @@ Machine: i7-1255U (10 cores, 12 threads), 32 GB RAM, Intel Iris Xe only (no NVID
 ### Where things stand
 - WSL is rebuilt and configured (Builds 1, 2 and 5). Since Build 5 (2026-10-13) its terminal configs are the Acer's real files, copied from the dotfile snapshot with `30-wsl-config-parity.sh` (see "Config parity" below); systemd runs with zero failed units; Miniconda and `jupyter-base` match the Acer.
 - The Windows side was rebuilt by Build 4 (2026-10-13) and finished by Build 4b (2026-10-15): PowerShell 7 (default shell), Starship, IosevkaTerm Nerd Font, zoxide, fzf, fd, bat, delta, NanaZip, pnpm, Node 24, standalone uv, Git 2.55 and GitHub CLI 2.102, with shared configs written by `Windows Toolkit\_scripts`. The tables below are the live 2026-10-15 state, generated from [[Tool Catalog - DESKTOP-3VBG0JH]] and `toolkit.lock.json`. How to use each tool: [[Machine Toolkit - Tool Use Cases and Agent Guide]].
-- Build 3 and Build 4 removed most of the "not carrying forward" list (Microsoft 365, OneDrive, WinRAR, Respondus, Dell Optimizer, MongoDB Shell, Logi Options+, Teams, LinkedIn, Netflix, HP Printer Control, Epic, Python 3.13.5 and Chocolatey). Build 4b removed the OpenClaw gateway (npm package, startup entry and `~\.openclaw`) and the dangling E START App shortcut on 2026-10-14. Malwarebytes (two entries) and Edge are still installed.
+- Build 3 and Build 4 removed most of the "not carrying forward" list (Microsoft 365, OneDrive, WinRAR, Respondus, Dell Optimizer, MongoDB Shell, Logi Options+, Teams, LinkedIn, Netflix, HP Printer Control, Epic, Python 3.13.5 and Chocolatey). Build 4b removed the OpenClaw gateway (npm package, startup entry and `~\.openclaw`) and the dangling E START App shortcut on 2026-10-14, and on 2026-10-17 Rize, the GitKrakenCLI folders and the visible Python 3.13.5 registrations. Malwarebytes (two entries) and Edge are still installed.
 ### Windows side (live 2026-10-15, from the catalog and `toolkit.lock.json`)
 Source: `winget` is a winget package id, `Store` an MSIX package, `direct` an installer without a winget id, `npm` a global package. Per-tool purpose, commands and gotchas are in [[Machine Toolkit - Tool Use Cases and Agent Guide]]; exact paths and sizes are in the catalog.
 
@@ -243,7 +243,7 @@ Source: `winget` is a winget package id, `Store` an MSIX package, `direct` an in
 | Codex CLI | 0.162.1 | npm | `AppData\Roaming\npm` | pinned in the lock |
 | Claude Desktop | 2.37337.1.0 | winget | `AppData` (forced to C:) | MCP names: jarvis, the-plan, jarvis-fs, github |
 | Cursor | 3.24.18 | winget | `AppData\Local\Programs\cursor` | reinstalled 2026-10-14 after an interrupted self-update; auto-update stays on |
-| Kiro, Antigravity | 1.0.395, 2.22.0 | winget | `AppData\Local\Programs` | `agy` shim needs the one-time in-app step |
+| Kiro, Antigravity | 1.0.395, 2.22.0 | winget | `AppData\Local\Programs` | `agy` 1.3.5 resolves on Windows (`AppData\Local\agy\bin`) |
 | ChatGPT (Store, package OpenAI.Codex) | 26.1007 | Store | WindowsApps | ChatGPT Classic is removed |
 | Ollama | 0.40.3 | winget | `D:\Apps\Ollama` | serves `127.0.0.1:11434` when started by hand; models in `D:\AI\ollama-models` (two cloud models and `nomic-embed-text`); startup shortcut disabled; WSL Ollama is disabled |
 | Jan | 0.8.6 | winget | AppData | |
@@ -258,26 +258,26 @@ Obsidian 1.9.12, Slack, Discord, Zoom, Telegram, WhatsApp (Store), Spotify, Viva
 Microsoft Edge 155, Dell Command Update (Store 5.7.42 and Universal 5.7.2), Dell Core Services, Dell SupportAssist OS Recovery plugin, Intel graphics software, Realtek audio, two Malwarebytes entries (5.0.0.113 Store and 5.7.1.346), WhatsApp and Windows system components.
 
 **Startup behavior**
-All seven Run-key entries (Discord, GoogleDriveFS, Rize, Spotify, Docker Desktop, Voquill, Slack) are disabled through `StartupApproved`, and the Startup-folder items Wispr Flow and Ollama are disabled too. The E START App and OpenClaw Gateway shortcuts were quarantined on 2026-10-14. Reversible: the values and an `undo.txt` are in `D:\Backup\Quarantine\startup-cleanup-2026-10-14`.
+The six remaining Run-key entries (Discord, GoogleDriveFS, Spotify, Docker Desktop, Voquill, Slack) are disabled through `StartupApproved` (Rize was removed on 2026-10-17), and the Startup-folder items Wispr Flow and Ollama are disabled too; none started at the 2026-10-14 boot. The E START App and OpenClaw Gateway shortcuts were quarantined on 2026-10-14 and the quarantine was deleted on 2026-10-17 (the record is in `D:\Backup\Quarantine-record`).
 
-**Open Windows items:** Malwarebytes (two entries), WhatsApp, Rize and GitKrakenCLI keep-or-remove; stale Python 3.13.5 uninstall registrations; Defender exclusions and the BIOS battery cap (need admin or BIOS).
-### WSL side (Ubuntu 24.04.4, live 2026-10-11)
+**Open Windows items:** Malwarebytes (two entries) and WhatsApp keep-or-remove; 7 hidden Python 3.13.5 component registrations (harmless); the GitKraken CLI that GitLens re-downloads; Defender exclusions, a full Defender scan and the BIOS battery cap (need admin or BIOS).
+### WSL side (Ubuntu 24.04.4, live 2026-10-17)
 `systemctl is-system-running` reports `running` with zero failed units since WSL 3.0.3.0 (the `systemd-binfmt` failure of 3.0.1 is fixed). Root filesystem about 52 GB used of 1007 GB after the Build 5 cache cleanup.
 
 **apt packages (manual)**
-git 2.43.0, git-lfs 3.4.1, gh 2.45.0 (Ubuntu repo), ripgrep 14.1.0, fd-find 9.0.0 (`fd` symlink in `~/.local/bin`), bat 0.24.0 (`bat` symlink), fzf 0.44.1, jq 1.7, tmux 3.4, ncdu 1.19, direnv 2.32.1, bubblewrap, wslu 3.2.3, build-essential, curl, wget, unzip, python3-pip, Tailscale 1.104.1 (Tailscale apt repository; `RunSSH=true`, node `dell-wsl`).
+git 2.43.0, git-lfs 3.4.1, jq 1.7, ncdu 1.19, direnv 2.32.1, bubblewrap 0.9.0, socat, wslu 3.2.3, build-essential, curl, wget, unzip, python3-pip, Tailscale 1.104.1 (Tailscale apt repository; `RunSSH=true`, node `dell-wsl`). The apt copies of gh 2.45.0, ripgrep 14.1.0, fd-find 9.0.0, bat 0.24.0, fzf 0.44.1 and tmux 3.4 remain installed as fallbacks but are shadowed on PATH by the user-space builds below.
 
 **User-space binaries in `~/.local/bin`**
 | Tool | Version | Note |
 |---|---|---|
 | Starship | 1.26.0 | |
 | Yazi and ya | 26.9.1 | |
-| lazygit | 0.65.1 | |
+| lazygit | 0.66.1 | |
 | delta | 0.20.1 | Acer note records 0.19.2 |
 | zoxide | 0.10.0 | |
 | atuin | 18.23.0 | local-only, no sync |
-| sesh | 2.32.0 | |
-| gh-dash | 4.26.0 | `gh dash` is discovered by `gh extension list` |
+| sesh | 2.33.0 | |
+| gh-dash | 4.26.1 | `gh dash` is discovered by `gh extension list` |
 | chafa | 1.18.3 | static binary (Yazi needs 1.16 or newer) |
 | win32yank | 0.1.1 | clipboard bridge for tmux |
 | unison | 2.54.0 | |
@@ -287,13 +287,13 @@ git 2.43.0, git-lfs 3.4.1, gh 2.45.0 (Ubuntu repo), ripgrep 14.1.0, fd-find 9.0.
 | Semgrep | 1.179.0 | `uv tool install` |
 
 **Runtimes and package managers**
-nvm with Node 24.14.1 (default `lts/*`), npm 11.11.0, pnpm 10.33.2 (Corepack), Bun 1.3.14, Python 3.12.3 (system), rustup 1.29.1 with rustc and cargo 1.99.0, `cargo-watch` 8.5.3 and `code2prompt` 4.2.0 (built from `~/projects/code2prompt`). Installed in Build 5 (2026-10-13): Miniconda (conda 26.7.1 at `~/miniconda3`, conda-forge only, `jupyter-base` with Python 3.12), ruff 0.17.0 (`uv tool`), shellcheck 0.11.0 and shfmt 3.14.1 (`~/.local/bin`, checksum-verified). `socat` is added by the user-run sudo step.
+nvm with Node 24.21.0 (default `lts/*`), npm 11.19.0, pnpm 12.4.2 (Corepack; the pin lives in `~/.cache/node`, which no cleanup may delete), Bun 1.3.14, Python 3.12.3 (system), rustup 1.29.1 with rustc and cargo 1.99.0, `cargo-watch` 8.5.3 and `code2prompt` 4.2.0 (built from `~/projects/code2prompt`). Installed in Build 5 (2026-10-13): Miniconda (conda 26.7.1 at `~/miniconda3`, conda-forge only, `jupyter-base` with Python 3.12), ruff 0.17.0 (`uv tool`), shellcheck 0.11.0 and shfmt 3.14.1 (`~/.local/bin`, checksum-verified). `socat` was installed by the user-run sudo step (2026-10-13).
 
 **Global packages**
 npm: `@clerk/agent-toolkit` 0.2.33, `@modelcontextprotocol/server-filesystem` 2026.1.14, `@modelcontextprotocol/server-github` 2025.4.8 (deprecated upstream), `@openai/codex` 0.162.1, `@upstash/context7-mcp` 3.2.1, `@upstash/mcp-server` 0.2.3, `supabase` 2.101.0, `vercel` 54.9.1. uv tools: `graphifyy` 0.9.69 (graphify, graphify-mcp), `semgrep` 1.179.0, `specify-cli` 0.16.5.
 
 **AI CLIs and agents**
-claude 2.1.296, codex 0.162.1, kiro-cli 2.27.1, agy (Antigravity) 1.3.3. Ollama 0.18.3 is installed at `/usr/local/bin/ollama` with cloud models only; Build 5 decided to stop and disable the service (`31-wsl-sudo-step.sh`, run by the user) and keep the binary so the Windows Ollama can own port 11434. MCP servers: user scope in `~/.claude.json` are graphify, jarvis, jarvis-fs, pencil and the-plan; `~/.mcp.json` still lists github, jarvis, jarvis-fs and the-plan. Claude skills: 78 folders in `~/.claude/skills`; Codex skills: 13.
+claude 2.1.302, codex 0.162.1, kiro-cli 2.27.1, agy (Antigravity) 1.3.3. The WSL Ollama service (cloud models only) was stopped and disabled by the user's sudo step in Build 5 and the binary kept, so the Windows Ollama owns port 11434. MCP servers: user scope in `~/.claude.json` are graphify, jarvis, jarvis-fs, pencil and the-plan; `~/.mcp.json` still lists github, jarvis, jarvis-fs and the-plan. Claude skills: 78 folders in `~/.claude/skills`; Codex skills: 13.
 
 **tmux, shell and editor**
 tmux plugins: tpm, tmux-resurrect, tmux-continuum, tmux-fzf, tmux-agent-status, tmux-handlr. VS Code Server 1.141.0 with 34 extensions (agents: anthropic.claude-code, openai.chatgpt, openai.codex-audio; Python: python, pylance, debugpy, python-envs, ruff; notebooks: jupyter, keymap, renderers, datawrangler, rainbow-csv; web: biome, eslint, tailwindcss, playwright; Git: gitlens, pull-request-github, github-actions; config formats: yaml, even-better-toml, markdownlint, editorconfig, dotenv; shell: shellcheck, shell-format; quality: errorlens, code-spell-checker, todo-tree, semgrep; others: httpyac, containers, rust-analyzer). Git global config: `pull.rebase true`, `push.autoSetupRemote true`, `fetch.prune true`, `rerere.enabled true`, `core.autocrlf input`, `init.defaultBranch main`, `gh auth git-credential` helper, `~/.config/git/ignore` with the eight secret patterns.
@@ -302,10 +302,10 @@ tmux plugins: tpm, tmux-resurrect, tmux-continuum, tmux-fzf, tmux-agent-status, 
 **Build 5b toolkit upgrade (2026-10-13, Dell WSL):** gh 2.102.0 and gh-dash 4.26.1 (`~/.local/bin`), fzf 0.74.5, ripgrep 15.2.0, fd 10.5.0, bat 0.26.1, lazygit 0.66.1, sesh 2.33.0, node 24.21.0, pnpm 12.4.2 (pinned with Corepack, matches the Acer; decided 2026-10-14), tmux 3.8 (built into `~/.local/bin`, no sudo; apt 3.4 stays as fallback). Configs come from the golden set; see [[WSL Toolkit Config Reference]].
 
 ### Config parity with the Acer snapshot (2026-10-11)
-Build 5 (2026-10-13) replaced the Dell's reconstructed files with the Acer's real ones from `Old Laptop Rebuild/Acer Dotfile Snapshot/`: starship (LF), Yazi (yazi, init, keymap, theme, package.toml and the `tokyonight-storm` flavor), atuin, sesh, lazygit, ncdu, git ignore and `.tmux.conf` match by SHA-256; gh-dash is the Acer file with the Dell's empty `repoPaths`; `.gitconfig` keeps the Dell identity, credentials and Build 2 keys and adds the Acer's delta, pager, merge and diff keys. `.wslconfig` and `/etc/wsl.conf` differ on purpose (the Dell uses swap on D:, idle timers off and spacing). Backups are in `~/.config/.toolkit-backups/20261013-151328`. Tool versions that stay different: tmux 3.4 (Acer 3.7c), node 24.14.1 (24.21.0), pnpm 10.33.2 (12.4.2); the Dell is newer on uv, claude, delta, atuin and sesh.
+Build 5 (2026-10-13) replaced the Dell's reconstructed files with the Acer's real ones from `Old Laptop Rebuild/Acer Dotfile Snapshot/`: starship (LF), Yazi (yazi, init, keymap, theme, package.toml and the `tokyonight-storm` flavor), atuin, sesh, lazygit, ncdu, git ignore and `.tmux.conf` match by SHA-256; gh-dash is the Acer file with the Dell's empty `repoPaths`; `.gitconfig` keeps the Dell identity, credentials and Build 2 keys and adds the Acer's delta, pager, merge and diff keys. `.wslconfig` and `/etc/wsl.conf` differ on purpose (the Dell uses swap on D:, idle timers off and spacing). Backups are in `~/.config/.toolkit-backups/20261013-151328`. Superseded by Build 5b (2026-10-13 to 10-15): the Dell and the Acer now share the golden config set and the same tool versions that matter (tmux 3.8, node 24.21.0, pnpm 12.4.2); see the next section and [[WSL Toolkit Config Reference]].
 
-### Windows terminal on the Acer (from its snapshot)
-The Acer's Windows side is also incomplete: Windows Terminal is on defaults (One Half Dark, `IosevkaTerm Nerd Font`, 85 percent acrylic, default profile Windows PowerShell), no PowerShell profile exists, the global git config has only `longpaths`, `fsmonitor` and `untrackedCache` (plus redacted identity), and Yazi, lazygit, bat, delta and gh-dash exist only inside its WSL. Its winget export includes PowerShell 7, Starship, Tailscale, NanaZip, ripgrep, jq, Yazi (installed, unconfigured), Node LTS, Docker Desktop, Ollama, VS Code, Cursor, Claude and Antigravity. Build 4 completes this side on both laptops.
+### Windows terminal on the Acer (from its 2026-10-11 snapshot, since completed)
+On 2026-10-11 the Acer's Windows side was also incomplete: Windows Terminal was on defaults (One Half Dark, `IosevkaTerm Nerd Font`, 85 percent acrylic, default profile Windows PowerShell), no PowerShell profile exists, the global git config has only `longpaths`, `fsmonitor` and `untrackedCache` (plus redacted identity), and Yazi, lazygit, bat, delta and gh-dash exist only inside its WSL. Its winget export includes PowerShell 7, Starship, Tailscale, NanaZip, ripgrep, jq, Yazi (installed, unconfigured), Node LTS, Docker Desktop, Ollama, VS Code, Cursor, Claude and Antigravity. Parts 0 to 3 of the Windows toolkit completed this side on 2026-10-15 (see "Acer, Windows side" below).
 
 ### Acer, WSL side (live 2026-10-15, after Build 5b)
 Host `gupta-builds`, Ubuntu 24.04 on WSL 3.0.3.0 (kernel 6.18.54.1, updated 2026-10-15), user `anant_gupta`, `.wslconfig` 20 GB, 18 CPUs, 8 GiB swap at `D:\WSL\wsl-swap.vhdx`, mirrored networking. The versions below replace the 2026-09-19 table above where they differ.
@@ -323,8 +323,8 @@ Host `gupta-builds`, Ubuntu 24.04 on WSL 3.0.3.0 (kernel 6.18.54.1, updated 2026
 | socat | 1.8.0.0 | installed by the user with `sudo apt-get install -y socat bubblewrap` (2026-10-15 17:15) |
 Configs are the golden set in [[WSL Toolkit Config Reference]] (`37-toolkit-apply.sh`, `changed=13 same=21 fails=0`); git has the shared include (`core.pager=delta`, `zdiff3`, `autocrlf=input`, no `core.fsmonitor`); the `.bashrc` JARVIS block is guarded and loads `~/.config/toolkit/env.sh` through one source line. The AI CLIs (`claude`, `codex`, `kiro-cli`, `agy`, `opencode`) are wrapper functions that load `~/.mcp.env` inside their own process only; no other shell or tool inherits the three keys. Tailscale is not installed in this WSL (it runs on Windows only).
 
-### Acer, Windows side (2026-10-15: Parts 0 to 3 of the run sheet done)
-The Acer is the reference for the toolkit's configs, so the Dell was built to match it. On 2026-10-15 Part 0 (read-only) and Part 2 (apply configs) ran on the Acer: PowerShell 7.6.7, Terminal 1.24, Starship 1.26.0, zoxide, fzf 0.74.4, fd 10.5.0, bat 0.26.1, delta 0.20.1, ripgrep 15.2.0, NanaZip, Git 2.55.0, standalone uv 0.12.19, Claude Code 2.1.301, Codex 0.162.1, Docker 4.91.0 and Tailscale 1.104.1 were already present. Part 2 wrote the managed profile block in both PowerShell profiles, the delta include, nine git settings, the Terminal merge, `STARSHIP_CONFIG`, `TOOLKIT_VAULT_ROOT` and the user PATH order. Part 1 then ran (user, UAC): pnpm 12.11.2 (Windows copy), uv-managed Python 3.13.15 and mcp-remote 0.2.1 installed, GitHub CLI upgraded to 2.102.0. Part 3 ran: `99-verify.ps1` has 0 FAIL, the catalog is `Tool Catalog - GUPTA-BUILDS`. The Acer's real bat and fd files were promoted into the shared toolkit source; the Dell re-runs `20-apply-configs.ps1` once to match. Open on this side: Node 24.19.0 (Dell 24.20.0) is a user decision. Differences to expect: vault root `D:\_Anant\20_Progress\Documents\Jarvis`, Tailscale installed on Windows as `gupta-builds` (never in the Acer's WSL), the RTX 5070 Ti, VS Code on D:\Apps, the font installed system-wide, and no Kiro, Miniconda, opam or Chocolatey retirement. The run order, with a read-only first step, is in `Windows Toolkit\Acer Run Sheet - Windows Toolkit` ([[Acer Run Sheet - Windows Toolkit]]). When the Acer ran it, this section gets the parity matrix (PASS or DIFF with a reason).
+### Acer, Windows side (2026-10-15: Parts 0 to 3 done)
+The Acer is the reference for the toolkit's configs, so the Dell was built to match it. On 2026-10-15 Part 0 (read-only) and Part 2 (apply configs) ran on the Acer: PowerShell 7.6.7, Terminal 1.24, Starship 1.26.0, zoxide, fzf 0.74.4, fd 10.5.0, bat 0.26.1, delta 0.20.1, ripgrep 15.2.0, NanaZip, Git 2.55.0, standalone uv 0.12.19, Claude Code 2.1.301, Codex 0.162.1, Docker 4.91.0 and Tailscale 1.104.1 were already present. Part 2 wrote the managed profile block in both PowerShell profiles, the delta include, nine git settings, the Terminal merge, `STARSHIP_CONFIG`, `TOOLKIT_VAULT_ROOT` and the user PATH order. Part 1 then ran (user, UAC): pnpm 12.11.2 (Windows copy), uv-managed Python 3.13.15 and mcp-remote 0.2.1 installed, GitHub CLI upgraded to 2.102.0. Part 3 ran: `99-verify.ps1` has 0 FAIL, the catalog is `Tool Catalog - GUPTA-BUILDS`. The Acer's real bat and fd files were promoted into the shared toolkit source and the Dell applied them on 2026-10-17. Open on this side: Node 24.19.0 (Dell 24.20.0) is a user decision. Differences to expect: vault root `D:\_Anant\20_Progress\Documents\Jarvis`, Tailscale installed on Windows as `gupta-builds` (never in the Acer's WSL), the RTX 5070 Ti, VS Code on D:\Apps, the font installed system-wide, and no Kiro, Miniconda, opam or Chocolatey retirement. The parity matrix (22 tools identical, 12 with benign version drift, 3 Dell-only by design, shared configs equal) and the Acer's run log are in [[Old Laptop Rebuild - Acer Visit Findings (2026-10-15)]].
 
 ### Growth rules
 The standing rules and one check command each (tool versions, config hashes, font registration, environment variables, startup time, catalog freshness, no secrets in shell rc files) are in [[Machine Toolkit - Tool Use Cases and Agent Guide#Growth rules]].

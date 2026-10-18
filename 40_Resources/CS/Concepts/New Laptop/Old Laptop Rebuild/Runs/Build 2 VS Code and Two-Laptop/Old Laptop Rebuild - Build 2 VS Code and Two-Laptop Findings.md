@@ -303,7 +303,7 @@ Gotcha: Tailscale SSH "check" mode asks for a browser confirmation after inactiv
 | Repo dependency/worktree growth | `git -C ~/projects/<repo> worktree list --porcelain; find ~/projects -xdev -type d \( -name node_modules -o -name .venv \) -prune -exec du -sh {} +` |
 
 ## Acer visit ledger update, 2026-10-15
-Rows 4.6, 4.7 and 4.9 above were closed from the Acer on 2026-10-15; the evidence is in [[Old Laptop Rebuild - Build 2 Acer Handoff]] (section "Acer visit results") and [[Old Laptop Rebuild - Build 2 SSH Runbook]] (section "Acer checkpoint").
+Rows 4.6, 4.7 and 4.9 above were closed from the Acer on 2026-10-15; the evidence is in [[Old Laptop Rebuild - Acer Visit Findings (2026-10-15)]] (section "Acer visit results") and [[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]] (section "Acer checkpoint").
 | Row | State now |
 |---|---|
 | 4.6 Acer handoff, inventory | PASS. Two WSL clones; no Windows-side clones found. The internship clone holds 4 local-only commits, backed up as a verified Git bundle. |

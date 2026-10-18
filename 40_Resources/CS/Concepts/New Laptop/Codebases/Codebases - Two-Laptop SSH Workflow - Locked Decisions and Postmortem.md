@@ -11,27 +11,28 @@ tags:
   - tailscale
 related:
   - "[[Old Laptop Rebuild - Index]]"
-  - "[[Old Laptop Rebuild - Prompt 1 WSL]]"
-  - "[[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]]"
+  - "[[Old Laptop Rebuild - Runs Index]]"
+  - "[[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]]"
+  - "[[Old Laptop Rebuild - Acer Visit Findings (2026-10-15)]]"
   - "[[internship-research-loop-new-laptop-directive]]"
   - "[[second-brain-claudekit-new-laptop-directive]]"
   - "[[Cross-Laptop Sync - Known Failure Modes and Prevention]]"
-updated: 2026-10-15
-next: "Fold these eleven locked decisions into a rewrite of Old Laptop Rebuild - Prompt 2, plus the one .wslconfig addition that belongs to Prompt 1"
+updated: 2026-10-17
+next: "Decisions applied. Open: the Acer's 4 local-only internship commits; per-repo pnpm pins (pilot partly done)."
 ---
 # Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem
 
 ## One-Line Answer
-The Dell stays the canonical host and Tailscale stays inside WSL only (never on either Windows side) — that part of Prompt 2 was already right — but Prompt 2's own stay-awake risk is currently unresolved by any setting either prompt actually sets, Tailscale SSH should be primary (not OpenSSH+keys) with OpenSSH kept only as fallback, and both repos' real, dated, dual-checkout branch model has to be explicitly retired, not silently outgrown.
+The two-laptop design held: the Dell is the canonical always-on host, Tailscale runs inside the Dell's WSL only and on the Acer's Windows side only, Tailscale SSH is the one SSH path (the keyed OpenSSH fallback and the VS Code Tunnel were declined), both WSL idle timers are off, and concurrent work is separated by task with git worktrees. The 2026-10-04 design text below is kept as the reasoning; the verified outcome of each decision is at the end.
 
 ## Status
-Supersedes the codebase-sync "Verdict" section of `60_Claude/40_Project_Briefs/Codebase Sync Decision and Logging Failure Audit — 2026-10-04.md` (that note's separate logging-audit half is untouched and still current). This note does not rewrite [[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]] — it is the input the rewrite has to carry. Every external claim below was checked live against current Tailscale and Microsoft documentation on 2026-10-04, not carried over from either Prompt 2's own text or the prior review session's assumptions — two of the ten decisions below correct something both of those got wrong or left unresolved.
+Supersedes the codebase-sync "Verdict" section of `60_Claude/40_Project_Briefs/Codebase Sync Decision and Logging Failure Audit — 2026-10-04.md` (that note's separate logging-audit half is untouched and still current). Written 2026-10-04 as the design input for the two WSL builds; every external claim was checked live against Tailscale and Microsoft documentation that day, and two of the ten decisions corrected something earlier drafts got wrong or left unresolved. "Prompt 1" and "Prompt 2" in the text below are the two build briefs for the WSL layer and the VS Code/SSH layer; they have run and been retired. The outcome of each decision, verified on 2026-10-17, is in "Decision outcomes" before the Sources.
 
 ---
 
 ## Decision 1 — Tailscale goes inside WSL only. This was already correct; verify it, don't re-decide it.
 > [!IMPORTANT] Amended 2026-10-04 by the user
-> The rule is now **one location per machine, never both**. The Dell runs Tailscale inside WSL only (the Tailscale SSH server exists only on Linux and macOS, and the code lives in WSL). The Acer, a client only, runs Tailscale on its **Windows side only** and never inside its WSL. Reason: VS Code Remote-SSH on the Acer uses the Windows `ssh.exe`, which needs a Windows-side tailnet route, and Tailscale's WSL2 page recommends the Windows host alone for ordinary use while warning only about running both on one machine. Windows-side Tailscale moves no code or tooling out of WSL. The text below was written before this amendment; where it says "never on either Windows side", read it as "never on the Dell's Windows side, and never in the Acer's WSL". See [[Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow]], rule R2.
+> The rule is now **one location per machine, never both**. The Dell runs Tailscale inside WSL only (the Tailscale SSH server exists only on Linux and macOS, and the code lives in WSL). The Acer, a client only, runs Tailscale on its **Windows side only** and never inside its WSL. Reason: VS Code Remote-SSH on the Acer uses the Windows `ssh.exe`, which needs a Windows-side tailnet route, and Tailscale's WSL2 page recommends the Windows host alone for ordinary use while warning only about running both on one machine. Windows-side Tailscale moves no code or tooling out of WSL. The text below was written before this amendment; where it says "never on either Windows side", read it as "never on the Dell's Windows side, and never in the Acer's WSL". (This was rule R2 of the build brief.)
 
 Prompt 2's locked design already says Tailscale and sshd run inside the WSL distro, with its own tailnet name (`dell-wsl`), never on either laptop's Windows side. **Keep this.** The prior review session's suggestion to add this as a standing rule is right — but confirm the reasoning precisely, because the real failure mode is narrower than "never run it on both":
 
@@ -125,24 +126,25 @@ Under the single-canonical-host design there is **one filesystem** for everythin
 - **Global Claude Code config (`~/.claude/settings.json`, `~/.claude.json`, skills, memory) follows the execution host, not the human's physical seat.** A Remote-SSH session into `dell-wsl` always reads the Dell's global config, never the Acer's, because the `claude`/`codex` process and the Remote-SSH workspace-extension host both run on the Dell. Build 2 item 5 already closed the one safety-critical gap this caused (Acer's secret-file deny-rules were missing from the Dell's `~/.claude/settings.json`; now applied). Any other Acer-only global skill/setting still will not appear on the Dell — nothing syncs this going forward, by the same one-way-visibility-only logic as the `.claude`-mirror decision elsewhere in this vault.
 - **Conversation transcripts land wherever the process ran, not wherever the human sat.** A Claude Code session driven from the Acer via Remote-SSH writes its transcript to the Dell's `~/.claude/projects/...`, same as a native Dell session. This should mean the existing WSL Claude Code capture pipeline (see memory `project_ai_conversation_archive.md`) already covers Remote-SSH-driven sessions — not yet live-verified for that specific trigger path, so confirm rather than assume. Acer-only local work (never touching `~/projects` on the Dell) needs the Acer's own separate capture pipeline, which is a distinct, unverified item.
 
-**Real-world precedent for the "no safety net" risk, from this vault's own history, not hypothetical:** two Dell-side Claude Code sessions editing the Old Laptop Rebuild notes concurrently on 2026-10-13 produced 15 Syncthing `.sync-conflict-*` files (see `Runs\_backups\sync-conflicts-20261013\`). No content was lost there only because Syncthing was watching those files and wrote conflict copies — the exact protection a plain code checkout under this design does not have. The Index's own response was procedural ("one owner per note" — only the session closing a build edits the Index/Runs Index) rather than technical, because no technical lock exists. The same discipline-not-software gap applies to code worktrees.
+**Real-world precedent for the "no safety net" risk, from this vault's own history, not hypothetical:** two Dell-side Claude Code sessions editing the Old Laptop Rebuild notes concurrently on 2026-10-13 produced 15 Syncthing `.sync-conflict-*` files (the conflict copies no longer exist; the incident is recorded in the Runs Index). No content was lost there only because Syncthing was watching those files and wrote conflict copies — the exact protection a plain code checkout under this design does not have. The Index's own response was procedural ("one owner per note" — only the session closing a build edits the Index/Runs Index) rather than technical, because no technical lock exists. The same discipline-not-software gap applies to code worktrees.
 
 ---
 
-## What Prompt 1 (`.wslconfig` owner) must add
-- `[wsl2] vmIdleTimeout=-1` and `[general] instanceIdleTimeout=-1` — currently absent from its target-state list entirely (Decision 3).
-- A live verification step: close all WSL sessions, wait 30s+, confirm the distro is still `Running` and sshd still answers, before Prompt 2's Phase 4 is allowed to treat the host as reliably reachable.
-
-## What Prompt 2 (two-laptop workflow owner) must change
-- Flip the primary/fallback order: Tailscale SSH primary, keyed OpenSSH fallback (Decision 2) — keep the already-planned hardening file, but note it's fallback-only.
-- Add the explicit "Tailscale: WSL only, never Windows, on either laptop" standing rule (Decision 1), plus a live MTU/round-trip test under the Dell's actual `networkingMode=mirrored`.
-- Add a Phase 4 step to inventory and retire/relabel the Acer's existing clones of both repos before the handoff completes (Decision 4).
-- Add a step to patch `internship-research-loop-new-laptop-directive.md`'s completion gate with a superseded-by note (Decision 5) — leave `second-brain-claudekit`'s gate untouched.
-- Add one explicit out-of-scope line for the Jarvis/The Plan vaults (Decision 6).
-- Add the pnpm `virtualStoreType: global` setting for `second-brain-claudekit` and the uv same-filesystem verification for `internship-research-loop` (Decision 7).
-- Add a Phase 4 step to disable key expiry on the `dell-wsl` node in the Tailscale admin console (Decision 8), and to test a persistent Remote Tunnels fallback before it's ever actually needed (Decision 9).
-- Resolve, don't assert, whether a default personal-tailnet ACL already permits Tailscale SSH or needs an explicit `ssh` policy block — check the admin console directly during Phase 4 (Decision 2's open item).
-
+## Decision outcomes (verified 2026-10-17)
+| Decision | What was decided | Outcome |
+|---|---|---|
+| 1 Tailscale placement (amended 2026-10-04) | Dell: inside WSL only. Acer: Windows side only. Never both on one machine | **Held.** `dell-wsl` (`100.94.129.113`, 1.104.1) in the Dell WSL; `gupta-builds` (`100.84.91.11`) on the Acer's Windows side; nothing on the Dell's Windows side, nothing in the Acer's WSL. Round trip tested with `tailscale ping`, plain `ssh.exe` and Remote-SSH; `tailscale0` MTU stays 1280, no change was needed |
+| 2 Tailscale SSH primary, keyed OpenSSH fallback | Tailscale SSH first | **Held for Tailscale SSH.** The open question about the default policy was settled by looking at the admin console: an explicit `check` rule from `autogroup:member` to `autogroup:self` exists. The OpenSSH fallback on port 2222 was **declined** (2026-10-15): not installed, nothing listens on 22/2222 in the Dell WSL, and under mirrored networking the Hyper-V firewall default for inbound is Block |
+| 3 Stay-awake | `vmIdleTimeout=-1` and `instanceIdleTimeout=-1` | **Applied** in Build 1 and proven by the 75-second idle test (2026-10-07, repeated 2026-10-12). Both keys are in the live `.wslconfig`. An active `sshd` does not keep the distro alive by itself; the timers do |
+| 4 Retire the dual-checkout model | inventory the Acer's clones and retire or relabel them | **Inventoried 2026-10-15.** `second-brain-claudekit` on the Acer has no unique work. `internship-research-loop` on the Acer holds **4 commits that exist nowhere else** (branch `acer-predator/repo-environment-setup`, upstream gone), protected by a verified Git bundle; the push-or-bring decision is open. No clone was retired |
+| 5 Completion-gate rewrite | patch the internship directive with a dated supersession line | **Done** (2026-10-12); the second-brain gate was left alone as decided |
+| 6 Vaults out of scope | Jarvis and The Plan keep Syncthing and git auto-sync | **Held.** No vault sync file, ignore file or scheduled task was changed |
+| 7 Worktree dependency caches | per-repo settings; uv cache on the same filesystem as the projects | uv: confirmed on the same device. pnpm: the 10.x key `enableGlobalVirtualStore` and the 11.23+ spelling `virtualStoreType` are both unset on pnpm 12.4.2, so nothing was configured; check pnpm.io before ever setting one. Worktree convention used: `~/projects/<group>/.worktrees/<repo>-<topic>` on branch `<machine>/<topic>` |
+| 8 Key expiry | disable it for `dell-wsl` | **Done** by the user in the admin console |
+| 9 Tunnels fallback | test a persistent tunnel service | **Declined** (2026-10-15). The Linux CLI 1.141.0 sits unsigned at `~/tools/vscode-tunnel-cli/code`; nothing is installed as a service |
+| 10 Not a devcontainer | unchanged | unchanged |
+| 11 Concurrent sessions | separation by task, not by machine; no lock exists | **Discipline rule, unchanged.** The 2026-10-13 incident (two Dell sessions editing the same notes, 15 conflict files) is the precedent. The pin pilot of 2026-10-17 used an isolated worktree for exactly this reason |
+Also confirmed live on 2026-10-17: `~/tools/sync-check` reports `second-brain-claudekit` `main` 0/0 (dirty 1) and `internship-research-loop` `dell-latitude/deadline-quota-and-reseed-fixes` 6 ahead / 5 behind `origin/master` (dirty 25); the Acer sees identical numbers over SSH. Measured transfer from the Acer: a 17 MB bundle in 2.4 s, a 512 MiB stream at only 2.5 MiB/s (cause unknown, so test before cloning a large history such as `jan` at 1.5 GB over this link).
 ## Sources (checked live, 2026-10-04)
 - `tailscale.com/docs/features/tailscale-ssh` — authentication model, netstack interception, host-key distribution, OS-user limitation.
 - `tailscale.com/docs/install/windows/wsl2` (last validated 2025-11-03) — the both-at-once MTU/double-encapsulation warning, the 1280→1340 MTU workaround.
@@ -152,7 +154,7 @@ Under the single-canonical-host design there is **one filesystem** for everythin
 - `pnpm.io/git-worktrees`, `pnpm.io/global-virtual-store` — `virtualStoreType: global` for near-zero per-worktree `node_modules` cost.
 - `docs.astral.sh/uv/concepts/cache` — uv's hardlink/copy-on-write global cache and its same-filesystem requirement.
 - `code.visualstudio.com/docs/remote/tunnels` — Remote Tunnels' VS-Code-must-be-running constraint.
-- This vault: `internship-research-loop-new-laptop-directive.md`, `second-brain-claudekit-new-laptop-directive.md`, `Old Laptop Rebuild - Prompt 1 WSL.md`, `Old Laptop Rebuild - Prompt 2 VS Code and Two-Laptop Workflow.md`, `Old Laptop Rebuild - Index.md`, `Cross-Laptop Sync - Known Failure Modes and Prevention.md`.
+- This vault: `internship-research-loop-new-laptop-directive.md`, `second-brain-claudekit-new-laptop-directive.md`, `Old Laptop Rebuild - Index.md`, `Cross-Laptop Sync - Known Failure Modes and Prevention.md`.
 
 ## packageManager register (2026-10-15, read-only audit of the Dell's canonical repos)
 Decision 11 and the Build 5b decision on pnpm 12.4.2 mean a pin belongs in each repo's `package.json`, but only where the repo really uses that manager. The audit found that a blanket `pnpm@12.4.2` would be wrong for most repos. Nothing was changed in any repo. Each row is a separate, per-repo approval, done in its own `<machine>/pin-package-manager` branch or worktree, one repo at a time, and only when the working tree is clean enough to review the diff.
@@ -167,4 +169,6 @@ Decision 11 and the Build 5b decision on pnpm 12.4.2 mean a pin belongs in each 
 | `ai/jan` | `yarn.lock` | `yarn@4.5.3` (upstream clone) | leave | upstream's pin; do not edit |
 | `hub/CausalOps`, `hub/tradingview`, `work/internship-research-loop`, `ai/claude/second-brain-claudekit`, `work/gupta-builds`, `ai/claude/adx-worktree-throwaway-test` | none (no `package.json`) | n/a | none | Python or docs repos; they need a Python pin (`.python-version`, `uv.lock`) instead, not a Node one |
 | `umn/boom` | `Cargo.lock` | n/a | none | Rust |
-Acer clones: only `second-brain-claudekit` and `internship-research-loop` exist as shared clones there, and neither has a `package.json`. The Acer's internship clone already commits `pyproject.toml` and `uv.lock` (four unpushed commits, see [[Old Laptop Rebuild - Build 2 Acer Handoff]]); the Dell's checkout has neither, so that repo's Python pin needs one decision across both laptops before any build touches it. Remember `~/.cache/node` must never be deleted: Corepack reads its pin from there.
+Acer clones: only `second-brain-claudekit` and `internship-research-loop` exist as shared clones there, and neither has a `package.json`. The Acer's internship clone already commits `pyproject.toml` and `uv.lock` (four unpushed commits, see [[Old Laptop Rebuild - Acer Visit Findings (2026-10-15)]]); the Dell's checkout has neither, so that repo's Python pin needs one decision across both laptops before any build touches it. Remember `~/.cache/node` must never be deleted: Corepack reads its pin from there.
+
+**Pilot result (2026-10-17).** The first row to be tried was `hub/Learning-Tracker-Tool` (the register's "clean candidate"): done as a local commit `51cc182` on `dell-latitude/pin-package-manager` in an isolated worktree, unpushed. It also needed `allowBuilds` in `pnpm-workspace.yaml` (pnpm 12 ignores the old build-script keys) and adds the package-manager section to the lockfile; it is a team repo, so the push is a decision. `hub/portfolio` turned out to have a broken lockfile on `origin/main` (duplicate key `@ai-sdk/mistral@3.0.39`, lines 201 and 207) and was reverted; `hub/Assisto_website` still needs a manager choice; the dirty-file counts in the table above were measured on 2026-10-15 (`portfolio` is 114). Full account: Build 4 findings, "Build 4b follow-up".

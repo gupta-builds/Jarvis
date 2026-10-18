@@ -1,8 +1,8 @@
 ---
 type: note
-status: seedling
+status: sprout
 created: 2026-10-11
-updated: 2026-10-13
+updated: 2026-10-17
 course: Life
 track:
   - laptop
@@ -13,18 +13,60 @@ tags:
   - terminal
 related:
   - "[[Old Laptop Rebuild - Index]]"
+  - "[[Old Laptop Rebuild - Runs Index]]"
   - "[[Old Laptop Rebuild - Build 3 Windows Cleanup Findings]]"
   - "[[Old Laptop Rebuild - Build 1 WSL Findings]]"
+  - "[[Old Laptop Rebuild - Acer Visit Findings (2026-10-15)]]"
+  - "[[Machine Toolkit - Tool Use Cases and Agent Guide]]"
   - "[[Installations]]"
   - "[[VS Code - Windows]]"
   - "[[VS Code - Terminal Environments]]"
-  - "[[Old Laptop Rebuild - Windows Prompts (Build 3 C Drive Cleanup and Build 4 Terminal Parity)]]"
-next: "Build 4b: Phase 5 (catalog and agent guide), Phase 6 (Acer run sheet) and Phase 7 (Installations Windows half). Phases 1 to 4 ran on 2026-10-13; see the closing status at the bottom."
+next: "Closed. Open: Codex node_repl path and the Windows VS Code, MCP and Claude Code wiring (Build 6); remaining pnpm-pin repos (per repo); Firecrawl revocation at the provider."
 ---
 # Old Laptop Rebuild - Build 4 Windows Toolkit Findings
 
+## Verified outcome (checked 2026-10-17)
+**Purpose.** Make the Dell's Windows side match the Acer's for daily work, through one manifest and repeatable scripts: PowerShell 7 and Windows Terminal, Starship, the Nerd Font, the shell and search tools, Git and GitHub CLI, runtimes (Node LTS, standalone uv), shared configs with SHA-256 checks, a catalog of everything installed, an authored guide for AI agents, and a way to repeat it on the Acer.
+**What ran.** Phases 1 to 4 on 2026-10-11 to 2026-10-13 (audit, design, build, Dell run), then **Build 4b** on 2026-10-14 to 2026-10-17 (the Phase 5 to 7 remainder plus the Dell leftovers and the Tailscale/SSH decisions), and the Acer's Parts 0 to 3 on 2026-10-15.
+**Result.** `99-verify.ps1 -WriteLock` gave **104 PASS, 0 FAIL, 1 WARN** and wrote `toolkit.lock.json` (2026-10-13). The catalog (46 tools, 24 MCP entries, 34 WSL tools) and the agent guide exist, `Installations` is current, the Acer ran the same toolkit with 0 FAIL, and the Windows parity matrix is in [[Old Laptop Rebuild - Acer Visit Findings (2026-10-15)]].
+
+| Decision | Final |
+|---|---|
+| D1 Node | LTS 24.20.0 via `11-node-lts-swap.ps1` (elevated); npm globals survived |
+| D2 uv | standalone 0.12.19 first on PATH; uv-managed Python 3.13.15; the pip uv and Python 3.13.5 and Chocolatey are gone |
+| D3 Miniconda | left in place; Build 3 moved it to `D:\Apps\miniconda3` behind a junction |
+| D4 `core.autocrlf` | `input` (Dell Windows and WSL, Acer Windows); the Acer WSL was set to `input` by hand |
+| D5 Terminal | **revised by the user:** scheme **One Half Dark** (identical to the Acer; Tokyo Night Storm stays defined as an extra scheme) and font **`IosevkaTerm Nerd Font`** (the `NFM` Mono set stays installed for VS Code); default profile PowerShell 7 |
+| D6 Profile | one managed block between markers in both PowerShell profiles; the Dell keeps its opam, Kiro and `New-PyEnv` blocks |
+| D7 to D10 | moved to Build 5: WSL config replacement, WSL Ollama off (done), PowerShell 7 kept in WSL, ruff/shfmt/shellcheck installed |
+| D11 | adopt installed versions, except Git and GitHub CLI (`latest`); Windows Terminal stays on 1.24 |
+| D12 | no Bun, Yazi, lazygit on Windows |
+| D13 to D16 | PSFzf as a manifest module, shared `bat` and `fd` configs, one `_lib.ps1`, the gated Node swap script |
+
+| Item | Final state (verified 2026-10-17) |
+|---|---|
+| Versions on the Dell | PowerShell 7.6.7, Git 2.55.0, GitHub CLI 2.102.0, Node 24.20.0, pnpm 12.11.2 (winget copy), uv 0.12.19, Claude Code 2.1.300, Codex 0.163.0 (the lock says 0.162.1: self-updated), Starship 1.26.0, Cursor 3.24.18 |
+| Terminal | default profile `{574e775e-...}` (PowerShell 7), scheme One Half Dark, font IosevkaTerm Nerd Font |
+| Shared configs | starship, git ignore, delta include, bat, fd ignore: MATCH (bat and fd now the Acer's real files, applied 2026-10-17); both profile blocks present |
+| Catalog and guide | `Windows Toolkit/catalog/Tool Catalog - DESKTOP-3VBG0JH.md` and `.json`; [[Machine Toolkit - Tool Use Cases and Agent Guide]] |
+| .NET 8 | kept on purpose (WSL Settings is pinned to the .NET 8 desktop runtime) |
+| Open | Codex `node_repl` path in the Windows config does not resolve (Build 6); the lock lags self-updating tools (Codex, Cursor, Claude). `agy` resolves on Windows (1.3.5), so its one-time shim step is done |
+
+**Corrections to the log below (the live machine wins).**
+| The log says | What is true now |
+|---|---|
+| "Nothing has been changed on either laptop"; 12 decisions waiting | Phases 1 to 4 and Build 4b ran; all decisions answered (table above) |
+| D5 recommends Tokyo Night Storm and `IosevkaTerm NFM` | revised by the user to One Half Dark and `IosevkaTerm Nerd Font` |
+| Windows Ollama is not the server on 11434; WSL Ollama 0.18.3 answers | WSL Ollama is disabled; Windows Ollama 0.40.3 from `D:\Apps\Ollama` serves `127.0.0.1:11434` when started; its startup shortcut is disabled |
+| `VERSIONS.md` and `MANIFEST.md` do not exist | they exist; the 10-11 audit looked too early |
+| The Acer has no PowerShell profile | it has one (the snapshot looked under the redirected Documents folder); the managed block was merged without touching its other content |
+| Node 22.16.0, npm 10.9.2, Python 3.13.5, Chocolatey, `openclaw` npm global | Node 24.20.0, npm 11.19.0; Python and Chocolatey removed; `openclaw` removed 2026-10-14 |
+| Index and Build 4b claims that the Run-key apps start at logon | all six remaining entries are disabled in `StartupApproved`; none started at the last boot |
+| Closing-status rows "OPEN" for catalog, guide, Acer run sheet, Installations | all DONE (rows below updated) |
+
+**Reading guide.** Phase 1 and Phase 2 are the original audit and design, kept as evidence; the Phase 3 to 4 sections are the build and the Dell run; "Build 4b" and "Build 4b follow-up" are the closing work. The run order and rollback for every script are in `Windows Toolkit/_scripts/README.md`.
 ## One-Line Answer
-==Phase 1 (read-only audit) and the Phase 2 design are done and nothing has been changed on either laptop: the Dell has no PowerShell 7, Starship, Nerd Font or shell tools on Windows, 13 of its 17 comparable WSL configs are reconstructions that differ from the Acer's real ones, Build 3 has not yet changed anything, and 12 decisions are waiting for the user before any script is written.==
+==The Dell's Windows side was rebuilt to match the Acer in Builds 4 and 4b: one manifest drives the installs, configs, verification and catalog, the Dell passed verification (104 PASS, 0 FAIL), and the same toolkit ran on the Acer with 0 FAIL; what follows is the audit, design, build and run record, corrected at the top for what changed later.==
 
 ## Phase 1: Dell, Windows side (live 2026-10-11)
 | Item | Live value |
@@ -80,7 +122,7 @@ Other WSL facts: the Dell `.bashrc` block is `# >>> JARVIS_WSL_ENV_BLOCK (Build 
 6. [[Installations]] lists Bun 1.3.14 in WSL; `bun` is not on a non-interactive PATH (the `.bashrc` sets `BUN_INSTALL`, binary not confirmed). Not used by this build.
 7. Build 1 told us the Dell `.bashrc` holds a plaintext Firecrawl export (still present, line redacted in every read here). Rotation is still open from Build 1; the catalog must never print that line.
 
-## Phase 2: design
+## Phase 2: design (proposed 2026-10-11; decisions revised, see the outcome table)
 
 ### Toolkit manifest (proposed membership)
 Policies: `install` = install if missing (adopt the installed version into the lock), `latest` = bring to current, `verify` = check only, `absent` = must not exist.
@@ -281,12 +323,12 @@ Phases 1 to 4 ran on the Dell on 2026-10-13. The run is filed here under `Runs/`
 | .NET 8 | KEPT ON PURPOSE (Build 4b, 2026-10-15) | WSL Settings is pinned to the .NET 8 desktop runtime; dry run lists 5 packages and nothing was removed |
 | Phase 5: catalog (`40-build-catalog.ps1`, real run) | DONE (Build 4b) | `catalog\Tool Catalog - DESKTOP-3VBG0JH.md` and `.json`, PASS 2026-10-15 |
 | Phase 5: "Machine Toolkit - Tool Use Cases and Agent Guide" note | DONE (Build 4b) | written next to `Installations` |
-| Phase 6: Acer run sheet and Acer paste-back | RUN SHEET DONE (Build 4b); paste-back waits for the Acer | `Windows Toolkit\Acer Run Sheet - Windows Toolkit`, Part 0 is read-only |
+| Phase 6: Acer run sheet and Acer paste-back | DONE | the Acer ran Parts 0 to 3 on 2026-10-15 with 0 FAIL; the parity matrix is in [[Old Laptop Rebuild - Acer Visit Findings (2026-10-15)]] |
 | Phase 7: rewrite the Windows half of `Installations`, log line, close the build | DONE (Build 4b) | Windows tables rewritten from the catalog; Acer and Growth-rules pointers added |
 | Codex config carries a WSL path (`node_repl`) | OPEN, Build 6 | reported by `99-verify` |
 
 ## Build 4b (2026-10-14 to 2026-10-15): Dell leftovers and Tailscale
-Run from the prompt [[Old Laptop Rebuild - Build 4b Prompt (Dell Leftovers and Tailscale)]]. Scripts wrote nothing without `-Apply`; the user ran every state-changing script. Results below are live measurements.
+Build 4b was run on 2026-10-14 and 2026-10-15 as a long Dell-side session. Scripts wrote nothing without `-Apply`; the user ran every state-changing script. Results below are live measurements; the work after the first write-up is in "Build 4b follow-up".
 
 ### Sources used
 Cursor update failure research (community threads, no official fix found): [Windows inno_updater: Access is denied (os error 5)](https://forum.cursor.com/t/windows-inno-updater-access-is-denied-os-error-5-deleting-resources-reproduced-3-times/168867), [Windows auto-updater fails with access denied error](https://forum.cursor.com/t/windows-auto-updater-fails-with-access-denied-error/158940), [Windows updater fails with dual install](https://forum.cursor.com/t/windows-updater-fails-with-dual-install-system-wide-per-user-and-leaks-2gb-of-temp-folders/159479), [Windows updater serves unpublished 3.19.19](https://forum.cursor.com/t/windows-updater-serves-unpublished-3-19-19-fails-to-swap-install/171123). Tailscale SSH and VS Code Tunnel documentation was not re-read: both Part B decisions were skip (B1, B2), so nothing was installed from them.
@@ -308,7 +350,7 @@ Cursor update failure research (community threads, no official fix found): [Wind
 | Tool catalog | `catalog\` empty | `Tool Catalog - DESKTOP-3VBG0JH.md` and `.json`, 46 tools, 24 MCP entries, 34 WSL tools, PASS |
 | Agent guide | none | [[Machine Toolkit - Tool Use Cases and Agent Guide]] |
 | `Installations` Windows half | pre-rebuild tables | rewritten from the catalog and lock; Acer and Growth-rules pointers added; backup in `Runs/_backups/` |
-| Acer run sheet | none | [[Acer Run Sheet - Windows Toolkit]]; its command template was run read-only on the Dell (exit 0, OK=37, PASS=30) |
+| Acer run sheet | none | [[Old Laptop Rebuild - Acer Visit Findings (2026-10-15)]]; its command template was run read-only on the Dell (exit 0, OK=37, PASS=30) |
 | Weekly clean | never ran | dry run clean (0.01 GiB); first scheduled run Sunday 2026-10-18 03:30 |
 | Build 5 leftovers | Cursor server data 4.0 GB, old pnpm stores, backfill task | **script ready, not yet run:** `07-build5-leftovers.ps1` (dry run clean) |
 | C: free / D: free | 140.9 / 451.2 GiB | 138.5 / 404.7 GiB (D: carries the 54.47 GiB export; +36.75 GiB comes back when the old tar is deleted after 2026-11-14) |
@@ -361,9 +403,9 @@ Cursor update failure research (community threads, no official fix found): [Wind
 | Build 5: "27 configs exact" | the catalog compares 8 of 29 WSL files as DIFF against the old Acer snapshot (atuin, gh-dash, git ignore, lazygit, sesh, starship.toml, yazi.toml, tmux.conf); likely the golden set deliberately changing them (starship LF, tmux 3.8), not verified file by file |
 | Codex `node_repl` | still resolves NO (WSL path in the Windows config), Build 6 |
 
-### Left, and who owns it
+### Left, and who owns it (as of 2026-10-15; superseded by the follow-up below)
 - **You:** run `07-build5-leftovers.ps1 -Apply` (Cursor server data, old pnpm v10 stores, backfill task); revoke the Firecrawl key that is still accepted; keep or remove Malwarebytes (two entries), WhatsApp, Rize, GitKrakenCLI; stale Python uninstall registrations; Defender exclusions and the BIOS battery cap; delete the old tar and the `.malformed` manifest after review; per-repo `packageManager` pins (Decision 11, one repo at a time).
-- **The Acer:** [[Acer Run Sheet - Windows Toolkit]] Part 0 onward, [[Acer Session Handoff - Toolkit Sync (Build 5b)]], and the Build 2 items in [[Old Laptop Rebuild - Build 2 Acer Handoff]] (host-key comparison, sync-check over SSH, large Git transfer, clone inventory, optional WSL route test).
+- **The Acer:** [[Old Laptop Rebuild - Acer Visit Findings (2026-10-15)]] Part 0 onward, [[Old Laptop Rebuild - Acer Visit Findings (2026-10-15)]], and the Build 2 items in [[Old Laptop Rebuild - Acer Visit Findings (2026-10-15)]] (host-key comparison, sync-check over SSH, large Git transfer, clone inventory, optional WSL route test).
 - **Later builds:** Codex `node_repl`, MCP registry, VS Code and Claude Code settings (Build 6); startup profile and final verification (Build 7); `D:\_Anant` and Drive (Build 8).
 
 ### Growth rules
@@ -379,3 +421,62 @@ Cursor update failure research (community threads, no official fix found): [Wind
 | No key in any shell rc file; revoke at the provider and confirm with a status-only call | `grep -c "API_KEY=" ~/.bashrc` prints 0 |
 | Judge startup behavior by process start time versus last boot, not by the Run key | `(Get-CimInstance Win32_OperatingSystem).LastBootUpTime` against `(Get-Process <name>).StartTime` |
 | A pnpm store path is only meaningful from the project's own filesystem | run `pnpm store path` from `~` or the repo, never from a `/mnt` directory |
+
+## Build 4b follow-up (2026-10-17)
+Work done after the first Build 4b write-up above: the Build 5 leftovers, the config adoption from the Acer, the app removals, the quarantine disposal, and the `packageManager` pin pilot. All state-changing scripts were run by the user; the pilot's local commit was made by Claude.
+
+### State-changing commands and results
+| When | Who | Command | Result |
+|---|---|---|---|
+| 2026-10-15 15:18 to 15:31 | user | `07-build5-leftovers.ps1 -Apply` | moved Cursor's WSL server data (`snapshots` 1.98 GiB, `anysphere.cursor-agent-worker` 1.93 GiB) and the old pnpm v10 stores (0.41 GiB) to quarantine (about 13 minutes, a cross-filesystem move); disabled `ConversationCapture-Backfill-WSL`. Refused to run while a Cursor server process existed (it had exited by then). pnpm store `v3` (1.8 GiB, last written 2026-02-22) was left because it was not approved |
+| 2026-10-17 17:55 | user | `20-apply-configs.ps1` | CHANGED=3: `bat` and `fd-ignore` (the Acer's promoted files, hashes match) and `path-order` (`~\.local\bin` was no longer first on the user PATH; restored, old value in `D:\Backup\Toolkit\20261017-175545`) |
+| 2026-10-17 17:56 | user, elevated | `09-remove-leftover-apps.ps1 -Apply` | Rize: Squirrel uninstall returned exit -1 with no message, then its folders (3.6 MB local, 166 MB roaming) and both startup values were removed. GitKrakenCLI: `AppData\Local\GitKrakenCLI` (365 MB: `gk.exe` plus 8 stacked versions) and `gk` removed. Python 3.13.5: the bundle uninstaller returned 1603; `msiexec /x` removed Executables, Core Interpreter and Python Launcher (exit 0), 7 hidden component entries returned 1603 and remain; the bundle's registration key was removed; Machine PATH unchanged (ExpandString, length 379, same SHA-256 prefix before and after); `C:\Windows\py.exe` is gone; `winget list` shows 0 Python rows |
+| 2026-10-17 17:57 to 18:14 | user | `08-quarantine-purge.ps1 -Apply` | 8 checks passed first (surviving WSL export size and SHA-256 re-verified in 1.7 min, WSL running, Tailscale, Cursor 3.24.18, OpenClaw gone, lock present, no Cursor update in progress); deleted 11 folders (53.77 GiB) and the malformed manifest copy; **D: free 398.7 to 452.8 GiB**; context record written first |
+| 2026-10-17 | Claude | `packageManager` pin pilot (below) | one local commit in an isolated worktree; nothing pushed |
+
+### Quarantine disposal record (what existed before it was deleted)
+Written by the purge script to `D:\Backup\Quarantine-record\quarantine-record-2026-10-17.txt`; the files themselves are gone. Nothing in it was needed to run the machine.
+| Folder | Size | What it held |
+|---|---:|---|
+| `build5-leftovers-2026-10-15` | 4.33 GiB | Cursor server `snapshots` and agent-worker data, old pnpm v10 stores, `undo.txt` |
+| `c-cleanup-review-2026-11-01` | 2.39 GiB | the 2026-09-20 Codex cleanup quarantine (2.34 GiB, 55,449 files), five stray profile-root files (a temp copy of a Claude config, a battery report, an empty `global.yml`, `settings.json`, the mongosh installer), an empty `suspicious` folder |
+| `c-deep-clean-review-2026-11-11` | 8.52 GiB | app data and installers of already-removed software: Outlook, Office and Olk caches (2.4 GiB), Medal (0.8), Kingsoft/WPS (0.7), the Brave profile (0.67; bookmarks and any saved logins), Opera (0.5), JetBrains settings (0.23), Steam, Riot, Cluely and Guardian updater caches, Respondus, Teams add-in, `.jdks`, and ten old setup files from Downloads (PowerToys, Kiro, Cursor 2.6.12, Loom, Vivaldi, Dell Command Update, Jan, Miniconda, GitHub CLI 2.89.0) |
+| `cursor-broken-install-2026-10-14` | 1.76 GiB | the install Cursor's interrupted self-update broke (33,923 files) |
+| `cursor-oldlogs`, `cursor-state-*` (4 folders) | 0.03 GiB | Cursor logs older than 7 days, Crashpad, process monitor, update supervisor, blob storage |
+| `startup-cleanup-2026-10-14` | 0.00 GiB | the `E START App` shortcut, the `OpenClaw Gateway` cmd, `~\.openclaw` (31 skill links), and `undo.txt` |
+| `wsl-tar-review-2026-11-14` | 36.75 GiB | the old WSL export `wsl-ubuntu.tar`: written 2026-01-15, 39,454,945,280 bytes, 455,976 entries, SHA-256 `d4a23e9195a20ffeed82b7eba706de89474935f502f08224c7203eb013eac326`; 21.7 GB of it was a Rust `target/` folder from `boom`. Replaced by the 2026-10-14 export |
+What remains outside the quarantine and was kept on purpose: `D:\Backup\WSL` (the 54.47 GiB export, manifest and `.sha256`), `D:\Backup\Toolkit` (config backups), `D:\Backup\dotfiles-20261015-140633` (a copy of `.bashrc` with the key line blanked), `D:\Backup\GameSaves`.
+
+### `packageManager` pin pilot (what it is, what happened)
+**What a pin is.** A repo's `package.json` field `"packageManager": "pnpm@12.4.2"` makes Corepack run exactly that pnpm version in that repo on every machine, whatever is installed globally. On the Dell `pnpm` is a Corepack shim, so the pin is honoured. It stops the version drift that hit the Acer (pnpm floated to 12.11.2 after its weekly cleanup deleted `~/.cache/node`). With pnpm 12 the lockfile also records the pnpm version with integrity hashes. It helps pnpm repos only: npm repos are not pinned, and Python repos need `.python-version` and `uv.lock` instead.
+**Method.** One repo at a time, in a separate `git worktree` off `origin/main` on branch `dell-latitude/pin-package-manager` (so the main checkout's uncommitted files are untouched, per Decision 11), then `pnpm install --frozen-lockfile` and the repo's own checks.
+| Repo | Result |
+|---|---|
+| `hub/Learning-Tracker-Tool` | **Done, committed locally** as `51cc182` ("Pin pnpm 12.4.2 through packageManager"), unpushed, upstream unset; worktree at `~/projects/hub/.worktrees/Learning-Tracker-Tool-pin-package-manager`. Diff: `package.json` +1 line, `pnpm-lock.yaml` +158 lines (the new package-manager section), `pnpm-workspace.yaml` +3 lines. Verified: frozen install exit 0 under pnpm 12.4.2, Next.js 16.1.6 starts, eslint exit 0. It is a **team repo** (remote `Shauryya27/Learning-Tracker-Tool`, merges from a collaborator): pushing the pin forces pnpm 12.4.2 on them, and older pnpm versions have not been tested against the new lockfile section, so the push or PR is the user's decision |
+| `hub/portfolio` | **Blocked, reverted and removed.** The lockfile on `origin/main` is already broken (duplicate key `@ai-sdk/mistral@3.0.39` at lines 201 and 207), so pnpm discarded it and wanted to regenerate all 5,545 lines, which would also float dependency versions; its `pnpm.onlyBuiltDependencies` block is also ignored by pnpm 12. Needs its own decision on a branch. The main checkout (`post-frontend`, 114 uncommitted files) was never touched |
+| `hub/Assisto_website` | Not attempted: it has both `package-lock.json` and `pnpm-lock.yaml`; choose one manager first |
+| npm, bun, yarn and Python repos | not pinned (see the register in the Locked Decisions note) |
+**What pnpm 12 changed (applies to every pnpm repo, with or without a pin).** The old `ignoredBuiltDependencies` / `pnpm.onlyBuiltDependencies` keys are no longer honoured; `pnpm install` fails with `ERR_PNPM_IGNORED_BUILDS` until each build script is decided in `allowBuilds` (here `sharp: false`, `unrs-resolver: false`, preserving the old intent). With a `packageManager` field present, a frozen install fails until the lockfile has been updated once to record pnpm itself (`pnpm install --lockfile-only`).
+
+### Errors and root causes (follow-up)
+| Error | Root cause | Fix |
+|---|---|---|
+| C: free fell 17.5 GiB in one day (137.8 to 120.3) with no alert | the system-managed pagefile grew from about 16 GB (3b snapshot) to 31 GB under memory use; the alert rules need a week of history | inference, to confirm after a reboot; read C: free after a reboot before suspecting data |
+| `gk.exe` keeps returning after deletion | the GitLens extension (VS Code, Kiro, the WSL VS Code server) downloads and self-updates the GitKraken CLI for its MCP feature; no documented opt-out | folders cleared; they return unless GitLens is uninstalled (user decision, extension lists sync) |
+| 7 Python registrations survive `msiexec /x` (1603) | they are hidden `SystemComponent` entries of the removed bundle; cause of the failure not established | harmless, invisible in Settings and `winget`; optional registry cleanup |
+| `pnpm store path` showed `/mnt/c/.pnpm-store/v11` | `wsl.exe --exec` starts in a Windows directory and pnpm picks its store from the current directory's filesystem | from `~` it is `~/.local/share/pnpm/store/v11`; do not run it from a `/mnt` directory |
+| Firecrawl key still accepted by the provider after the user's "revocation" | not established; a fake key and no key both return 401, so the check discriminates | open: revoke the most recently used key in the dashboard |
+
+### Growth rules (added in 4b and its follow-up)
+| Standing rule | Check |
+|---|---|
+| Never kill an app whose updater may be running; read its state first | the last `update#setState` line in the newest Cursor `main.log` must be `idle` before a script stops Cursor |
+| A comma list through `powershell -File` is one string; take a string parameter and split it into a new variable (a typed parameter coerces an array back) | run with `-Stages A,B` and read the first log line |
+| Native stderr can abort a PS 5.1 script that sets `$ErrorActionPreference = 'Stop'`, even with `2>$null`; and quotes inside `wsl.exe` arguments get mangled | run natives under `Continue`, or call a helper `.sh` file |
+| Parenthesize every `'key=' + $v` inside an `@(a, b)` list (the comma binds tighter than `+`) | `($lines).Count` equals the number of elements |
+| Verify a WSL export with GNU tar inside WSL, record entries and SHA-256, and say no import test was run | the `.manifest.txt` has 8 lines; `08-quarantine-purge.ps1` re-hashes it |
+| A quarantine is temporary: give it a review date, keep a text record of what it held, then delete it | `D:\Backup\Quarantine` should be empty; the record lives in `D:\Backup\Quarantine-record\` |
+| No key in any shell rc file; revoke at the provider and confirm with a status-only call | `grep -c "API_KEY=" ~/.bashrc` prints 0 |
+| Judge startup behaviour by process start time versus last boot, not by the Run key | compare `(Get-CimInstance Win32_OperatingSystem).LastBootUpTime` with `(Get-Process <name>).StartTime` |
+| Before pinning a repo's package manager, run a frozen install in an isolated worktree | `pnpm install --frozen-lockfile` exit code, then the repo's lint/test |
+| After the pagefile or memory load changes, read C: free after a reboot | `Get-PSDrive C`; `Win32_PageFileUsage` |

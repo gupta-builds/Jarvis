@@ -1,8 +1,8 @@
 ---
 type: note
-status: seedling
+status: sprout
 created: 2026-10-12
-updated: 2026-10-12
+updated: 2026-10-17
 course: Life
 track:
   - laptop
@@ -13,13 +13,35 @@ tags:
   - storage
 related:
   - "[[Old Laptop Rebuild - Index]]"
+  - "[[Old Laptop Rebuild - Runs Index]]"
   - "[[Old Laptop Rebuild - Build 3 Windows Cleanup Findings]]"
   - "[[Old Laptop Rebuild - Build 4 Windows Toolkit Findings]]"
   - "[[C Drive Bloat - Failure Log and Prevention Rules]]"
   - "[[Installations]]"
-next: "Run 06 -StoreApps, then 08-finish-cleanup.ps1 (section 10); then Build 4 (toolkit) and the _Anant build on D:"
+next: "Closed. Open: BIOS battery cap, Defender exclusions and full scan, vscode-remote-wsl on C:."
 ---
 
+## Verified outcome (checked 2026-10-17)
+**Purpose.** The execution record of Build 3: what C: looked like after the cleanup scripts, which folders Windows owns, the C:/D: structure contract, and the watch design. Written 2026-10-12; the audit and plan behind it are in [[Old Laptop Rebuild - Build 3 Windows Cleanup Findings]].
+**Result.** C: free **39.5 GB to 136.4 GiB** (measured), 145.4 GiB on 2026-10-13, 120.8 GiB on 2026-10-17 because the system-managed pagefile grew to 31 GB (inference; confirm after a reboot). D: free 449.8 GiB then, 452.8 GiB now.
+**Still true and worth keeping:** sections 3 (what Windows owns on C:), 4 (the structure contract), 5 and 6 (scripts and watch design), and the Failure Log's growth rules. The contract is enforced by environment variables, so a new tool sets its variable first.
+
+**Open items from section 11, final status.**
+| Item | Final status (2026-10-17) |
+|---|---|
+| ~50 dot-folders holding agent-skill junctions | open, Build 6 (see the AI platforms audit) |
+| Python 3.13.5 and Chocolatey | removed in Build 4; hidden MSI remnants (7) remain, harmless |
+| .NET 8 | kept on purpose (WSL Settings) |
+| Windows Ollama startup shortcut | disabled (Build 4b) |
+| Disabled tasks `ClaudeKit-Sync-All`, `SecondBrainClaudekit-JarvisSync` | left disabled on purpose |
+| Rize, GitKrakenCLI | removed 2026-10-17 (GitLens re-downloads the GitKraken CLI unless GitLens is uninstalled) |
+| `wsl-ubuntu.tar` (36.75 GiB) | exported afresh in Build 5/4b, then moved and deleted on 2026-10-17; the 54.47 GiB export in `D:\Backup\WSL` is the only WSL backup (listing verified, never import-tested) |
+| Google DriveFS cache (4.2 GB on C:) | decided to leave |
+| `D:\Quarantine` reviews (2026-11-01, 2026-11-11) | deleted early on 2026-10-17 after verification |
+| BIOS battery cap 80 percent and AC recovery | not done; user, in the BIOS |
+| Defender exclusions | not done; needs an elevated shell |
+
+**Corrections.** Section 4 lists `D:\Dev`, `D:\Tools`, `D:\Installers` as planned; none was created. The npm cache is `D:\Cache\npm`. The watch history is the CSV `D:\WSL\ops\windows\watch\watch-history.csv`; at the last reading (2026-10-17 08:00) it showed C: free 120.32 GiB with no alert, which means the "C: falling over 10 GB per week" rule has not fired (it needs a week of history).
 # Build 3b - C drive snapshot, structure and watch
 
 Dell Latitude 5530 (`C:\Users\Anant Gupta`). Written 2026-10-12 after Build 3 scripts 01 and 02 ran. This note is the reference for what C: looks like, where things belong, what Windows owns, and what watches it from now on. The `_Anant` folder on D: is deliberately out of scope (next build). Google Drive data is not relied on yet.
@@ -142,12 +164,12 @@ Expected after both: about 145 GiB free (estimate, to be replaced by the next wa
 - D: items (now Build 5): `D:\WSL\Installers\wsl-ubuntu.tar` (36.75 GiB, corrected from 73), Google DriveFS cache on C: (4.2 GB), `D:\Quarantine` review on 2026-11-01 and 2026-11-11.
 - Battery cap to 80 percent and AC Recovery are BIOS steps for the user (section 7).
 
-## 12. After the finish (fill in from the next watch reading)
+## 12. After the finish (filled in 2026-10-17 from the watch history)
 
 | Metric | Start of Build 3 | Before 3b | Now |
 |---|---|---|---|
-| C: free | 39.5 GB | 116.9 GB | 136.4 GB (145 expected after script 08) |
-| Users | | 65.4 GB | |
-| ProgramData | | 5.0 GB | |
-| Windows | | 33.5 GB | |
-| Quarantine on D: | | 2.4 GB | 6.28 GB |
+| C: free | 39.5 GB | 116.9 GB | 136.4 GiB (3b); 145.4 GiB on 2026-10-13; 120.8 GiB on 2026-10-17 (pagefile at 31 GB) |
+| Users | | 65.4 GB | not re-measured |
+| ProgramData | | 5.0 GB | 1.6 GiB (2026-10-17) |
+| Windows | | 33.5 GB | 33.9 GiB (2026-10-17) |
+| Quarantine on D: | | 2.4 GB | 6.28 GB at the end of 3b; deleted on 2026-10-17 |

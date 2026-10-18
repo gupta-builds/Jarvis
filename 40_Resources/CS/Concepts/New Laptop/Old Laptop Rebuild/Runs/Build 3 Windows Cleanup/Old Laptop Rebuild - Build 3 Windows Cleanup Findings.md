@@ -1,8 +1,8 @@
 ---
 type: note
-status: seedling
+status: sprout
 created: 2026-10-11
-updated: 2026-10-11
+updated: 2026-10-17
 course: Life
 track:
   - laptop
@@ -13,26 +13,53 @@ tags:
   - disk
 related:
   - "[[Old Laptop Rebuild - Index]]"
+  - "[[Old Laptop Rebuild - Runs Index]]"
+  - "[[Old Laptop Rebuild - Build 3b C Drive Snapshot Structure and Watch]]"
   - "[[C Drive Bloat - Failure Log and Prevention Rules]]"
   - "[[Installations]]"
   - "[[Google Drive Sync Policy]]"
-  - "[[Old Laptop Rebuild - Windows Prompts (Build 3 C Drive Cleanup and Build 4 Terminal Parity)]]"
-next: "Build 3 is executed and closed by [[Old Laptop Rebuild - Build 3b C Drive Snapshot Structure and Watch]] (2026-10-12): C: free 39.5 to 136 GB, weekly clean and daily watch registered. Remaining items are listed there."
+next: "Closed by Build 3b. Open: vscode-remote-wsl on C:, Defender exclusions and full scan, BIOS battery cap."
 ---
 # Old Laptop Rebuild - Build 3 Windows Cleanup Findings
 
+## Verified outcome (checked 2026-10-17)
+**Purpose.** Free the Dell's C: drive, stop the things that refill it, give D: a clean layout, and decide the pagefile, Google Drive and startup questions. This note is the **audit and plan** (2026-10-11 to 2026-10-12, all read-only until the scripts ran); the execution record, the structure contract and the watch design are in [[Old Laptop Rebuild - Build 3b C Drive Snapshot Structure and Watch]].
+**What ran.** Scripts `01` to `08` in `D:\WSL\ops\windows` (01 to 03 and 05 to 07 are archived in `archive\build3-20261012`; `04-admin-remove.ps1` and `08-finish-cleanup.ps1` remain), run by the user in an elevated shell with dry runs first: Logi Options+, VC++ 2010/2012 and .NET 9 removed; Microsoft 365, OneDrive, WinRAR, Respondus, Dell Optimizer, MongoDB Shell, Teams, LinkedIn, Netflix and HP Printer Control removed; component store cleaned (about 22 GB); caches redirected through user environment variables; Miniconda, opam, hermes and the codex packages moved to D: behind junctions; Ollama reinstalled on `D:\Apps`; Syncthing moved to `D:\Apps\Syncthing`; the pagefile fixed; two scheduled tasks registered.
+**Result.** C: free went from **39.5 GiB to 136.4 GiB** (3b measurement), peaked at 145.4 GiB on 2026-10-13 and read **120.8 GiB on 2026-10-17**. The recent drop is almost certainly the system-managed pagefile growing from about 16 GB (the 3b snapshot) to 31 GB (30,816 MB allocated, 6.1 GB in use on 2026-10-17) after heavy memory use; a reboot should return about 15 GiB. That is an inference to confirm, not a measurement.
+
+| Item | Final state (verified 2026-10-17) |
+|---|---|
+| Pagefile | `C:\pagefile.sys` only, system managed 16,384 to 32,768 MB (registry `PagingFiles`). The earlier plans (v1: C: 4 GB + D: 32 GB; v2: C: 16 GB + D: 32 GB in two stages) were dropped: no D: pagefile exists and the BitLocker auto-unlock (external `.BEK`) hypothesis for why D: failed at boot was **never tested** |
+| Cache redirects | user variables set and verified: `UV_CACHE_DIR=D:\Cache\uv`, `PIP_CACHE_DIR=D:\Cache\pip`, `HF_HOME=D:\Cache\huggingface`, `NUGET_PACKAGES=D:\Cache\nuget`, `GRADLE_USER_HOME=D:\Cache\gradle`, `PLAYWRIGHT_BROWSERS_PATH=D:\Cache\ms-playwright`, `PUPPETEER_CACHE_DIR=D:\Cache\puppeteer`, `OLLAMA_MODELS=D:\AI\ollama-models`, `TEMP` and `TMP` = `D:\Cache\Temp`; the npm cache is `D:\Cache\npm` (not `D:\npm-cache`, which was the earlier location) |
+| Junctions kept (their contents hold absolute paths) | `C:\Users\Anant Gupta\miniconda3` to `D:\Apps\miniconda3`; `C:\opamroot` to `D:\Apps\opamroot`; `AppData\Local\hermes` to `D:\AI\hermes`; `.codex\packages` to `D:\Cache\codex\packages` |
+| Watch | `Toolkit-Watch-C` (daily 08:00, read-only) wrote 7 history rows; `Toolkit-Weekly-Clean` (Sunday 03:30) **has never run** (first run 2026-10-18) |
+| Quarantines | `D:\Backup\Quarantine` (was `D:\Quarantine` until 2026-10-13); its contents, including the `c-cleanup` and `c-deep-clean` review folders, were **deleted on 2026-10-17** after verification, with a context record in `D:\Backup\Quarantine-record\` |
+| Suspicious files | `0K7YY.exe` and `nc6a9.exe` (identical, spoofed "MoUsoCoreWorker", hash mismatch) were renamed `.quarantined` and moved to the quarantine's `suspicious` folder by `01-user-cleanup.ps1`. They are absent from the profile root; that folder held 0 files when it was purged, so their final removal is not recorded. They were never run. **No full Defender scan has ever run** (last quick scan 2026-10-14) |
+
+**What did not get finished here, and its final status.**
+| Item | Final |
+|---|---|
+| Python 3.13.5 and Chocolatey | removed in Build 4; 3 visible ghost registrations cleared 2026-10-17, 7 hidden MSI component entries remain (exit 1603), invisible in Settings and `winget` |
+| .NET 8 | kept on purpose (WSL Settings needs the .NET 8 desktop runtime) |
+| Windows Ollama startup shortcut | disabled; Ollama 0.40.3 runs only when started |
+| Rize, GitKrakenCLI | removed 2026-10-17; GitLens re-downloads `gk.exe` unless GitLens is uninstalled |
+| `vscode-remote-wsl` (6.5 GiB) | **still on C:**, never decided |
+| Google DriveFS cache (4.17 GiB on C:) | decided to leave on C: |
+| Defender exclusions, BIOS battery cap (80 percent) and AC recovery | not done; need admin or the BIOS |
+| `Local\Spotify\Data` | 1.0 GiB (the finish script moved offline storage to `D:\Cache\Spotify`) |
+
+**Reading guide.** Everything below is the 2026-10-11 and 2026-10-12 audit as written. Sizes and "pending" markers describe that day. Where a number here disagrees with this section or with 3b, trust those.
 ## One-Line Answer
-==Phase 1 (read-only) is done. C: already sits at 39.6 GiB free because the Revo cleanup ran before this session; the pagefile is the biggest single item left (25.4 GiB on C:), and its D: replacement is blocked for a reason Windows does not log, so the fix is an explicit sized pair of pagefiles proven by a reboot test, not another guess.==
+==The 2026-10-11 audit found C: at 39.6 GiB free with a RAM-sized fallback pagefile as the largest single item; the plan was executed on 2026-10-12 (see 3b) and took C: to 136 GiB free, with the pagefile settled as one system-managed file on C: rather than the pair of pagefiles first proposed.==
 
 ## Before and after
 | Metric | Before (live, 2026-10-11 ~18:30) | After |
 |---|---:|---:|
-| C: free | 39.58 GiB (212.3 GB used, 84.3%) | pending |
-| D: free | 363.91 GiB | pending |
-| Pagefile | `C:\pagefile.sys` 26,030 MB allocated, 1,185 MB in use, 1,246 MB peak; configured `d:\pagefile.sys 0 0` that does not exist | pending |
-| Commit charge / limit | 43.2 GiB / 57.1 GiB | pending |
-No state-changing command has run yet in this build. Every item below was a read.
-
+| C: free | 39.58 GiB (212.3 GB used, 84.3%) | 136.4 GiB (3b, 2026-10-12 night); 145.4 GiB on 2026-10-13; 120.8 GiB on 2026-10-17 (pagefile growth, see the outcome) |
+| D: free | 363.91 GiB | 449.8 GiB (3b); 452.8 GiB on 2026-10-17 after the quarantine purge (it carries the 54.47 GiB WSL export) |
+| Pagefile | `C:\pagefile.sys` 26,030 MB allocated, 1,185 MB in use, 1,246 MB peak; configured `d:\pagefile.sys 0 0` that does not exist | `C:\pagefile.sys` only, system managed 16,384 to 32,768 MB; 30,816 MB allocated and 6,121 MB peak on 2026-10-17 |
+| Commit charge / limit | 43.2 GiB / 57.1 GiB | not re-measured |
+The measured per-script results are in 3b, section 9.
 ## Setup facts that differed from the prompt (live machine wins)
 | Prompt said | Live state | Effect |
 |---|---|---|
@@ -117,7 +144,7 @@ Conclusion: no meaningful drift, because the screenshots are from today.
 | D:\AI\ollama-models | 9.2 | D | Tier B, keep unless told |
 | D:\npm-cache | 1.66 | D | live, keep |
 
-## Tier A (regenerable; waits for "go A")
+## Tier A (regenerable; plan as of 2026-10-11, executed in 3b)
 | Group | GiB | Frees | Method |
 |---|---:|---|---|
 | Stale `Local\npm-cache` | 4.32 | C | verify `npm config get cache` = D:\npm-cache, then delete the folder |
@@ -144,7 +171,7 @@ D: recycle bin list (recorded original paths; not all of it is regenerable, so I
 - UMN notebooks CSCI 4041 (about 1 GiB) and about 660 small files
 Recorded sizes add to 57.2 but disk holds 32.5, so some entries were already purged. Ask me for the full per-entry list file if you want to pick.
 
-## Tier B (per item)
+## Tier B (per item; plan as of 2026-10-11, executed in 3b)
 | Item | GiB | Drive | Note |
 |---|---:|---|---|
 | Claude Desktop VM bundle | 10.62 | C | use Claude Desktop's own reset; app must be closed |
@@ -165,10 +192,10 @@ Recorded sizes add to 57.2 but disk holds 32.5, so some entries were already pur
 | Docker data prune | up to 33.9 | D | Docker's own prune only |
 
 ### Suspicious files in the profile root
-`0K7YY.exe` and `nc6a9.exe` are byte-identical (14,115,592 bytes, SHA-256 `B9A1ABFDE2EEE68E3AD7950437E39DC841FB6C22E698062EB8DEFEF7B8C92F93`), dated 2025-01-20. Both report ProductName "MoUsoCoreWorker" (a Windows Update process name), have a Chinese company certificate subject (Zhejiang, Hangzhou), and the Authenticode status is **HashMismatch**, which means the file was altered after signing. Random 5-character names plus a spoofed Windows product name is a malware-dropper pattern. They were not run. Recommendation: do not execute, run a Defender full scan, then delete with approval. Hash lookup on VirusTotal sends only the hash; I will do it only if you say so.
+`0K7YY.exe` and `nc6a9.exe` are byte-identical (14,115,592 bytes, SHA-256 `B9A1ABFDE2EEE68E3AD7950437E39DC841FB6C22E698062EB8DEFEF7B8C92F93`), dated 2025-01-20. Both report ProductName "MoUsoCoreWorker" (a Windows Update process name), have a Chinese company certificate subject (Zhejiang, Hangzhou), and the Authenticode status is **HashMismatch**, which means the file was altered after signing. Random 5-character names plus a spoofed Windows product name is a malware-dropper pattern. They were not run. Recommendation: do not execute, run a Defender full scan, then delete with approval. Hash lookup on VirusTotal sends only the hash; I will do it only if you say so. [Update 2026-10-17: both files were moved to quarantine by script 01 and are no longer in the profile root; their final deletion is not recorded, they were never run, and no full Defender scan has been run since.]
 `NUL` (903 bytes) is listed by `Get-ChildItem` but `Test-Path` on the `\\?\` form said False, so removal needs the exact name; Tier B. `echo` (0 bytes) exists. `global.yml` is 0 bytes, `settings.json` 124 bytes, `battery-report.html` 0.2 MB, `mongosh-2.5.9-x64.msi` 0.05 GiB.
 
-## Pagefile root cause and recommended configuration
+## Pagefile root cause and recommended configuration (plan v1, superseded; see the revised plan and the outcome above)
 Evidence:
 - D: is NTFS, Healthy, Basic partition 5 on the same disk, and Ntfs event 98 reports it healthy at 13:04:56, one second after boot. A failed mount is not the cause.
 - BitLocker: the shell property `System.Volume.BitLockerProtection` is 1 (on) for both C: and D:. Boot logs show BitLocker event 24641 ("unexpected error ... retrieve the volume master key during restart"), 24 times in 30 days, and event 24711 (V2 TPM protector used). `manage-bde` needs admin, so D:'s protector type and auto-unlock state are not read yet. That is the first admin step.
@@ -263,12 +290,12 @@ None sit under a planned Drive mirror folder. The quarantine and the old Intelli
 5. Installations lists Miniconda for `D:\conda`; the Dell has it at `C:\Users\Anant Gupta\miniconda3` (7.09 GiB).
 
 ## State-changing commands
-None so far. One new file: `D:\WSL\ops\windows\diag-pagefile-bitlocker.ps1` (read-only, elevated).
+See 3b, sections 2, 5 and 9, for every command that ran and its result. New files from the audit stage: `D:\WSL\ops\windows\diag-pagefile-bitlocker.ps1` (read-only, elevated).
 
 ## Hand-offs to later builds
-Pending until execution.
+Settled in 3b and Builds 4 to 5 (see the final-status table at the top of this note). Open: `vscode-remote-wsl`, Defender exclusions, the BIOS battery cap, a Defender full scan.
 
-## Diagnostic result and revised pagefile plan (2026-10-11 evening)
+## Diagnostic result and revised pagefile plan (2026-10-11 evening; plan v2, superseded by the 2026-10-12 revision below)
 Elevated read-only diagnostic `diag-pagefile-bitlocker.ps1`, transcript in `D:\WSL\ops\windows\` (recovery password redacted from the saved file; the key is escrowed to the Microsoft account).
 - C: BitLocker 2.0, TPM plus recovery password, protection on, XTS-AES 128, used-space-only.
 - D: BitLocker 2.0, protection on, **Automatic Unlock enabled through an External Key (.BEK)**. A BEK-based auto-unlock data volume is unlocked after the OS volume, which is the strongest candidate for why the D: pagefile cannot be created at boot. Still a hypothesis: Windows logs no event that names it, so the only proof is the reboot test below.

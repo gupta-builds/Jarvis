@@ -2,7 +2,7 @@
 type: note
 status: sprout
 created: 2026-10-13
-updated: 2026-10-15
+updated: 2026-10-17
 course: Life
 track:
   - laptop
@@ -11,11 +11,12 @@ tags:
   - note
 related:
   - "[[Old Laptop Rebuild - Index]]"
-  - "[[Acer Session Handoff - Toolkit Sync (Build 5b)]]"
+  - "[[Old Laptop Rebuild - Runs Index]]"
+  - "[[Old Laptop Rebuild - Acer Visit Findings (2026-10-15)]]"
   - "[[Old Laptop Rebuild - Build 5 WSL and D Drive Findings]]"
   - "[[Installations]]"
   - "[[Acer Live State — 2026-09-16]]"
-next: "Both laptops now match; re-run wsl-check.sh config on each after any golden change."
+next: "Both laptops match; re-run wsl-check.sh config on each after any golden change."
 ---
 # WSL Toolkit Config Reference
 
@@ -31,7 +32,7 @@ next: "Both laptops now match; re-run wsl-check.sh config on each after any gold
 | Health check | `wsl-check.sh [config|tools|disk|swap|editors|backup|dtree]` | Read-only. Run on both laptops and compare. |
 | Machine-specific, never shared | `~/.gitconfig` (user, credentials, lfs, `core.autocrlf`), `gh-dash repoPaths`, `.bashrc` secrets, `~/.mcp.env` | Stay local. |
 
-Versions below are as of 2026-10-13. "Acer" is what its snapshot and notes recorded on 2026-09-19 to 2026-10-12, so it is a floor, not a live reading.
+Versions below are as of 2026-10-13. "Acer" is what its snapshot and notes recorded on 2026-09-19 to 2026-10-12, so it is a floor, not a live reading; the last section gives the Acer's applied state. The Dell was re-verified live on 2026-10-17: every Dell row holds except `claude` (now 2.1.302) and `ruff` (0.17.0), and `37-toolkit-apply.sh --dry-run` reports `changed=0 same=34 fails=0`.
 
 ## Version matrix
 | Tool | Dell now | Acer (recorded) | Latest release | Method on the Dell | Note |
@@ -60,7 +61,7 @@ Versions below are as of 2026-10-13. "Acer" is what its snapshot and notes recor
 | claude / codex | 2.1.296 / 0.162.1 | 2.1.277 / check | same | own installers / npm | |
 | win32yank | 0.1.1 | same | 0.1.1 | `~/.local/bin/win32yank.exe` | tmux copy-mode clipboard bridge |
 
-Decision (user, 2026-10-14): match the Acer. Both laptops use pnpm 12.4.2 (the Dell moved from 10.33.2; the Acer was already there and only needs the pin so Corepack stops floating). Repos shared by both laptops should declare `"packageManager": "pnpm@12.4.2"` in `package.json`; no own repo had it set, so it is a per-repo change to approve later. Side effects on the Dell: the pnpm store is now `~/.local/share/pnpm/store/v11` (the old v10 store is orphaned and `pnpm store prune` or the weekly clean can reclaim it); Locked Decision 7 mentioned `enableGlobalVirtualStore` for 10.x, but neither that key nor `virtualStoreType` is set on the Dell and `pnpm config get` shows both undefined on 12.4.2, so re-check the exact key against pnpm.io before ever setting it. Do not commit lockfile changes made with a different major.
+Decision (user, 2026-10-14): match the Acer. Both laptops use pnpm 12.4.2 (the Dell moved from 10.33.2; the Acer was already there and only needs the pin so Corepack stops floating). Repos shared by both laptops should declare `"packageManager": "pnpm@12.4.2"` in `package.json`; no own repo had it set, so it is a per-repo change to approve. Pilot (2026-10-17): done as a local commit on `Learning-Tracker-Tool`; note that pnpm 12 also stops honouring the old build-script keys and needs `allowBuilds` (details in the Build 4 findings, "Build 4b follow-up"). Side effects on the Dell: the pnpm store is now `~/.local/share/pnpm/store/v11` (the old v10 stores were quarantined on 2026-10-15 and deleted on 2026-10-17; a v3 store of 1.8 GiB from 2026-02 remains); Locked Decision 7 mentioned `enableGlobalVirtualStore` for 10.x, but neither that key nor `virtualStoreType` is set on the Dell and `pnpm config get` shows both undefined on 12.4.2, so re-check the exact key against pnpm.io before ever setting it. Do not commit lockfile changes made with a different major.
 
 ## Per-tool reference
 

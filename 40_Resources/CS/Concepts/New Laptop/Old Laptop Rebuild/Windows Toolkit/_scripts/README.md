@@ -2,7 +2,7 @@
 type: note
 status: sprout
 created: 2026-10-13
-updated: 2026-10-13
+updated: 2026-10-17
 course: Life
 track:
   - laptop
@@ -12,6 +12,7 @@ tags:
   - laptop
 related:
   - "[[Old Laptop Rebuild - Build 4 Windows Toolkit Findings]]"
+  - "[[Old Laptop Rebuild - Acer Visit Findings (2026-10-15)]]"
   - "[[Installations]]"
 ---
 # Windows Toolkit scripts: run order and rollback
@@ -50,7 +51,7 @@ Every tool here is small, installer-forced to C: (MSIX, MSI, per-user portable) 
 - The Starship and zoxide guards use a PowerShell global variable, not `$env:STARSHIP_SHELL`. Starship's init sets that environment variable, and child processes inherit it, so a guard on it would leave a nested `pwsh` inside `pwsh` without a prompt.
 - The uv standalone installer is the official `uv-installer.ps1` for 0.12.19, downloaded and checked against a pinned SHA-256, run with `UV_NO_MODIFY_PATH=1`; the script adds `~\.local\bin` to the user PATH itself.
 - Corepack is not enabled (needs admin under Program Files); pnpm comes from winget.
-- `bat` and `fd` configs are reconstructions from the Installations note until the Acer paste-back replaces them. On the Acer an existing file is kept and reported as DIFF.
+- The `bat` and `fd` configs were reconstructions until 2026-10-15, when the Acer's real files were promoted into `configs/` (SHA-256 `F613417D...` and `6A549EAF...`) and the Dell applied them on 2026-10-17. `toolkit.json` was not edited, so the lock stays valid.
 
 ## Rollback
 - Files: `powershell.exe -NoProfile -ExecutionPolicy Bypass -File "...\20-apply-configs.ps1" -RestoreFrom "D:\Backup\Toolkit\<timestamp>"` copies every backed-up file back.
@@ -61,3 +62,12 @@ Every tool here is small, installer-forced to C: (MSIX, MSI, per-user portable) 
 
 ## Test overrides (for maintenance only)
 `20-apply-configs.ps1` accepts `-TerminalSettingsPath`, `-TestProfileDir` and `-BackupBase` so the Terminal merge and the profile block can be exercised on copies. `-Only` takes config ids (`starship,git-ignore,git-delta,bat,fd-ignore,profile-ps5,profile-pwsh,terminal,git-settings,env`) or tool ids for `10`.
+
+## Running on the Acer (from the 2026-10-15 visit)
+- Set `$V` (the vault root) and `$TK` (this toolkit folder) in every new terminal window; the role (`acer` or `dell`) is detected from the vault path, and `-Machine acer` overrides it. The Acer vault root is `D:\_Anant\20_Progress\Documents\Jarvis`.
+- Start the scripts from a normal Windows PowerShell 5.1 window. From a shell that inherited PowerShell 7's `PSModulePath`, 5.1 fails with "The term 'Get-FileHash' is not recognized"; reset it first: `$env:PSModulePath = [Environment]::GetEnvironmentVariable('PSModulePath','Machine')`.
+- Order: `00-preflight.ps1`, `10-install-toolkit.ps1 -DryRun`, `20-apply-configs.ps1 -DryRun`, `99-verify.ps1` (all read-only), then `10-install-toolkit.ps1` (UAC), `20-apply-configs.ps1`, a fresh window, `99-verify.ps1`, `40-build-catalog.ps1`. Never `-WriteLock` on the Acer; never `11-node-lts-swap.ps1` or `04-admin-remove.ps1` there.
+- Result of the 2026-10-15 run and the parity matrix: [[Old Laptop Rebuild - Acer Visit Findings (2026-10-15)]].
+
+## Host-ops scripts
+The scripts that ran during Builds 3 to 5 outside this manifest (weekly clean, watcher, WSL export, startup and quarantine cleanup) are in `host-ops/` with their own README.

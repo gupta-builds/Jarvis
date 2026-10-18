@@ -140,7 +140,7 @@ The scan covered all 58 repositories under `~/projects` using local refs only; n
 | `work/internship-research-loop` | `master`, ahead 5/behind 5 | Many deleted agent skills, modified `AGENTS.md`, three untracked docs |
 ### Clean repositories
 The other 40 repos were clean against their currently recorded upstreams: the 31 clean `second-brain-claudekit/sandbox` repos not named above, plus `ai/claude/second-brain-claudekit/sandbox/Agent-Reach`, `CL4R1T4S`, `OpenBB`, `TradingAgents`, `adx`, `agency-agents`, `agent-skill-simplified-technical-english`, `agent-skills`, `agentic-inbox`, `agentscope`, `ai-job-search`, `andrej-karpathy-skills`, `autoresearch`, `claude-code-best-practice`, `claude-context`, `claude-mem`, `claude-skills-llm-council`, `cpr-compress-preserve-resume`, `graphify`, `gsd-core`, `gstack`, `hiring-agent`, `humanizer`, `last30days-skill`, `llm-council`, `memsearch`, `obsidian-mind`, `obsidian-second-brain`, `promptfoo`, `skills`, `spec-kit`, `system-prompts-and-models-of-ai-tools`; and the top-level repos `hackathon/opspilot`, `hackathon/safereach`, `hub/Learning-Tracker-Tool`, `umn/boom`, and `work/gupta-builds`. Clean does not mean current: some clean repos are far behind, as listed above.
-## Removal Manifest — Approval Checkpoint
+## Removal Manifest - Approval Checkpoint
 Sizes are allocated bytes and expected reclaim is an upper bound until measured after deletion. Project, editor, AI-home, C:/D:, and Docker removals require approval.
 ### Pre-authorized cache cleanup proposed for Phase 3
 | Cache | Present | Maximum immediate Linux-block reclaim |
@@ -151,7 +151,7 @@ Sizes are allocated bytes and expected reclaim is an upper bound until measured 
 | cargo registry + git cache | 0.44 GiB | Up to 0.44 GiB |
 | uv cache | 0.20 GiB | Up to 0.20 GiB |
 | **Total present** | **11.88 GiB** | **Measure after tool-native cleanup** |
-### Cache cleanup — measured execution
+### Cache cleanup - measured execution
 The post-install baseline was measured immediately before cleanup so installer downloads were included.
 | Cache | Before | After | Reclaimed |
 |---|---:|---:|---:|
@@ -163,7 +163,7 @@ The post-install baseline was measured immediately before cleanup so installer d
 | **Total** | **10,080,281,282 B** | **4,384,604,980 B** | **5,695,676,302 B / 5.304 GiB** |
 
 npm's native cache cleanup does not remove `_npx`; 4,663,836,672 bytes there remain a separate Build 2 review item.
-### Project artifact candidates — approval required
+### Project artifact candidates - approval required
 The full scan found 147 common build/cache directories totaling 42.94 GiB. The 45 largest candidates were Git-ignored except two parent-project directories with no enclosing Git root (`ai/claude/claude-ai/node_modules`, 0.95 GiB; `.next`, 0.08 GiB), which require manual confirmation as well as approval.
 | Repository/group | Candidate size | Main contents |
 |---|---:|---|
@@ -180,7 +180,7 @@ The full scan found 147 common build/cache directories totaling 42.94 GiB. The 4
 | `hub/Learning-Tracker-Tool` | 1.03 GiB | ignored `node_modules` + `.next` |
 | `code2prompt` | 0.98 GiB | ignored Rust `target` |
 | Remaining 17 groups | 2.82 GiB | ignored dependency/build/cache dirs |
-### Project artifact deletion — executed manifest
+### Project artifact deletion - executed manifest
 All 82 entries below passed the deletion-time Git-ignore, rebuild-manifest, config/systemd/cron-reference, open-file/process, and unchanged-size gates. They were deleted largest first; zero deletion-time skips occurred. Exact total: **39,109,468,361 bytes / 36.424 GiB**.
 
 <details>
@@ -274,7 +274,7 @@ bytes	path
 </details>
 
 Held/skipped: both gstack and gbrain copies (14 matching artifact paths); `ai/claude/claude-ai/node_modules`; its no-enclosing-repo `.next`; and three paths that were not Git-ignored (`OpenBB/desktop/dist` plus two promptfoo fixture `node_modules`). No referenced/open path appeared in the approved manifest.
-### Editor and AI directories — approval required
+### Editor and AI directories - approval required
 | Candidate | Present | Proposed treatment |
 |---|---:|---|
 | `~/.vscode-server` | 7.74 GiB | Prefer targeted stale extension/VSIX/log cleanup in Build 2; current cached VSIX alone is 1.75 GiB |
@@ -283,7 +283,7 @@ Held/skipped: both gstack and gbrain copies (14 matching artifact paths); `ai/cl
 | `~/.codex-archive` | 1.83 GiB | Hold until the user decides whether the archive is still needed |
 | `~/.claude` | 2.75 GiB | Hold; never touch credentials, inspect cache subtrees separately if requested |
 | `~/.codex` | 1.53 GiB | Hold; never touch `auth.json`, inspect cache subtrees separately if requested |
-### Windows/Docker candidates — approval and later host session required
+### Windows/Docker candidates - approval and later host session required
 | Candidate | Present | Expected reclaim |
 |---|---:|---:|
 | `C:\Users\Anant Gupta\vscode-remote-wsl` | 6.29 GiB | Up to 6.29 GiB after the Windows/VS Code session confirms it is stale |
@@ -442,7 +442,7 @@ Linux `/` reports 59,640,709,120 bytes used (55.54 GiB); `D:\WSL\Ubuntu\ext4.vhd
 | DiskPart `compact vdisk` | Same theoretical ceiling; actual reclaim unknown | Elevated DiskPart | Yes; dynamic VHD must be detached or read-only | No undo; later writes can grow the file | Low-to-moderate when detached and backed up |
 | `wsl --export Ubuntu D:\WSL\backups\Ubuntu-precompact-YYYYMMDD.tar` first | Default tar size not measured; D: has 363.80 GiB free and Linux root uses 55.54 GiB | No elevation expected | Docs do not require it; stop all writers first for a consistent checkpoint | Can restore with `wsl --import`; test restore separately | Lowest source risk; needs extra D: space, does not shrink original |
 | `wsl --manage Ubuntu --set-sparse true --allow-unsafe` | Safe conversion was refused; existing file is not sparse | Exact privilege requirement not established; likely elevated | Yes | Not safely reversible | High: WSL explicitly warns of potential data corruption; not recommended |
-Recommendation: do nothing now. D: is not under pressure, and shrinking this D:-resident VHDX will not address C:'s 20.08 GiB free. If D: later needs the space, first take and verify a full-distro export with every editor/worktree quiescent, then—with separate approval—use a documented detached-VHD compaction path. Never use `--allow-unsafe`. The export, not GitHub, protects uncommitted repo changes, `node_modules`, `.venv`, logs, and other Linux files; GitHub contains pushed commits only.
+Recommendation: do nothing now. D: is not under pressure, and shrinking this D:-resident VHDX will not address C:'s 20.08 GiB free. If D: later needs the space, first take and verify a full-distro export with every editor/worktree quiescent, then-with separate approval-use a documented detached-VHD compaction path. Never use `--allow-unsafe`. The export, not GitHub, protects uncommitted repo changes, `node_modules`, `.venv`, logs, and other Linux files; GitHub contains pushed commits only.
 Sources: [WSL configuration reference](https://learn.microsoft.com/en-us/windows/wsl/wsl-config) (key sections, defaults, and new-VHD-only `sparseVhd`), [WSL 3.0.1 release notes](https://github.com/microsoft/WSL/releases/tag/3.0.1), [WSL basic commands](https://learn.microsoft.com/en-us/windows/wsl/basic-commands) (`--export`), [Optimize-VHD](https://learn.microsoft.com/en-us/powershell/module/hyper-v/optimize-vhd), and [DiskPart compact vdisk](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/compact-vdisk).
 ## Growth Rules
 | Growth source | Standing rule | One check command |

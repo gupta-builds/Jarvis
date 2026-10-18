@@ -203,7 +203,7 @@ Worktree dependency proposal after Q4/Q5: use per-worktree dependency installs o
 ### Miniconda and editor capacity
 No Miniconda install or environment rebuild was started. Existing space/disk measurements and the package cost decision belong to the subsequent approved item 9. User approval is required before installation.
 
-## Phase 4 checkpoint — live refresh 2026-10-12 (historical; rows corrected above)
+## Phase 4 checkpoint - live refresh 2026-10-12 (historical; rows corrected above)
 
 > [!NOTE] Build 5 correction, 2026-10-13
 > Ledger rows 4.4, 4.9 and 4.10 below are stale: later sections show them passed. Row 4.1's systemd caveat is closed by WSL 3.0.3.0.
@@ -292,7 +292,7 @@ The 2026-10-11 ledger listed work under an earlier build numbering (Build 3 Tier
 | 4.10 | patch the internship directive's completion gate with a dated supersession line | done in the vault; the live repo copy of that file does not exist at the named path and was not touched |
 | 4.11 | repo pilot | see the ledger row above |
 Gotcha: Tailscale SSH "check" mode asks for a browser confirmation after inactivity; a non-interactive run prints a `login.tailscale.com/a/...` URL and waits.
-### Growth Rules — refreshed checks
+### Growth Rules - refreshed checks
 | Growth source | Check command |
 |---|---|
 | C: and D: free space (Windows) | `Get-Volume -DriveLetter C,D | Select DriveLetter,Size,SizeRemaining` |
@@ -303,7 +303,7 @@ Gotcha: Tailscale SSH "check" mode asks for a browser confirmation after inactiv
 | Repo dependency/worktree growth | `git -C ~/projects/<repo> worktree list --porcelain; find ~/projects -xdev -type d \( -name node_modules -o -name .venv \) -prune -exec du -sh {} +` |
 
 ## Acer visit ledger update, 2026-10-15
-Rows 4.6, 4.7 and 4.9 above were closed from the Acer on 2026-10-15; the evidence is in [[Old Laptop Rebuild - Acer Visit Findings (2026-10-15)]] (section "Acer visit results") and [[Old Laptop Rebuild - Build 2 VS Code and Two-Laptop Findings]] (section "Acer checkpoint").
+Rows 4.6, 4.7 and 4.9 above were closed from the Acer on 2026-10-15; the evidence (route, host key, `sync-check`, transfer, clone inventory) is in [[Old Laptop Rebuild - Acer Visit Findings (2026-10-15)]].
 | Row | State now |
 |---|---|
 | 4.6 Acer handoff, inventory | PASS. Two WSL clones; no Windows-side clones found. The internship clone holds 4 local-only commits, backed up as a verified Git bundle. |

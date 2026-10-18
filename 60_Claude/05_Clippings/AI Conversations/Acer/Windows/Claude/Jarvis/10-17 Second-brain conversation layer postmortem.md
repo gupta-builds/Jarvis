@@ -5,9 +5,9 @@ source_app: claude-code
 source_os: windows
 title: "Second-brain conversation layer postmortem"
 started_at: 2026-10-17T21:57:31
-ended_at: 2026-10-17T22:05:33
-exported_at: 2026-10-17T22:05:34
-duration_minutes: 8
+ended_at: 2026-10-17T22:08:37
+exported_at: 2026-10-17T23:03:07
+duration_minutes: 11.1
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: d4e37e22-7651-4ef5-8e83-5c5dd674523e

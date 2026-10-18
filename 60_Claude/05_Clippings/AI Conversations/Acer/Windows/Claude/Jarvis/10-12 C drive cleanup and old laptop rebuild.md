@@ -6,7 +6,7 @@ source_os: windows
 title: "C drive cleanup and old laptop rebuild"
 started_at: 2026-10-12T15:50:04
 ended_at: 2026-10-12T16:49:39
-exported_at: 2026-10-17T22:03:03
+exported_at: 2026-10-17T23:03:07
 duration_minutes: 59.6
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'

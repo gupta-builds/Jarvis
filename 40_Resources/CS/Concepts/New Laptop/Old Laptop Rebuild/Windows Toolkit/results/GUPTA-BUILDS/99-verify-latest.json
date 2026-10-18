@@ -3,16 +3,17 @@
     "host":  "GUPTA-BUILDS",
     "machine":  "acer",
     "dryRun":  false,
-    "started":  "2026-10-15T17:34:15",
-    "finished":  "2026-10-15T17:34:35",
+    "started":  "2026-10-17T21:20:28",
+    "finished":  "2026-10-17T21:21:15",
     "admin":  false,
     "manifestSha256":  "4E4A8D15CFEE15DC9E674B51DBE6FAB1F3730A951C20957AC9E4BB1F3C817634",
     "vaultRoot":  "D:\\_Anant\\20_Progress\\Documents\\Jarvis",
-    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-99-verify-20261015-173415.log",
+    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-99-verify-20261017-212028.log",
     "counts":  {
                    "DIFF":  15,
                    "PASS":  61,
-                   "INFO":  22
+                   "INFO":  22,
+                   "WARN":  1
                },
     "items":  [
                   {
@@ -216,11 +217,11 @@
                   {
                       "id":  "claude-code",
                       "status":  "DIFF",
-                      "detail":  "version 2.1.301 on C:, 259.2 MB; Dell lock has 2.1.296",
+                      "detail":  "version 2.1.302 on C:, 276.8 MB; Dell lock has 2.1.296",
                       "drive":  "C:",
                       "path":  "C:\\Users\\anant\\.local\\bin\\claude.exe",
-                      "version":  "2.1.301",
-                      "sizeMB":  259.2
+                      "version":  "2.1.302",
+                      "sizeMB":  276.8
                   },
                   {
                       "id":  "codex",
@@ -555,14 +556,19 @@
                   {
                       "id":  "shell-powershell-5.1",
                       "status":  "PASS",
-                      "detail":  "profile loads; Starship and zoxide initialised; startup 1178 ms",
-                      "startupMs":  1178
+                      "detail":  "profile loads; Starship and zoxide initialised; startup 5105 ms",
+                      "startupMs":  5105
+                  },
+                  {
+                      "id":  "startup-powershell-5.1",
+                      "status":  "WARN",
+                      "detail":  "startup 5105 ms is slow (budget 4000)"
                   },
                   {
                       "id":  "shell-pwsh-7",
                       "status":  "PASS",
-                      "detail":  "profile loads; Starship and zoxide initialised; startup 1038 ms",
-                      "startupMs":  1038
+                      "detail":  "profile loads; Starship and zoxide initialised; startup 2884 ms",
+                      "startupMs":  2884
                   },
                   {
                       "id":  "starship-config",
@@ -572,7 +578,7 @@
                   {
                       "id":  "starship-render",
                       "status":  "PASS",
-                      "detail":  "starship prompt rendered 298 characters"
+                      "detail":  "starship prompt rendered 256 characters"
                   },
                   {
                       "id":  "zoxide-init",

@@ -1,0 +1,670 @@
+{
+    "script":  "99-verify",
+    "host":  "GUPTA-BUILDS",
+    "machine":  "acer",
+    "dryRun":  false,
+    "started":  "2026-10-17T21:18:55",
+    "finished":  "2026-10-17T21:19:39",
+    "admin":  false,
+    "manifestSha256":  "4E4A8D15CFEE15DC9E674B51DBE6FAB1F3730A951C20957AC9E4BB1F3C817634",
+    "vaultRoot":  "D:\\_Anant\\20_Progress\\Documents\\Jarvis",
+    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-99-verify-20261017-211855.log",
+    "counts":  {
+                   "DIFF":  15,
+                   "PASS":  61,
+                   "INFO":  22
+               },
+    "items":  [
+                  {
+                      "id":  "pwsh",
+                      "status":  "DIFF",
+                      "detail":  "version 7.6.7 on C:; Dell lock has 7.6.6",
+                      "drive":  "C:",
+                      "path":  "C:\\Users\\anant\\AppData\\Local\\Microsoft\\WindowsApps\\pwsh.exe",
+                      "version":  "7.6.7",
+                      "sizeMB":  null
+                  },
+                  {
+                      "id":  "wt",
+                      "status":  "PASS",
+                      "detail":  "version 1.24.12741.0",
+                      "drive":  null,
+                      "path":  null,
+                      "version":  "1.24.12741.0",
+                      "sizeMB":  null
+                  },
+                  {
+                      "id":  "starship",
+                      "status":  "PASS",
+                      "detail":  "version 1.26.0 on C:, 12.5 MB",
+                      "drive":  "C:",
+                      "path":  "C:\\Program Files\\starship\\bin\\starship.exe",
+                      "version":  "1.26.0",
+                      "sizeMB":  12.5
+                  },
+                  {
+                      "id":  "iosevkaterm-nfm",
+                      "status":  "PASS",
+                      "detail":  "version v3.5.1",
+                      "drive":  null,
+                      "path":  null,
+                      "version":  "v3.5.1",
+                      "sizeMB":  null
+                  },
+                  {
+                      "id":  "zoxide",
+                      "status":  "PASS",
+                      "detail":  "version 0.10.0 on C:, 1.2 MB",
+                      "drive":  "C:",
+                      "path":  "C:\\Users\\anant\\AppData\\Local\\Microsoft\\WinGet\\Links\\zoxide.exe",
+                      "version":  "0.10.0",
+                      "sizeMB":  1.2
+                  },
+                  {
+                      "id":  "fzf",
+                      "status":  "PASS",
+                      "detail":  "version 0.74.4 on C:, 5.9 MB",
+                      "drive":  "C:",
+                      "path":  "C:\\Users\\anant\\AppData\\Local\\Microsoft\\WinGet\\Links\\fzf.exe",
+                      "version":  "0.74.4",
+                      "sizeMB":  5.9
+                  },
+                  {
+                      "id":  "psfzf",
+                      "status":  "PASS",
+                      "detail":  "version 2.7.12; 5.1=2.7.12 7=2.7.12",
+                      "drive":  null,
+                      "path":  null,
+                      "version":  "2.7.12",
+                      "sizeMB":  null
+                  },
+                  {
+                      "id":  "fd",
+                      "status":  "PASS",
+                      "detail":  "version 10.5.0 on C:, 3.9 MB",
+                      "drive":  "C:",
+                      "path":  "C:\\Users\\anant\\AppData\\Local\\Microsoft\\WinGet\\Links\\fd.exe",
+                      "version":  "10.5.0",
+                      "sizeMB":  3.9
+                  },
+                  {
+                      "id":  "bat",
+                      "status":  "PASS",
+                      "detail":  "version 0.26.1 on C:, 7 MB",
+                      "drive":  "C:",
+                      "path":  "C:\\Users\\anant\\AppData\\Local\\Microsoft\\WinGet\\Links\\bat.exe",
+                      "version":  "0.26.1",
+                      "sizeMB":  7
+                  },
+                  {
+                      "id":  "delta",
+                      "status":  "PASS",
+                      "detail":  "version 0.20.1 on C:, 7.3 MB",
+                      "drive":  "C:",
+                      "path":  "C:\\Users\\anant\\AppData\\Local\\Microsoft\\WinGet\\Links\\delta.exe",
+                      "version":  "0.20.1",
+                      "sizeMB":  7.3
+                  },
+                  {
+                      "id":  "git",
+                      "status":  "PASS",
+                      "detail":  "version 2.55.0 on C:, 403.6 MB",
+                      "drive":  "C:",
+                      "path":  "C:\\Program Files\\Git\\cmd\\git.exe",
+                      "version":  "2.55.0",
+                      "sizeMB":  403.6
+                  },
+                  {
+                      "id":  "gh",
+                      "status":  "PASS",
+                      "detail":  "version 2.102.0 on C:, 40.9 MB",
+                      "drive":  "C:",
+                      "path":  "C:\\Program Files\\GitHub CLI\\gh.exe",
+                      "version":  "2.102.0",
+                      "sizeMB":  40.9
+                  },
+                  {
+                      "id":  "ripgrep",
+                      "status":  "DIFF",
+                      "detail":  "version 15.2.0 on C:, 4 MB; Dell lock has 15.1.0",
+                      "drive":  "C:",
+                      "path":  "C:\\Users\\anant\\.local\\bin\\rg.exe",
+                      "version":  "15.2.0",
+                      "sizeMB":  4
+                  },
+                  {
+                      "id":  "jq",
+                      "status":  "PASS",
+                      "detail":  "version 1.8.2 on C:, 1 MB",
+                      "drive":  "C:",
+                      "path":  "C:\\Users\\anant\\AppData\\Local\\Microsoft\\WinGet\\Links\\jq.exe",
+                      "version":  "1.8.2",
+                      "sizeMB":  1
+                  },
+                  {
+                      "id":  "ffmpeg",
+                      "status":  "DIFF",
+                      "detail":  "version 9.0.1 on C:, 648.2 MB; Dell lock has 8.1.2",
+                      "drive":  "C:",
+                      "path":  "C:\\Users\\anant\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe\\ffmpeg-9.0.1-full_build\\bin\\ffmpeg.exe",
+                      "version":  "9.0.1",
+                      "sizeMB":  648.2
+                  },
+                  {
+                      "id":  "nanazip",
+                      "status":  "PASS",
+                      "detail":  "version 7.0.1843.0 on C:",
+                      "drive":  "C:",
+                      "path":  "C:\\Program Files\\WindowsApps\\40174MouriNaruto.NanaZip_7.0.1843.0_x64__gnj4mf6z9tkrc",
+                      "version":  "7.0.1843.0",
+                      "sizeMB":  null
+                  },
+                  {
+                      "id":  "node",
+                      "status":  "DIFF",
+                      "detail":  "version 24.19.0 on C:, 100.9 MB; Dell lock has 24.20.0",
+                      "drive":  "C:",
+                      "path":  "C:\\Program Files\\nodejs\\node.exe",
+                      "version":  "24.19.0",
+                      "sizeMB":  100.9
+                  },
+                  {
+                      "id":  "npm",
+                      "status":  "DIFF",
+                      "detail":  "version 11.17.0 on C:, 100.9 MB; Dell lock has 11.19.0",
+                      "drive":  "C:",
+                      "path":  "C:\\Program Files\\nodejs\\npm.ps1",
+                      "version":  "11.17.0",
+                      "sizeMB":  100.9
+                  },
+                  {
+                      "id":  "pnpm",
+                      "status":  "PASS",
+                      "detail":  "version 12.11.2 on C:, 51.5 MB",
+                      "drive":  "C:",
+                      "path":  "C:\\Users\\anant\\AppData\\Local\\Microsoft\\WinGet\\Packages\\pnpm.pnpm_Microsoft.Winget.Source_8wekyb3d8bbwe\\pnpm.exe",
+                      "version":  "12.11.2",
+                      "sizeMB":  51.5
+                  },
+                  {
+                      "id":  "uv",
+                      "status":  "PASS",
+                      "detail":  "version 0.12.19 on C:, 40.5 MB",
+                      "drive":  "C:",
+                      "path":  "C:\\Users\\anant\\.local\\bin\\uv.exe",
+                      "version":  "0.12.19",
+                      "sizeMB":  40.5
+                  },
+                  {
+                      "id":  "uv-python",
+                      "status":  "PASS",
+                      "detail":  "version 3.13.15 on C:; cpython 3.13.15",
+                      "drive":  "C:",
+                      "path":  "C:\\Users\\anant\\AppData\\Roaming\\uv\\python\\cpython-3.13.15-windows-x86_64-none",
+                      "version":  "3.13.15",
+                      "sizeMB":  null
+                  },
+                  {
+                      "id":  "winget",
+                      "status":  "PASS",
+                      "detail":  "version 1.29.380 on C:",
+                      "drive":  "C:",
+                      "path":  "C:\\Users\\anant\\AppData\\Local\\Microsoft\\WindowsApps\\winget.exe",
+                      "version":  "1.29.380",
+                      "sizeMB":  null
+                  },
+                  {
+                      "id":  "claude-code",
+                      "status":  "DIFF",
+                      "detail":  "version 2.1.302 on C:, 276.8 MB; Dell lock has 2.1.296",
+                      "drive":  "C:",
+                      "path":  "C:\\Users\\anant\\.local\\bin\\claude.exe",
+                      "version":  "2.1.302",
+                      "sizeMB":  276.8
+                  },
+                  {
+                      "id":  "codex",
+                      "status":  "DIFF",
+                      "detail":  "version 0.162.1 on D:; Dell lock has 0.160.0",
+                      "drive":  "D:",
+                      "path":  "D:\\AI\\npm-global\\codex.ps1",
+                      "version":  "0.162.1",
+                      "sizeMB":  0
+                  },
+                  {
+                      "id":  "claude-desktop",
+                      "status":  "DIFF",
+                      "detail":  "version 2.42304.0.0; Dell lock has 2.31226.1.0",
+                      "drive":  null,
+                      "path":  null,
+                      "version":  "2.42304.0.0",
+                      "sizeMB":  null
+                  },
+                  {
+                      "id":  "cursor",
+                      "status":  "DIFF",
+                      "detail":  "version 3.24.9; Dell lock has 3.19.13",
+                      "drive":  null,
+                      "path":  null,
+                      "version":  "3.24.9",
+                      "sizeMB":  null
+                  },
+                  {
+                      "id":  "antigravity",
+                      "status":  "DIFF",
+                      "detail":  "version 2.13.0; Dell lock has 2.22.0",
+                      "drive":  null,
+                      "path":  null,
+                      "version":  "2.13.0",
+                      "sizeMB":  null
+                  },
+                  {
+                      "id":  "docker-desktop",
+                      "status":  "DIFF",
+                      "detail":  "version 4.91.0; Dell lock has 4.56.0",
+                      "drive":  null,
+                      "path":  null,
+                      "version":  "4.91.0",
+                      "sizeMB":  null
+                  },
+                  {
+                      "id":  "ollama",
+                      "status":  "DIFF",
+                      "detail":  "version 0.34.1; Dell lock has 0.40.3",
+                      "drive":  null,
+                      "path":  null,
+                      "version":  "0.34.1",
+                      "sizeMB":  null
+                  },
+                  {
+                      "id":  "vscode",
+                      "status":  "DIFF",
+                      "detail":  "version 1.142.0; Dell lock has 1.141.0",
+                      "drive":  null,
+                      "path":  null,
+                      "version":  "1.142.0",
+                      "sizeMB":  null
+                  },
+                  {
+                      "id":  "mcp-remote",
+                      "status":  "PASS",
+                      "detail":  "version 0.2.1 on D:",
+                      "drive":  "D:",
+                      "path":  "D:\\AI\\npm-global\\mcp-remote.ps1",
+                      "version":  "0.2.1",
+                      "sizeMB":  0
+                  },
+                  {
+                      "id":  "npx",
+                      "status":  "DIFF",
+                      "detail":  "version 11.17.0 on C:, 100.9 MB; Dell lock has 11.19.0",
+                      "drive":  "C:",
+                      "path":  "C:\\Program Files\\nodejs\\npx.ps1",
+                      "version":  "11.17.0",
+                      "sizeMB":  100.9
+                  },
+                  {
+                      "id":  "uvx",
+                      "status":  "PASS",
+                      "detail":  "version 0.12.19 on C:, 0.3 MB",
+                      "drive":  "C:",
+                      "path":  "C:\\Users\\anant\\.local\\bin\\uvx.exe",
+                      "version":  "0.12.19",
+                      "sizeMB":  0.3
+                  },
+                  {
+                      "id":  "docker-cli",
+                      "status":  "DIFF",
+                      "detail":  "version 29.8.0 on C:, 42.7 MB; Dell lock has 29.1.3",
+                      "drive":  "C:",
+                      "path":  "C:\\Users\\anant\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe",
+                      "version":  "29.8.0",
+                      "sizeMB":  42.7
+                  },
+                  {
+                      "id":  "tailscale-acer",
+                      "status":  "PASS",
+                      "detail":  "version 1.104.1",
+                      "drive":  null,
+                      "path":  null,
+                      "version":  "1.104.1",
+                      "sizeMB":  null
+                  },
+                  {
+                      "id":  "uv-path-first",
+                      "status":  "PASS",
+                      "detail":  "standalone uv is the first uv on PATH"
+                  },
+                  {
+                      "id":  "cfg-starship",
+                      "status":  "PASS",
+                      "detail":  "C:\\Users\\anant\\.config\\starship.toml sha256 9EF7137822AA... matches source",
+                      "sha256":  "9EF7137822AA311445172696D150ED8E6D8C5CD84F5FCF7829D96EE0FA81D1E2"
+                  },
+                  {
+                      "id":  "cfg-git-ignore",
+                      "status":  "PASS",
+                      "detail":  "C:\\Users\\anant\\.config\\git\\ignore sha256 546B86DBE5D2... matches source",
+                      "sha256":  "546B86DBE5D2AA141915726FB99966DE0664263AB33C17C460CD50EA3C6E0E50"
+                  },
+                  {
+                      "id":  "cfg-git-delta",
+                      "status":  "PASS",
+                      "detail":  "C:\\Users\\anant\\.config\\git\\delta.gitconfig sha256 91DE9847A299... matches source",
+                      "sha256":  "91DE9847A2993F7EC2950A3F20FF6D1A72DF778B87C1817B5554780BEDD840F8"
+                  },
+                  {
+                      "id":  "cfg-bat",
+                      "status":  "PASS",
+                      "detail":  "C:\\Users\\anant\\AppData\\Roaming\\bat\\config sha256 F613417D1CF8... matches source",
+                      "sha256":  "F613417D1CF8F71A72F2568F64A05F35AECC76AAD8A26881BA3C0D84A7C4A710"
+                  },
+                  {
+                      "id":  "cfg-fd-ignore",
+                      "status":  "PASS",
+                      "detail":  "C:\\Users\\anant\\AppData\\Roaming\\fd\\ignore sha256 6A549EAF0971... matches source",
+                      "sha256":  "6A549EAF097171C6B35B0A31CB08CC41B53F0064C8858475AB3C4C191EC18DC7"
+                  },
+                  {
+                      "id":  "cfg-profile-ps5",
+                      "status":  "PASS",
+                      "detail":  "D:\\_Anant\\20_Progress\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1: block hash matches, parses clean, one starship init",
+                      "blockSha256":  "C98CB5199290C43642B0931384E7C7A26C2A66F453A30EADAE417903105D4B39"
+                  },
+                  {
+                      "id":  "cfg-profile-pwsh",
+                      "status":  "PASS",
+                      "detail":  "D:\\_Anant\\20_Progress\\Documents\\PowerShell\\Microsoft.PowerShell_profile.ps1: block hash matches, parses clean, one starship init",
+                      "blockSha256":  "C98CB5199290C43642B0931384E7C7A26C2A66F453A30EADAE417903105D4B39"
+                  },
+                  {
+                      "id":  "cfg-path-order",
+                      "status":  "PASS",
+                      "detail":  "C:\\Users\\anant\\.local\\bin is first on the user PATH"
+                  },
+                  {
+                      "id":  "wt-default-profile-is-powershell-7",
+                      "status":  "PASS",
+                      "detail":  "default profile is PowerShell 7"
+                  },
+                  {
+                      "id":  "wt-font-face-iosevkaterm-nerd-font",
+                      "status":  "PASS",
+                      "detail":  "font face IosevkaTerm Nerd Font"
+                  },
+                  {
+                      "id":  "wt-scheme-one-half-dark-applied",
+                      "status":  "PASS",
+                      "detail":  "scheme One Half Dark applied"
+                  },
+                  {
+                      "id":  "wt-extra-scheme-defined-once",
+                      "status":  "PASS",
+                      "detail":  "extra scheme defined once"
+                  },
+                  {
+                      "id":  "wt-opacity-85-acrylic-cursor-98c379",
+                      "status":  "PASS",
+                      "detail":  "opacity 85, acrylic, cursor #98C379"
+                  },
+                  {
+                      "id":  "wt-keybindings-ctrl-c-ctrl-v-ctrl-shift-f-alt-shift-d",
+                      "status":  "PASS",
+                      "detail":  "keybindings ctrl+c ctrl+v ctrl+shift+f alt+shift+d"
+                  },
+                  {
+                      "id":  "wt-pwsh-profile-entry-present",
+                      "status":  "PASS",
+                      "detail":  "pwsh profile entry present"
+                  },
+                  {
+                      "id":  "wt-ubuntu-profile-named-ubuntu-24-04-acer",
+                      "status":  "PASS",
+                      "detail":  "Ubuntu profile named \u0027Ubuntu-24.04 (Acer)\u0027"
+                  },
+                  {
+                      "id":  "font-family-IosevkaTerm-NF",
+                      "status":  "PASS",
+                      "detail":  "family \u0027IosevkaTerm NF\u0027 registered (seen by a fresh process)"
+                  },
+                  {
+                      "id":  "font-family-IosevkaTerm-NFM",
+                      "status":  "PASS",
+                      "detail":  "family \u0027IosevkaTerm NFM\u0027 registered (seen by a fresh process)"
+                  },
+                  {
+                      "id":  "git-core.longpaths",
+                      "status":  "PASS",
+                      "detail":  "core.longpaths=true"
+                  },
+                  {
+                      "id":  "git-core.fsmonitor",
+                      "status":  "PASS",
+                      "detail":  "core.fsmonitor=true"
+                  },
+                  {
+                      "id":  "git-core.untrackedCache",
+                      "status":  "PASS",
+                      "detail":  "core.untrackedCache=true"
+                  },
+                  {
+                      "id":  "git-core.autocrlf",
+                      "status":  "PASS",
+                      "detail":  "core.autocrlf=input"
+                  },
+                  {
+                      "id":  "git-pull.rebase",
+                      "status":  "PASS",
+                      "detail":  "pull.rebase=true"
+                  },
+                  {
+                      "id":  "git-push.autoSetupRemote",
+                      "status":  "PASS",
+                      "detail":  "push.autoSetupRemote=true"
+                  },
+                  {
+                      "id":  "git-fetch.prune",
+                      "status":  "PASS",
+                      "detail":  "fetch.prune=true"
+                  },
+                  {
+                      "id":  "git-rerere.enabled",
+                      "status":  "PASS",
+                      "detail":  "rerere.enabled=true"
+                  },
+                  {
+                      "id":  "git-init.defaultBranch",
+                      "status":  "PASS",
+                      "detail":  "init.defaultBranch=main"
+                  },
+                  {
+                      "id":  "git-cred-https://github.com",
+                      "status":  "PASS",
+                      "detail":  "https://github.com uses gh auth git-credential"
+                  },
+                  {
+                      "id":  "git-cred-https://gist.github.com",
+                      "status":  "PASS",
+                      "detail":  "https://gist.github.com uses gh auth git-credential"
+                  },
+                  {
+                      "id":  "git-delta-include",
+                      "status":  "PASS",
+                      "detail":  "shared delta include is active"
+                  },
+                  {
+                      "id":  "git-pager",
+                      "status":  "PASS",
+                      "detail":  "core.pager=delta"
+                  },
+                  {
+                      "id":  "gh-auth",
+                      "status":  "PASS",
+                      "detail":  "gh is logged in (details not printed)"
+                  },
+                  {
+                      "id":  "env-STARSHIP_CONFIG",
+                      "status":  "PASS",
+                      "detail":  "STARSHIP_CONFIG=C:\\Users\\anant\\.config\\starship.toml"
+                  },
+                  {
+                      "id":  "env-TOOLKIT_VAULT_ROOT",
+                      "status":  "PASS",
+                      "detail":  "TOOLKIT_VAULT_ROOT=D:\\_Anant\\20_Progress\\Documents\\Jarvis"
+                  },
+                  {
+                      "id":  "env-UV_CACHE_DIR",
+                      "status":  "INFO",
+                      "detail":  "UV_CACHE_DIR=D:\\Apps\\uv-cache (Acer: reported only)"
+                  },
+                  {
+                      "id":  "env-PIP_CACHE_DIR",
+                      "status":  "INFO",
+                      "detail":  "PIP_CACHE_DIR=(unset) (Acer: reported only)"
+                  },
+                  {
+                      "id":  "env-HF_HOME",
+                      "status":  "INFO",
+                      "detail":  "HF_HOME=(unset) (Acer: reported only)"
+                  },
+                  {
+                      "id":  "env-NUGET_PACKAGES",
+                      "status":  "INFO",
+                      "detail":  "NUGET_PACKAGES=(unset) (Acer: reported only)"
+                  },
+                  {
+                      "id":  "env-GRADLE_USER_HOME",
+                      "status":  "INFO",
+                      "detail":  "GRADLE_USER_HOME=(unset) (Acer: reported only)"
+                  },
+                  {
+                      "id":  "env-PLAYWRIGHT_BROWSERS_PATH",
+                      "status":  "INFO",
+                      "detail":  "PLAYWRIGHT_BROWSERS_PATH=(unset) (Acer: reported only)"
+                  },
+                  {
+                      "id":  "env-PUPPETEER_CACHE_DIR",
+                      "status":  "INFO",
+                      "detail":  "PUPPETEER_CACHE_DIR=(unset) (Acer: reported only)"
+                  },
+                  {
+                      "id":  "env-OLLAMA_MODELS",
+                      "status":  "INFO",
+                      "detail":  "OLLAMA_MODELS=(unset) (Acer: reported only)"
+                  },
+                  {
+                      "id":  "shell-powershell-5.1",
+                      "status":  "PASS",
+                      "detail":  "profile loads; Starship and zoxide initialised; startup 2859 ms",
+                      "startupMs":  2859
+                  },
+                  {
+                      "id":  "shell-pwsh-7",
+                      "status":  "PASS",
+                      "detail":  "profile loads; Starship and zoxide initialised; startup 2735 ms",
+                      "startupMs":  2735
+                  },
+                  {
+                      "id":  "starship-config",
+                      "status":  "PASS",
+                      "detail":  "starship print-config parses the shared config"
+                  },
+                  {
+                      "id":  "starship-render",
+                      "status":  "PASS",
+                      "detail":  "starship prompt rendered 256 characters"
+                  },
+                  {
+                      "id":  "zoxide-init",
+                      "status":  "PASS",
+                      "detail":  "zoxide init powershell works"
+                  },
+                  {
+                      "id":  "ollama-port",
+                      "status":  "INFO",
+                      "detail":  "nothing answers on 127.0.0.1:11434"
+                  },
+                  {
+                      "id":  "mcp-Claude Desktop-(file absent)",
+                      "status":  "INFO",
+                      "detail":  "file not present"
+                  },
+                  {
+                      "id":  "mcp-Claude Code (home .mcp.json)-(file absent)",
+                      "status":  "INFO",
+                      "detail":  "file not present"
+                  },
+                  {
+                      "id":  "mcp-Claude Code (user scope)-jarvis",
+                      "status":  "INFO",
+                      "detail":  "remote/url server, no local launch command (url not printed)",
+                      "purpose":  "Jarvis Obsidian vault through the Local REST API (127.0.0.1:27123)."
+                  },
+                  {
+                      "id":  "mcp-Claude Code (user scope)-the-plan",
+                      "status":  "INFO",
+                      "detail":  "remote/url server, no local launch command (url not printed)",
+                      "purpose":  "The Plan Obsidian vault through the Local REST API (127.0.0.1:27124)."
+                  },
+                  {
+                      "id":  "mcp-VS Code-io.github.upstash/context7",
+                      "status":  "INFO",
+                      "detail":  "remote/url server, no local launch command (url not printed)",
+                      "purpose":  "Current library and framework documentation lookup."
+                  },
+                  {
+                      "id":  "mcp-VS Code-io.github.github/github-mcp-server",
+                      "status":  "INFO",
+                      "detail":  "remote/url server, no local launch command (url not printed)",
+                      "purpose":  "Official GitHub MCP server (remote)."
+                  },
+                  {
+                      "id":  "mcp-VS Code-firecrawl/firecrawl-mcp-server",
+                      "status":  "PASS",
+                      "detail":  "command \u0027npx\u0027 resolves",
+                      "command":  "npx",
+                      "purpose":  "Web scraping and search."
+                  },
+                  {
+                      "id":  "mcp-VS Code-the-plan",
+                      "status":  "INFO",
+                      "detail":  "remote/url server, no local launch command (url not printed)",
+                      "purpose":  "The Plan Obsidian vault through the Local REST API (127.0.0.1:27124)."
+                  },
+                  {
+                      "id":  "mcp-VS Code-jarvis",
+                      "status":  "INFO",
+                      "detail":  "remote/url server, no local launch command (url not printed)",
+                      "purpose":  "Jarvis Obsidian vault through the Local REST API (127.0.0.1:27123)."
+                  },
+                  {
+                      "id":  "mcp-Codex-jarvis",
+                      "status":  "INFO",
+                      "detail":  "remote/url server, no local launch command (url not printed)",
+                      "purpose":  "Jarvis Obsidian vault through the Local REST API (127.0.0.1:27123)."
+                  },
+                  {
+                      "id":  "mcp-Codex-the-plan",
+                      "status":  "INFO",
+                      "detail":  "remote/url server, no local launch command (url not printed)",
+                      "purpose":  "The Plan Obsidian vault through the Local REST API (127.0.0.1:27124)."
+                  },
+                  {
+                      "id":  "mcp-Codex-github",
+                      "status":  "INFO",
+                      "detail":  "remote/url server, no local launch command (url not printed)",
+                      "purpose":  "GitHub issues, PRs and repos."
+                  },
+                  {
+                      "id":  "mcp-Codex-cua_repl",
+                      "status":  "INFO",
+                      "detail":  "remote/url server, no local launch command (url not printed)",
+                      "purpose":  "Codex built-in computer-use helper (purpose not verified)."
+                  },
+                  {
+                      "id":  "mcp-total",
+                      "status":  "INFO",
+                      "detail":  "11 server entries inspected (names and command names only; args, env and urls are never read into output)"
+                  }
+              ]
+}

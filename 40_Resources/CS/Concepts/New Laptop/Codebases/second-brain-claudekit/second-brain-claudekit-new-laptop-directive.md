@@ -1,5 +1,6 @@
 ---
 created: 2026-09-21
+updated: 2026-10-17
 type: project
 status: active
 tags:
@@ -68,6 +69,8 @@ Git clone does not restore:
 
 ## Source-laptop gate — complete before using the new laptop
 
+- [2026-10-17] Superseded for the Acer by the single-host design and the Build 5c clone removal; kept as history. See [[Old Laptop Rebuild - Build 5c Acer Workspace and Capture Findings]].
+
 Run this from the existing authoritative checkout:
 
 ```bash
@@ -96,6 +99,8 @@ Follow these notes in order:
 The first two notes are required to operate ClaudeKit. The sandbox note is a separate reconstruction phase and is not a dependency of the core repository.
 
 ## Final completion gate
+
+- [2026-10-17] Superseded: the Acer's WSL clone was bundled (`D:\Backup\repo-bundles\second-brain-claudekit-acer-20261017.bundle`) and removed in Build 5c, and the Dell hosts the only checkout. The checks below, and the source-laptop gate above, no longer apply to the Acer. See [[Old Laptop Rebuild - Build 5c Acer Workspace and Capture Findings]].
 
 The migration is complete only when all are true:
 

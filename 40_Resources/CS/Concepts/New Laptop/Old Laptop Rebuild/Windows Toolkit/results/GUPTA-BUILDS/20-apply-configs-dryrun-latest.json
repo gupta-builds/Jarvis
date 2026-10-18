@@ -3,17 +3,15 @@
     "host":  "GUPTA-BUILDS",
     "machine":  "acer",
     "dryRun":  true,
-    "started":  "2026-10-15T17:05:13",
-    "finished":  "2026-10-15T17:05:15",
+    "started":  "2026-10-17T21:18:52",
+    "finished":  "2026-10-17T21:18:55",
     "admin":  false,
     "manifestSha256":  "4E4A8D15CFEE15DC9E674B51DBE6FAB1F3730A951C20957AC9E4BB1F3C817634",
     "vaultRoot":  "D:\\_Anant\\20_Progress\\Documents\\Jarvis",
-    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-20-apply-configs-20261015-170513.log",
+    "log":  "D:\\WSL\\ops\\windows\\logs\\toolkit-20-apply-configs-20261017-211852.log",
     "counts":  {
-                   "PLAN":  8,
-                   "UNCHANGED":  2,
-                   "DIFF":  2,
-                   "WARN":  1
+                   "PLAN":  1,
+                   "UNCHANGED":  11
                },
     "items":  [
                   {
@@ -32,52 +30,49 @@
                   },
                   {
                       "id":  "git-delta",
-                      "status":  "PLAN",
-                      "detail":  "[DRYRUN] would write C:\\Users\\anant\\.config\\git\\delta.gitconfig (source sha256 91DE9847A299...)"
+                      "status":  "UNCHANGED",
+                      "detail":  "C:\\Users\\anant\\.config\\git\\delta.gitconfig already matches the source",
+                      "target":  "C:\\Users\\anant\\.config\\git\\delta.gitconfig",
+                      "sha256":  "91DE9847A2993F7EC2950A3F20FF6D1A72DF778B87C1817B5554780BEDD840F8"
                   },
                   {
                       "id":  "bat",
-                      "status":  "DIFF",
-                      "detail":  "kept this machine\u0027s own file (C:\\Users\\anant\\AppData\\Roaming\\bat\\config); differs from the shared copy by design until promoted",
+                      "status":  "UNCHANGED",
+                      "detail":  "C:\\Users\\anant\\AppData\\Roaming\\bat\\config already matches the source",
                       "target":  "C:\\Users\\anant\\AppData\\Roaming\\bat\\config",
-                      "sha256":  "F613417D1CF8F71A72F2568F64A05F35AECC76AAD8A26881BA3C0D84A7C4A710",
-                      "sourceSha256":  "FD064DBC4718C2A38DC7D5B250609D62EBC386A3B97B6353009D4348D95D4C8A"
+                      "sha256":  "F613417D1CF8F71A72F2568F64A05F35AECC76AAD8A26881BA3C0D84A7C4A710"
                   },
                   {
                       "id":  "fd-ignore",
-                      "status":  "DIFF",
-                      "detail":  "kept this machine\u0027s own file (C:\\Users\\anant\\AppData\\Roaming\\fd\\ignore); differs from the shared copy by design until promoted",
+                      "status":  "UNCHANGED",
+                      "detail":  "C:\\Users\\anant\\AppData\\Roaming\\fd\\ignore already matches the source",
                       "target":  "C:\\Users\\anant\\AppData\\Roaming\\fd\\ignore",
-                      "sha256":  "6A549EAF097171C6B35B0A31CB08CC41B53F0064C8858475AB3C4C191EC18DC7",
-                      "sourceSha256":  "A97264C09BFF11356068FED1BB45BD241798431071EE2B1C78C9FF849FA651E0"
+                      "sha256":  "6A549EAF097171C6B35B0A31CB08CC41B53F0064C8858475AB3C4C191EC18DC7"
                   },
                   {
                       "id":  "profile-ps5",
-                      "status":  "PLAN",
-                      "detail":  "[DRYRUN] would insert/refresh the managed block in D:\\_Anant\\20_Progress\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1 lines 1-1 superseded; lines 2-2 superseded; lines 8-12 superseded; lines 14-14 superseded; lines 15-15 superseded; lines 19-23 superseded",
-                      "target":  "D:\\_Anant\\20_Progress\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1"
+                      "status":  "UNCHANGED",
+                      "detail":  "D:\\_Anant\\20_Progress\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1: managed block already current",
+                      "target":  "D:\\_Anant\\20_Progress\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1",
+                      "blockSha256":  "C98CB5199290C43642B0931384E7C7A26C2A66F453A30EADAE417903105D4B39"
                   },
                   {
                       "id":  "profile-pwsh",
-                      "status":  "PLAN",
-                      "detail":  "[DRYRUN] would insert/refresh the managed block in D:\\_Anant\\20_Progress\\Documents\\PowerShell\\Microsoft.PowerShell_profile.ps1 lines 1-1 superseded; lines 2-2 superseded; lines 8-12 superseded; lines 14-14 superseded; lines 15-15 superseded; lines 19-23 superseded",
-                      "target":  "D:\\_Anant\\20_Progress\\Documents\\PowerShell\\Microsoft.PowerShell_profile.ps1"
+                      "status":  "UNCHANGED",
+                      "detail":  "D:\\_Anant\\20_Progress\\Documents\\PowerShell\\Microsoft.PowerShell_profile.ps1: managed block already current",
+                      "target":  "D:\\_Anant\\20_Progress\\Documents\\PowerShell\\Microsoft.PowerShell_profile.ps1",
+                      "blockSha256":  "C98CB5199290C43642B0931384E7C7A26C2A66F453A30EADAE417903105D4B39"
                   },
                   {
                       "id":  "terminal",
-                      "status":  "PLAN",
-                      "detail":  "[DRYRUN] would merge scheme, defaults, actions, keybindings, pwsh profile and rename Ubuntu to \u0027Ubuntu-24.04 (Acer)\u0027 in C:\\Users\\anant\\AppData\\Local\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json; preview: D:\\_Anant\\20_Progress\\Documents\\Jarvis\\40_Resources\\CS\\Concepts\\New Laptop\\Old Laptop Rebuild\\Windows Toolkit\\results\\GUPTA-BUILDS\\terminal-settings-preview-20261015-170513.json",
+                      "status":  "UNCHANGED",
+                      "detail":  "C:\\Users\\anant\\AppData\\Local\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json already carries the fragment",
                       "target":  "C:\\Users\\anant\\AppData\\Local\\Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState\\settings.json"
                   },
                   {
-                      "id":  "git-delta-include",
-                      "status":  "WARN",
-                      "detail":  "delta or its include file is missing; pager include skipped"
-                  },
-                  {
                       "id":  "git-settings",
-                      "status":  "PLAN",
-                      "detail":  "8 setting(s) would change; 3 already correct. core.autocrlf: \u0027\u0027 -\u003e \u0027input\u0027 | pull.rebase: \u0027\u0027 -\u003e \u0027true\u0027 | push.autoSetupRemote: \u0027\u0027 -\u003e \u0027true\u0027 | fetch.prune: \u0027\u0027 -\u003e \u0027true\u0027 | rerere.enabled: \u0027\u0027 -\u003e \u0027true\u0027 | init.defaultBranch: \u0027\u0027 -\u003e \u0027main\u0027 | credential.https://github.com.helper: would reset and set to gh auth git-credential | credential.https://gist.github.com.helper: would reset and set to gh auth git-credential"
+                      "status":  "UNCHANGED",
+                      "detail":  "all 12 git settings already correct"
                   },
                   {
                       "id":  "path-order",
@@ -86,13 +81,13 @@
                   },
                   {
                       "id":  "env-STARSHIP_CONFIG",
-                      "status":  "PLAN",
-                      "detail":  "[DRYRUN] would set STARSHIP_CONFIG=C:\\Users\\anant\\.config\\starship.toml (was \u0027\u0027)"
+                      "status":  "UNCHANGED",
+                      "detail":  "STARSHIP_CONFIG=C:\\Users\\anant\\.config\\starship.toml"
                   },
                   {
                       "id":  "env-TOOLKIT_VAULT_ROOT",
-                      "status":  "PLAN",
-                      "detail":  "[DRYRUN] would set TOOLKIT_VAULT_ROOT=D:\\_Anant\\20_Progress\\Documents\\Jarvis (was \u0027\u0027)"
+                      "status":  "UNCHANGED",
+                      "detail":  "TOOLKIT_VAULT_ROOT=D:\\_Anant\\20_Progress\\Documents\\Jarvis"
                   }
               ],
     "hashTable":  [
@@ -111,18 +106,39 @@
                           "match":  true
                       },
                       {
+                          "id":  "git-delta",
+                          "target":  "C:\\Users\\anant\\.config\\git\\delta.gitconfig",
+                          "source":  "91DE9847A2993F7EC2950A3F20FF6D1A72DF778B87C1817B5554780BEDD840F8",
+                          "target_hash":  "91DE9847A2993F7EC2950A3F20FF6D1A72DF778B87C1817B5554780BEDD840F8",
+                          "match":  true
+                      },
+                      {
                           "id":  "bat",
                           "target":  "C:\\Users\\anant\\AppData\\Roaming\\bat\\config",
-                          "source":  "FD064DBC4718C2A38DC7D5B250609D62EBC386A3B97B6353009D4348D95D4C8A",
+                          "source":  "F613417D1CF8F71A72F2568F64A05F35AECC76AAD8A26881BA3C0D84A7C4A710",
                           "target_hash":  "F613417D1CF8F71A72F2568F64A05F35AECC76AAD8A26881BA3C0D84A7C4A710",
-                          "match":  false
+                          "match":  true
                       },
                       {
                           "id":  "fd-ignore",
                           "target":  "C:\\Users\\anant\\AppData\\Roaming\\fd\\ignore",
-                          "source":  "A97264C09BFF11356068FED1BB45BD241798431071EE2B1C78C9FF849FA651E0",
+                          "source":  "6A549EAF097171C6B35B0A31CB08CC41B53F0064C8858475AB3C4C191EC18DC7",
                           "target_hash":  "6A549EAF097171C6B35B0A31CB08CC41B53F0064C8858475AB3C4C191EC18DC7",
-                          "match":  false
+                          "match":  true
+                      },
+                      {
+                          "id":  "profile-ps5",
+                          "target":  "D:\\_Anant\\20_Progress\\Documents\\WindowsPowerShell\\Microsoft.PowerShell_profile.ps1",
+                          "source":  "C98CB5199290C43642B0931384E7C7A26C2A66F453A30EADAE417903105D4B39",
+                          "target_hash":  "C98CB5199290C43642B0931384E7C7A26C2A66F453A30EADAE417903105D4B39",
+                          "match":  true
+                      },
+                      {
+                          "id":  "profile-pwsh",
+                          "target":  "D:\\_Anant\\20_Progress\\Documents\\PowerShell\\Microsoft.PowerShell_profile.ps1",
+                          "source":  "C98CB5199290C43642B0931384E7C7A26C2A66F453A30EADAE417903105D4B39",
+                          "target_hash":  "C98CB5199290C43642B0931384E7C7A26C2A66F453A30EADAE417903105D4B39",
+                          "match":  true
                       }
                   ]
 }

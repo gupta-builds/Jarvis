@@ -237,3 +237,6 @@ A live session on `gupta-builds` applied the Dell's golden WSL toolkit and ran t
 
 ### WSL platform update, 2026-10-15 18:48
 WSL 2.7.14.0 to 3.0.3.0, kernel 6.18.54.1, systemd running with 0 failed units, `.wslconfig` and swap unchanged and live. Full verification: [[Ubuntu - WSL]], section "WSL platform update". The Acer and the Dell now run the same WSL version.
+
+## Build 5c: Acer as a remote workspace - 2026-10-17
+Historical note, not a re-audit. Conversation capture now runs on the Acer (hooks in WSL and Windows, a WSL user timer, a Windows scheduled task, output under `AI Conversations/Acer/`). The WSL clones were bundled and removed; the "4 commits only on the Acer" finding of 2026-10-15 was wrong in effect, because PR #13 had rebase-merged them on 2026-10-04. WSL caches were trimmed (72 to 60 percent used). The Windows side gained the `dell-wsl` SSH alias, Tailscale unattended mode, VS Code remote defaults, a Terminal profile and the `dell` and `dcode` shortcuts. Full record: [[Old Laptop Rebuild - Build 5c Acer Workspace and Capture Findings]].

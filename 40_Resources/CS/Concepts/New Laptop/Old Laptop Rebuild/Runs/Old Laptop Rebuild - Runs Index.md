@@ -31,6 +31,8 @@ next: "When Build 6, 7 or 8 runs, add its folder and a results row here."
 | `Build 4 Windows Toolkit/` | [[Old Laptop Rebuild - Build 4 Windows Toolkit Findings]] (Phases 1 to 4, Build 4b and its 2026-10-17 follow-up) |
 | `Build 5 WSL and D Drive/` | [[Old Laptop Rebuild - Build 5 WSL and D Drive Findings]] (Build 5 and the Dell part of Build 5b) |
 | `Build 5b Acer Visit/` | [[Old Laptop Rebuild - Acer Visit Findings (2026-10-15)]] (the Acer's part of Builds 2, 4 and 5b, with the Windows parity matrix) |
+| `Build 5c Acer Workspace and Capture/` | [[Old Laptop Rebuild - Build 5c Acer Workspace and Capture Findings]] (machine-aware capture, Acer repos bundled and removed, cache trim, Windows Remote-SSH pieces) |
+| `_backups/acer-5c-20261017/` | pre-edit copies of the notes changed in Build 5c |
 | this folder | this note |
 
 ## What each run did
@@ -42,6 +44,7 @@ next: "When Build 6, 7 or 8 runs, add its folder and a results row here."
 | Build 4, Windows toolkit (+4b) | 2026-10-11 to 10-17 | PowerShell 7, Starship, font, zoxide, fzf, fd, bat, delta, NanaZip, pnpm, Node 24, standalone uv; 104 PASS and a lock; catalog and agent guide; Python and Chocolatey removed; Cursor's update failure traced to a force-kill; WSL export and tar quarantine; OpenClaw, Rize and dead startup entries removed; 53.8 GiB of quarantine deleted; pnpm-pin pilot on one repo |
 | Build 5, Dell WSL parity (+5b) | 2026-10-13 to 10-14 | configs equal to the Acer's real files, then one golden set; ruff, shellcheck, shfmt, Miniconda; upkeep timers; tmux 3.8 and pnpm 12.4.2; DCIM duplicates (3,799 MiB) removed; ChatGPT Classic removed |
 | Acer visit | 2026-10-15 | golden WSL set applied (`changed=13 same=21 fails=0`), Windows toolkit Parts 0 to 3 (0 FAIL), Build 2 SSH checks, WSL updated to 3.0.3.0, 4 local-only internship commits found and bundled |
+| Build 5c, Acer workspace and capture | 2026-10-17 | capture to `<Machine>/<OS>/Claude` on both laptops with a user timer on each WSL; Dell WSL hook repaired (8 missed sessions recovered); Acer repos bundled with checksums and removed; WSL caches trimmed 4.4 GB (72 to 60 percent); SSH alias, Tailscale unattended, VS Code defaults, Terminal profile, `dell` and `dcode` |
 
 ## Where the retired material went (2026-10-17)
 All of it is recoverable from the vault's git history; nothing needed to run or understand the machines was lost.

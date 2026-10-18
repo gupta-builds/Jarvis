@@ -14,6 +14,7 @@ tags:
 related:
   - "[[Old Laptop Rebuild - Runs Index]]"
   - "[[Old Laptop Rebuild - Acer Visit Findings (2026-10-15)]]"
+  - "[[Old Laptop Rebuild - Build 5c Acer Workspace and Capture Findings]]"
   - "[[Installations]]"
   - "[[Ubuntu - WSL]]"
   - "[[New Laptop Setup]]"
@@ -23,7 +24,7 @@ related:
   - "[[Codebases - Two-Laptop SSH Workflow - Locked Decisions and Postmortem]]"
   - "[[Old Laptop Rebuild - Anant Folder Consolidation and Drive Plan (later build)]]"
   - "[[Old Laptop Rebuild - C Drive AI Platforms Audit (future build)]]"
-next: "Revoke the Firecrawl key at the provider; read the first weekly-clean log (Sun 2026-10-18); run a Defender full scan; decide the Acer's 4 local-only internship commits and the pnpm-pin pushes; then write Build 6."
+next: "Revoke the Firecrawl key at the provider; read the first weekly-clean log (Sun 2026-10-18); run a Defender full scan; have the Dell pull the merged internship master and reconcile its 6 local commits; decide the pnpm-pin pushes and the gpu-smoke-test .venv; then write Build 6 and Build 7."
 ---
 # Old Laptop Rebuild - Index
 
@@ -62,7 +63,9 @@ Retired on 2026-10-17: every build prompt, the Acer-facing handoff and run-sheet
 | 5 (+5b) | 2026-10-13 to 10-15 | WSL parity | configs equal to the Acer's, then one golden set for both; upkeep timers; Miniconda; tmux 3.8, pnpm 12.4.2; DCIM duplicates removed | [[Old Laptop Rebuild - Build 5 WSL and D Drive Findings]] |
 | Acer visit | 2026-10-15 | Acer side of Builds 2, 4 and 5b | golden WSL set applied, Windows toolkit Parts 0 to 3 (0 FAIL), host key MATCH, WSL updated to 3.0.3.0 | [[Old Laptop Rebuild - Acer Visit Findings (2026-10-15)]] |
 | 6 | not written | Windows VS Code, MCP registry and Claude Code settings; AI platforms audit | open: Codex `node_repl` path, the skill-junction dot folders (13 named in the audit, dozens in total), Settings Sync impact | plan: [[Old Laptop Rebuild - C Drive AI Platforms Audit (future build)]] |
-| 7 | not written | dev-only profile and a final verification against the Acer | open | none |
+| 5c | 2026-10-17 | Acer as a clean remote workspace | capture writes to `<Machine>/<OS>/Claude` on both laptops with a timer on each WSL; the Acer's three repos bundled, verified and removed (the 4 "local-only" internship commits were already on master via PR #13); WSL caches trimmed by 4.4 GB; SSH alias, Tailscale unattended, VS Code defaults, Terminal profile and `dell` and `dcode` shortcuts | [[Old Laptop Rebuild - Build 5c Acer Workspace and Capture Findings]] |
+| 7 | not written | Dell reboot resilience | open; prompt not written yet | none |
+| 9 | not written | dev-only profile and a final verification against the Acer (was numbered 7 until 2026-10-17) | open | none |
 | 8 | not written | `D:\_Anant` consolidation and Google Drive | open; needs your answers first | plan: [[Old Laptop Rebuild - Anant Folder Consolidation and Drive Plan (later build)]] |
 "Build 5b" means the WSL golden-config toolkit upgrade: the Dell's part is in the Build 5 findings, the Acer's part in the Acer visit note. "Build 4b" is the Dell leftovers and Tailscale/SSH decisions inside the Build 4 findings. Earlier drafts of these notes used a different numbering (for example "Build 5 Windows VS Code" and "Build 6 final parity"); that was superseded by the table above.
 
@@ -121,8 +124,9 @@ Retired on 2026-10-17: every build prompt, the Acer-facing handoff and run-sheet
 ## Open ledger: Acer
 | # | Item | Detail |
 |---|---|---|
-| A1 | **4 internship commits exist only on the Acer** | branch `acer-predator/repo-environment-setup`, upstream gone; protected by a verified bundle in `D:\Backup\repo-bundles\` on the Acer; push the branch or bring the commits to the Dell session |
-| A2 | Discussion: what WSL is for on the Acer | disk 72 percent used, no `wsl --export` yet; the Dell hosts the code. Questions: what runs there, what to do with its clones, resize versus rebuild |
+| A1 | ~~4 internship commits exist only on the Acer~~ | **Closed 2026-10-17.** They were already on `origin/master` (PR #13, rebase merge, 2026-10-04). The Acer clone is bundled and removed. Still open on the Dell: pull master and reconcile its 6 local commits |
+| A2 | ~~Discussion: what WSL is for on the Acer~~ | **Decided:** local-model and GPU work only. All repos removed (bundles in `D:\Backup\repo-bundles\`), caches trimmed (72 to 60 percent). Still open: `gpu-smoke-test/.venv` (5.3 GB) and the disk export or resize |
+| A7 | Build 5c follow-ups | reboot test for Tailscale unattended; one Remote-SSH window to confirm the extension host; Cursor over `ssh-remote`; the Dell Windows task's first run with the shared exporter |
 | A3 | Cache redirects | set `PIP_CACHE_DIR`, `HF_HOME`, `NUGET_PACKAGES`, `GRADLE_USER_HOME`, `PLAYWRIGHT_BROWSERS_PATH`, `PUPPETEER_CACHE_DIR` and decide `OLLAMA_MODELS` |
 | A4 | Small items | reopen Docker Desktop; Node 24.19.0 versus the lock's 24.20.0; the Remote-SSH execution-location re-check in a GUI window; find out why an SSH stream runs at only 2.5 MiB/s |
 | A5 | Acer Drive backup scope and the account question | the Drive plan note |
@@ -132,11 +136,11 @@ Retired on 2026-10-17: every build prompt, the Acer-facing handoff and run-sheet
 1. **Revoke the Firecrawl key** at the provider (D1).
 2. **Sunday 2026-10-18:** let the first weekly clean run, then have the next session read its log and the watcher alert file (D2).
 3. **Reboot once and read C: free** (D3); then run a **Defender full scan** (D4).
-4. **Decide the code questions:** the Acer's 4 commits (A1/D6), whether to push or PR the Learning-Tracker-Tool pin (D5), how to repair the portfolio lockfile, and which manager Assisto uses.
+4. **Decide the code questions:** the Dell pulling the merged internship master (A1 closed, D6 remains), whether to push or PR the Learning-Tracker-Tool pin (D5), how to repair the portfolio lockfile, and which manager Assisto uses.
 5. **Optional safety step:** import-test the WSL export once (D10).
 6. **Small Dell clean-ups:** D7 to D9 are settled; only D13 remains.
-7. **Acer visit when convenient:** A3, A4, then the WSL-role discussion (A2).
-8. **Write Build 6** (Windows VS Code, MCP and Claude Code wiring plus the AI platforms audit), then Build 7 (dev-only profile, final verification against the Acer). **Build 8** (`D:\_Anant` and Drive) only after you answer the questions in its plan.
+7. **Acer visit when convenient:** A3, A4 and A7 (A2 is decided: local-model and GPU work).
+8. **Write Build 6** (Windows VS Code, MCP and Claude Code wiring plus the AI platforms audit), then Build 7 (Dell reboot resilience, prompt not written yet) and Build 9 (dev-only profile, final verification against the Acer). **Build 8** (`D:\_Anant` and Drive) only after you answer the questions in its plan.
 
 ## Stale notes outside this folder (status)
 Fixed during the 2026-10-17 pass: [[Installations]], [[Ubuntu - WSL]] (two wrong flashcards), [[WSL Toolkit Config Reference]], the Locked Decisions note. Still historical and out of date on purpose (the live machine wins): [[Old Laptop Decommission Checklist]], `WSL New Laptop Master Plan` and [[WSL Session Briefing]] (their Ollama and "Dell retired" statements are wrong). Two notes in the parent folder are not part of this programme: `Statusline Migration` (an Obsidian plugin prompt filed here by mistake) and the `VS Code - Windows Environment Build Prompt` (Build 6 reads it). [[VS Code - Windows]] still says Docker starts at logon; it does not.

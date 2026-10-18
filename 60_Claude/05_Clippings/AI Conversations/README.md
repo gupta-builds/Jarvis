@@ -2,7 +2,7 @@
 type: dashboard
 status: tree
 created: 2026-05-29
-updated: 2026-08-11
+updated: 2026-10-17
 tags:
   - clippings
   - ai-conversations
@@ -13,6 +13,20 @@ notes:
 ---
 # AI Conversations — Raw Archive
 This folder is the raw archive for exported LLM conversation transcripts (Claude Code, Claude web, Codex, Cursor, Kiro, ChatGPT, Ollama, future tools).
+## Current layout (2026-10-17, Build 5c): machine first
+The live folder tree is authoritative. New exports go to `<Machine>/<OS>/<Tool>/<Project>/`, where Machine is `Dell` or `Acer` (read from the host name, case-insensitive; an unknown host writes nothing) and the Claude Code and Cowork tool folder is `Claude`:
+```
+AI Conversations/
+  Dell/  WSL/Claude/<project>/   Windows/Claude/<project>/   Windows/Claude/Cowork/<YYYY-MM>/   (Cursor folders as before)
+  Acer/  WSL/Claude/<project>/   Windows/Claude/<project>/
+  Windows/Claude Code/, Windows/Cowork/   ← legacy trees; their .exported markers still count as "already exported", nothing is moved
+```
+- One shared script per OS in `30_Order/System/claude-workflow/scripts/`: `export-claude-session.ps1` (Windows) and `wsl-session-export.ps1` (WSL), both with `-BackfillAll` and `-DryRun`. The Windows hook wrapper is `hooks/jarvis-session-continuity.ps1`.
+- Dell WSL repair: the hook had pointed at a folder that no longer existed, so exports returned silently from 2026-10-13. Both hook entries now run the vault script; the old file is `wsl-session-export.ps1.pre-5c` on the Dell.
+- Safety net: each WSL runs a systemd user timer `claude-capture-backfill` (every 30 minutes, `Persistent=true`); each Windows side runs the scheduled task `ConversationCapture-Backfill-Windows` (the Dell's old WSL task stays disabled; the Acer's was registered by `register-capture-backfill-windows-task.ps1`).
+- Capture Health notes and their state files are per machine and not synced.
+- Details and proof: [[Old Laptop Rebuild - Build 5c Acer Workspace and Capture Findings]]. The sections below describe the pipeline as built before 2026-10-17, so their folder names (`Windows/Claude Code`, `WSL/Claude Code`) are historical.
+
 ## Structure (added 2026-07-05)
 Split by OS environment first, then by tool, since Claude Code/Kiro/Cursor each maintain separate config and session history on Windows vs WSL:
 ```

@@ -1,0 +1,14 @@
+---
+
+excalidraw-plugin: parsed
+tags: [excalidraw]
+
+---
+==⚠  Switch to EXCALIDRAW VIEW in the MORE OPTIONS menu of this document. ⚠== You can decompress Drawing data with the command palette: 'Decompress current Excalidraw file'. For more info check in plugin settings under 'Saving'
+
+
+## Drawing
+```json
+{"type": "excalidraw", "version": 2, "source": "mcp-excalidraw-server", "elements": [{"type": "text", "x": 110, "y": 350, "strokeColor": "#1e1e1e", "text": "4(c) — |det A| = parallelepiped area, vs ∏||aj|| = the right-angle box", "fontSize": 18}, {"type": "text", "x": 110, "y": 390, "strokeColor": "#1971c2", "text": "Panel 1 — general A (strict inequality)", "fontSize": 16}, {"type": "text", "x": 570, "y": 390, "strokeColor": "#2f9e44", "text": "Panel 2 — A unitary, columns orthogonal (equality)", "fontSize": 16}, {"type": "rectangle", "x": 260, "y": 560, "width": 135, "height": 90, "strokeColor": "#868e96", "strokeWidth": 1.5, "strokeStyle": "dashed"}, {"type": "line", "x": 260, "y": 650, "width": 180, "height": 77.94228634059948, "points": [[0, 0], [135, 0], [180, -77.94228634059948], [45, -77.94228634059948], [0, 0]], "strokeColor": "#1971c2", "strokeWidth": 1.5, "backgroundColor": "#a5d8ff", "fillStyle": "solid"}, {"type": "arrow", "x": 260, "y": 650, "width": 135, "height": 0, "points": [[0, 0], [135, 0]], "strokeColor": "#1971c2", "strokeWidth": 2, "endArrowhead": "triangle"}, {"type": "text", "x": 385, "y": 664, "strokeColor": "#1971c2", "text": "a1 = (3,0)", "fontSize": 13}, {"type": "arrow", "x": 260, "y": 650, "width": 45, "height": 77.94228634059948, "points": [[0, 0], [45, -77.94228634059948]], "strokeColor": "#1971c2", "strokeWidth": 2, "endArrowhead": "triangle"}, {"type": "text", "x": 235, "y": 562.0577136594005, "strokeColor": "#1971c2", "text": "a2 (60°, len 2)", "fontSize": 13}, {"type": "text", "x": 300, "y": 610, "strokeColor": "#1971c2", "text": "|det A| ≈ 5.2 (shaded)", "fontSize": 13}, {"type": "text", "x": 325, "y": 546, "strokeColor": "#868e96", "text": "∏||aj||₂ = 6 (dashed box)", "fontSize": 13}, {"type": "rectangle", "x": 720, "y": 560, "width": 135, "height": 90, "strokeColor": "#2f9e44", "strokeWidth": 1.5, "backgroundColor": "#b2f2bb", "fillStyle": "solid"}, {"type": "arrow", "x": 720, "y": 650, "width": 135, "height": 0, "points": [[0, 0], [135, 0]], "strokeColor": "#2f9e44", "strokeWidth": 2, "endArrowhead": "triangle"}, {"type": "text", "x": 845, "y": 664, "strokeColor": "#2f9e44", "text": "a1 = (3,0)", "fontSize": 13}, {"type": "arrow", "x": 720, "y": 650, "width": 0, "height": 90, "points": [[0, 0], [0, -90]], "strokeColor": "#2f9e44", "strokeWidth": 2, "endArrowhead": "triangle"}, {"type": "text", "x": 660, "y": 554, "strokeColor": "#2f9e44", "text": "a2 = (0,2)", "fontSize": 13}, {"type": "text", "x": 750, "y": 600, "strokeColor": "#2f9e44", "text": "|det A| = ∏||aj||₂ = 6 — equality", "fontSize": 13}], "appState": {"viewBackgroundColor": "#ffffff", "gridSize": null}}
+```
+%%

@@ -9,7 +9,7 @@ tags:
   - homework
 area:
   - "[[CSCI 5304 Board]]"
-next: "Hand-copy the solutions below into the boxes of the printed Homework - 2 PDF; confirm the real due date on Canvas/Gradescope before submitting — [[CSCI 5304 Board]] flags HW #2's date as unverified"
+next: "Hand-copy the solutions and the diagrams for 1c, 3b, 3c, 4c below into the boxes of the printed Homework - 2 PDF; confirm the real due date on Canvas/Gradescope before submitting — [[CSCI 5304 Board]] flags HW #2's date as unverified"
 ---
 # Homework - 2
 ## Overview
@@ -65,6 +65,7 @@ $$A=\underbrace{\begin{bmatrix}\tfrac{1}{\sqrt2}&\tfrac1{\sqrt2}\\\tfrac1{\sqrt2
 Left: $u_1=\tfrac1{\sqrt2}(1,1)^T,\ u_2=\tfrac1{\sqrt2}(1,-1)^T$. Right: $v_1=\tfrac15(-3,4)^T,\ v_2=\tfrac15(4,3)^T$.
 
 **(c)** Two side-by-side panels, connected by an arrow for "apply $A$."
+![[Homework 2 - 1c - SVD unit ball to image ellipse.excalidraw]]
 
 **Panel 1 — the unit ball (domain), left side of the box:**
 1. Draw $x$- and $y$-axes, and a circle of radius $1$ centered at the origin.
@@ -109,6 +110,8 @@ $$(I-2P)^*(I-2P)=(I-2P)(I-2P)=I-4P+4P^2=I-4P+4P=I.$$
 So $(I-2P)^*(I-2P)=I$ — unitary. $\blacksquare$
 
 **(b)/(c)** One picture does both parts — build it in layers. A concrete worked example is given alongside the generic steps so you can plot it precisely on graph paper; the construction is the same for any line/vector choice.
+![[Homework 2 - 3b - projection of x onto R(P).excalidraw]]
+![[Homework 2 - 3c - I minus 2P reflects x across R(P) perp.excalidraw]]
 
 *Concrete numbers to plot:* line $\mathcal R(P)$ at $30°$ above horizontal; $\vec x=(0,2)$ (straight up, length $2$). Then $P\vec x=\left(\tfrac{\sqrt3}2,\tfrac12\right)\approx(0.87,0.5)$, $(I-P)\vec x=\left(-\tfrac{\sqrt3}2,\tfrac32\right)\approx(-0.87,1.5)$, and $(I-2P)\vec x=(-\sqrt3,1)\approx(-1.73,1)$.
 
@@ -140,6 +143,7 @@ $$|\det A|=\prod_j|r_{jj}|\le\prod_j\|a_j\|_2.\ \blacksquare$$
 **(b)** $A$ unitary $\Rightarrow$ columns already orthonormal $\Rightarrow$ Gram-Schmidt needs no correction: $r_{ij}=0\ (i<j)$, $q_j=a_j$, $r_{jj}=\|a_j\|_2=1$. Then $|\det A|=\prod r_{jj}=\prod\|a_j\|_2=1$ — the bound in (a) is tight, equality holds.
 
 **(c)** Two side-by-side panels (2D, since that's the easy case to actually draw — note underneath that the same idea extends to a 3D parallelepiped vs. a box).
+![[Homework 2 - 4c - parallelepiped vs box Hadamard.excalidraw]]
 
 **Panel 1 — general $A$, the inequality is strict ($\theta\ne90°$):**
 1. Draw $x,y$-axes. Draw $\vec a_1=(3,0)$ — an arrow along the $x$-axis, length $3$.
@@ -222,6 +226,15 @@ Any left inverse can be written $L=A^++N$ with $NA=0$ (rows of $N$ orthogonal to
 $$LL^T=A^+(A^+)^T+NN^T\ \succeq\ A^+(A^+)^T\qquad(\text{PSD order, since }NN^T\succeq0)$$
 This means $\|L\|_2\ge\|A^+\|_2$ for *every* left inverse $L$ (the pseudoinverse has the smallest 2-norm of any left inverse). Using our explicit $L$:
 $$\boxed{\|A^+\|_2\le\|L\|_2=\|A_1^{-1}\|_2}\ \blacksquare$$
+### 2026-10-18 — diagrams drawn for 1(c), 3(b)/(c), 4(c)
+4 diagrams built on the live Excalidraw MCP canvas and exported as native `.excalidraw` files in `10_Areas/Excalidraw/`, each numerically verified against the worked values above (exact assertion checks, not just visual eyeballing) before being written:
+- **1(c)**: two panels — the unit circle with $\vec v_1=(-0.6,0.8)$ at $126.87°$ and $\vec v_2=(0.8,0.6)$ at $36.87°$ (checked perpendicular and unit-length), connected by curved arrows to the image ellipse (semi-axes $\sigma_1=10\sqrt2,\sigma_2=5\sqrt2$, rotated $45°$ so its major axis sits on $y=x$) showing $\sigma_1\vec u_1=(10,10)$ and $\sigma_2\vec u_2=(5,-5)$.
+- **3(b)**: $\vec x=(0,2)$, its projection $P\vec x\approx(0.87,0.5)$ onto the $\mathcal R(P)$ line at $30°$, and the perpendicular leg $(I-P)\vec x$ — checked $(I-P)\vec x\perp\mathcal R(P)$ by dot product.
+- **3(c)**: same picture plus $-P\vec x$ and $(I-2P)\vec x\approx(-1.73,1)$, built by shifting the $(I-P)\vec x$ segment to start at $-P\vec x$ — checked the shift is a pure translation (equal vector) and that $\|\vec x\|=\|(I-2P)\vec x\|=2$.
+- **4(c)**: two panels — the general-$A$ parallelogram (shaded, area $3\times2\times\sin60°\approx5.2$, checked via cross product) overlaid with the dashed $3\times2$ comparison box (area $6$), vs. the unitary case where $\vec a_1\perp\vec a_2$ and the parallelogram *is* the box (area $6$, equality).
+All 4 were also round-tripped through the MCP canvas (`import_scene` + `describe_scene`) to catch any schema issues before writing to the vault.
+> [!WARNING] Fixed a drawing bug in [[20_Progress/Degree/CSCI 5304/Quiz & HW/Quiz - 3|Quiz - 3]]'s 1(a) box 1 diagram
+> The first pass at the Quiz 3 diagrams (built via `batch_create_elements` with only `x,y,width,height`, no explicit `points` array) silently mis-rendered the one vector arrow whose offset was negative in *both* x and y (box 1's $F\vec e_1$, pointing up-left) — real Excalidraw linear elements need an explicit `points` array to carry direction; relying on the sign of `width`/`height` alone isn't reliable. All 4 Quiz 3 diagrams and all 4 Homework 2 diagrams here were (re)built with explicit `points` arrays to avoid this class of bug.
 ## Concepts used
 - **SVD** ([[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 4|Lecture 4]], [[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 5|Lecture 5]]) — computed by hand via $A^TA$'s eigendecomposition for problem 1; used for $A^{-1}$, the 2-norm, and the ellipsoid-area identity in problem 2.
 - **Matrix norms** ([[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 2 & 3|Lecture 2 & 3]]) — max-column-sum ($\|{\cdot}\|_1$) and max-row-sum ($\|{\cdot}\|_\infty$) formulas, Frobenius norm via entrywise sum, used directly in problem 2a.

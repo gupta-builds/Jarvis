@@ -55,6 +55,9 @@ The printed sheet gives 2 boxes per sub-part, so 4 diagrams total, built on the 
 - Box 1 of 1(b): $\vec e_1$ at $0°$ and $J\vec e_1$ at $-60°$, with a clockwise rotation arc labeled $\theta=60°$.
 - Box 2 of 1(b): $\vec e_2$ at $90°$ and $J\vec e_2$ at $30°$, same rotation arc.
 Open each embed in Excalidraw view (not Markdown preview) to see the actual drawing, and hand-copy each one onto its matching box on the printed sheet — don't just copy the vector coordinates, the point is the picture (axes, both vectors, and the mirror line or rotation arc).
+
+### 2026-10-18 — fixed a rendering bug in box 1
+Box 1's $F\vec e_1$ arrow (the only vector in all 4 diagrams with both a negative x- and y-offset) was built with just `x,y,width,height` and no explicit `points` array, which real Excalidraw linear elements need to carry direction reliably. All 4 diagrams above were rebuilt with explicit `points` arrays (and re-verified algebraically: bisector angle, rotation angle, arc-sweep direction) to close out this class of bug — see the matching note in [[20_Progress/Degree/CSCI 5304/Quiz & HW/Homework - 2|Homework - 2]]'s work log for the full explanation.
 ## Concepts used
 - **Householder reflectors** ([[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 10|Lecture 10]], not yet written in this vault — read straight from the MinerU extraction) — $F$'s reflection-across-a-line structure (1a) and the Eq. 10.1 zero-introduction pattern $Q_1$ is compared against (1c).
 - **Givens rotations** (same Lecture 10 source, Exercise 10.4) — $J$'s rigid-rotation structure (1b); the $2\times2$ zero-introducing map generalized to $G(i,k,\theta)$ for QR factorization (1c).

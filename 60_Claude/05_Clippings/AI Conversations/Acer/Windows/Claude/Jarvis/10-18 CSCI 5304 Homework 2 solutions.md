@@ -5,9 +5,9 @@ source_app: claude-code
 source_os: windows
 title: "CSCI 5304 Homework 2 solutions"
 started_at: 2026-10-18T20:29:52
-ended_at: 2026-10-18T21:18:55
-exported_at: 2026-10-18T21:18:56
-duration_minutes: 49
+ended_at: 2026-10-18T21:18:57
+exported_at: 2026-10-18T21:33:02
+duration_minutes: 49.1
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: 77eb581b-41bc-45f2-a896-ca7bc0832b99

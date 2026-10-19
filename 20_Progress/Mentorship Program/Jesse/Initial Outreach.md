@@ -62,6 +62,25 @@ _**Problem Solver** - build intelligent systems_
 **website**: [anantgupta.dev](https://anantgupta.dev/)
 **book a meeting:** [Pick a day and time - Cal](http://cal.com/gupta-builds)
 ```
+## Questions Answered for Claude
+1. The One year Outcome
+	- By the end of October next year, I see myself discussing about the job opportunities in the U.S., projects that have progressed with ai development that has taken in 2027. Jarvis is something that extends to multiple other repos for useful purposes. a lot of netowrking events were hooked on through the year and attended. Linkedin posts, netowkring, meetings and a lot of conferences were attended. Internship was at a really great big company (MNC - FAANG or recent AI top tree), know and have a lot of connections in the company specifically. Strong connections were made across the entire internship search process. Technical interview process preperation was completed and tested correctly with the help of the mentor's own coding rounds. System design has been learned and practiced on through 2027 entirely. Linkedin has more 500+ connections, over 1000 followers. Blog posts go out on the portfolio, ads are generating income, tradingview or some source of income is active. Do not need help with courses, umn related work, clubs related work. Solely based on internship, ai, projects, networking, communication, people skills and improving me to be a better version of myself professionally. Actually establishing that version because it has never existed. 
+2. The "80": Everything written was wrong.
+	1. Internships (technical interview, linkedin maxing, conferences, more references, application help, mock interviews, resume building, portfolio enhancement)
+	2. Project Mentorship for Startups, Project Management, etc. (startup vc advice, ai systems, project reviews, 3rd person pov feedback, startup idea generation, communication mamagement, ai systems, etc.)
+	3. Marketing (communication, selling, idea generation, cheats, meetings)
+3. The "20"
+	1. 5 goals that are established based of the above main 3 goals. These are 5 goals which are broken down from the above 3 main goals. They are individual goals to acheive such as linkedin, but directly relate to the main goal - internships. Like that there are 5 goals listed out here for clear clarity but needs to be thought in depth and added correctly based on the 5 goals suggestion. 
+4. Systems - what should the execution map actually track?
+	- This note is going to focus on establishing the system that needs to take place for the goals that are set and not document it. This is a simple layout for what exists inside the goals: `20_Progress/Mentorship Program/Jesse/Systems for Goals`. How to make it reality and not just fiction written down is written here as actionable steps in specific time lines as actions. 
+	- Meetings are a great way to verify these actions because there is a meeting workflow established. but the details of each and every task is actually documented through the daily workflow that runs inside jarvis. Everything is documented and noted down correctly for future plans as well as daily action notes. Another layer that's added to the execution specifically for this mentorship prgram is going to be these: a per-meeting checklist, a running decision log, a goal-progress tracker with dates. Something that mirrors how i track my projects is all written down in detail inside project specific tracks. But the mian layer is the daily workflow that runs. logs are also a great way to actually execute this. 
+5. Jesse is not replacing Ahnaf,
+	- Ahnaf is still there but is currently not available to meet. So, we are going to focus on just reaching out to ahnaf first. The strategies that need to work out for ahnaf now that so much time has passed needs to be reconsidered. But jesse is a new fresh start, fresh connection that we cannot afford to slip up on. 
+	- There is no concept as "second mentor" or third. There are going to multiple mentors coming along the way and will be added to the folder. But we do not simply assume that all the knowledge has been gathered for these people and thier plans. We make sure that each and every single thing is applied.
+6. File roles
+	- Mentor Details'26 = contact info only. Initial Outreach = everything about the first contact (lessons, interest match, outreach plan, email draft, Google Doc content, starter agenda). Smart Goals = the 80/20 goal set. Systems for Goals = the execution-tracking system. exactly as explained. More notes are to come forward based on the execution that has just been explained above. 
+	- Logs, trackers, daily workflow for this integration to be implemented onto the plans (adding a plan)
+	- As the folder is expanded with meetings, more systems and folder maps are added. Clarifying what exactly we expect from the mentorship program
 ## Next Action
 Send the outreach email above and propose a first meeting before 2026-11-02.
 ## Open Questions

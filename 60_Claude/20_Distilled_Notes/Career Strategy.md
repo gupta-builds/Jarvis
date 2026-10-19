@@ -6,7 +6,7 @@ updated: 2026-04-27
 tags:
   - concept
 notes:
-  - "[[Plan]]"
+  - "[[Plan - Ahnaf]]"
   - "[[Companies giving OPT & CPT]]"
   - "[[Portfolio]]"
 track:
@@ -64,7 +64,7 @@ Decision framework uses MoSCoW:
 
 ### Source Anchors
 
-- [[Plan]] — summer planning framework and decision matrix
+- [[Plan - Ahnaf]] — summer planning framework and decision matrix
 - [[Companies giving OPT & CPT]] — target company list
 - [[Portfolio]] — portfolio as career artifact
 

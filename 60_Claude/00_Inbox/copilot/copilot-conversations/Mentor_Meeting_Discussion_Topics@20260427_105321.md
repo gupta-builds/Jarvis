@@ -58,6 +58,6 @@ End by confirming:
 
 #### Sources
 [^1]: [[Mentor Details'25]]
-[^2]: [[Plan]]
+[^2]: [[Plan - Ahnaf]]
 [^3]: [[01_Summit]]
 [Timestamp: 2026/04/27 10:53:58]

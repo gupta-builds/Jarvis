@@ -3,7 +3,6 @@ type: project
 status: active
 created: 2026-04-27
 related:
-  - "[[Mentor Meeting - Hackathons, Summer, and Networking]]"
   - "[[Mentor Details'25]]"
   - "[[Opspilot]]"
   - "[[Resq]]"
@@ -11,7 +10,7 @@ related:
 # Meeting One-Pager — Ahnaf
 > [!NOTE] Superseded
 > This was the one-pager for the mid-April meeting. [[Mentor Meeting Playbook]] is the current source of truth going forward. The "1 Next Step" below (Resq vs. Opspilot as flagship) was never resolved on record — TradingView ended up becoming the actual flagship this summer, not either hackathon project.
-Print this or keep it on screen. Historical source: [[Mentor Meeting - Hackathons, Summer, and Networking]].
+Print this or keep it on screen. Historical source: the hackathon-prep note, now folded into [[Plan - Jesse#Current State|Plan - Jesse]] and removed from this folder.
 ## 3 Goals
 1. Which project is the stronger portfolio artifact and how should I frame it?
 2. What should I focus on this summer if there is no internship?
@@ -29,4 +28,4 @@ Print this or keep it on screen. Historical source: [[Mentor Meeting - Hackathon
 ## 1 Concrete Ask
 "If it feels appropriate, would you be open to introducing me to one frontend engineer and one backend engineer for informational conversations later on?"
 ## 1 Next Step
-Decide whether [[Resq]] or [[Opspilot]] becomes the main summer portfolio project, update the [[Plan]].
+Decide whether [[Resq]] or [[Opspilot]] becomes the main summer portfolio project, update the [[Plan - Ahnaf]].

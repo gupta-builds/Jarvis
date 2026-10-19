@@ -22,7 +22,7 @@ Modeled after the [[BOOM Board]]. Career track covers portfolio building, interv
 - [[Elevator pitch]]
 - [[Interview Questions]]
 - [[ABB Interview Prep]]
-- [[Plan|Mentorship Plan]]
+- [[Plan - Ahnaf|Mentorship Plan]]
 - [[Freelancing]]
 - [[Internship Search Stack]]
 
@@ -45,7 +45,7 @@ Modeled after the [[BOOM Board]]. Career track covers portfolio building, interv
 1. [[Portfolio]]
 2. [[Interview Questions]]
 3. [[ABB Interview Prep]]
-4. [[Plan|Mentorship Plan]]
+4. [[Plan - Ahnaf|Mentorship Plan]]
 5. [[Internship Search Stack]]
 6. [[Freelancing]]
 

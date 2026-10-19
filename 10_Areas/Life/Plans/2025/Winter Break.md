@@ -3,7 +3,7 @@ type: brainstorm
 status: sprout
 created: 2025-12-15
 related_progress:
-  - "[[Plan]]"
+  - "[[Plan - Ahnaf]]"
   - "[[Portfolio]]"
   - "[[Learning Tracker tool]]"
   - "[[Cleaning Laptop]]"

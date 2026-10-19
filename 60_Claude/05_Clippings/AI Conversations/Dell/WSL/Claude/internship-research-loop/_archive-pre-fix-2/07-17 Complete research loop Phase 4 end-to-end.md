@@ -5526,7 +5526,7 @@ type: brainstorm
 status: sprout
 created: 2025-10-30
 related_progress:
-  - "[[Plan]]"
+  - "[[Plan - Ahnaf]]"
   - "[[Elevator pitch]]"
   - "[[Interview Questions]]"
   - "[[Useful Links]]"

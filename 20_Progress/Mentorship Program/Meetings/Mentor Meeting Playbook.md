@@ -4,9 +4,8 @@ status: active
 created: 2026-07-13
 updated: 2026-07-13
 related:
-  - "[[Plan]]"
+  - "[[Plan - Ahnaf]]"
   - "[[Mentor Details'25]]"
-  - "[[Mentor Meeting - Hackathons, Summer, and Networking]]"
   - "[[Mentor Meeting - One-Pager]]"
   - "[[Mentorship and Networking]]"
   - "[[Project Briefings - 2026-07-13]]"
@@ -17,12 +16,12 @@ next: Fill in the Session Log entry after the 2026-07-13 call
 ---
 # Mentor Meeting Playbook
 ## Why This Note Exists
-This is the standing source of truth for every Ahnaf meeting from here forward, not just tonight's. The **Playbook** sections below (4 Goals, Current Real State, Standing Format) stay stable across meetings. Each individual meeting gets its own dated entry under [[#Session Log]] — append, never overwrite. [[Mentor Meeting - Hackathons, Summer, and Networking]] and [[Mentor Meeting - One-Pager]] cover the April meeting and are now historical; this file is what to open before every future call. [[Project Briefings - 2026-07-13|Project Briefings]] holds the full, source-checked depth on Portfolio/Orby, TradingView, and CausalOps — read that before the call, not just the summary below.
+This is the standing source of truth for every Ahnaf meeting from here forward, not just tonight's. The **Playbook** sections below (4 Goals, Current Real State, Standing Format) stay stable across meetings. Each individual meeting gets its own dated entry under [[#Session Log]] — append, never overwrite. [[Mentor Meeting - One-Pager]] covers the April meeting and is now historical; the hackathon-prep note it used to pair with has been folded into [[Plan - Jesse#Current State|Plan - Jesse]] and removed. This file is what to open before every future call. [[Project Briefings - 2026-07-13|Project Briefings]] holds the full, source-checked depth on Portfolio/Orby, TradingView, and CausalOps — read that before the call, not just the summary below.
 ## The 4 Goals — What This Mentorship Is Actually For
 Not "help with my whole summer." Four specific things a mentor is actually useful for:
 1. **Relationship** — a connection with Ahnaf strong enough that he'd recommend me to other employers, and one that keeps going after the program's stated end around September 2026. This is earned by showing up with real execution each meeting, not by asking for it directly. See [[Mentorship and Networking]] on why warm intros beat cold applications.
 2. **Project + build review** — professional feedback on the actual build setup, not demo praise. Tonight's focus is narrower than "everything": [[Portfolio]] (live at anantgupta.dev) with **Orby specifically** as the centerpiece, [[Stocks Trading AI Hub|TradingView]] framed as a personal quant side project, and [[CausalOps — Index|CausalOps]]. See [[Project Briefings - 2026-07-13]] for the concrete detail on all three.
-3. **Startup fundamentals** — no fixed idea yet. The ask is the real playbook: how a startup actually gets built and launched, and what the first concrete step looks like. Winter's version of this was "learn the playbook, no launch" ([[Plan#Winter]]); this is the next layer.
+3. **Startup fundamentals** — no fixed idea yet. The ask is the real playbook: how a startup actually gets built and launched, and what the first concrete step looks like. Winter's version of this was "learn the playbook, no launch" ([[Plan - Ahnaf#Winter]]); this is the next layer.
 4. **Professional image** — resume, interview prep, and online presence, feeding into the [[Internship - Dashboard|2027 internship pipeline]] and eventually into during-internship conduct once one lands.
 ## Current Real State — Ground Truth, Not the Pitch
 Use this to answer follow-up questions honestly. Don't oversell. Full depth in [[Project Briefings - 2026-07-13]].
@@ -74,7 +73,7 @@ Questions to ask:
 ## After the Meeting
 - [ ] Log Ahnaf's actual answers to the Part 2, 3, and 4 questions in the Session Log below.
 - [ ] Confirm or adjust the alternate-Monday cadence based on what he actually said.
-- [ ] Update [[Plan#Summer]] if the 5-month plan changes based on his feedback.
+- [ ] Update [[Plan - Ahnaf#Summer]] if the 5-month plan changes based on his feedback.
 - [ ] Send a follow-up thank-you message within 24 hours.
 - [ ] Schedule the next alternate-Monday slot on the calendar immediately, don't let it drift.
 ## Session Log

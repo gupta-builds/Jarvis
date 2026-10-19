@@ -6,13 +6,13 @@ updated: 2026-04-27
 tags:
   - concept
 notes:
-  - "[[Plan]]"
+  - "[[Plan - Ahnaf]]"
   - "[[Mentor Details'25]]"
 track:
   - career
 prerequisites: []
 used_in:
-  - "[[Plan]]"
+  - "[[Plan - Ahnaf]]"
 evidence: []
 difficulty: 2
 mastery_level: novice
@@ -23,7 +23,7 @@ next_drill: 2026-05-09
 
 # Mentorship and Networking
 
-> Distilled from [[Plan]] and mentorship program materials
+> Distilled from [[Plan - Ahnaf]] and mentorship program materials
 
 ## Deep Dive
 
@@ -63,7 +63,7 @@ The MoSCoW framework (Must-have, Should-have, Could-have, Won't-have) from the m
 
 ### Source Anchors
 
-- [[Plan]] — full mentorship plan with meeting frameworks
+- [[Plan - Ahnaf]] — full mentorship plan with meeting frameworks
 - [[Mentor Details'25]] — mentor background
 - CSE Mentor Program guidelines — program structure and expectations
 

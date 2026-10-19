@@ -3,7 +3,7 @@ type: project
 status: sprout
 deadline: 2026-02-01
 related_progress:
-  - "[[Plan]]"
+  - "[[Plan - Ahnaf]]"
   - "[[Winter Break]]"
   - "[[Useful Links]]"
 tags:

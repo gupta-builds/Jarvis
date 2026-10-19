@@ -47,4 +47,4 @@ TradingView wasn't discussed this call. Portfolio/Orby was barely touched — on
 - [[2026-07-14 Mentor Meeting — Actions]] — the full link-dense action breakdown
 - [[adx]], [[Codebase Deep Read]] — where the adx thread actually went
 - [[Mentor Details'25]] — the mentor whose program this is
-- [[Plan]] — the standing goals document this call's cadence decision updates
+- [[Plan - Ahnaf]] — the standing goals document this call's cadence decision updates

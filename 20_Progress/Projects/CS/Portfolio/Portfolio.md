@@ -4,7 +4,7 @@ status: sprout
 deadline: 2026-01-10
 related_progress:
   - "[[Winter Break]]"
-  - "[[Plan]]"
+  - "[[Plan - Ahnaf]]"
   - "[[Useful Links]]"
   - "[[Cheat Sheet's & Notes]]"
 tags:

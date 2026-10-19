@@ -282,17 +282,17 @@ The mentorship program is a **relationship-building vehicle, not a transactional
 ---
 
 #### Sources
-[^1]: [[Plan]]
+[^1]: [[Plan - Ahnaf]]
 [^2]: [[Companies giving OPT & CPT]]
 [^3]: [[Elevator pitch]]
-[^4]: [[Plan]]
+[^4]: [[Plan - Ahnaf]]
 [^5]: [[Arc (Learning Tracker)]]
 [^6]: [[01-03-2026]]
-[^7]: [[Plan]]
+[^7]: [[Plan - Ahnaf]]
 [^8]: [[Useful Links]]
 [^9]: [[LinkedIn Premium]]
 [^10]: [[01-03-2026]]
-[^11]: [[Plan]]
+[^11]: [[Plan - Ahnaf]]
 
 ---
 

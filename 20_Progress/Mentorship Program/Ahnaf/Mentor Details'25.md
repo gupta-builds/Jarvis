@@ -3,12 +3,12 @@ type: project
 status: sprout
 deadline: 2025-09-30
 related_progress:
-  - "[[Plan]]"
+  - "[[Plan - Ahnaf]]"
   - "[[Elevator pitch]]"
   - "[[Companies giving OPT & CPT]]"
 tags:
   - "#progress"
-next: "[[Plan]]"
+next: "[[Plan - Ahnaf]]"
 ---
 # Mentor details
 - **Location:** Saint Paul, MN

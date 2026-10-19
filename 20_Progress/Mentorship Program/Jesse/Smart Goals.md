@@ -1,0 +1,6 @@
+# Goals
+## SMART Goals, Draft for the Mentoring Agreement
+The CSE Mentoring Agreement form requires exactly three SMART goals, filled out at the first meeting and returned to the program coordinator, Katie (ksobo@umn.edu), by **2026-11-02**. These three are a starting draft to put in the Google Doc and adjust live with Jesse, not a final submission.
+1. **Translate the AI-agent and causal-reasoning work into manufacturing-ops language.** By the first meeting, walk Jesse through CausalOps' evidence-gating architecture and get his read on whether it maps to a real MOM or data-ops decision. By December 2026, have one concrete written example of where that mapping holds up or breaks.
+2. **Build systems-engineering judgment for full-lifecycle ownership.** One structured conversation a month on how Jesse scopes, architects, and delivers a client solution end to end, with one concrete lesson applied to how Jarvis or CausalOps is being built solo, logged after each conversation.
+3. **Prepare for the 2027 internship cycle with an industry-adjacent read on AI product roles.** By February 2027, have Jesse review the resume and portfolio directly, with changes made, not just discussed, and get his view on what separates a credible AI-engineering candidate from a buzzword one.

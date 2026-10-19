@@ -39,6 +39,7 @@ When multiple screenshots are taken in quick succession on Windows using Snippin
 | `Screenshot 2026-10-18 193502.png` | 19:35:02 | Complexity MCQ | **Question 5: Time Complexity of Level Sums** (`sum_tree_levels`) |
 | `Screenshot 2026-10-18 193513.png` | 19:35:13 | Complexity MCQ | **Question 6: Space Complexity of Balanced Tree Traversal** (`max_depth_sum`) |
 | `Screenshot 2026-10-18 193531.png` / `193540` | 19:35:31 | Debugging Challenge | **Question 7: Debug Linked List Construction** (`create_linked_list`) |
+| `Screenshot 2026-10-18 201356.png` | 20:13:56 | Coding Challenge | **Question 8 (Variant): Maximum Total Importance of Roads** (`maximum_importance`) |
 
 All 7 questions have been matched directly from the disk source screenshots and solved below with 100% accuracy.
 
@@ -746,6 +747,106 @@ print("All create_linked_list debugging test cases passed!")
 
 ---
 
+## Question 8 (Homework Variant): Maximum Total Importance of Roads (Coding Challenge)
+
+### Problem Description
+You are given an integer `n` denoting the number of cities in a country. The cities are numbered from `0` to `n - 1`.  
+You are also given a 2D integer array `roads` where `roads[i] = [ai, bi]` denotes that there exists a **bidirectional** road connecting cities `ai` and `bi`.
+
+You need to assign each city with an integer value from `1` to `n`, where each value can only be used **once**. The importance of a road is then defined as the sum of the values of the two cities it connects.
+
+Return the **maximum total importance** of all roads possible after assigning the values optimally.
+
+**Constraints:**
+- $2 \le n \le 5 \times 10^4$
+- $1 \le \text{roads.length} \le 5 \times 10^4$
+- $\text{roads}[i].\text{length} == 2$
+- $0 \le a_i, b_i \le n - 1$
+- $a_i \neq b_i$
+- There are no duplicate roads.
+
+**Example 1:**
+- **Input:** `n = 5`, `roads = [[0,1],[1,2],[2,3],[0,2],[1,3],[2,4]]`
+- **Output:** `43`
+- **Explanation:**
+  - City 2 has degree 4 $\to$ assign value 5.
+  - City 1 has degree 3 $\to$ assign value 4.
+  - City 0 has degree 2 $\to$ assign value 2.
+  - City 3 has degree 2 $\to$ assign value 3.
+  - City 4 has degree 1 $\to$ assign value 1.
+  - Sum of all road importances = $43$.
+
+**Example 2:**
+- **Input:** `n = 5`, `roads = [[0,3],[2,4],[1,3]]`
+- **Output:** `20`
+
+---
+
+### Professor's Method & Solution
+In CSCI 4041 (CLRS Chapter 16 — Greedy Algorithms, and the **Rearrangement Inequality**):
+1. **Mathematical Objective Formulation:**
+   Each road $(u, v)$ contributes $value(u) + value(v)$ to the total sum:
+   $$\text{Total Importance} = \sum_{(u, v) \in roads} (value(u) + value(v)) = \sum_{u=0}^{n-1} degree(u) \cdot value(u)$$
+   where $degree(u)$ is the degree (number of incident edges) of vertex $u$.
+2. **Greedy Choice Property (Rearrangement Inequality):**
+   To maximize the scalar product of two sequences (the fixed degrees and the permutation of $\{1, 2, \dots, n\}$), both sequences must be sorted in the same order.
+   - Cities with the largest degrees must receive the largest possible values ($n, n-1, \dots$).
+   - Cities with the smallest degrees receive the smallest values ($1, 2, \dots$).
+3. **Algorithm:**
+   - Compute the degree array of size $n$ in $O(E)$ time.
+   - Sort the degrees in non-decreasing order in $O(n \log n)$ time.
+   - Assign value $i + 1$ to the city with sorted degree rank $i$, accumulating $\sum_{i=0}^{n-1} degree[i] \cdot (i + 1)$.
+
+```python
+def maximum_importance(n, roads):
+    """
+    Computes the maximum total importance of all roads by assigning city
+    values 1 through n greedily according to node degrees (CLRS Ch 16).
+    
+    Parameters:
+    n (int): Number of cities (labeled 0 to n - 1).
+    roads (list[list[int]]): List of bidirectional edges [u, v].
+    
+    Returns:
+    int: Maximum total sum of road importances.
+    """
+    # 1. Compute vertex degrees for each city
+    degree = [0] * n
+    for u, v in roads:
+        degree[u] += 1
+        degree[v] += 1
+        
+    # 2. Sort degrees in ascending order (greedy rearrangement inequality)
+    degree.sort()
+    
+    # 3. Multiply smallest degree by 1, next by 2, ..., highest degree by n
+    total_importance = 0
+    for value, deg in enumerate(degree, start=1):
+        total_importance += value * deg
+        
+    return total_importance
+```
+
+### Complexity Analysis
+- **Time Complexity:** $O(E + n \log n)$ where $E = \text{len}(roads)$ is the number of edges and $n$ is the number of cities. Computing degrees takes $O(E)$, sorting the degree array of size $n$ takes $O(n \log n)$, and the final linear accumulation takes $O(n)$.
+- **Auxiliary Space Complexity:** $O(n)$ auxiliary space to store the degree array.
+
+### Verification & Test Cases
+```python
+# Example 1
+assert maximum_importance(5, [[0,1],[1,2],[2,3],[0,2],[1,3],[2,4]]) == 43
+
+# Example 2
+assert maximum_importance(5, [[0,3],[2,4],[1,3]]) == 20
+
+# Test Case 3: Disconnected components / isolated nodes
+assert maximum_importance(5, [[0, 1]]) == 9  # Node with degree 1 gets 5, other gets 4 (4+5=9)
+
+print("All Maximum Total Importance of Roads test cases passed!")
+```
+
+---
+
 ## Summary Answer Key
 
 | Question # | Problem Title | Type | Solution Summary / Answer |
@@ -757,3 +858,5 @@ print("All create_linked_list debugging test cases passed!")
 | **5** | Time Complexity of Level Sums | MCQ | **`O(n)`** (Option 3: Preorder tree traversal visiting all $n$ nodes and performing $O(1)$ amortized work per node). |
 | **6** | Space Complexity of Balanced Tree | MCQ | **`O(log n)`** (Option 2: Auxiliary space is bounded by the recursion call stack height $h = \lfloor \log_2 n \rfloor$ for a balanced tree). |
 | **7** | Debug `create_linked_list` | Debug | Fixed `NameError` by changing `data` to `value`, and fixed pointer stagnation by adding `current = current.next` inside the loop. |
+| **8 / Alt** | Maximum Total Importance of Roads | Code | `maximum_importance(n, roads)` computes degrees in $O(E)$, sorts in $O(n \log n)$, and applies greedy values $1 \dots n$ via the Rearrangement Inequality. |
+

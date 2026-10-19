@@ -99,6 +99,46 @@ function Test-SyncthingIdle {
     }
 }
 
+$HotFileThresholdSeconds = 20
+
+function Test-AnyFileRecentlyModified {
+    # Guards against a narrower variant of the Syncthing race above: this script's own
+    # `git add -A` / `git commit` reads and hashes every dirty file's on-disk bytes, which
+    # is indistinguishable in effect from Syncthing's checkout writes - if Obsidian (or any
+    # editor) is mid-save to that exact file when this read happens, Windows can throw a
+    # sharing violation on Obsidian's side ("UNKNOWN: unknown error, open ..."). Found live
+    # 2026-10-19: a brand-new, never-yet-committed note was actively being typed into at the
+    # same minute this script's 30-minute tick ran `git add -A` over a 498-insertion, 6-file
+    # batch; the commit itself succeeded on the snapshot it saw, and the existing
+    # Test-HasRealChanges check correctly caught the file going dirty again immediately after
+    # (logged "FAILED, local changes could not be committed", no corruption), but the read
+    # during `git add -A` still collided with Obsidian's write and produced the save-failure
+    # spam the user saw. Checking each dirty path's LastWriteTime before touching anything,
+    # and deferring to the next tick if any file was written to within the last
+    # $HotFileThresholdSeconds seconds, avoids starting that race at all - same "defer rather
+    # than barge in" pattern as Test-SyncthingIdle and Test-GitIndexLocked above.
+    param([string]$VaultRoot)
+    $raw = git status --porcelain 2>$null
+    if (-not $raw) { return $false }
+    $now = Get-Date
+    foreach ($line in $raw) {
+        if ($line.Length -lt 4) { continue }
+        $pathPart = $line.Substring(3)
+        $paths = if ($pathPart -match ' -> ') { $pathPart -split ' -> ' } else { @($pathPart) }
+        foreach ($p in $paths) {
+            $p = $p.Trim().Trim('"')
+            $full = Join-Path $VaultRoot $p
+            if (-not (Test-Path -LiteralPath $full -PathType Leaf)) { continue }
+            $age = ($now - (Get-Item -LiteralPath $full).LastWriteTime).TotalSeconds
+            if ($age -lt $HotFileThresholdSeconds) {
+                Write-SyncLog "File '$p' was written to $([math]::Round($age,1))s ago (under the ${HotFileThresholdSeconds}s threshold), deferring this run rather than racing an in-progress save."
+                return $true
+            }
+        }
+    }
+    return $false
+}
+
 function Set-SyncthingFolderPaused {
     param([bool]$Paused, [string]$FolderId = "jarvis")
     $ctx = Get-SyncthingApiContext
@@ -334,6 +374,11 @@ function Invoke-GitAutoSync {
 
         if (-not (Test-SyncthingIdle)) {
             Write-SyncLog "=== git-auto-sync end (deferred, Syncthing still converging) ==="
+            exit 0
+        }
+
+        if (Test-AnyFileRecentlyModified -VaultRoot $VaultRoot) {
+            Write-SyncLog "=== git-auto-sync end (deferred, a dirty file was just written to) ==="
             exit 0
         }
 

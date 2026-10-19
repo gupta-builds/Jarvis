@@ -6,7 +6,7 @@ source_os: windows
 title: "CSCI 5304 quiz 3 diagrams"
 started_at: 2026-10-18T21:32:32
 ended_at: 2026-10-18T21:39:46
-exported_at: 2026-10-18T22:00:04
+exported_at: 2026-10-18T22:30:03
 duration_minutes: 7.2
 project: Jarvis
 cwd: 'D:\Users\_Anant\10_Areas\Documents\Jarvis'

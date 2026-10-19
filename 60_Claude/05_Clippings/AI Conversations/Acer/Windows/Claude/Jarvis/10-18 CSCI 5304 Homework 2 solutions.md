@@ -5,28 +5,28 @@ source_app: claude-code
 source_os: windows
 title: "CSCI 5304 Homework 2 solutions"
 started_at: 2026-10-18T20:29:52
-ended_at: 2026-10-18T21:18:57
-exported_at: 2026-10-18T21:33:02
-duration_minutes: 49.1
+ended_at: 2026-10-18T22:14:38
+exported_at: 2026-10-18T22:14:38
+duration_minutes: 104.8
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: 77eb581b-41bc-45f2-a896-ca7bc0832b99
 status: raw
-turn_count: 4
+turn_count: 6
 tools_used:
   Bash: 5
-  Edit: 1
+  Edit: 5
   Glob: 1
   Grep: 6
-  Read: 17
+  Read: 19
   Write: 2
 tokens:
-  input: 110
-  output: 143836
-  cache_creation: 765304
-  cache_read: 7516478
-  total: 8425728
-cost_usd: 6.003092
+  input: 138
+  output: 174736
+  cache_creation: 840225
+  cache_read: 10856019
+  total: 11871118
+cost_usd: 7.27974
 model:
   - "claude-sonnet-5"
 files_touched:
@@ -486,6 +486,135 @@ A Givens rotation $G(i,k,\theta)$ only touches 2 rows, so it can only zero **one
 + Solved directly from the MinerU textbook extraction (`D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 5304\Textbook & Resources\CSCI 5304 Textbook (MinerU full extraction).md`), Lecture 10 (pp. 69-76: Eq. 10.1 zero-introduction diagram, Eq. 10.3's reflection-to-$\|x\|e_1$ picture, Algorithm 10.1). No vault Lecture 10 note exists yet (not lectured as of the last Board update), so this is read straight from the source text, not from a distillation.
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304\Quiz & HW\Quiz - 3.md`
+
+## You
+
+Rewrite question 6 for the homeowrk - 2, it is too confusing and the matrix is not written down correctly using latex. make sure that the answers are correct and written down correctly inside the note. The question 2's matrix is not readable at all. Make sure to do this job correctly, also the following questions 7 and 8 need to be written clearly too. Make sure that the answers are neatly written down
+
+## Claude
+
+Now let's clean up problems 7 and 8 with clearer, display-style formatting.
+
+Let me also clean up problem 2's inverse derivation, since it's the other candidate for "not readable" — it was syntactically valid but cramped inline.
+
+Fixed. The broken matrix was in problem 6, part (b): the `R₂` matrix had mismatched row lengths (one row with 3 entries, the others with 4), which breaks LaTeX rendering — that's almost certainly what looked unreadable.
+
+What changed:
+- **Problem 6** — fully rewritten with a concrete, fully-written-out $n=4$ example so every matrix ($D_1$, $D_2$, $N_2$, and the combined $R_2=D_2N_2$) is a clean, consistently-sized 4×4 block. Each part now clearly shows the matrix, then states in words which algorithm line it corresponds to.
+- **Problem 2(b)** ($A^{-1}$ via SVD) — broken into two explicit display-math steps ($V\Sigma^{-1}$, then $\times\,U^T$) instead of one cramped inline parenthetical, with the final answer boxed and cross-checked against the direct inverse formula.
+- **Problems 7 and 8** — reformatted with labeled parts, step-by-step display equations, and boxed final results instead of dense inline sentences. No math changed — same eigenvalues/determinant/singular values for the Householder reflector, same three pseudoinverse-norm proofs — just laid out so each step is on its own line and the final answer is visually set off.
+
+All matrices in the note now have consistent row/column counts (I checked every `\begin{bmatrix}` in the file). Content and numeric answers are unchanged from before — only presentation was fixed.
+
+### Tool Calls
+
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304\Quiz & HW\Homework - 2.md`
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304\Quiz & HW\Homework - 2.md`
+```diff
+- ### 6. $R_i$ as diagonal $\times$ unit upper triangular
+Each $R_i=D_iN_i$: $D_i$ scales column $i$ by $1/r_{ii}$ (line `q_i = v_i / r_ii`); $N_i$ is unit-upper-triangular, row $i$ entries $-r_{ij}$ for $j>i$, subtracting $r_{ij}q_i$ from column $j$ (lines `r_ij = q_i^* v_j` and `v_j = v_j - r_ij q_i`). $AD_i$ must happen before $N_i$ since the shear uses the already-normalized $q_i$.
+**(a)** $i=1$: $D_1=\mathrm{diag}(1/r_{11},1,\dots,1)$. $AD_1=[a_1/r_{11}\mid a_2\mid\cdots\mid a_n]=[q_1\mid a_2\mid\cdots\mid a_n]$.
+**(b)** $i=2$: $D_2=\mathrm{diag}(1,1/r_{22},1,\dots,1)$, scales column 2 ($v_2^{(2)}$) to $q_2$. $N_2=I$ except row 2: entries $-r_{2j}$ for $j>2$, subtracts $r_{2j}q_2$ from later columns. ($D_2N_2$ reproduces the text's combined $R_2=\begin{bmatrix}1&&\\&1/r_{22}&-r_{23}/r_{22}&\cdots\\&&1&\end{bmatrix}$.)
+**(c)** General $i$: $D_i=I$ with $(i,i)$ entry $1/r_{ii}$ — the normalization line `q_i = v_i / r_ii`. $N_i=I$ with row-$i$ entries $(i,j)=-r_{ij}$, $j>i$ — the orthogonalization lines `r_ij = q_i^* v_j` (computes the shear coefficient) and `v_j = v_j - r_ij q_i` (applies it). $R_i=D_iN_i$: scale, then shear.
++ ### 6. $R_i$ as diagonal $\times$ unit upper triangular
+**Setup.** Every $R_i$ splits as $R_i=D_iN_i$: $D_i$ is a diagonal matrix that does the *normalizing* division (`q_i = v_i / r_ii`), applied first; $N_i$ is a unit-upper-triangular matrix (1's on the diagonal) that does the *orthogonalizing* subtraction (`r_ij = q_i^* v_j` then `v_j = v_j - r_ij q_i`), applied second — scale column $i$ to a unit vector, *then* shear it out of the later columns. Below, $n=4$ is used as a concrete, fully-written-out example; the pattern is the same for any $n$.
+
+**(a) $i=1$:**
+$$D_1=\begin{bmatrix}\tfrac1{r_{11}}&0&0&0\\0&1&0&0\\0&0&1&0\\0&0&0&1\end{bmatrix}=\mathrm{diag}\!\left(\tfrac1{r_{11}},1,\dots,1\right)$$
+$$A\,D_1=[\,a_1/r_{11}\mid a_2\mid a_3\mid a_4\,]=[\,q_1\mid a_2\mid a_3\mid a_4\,]$$
+— only column 1 is touched, turned into $q_1$; columns $2,\dots,n$ are untouched (matches the problem statement exactly).
+
+**(b) $i=2$, the two matrices:**
+$$D_2=\begin{bmatrix}1&0&0&0\\0&\tfrac1{r_{22}}&0&0\\0&0&1&0\\0&0&0&1\end{bmatrix},\qquad N_2=\begin{bmatrix}1&0&0&0\\0&1&-r_{23}&-r_{24}\\0&0&1&0\\0&0&0&1\end{bmatrix}$$
+$D_2$ scales column 2 (currently $v_2^{(2)}$) down to $q_2$; $N_2$ then subtracts $r_{2j}\,q_2$ from columns $j=3,4,\dots$. Multiplying them out reproduces the textbook's combined $R_2$ (p. 61) directly, since $D_2$ is diagonal so it just scales $N_2$'s second row:
+$$R_2=D_2N_2=\begin{bmatrix}1&0&0&0\\0&\tfrac1{r_{22}}&-\tfrac{r_{23}}{r_{22}}&-\tfrac{r_{24}}{r_{22}}\\0&0&1&0\\0&0&0&1\end{bmatrix}$$
+
+**(c) General step $i$:**
+$$D_i=I\text{ with }(i,i)\text{ entry }\tfrac1{r_{ii}}\qquad\longleftrightarrow\qquad\text{line \texttt{q\_i = v\_i / r\_ii}}$$
+$$N_i=I\text{ with row-}i\text{ entries }(i,j)=-r_{ij}\text{ for }j>i\qquad\longleftrightarrow\qquad\text{lines \texttt{r\_ij = q\_i* v\_j} and \texttt{v\_j = v\_j - r\_ij q\_i}}$$
+$D_i$ is the division/normalization line; $N_i$ is the inner-loop pair that computes each shear coefficient $r_{ij}$ and applies it. $R_i=D_iN_i$: normalize column $i$, then shear it out of every later column — exactly the two things the $i$-th outer step of Algorithm 8.1 does.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304\Quiz & HW\Homework - 2.md`
+```diff
+- ### 7. Householder reflector $H=I-2\vec v\vec v^T$, $\|\vec v\|_2=1$
+**(a)** $Hv=v-2v(v^Tv)=v-2v=-v$ ($v^Tv=1$) $\Rightarrow\lambda=-1$ (eigenvector $v$). For $w\perp v$: $Hw=w-2v(v^Tw)=w\Rightarrow\lambda=+1$, multiplicity $m-1$.
+Eigenvalues: $-1$ (×1), $+1$ (×$(m-1)$).
+
+**(b)** $\det H=\prod\lambda_i=(-1)(1)^{m-1}=-1$.
+
+**(c)** $H^TH=H^2=I-4vv^T+4v(v^Tv)v^T=I$ $\Rightarrow H$ unitary $\Rightarrow$ all $m$ singular values $=1$.
+
+**(d)** $H$ is the reflection across the hyperplane $\perp v$: the component along $v$ flips (why $\lambda=-1$ there), the $(m-1)$-dim hyperplane $\perp v$ is fixed pointwise (why $\lambda=+1$ there). A reflection is an isometry — it preserves every vector's length, stretching nothing — so every singular value is exactly $1$.
++ ### 7. Householder reflector $H=I-2\vec v\vec v^T$, $\|\vec v\|_2=1$
+**(a) Eigenvalues.** Apply $H$ to $v$ itself ($v^Tv=1$):
+$$Hv=v-2v(v^Tv)=v-2v=-v\ \Rightarrow\ \lambda=-1,\text{ eigenvector }v.$$
+Apply $H$ to any $w$ with $w\perp v$ (so $v^Tw=0$):
+$$Hw=w-2v(v^Tw)=w\ \Rightarrow\ \lambda=+1,\text{ for every }w\text{ in the }(m-1)\text{-dim space }v^\perp.$$
+$$\boxed{\lambda=-1\ (\text{multiplicity }1),\qquad \lambda=+1\ (\text{multiplicity }m-1)}$$
+
+**(b) Determinant.**
+$$\det H=\prod_i\lambda_i=(-1)\cdot(+1)^{m-1}=-1$$
+
+**(c) Singular values.** First check $H$ is unitary:
+$$H^2=(I-2vv^T)(I-2vv^T)=I-4vv^T+4v(v^Tv)v^T=I-4vv^T+4vv^T=I.$$
+$H^T=H$ (symmetric) and $H^2=I$ $\Rightarrow H^TH=I\Rightarrow H$ is unitary $\Rightarrow$ every singular value is $1$:
+$$\sigma_1=\sigma_2=\cdots=\sigma_m=1$$
+
+**(d) Geometric argument.** $H$ reflects $\mathbb R^m$ across the hyperplane orthogonal to $v$:
+- the component of a vector **along $v$** gets flipped — exactly why $v$ has eigenvalue $-1$;
+- the component **in the hyperplane $v^\perp$** ($\dim=m-1$) is left fixed — eigenvalue $+1$ there;
+- a reflection is a rigid motion (isometry): it preserves every vector's length, stretching nothing in any direction — so every singular value (which measures exactly how much a direction gets stretched) equals $1$.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304\Quiz & HW\Homework - 2.md`
+```diff
+- ### 8. Block matrix $A=\begin{bmatrix}A_1\\A_2\end{bmatrix}$
+**(a)** $A$ has full column rank $n$ (since $A_1$ nonsingular forces rank $n$), so $A^+=(A^*A)^{-1}A^*$ has singular values $1/\sigma_i$ for each nonzero $\sigma_i(A)$. The 2-norm is the largest singular value, so
+$$\|A^+\|_2=\frac1{\sigma_{\min}(A)}=\frac1{\sigma_n(A)}.$$
+
+**(b)** For any $x$: $\|Ax\|_2^2=\|A_1x\|_2^2+\|A_2x\|_2^2\Rightarrow\|Ax\|_2=\sqrt{\|A_1x\|_2^2+\|A_2x\|_2^2}\le\|A_1x\|_2+\|A_2x\|_2$ (since $\sqrt{a^2+b^2}\le a+b$) $\le(\|A_1\|_2+\|A_2\|_2)\|x\|_2$. Taking $\sup_{\|x\|_2=1}$: $\|A\|_2\le\|A_1\|_2+\|A_2\|_2$. $\blacksquare$
+
+**(c)** Let $L=[\,A_1^{-1}\ \ 0\,]$ ($n\times m$): $LA=A_1^{-1}A_1=I_n$, a left inverse, $\|L\|_2=\|A_1^{-1}\|_2$.
+Any left inverse is $L=A^++N$ with $NA=0$ (rows of $N\perp\mathrm{range}(A)$), while rows of $A^+=(A^*A)^{-1}A^*$ lie *in* $\mathrm{range}(A)$ — so $A^+N^T=0$ and
+$$LL^T=A^+(A^+)^T+NN^T\succeq A^+(A^+)^T,$$
+PSD order, so $\|L\|_2\ge\|A^+\|_2$ for every left inverse. In particular
+$$\|A^+\|_2\le\|L\|_2=\|A_1^{-1}\|_2.\ \blacksquare$$
++ ### 8. Block matrix $A=\begin{bmatrix}A_1\\A_2\end{bmatrix}$, $A_1$ nonsingular $n\times n$, $A_2$ arbitrary $(m-n)\times n$
+**(a) $\|A^+\|_2$ via singular values.** $A_1$ nonsingular $\Rightarrow A$ has full column rank $n$ $\Rightarrow$ all $n$ singular values $\sigma_1\ge\cdots\ge\sigma_n$ of $A$ are nonzero. From $A=U\Sigma V^T$, $A^+=V\Sigma^{-1}U^T$, so $A^+$'s singular values are $1/\sigma_1,\dots,1/\sigma_n$. The 2-norm is the *largest* singular value:
+$$\boxed{\|A^+\|_2=\frac1{\sigma_n(A)}}\qquad(\sigma_n=\text{smallest singular value of }A)$$
+
+**(b) $\|A\|_2\le\|A_1\|_2+\|A_2\|_2$.** For any $x$:
+$$\|Ax\|_2^2=\left\|\begin{bmatrix}A_1x\\A_2x\end{bmatrix}\right\|_2^2=\|A_1x\|_2^2+\|A_2x\|_2^2$$
+Since $\sqrt{a^2+b^2}\le a+b$ for $a,b\ge0$:
+$$\|Ax\|_2=\sqrt{\|A_1x\|_2^2+\|A_2x\|_2^2}\ \le\ \|A_1x\|_2+\|A_2x\|_2\ \le\ \big(\|A_1\|_2+\|A_2\|_2\big)\|x\|_2$$
+Take $\sup$ over $\|x\|_2=1$:
+$$\boxed{\|A\|_2\le\|A_1\|_2+\|A_2\|_2}\ \blacksquare$$
+
+**(c) $\|A^+\|_2\le\|A_1^{-1}\|_2$.** Let $L=\begin{bmatrix}A_1^{-1}&0\end{bmatrix}$ ($n\times m$, split to match $A$'s row blocks). Then
+$$LA=A_1^{-1}A_1=I_n$$
+so $L$ is *a* left inverse of $A$, with $\|L\|_2=\|A_1^{-1}\|_2$.
+Any left inverse can be written $L=A^++N$ with $NA=0$ (rows of $N$ orthogonal to $\mathrm{range}(A)$), while the rows of $A^+=(A^*A)^{-1}A^*$ lie *in* $\mathrm{range}(A)$ — so these row spaces are orthogonal, $A^+N^T=0$, and
+$$LL^T=A^+(A^+)^T+NN^T\ \succeq\ A^+(A^+)^T\qquad(\text{PSD order, since }NN^T\succeq0)$$
+This means $\|L\|_2\ge\|A^+\|_2$ for *every* left inverse $L$ (the pseudoinverse has the smallest 2-norm of any left inverse). Using our explicit $L$:
+$$\boxed{\|A^+\|_2\le\|L\|_2=\|A_1^{-1}\|_2}\ \blacksquare$$
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304\Quiz & HW\Homework - 2.md`
+```diff
+- **(b)** $A^{-1}=V\Sigma^{-1}U^T$. $\Sigma^{-1}=\mathrm{diag}(\tfrac1{10\sqrt2},\tfrac1{5\sqrt2})$.
+$$A^{-1}=\frac1{100}\begin{bmatrix}5&-11\\10&-2\end{bmatrix}=\begin{bmatrix}0.05&-0.11\\0.10&-0.02\end{bmatrix}$$
+(carried out: $V\Sigma^{-1}=\tfrac1{50\sqrt2}\begin{bmatrix}-3&8\\4&6\end{bmatrix}$, times $U^T=\tfrac1{\sqrt2}\begin{bmatrix}1&1\\1&-1\end{bmatrix}$ gives $\tfrac1{100}\begin{bmatrix}5&-11\\10&-2\end{bmatrix}$ — matches direct inverse $\tfrac1{\det A}\begin{bmatrix}d&-b\\-c&a\end{bmatrix}$.)
++ **(b)** Formula: $A^{-1}=V\Sigma^{-1}U^T$, with $\Sigma^{-1}=\mathrm{diag}\!\left(\tfrac1{10\sqrt2},\tfrac1{5\sqrt2}\right)$.
+
+Step 1 — $V\Sigma^{-1}$ (scale each column of $V$ by the matching entry of $\Sigma^{-1}$):
+$$V\Sigma^{-1}=\begin{bmatrix}-\tfrac35&\tfrac45\\[2pt]\tfrac45&\tfrac35\end{bmatrix}\begin{bmatrix}\tfrac1{10\sqrt2}&0\\[2pt]0&\tfrac1{5\sqrt2}\end{bmatrix}=\frac1{50\sqrt2}\begin{bmatrix}-3&8\\4&6\end{bmatrix}$$
+
+Step 2 — multiply by $U^T=\dfrac1{\sqrt2}\begin{bmatrix}1&1\\1&-1\end{bmatrix}$:
+$$A^{-1}=\frac1{50\sqrt2}\begin{bmatrix}-3&8\\4&6\end{bmatrix}\cdot\frac1{\sqrt2}\begin{bmatrix}1&1\\1&-1\end{bmatrix}=\frac1{100}\begin{bmatrix}-3+8&-3-8\\4+6&4-6\end{bmatrix}=\frac1{100}\begin{bmatrix}5&-11\\10&-2\end{bmatrix}$$
+
+$$\boxed{A^{-1}=\begin{bmatrix}0.05&-0.11\\0.10&-0.02\end{bmatrix}}$$
+
+*Check against the direct formula* $A^{-1}=\dfrac1{\det A}\begin{bmatrix}d&-b\\-c&a\end{bmatrix}=\dfrac1{100}\begin{bmatrix}5&-11\\10&-2\end{bmatrix}$ — matches exactly.
+```
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304\Quiz & HW\Homework - 2.md`
 
 ## Actions Taken
 

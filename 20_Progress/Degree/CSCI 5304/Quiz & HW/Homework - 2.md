@@ -64,7 +64,23 @@ $$A=\underbrace{\begin{bmatrix}\tfrac{1}{\sqrt2}&\tfrac1{\sqrt2}\\\tfrac1{\sqrt2
 **(b)** $\sigma_1=10\sqrt2\approx14.14,\ \sigma_2=5\sqrt2\approx7.07$.
 Left: $u_1=\tfrac1{\sqrt2}(1,1)^T,\ u_2=\tfrac1{\sqrt2}(1,-1)^T$. Right: $v_1=\tfrac15(-3,4)^T,\ v_2=\tfrac15(4,3)^T$.
 
-**(c)** Unit circle, mark $v_1=(-0.6,0.8)$, $v_2=(0.8,0.6)$ on it (orthogonal radii). Image is an ellipse; its semi-axis endpoints are $\sigma_1u_1=(10,10)$ and $\sigma_2u_2=(5,-5)$ (and their negatives). Draw: circle with $v_1,v_2$ marked $\to$ arrow $\to$ ellipse through $(10,10),(-10,-10)$ (major axis, length $10\sqrt2$ each way) and $(5,-5),(-5,5)$ (minor axis, length $5\sqrt2$ each way), major axis along $u_1=(1,1)/\sqrt2$ direction, minor along $u_2=(1,-1)/\sqrt2$.
+**(c)** Two side-by-side panels, connected by an arrow for "apply $A$."
+
+**Panel 1 — the unit ball (domain), left side of the box:**
+1. Draw $x$- and $y$-axes, and a circle of radius $1$ centered at the origin.
+2. Mark the point $v_1=(-0.6,\,0.8)$ on the circle. This sits at angle $126.87°$ from the positive $x$-axis (in the second quadrant, closer to the $y$-axis than the $x$-axis). Draw the radius arrow from the origin to this point and label it $\vec v_1$.
+3. Mark the point $v_2=(0.8,\,0.6)$ on the circle, angle $36.87°$ (first quadrant, closer to the $x$-axis). Draw the radius arrow and label it $\vec v_2$.
+4. Check your drawing: the angle between $\vec v_1$ and $\vec v_2$ must look like exactly $90°$ ($126.87°-36.87°=90°$) — they are perpendicular radii of the circle.
+
+**Panel 2 — the image ellipse (codomain), right side of the box, bigger scale (axes from about $-15$ to $15$):**
+1. Draw $x$- and $y$-axes at this larger scale.
+2. Lightly draw two dashed guide lines through the origin: one along $y=x$ (the $45°$ diagonal) and one along $y=-x$ (the $-45°$ diagonal). These are the ellipse's major and minor axes.
+3. On the $y=x$ line, mark the points $(10,10)$ and $(-10,-10)$ — these are the ends of the **major axis**, at distance $\sigma_1=10\sqrt2\approx14.14$ from the origin each way.
+4. On the $y=-x$ line, mark the points $(5,-5)$ and $(-5,5)$ — the ends of the **minor axis**, at distance $\sigma_2=5\sqrt2\approx7.07$ from the origin each way.
+5. Draw a smooth ellipse through all four marked points, tangent to the picture so that $(10,10)/(-10,-10)$ are its far (long) tips and $(5,-5)/(-5,5)$ are its near (short) tips.
+6. Draw the arrow from the origin to $(10,10)$ and label it $\sigma_1\vec u_1$; draw the arrow to $(5,-5)$ and label it $\sigma_2\vec u_2$.
+
+**Connecting the two panels:** draw a curved arrow from $\vec v_1$ (panel 1) to the $(10,10)$ tip (panel 2) labeled "$A\vec v_1=\sigma_1\vec u_1$," and a second arrow from $\vec v_2$ to $(5,-5)$ labeled "$A\vec v_2=\sigma_2\vec u_2$" — this is the one fact the whole picture is illustrating: $A$ takes the orthogonal unit vectors $\vec v_1,\vec v_2$ to the orthogonal ellipse-axis vectors $\sigma_1\vec u_1,\sigma_2\vec u_2$.
 
 ### 2. Norms, $A^{-1}$, eigenvalues, determinant identity, area
 **(a)** Columns sums $|{-2}|+|{-10}|=12$, $|11|+|5|=16\Rightarrow\|A\|_1=16$. Row sums $13,15\Rightarrow\|A\|_\infty=15$. $\|A\|_2=\sigma_1=10\sqrt2$. $\|A\|_F=\sqrt{4+121+100+25}=\sqrt{250}=5\sqrt{10}$ (matches $\sqrt{\sigma_1^2+\sigma_2^2}=\sqrt{250}$).
@@ -92,9 +108,28 @@ $$\boxed{A^{-1}=\begin{bmatrix}0.05&-0.11\\0.10&-0.02\end{bmatrix}}$$
 $$(I-2P)^*(I-2P)=(I-2P)(I-2P)=I-4P+4P^2=I-4P+4P=I.$$
 So $(I-2P)^*(I-2P)=I$ — unitary. $\blacksquare$
 
-**(b)/(c)** Draw a line through the origin for $\mathcal R(P)$. Arbitrary $\vec x$ off the line; drop $P\vec x$ = orthogonal projection of $\vec x$ onto the line; $(I-P)\vec x=\vec x-P\vec x$ = perpendicular component.
-$(I-2P)\vec x=\vec x-2P\vec x=(I-P)\vec x-P\vec x$: the component **along** $\mathcal R(P)$ flips sign, the component **$\perp\mathcal R(P)$** is unchanged. Mark both $P\vec x$ and $-P\vec x$ on the picture, and $(I-2P)\vec x$ as the vector sum of $-P\vec x$ and $(I-P)\vec x$.
-*Geometric interpretation:* $I-2P$ is the reflection of $\vec x$ across the line (hyperplane) **orthogonal to** $\mathcal R(P)$ — a mirror image through $\mathcal R(P)^\perp$.
+**(b)/(c)** One picture does both parts — build it in layers. A concrete worked example is given alongside the generic steps so you can plot it precisely on graph paper; the construction is the same for any line/vector choice.
+
+*Concrete numbers to plot:* line $\mathcal R(P)$ at $30°$ above horizontal; $\vec x=(0,2)$ (straight up, length $2$). Then $P\vec x=\left(\tfrac{\sqrt3}2,\tfrac12\right)\approx(0.87,0.5)$, $(I-P)\vec x=\left(-\tfrac{\sqrt3}2,\tfrac32\right)\approx(-0.87,1.5)$, and $(I-2P)\vec x=(-\sqrt3,1)\approx(-1.73,1)$.
+
+**Layer 1 — the two lines:**
+1. Draw $x,y$-axes lightly for reference.
+2. Draw a **solid** line through the origin at $30°$ above horizontal, extending both directions. Label it $\mathcal R(P)$.
+3. Draw a **dashed** line through the origin, perpendicular to the first (at $120°$, i.e. $30°+90°$). Label it $\mathcal R(P)^\perp$ — this dashed line is the mirror axis part (c) needs, so get it in now even though part (b) alone doesn't ask for it.
+
+**Layer 2 — $\vec x$ and its projection (part b):**
+4. Draw the arrow from the origin straight up to $(0,2)$, length $2$. Label it $\vec x$.
+5. From the tip of $\vec x$, drop a perpendicular down onto the solid $\mathcal R(P)$ line; the foot lands at $\approx(0.87,0.5)$. Draw the arrow from the origin to that foot and label it $P\vec x$ — this is $\vec x$'s orthogonal projection onto $\mathcal R(P)$.
+6. Draw the short connecting segment from the tip of $P\vec x$ up to the tip of $\vec x$ (from $(0.87,0.5)$ to $(0,2)$); mark the right angle where it meets the solid line. Label this segment $(I-P)\vec x$ — it is parallel to the dashed line, i.e. perpendicular to $\mathcal R(P)$.
+7. You now have a right triangle: origin $\to P\vec x \to \vec x \to$ back to origin, right angle at $P\vec x$, hypotenuse $\vec x$, legs $P\vec x$ (along the solid line) and $(I-P)\vec x$ (along the dashed direction). **This triangle is the complete answer to part (b).**
+
+**Layer 3 — building $(I-2P)\vec x$ (part c):**
+8. Mark the point $-P\vec x\approx(-0.87,-0.5)$: the mirror image of $P\vec x$ straight through the origin, same distance on the opposite side of the solid line. Draw a short dashed arrow from the origin to it.
+9. From $-P\vec x$, draw a segment parallel to, and the same length as, the $(I-P)\vec x$ segment from Layer 2 (i.e. shift that segment so it starts at $-P\vec x$ instead of $P\vec x$). Its far end lands at $(-\sqrt3,1)\approx(-1.73,1)$.
+10. Draw the arrow from the origin to $(-1.73,1)$ and label it $(I-2P)\vec x$.
+11. **Check your drawing:** $(I-2P)\vec x$ should be the exact mirror image of $\vec x$ reflected across the **dashed** line $\mathcal R(P)^\perp$ — fold the page along the dashed line and $\vec x$'s arrow should land exactly on $(I-2P)\vec x$'s arrow. Both have the same length ($2$), confirming nothing is stretched, only reflected.
+
+*Geometric interpretation (what to write for part c):* $I-2P$ reflects $\vec x$ across the line **orthogonal to $\mathcal R(P)$** (the dashed line) — equivalently, the component of $\vec x$ **along** $\mathcal R(P)$ (i.e. $P\vec x$) gets flipped in sign, while the component **perpendicular to** $\mathcal R(P)$ (i.e. $(I-P)\vec x$) is left unchanged. Note carefully: the mirror is $\mathcal R(P)^\perp$, *not* $\mathcal R(P)$ itself.
 
 ### 4. Hadamard's inequality
 **(a)** Full QR: $A=QR$, $Q$ unitary, $R$ upper triangular. Column $j$: $a_j=\sum_{i\le j}r_{ij}q_i$, and since the $q_i$ are orthonormal,
@@ -104,7 +139,21 @@ $$|\det A|=\prod_j|r_{jj}|\le\prod_j\|a_j\|_2.\ \blacksquare$$
 
 **(b)** $A$ unitary $\Rightarrow$ columns already orthonormal $\Rightarrow$ Gram-Schmidt needs no correction: $r_{ij}=0\ (i<j)$, $q_j=a_j$, $r_{jj}=\|a_j\|_2=1$. Then $|\det A|=\prod r_{jj}=\prod\|a_j\|_2=1$ — the bound in (a) is tight, equality holds.
 
-**(c)** $|\det A|$ = volume of the parallelepiped spanned by the columns $a_j$. $\prod\|a_j\|_2$ = volume of the **rectangular box** with the same edge lengths but mutually orthogonal edges. A slanted (non-orthogonal) parallelepiped always encloses *less* volume than that box — draw a 2D parallelogram vs. a rectangle with the same two side lengths, area $=\|a_1\|\|a_2\|\sin\theta\le\|a_1\|\|a_2\|$. Equality (part b) is exactly the case $\theta=90°$: orthogonal columns, no "squashing," parallelepiped = box.
+**(c)** Two side-by-side panels (2D, since that's the easy case to actually draw — note underneath that the same idea extends to a 3D parallelepiped vs. a box).
+
+**Panel 1 — general $A$, the inequality is strict ($\theta\ne90°$):**
+1. Draw $x,y$-axes. Draw $\vec a_1=(3,0)$ — an arrow along the $x$-axis, length $3$.
+2. Draw $\vec a_2$ at $60°$ above $\vec a_1$, length $2$: that's the point $(1,\,1.73)$ since $2\cos60°=1,\ 2\sin60°=1.73$.
+3. Complete the parallelogram: from the tip of $\vec a_1$ at $(3,0)$, draw a segment parallel to $\vec a_2$ reaching $(4,\,1.73)$; from the tip of $\vec a_2$ at $(1,1.73)$, draw a segment parallel to $\vec a_1$ to the same point $(4,1.73)$. Shade this slanted parallelogram — its area is $|\det A|=\|\vec a_1\|\|\vec a_2\|\sin60°=3\times2\times0.866\approx5.2$.
+4. Now draw a **dashed rectangle** with the same two side lengths ($3$ and $2$) but with $\vec a_2$ rotated up to a true $90°$ — corners at $(0,0),(3,0),(3,2),(0,2)$. Its area is $\|\vec a_1\|\|\vec a_2\|=3\times2=6$.
+5. Label the shaded parallelogram "$|\det A|\approx5.2$" and the dashed rectangle "$\prod\|\vec a_j\|_2=6$" — visually, the slanted shape sits *inside* what the rectangle's area would be: the same two side lengths enclose less area once you lean them together at an angle other than $90°$.
+
+**Panel 2 — $A$ unitary (orthonormal columns), equality:**
+1. Draw $x,y$-axes. Draw $\vec a_1=(3,0)$ and $\vec a_2=(0,2)$ — a true right angle between them (columns orthogonal).
+2. Complete the shape: it is already a plain rectangle, corners $(0,0),(3,0),(3,2),(0,2)$ — the "parallelogram" and the "box" are literally the same shape here.
+3. Label it "$|\det A|=\|\vec a_1\|\|\vec a_2\|=6$ — equality" — there is no slant left to lose area to.
+
+*What the two panels show together:* $|\det A|$ is always the actual enclosed area (2D) / volume (3D, extend the same picture to three mutually-skewed edges vs. a rectangular box) of the shape the columns span; $\prod\|\vec a_j\|_2$ is the area/volume of the "unfolded" box with the same edge lengths but everything forced perpendicular. Leaning the edges together (any angle $\ne90°$) can only shrink the enclosed area/volume relative to that box, never grow it — hence $\le$, with equality exactly when there's no leaning left to do, i.e. the columns are already orthogonal.
 
 ### 5. Flop count for Algorithm 8.1 ($A=\hat Q\hat R$, $m\times n$)
 Per outer step $i$ ($i=1,\dots,n$): $r_{ii}=\|v_i\|$ costs $m$ mult $+(m-1)$ add $+1$ sqrt; $q_i=v_i/r_{ii}$ costs $m$ div.

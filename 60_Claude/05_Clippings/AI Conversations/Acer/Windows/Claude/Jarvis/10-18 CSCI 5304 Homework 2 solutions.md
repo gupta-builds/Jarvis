@@ -5,28 +5,28 @@ source_app: claude-code
 source_os: windows
 title: "CSCI 5304 Homework 2 solutions"
 started_at: 2026-10-18T20:29:52
-ended_at: 2026-10-18T22:14:38
-exported_at: 2026-10-18T22:14:38
-duration_minutes: 104.8
+ended_at: 2026-10-18T22:35:56
+exported_at: 2026-10-18T22:35:57
+duration_minutes: 126.1
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: 77eb581b-41bc-45f2-a896-ca7bc0832b99
 status: raw
-turn_count: 6
+turn_count: 8
 tools_used:
   Bash: 5
-  Edit: 5
+  Edit: 8
   Glob: 1
   Grep: 6
-  Read: 19
+  Read: 20
   Write: 2
 tokens:
-  input: 138
-  output: 174736
-  cache_creation: 840225
-  cache_read: 10856019
-  total: 11871118
-cost_usd: 7.27974
+  input: 156
+  output: 201348
+  cache_creation: 873669
+  cache_read: 13263741
+  total: 14338914
+cost_usd: 8.161216
 model:
   - "claude-sonnet-5"
 files_touched:
@@ -613,6 +613,98 @@ $$A^{-1}=\frac1{50\sqrt2}\begin{bmatrix}-3&8\\4&6\end{bmatrix}\cdot\frac1{\sqrt2
 $$\boxed{A^{-1}=\begin{bmatrix}0.05&-0.11\\0.10&-0.02\end{bmatrix}}$$
 
 *Check against the direct formula* $A^{-1}=\dfrac1{\det A}\begin{bmatrix}d&-b\\-c&a\end{bmatrix}=\dfrac1{100}\begin{bmatrix}5&-11\\10&-2\end{bmatrix}$ — matches exactly.
+```
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304\Quiz & HW\Homework - 2.md`
+
+## You
+
+1 c, 3 b and c, 4 c are diagrams that need to be drawn. Write these down clearly so that i can draw these correctly. Make sure to be descriptive so the correct diagram is drawn
+
+## Claude
+
+Now problem 3(b)/(c):
+
+Now problem 4(c):
+
+This all reads correctly and the numbers check out. The three diagrams in Homework - 2 now have explicit, step-by-step hand-drawing instructions with exact coordinates and angles:
+
+**1(c) — SVD picture:** two panels. Left: unit circle with $\vec v_1=(-0.6,0.8)$ at 126.87° and $\vec v_2=(0.8,0.6)$ at 36.87° (90° apart). Right: ellipse with major-axis tips at $(10,10),(-10,-10)$ along the $y=x$ line and minor-axis tips at $(5,-5),(-5,5)$ along the $y=-x$ line, with arrows showing $\vec v_1\mapsto(10,10)$, $\vec v_2\mapsto(5,-5)$.
+
+**3(b)/(c) — projector picture:** one layered diagram with a concrete worked example (line $\mathcal R(P)$ at 30°, $\vec x=(0,2)$). Part (b) is the right triangle $O\to P\vec x\to\vec x$ (legs $P\vec x\approx(0.87,0.5)$ and $(I-P)\vec x\approx(-0.87,1.5)$). Part (c) extends it to $(I-2P)\vec x\approx(-1.73,1)$, explicitly flagged as the mirror image of $\vec x$ across the **dashed perpendicular line** $\mathcal R(P)^\perp$ — not across $\mathcal R(P)$ itself, which is the easy mistake to make here.
+
+**4(c) — Hadamard picture:** two panels, concrete vectors $\vec a_1=(3,0)$, $\vec a_2$ at 60° (area ≈5.2, shaded, next to a dashed 3×2 bounding rectangle of area 6) versus $\vec a_2=(0,2)$ at a true 90° (plain rectangle, area 6, equality case).
+
+Each has a numbered build order so you can reproduce it exactly on graph paper.
+
+### Tool Calls
+
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304\Quiz & HW\Homework - 2.md`
+```diff
+- **(c)** Unit circle, mark $v_1=(-0.6,0.8)$, $v_2=(0.8,0.6)$ on it (orthogonal radii). Image is an ellipse; its semi-axis endpoints are $\sigma_1u_1=(10,10)$ and $\sigma_2u_2=(5,-5)$ (and their negatives). Draw: circle with $v_1,v_2$ marked $\to$ arrow $\to$ ellipse through $(10,10),(-10,-10)$ (major axis, length $10\sqrt2$ each way) and $(5,-5),(-5,5)$ (minor axis, length $5\sqrt2$ each way), major axis along $u_1=(1,1)/\sqrt2$ direction, minor along $u_2=(1,-1)/\sqrt2$.
++ **(c)** Two side-by-side panels, connected by an arrow for "apply $A$."
+
+**Panel 1 — the unit ball (domain), left side of the box:**
+1. Draw $x$- and $y$-axes, and a circle of radius $1$ centered at the origin.
+2. Mark the point $v_1=(-0.6,\,0.8)$ on the circle. This sits at angle $126.87°$ from the positive $x$-axis (in the second quadrant, closer to the $y$-axis than the $x$-axis). Draw the radius arrow from the origin to this point and label it $\vec v_1$.
+3. Mark the point $v_2=(0.8,\,0.6)$ on the circle, angle $36.87°$ (first quadrant, closer to the $x$-axis). Draw the radius arrow and label it $\vec v_2$.
+4. Check your drawing: the angle between $\vec v_1$ and $\vec v_2$ must look like exactly $90°$ ($126.87°-36.87°=90°$) — they are perpendicular radii of the circle.
+
+**Panel 2 — the image ellipse (codomain), right side of the box, bigger scale (axes from about $-15$ to $15$):**
+1. Draw $x$- and $y$-axes at this larger scale.
+2. Lightly draw two dashed guide lines through the origin: one along $y=x$ (the $45°$ diagonal) and one along $y=-x$ (the $-45°$ diagonal). These are the ellipse's major and minor axes.
+3. On the $y=x$ line, mark the points $(10,10)$ and $(-10,-10)$ — these are the ends of the **major axis**, at distance $\sigma_1=10\sqrt2\approx14.14$ from the origin each way.
+4. On the $y=-x$ line, mark the points $(5,-5)$ and $(-5,5)$ — the ends of the **minor axis**, at distance $\sigma_2=5\sqrt2\approx7.07$ from the origin each way.
+5. Draw a smooth ellipse through all four marked points, tangent to the picture so that $(10,10)/(-10,-10)$ are its far (long) tips and $(5,-5)/(-5,5)$ are its near (short) tips.
+6. Draw the arrow from the origin to $(10,10)$ and label it $\sigma_1\vec u_1$; draw the arrow to $(5,-5)$ and label it $\sigma_2\vec u_2$.
+
+**Connecting the two panels:** draw a curved arrow from $\vec v_1$ (panel 1) to the $(10,10)$ tip (panel 2) labeled "$A\vec v_1=\sigma_1\vec u_1$," and a second arrow from $\vec v_2$ to $(5,-5)$ labeled "$A\vec v_2=\sigma_2\vec u_2$" — this is the one fact the whole picture is illustrating: $A$ takes the orthogonal unit vectors $\vec v_1,\vec v_2$ to the orthogonal ellipse-axis vectors $\sigma_1\vec u_1,\sigma_2\vec u_2$.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304\Quiz & HW\Homework - 2.md`
+```diff
+- **(b)/(c)** Draw a line through the origin for $\mathcal R(P)$. Arbitrary $\vec x$ off the line; drop $P\vec x$ = orthogonal projection of $\vec x$ onto the line; $(I-P)\vec x=\vec x-P\vec x$ = perpendicular component.
+$(I-2P)\vec x=\vec x-2P\vec x=(I-P)\vec x-P\vec x$: the component **along** $\mathcal R(P)$ flips sign, the component **$\perp\mathcal R(P)$** is unchanged. Mark both $P\vec x$ and $-P\vec x$ on the picture, and $(I-2P)\vec x$ as the vector sum of $-P\vec x$ and $(I-P)\vec x$.
+*Geometric interpretation:* $I-2P$ is the reflection of $\vec x$ across the line (hyperplane) **orthogonal to** $\mathcal R(P)$ — a mirror image through $\mathcal R(P)^\perp$.
++ **(b)/(c)** One picture does both parts — build it in layers. A concrete worked example is given alongside the generic steps so you can plot it precisely on graph paper; the construction is the same for any line/vector choice.
+
+*Concrete numbers to plot:* line $\mathcal R(P)$ at $30°$ above horizontal; $\vec x=(0,2)$ (straight up, length $2$). Then $P\vec x=\left(\tfrac{\sqrt3}2,\tfrac12\right)\approx(0.87,0.5)$, $(I-P)\vec x=\left(-\tfrac{\sqrt3}2,\tfrac32\right)\approx(-0.87,1.5)$, and $(I-2P)\vec x=(-\sqrt3,1)\approx(-1.73,1)$.
+
+**Layer 1 — the two lines:**
+1. Draw $x,y$-axes lightly for reference.
+2. Draw a **solid** line through the origin at $30°$ above horizontal, extending both directions. Label it $\mathcal R(P)$.
+3. Draw a **dashed** line through the origin, perpendicular to the first (at $120°$, i.e. $30°+90°$). Label it $\mathcal R(P)^\perp$ — this dashed line is the mirror axis part (c) needs, so get it in now even though part (b) alone doesn't ask for it.
+
+**Layer 2 — $\vec x$ and its projection (part b):**
+4. Draw the arrow from the origin straight up to $(0,2)$, length $2$. Label it $\vec x$.
+5. From the tip of $\vec x$, drop a perpendicular down onto the solid $\mathcal R(P)$ line; the foot lands at $\approx(0.87,0.5)$. Draw the arrow from the origin to that foot and label it $P\vec x$ — this is $\vec x$'s orthogonal projection onto $\mathcal R(P)$.
+6. Draw the short connecting segment from the tip of $P\vec x$ up to the tip of $\vec x$ (from $(0.87,0.5)$ to $(0,2)$); mark the right angle where it meets the solid line. Label this segment $(I-P)\vec x$ — it is parallel to the dashed line, i.e. perpendicular to $\mathcal R(P)$.
+7. You now have a right triangle: origin $\to P\vec x \to \vec x \to$ back to origin, right angle at $P\vec x$, hypotenuse $\vec x$, legs $P\vec x$ (along the solid line) and $(I-P)\vec x$ (along the dashed direction). **This triangle is the complete answer to part (b).**
+
+**Layer 3 — building $(I-2P)\vec x$ (part c):**
+8. Mark the point $-P\vec x\approx(-0.87,-0.5)$: the mirror image of $P\vec x$ straight through the origin, same distance on the opposite side of the solid line. Draw a short dashed arrow from the origin to it.
+9. From $-P\vec x$, draw a segment parallel to, and the same length as, the $(I-P)\vec x$ segment from Layer 2 (i.e. shift that segment so it starts at $-P\vec x$ instead of $P\vec x$). Its far end lands at $(-\sqrt3,1)\approx(-1.73,1)$.
+10. Draw the arrow from the origin to $(-1.73,1)$ and label it $(I-2P)\vec x$.
+11. **Check your drawing:** $(I-2P)\vec x$ should be the exact mirror image of $\vec x$ reflected across the **dashed** line $\mathcal R(P)^\perp$ — fold the page along the dashed line and $\vec x$'s arrow should land exactly on $(I-2P)\vec x$'s arrow. Both have the same length ($2$), confirming nothing is stretched, only reflected.
+
+*Geometric interpretation (what to write for part c):* $I-2P$ reflects $\vec x$ across the line **orthogonal to $\mathcal R(P)$** (the dashed line) — equivalently, the component of $\vec x$ **along** $\mathcal R(P)$ (i.e. $P\vec x$) gets flipped in sign, while the component **perpendicular to** $\mathcal R(P)$ (i.e. $(I-P)\vec x$) is left unchanged. Note carefully: the mirror is $\mathcal R(P)^\perp$, *not* $\mathcal R(P)$ itself.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304\Quiz & HW\Homework - 2.md`
+```diff
+- **(c)** $|\det A|$ = volume of the parallelepiped spanned by the columns $a_j$. $\prod\|a_j\|_2$ = volume of the **rectangular box** with the same edge lengths but mutually orthogonal edges. A slanted (non-orthogonal) parallelepiped always encloses *less* volume than that box — draw a 2D parallelogram vs. a rectangle with the same two side lengths, area $=\|a_1\|\|a_2\|\sin\theta\le\|a_1\|\|a_2\|$. Equality (part b) is exactly the case $\theta=90°$: orthogonal columns, no "squashing," parallelepiped = box.
++ **(c)** Two side-by-side panels (2D, since that's the easy case to actually draw — note underneath that the same idea extends to a 3D parallelepiped vs. a box).
+
+**Panel 1 — general $A$, the inequality is strict ($\theta\ne90°$):**
+1. Draw $x,y$-axes. Draw $\vec a_1=(3,0)$ — an arrow along the $x$-axis, length $3$.
+2. Draw $\vec a_2$ at $60°$ above $\vec a_1$, length $2$: that's the point $(1,\,1.73)$ since $2\cos60°=1,\ 2\sin60°=1.73$.
+3. Complete the parallelogram: from the tip of $\vec a_1$ at $(3,0)$, draw a segment parallel to $\vec a_2$ reaching $(4,\,1.73)$; from the tip of $\vec a_2$ at $(1,1.73)$, draw a segment parallel to $\vec a_1$ to the same point $(4,1.73)$. Shade this slanted parallelogram — its area is $|\det A|=\|\vec a_1\|\|\vec a_2\|\sin60°=3\times2\times0.866\approx5.2$.
+4. Now draw a **dashed rectangle** with the same two side lengths ($3$ and $2$) but with $\vec a_2$ rotated up to a true $90°$ — corners at $(0,0),(3,0),(3,2),(0,2)$. Its area is $\|\vec a_1\|\|\vec a_2\|=3\times2=6$.
+5. Label the shaded parallelogram "$|\det A|\approx5.2$" and the dashed rectangle "$\prod\|\vec a_j\|_2=6$" — visually, the slanted shape sits *inside* what the rectangle's area would be: the same two side lengths enclose less area once you lean them together at an angle other than $90°$.
+
+**Panel 2 — $A$ unitary (orthonormal columns), equality:**
+1. Draw $x,y$-axes. Draw $\vec a_1=(3,0)$ and $\vec a_2=(0,2)$ — a true right angle between them (columns orthogonal).
+2. Complete the shape: it is already a plain rectangle, corners $(0,0),(3,0),(3,2),(0,2)$ — the "parallelogram" and the "box" are literally the same shape here.
+3. Label it "$|\det A|=\|\vec a_1\|\|\vec a_2\|=6$ — equality" — there is no slant left to lose area to.
+
+*What the two panels show together:* $|\det A|$ is always the actual enclosed area (2D) / volume (3D, extend the same picture to three mutually-skewed edges vs. a rectangular box) of the shape the columns span; $\prod\|\vec a_j\|_2$ is the area/volume of the "unfolded" box with the same edge lengths but everything forced perpendicular. Leaning the edges together (any angle $\ne90°$) can only shrink the enclosed area/volume relative to that box, never grow it — hence $\le$, with equality exactly when there's no leaning left to do, i.e. the columns are already orthogonal.
 ```
 - `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304\Quiz & HW\Homework - 2.md`
 

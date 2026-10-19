@@ -7,7 +7,7 @@ title: "Tailscale remote SSH on Acer"
 started_at: 2026-10-17T23:02:47
 ended_at: 2026-10-18T18:22:01
 duration_minutes: 1159
-exported_at: 2026-10-18T20:02:11
+exported_at: 2026-10-18T21:01:11
 project: second-brain-claudekit
 cwd: '/home/anant_gupta/projects/ai/claude/second-brain-claudekit'
 session_id: e74704f8-3d81-4db5-a7bf-7e79da8c4b02

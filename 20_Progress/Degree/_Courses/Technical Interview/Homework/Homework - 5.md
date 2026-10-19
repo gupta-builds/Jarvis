@@ -36,8 +36,9 @@ The user captured all 11 screenshots for Homework 5 to disk under `D:\_Anant\Pic
 | `Screenshot 2026-10-18 202012.png`<br>`Screenshot 2026-10-18 202026.png` | 20:20:12<br>20:20:26 | Representation MCQ | **Question 4: Graph Representation (Triangle with Weights 5, 10, 1)** |
 | `Screenshot 2026-10-18 202032.png` | 20:20:33 | Complexity MCQ | **Question 5: Time Complexity of Depth-First Search** (`mystery_function`) |
 | `Screenshot 2026-10-18 202040.png` (Opt 1)<br>`Screenshot 2026-10-18 202045.png` (Opt 2)<br>`Screenshot 2026-10-18 202050.png` (Opt 3)<br>`Screenshot 2026-10-18 202055.png` (Opt 4) | 20:20:40<br>20:20:45<br>20:20:50<br>20:20:55 | Representation MCQ | **Question 6: Directed/Undirected Graph from Adjacency Matrix** |
+| `uploaded_media_1792373609536.png` | 20:33:29 | Debugging / Traversal | **Question 7: Breadth-First Search Traversal Bug Fix** (`bfs`) |
 
-All questions have been evaluated in strict sequence and verified with 100% mathematical and algorithmic rigor.
+All 7 questions have been evaluated in strict sequence and verified with 100% mathematical and algorithmic rigor.
 
 ---
 
@@ -531,6 +532,140 @@ In an adjacency matrix where row $i$ represents the source vertex and column $j$
 
 ---
 
+## Question 7: Breadth-First Search Traversal Bug Fix (Debugging)
+
+### Problem Description
+The following code incorrectly implements the function `bfs()`. When implemented correctly, `bfs()` accepts a graph as an adjacency matrix `matrix` and an integer `start` representing the starting node in the traversal. It returns an array representing a breadth first search traversal of all nodes reachable from `start` in `matrix`.
+
+Identify any bug(s) within the given implementation and correct the code so that it successfully passes the provided test cases.
+
+```python
+from collections import deque
+
+def bfs(matrix, start):
+    n = len(matrix)
+    visited = [False] * n
+    queue = deque([start])
+    result = []
+
+    visited[start] = True
+
+    while queue:
+        node = queue.popleft()
+
+        for neighbor in range(n):
+            if matrix[node][neighbor] == 1 and not visited[neighbor]:
+                visited[neighbor] = True
+                result.append(neighbor)
+                queue.append(neighbor)
+
+    return result
+```
+
+---
+
+### Bug Identification & Concept
+In CSCI 4041 (CLRS Chapter 22.2 — Breadth-First Search):
+1. **The Bug:**
+   - The starting node `start` is marked visited (`visited[start] = True`) and enqueued into `queue`, but it is **never appended to `result`**.
+   - In the provided implementation, nodes are only appended to `result` inside the inner loop (`result.append(neighbor)`) when an unvisited neighbor is discovered and added to the queue.
+   - Consequently, `start` is completely missing from the returned traversal array. For instance, in `adj_matrix` with `start = 0`, the function returned `[1, 2, 3]` instead of the required `[0, 1, 2, 3]`.
+2. **Professor's Method / Representation Invariant:**
+   - In canonical CLRS BFS, a vertex is formally "visited" / processed when it is dequeued from the frontier (`node = queue.popleft()`).
+   - By appending `node` to `result` immediately after it is popped from `queue` (and removing `result.append(neighbor)` from inside the neighbor discovery loop), `start` is naturally visited first, followed by each reachable node in exact non-decreasing distance (level) order.
+   - Alternatively, initializing `result = [start]` at the beginning and keeping neighbor appending inside the loop achieves the identical order. Appending upon dequeue (`result.append(node)`) is the cleaner, canonical CLRS form.
+
+---
+
+### Correct Implementation
+```python
+from collections import deque
+
+def bfs(matrix, start):
+    """
+    Performs a Breadth-First Search traversal on a graph represented as an adjacency matrix,
+    returning an array of all reachable nodes starting from 'start'.
+    
+    CLRS Reference: Chapter 22.2 (Breadth-First Search).
+    Vertices are visited and recorded in 'result' upon being dequeued from the BFS frontier.
+    
+    Time Complexity: O(V^2) where V = len(matrix) due to adjacency matrix row scans.
+    Space Complexity: O(V) for visited array, queue, and result array.
+    """
+    n = len(matrix)
+    visited = [False] * n
+    queue = deque([start])
+    result = []
+
+    # Mark the start node as visited so it is not re-enqueued
+    visited[start] = True
+
+    while queue:
+        # Pop next vertex from queue and record in traversal order
+        node = queue.popleft()
+        result.append(node)
+
+        # Inspect all potential neighbors via the adjacency matrix row
+        for neighbor in range(n):
+            if matrix[node][neighbor] == 1 and not visited[neighbor]:
+                visited[neighbor] = True
+                queue.append(neighbor)
+
+    return result
+```
+
+---
+
+### Complexity Analysis
+- **Time Complexity:** $\mathcal{O}(V^2)$, where $V = \text{len}(matrix)$. In an adjacency matrix representation, inspecting the outgoing edges of any dequeued vertex requires iterating across all $n$ columns in that vertex's row. Since at most $V$ reachable vertices are dequeued and each performs an $O(V)$ row scan, total runtime is $O(V^2)$.
+- **Space Complexity:** $\mathcal{O}(V)$ auxiliary space for `visited` array of size $V$, `queue` holding at most $V$ elements, and `result` array storing up to $V$ nodes.
+
+---
+
+### Verification & Test Suite
+```python
+adj_matrix = [
+    [0, 1, 0, 0],
+    [1, 0, 1, 0],
+    [0, 1, 0, 1],
+    [0, 0, 1, 0]
+]
+# Start BFS from node 0
+assert bfs(adj_matrix, 0) == [0, 1, 2, 3]
+
+adj_matrix2 = [
+    [0, 1, 0, 0],
+    [1, 0, 1, 0],
+    [0, 1, 0, 1],
+    [0, 0, 1, 0]
+]
+# Start BFS from node 0
+assert bfs(adj_matrix2, 0) == [0, 1, 2, 3]
+
+adj_matrix3 = [
+    [0, 1, 0, 0],
+    [1, 0, 0, 0],
+    [0, 0, 0, 1],
+    [0, 0, 1, 0]
+]
+# Start BFS from node 0
+assert bfs(adj_matrix3, 0) == [0, 1]
+# Start BFS from node 2
+assert bfs(adj_matrix3, 2) == [2, 3]
+
+adj_matrix4 = [
+    [0, 1, 1, 0, 0],
+    [1, 0, 0, 1, 1],
+    [1, 0, 0, 0, 0],
+    [0, 1, 0, 0, 0],
+    [0, 1, 0, 0, 0]
+]
+# Start BFS from node 0
+assert bfs(adj_matrix4, 0) == [0, 1, 2, 3, 4]
+```
+
+---
+
 ## Summary Answer Key
 
 | Question # | Problem Title | Type | Solution Summary / Answer |
@@ -541,3 +676,4 @@ In an adjacency matrix where row $i$ represents the source vertex and column $j$
 | **4** | Graph Representation (Triangle) | MCQ | **Option 4** (`adjacency_matrix = [[0, 5, 10], [5, 0, 1], [10, 1, 0]]` accurately represents the undirected weights). |
 | **5** | Time Complexity of DFS | MCQ | **Option 3** (`O(V+E)` per CLRS Theorem 22.3 for adjacency list traversal). |
 | **6** | Graph from Adjacency Matrix | MCQ | **Option 1** (Graph displaying directed edges $0 \to 1$ and $3 \to 4$ with bidirectional edges $0 \leftrightarrow 2$ and $2 \leftrightarrow 3$). |
+| **7** | Breadth-First Search Traversal Bug Fix | Debugging | Append `node` to `result` upon dequeue (`result.append(node)`) instead of inside the neighbor loop, ensuring starting node `start` is included in traversal. Time: $O(V^2)$, Space: $O(V)$. |

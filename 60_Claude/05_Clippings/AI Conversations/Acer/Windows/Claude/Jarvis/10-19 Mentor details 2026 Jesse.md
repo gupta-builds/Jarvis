@@ -6,7 +6,7 @@ source_os: windows
 title: "Mentor details 2026 Jesse"
 started_at: 2026-10-19T13:08:45
 ended_at: 2026-10-19T15:38:37
-exported_at: 2026-10-19T17:33:05
+exported_at: 2026-10-19T18:33:03
 duration_minutes: 149.9
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'

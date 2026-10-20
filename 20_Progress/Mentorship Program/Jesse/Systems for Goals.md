@@ -1,3 +1,16 @@
+---
+type: project
+status: active
+created: 2026-10-19
+updated: 2026-10-19
+related_progress:
+  - "[[Mentor Details'26]]"
+  - "[[Plan - Jesse]]"
+  - "[[Smart Goals]]"
+tags:
+  - mentorship
+next: Create the real Jesse/Meetings folder once the first meeting actually happens.
+---
 # Systems for Goals
 This note defines the execution system for Jesse's mentorship, not just the rules of the relationship. Each layer below is written as a rule for how that layer actually operates, so the goals in [[Smart Goals]] turn into things that really happen instead of staying intentions. Per instruction, this writes the rules down; it does not create the actual tracker, log, or checklist files yet, those get created only once the system is needed for a real meeting.
 ## Why This System Exists
@@ -17,7 +30,7 @@ The base layer is the daily note and `/startday` and `/closeday` workflow alread
 **Rule on corrections:** if a later decision reverses an earlier one, the earlier line stays untouched and a new dated line explains the change, the same pattern [[Plan - Ahnaf]] already uses under `## Corrections`. History is never quietly edited away.
 ## Layer 4, Goal-Progress Tracker
 **What it tracks:** for each of the three 80-goals and five 20-goals in [[Smart Goals]], a status (not started, in progress, done), the date it was last touched, and one line of evidence.
-**Rule on where it lives:** appended as a dated entry to [[Plan - Jesse]]'s `## Current State` at every monthly check-in, which is Sequence step 5, "review progress against the 80." Not a separate spreadsheet or dashboard file, the goal state stays inside the same plan note everything else already points to.
+**Rule on where it lives:** appended as a dated entry to [[Plan - Jesse]]'s `## Current State` at every alternate-week check-in, which is Sequence step 5, "review progress against the 80." Not a separate spreadsheet or dashboard file, the goal state stays inside the same plan note everything else already points to.
 **Rule on evidence:** "in progress" requires a dated line of real evidence, a sent message, a logged decision, a published post, not a verbal sense that something is moving.
 ## Verification Mechanism, Meetings Confirm Actions
 **Rule:** a goal only moves to "in progress" or "done" if a dated meeting log or decision entry backs it up. Nothing gets marked done from memory alone. This is the direct fix for Ahnaf lesson 1, the Resq-versus-Opspilot decision that was "never resolved on record."
@@ -28,8 +41,8 @@ The base layer is the daily note and `/startday` and `/closeday` workflow alread
 2. Work toward it becomes a task inside the daily workflow (Layer 1).
 3. A meeting happens, following the per-meeting checklist (Layer 2).
 4. Anything decided in that meeting becomes a dated line in [[Plan - Jesse]]'s Decisions (Layer 3).
-5. The goal's status gets updated in [[Plan - Jesse]]'s Current State at the next monthly check-in (Layer 4).
+5. The goal's status gets updated in [[Plan - Jesse]]'s Current State at the next alternate-week check-in (Layer 4).
 6. If that update does not happen on schedule, the Escalation Rule fires.
 ## Open Questions
 - [ ] Once the first meeting actually happens, create the real `Jesse/Meetings/` folder (Transcripts, Briefs, Action) rather than leaving this as a rule with nothing underneath it yet.
-- [ ] Decide whether the monthly check-in date should be fixed to a specific day (for example the first Monday of the month) once a cadence is actually agreed with Jesse.
+- [ ] Decide whether the alternate-week check-in should be fixed to a specific weekday once Jesse confirms the cadence proposed in the Google Doc.

@@ -7,6 +7,10 @@ deadline: 2026-11-02
 related_progress:
   - "[[Mentor Details'25]]"
   - "[[Mentorship Board]]"
+  - "[[Plan - Jesse]]"
+  - "[[Initial Outreach]]"
+  - "[[Smart Goals]]"
+  - "[[Systems for Goals]]"
 tags:
   - "#progress"
   - mentorship

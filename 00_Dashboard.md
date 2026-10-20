@@ -150,6 +150,7 @@ LIMIT 8
 **Claude OS:** [[Claude OS]] · [[20_Progress/AI/Claude OS Dashboard|Claude OS Dashboard]] · [[10_Areas/Excalidraw/Claude OS Map|OS Map]]
 **AI:** [[10_Areas/AI/Claude Code|Claude Code]] · [[10_Areas/AI/Cursor|Cursor]] · [[10_Areas/AI/Kiro|Kiro]] · [[10_Areas/AI/Codex|Codex]]
 **Daily OS:** [[Daily Operating System|Daily Operating System]] · personal, health, and finance tracking live in The Plan, not here
+**Mentorship:** [[Mentorship Board]] · current must-do: send the Jesse outreach email, deadline 2026-11-02 · see [[Plan - Ahnaf]] and [[Plan - Jesse]]
 
 ## 10_Areas Overview
 

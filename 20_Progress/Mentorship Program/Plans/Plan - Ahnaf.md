@@ -10,8 +10,9 @@ related_progress:
   - "[[Mentor Details'25]]"
   - "[[Mentorship Board]]"
   - "[[Mentor Meeting Playbook]]"
+  - "[[Github Issues]]"
   - "[[Plan - Jesse]]"
-next: Send a direct re-engagement message to Ahnaf, see Sequence step 1.
+next: Send the re-engagement message to Ahnaf, drafted and ready, see Sequence step 1.
 ---
 # Plan: Ahnaf
 ## Goal
@@ -93,9 +94,9 @@ None of these were actually met by the program's original end date:
 #### Fall 2026
 Folded in from the now-deleted Fall 2026, Detailed Expectations note. That note was deliberately left blank, waiting for real fall meetings to generate content. No fall meeting ever happened, so it stayed blank for the entire season, which is itself part of the evidence behind this plan's Sequence below. The "second mentor" idea it flagged as "a live idea for fall enrollment" is resolved: [[Plan - Jesse]] is that relationship, running in parallel, not a replacement for this one.
 ## Sequence
-1. Send a short, direct re-engagement message to Ahnaf. Acknowledge the gap since the last real contact, 2026-07-14, and ask plainly whether he has bandwidth to pick this back up. Done when the message is actually sent, not drafted.
-2. If he responds: close the adx feedback debt first, the review due 2026-07-19 and never delivered, before asking for anything new. The analysis already exists in [[Codebase Deep Read]] and [[Recommended Fixes]]; this step is packaging and sending it, not redoing the work.
-3. If he responds: propose a concrete, resumed cadence in writing, in that same message or the first call, rather than letting it stay a verbal agreement that quietly lapses again.
+1. Send a short, direct re-engagement message to Ahnaf. Acknowledge the gap since the last real contact, 2026-07-14, reference the real GitHub issues already filed on adx (see Current State and [[Github Issues]]), and ask if anything has changed on his end since. Drafted 2026-10-20, ready to send.
+2. If he responds: close out the remaining adx feedback debt, the second batch of issues (10 through 18) still staged and not yet posted, see [[Github Issues]], before asking for anything new.
+3. If he responds: propose a monthly cadence in writing, in that same message or the first call, rather than letting it stay a verbal agreement that quietly lapses again. This replaces the earlier bi-weekly proposal, which never actually held.
 4. If there is no response within two weeks of step 1: set `status: archived` on this plan rather than leaving it silently paused indefinitely, and put full near-term energy into [[Plan - Jesse]] instead.
 5. Once contact resumes, re-weigh the four goals above against the most urgent real problem: no internship happened last cycle, which created the still-unresolved CPT/OPT timing bind. Professional image and internship outcome should lead going forward, not startup fundamentals.
 Out of scope this round: deciding whether the relationship continues past a first re-engagement response. That depends entirely on what Ahnaf actually says.
@@ -107,5 +108,6 @@ Out of scope this round: deciding whether the relationship continues past a firs
 - **2026-10-19:** Jesse is a new, parallel mentor relationship, not a replacement for this one. This plan stays open on its own terms. Any future mentor gets its own plan file in this same folder, with its own lessons applied in full, never assumed from this one.
 ## Corrections
 - **2026-10-19:** The Mentorship Board's prior status line, "Cadence: Alternate weeks, confirmed for fall, unchanged from summer," was wrong. The cadence was agreed on 2026-07-14 but never actually held again after that call. Corrected in Current State above, and on the Board.
+- **2026-10-20:** Current State's claim that "adx itself never progressed past the initial proposal" was wrong. Nine real GitHub issues (1 through 9) were filed on `ahnafyy/adx` on 2026-08-30, see [[Github Issues]], with a second batch (10 through 18) drafted and staged for posting. The feedback debt from the 2026-07-19 deadline was never sent back to Ahnaf as a direct message, but it was substantively delivered as real, filed issues, a meaningfully different state than "never progressed."
 ## Related Notes
 [[Mentor Details'25]], [[Mentorship Board]], [[Mentor Meeting Playbook]], [[Plan - Jesse]]

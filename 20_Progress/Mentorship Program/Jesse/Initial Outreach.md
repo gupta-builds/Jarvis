@@ -1,3 +1,19 @@
+---
+type: project
+status: active
+created: 2026-10-19
+updated: 2026-10-20
+deadline: 2026-11-02
+related_progress:
+  - "[[Mentor Details'26]]"
+  - "[[Plan - Jesse]]"
+  - "[[Smart Goals]]"
+  - "[[Systems for Goals]]"
+  - "[[Google Doc - First Meeting]]"
+tags:
+  - mentorship
+next: Send the outreach email below, scheduled for tomorrow at 8:00 AM.
+---
 # First Meeting
 ## Lessons From Ahnaf's Program, Applied Here
 Pulled directly from [[Mentor Details'25|Ahnaf's]] actual meeting record, not from memory of how it felt:
@@ -17,50 +33,36 @@ Jesse is Director, Industry Solutions at SymphonyAI, 19 years in industrial and 
 - Jesse describes his own role as being involved "from cradle to grave." That full-lifecycle ownership is exactly what Anant is trying to practice solo on Jarvis and the AI-agent infrastructure work.
 - Jesse is a UMN alumnus and a former admissions ambassador, which suggests he is receptive to in-person engagement, not only a remote relationship.
 ## Outreach Plan
-1. Send the outreach email below, proposing a first meeting before 2026-11-02, the Mentoring Agreement deadline.
-2. The Google Doc described below is linked in that email but has not been shared or created yet. Create it from the content below, then share it only when sending the email.
+1. Send the outreach email below, scheduled for tomorrow at 8:00 AM, proposing a first meeting before 2026-11-02, the Mentoring Agreement deadline.
+2. The Google Doc is finalized and already shared with Jesse. See [[Google Doc - First Meeting]] for its mirrored content and the open fixes flagged there.
 3. At the first meeting: walk through the SMART goals draft, adjust with Jesse's input, fill out and sign the Mentoring Agreement, and lock a recurring cadence.
 4. Submit the completed Mentoring Agreement to Katie (ksobo@umn.edu) by **2026-11-02**.
 5. Mention the November 4 Meet Your Partner Event as a secondary, optional touchpoint, not the first meeting itself. It is after the Nov 2 deadline, so it cannot be the venue for finishing the Agreement.
-## Google Doc Content, Draft (Not Yet Created or Shared)
-Suggested title: "Anant & Jesse — Mentorship Planning"
-1. **Welcome.** A shared space to plan meetings, meetups, and agendas as the program goes, not a one-time form.
-2. **Basic SMART Goals (draft).** The three goals above, flagged as a starting point to adjust together, not a finished submission.
-3. **November 4, Meet Your Partner Event.** Wednesday, Nov. 4, 2026, 7 to 8:30 p.m. Optional, in person. McNamara Alumni Center, Memorial Hall, 200 SE Oak St., Minneapolis, MN 55455.
-4. **Starter Session Agenda (first meeting).** See below.
-5. **Open section for future meeting notes and agendas**, added as the relationship progresses.
-### Starter Session Agenda, First Meeting
-1. Introductions: backgrounds, how the CSE program matched us.
-2. Anant's current work, briefly: Jarvis and the AI-agent infrastructure, CausalOps, and why the manufacturing and AI overlap drew interest in Jesse specifically.
-3. Jesse's role and what a typical client engagement looks like end to end.
-4. Review and adjust the three draft SMART goals together.
-5. Agree on a recurring cadence (proposal: monthly, 30 minutes) and book the next meeting before ending the call.
-6. Fill out the Mentoring Agreement form together (due to Katie by Nov. 2).
-7. Mention the Nov. 4 Meet Your Partner Event as an optional add-on.
-## Outreach Email, Draft
-**Subject:** Excided to Connect - CSE Mentorship Program
+## Google Doc Content
+The real content is finalized, shared with Jesse, and mirrored with cleaned-up formatting in [[Google Doc - First Meeting]], along with a short list of gaps still worth fixing in the live doc itself (the empty scheduling section, the empty 20-goals section).
+## Outreach Email, Ready to Send (scheduled for tomorrow, 8:00 AM)
+**Subject:** Excited to Connect, CSE Mentor Program
 ```
-Dear Jesse,  
-  
-My name is Anant Gupta, I am majoring in Computer Science as a Junior and I’m very excited to begin the mentorship program! Thank you for volunteering your time for this program. I was particularly excited to see your experience as ... I’m deeply interested in software development and technical leadership, so I’m looking forward to learning from your experience in these areas.  
-  
-Through this program, I hope to: Gain insight into career paths in software engineering and which field I should be working in. Get advice on courses, projects, and experiences that could best prepare me for future roles in tech. Get help and insight on preparing for interviews and landing internships. Learn how to build strong technical and leadership skills that translate into real-world impact.  
-  
-I also really appreciate that you’re a ... I’d love to hear more about your personal journey and how you navigated the challenges and opportunities along the way. Would you be available for a brief introductory call or meeting sometime next week? I’m happy to adjust to your schedule.  
-  
-Thank you again for volunteering your time to mentor students like me, I’m genuinely excited to connect and learn from your experience.  
-  
-Warm regards,  
-Anant Gupta
+Hi Jesse,
 
---  
-**Anant Gupta**
-**Junior at University of Minnesota**
-Computer Science with Entrepreneurship Minor
-_**Problem Solver** - build intelligent systems_  
-**mobile**: +1 763-485-3457
-**website**: [anantgupta.dev](https://anantgupta.dev/)
-**book a meeting:** [Pick a day and time - Cal](http://cal.com/gupta-builds)
+My name is Anant Gupta, a junior at the University of Minnesota majoring in Computer Science and minoring in Entrepreneurship. We were just matched through the CSE Mentor Program, and I'm genuinely excited to get started, thank you for taking the time to volunteer as a mentor this year.
+
+I put together a short planning doc for our first conversation: [Google Doc, First Meeting](https://docs.google.com/document/d/11FfmrawlM2gnBH3GbaZ1dKnm6hA3QytwmPXANtlTYzk/edit?tab=t.0). Would you mind giving it a quick read before we talk?
+
+For scheduling, I'd like to find 30 to 45 minutes sometime this week or next, by Friday, October 30th at the latest, so we have time to fill out the program's mentoring agreement before its November 2nd deadline. If it's easier, you can grab a time directly using the Cal link in my signature below, otherwise just let me know a few times that work and I'll get it on the calendar. I noticed you're based in the Twin Cities, so if meeting in person around campus works for you, I'd genuinely prefer that for our first conversation. If not, I'm just as happy to meet online.
+
+Looking forward to it. My scheduling link and portfolio are both in my signature below.
+
+Best,
+Anant
+
+--
+Anant Gupta
+Junior at University of Minnesota, Computer Science with Entrepreneurship Minor
+Problem Solver, building intelligent systems
+Mobile: +1 763-485-3457
+Website: [anantgupta.dev](https://anantgupta.dev/)
+Book a meeting: [Pick a day and time, Cal](http://cal.com/gupta-builds)
 ```
 ## Questions Answered for Claude
 1. The One year Outcome
@@ -82,10 +84,12 @@ _**Problem Solver** - build intelligent systems_
 	- Logs, trackers, daily workflow for this integration to be implemented onto the plans (adding a plan)
 	- As the folder is expanded with meetings, more systems and folder maps are added. Clarifying what exactly we expect from the mentorship program
 ## Next Action
-Send the outreach email above and propose a first meeting before 2026-11-02.
+Send the outreach email above, scheduled for tomorrow at 8:00 AM.
 ## Open Questions
 - [ ] Confirm whether Jesse prefers a call, video chat, or in person for the first meeting.
 - [ ] Confirm whether Jesse is attending the Nov. 4 Meet Your Partner Event before inviting him to it jointly.
-- [ ] Decide the actual Google Doc URL once created, and paste it into the email draft above before sending.
+- [ ] Fix the two gaps flagged in [[Google Doc - First Meeting]] (empty scheduling section, empty 20-goals section) in the live doc if they were not intentional.
 ## Log
 - **2026-10-19:** Note built out from the bare contact-info stub. Reviewed Ahnaf's full meeting record for concrete lessons, pulled the real CSE Mentoring Agreement requirements (3 SMART goals, due to Katie by Nov. 2) from the program PDFs already in Drive, and confirmed the Nov. 4 Meet Your Partner Event details directly with Anant since no record of it existed in the vault, Gmail, or Calendar.
+- **2026-10-20:** Google Doc finalized and shared with Jesse; its real content mirrored and reviewed in [[Google Doc - First Meeting]]. Outreach email rewritten to be direct and concise, with a clear scheduling ask (30 to 45 minutes, this week or next, by Oct. 30 at the latest), an explicit instruction to read the doc, and the Cal and portfolio links surfaced in the signature. Scheduled to send tomorrow at 8:00 AM.
+- **2026-10-20 (later):** Email revised again from Anant's own second pass: fixed the grammar in the in-person-meeting line, tightened the opening so the excitement and thank-you don't feel bolted on, and made the Twin Cities / in-person ask read as a genuine preference rather than an apologetic one. Tone target: polite, convincing, eager, genuinely invested, not just logistically correct.

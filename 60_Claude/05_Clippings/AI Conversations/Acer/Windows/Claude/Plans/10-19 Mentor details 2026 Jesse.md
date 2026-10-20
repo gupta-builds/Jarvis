@@ -5,40 +5,44 @@ source_app: claude-code
 source_os: windows
 title: "Mentor details 2026 Jesse"
 started_at: 2026-10-19T13:08:45
-ended_at: 2026-10-19T15:35:33
-exported_at: 2026-10-19T15:35:34
-duration_minutes: 146.8
+ended_at: 2026-10-19T21:39:26
+exported_at: 2026-10-19T21:39:27
+duration_minutes: 510.7
 project: Plans
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Plans'
 session_id: 8e752096-5c56-48a9-86d5-2255b709648e
 status: raw
-turn_count: 10
+turn_count: 18
 tools_used:
   AskUserQuestion: 1
-  Bash: 7
-  Edit: 4
-  Glob: 5
-  Grep: 11
+  Bash: 8
+  Edit: 28
+  Glob: 7
+  Grep: 15
   mcp__claude_ai_Gmail__search_threads: 4
   mcp__claude_ai_Google_Calendar__search_events: 2
   mcp__claude_ai_Google_Drive__search_files: 2
-  Read: 30
+  Read: 40
   Skill: 1
   ToolSearch: 1
-  Write: 6
+  Write: 11
 tokens:
-  input: 222
-  output: 313947
-  cache_creation: 1194624
-  cache_read: 17496381
-  total: 19005174
-cost_usd: 11.417686
+  input: 374
+  output: 484767
+  cache_creation: 2849829
+  cache_read: 40659152
+  total: 43994122
+cost_usd: 24.379564
 model:
   - "claude-sonnet-5"
 files_touched:
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\00_Dashboard.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\10_Areas\\Career\\Internships\\Tracker\\Internship - Dashboard.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Mentorship Program\\Ahnaf\\adx\\Github Issues.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Mentorship Program\\Ahnaf\\Mentor Details'25.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Mentorship Program\\Jesse\\Google Doc - First Meeting.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Mentorship Program\\Jesse\\Initial Outreach.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Mentorship Program\\Jesse\\Meetings\\Mentor Meeting Playbook - Jesse.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Mentorship Program\\Jesse\\Mentor Details'26.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Mentorship Program\\Jesse\\Smart Goals.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Mentorship Program\\Jesse\\Systems for Goals.md"
@@ -51,12 +55,15 @@ files_touched:
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Mentorship Program\\Plans\\Fall 2026 — Detailed Expectations.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Mentorship Program\\Plans\\Mentor Meeting - Hackathons, Summer, and Networking.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Mentorship Program\\Plans\\Overall Plan.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Mentorship Program\\Plans\\Plan - Ahnaf.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Mentorship Program\\Plans\\Plan - Jesse.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Mentorship Program\\Plans\\Plan.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Note Type Registry.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\Enrich\\Output Standard.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\Internship\\Mentorship Meeting Standard.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\Project Standard.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\Projects\\Spec and Plan Standard.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Templates\\Enumerate\\Better Today.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Templates\\Projects\\Project Plan Template.md"
 tags:
   - input
@@ -849,9 +856,801 @@ The base layer is the daily note and `/startday` and `/closeday` workflow alread
 
 ```
 
+## You
+
+The goals were reduced to 4 by merging one of them together to point - 1 becuase that is what linkedin maxing is going to include. Other than that, I would like you to add frontmatter to each and every single note inside the folder that was just created. Also, update the board note and other relevant notes for this task to take place. Also, make it a point inside the daily dashboard layout to make notice of the mentorship program plan. The meetings are mapped and laid out correctly so that everything is done correctly and tracked for obvious purposes. Let's make sure that we have all notes correctly laid out for the base structure of the new mentorship program that has been signed up for. After doing all the updates to the folder: `20_Progress/Mentorship Program`. 
+
+Now, let's start writing the word doc. I have created a word doc: `https://docs.google.com/document/d/[REDACTED]/edit?tab=t.0`, i am not sure if you can directly write inside that very specific doc without using claude in chrome. So, write the word doc contents inside a new markdown note inside the jesse folder. Let's make sure to do this task correctly, focusing on the goals. Meeting agenda and details about the event on november 4th. Requesting to schedule a meeting sometime this week or next week by the most late date. Other than that, the doc should be concise. Just one page. This is a doc so that we know everything that is to be worked in the meeting not a detailed section for anyone to follow through. I wish the meetings to be 30 mins by default but might be extending to 45 mins depending on the conversation that takes place for the agenda of the meeting. Time alloted for each meeting is 45 minutes just to have some buffer time. Write content only for one page worth of word doc information. I want to work out the rest of the 20 that could be added based on the discussion with the mentor. Let's make sure to optimize the 20 to fit through perfectly and stick to 5 so we do not overload on the basic things that we wish to accomplish through the 1 year of this program. We do not hope this mentor to magically help us, this is guidance. So write it our as smart goals that are suggested. Not confirmed. This is what i majorly want to focus on, what are your thoughts? kinda thing. Let's do the job correctly. Making sure that the notes are laid out correctly and for success.
+
+## Claude
+
+All done. Here's the full rundown of what changed:
+
+**Goal structure fix:** `Smart Goals.md` and `Plan - Jesse.md`'s "20" list is now cleanly 4 real stretch goals (LinkedIn/network/content maxing merged with portfolio posts, mock-interview/LeetCode cadence, startup validation pass, in-person networking/event comfort) plus goal 5 left explicitly **open and unfilled**, reserved for whatever surfaces once you actually talk to Jesse, capped at 5 so it never grows into a second goal set. Fixed the cross-references in "The 80" that pointed at the old numbering.
+
+**Frontmatter added to every note in `Jesse/`:** `Initial Outreach.md`, `Smart Goals.md`, `Systems for Goals.md`, and the new `Mentor Meeting Playbook - Jesse.md` and `Google Doc - First Meeting.md` all now carry `type`, `status`, `created`, `updated`, `related_progress`, `tags`, `next`, consistent with the shape `Mentor Details'26.md` already had.
+
+**Meetings mapped:** new `Jesse/Meetings/Mentor Meeting Playbook - Jesse.md`, mirroring Ahnaf's Playbook, with the standing format, the first-meeting pointer, an After-the-Meeting checklist tied directly to the rules in `Systems for Goals`, and an empty Session Log ready for the first real entry.
+
+**Board and dashboard updated:** fixed the stale `[[Plan]]` link (now `[[Plan - Ahnaf]]`), added the new Jesse Playbook to the Board's map and status table, and added a `**Mentorship:**` line to `00_Dashboard.md` so the Nov 2 deadline and both plans surface every time you open it.
+
+**New note for the Google Doc:** `Jesse/Google Doc - First Meeting.md`, one page, everything below the divider is meant to be pasted straight into your doc (`...d/[REDACTED]`). It covers: scheduling ask (30-45 min, this week or next, Friday Oct 30 at the latest, so there's room before the Nov 2 deadline), the 3 goals framed as "here's my starting point, what do you think" rather than confirmed asks, the Nov 4 event details, and a 6-line starter agenda. `Initial Outreach.md` now points here instead of duplicating the content.
+
+One thing to flag, not something I changed on my own: your rewritten outreach email in `Initial Outreach.md` (the "Dear Jesse..." version) doesn't actually mention or link the Google Doc at all. Since the whole plan hinges on that doc being forwarded in the first email, you'll want to add a line and the real link before sending it, want me to do that?
+
+### Tool Calls
+
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Jesse\Smart Goals.md`
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Jesse\Mentor Details'26.md`
+- `Glob` -- pattern `00_Dashboard.md` path `D:\_Anant\20_Progress\Documents\Jarvis`
+- `Glob` -- pattern `30_Order/Templates/**/Better Today*` path `D:\_Anant\20_Progress\Documents\Jarvis`
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\00_Dashboard.md`
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates\Enumerate\Better Today.md`
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Jesse\Smart Goals.md`
+```
+---
+type: project
+status: active
+created: 2026-10-19
+updated: 2026-10-19
+deadline: 2026-11-02
+related_progress:
+  - "[[Mentor Details'26]]"
+  - "[[Plan - Jesse]]"
+  - "[[Initial Outreach]]"
+  - "[[Systems for Goals]]"
+tags:
+  - mentorship
+next: Confirm the three 80-goals with Jesse at the first meeting before they go on the signed Mentoring Agreement.
+---
+# Smart Goals
+Source of truth for what Jesse's mentorship year is actually trying to produce. [[Plan - Jesse]] carries the compressed version in its Goal and Current State sections; this note carries the full SMART detail those sections point to. Nothing here is final until walked through with Jesse at the first meeting, but it is written as a real commitment to propose, not a brainstorm.
+## One-Year Outcome
+By the end of October 2027, this is what should be true, pulled directly from the answer given, not softened:
+- An internship landed at a large MNC, FAANG-tier, or top AI company, with real, named connections inside it, built across the whole search process, not just at the offer stage.
+- Technical interview process tested and practiced with Jesse's own coding-round experience, system design learned and practiced throughout 2027, not crammed right before interviews.
+- LinkedIn at 500+ connections and 1,000+ followers, with real posting activity, not a static profile.
+- Blog posts live on the portfolio, and at least one active income source (ads, TradingView, or similar) running, not theoretical.
+- Jarvis extended to being useful across multiple other repos, not a single closed project.
+- A lot of networking events, meetups, and conferences actually attended, not just planned.
+- Explicitly out of scope for this mentorship: coursework, UMN-internal work, and club involvement. This is solely about internship, AI, projects, networking, communication, and people skills, becoming a version of professionally capable that has not existed yet.
+## The 80, Three Committed Goals
+These three must be true by the end of this program year. Each one is written so it is specific, measurable, and dated, the same shape the CSE Mentoring Agreement form requires, not a restatement of the category name.
+### Goal 1, Internships
+**Commitment:** land a 2027-cycle internship offer at a large AI-forward or FAANG-tier company.
+**Specific and measurable, by sub-area:**
+- Technical interview readiness: a recurring mock-interview rhythm running through 2027 (see 20-goal 2 below), not a one-off before a real interview.
+- LinkedIn: 500+ connections, 1,000+ followers, active posting (see 20-goal 1 below).
+- Conferences and references: a quarterly attendance target plus at least one introduction or reference Jesse is willing to make (see 20-goal 4 below).
+- Application help: resume and portfolio reviewed directly by Jesse at least once, with changes actually made, not just discussed, by the end of the first quarter of contact.
+**How Jesse helps:** hiring-manager-adjacent read from Industry Solutions at SymphonyAI on what makes an AI-engineering candidate credible versus buzzword-only, plus direct resume and portfolio feedback.
+**Why this is the lead goal:** this is the one the Ahnaf relationship never delivered on. No internship happened while that mentorship ran, which created the CPT/OPT timing bind that is still unresolved, see [[Plan - Ahnaf#Current State|Plan - Ahnaf]]. This goal exists to make sure that gap does not repeat.
+### Goal 2, Project Mentorship for Startups and Project Management
+**Commitment:** one structured conversation a month with Jesse on AI systems, startup judgment, and project management, each one producing a concrete written lesson.
+**Specific and measurable:**
+- VC-level startup advice and idea generation: at least one real problem-thesis and validation pass completed with Jesse's input (see 20-goal 3 below), not left as "someday."
+- Project reviews: third-person, outside feedback on Jarvis, CausalOps, and TradingView, logged as one written lesson per monthly conversation, applied to how the work is actually being built.
+- Communication and project management judgment: one example per quarter of how Jesse scopes, architects, and delivers a client solution end to end, compared directly against how Anant is running his own solo build process.
+**How Jesse helps:** the same full-lifecycle ownership lens (pre-sales through delivery) he brings from SymphonyAI, a closer disciplinary match than Ahnaf's pure-software background.
+### Goal 3, Marketing
+**Commitment:** build real communication, selling, and idea-generation skill, not just "get better at talking."
+**Specific and measurable:**
+- Portfolio content cadence: real blog posts published on a fixed schedule (see 20-goal 1 below), tied to actual project work.
+- Meeting and pitch practice: one rehearsed pitch pass before each Jesse meeting, graded honestly against how it actually landed.
+- Practical shortcuts: collect and write down the specific communication and meeting "cheats," the shortcuts an experienced operator like Jesse actually uses, not generic advice.
+**Why this matters as much as the other two:** the Opspilot and Resq hackathon retrospective (Ahnaf-era, April 2026) found the hardest part was never the code, it was scope control, demo truth, and clearly explaining what was real versus mocked. A polished pitch mattered as much as the build itself, and nothing was done about that until now.
+## The 20, Stretch Goals
+Capped at five on purpose, so stretch work never grows into a second set of main goals. Four are defined now, decomposed from exactly one of the three 80-goals above; the fifth is a reserved, open slot, not invented in advance.
+1. **LinkedIn, network, and content maxing** (decomposes Goal 1, Internships, and the content half of Goal 3, Marketing). Target: 500+ connections, 1,000+ followers, at least one post a week. Portfolio blog posts, one real post a month tied to actual shipped work, count toward this same goal rather than being tracked separately, they are the same "online presence" push.
+2. **Mock interview and technical-prep cadence** (decomposes Goal 1, Internships). Target: at least one mock interview a month through 2027, alternating coding and system design, ideally including at least one run by Jesse himself. Regular LeetCode practice and coding competitions count toward this same cadence rather than being a separate goal.
+3. **Startup idea validation pass** (decomposes Goal 2, Project mentorship). Target: one complete problem-thesis-to-decision cycle with Jesse's input by the end of the first quarter of contact, mirroring the Winter "learn the playbook, no launch" approach from [[Plan - Ahnaf#Winter|Ahnaf's plan]], but carried all the way to an actual decision this time, not left open.
+4. **In-person networking and event comfort** (decomposes Goal 1 and Goal 3 jointly). Target: at least one conference or meetup attended per quarter, starting with the Nov. 4 Meet Your Partner Event if Jesse is attending, see [[Initial Outreach]]. Includes picking up real, practical tips from Jesse on how to work a room and hold a good conversation at these events, not just showing up.
+5. **Open, reserved slot.** Left blank on purpose. Filled only once a real conversation with Jesse surfaces something specific enough to track on its own, not guessed at now.
+## Mapping to the CSE Mentoring Agreement (Due 2026-11-02)
+The official form only asks for three SMART goals. These map directly, one to one, onto the 80 above, phrased to fit the form's own "goal, then how your mentor helps" structure:
+1. **SMART Goal 1:** Land a 2027-cycle internship at a large AI-forward or FAANG-tier company. *How Jesse can help:* direct resume and portfolio review, and an industry read on what makes an AI-engineering candidate credible.
+2. **SMART Goal 2:** Build real project and startup judgment through monthly structured review of actual AI systems work. *How Jesse can help:* share how he scopes and delivers client solutions end to end, and give outside feedback on Jarvis, CausalOps, and TradingView.
+3. **SMART Goal 3:** Build communication and pitching skill through a fixed portfolio-content cadence and meeting practice. *How Jesse can help:* share the practical communication shortcuts used in his own client-facing role.
+## Open Questions
+- [ ] Confirm these three with Jesse directly at the first meeting before they go on the signed Mentoring Agreement, they are a draft, not a finished submission.
+- [ ] Set real dates on 20-goals 1 through 4 above, and decide what fills 20-goal 5, once priorities are confirmed with Jesse.
+- [ ] Decide whether the CausalOps-to-MOM comparison belongs in Goal 2's framing at all, flagged as disputed in [[Initial Outreach]].
+
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Jesse\Initial Outreach.md`
+```diff
+- # First Meeting
+## Lessons From Ahnaf's Program, Applied Here
++ ---
+type: project
+status: active
+created: 2026-10-19
+updated: 2026-10-19
+deadline: 2026-11-02
+related_progress:
+  - "[[Mentor Details'26]]"
+  - "[[Plan - Jesse]]"
+  - "[[Smart Goals]]"
+  - "[[Systems for Goals]]"
+tags:
+  - mentorship
+next: Send the outreach email below and propose a first meeting before 2026-11-02.
+---
+# First Meeting
+## Lessons From Ahnaf's Program, Applied Here
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Jesse\Systems for Goals.md`
+```diff
+- # Systems for Goals
+This note defines
++ ---
+type: project
+status: active
+created: 2026-10-19
+updated: 2026-10-19
+related_progress:
+  - "[[Mentor Details'26]]"
+  - "[[Plan - Jesse]]"
+  - "[[Smart Goals]]"
+tags:
+  - mentorship
+next: Create the real Jesse/Meetings folder once the first meeting actually happens.
+---
+# Systems for Goals
+This note defines
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Jesse\Mentor Details'26.md`
+```diff
+- related_progress:
+  - "[[Mentor Details'25]]"
+  - "[[Mentorship Board]]"
+tags:
++ related_progress:
+  - "[[Mentor Details'25]]"
+  - "[[Mentorship Board]]"
+  - "[[Plan - Jesse]]"
+  - "[[Initial Outreach]]"
+  - "[[Smart Goals]]"
+  - "[[Systems for Goals]]"
+tags:
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Plans\Plan - Jesse.md`
+```diff
+- ### The 20, Five Stretch Goals
+Each one decomposes from exactly one of the three goals above, named individually so the system can track it rather than lose it inside the bigger goal. Draft, to be sharpened with real dates once Goals 1 to 3 above are locked with Jesse:
+1. **LinkedIn and network growth** (decomposes Goal 1, Internships): reach 500+ connections and 1,000+ followers, with regular posts, not a one-time profile update.
+2. **Mock interview cadence** (decomposes Goal 1, Internships): a recurring mock-interview rhythm, coding and system design, running through 2027, not a one-off right before an actual interview.
+3. **Portfolio content cadence** (decomposes Goal 3, Marketing): real blog posts on the portfolio on a fixed cadence, tied to actual project work, not placeholder content.
+4. **Startup idea validation pass** (decomposes Goal 2, Project mentorship): one real problem-thesis and validation exercise with Jesse's input, mirroring the Winter "learn the playbook, no launch" approach from [[Plan - Ahnaf#Winter|Ahnaf's plan]], carried to an actual decision this time.
+5. **In-person networking target** (decomposes Goal 1 and Goal 3 jointly): a concrete number of conferences or meetups attended per quarter, not "network more" left vague.
++ ### The 20, Stretch Goals
+Capped at five on purpose, so stretch work never grows into a second set of main goals. Full detail in [[Smart Goals]]; compressed here:
+1. **LinkedIn, network, and content maxing** (Goal 1 and the content half of Goal 3): 500+ connections, 1,000+ followers, regular posts, with portfolio blog posts folded into this same push rather than tracked separately.
+2. **Mock interview and technical-prep cadence** (Goal 1): a recurring mock-interview rhythm, coding and system design, running through 2027, with regular LeetCode practice folded in rather than tracked separately.
+3. **Startup idea validation pass** (Goal 2): one real problem-thesis and validation exercise with Jesse's input, mirroring the Winter "learn the playbook, no launch" approach from [[Plan - Ahnaf#Winter|Ahnaf's plan]], carried to an actual decision this time.
+4. **In-person networking and event comfort** (Goal 1 and Goal 3 jointly): a concrete number of conferences or meetups attended per quarter, plus real tips from Jesse on working a room, not "network more" left vague.
+5. **Open, reserved slot.** Not invented in advance, filled only once a real conversation with Jesse surfaces something worth tracking on its own.
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Jesse\Meetings\Mentor Meeting Playbook - Jesse.md`
+```
+---
+type: project
+status: active
+created: 2026-10-19
+updated: 2026-10-19
+related:
+  - "[[Plan - Jesse]]"
+  - "[[Mentor Details'26]]"
+  - "[[Smart Goals]]"
+  - "[[Systems for Goals]]"
+  - "[[Initial Outreach]]"
+tags:
+  - mentorship
+  - meeting-prep
+next: Hold the first meeting once Jesse responds to the outreach email, then fill in the Session Log entry.
+---
+# Mentor Meeting Playbook, Jesse
+## Why This Note Exists
+Standing source of truth for every Jesse meeting from here forward, mirroring [[Mentor Meeting Playbook]] (Ahnaf's), built from its actual failure points rather than copied blind. The goals below stay stable across meetings; each individual meeting gets its own dated entry under [[#Session Log]], appended, never overwritten. The per-meeting checklist this follows is defined as a rule in [[Systems for Goals]] (Layer 2).
+## The Goals, What This Mentorship Is Actually For
+Full detail in [[Smart Goals]]. Compressed: Internships (the lead goal, the one Ahnaf's relationship never delivered on), Project Mentorship for Startups and Project Management, and Marketing, the 80. Four stretch goals plus one reserved slot, the 20.
+## Standing Meeting Format
+Every meeting: demo or update, then a goal-progress check against the 80 (one goal per meeting if there is not time for all three), then one specific ask, then book the next meeting before the call ends. Same shape as Ahnaf's Demo, Shipped/Blocked/Deciding, Ask, adapted to Layer 2 of [[Systems for Goals]].
+## First Meeting, Not Yet Scheduled
+Agenda is the Starter Session Agenda in [[Initial Outreach]], shared with Jesse ahead of time through the Google Doc, not kept only on Anant's side, the direct fix for Ahnaf lesson 5. Default length 30 minutes, 45 minutes blocked as buffer in case the conversation runs long. One-page meeting-prep content for the Google Doc itself lives in [[Google Doc - First Meeting]].
+## After the Meeting
+- [ ] Fill the four fixed fields from [[Systems for Goals]] Layer 2: what was actually said, what got decided, the concrete next step, the next meeting already booked.
+- [ ] Log any real decision in [[Plan - Jesse]]'s own `## Decisions` section, not here.
+- [ ] Update the goal-progress line in [[Plan - Jesse]]'s `## Current State` if anything moved.
+- [ ] Send a thank-you message within 24 hours.
+- [ ] If this was the first meeting, confirm the Mentoring Agreement is signed and ready to submit to Katie by 2026-11-02.
+## Session Log
+Append one dated entry per meeting below. Do not overwrite prior entries. Empty until the first meeting actually happens.
+
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Plans\Plan - Jesse.md`
+```diff
+- related_progress:
+  - "[[Mentor Details'26]]"
+  - "[[Initial Outreach]]"
+  - "[[Smart Goals]]"
+  - "[[Systems for Goals]]"
+  - "[[Mentorship Board]]"
+  - "[[Plan - Ahnaf]]"
++ related_progress:
+  - "[[Mentor Details'26]]"
+  - "[[Initial Outreach]]"
+  - "[[Smart Goals]]"
+  - "[[Systems for Goals]]"
+  - "[[Mentor Meeting Playbook - Jesse]]"
+  - "[[Mentorship Board]]"
+  - "[[Plan - Ahnaf]]"
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Plans\Plan - Jesse.md`
+```diff
+- ## Related Notes
+[[Mentor Details'26]], [[Initial Outreach]], [[Smart Goals]], [[Systems for Goals]], [[Plan - Ahnaf]], [[Mentorship Board]]
++ ## Related Notes
+[[Mentor Details'26]], [[Initial Outreach]], [[Smart Goals]], [[Systems for Goals]], [[Mentor Meeting Playbook - Jesse]], [[Plan - Ahnaf]], [[Mentorship Board]]
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Plans\Plan - Jesse.md`
+```diff
+- Historical grounding for why "Marketing" and "Project Mentorship" matter as much as the internship goal:
++ The meeting structure itself is already mapped, ready for when Jesse responds: [[Mentor Meeting Playbook - Jesse]] holds the standing format and an empty Session Log, and [[Systems for Goals]] defines the per-meeting checklist, decision log, and goal-progress tracker it runs on.
+
+Historical grounding for why "Marketing" and "Project Mentorship" matter as much as the internship goal:
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Mentorship Board.md`
+```diff
+- next: Send Ahnaf a re-engagement message (see [[Plan]]) and the Jesse outreach email (see [[Initial Outreach]])
++ next: Send Ahnaf a re-engagement message (see [[Plan - Ahnaf]]) and the Jesse outreach email (see [[Initial Outreach]])
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Mentorship Board.md`
+```diff
+-   - "[[Mentor Details'26]]"
+  - "[[Plan - Jesse]]"
+  - "[[Mentor Meeting Playbook]]"
+  - "[[adx]]"
++   - "[[Mentor Details'26]]"
+  - "[[Plan - Jesse]]"
+  - "[[Mentor Meeting Playbook]]"
+  - "[[Mentor Meeting Playbook - Jesse]]"
+  - "[[adx]]"
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Mentorship Board.md`
+```diff
+- [[Mentor Details'26]] holds who Jesse is, Director of Industry Solutions at SymphonyAI, matched for the 2026-2027 cycle. [[Plan - Jesse]] is the live plan for that relationship: an 80/20 goal split (3 committed goals, 5 stretch goals), built directly from the Ahnaf relationship's actual failure points so they are not repeated. [[Initial Outreach]], [[Smart Goals]], and [[Systems for Goals]] hold the first-contact detail, goal detail, and execution-tracking detail respectively.
++ [[Mentor Details'26]] holds who Jesse is, Director of Industry Solutions at SymphonyAI, matched for the 2026-2027 cycle. [[Plan - Jesse]] is the live plan for that relationship: an 80/20 goal split (3 committed goals, 4 stretch goals plus one reserved slot), built directly from the Ahnaf relationship's actual failure points so they are not repeated. [[Initial Outreach]], [[Smart Goals]], and [[Systems for Goals]] hold the first-contact detail, goal detail, and execution-tracking detail respectively, and [[Mentor Meeting Playbook - Jesse]] holds the standing meeting format and Session Log, mapped out before the first meeting has even been scheduled.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Mentorship Board.md`
+```diff
+- | Jesse, goals | Drafted as 80/20 in [[Plan - Jesse]]; not yet reviewed with Jesse directly |
++ | Jesse, goals | Drafted as 80/20 in [[Plan - Jesse]]; not yet reviewed with Jesse directly |
+| Jesse, meetings | Mapped in [[Mentor Meeting Playbook - Jesse]], empty Session Log, ready for the first entry |
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\00_Dashboard.md`
+```diff
+- **Daily OS:** [[Daily Operating System|Daily Operating System]] · personal, health, and finance tracking live in The Plan, not here
++ **Daily OS:** [[Daily Operating System|Daily Operating System]] · personal, health, and finance tracking live in The Plan, not here
+**Mentorship:** [[Mentorship Board]] · current must-do: send the Jesse outreach email, deadline 2026-11-02 · see [[Plan - Ahnaf]] and [[Plan - Jesse]]
+```
+- `Grep` -- pattern `family: output|Output Standard" >` path `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards`
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Enrich\Output Standard.md`
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Jesse\Google Doc - First Meeting.md`
+```
+---
+type: project
+status: active
+created: 2026-10-19
+updated: 2026-10-19
+deadline: 2026-11-02
+related_progress:
+  - "[[Mentor Details'26]]"
+  - "[[Plan - Jesse]]"
+  - "[[Smart Goals]]"
+  - "[[Initial Outreach]]"
+tags:
+  - mentorship
+next: Copy the content below into the Google Doc, then paste the doc's link into the Initial Outreach email before sending.
+---
+# Google Doc, First Meeting
+Content to paste into the existing Google Doc (https://docs.google.com/document/d/[REDACTED]/edit?tab=t.0), not shared with Jesse yet. One page, meant to be worked from in the meeting, not read as a polished brief. Everything below the next line is the doc content itself.
+---
+# Anant & Jesse, Mentorship Planning
+A shared space to plan our meetings and keep track of what we're working on this year. Nothing below is locked in, it's a starting point for our first conversation.
+## Scheduling our first meeting
+I'd love to grab 30 to 45 minutes sometime this week or next, by Friday, October 30th at the latest if possible, so we have time to fill out the program's mentoring agreement before its November 2nd deadline. Happy to work around your schedule, call, video, or in person, whatever's easiest on your end.
+## What I'm hoping to focus on this year (a starting point, genuinely curious what you think)
+I'm not expecting you to hand me outcomes, this is guidance I'm after, not magic. Here's roughly where my head is at:
+1. **Internships.** Landing a 2027-cycle internship at a larger AI-forward or tech company: technical interview prep, LinkedIn and networking, and a real look at my resume and portfolio.
+2. **Project and startup judgment.** Outside feedback on the AI projects I'm building (an AI-agent system called Jarvis, a causal-reasoning project called CausalOps, and a trading-research project called TradingView), plus general startup and project-management thinking.
+3. **Marketing and communication.** Getting better at pitching an idea clearly and running a good meeting, the practical shortcuts people who do this well actually use.
+Does this match what you'd want to spend our time on, or would you point it somewhere else?
+## November 4th, Meet Your Partner Event
+The CSE program is hosting an optional in-person event, Wednesday, Nov. 4, 2026, 7 to 8:30 p.m., at the McNamara Alumni Center (Memorial Hall, 200 SE Oak St., Minneapolis). Would be good to meet in person there if you're planning to go, no pressure either way.
+## First meeting, starter agenda
+1. Quick introductions, how we got matched.
+2. What I'm actually working on right now, briefly.
+3. What a typical engagement looks like on your end.
+4. Talk through the 3 goals above, adjust them together.
+5. Agree on how often we meet going forward (my suggestion: monthly, 30 minutes).
+6. Fill out the mentoring agreement form together.
+---
+This doc grows with our real meeting notes and agendas as we go.
+
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Jesse\Initial Outreach.md`
+```diff
+- ## Google Doc Content, Draft (Not Yet Created or Shared)
+Suggested title: "Anant & Jesse — Mentorship Planning"
+1. **Welcome.** A shared space to plan meetings, meetups, and agendas as the program goes, not a one-time form.
+2. **Basic SMART Goals (draft).** The three goals above, flagged as a starting point to adjust together, not a finished submission.
+3. **November 4, Meet Your Partner Event.** Wednesday, Nov. 4, 2026, 7 to 8:30 p.m. Optional, in person. McNamara Alumni Center, Memorial Hall, 200 SE Oak St., Minneapolis, MN 55455.
+4. **Starter Session Agenda (first meeting).** See below.
+5. **Open section for future meeting notes and agendas**, added as the relationship progresses.
+### Starter Session Agenda, First Meeting
+1. Introductions: backgrounds, how the CSE program matched us.
+2. Anant's current work, briefly: Jarvis and the AI-agent infrastructure, CausalOps, and why the manufacturing and AI overlap drew interest in Jesse specifically.
+3. Jesse's role and what a typical client engagement looks like end to end.
+4. Review and adjust the three draft SMART goals together.
+5. Agree on a recurring cadence (proposal: monthly, 30 minutes) and book the next meeting before ending the call.
+6. Fill out the Mentoring Agreement form together (due to Katie by Nov. 2).
+7. Mention the Nov. 4 Meet Your Partner Event as an optional add-on.
++ ## Google Doc Content
+The actual one-page content, written to paste into the real Google Doc Anant already created (not yet shared with Jesse), now lives in [[Google Doc - First Meeting]] rather than being duplicated here. It covers scheduling the first meeting, the goals framed as a starting point rather than a finished submission, the Nov. 4 Meet Your Partner Event, and the starter session agenda.
+```
+- `Bash` -- `find "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Mentorship Program/Jesse" -type f | sort`
+```
+D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Mentorship Program/Jesse/Google Doc - First Meeting.md
+D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Mentorship Program/Jesse/Initial Outreach.md
+D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Mentorship Program/Jesse/Meetings/Mentor Meeting Playbook - Jesse.md
+D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Mentorship Program/Jesse/Mentor Details'26.md
+D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Mentorship Program/Jesse/Smart Goals.md
+D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Mentorship Program/Jesse/Systems for Goals.md
+```
+- `Grep` -- pattern `\[\[Plan\]\]` path `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program`
+
+## You
+
+Now, to work on the email that needs to be sent tomorrow morning at 8 am (scheduled). The google doc has been finalized and shared with jesse. The contents have been copy pasted from the google doc onto the google doc note that was created for clarity. Go through the content that is currently on the google doc now. This content was styled and adjusted to be fit into a single google doc page. The doc is finalized with styling and other things. But what needs to be more clear are the contents that are written down in the file. If there are any suggestions to the content change required to the google doc, make them in the file that was worked on. Go ahead and rewrite the content to be formatted to obsidian notes as well. The content will be compared and the final doc will be finalized. Now, to work on the basic email that needs to sent forward. Let's further improve the email but do not make it excessively long to read. This is the first email that we are reaching out on, let's make sure to be direct. Clear instructions, easy to read, no flow break through reading the email. Easy reading, clear instructions to read the google doc. Everything for the meeting to be scheduled on and exactly what time is discussed correctly. Also, mentioning that if preferred there is a link to schedule a meeting very easily using the link for cal. We also mention that the link is in the bottom of the email along with my portfolio. 
+
+The email should be concise, polite and directive. Write the email inside the initial outreach file in which the basic email is laid out. Do the job correctly, making sure that the email is very clear.
+
+## Claude
+
+Done. Summary of what changed:
+
+**`Google Doc - First Meeting.md`**: reformatted the actual, now-finalized doc content into clean Obsidian markdown (proper headings, no stray `**` artifacts or leftover blank lines from the copy-paste). Added a `## Suggestions` section flagging what I found reviewing it against the real doc:
+1. The "Scheduling our first meeting" heading has no content under it, the ask itself is missing from the live doc.
+2. "The 20" section is a bare, empty "1." with nothing written, worth a one-line note in the doc confirming that's deliberate (built live with Jesse) rather than looking like an accident.
+3. The doc now proposes **every other week, 30 to 45 minutes** as the ongoing cadence, which conflicted with "monthly" in `Plan - Jesse` and `Systems for Goals`, I fixed both of those to match the doc, since it's the one actually shared with Jesse now.
+
+**`Initial Outreach.md`**: rewrote the email. Direct, no filler, each paragraph does exactly one job: intro, instruction to read the doc (linked), the concrete scheduling ask (30-45 min, this week or next, by Friday Oct 30 at the latest, tied to the Nov 2 deadline), the Cal link mentioned inline as an easy alternative, the Nov 4 event as a no-pressure aside, then a close pointing to the signature where the Cal link and portfolio both live. Fixed the subject line typo and updated the Outreach Plan, Open Questions, and Log to reflect that the doc is actually shared now, not pending.
+
+One thing I didn't touch: the two gaps in the live Google Doc itself (empty scheduling section, empty 20-goals section) are flagged but not fixed there, since you said the doc is finalized, that's yours to decide and edit directly. Say the word if you want me to draft the missing text for either one.
+
+### Tool Calls
+
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Jesse\Google Doc - First Meeting.md`
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Jesse\Initial Outreach.md`
+- `Grep` -- pattern `monthly|Monthly|30 minutes` path `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Plans\Plan - Jesse.md`
+- `Grep` -- pattern `monthly|Monthly|30 minutes` path `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Jesse\Systems for Goals.md`
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Plans\Plan - Jesse.md`
+```diff
+- 2. Hold the first meeting: walk through the 80/20 goals draft above, adjust with Jesse's input, fill out and submit the Mentoring Agreement, and lock a recurring cadence, proposed as monthly, 30 minutes.
++ 2. Hold the first meeting: walk through the 80/20 goals draft above, adjust with Jesse's input, fill out and submit the Mentoring Agreement, and lock a recurring cadence, proposed as every other week, 30 to 45 minutes, per what is already written into the shared Google Doc.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Plans\Plan - Jesse.md`
+```diff
+- 5. From the second meeting on, run a fixed monthly cycle: demo or update, review progress against the 80, raise one specific ask, book the next meeting before ending the call, log the same day.
++ 5. From the second meeting on, run a fixed alternate-week cycle: demo or update, review progress against the 80, raise one specific ask, book the next meeting before ending the call, log the same day.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Jesse\Systems for Goals.md`
+```diff
+- **Rule on where it lives:** appended as a dated entry to [[Plan - Jesse]]'s `## Current State` at every monthly check-in, which is Sequence step 5, "review progress against the 80." Not a separate spreadsheet or dashboard file, the goal state stays inside the same plan note everything else already points to.
++ **Rule on where it lives:** appended as a dated entry to [[Plan - Jesse]]'s `## Current State` at every alternate-week check-in, which is Sequence step 5, "review progress against the 80." Not a separate spreadsheet or dashboard file, the goal state stays inside the same plan note everything else already points to.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Jesse\Systems for Goals.md`
+```diff
+- 5. The goal's status gets updated in [[Plan - Jesse]]'s Current State at the next monthly check-in (Layer 4).
++ 5. The goal's status gets updated in [[Plan - Jesse]]'s Current State at the next alternate-week check-in (Layer 4).
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Jesse\Systems for Goals.md`
+```diff
+- - [ ] Decide whether the monthly check-in date should be fixed to a specific day (for example the first Monday of the month) once a cadence is actually agreed with Jesse.
++ - [ ] Decide whether the alternate-week check-in should be fixed to a specific weekday once Jesse confirms the cadence proposed in the Google Doc.
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Jesse\Google Doc - First Meeting.md`
+```
+---
+type: project
+status: active
+created: 2026-10-19
+updated: 2026-10-20
+deadline: 2026-11-02
+related_progress:
+  - "[[Mentor Details'26]]"
+  - "[[Plan - Jesse]]"
+  - "[[Smart Goals]]"
+  - "[[Initial Outreach]]"
+tags:
+  - mentorship
+next: Resolve the two flagged gaps below, then confirm the Google Doc matches this note exactly.
+---
+# Google Doc, First Meeting
+The Google Doc (https://docs.google.com/document/d/[REDACTED]/edit?tab=t.0) is finalized and already shared with Jesse. This note mirrors its real, current content, cleaned up into proper Obsidian formatting, for review and comparison, not a draft to paste in anymore.
+## Suggestions, Resolve Before the Doc Is Truly Final
+1. **"Scheduling our first meeting" has no content under it.** The heading exists in the live doc, but the actual ask, a window of time and a date to have it done by, is missing underneath. Right now Jesse would have to get that entirely from the email. Worth adding one or two lines back in, even just "30 to 45 minutes sometime this week or next, by [date]."
+2. **"The 20" section is a bare, empty "1."** with nothing written. If that is deliberate, to work the five smaller goals out live with Jesse rather than hand him a pre-made list, that is a reasonable call, but the doc should say so in one line ("we'll figure these out together") so it reads as intentional rather than an accidental blank. If it is not deliberate, the four drafted stretch goals in [[Smart Goals]] belong there.
+3. **Cadence now says every other week, not monthly.** The doc proposes "every alternative week, 30 to 45 minutes." [[Plan - Jesse]] and [[Systems for Goals]] previously said monthly, that mismatch has been corrected in both notes to match what is actually in the doc. Flagging here so the doc is confirmed as the real source of truth going forward, not the notes.
+4. Minor formatting only, no content impact: stray `**` characters at the very top and bottom of the pasted content, and several leftover blank lines from the Google Docs copy-paste. Cosmetic, cleaned up in the mirror below, doesn't need fixing in the live doc unless it is visibly broken there too.
+## Mirrored Content (Cleaned Formatting, Same Wording)
+A shared space to plan our meetings and keep track of what we're working on this year. Nothing below is locked in, it's a starting point for our first conversation.
+### Scheduling our first meeting
+*(empty in the live doc, see Suggestion 1 above)*
+### What I'm hoping to focus on this year
+A starting point, genuinely curious what you think, here's roughly where my head is at. I like to think of goals as systems to be implemented and work to be divided.
+#### The 80
+1. **Internships:** landing a 2027-cycle internship at a larger AI-forward or tech company: technical interview prep, LinkedIn and networking, and a real look at my resume and portfolio.
+2. **Project & Startup Judgment:** outside feedback on the projects I'm building (an AI PKM system, Jarvis; a causal-reasoning project, CausalOps; a trading-research project, TradingView; and a few more), plus general startup and project-management thinking.
+3. **Marketing & Communication:** getting better at pitching an idea clearly and running a good meeting, the practical shortcuts people who do this well actually use.
+#### The 20
+All the content above is the main 80% of the work that needs to be done. These are the small actions (20%) required to get toward the main goals above. Limited to 5, essentially.
+1. *(empty in the live doc, see Suggestion 2 above)*
+
+Does this match what you'd want to spend your time on, or would you point it somewhere else?
+### First meeting, starter agenda
+- Quick introductions, how we got matched. What interests me and why. What I'm actually working on right now, briefly.
+- What a typical engagement looks like on your end: in person, online (Zoom, Google Meet, etc.).
+- If you were me (in college, a junior), what would you do to achieve success on the main 3 goals I wish to accomplish for the next year specifically?
+- Talk through the 3 goals above, adjust them, and declare the 20, 5 smaller goals broken down from the main 3.
+- Agree on how often we meet going forward (every other week, 30 to 45 minutes, usually with 15 minutes of buffer at the end, so 45 minutes is my suggestion).
+- Fill out the mentoring agreement form together.
+### November 4th, Meet Your Partner Event
+The CSE program is hosting an optional in-person event, Wednesday, Nov. 4, 2026, 7 to 8:30 p.m., at the McNamara Alumni Center (Memorial Hall, 200 SE Oak St., Minneapolis). It would be good to meet in person there if you're planning to go, no pressure either way.
+---
+This doc grows with our real meeting notes and agendas as we go.
+
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Jesse\Initial Outreach.md`
+```diff
+- ## Outreach Plan
+1. Send the outreach email below, proposing a first meeting before 2026-11-02, the Mentoring Agreement deadline.
+2. The Google Doc described below is linked in that email but has not been shared or created yet. Create it from the content below, then share it only when sending the email.
+3. At the first meeting: walk through the SMART goals draft, adjust with Jesse's input, fill out and sign the Mentoring Agreement, and lock a recurring cadence.
+4. Submit the completed Mentoring Agreement to Katie (ksobo@umn.edu) by **2026-11-02**.
+5. Mention the November 4 Meet Your Partner Event as a secondary, optional touchpoint, not the first meeting itself. It is after the Nov 2 deadline, so it cannot be the venue for finishing the Agreement.
+## Google Doc Content
+The actual one-page content, written to paste into the real Google Doc Anant already created (not yet shared with Jesse), now lives in [[Google Doc - First Meeting]] rather than being duplicated here. It covers scheduling the first meeting, the goals framed as a starting point rather than a finished submission, the Nov. 4 Meet Your Partner Event, and the starter session agenda.
+## Outreach Email, Draft
+**Subject:** Excided to Connect - CSE Mentorship Program
+```
+Dear Jesse,  
+  
+My name is Anant Gupta, I am majoring in Computer Science as a Junior and I’m very excited to begin the mentorship program! Thank you for volunteering your time for this program. I was particularly excited to see your experience as ... I’m deeply interested in software development and technical leadership, so I’m looking forward to learning from your experience in these areas.  
+  
+Through this program, I hope to: Gain insight into career paths in software engineering and which field I should be working in. Get advice on courses, projects, and experiences that could best prepare me for future roles in tech. Get help and insight on preparing for interviews and landing internships. Learn how to build strong technical and leadership skills that translate into real-world impact.  
+  
+I also really appreciate that you’re a ... I’d love to hear more about your personal journey and how you navigated the challenges and opportunities along the way. Would you be available for a brief introductory call or meeting sometime next week? I’m happy to adjust to your schedule.  
+  
+Thank you again for volunteering your time to mentor students like me, I’m genuinely excited to connect and learn from your experience.  
+  
+Warm regards,  
+Anant Gupta
+
+--  
+**Anant Gupta**
+**Junior at University of Minnesota**
+Computer Science with Entrepreneurship Minor
+_**Problem Solver** - build intelligent systems_  
+**mobile**: +1 763-485-3457
+**website**: [anantgupta.dev](https://anantgupta.dev/)
+**book a meeting:** [Pick a day and time - Cal](http://cal.com/gupta-builds)
+```
++ ## Outreach Plan
+1. Send the outreach email below, proposing a first meeting before 2026-11-02, the Mentoring Agreement deadline.
+2. The Google Doc is finalized and already shared with Jesse; see [[Google Doc - First Meeting]] for its mirrored content and the open fixes flagged there.
+3. At the first meeting: walk through the SMART goals draft, adjust with Jesse's input, fill out and sign the Mentoring Agreement, and lock a recurring cadence.
+4. Submit the completed Mentoring Agreement to Katie (ksobo@umn.edu) by **2026-11-02**.
+5. Mention the November 4 Meet Your Partner Event as a secondary, optional touchpoint, not the first meeting itself. It is after the Nov 2 deadline, so it cannot be the venue for finishing the Agreement.
+## Google Doc Content
+The real content, now finalized and shared, is mirrored with cleaned-up formatting in [[Google Doc - First Meeting]], along with a short list of gaps worth fixing in the live doc (the empty scheduling section, the empty 20-goals section).
+## Outreach Email, Ready to Send (scheduled for tomorrow, 8:00 AM)
+**Subject:** Excited to Connect, CSE Mentor Program
+```
+Hi Jesse,
+
+My name is Anant Gupta, a Computer Engineering junior at the University of Minnesota. We were just matched through the CSE Mentor Program, and I'm looking forward to working with you this year.
+
+I put together a short planning doc with where I'd like to focus and an agenda for our first conversation: [Google Doc, First Meeting](https://docs.google.com/document/d/[REDACTED]/edit?tab=t.0). Would you mind giving it a quick read before we talk?
+
+For scheduling, I'd like to find 30 to 45 minutes sometime this week or next, by Friday, October 30th at the latest, so we have time to fill out the program's mentoring agreement before its November 2nd deadline. If it's easier, you can grab a time directly using the Cal link in my signature below, otherwise just reply with a few times that work and I'll confirm.
+
+One more thing: the CSE program is hosting an optional in-person Meet Your Partner event on Wednesday, November 4th, from 7 to 8:30 p.m. at the McNamara Alumni Center. No pressure either way, but happy to meet there too if you're planning to attend.
+
+Looking forward to it. My scheduling link and portfolio are both in my signature below.
+
+Best,
+Anant
+
+--
+Anant Gupta
+Junior at University of Minnesota, Computer Science with Entrepreneurship Minor
+Problem Solver, building intelligent systems
+Mobile: +1 763-485-3457
+Website: [anantgupta.dev](https://anantgupta.dev/)
+Book a meeting: [Pick a day and time, Cal](http://cal.com/gupta-builds)
+```
+```
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Jesse\Initial Outreach.md`
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Jesse\Initial Outreach.md`
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Jesse\Initial Outreach.md`
+```
+---
+type: project
+status: active
+created: 2026-10-19
+updated: 2026-10-20
+deadline: 2026-11-02
+related_progress:
+  - "[[Mentor Details'26]]"
+  - "[[Plan - Jesse]]"
+  - "[[Smart Goals]]"
+  - "[[Systems for Goals]]"
+  - "[[Google Doc - First Meeting]]"
+tags:
+  - mentorship
+next: Send the outreach email below, scheduled for tomorrow at 8:00 AM.
+---
+# First Meeting
+## Lessons From Ahnaf's Program, Applied Here
+Pulled directly from [[Mentor Details'25|Ahnaf's]] actual meeting record, not from memory of how it felt:
+1. **Follow-through gaps.** Both early meeting notes ("Mentor Meeting - One-Pager" and "Mentor Meeting - Hackathons, Summer, and Networking") had an "After the Meeting" checklist that never got filled in. The Resq vs. Opspilot decision was never resolved on record. Lesson: write down what the mentor actually said and decided the same day, every time, not from memory a week later.
+2. **Months of ad hoc cadence.** No standing meeting rhythm existed until the 2026-07-14 call, well after the relationship had already been running since spring. Lesson: lock a cadence at the first meeting, not after several unstructured ones.
+3. **Planning deferred past the point it helped.** "Fall 2026, Detailed Expectations" was deliberately left blank, waiting for real meetings to generate content. Right call for topic specifics, wrong call for structure. The structure itself (cadence, goal format, after-meeting ritual) should be fixed before meeting one.
+4. **Scheduling kept slipping.** "Schedule the next alternate-Monday slot on the calendar immediately, don't let it drift" shows up repeatedly as a reminder, which means it kept not happening. Lesson: book the next meeting before the current one ends, every time, on the spot.
+5. **No shared agenda going in.** The July meeting's real content (an unplanned deep review of Ahnaf's own project) fully displaced the prepared four-goal agenda, because that agenda only ever existed on Anant's side, never shared with Ahnaf ahead of time. Lesson for Jesse: send the starter agenda in the Google Doc before the first meeting so both sides arrive aligned.
+6. **No referrals were generated from this mentorship program**. Never ever mentioned to connect with other people other than ahnaf at best buy for interaction, no in real life meeting ever took place. 
+7. **Projects to work on with the mentor, never established correctly**. adx was going to be worked on together but never progressed. Still might be in process based on the next meeting, which has not been scheduled for quite a long while now. 
+8. **No internships were taken place, nothing has been worked on since the last year towards the internship goal**. Something to note, if you had an internship last year, you would not concerned with this cpt, opt issue. Only took place in august, by when ur internship would have already ended. Now, you are stcuk - not applying, not working towards it all. Mentor did not help with this at all 
+9. **Linkedin maxing, portfolio or project based updates were never taken**
+## Interest Match, Why Jesse Specifically
+Jesse is Director, Industry Solutions at SymphonyAI, 19 years in industrial and systems engineering, focused on manufacturing and an AI powered Data and Manufacturing Operations Management (MOM) platform. He started as a Systems Engineer out of UMN. Concrete overlap with Anant's actual work, not a generic shared interest in AI:
+- **CausalOps**, an evidence-gated causal-reasoning engine built for SOC incident response, solves the same shape of problem a MOM platform solves: refuse to guess when the signal is weak, gate decisions behind evidence. This is the strongest first technical talking point for the first meeting. ==Is it tho? Does not seem like anything related to MOM==. 
+- Jesse's specialty, industrial and systems engineering, is a closer disciplinary match to a Computer Engineering degree than Ahnaf's pure software background was. Jesse can speak to how automation and integration projects get architected end to end, pre-sales through delivery, something Ahnaf's BestBuy.com frontend and mobile track never covered.
+- Jesse describes his own role as being involved "from cradle to grave." That full-lifecycle ownership is exactly what Anant is trying to practice solo on Jarvis and the AI-agent infrastructure work.
+- Jesse is a UMN alumnus and a former admissions ambassador, which suggests he is receptive to in-person engagement, not only a remote relationship.
+## Outreach Plan
+1. Send the outreach email below, scheduled for tomorrow at 8:00 AM, proposing a first meeting before 2026-11-02, the Mentoring Agreement deadline.
+2. The Google Doc is finalized and already shared with Jesse. See [[Google Doc - First Meeting]] for its mirrored content and the open fixes flagged there.
+3. At the first meeting: walk through the SMART goals draft, adjust with Jesse's input, fill out and sign the Mentoring Agreement, and lock a recurring cadence.
+4. Submit the completed Mentoring Agreement to Katie (ksobo@umn.edu) by **2026-11-02**.
+5. Mention the November 4 Meet Your Partner Event as a secondary, optional touchpoint, not the first meeting itself. It is after the Nov 2 deadline, so it cannot be the venue for finishing the Agreement.
+## Google Doc Content
+The real content is finalized, shared with Jesse, and mirrored with cleaned-up formatting in [[Google Doc - First Meeting]], along with a short list of gaps still worth fixing in the live doc itself (the empty scheduling section, the empty 20-goals section).
+## Outreach Email, Ready to Send (scheduled for tomorrow, 8:00 AM)
+**Subject:** Excited to Connect, CSE Mentor Program
+```
+Hi Jesse,
+
+My name is Anant Gupta, a Computer Engineering junior at the University of Minnesota. We were just matched through the CSE Mentor Program, and I'm looking forward to working with you this year.
+
+I put together a short planning doc with where I'd like to focus and an agenda for our first conversation: [Google Doc, First Meeting](https://docs.google.com/document/d/[REDACTED]/edit?tab=t.0). Would you mind giving it a quick read before we talk?
+
+For scheduling, I'd like to find 30 to 45 minutes sometime this week or next, by Friday, October 30th at the latest, so we have time to fill out the program's mentoring agreement before its November 2nd deadline. If it's easier, you can grab a time directly using the Cal link in my signature below, otherwise just reply with a few times that work and I'll confirm.
+
+One more thing: the CSE program is hosting an optional in-person Meet Your Partner event on Wednesday, November 4th, from 7 to 8:30 p.m. at the McNamara Alumni Center. No pressure either way, but happy to meet there too if you're planning to attend.
+
+Looking forward to it. My scheduling link and portfolio are both in my signature below.
+
+Best,
+Anant
+
+--
+Anant Gupta
+Junior at University of Minnesota, Computer Science with Entrepreneurship Minor
+Problem Solver, building intelligent systems
+Mobile: +1 763-485-3457
+Website: [anantgupta.dev](https://anantgupta.dev/)
+Book a meeting: [Pick a day and time, Cal](http://cal.com/gupta-builds)
+```
+## Questions Answered for Claude
+1. The One year Outcome
+	- By the end of October next year, I see myself discussing about the job opportunities in the U.S., projects that have progressed with ai development that has taken in 2027. Jarvis is something that extends to multiple other repos for useful purposes. a lot of netowrking events were hooked on through the year and attended. Linkedin posts, netowkring, meetings and a lot of conferences were attended. Internship was at a really great big company (MNC - FAANG or recent AI top tree), know and have a lot of connections in the company specifically. Strong connections were made across the entire internship search process. Technical interview process preperation was completed and tested correctly with the help of the mentor's own coding rounds. System design has been learned and practiced on through 2027 entirely. Linkedin has more 500+ connections, over 1000 followers. Blog posts go out on the portfolio, ads are generating income, tradingview or some source of income is active. Do not need help with courses, umn related work, clubs related work. Solely based on internship, ai, projects, networking, communication, people skills and improving me to be a better version of myself professionally. Actually establishing that version because it has never existed. 
+2. The "80": Everything written was wrong.
+	1. Internships (technical interview, linkedin maxing, conferences, more references, application help, mock interviews, resume building, portfolio enhancement)
+	2. Project Mentorship for Startups, Project Management, etc. (startup vc advice, ai systems, project reviews, 3rd person pov feedback, startup idea generation, communication mamagement, ai systems, etc.)
+	3. Marketing (communication, selling, idea generation, cheats, meetings)
+3. The "20"
+	1. 5 goals that are established based of the above main 3 goals. These are 5 goals which are broken down from the above 3 main goals. They are individual goals to acheive such as linkedin, but directly relate to the main goal - internships. Like that there are 5 goals listed out here for clear clarity but needs to be thought in depth and added correctly based on the 5 goals suggestion. 
+4. Systems - what should the execution map actually track?
+	- This note is going to focus on establishing the system that needs to take place for the goals that are set and not document it. This is a simple layout for what exists inside the goals: `20_Progress/Mentorship Program/Jesse/Systems for Goals`. How to make it reality and not just fiction written down is written here as actionable steps in specific time lines as actions. 
+	- Meetings are a great way to verify these actions because there is a meeting workflow established. but the details of each and every task is actually documented through the daily workflow that runs inside jarvis. Everything is documented and noted down correctly for future plans as well as daily action notes. Another layer that's added to the execution specifically for this mentorship prgram is going to be these: a per-meeting checklist, a running decision log, a goal-progress tracker with dates. Something that mirrors how i track my projects is all written down in detail inside project specific tracks. But the mian layer is the daily workflow that runs. logs are also a great way to actually execute this. 
+5. Jesse is not replacing Ahnaf,
+	- Ahnaf is still there but is currently not available to meet. So, we are going to focus on just reaching out to ahnaf first. The strategies that need to work out for ahnaf now that so much time has passed needs to be reconsidered. But jesse is a new fresh start, fresh connection that we cannot afford to slip up on. 
+	- There is no concept as "second mentor" or third. There are going to multiple mentors coming along the way and will be added to the folder. But we do not simply assume that all the knowledge has been gathered for these people and thier plans. We make sure that each and every single thing is applied.
+6. File roles
+	- Mentor Details'26 = contact info only. Initial Outreach = everything about the first contact (lessons, interest match, outreach plan, email draft, Google Doc content, starter agenda). Smart Goals = the 80/20 goal set. Systems for Goals = the execution-tracking system. exactly as explained. More notes are to come forward based on the execution that has just been explained above. 
+	- Logs, trackers, daily workflow for this integration to be implemented onto the plans (adding a plan)
+	- As the folder is expanded with meetings, more systems and folder maps are added. Clarifying what exactly we expect from the mentorship program
+## Next Action
+Send the outreach email above, scheduled for tomorrow at 8:00 AM.
+## Open Questions
+- [ ] Confirm whether Jesse prefers a call, video chat, or in person for the first meeting.
+- [ ] Confirm whether Jesse is attending the Nov. 4 Meet Your Partner Event before inviting him to it jointly.
+- [ ] Fix the two gaps flagged in [[Google Doc - First Meeting]] (empty scheduling section, empty 20-goals section) in the live doc if they were not intentional.
+## Log
+- **2026-10-19:** Note built out from the bare contact-info stub. Reviewed Ahnaf's full meeting record for concrete lessons, pulled the real CSE Mentoring Agreement requirements (3 SMART goals, due to Katie by Nov. 2) from the program PDFs already in Drive, and confirmed the Nov. 4 Meet Your Partner Event details directly with Anant since no record of it existed in the vault, Gmail, or Calendar.
+- **2026-10-20:** Google Doc finalized and shared with Jesse; its real content mirrored and reviewed in [[Google Doc - First Meeting]]. Outreach email rewritten to be direct and concise, with a clear scheduling ask (30 to 45 minutes, this week or next, by Oct. 30 at the latest), an explicit instruction to read the doc, and the Cal and portfolio links surfaced in the signature. Scheduled to send tomorrow at 8:00 AM.
+
+```
+
+## You
+
+The email written right now is: ```
+
+<pasted_content id="8a81">
+Hi Jesse,
+
+My name is Anant Gupta, a junior at the University of Minnesota majoring in Computer Science  and minoring in Entrepreneurship. We were just matched through the CSE Mentor Program, and I'm looking forward to working with you this year. 
+I put together a short planning doc for our first conversation: Google Doc, First Meeting. Would you mind giving it a quick read before we talk? I’m very excited to begin the mentorship program! Thank you for volunteering your time for this program.
+
+For scheduling, I'd like to find 30 to 45 minutes sometime this week or next, by Friday, October 30th at the latest, so we have time to fill out the program's mentoring agreement before its November 2nd deadline. If it's easier, you can grab a time directly using the Cal link, otherwise just let me know some timings that work and I'll confirm by scheduling a meeting. I prefer to meet in person, I noticed that you situated in the twin cities, if it would not be too much trouble to meet around the campus for our first meeting. That would be great, if not we could always schedule a preferrable time online.
+
+Looking forward to it. My scheduling link and portfolio are both in my signature below.
+
+Best,
+Anant
+</pasted_content id="8a81">
+
+```. Modify the email to be polite and convincing, eager to meet and genuinely invested in this program.
+
+## Claude
+
+Updated. Here's the revised email, in full:
+
+> Hi Jesse,
+>
+> My name is Anant Gupta, a junior at the University of Minnesota majoring in Computer Science and minoring in Entrepreneurship. We were just matched through the CSE Mentor Program, and I'm genuinely excited to get started, thank you for taking the time to volunteer as a mentor this year.
+>
+> I put together a short planning doc for our first conversation: [Google Doc, First Meeting]. Would you mind giving it a quick read before we talk?
+>
+> For scheduling, I'd like to find 30 to 45 minutes sometime this week or next, by Friday, October 30th at the latest, so we have time to fill out the program's mentoring agreement before its November 2nd deadline. If it's easier, you can grab a time directly using the Cal link in my signature below, otherwise just let me know a few times that work and I'll get it on the calendar. I noticed you're based in the Twin Cities, so if meeting in person around campus works for you, I'd genuinely prefer that for our first conversation. If not, I'm just as happy to meet online.
+>
+> Looking forward to it. My scheduling link and portfolio are both in my signature below.
+>
+> Best,
+> Anant
+
+What changed from your draft: fixed the grammar in the in-person line ("I noticed that you situated in" → "I noticed you're based in", "preferrable" → gone), moved the excitement/thank-you into the opening line instead of leaving it stranded mid-paragraph after the doc-read ask, and reworded "if it would not be too much trouble" (apologetic) into "I'd genuinely prefer that" (still polite, but reads like a real preference, not a hedge), which is where most of the eager/invested tone actually lives. Everything else, the content and structure you wrote, stayed as is.
+
+### Tool Calls
+
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Jesse\Initial Outreach.md`
+```diff
+- ```
+Hi Jesse,
+
+My name is Anant Gupta, a Computer Engineering junior at the University of Minnesota. We were just matched through the CSE Mentor Program, and I'm looking forward to working with you this year.
+
+I put together a short planning doc with where I'd like to focus and an agenda for our first conversation: [Google Doc, First Meeting](https://docs.google.com/document/d/[REDACTED]/edit?tab=t.0). Would you mind giving it a quick read before we talk?
+
+For scheduling, I'd like to find 30 to 45 minutes sometime this week or next, by Friday, October 30th at the latest, so we have time to fill out the program's mentoring agreement before its November 2nd deadline. If it's easier, you can grab a time directly using the Cal link in my signature below, otherwise just reply with a few times that work and I'll confirm.
+
+One more thing: the CSE program is hosting an optional in-person Meet Your Partner event on Wednesday, November 4th, from 7 to 8:30 p.m. at the McNamara Alumni Center. No pressure either way, but happy to meet there too if you're planning to attend.
+
+Looking forward to it. My scheduling link and portfolio are both in my signature below.
+
+Best,
+Anant
+
+--
+Anant Gupta
+Junior at University of Minnesota, Computer Science with Entrepreneurship Minor
+Problem Solver, building intelligent systems
+Mobile: +1 763-485-3457
+Website: [anantgupta.dev](https://anantgupta.dev/)
+Book a meeting: [Pick a day and time, Cal](http://cal.com/gupta-builds)
+```
++ ```
+Hi Jesse,
+
+My name is Anant Gupta, a junior at the University of Minnesota majoring in Computer Science and minoring in Entrepreneurship. We were just matched through the CSE Mentor Program, and I'm genuinely excited to get started, thank you for taking the time to volunteer as a mentor this year.
+
+I put together a short planning doc for our first conversation: [Google Doc, First Meeting](https://docs.google.com/document/d/[REDACTED]/edit?tab=t.0). Would you mind giving it a quick read before we talk?
+
+For scheduling, I'd like to find 30 to 45 minutes sometime this week or next, by Friday, October 30th at the latest, so we have time to fill out the program's mentoring agreement before its November 2nd deadline. If it's easier, you can grab a time directly using the Cal link in my signature below, otherwise just let me know a few times that work and I'll get it on the calendar. I noticed you're based in the Twin Cities, so if meeting in person around campus works for you, I'd genuinely prefer that for our first conversation. If not, I'm just as happy to meet online.
+
+Looking forward to it. My scheduling link and portfolio are both in my signature below.
+
+Best,
+Anant
+
+--
+Anant Gupta
+Junior at University of Minnesota, Computer Science with Entrepreneurship Minor
+Problem Solver, building intelligent systems
+Mobile: +1 763-485-3457
+Website: [anantgupta.dev](https://anantgupta.dev/)
+Book a meeting: [Pick a day and time, Cal](http://cal.com/gupta-builds)
+```
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Jesse\Initial Outreach.md`
+```diff
+- - **2026-10-20:** Google Doc finalized and shared with Jesse; its real content mirrored and reviewed in [[Google Doc - First Meeting]]. Outreach email rewritten to be direct and concise, with a clear scheduling ask (30 to 45 minutes, this week or next, by Oct. 30 at the latest), an explicit instruction to read the doc, and the Cal and portfolio links surfaced in the signature. Scheduled to send tomorrow at 8:00 AM.
++ - **2026-10-20:** Google Doc finalized and shared with Jesse; its real content mirrored and reviewed in [[Google Doc - First Meeting]]. Outreach email rewritten to be direct and concise, with a clear scheduling ask (30 to 45 minutes, this week or next, by Oct. 30 at the latest), an explicit instruction to read the doc, and the Cal and portfolio links surfaced in the signature. Scheduled to send tomorrow at 8:00 AM.
+- **2026-10-20 (later):** Email revised again from Anant's own second pass: fixed the grammar in the in-person-meeting line, tightened the opening so the excitement and thank-you don't feel bolted on, and made the Twin Cities / in-person ask read as a genuine preference rather than an apologetic one. Tone target: polite, convincing, eager, genuinely invested, not just logistically correct.
+```
+
+## You
+
+Aint no way that took me so long to write out, now to write out an email to ahnaf regarding the meetings that have been cancelled recently. I noticed that he was busy for a while, now reaching out regarding the adx issues that were created and if there have been any updates on adx since then. I would love to connect sometime next week to meet frequently around once a month to make sure that we have time to schedule something important and effective for the year that is wrapping around. Draft me an email to send to ahnadf over here in the terminal for easy copy paste. This should be short and concise. Because this is sent over a previous email thread that's been used with ahnaf. Let's make sure to write a short but concise email to meet sometime next week.
+
+## Claude
+
+Fair, that email took a few rounds. Here's the Ahnaf one, short, direct, ready to paste as a reply in your existing thread:
+
+```
+Hey Ahnaf,
+
+It's been a while since we've connected, I know things have been busy on your end, no worries there. Wanted to check in on adx too, I filed the GitHub issues we'd talked about, curious if you've had a chance to look at any of them or if anything's changed since.
+
+Would love to catch up sometime next week if you have 30 minutes. Also thinking it might make sense to settle into a simpler monthly rhythm going forward, enough to stay in touch and make good use of the time we've got left this year.
+
+Let me know what works.
+
+Anant
+```
+
+No signature block since this rides an existing thread, that'd read strange.
+
+One correction while I was in there: `Plan - Ahnaf.md` had claimed adx "never progressed past the initial proposal," that was wrong. I found `Github Issues.md`, nine real issues were actually filed on `ahnafyy/adx` back on 2026-08-30, with nine more drafted and staged. I added a dated Correction rather than silently editing the old claim away, and updated the Sequence to reference the real issues instead of the vaguer "feedback debt."
+
+### Tool Calls
+
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Ahnaf\adx\Github Issues.md`
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Plans\Plan - Ahnaf.md`
+```diff
+- ## Corrections
+- **2026-10-19:** The Mentorship Board's prior status line, "Cadence: Alternate weeks, confirmed for fall, unchanged from summer," was wrong. The cadence was agreed on 2026-07-14 but never actually held again after that call. Corrected in Current State above, and on the Board.
++ ## Corrections
+- **2026-10-19:** The Mentorship Board's prior status line, "Cadence: Alternate weeks, confirmed for fall, unchanged from summer," was wrong. The cadence was agreed on 2026-07-14 but never actually held again after that call. Corrected in Current State above, and on the Board.
+- **2026-10-20:** Current State's claim that "adx itself never progressed past the initial proposal" was wrong. Nine real GitHub issues (1 through 9) were filed on `ahnafyy/adx` on 2026-08-30, see [[Github Issues]], with a second batch (10 through 18) drafted and staged for posting. The feedback debt from the 2026-07-19 deadline was never sent back to Ahnaf as a direct message, but it was substantively delivered as real, filed issues, a meaningfully different state than "never progressed."
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Plans\Plan - Ahnaf.md`
+```diff
+- ## Sequence
+1. Send a short, direct re-engagement message to Ahnaf. Acknowledge the gap since the last real contact, 2026-07-14, and ask plainly whether he has bandwidth to pick this back up. Done when the message is actually sent, not drafted.
+2. If he responds: close the adx feedback debt first, the review due 2026-07-19 and never delivered, before asking for anything new. The analysis already exists in [[Codebase Deep Read]] and [[Recommended Fixes]]; this step is packaging and sending it, not redoing the work.
+3. If he responds: propose a concrete, resumed cadence in writing, in that same message or the first call, rather than letting it stay a verbal agreement that quietly lapses again.
++ ## Sequence
+1. Send a short, direct re-engagement message to Ahnaf. Acknowledge the gap since the last real contact, 2026-07-14, reference the real GitHub issues already filed on adx (see Current State and [[Github Issues]]), and ask if anything has changed on his end since. Drafted 2026-10-20, ready to send.
+2. If he responds: close out the remaining adx feedback debt, the second batch of issues (10 through 18) still staged and not yet posted, see [[Github Issues]], before asking for anything new.
+3. If he responds: propose a monthly cadence in writing, in that same message or the first call, rather than letting it stay a verbal agreement that quietly lapses again. This replaces the earlier bi-weekly proposal, which never actually held.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Plans\Plan - Ahnaf.md`
+```diff
+- related_progress:
+  - "[[Mentor Details'25]]"
+  - "[[Mentorship Board]]"
+  - "[[Mentor Meeting Playbook]]"
+  - "[[Plan - Jesse]]"
+next: Send a direct re-engagement message to Ahnaf, see Sequence step 1.
++ related_progress:
+  - "[[Mentor Details'25]]"
+  - "[[Mentorship Board]]"
+  - "[[Mentor Meeting Playbook]]"
+  - "[[Github Issues]]"
+  - "[[Plan - Jesse]]"
+next: Send the re-engagement message to Ahnaf, drafted and ready, see Sequence step 1.
+```
+
 ## Actions Taken
 
 **Files created:**
+- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Jesse\Google Doc - First Meeting.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Jesse\Initial Outreach.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Jesse\Meetings\Mentor Meeting Playbook - Jesse.md`
 - `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Jesse\Mentor Details'26.md`
 - `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Jesse\Smart Goals.md`
 - `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Jesse\Systems for Goals.md`
@@ -860,8 +1659,10 @@ The base layer is the daily note and `/startday` and `/closeday` workflow alread
 - `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Plans\Plan.md`
 
 **Files modified:**
+- `D:\_Anant\20_Progress\Documents\Jarvis\00_Dashboard.md`
 - `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Meetings\Mentor Meeting - One-Pager.md`
 - `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Meetings\Mentor Meeting Playbook.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Mentorship Program\Plans\Plan - Ahnaf.md`
 
 **Files deleted (heuristic, from Bash commands):**
 _None detected_
@@ -874,5 +1675,6 @@ _None detected_
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Mentorship Program/Plans" && rm -v "Fall 2026 — Detailed Expectations.md" "Mentor Meeting - Hackathons, Summer, and Networking.md"`
 - `find "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Mentorship Program/Plans" -type f`
 - `find "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Mentorship Program" -type f | sort`
+- `find "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Mentorship Program/Jesse" -type f | sort`
 
 

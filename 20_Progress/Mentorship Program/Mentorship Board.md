@@ -12,8 +12,9 @@ notes:
   - "[[Mentor Details'26]]"
   - "[[Plan - Jesse]]"
   - "[[Mentor Meeting Playbook]]"
+  - "[[Mentor Meeting Playbook - Jesse]]"
   - "[[adx]]"
-next: Send Ahnaf a re-engagement message (see [[Plan]]) and the Jesse outreach email (see [[Initial Outreach]])
+next: Send Ahnaf a re-engagement message (see [[Plan - Ahnaf]]) and the Jesse outreach email (see [[Initial Outreach]])
 ---
 # Mentorship Board
 ## Purpose
@@ -29,7 +30,7 @@ Reference links: [CSE Mentor Program How to Guide for Students](https://cse.umn.
 ## Map
 [[Mentor Details'25]] holds who Ahnaf is, Senior Engineering Manager at Best Buy, matched through the CSE Mentor Program, and how to reach him. [[Plan - Ahnaf]] is now the honest record of that relationship: it is `status: paused`, Ahnaf is currently unavailable, and the plan's Sequence is a re-engagement path, not a continuation of the original 4-Goals framework as though nothing had changed.
 
-[[Mentor Details'26]] holds who Jesse is, Director of Industry Solutions at SymphonyAI, matched for the 2026-2027 cycle. [[Plan - Jesse]] is the live plan for that relationship: an 80/20 goal split (3 committed goals, 5 stretch goals), built directly from the Ahnaf relationship's actual failure points so they are not repeated. [[Initial Outreach]], [[Smart Goals]], and [[Systems for Goals]] hold the first-contact detail, goal detail, and execution-tracking detail respectively.
+[[Mentor Details'26]] holds who Jesse is, Director of Industry Solutions at SymphonyAI, matched for the 2026-2027 cycle. [[Plan - Jesse]] is the live plan for that relationship: an 80/20 goal split (3 committed goals, 4 stretch goals plus one reserved slot), built directly from the Ahnaf relationship's actual failure points so they are not repeated. [[Initial Outreach]], [[Smart Goals]], and [[Systems for Goals]] hold the first-contact detail, goal detail, and execution-tracking detail respectively, and [[Mentor Meeting Playbook - Jesse]] holds the standing meeting format and Session Log, mapped out before the first meeting has even been scheduled.
 
 [[Mentor Meeting Playbook]] is the meeting format Ahnaf's relationship followed, Demo, Shipped/Blocked/Deciding, Ask, and its Session Log is the append-only record of what was actually said. The most recent entry, 2026-07-14, is where **adx**, [[adx|Ahnaf's own Agent Development Kit]], became the real center of gravity of that relationship, and where the feedback debt now driving [[Plan - Ahnaf]]'s re-engagement sequence comes from.
 
@@ -42,6 +43,7 @@ Each meeting moves through three folders under `Meetings/`: the raw call lands u
 | Ahnaf, Fall 2026 content | Never materialized, no fall meeting happened; folded into [[Plan - Ahnaf#Fall 2026\|Plan]] as a closed historical record |
 | Jesse, outreach | Not yet sent; drafted in [[Initial Outreach]], targeting a first meeting before 2026-11-02 |
 | Jesse, goals | Drafted as 80/20 in [[Plan - Jesse]]; not yet reviewed with Jesse directly |
+| Jesse, meetings | Mapped in [[Mentor Meeting Playbook - Jesse]], empty Session Log, ready for the first entry |
 | Future mentors | Each gets its own subfolder and its own plan file in `Plans/`, never assumed to inherit the others' knowledge automatically |
 ## Dataview
 ```dataview

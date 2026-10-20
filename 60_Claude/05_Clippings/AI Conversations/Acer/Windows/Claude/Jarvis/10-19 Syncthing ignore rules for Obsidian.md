@@ -6,7 +6,7 @@ source_os: windows
 title: "Syncthing ignore rules for Obsidian"
 started_at: 2026-10-19T13:40:26
 ended_at: 2026-10-19T15:45:37
-exported_at: 2026-10-19T21:33:02
+exported_at: 2026-10-20T08:02:39
 duration_minutes: 125.2
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'

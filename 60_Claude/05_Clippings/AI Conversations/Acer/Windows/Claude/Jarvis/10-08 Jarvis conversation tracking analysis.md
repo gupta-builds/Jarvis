@@ -6,7 +6,7 @@ source_os: windows
 title: "Jarvis conversation tracking analysis"
 started_at: 2026-10-08T20:57:58
 ended_at: 2026-10-09T22:21:25
-exported_at: 2026-10-20T22:03:04
+exported_at: 2026-10-20T23:03:03
 duration_minutes: 1523.5
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'

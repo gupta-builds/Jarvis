@@ -17,6 +17,7 @@ next: Send the outreach email below, scheduled for tomorrow at 8:00 AM.
 # First Meeting
 ## Lessons From Ahnaf's Program, Applied Here
 Pulled directly from [[Mentor Details'25|Ahnaf's]] actual meeting record, not from memory of how it felt:
+Is there still a save error?
 1. **Follow-through gaps.** Both early meeting notes ("Mentor Meeting - One-Pager" and "Mentor Meeting - Hackathons, Summer, and Networking") had an "After the Meeting" checklist that never got filled in. The Resq vs. Opspilot decision was never resolved on record. Lesson: write down what the mentor actually said and decided the same day, every time, not from memory a week later.
 2. **Months of ad hoc cadence.** No standing meeting rhythm existed until the 2026-07-14 call, well after the relationship had already been running since spring. Lesson: lock a cadence at the first meeting, not after several unstructured ones.
 3. **Planning deferred past the point it helped.** "Fall 2026, Detailed Expectations" was deliberately left blank, waiting for real meetings to generate content. Right call for topic specifics, wrong call for structure. The structure itself (cadence, goal format, after-meeting ritual) should be fixed before meeting one.

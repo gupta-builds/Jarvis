@@ -1,16 +1,16 @@
 ---
 type: class
-input_kind: book
+class_kind: textbook
 status: sprout
 created: 2026-10-05
-updated: 2026-10-05
+updated: 2026-10-22
 area:
   - "[[CSCI 4521 Board]]"
   - "[[20_Progress/Degree/CSCI 4521/Textbook/Textbook Map|Textbook Map]]"
 tags:
-  - "#class"
-  - "#Textbook"
-next: "Verify DLB §2.1–§2.8 against the local PDF in a text-accessible reader, then use the matrix examples while reviewing Week 1 data representations."
+  - class
+  - textbook
+next: "Verify DLB §2.1–§2.8 against the local PDF in a text-accessible reader, then use the matrix examples while reviewing Week 1 data representations and Week 6's PCA/eigendecomposition review."
 ---
 # DLB Chapter 2 — Linear Algebra (§2.1–§2.8)
 ## Chapter Summary
@@ -29,7 +29,9 @@ next: "Verify DLB §2.1–§2.8 against the local PDF in a text-accessible reade
 ### §2.7–§2.8 Decompositions
 - **Eigendecomposition:** an eigenvector satisfies $Av=\lambda v$. When a square matrix has enough independent eigenvectors, $A=V\operatorname{diag}(\lambda)V^{-1}$; for real symmetric matrices, the eigenvectors may be chosen orthonormal.
 - **Singular value decomposition:** $A=UDV^\top$ works for any real $m\times n$ matrix. $U$ and $V$ are orthogonal and $D$ contains singular values; unlike eigendecomposition, it does not require $A$ to be square.
-## Examples Worth Keeping
+## Full Reading Notes
+Section-by-section anchors (pp. 31-48): §2.1 Scalars/Vectors/Matrices/Tensors (p.31), §2.2 Multiplying Matrices and Vectors (p.34), §2.3 Identity and Inverse Matrices (p.36), §2.4 Linear Dependence and Span (p.37), §2.5 Norms (p.39), §2.6 Special Kinds of Matrices and Vectors (p.40), §2.7 Eigendecomposition (p.42), §2.8 Singular Value Decomposition (p.44). §2.7-§2.8 are this course's Week 6 assigned reading, reviewed directly ahead of LEC 2.3/2.4's PCA treatment — the k-means lecture deck's own closing slide tells students to "review your linear algebra notes" (eigenvalues, covariance matrix, SVD) before the PCA class, which is exactly this pair of sections.
+## Worked Example
 - A $3\times2$ matrix maps vectors from a two-dimensional input space into at most a plane in three dimensions. A target off that plane cannot satisfy $Ax=b$.
 - A diagonal matrix $\operatorname{diag}(v)$ scales each coordinate of $x$ and therefore behaves like $v\odot x$; this is a structural shortcut, not a general matrix product rule.
 - The chapter's unit-circle picture explains a symmetric matrix geometrically: after applying $A$, the circle becomes an ellipse whose principal directions are eigenvectors and whose axis scaling is set by eigenvalues.

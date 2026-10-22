@@ -1,0 +1,61 @@
+---
+type: class
+class_kind: textbook
+status: sprout
+created: 2026-10-21
+updated: 2026-10-21
+area:
+  - "[[CSCI 5304 Board]]"
+  - "[[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 10|Lecture - 10]]"
+tags:
+  - class
+  - textbook
+next: "Confirm whether the normal-equations stability failure (why Algorithm 11.1 can be unstable) gets its own worked demonstration in a future lecture, per the book's own forward-reference to Lectures 18-19"
+---
+# Lecture 11 — Least Squares Problems
+**Source:** Lloyd N. Trefethen and David Bau, III, *Numerical Linear Algebra*, 25th Anniversary Ed. (SIAM, 2022), Lecture 11, pp. 77-85.
+**Read from:** `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 5304\Textbook & Resources\CSCI 5304 Textbook (MinerU full extraction).md`, lines 2837-3237.
+**Course role:** Closes Part II, QR Factorization and Least Squares. Lectured 2026-10-08, directly after [[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 10|Lecture 10]] finished - the professor explicitly grouped Householder and least squares together as "the big part of Part II" and said the next quiz would cover both.
+## Chapter Summary
+==An overdetermined system $Ax=b$ generally has no exact solution, so least squares instead asks for the $x$ that makes the residual $b-Ax$ as small as possible in the 2-norm - and that minimization collapses to one orthogonality condition, $A^*r=0$, which three different factorizations (normal equations, QR, SVD) all solve in their own way.== *Mechanism:* geometrically, the closest point to $b$ in range$(A)$ is its orthogonal projection $Pb$, so the residual $r=b-Ax$ must be orthogonal to range$(A)$ (Theorem 11.1); algebraically this is the normal equations $A^*Ax=A^*b$, solvable directly, via a QR factorization, or via the SVD, each trading cost against numerical stability.
+## Key Concepts
+- **Overdetermined system / residual** (p. 77, eq. 11.1): $m>n$ equations in $n$ unknowns; the residual $r=b-Ax\in\mathbb C^m$ generally cannot be made zero, so the least squares problem (eq. 11.2) asks for $x$ minimizing $\|r\|_2$.
+- **Theorem 11.1** (p. 80-81): $x$ solves the least squares problem iff $r\perp\mathrm{range}(A)$, i.e. $A^*r=0$ (eq. 11.8) $\iff$ the **normal equations** $A^*Ax=A^*b$ (eq. 11.9) $\iff$ $Pb=Ax$ (eq. 11.10) for $P$ the orthogonal projector onto range$(A)$. The system is nonsingular, and $x$ unique, iff $A$ has full rank.
+- **Pseudoinverse** $A^+=(A^*A)^{-1}A^*\in\mathbb C^{n,m}$ (p. 81-82, eq. 11.11): the matrix such that $x=A^+b$ solves the full-rank least squares problem directly.
+- **Algorithm 11.1, Normal Equations** (p. 82-83): form $A^*A,A^*b$; Cholesky-factor $A^*A=R^*R$ (Lecture 23); solve two triangular systems. Cost $\sim mn^2+\tfrac13n^3$ flops (eq. 11.14) - cheapest, but can be unstable.
+- **Algorithm 11.2, QR Factorization** (p. 83-84): $A=\hat Q\hat R$ (Gram-Schmidt or, usually, Householder); solve $\hat Rx=\hat Q^*b$ (eq. 11.17) by back substitution. Cost $\sim2mn^2-\tfrac23n^3$ flops (eq. 11.18, matching [[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 10|Lecture 10]]'s Householder count exactly) - the "daily use" recommendation.
+- **Algorithm 11.3, SVD** (p. 84-85): $A=\hat U\hat\Sigma V^*$; solve the diagonal system $\hat\Sigma w=\hat U^*b$, set $x=Vw$ (eq. 11.19-11.21). Cost $\sim2mn^2+11n^3$ flops (eq. 11.22) - most expensive, but most stable when $A$ is near rank-deficient.
+- **Comparison of algorithms** (p. 85): normal equations fastest but least stable; QR the standard recommendation; SVD reserved for near-rank-deficient $A$. All three reduce the same normal equations to a different system (triangular, triangular, diagonal respectively) - the SVD route is a "trivial system" once decomposed.
+## Full Reading Notes
+### The Problem (p. 77)
+$m>n$, $A\in\mathbb C^{m\times n}$, $b\in\mathbb C^m$; a solution exists only if $b\in\mathrm{range}(A)$, which is exceptional since $\mathrm{range}(A)$ has dimension at most $n<m$. The least squares formulation (eq. 11.2) chooses $x$ to minimize $\|b-Ax\|_2$ - the 2-norm choice is defensible geometrically and statistically, and crucially makes the minimization problem's derivative linear.
+### Example: Polynomial Data-Fitting (p. 78-80)
+Example 11.1 (interpolation): $m$ points, unique degree-$(m-1)$ interpolating polynomial via the square Vandermonde system (eq. 11.4) - Fig. 11.1 shows this overfits badly (large oscillations near the interval ends) on 11 data points. Example 11.2 (least squares fit): a *lower*-degree polynomial ($n-1<m-1$) fit via the rectangular Vandermonde system (eq. 11.7), minimizing $\sum_i|p(x_i)-y_i|^2=\|r\|_2^2$ - Fig. 11.2 shows a degree-7 fit to the same 11 points capturing the overall trend without the oscillation artifact.
+### Orthogonal Projection and the Normal Equations (p. 80-81)
+Fig. 11.3's geometric picture: the closest point to $b$ in range$(A)$ is $y=Pb$ for $P$ the orthogonal projector (Lecture 6), making $r=b-Ax$ orthogonal to range$(A)$. Theorem 11.1 states and proves the three equivalent forms (eq. 11.8-11.10); the proof's uniqueness argument uses the Pythagorean theorem directly ($\|b-z\|_2^2=\|b-y\|_2^2+\|y-z\|_2^2>\|b-y\|_2^2$ for any other candidate $z\ne y$ in range$(A)$).
+### Pseudoinverse (p. 81-82)
+For full-rank $A$, $x=(A^*A)^{-1}A^*b=A^+b$; $A^+\in\mathbb C^{n,m}$ has more columns than rows (maps $\mathbb C^m\to\mathbb C^n$). The problem reduces to computing $x=A^+b$ and/or $y=Pb$ (eq. 11.12).
+### Normal Equations (p. 82-83)
+Algorithm 11.1: form $A^*A$ (costs $mn^2$ flops - half the generic cost, by symmetry) and $A^*b$; Cholesky-factor $A^*A=R^*R$ ($n^3/3$ flops, Lecture 23); solve $R^*w=A^*b$ then $Rx=w$ by triangular substitution (Lecture 17). Total $\sim mn^2+\tfrac13n^3$ flops (eq. 11.14).
+### QR Factorization (p. 83-84)
+The "modern classical," standard-since-the-1960s method. $A=\hat Q\hat R\Rightarrow P=\hat Q\hat Q^*\Rightarrow y=Pb=\hat Q\hat Q^*b$ (eq. 11.15); combining with $Ax=y$ gives $\hat Q\hat Rx=\hat Q\hat Q^*b$, and left-multiplying by $\hat Q^*$ gives the triangular system $\hat Rx=\hat Q^*b$ (eq. 11.17), solved by back substitution. Equivalently derivable straight from the normal equations by substituting $A=\hat Q\hat R$. Cost dominated by the QR factorization itself: $\sim2mn^2-\tfrac23n^3$ flops if Householder is used (eq. 11.18, identical to [[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 10|Lecture 10]]'s eq. 10.9).
+### SVD (p. 84-85)
+$A=\hat U\hat\Sigma V^*$ (reduced SVD, computed per Lecture 31); $P=\hat U\hat U^*\Rightarrow y=Pb=\hat U\hat U^*b$ (eq. 11.19); the analogue of the QR derivation gives the diagonal system $\hat\Sigma V^*x=\hat U^*b$ (eq. 11.21), solved trivially since $\hat\Sigma$ is diagonal, then $x=Vw$. Cost $\sim2mn^2+11n^3$ flops (eq. 11.22) - most expensive for $m\approx n$, comparable to QR for $m\gg n$.
+### Comparison of Algorithms (p. 85)
+Normal equations: fastest, but "not always stable in the presence of rounding errors." QR (Algorithm 11.2): the standard recommendation for "daily use" - natural, elegant, good stability. SVD (Algorithm 11.3): reserved for when $A$ is close to rank-deficient, where even QR's stability degrades. The book explicitly defers *why* normal equations can be unstable to a "systematic discussion" still to come (Lectures 18-19).
+## Lecture, 2026-10-08
+The professor worked through essentially the entire chapter live in one session, matching the book's own order and derivations closely: the overdetermined-system setup with a concrete small example ($4\times2$ matrix with an unsatisfiable $b$, making "not enough columns" vivid before any formal definition); the orthogonality argument for why the closest point must make a right angle (worked via the Pythagorean-theorem triangle argument, same structure as the book's Theorem 11.1 proof); the normal equations derived directly from $A^*r=0$; and all three solution routes (normal equations, QR, SVD), ending with the explicit connection back to the SVD-based homework problem already assigned ("this is actually how you approach the homework problem that I asked you to solve for the SVD of the two-by-two matrix" - directly the $A^TA=V\Sigma^2V^T$ substitution used in [[20_Progress/Degree/CSCI 5304/Quiz & HW/Homework - 2|Homework - 2]]'s problem 1). One real aside not in the book: a short historical note on the Gauss-vs-Legendre priority dispute over who invented least squares (1795 vs. 1805, the same fact the book's back-matter notes record), and context connecting least squares to Kalman filtering and PCA as related "filtering" ideas - flagged as connective color, not examinable content.
+## Worked Example
+The book's polynomial data-fitting contrast (Examples 11.1-11.2, Fig. 11.1-11.2) is the chapter's canonical worked example: an 11-point discrete square wave interpolated exactly by a degree-10 polynomial oscillates wildly near the interval ends, while a degree-7 least squares fit to the *same* points captures the trend without the artifact - the practical motivation for preferring an underdetermined-degree fit over exact interpolation. The live lecture's own small overdetermined example ($A=\begin{bmatrix}1&0\\0&1\\0&0\\0&0\end{bmatrix}$, $b=(0,0,3,5)^T$) makes the "no exact solution" case concrete before the general theory: no linear combination of $A$'s columns can produce nonzero entries in rows 3-4, so $b\notin\mathrm{range}(A)$ and the best achievable is $x=(0,0)^T$.
+## Connections
+- Lecture: directly follows [[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 10|Lecture 10]], whose Householder QR factorization is Algorithm 11.2's engine; reuses [[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 6|Lecture 6]]'s orthogonal projector $P$ directly as the geometric core of Theorem 11.1; reuses the SVD ([[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 4|Lecture 4]], [[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 5|Lecture 5]]) for Algorithm 11.3. Forward references: Cholesky factorization (Lecture 23), back substitution (Lecture 17), least squares stability (Lectures 18-19), computing the SVD (Lecture 31).
+- Homework/Quiz: [[20_Progress/Degree/CSCI 5304/Quiz & HW/Homework - 2|Homework - 2]] exercise 8 (block-matrix pseudoinverse bounds, Exercise 11.1) draws directly on the pseudoinverse definition here - now landed, update that note's "not yet written" citation.
+## Open Questions
+- [ ] Confirm whether the book's deferred explanation of *why* the normal equations can be unstable actually lands in a future session (Lectures 18-19), or whether this course's pacing skips the full derivation.
+- [ ] Exercises 11.2 and 11.3 (MATLAB-based least squares fitting and a six-method coefficient comparison) are real textbook exercises, not yet assigned as homework in this course as of 2026-10-21.
+## Flashcards
+State the orthogonality condition that characterizes a least squares solution, and its two algebraic equivalents.::$A^*r=0$ (residual orthogonal to range$(A)$) $\iff$ the normal equations $A^*Ax=A^*b$ $\iff$ $Pb=Ax$ for $P$ the orthogonal projector onto range$(A)$. #cards/5304
+What is the pseudoinverse of a full-rank $A$, and what does it compute?::$A^+=(A^*A)^{-1}A^*$; $x=A^+b$ is the least squares solution. #cards/5304
+Name the three algorithms for solving least squares problems and rank them by typical speed vs. stability.::Normal equations (fastest, least stable), QR factorization (standard "daily use" choice), SVD (slowest, most stable - used when $A$ is near rank-deficient). #cards/5304
+Why does the QR algorithm for least squares reduce to a triangular system while the SVD algorithm reduces to a diagonal one?::$A=\hat Q\hat R$ makes $\hat Rx=\hat Q^*b$ triangular (solved by back substitution); $A=\hat U\hat\Sigma V^*$ makes $\hat\Sigma V^*x=\hat U^*b$ diagonal in the unknown $V^*x$ (trivially solved), then one more multiply by $V$ recovers $x$. #cards/5304
+Why does polynomial interpolation (Example 11.1) behave worse than a lower-degree least squares fit (Example 11.2) on the same data?::Forcing an exact fit through every point with a high-degree polynomial produces large spurious oscillations between points (Runge-type behavior); a lower-degree least squares fit captures the overall trend without being forced through every point exactly. #cards/5304

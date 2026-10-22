@@ -9,7 +9,7 @@ area:
 tags:
   - "#class"
   - "#Textbook"
-next: "Build Textbook/Lecture - 10.md once a transcript for Householder Triangularization actually lands - it hasn't as of 2026-10-01"
+next: "Build Textbook/Lecture - 13.md once a real Lecture 13 (Floating Point Arithmetic) transcript lands - the 10/20 session was exam review only, not new content"
 ---
 # CSCI 5304 — Textbook Map
 ==Trefethen & Bau call their own chapters "Lectures," and this course's lecture numbering reuses that numbering directly - Lecture 24 in the schedule is Lecture 24 in the book, not a coincidence.== The course covers **Parts I-V (Lectures 1-31)** only, in that exact order, with no gaps and no reordering - every single Lecture the book has in that range gets a scheduled day (confirmed by lining up every schedule row below against the book's real 31-lecture structure; zero lectures were skipped or reordered). The one lecture the course explicitly skips is **Lecture 9, MATLAB** - the schedule jumps Lecture 8 (Tue, Week 4) straight to Lecture 10 (Thu, Week 4) because this course uses Python/numpy instead, per [[CSCI 5304 Board]]'s Environment Setup section.
@@ -29,19 +29,19 @@ This map's Lecture titles come from Trefethen & Bau's own well-established, unch
 - **Lecture 7 - QR Factorization** - taught Thu 10/1, Week 4, directly after Lecture 6 in the same session. **Landed, full depth with real page citations (pp. 48-55):** [[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 7]].
 - **Lecture 8 - Gram-Schmidt Orthogonalization** - only the *core idea* reached at the end of Thu 10/1's session (modified GS as sequential vs. combined projector application); the full algorithm, flop count, and triangular-orthogonalization framing were not reached live. **Landed but explicitly flagged as partially lectured (pp. 56-62):** [[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 8]].
 - *(Lecture 9, MATLAB, intentionally skipped - see note above.)*
-- **Lecture 10 - Householder Triangularization** - scheduled Thu, Week 4 (Quiz #2 day per schedule). **Not yet taught as of 2026-10-01** - the professor explicitly ran out of time reaching it and deferred it ("we'll talk about that next time"). No transcript exists. Do not build this note until one does.
-- **Lecture 11 - Least-Squares Problems** - Tue, Week 5. No transcript yet.
+- **Lecture 10 - Householder Triangularization** - taught across two real sessions, Tue 10/6 (reflector derivation) and Thu 10/8 (implicit application, finish). **Landed, full depth with real page citations (pp. 69-76):** [[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 10]]. The operation-count derivation (eq. 10.9) was explicitly deferred live both days - flagged in the note's own Open Questions, not yet confirmed as lectured.
+- **Lecture 11 - Least-Squares Problems** - taught Thu 10/8, directly after Lecture 10 in the same session. **Landed, full depth with real page citations (pp. 77-85):** [[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 11]].
 
 ## Part III: Conditioning and Stability (Lectures 12-19)
-- **Lecture 12 - Conditioning and Condition Numbers** - Thu, Week 5.
-- **Lecture 13 - Floating Point Arithmetic** - Tue, Week 6 (paired with Lecture 14 per schedule).
-- **Lecture 14 - Stability** - Tue, Week 6 (same session as Lecture 13).
-- **Lecture 15 - More on Stability** - Thu, Week 6 (Quiz #3 day).
-- **Lecture 16 - Stability of Householder Triangularization** - Tue, Week 7.
-- **Lecture 17 - Stability of Back Substitution** - Tue, Week 8.
-- **Lecture 18 - Conditioning of Least Squares Problems** - Thu, Week 8.
-- **Lecture 19 - Stability of Least Squares Algorithms** - Tue, Week 9.
-*(None of Lectures 12-19 have transcripts yet - too far ahead of 2026-09-28's real class progress.)*
+- **Lecture 12 - Conditioning and Condition Numbers** - taught Tue 10/13. **Landed, full depth with real page citations (pp. 89-96):** [[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 12]]. **Explicitly out of the midterm's stated scope** - the professor announced the same day that the exam covers "the first two homework contents through chapter 11" only.
+- **Lecture 13 - Floating Point Arithmetic** - no transcript yet as of 2026-10-22. Machine epsilon and IEEE float storage were previewed informally inside the Lecture 12 session, ahead of schedule, but that is not the same as this lecture being taught - do not build this note from the preview alone.
+- **Lecture 14 - Stability** - Tue, Week 6 (same session as Lecture 13 per schedule). No transcript yet.
+- **Lecture 15 - More on Stability** - Thu, Week 6 (Quiz #3 day). No transcript yet.
+- **Lecture 16 - Stability of Householder Triangularization** - Tue, Week 7. No transcript yet.
+- **Lecture 17 - Stability of Back Substitution** - Tue, Week 8. No transcript yet.
+- **Lecture 18 - Conditioning of Least Squares Problems** - Thu, Week 8. No transcript yet.
+- **Lecture 19 - Stability of Least Squares Algorithms** - Tue, Week 9. No transcript yet.
+*(The 10/20 session is a real transcript, but it is an exam-review Q&A day, not new lecture content for Lecture 13 or beyond - see [[20_Progress/Degree/CSCI 5304/Weekly/Week - 7|Week - 7]]. Lectures 13-19 remain not started as of 2026-10-22 - the most recent real lecture content this course has reached is Lecture 12.)*
 
 ## Part IV: Systems of Equations (Lectures 20-23)
 - **Lecture 20 - Gaussian Elimination** - Thu, Week 9 (Quiz #4 day).
@@ -64,4 +64,6 @@ This map's Lecture titles come from Trefethen & Bau's own well-established, unch
 Each Lecture note, once created, follows [[Textbook Template]] at the depth set by [[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 1|CSCI 4061's Chapter - 1]] - full subsection-by-subsection reading notes, every named concept bolded and defined, a worked example, a connection back to the matching week, and flashcards. Filed as `Lecture - N.md` (or `Lecture - N & M.md` when two lectures were taught in one session), never `Chapter - N.md`, matching the book's own terminology.
 
 ## Status
-Six Lecture notes landed as of 2026-10-02, all rebuilt or newly built to full depth with real page citations from the MinerU extraction - [[Lecture - 2 & 3]], [[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 4]], [[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 5]], [[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 6]], [[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 7]], and [[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 8]] (this last one explicitly flagged as only partially lectured - see its own warning). Lecture 1 is intentionally not landed (Week 1 skipped). Lecture 9 (MATLAB) is intentionally skipped - see note above. **Lecture 10 (Householder Triangularization) has no transcript and is not started**, despite being paired with Lecture 8 on the printed schedule - the professor has not reached it live yet; don't build it from the schedule/textbook alone. Lectures 11-31 have no transcript yet and are not started - each gets landed only once actually covered in class, per [[Weekly Standard]].
+Updated 2026-10-22: nine Lecture notes now landed, all built to full depth with real page citations from the MinerU extraction - [[Lecture - 2 & 3]], [[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 4]], [[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 5]], [[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 6]], [[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 7]], [[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 8]] (explicitly flagged as only partially lectured), [[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 10]], [[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 11]], and [[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 12]]. Lecture 1 is intentionally not landed (Week 1 skipped). Lecture 9 (MATLAB) is intentionally skipped - see note above. **The course's real progress now stops at Lecture 12** - every transcript available as of 2026-10-22 (through the 10/20 session) has been read; the 10/20 session itself is confirmed to be an exam-review Q&A day, not new Lecture 13 content, so Lectures 13-31 remain not started. Each gets landed only once actually covered in class, per [[Weekly Standard]] - do not build ahead from the schedule or textbook alone.
+> [!WARNING] Real, unresolved midterm-date conflict - see [[20_Progress/Degree/CSCI 5304/Weekly/Week - 7|Week - 7]]
+> [[CSCI 5304 Board]] currently states the midterm happened Tuesday 10/20, per a direct user correction. The 10/13 transcript has the professor confirming an in-person exam for Thursday 10/15; the 10/20 transcript is itself a review session anticipating an exam Thursday 10/22. These three dates conflict and have not been reconciled - do not treat any single one as settled without a direct Canvas/instructor check.

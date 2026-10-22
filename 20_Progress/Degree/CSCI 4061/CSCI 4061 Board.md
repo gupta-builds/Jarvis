@@ -3,18 +3,18 @@ type: class
 input_kind: board
 status: sprout
 created: 2026-09-07
-updated: 2026-10-14
+updated: 2026-10-21
 area:
   - "[[Fall'26 Syllabus]]"
   - "[[APAS]]"
 tags:
   - "#class"
-next: "Upload the verified Lab 5 zip to Gradescope before 2026-10-14 11:59pm, confirm the remote result and lab attendance; see [[20_Progress/Degree/CSCI 4061/Labs/Lab - 5]]."
+next: "Upload the verified Lab 6 zip to Gradescope before 2026-10-21 11:59pm (tonight), confirm the remote result and lab attendance; see [[20_Progress/Degree/CSCI 4061/Labs/Lab - 6]]."
 ---
 # CSCI 4061 — Introduction to Operating Systems
 Fall'26, 4 credits, in person. Closes the Introduction to Operating Systems sub-requirement of the Computer Science Core — the last open CS Core sub-req per [[APAS]], so this class finishes CS Core outright. Real syllabus pasted in full by the user 2026-09-08, from the course's Canvas page.
-## Lab 5 status (2026-10-14)
-[[20_Progress/Degree/CSCI 4061/Labs/Lab - 5|Lab 5]] is implemented and locally verified in the course dev container: 5/5 supplied tests, 1.0/1.0, plus uneven/empty-range checks and Valgrind. The actual `Labs/lab05-code/lab05-code.zip` was extracted, rebuilt, and passed the same suite. The Canvas instructions supplied by the user give the deadline as October 14, 2026, 11:59pm. Gradescope submission/results and attendance remain unverified; the lab note holds the reasoning, reproducible commands, and error log.
+## Current State (2026-10-21)
+[[20_Progress/Degree/CSCI 4061/Labs/Lab - 6|Lab 6]] is implemented and locally verified in the course dev container: 2/2 supplied tests, 1.0/1.0, plus empty/negative-at-end/all-negative edge cases and a 100,000-call reference-count leak check on the CPython extension. The actual `Labs/lab06-code/lab06-code.zip` was rebuilt and passed the same suite (SHA256 `fa0cf27f8087ad53f524cb701d746b5a45f4fc02bad2aab4dddb772abdfb6408`). Deadline is **tonight, 2026-10-21, 11:59pm** (Lab 6's Monday 10/19 session follows the same Monday-session-to-Wednesday-deadline pattern every prior lab used). Gradescope submission/results and attendance remain unverified; the lab note holds the reasoning, reproducible commands, and error log. [[20_Progress/Degree/CSCI 4061/Labs/Lab - 5|Lab 5]] was previously verified the same way (5/5, 1.0/1.0) and submitted 2026-10-14.
 ## Current Grade
 > [!DANGER] Estimated ceiling, not an earned grade — recompute once [[Hit or Miss - Miss]] gets the full Canvas pass
 > Computed 2026-09-24 from [[Hit or Miss - Miss]] against this course's own weights and drop policy. This is the **maximum grade still reachable** if everything remaining is aced, degraded only by weight already lost to misses logged so far — not a real transcript grade, since most of the semester's weight hasn't happened yet.

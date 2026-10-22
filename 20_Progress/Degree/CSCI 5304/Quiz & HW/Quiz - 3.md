@@ -25,7 +25,7 @@ CSCI-5304 Fall 2026, 10 points, 1 question (3 sub-parts), written/proof-based (n
 - [ ] Confirm quiz # and submission mechanism on Canvas (see Overview warning above).
 ## Work log
 ### 2026-10-18 — full written solve
-Solved directly from the MinerU textbook extraction (`D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 5304\Textbook & Resources\CSCI 5304 Textbook (MinerU full extraction).md`), Lecture 10 (pp. 69-76: Eq. 10.1 zero-introduction diagram, Eq. 10.3's reflection-to-$\|x\|e_1$ picture, Algorithm 10.1). No vault Lecture 10 note exists yet (not lectured as of the last Board update), so this is read straight from the source text, not from a distillation. Every claim below is checked algebraically (determinants, explicit matrix-vector products) rather than asserted from memory.
+Solved directly from the MinerU textbook extraction (`D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 5304\Textbook & Resources\CSCI 5304 Textbook (MinerU full extraction).md`), Lecture 10 (pp. 69-76: Eq. 10.1 zero-introduction diagram, Eq. 10.3's reflection-to-$\|x\|e_1$ picture, Algorithm 10.1). No vault Lecture 10 note existed at the time of this 2026-10-18 solve (not lectured as of the last Board update then), so this was read straight from the source text, not from a distillation - [[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 10|Lecture 10]] has since landed (2026-10-22) and is cited directly below. Every claim below is checked algebraically (determinants, explicit matrix-vector products) rather than asserted from memory.
 
 ### 1(a) — $F$: reflection
 ![[Quiz 3 - 1a box1 - F reflects e1.excalidraw]]
@@ -59,7 +59,7 @@ Open each embed in Excalidraw view (not Markdown preview) to see the actual draw
 ### 2026-10-18 — fixed rendering bugs (2 rounds)
 Box 1's $F\vec e_1$ arrow (the only vector in all 4 diagrams with both a negative x- and y-offset) first mis-rendered because it was built with just `x,y,width,height` and no explicit `points` array. That fix held, but a second, deeper issue turned up while building Homework 2's diagrams: the `excalidraw` MCP's own element output is missing several fields real Excalidraw elements need (`id`, `seed`, text `width`/`height`, etc.), which can crash the Obsidian plugin's renderer outright. All 4 diagrams above were rebuilt a second time with the complete schema (geometry unchanged, re-verified algebraically: bisector angle, rotation angle, arc-sweep direction) — full root-cause writeup in [[20_Progress/Degree/CSCI 5304/Quiz & HW/Homework - 2|Homework - 2]]'s work log.
 ## Concepts used
-- **Householder reflectors** ([[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 10|Lecture 10]], not yet written in this vault — read straight from the MinerU extraction) — $F$'s reflection-across-a-line structure (1a) and the Eq. 10.1 zero-introduction pattern $Q_1$ is compared against (1c).
+- **Householder reflectors** ([[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 10|Lecture 10]]) — $F$'s reflection-across-a-line structure (1a) and the Eq. 10.1 zero-introduction pattern $Q_1$ is compared against (1c); solved before the Lecture 10 note landed, now cross-linked.
 - **Givens rotations** (same Lecture 10 source, Exercise 10.4) — $J$'s rigid-rotation structure (1b); the $2\times2$ zero-introducing map generalized to $G(i,k,\theta)$ for QR factorization (1c).
 - **Unitary/orthogonal matrices** ([[20_Progress/Degree/CSCI 5304/Textbook/Lecture - 2 & 3|Lecture 2 & 3]]) — $\det=\pm1$ distinguishing reflection ($F$) from rotation ($J$); both preserve length and angle.
 ## Post-submit reflection

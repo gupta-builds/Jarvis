@@ -2,17 +2,20 @@
 type: dashboard
 status: tree
 created: 2026-05-29
-updated: 2026-10-17
+updated: 2026-10-21
 tags:
   - clippings
   - ai-conversations
   - readme
 notes:
   - "[[60_Claude/07_AI_Information/AI Conversation - Summaries/README]]"
+  - "[[10_Areas/AI/Setup/Conversation Map|Conversation Map]]"
   - "[[Jarvis Three-Month Research Engine Master Plan]]"
 ---
 # AI Conversations — Raw Archive
 This folder is the raw archive for exported LLM conversation transcripts (Claude Code, Claude web, Codex, Cursor, Kiro, ChatGPT, Ollama, future tools).
+## Current state (2026-10-21)
+Only Claude Code is exported live, on the Acer's Windows side (checked) and by report on the other three tracks. Cursor stopped writing on 2026-10-08, Cowork on 2026-07-24, and Codex, Antigravity, Kiro, and local models have empty folders only. The sections below describe the pipeline as it was built; where they disagree with the live tree, the tree is right. `Claude App/` and `OpenCode/` below were never created. Start from [[10_Areas/AI/Setup/Conversation Map|Conversation Map]]; the measured picture is in [[20_Progress/Projects/AI Use/Conversations/Conversation Layer|Conversation Layer]] and [[20_Progress/Projects/AI Use/Conversations/Platform Coverage|Platform Coverage]]. The 107 duplicate notes and 14 archive folders are in [[20_Progress/Projects/AI Use/Conversations/Legacy Layout and Archives|Legacy Layout and Archives]].
 ## Current layout (2026-10-17, Build 5c): machine first
 The live folder tree is authoritative. New exports go to `<Machine>/<OS>/<Tool>/<Project>/`, where Machine is `Dell` or `Acer` (read from the host name, case-insensitive; an unknown host writes nothing) and the Claude Code and Cowork tool folder is `Claude`:
 ```

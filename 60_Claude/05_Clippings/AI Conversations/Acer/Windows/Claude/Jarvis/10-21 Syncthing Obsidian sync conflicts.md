@@ -6,7 +6,7 @@ source_os: windows
 title: "Syncthing Obsidian sync conflicts"
 started_at: 2026-10-21T19:46:40
 ended_at: 2026-10-21T21:52:43
-exported_at: 2026-10-22T11:19:54
+exported_at: 2026-10-22T11:33:08
 duration_minutes: 126.1
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'

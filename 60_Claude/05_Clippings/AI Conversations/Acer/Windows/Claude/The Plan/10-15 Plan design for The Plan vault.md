@@ -6,7 +6,7 @@ source_os: windows
 title: "Plan design for The Plan vault"
 started_at: 2026-10-15T16:33:33
 ended_at: 2026-10-15T16:36:58
-exported_at: 2026-10-22T11:33:08
+exported_at: 2026-10-23T13:03:03
 duration_minutes: 3.4
 project: The Plan
 cwd: 'D:\_Anant\20_Progress\Documents\The Plan'
@@ -20,11 +20,11 @@ tools_used:
   PowerShell: 4
   Read: 53
 tokens:
-  input: 176
-  output: 95172
-  cache_creation: 912229
-  cache_read: 10424936
-  total: 11432513
+  input: 38
+  output: 25226
+  cache_creation: 161482
+  cache_read: 2271349
+  total: 2458095
 cost_usd: null
 model:
   - "claude-sonnet-5-5"

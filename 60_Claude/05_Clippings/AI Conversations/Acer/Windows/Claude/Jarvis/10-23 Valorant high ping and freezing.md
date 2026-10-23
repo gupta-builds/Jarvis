@@ -6,7 +6,7 @@ source_os: windows
 title: "Valorant high ping and freezing"
 started_at: 2026-10-23T11:48:58
 ended_at: 2026-10-23T12:44:38
-exported_at: 2026-10-23T12:44:41
+exported_at: 2026-10-23T13:03:02
 duration_minutes: 55.7
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'

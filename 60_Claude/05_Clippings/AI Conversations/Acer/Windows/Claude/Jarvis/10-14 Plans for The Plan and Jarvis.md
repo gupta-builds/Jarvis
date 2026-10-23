@@ -6,7 +6,7 @@ source_os: windows
 title: "Plans for The Plan and Jarvis"
 started_at: 2026-10-14T23:13:07
 ended_at: 2026-10-18T18:32:33
-exported_at: 2026-10-22T11:19:55
+exported_at: 2026-10-23T13:03:03
 duration_minutes: 5479.4
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
@@ -29,12 +29,12 @@ tools_used:
   ToolSearch: 2
   Write: 1
 tokens:
-  input: 244
-  output: 359130
-  cache_creation: 2701974
-  cache_read: 16042871
-  total: 19104219
-cost_usd: 17.608258
+  input: 84
+  output: 93745
+  cache_creation: 570622
+  cache_read: 5833640
+  total: 6498091
+cost_usd: 4.386834
 model:
   - "claude-sonnet-5"
 files_touched:

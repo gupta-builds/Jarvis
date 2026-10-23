@@ -65,6 +65,20 @@ I did not start WSL to read its settings. Build 5c's end-to-end test (`claude -p
 | Windows backfill task | `ConversationCapture-Backfill-Windows` existed on the Dell; the Acer's task copies its settings. Current state unverified |
 | Cursor sweep | `Jarvis-Cursor-Session-Export`, every 15 minutes, per the Cursor README. Dell notes stop at 2026-10-08, so it has probably stopped; unverified |
 | Evidence of life | newest Dell session starts: Windows 2026-10-18, WSL 2026-10-18 |
+## Schedule (Acer, read from Task Scheduler on 2026-10-22, 23:40)
+Every process that runs on a clock, in one place. Planned rows are not registered yet. Phase P8 owns this table from now on: each new task adds a row here in the same session that registers it.
+| Process | When | What it does | Script | Last result |
+|---|---|---|---|---|
+| `ConversationCapture-Backfill-Windows` | every 30 min, at :03 and :33 | Exports every top-level transcript that is new or grew, then writes Capture Health | `backfill-windows-silent.vbs` | 0 at 23:33 |
+| `Jarvis-GitAutoSync` | every 30 min, at :03 and :33 | Commits and pushes the vault; the Acer is the only git writer since 2026-10-22 | `git-auto-sync-silent.vbs` | 0 at 23:33 |
+| `ThePlan-GitSync` | every 15 min, at :08, :23, :38, :53 | Syncs The Plan vault | not read | 0 at 23:38 |
+| `Jarvis-Codex-Daemon-Guard` | every 15 min, at :12, :27, :42, :57, and at logon | Keeps the Codex daemon alive | `sync-workflow/scripts/codex-daemon-guard.ps1` | 0 at 23:42 |
+| `Jarvis-Syncthing-Health` | every 5 min | Checks Syncthing status and raises the toast | `sync-workflow/scripts/check-syncthing-status.ps1` | 0 at 23:41 |
+| `Jarvis-WeeklyReview` | Sundays 06:00, starts when available | Runs the concept-mastery `/weekly-review` headlessly; it does not read conversations | `run-weekly-review.ps1` | 0 on 2026-10-18 at 13:15 (late: the laptop was off at 06:00) |
+| Claude Code retention sweep | at session start (inferred), age limit `cleanupPeriodDays` | Deletes old transcripts, tool results, file history | Claude Code itself | `.last-cleanup` 2026-10-22 22:57 |
+| Conversation digest and review skeleton (planned, P8) | Sundays 21:00 | Builds the week's digest and the review skeleton, then a toast | `run-conversation-digest.ps1` | not registered |
+| Capture watchdog (planned, after P8) | every 60 min, at :18 | Looks for missing evidence that capture ran | `check-conversation-capture.ps1` | not registered |
+Slot rule: a new task takes a free minute. Taken minutes are :01 and every fifth minute from :01:45 (Syncthing), :03, :33, :08, :23, :38, :53, :12, :27, :42, :57. The backfill and the git sync share :03 and :33; the git script's hot-file defer is what keeps them from racing, so do not remove it.
 ## What nothing compares
 No file lists what should be registered per machine, so a missing registration is found only when notes stop appearing. The 10-08 tracking analysis found the Acer's hook unregistered by reading settings files by hand; the 10-04 audit found the backfill tasks missing the same way. Each registration also differs in form: JSON in user settings, JSON in project settings, Task Scheduler XML, systemd unit files.
 ## Non-Goals

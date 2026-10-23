@@ -9,7 +9,7 @@ tags:
   - conversations
   - build
 project_kind: plan
-next: Run Prompts/P0 (retention and snapshot) today, then P1 and P2, then P3 (design postmortem); the order and prompts are in Corrections below.
+next: Run Prompts/P0 (retention and snapshot) before 2026-10-24 17:56, then P1 and P2; refine P3 to P5 with what they return. Phases, prompts and the B-to-P mapping are in Corrections below.
 notes:
   - "[[20_Progress/Projects/AI Use/Conversations/Conversation Loop Design|Conversation Loop Design]]"
   - "[[20_Progress/Projects/AI Use/Conversations/Conversation Layer|Conversation Layer]]"
@@ -74,19 +74,56 @@ Platforms other than Claude Code, any `30_Order` change before B10, and any buil
 | Acer tree | Fresh tree and the test bed for the new design. Project-based sessions are re-exported from live transcripts. Older notes whose transcripts were swept stay, recognizable by having no `review_state`. |
 | Weekly reviewer | The person reads and codes first, the local model flags afterward. |
 | Skill and hook home | The Jarvis vault `.claude/` only. |
-| Events | Per machine, and scoped to tracked projects so The Plan's personal content stays out of Jarvis logs. |
-### Revised order and prompts
-Each prompt is an Agent Prompt Standard note in `Prompts/`, one fresh session each. B-numbers are the original builds.
-| Prompt | Covers | Done when |
+| Events | Per machine and local only. Every directory used with Claude Code is tracked, including The Plan; the synced digest carries ids and links, never prompt text. This replaces the earlier idea of excluding The Plan. |
+| Project folders on the Acer | Jarvis, The Plan, Home, UMN Courses (everything under `D:\_Anant\10_Areas\UMN`), and any other directory used with Claude Code gets a folder named after it. Claude's own scratch folders go to `Scratch` (assistant's choice, owner to confirm in P2's report). Rules live in one file, `capture-projects.json`. |
+| Retention story | 60 days on the Acer is the whole story. The Dell follows with the repo conversations only, re-exported from live transcripts. |
+| Schedule | Weekly digest on Sundays at 21:00 by default while testing. Every scheduled process is listed in the Schedule section of [[20_Progress/Projects/AI Use/Conversations/Capture Registration|Capture Registration]]. |
+### Numbering: B and P
+There was one list, now there is one scheme. The B-numbers (B0 to B10) are the builds in the Sequence table above, written by the research session. The P-numbers are phases, one session prompt each, in `Prompts/`. P replaces B from here on; use P only. Mapping, for reading the older notes:
+| Old build | Now |
+|---|---|
+| B0 retention | P0 |
+| B1 exporter fix | P1 (note format) and P2 (project routing and re-export) |
+| B2 hook timing | P3 |
+| pre-implementation postmortem | P4 |
+| B5 review notes | P5 |
+| B3 event hook | P6 |
+| B4 digest | P7 |
+| not in the plan | P8 (schedules and nudge), P11 (rehearsal), P12 (platform and Dell map) |
+| B8 dead-man's switch | P9 |
+| B10 `30_Order` rewrite | P10 |
+| B6 local reviewer pilot, B7 `/insights` skill, B9 Dell rollout | later phases, after P12 |
+### What "complete" means for the Claude Code loop on the Acer
+These are the owner's finish conditions of 2026-10-22, each tied to the phase that delivers it.
+1. Exported sessions have landed: every session with a live transcript has exactly one note in its project folder. The coverage script says so. (P2)
+2. The conversation notes are clean and ready to review: they conform to the Standard, token totals are right, commands are readable. (P1, P2, P10)
+3. Logs exist and are checked: the hook's export results, the event rows, Capture Health, the watchdog state, the digest log, the Intervention Ledger. (P3, P6, P8, P9)
+4. Scheduled runs work and are written down in one timetable: the digest on Sundays, the watchdog hourly, beside the tasks that already run. (P8, P9, and the Schedule section of [[20_Progress/Projects/AI Use/Conversations/Capture Registration|Capture Registration]])
+5. The human review loop has run once for real: a weekly note with the owner's blind pass and one ledger row. (P5)
+6. The Obsidian notes are final: Standards, Templates, Workflows, READMEs and maps describe what actually runs. (P10)
+7. A test run passed on a real week, including a deliberate break that the watchdog caught. (P11)
+8. What is needed for the other platforms and the Dell is written down. (P12)
+The loop is running when 1 to 7 are true. It is closed only after the first Intervention Ledger row has been judged on its review date, about two weeks after the first review.
+### Phases and prompts
+Each prompt is an Agent Prompt note in `Prompts/`: run-by line, guide link, then the whole prompt in one fenced block. The first three are written in full. The next three are detailed and get refined by what the first three return. The last three are drafts, refined as each earlier phase returns.
+| Phase | Task | Runs on | Done when |
+|---|---|---|---|
+| [[20_Progress/Projects/AI Use/Conversations/Prompts/P0 - Retention and Transcript Snapshot\|P0]] | Retention to 60 days and a transcript snapshot | Sonnet 5.5, medium | Setting read back, snapshot counts match, sweep check pending |
+| [[20_Progress/Projects/AI Use/Conversations/Prompts/P1 - Exporter Correctness\|P1]] | Exporter: prices, frontmatter, encoding, readable commands, one test runner | Sonnet 5.5, medium | All tests green in both shells, two real sessions within 5% |
+| [[20_Progress/Projects/AI Use/Conversations/Prompts/P2 - Project Routing and Acer Re-export\|P2]] | Project routing file, reroute with approval gate, re-export, coverage script | Sonnet 5.5, high | Coverage script clean, transcript count unchanged |
+| [[20_Progress/Projects/AI Use/Conversations/Prompts/P3 - Hook Timing and Failure Record\|P3]] | Time the hook, record every export result | Sonnet 5.5, medium | Timing table and `export_result` lines |
+| [[20_Progress/Projects/AI Use/Conversations/Prompts/P4 - Design Postmortem\|P4]] | Stress test of the loop design | Opus 5.5, high | A finding per layer, each keep, change or cut |
+| [[20_Progress/Projects/AI Use/Conversations/Prompts/P5 - Review Notes and First Hand Review\|P5]] | Weekly note shape and the first review by hand | Sonnet 5.5, medium, with the owner | Weekly note and one ledger row |
+| [[20_Progress/Projects/AI Use/Conversations/Prompts/P6 - Event Capture Hook\|P6]] | Event hook | Sonnet 5.5, high | Pinned schema, concurrency and overhead tests |
+| [[20_Progress/Projects/AI Use/Conversations/Prompts/P7 - Weekly Digest\|P7]] | Weekly digest | Sonnet 5.5, medium | Golden test, owner's ten-prompt hand count |
+| [[20_Progress/Projects/AI Use/Conversations/Prompts/P8 - Schedules and Review Nudge\|P8]] | Scheduled digest, review skeleton, `/startday` nudge, timetable | Sonnet 5.5, medium | Task result 0, skeleton created once |
+Written after the phases above report, because they need their results:
+| Phase | Task | Needs first |
 |---|---|---|
-| [[20_Progress/Projects/AI Use/Conversations/Prompts/P0 - Retention and Transcript Snapshot\|P0]] | B0 | Setting read back, snapshot counts match, sweep check pending |
-| [[20_Progress/Projects/AI Use/Conversations/Prompts/P1 - Exporter Finish and Acer Re-export\|P1]] | B1 remainder, tracked-project re-export | Tests green in both shells, two hand counts within 5% |
-| [[20_Progress/Projects/AI Use/Conversations/Prompts/P2 - Hook Timing and Failure Record\|P2]] | B2 and the export result record | Timing table, `export_result` lines, tested hook |
-| [[20_Progress/Projects/AI Use/Conversations/Prompts/P3 - Design Postmortem\|P3]] | Pre-implementation postmortem | Nine findings, each keep, change, or cut |
-| [[20_Progress/Projects/AI Use/Conversations/Prompts/P4 - Review Notes and First Hand Review\|P4]] | B5 and week one by hand | One real weekly note, one ledger row |
-| [[20_Progress/Projects/AI Use/Conversations/Prompts/P5 - Event Capture Hook\|P5]] | B3 | Pinned schema, concurrency and overhead tests, owner smoke test |
-| [[20_Progress/Projects/AI Use/Conversations/Prompts/P6 - Weekly Digest\|P6]] | B4 | Golden test, owner hand count on ten prompts |
-| [[20_Progress/Projects/AI Use/Conversations/Prompts/P7 - Schedule and Review Nudge\|P7]] | New | Scheduled run result 0, skeleton created once, `/startday` nudge |
-| [[20_Progress/Projects/AI Use/Conversations/Prompts/P8 - Capture Watchdog\|P8]] | B8 | Kill drill alerts within the grace window |
-| [[20_Progress/Projects/AI Use/Conversations/Prompts/P9 - Loop Closed Rehearsal\|P9]] | New | Twelve checks on a real week |
-P0 to P2 are repairs and do not wait for P3. P4 can run in parallel with P5 and P6 because the first four weekly reviews are by hand. B6 (local reviewer pilot), B7 (`/insights` skill), B9 (Dell), B10 (`30_Order` rewrite), and Codex get prompts after P9, because their inputs (30 hand-coded prompts, a reviewed ledger row, the Dell's live state) do not exist yet.
+| P9 | Capture watchdog: its own task, an expected-state file, a kill drill | P3, P6, P8 |
+| P10 | Finalize the Obsidian notes: rewrite the conversation Standard, Templates and Workflows from what survived, the AI Conversations README (22 KB, half historical), Conversation Map, Track Conversations, Session Index queries | P4 and everything built |
+| P11 | Rehearsal on a real week: coverage, unattended schedule, digest accuracy, blind pass time, kill drill, retention, sync, redaction, overhead, back-out | P0 to P10 and seven days of events |
+| P12 | Platform and Dell map, documentation only (next section) | P11 |
+After P12: the local reviewer pilot, the `/insights` skill (in the Jarvis `.claude/`), the Dell rollout, then the Codex and Cursor exporters.
+### Beyond Claude Code on the Acer, to be known now and built later
+The repos the owner works in (internship-research-loop, second-brain-claudekit, portfolio, CausalOps, tradingview, and Jarvis itself) document sessions from more than Claude Code: Codex and Cursor too. Nothing here builds for them yet. P12 writes down, for each platform and each laptop, where its sessions live, the file format, the retention, what the Acer or Dell already holds, and what the exporter and the clean-up of existing material would need. Known on 2026-10-21 and 22: Codex has 44 session files on the Acer in `~/.codex/sessions` (2026-10-13 to 2026-10-21) and no exporter; Cursor's sweep runs only on the Dell and its notes stop at 2026-10-08; Kiro holds configuration, not sessions; Antigravity's conversation store is empty; the Dell archive holds the older and larger body of material and needs a repo-only re-export from live transcripts. The Dell closes its loop after the Acer's, by Jarvis sync plus the build notes, never by hand-copying scripts.

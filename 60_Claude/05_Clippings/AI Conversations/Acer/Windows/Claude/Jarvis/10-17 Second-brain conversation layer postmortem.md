@@ -6,7 +6,7 @@ source_os: windows
 title: "Second-brain conversation layer postmortem"
 started_at: 2026-10-17T21:57:31
 ended_at: 2026-10-22T11:20:22
-exported_at: 2026-10-22T22:49:13
+exported_at: 2026-10-22T23:03:03
 duration_minutes: 6562.8
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'

@@ -6,7 +6,7 @@ source_os: windows
 title: "Settings.json pinned Sonnet model"
 started_at: 2026-10-22T22:25:53
 ended_at: 2026-10-22T22:26:29
-exported_at: 2026-10-22T22:30:03
+exported_at: 2026-10-22T23:30:02
 duration_minutes: 0.6
 project: Jarvis
 cwd: 'D:\Users\_Anant\10_Areas\Documents\Jarvis'
@@ -19,12 +19,12 @@ tools_used:
   Read: 4
   Skill: 1
 tokens:
-  input: 26
-  output: 5272
-  cache_creation: 438123
-  cache_read: 856875
-  total: 1300296
-cost_usd: 1.976639
+  input: 10
+  output: 1774
+  cache_creation: 177723
+  cache_read: 434353
+  total: 613860
+cost_usd: 0.815523
 model:
   - "claude-sonnet-5"
 files_touched:

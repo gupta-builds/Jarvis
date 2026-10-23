@@ -9,7 +9,7 @@ tags:
   - conversations
   - build
 project_kind: plan
-next: After the pre-implementation postmortem lands, run B0 (retention) and B1 (exporter dedup) in one session, then B2 (hook timing).
+next: Run Prompts/P0 (retention and snapshot) today, then P1 and P2, then P3 (design postmortem); the order and prompts are in Corrections below.
 notes:
   - "[[20_Progress/Projects/AI Use/Conversations/Conversation Loop Design|Conversation Loop Design]]"
   - "[[20_Progress/Projects/AI Use/Conversations/Conversation Layer|Conversation Layer]]"
@@ -56,3 +56,37 @@ Order notes: B5 comes before B3 and B4 in practice, because the first four weekl
 - Does the `/insights` skill (B7) go before or after the pilot (B6)?
 ## Non-Goals
 Platforms other than Claude Code, any `30_Order` change before B10, and any build that lets a model change the setup by itself.
+## Corrections
+*2026-10-22, later the same day. The sections above are kept as written.*
+### What had changed since the plan was written
+- B1 is half done. A Dell session on 2026-10-22 added message-id token dedup and vault-root-aware project routing to both exporters, with `test-token-dedup.ps1` and `test-project-routing.ps1`. The dedup test passes under PowerShell 7 (re-run on the Acer). The price table, `status: seed`, the BOM, and the fenced commands are still open. The changes are uncommitted in the shared tree.
+- The Dell's `Jarvis-GitAutoSync` is disabled. The Acer is the only git writer, so the Syncthing conflict risk in the handoff is much smaller (0 live conflict copies found).
+- The oldest transcript on the Acer is dated 2026-09-24 and moves forward daily, so B0 is urgent, not just first.
+- Claude Code is 2.1.309 on the Acer, not 2.1.307.
+- The events folder is not "already ignored by git and Syncthing". Only named log files are listed, so P5 adds the ignore lines.
+- The weekly note's home in [[20_Progress/Projects/AI Use/Conversations/Weekly Review Protocol|Weekly Review Protocol]] conflicts with the Note Type Registry. The registry wins: `60_Claude/30_Reviews/AI/Scheduled/Weekly/`, using the AI Weekly Review Template. P4 settles the mapping.
+- "One commit per build" is replaced by one session log entry per build, because `Jarvis-GitAutoSync` commits every 30 minutes and is the only git writer.
+### Owner decisions, 2026-10-22
+| Decision | Answer |
+|---|---|
+| `cleanupPeriodDays` on the Acer | 60 days. Never 0. |
+| Dell scope | Repo conversations only: Jarvis, internship-research-loop, second-brain-claudekit, portfolio, CausalOps, tradingview. The rest of the Dell archive is clutter and out of scope. Build B9. |
+| Acer tree | Fresh tree and the test bed for the new design. Project-based sessions are re-exported from live transcripts. Older notes whose transcripts were swept stay, recognizable by having no `review_state`. |
+| Weekly reviewer | The person reads and codes first, the local model flags afterward. |
+| Skill and hook home | The Jarvis vault `.claude/` only. |
+| Events | Per machine, and scoped to tracked projects so The Plan's personal content stays out of Jarvis logs. |
+### Revised order and prompts
+Each prompt is an Agent Prompt Standard note in `Prompts/`, one fresh session each. B-numbers are the original builds.
+| Prompt | Covers | Done when |
+|---|---|---|
+| [[20_Progress/Projects/AI Use/Conversations/Prompts/P0 - Retention and Transcript Snapshot\|P0]] | B0 | Setting read back, snapshot counts match, sweep check pending |
+| [[20_Progress/Projects/AI Use/Conversations/Prompts/P1 - Exporter Finish and Acer Re-export\|P1]] | B1 remainder, tracked-project re-export | Tests green in both shells, two hand counts within 5% |
+| [[20_Progress/Projects/AI Use/Conversations/Prompts/P2 - Hook Timing and Failure Record\|P2]] | B2 and the export result record | Timing table, `export_result` lines, tested hook |
+| [[20_Progress/Projects/AI Use/Conversations/Prompts/P3 - Design Postmortem\|P3]] | Pre-implementation postmortem | Nine findings, each keep, change, or cut |
+| [[20_Progress/Projects/AI Use/Conversations/Prompts/P4 - Review Notes and First Hand Review\|P4]] | B5 and week one by hand | One real weekly note, one ledger row |
+| [[20_Progress/Projects/AI Use/Conversations/Prompts/P5 - Event Capture Hook\|P5]] | B3 | Pinned schema, concurrency and overhead tests, owner smoke test |
+| [[20_Progress/Projects/AI Use/Conversations/Prompts/P6 - Weekly Digest\|P6]] | B4 | Golden test, owner hand count on ten prompts |
+| [[20_Progress/Projects/AI Use/Conversations/Prompts/P7 - Schedule and Review Nudge\|P7]] | New | Scheduled run result 0, skeleton created once, `/startday` nudge |
+| [[20_Progress/Projects/AI Use/Conversations/Prompts/P8 - Capture Watchdog\|P8]] | B8 | Kill drill alerts within the grace window |
+| [[20_Progress/Projects/AI Use/Conversations/Prompts/P9 - Loop Closed Rehearsal\|P9]] | New | Twelve checks on a real week |
+P0 to P2 are repairs and do not wait for P3. P4 can run in parallel with P5 and P6 because the first four weekly reviews are by hand. B6 (local reviewer pilot), B7 (`/insights` skill), B9 (Dell), B10 (`30_Order` rewrite), and Codex get prompts after P9, because their inputs (30 hand-coded prompts, a reviewed ledger row, the Dell's live state) do not exist yet.

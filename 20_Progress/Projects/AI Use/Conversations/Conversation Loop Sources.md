@@ -66,5 +66,8 @@ No case reports a measured before-and-after on output quality. That gap is what 
 - Gloaguen et al.: scope narrower than first stated (repo overviews, Python, one run each).
 - AgenTracer: the abstract's "below 10%" refers to other work; the paper's own small-model step-level numbers are 1.7% to 8.7%.
 - A-MEM: the token saving for small models is 12 to 15 times, not the 7 times first reported.
+- Gloaguen et al., checked again 2026-10-22 against the arXiv abstract: it says context files "tend to reduce task success rates" while raising inference cost by over 20%, which is stronger than the "no significant gain" in row 6. The direction supports the one-change-per-week rule more, not less. Re-read the full text for the exact table before build B10 cites a number.
+- Tang et al.: the per-category percentages used in [[20_Progress/Projects/AI Use/Conversations/Failure Taxonomy|Failure Taxonomy]] were not confirmed by the 2026-10-22 web search, which found them only on a third-party blog. They rest on the earlier full-text read. Keep citing the paper, not a blog.
+- `cleanupPeriodDays: 0` has conflicting reports (the docs reject it; a public issue says it stopped transcripts being written). Never set it.
 ## Non-Goals
 Not a literature review of agent self-improvement, which this design deliberately does not attempt.

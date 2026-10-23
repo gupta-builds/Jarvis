@@ -5,26 +5,30 @@ source_app: claude-code
 source_os: windows
 title: "Claude Code conversation tracking research"
 started_at: 2026-10-22T22:59:44
-ended_at: 2026-10-22T23:01:53
-exported_at: 2026-10-22T23:03:02
-duration_minutes: 2.1
+ended_at: 2026-10-22T23:23:46
+exported_at: 2026-10-22T23:23:47
+duration_minutes: 24
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: 5f49feca-0111-4148-9a2d-a1762c529116
 status: raw
 turn_count: 2
 tools_used:
-  Bash: 16
+  Agent: 1
+  AskUserQuestion: 1
+  Bash: 26
+  Edit: 11
   PowerShell: 1
-  Read: 43
+  Read: 46
   ToolSearch: 1
   WebSearch: 5
+  Write: 10
 tokens:
-  input: 48
-  output: 14907
-  cache_creation: 240172
-  cache_read: 4085978
-  total: 4341105
+  input: 80
+  output: 92374
+  cache_creation: 345461
+  cache_read: 9199178
+  total: 9637093
 cost_usd: null
 model:
   - "claude-sonnet-5-5"
@@ -50,14 +54,27 @@ files_touched:
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Projects\\AI Use\\Conversations\\Monthly Review Protocol.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Projects\\AI Use\\Conversations\\Per-Prompt Record.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Projects\\AI Use\\Conversations\\Platform Coverage.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Projects\\AI Use\\Conversations\\Prompts\\P0 - Retention and Transcript Snapshot.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Projects\\AI Use\\Conversations\\Prompts\\P1 - Exporter Finish and Acer Re-export.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Projects\\AI Use\\Conversations\\Prompts\\P2 - Hook Timing and Failure Record.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Projects\\AI Use\\Conversations\\Prompts\\P3 - Design Postmortem.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Projects\\AI Use\\Conversations\\Prompts\\P4 - Review Notes and First Hand Review.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Projects\\AI Use\\Conversations\\Prompts\\P5 - Event Capture Hook.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Projects\\AI Use\\Conversations\\Prompts\\P6 - Weekly Digest.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Projects\\AI Use\\Conversations\\Prompts\\P7 - Schedule and Review Nudge.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Projects\\AI Use\\Conversations\\Prompts\\P8 - Capture Watchdog.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Projects\\AI Use\\Conversations\\Prompts\\P9 - Loop Closed Rehearsal.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Projects\\AI Use\\Conversations\\Weekly Review Protocol.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Projects\\AI Use\\Ollama.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\AI Loop\\Conversations.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\AI Loop\\Logs.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\AI Loop\\Per Project Review.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\AI Loop\\Review System.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\Projects\\Agent Prompt Standard.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\Projects\\Spec and Plan Standard.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\claude-workflow\\hooks\\jarvis-session-continuity.ps1"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\claude-workflow\\README.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Templates\\Projects\\Agent Prompt Template.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Workflows\\Ingestion\\Conversations Loop.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Workflows\\Toolkit\\Conversation Capture.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\60_Claude\\05_Clippings\\AI Conversations\\00 - Capture Health.md"
@@ -117,6 +134,93 @@ Now the 30_Order standards, workflows, template, and the map/README/health notes
 The 870 KB session note is the research session itself. I'll pull out just your prompts from it to see how the intent evolved.
 
 Still reading. I've covered the 21 project notes, reviews, standards and the research session. Next I'm spot-checking the cited sources against the live web.
+
+Short version: I've read all 21 notes in the project folder, the five review notes, the `30_Order` standards, the hook and exporter scripts, the North Star, and your prompts from the research session. I also checked the Acer's live state and spot-checked the sources on the web. I haven't edited anything yet. Questions are at the end.
+
+**The goal as I read it.** Every Claude Code session on the Acer's Windows side leaves a trustworthy record, and a scheduled weekly cycle puts you in front of about 25 of your own prompts. You code what went wrong before any model speaks, make one change, and check later whether it helped. A local model only flags, after your note. The aim is better output, not scores. Recursion is dropped.
+
+**Stale facts in the notes.** The notes say nothing is built. That's no longer true:
+- A Dell session tonight finished the dedup slice of B1 and a project-routing fix. I re-ran `test-token-dedup.ps1` and it passes. The changes are uncommitted in the shared tree. The build plan still lists all of B1 as open.
+- The Dell's git sync is now disabled, so the Acer is the only committer. The "sync conflicts" risk in the design is partly dissolved, and the handoff text is out of date. I found 0 live conflict copies.
+- Claude Code is now 2.1.309, not 2.1.307.
+
+**Problems with the design that the notes don't mention:**
+1. **B0 is time-critical.** The oldest transcript is now 2026-09-24, and the 30-day sweep takes about a day of raw sessions every day. Nothing in B0 to B2 depends on the postmortem, since they repair what exists. B0 should be done first, today if possible.
+2. **There is no scheduler and no end-to-end test.** You listed "scheduled runs, test run, human review loop" as the finish line. The plan has per-build checks, but nothing that runs the digest on Sundays, nudges you when a review is due, or proves the whole loop closes. The only job that calls itself a review (`Jarvis-WeeklyReview`) reviews concept mastery and never opens a conversation.
+3. **The weekly note's home conflicts with the Review System standard.** The protocol puts it in `30_Reviews/AI/Conversations/`. The standard sends AI tools reviews to `30_Reviews/AI/Scheduled/`. B10 has to settle this.
+4. **A source claim is softer than the paper.** The notes say Gloaguen found "no significant gain" from context files. The abstract says they tend to *reduce* success and raise cost by over 20%. That strengthens the one-change-per-week rule, but the Sources note should be corrected.
+5. **`cleanupPeriodDays: 0` has conflicting reports.** One GitHub issue says it stops transcripts being written at all. Never set 0.
+6. **Historical numbers can only be partly fixed.** Notes older than the swept transcripts can't be recomputed, so their inflated token figures stay.
+
+**Draft phases, in a better order:**
+
+| Phase | What | Gate |
+|---|---|---|
+| P0 | B0 retention (plus a one-time snapshot of live transcripts) | Setting read back |
+| P1 | B1 remainder: price table, `status: seed`, no BOM, fenced commands | Tests extended |
+| P2 | B2 hook timing, `async` and `timeout` | Measured run times |
+| P3 | Pre-implementation postmortem, one finding per layer | Design kept, changed or cut |
+| P4 | B5 review notes and templates, then the first hand-run weekly review | One real weekly note |
+| P5 | B3 event hook (Node), with a forced-failure test | Coverage matches `history.jsonl` |
+| P6 | B4 digest, with tests against a hand count | Ten prompts match |
+| P7 | **New:** Sunday schedule, `/startday` "review due" nudge, register script with dry run | A scheduled run produces the weekly skeleton |
+| P8 | B8 dead-man's switch on its own schedule | Disabling the hook raises a warning within a day |
+| P9 | **New:** end-to-end rehearsal on a real week | "Loop closed" checklist passes |
+| P10 | B6 local reviewer pilot, then B7 `/insights`, then B9 and B10, then Codex | |
+
+Each phase becomes a self-contained session prompt with a short read list, allowed files, tests, a done-when, stop-and-ask conditions, and the log line to write.
+
+**Side effect to disclose.** Running `ollama list` started the Ollama app and server in the background. It's harmless, but it wasn't read-only. No models are pulled.
+
+Once you answer, I'll patch the stale facts by heading in the Build Plan and hub, and write the phase prompts.
+
+A prompt is its own note type here (Agent Prompt Standard). Reading that and the plan standard.
+
+Before writing the prompts I need exact hook points in the exporter (params, marker logic, status line, encoding, tool-call rendering) so each prompt cites real lines.
+
+Prompts must cite real payload fields, and the notes flag several as "one pass". I'm re-reading the hooks documentation through a fetch agent while I check the local standards in parallel.
+
+I have what I need. Writing the ten phase prompts as Agent Prompt Standard notes, then patching the stale notes by heading. First batch: P0 to P4.
+
+Second batch: P5 to P9.
+
+Now patching the stale notes. Build Plan first (layered Corrections, original kept), then the hub, Per-Prompt Record, and Sources.
+
+One em dash in P4, from quoting the old W34 filename. Removing it.
+
+I read the whole conversation layer and wrote ten session prompts, P0 to P9, in `20_Progress/Projects/AI Use/Conversations/Prompts/`. None of them has been run, and nothing is built. That covers the 21 project notes, the five review notes, the `30_Order` standards and workflows, the hook and exporter scripts, the North Star, and your prompts from the research session. I also checked the Acer's live state and re-read the Claude Code hooks reference.
+
+**What I found**
+- **The build plan was stale.** A Dell session tonight already did the token-dedup and project-routing part of B1. The dedup test passes on the Acer, but the changes are uncommitted. The Dell's git sync is also off now, so the Acer is the only committer.
+- **Raw transcripts are being lost daily.** The 30-day sweep takes one more day every day, and the oldest is already 2026-09-24. Retention is now the first prompt, P0.
+- **The event log folder isn't actually ignored.** The plan said `events-*.jsonl` was already covered by `.gitignore` and `.stignore`. Only specific log names are listed, so P5 adds the lines.
+- **No schedule and no end-to-end test.** The plan had neither a scheduled digest nor a "review due" nudge. I added P7 for the schedule and P9 for a rehearsal on a real week.
+- **The weekly note's location conflicted with the Note Type Registry.** The registry's path wins, and P4 maps the protocol onto its eight fixed headings.
+- **The Plan's sessions would leak into Jarvis logs.** A global event hook would log prompts from The Plan's sessions, which hold personal content. P5 limits events to tracked projects.
+- **One source claim was softer than the paper.** The Sources note said context files give "no significant gain". The paper's abstract says they tend to reduce success and raise cost by over 20%. I added a correction.
+- **`cleanupPeriodDays: 0` has conflicting reports.** One says it stops transcripts being written. P0 forbids it and any value under 45.
+
+**Order of the prompts.** P0 to P2 repair what exists and don't wait for the design. P3 is the design postmortem. P4 starts your first hand review in week one and can run alongside P5 and P6. P7 and P8 add the schedule and the watchdog. P9 is the rehearsal.
+
+Each prompt lists its evidence, labelled verified or assumed. Start any of them by pasting `Read and run <path to the prompt note>. Follow Hard Rules and Report Back exactly.` into a fresh session.
+
+**Edits to existing notes.** I patched only by heading and kept the original text:
+- **Build Plan:** a Corrections layer with your decisions, the revised order, and a table linking the prompts.
+- **Conversation Layer:** `next`, Open Questions, Log, and Related Notes.
+- **Per-Prompt Record:** a correction on the ignore claim.
+- **Sources:** corrections on Gloaguen, Tang, and the zero-retention value.
+
+**Things I did not do or did unasked.**
+- I did not append the vault session-log entry. Your global rule says not to write logs unless asked, and the vault rule says to. Say the word and I'll add it.
+- Running `ollama list` started the Ollama app and server as a side effect. No models are pulled.
+
+**Decisions I assumed.** Say if any is wrong.
+- Which Acer projects are tracked (offered default: Jarvis, The Plan, Home). P1 stops and asks before re-exporting, and P5 uses the same list.
+- 60 days is the whole Acer retention story. The Dell follows in B9, limited to the repos you listed, re-exported from live transcripts only.
+- The weekly digest runs Sunday at 21:00 by default.
+- B6, B7, B9, B10 and Codex prompts wait until after P9, because their inputs don't exist yet.
+
+Run P0 first, today if you can.
 
 ### Tool Calls
 
@@ -1544,14 +1648,1254 @@ I've kicked off a deep research pass across the vault — searching hardware spe
 - `WebSearch` -- `{"query":"Evaluating AGENTS.md: Are Repository-Level Context Files Helpful for Coding Agents arXiv 2602.11988","mode":"standard"}`
 - `WebSearch` -- `{"query":"Anthropic \"How we built Claude Code auto mode\" engineering 93% approvals classifier","mode":"standard"}`
 - `PowerShell` -- `{"command":"$ErrorActionPreference=\u0027SilentlyContinue\u0027\nGet-ScheduledTask -TaskName \[REDACTED]\u0027,\u0027Jarvis-GitAutoSync\u0027,\[REDACTED]\u0027,\[REDACTED]\u0027 | ForEach-Object { $i = $_ | Get-ScheduledTaskInfo; \"{0,-40} {1,-9} last={2} result={3}\" -f $_.TaskName,$_.State,$i.LastRunTime,$i.LastTaskResult }\n\"--- ollama\"; ollama list 2\u003e\u00261 | Select-Object -First 5\n\"--- claude version\"; claude --version 2\u003e\u00261 | Select-Object -First 1\n$root=\u0027D:\\_Anant\\20_Progress\\Documents\\Jarvis\\60_Claude\\05_Clippings\\AI Conversations\u0027\n\"--- acer windows notes\"; (Get-ChildItem \"$root\\Acer\\Windows\\Claude\" -Recurse -Filter *.md -File | Where-Object { $_.Name -notlike \u002700 -*\u0027 }).Count\n\"--- conflicts outside stversions\"; (Get-ChildItem \u0027D:\\_Anant\\20_Progress\\Documents\\Jarvis\u0027 -Recurse -Filter \u0027*sync-conflict*\u0027 -File -Force -ErrorAction SilentlyContinue | Where-Object { $_.FullName -notmatch \u0027\\\\.stversions\\\\\u0027 }).Count\n\"--- transcripts\"; $p=\"$env:USERPROFILE\\.claude\\projects\"; (Get-ChildItem $p -Directory | Get-ChildItem -Filter *.jsonl -File).Count\n\"--- oldest transcript\"; (Get-ChildItem $p -Directory | Get-ChildItem -Filter *.jsonl -File | Sort-Object LastWriteTime | Select-Object -First 1).LastWriteTime\n\"--- history lines\"; (Get-Content \"$env:USERPROFILE\\.claude\\history.jsonl\" | Measure-Object -Line).Lines\n\"--- activity log lines\"; (Get-Content \"$env:USERPROFILE\\.claude\\jarvis-session-activity.jsonl\" | Measure-Object -Line).Lines\n\"--- dedup tests\"; Set-Location \u0027D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\System\\claude-workflow\\scripts\u0027; pwsh -NoProfile -File .\\test-token-dedup.ps1 2\u003e\u00261 | Select-Object -Last 12","description":"Read-only live checks of tasks, Ollama, counts, and run dedup test"}`
+- `AskUserQuestion` -- `{"questions":[{"question":"Which cleanupPeriodDays value should B0 set? The Jarvis project alone is about 530 MB per 30 days of transcripts.","header":"Retention","multiSelect":false,"options":[{"label":"90 days (Recommended)","description":"About 1.8 GB. Covers three monthly reviews and /insights, while events and exported notes hold what the review needs after that."},{"label":"365 days","description":"About 7 GB. Keeps the full raw record for a year, at a real disk cost."},{"label":"180 days","description":"About 3.5 GB. A middle path."}]},{"question":"Long term, who does the weekly blind pass on the 25 prompts?","header":"Reviewer","multiSelect":false,"options":[{"label":"You, with the local model flagging (Recommended)","description":"Matches the locked design: you write your note first, the model flags after, and it never decides. Time falls from 60 to 30-40 minutes."},{"label":"Local model takes over most of it","description":"You only reconcile its flags and sample the unflagged. Faster, but no source supports a small model here, so this needs the pilot to pass first."},{"label":"Decide after the pilot","description":"Build everything for the human-led version now and revisit once the pilot shows what the model can do."}]},{"question":"What happens to the older notes whose token and cost figures are inflated 2 to 3 times?","header":"History","multiSelect":false,"options":[{"label":"Re-export those with a live transcript, stamp the rest (Recommended)","description":"About 124 live transcripts get corrected totals. Older notes get a flag that their tokens are unreliable, so no review reads them as real."},{"label":"Leave all of them as they are","description":"No re-export. Reviews simply ignore token and cost fields before the fix date."},{"label":"Strip the token and cost fields from old notes","description":"Cleanest data, but edits hundreds of notes and risks Syncthing churn."}]},{"question":"Where should the /insights skill (B7) and any hook or skill code live? The Unison task mirrors second-brain-claudekit\u0027s .claude layer into this vault.","header":"Skill home","multiSelect":false,"options":[{"label":"Jarvis vault .claude/ only (Recommended)","description":"Windows-only for now, no dependency on WSL or claudekit. Port to claudekit later if you want it there."},{"label":"second-brain-claudekit","description":"Single source of truth that syncs into Jarvis, but it lives on the WSL side you want to leave alone for now."},{"label":"I need to check what Unison overwrites first","description":"Pause B7 until the sync direction is confirmed."}]}]}`
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && sed -n 1,200p Standards/Project\ Standard.md | cut -c1-900; echo =========; sed -n 1,120p "Standards/Spec and Plan Standard.md" | cut -c1-900`
+```
+---
+type: system
+status: sprout
+created: 2026-06-01
+updated: 2026-10-16
+tags:
+  - system
+  - standards
+system_kind: standard
+family: project
+tier: 1
+maps_to:
+  - "[[Project Note Template]]"
+used_by:
+  - "[[Brief to Progress]]"
+gold_standard: "[[20_Progress/Projects/Jarvis & The Plan/Jarvis|Jarvis]]"
+notes:
+  - "[[Spec and Plan Standard]]"
+  - "[[Per Project Review]]"
+  - "[[HUMAN_WRITING]]"
+---
+# Project Standard
+==A project note says what is true now, the one next move, and what already happened, so the dashboard and the next session can pick it up without asking.==
+This is the standard for the status page of a project in `20_Progress/`: an outcome, an honest present, one next move, and a dated log. A plan or spec for the project is a [[Spec and Plan Standard]] note, a prompt is an [[Agent Prompt Standard]] note, and a running build record is a log under [[Log Standard]].
+## Spec
+```json
+{
+  "family": "project",
+  "tier": 1,
+  "match": {"type": "project", "kind": "project", "path": "^20_Progress/(Projects|Internship|Mentorship Program)/", "where": {}, "where_not": {}},
+  "legacy_match": [{"type": "project", "path": "^20_Progress/(Projects|Internship|Mentorship Program)/", "absent": ["project_kind"]}],
+  "status": ["active", "paused", "complete", "archived"],
+  "required_keys": ["type", "status", "created", "updated", "tags", "project_kind", "next"],
+  "key_types": {"created": "date", "updated": "date", "tags": "list"},
+  "headings": ["Goal", "Current State", "Next Action", "Open Questions", "Log"],
+  "optional_headings": ["Corrections", "Related Notes"]
+}
+```
+## Headings
+### Frontmatter
+`project_kind: project`. `status` is `active`, `paused`, `complete`, or `archived`. `next` is the single next move, mirrored in `## Next Action`, and is `none` when the project is complete or archived. `related_progress` links the plan or spec. `deadline` is set only if a real one exists.
+> [!WARNING]
+> An `active` project with an empty `next`. Eight active notes had none, and the dashboard cannot surface them.
+### Goal
+One sentence: what done looks like, as the `==highlight==` anchor.
+> [!WARNING]
+> A feature list instead of a finish line.
+### Current State
+What is true now, dated, with the key blocker bold. Claims about code or a live system cite a file and line, a commit hash, or a command's output, and say what is real, mocked, or blocked.
+*Density:* the honest present, a short paragraph or a few bullets.
+> [!WARNING]
+> A "verified" claim older than the code it describes. Re-check it or date it.
+### Next Action
+The single next step, the same text as `next`. Multi-step work belongs in the plan.
+### Open Questions
+`- [ ]` tasks, with a date where a real one exists.
+### Log
+Dated entries, newest last: `- **YYYY-MM-DD:** what changed`. Append only. A correction is a new entry that names the entry it corrects; the original line stays.
+### Corrections
+Optional. When a whole earlier section turned out wrong, keep it and add a dated correction here that says what was wrong and what replaced it.
+## Legacy Shapes
+| Old shape | New shape | Move |
+|---|---|---|
+| No `project_kind` | `project_kind: project`, or `spec`, `plan`, `code-mirror`, `prompt` by what the note is | Judgment |
+| `status` of sprout, seed, tree, static, current, in-progress, pending | `active` while work continues, else `paused` | Judgment |
+| `status` of dead, stale, idle, Withdrawn, or a superseded note still `active` | `archived` (`paused` for idle) | Judgment |
+| `status: completed` or a quoted `"archived"` | `complete` or `archived`, unquoted | Mechanical |
+| `next:` missing or empty on an active note | The next move, or `none` if complete | Judgment |
+| What this is, Why this exists, Current State (date), Next Steps, Session blocks | Goal, Current State, Next Action, Log (Session blocks become Log entries) | Judgment |
+| Hackathon retrospective: Elevator Pitch, What We Built, What Went Wrong, Continuation Plan | Pitch to Goal, build and architecture to Current State, lessons to one Log entry, Continuation Plan to Next Action | Judgment |
+| A dated chronological build record (System - Build Log) | Not a project note: `type: system`, `system_kind: log`, per [[Log Standard]] | Judgment |
+| Course-template keys (`course`, `mastery (1/10)`, `topics`) | Remove | Mechanical |
+## Done Conditions
+- `project_kind`, `status`, and `next` are set, and `next` equals `## Next Action`.
+- Current State is dated, says what is real or blocked, and cites evidence for code claims.
+- The plan or spec is linked in `related_progress`.
+- The Log is append-only, and the note passes [[Vault Lint]] for the `project` family.
+## Gold Standard Example
+[[20_Progress/Projects/Jarvis & The Plan/Jarvis|Jarvis]]: a one-line north star, a canonical plan link, and a live `next` mirrored in the body. It still lacks `project_kind` and the five headings, which Legacy Shapes adds.
+=========
+sed: can't read Standards/Spec and Plan Standard.md: No such file or directory
+```
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && find . -iname "Agent Prompt*" -o -iname "Spec and Plan*" -o -iname "*Prompt*Template*" -o -iname "Note Type Registry*" | head; `
+```
+./Note Type Registry.md
+./Standards/Projects/Agent Prompt Standard.md
+./Standards/Projects/Spec and Plan Standard.md
+./Templates/Projects/Agent Prompt Template.md
+```
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Projects\Agent Prompt Standard.md`
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates\Projects\Agent Prompt Template.md`
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Projects\Spec and Plan Standard.md`
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && find 30_Order -iname "Prompt Cycle*" | head -2; cat "$(find 30_Order -iname 'Prompt Cycle.md' | head -1)" | cut -c1-1200; echo ==========GOLD; cat "60_Claude/40_Project_Briefs/CausalOps/claude code/ran/01 - Fix MCP Server Deployment and Housekeeping.md" | cut -c1-1500 | head -90`
+```
+30_Order/Workflows/Projects/Prompt Cycle.md
+---
+type: system
+status: sprout
+created: 2026-10-16
+updated: 2026-10-16
+tags:
+  - system
+  - workflow
+system_kind: workflow
+serves: "[[Agent Prompt Standard]]"
+trigger: A build or fix round on a codebase will be run by an agent session.
+notes:
+  - "[[Agent Prompt Template]]"
+  - "[[Spec and Plan Standard]]"
+---
+# Prompt Cycle
+Write the next prompt, run it, review the result against the repo, and archive it, so the queue only ever holds what runs next.
+## Use when
+A project like the internship research loop or CausalOps has a round of agent work to run. The Building System runs are the worked example.
+## Steps
+1. Open the queue note (`Claude Code Prompts`, `Codex Prompts`). It holds the next prompt and only that.
+2. Check the evidence for Why This Exists against the live repo. A hypothesis the queue wrote itself is labeled, and said plainly when it turns out wrong.
+3. Write the prompt from [[Agent Prompt Template]] with scope in Hard Rules and a Report Back section.
+4. Run it in a fresh agent session.
+5. Review Report Back against the repo: the commands and their output, not the agent's summary.
+6. Move the finished prompt and its reviewed result to the Archive note and set its `status` to `complete`.
+7. Rewrite the queue with the next prompt, and add a Log entry to the project note.
+## Do not
+Do not let finished prompts pile up in the queue, hand over an unchecked diagnosis, or accept a report you did not compare to the repo.
+## Done when
+- The queue holds only the next prompt.
+- The finished prompt and its result are in the Archive note, with `status: complete`.
+- The project Log names the round and what was verified.
+==========GOLD
+---
+tags: [causalops, prompt, memory-layer, claude-code, mcp, bugfix]
+created: 2026-07-08
+task: mcp-server-port-fix
+model: claude-sonnet-4-6
+---
+
+# Prompt 1 — Fix the Standalone MCP Server's Docker/SSE Deployment
+
+> Copy the fenced prompt into a fresh Claude Code session. See [[00 - Memory Layer Completion — Index]] for how this fits with the other three prompts.
+
+## Why This Exists
+
+[Independent Review artifact](https://claude.ai/code/artifact/[REDACTED]), Finding 1: `src/memory/mcp_server.py`'s `__main__` block only reads `MCP_TRANSPORT`. It never reads `MCP_PORT`, and never passes `host=`/`port=` to `mcp.run()`. Verified directly against the installed `fastmcp==3.4.2` package this session:
+
+- `fastmcp.settings` env prefix is `FASTMCP_`, not `MCP_` — so `MCP_PORT` in `docker-compose.yml` is silently ignored by the library.
+- Default port is **8000**, default host is **127.0.0.1**.
+- `docker-compose.yml`'s `mcp` service maps `8001:8001` and sets `MCP_PORT: "8001"` — neither takes effect. The container starts the SSE server bound to `127.0.0.1:8000`, which is unreachable both because of the port mismatch *and* because loopback binding inside a container doesn't accept connections forwarded from the Docker host.
+- Critically: `run_stdio_async()` (used by the `stdio` transport, i.e. this same file when launched via `.mcp.json` for Claude Code/Desktop) does **not** accept `host`/`port` kwargs at all — passing them unconditionally would break the stdio path that already works. The fix must branch on transport.
+
+## Hard Rules
+
+- Do not change anything under `src/memory/store.py`, `embedder.py`, `extractor.py`, `nodes.py` — this prompt is scoped to `mcp_server.py` and its Docker wiring only.
+- Do not touch `.mcp.json`'s `hivemind-memory`/`causalops-memory` stdio entry — it has no port config and must keep working unchanged.
+- Verify by actually curling the running container. An import check (`python -c "from memory.mcp_server import mcp"`) proves nothing about this bug — it never touches `mcp.run()`.
+
+## Implementation Order
+
+1. Read `src/memory/mcp_server.py` in full (72 lines) and `docker-compose.yml`'s `mcp` service block (currently lines 79-94).
+
+2. Fix the `__main__` block:
+   ```python
+   if __name__ == "__main__":
+       transport = os.getenv("MCP_TRANSPORT", "stdio")
+       if transport == "stdio":
+           mcp.run(transport=transport)
+       else:
+           mcp.run(
+               transport=transport,
+               host=os.getenv("MCP_HOST", "0.0.0.0"),
+               port=int(os.getenv("MCP_PORT", "8001")),
+           )
+   ```
+   The `stdio` branch must stay exactly as it is today — confirmed this session that `run_stdio_async()`'s signature is `(show_banner, log_level, stateless)` and raises on unexpected kwargs.
+
+3. Check whether `docker-compose.yml`'s `mcp` service needs an `MCP_HOST` entry added (it currently only sets `MCP_TRANSPORT` and `MCP_PORT`). Since the code above defaults `MCP_HOST` to `0.0.0.0`, an explicit compose entry is optional — add one only if you decide explicit-over-implicit is worth the extra line; either is acceptable, but say which you picked and why.
+
+4. Rebuild and start only the `mcp` service:
+   ```bash
+   docker-compose up --build -d mcp
+   ```
+   Confirm it depends on `api` being healthy per the existing `depends_on` block — if `api` isn't already running, bring it up first (`docker-compose up -d api`) or the `mcp` container will sit waiting.
+
+5. **Verify for real, from outside the container.** The transport is SSE, so a plain `curl` will hang open on a streaming connection rather than returning — use a short timeout and inspect headers, don't wait for it to close:
+   ```bash
+   curl -sv --max-time 3 http://localhost:8001/sse 2>&1 | head -20
+   ```
+   Expect: a successful TCP connect (`Connected to localhost (127.0.0.1) port 8001`), an HTTP response with `content-type: text/event-stream`, not `Connection refused` and not a response arriving from the wrong port. If it fails, the fix is incomplete — do not report success on the basis of the code merely importing cleanly.
+
+6. Run `docker-compose logs mcp --tail 30` and confirm no startup traceback.
+
+7. Confirm the stdio path is unaffected: `cd src && MCP_TRANSPORT=stdio timeout 3 python -m memory.mcp_server; echo "exit code: $?"` — it should start and only exit via the timeout (not crash immediately with a TypeError about unexpected kwargs).
+
+8. Housekeeping, while you're in the repo root (unrelated to the MCP bug, but trivial and flagged by the review):
+   - `git status` will show an untracked file literally named `t"` (13KB, turns out to be `less`'s help text — harmless leftover from an earlier terminal session) and an untracked `package-lock.json` at the repo root. There is no `package.json` at the repo root (only `app/package.json`), so the root-level lock file is almost certainly an accidental `npm install` run from the wrong directory. Delete both: `rm './t"' package-lock.json`. Confirm `git status` is clean of these two afterward. Do not touch anything else `git status` reports.
+
+9. Run `ruff check src/memory` and `pyright src/memory` — both must stay clean (they were clean before this change; if either regresses, fix it before reporting done). If bare `ruff`/`pyright`/`python` aren't found on `PATH`, this repo's tools live in `.venv/bin/` — use `.venv/bin/<tool>` instead.
+
+## Report Back
+
+List exactly what changed, paste the actual `curl -sv` output from step 5, and confirm the stdio smoke test from step 7. If the curl verification fails, say so explicitly rather than reporting the fix as complete — this is the one thing the prior implementation pass got wrong by asserting success without live verification.
+```
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/claude-workflow/scripts" && grep -nE "^param|\[switch\]|\[string\]\\\$|status:|Set-Content|Out-File|WriteAllText|UTF8|\.done|LastWriteTime|Format-ToolCall|function |PriceTable|\\\$Pricing|haiku|sonnet|opus|Get-CaptureMachine|StartsWith\('<'|\.StartsWith" export-claude-session.ps1 | cut -c1-170 | head -120; wc -l export-claude-session.ps1`
+```
+1:param(
+2:    [string]$TranscriptPath = "",
+3:    [string]$SessionId = "",
+4:    [string]$Cwd = "",
+6:    [string]$SourceApp = "ClaudeCode",
+7:    [switch]$BackfillAll,
+8:    [switch]$DryRun
+19:function Get-CaptureMachine {
+26:$Machine = Get-CaptureMachine
+39:    "claude-opus-5"     = @{ input = 5.00; output = 25.00 }
+40:    "claude-opus-4-8"   = @{ input = 5.00; output = 25.00 }
+41:    "claude-opus-4-7"   = @{ input = 5.00; output = 25.00 }
+42:    "claude-opus-4-6"   = @{ input = 5.00; output = 25.00 }
+43:    "claude-sonnet-5"   = @{ input = 2.00; output = 10.00 }
+44:    "claude-sonnet-4-6" = @{ input = 3.00; output = 15.00 }
+48:function Resolve-PricingKey {
+49:    param([string]$Model)
+61:function Get-ProjectName {
+62:    param([string]$CwdPath)
+71:        if ($norm -ieq $root -or $norm.StartsWith($root + '\', [StringComparison]::OrdinalIgnoreCase)) { return $v.Name }
+81:function Find-ExistingSessionDir {
+82:    param([string]$SessionIdIn)
+86:        if ($d.Name.StartsWith('_') -or $d.Name -eq 'Cowork') { continue }
+87:        $m = Join-Path $d.FullName ".exported\$SessionIdIn.done"
+89:            $t = (Get-Item -LiteralPath $m).LastWriteTimeUtc
+97:function Redact-Secrets {
+98:    param([string]$Text)
+111:function Get-ToolResultText {
+118:        elseif ($block.type -eq 'text' -and $block.text) { $parts.Add([string]$block.text) }
+127:function Format-ToolCall {
+128:    param($Block, [string]$ResultText)
+139:                $lines.Add((Redact-Secrets ([string]$in.content)))
+146:            $lines.Add("- $(Redact-Secrets ([string]$in.old_string))")
+147:            $lines.Add("+ $(Redact-Secrets ([string]$in.new_string))")
+154:                $lines.Add("- $(Redact-Secrets ([string]$edit.old_string))")
+155:                $lines.Add("+ $(Redact-Secrets ([string]$edit.new_string))")
+168:            $pat = if ($in.pattern) { [string]$in.pattern } else { "" }
+169:            $pth = if ($in.path) { [string]$in.path } else { "" }
+180:function Sanitize-Filename {
+181:    param([string]$Name)
+196:function New-SlugFromText {
+197:    param([string]$Text)
+213:function Write-YamlStringList {
+214:    param([System.Text.StringBuilder]$Sb, [string]$Key, [string[]]$Items)
+222:            $escaped = ([string]$i) -replace '\\', '\\' -replace '"', '\"'
+231:# Pulled out as its own function specifically so it can be unit-tested
+235:function Add-ModelUsage {
+236:    param([hashtable]$ModelUsage, [string]$Model, $Usage)
+256:function Set-ResponseUsage {
+259:    $key = if ($m.id) { [string]$m.id } else { [guid]::NewGuid().ToString() }
+260:    $UsageById[$key] = @{ Model = [string]$m.model; Usage = $m.usage }
+263:function Add-DedupedModelUsage {
+270:function Get-SessionMonthBucket {
+271:    param([string]$Path)
+273:        $sample = Get-Content -LiteralPath $Path -TotalCount 10 -Encoding UTF8
+281:    return (Get-Item -LiteralPath $Path).LastWriteTime.ToString("yyyy-MM")
+284:function Ensure-ProjectScaffold {
+285:    param([string]$ProjectDir)
+299:function Test-LegacyExported {
+300:    param([string]$SessionIdIn)
+304:            'Windows\Claude Code\*\.exported\*.done',
+305:            'Windows\Cowork\*\.exported\*.done',
+306:            'Dell\Windows\Claude\*\.exported\*.done',
+307:            'Dell\Windows\Claude\Cowork\*\.exported\*.done'
+317:function Update-Rollups {
+318:    param([string]$ProjectDir)
+341:    Set-Content -LiteralPath $indexPath -Value $indexContent -Encoding UTF8
+373:    Set-Content -LiteralPath $rollupPath -Value $rollupContent -Encoding UTF8
+381:function Export-Session {
+383:        [string]$TranscriptPathIn,
+384:        [string]$SessionIdIn,
+385:        [string]$CwdIn,
+386:        [string]$SourceAppIn
+392:    if ($tpath.Length -ge 250 -and -not $tpath.StartsWith('\\?\')) { $tpath = "\\?\$tpath" }
+418:    $markerPath = Join-Path $projectDir ".exported\$SessionIdIn.done"
+427:            $grown = (Get-Item -LiteralPath $tpath).LastWriteTimeUtc -gt (Get-Item -LiteralPath $markerPath).LastWriteTimeUtc
+437:        $markerTime = (Get-Item -LiteralPath $markerPath).LastWriteTimeUtc
+438:        $transcriptTime = (Get-Item -LiteralPath $tpath).LastWriteTimeUtc
+484:    $lines = Get-Content -LiteralPath $tpath -Encoding UTF8
+504:            $aiTitles.Add([string]$o.aiTitle)
+509:                    $toolResults[[string]$block.tool_use_id] = Get-ToolResultText $block.content
+533:    # visible back here. A plain nested function reassigning bare locals
+549:    function Invoke-FlushTurn {
+582:                        $humanParts.Add([string]$block.text)
+603:            if ($o.message.model -and $o.message.model -ne '<synthetic>' -and ($modelsSeen -notcontains [string]$o.message.model)) {
+604:                $modelsSeen.Add([string]$o.message.model)
+612:                    $resultText = $toolResults[[string]$block.id]
+613:                    $callLines = Format-ToolCall -Block $block -ResultText $resultText
+617:                        '^Read$' { if ($block.input.file_path) { $filesRead.Add([string]$block.input.file_path) } }
+618:                        '^Write$' { if ($block.input.file_path) { $filesWritten.Add([string]$block.input.file_path) } }
+619:                        '^(Edit|MultiEdit)$' { if ($block.input.file_path) { $filesEdited.Add([string]$block.input.file_path) } }
+620:                        '^Bash$' { if ($block.input.command) { $bashCommands.Add([string]$block.input.command) } }
+655:    $createdDate = if ($firstTimestamp) { ([datetime]$firstTimestamp) } else { (Get-Item -LiteralPath $tpath).LastWriteTime }
+660:        $firstRealUserTurn = $turns | Where-Object { $_.role -eq 'user' -and $_.text -and -not ($_.text.TrimStart().StartsWith('<')) -and -not ($_.text.TrimStart().St
+742:    [void]$sb.AppendLine("status: raw")
+823:    Set-Content -LiteralPath $outputPath -Value $sb.ToString() -Encoding UTF8
+827:    Set-Content -LiteralPath $markerPath -Value (Split-Path -Leaf $outputPath) -Encoding UTF8
+861:                foreach ($l in (Get-Content -LiteralPath $tpath -TotalCount 20 -Encoding UTF8)) {
+864:                    if ($o.cwd) { $cwd = [string]$o.cwd; break }
+886:            $longRoot = if ($coworkRoot.StartsWith('\\?\')) { $coworkRoot } else { "\\?\$coworkRoot" }
+921 export-claude-session.ps1
+```
+- `Agent` -- `{"description":"Verify Claude Code hooks docs","subagent_type":"web-fetch","prompt":"Fetch https://code.claude.com/docs/en/hooks.md (the Claude Code hooks reference; if that URL fails try https://code.claude.com/docs/en/hooks). Read the whole page and return a precise, quote-backed report with these items. Quote exact sentences where asked and say \u0027NOT FOUND\u0027 rather than guessing.\n1. The complete list of hook event names (count them).\n2. The common input fields every hook receives on stdin (exact JSON key names), and which event(s) include `prompt_id`.\n3. For each of these events, the exact stdin JSON keys specific to that event: UserPromptSubmit, PostToolUse, PostToolUseFailure, PermissionDenied, SubagentStop, PreCompact, PostCompact, InstructionsLoaded, Stop, StopFailure, SessionEnd. Include whether PostToolUse carries the tool result/response and under what key, and whether duration (`duration_ms`) is included.\n4. Exact wording about the `async` option on command hooks (default, whether it applies to every event, what happens to errors/output) and about `timeout` (units, default per hook type).\n5. Exact wording about the SessionEnd time budget (the 1.5 second sentence) and whether `async` hooks are allowed or killed on SessionEnd.\n6. Exact wording about the `transcript_path` field and whether it can lag the live conversation; and about `last_assistant_message` on Stop.\n7. Where hooks can be registered (user settings, project settings, local settings, plugins) and how a hook is matched by `matcher` for PostToolUse; anything about running hooks in parallel.\n8. Anything stating that exit codes or stderr from hooks are shown or hidden.\nKeep the report under 900 words, structured by the numbered items."}`
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && ls -d /d/_Anant/99_Archive 2>&1 | head -2; node --version 2>&1; echo ---gitignore; grep -nE "logs|events|claude-workflow" .gitignore .stignore 2>/dev/null | head -30; echo ---toast; grep -rln "BurntToast\|ToastNotification\|New-BurntToastNotification" 30_Order/System --include=*.ps1 | head; echo ---registry; grep -nE "review|generated" "30_Order/Note Type Registry.md" | cut -c1-260 | head -20; echo ---lint; find 30_Order -iname "Vault Lint*" | head`
+```
+/d/_Anant/99_Archive
+v24.19.0
+---gitignore
+.gitignore:102:30_Order/System/claude-workflow/logs/git-auto-sync.log
+.gitignore:103:30_Order/System/claude-workflow/scripts/.git-auto-sync.lock
+.gitignore:119:30_Order/System/claude-workflow/logs/internship-note-guard.jsonl
+.gitignore:127:30_Order/System/claude-workflow/logs/weekly-review.log
+.gitignore:134:30_Order/System/claude-workflow/scripts/.weekly-review.lock
+.gitignore:149:30_Order/System/claude-workflow/logs/capture-health-*.json
+.gitignore:151:30_Order/System/cursor-workflow/logs/*.log
+.gitignore:201:# into whatever directory it was launched from (vault root, claude-workflow/,
+.stignore:26:// found live on cursor-workflow/logs/ this build. See that block below for
+.stignore:35:// ignored content - exactly the shape that caused the cursor-workflow/logs/
+.stignore:118:// left, or cursor-workflow/logs/ once every file inside it was already
+.stignore:122:// exactly this error on cursor-workflow/logs/ - 143 failed retries over 9
+.stignore:131:(?d)30_Order/System/claude-workflow/logs/capture-health-*.json
+.stignore:133:(?d)30_Order/System/cursor-workflow/logs/*.log
+.stignore:161:(?d)30_Order/System/claude-workflow/logs/git-auto-sync.log
+.stignore:162:(?d)30_Order/System/claude-workflow/logs/git-auto-sync.sync-conflict-*
+.stignore:169:(?d)30_Order/System/claude-workflow/logs/internship-note-guard.jsonl
+.stignore:176:(?d)30_Order/System/claude-workflow/logs/weekly-review.log
+.stignore:177:(?d)30_Order/System/claude-workflow/logs/weekly-review.sync-conflict-*
+.stignore:183:(?d)30_Order/System/claude-workflow/scripts/.weekly-review.lock
+.stignore:198:// into whatever directory it was launched from (vault root, claude-workflow/,
+---toast
+30_Order/System/sync-workflow/scripts/check-syncthing-status.ps1
+---registry
+26:| generated-output | 3 | generated | zone not set | none | [[Generated Output Standard]] | [[Graphify Folders]] | built |
+67:| internship-loop-review-weekly | 1 | review / internship-loop | `60_Claude/30_Reviews/Internship Loop/Scheduled/Weekly/` | [[Internship Loop Weekly Review Template]] | [[Internship Loop Review Standard]] | [[Internship Review System]] | built |
+68:| internship-loop-review-monthly | 1 | review / internship-loop | `60_Claude/30_Reviews/Internship Loop/Scheduled/Monthly/` | [[Internship Loop Monthly Review Template]] | [[Internship Loop Review Standard]] | [[Internship Review System]] | built |
+103:| periodic-review-note (Spec ids -weekly, -monthly, -yearly) | 2 | thought / weekly, monthly, yearly | `10_Areas/Life/Enumerate/Weekly/`, `Monthly/`, `Yearly/` | [[Better Weekly]], [[Better Month]], [[Better Year]] | [[Periodic Review Note Standard]] | non
+114:| ai-review-weekly, ai-review-monthly | 1 | review / weekly, monthly | `60_Claude/30_Reviews/AI/Scheduled/` | [[AI Weekly Review Template]], [[AI Monthly Review Template]] | [[Review Standard]], [[Review System]] | none | built |
+115:| capability-review | 1 | review / capability | `60_Claude/30_Reviews/Weekly Synthesis/` | [[Weekly Synthesis Template]] (not Synthesis Template, which is the concept-synthesis template) | [[Capability Review Standard]] | none; the `/weekly-review` skill i
+116:| audit-report | 1 | review / audit | `60_Claude/30_Reviews/` | [[Audit Report Template]] | [[Audit Report Standard]] | none | built |
+117:| project-review | policy | log entry in the project note | the project's own `## Log` | none | [[Per Project Review]] | none | built |
+---lint
+30_Order/System/vault-lint/Vault Lint.md
+```
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && sed -n 1,80p Standards/Review/Review\ Standard.md 2>/dev/null | cut -c1-700 || find . -iname "Review Standard*"; find . -iname "Review Standard.md" -o -iname "Generated Output Standard.md" | head`
+```
+./Standards/Enrich/Review Standard.md
+./Standards/Generated Output Standard.md
+```
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && sed -n 20,75p Standards/Enrich/Review\ Standard.md | cut -c1-600; echo ======TEMPLATE; f=$(find . -iname "AI Weekly Review Template.md" | head -1); echo $f; cat "$f" | cut -c1-400; echo ======GEN; sed -n 20,70p Standards/Generated\ Output\ Standard.md | cut -c1-500`
+```
+  - "[[Logs]]"
+  - "[[60_Claude/30_Reviews/AI/Toolkit/Tool log|Tool log]]"
+  - "[[20_Progress/Projects/AI Use/Claude Kit/Log|Claude Kit Log]]"
+  - "[[HUMAN_WRITING]]"
+---
+# Review Standard
+==A review cites the actual log rows it read, from the Tool log, the Sync-Logs, and the Claude Kit Log. It never summarizes from memory or impression.==
+This is the standard for the AI tools reviews in `60_Claude/30_Reviews/AI/Scheduled/{Weekly,Monthly}/`: how Claude Code, Cowork, and the sync layer are used, and whether anything captured is drifting. It is not the Capability Engine review ([[Capability Review Standard]]); do not reuse one template for the other's job. No cron job writes these. A person, or an agent explicitly asked, opens the template and works it against the real logs in the same session or shortly after the period.
+## Spec
+```json
+{
+  "family": "ai-review-weekly",
+  "tier": 1,
+  "match": {"type": "review", "kind": "weekly", "path": "^60_Claude/30_Reviews/AI/", "where": {}, "where_not": {}},
+  "status": ["seed", "sprout", "tree", "complete"],
+  "required_keys": ["type", "status", "created", "updated", "tags", "review_kind", "notes"],
+  "key_types": {"created": "date", "updated": "date", "tags": "list", "notes": "list"},
+  "headings": ["Period Covered", "Sources Reviewed", "What Ran This Period", "Sync & Capture Health", "Findings", "Decided Fixes", "Open Questions", "Next Period's Watch List"],
+  "optional_headings": [],
+  "legacy_match": [
+    {"type": "evergreen", "path": "^60_Claude/30_Reviews/AI/Scheduled/Weekly/"}
+  ]
+}
+```
+```json
+{
+  "family": "ai-review-monthly",
+  "tier": 1,
+  "match": {"type": "review", "kind": "monthly", "path": "^60_Claude/30_Reviews/AI/", "where": {}, "where_not": {}},
+  "status": ["seed", "sprout", "tree", "complete"],
+  "required_keys": ["type", "status", "created", "updated", "tags", "review_kind", "notes"],
+  "key_types": {"created": "date", "updated": "date", "tags": "list", "notes": "list"},
+  "headings": ["Period Covered", "Sources Reviewed", "What Ran This Month", "Sync & Capture Health", "Tool Map Health Check", "Findings", "Decided Fixes", "Open Questions", "Next Month's Watch List"],
+  "optional_headings": [],
+  "legacy_match": [
+    {"type": "evergreen", "path": "^60_Claude/30_Reviews/AI/Scheduled/Monthly/"}
+  ]
+}
+```
+## Headings
+### Period Covered
+The exact date range: a calendar week for Weekly, a calendar month for Monthly. A partial or rolling window is stated as such.
+### Sources Reviewed
+Name every log opened this pass: the Tool log, `Sync-Log.md` in `20_Progress/AI/Claude Code/.claude_windows/` and in `.claude_wsl/`, the Claude Kit Log (which absorbed `Write Log.md` on 2026-08-20), and any raw `AI Conversations/` notes the Tool log flags. Monthly adds the month's Weekly reviews and the Tool Map.
+> [!WARNING]
+> Listing a log that was not opened. "Sync-Log not reviewed this week" is honest; a claim about sync health with no citation is not.
+### What Ran This Period
+Skills, agents, and commands used, how often, on what, taken from Tool log rows and not re-derived from raw sessions. Monthly names this section `What Ran This Month` and adds a trend against last month. A table or short list.
+*Density:* as long as the Tool log has rows. An empty Tool log for the period is a finding.
+### Sync & Capture Health
+Real counts: sync runs OK, failed, and skipped from the Sync-Logs, and whether capture produced a note for every real session (spot-check against `~/.claude/projects/` session counts).
+> [!WARNING]
+> "Sync looked fine" with no number.
+### Tool Map Health Check
+Monthly only. Anything stuck at `sandbox` or `tested-tools` for more than a full month is named here, not carried forward silently.
+### Findings
+======TEMPLATE
+./Templates/AI Toolkit/AI Weekly Review Template.md
+---
+type: review
+status: sprout
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags:
+  - review
+  - ai-tools
+review_kind: weekly
+notes: []
+---
+# <% tp.file.title %>
+## Period Covered
+<!-- The exact date range of the calendar week, from first day to last. -->
+## Sources Reviewed
+<!-- Every log opened: Tool log, both Sync-Log files, Claude Kit Log, raw sessions. Mark any not opened. -->
+## What Ran This Period
+<!-- Skills, agents, commands used, how often, on what, from Tool log rows. Columns: Skill/Command, Uses, Notes. -->
+## Sync & Capture Health
+<!-- Sync runs OK, failed, skipped; sessions captured against real sessions run. State numbers. -->
+## Findings
+<!-- Named problems, each citing the exact file or log row. Nothing to report is a valid finding. -->
+## Decided Fixes
+<!-- Only items with 100% clarity, applied by hand or flagged for a build session. -->
+## Open Questions
+<!-- Anything not fully clear, as - [ ] tasks. They carry forward. -->
+## Next Period's Watch List
+<!-- What to check next time: a recent promotion, sync change, or capture fix. -->
+======GEN
+---
+# Generated Output Standard
+==A tool writes it, a tool can rewrite it, and no person or agent edits it: so it is marked as generated, kept out of search and context, and never counted as knowledge.==
+This is the standard for notes written wholesale by a tool, today the graphify export of a codebase (about 2,400 files in `40_Project_Briefs/Internship` and `TradingView`). It exists because those files carried types the schema did not know (`code`, `rationale`, `document`, `community`), flooded search and Dataview, and were mistaken for project briefs. [[Graphify Notes]] covers the one graphify note a person writes; this Standard covers the machine output.
+## Spec
+```json
+{
+  "family": "generated-output",
+  "tier": 3,
+  "match": {"type": "generated", "kind": null, "path": "", "where": {}, "where_not": {}},
+  "status": [],
+  "required_keys": ["type", "generator", "gen_kind"],
+  "key_types": {"tags": "list"},
+  "headings": [],
+  "optional_headings": []
+}
+```
+## Headings
+The body is whatever the tool emits. A person never edits it, and nothing here is structure to preserve.
+### Frontmatter
+`type: generated`, `generator` (the tool name, for example `graphify`), `gen_kind` (`code`, `rationale`, `document`, `community`, `index`, or `report`). Keep the tool's own keys (`source_file`, `location`, `community`). `status` is omitted. `review_state` is optional and defaults to `raw`.
+*Density:* three required keys. Do not add prose.
+> [!WARNING]
+> Putting the tool's kind in `type`. A note with `type: code` is invisible to the schema and indistinguishable from a hand-written code note.
+### Zone
+Generated notes live in one folder per generator, and that folder is excluded from search, graph view, Dataview, and AI default context. The zone path is not yet decided. Until it is set in [[Note Type Registry]], the placement check is waived and the exclusion is done by `userIgnoreFilters`.
+*Density:* one path per generator.
+### Regeneration
+Fix the generator or its config, then regenerate. Never hand-patch a generated note. A generator that creates duplicates (`_N` suffixes) or a nested `.obsidian` is a defect to fix at the source.
+## Legacy Shapes
+| Old shape | New shape | Move |
+|---|---|---|
+| `type: code`, `rationale`, `document`, `community` | `type: generated`, `gen_kind` set to the old value, `generator: graphify` | mechanical, scriptable |
+| `status: auto-generated` or `raw` | remove `status`; set `review_state: raw` | mechanical |
+| `tags: [graphify/code, ...]` | keep as is | none |
+| A hand-written note inside the generated folder | move it out and give it its own family | judgment |
+## Done Conditions
+- Every note in a generator's zone has `type: generated`, `generator`, and `gen_kind`.
+- The zone is excluded from search, graph, Dataview queries, and AI context.
+- No generated note was edited by hand, and no hand-written note sits in a zone.
+## Gold Standard Example
+[[60_Claude/40_Project_Briefs/TradingView/Nodes/base.py]]: a graphify node with the tool's own keys. It still carries the old `type: code` and shows what the Legacy Shapes table rewrites.
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Prompts\P0 - Retention and Transcript Snapshot.md`
+```
+---
+type: project
+status: active
+created: 2026-10-22
+updated: 2026-10-22
+tags:
+  - project
+  - ai
+  - conversations
+  - prompt
+project_kind: prompt
+task: retention-and-snapshot
+model: claude-sonnet-5-5
+---
+# P0 - Retention and Transcript Snapshot
+Paste into a fresh Claude Code session started in the Jarvis vault: `Read and run 20_Progress/Projects/AI Use/Conversations/Prompts/P0 - Retention and Transcript Snapshot.md. Follow Hard Rules and Report Back exactly.`
+## Why This Exists
+Claude Code deletes raw transcripts after 30 days by default, and every day it runs it removes one more day of this machine's history. Everything the loop reads later (`/insights`, the digest's context sizes, a re-export) needs those files. This is build B0 in [[20_Progress/Projects/AI Use/Conversations/Conversation Loop Build Plan|Build Plan]], moved to the front because it is the only build that stops a loss already in progress.
+- **Verified 2026-10-22:** `cleanupPeriodDays` is absent from `C:\Users\anant\.claude\settings.json` (grep). The oldest top-level transcript is dated 2026-09-24 and moves forward daily. `.last-cleanup` is rewritten by each sweep.
+- **Verified in the docs 2026-10-21 and 22:** default 30 days; the sweep also removes subagent files, tool results, file history, and `usage-data/` (the `/insights` reports); it keeps `history.jsonl`.
+- **Conflicting evidence:** the docs reject `0`, but a public GitHub issue reports that `0` stopped transcripts being written at all. Treat `0` as dangerous and never use it.
+- **Owner decision 2026-10-22:** 60 days on the Acer, which covers the whole working life of this laptop (notes start 2026-09-17). The Dell is decided separately in build B9.
+- **Measured:** `~/.claude/projects` is about 606 MB at 30 days ([[20_Progress/Projects/AI Use/Conversations/Machine Audit 2026-10-22|Machine Audit]]), so about 1.2 GB at 60 days, on the C: drive.
+- **Assumed, verify:** the sweep runs at session startup, so the new value takes effect at the next startup, not instantly.
+## Hard Rules
+- Scope is the Acer, Windows side, Claude Code only. Do not touch WSL, the Dell, Cowork, Cursor, Codex, or `.obsidian/`.
+- Do not edit `30_Order/Standards`, `Templates`, or `Workflows`. Scripts and hooks under `30_Order/System/claude-workflow/` are the build surface.
+- Never read or print `.credentials.json`, `.env*`, tokens, `history.jsonl` text, or transcript text. Count lines and bytes only.
+- Search before creating. Write only the files named below. Scratch work goes to the session scratchpad. Nothing at the vault root.
+- Do not run `git commit` or `git push`. `Jarvis-GitAutoSync` commits every 30 minutes and is the only git writer.
+- After any vault write, search for `.sync-conflict-*` copies of the files you wrote and restore the corrected text if one exists.
+- Notes: no em dashes, no blank line after a heading, path-qualified wikilinks, patch by heading, update `updated:`.
+- Change exactly one key in `settings.json`, with a targeted edit, never a rewrite of the file. Back it up to the scratchpad first.
+- Delete nothing in `~/.claude`, including the stray `.statusline-ratelimit-cache.json.tmp.*` files. Report only.
+- Do not set the status of this prompt to `complete`. The owner does that after reviewing Report Back.
+## Implementation Order
+1. Record the before-state: oldest and newest top-level transcript date, transcript count, the contents of `.last-cleanup`, size of `~/.claude/projects`, free space on C: and D:.
+2. Snapshot the live transcripts outside the vault: `robocopy "$env:USERPROFILE\.claude\projects" "D:\_Anant\99_Archive\Claude Transcript Snapshot 2026-10-22" /E /XD tool-results file-history`. Confirm file count and total bytes match the source. The folder is outside the vault, so it is not synced.
+3. Copy `settings.json` to the scratchpad. Add `"cleanupPeriodDays": 60` as a top-level key with one Edit. Parse the result with `ConvertFrom-Json`, and confirm the set of other keys is unchanged.
+4. Read only the block of `~/.claude/statusline.sh` that writes `.statusline-ratelimit-cache.json.tmp.*` (111 stray files, 18 zero bytes). Report why the rename fails and propose a fix. Do not edit the script or delete files.
+5. Write the verification one-liner for the owner to run after the next session start: it prints the oldest transcript date, which must not be later than the before-state, and the new `.last-cleanup` value. Do not claim verified; say pending.
+## Report Back
+- The before/after table from step 1 and the snapshot counts from step 2.
+- The key-set diff of `settings.json` (one key added) and the backup path.
+- The statusline finding and proposed fix.
+- The verification one-liner, marked pending, and the date it should be run.
+- Anything not done, and anything that surprised you.
+## What Not To Do
+- Do not set `0` or any value under 45.
+- Do not regenerate `settings.json` from a parsed object, which can reorder or drop keys.
+- Do not treat the snapshot as the retention fix. It is a one-time safety copy.
+## Related Notes
+[[20_Progress/Projects/AI Use/Conversations/Conversation Loop Build Plan|Build Plan]], [[20_Progress/Projects/AI Use/Conversations/Machine Audit 2026-10-22|Machine Audit 2026-10-22]], [[20_Progress/Projects/AI Use/Conversations/Claude Code Session Source|Claude Code Session Source]].
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Prompts\P1 - Exporter Finish and Acer Re-export.md`
+```
+---
+type: project
+status: active
+created: 2026-10-22
+updated: 2026-10-22
+tags:
+  - project
+  - ai
+  - conversations
+  - prompt
+project_kind: prompt
+task: exporter-finish-and-acer-reexport
+model: claude-sonnet-5-5
+---
+# P1 - Exporter Finish and Acer Re-export
+Paste into a fresh Claude Code session started in the Jarvis vault: `Read and run 20_Progress/Projects/AI Use/Conversations/Prompts/P1 - Exporter Finish and Acer Re-export.md. Follow Hard Rules and Report Back exactly.`
+## Why This Exists
+Build B1 is half done. A Dell session on 2026-10-22 added message-id token dedup and a vault-root-aware `Get-ProjectName` with per-session folder stickiness to both exporters, plus `test-token-dedup.ps1` and `test-project-routing.ps1`. Those changes are uncommitted in the shared tree. The remaining defects are listed in [[20_Progress/Projects/AI Use/Conversations/Export Conformance|Export Conformance]].
+- **Verified 2026-10-22:** `test-token-dedup.ps1` passes under PowerShell 7 (all checks, Windows and WSL helpers). Not yet run under Windows PowerShell 5.1, which the hook uses.
+- **Still wrong, by reading the script:** `status: raw` is written (about line 742); no `review_state`, `created`, or `updated`; the price table (lines 35 to 45) has no entry for `claude-opus-5-5`, `claude-sonnet-5-5`, or `claude-haiku-5-5`, and the Sonnet 5 rate carries a comment that it ended 2026-08-31; notes are written with `Set-Content -Encoding UTF8`, which adds a BOM under 5.1 (351 of 630 old notes start with one); multi-line Bash and PowerShell commands go inside inline backticks, which the Tasks plugin parses as task syntax. Line numbers drift, so re-find each.
+- **Owner decisions 2026-10-22:** the Acer is a fresh tree for testing the new design. Project-based sessions are re-exported from their live transcripts so their totals are deduplicated. Older notes whose transcripts were already swept stay as they are.
+- **Assumed, verify:** a note written by the finished exporter is recognizable by the presence of `review_state`, so no new frontmatter key is needed to mark deduplicated totals.
+## Hard Rules
+- Scope is the Acer, Windows side, Claude Code only. Do not touch WSL, the Dell, Cowork, Cursor, Codex, or `.obsidian/`. `wsl-session-export.ps1` only has to keep its test green; record its parity gap as build B9 debt.
+- Do not edit `30_Order/Standards`, `Templates`, or `Workflows`. Scripts under `30_Order/System/claude-workflow/` are the build surface.
+- Never read or print `.credentials.json`, `.env*`, tokens, or `history.jsonl` text. Use synthetic fixtures in tests. Reading transcripts through the exporter is allowed; do not paste their text into any report.
+- Search before creating. Write only the files named below. Scratch work goes to the session scratchpad. Nothing at the vault root.
+- Do not run `git commit` or `git push`. `Jarvis-GitAutoSync` is the only git writer.
+- After any vault write, search for `.sync-conflict-*` copies of what you wrote and restore the corrected text.
+- Notes: no em dashes, no blank line after a heading, path-qualified wikilinks, patch by heading, update `updated:`.
+- Every change keeps both tests green under PowerShell 7 and Windows PowerShell 5.1.
+- Do not delete or move any existing note, marker, or folder. Report leftovers instead.
+- Do not re-export anything until the owner has confirmed the tracked project list in step 7.
+- Do not set the status of this prompt to `complete`. The owner does that.
+## Implementation Order
+1. Run `test-token-dedup.ps1` and `test-project-routing.ps1` under `pwsh` and under `powershell.exe -NoProfile -File`. Record all four outputs.
+2. Prices: read the official Anthropic pricing page for the three missing models and for the current Sonnet 5 rate. Add dated entries to the table in `export-claude-session.ps1`, fix the stale comment, and keep `cost_usd: null` for any model still absent. If the page cannot be read, stop and ask. Do not guess a rate.
+3. Frontmatter in `Export-Session`: `status: seed`, `review_state: raw`, `created` as the date of `started_at`, `updated` as the date of `exported_at`. Add no other keys. Match [[30_Order/Standards/AI Loop/Conversations|Conversations]] (spec `ai-conversation-export`).
+4. Encoding: write notes, markers, and rollups with `[System.IO.File]::WriteAllText` and `New-Object System.Text.UTF8Encoding($false)`. Keep the BOM on the `.ps1` files themselves.
+5. `Update-Rollups`: write `00 - Session Index.md` and `00 - Tool Usage Rollup.md` as `type: generated`, `generator: claude-session-exporter`, `gen_kind: index`, with the Dataview `FROM` set to the file's own folder. Confirm the Dataview `WHERE` still matches notes typed `input`.
+6. `Format-ToolCall`: render Bash and PowerShell commands in fenced blocks (` ```bash ` and ` ```powershell `), never an inline span. Keep Write and Edit rendering as it is.
+7. Tests: add `scripts/test-exporter-frontmatter.ps1` asserting `status: seed`, `review_state: raw`, `created` and `updated` dates, the first three bytes are not `EF BB BF`, a multi-line command is fenced, a model with no price gives `cost_usd: null`, and the three new models are priced. Then run `-BackfillAll -DryRun` and list the Acer project folders with note counts. **Stop and ask the owner which projects are tracked.** Offer Jarvis, The Plan, and Home as the default.
+8. Add a `-Force` switch (re-render even when the marker is current) and a `-Project` filter to `export-claude-session.ps1`, documented in the header. Run it with `-BackfillAll -Force` for the tracked projects only. Confirm the note count per project is unchanged and no second folder appeared for any session (`Find-ExistingSessionDir` should keep the old folder).
+9. Hand verification: pick two re-exported sessions. Count deduplicated tokens independently of the exporter (a Node one-liner grouping assistant lines by `message.id`) and compare with each note's `tokens:` block. Totals must be within 5%.
+10. List the sessions that still exist in two project folders (4 on the Acer at the last count, 3 inside `Acer/Windows/Claude`). Do not fix them.
+11. Patch [[20_Progress/Projects/AI Use/Conversations/Export Conformance|Export Conformance]] with a dated Corrections entry saying what is now fixed and what was measured, and [[20_Progress/Projects/AI Use/Conversations/Capture Scripts|Capture Scripts]] for the new switches.
+## Report Back
+- The four test outputs from step 1 and the new test's output under both shells.
+- The price source URL and the values added.
+- Before and after note counts per project, and the number of notes rewritten.
+- The two hand comparisons from step 9 with both numbers.
+- The leftover duplicate list, and the WSL parity gap.
+- Anything you could not do, and anything the owner must decide.
+## What Not To Do
+- Do not recompute the 606 old notes or strip their token fields.
+- Do not change `Get-CaptureMachine` or the redaction rules.
+- Do not assume a session's `cwd` stays constant across its life.
+## Related Notes
+[[20_Progress/Projects/AI Use/Conversations/Conversation Loop Build Plan|Build Plan]], [[20_Progress/Projects/AI Use/Conversations/Export Conformance|Export Conformance]], [[20_Progress/Projects/AI Use/Conversations/Capture Scripts|Capture Scripts]], [[60_Claude/07_AI_Information/Session Logs/log|Session log]] (the 2026-10-22 Dell entry).
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Prompts\P2 - Hook Timing and Failure Record.md`
+```
+---
+type: project
+status: active
+created: 2026-10-22
+updated: 2026-10-22
+tags:
+  - project
+  - ai
+  - conversations
+  - prompt
+project_kind: prompt
+task: hook-timing-and-failure-record
+model: claude-sonnet-5-5
+---
+# P2 - Hook Timing and Failure Record
+Paste into a fresh Claude Code session started in the Jarvis vault: `Read and run 20_Progress/Projects/AI Use/Conversations/Prompts/P2 - Hook Timing and Failure Record.md. Follow Hard Rules and Report Back exactly.`
+## Why This Exists
+The capture hook runs the full exporter on every `Stop` (every assistant turn) in the foreground, and swallows every error. Nobody has measured what it costs, and a failed export leaves no record. This is build B2 plus the cheapest slice of the failure record, from [[20_Progress/Projects/AI Use/Conversations/Conversation Layer Postmortem|Conversation Layer Postmortem]] findings 3 and 12.
+- **Verified in the hooks reference, re-read 2026-10-22:** hooks block Claude by default; `async: true` on a command hook runs it in the background, and its `timeout` is not enforced for async hooks; `SessionEnd` has a 1.5 second default timeout that a per-hook `timeout` (up to 60 seconds) or `CLAUDE_CODE_SESSIONEND_HOOKS_TIMEOUT_MS` raises; `transcript_path` may lag the live conversation, so a Stop-time export can miss the newest messages; `-p` runs kill async hooks at teardown.
+- **Not stated in the docs:** whether an async hook survives `SessionEnd` in an interactive session. Do not assume it does.
+- **Verified by reading files 2026-10-22:** `Stop` and `SessionEnd` in `~/.claude/settings.json` both run `jarvis-session-continuity.ps1` with no `timeout` and no `async`. The script writes one activity line, then calls the exporter inside an empty `catch`, so the export result is discarded (`| Out-Null`).
+- **Unmeasured:** wall time of the hook on a small, a median, and the largest transcript (this session's own transcript is over 8 MB).
+## Hard Rules
+- Scope is the Acer, Windows side, Claude Code only. Do not touch WSL, the Dell, Cowork, Cursor, Codex, or `.obsidian/`.
+- Do not edit `30_Order/Standards`, `Templates`, or `Workflows`.
+- Never read or print `.credentials.json`, `.env*`, tokens, `history.jsonl` text, or transcript text. Time the hook with real transcripts as input, but report only milliseconds.
+- Search before creating. Write only the files named below. Scratch work goes to the scratchpad. Nothing at the vault root.
+- Do not run `git commit` or `git push`.
+- After any vault write, search for `.sync-conflict-*` copies and restore corrected text.
+- Notes: no em dashes, no blank line after a heading, path-qualified wikilinks, patch by heading, update `updated:`.
+- The hook must exit 0 on every input, including empty and garbage stdin. A log write must never throw. Keep it compatible with Windows PowerShell 5.1 and keep the BOM on the `.ps1`.
+- Edit only the `Stop` and `SessionEnd` entries of `~/.claude/settings.json`, with targeted edits, after copying the file to the scratchpad.
+- Do not set the status of this prompt to `complete`.
+## Implementation Order
+1. Measure. For each of three transcripts (smallest non-empty, median, largest on disk), run `Measure-Command` on `jarvis-session-continuity.ps1` with synthetic stdin `{hook_event_name, session_id, transcript_path, cwd}`, five times each. Do this once for `Stop` and once for `SessionEnd`. Record milliseconds in a table. Note that a re-export of an already current session returns early, so also measure one forced stale case.
+2. Add a result record. Capture the exporter's returned status and elapsed milliseconds and append a second line to `jarvis-session-activity.jsonl`: `{timestamp, event: "export_result", session_id, status, ms, error}`. Write it before the exception is swallowed. Never write transcript text or paths beyond the session id.
+3. Decide from step 1 and put the reasoning in Report Back. Default: `Stop` gets `"async": true` and `"timeout": 60` if the p95 is over 500 ms, otherwise stays synchronous with a `timeout`. `SessionEnd` stays synchronous with `"timeout": 30` unless the owner's interactive test in step 5 proves an async hook survives.
+4. Apply the settings edits, then parse the file and confirm only those two entries changed.
+5. Write the owner-run check for `SessionEnd`: start a throwaway session in a scratch folder, send one prompt, run `/clear`, then read the last three lines of `jarvis-session-activity.jsonl`. The `export_result` line must appear. Do not run this yourself in a headless session, because `-p` kills async hooks and would give a false negative.
+6. Add `scripts/test-session-hook.ps1`: garbage stdin, empty stdin, a missing transcript path, and a valid one, each asserting exit 0, and that failure cases produce an `export_result` line with an `error`, not silence.
+7. Patch [[20_Progress/Projects/AI Use/Conversations/Capture Registration|Capture Registration]] (the `timeout` and `async` rows) and [[20_Progress/Projects/AI Use/Conversations/Capture Scripts|Capture Scripts]] (the hook card) with dated Corrections.
+## Report Back
+- The timing table (3 transcripts, 2 events, 5 runs each) and the p50 and p95.
+- The `settings.json` diff, the backup path, and your decision with its reasoning.
+- The new test's output under both shells.
+- The exact owner-run check from step 5 and, if the owner ran it, its result.
+- Anything unexpected, such as a hook that took longer than 1.5 seconds on `SessionEnd`.
+## What Not To Do
+- Do not make `SessionEnd` async on documentation alone.
+- Do not change what the exporter renders. That was P1.
+- Do not add the new per-event hooks here. That is P5.
+## Related Notes
+[[20_Progress/Projects/AI Use/Conversations/Conversation Loop Build Plan|Build Plan]], [[20_Progress/Projects/AI Use/Conversations/Conversation Layer Postmortem|Conversation Layer Postmortem]], [[20_Progress/Projects/AI Use/Conversations/Capture Registration|Capture Registration]].
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Prompts\P3 - Design Postmortem.md`
+```
+---
+type: project
+status: active
+created: 2026-10-22
+updated: 2026-10-22
+tags:
+  - project
+  - ai
+  - conversations
+  - prompt
+project_kind: prompt
+task: design-postmortem
+model: claude-opus-5-5
+---
+# P3 - Design Postmortem
+Paste into a fresh Claude Code session started in the Jarvis vault: `Read and run 20_Progress/Projects/AI Use/Conversations/Prompts/P3 - Design Postmortem.md. Follow Hard Rules and Report Back exactly.`
+## Why This Exists
+[[20_Progress/Projects/AI Use/Conversations/Conversation Loop Design|Conversation Loop Design]] is locked pending a stress test, and its `next` says to write one before any loop build starts (P0 to P2 are repairs and do not wait for it). The test is one finding per layer, L0 to L5, each stressed against the audit evidence, ending in keep, change, or cut. It sits beside the first postmortem as `review_kind: audit`.
+- **Seed findings from the 2026-10-22 context pass.** These are leads, not conclusions. Check each against the live docs, the audit, and the machine, and cite what you find. Drop any that do not hold.
+  1. [[20_Progress/Projects/AI Use/Conversations/Per-Prompt Record|Per-Prompt Record]] says the events folder is "already ignored by git and Syncthing". `.gitignore` and `.stignore` list specific log file names only, so a new `events-*.jsonl` would be tracked.
+  2. Hooks matching an event run in parallel, and `PostToolUse` fires concurrently for parallel tool calls, so many processes append to one JSONL file at once.
+  3. `prompt_id` is documented as absent until the first user input, and subagent hooks carry `agent_id`. The design keys everything on `prompt_id` alone.
+  4. `transcript_path` may lag the live turn. Any step that folds a record from the transcript at `Stop` time can be one turn stale.
+  5. Headless runs (`claude -p`, the `sdk-cli` entries, including the weekly review) kill async hooks at teardown. Events from those sessions would be lost.
+  6. `history.jsonl` counts typed prompts including slash commands. `UserPromptSubmit` and `UserPromptExpansion` are separate events. The coverage line may never reach 100%.
+  7. The weekly note's home in [[20_Progress/Projects/AI Use/Conversations/Weekly Review Protocol|Weekly Review Protocol]] (`30_Reviews/AI/Conversations/`) conflicts with the Note Type Registry and [[30_Order/Standards/AI Loop/Review System|Review System]] (`30_Reviews/AI/Scheduled/Weekly/` from the AI Weekly Review Template, eight fixed headings).
+  8. Nothing schedules the digest or tells the owner a review is due, and Review System says "nothing runs on its own". The design has no scheduler and no end-to-end test.
+  9. `agent_lines_kept_7d` needs a git-blame replay against commits. High cost, and the weekly output check (step 7) can be done by hand on five files.
+  10. Global hooks fire in every project, including The Plan, which holds personal-life content that Jarvis rules keep out of this vault. Events from those sessions would put prompt text in Jarvis logs.
+  11. The digest syncs between laptops, so it must carry ids and links, not prompt text.
+- **Owner decisions 2026-10-22:** the human does the weekly blind pass and the local model flags afterward; events stay per machine; retention is 60 days on the Acer; the Dell is repo-conversations only and comes later; skills live in the Jarvis `.claude/` only; the Acer tree is fresh and is the test bed.
+- **Verified inputs to read, not to restate:** [[20_Progress/Projects/AI Use/Conversations/Machine Audit 2026-10-22|Machine Audit]], [[20_Progress/Projects/AI Use/Conversations/Conversation Layer Postmortem|Conversation Layer Postmortem]], [[20_Progress/Projects/AI Use/Conversations/Conversation Loop Sources|Conversation Loop Sources]], the Report Back of P0, P1, and P2.
+## Hard Rules
+- Scope is the design and the Acer. Do not build anything and do not change any script, hook, or setting.
+- Do not edit `30_Order/Standards`, `Templates`, or `Workflows`.
+- Never read or print `.credentials.json`, `.env*`, tokens, `history.jsonl` text, or transcript text.
+- Do not write the postmortem from memory of the design. Every finding cites a file, a line, a count, or a documented sentence opened this session. A source not opened is listed as not reviewed.
+- Search before creating. Write only the files named below. Nothing at the vault root. Do not run `git commit`.
+- After any vault write, search for `.sync-conflict-*` copies and restore corrected text.
+- Notes: no em dashes, no blank line after a heading, path-qualified wikilinks, patch by heading. Follow [[30_Order/Standards/AI Loop/Review System|Review System]] rules: reviews do not fix, Open Questions carry.
+- Do not change the body of the Design. Corrections go in a dated `## Corrections` layer that keeps the original.
+- Do not set the status of this prompt to `complete`.
+## Implementation Order
+1. Read the Design, the Build Plan, and the inputs above. Re-check the hook payload fields the design relies on against `https://code.claude.com/docs/en/hooks.md`. The agent `claude-code-guide` may do that read.
+2. Read the Audit Report Standard and its template in the Note Type Registry (`audit-report`) and use that shape.
+3. Write `20_Progress/Projects/AI Use/Conversations/Conversation Loop Design Postmortem.md` with `type: review`, `review_kind: audit`, `status: sprout`. One finding per layer (L0 Capture, L1 Digest, L2 Local reviewer, L3 Weekly review, L4 Monthly review, L5 `/insights`), plus three cross-cutting findings: scheduling and nudge, test and acceptance, scope and privacy. Each finding has how it could fail, the evidence, and a decision: keep, change, or cut.
+4. Add a dated `## Corrections` entry to the Design and the Build Plan for every change or cut, and update the Build Plan's order if a decision reorders it. Update the hub's `next` and Open Questions.
+5. If any decision needs the owner, put it in Open Questions as a `- [ ]` task and say so first in Report Back.
+## Report Back
+- A table of the nine findings with their decision.
+- Which seed findings held, which did not, and why.
+- The notes you patched, with the heading changed in each.
+- Decisions the owner must make, and whether P4 through P9 need changes.
+## What Not To Do
+- Do not bless the design. A finding with no way to fail is not a finding.
+- Do not turn a cut into a rewrite of the Design.
+- Do not start P4.
+## Related Notes
+[[20_Progress/Projects/AI Use/Conversations/Conversation Loop Design|Conversation Loop Design]], [[20_Progress/Projects/AI Use/Conversations/Conversation Loop Build Plan|Build Plan]], [[20_Progress/Projects/AI Use/Conversations/Conversation Layer Postmortem|Conversation Layer Postmortem]].
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Prompts\P4 - Review Notes and First Hand Review.md`
+```
+---
+type: project
+status: active
+created: 2026-10-22
+updated: 2026-10-22
+tags:
+  - project
+  - ai
+  - conversations
+  - prompt
+project_kind: prompt
+task: weekly-review-notes-and-first-review
+model: claude-sonnet-5-5
+---
+# P4 - Review Notes and First Hand Review
+Paste into a fresh Claude Code session started in the Jarvis vault: `Read and run 20_Progress/Projects/AI Use/Conversations/Prompts/P4 - Review Notes and First Hand Review.md. Follow Hard Rules and Report Back exactly.`
+## Why This Exists
+The human review is the part of the loop that produces better output, and it can start before any digest or hook exists. [[20_Progress/Projects/AI Use/Conversations/Weekly Review Protocol|Weekly Review Protocol]] says to run the first four weeks by hand from the exported notes. This prompt fixes the weekly note's shape and home, prepares the sample, stops for the owner's blind pass, and then helps record the result. It is build B5 plus week one of the protocol.
+- **Verified 2026-10-22:** the Note Type Registry sends AI weekly reviews to `60_Claude/30_Reviews/AI/Scheduled/Weekly/` using `AI Weekly Review Template` and [[30_Order/Standards/Enrich/Review Standard|Review Standard]], which fixes eight headings: Period Covered, Sources Reviewed, What Ran This Period, Sync & Capture Health, Findings, Decided Fixes, Open Questions, Next Period's Watch List. The protocol's bespoke note (nine headings, in `30_Reviews/AI/Conversations/`) does not match.
+- **Verified 2026-10-22:** [[20_Progress/Projects/AI Use/Conversations/Intervention Ledger|Intervention Ledger]] and [[20_Progress/Projects/AI Use/Conversations/Failure Taxonomy|Failure Taxonomy]] exist and are empty or at version 0. The Acer holds 113 session notes whose `## You` sections hold the typed prompts, redacted. Slash-command turns and tool-error flags are not in the notes.
+- **Assumed, check on three notes:** the `## You` text is enough to code a prompt without opening the transcript.
+- **The existing W34 review** is named `AI Tools Weekly Review — 2026-W34` with an em dash, which the writing rules ban. New weekly notes use a hyphen.
+## Hard Rules
+- Scope is the Acer, Windows side, tracked projects only (the list the owner confirmed in P1). Do not touch WSL, the Dell, Cowork, Cursor, or Codex.
+- Do not edit `30_Order/Standards`, `Templates`, or `Workflows`. Use the AI Weekly Review Template as it is. Invent no headings and no frontmatter keys.
+- Never read or print `.credentials.json`, `.env*`, tokens, or `history.jsonl` text.
+- **Blind first.** Do not write codes, first-failure notes, or any judgment of a prompt before the owner has written theirs. Do not mention model opinions in the sample sheet.
+- The owner makes the one change in step 8. You apply it only on their explicit instruction, then log it.
+- Search before creating. Write only the files named below. Nothing at the vault root. Do not run `git commit`.
+- After any vault write, search for `.sync-conflict-*` copies and restore corrected text.
+- Notes: no em dashes, no blank line after a heading, path-qualified wikilinks, patch by heading, update `updated:`.
+- Do not set the status of this prompt to `complete`.
+## Implementation Order
+1. Read the Review Standard, the template, the W34 review, and the protocol. In the protocol's "The weekly note" section add a dated Corrections entry mapping each protocol element onto the eight fixed headings: the digest and sample sheet under Sources Reviewed; skills, subagents, and MCP tools used under What Ran This Period; the coverage line under Sync & Capture Health; codes, first-failure notes, reconciled flags, bloat, and the output check under Findings; the one change, linked to its ledger row, under Decided Fixes; time spent and unresolved questions under Open Questions; the next review date under Next Period's Watch List. If a protocol element has no home, stop and ask.
+2. Choose the review week: the ISO week that ended most recently, or the current one if the owner says so. Default for this run is 2026-W43 (Monday 2026-10-19 to Sunday 2026-10-25).
+3. Create `60_Claude/30_Reviews/AI/Scheduled/Weekly/AI Tools Weekly Review - 2026-W43.md` from the template, `status: seed`. Fill Period Covered, and Sources Reviewed with the exported notes opened.
+4. Build the sample sheet as a table inside Sources Reviewed: about 10 prompts chosen at random with a seed written in the table caption, plus up to 15 flagged by rules you can compute from the notes, each with a link to the session note, the turn number, and the reason it was picked. Allowed flag rules, all written in the note: the next prompt starts with a correction word ("no", "don't", "wrong", "not what"); the turn's tokens are in the top decile; the final message says "done" or "passes" and no Bash or PowerShell call follows the last Edit or Write; the turn has the most tool calls in its session. Show no model flags.
+5. **Stop.** Tell the owner exactly what to do: read each sampled prompt and what happened, write one or two sentences about the first thing that went wrong, assign codes from the Failure Taxonomy, 15 to 20 minutes, in the Findings section. Wait.
+6. When the owner returns: copy their notes verbatim into Findings, count codes, run taxonomy upkeep (any prompt that fit no code, any definition that shifted), and fill What Ran This Period and the Sync & Capture Health numbers by hand from the notes and Capture Health.
+7. Output check: the owner opens five things Claude wrote more than a week ago and says how much they changed. Record their answers under Findings.
+8. Ten-minute setup review: ask the owner "what did you correct twice this week?", help choose the home for the fix (hook, one CLAUDE.md line, skill, subagent, or habit), and add one row to the Intervention Ledger with the metric, the baseline from this week's coded rate per 100 prompts, and a review date two weeks out. If nothing recurred, write that.
+9. Record minutes spent per step in Open Questions. They decide the weekly time budget.
+## Report Back
+- The mapping table from step 1.
+- The sample sheet rules as written, the seed, and the counts picked (random and flagged).
+- After the owner's pass: code counts, the change made, the ledger row, and minutes per step.
+- Anything in the exported notes that made coding hard (a missing field, a dropped turn) as input for P5 and P6.
+## What Not To Do
+- Do not pre-label prompts to be helpful. It breaks the blind pass.
+- Do not edit CLAUDE.md or add a skill without the owner's choice in step 8.
+- Do not move the weekly note to `30_Reviews/AI/Conversations/`.
+## Related Notes
+[[20_Progress/Projects/AI Use/Conversations/Weekly Review Protocol|Weekly Review Protocol]], [[20_Progress/Projects/AI Use/Conversations/Failure Taxonomy|Failure Taxonomy]], [[20_Progress/Projects/AI Use/Conversations/Intervention Ledger|Intervention Ledger]], [[30_Order/Standards/AI Loop/Review System|Review System]].
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Prompts\P5 - Event Capture Hook.md`
+```
+---
+type: project
+status: active
+created: 2026-10-22
+updated: 2026-10-22
+tags:
+  - project
+  - ai
+  - conversations
+  - prompt
+project_kind: prompt
+task: event-capture-hook
+model: claude-sonnet-5-5
+---
+# P5 - Event Capture Hook
+Paste into a fresh Claude Code session started in the Jarvis vault: `Read and run 20_Progress/Projects/AI Use/Conversations/Prompts/P5 - Event Capture Hook.md. Follow Hard Rules and Report Back exactly.`
+## Why This Exists
+Layer L0 of [[20_Progress/Projects/AI Use/Conversations/Conversation Loop Design|Conversation Loop Design]]: one deterministic, model-free script that writes a JSON line per prompt, tool call, tool failure, permission denial, subagent stop, compaction, and instruction load, so the weekly review reads facts and not scraped transcripts. This is build B3. Read the P3 postmortem first: if it changed the record shape, follow P3 over this note.
+- **Verified in the hooks reference, re-read 2026-10-22:** 33 events. Common stdin fields: `session_id`, `prompt_id` (absent until the first user input), `transcript_path`, `cwd`, `permission_mode`, `effort`, `hook_event_name`. Event fields: `UserPromptSubmit` `prompt`; `PostToolUse` `tool_name`, `tool_input`, `tool_use_id`, `tool_response`, `duration_ms`; `PostToolUseFailure` adds `error`, `is_interrupt`; `PermissionDenied` `reason`; `SubagentStop` `agent_id`, `agent_type`, `agent_transcript_path`, `last_assistant_message`; `PreCompact` and `PostCompact` `trigger`; `InstructionsLoaded` `file_path`, `memory_type`, `load_reason`; `Stop` `last_assistant_message`.
+- **Verified in the same read:** matching hooks run in parallel; `PostToolUse` fires concurrently for parallel tool calls; async hooks cannot block or change Claude's behavior; the same handler defined in several settings files runs once; stdout of `UserPromptSubmit` hooks is added to context, so it must stay empty; `-p` runs kill async hooks at teardown.
+- **Verified on the machine 2026-10-22:** Node v24.19.0 is installed. `.gitignore` and `.stignore` list specific log names only, so `events-*.jsonl` is not ignored yet and must be added.
+- **Owner decisions 2026-10-22:** raw events stay per machine; scope is tracked projects only (the list confirmed in P1), which keeps The Plan's personal content out of Jarvis logs; no personal-life or pasted-document text is stored.
+- **Not verified, step 1 does it:** the field names at runtime on Claude Code 2.1.309, and whether a slash command fires `UserPromptSubmit`.
+## Hard Rules
+- Scope is the Acer, Windows side, Claude Code only. Do not touch WSL, the Dell, Cowork, Cursor, or Codex.
+- Do not edit `30_Order/Standards`, `Templates`, or `Workflows`. Build in `30_Order/System/claude-workflow/hooks/` (the script and a `lib/` folder) and its tests beside the existing `test-*.ps1` files.
+- The script prints nothing to stdout, ever. It exits 0 on every input. It makes no model call and no network call.
+- It never stores a `tool_response` body (byte length only), a full shell command (first token and ok state only), a pasted-looking prompt (over 2,000 characters or 40 lines: keep length, the first 200 characters, and `pasted: true`; these two limits are working rules, not from a source), or any text from a project outside the scope file.
+- Redact stored text with the same eight rules as the exporter (`sk-ant-`, `sk-`, `ghp_`, `xox*-`, `AKIA`, Bearer tokens, `SetEnvironmentVariable` values, long mixed tokens). Write the rules once, in a Node module with fixture vectors in a test.
+- One `fs.appendFileSync` of one line under 4 KB per event. `JARVIS_EVENTS_OFF=1` disables the script entirely.
+- Never read or print `.credentials.json`, `.env*`, tokens, or `history.jsonl` text. Counting `history.jsonl` lines for a coverage test is allowed.
+- Edit only the `hooks` block of `~/.claude/settings.json`, with targeted edits, after copying the file to the scratchpad. Do not touch the existing `Stop` and `SessionEnd` entries.
+- Do not run `git commit` or `git push`. After any vault write, look for `.sync-conflict-*` copies.
+- Notes: no em dashes, no blank line after a heading, path-qualified wikilinks, patch by heading, update `updated:`.
+- Do not set the status of this prompt to `complete`.
+## Implementation Order
+1. **Key capture.** Register a temporary logger that records only field names and value types per event for about one hour of normal use. Compare with the documented fields above, answer the slash-command question, then remove the logger. Pin the observed field lists as fixtures in `test-events-schema.js` so a release that renames a field fails a test.
+2. Write `hooks/jarvis-events.js` and `hooks/lib/`: parse stdin, drop out-of-scope projects (scope file `hooks/events-scope.json`, one cwd prefix per tracked project), classify, redact, and append. Common row: `{v, ts, machine, session_id, prompt_id, agent_id, event, cwd, project}`. Event fields follow [[20_Progress/Projects/AI Use/Conversations/Per-Prompt Record|Per-Prompt Record]]. On `Stop` also write a `turn_end` row with the first 300 redacted characters of `last_assistant_message`, `claims_done` (a regex list in a JSON config), and `verified_after_last_edit` (any Bash or PowerShell row with a command head in a test, lint, or build list, after the last Edit or Write row of this `prompt_id`; the list is a JSON config the owner can edit).
+3. Failures: a parse error or unknown payload writes `{event: "failure", stage, message}` (message truncated) to the same file and a line to stderr. If the file cannot be written, append to `%LOCALAPPDATA%\claude-capture\events-fallback.log`. Silence is never an outcome.
+4. Tests (`node --test`, fixtures are synthetic): each event type produces the expected row; stdout is empty for every event; garbage and empty stdin give a failure row and exit 0; an out-of-scope cwd writes nothing but a counter row; redaction vectors; a 50-process concurrent run leaves 50 intact lines.
+5. Measure overhead: 100 sequential invocations, p50 and p95 wall time including Node startup. Report them. If p95 is over 150 ms, investigate before registering (a working ceiling, not a sourced one).
+6. Register, after the tests pass: one handler, `node "<abs path>/hooks/jarvis-events.js"`, with `"async": true` and `"timeout": 10`, for `UserPromptSubmit`, `PostToolUse`, `PostToolUseFailure`, `PermissionDenied`, `SubagentStop`, `PreCompact`, `PostCompact`, `InstructionsLoaded`, `StopFailure`, and a second `Stop` entry. Leave every existing entry as it is.
+7. Add ignore lines for `30_Order/System/claude-workflow/logs/events-*.jsonl` and the fallback to `.gitignore` and to `.stignore` (with the `(?d)` prefix, like the neighbors). Prove it with `git check-ignore -v`. Note that `.stignore` does not sync: the Dell needs the same line by hand in build B9.
+8. Owner smoke test, written for them: open a fresh session in a tracked project, send one prompt that uses two tools, then run the counting one-liner you provide. It prints row counts per event for the session and the `history.jsonl` prompt count for that session id, never any text.
+9. Patch [[20_Progress/Projects/AI Use/Conversations/Capture Registration|Capture Registration]], [[20_Progress/Projects/AI Use/Conversations/Per-Prompt Record|Per-Prompt Record]] (the ignored-folder claim), and the hook table in `30_Order/System/claude-workflow/README.md`, each with a dated entry.
+## Report Back
+- The key-capture result: any documented field that was missing or renamed, and the slash-command answer.
+- Test output, the overhead table, and the `git check-ignore` output.
+- The `settings.json` hook-block diff and backup path.
+- The smoke-test one-liner and, if the owner ran it, its counts.
+- Anything you cut from the record and why.
+## What Not To Do
+- Do not print anything to stdout.
+- Do not store prompt text from outside the scope file, or any `tool_response` content.
+- Do not launch the hook through PowerShell. Node starts faster.
+- Do not register for events not listed above.
+## Related Notes
+[[20_Progress/Projects/AI Use/Conversations/Per-Prompt Record|Per-Prompt Record]], [[20_Progress/Projects/AI Use/Conversations/Conversation Loop Design|Conversation Loop Design]], [[20_Progress/Projects/AI Use/Conversations/Failure Taxonomy|Failure Taxonomy]], [[20_Progress/Projects/AI Use/Conversations/Capture Registration|Capture Registration]].
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Prompts\P6 - Weekly Digest.md`
+```
+---
+type: project
+status: active
+created: 2026-10-22
+updated: 2026-10-22
+tags:
+  - project
+  - ai
+  - conversations
+  - prompt
+project_kind: prompt
+task: weekly-digest
+model: claude-sonnet-5-5
+---
+# P6 - Weekly Digest
+Paste into a fresh Claude Code session started in the Jarvis vault: `Read and run 20_Progress/Projects/AI Use/Conversations/Prompts/P6 - Weekly Digest.md. Follow Hard Rules and Report Back exactly.`
+## Why This Exists
+Layer L1 of [[20_Progress/Projects/AI Use/Conversations/Conversation Loop Design|Conversation Loop Design]]: a script that turns a week of event rows into the note the weekly review opens first, with zero tokens. Without it, steps 1, 2, and 6 of [[20_Progress/Projects/AI Use/Conversations/Weekly Review Protocol|Weekly Review Protocol]] stay manual. This is build B4. The throwaway counting scripts from the research were not kept, so everything here is rewritten with tests.
+- **Verified 2026-10-22:** [[30_Order/Standards/Generated Output Standard|Generated Output Standard]] wants `type: generated`, `generator`, and `gen_kind` (`report` fits), no `status`, and `review_state` optional; the generated zone path is not decided and placement checks are waived until the registry sets one.
+- **Verified in the hooks reference:** `transcript_path` may lag the live turn, so context sizes read from a transcript for a prompt that just ended can be one turn stale. The digest runs on whole days, so this matters only for the current day.
+- **Depends on P5:** event rows exist for at least a few days. If P3 changed the record shape, follow P3.
+- **Owner decisions 2026-10-22:** the human does the weekly blind pass; the digest syncs between laptops, so it carries ids and links and no prompt text. `agent_lines_kept_7d` is deferred unless P3 kept it.
+- **Assumed, check:** an installed skill or subagent is a directory or file under `.claude/skills` and `.claude/agents`, so "available but never used" can be computed by listing them.
+## Hard Rules
+- Scope is the Acer, Windows side, Claude Code only, tracked projects only.
+- Do not edit `30_Order/Standards`, `Templates`, or `Workflows`. Build in `30_Order/System/claude-workflow/scripts/` with tests beside it.
+- Deterministic and model-free. The same events and the same seed give a byte-identical digest. No network.
+- The digest contains prompt ids, session ids, counts, tool and file paths relative to the vault, and links to session notes. It contains no prompt text, no `last_assistant_message` text, and no pasted content.
+- `history.jsonl` is read only to count prompts per session and day. Never copy a line of it.
+- A missing field is tolerated and counted. Never crash on a version change; the digest lists the Claude Code versions seen.
+- One writer per generated note: overwrite the week's digest in place, idempotently. Do not run `git commit`; look for `.sync-conflict-*` after writing.
+- Notes: no em dashes, no blank line after a heading, path-qualified wikilinks, patch by heading, update `updated:` on notes you patch.
+- Do not set the status of this prompt to `complete`.
+## Implementation Order
+1. Read [[20_Progress/Projects/AI Use/Conversations/Failure Taxonomy|Failure Taxonomy]] and [[20_Progress/Projects/AI Use/Conversations/Per-Prompt Record|Per-Prompt Record]]. Define each rule flag as code with a JSON config for thresholds: E1 retry loop (the same tool with a near-identical target three or more times in a row), E2 context bloat (the largest tool results and files read twice; context size per prompt from the transcript's last deduplicated `usage` before the prompt), E3 instruction not loaded (the `InstructionsLoaded` rows against a list of files expected for the project), E4 permission friction (denials), E5 capture gap (no event rows for a prompt that exists in `history.jsonl` counts), S6 execution error (a tool error with no change of approach), S7 false self-report (`claims_done` true and `verified_after_last_edit` false). Thresholds are working rules, not sourced; write them in the config with a comment saying so.
+2. Write the digest script (`scripts/build-conversation-digest.js` or the language you choose, with a short reason). Input: an ISO week, the events file, the `history.jsonl` counts, and transcripts for context size. Output: `60_Claude/30_Reviews/AI/Conversations/Digests/Digest <ISO week>.md` with `type: generated`, `generator: conversation-digest`, `gen_kind: report`, `iso_week`, `period_start`, `period_end`, `review_state: raw`.
+3. Sections, in this order: a coverage line first (prompts in `history.jsonl` against prompts with event rows, per day, with the gap named); counts per rule flag with prompt ids; the five prompts that started with the largest context; the ten largest tool results; files read twice; tool errors per tool, with interrupts counted apart from errors; skills, subagents, and MCP tools used and, from the installed lists, never used; instruction files loaded; compactions and permission denials; the Claude Code versions seen; then the review sample: about 10 random prompts (seed printed) and up to 15 flagged, as ids and links. This replaces the manual sample rules written in P4.
+4. Tests: a synthetic events file with known flags and a golden digest; idempotence (two runs, identical bytes); a file with missing fields; an empty week (the digest says so plainly, which is a valid result); a week with a coverage gap (the gap is the first line). Use `node --test` or Pester, whichever the script language needs.
+5. Validate against reality: run it on the days of real events available. The owner hand-counts ten sampled prompts (tool calls, errors, files read) from the session notes and compares with the digest. Provide the ten and the digest values side by side, and do not mark them equal yourself.
+6. Time the run on a week of events. It must finish in under 30 seconds (a working ceiling).
+7. Patch [[20_Progress/Projects/AI Use/Conversations/Weekly Review Protocol|Weekly Review Protocol]] step 1 and 2 with a dated entry pointing at the digest path, and [[20_Progress/Projects/AI Use/Conversations/Capture Scripts|Capture Scripts]] with a card for the script.
+## Report Back
+- The flag definitions and thresholds as written.
+- Test output, the run time, and one real digest's path.
+- The side-by-side hand-count table for the owner, with the owner's verdict if they gave one.
+- What the digest could not compute (fields the events do not carry) and what you propose.
+## What Not To Do
+- Do not put prompt text, assistant text, or pasted content in the digest.
+- Do not score or rank sessions. The digest counts; it does not judge.
+- Do not call a model to word the digest.
+## Related Notes
+[[20_Progress/Projects/AI Use/Conversations/Per-Prompt Record|Per-Prompt Record]], [[20_Progress/Projects/AI Use/Conversations/Weekly Review Protocol|Weekly Review Protocol]], [[20_Progress/Projects/AI Use/Conversations/Failure Taxonomy|Failure Taxonomy]].
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Prompts\P7 - Schedule and Review Nudge.md`
+```
+---
+type: project
+status: active
+created: 2026-10-22
+updated: 2026-10-22
+tags:
+  - project
+  - ai
+  - conversations
+  - prompt
+project_kind: prompt
+task: digest-schedule-and-nudge
+model: claude-sonnet-5-5
+---
+# P7 - Schedule and Review Nudge
+Paste into a fresh Claude Code session started in the Jarvis vault: `Read and run 20_Progress/Projects/AI Use/Conversations/Prompts/P7 - Schedule and Review Nudge.md. Follow Hard Rules and Report Back exactly.`
+## Why This Exists
+A loop that depends on remembering to run a script is the loop that died in week three before. The owner asked for scheduled runs. This prompt makes the digest generate itself, creates the week's review skeleton, and puts "review due" in front of the owner on `/startday`. The review itself stays human. It is new in the revised order; the original [[20_Progress/Projects/AI Use/Conversations/Conversation Loop Build Plan|Build Plan]] left scheduling as "by hand or by schedule".
+- **Verified 2026-10-22:** `Jarvis-WeeklyReview` runs Sundays 06:00, last ran 2026-10-18 with result 0, and it runs the concept-mastery `/weekly-review`, not a conversation review. The pattern for a task is `register-weekly-review-task.ps1` plus `weekly-review-silent.vbs` plus `run-weekly-review.ps1` with a lock file and a log. `check-syncthing-status.ps1` holds the proven toast code. `ConversationCapture-Backfill-Windows` registers only on the Acer and runs dry unless `-Apply`.
+- **Verified in the standards:** [[30_Order/Standards/AI Loop/Review System|Review System]] says "nothing runs on its own", meaning a review is triggered by the owner. A generator that builds the input to a review is not a review; P3 records the wording conflict, and Review System is not edited until build B10.
+- **Unknown, step 1 checks:** whether the Unison task (`SecondBrainClaudekit-JarvisSync`, not registered on the Acer) would overwrite `.claude/skills` edits if it were registered here.
+- **Owner decision 2026-10-22:** skills and hooks live in the Jarvis `.claude/` only.
+## Hard Rules
+- Scope is the Acer, Windows side. The scheduled task makes no model call. Do not change `Jarvis-WeeklyReview`, `Jarvis-GitAutoSync`, or the backfill task.
+- Do not edit `30_Order/Standards`, `Templates`, or `Workflows`, or `00_Dashboard.md`.
+- Never read or print `.credentials.json`, `.env*`, tokens, or `history.jsonl` text.
+- The register script is a dry run unless `-Apply`, refuses any host except `GUPTA-BUILDS`, and logs to `%LOCALAPPDATA%\claude-capture\`.
+- The runner takes a lock, writes `logs/conversation-digest.log` (add ignore lines for it as P5 did, proven with `git check-ignore -v`), and exits with an honest code.
+- Create the weekly review skeleton only if it does not exist. Never overwrite an owner-edited note.
+- Do not run `git commit`. After any vault write, look for `.sync-conflict-*` copies.
+- Notes: no em dashes, no blank line after a heading, path-qualified wikilinks, patch by heading, update `updated:`.
+- Do not set the status of this prompt to `complete`.
+## Implementation Order
+1. Read `register-weekly-review-task.ps1`, `weekly-review-silent.vbs`, `run-weekly-review.ps1`, `register-capture-backfill-windows-task.ps1`, and `register-jarvis-sync-task.ps1` with `sync-jarvis-silent.vbs`. Confirm whether Unison could overwrite `.claude/skills`. If it could, stop and ask the owner before step 6.
+2. Write `scripts/run-conversation-digest.ps1`: compute the ISO week (default: the current week, run on Sunday evening; a `-Week` parameter for any other), call the P6 digest script, then create `AI Tools Weekly Review - <ISO week>.md` in `60_Claude/30_Reviews/AI/Scheduled/Weekly/` from the AI Weekly Review Template with the Templater placeholders rendered by the script (date, title), `status: seed`, Period Covered filled, and a link to the digest. Exit non-zero if the digest fails.
+3. Write `scripts/conversation-digest-silent.vbs` and `scripts/register-conversation-digest-task.ps1` modeled on the weekly-review pair: Sundays 21:00 by default (a parameter), hidden, start when available, 10-minute limit, ignore new instances, runs on battery.
+4. Toast on completion using the `check-syncthing-status.ps1` pattern: the week, prompts found, coverage percentage, and "review due". Toast on failure as well.
+5. Test: run the runner by hand for a past week; run it twice and confirm the second run does not overwrite the skeleton; register with `-Apply`; run `Start-ScheduledTask`; read `LastTaskResult` (must be 0), the log line, and the new files.
+6. Nudge: in `.claude/skills/starting-day/SKILL.md` (confirm the path first), add one instruction to `/startday`: if the newest `AI Tools Weekly Review` note has `status: seed` and today is Sunday through Tuesday, add "Do the weekly conversation review (about 60 minutes the first four weeks)" to Today's Focus. Patch by heading and keep the skill under its length limit.
+7. Add the task to [[20_Progress/Projects/AI Use/Conversations/Capture Registration|Capture Registration]] and the trigger table in `30_Order/System/claude-workflow/README.md`, each with a dated entry.
+## Report Back
+- What the Unison check found.
+- The registered task's schedule, `LastTaskResult`, and the log line from the test run.
+- The skeleton note's path, and proof that a second run left it untouched.
+- The `/startday` diff and the toast text.
+- Anything the owner must decide, such as a different day or time.
+## What Not To Do
+- Do not let the scheduled task write codes, flags, or findings. It only prepares the review.
+- Do not auto-open the review note or change the owner's dashboard.
+- Do not register this on the Dell.
+## Related Notes
+[[20_Progress/Projects/AI Use/Conversations/Conversation Loop Build Plan|Build Plan]], [[20_Progress/Projects/AI Use/Conversations/Capture Registration|Capture Registration]], [[30_Order/Standards/AI Loop/Review System|Review System]].
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Prompts\P8 - Capture Watchdog.md`
+```
+---
+type: project
+status: active
+created: 2026-10-22
+updated: 2026-10-22
+tags:
+  - project
+  - ai
+  - conversations
+  - prompt
+project_kind: prompt
+task: capture-watchdog
+model: claude-sonnet-5-5
+---
+# P8 - Capture Watchdog
+Paste into a fresh Claude Code session started in the Jarvis vault: `Read and run 20_Progress/Projects/AI Use/Conversations/Prompts/P8 - Capture Watchdog.md. Follow Hard Rules and Report Back exactly.`
+## Why This Exists
+Capture has failed silently at least five times and a person noticed every time ([[20_Progress/Projects/AI Use/Conversations/Conversation Layer Postmortem|postmortem]] finding 2). `00 - Capture Health.md` records an exit code, which stays 0 while a hook points at a missing folder. No file lists what should be registered ([[20_Progress/Projects/AI Use/Conversations/Capture Registration|Capture Registration]]). This is build B8, the dead-man's switch: a check on its own schedule that looks for the absence of evidence, as in the healthchecks pattern the 2026-10-08 session cited.
+- **Verified 2026-10-22:** the backfill task runs every 30 minutes with result 0; `Jarvis-Syncthing-Health` is the only existing alarm and uses a toast; the activity log and the health state files live outside synced paths.
+- **Depends on:** P2 (the `export_result` lines), P5 (event rows and the settings entries), P7 (the digest task).
+- **Design rule, from the 10-08 session:** the watcher must not be the thing it watches, and the grace window is 1.5 times the expected cadence.
+## Hard Rules
+- Scope is the Acer, Windows side. The watchdog is read-only on everything except its own state and log. It never repairs and never restarts a task.
+- Do not edit `30_Order/Standards`, `Templates`, or `Workflows`, or `00_Dashboard.md`.
+- Never read or print `.credentials.json`, `.env*`, tokens, or `history.jsonl` text. Mtimes and counts only.
+- Compatible with Windows PowerShell 5.1. All paths come from parameters with defaults, so tests can point at synthetic folders.
+- Toast only on a change of state into WARN or FAIL, and once when it clears. No repeats.
+- Do not run `git commit`; add ignore lines for its state and log as in P5 and prove them. Look for `.sync-conflict-*` after writing.
+- Notes: no em dashes, no blank line after a heading, path-qualified wikilinks, patch by heading, update `updated:`.
+- Do not set the status of this prompt to `complete`.
+## Implementation Order
+1. Write `capture-expected.json` in `30_Order/System/claude-workflow/`: what must be true on this machine (hook entries and events, `cleanupPeriodDays` at or above 45, scheduled tasks and their cadence, the tracked project list). It is versioned in git and is the answer to "no file says what should be registered".
+2. Write `scripts/check-conversation-capture.ps1`. Each check returns OK, WARN, or FAIL with its evidence: (1) settings match the expected hooks and retention; (2) each expected task exists, is enabled, last result 0, last run younger than 1.5 times its cadence; (3) if a tracked-project transcript changed in the last N hours, event rows exist in that window; (4) the newest note is not older than its transcript by more than 35 minutes; (5) the oldest transcript is younger than `cleanupPeriodDays`; (6) `.sync-conflict-*` count under the capture and Conversations folders; (7) the digest task's last result; (8) informational: the stray statusline temp file count.
+3. Write state to `logs/capture-watchdog-<machine>.json` (last result per check, last state change) and a toast on state change. Exit 0 for OK, 1 for WARN, 2 for FAIL.
+4. Register it with its own task, every 60 minutes, using the same register-script pattern as P7 (dry run unless `-Apply`, host-locked). It is not called from any other script.
+5. Tests with synthetic folders: each check passing and failing; the debounce (a second run in the same state sends no second toast).
+6. Kill drill, written for the owner: set `JARVIS_EVENTS_OFF=1` as a user environment variable, use Claude Code in a tracked project for a few minutes, wait past the grace window or run the watchdog with `-GraceMinutes 5`, confirm a FAIL naming the events gap and a toast, then unset the variable and confirm it clears. Repeat once by disabling the backfill task for an hour. Do not run the drills yourself in a way that disables the owner's real capture without telling them first.
+7. Patch [[20_Progress/Projects/AI Use/Conversations/Capture Registration|Capture Registration]] (it now points at `capture-expected.json`) and [[60_Claude/07_AI_Information/How to Use Claude/Track Conversations|Track Conversations]] (the manual checks become "run the watchdog, then read these"), each with a dated entry.
+## Report Back
+- The expected-state file and the first live run's table of eight checks.
+- Test output and the task registration result.
+- The kill drill result (or the drill instructions if the owner has not run it), with the time between the break and the alert.
+- Any check that produced a false alarm on live data.
+## What Not To Do
+- Do not call this from the hook or the backfill. A dead job cannot report its own death.
+- Do not alert on every WARN run.
+- Do not fold in Dell, WSL, Cursor, or Cowork checks.
+## Related Notes
+[[20_Progress/Projects/AI Use/Conversations/Capture Registration|Capture Registration]], [[20_Progress/Projects/AI Use/Conversations/Conversation Layer Postmortem|Conversation Layer Postmortem]], [[60_Claude/07_AI_Information/How to Use Claude/Track Conversations|Track Conversations]].
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Prompts\P9 - Loop Closed Rehearsal.md`
+```
+---
+type: project
+status: active
+created: 2026-10-22
+updated: 2026-10-22
+tags:
+  - project
+  - ai
+  - conversations
+  - prompt
+project_kind: prompt
+task: loop-closed-rehearsal
+model: claude-sonnet-5-5
+---
+# P9 - Loop Closed Rehearsal
+Paste into a fresh Claude Code session started in the Jarvis vault: `Read and run 20_Progress/Projects/AI Use/Conversations/Prompts/P9 - Loop Closed Rehearsal.md. Follow Hard Rules and Report Back exactly.`
+## Why This Exists
+The owner's finish line for the Claude Code loop is: scheduled runs work, a test run passes, the human review loop has run, and existing sessions are captured on the Acer. The original build plan had a check per build and no check for the whole. This prompt is that check, run once on a real week. Nothing in it builds anything.
+- **Cannot start before:** P0 to P8 are complete and reviewed, and at least seven days of event rows exist from P5. If not, say so and stop.
+- **Honest limit:** the loop is not closed until a change made in a weekly review has been judged against its metric on its review date. This prompt can declare the loop running; it can only declare it closed when the first ledger row has been reviewed (usually two weeks after the first review).
+## Hard Rules
+- Scope is the Acer, Windows side, tracked projects.
+- Do not fix anything you find. Every failed check becomes a finding and, if needed, a build-plan row. The only writes are the report note, the hub Log and Current State, and the Build Plan row status.
+- Do not edit `30_Order/Standards`, `Templates`, or `Workflows`.
+- Never read or print `.credentials.json`, `.env*`, tokens, `history.jsonl` text, or transcript text.
+- Do not run `git commit`; look for `.sync-conflict-*` after writing.
+- Notes: no em dashes, no blank line after a heading, path-qualified wikilinks, patch by heading, update `updated:`.
+- Do not set the status of this prompt to `complete`.
+## Implementation Order
+1. Check the precondition above and list the P-prompts with their statuses.
+2. Run the twelve checks. For each one write the command or file you used, the output, and pass or fail.
+   1. **Coverage.** For the last seven days and the tracked projects, prompts in `history.jsonl` (count only) against prompts with event rows. Pass at 100%, or every gap explained by a known cause (a slash command, a headless run).
+   2. **Unattended schedule.** The digest task ran without anyone starting it: task result 0, a log line, a digest file for the week, and the review skeleton.
+   3. **Digest accuracy.** Ten sampled prompts hand-counted by the owner match the digest.
+   4. **Human pass.** The owner's blind pass took 60 minutes or less, and the ledger holds a row with change, metric, baseline, and a review date.
+   5. **Fresh-session test.** The owner repeated the prompt that failed in a fresh session after the change, and wrote down the result.
+   6. **Kill drill.** The watchdog turned FAIL within its grace window after capture was disabled, and cleared after it was re-enabled.
+   7. **Retention.** The oldest transcript is older than 30 days and still on disk.
+   8. **Sync.** No `.sync-conflict-*` under the capture or Conversations folders; the latest Auto-sync commit contains the digest and does not contain any `events-*.jsonl`.
+   9. **Privacy.** A pattern search of the events file and the digest for the exporter's secret prefixes finds nothing, and the digest holds no prompt text.
+   10. **Overhead.** The measured p95 per event from P5 still holds on the week's data, and the owner reports no slower sessions.
+   11. **Back-out.** Setting `JARVIS_EVENTS_OFF=1` stops event writes within one prompt, and removing the hook entries returns Claude Code to its old behavior. Both steps are written in `30_Order/System/claude-workflow/README.md`.
+   12. **Docs match reality.** [[20_Progress/Projects/AI Use/Conversations/Capture Registration|Capture Registration]], [[20_Progress/Projects/AI Use/Conversations/Capture Scripts|Capture Scripts]], and the Build Plan describe what is installed, with no stale "not built" lines.
+3. Write `60_Claude/30_Reviews/AI/Conversations/Loop Closed Rehearsal 2026-W<N>.md` as an audit (`review_kind: audit`) with the twelve results.
+4. Update the hub's Current State and Log, and mark each Build Plan row. If every check passes, write "loop running, not yet closed: first ledger review due <date>". If any fails, write the failing check first.
+5. Queue the next prompts only after this one, because their inputs now exist: B6 local reviewer pilot (needs 30 hand-coded prompts), B7 `/insights` skill (Jarvis `.claude/`), B9 Dell rollout (repo conversations only: Jarvis, internship-research-loop, second-brain-claudekit, portfolio, CausalOps, tradingview, re-exported from live transcripts), B10 rewrite of the `30_Order` conversation standards, then Codex. List what each one needs as input; do not write them.
+## Report Back
+- The twelve-row result table, with evidence.
+- Every finding, ranked, and what each blocks.
+- The state of each open owner decision.
+- The exact date the first ledger row is due for review.
+## What Not To Do
+- Do not mark a check passed on a count of runs. Mark it on evidence from this week.
+- Do not declare the loop closed.
+- Do not repair a failing check and then re-run it as if nothing happened.
+## Related Notes
+[[20_Progress/Projects/AI Use/Conversations/Conversation Loop Design|Conversation Loop Design]], [[20_Progress/Projects/AI Use/Conversations/Conversation Loop Build Plan|Build Plan]], [[20_Progress/Projects/AI Use/Conversations/Intervention Ledger|Intervention Ledger]], [[20_Progress/Projects/AI Use/Conversations/Weekly Review Protocol|Weekly Review Protocol]].
+
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Conversation Loop Build Plan.md`
+```diff
+- next: After the pre-implementation postmortem lands, run B0 (retention) and B1 (exporter dedup) in one session, then B2 (hook timing).
++ next: Run Prompts/P0 (retention and snapshot) today, then P1 and P2, then P3 (design postmortem); the order and prompts are in Corrections below.
+```
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/AI Use/Conversations" && tail -c 300 "Conversation Loop Build Plan.md" | cat -A | tail -4`
+```
+- Is 60 minutes a week for four weeks acceptable?$
+- Does the `/insights` skill (B7) go before or after the pilot (B6)?$
+## Non-Goals$
+Platforms other than Claude Code, any `30_Order` change before B10, and any build that lets a model change the setup by itself.$
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Conversation Loop Build Plan.md`
+```diff
+- ## Non-Goals
+Platforms other than Claude Code, any `30_Order` change before B10, and any build that lets a model change the setup by itself.
++ ## Non-Goals
+Platforms other than Claude Code, any `30_Order` change before B10, and any build that lets a model change the setup by itself.
+## Corrections
+*2026-10-22, later the same day. The sections above are kept as written.*
+### What had changed since the plan was written
+- B1 is half done. A Dell session on 2026-10-22 added message-id token dedup and vault-root-aware project routing to both exporters, with `test-token-dedup.ps1` and `test-project-routing.ps1`. The dedup test passes under PowerShell 7 (re-run on the Acer). The price table, `status: seed`, the BOM, and the fenced commands are still open. The changes are uncommitted in the shared tree.
+- The Dell's `Jarvis-GitAutoSync` is disabled. The Acer is the only git writer, so the Syncthing conflict risk in the handoff is much smaller (0 live conflict copies found).
+- The oldest transcript on the Acer is dated 2026-09-24 and moves forward daily, so B0 is urgent, not just first.
+- Claude Code is 2.1.309 on the Acer, not 2.1.307.
+- The events folder is not "already ignored by git and Syncthing". Only named log files are listed, so P5 adds the ignore lines.
+- The weekly note's home in [[20_Progress/Projects/AI Use/Conversations/Weekly Review Protocol|Weekly Review Protocol]] conflicts with the Note Type Registry. The registry wins: `60_Claude/30_Reviews/AI/Scheduled/Weekly/`, using the AI Weekly Review Template. P4 settles the mapping.
+- "One commit per build" is replaced by one session log entry per build, because `Jarvis-GitAutoSync` commits every 30 minutes and is the only git writer.
+### Owner decisions, 2026-10-22
+| Decision | Answer |
+|---|---|
+| `cleanupPeriodDays` on the Acer | 60 days. Never 0. |
+| Dell scope | Repo conversations only: Jarvis, internship-research-loop, second-brain-claudekit, portfolio, CausalOps, tradingview. The rest of the Dell archive is clutter and out of scope. Build B9. |
+| Acer tree | Fresh tree and the test bed for the new design. Project-based sessions are re-exported from live transcripts. Older notes whose transcripts were swept stay, recognizable by having no `review_state`. |
+| Weekly reviewer | The person reads and codes first, the local model flags afterward. |
+| Skill and hook home | The Jarvis vault `.claude/` only. |
+| Events | Per machine, and scoped to tracked projects so The Plan's personal content stays out of Jarvis logs. |
+### Revised order and prompts
+Each prompt is an Agent Prompt Standard note in `Prompts/`, one fresh session each. B-numbers are the original builds.
+| Prompt | Covers | Done when |
+|---|---|---|
+| [[20_Progress/Projects/AI Use/Conversations/Prompts/P0 - Retention and Transcript Snapshot\|P0]] | B0 | Setting read back, snapshot counts match, sweep check pending |
+| [[20_Progress/Projects/AI Use/Conversations/Prompts/P1 - Exporter Finish and Acer Re-export\|P1]] | B1 remainder, tracked-project re-export | Tests green in both shells, two hand counts within 5% |
+| [[20_Progress/Projects/AI Use/Conversations/Prompts/P2 - Hook Timing and Failure Record\|P2]] | B2 and the export result record | Timing table, `export_result` lines, tested hook |
+| [[20_Progress/Projects/AI Use/Conversations/Prompts/P3 - Design Postmortem\|P3]] | Pre-implementation postmortem | Nine findings, each keep, change, or cut |
+| [[20_Progress/Projects/AI Use/Conversations/Prompts/P4 - Review Notes and First Hand Review\|P4]] | B5 and week one by hand | One real weekly note, one ledger row |
+| [[20_Progress/Projects/AI Use/Conversations/Prompts/P5 - Event Capture Hook\|P5]] | B3 | Pinned schema, concurrency and overhead tests, owner smoke test |
+| [[20_Progress/Projects/AI Use/Conversations/Prompts/P6 - Weekly Digest\|P6]] | B4 | Golden test, owner hand count on ten prompts |
+| [[20_Progress/Projects/AI Use/Conversations/Prompts/P7 - Schedule and Review Nudge\|P7]] | New | Scheduled run result 0, skeleton created once, `/startday` nudge |
+| [[20_Progress/Projects/AI Use/Conversations/Prompts/P8 - Capture Watchdog\|P8]] | B8 | Kill drill alerts within the grace window |
+| [[20_Progress/Projects/AI Use/Conversations/Prompts/P9 - Loop Closed Rehearsal\|P9]] | New | Twelve checks on a real week |
+P0 to P2 are repairs and do not wait for P3. P4 can run in parallel with P5 and P6 because the first four weekly reviews are by hand. B6 (local reviewer pilot), B7 (`/insights` skill), B9 (Dell), B10 (`30_Order` rewrite), and Codex get prompts after P9, because their inputs (30 hand-coded prompts, a reviewed ledger row, the Dell's live state) do not exist yet.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Per-Prompt Record.md`
+```diff
+- ## Non-Goals
+Not a replacement for the transcript, and not scored.
++ ## Corrections
+*2026-10-22.* The claim above that `logs/` is "already ignored by git and Syncthing" is wrong for a new file. `.gitignore` and `.stignore` list specific names (`capture-health-*.json`, `git-auto-sync.log`, and a few more), so `events-*.jsonl` would be tracked and synced. Build P5 adds the ignore lines and proves them with `git check-ignore -v`. Also, `prompt_id` is documented as absent until the first user input, and event rows from projects outside the tracked list are dropped, not stored.
+## Non-Goals
+Not a replacement for the transcript, and not scored.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Conversation Loop Sources.md`
+```diff
+- - A-MEM: the token saving for small models is 12 to 15 times, not the 7 times first reported.
++ - A-MEM: the token saving for small models is 12 to 15 times, not the 7 times first reported.
+- Gloaguen et al., checked again 2026-10-22 against the arXiv abstract: it says context files "tend to reduce task success rates" while raising inference cost by over 20%, which is stronger than the "no significant gain" in row 6. The direction supports the one-change-per-week rule more, not less. Re-read the full text for the exact table before build B10 cites a number.
+- Tang et al.: the per-category percentages used in [[20_Progress/Projects/AI Use/Conversations/Failure Taxonomy|Failure Taxonomy]] were not found in a search of secondary summaries. They come from the full text read earlier. Keep citing the paper, not a blog.
+- `cleanupPeriodDays: 0` has conflicting reports (the docs reject it; a public issue says it stopped transcripts being written). Never set it.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Conversation Loop Sources.md`
+```diff
+- were not found in a search of secondary summaries. They come from the full text read earlier. Keep citing the paper, not a blog.
++ were not confirmed by the 2026-10-22 web search, which found them only on a third-party blog. They rest on the earlier full-text read. Keep citing the paper, not a blog.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Conversation Layer.md`
+```diff
+- next: Write the pre-implementation postmortem of Conversation Loop Design, then hand Conversation Loop Build Plan to its own session.
++ next: Run Prompts/P0 (retention and transcript snapshot) in a fresh session today, then P1 and P2; P3 (the design postmortem) follows.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Conversation Layer.md`
+```diff
+- ## Next Action
+Write the pre-implementation postmortem of [[20_Progress/Projects/AI Use/Conversations/Conversation Loop Design|Conversation Loop Design]]: one finding per layer, each stress-tested against [[20_Progress/Projects/AI Use/Conversations/Machine Audit 2026-10-22|Machine Audit 2026-10-22]]. Then run B0 and B1 from the build plan. The design stays `active` until that postmortem lands.
++ ## Next Action
+Run [[20_Progress/Projects/AI Use/Conversations/Prompts/P0 - Retention and Transcript Snapshot|P0]] in a fresh session today: set `cleanupPeriodDays` to 60 and snapshot the live transcripts, because the oldest one moves forward every day. Then P1 and P2 (repairs that do not wait for the design), then [[20_Progress/Projects/AI Use/Conversations/Prompts/P3 - Design Postmortem|P3]], the pre-implementation postmortem of [[20_Progress/Projects/AI Use/Conversations/Conversation Loop Design|Conversation Loop Design]]. The order, the prompts, and what changed since the build plan was written are in the Corrections section of [[20_Progress/Projects/AI Use/Conversations/Conversation Loop Build Plan|Conversation Loop Build Plan]].
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Conversation Layer.md`
+```diff
+- - [ ] Keep or retire the legacy `Windows/Claude Code/` and `Windows/Cowork/` trees. 107 notes are duplicates of sessions that also sit under `Dell/` or inside one tree. Owner decision.
+- [ ] Wire or retire Cowork capture. No Cowork session has been captured since 2026-07-24.
++ - [ ] Keep or retire the legacy `Windows/Claude Code/` and `Windows/Cowork/` trees. 107 notes are duplicates of sessions that also sit under `Dell/` or inside one tree. Owner decision. Partly answered 2026-10-22: the Dell is repo conversations only, so these trees are outside the Acer loop; the retire decision waits for build B9.
+- [ ] Wire or retire Cowork capture. No Cowork session has been captured since 2026-07-24. Out of scope for the Claude Code loop; decide at build B9.
+- [ ] Which Acer project folders count as tracked (default offered: Jarvis, The Plan, Home)? Asked by P1, step 7; it also scopes the event hook in P5.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Conversation Layer.md`
+```diff
+- - [ ] Owner decisions for the build: `cleanupPeriodDays` value, events per machine or synced, which local models to pull, weekly time budget. Listed in [[20_Progress/Projects/AI Use/Conversations/Conversation Loop Build Plan|Conversation Loop Build Plan]].
++ - [x] Owner decisions of 2026-10-22: `cleanupPeriodDays` 60 on the Acer; the human reviews first and the local model flags after; events per machine and scoped to tracked projects; Jarvis `.claude/` for skills; the Dell is repo conversations only. Recorded in the Corrections of [[20_Progress/Projects/AI Use/Conversations/Conversation Loop Build Plan|Conversation Loop Build Plan]].
+- [ ] Still open: which local models to pull (decided by the pilot), the weekly time budget (P4 records minutes per step), and whether `/insights` goes before or after the pilot.
+```
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/AI Use/Conversations" && tail -n 12 "Conversation Layer.md" | cut -c1-120`
+```
+- [ ] Still open: which local models to pull (decided by the pilot), the weekly time budget (P4 records minutes per step
+- [ ] Which of the two empty `How to Use Claude` notes (`How to Run Plugins & Tools`, `How to Use Skill Map`) belong to 
+## Log
+- **2026-10-21:** Measured the live layer against the Acer's own transcripts, wrote the postmortem and the as-built reco
+- **2026-10-21 (later):** Checked the layer against the Claude Code docs and re-read three papers from full text. Added 
+- **2026-10-22:** Research finished. Replaced three weak sources, locked ten in [[20_Progress/Projects/AI Use/Conversati
+## Related Notes
+- [[20_Progress/Projects/AI Use/Conversations/Conversation Layer Postmortem|Conversation Layer Postmortem]] holds the ch
+- As-built records, one job each: [[20_Progress/Projects/AI Use/Conversations/Capture Pipeline - As Built|Capture Pipeli
+- The locked loop: [[20_Progress/Projects/AI Use/Conversations/Conversation Loop Design|Design]], [[20_Progress/Projects
+- The rules these notes will eventually be measured against: [[30_Order/Standards/AI Loop/Conversations|Conversations]],
+- Background: [[60_Claude/40_Project_Briefs/Codebase Sync Decision and Logging Failure Audit — 2026-10-04|the 2026-10-
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Conversation Layer.md`
+```diff
+- The pre-implementation postmortem is next.
+## Related Notes
++ The pre-implementation postmortem is next.
+- **2026-10-22 (later):** Re-read the whole layer against the live Acer. Found the build plan stale (B1 half done by a Dell session, Dell git writer disabled, oldest transcript moving daily, the planned events folder not actually ignored, the weekly note's home in conflict with the registry). Recorded the owner's decisions and wrote ten session prompts, P0 to P9, in `Prompts/`; the revised order is in the Build Plan's Corrections. Nothing was built.
+## Related Notes
+- The session prompts, one per build, each self-contained: [[20_Progress/Projects/AI Use/Conversations/Prompts/P0 - Retention and Transcript Snapshot|P0]], [[20_Progress/Projects/AI Use/Conversations/Prompts/P1 - Exporter Finish and Acer Re-export|P1]], [[20_Progress/Projects/AI Use/Conversations/Prompts/P2 - Hook Timing and Failure Record|P2]], [[20_Progress/Projects/AI Use/Conversations/Prompts/P3 - Design Postmortem|P3]], [[20_Progress/Projects/AI Use/Conversations/Prompts/P4 - Review Notes and First Hand Review|P4]], [[20_Progress/Projects/AI Use/Conversations/Prompts/P5 - Event Capture Hook|P5]], [[20_Progress/Projects/AI Use/Conversations/Prompts/P6 - Weekly Digest|P6]], [[20_Progress/Projects/AI Use/Conversations/Prompts/P7 - Schedule and Review Nudge|P7]], [[20_Progress/Projects/AI Use/Conversations/Prompts/P8 - Capture Watchdog|P8]], [[20_Progress/Projects/AI Use/Conversations/Prompts/P9 - Loop Closed Rehearsal|P9]].
+```
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && find . -name "*.sync-conflict-*" -not -path "./.stversions/*" -not -path "./.git/*" 2>/dev/null | head; echo "conflicts above (none = clean)"; grep -c "—" 20_Progress/Projects/AI\ Use/Conversations/Prompts/*.md; grep -n "—" 20_Progress/Projects/AI\ Use/Conversations/Conversation\ Loop\ Build\ Plan.md | head -3; ls -la "20_Progress/Projects/AI Use/Conversations/Prompts"`
+```
+conflicts above (none = clean)
+20_Progress/Projects/AI Use/Conversations/Prompts/P0 - Retention and Transcript Snapshot.md:0
+20_Progress/Projects/AI Use/Conversations/Prompts/P1 - Exporter Finish and Acer Re-export.md:0
+20_Progress/Projects/AI Use/Conversations/Prompts/P2 - Hook Timing and Failure Record.md:0
+20_Progress/Projects/AI Use/Conversations/Prompts/P3 - Design Postmortem.md:0
+20_Progress/Projects/AI Use/Conversations/Prompts/P4 - Review Notes and First Hand Review.md:1
+20_Progress/Projects/AI Use/Conversations/Prompts/P5 - Event Capture Hook.md:0
+20_Progress/Projects/AI Use/Conversations/Prompts/P6 - Weekly Digest.md:0
+20_Progress/Projects/AI Use/Conversations/Prompts/P7 - Schedule and Review Nudge.md:0
+20_Progress/Projects/AI Use/Conversations/Prompts/P8 - Capture Watchdog.md:0
+20_Progress/Projects/AI Use/Conversations/Prompts/P9 - Loop Closed Rehearsal.md:0
+total 80
+drwxr-xr-x 1 anant 197609    0 Oct 22 23:22 .
+drwxr-xr-x 1 anant 197609    0 Oct 22 23:23 ..
+-rw-r--r-- 1 anant 197609 5316 Oct 22 23:21 P0 - Retention and Transcript Snapshot.md
+-rw-r--r-- 1 anant 197609 7332 Oct 22 23:21 P1 - Exporter Finish and Acer Re-export.md
+-rw-r--r-- 1 anant 197609 5932 Oct 22 23:21 P2 - Hook Timing and Failure Record.md
+-rw-r--r-- 1 anant 197609 6659 Oct 22 23:21 P3 - Design Postmortem.md
+-rw-r--r-- 1 anant 197609 6918 Oct 22 23:21 P4 - Review Notes and First Hand Review.md
+-rw-r--r-- 1 anant 197609 8355 Oct 22 23:22 P5 - Event Capture Hook.md
+-rw-r--r-- 1 anant 197609 6937 Oct 22 23:22 P6 - Weekly Digest.md
+-rw-r--r-- 1 anant 197609 5882 Oct 22 23:22 P7 - Schedule and Review Nudge.md
+-rw-r--r-- 1 anant 197609 5506 Oct 22 23:22 P8 - Capture Watchdog.md
+-rw-r--r-- 1 anant 197609 5685 Oct 22 23:22 P9 - Loop Closed Rehearsal.md
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Prompts\P4 - Review Notes and First Hand Review.md`
+```diff
+- - **The existing W34 review** is named `AI Tools Weekly Review — 2026-W34` with an em dash, which the writing rules ban. New weekly notes use a hyphen.
++ - **The existing W34 review** has an em dash between "Review" and "2026-W34" in its filename, which the writing rules ban. New weekly notes use a hyphen.
+```
 
 ## Actions Taken
 
 **Files created:**
-_None_
+- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Prompts\P0 - Retention and Transcript Snapshot.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Prompts\P1 - Exporter Finish and Acer Re-export.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Prompts\P2 - Hook Timing and Failure Record.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Prompts\P3 - Design Postmortem.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Prompts\P4 - Review Notes and First Hand Review.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Prompts\P5 - Event Capture Hook.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Prompts\P6 - Weekly Digest.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Prompts\P7 - Schedule and Review Nudge.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Prompts\P8 - Capture Watchdog.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Prompts\P9 - Loop Closed Rehearsal.md`
 
 **Files modified:**
-_None_
+- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Conversation Layer.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Conversation Loop Build Plan.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Conversation Loop Sources.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Projects\AI Use\Conversations\Per-Prompt Record.md`
 
 **Files deleted (heuristic, from Bash commands):**
 _None detected_
@@ -1585,5 +2929,15 @@ EOF`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis" && f="60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis/10-08 Jarvis conversation tracking analysis.md" && grep -n '^## ' "$f" | head -40; wc -l "$f"`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis" && wc -c "60_Claude/07_AI_Information/Jarvis OS — North Star.md" "20_Progress/Projects/AI Use/The AI Hub.md" "20_Progress/Projects/AI Use/Ollama.md"; ls "20_Progress/Projects/AI Use/Builds & Resources" "20_Progress/Projects/AI Use/Claude Kit" "20_Progress/Projects/AI Use/Gen AI" | head -40; find . -maxdepth 6 -iname "*local ai*" -not -path "./.git/*" | head; find /d/_Anant -maxdepth 4 -iname "second-brain-claudekit*" 2>/dev/null | head`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis" && f="60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis/10-17 Local AI build plan for laptop.md" && wc -l "$f" && grep -n '^## ' "$f" | head -30 && sed -n 1,60p "$f" | cut -c1-1200`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && sed -n 1,200p Standards/Project\ Standard.md | cut -c1-900; echo =========; sed -n 1,120p "Standards/Spec and Plan Standard.md" | cut -c1-900`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && find . -iname "Agent Prompt*" -o -iname "Spec and Plan*" -o -iname "*Prompt*Template*" -o -iname "Note Type Registry*" | head; `
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && find 30_Order -iname "Prompt Cycle*" | head -2; cat "$(find 30_Order -iname 'Prompt Cycle.md' | head -1)" | cut -c1-1200; echo ==========GOLD; cat "60_Claude/40_Project_Briefs/CausalOps/claude code/ran/01 - Fix MCP Server Deployment and Housekeeping.md" | cut -c1-1500 | head -90`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/claude-workflow/scripts" && grep -nE "^param|\[switch\]|\[string\]\\\$|status:|Set-Content|Out-File|WriteAllText|UTF8|\.done|LastWriteTime|Format-ToolCall|function |PriceTable|\\\$Pricing|haiku|sonnet|opus|Get-CaptureMachine|StartsWith\('<'|\.StartsWith" export-claude-session.ps1 | cut -c1-170 | head -120; wc -l export-claude-session.ps1`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && ls -d /d/_Anant/99_Archive 2>&1 | head -2; node --version 2>&1; echo ---gitignore; grep -nE "logs|events|claude-workflow" .gitignore .stignore 2>/dev/null | head -30; echo ---toast; grep -rln "BurntToast\|ToastNotification\|New-BurntToastNotification" 30_Order/System --include=*.ps1 | head; echo ---registry; grep -nE "review|generated" "30_Order/Note Type Registry.md" | cut -c1-260 | head -20; echo ---lint; find 30_Order -iname "Vault Lint*" | head`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && sed -n 1,80p Standards/Review/Review\ Standard.md 2>/dev/null | cut -c1-700 || find . -iname "Review Standard*"; find . -iname "Review Standard.md" -o -iname "Generated Output Standard.md" | head`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && sed -n 20,75p Standards/Enrich/Review\ Standard.md | cut -c1-600; echo ======TEMPLATE; f=$(find . -iname "AI Weekly Review Template.md" | head -1); echo $f; cat "$f" | cut -c1-400; echo ======GEN; sed -n 20,70p Standards/Generated\ Output\ Standard.md | cut -c1-500`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/AI Use/Conversations" && tail -c 300 "Conversation Loop Build Plan.md" | cat -A | tail -4`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Projects/AI Use/Conversations" && tail -n 12 "Conversation Layer.md" | cut -c1-120`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && find . -name "*.sync-conflict-*" -not -path "./.stversions/*" -not -path "./.git/*" 2>/dev/null | head; echo "conflicts above (none = clean)"; grep -c "—" 20_Progress/Projects/AI\ Use/Conversations/Prompts/*.md; grep -n "—" 20_Progress/Projects/AI\ Use/Conversations/Conversation\ Loop\ Build\ Plan.md | head -3; ls -la "20_Progress/Projects/AI Use/Conversations/Prompts"`
 
 

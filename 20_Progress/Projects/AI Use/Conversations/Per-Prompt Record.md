@@ -52,5 +52,7 @@ The hook writes `tools[]` rows as they happen (`PostToolUse`, `PostToolUseFailur
 - Raw transcripts stay where Claude Code puts them, kept longer with `cleanupPeriodDays` (build B0), because two sources in [[20_Progress/Projects/AI Use/Conversations/Conversation Loop Sources|Conversation Loop Sources]] favor the raw record over summaries of it: the Meta-Harness ablation in the set-aside list (full traces beat summaries) and LongMemEval in the supporting list (summarized values lose information).
 ## What the record deliberately leaves out
 Assistant prose beyond the final message head, thinking blocks, tool result bodies, and pasted documents. The prompt text is redacted by the same rules as the exporter plus a block on anything that looks like a pasted file; `history.jsonl` is never copied.
+## Corrections
+*2026-10-22.* The claim above that `logs/` is "already ignored by git and Syncthing" is wrong for a new file. `.gitignore` and `.stignore` list specific names (`capture-health-*.json`, `git-auto-sync.log`, and a few more), so `events-*.jsonl` would be tracked and synced. Build P5 adds the ignore lines and proves them with `git check-ignore -v`. Also, `prompt_id` is documented as absent until the first user input, and event rows from projects outside the tracked list are dropped, not stored.
 ## Non-Goals
 Not a replacement for the transcript, and not scored. The record has no quality score; the review decides what was wrong, and the code list in [[20_Progress/Projects/AI Use/Conversations/Failure Taxonomy|Failure Taxonomy]] is the vocabulary.

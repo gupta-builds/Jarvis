@@ -5,8 +5,8 @@ source_app: claude-code
 source_os: windows
 title: "Valorant high ping and freezing"
 started_at: 2026-10-23T11:48:58
-ended_at: 2026-10-23T11:51:29
-exported_at: 2026-10-23T11:51:30
+ended_at: 2026-10-23T11:51:30
+exported_at: 2026-10-23T12:03:04
 duration_minutes: 2.5
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'

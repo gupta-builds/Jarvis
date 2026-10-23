@@ -427,8 +427,15 @@ if ($folderPath -and (Test-Path (Join-Path $folderPath ".git"))) {
     # so an earlier failure that a later successful run already superseded
     # does not keep alerting.
     try {
+        # Known Failure Mode 20: the Dell's git writer is deliberately disabled, so its
+        # last log line is frozen history, not a live failure.
+        $gitSyncTask = Get-ScheduledTask -TaskName "Jarvis-GitAutoSync" -ErrorAction SilentlyContinue
+        $gitSyncDisabled = $gitSyncTask -and $gitSyncTask.State -eq 'Disabled'
+        if ($gitSyncDisabled) {
+            Write-Host "Jarvis-GitAutoSync is disabled on this machine (single-git-writer design); skipping git-auto-sync.log check."
+        }
         $syncLogPath = Join-Path $folderPath "30_Order\System\claude-workflow\logs\git-auto-sync.log"
-        if (Test-Path -LiteralPath $syncLogPath) {
+        if (-not $gitSyncDisabled -and (Test-Path -LiteralPath $syncLogPath)) {
             $lastEnd = Get-Content -LiteralPath $syncLogPath -Tail 80 -ErrorAction SilentlyContinue | Where-Object { $_ -match '=== git-auto-sync end' } | Select-Object -Last 1
             if ($lastEnd -and $lastEnd -match 'FAILED') {
                 Write-Error "git-auto-sync.log's most recent run ended FAILED: $lastEnd"

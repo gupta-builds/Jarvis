@@ -24,6 +24,9 @@ notes:
 ---
 # Duration of Status Rule
 In July 2026 DHS finalized a rule that would end the open-ended admission F-1 students have had since 1978 and replace it with a fixed date, and a federal court postponed it the day before it took effect. It is the rule most likely to rearrange the dates in my own timeline if it comes back. This note captures what the rule says, why DHS wrote it, how the transition works, where the lawsuit stands, and which pages are wrong about it. Read it whenever a page quotes a 30-day window.
+## In Plain Words
+Today an F-1 student is admitted with no end date. I can stay as long as I keep studying or working on OPT. The July 2026 rule would give every student an end date, the "Admit Until Date," of up to four years, and anyone who needs more time, including time for OPT, would have to apply to extend it. A federal judge paused the rule the day before it was to start, so for now the old system continues. The ISSS advisor said the same: "there's still an injunction, but we don't know if or when that would be lifted," and ISSS's OPT page says the OPT process "remains unchanged" ([[ISSS October Meeting Brief]], [[US Immigration Rules Explained]]).
+For me the worry is paperwork and timing. If the rule returns, OPT windows would shrink from 60 to 30 days, and I would probably file an extension application together with my OPT application ([[2028 Graduation Timeline]]).
 ## The Rule At A Glance
 | Item | Detail |
 | --- | --- |
@@ -75,6 +78,12 @@ This section is analysis.
 - *If the rule comes back before 2028:* I would be a current student under D/S on the effective date, so I could stay until my program end date plus 60 days. But the no-extension exemption for OPT filers ends on March 18, 2027 as written, and I would file in early 2028. Unless DHS extends that date, I should expect to file an extension of stay with the OPT application, with its fee and biometrics, and the OPT filing and start windows would shrink to 30 days.
 - *Travel is a trap:* leaving after the rule takes effect produces a fixed admission and an extension-of-stay requirement for OPT.
 - *The OPT fee rule assumes it:* the fee notice is drafted as if the fixed-period rule is part of the baseline, so a revived rule and a final fee rule would stack ([[OPT Fee Proposal]]).
+## Words Used In This Note
+- *Duration of status (D/S):* the open-ended stay F-1 students have now.
+- *Admit Until Date:* the fixed end date the new rule would put on the I-94.
+- *Extension of stay:* an application to USCIS for more time.
+- *Injunction:* a court order that bars the government from doing something.
+- *Appeal:* asking a higher court to review a ruling.
 ## Open Questions
 - [ ] Watch First Circuit No. 26-2112 for a ruling after the government's November 9 brief 📅 2026-11-09
 - [ ] Ask ISSS whether it will publish a decision tree for students who graduate in 2028 if the rule returns

@@ -23,6 +23,8 @@ notes:
 ---
 # H-1B Rule Proposals
 Four proposals and two final rules from 2026 reshape what an H-1B costs and how closely it is reviewed, and none of them has reached a final form that applies to me yet. This note records each: what it changes, the numbers DHS and the Department of Labor give, when comments closed or close, and what it means for a 2028 graduate. Read it when an employer cites cost as a reason not to sponsor.
+## In Plain Words
+Several government proposals this year would make hiring a foreign graduate on an H-1B more expensive or harder to keep. None of them is final except two small ones. A fee of $103,265 per new H-1B, a higher minimum wage for H-1B jobs, an end to treating a first approval as a reason to approve extensions quickly, and an end to the 60-day cushion after a layoff. The effect on me is mostly through the employer: a company that must pay more is less willing to sponsor, so my plan is to ask each employer how it expects these to affect it ([[H-1B Odds Plan]], [[US Immigration Rules Explained]]).
 ## The Measures At A Glance
 | Measure | Citation | Docket and RIN | Comments | Status |
 | --- | --- | --- | --- | --- |
@@ -53,6 +55,12 @@ Regulations now give workers in E-1, E-2, E-3, H-1B, H-1B1, L-1, O-1 and TN stat
 - *Weighted selection:* in force for FY2027 ([[H-1B Lottery]]).
 ## What Stacks Up For An Employer
 An employer sponsoring a new graduate might face, depending on how each measure ends: a $215 registration, the proposed $103,265, a higher wage floor, possible scrutiny at extension, and a biometric charge at extension. That list is what a hiring manager could be weighing in 2028. It is a projection from the proposals as written, and the final versions may differ or not issue at all.
+## Words Used In This Note
+- *Prevailing wage:* the pay level the Department of Labor says is normal for a job and city.
+- *Deference:* USCIS giving weight to an earlier approval of the same facts.
+- *Grace period:* time allowed after a job ends before status is lost.
+- *Cap-subject:* counted against the yearly H-1B limit.
+- *Notice of proposed rulemaking:* a rule the government is thinking about.
 ## Open Questions
 - [ ] Read the September 10 correction to the fee notice 📅 2026-11-15
 - [ ] Decide whether to comment on the deference and grace-period proposals by their deadlines

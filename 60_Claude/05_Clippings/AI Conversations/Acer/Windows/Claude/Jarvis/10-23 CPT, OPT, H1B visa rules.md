@@ -5,30 +5,30 @@ source_app: claude-code
 source_os: windows
 title: "CPT, OPT, H1B visa rules"
 started_at: 2026-10-23T13:01:28
-ended_at: 2026-10-23T14:45:40
-exported_at: 2026-10-23T16:03:10
-duration_minutes: 104.2
+ended_at: 2026-10-23T16:50:36
+exported_at: 2026-10-23T16:50:40
+duration_minutes: 229.1
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: a8711819-664b-4922-952b-4190546bfc01
 status: raw
-turn_count: 8
+turn_count: 10
 tools_used:
   Agent: 5
-  Bash: 118
-  Edit: 51
+  Bash: 154
+  Edit: 128
   Glob: 5
   Grep: 18
-  Read: 34
+  Read: 38
   ToolSearch: 3
   WebSearch: 10
-  Write: 27
+  Write: 36
 tokens:
-  input: 394
-  output: 280719
-  cache_creation: 696357
-  cache_read: 79895977
-  total: 80873447
+  input: 536
+  output: 420301
+  cache_creation: 1618044
+  cache_read: 139438456
+  total: 141477337
 cost_usd: null
 model:
   - "claude-sonnet-5-5"
@@ -59,15 +59,20 @@ files_touched:
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\10_Areas\\Career\\VISAs & Work Auth\\F-1 Visa.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\10_Areas\\Career\\VISAs & Work Auth\\H-1B 100K Payment.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\10_Areas\\Career\\VISAs & Work Auth\\H-1B Lottery.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\10_Areas\\Career\\VISAs & Work Auth\\H-1B Odds Plan.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\10_Areas\\Career\\VISAs & Work Auth\\H-1B Rule Proposals.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\10_Areas\\Career\\VISAs & Work Auth\\H1B Visa.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\10_Areas\\Career\\VISAs & Work Auth\\ISSS Meeting.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\10_Areas\\Career\\VISAs & Work Auth\\ISSS\\ISSS October Meeting Brief.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\10_Areas\\Career\\VISAs & Work Auth\\ISSS\\October Meeting Transcript.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\10_Areas\\Career\\VISAs & Work Auth\\Junior Year Internship Decision.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\10_Areas\\Career\\VISAs & Work Auth\\OPT Fee Proposal.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\10_Areas\\Career\\VISAs & Work Auth\\OPT Playbook.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\10_Areas\\Career\\VISAs & Work Auth\\OPT Program.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\10_Areas\\Career\\VISAs & Work Auth\\Pre-Completion OPT.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\10_Areas\\Career\\VISAs & Work Auth\\SEVP and DSOs.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\10_Areas\\Career\\VISAs & Work Auth\\STEM OPT Extension.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\10_Areas\\Career\\VISAs & Work Auth\\US Immigration Rules Explained.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\10_Areas\\Career\\VISAs & Work Auth\\Visa Litigation Tracker.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\10_Areas\\Career\\VISAs & Work Auth\\VISA Plan.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Internship\\Career Fair\\Transcript - OPT.md"
@@ -77,10 +82,12 @@ files_touched:
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\Enrich\\Evergreen Standard.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\Enrich\\Reference Standard.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\Frontmatter Standard.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\Ingestion\\Brief Standard.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\MOC Standard.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\Plan Standard.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Templates\\Capability\\MOC Template.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Templates\\Knowledge\\Reference Template.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\40_Resources\\UMN\\Links.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\60_Claude\\07_AI_Information\\Jarvis Writing and Formatting.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\HUMAN_WRITING.md"
 tags:
@@ -10155,6 +10162,3385 @@ Scanned 23 notes in scope (excluded: 1 out of scope, 1468 tier 4, 78 templates).
 FIT: 23/23 = 100.0%
 ```
 
+## You
+
+Some great questions were asked through the session and some were not but either ways a lot of knowledge was provided and discussed through the meeting and actions for us to take, solidify and improve on. Add the resource: `10_Areas/Career/VISAs & Work Auth/ISSS/October Meeting Transcript` as something golden to be used over here. Let's first go over everything that was discussed in the meeting, making sure that all the things that were talked about are implemented and learned about. We need to solidify our core understanding of this entire process. More than enough that we have a brief head start to the expected process ahead of us for a highly paid job. We need to make this process almost frictionless so that the h1-b "lottery ticket" is not really a lottery but a clearly devised plan. For the things that are listed out already, research done, etc. We need to solidfy the information further making sure that the content is excellently put out for someone who has no ideas on u.s. laws and regulations to understand. A lot of the meeting details also talk a lot about u.s. regulations, we have no idea of these things. So, the notes that are written out and to be written need to be written for any beginner to understand in simple terms: `10_Areas/Career/VISAs & Work Auth`. Add this link to the umn resources file: `https://isss.umn.edu/fstudents/employment/opt/pre-completion-opt`. Let's make sure to make the most use of the conversation that was taken place over here by laying out 2 or 3 concrete notes and modify all the existing notes to contain more solid, well researched and easily explained notes. Write everything clearly and in simple terms. Explain yourself and terms that are hard to understand. Go ahead and work on each note individually now. Let's make sure that everything is correctly laid out now. For some notes specifically: `10_Areas/Career/VISAs & Work Auth/VISA Plan` is going to be focusing solely on OPT and waiting on the CPT process. The details for the CPT process are well researched so that if this is resumed we are two steps ahead. If not, it's just knowledge. But opt is something that's still existing and should be applied for correctly, step opt, pre opt and all the other opt details that are discussed and mentioned in the meeting should be written out only after solid research lands on these things. Utilize each and every single word out of the transcript to understand the stresspoint of everything that i am talking about. Make no mistakes with this task, really understand the goal. Understand the pain point and then draft the notes for success at 100% for me. Let's make sure this is not a "lottery".
+
+## Claude
+
+I'll start with the transcript itself, since everything else depends on it, and find the "UMN resources file" you mentioned.
+
+The transcript is about 25 KB. You asked me to use every word, so I'll read all of it.
+
+Premium processing for OPT is **$1,780** on USCIS's fee schedule (edition 10/16/26), matching the advisor's "about $1,800". Now the base OPT application fee.
+
+Now how the master's-degree cap works inside the weighted draw, which is the biggest "controllable" lever for a bachelor's student.
+
+Now the meeting brief, covering everything discussed, what it corrects in my earlier notes, and what was left unanswered.
+
+Next, the beginner guide to how the U.S. system works, since the meeting leaned on terms like "comment period," "injunction," and "final rule" that you shouldn't have to guess at.
+
+Now the OPT Playbook, the step-by-step process with real dates, costs, and the traps.
+
+Two structural fixes (some tables had paragraphs directly above or below them, which can render badly) and four accuracy edits.
+
+Now the rewrites of the core OPT notes. First `Pre-Completion OPT`, rebuilt around what the advisor said, ISSS's own page, and the verified costs, in plain language.
+
+Now the beginner-friendly updates to the remaining notes. Each gets a plain-language section and the relevant meeting facts, one at a time. Starting with `F-1 Visa`.
+
+Almost through the note updates: H-1B Rule Proposals, the Litigation Tracker, `Current News`, and the earlier `ISSS Meeting` prep note are next, then the full audit and lint.
+
+The transcript's em dash is the user's raw capture, which I must not touch. The OPT Playbook has three table-adjacency spots to fix, so I'll look at them.
+
+I added four new notes, rewrote the main notes, and updated the rest, all in plain language for a beginner. The vault linter passes every note I wrote. The only failure is your raw transcript note, which I left alone. Nothing was committed.
+
+**The four new notes**
+- **`ISSS October Meeting Brief`** is in the `ISSS` folder, next to the transcript. It covers every topic from the meeting and includes a table of what it corrected in my earlier notes. It also lists what you didn't get to ask.
+- **`OPT Playbook`** is the step-by-step plan with real dates, costs, and mistakes to avoid.
+- **`H-1B Odds Plan`** lists every lever I found that raises your odds, with numbers.
+- **`US Immigration Rules Explained`** explains the agencies, forms, how rules get made, and a glossary.
+
+I made four where you asked for two or three, because the beginner guide and the H-1B plan each answered something you stressed. `VISA Plan` is rewritten around OPT. CPT sits on standby with UMN's old five-step process, so you can run it the same week if CPT returns.
+
+**What the research turned up, beyond the meeting**
+- **Fees confirmed on USCIS's schedule:** the OPT application is $470 online or $520 on paper, and premium processing is $1,780. UMN adds $400 for the STEM extension. The advisor's figures were right.
+- **Your exact dates:** the official calendar ends Spring 2028 on **May 10, 2028**. ISSS opens requests **Jan 31, 2028**, USCIS accepts filings from **Feb 10**, and the last day is **July 9**. I checked the formula against ISSS's own Fall 2026 example, and it matches.
+- **The wait is the real problem.** A normal filing on day one still means a card around mid-July 2028, so premium processing decides your start date.
+- **For summer 2027,** premium processing is required, and mid-March 2027 is the realistic start of the window.
+- **The fee could land before 2028.** The advisor said the last rule took "almost a year," and I confirmed that was 323 days. Another recent rule took 96 days. Applying both to the OPT fee puts it in force somewhere between March and October 2027. That is an analogy, not a forecast.
+- **H-1B odds levers:** I downloaded the Department of Labor's wage data. In the Twin Cities a software developer offer needs about $91,624 for level I, $110,926 for II, $130,208 for III, and $149,510 for IV. Each level gives 1 to 4 lottery tickets. A U.S. master's degree gives a second chance in the draw. Cap-exempt employers (universities, research labs) skip the lottery, and O-1A has no cap.
+
+**What the transcript changed from my earlier notes**
+- You can intern physically abroad without F-1 work rules, according to the advisor.
+- "Yes and yes" is the right answer on work-authorization questions.
+- Pre-completion OPT is now a live option decided at the March 2027 window, not a last resort.
+- H-1B can come in your first or second OPT year, not only after STEM OPT.
+- Part-time term work and full-time summer work are two separate applications.
+- Her strongest warning: don't describe projects or unpaid work as jobs.
+
+**Things to know**
+- I added your pre-completion OPT link to `40_Resources/UMN/Links.md`, which is marked `tree`. I filled in the transcript's frontmatter only, not its body.
+- Not verified: USCIS's live processing times (their site blocks automated access), and your country (relevant to a USCIS hold memo that USCIS now says is no longer in effect).
+- I used Firecrawl for the PDFs this round, not `pdftotext`.
+
+The next step is still the written questions to ISSS by Oct 30. The remaining unanswered ones, such as whether a required CS course is possible and what UMN will do about the fee, are listed in the brief and in `Junior Year Internship Decision`.
+
+### Tool Calls
+
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis"; echo "### ISSS folder"; ls -la "10_Areas/Career/VISAs & Work Auth/" | head -40; echo; ls -la "10_Areas/Career/VISAs & Work Auth/ISSS/" 2>&1 | head; echo; echo "### UMN resources candidates"; find . -type f -ipath "*umn*" -iname "*.md" -not -path "./.stversions/*" -not -path "./50_Archive/*" -not -path "./.git/*" -not -path "./60_Claude/05_Clippings/*" 2>/dev/null | grep -i -E "resource|link|umn\.md|UMN Resources|ISSS" | head -20`
+```
+### ISSS folder
+total 204
+drwxr-xr-x 1 anant 197609     0 Oct 23 16:17 .
+drwxr-xr-x 1 anant 197609     0 Oct 23 12:53 ..
+-rw-r--r-- 1 anant 197609  7015 Oct 23 14:31 2028 Graduation Timeline.md
+-rw-r--r-- 1 anant 197609  9847 Oct 23 14:19 CPT Broadcast Messages.md
+-rw-r--r-- 1 anant 197609  9734 Oct 23 14:20 CPT Lawsuit.md
+-rw-r--r-- 1 anant 197609  6562 Oct 23 14:20 CPT Program.md
+-rw-r--r-- 1 anant 197609  6222 Oct 23 14:26 Cap-Gap Extension.md
+-rw-r--r-- 1 anant 197609 23975 Oct 23 14:34 Current News.md
+-rw-r--r-- 1 anant 197609  9404 Oct 23 14:25 Duration of Status Rule.md
+-rw-r--r-- 1 anant 197609  6986 Oct 23 14:25 EAD and OPT Processing.md
+-rw-r--r-- 1 anant 197609  7239 Oct 23 14:17 F-1 Employment Options.md
+-rw-r--r-- 1 anant 197609  8718 Oct 23 14:17 F-1 Visa.md
+-rw-r--r-- 1 anant 197609  8513 Oct 23 14:29 H-1B 100K Payment.md
+-rw-r--r-- 1 anant 197609  7879 Oct 23 14:28 H-1B Lottery.md
+-rw-r--r-- 1 anant 197609  7291 Oct 23 14:30 H-1B Rule Proposals.md
+-rw-r--r-- 1 anant 197609  6222 Oct 23 14:26 H1B Visa.md
+drwxr-xr-x 1 anant 197609     0 Oct 23 16:18 ISSS
+-rw-r--r-- 1 anant 197609 12900 Oct 23 14:45 ISSS Meeting.md
+-rw-r--r-- 1 anant 197609  8304 Oct 23 14:32 Junior Year Internship Decision.md
+-rw-r--r-- 1 anant 197609  9413 Oct 23 14:24 OPT Fee Proposal.md
+-rw-r--r-- 1 anant 197609  7224 Oct 23 14:21 OPT Program.md
+-rw-r--r-- 1 anant 197609  5934 Oct 23 14:21 Pre-Completion OPT.md
+-rw-r--r-- 1 anant 197609  7061 Oct 23 14:18 SEVP and DSOs.md
+-rw-r--r-- 1 anant 197609  7111 Oct 23 14:22 STEM OPT Extension.md
+-rw-r--r-- 1 anant 197609  8339 Oct 23 14:33 VISA Plan.md
+-rw-r--r-- 1 anant 197609  7055 Oct 23 14:30 Visa Litigation Tracker.md
+
+total 20
+drwxr-xr-x 1 anant 197609     0 Oct 23 16:18 .
+drwxr-xr-x 1 anant 197609     0 Oct 23 16:17 ..
+-rw-r--r-- 1 anant 197609 25592 Oct 23 16:18 October Meeting Transcript.md
+
+### UMN resources candidates
+./40_Resources/CS/AI/Workflows/UMN Workflow.md
+./40_Resources/Obsidian/Data View's/UMN Dashboard.md
+./40_Resources/UMN/Links.md
+./40_Resources/UMN/Previous Classes/CSCI/CSCI 2011/Chapter - 1.md
+./40_Resources/UMN/Previous Classes/CSCI/CSCI 2011/Chapter - 10.md
+./40_Resources/UMN/Previous Classes/CSCI/CSCI 2011/Chapter - 2.md
+./40_Resources/UMN/Previous Classes/CSCI/CSCI 2011/Chapter - 3.md
+./40_Resources/UMN/Previous Classes/CSCI/CSCI 2011/Chapter - 4.md
+./40_Resources/UMN/Previous Classes/CSCI/CSCI 2011/Chapter - 5.md
+./40_Resources/UMN/Previous Classes/CSCI/CSCI 2011/Chapter - 6.md
+./40_Resources/UMN/Previous Classes/CSCI/CSCI 2011/Chapter - 7.md
+./40_Resources/UMN/Previous Classes/CSCI/CSCI 2011/Chapter - 9.md
+./40_Resources/UMN/Previous Classes/CSCI/CSCI 2011/CSCI 2011 Board.md
+./40_Resources/UMN/Previous Classes/CSCI/CSCI 2011/Finals.md
+./40_Resources/UMN/Previous Classes/CSCI/CSCI 2011/Main Examples.md
+./40_Resources/UMN/Previous Classes/CSCI/CSCI 2011/Material.md
+./40_Resources/UMN/Previous Classes/CSCI/CSCI 2011/Truth Table.md
+./40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/C Language.md
+./40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Concepts/Compilation system.md
+./40_Resources/UMN/Previous Classes/CSCI/CSCI 2021/Concepts/Hardware Organization.md
+```
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\ISSS\October Meeting Transcript.md`
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis"; echo "### Brief standard/template"; find 30_Order -iname "Brief Standard.md" -o -iname "Brief Template.md" -o -iname "Transcript to Brief.md" | head; echo; echo "### UMN Links head"; sed -n '1,40p' 40_Resources/UMN/Links.md | cut -c1-200; echo; echo "### mineru?"; command -v mineru mineru-parse 2>&1 | head -2; pip list 2>/dev/null | grep -i mineru | head -2`
+```
+### Brief standard/template
+30_Order/Standards/Ingestion/Brief Standard.md
+30_Order/Templates/Capability/Brief Template.md
+30_Order/Workflows/Ingestion/Transcript to Brief.md
+
+### UMN Links head
+---
+type: evergreen
+status: tree
+created: 2025-10-31
+tags:
+  - evergreen
+notes:
+  - "[[40_Resources/Random]]"
+---
+# UMN
+Printing - [WiFi Printing | IT@UMN | The people behind the technology](https://it.umn.edu/services-technologies/wifi-printing)
+[Effective U(Learning)](https://effectiveu.umn.edu/)
+[Scholarship links](https://scholarships.umn.edu/index.php)
+[CSE Care Corner](https://cse.umn.edu/studentnews/news/[REDACTED]?j=13846506&sfmc_sub=621816736&l=8408_HTML&u=281397459&mid=6325307&jb=1005): Grab hygiene 
+
+[Academic advising](http://advisingblog.cse.umn.edu/) 
+[Appointment Scheduling with Advisor](https://cse.umn.edu/cs/undergraduate-advising)
+Good/All college resources: [**Collegiate life, SUA, and activities**](http://advisingblog.cse.umn.edu/2020/09/university-resources-to-help-you-be.html)
+[Professor ratings](https://umn.lol/)
+[Tech gpa](https://www.advising.cse.umn.edu/cgi-bin/courses/srs/menu?QFCHK=0&menu=1)
+[Tech GPA Calculator](https://docs.google.com/spreadsheets/d/[REDACTED]/edit?gid=0#gid=0)
+
+[Undergraduate Guide](https://cse.umn.edu/cs/undergraduate-guide) 
+[Student Engagement | Office for Student Affairs](https://osa.umn.edu/student-engagement) 
+[UMN Food events]( https://calendar.google.com/calendar/embed?src=[REDACTED]%40group.calendar.google.com&ctz=America%2FChicago)
+[Career Services Administration | University of Minnesota](https://career.umn.edu/)
+[Career Pathway](https://cseumn.pathwayu.com/journey)
+
+[Department of Computer Science & Engineering](https://cse.umn.edu/cs)
+
+[Study Abroad finances](https://umabroad.umn.edu/students/finances) 
+[Study abroad scholarships](https://umabroad.umn.edu/students/finances/scholarships) 
+[Recent Study Abroad events details](https://cse.umn.edu/studentnews/news/[REDACTED]?j=13920064&sfmc_sub=621816736&l=8409_HTML&u=282738673&
+
+## AI
+[Turbo AI](https://www.turbo.ai/dashboard): Review any lecture, doc and make flashcards, test yourself.
+[Summit AI](https://cse.umn.edu/studentnews/news/[REDACTED]?j=13920064&sfmc_sub=621816736&l=8409_HTML&u=282738685&mid=6325307&jb=1005): Networking event f
+# Minor
+[Entrepreneurship Minor](https://umtc.catalog.prod.coursedog.com/programs/2521MIN02)
+# UROP
+
+### mineru?
+/c/Users/anant/.local/bin/mineru
+```
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis"; wc -l 40_Resources/UMN/Links.md; grep -n -i -E "isss|international|visa|opt|cpt|career|^#" 40_Resources/UMN/Links.md | cut -c1-220`
+```
+42 40_Resources/UMN/Links.md
+10:# UMN
+26:[Career Services Administration | University of Minnesota](https://career.umn.edu/)
+27:[Career Pathway](https://cseumn.pathwayu.com/journey)
+35:## AI
+38:# Minor
+40:# UROP
+```
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Ingestion\Brief Standard.md`
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+grep -n -i -E "\\$[0-9,]+|fee" fc/b4/01.md | head -30 | cut -c1-260`
+```
+13:**Alert:** On Sept. 30, 2026, USCIS announced a [Federal Register notice](https://www.federalregister.gov/public-inspection/2026-20187/[REDACTED]) that will increase certain H.R.-
+15:The new inflation-adjusted fees are effective Oct. 16, 2026. If you submit a request postmarked on or after Oct. 16, 2026, for a benefit that requires one of these fees, you must include the new fee for the specific benefit you are requesting. Any request 
+25:**Alert**: **Litigation Update on** _**Ms. L. v. ICE**_ **and Applicability of Certain HR-1 Fees**
+27:USCIS is pausing the collection of certain fees required by Pub. L. 119-21 (“HR-1”) from _Ms. L._ Settlement Class members and their Qualifying Additional Family Members (QAFMs) as of Feb. 5, 2026, pursuant to a decision issued in _Ms. L. v. ICE_, 18-cv
+29:If you are a _Ms. L._ Settlement Class member or QAFM who received a notice informing you that you are required to pay one of the below-listed HR-1 fees, and you did not already make a payment prior to Feb. 5, 2026, the payment notice is rescinded and you a
+31:If you are a _Ms. L._ Settlement Class member or QAFM, you are not required to pay the following HR-1 fees as of Feb. 5, 2026:
+33:- Immigration Parole Fee (8 U.S.C 1804)
+34:- Parolee Initial Employment Authorization Document (EAD) Fee (8 U.S.C 1803(b)) (Form I-765 based on a category (c)(11) initial EAD)
+35:- Parolee Renewal EAD Fee (8 U.S.C 1809) (Form I-765 based on a category (c)(11) renewal EAD, or Form I-131 when requesting re-parole under Part 1, category 10.G and selecting the EAD checkbox in Part 9)
+36:- Asylum Application Fee (8 U.S.C 1802)
+37:- Annual Asylum Fee (8 U.S.C. 1808)
+41:**Note for Asylum Applicants:** If you are applying for asylum with USCIS as a _Ms. L._ Settlement Class Member or QAFM, **you must write “Ms. L Settlement Class Member” or “Ms. L. Settlement QAFM” on the top of the first page of your paper Form I-5
+53:Please ensure you have the correct mailing address on file with USCIS. If your mailing address changes after you file your application, you must [update your address with USCIS](https://www.uscis.gov/addresschange) and [USPS](https://www.usps.com/) 
+112:#### Fees
+114:You can find the filing fee for Form I-765 by visiting our [Fee Schedule](https://www.uscis.gov/g-1055) page.
+136:- If the card we issued to you contains incorrect information that **is not due** to our error, you must use the [filing locations for Form I-765](https://www.uscis.gov/i-765-addresses) associated with your eligibility category to submit your form and 
+137:- If the card we issued to you contains incorrect information that **is due** to our error, you do not need to file a new Form I-765 and filing fee. Please check the [filing locations for Form I-765](https://www.uscis.gov/i-765-addresses) under the headi
+141:- If you did not receive your card, we may reissue the card if the original document was not delivered to you after the first or subsequent delivery attempts. You generally do not have to pay a new fee if the reason you did not receive your document is due
+150:- The correct fees.
+152:**Note:**  If you are a current DACA recipient and only need to replace a valid Employment Authorization Document (EAD) because yours was lost, stolen, or damaged, file Form I-765, Application for Employment Authorization, and select box 1.b. Submit
+174:| Have an unexpired Employment Authorization Document (EAD) that was approved based on a pending Form I-589 before EOIR dismissed or terminated your removal proceedings. | Your current EAD will remain valid until its expiration date.<br>Before your EAD exp
+178:| Already have a (c)(8)-based EAD you need to renew because it will expire soon, and EOIR dismissed or terminated your removal proceedings. | Before your EAD expires, you will need to renew it by submitting:<br>- Evidence you filed an updated asylum applic
+179:| Filed Form I-765 based on (c)(8) eligibility, but we denied your Form I-765 because EOIR dismissed or terminated your removal proceedings. | You may reapply for an EAD or apply to renew your EAD by submitting Form I-765 to USCIS. You should include:<br>-
+205:To protect your privacy, please do not include any personal information in your feedback. Review our [Privacy Policy](https://www.uscis.gov/website-policies/privacy-and-legal-disclaimers).
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+mkdir -p fc/b8
+node fc.js scrape "https://www.uscis.gov/sites/default/files/document/forms/g-1055.pdf" fc/b8/g1055.md
+node fc.js scrape "https://www.uscis.gov/i-907" fc/b8/i907.md
+echo "--- G-1055 hits:"; grep -n -i -E "I-765|optional practical|\(c\)\(3\)|F-1|student" fc/b8/g1055.md | head -20 | cut -c1-260
+echo "--- I-907 hits:"; grep -n -i -E "\\$[0-9,]+" fc/b8/i907.md | head -15 | cut -c1-260`
+```
+OK 120046 chars -> fc/b8/g1055.md | G-1055 Fee Schedule
+OK 9503 chars -> fc/b8/i907.md | Request for Premium Processing Service | USCIS
+--- G-1055 hits:
+252:| I-765 Application for Employment Authorization (uscis.gov/i-765) | Varies | See Appendix C: I-765 |
+253:| I-765V Application for Employment Authorization for Abused Nonimmigrant Spouse (uscis.gov/i-765v) | General filing | $0 |
+310:| I-907 Request for Premium Processing Service (continued) | Form I-539, Application to Extend/Change Nonimmigrant Status | F-1, F-2, J-1, J-2, M-1, or M-2 nonimmigrant classification | Paper Filing: $2,075\* Online Filing: $2,075\* |
+311:| I-907 Request for Premium Processing Service (continued) | Form I-765, Application for Employment Authorization | I-765 categories (OPT and STEM-OPT Classifications) | Paper Filing: $1,780\* Online Filing: $1,780\* |
+488:**Appendix C: I-765, Application for Employment Authorization**
+492:| I-765 Application for Employment Authorization (uscis.gov/i-765) | General filing for initial, replacement, or renewal Employment Authorization Document (EAD), unless noted below. Fee determined based on how form is submitted. Review all options below to
+493:| I-765 Application for Employment Authorization (uscis.gov/i-765) | If you filed Form I-485 with a fee on or after April 1, 2024 and your Form I-485 is still pending. | Paper Filing: $260 Online Filing: $260 |
+494:| I-765 Application for Employment Authorization (uscis.gov/i-765) | If you are filing for an initial, replacement, or renewal Employment Authorization Document (EAD) and you have a pending Form I-485, Application to Register Permanent Residence or Adjust 
+495:| I-765 Application for Employment Authorization (uscis.gov/i-765) | If you are filing for replacement EAD because the card we issued to you contains incorrect information due to our error, or we issued your previous card but you never received it due to U
+496:| I-765 Application for Employment Authorization (uscis.gov/i-765) | If you are filing under category (c)(33), consideration of Deferred Action for Childhood Arrivals. | Paper Filing: $520 Online Filing: $470 |
+497:| I-765 Application for Employment Authorization (uscis.gov/i-765) | If you are requesting an initial EAD under the following categories: • (a)(12) Temporary Protected Status (TPS); • (c)(8) Asylum applicant under the special ABC procedures; • (c)(11
+498:| I-765 Application for Employment Authorization (uscis.gov/i-765) | If you are filing for an initial EAD under (c)(34) for the paroled spouse of a (b)(37) entrepreneur. Additional Fee: Pub. L. 119-21 Fee You must submit this fee separately from the filing
+504:| I-765 (continued) | If you are filing for an initial EAD under the following categories: • (a)(4) Paroled as refugee; or • (c)(8) Asylum applicant with a pending Form I-589, Application for Asylum and for Withholding of Removal, including derivatives
+505:| I-765 (continued) | If you are filing for a renewal EAD under the following categories: • (a)(12) Temporary Protected Status (TPS); or • (c)(11) Parolee (most categories - see below for specific circumstances); or • (c)(19) TPS applicant. Additiona
+506:| I-765 (continued) | If you are filing for an renewal EAD under (c)(8) as an asylum applicant. Additional Fee: Pub. L. 119-21 Fee You must submit this fee separately from the filing fee. This fee may not be waived. | Paper Filing: $520 plus additional fee
+507:| I-765 (continued) | If you are filing for an renewal EAD under (c)(34) for the paroled spouse of a (b)(37) entrepreneur. Additional Fee: Pub. L. 119-21 Fee You must submit this fee separately from the filing fee. This fee may not be waived. | Paper Filin
+508:| I-765 (continued) | If you are filing for a renewal EAD under the following categories: • (a)(4) Paroled as a refugee; or • (c)(11) Special Parole processes for Immigrant Military Members and Veterans Initiative (IMMVI) and you are a current or forme
+509:| I-765 (continued) | Family Reunification Task Force (FRTF)/Ms. L. Settlement Agreement Process. If you are filing for an initial EAD based on an initial period of parole or a period of re-parole as a Ms. L. Settlement Class member or Qualifying Additiona
+510:| I-765 (continued) | Family Reunification Task Force (FRTF)/Ms. L. Settlement Agreement Process. If you are filing for a renewal EAD based on an initial period of parole or a period of re-parole as a Ms. L. Settlement Class member or Qualifying Additional
+511:| I-765 (continued) | If you are filing for an initial Employment Authorization Document (EAD) under one of the following categories: • (a)(3) Refugee; • (a)(5) Asylee; • (a)(7) N-8 (Parent of alien classed as SK3) or N-9 nonimmigrant (Child of N-8) 
+--- I-907 hits:
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b8"; sed -n '488,492p;499,503p;512,520p' g1055.md | cut -c1-900; echo ....; grep -n -i -E "\(c\)\(3\)" g1055.md | cut -c1-700 | head -6; echo; grep -n -i "edition\|effective" g1055.md | head -5 | cut -c1-200; sed -n '310,312p' g1055.md | cut -c1-600; grep -n -F '*' g1055.md | grep -i -E "premium" | head -3 | cut -c1-300`
+```
+**Appendix C: I-765, Application for Employment Authorization**
+
+| Form Number and Title | Filing Category | Filing Fee |
+| --- | --- | --- |
+| I-765 Application for Employment Authorization (uscis.gov/i-765) | General filing for initial, replacement, or renewal Employment Authorization Document (EAD), unless noted below. Fee determined based on how form is submitted. Review all options below to confirm if you are eligible for a reduced fee or fee exemption. | Paper Filing: $520 Online Filing: $470 |
+
+* * *
+
+| Form Number and Title | Filing Category | Fee(s) |
+| --- | --- | --- |
+| I-765 (continued) | • (c)(10) Abused spouses and children of lawful permanent residents or abused spouses and children of U.S. citizens applying for cancellation of removal and adjustment of status under INA section 240A(b)(2); • (c)(14) Deferred action if filed by a petitioner seeking U-1, U-2, U-3, U-4, or U-5 nonimmigrant status; • (c)(14) Deferred action if filed by a Special Immigrant Juvenile; • (c)(14) Deferred action if filed by a Violence Against Women Act (VAWA) self-petitioner (including derivatives); • (c)(25) T-2, T-3, T-4, T-5, or T-6 nonimmigrant; • (c)(31) Principal beneficiaries or derivative children of an approved Violence Against Women Act (VAWA) self-petition; • (c)(40) Applicant for T Nonimmigrant Status or Applicant for Derivative T Nonimmigrant Status With Bona Fide Application; or • Current or former U.S. armed forces service members (does not a
+| I-765 (continued) | If you are filing for a renewal EAD under one of the following categories: • (a)(3) Refugee; • (a)(8) Citizen of Micronesia, Marshall Islands, or Palau; • (a)(10) Granted Withholding of Deportation or Removal; • (a)(16) Victim of severe form of trafficking (T-1 nonimmigrant); • (a)(19) U-1 nonimmigrant; • (a)(20) U-2, U-3, U-4, U-5 nonimmigrant; • (c)(1), (c)(4), or (c)(7) Dependent of certain foreign government, international organization, or NATO personnel; • (c)(2) Taiwanese dependents of Taipei Economic and Cultural Representative Office (TECRO) E-1 employees; • (c)(9) Special Immigrant Juvenile seeking to adjust status; • (c)(9) T nonimmigrant seeking to adjust status under INA section 245(1); • (c)(9) U nonimmigrant seeking to adjust status under INA section 245(m); • (c)(9) Persons seeking adjustment of status as a Special Immigrant Ir
+| I-765 (continued) | • (c)(10) Abused spouses and children of lawful permanent residents or abused spouses and children of U.S. citizens applying for cancellation of removal and adjustment of status under INA section 240A(b)(2). • (c)(14) Deferred action if filed by a petitioner for U-1, U-2, U-3, U-4, or U-5 nonimmigrant status; • (c)(14) Deferred action if filed by a Special Immigrant Juvenile; • (c)(14) Deferred action if filed by a Violence Against Women Act (VAWA) Form I-360 self-petitioner (including derivatives); • (c)(25) T-2, T-3, T-4, T-5, or T-6 nonimmigrant; • (c)(31) Principal beneficiaries or derivative children of an approved Violence Against Women Act (VAWA) self-petition; • (c)(40) Applicant for T Nonimmigrant Status or Applicant for Derivative T Nonimmigrant Status With Bona Fide Application; or • Current or former U.S. armed forces service members (doe
+| I-765 (continued) | If you are filing for a replacement EAD because your previously issued card was lost, stolen, or damaged, but has not expired, and you are filing under one of the following categories: • (a)(3) Refugee; • (a)(4) Paroled as refugee; • (a)(8) Citizen of Micronesia, Marshall Islands, or Palau; • (a)(10) Granted Withholding of Deportation or Removal; • (a)(16) Victim of severe form of trafficking (T-1 nonimmigrant); • (a)(19) U-1 nonimmigrant; • (a)(20) U-2, U-3, U-4, U-5 nonimmigrant; • (c)(1), (c)(4), or (c)(7) Dependent of certain foreign government, international organization, or NATO personnel; • (c)(2) Taiwanese dependents of Taipei Economic and Cultural Representative Office (TECRO) E-1 employees; • (c)(9) Special Immigrant Juvenile seeking to adjust status; • (c)(9) T nonimmigrant seeking to adjust status under INA section 245(l); • (c)(9
+| I-765 (continued) | • (c)(9) Persons seeking adjustment of status as an abused spouse or child under the Haitian Refugee Immigration Fairness Act (HRIFA); • (c)(9) U nonimmigrant seeking to adjust status under INA section 245(m); • (c)(9) Persons seeking adjustment of status as a Violence Against Women Act (VAWA) Form I-360 self-petitioner (including derivatives); • (c)(10) Abused spouses and children applying for benefits under the Nicaraguan Adjustment and Central American Relief Act (NACARA); • (c)(10) Abused spouses and children of lawful permanent residents or abused spouses and children of U.S. citizens applying for cancellation of removal and adjustment of status under INA section 240A(b)(2); • (c)(11) Special Parole processes for Immigrant Military Members and Veterans Initiative (IMMVI) and you are a current or former U.S. armed forces service member; • (c)(14) D
+| I-765 (continued) | Certain applicants may be eligible for a Fee Waiver. See Form I-912 Instructions (uscis.gov/i-912) | $0 |
+....
+
+| I-907 Request for Premium Processing Service (continued) | Form I-539, Application to Extend/Change Nonimmigrant Status | F-1, F-2, J-1, J-2, M-1, or M-2 nonimmigrant classification | Paper Filing: $2,075\* Online Filing: $2,075\* |
+| I-907 Request for Premium Processing Service (continued) | Form I-765, Application for Employment Authorization | I-765 categories (OPT and STEM-OPT Classifications) | Paper Filing: $1,780\* Online Filing: $1,780\* |
+| I-910 Application for Civil Surgeon Designation (uscis.gov/i-910) | General filing |  | $990 |
+305:| I-907 Request for Premium Processing Service (uscis.gov/i-907) | To determine if Premium Processing is available for your benefit request, please visit our website at uscis.gov/I-907 or call the USCIS Contact Center at 800-375-5283 (TTY 800-767-1833). \*The Premium Processing fee is in additio
+306:| I-907 Request for Premium Processing Service (uscis.gov/i-907) | Form I-129 Petition for Nonimmigrant Worker | H-1B nonimmigrant classification, including H-1B2 and H-1B3 | Paper Filing: $2,965\* Online Filing: $2,965\* |
+307:| I-907 Request for Premium Processing Service (uscis.gov/i-907) | Form I-129 Petition for Nonimmigrant Worker | E-1, E-2, E-3, H-3, L1 (including Blanket L-1), O, P, Q, or TN nonimmigrant classification | Paper Filing: $2,965\* Online Filing: $2,965\* |
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+node fc.js search "studyinthestates.dhs.gov F-1 optional practical training students reporting SEVP Portal unemployment days" fc/s_sits1.json - 8 | head -40
+echo ======
+cat > fc/u8.txt <<'EOF'
+https://isss.umn.edu/fstudents/employment/opt/pre-completion-opt
+https://isss.umn.edu/fstudents/employment/opt/apply
+https://isss.umn.edu/fstudents/employment/opt/requirements
+https://isss.umn.edu/fstudents/employment/opt/travel-study
+https://isss.umn.edu/fstudents/employment/opt/basics
+https://isss.umn.edu/fstudents/employment/opt/stem-opt-extension/eligibility
+https://isss.umn.edu/fstudents/employment/opt/stem-opt-extension/application
+https://isss.umn.edu/fstudents/employment/opt-cpt-comparison
+https://isss.umn.edu/fstudents/employment/cpt/basics
+EOF
+node fc.js multi fc/u8.txt fc/b9`
+```
+1. F-1 Optional Practical Training (OPT) | Study in the States
+   https://studyinthestates.dhs.gov/sevis-help-hub/student-records/fm-student-employment/[REDACTED]
+   [Skip to main content](https://studyinthestates.dhs.gov/sevis-help-hub/student-records/fm-student-employment/[REDACTED]#main-content)
+
+## Breadcrumb
+1. [Home](https://studyinthestates.dhs.gov/)
+2
+2. Students: STEM OPT Reporting Requirements - Study in the States
+   https://studyinthestates.dhs.gov/stem-opt-hub/for-students/students-stem-opt-reporting-requirements
+   ## Breadcrumb
+1. [Home](https://studyinthestates.dhs.gov/)
+2. [STEM OPT Hub](https://studyinthestates.dhs.gov/stem-opt-hub)
+3. **Students: STEM OPT Reporting Requirements**
+
+## Students: STEM OPT Reporting Requirements
+L
+3. Unemployment Counter | Study in the States - Homeland Security
+   https://studyinthestates.dhs.gov/sevis-help-hub/student-records/fm-student-employment/unemployment-counter
+   ## Breadcrumb
+1. [Home](https://studyinthestates.dhs.gov/)
+2. [SEVIS Help Hub](https://studyinthestates.dhs.gov/sevis-help-hub)
+3. [Student Records](https://studyinthestates.dhs.gov/sevis-help-hub/student-records)
+
+## Ge
+4. F-1 Add, Edit, Delete Optional Practical Training (OPT) Employer
+   https://studyinthestates.dhs.gov/sevis-help-hub/student-records/fm-student-employment/[REDACTED]
+   [Skip to main content](https://studyinthestates.dhs.gov/sevis-help-hub/student-records/fm-student-employment/[REDACTED]#main-content)
+
+## Breadcrumb
+1. [Home](https://studyinthestates.dhs.gov/
+5. ICE issues warnings to international students on OPT visas - Facebook
+   https://www.facebook.com/akpokulaw/posts/us-immigration-and-customs-enforcement-ice-through-its-student-and-exchange-visi/1133891732098628/
+   OPT participants are allowed a maximum of 90 days of unemployment. • If employment is not reported within 15 days of the notice,
+6. SEVP Portal OPT Reporting: 2026 Federal Guide - Immiva
+   https://immiva.com/blog/[REDACTED]
+   This 2026 guide covers the 10-day reporting rule, the 90 and 150-day unemployment caps, every F-1 student should know. ), and M-1 students on ...
+7. Login/SEVP Portal
+   https://www.sevp.ice.gov/opt
+   [Skip to main content](https://sevp.ice.gov/opt/)
+
+======
+OK 59248 chars -> fc\b9\01.md | Basics of Pre-Completion OPT | ISSS
+OK 58126 chars -> fc\b9\02.md | Applying for OPT | ISSS
+OK 57532 chars -> fc\b9\03.md | Requirements During OPT | ISSS
+OK 58931 chars -> fc\b9\04.md | Travel, Study, and More | ISSS
+OK 53989 chars -> fc\b9\05.md | Basics of Post-Completion OPT | ISSS
+OK 55125 chars -> fc\b9\06.md | Requested page not found | ISSS
+OK 66892 chars -> fc\b9\07.md | STEM OPT Application Process | ISSS
+OK 59152 chars -> fc\b9\08.md | OPT vs. CPT | ISSS
+SCRAPE FAIL 429 https://isss.umn.edu/fstudents/employment/cpt/basics {"success":false,"error":"Rate limit exceeded. Consumed (req/min): 11, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or please retry after 31s, r
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b9"; grep -n -E "^# |^## |Last updated" 01.md | head -20; `
+```
+461:# Basics of Pre-Completion OPT
+550:Last updated: September 18, 2026
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b9"; for f in 01 02 03 04 05 07 08; do s=$(grep -n -m1 -E "^# " $f.md | cut -d: -f1); e=$(grep -n -m1 "Last updated" $f.md | cut -d: -f1); echo "$f: content lines $s-$e"; done; echo; sed -n '461,552p' 01.md | grep -v '^\s*$' | cut -c1-900`
+```
+01: content lines 461-550
+02: content lines 461-588
+03: content lines 461-581
+04: content lines 461-574
+05: content lines 461-529
+07: content lines 461-587
+08: content lines 461-480
+
+# Basics of Pre-Completion OPT
+Optional Practical Training (OPT) is temporary employment authorization for international students in F-1 status.
+OPT allows you to work in a job off-campus that is directly related to your major field of study. OPT is limited to 12 months per degree level, and may be used before or after you complete your UMN academic program. OPT used before completing your academic program is “pre-completion” OPT in most cases.  OPT used after completing your academic program is “ [post-completion](https://isss.umn.edu/fstudents/employment/opt/basics)” in most cases.
+If you are a student in J-1 status, please see [ISSS information about Academic Training](https://isss.umn.edu/jstudents/employment/academic-training).
+[Expand all](https://isss.umn.edu/fstudents/employment/opt/pre-completion-opt#)
+### +  Eligibility
+To be eligible to apply for pre-completion OPT, you must:
+- Be in valid F-1 status
+- Have completed at least one academic year of full-time study in the U.S. by the time your OPT authorization starts
+- Pursue a job directly related to your major
+- Receive a new I-20 recommending OPT
+You are not eligible if you:
+- Have been authorized 12 or more months of full-time Curricular Practical Training (CPT) at your current degree level
+- Were previously authorized for OPT at a higher degree level (if this is your case consult with an ISSS advisor)
+- Have already used 12 months of full-time OPT at your current degree level
+### +  OPT Categories
+#### Post-completion
+OPT that will be done after you complete your degree program. Learn more about [post-completion OPT](https://isss.umn.edu/fstudents/employment/opt/basics).  Also see the additional information below for graduate students in a Plan A, Plan B or thesis program.
+#### Pre-completion
+OPT that will be done before you complete your degree program. This may be used as an alternative if [Curricular Practical Training (CPT)](https://isss.umn.edu/fstudents/employment/cpt) is not available. If available, most students choose to use CPT for off-campus work authorization before they complete their degree. Except in rare cases, CPT time is not subtracted from your OPT time.
+### +  Impact of Pre-Completion OPT on Post-Completion OPT
+Any pre-completion OPT that you receive will be subtracted from your total 12 months.  For pre-completion OPT, you may request part-time or full-time OPT.  The full amount of full-time OPT is deducted from the amount of time available for OPT in the future.  Only half the amount of part-time pre-completion OPT is deducted from the amount of time available for OPT in the future..  This is true whether or not you actually work during your pre-completion OPT.  If you apply and are approved for pre-completion OPT but do not find an internship, for example, the approved OPT is still deducted from the time you have available for OPT in the future.
+Example 1: Goldy Gopher wants to participate in a summer internship.  Goldy applies and is approved for 3 months of _full-time_ OPT.  The 3 months are deducted in full from the 12 months that Goldy has available at their current degree level.  Goldy has 9 months of OPT left to use in the future.
+Example 2: Goldy Gopher wants to participate in a summer internship.  Goldy applies and is approved for 3 months of _part-time_ OPT.  The 3 months are deducted at half the rate from the 12 months that Goldy has available at their current degree level.  Goldy has 10.5 months of OPT left to use in the future.
+Example 3: Goldy Gopher wants to participate in a summer internship.  Goldy applies and is approved for 3 months of _full-time_ OPT.  Goldy’s employer appreciates their work and asks them to continue during the academic year.  Goldy applies and is approved for 9 months of _part-time_ OPT.  The first 3 months are deducted in full from the 12 months that Goldy has available at their current degree level.  The next 9 months are deducted at half the rate.  Goldy has 4.5 months of OPT left to use in the future.
+Please also see the potential impacts on STEM OPT eligibility under “OPT Extension.”
+### +  Part-Time versus Full-Time
+Pre-completion OPT has these limits on part-time and full-time participation:
+- **Academic Year**: During the fall or spring semesters. The OPT authorization is for a maximum of 20 hours per week. If you have on- and off-campus jobs, the combination cannot exceed a total of 20 hours per week.
+- **Vacation Period**: For example, over the summer break. The OPT authorization may be part-time (less than or equal to 20 hours per week) or full-time (more than 20 hours per week).
+### +  Applying for OPT
+The first step in applying for OPT is to request a new OPT I-20 from ISSS. You can submit your OPT recommendation request in MyISSS 100 days before your requested employment start date.
+Keep in mind that USCIS processing can take several months.  Premium processing is available to expedite the process but students should plan on applying early for this authorization.
+[Learn more about the application process.](https://isss.umn.edu/fstudents/employment/opt/apply)
+### +  30-Day Window
+The first step of applying for OPT will be for you to request an OPT I-20 from ISSS. USCIS must receive your OPT application no later than 30 days after the "date issued" on your OPT I-20. This requirement applies to post- and pre-completion OPT.
+### +  Unemployment
+Pre-completion OPT does not have limits on unemployment.  Post-completion and STEM OPT do.
+### +  OPT Extension
+If you are interested in extending your OPT and have time remaining, you will need to go through the same application process with USCIS.
+If you complete a new degree at a higher level in the U.S., you are eligible for another 12 months of OPT. For example, if you complete a bachelor's degree, receive OPT, then you complete a master's degree, you are eligible for 12 more months of OPT.
+If you complete a degree in a STEM (Science, Technology, Engineering, or Mathematics) field, you are eligible for a 24-month extension of your _post-completion_ OPT.  STEM extensions are not available for pre-completion OPT. Additionally, you must be on post-completion OPT to apply for STEM OPT.  If you use all 12 months of your OPT as pre-completion OPT, you will lose the opportunity to apply for STEM OPT.
+### +  Graduate Students
+Grad student in a Plan A, Plan B, or thesis program who have completed all degree requirements except their thesis or dissertation are eligible to apply for either pre-completion OPT or post-completion OPT.
+| Consideration | Pre-Completion | Post-Completion |
+| --- | --- | --- |
+| Option for full-time employment (20+ hours per week) | Only during vacation periods. | Must be full-time |
+| Extension eligibility | Can request a program extension (extension of I-20) | Cannot request a program extension (extension of I-20) |
+| STEM OPT eligibility | Cannot apply for STEM OPT | May apply for STEM OPT if other eligibility requirements are met |
+| Continuity considerations | Must apply separately for part-time OPT during the academic year and full-time OPT during vacation, if desired. If you wish to continue working in the US after thesis or dissertation completion, you will need to submit an additional OPT application with the applicable fees | Only requires one application for work before and after thesis or dissertation completion |
+Last updated: September 18, 2026
+![ISSS Logo](https://isss.umn.edu/sites/isss.umn.edu/files/2021-02/ISSS_logo_gray600.png?_buster=EPL4M_RO)
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b9"; sed -n '461,590p' 02.md | grep -v '^\s*$' | cut -c1-1100`
+```
+# Applying for OPT
+There are 5 main steps to completing the OPT application and reporting process.
+You will need to do several things to complete many of these steps. You should review the OPT workshop (go to [MyISSS](http://myisss.umn.edu/) to get started) for more information about any of these steps.
+## Application Process
+USCIS offers Premium Processing (faster service) for OPT and STEM OPT applications. [Learn more](https://isss.umn.edu/[REDACTED]).
+[Expand all](https://isss.umn.edu/fstudents/employment/opt/apply#)
+### +  1\. Request an OPT Recommendation from ISSS
+ISSS must recommend your OPT. We recommend OPT by issuing a new I-20 to you.
+To request an I-20 with OPT recommendation, log in to [MyISSS](https://myisss.umn.edu/) and complete the OPT Request form. You will be required to complete the ISSS OPT Online Workshop before submitting your OPT Request. The link to the workshop is only available in the e-form.
+**ISSS processing time is up to 10 business days for the new I-20. Do NOT submit your OPT application to USCIS without the new I-20 with OPT recommendation.**
+Upon approval of your OPT request, ISSS will email your **UMN email account** with instructions for accessing MyISSS and downloading and signing your I-20.
+### +  2\. Assemble the OPT Application Materials
+While you are waiting for ISSS to issue your OPT Recommendation I-20 (Step 1), you should assemble the other materials that are necessary for the application you will send to USCIS (Step 3).
+Assemble these materials in the following order:
+1. Have enough money available in your U.S. bank account or U.S. credit card to pay the filing fee. If your employer will pay the fee, you will need their payment information. [USCIS has information about the I-765 filing fee](https://www.uscis.gov/i-765#:~:text=File%20Online-,Form%20Details,-Close%20All). You do not have to pay the biometric fee.
+2. On December 12, 2025, [USCIS announced changes](https://www.uscis.gov/newsroom/alerts/new-photo-policy-helps-prevent-immigration-fraud-through-enhanced-identity-verification) to guidance on photos that can be used to create immigration documents such as Employment Authorization Documents (EAD) cards.  ISSS recommends that individuals applying for OPT or other work authorizations follow the form directions and continue to submit a photo, but that they also be prepared to attend a biometrics appointment if requested.  Please review the [ISSS Current Messages on Federal Immigration Changes](https://docs.google.com/document/d/[REDACTED]/edit?tab=t.0#heading=h.sb4ppkxs007y) page for further details and guidance on this change and how it will impact your OPT application.
+3. Most recent [**electronic I-94**](https://i94.cbp.dhs.gov/I94/#/home).
+4. Biographical page of **your passport**.
+5. Copies of **previous I-20s** with CPT or OPT information.
+6. The **new I-20 with OPT** recommendation that ISSS will send you after you sign it.
+Keep a copy (digital or paper) of all of these documents for your records.
+### +  3\. Submit Your OPT Application to USCIS (Online or Through Mail)
+It is your responsibility to submit your OPT application to USCIS. Do NOT submit your OPT application until you have your new I-20 with OPT recommendation.
+USCIS must receive your OPT application no later than 30 days after the "date issued" on your OPT I-20. USCIS will deny an application if it is received more than 30 days after the OPT I-20 issue date. Contact ISSS for assistance if you will need a new I-20 with OPT recommendation prior to submitting your application to USCIS.
+You can choose whether to submit your documents online (Option 1) or by mail (Option 2).
+#### Option 1: Submit Your Application Online
+To do this you must:
+1. Create your [myUSCIS online account](https://my.uscis.gov/) and log into your myUSCIS account.
+2. Complete the online I-765 (follow the directions given in myUSCIS as well as [ISSS instructions for the online I-765](https://docs.google.com/document/d/[REDACTED]/edit?usp=sharing)). You should complete all pages of Form I-765 online and keep a copy for your records. When asked, your eligibility category is:
+c (3)(A) for Pre-Completion OPT
+c (3)(B) for Post-Completion OPT
+c (3)(C) for STEM OPT
+3. Upload all of the documents that were listed in in Step 2, including your new I-20 with OPT recommendation. For your new I-20, you should sign it and upload pages 1 and 2.
+4. Pay the filing fee.
+After your payment is accepted, you will be redirected to a confirmation screen which will include your receipt number. **You should keep a copy of your receipt number for your records.** You can track the status of your OPT application through your myUSCIS online account.
+**Once it is submitted, USCIS will communicate with you through your myUSCIS account. You will receive notifications at the mobile number and/or email address you entered in your online I-765.**
+#### Option 2: Mail Your OPT Application to the Appropriate USCIS Address
+To do this you must:
+1. Complete a paper version of the I-765. To ensure you do it properly, you should review the [ISSS instructions for the paper I-765](https://docs.google.com/document/d/[REDACTED]/edit).
+2. Mail the I-765 and the assembled materials to the USCIS Chicago Lockbox. You should send them as certified or express mail so you can track your package.
+- **For U.S. Postal Service (USPS):**
+USCIS
+Attn: I-765 C03
+PO Box 805373
+Chicago, IL 60680
+- **For FedEx, UPS, and DHL deliveries:**
+USCIS
+Attn: I-765 C03
+131 South Dearborn - 3rd Floor
+Chicago, IL 60603-5517
+Several weeks after you apply, you should receive a Receipt Notice (Form I-797) in the mail from USCIS. If you submitted Form G-1145 E-Notification, you will receive a text message or email within a few days after USCIS receives your application.
+### +  4\. Wait for EAD to Be Mailed to You
+The points below answer the most frequently asked questions students ask ISSS while waiting for their EAD card. If you still have questions after reading these points, [contact ISSS to speak with an advisor](https://isss.umn.edu/contact-us).
+- To find **current processing times** for I-765 applications, go to [z.umn.edu/usciscase](https://egov.uscis.gov/processing-times/). Under "Form" select I-765 Application for Employment Authorization and select Based on a request by a qualified F-1 academic student \[(c)(3)\] for "Form Category." Under "Field Office or Service Center" select Potomac Service Center. You can also call the USCIS National Customer Service Center at 1-800-375-5283.
+- If there is a question about your OPT application, USCIS will mail a **Request for Evidence** to you. If this happens to you, contact ISSS so we can help you.
+- If you **change your address while your OPT application is still pending**, you must submit an update on the [USCIS website](https://egov.uscis.gov/coa/displayCOAForm.do). You must also include your current phone number.
+- **You may not begin working until you have received your EAD card and the start date is current**. This is true even if the start date you requested has passed and you have not received the EAD card yet.
+- **You may not continue any on-campus employment after the completion date in block 3 of your OPT I-20, even if you have not yet completed your degree**. Any on- or off-campus employment after this completion date must be with OPT authorization and with your EAD card.
+- The EAD card will show the dates of your employment authorization:
+Valid From = **start**; Card Expires = **end**
+### +  5\. Fulfill Your OPT Reporting Requirements
+It is essential that you [fulfill your OPT Reporting requirements](https://isss.umn.edu/fstudents/employment/opt/requirements).
+### +  Key Dates
+These are key dates for undergraduate and Plan C masters students graduating in Fall 2026.
+| Key dates | How it is counted | Fall 2026 specific dates |
+| --- | --- | --- |
+| Date of degree completion | Last day of term | December 23, 2026 |
+| Earliest date to submit a request to ISSS | 100 days before the date of degree completion | September 14, 2026 |
+| Earliest date USCIS can receive OPT application | 90 days before the date of degree completion | September 24, 2026 |
+| Latest date USCIS can receive OPT application | 60 days after the date of degree completion | February 21, 2027 |
+_Special Notes for Fall 2026_
+On Monday, September 14, 2026, a federal judge in the U.S. District Court for the District of Massachusetts (Presidents' Alliance et al. v. DHS) issued an order preliminarily enjoining DHS from implementing the rule to eliminate Duration of Status (D/S). As a result, the rule ending D/S did **NOT** take effect on September 15th as originally scheduled, and the current D/S framework remains in place for now. What this means is that:
+- The OPT application process remains unchanged and you may continue to follow the guidance provided on our website and the online workshop.
+- Please note that this is a preliminary court order, not a final resolution. The administration may appeal, and the underlying litigation is ongoing. The rule may still take effect later, depending on how the case proceeds. We will continue to monitor developments closely and update you as soon as anything changes.
+Last updated: September 23, 2026
+![ISSS Logo](https://isss.umn.edu/sites/isss.umn.edu/files/2021-02/ISSS_logo_gray600.png?_buster=EPL4M_RO)
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b9"; sed -n '461,585p' 03.md | grep -v '^\s*$' | cut -c1-1000`
+```
+# Requirements During OPT
+_Note: This page refers to post-completion and STEM OPT.  Not all of the content applies to pre-completion OPT._
+## Once you receive your EAD, you are required to:
+1. Submit a **copy of your EAD** card to ISSS
+2. Report address and employment information within 10 days of any change in your **SEVP (Student and Exchange Visitor Program) Portal** account. Be aware that the SEVP Portal will not allow you to enter an employment start date that is more than 10 days in the past, so it is essential that you report your employment on time.
+3. Work at least **20 hours per week** in one or more **jobs that are related to your major**
+4. Not exceed 90 days of **unemployment**
+Review the following for additional details about these requirements.
+[Expand all](https://isss.umn.edu/fstudents/employment/opt/requirements#)
+### +  Submit Your EAD Card to ISSS
+When you receive your EAD card, the first thing you should do is read the information carefully. If you find any errors [contact ISSS immediately](https://isss.umn.edu/contact-us). An ISSS advisor can help you get a corrected card.
+If the information on your EAD card is correct, then scan or take a picture of it. Submit the copy to ISSS using the [Upload a Copy of EAD Form](https://z.umn.edu/submitead) in MyISSS.
+### +  Update SEVP Portal
+**You should create a SEVP Portal account when you receive the email from [do-not-reply.SEVP@ice.dhs.gov](mailto:do-not-reply.SEVP@ice.dhs.gov) even if you do not have updates at that time. The link to create your account will expire in 31 days.**
+As an F-1 student on post-completion Optional Practical Training (OPT), you are required to use the SEVP Portal to report changes to your home address, telephone number, and employer information updates.
+#### What is the SEVP Portal?
+The SEVP Portal (or portal) is a system that allows you to have limited access to update your SEVIS record during OPT. You can access the portal from both mobile devices and computers.
+#### What is a SEVIS record?
+SEVIS stands for Student and Exchange Visitor Information System. It is a nationwide, Internet-based system that the U.S. government uses to maintain accurate and current information about non-immigrant students and their dependents (F and J). [ISSS has access to SEVIS records for UMN students](https://isss.umn.edu/resources/sevis) in order to create and update I-20s, report address and enrollment information, etc.
+#### How will I be able to access the SEVP Portal?
+You will create your own portal account. On the start date of your EAD card, or soon after, you will receive an email message with instructions on how to create your portal account. The email will come to your umn.edu email address. It will be from do-not-reply.SEVP@ice.dhs.gov and the subject line will be "OPT Approval - the next step. Create an SEVP Portal account."
+#### What if I don't receive the email? What if I have problems using the SEVP Portal?
+First check your UMN spam folder (directions [here](https://support.google.com/inbox/answer/6070440?hl=en)).
+If you still do not see it, or if you have problems, inform ISSS by filling out the SEVP Portal Assistance Request form in [MyISSS](http://myisss.umn.edu/).
+#### What must a student on OPT do in the SEVP Portal?
+After creating an account and logging in to the portal, you must:
+- Report changes to your physical address (where you live), mailing address, and telephone number
+- Report updates about your employment information
+You are required to report these changes and updates within 10 days of the change.
+You may also:
+- Review details about all employers in one place
+- Review details about your post-completion OPT
+Any updates you make in the portal will be sent directly to SEVIS.
+#### How will I know the information I enter in the SEVP Portal is in SEVIS?
+What you see in the SEVP Portal is the same information as in SEVIS. It is a real-time update.
+#### Do I have to use the SEVP Portal?
+Yes. You are required to report address, telephone number, and employment updates directly in the SEVP Portal.
+You must also continue to update your residential address and telephone number in [MyU](https://myu.umn.edu/) while you are on OPT so the University of Minnesota can contact you.
+#### Will ISSS make the updates?
+No. ISSS will not make these changes for you.
+#### What if I do not report my employment information or changes to my address or telephone?
+F-1 students have always been required to report this information within 10 days of the change or update. This requirement has not changed; the SEVP Portal is just a different, and more direct, way for you to report.
+Failure to report employment information or changes to your address or telephone within 10 days of the update or change may result in the loss of your OPT status or other immigration benefits. **The SEVP Portal will not allow you to report employment that started more than 10 days in the past**, so it is essential that you report your employment on time. For now, ISSS can make the change if you complete the SEVP Portal Assistance Request form in [MyISSS](http://myisss.umn.edu/).
+#### Help! My OPT has expired. I still have an update to make and I can't get in to the portal.
+If it is after the end date of your EAD card, you will no longer be able to use the SEVP Portal to report any changes or end of employment. Inform ISSS by completing the SEVP Portal Assistance Request form in [MyISSS](http://myisss.umn.edu/).
+#### Where can I find more information?
+SEVP has created a [SEVP Portal Help](https://studyinthestates.dhs.gov/sevp-portal-help) section with:
+- Information about the portal
+- The [SEVP Portal User Guide](https://studyinthestates.dhs.gov/assets/sevp_portal_student_user_guide.pdf), which provides screenshots and detailed, step-by-step instructions for using the portal
+- [SEVP Portal videos](https://studyinthestates.dhs.gov/sevp-portal-videos) that help with navigating and reporting in the portal
+- A useful [one-page reference sheet](https://studyinthestates.dhs.gov/assets/sevp_portal_onepager.pdf) about the portal
+If you have any questions about the portal or need assistance, call the SEVP Response Center at 703-603-3400.
+### +  Follow OPT Employment Rules
+Employment must be at least 20 hours per week, and it must be related to the UMN major you just completed.
+Employment on OPT can be:
+- Paid employment
+- 1 or more jobs
+- Contract employment
+- Self-employment
+- Employment through an agency or consulting firm
+- Unpaid internship
+- Volunteer work
+You should keep written documentation of all your employment during OPT.
+### +  Accumulate Less Than 90 Days of Unemployment
+You are allowed 90 days of unemployment during the 12-month period of your post-completion OPT.
+If you cannot find employment that begins within 90 days, you must depart the U.S. no later than the 90th day after your post-completion OPT began.
+If you have accumulated more than 90 days of unemployment, you will no longer be in F-1 status. Once your F-1 status expires, you are required to leave the U.S. immediately.
+Last updated: September 15, 2026
+![ISSS Logo](https://isss.umn.edu/sites/isss.umn.edu/files/2021-02/ISSS_logo_gray600.png?_buster=EPL4M_RO)
+ISSS is a unit of the [Global Programs and Strategy Alliance](https://global.umn.edu/), the central international office for the University of Minnesota system.
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b9"; sed -n '461,576p' 04.md | grep -v '^\s*$' | cut -c1-1000`
+```
+# Travel, Study, and More
+You may have questions about your status during OPT. Review the information here. If you still have questions, please [contact an ISSS adviser](https://isss.umn.edu/contact-us).
+_Note: This page refers to post-completion and STEM OPT.  Not all of the content applies to pre-completion OPT._
+## General Questions
+[Expand all](https://isss.umn.edu/fstudents/employment/opt/travel-study#)
+General Questions
+### +  Did my F-1 status change to OPT status?
+No, OPT is a benefit of your F-1 status. During OPT you are still in F-1 status at the University of Minnesota.
+### +  I got a new job and I updated my SEVP Portal account. Will ISSS automatically issue a new I-20 to me?
+No. If you require a new I-20 with your updated employer information, you may request it in [MyISSS](https://myisss.umn.edu/istart/controllers/start/StartEngine.cfm).
+### +  I am planning to leave the U.S. permanently, or I have changed my visa status and I am no longer in F-1 status. What should I do?
+In both of these cases, you must [notify ISSS](https://isss.umn.edu/contact-us).
+## More Information
+[Expand all](https://isss.umn.edu/fstudents/employment/opt/travel-study#)
+More Information
+### +  Study During OPT
+If you have applied for post-completion OPT before you finish your final paper or thesis, you must complete all degree requirements by the OPT end date. A program extension is not possible after your OPT ends.
+UMN enrollment "for administrative purposes" (Grad 999) is allowed.
+Official admission to a new degree program or transfer to a new school during OPT will void any remaining time on your EAD. You cannot recapture this time.
+- F-1 regulations are clear that your OPT authorization is automatically terminated when a) your SEVIS record is transferred to another U.S. school, or b) you begin study at another educational level in the U.S.
+- Beyond this, U.S. government guidance is limited regarding study during OPT. Therefore, the interpretation of F-1 regulations can vary from school to school. UMN's ISSS believes that if you are working full-time (at least 20 hours per week) with post-completion OPT authorization, you are eligible to attend school part-time.
+- To be clear: This is the UMN ISSS interpretation of OPT regulations. It is possible that the U.S. government or other U.S. schools may interpret OPT regulations differently.
+### +  Travel During OPT
+If you travel during OPT, the expectation is that you are returning to resume employment, or to resume your job search (if you have not exceed 90 days of unemployment).
+F-1 students on OPT must be able to present five documents for reentering the United States:
+1. Valid passport
+2. Valid F-1 visa
+3. Valid OPT I-20 with travel signature less than 6 months old upon returning to the U.S.
+During OPT, the travel signature on page 2 of your OPT I-20 is valid for 6 months only. If your travel signature has expired, come to ISSS during [walk-in advising hours](https://isss.umn.edu/contact-us) or submit an online request for a travel I-20 in [MyISSS](https://myisss.umn.edu/).
+4. EAD for post-completion OPT, or Receipt Notice (Form I-797)
+5. Evidence of a job or a job offer. Evidence can include but is not limited to:
+- Letter from your employer, on company letterhead, approving your travel and the date you are expected to return
+- Job offer letter
+- Job contract
+- Evidence of an active job search (e.g. scheduled interviews)
+Under normal circumstances and in addition to 1-3, a student who has both 4) an EAD for post-completion OPT or Receipt Notice (Form I-797), and 5) a job or job offer, should not experience difficulty re-entering the U.S.
+- If either of these two conditions is missing, then you are assuming increased risk of being denied entry into the U.S.
+#### Can I re-enter the U.S. if my request for OPT is pending (I have not received my EAD yet)?
+Yes, you may re-enter to search for or begin your employment. When you go through U.S. immigration, be prepared to show the immigration inspector your I-765 receipt notice (Form I-797) or USCIS email receipt, as proof of eligibility for reentry. Additionally, if you have been offered a job, carry a copy of the job offer letter.
+Caution! If you depart the U.S. without a job offer before the EAD was issued, but attempt to re-enter the U.S. after the EAD was issued, you might experience difficulty re-entering the U.S. if you cannot document that you have a job offer.
+You are allowed a maximum of 90 days of unemployment during OPT, including time outside the U.S.
+#### Can I renew my F-1 visa during OPT?
+Yes, but it may be more difficult because of the inherent contradiction between the F-1 visa being a student visa, yet OPT is full-time work authorization. You should allow enough time for the visa renewal process.
+- Be prepared to present evidence of employment (a letter from your employer is best) to the U.S. consulate.
+- If possible, plan ahead and renew your F-1 visa before you complete your UMN degree.
+Learn more about [renewing your visa](https://isss.umn.edu/resources/visa-renewal).
+### +  Cap-gap
+The H-1B "cap-gap" occurs when an F-1 student's status and OPT work authorization expire after April 1, and before the student can start approved H-1B employment during the next fiscal year that begins on October 1.
+The cap-gap extension of work permission is **automatically granted** when SEVIS receives data about a pending H-1B petition from USCIS. Obtaining a cap-gap I-20 is not required to be granted the work extension. (See: [Extension of Post-Completion Optional Practical Training (OPT) and F-1 Status for Eligible Students under the H-1B Cap-Gap Regulations](https://www.uscis.gov/working-in-the-united-states/temporary-workers/[REDACTED]/[REDACTED]#:~:text=Cap%2DGap%20Regulations-,Extension%20of%20Post%20Completion%20Optional%20Practical%20Training%20(OPT)%20and%20F,H%2D1B%20Cap%2DGap%20Regulations&text=As%20a%20result%2C%20the%20earliest,%2C%20which%20starts%20Oct%2C%201.).)
+If a cap-gap I-20 is required by your employer, or needed for any other reason to prove you are in cap-gap status, submit the Cap Gap I-20 Request form under the F-1 Practical Training tab in [MyISSS](http://myisss.umn.edu/).
+#### Should the pending H-1B petition ultimately be denied, you will have a 60-day grace period from the notification date of the denial to do one of the following:
+- Depart the United States
+- Obtain admission to a new F-1 SEVIS-approved school
+- File an application for a change of status
+#### Examples of cap-gap eligibility
+- Example 1:  James is currently on OPT and it expires June 25 (after April 1). His employer filed an H-1B petition on April 1 that requests an employment start date of October 1. James will have his duration of status and OPT employment authorization extended to October 1. This is what is called the "cap-gap".
+- Example 2:  Pierre is also on OPT but it expires March 20 (before April 1). His employer also files an H-1B petition on April 1 that requests an employment start date of October 1. Pierre cannot have the cap-gap because his OPT expires before his employer can file the H-1B petition. Pierre must stop working on March 20 and discuss options with his employer and an immigration attorney.
+### +  24-Month STEM OPT Extension
+The 12-month period of post-completion OPT can be extended by 24 months for certain science, technology, engineering, and mathematics (STEM) degree holders. Review the [STEM Designated Degree Program List](https://www.ice.gov/sites/default/files/documents/Document/2016/stem-list.pdf) to determine if your field and CIP Code are included in the list. The CIP code is the 6-digit code (00.0000) next to your Major name on your I-20.
+NOTE:  ISSS does not designate your major as STEM or non-STEM. Further, the CIP code is a U.S. Department of Education code that is used for many purposes, not just STEM OPT extensions. If you feel strongly that your major's CIP code is inaccurate, you should contact your academic program.
+#### Can I apply for the STEM OPT extension at the same time as I apply for post-completion OPT?
+No. First you apply for OPT. You may apply for the STEM OPT extension when you have 90 days remaining in your post-completion OPT period.
+Learn more about the [24-month STEM OPT extension](https://isss.umn.edu/fstudents/employment/opt/stem-opt-extension).
+Last updated: September 15, 2026
+![ISSS Logo](https://isss.umn.edu/sites/isss.umn.edu/files/2021-02/ISSS_logo_gray600.png?_buster=EPL4M_RO)
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b9"; echo "######## 05 post-completion basics"; sed -n '461,531p' 05.md | grep -v '^\s*$' | cut -c1-800; echo; echo "######## 08 OPT vs CPT"; sed -n '461,482p' 08.md | grep -v '^\s*$' | cut -c1-900`
+```
+######## 05 post-completion basics
+# Basics of Post-Completion OPT
+Optional Practical Training (OPT) is temporary employment authorization for international students in F-1 status.
+OPT allows you to work in a job off-campus that is directly related to your major field of study. OPT is limited to 12 months per degree level, and may be used before or after you complete your UMN academic program. OPT used before completing your academic program is “pre-completion” OPT in most cases.  OPT used after completing your academic program is “post-completion” in most cases.
+**If you are a student in J-1 status, please see** [**ISSS information about Academic Training**](https://isss.umn.edu/jstudents/employment/academic-training) **.**
+[Expand all](https://isss.umn.edu/fstudents/employment/opt/basics#)
+### +  Eligibility
+To be eligible to apply for OPT, you must:
+1. Be in valid F-1 status
+2. Have completed at least one academic year of full-time study in the U.S.
+3. Pursue a job directly related to your major
+4. Complete the ISSS Online OPT Workshop and receive a new I-20 recommending OPT
+**You are not eligible if you:**
+1. Have been authorized 12 or more months of full-time Curricular Practical Training (CPT) at your current degree level
+2. Were previously authorized for OPT at a higher degree level (if this is your case consult with an ISSS advisor)
+3. Have already used 12 months of full-time OPT at your current degree level
+4. Have departed the US during your 60-day grace period _**before**_ requesting your I-20 with an OPT recommendation from ISSS _**and**_ submitting your OPT application with USCIS.  You must be in the US in order to be able to apply for OPT. Departing the US before the end of your grace period results in the loss of the rest of your grace period and effectively ends your F-1 status and eligibility to apply for OPT.  You may not re-enter the US if you depart the US during your grace period.
+### +  OPT Categories
+#### Post-completion
+OPT that will be done after you complete your degree program. Learn more about [post-completion OPT](https://isss.umn.edu/fstudents/employment/opt/basics).Most students choose this category.  Also see the additional information below for graduate students in a Plan A, Plan B or thesis program.
+#### Pre-completion
+OPT that will be done before you complete your degree program. You may use your 12 months of OPT in sections. Any pre-completion OPT that you receive will be subtracted from your total 12 months. This may be used as an alternative if [Curricular Practical Training (CPT)](https://isss.umn.edu/fstudents/employment/cpt) is not available.This category is rarely used.
+If available,Most students choose to use Curricular Practical Training (CPT) for off-campus work authorization before they complete their degree. Except in rare cases, CPT time is not subtracted from your OPT time.
+### +  Applying for OPT
+The first step in applying for OPT is to request a new OPT I-20 from ISSS. Learn more about the [application process](https://isss.umn.edu/fstudents/employment/opt/apply).
+It is also important that you understand the timeline for applying for OPT as it is limited. Applications received outside of the timelines described will be denied.
+You can submit your OPT recommendation request in MyISSS 100 days before you expect to complete your studies. USCIS will accept your OPT application no earlier than 90 days before and no later than 60 days after your completion of studies date. If USCIS receives your OPT application outside this time span, they will deny it.
+### +  30-Day Window
+The [first step of applying for OPT](https://isss.umn.edu/fstudents/employment/opt/apply) will be for you to request an OPT I-20 from ISSS. **USCIS must receive your OPT application no later than 30 days after the "date issued" on your OPT I-20.** This requirement applies to post- and pre-completion OPT.
+### +  OPT Extension
+There are some cases where a student may receive more than 12 months of OPT.
+- If you _complete a new degree at a higher level_ in the U.S., you are eligible for another 12 months of OPT. For example, if you complete a bachelor's degree, receive OPT, then you complete a master's degree, you are eligible for 12 more months of OPT.
+- If you _complete a degree in a STEM_ (Science, Technology, Engineering, or Mathematics) field, you are eligible for a 24-month extension of your OPT.
+### +  Graduate Students
+#### **I’m a grad student in a Plan A, Plan B, or thesis program. I still have thesis credits remaining. Can I apply for post-completion OPT so I can work full-time?**
+Yes, this is possible. However, ISSS cautions graduate students with thesis credits remaining, who are considering post-completion OPT, because **a program extension is not possible.**
+- If you cannot finish your Plan A, Plan B, or thesis by the end of your OPT grace period (60 days after OPT end date), you cannot request a program extension (extension of your I-20).
+- Contact ISSS to discuss your plan with an advisor.
+Last updated: September 15, 2026
+![ISSS Logo](https://isss.umn.edu/sites/isss.umn.edu/files/2021-02/ISSS_logo_gray600.png?_buster=EPL4M_RO)
+
+######## 08 OPT vs CPT
+# OPT vs. CPT
+| Frequently Asked Questions | CPT | Pre-Completion OPT | OPT |
+| --- | --- | --- | --- |
+| Who approves this work authorization? | ISSS | USCIS | USCIS |
+| What are the eligibility requirements? | At the time of your application, you:<br>- Are in F-1 status<br>- Are a degree-seeking student<br>  - Have studied at a U.S. college or university for at least 1 academic year<br>- Have received a job/internship offer to do work in your major | At the time of your application, you:<br>- Are in F-1 status<br>- Are a degree-seeking student<br>- Will have studied at a U.S. college or university for at least 1 academic year by the time your pre-completion OPT starts | At the time of your application, you:<br>- Are in F-1 status<br>- Are a degree-seeking student or recently graduated<br>- Have studied at a U.S. college or university for at least 1 academic year |
+| Do I need this authorization to work on-campus? | The work is full-time (more than 20 hours/week) during the fall or spring semester:<br>- YES but only allowed for advanced graduate students<br>The work is part-time (20 hours/week or less) during the fall or spring semester:<br>- NO<br>[Learn more about on-campus employment.](https://isss.umn.edu/fstudents/employment/on-campus) | The work is full-time (more than 20 hours/week) during the fall or spring semester:<br>- NO<br>The work is part-time (20 hours/week or less) during the fall or spring semester:<br>- NO<br>[Learn more about on-campus employment.](https://isss.umn.edu/fstudents/employment/on-campus) | The work is before your date of degree completion:<br>- NO: See [CPT and on-campus employment](https://isss.umn.edu/fstudents/employment/cpt/basics) or the information about pre-completion OPT<br>The work is after your date of deg
+| Do I need this authorization to work off-campus? | The work is before your date of degree completion:<br>- YES<br>The work is after your date of degree completion:<br>- See [OPT](https://isss.umn.edu/fstudents/employment/opt/basics) | The work is before your date of degree completion:<br>- YES<br>The work is after your date of degree completion:<br>- See Post-Completion [OPT](https://isss.umn.edu/fstudents/employment/opt/basics) | The work is before your date of degree completion:<br>- NO: See [CPT](https://isss.umn.edu/fstudents/employment/cpt/basics) and Pre-Completion OPT<br>The work is after your date of degree completion:<br>- YES |
+| Do I need authorization BEFORE I begin working? | Yes. ISSS authorization is a new I-20. You must have this I-20 in order to work. | Yes. USCIS will send you a special card. You must have this card to work. | Yes. USCIS will send you a special card. You must have this card to work. |
+| What does the work authorization look like? | ISSS issues you a new I-20. Page 2 states the work details (name and address of employer, dates of employment). | USCIS issues you a card, commonly called an EAD (Employment Authorization Document) card or OPT card. | USCIS issues you a card, commonly called an EAD (Employment Authorization Document) card or OPT card. |
+| How much does it cost? | There is no fee, but most CPT authorizations require you to enroll in a minimum of 1 course credit (Internship Reflection, CPT course, Independent Study, Directed Study, etc.). | [The I-765 (OPT) filing fee is paid to USCIS](https://www.uscis.gov/i-765#:~:text=File%20Online-,Form%20Details,-Close%20All). You do not have to pay the biometric fee. There is an optional fee for premium processing (expedited processing). | [The I-765 (OPT) filing fee is paid to USCIS](https://www.uscis.gov/i-765#:~:text=File%20Online-,Form%20Details,-Close%20All). You do not have to pay the biometric fee.  There is an optional fee for premium processing (expedited processing). |
+| How long does it take to receive the authorization? | After you submit your CPT Request in MyISSS, your Academic Advisor must review and respond. ISSS takes up to 7 business days to issue you the I-20 with our CPT authorization on it.<br>Once you have a job offer, you should allow approximately 2 to 3 weeks to submit your CPT Request in MyISSS and receive the I-20 with CPT authorization from ISSS. | USCIS is currently taking 3 to 5 months to process OPT applications, although you can pay extra for premium processing, which guarantees a response (including a request for evidence, an approval or a denial) within 30 business days. | USCIS is currently taking 3 to 5 months to process OPT applications, although you can pay extra for premium processing, which guarantees a response (including a request for evidence, an approval or a denial) within 30 business days. |
+| How can I get a Social Security Number? | Take the following to the Social Security office:<br>- Passport<br>- Visa (if applicable)<br>- I-94 record (print from [cbp.gov/i94](https://www.cbp.gov/travel/international-visitors/i-94))<br>- I-20 with CPT authorization<br>- Job offer letter<br>[Learn more about getting a Social Security Number](https://isss.umn.edu/resources/social-security-number). | Take the following to the Social Security office:<br>- Passport<br>- Visa (if applicable)<br>- I-94 record (print from [cbp.gov/i94](https://www.cbp.gov/travel/international-visitors/i-94))<br>- I-20 with OPT authorization<br>- EAD Card<br>[Learn more about getting a Social Security Number](https://isss.umn.edu/resources/social-security-number). | Take the following to the Social Security office:<br>- Passport<br>- Visa (if applicable)<br>- I-94 record (print from [cbp.gov/i94](https://www.cb
+| Can I use this work authorization before I graduate? | Yes | Yes, but ISSS recommends F-1 students use CPT for work authorization (if available) prior to completion of your degree.<br>You are allowed 12 months of OPT per degree level. You may use a percentage of it before graduation, but it is deducted from the 12 month total. | No. |
+| Can I use this work authorization after I graduate? | No | No | Yes |
+| What is the process to apply for this work authorization? | 1. Take and complete the ISSS CPT Online Workshop. Save and print the Completion Certificate email.<br>2. Meet your Academic Advisor to discuss work opportunity<br>3. Download [Course Instructor Verification form](https://isss.umn.edu/fstudents/forms) and meet your Course Instructor for signature<br>4. Fill out and submit the CPT Request in [MyISSS](https://myisss.umn.edu/)<br>5. Pick up your new I-20 with CPT authorization | ISSS is developing a request process and will announce the details in Fall 2026.  Generally, students must request an I-20 from ISSS first, then submit an application to USCIS. | 1. Take and complete the ISSS OPT Online Workshop. Save and print the Completion Certificate email.<br>2. Meet your Academic Advisor to verify your date of degree completion<br>3. Fill out and submit the OPT Request in [MyISSS]
+| Do I need a specific job offer before I apply for this work authorization? | Yes, a job/internship/co-op offer is required.<br>CPT authorization is specific to an employer and for specific start and end dates. | No. You can apply for OPT before you receive a job offer. | No. You can apply for OPT before you receive a job offer. |
+| What is the maximum amount of authorization I may have? | Part-time: Unlimited<br>Full-time: 12 months. If you reach 12 months of full-time CPT, you will not be able to do OPT at this degree level. | 12 months of full-time OPT per degree level (bachelor's, master's, doctorate).  Part-time OPT reduces the amount of full-time OPT available. See additional information on the [Pre-completion OPT page](https://isss.umn.edu/fstudents/employment/opt/pre-completion-opt). | 12 months per degree level (bachelor's, master's, doctorate) including any pre-completion OPT and an additional 24 months for STEM graduates. |
+Last updated: September 15, 2026
+![ISSS Logo](https://isss.umn.edu/sites/isss.umn.edu/files/2021-02/ISSS_logo_gray600.png?_buster=EPL4M_RO)
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b9"; echo "######## 07 STEM application"; sed -n '461,589p' 07.md | grep -v '^\s*$' | cut -c1-900`
+```
+######## 07 STEM application
+# STEM OPT Application Process
+You will submit applications to ISSS and USCIS to apply for STEM OPT. Carefully review the following information to ensure you submit your complete application.
+## Application Timeline
+You can submit your request for a STEM OPT I-20 to ISSS up to 100 days before your current Employment Authorization Document (EAD) expires.
+You **must** submit your application to USCIS:
+- NO more than 90 days before your current EAD expiration date, but
+- No later than your current EAD expiration date.
+**You must wait to receive your updated I-20 from ISSS before submitting your application to USCIS.** You must include a copy of the new STEM OPT I-20 with your USCIS application materials. USCIS will reject your application if you do not include the new I-20 with ISSS’s STEM OPT recommendation.
+### Application Process
+​​You have the option to either submit your application to USCIS online or on paper.  Steps 3 and 4 include directions for both applying online and by mail. You will only need to follow the appropriate directions for your choice.
+USCIS offers Premium Processing (faster service) for OPT and STEM OPT applications. [Learn more](https://isss.umn.edu/[REDACTED]).
+[Expand all](https://isss.umn.edu/fstudents/employment/opt/stem-opt-extension/application#)
+### +  1\. Complete the ISSS STEM OPT Online Workshop
+All applicants must complete the [ISSS STEM OPT Online Workshop](https://z.umn.edu/stemoptworkshop) **before** submitting their application for a new I-20 to ISSS. This Canvas course includes information about the STEM timeline, application process, and reporting requirements.
+You will create a “Simple Certificate” when you complete the STEM OPT Online Workshop. You will need to download /save this certificate as a PDF because you must upload it with your STEM OPT request in MyISSS.
+### +  2\. Request a STEM OPT Recommendation From ISSS
+ISSS must recommend your STEM OPT. We recommend STEM OPT by issuing a new I-20 to you.
+Once you complete the STEP OPT Online Workshop, you must log in to MyISSS and complete the STEM OPT Extension form (located under the F-1 Practical Training tab). You will be required to upload the following documents:
+- STEM OPT Online Workshop Certificate of Completion
+- Completed and signed [I-983](http://z.umn.edu/i983) form (if you have questions, you can review the [instructions for completing the I-983](https://studyinthestates.dhs.gov/stem-opt-hub/additional-resources/form-i-983-overview) and a [sample I-983](https://docs.google.com/presentation/d/[REDACTED]/edit?usp=sharing))
+- Receipt from payment of the [STEM OPT/AT fee](https://isss-umn.nbsstore.net/).
+  - A $400 fee will be charged to all alumni on F-1 visas when submitting a request for a 24-month STEM OPT Extension. This fee is a one-time application fee that is separate from the I-765 filing fee or any other fees required by U.S. Citizenship and Immigration Services (USCIS). This fee guarantees continued support from the ISSS office for the entire duration of your STEM OPT period. In some instances, employers have been willing to pay the fees associated with an individual’s work authorization, but alumni will need to discuss this with their employer.
+**ISSS processing time is up to 10 business days for the new I-20. Do NOT submit your STEM OPT application to USCIS without the new I-20 with STEM OPT recommendation.**
+Upon approval of your STEM OPT Extension request, ISSS will send an electronically signed I-20 to your **UMN email account**. The U.S. Department of Homeland Security allows electronic delivery of form I-20.
+### +  3\. Assemble the Application Materials
+#### If You Wish to Submit Your Application Online
+1. Create a [MyUSCIS](https://my.uscis.gov/) online account. Complete all pages of Form I-765 online (Follow the [ISSS online I-765 instructions](https://docs.google.com/document/d/[REDACTED]/edit?usp=sharing). Upon completion, keep a copy for your records). Do not submit until you have the STEM OPT I-20 from ISSS.
+2. Have enough money available in your U.S. bank account or U.S. credit card to pay the filing fee. If your employer will pay the fee, you will need their payment information. [Click here for I-765 filing fee](https://www.uscis.gov/i-765#:~:text=File%20Online-,Form%20Details,-Close%20All). You do not have to pay the biometric fee.
+3. On December 12, 2025, [USCIS announced changes](https://www.uscis.gov/newsroom/alerts/new-photo-policy-helps-prevent-immigration-fraud-through-enhanced-identity-verification) to guidance on photos that can be used to create immigration documents such as Employment Authorization Documents (EAD) cards.  ISSS recommends that individuals applying for STEM OPT or other work authorizations follow the form directions and continue to submit a photo, but that they also be prepared to attend a biometrics appointment if requested.  Please review the [ISSS Current Messages on Federal Immigration Changes](https://docs.google.com/document/d/[REDACTED]/edit?tab=t.0#heading=h.sb4ppkxs007y) page for further details and guidance on this change and how it will impact your OPT application.
+4. Most recent electronic I-94
+5. Your most recent EAD
+6. Biographical page of your passport
+7. New I-20: page 1 with your signature and page 2 with STEM OPT recommendation
+8. UMN diploma and final transcript. Exception: Graduate students who have completed degree requirements except thesis or dissertation should include a transcript and letter from their adviser clarifying that all coursework is complete and the only remaining requirement for degree completion is the thesis/dissertation.
+9. [Institutional accreditation](https://provost.umn.edu/academic-oversight/accreditation): Save a PDF of this page and upload.
+**Please note:** When asked, your eligibility category is c(3)(C) STEM Extension. As soon as you have paid the fee, you have submitted your application and can no longer make changes or additions.
+#### If You Wish to Submit Your Application By Mail
+Put your application materials together in the following order. You should also keep a copy of this entire application for your records.
+01. A check or money order for the filing fee payable to "U.S. Department of Homeland Security" for the STEM OPT application fee. Do not pay the $85 Biometrics fee. To pay the fee by credit card, fill out [USCIS Form G-1450](https://www.uscis.gov/g-1450). [Click here for I-765 filing fee](https://www.uscis.gov/i-765#:~:text=File%20Online-,Form%20Details,-Close%20All). You do not have to pay the biometric fee.
+02. On December 12, 2025, [USCIS announced changes](https://www.uscis.gov/newsroom/alerts/new-photo-policy-helps-prevent-immigration-fraud-through-enhanced-identity-verification) to guidance on photos that can be used to create immigration documents such as Employment Authorization Documents (EAD) cards.  ISSS recommends that individuals applying for OPT or other work authorizations follow the form directions and continue to submit a photo, but that they also be prepared to attend a biometrics appointment if requested.  Please review the [ISSS Current Messages on Federal Immigration Changes](https://docs.google.com/document/d/[REDACTED]/edit?tab=t.0) page for further details and guidance on this change and how it will impact your OPT application. For an application by mail, send two color, passport-style photos. Use a pencil to print your full name a
+03. All pages of original form I-765, even if they are blank
+04. Photocopy of new I-20: page 1 with your signature and page 2 with STEM OPT recommendation
+05. Photocopy of your most recent EAD card
+06. Photocopy/print-out of the [most recent electronic I-94](https://i94.cbp.dhs.gov/I94/#/home)
+07. Photocopy of the biographical page of your passport
+08. Photocopy of each of as many as possible of the following that contain your name and photo: entry visa stamp with a photo, driver's license or state ID, student ID, and any previously issued EAD.
+09. A photocopy of your UMN diploma and final transcript. Exception: Graduate students who have completed degree requirements except thesis or dissertation should include a transcript and letter from their adviser clarifying that all coursework is complete and the only remaining requirement for degree completion is the thesis/dissertation.
+10. Print-out of UMN's [institutional accreditation](https://provost.umn.edu/academic-oversight/accreditation)
+11. Optional, but recommended:
+- Submit a [G-1145 E-Notification of Application/Petition Acceptance](https://www.uscis.gov/sites/default/files/document/forms/g-1145.pdf) form. This form instructs USCIS to send you an email or text message when they receive your STEM OPT application. Attach it to the top of the application.
+### +  4\. Submit the STEM OPT Application to USCIS
+#### If You Wish to Submit Your Application Online
+Login to your MyUSCIS account. Complete the online I-765, upload all documents in Step 2, and pay the filing fee.
+After your payment is accepted, you will be redirected to a confirmation screen which will include your receipt number. **Keep a copy of your receipt number for your records.** You can track the status of your STEM OPT application through your myUSCIS online account.
+#### If You Wish to Submit Your Application By Mail
+Submit the application materials by certified or express mail in order to track your package.
+No matter where you live in the U.S., send your application to the USCIS Chicago Lockbox.
+- **For U.S. Postal Service (USPS):**
+USCIS
+​​​​​​​Attn: I-765 C03
+PO Box 805373
+Chicago, IL 60680
+- **For FedEx, UPS, and DHL deliveries:**
+USCIS
+Attn: I-765 C03
+131 South Dearborn - 3rd Floor
+Chicago, IL 60603-5517
+You are responsible for mailing your STEM OPT application to USCIS.
+### +  5\. Wait for EAD to Be Mailed From USCIS
+- Whether you applied online or by mail, you will receive the EAD (Employment Authorization Document) by mail.
+- If you applied online, you will receive updates from USCIS by email or text.
+- It takes approximately 3.5 to 4 months for USCIS to process your request and mail your EAD to the address on Form I-765. USCIS has an online database showing the [current processing times for I-765 (OPT) applications](https://egov.uscis.gov/processing-times/) (select select "I-765" and "Potomac Service Center" in the drop-down).
+- Several weeks after you apply, you should receive a Receipt Notice (Form I-797) in the mail from USCIS. Keep this until you receive the EAD card and the Approval Notice. You can [track your case](https://egov.uscis.gov/casestatus/landing.do) by entering the Receipt Number found on your Receipt Notice.
+- Applicants who file a timely application can [continue employment while the STEM extension application is pending, until a final decision on the I-765 or for 180 days, whichever comes first](https://www.ice.gov/sevis/practical-training).
+- The EAD will reflect the dates of your employment authorization
+- On January 1, 2026, [USCIS announced](https://www.uscis.gov/sites/default/files/document/policy-alerts/[REDACTED].pdf) that effective immediately it is placing a hold on pending benefit applications for any non-US citizens that were born in or are citizens of countries that are included in the expanded [December 2025 travel ban](https://docs.google.com/document/d/[REDACTED]/edit?tab=t.0#heading=h.sb4ppkxs007y).  If your country of birth or citizenship is included on the list of countries that are impacted by this USCIS pause, your I-765 is among the types of applications affected by this pause.
+Note: If you receive a Request For Evidence (RFE) from USCIS, contact ISSS as soon as possible.
+Last updated: July 28, 2026
+![ISSS Logo](https://isss.umn.edu/sites/isss.umn.edu/files/2021-02/ISSS_logo_gray600.png?_buster=EPL4M_RO)
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+node fc.js scrape "https://www.uscis.gov/sites/default/files/document/policy-alerts/PM-602-0194-PendingApplicationsAdditionalHighRiskCountries-20260101.pdf" fc/b8/hold.md
+grep -v '^\s*$' fc/b8/hold.md | head -60 | cut -c1-700`
+```
+OK 17047 chars -> fc/b8/hold.md | [REDACTED].pdf
+<!-- url: https://www.uscis.gov/sites/default/files/document/policy-alerts/[REDACTED].pdf
+     title: [REDACTED].pdf
+     statusCode: 200
+     modified:  -->
+This memorandum is no longer in effect due to court orders.
+For more information, see the web alert on_Dorcas__International Institute of Rhode Island, et al. v. United States__Citizenship and Immigration Services_ and the _web alert on__Red Eagle Law, L.C., et al., v. Joseph B. Edlow._
+# U.S. Citizenship and Immigration Services
+January 1, 2026
+PM-602-0194
+# Policy Memorandum
+**SUBJECT:** Hold and Review of USCIS Benefit Applications Filed by Aliens from Additional
+High-Risk Countries1
+## Purpose
+Effective immediately, this memorandum directs U.S. Citizenship and Immigration Services
+(USCIS) personnel to:
+1. Place a hold2 on all pending benefit applications, for aliens3 listed4 in Presidential
+   Proclamation (PP) 10998, _Restricting and Limiting the Entry of Foreign Nationals To_
+   _Protect the Security of the United States,5_ pending a comprehensive review, regardless of
+   entry date;6
+2. Conduct a comprehensive review of all policies, procedures, and screening and vetting
+   processes for benefit requests for aliens from countries listed in PP 10998; and
+3. Conduct a comprehensive re-review of approved benefit requests implicated in PP 10998
+   that were approved on or after January 20, 2021.
+1On December 16, 2025, the President issued Presidential Proclamation (PP) 10998, _Restricting and Limiting the Entry_
+_of Foreign Nationals To Protect the Security of the United States._ Exercising authority under INA 212(f), the
+proclamation continues the full restrictions and entry limitations of nationals from the original high-risk countries
+established under PP 10949, _Restricting the Entry of Foreign Nationals To Protect the United States From Foreign_
+_Terrorists and Other National Security and Public Safety Threats_ (June 4, 2025), and imposes restrictions, limitations,
+and exceptions on additional high-risk countries. Under INA 212(f), the President may suspend or restrict the entry of
+any aliens deemed detrimental to U.S. interests.
+2A “hold” allows a case to proceed through processing, up to final adjudication. A “final adjudication” refers to the
+issuance of a final decision on a case, such as an approval, denial, or dismissal.
+3The term "alien" means any person not a citizen or national of the United States. See INA 101(a)(3) and 8 U.S.C.
+1101(a)(3).
+4This refers to aliens with a nationality, country of birth, or aliens who have acquired Citizenship by Investment (CBI)
+listed in PP 10998. “As an example, a foreign national from a country that is subject to travel restrictions could
+purchase CBI from a second country that is not subject to travel restrictions, obtain a passport in the citizenship of that
+second country, and subsequently apply for a United States visa for travel to the United States, thus evading the travel
+restrictions on his or her first country.” Further, this includes aliens with varying nationalities but are traveling on a
+Palestinian-Authority-issued document.
+5This applies to aliens who list one of the high-risk countries as their Country of Birth or Country of Citizenship.
+6Immigrant visas for family members of individuals in the United States will no longer be automatically or broadly
+exempt from PP 10949 and PP 10998 restrictions or requirements. Family-based immigrant visa applications are now
+subject to the same review, restrictions, or additional scrutiny as other benefit requests.
+* * *
+PM-602-0194: Hold and Review of USCIS Benefit Applications Filed by Aliens from Additional
+High-Risk Countries
+Page: 2
+This memorandum specifies which cases are subject to the adjudicative hold, identifies exemptions,
+and outlines the factors to consider when assessing benefit eligibility during the re-review,
+interview, or re-interview of affected aliens. USCIS personnel are instructed to prioritize national
+security and public safety concerns and ensure compliance with applicable laws and regulations
+during the adjudication process. All findings must be documented in accordance with established
+protocols to support any subsequent determinations or actions.
+This memorandum does not supersede the guidance in Policy Memorandum, _Hold and Review of_
+_all Pending Asylum Applications and all USCIS Benefit Applications Filed by Aliens from High_-
+_Risk Countries_ on December 1, 20257 except as specified under the “Exceptions to the Adjudication
+Hold” outlined in this memorandum.
+## Background
+On January 20, 2025, the President issued Executive Order (EO) 14161, titled _Protecting the United_
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+cat > fc/u9.txt <<'EOF'
+https://www.uscis.gov/working-in-the-united-states/stem-employment-pathways/nonimmigrant-pathways-for-stem-employment-in-the-united-states
+https://www.uscis.gov/working-in-the-united-states/entrepreneur-employment-pathways/nonimmigrant-or-parole-pathways-for-entrepreneur-employment-in-the-united-states
+https://www.uscis.gov/working-in-the-united-states/temporary-workers/o-1-visa-individuals-with-extraordinary-ability-or-achievement
+EOF
+node fc.js multi fc/u9.txt fc/b10
+echo "=== cap-exempt in USCIS H-1B page (earlier scrape):"; grep -n -i "cap-exempt\|cap exempt" fc/b3/04.md | head -8 | cut -c1-500`
+```
+OK 60581 chars -> fc\b10\01.md | Nonimmigrant Pathways for STEM Employment in the United States | USCIS
+OK 63834 chars -> fc\b10\02.md | Nonimmigrant or Parole Pathways for Entrepreneur Employment in the United States | USCIS
+OK 17317 chars -> fc\b10\03.md | O-1 Visa: Individuals with Extraordinary Ability or Achievement | USCIS
+=== cap-exempt in USCIS H-1B page (earlier scrape):
+140:**Can I move from cap-exempt to cap-subject employment?**
+142:- If you are moving from cap-exempt to cap-subject employment, your new employer’s H-1B petition will be subject to the [H-1B cap](https://www.uscis.gov/working-in-the-united-states/temporary-workers/[REDACTED]/h-1b-cap-season). If subject to the cap, your new employer must first submit an [electronic registration](https://www.uscis.gov/working-in-the-united-states/temporary-workers/[REDACTED]/[REDACTED]) when registration period o
+144:- If you are currently employed in a cap-exempt position, you may engage in concurrent employment in a cap-subject position as long as you will continue to be employed in the cap-exempt position. You may begin working concurrently for the cap-subject employer as soon as they properly file a non-frivolous Form I-129 petition on your behalf, or as of the requested start date on that petition, whichever is later. As long as you continue your cap-exempt employment, were previously counted t
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc"; echo "######## H-1B page: cap-exempt section"; sed -n '120,150p' b3/04.md | grep -v '^\s*$' | cut -c1-1100; echo; echo "######## STEM pathways: headings + cap/F-1 relevant"; grep -n -E "^#{1,4} " b10/01.md | head -40 | cut -c1-160`
+```
+######## H-1B page: cap-exempt section
+The H-1B classification has an annual numerical limit (cap) of 65,000 new statuses or visas each fiscal year (with certain deductions and additions based on H-1B1 set asides and usage). An additional 20,000 petitions filed on behalf of beneficiaries who have earned a master’s degree or higher from a U.S. institution of higher education are exempt from the cap. Additionally, H-1B workers who are petitioned for or employed at an institution of higher education or its affiliated or related nonprofit entities, a nonprofit research organization, or a government research organization, are not subject to this numerical cap.
+For further information about the numerical cap, see our [H-1B Cap Season page](https://www.uscis.gov/working-in-the-united-states/temporary-workers/[REDACTED]/h-1b-cap-season).
+#### Changing Employers or Employment Terms with the Same Employer (Portability)
+**Changing Employers**
+**When can I begin working for a new H-1B employer if I change employers?**
+- If you are changing H-1B employers, you may begin working for the new employer as soon as they properly file a non-frivolous Form I-129 petition on your behalf, or as of the requested start date on that petition, whichever is later.
+- To be eligible for portability, you must not have been employed without authorization from the time of your last admission into the United States, and your new employer must properly file a new, non-frivolous petition before your H-1B period of authorized stay expires.
+**Will I still have employment authorization if I change employers?**
+- If you are eligible for H-1B portability, your employment is authorized until USCIS has made a decision on the Form I-129.
+- If the new I-129 petition is approved, you may continue working for the new employer for the period of time indicated on the new petition approval.
+- If the new petition is denied, you may continue working for your previous employer if your prior period of authorized employment is still valid, but your authorization to work based on portability ceases upon denial of the petition.
+- If you are laid off, fired, quit, or otherwise cease employment with your previous employer, you may have up to 60 consecutive days or until the end of your authorized validity period, whichever is shorter, to find new employment, change status, or depart the country.
+**Can I move from cap-exempt to cap-subject employment?**
+- If you are moving from cap-exempt to cap-subject employment, your new employer’s H-1B petition will be subject to the [H-1B cap](https://www.uscis.gov/working-in-the-united-states/temporary-workers/[REDACTED]/h-1b-cap-season). If subject to the cap, your new employer must first submit an [electronic registration](https://www.uscis.gov/working-in-the-united-states/temporary-workers/[REDACTED]/[REDACTED]) when registration period opens. This is typically in March.
+- All registrants of selected beneficiaries will be notified of selection and selection notices will be uploaded to their account informing them that they may file a petition for the beneficiary named in the selection notice during the applicable filing period. H-1B cap petitions must have a start date of Oct. 1 (or later) of the applicable fiscal year and may not be filed more than 6 months before the requested start date on the petition.
+- If you are currently employed in a cap-exempt position, you may engage in concurrent employment in a cap-subject position as long as you will continue to be employed in the cap-exempt position. You may begin working concurrently for the cap-subject employer as soon as they properly file a non-frivolous Form I-129 petition on your behalf, or as of the requested start date on that petition, whichever is later. As long as you continue your cap-exempt employment, were previously counted toward the cap, or otherwise remain cap exempt, you will not become subject to the H-1B cap again during the same H-1B validity period.
+**Changing Employment Terms with the Same Employer**
+**What if I want to start new employment or change employment terms with my current employer?**
+- Form I-129 is also used to request new employment or a change of employment with the same employer.
+
+######## STEM pathways: headings + cap/F-1 relevant
+5:# Nonimmigrant Pathways for STEM Employment in the United States
+21:#### F-1 Optional Practical Training (OPT)
+71:#### H-1B Specialty Occupation
+137:#### O-1A Extraordinary Ability
+218:#### L-1 Intracompany Transferee
+293:#### TN NAFTA/USMCA Professional
+335:#### J-1 STEM Exchange Visitors
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b10"; sed -n '137,217p' 01.md | grep -v '^\s*$' | cut -c1-650`
+```
+#### O-1A Extraordinary Ability
+The O-1A pathway allows nationally or internationally acclaimed talent across many fields the opportunity to work in the United States, and there is no annual numerical cap. There is no specified limit on the number of extensions a person can receive while working on an O-1.
+_**Do I have the education, experience, or skills needed to qualify?**_
+You may be eligible for an O-1A visa if you have “extraordinary ability” in the sciences, education, business, or athletics, which must be demonstrated by sustained national or international acclaim and recognition. You must also be coming to the United States to continue work in your area of extraordinary ability (but the position does not have to require someone of such extraordinary ability). “Extraordinary ability” in the fields of science, education, business, or athletics means you have a level of expertise indicating you are one of the small percentage of people who have risen to the very top of your field.
+_**Requirement 1 - You must be able to establish that you have extraordinary ability in your field.**_
+To establish eligibility for an O-1A visa, the petitioner (your sponsoring employer or an agent) must either provide evidence that you have received a major, internationally recognized award, similar to a Nobel Prize, or (more commonly) must submit evidence that satisfies at least 3 of 8 evidentiary criteria.
+The USCIS Policy Manual includes [detailed guidance regarding how O-1A eligibility is evaluated](https://www.uscis.gov/policy-manual/[REDACTED]#S-C), including a [chart](https://www.uscis.gov/policy-manual/[REDACTED]#3) (reproduced below) that describes STEM-relevant examples of evidence that may satisfy each of the alternate O-1A evidentiary requirements, as well as considerations that are relevant to evaluating such evidence.
+| **O-1A Evidentiary Criterion** | **Relevant Examples and Considerations** |
+| --- | --- |
+| Documentation of the beneficiary’s receipt of nationally or internationally recognized prizes or awards for excellence in the field of endeavor. | Examples:<br>- Awards from well-known national institutions and well-known professional associations.<br>- Certain doctoral dissertation awards and Ph.D. scholarships.<br>- Certain awards recognizing presentations at nationally or internationally recognized conferences.<br>Considerations:<br>While many scholastic awards do not have the requisite level of recognition, there are some Ph.D. scholarships or dissertation awards, for example, that are nationally or internationally recognized as award
+| Documentation of the beneficiary’s membership in associations in the field for which classification is sought, which require outstanding achievements of their members, as judged by recognized national or international experts in their disciplines or fields. | Examples:<br>- Membership in certain professional associations.<br>- Fellowships with certain organizations or institutions.<br>Considerations:<br>The petitioner must show that membership in the association requires outstanding achievements in the field for which classification is sought, as judged by recognized national or international experts.<br>Associations may have multiple le
+| Published material in professional or major trade publications or major media about the beneficiary, relating to the beneficiary's work in the field for which classification is sought. This evidence must include the title, date, and author of such published material and any necessary translation. | Examples:<br>- Professional or major print publications (newspaper articles, popular and academic journal articles, books, textbooks, or similar publications) regarding the beneficiary and the beneficiary’s work.<br>- Professional or major online publications regarding the beneficiary and the beneficiary’s work.<br>- Transcript of professiona
+| Evidence of the beneficiary's participation on a panel, or individually, as a judge of the work of others in the same or in an allied field of specialization for which classification is sought. | Examples:<br>- Reviewer of abstracts or papers submitted for presentation at scholarly conferences in the respective field.<br>- Peer reviewer for scholarly publications.<br>- Member of doctoral dissertation committees.<br>- Peer reviewer for government research funding programs.<br>Considerations:<br>The petitioner must show that the beneficiary has not only been invited to judge the work of others, but also that the beneficiary actually participa
+| Evidence of the beneficiary's original scientific, scholarly, or business-related contributions of major significance in the field. | Examples:<br>- Published materials about the significance of the beneficiary’s original work.<br>- Testimonials, letters, and affidavits about the beneficiary’s original work.<br>- Documentation that the beneficiary’s original work was cited at a level indicative of major significance in the field.<br>- Patents or licenses deriving from the beneficiary’s work or evidence of commercial use of the beneficiary’s work.<br>Considerations:<br>Analysis under this criterion focuses on whether the beneficiar
+| Evidence of the beneficiary's authorship of scholarly articles in the field, in professional journals, or other major media. | Examples:<br>- Publications in professionally relevant journals.<br>- Published conference presentations at nationally or internationally recognized conferences.\*\*\*\*<br>Considerations:<br>In order to meet this criterion, the beneficiary must be a listed author of the submitted article(s) but need not be the sole or first author. In addition, a petitioner need not provide evidence that the beneficiary’s published work has been cited to meet this criterion.\*\*\*\*\*<br>In addition, the articles must be scholarl
+| Evidence that the beneficiary has been employed in a critical or essential capacity for organizations and establishments that have a distinguished reputation. | Examples:<br>- Senior faculty or senior research position for a distinguished academic department or program.<br>- Senior research position for a distinguished non-academic institution or company.<br>- Principal or named investigator for a department, institution, or business that received a merit-based government award, such as an academic research or Small Business Innovation Research (SBIR) grant.\*\*\*\*\*\*<br>- Member of a key committee within a distinguished organization.<br>
+| Evidence that the beneficiary has either commanded a high salary or will command a high salary or other remuneration for services as evidenced by contracts or other reliable evidence. | Examples:<br>- Tax returns, pay statements, or other evidence of past salary or remuneration for services.<br>- Contract, job offer letter, or other evidence of prospective salary or remuneration for services.<br>- Comparative wage or remuneration data for the beneficiary’s field, such as geographical or position-appropriate compensation surveys.<br>Considerations:<br>If the petitioner is claiming to meet this criterion, then the burden is on the petitione
+Satisfying the O-1A Evidentiary Requirements
+\\* The Carnegie Classification of Institutions of Higher Education recognizes R1 and R2 doctoral universities as having “very high” or “high” research activity, respectively, based on publicly available federal government data regarding the number of doctoral degrees awarded and the amount of total research expenditures. See the Carnegie Classification of Institutions of Higher Education’s [Basic Classification Description](https://carnegieclassifications.acenet.edu/) webpage.
+\\*\\* See the [IEEE’s Steps to Become an IEEE Fellow](https://www.ieee.org/membership/fellows/index.html) webpage.
+\\*\\*\\* See the [AAAI Fellows Program](https://aaai.org/about-aaai/aaai-awards/the-aaai-fellows-program/) webpage.
+\\*\\*\\*\\* While many articles accepted for presentation at conferences do not result in publication, there are conferences that peer review and publish accepted presentations in professional journals (sometimes called proceedings), such that they may qualify as scholarly articles under this criterion.
+\*\*\*\*\*Instead, officers may consider citation evidence relating to the published work as part of the totality analysis to evaluate whether the record establishes that the beneficiary has sustained national or international acclaim and is among the small percentage at the top of the field. For instance, documentation regarding the total rate of citations to the beneficiary’s body of published work relative to others in the field may indicate a beneficiary’s high overall standing for the purpose of demonstrating that the beneficiary is among the small percentage at the top of the field.
+\\*\\*\\*\\*\\*\\* See [SBIR America’s Seed Fund](https://www.sbir.gov/) webpage.
+Note: If any of the criteria discussed above do not readily apply to your occupation, the petitioner may submit comparable evidence to establish your eligibility. When the required initial evidence has been provided, USCIS will evaluate the totality of the evidence to determine eligibility.
+The Policy Manual also includes [guidance regarding the use of comparable evidence](https://www.uscis.gov/policy-manual/[REDACTED]#S-C-3) to establish eligibility, including use of comparable evidence by individuals in STEM fields, as well as the following [guidance regarding how USCIS evaluates the totality of the evidence for O-1A petitions](https://www.uscis.gov/policy-manual/[REDACTED]#S-C-4):
+When the evidentiary requirements specified above are satisfied, an officer proceeds to evaluate the totality of all the evidence in the record to determine whether the beneficiary has extraordinary ability with sustained national or international acclaim, as described in the O statute and regulations.
+At this step, officers may consider any potentially relevant evidence, even if such evidence does not fit one of the above regulatory criteria or was not presented as comparable evidence.
+The following are examples of situations where evidence might not directly correspond to the above regulatory criteria or might not be presented as comparable evidence, but would nonetheless be potentially relevant towards demonstrating, in the totality of the evidence, that an O-1A beneficiary is among the small percentage at the top of the field and that the beneficiary has sustained national or international acclaim:\*
+- The record demonstrates that the beneficiary has published articles in particularly highly ranked journals relative to other journals in the field, as demonstrated by, for example, evidence the petitioner provides regarding the journal’s impact factor.\*\* Depending on the level of recognition of the journals in question, as demonstrated by evidence in the record, there may be particular prestige or acclaim associated with publication in such journals, especially if the beneficiary is the most significant contributor to the publication, a senior author, or the sole author of the article(s).
+- The petitioner provides evidence demonstrating that the total rate of citations to the beneficiary’s body of published work is high relative to others in the field, or the beneficiary has a high h-index\*\*\* for the field. Depending on the field and the comparative data the petitioner provides, such evidence may indicate a beneficiary’s high overall standing for the purpose of demonstrating that the beneficiary is among the small percentage at the top of the field.\*\*\*\*
+- The petitioner documents the beneficiary’s employment or research experience is with leading institutions in the field (such as U.S. universities that have been recognized as having high or very high research activity by the Carnegie Classification of Institutions of Higher Education,\*\*\*\*\* foreign universities with comparably high research activity, or a university that is highly regarded according to a widely recognized metric such as the QS World University Rankings\*\*\*\*\*\*). Such employment or experience can be a positive factor toward demonstrating that the beneficiary is among the small percentage at the top of the field.
+- The record establishes that the beneficiary has received unsolicited invitations to speak or present research at nationally or internationally recognized conferences in the field. Although such a role for the conference may not rise to the level of a critical or essential capacity, this type of invitation is generally indicative of a person’s high standing and recognition for achievements in the field.
+- The record establishes that the beneficiary is named as an investigator, scientist, or researcher on a peer-reviewed and competitively funded U.S. government grant or stipend for STEM research. This type of evidence can be a positive factor indicating a beneficiary is among the small percentage at the top of the beneficiary’s field.
+In all cases, the petitioner has the burden of providing sufficient context regarding the above evidence and considerations to demonstrate that the evidence meets the relevant criteria and to establish the beneficiary’s extraordinary ability in the totality of the circumstances.
+\\* Not all cases will have such evidence, nor does a case need such evidence for the petitioner to demonstrate eligibility. Additionally, the list below is a non-exhaustive list of examples, and while the listed factors may be especially relevant to beneficiaries in STEM fields, the guidance applies to all O-1A petitions.
+\\*\\* Impact factor is commonly used as a measure of a journal’s influence; it represents the average number of citations received per article published in that journal during the 2 preceding years. See Garfield, E, The History and Meaning of the Journal Impact Factor, Journal of the American Medical Association, Vol. 295, Iss. 1, p. 90 (2006).
+\\*\\*\\* The h-index is a tool for measuring a researcher’s output and impact. It is based on the highest number of the researcher’s publications that have been cited at least that same number of times. For example, if a researcher has an h-index of 10, it means the researcher has 10 publications that have 10 or more citations each (but not 11 publications with at least 11 citations each). See Hirsch, J, An Index to Quantify an Individual’s Scientific Research Output (PDF), Proceedings of the National Academy of Sciences of the United States of America, Vol. 102, Iss. 46, p. 16569 (2005).
+\\*\\*\\*\\* This factor is less relevant for beneficiaries early in their career, as such persons have had less time to accumulate citations but may nevertheless have garnered acclaim and risen to the small percentage at the top of the field as demonstrated by other evidence in the record. As stated above, none of the listed factors are required to demonstrate eligibility.
+\\*\\*\\*\\*\\* The Carnegie Classification of Institutions of Higher Education uses the R1 and R2 doctoral university designations to recognize institutions as having “very high” or “high” research activity, respectively, based on publicly available federal government data regarding the number of doctoral degrees awarded and the amount of total research expenditures. See the [Carnegie Classification of Institutions of Higher Education’s Basic Classification Description](https://carnegieclassifications.acenet.edu/) webpage.
+\\*\\*\\*\\*\\*\\* The QS World University Rankings annually evaluate universities according to a methodology based on six consistent and empirical metrics: academic reputation (40%), employer reputation (10%), faculty to student ratio 20%), citations per faculty (20%), international faculty ratio (5%), and foreign student ratio (5%). These metrics are used to rank universities, as well as capture and assess university performance. See the [QS World University Rankings Methodology](https://www.topuniversities.com/university-rankings-articles/world-university-rankings/qs-world-university-rankings-methodology) webpage.
+_**Do I need to have a job offer? Do I need a company to submit a petition for me?**_
+You must be coming to the United States to continue work in your area of extraordinary ability. This is typically established by showing that you have a job offer with an employer in the United States.
+The petition must be filed by a U. S. employer, a U.S. agent, or a foreign employer through a U.S. agent. While the regulations prohibit an O-1A beneficiary from serving as the sponsoring employer for themselves, a separate legal entity (such as a corporation or limited liability company) that is partially or wholly owned by the beneficiary may file the petition on behalf of the O-1A owner.
+_**Will I be working in the United States on a permanent basis as a lawful permanent resident or will I be working on a temporary basis as a nonimmigrant for a specified period of time?**_
+You will be working on a temporary basis as a nonimmigrant for a specified period of time.
+Initially, you may be granted up to 3 years to work in the United States (also known as the “validity period”). After your initial validity period, you may be granted extensions of up to 1 year. There is no specified limit to the number of extensions you can obtain.
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b10"; echo "### entrepreneur page headings"; grep -n -E "^#{1,4} " 02.md | cut -c1-170 | head -40; echo; echo "### L-1 section (STEM page)"; sed -n '218,260p' 01.md | grep -v '^\s*$' | cut -c1-500 | head -22`
+```
+### entrepreneur page headings
+5:# Nonimmigrant or Parole Pathways for Entrepreneur Employment in the United States
+11:#### International Entrepreneur Rule
+87:#### B-1 Temporary Business Visitor\
+117:#### E-2 Treaty Investors\
+196:#### F-1 Optional Practical Training\
+224:#### H-1B Specialty Occupation\
+286:#### L-1A Intracompany Transferee\
+387:#### O-1 Extraordinary Ability\
+
+### L-1 section (STEM page)
+#### L-1 Intracompany Transferee
+L-1 visas provide a pathway for employees of multinational companies who hold positions as managers/executives or have specialized knowledge, allowing them to work in the U.S. for a maximum of up to seven years.
+_**Do I have the education, experience, or skills needed to qualify?**_
+You may be eligible for an L-1 visa for “intracompany transferees” if you are an executive, manager, or a worker with specialized knowledge who has worked abroad for a qualifying organization (including an affiliate, parent, subsidiary or branch of your foreign employer) for at least 1 year within the 3 years preceding the filing of your L-1 petition (or in some cases your admission to the United States) in an executive or managerial capacity or in a position that requires specialized knowle
+Have you been working abroad for at least one continuous year within the past 3 years? (Note: brief trips to the United States do not typically interrupt the continuous year. Also, time off work such as for a vacation, maternity leave, etc. do not typically interrupt the continuous year.)
+Some of the evidence typically submitted to document overseas employment for 1 out of the last 3 years includes:
+- Pay stubs
+- Payroll records
+- Tax returns that show employment
+- Evidence of work product
+Was your overseas employment in a qualifying capacity?
+Some of the evidence typically submitted to demonstrate that overseas employment was in a managerial, or executive capacity includes:
+**L-1A Manager or Executive**
+L-1A managerial or executive positions may correlate with STEM occupations, depending on the individuals and work that is managed. There is no labor market test for an L-1 managerial or executive employee. Executive positions involve employees who make decisions with wide latitude, and who receive minimal oversight. Managerial positions include personnel managers and function managers and involve the supervision and control of professional employees’ work, or management of an organization or a
+- Organization charts showing your position
+- Patents or other evidence of the company’s technology, products, or services that are based on your work
+- Performance reviews
+- Loans/financing on behalf of the company
+- Organizational job descriptions for your position and those positions that reported above and/or below you, if applicable
+- Resume describing your job duties and accomplishments
+**L-1B Specialized Knowledge Worker**
+L-1B specialized knowledge frequently overlaps with STEM occupations, as it involves “special knowledge of your employer’s product, service, research, equipment, techniques, management, or other interests and their application in international markets, or an advanced level of knowledge or expertise in your employer’s processes and procedures.” Some of the evidence you may submit to demonstrate that your overseas employment was in a specialized knowledge capacity includes:
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b10"; sed -n '11,30p' 02.md | grep -v '^\s*$' | cut -c1-700; echo ....; sed -n '117,135p' 02.md | grep -v '^\s*$' | cut -c1-700; echo ....F-1 OPT section; sed -n '196,222p' 02.md | grep -v '^\s*$' | cut -c1-700`
+```
+#### International Entrepreneur Rule
+Under the [International Entrepreneur Rule](https://www.uscis.gov/working-in-the-united-states/international-entrepreneur-rule), the Department of Homeland Security (DHS) may use its authority to grant a period of authorized stay, on a case-by-case basis, to alien entrepreneurs who show that their stay in the United States would provide a significant public benefit through their business venture and that they merit a favorable exercise of discretion. This period of authorized stay is called “parole.”
+_**What level of ownership and role in the startup entity is required?**_
+You must have a substantial ownership (which we consider to be at least 10% at time of the initial application’s adjudication) in the startup business and have a central and active role in its operations.
+_**What are the requirements for the startup entity?**_
+The startup must be a U.S. business entity that is lawfully conducting business in the United States and was formed within the 5 years immediately preceding the application for initial parole. It must also have substantial potential for rapid growth and job creation.
+_**What type and level of funding are required to demonstrate that the startup entity has the substantial potential for rapid growth and job creation?**_
+You must be able to document that, within the past 18 months, the entity received the following funding:
+- A qualified investment of at least the required amount from a qualifying investor ($311,071 as of Oct. 1, 2024);
+- A qualified award or grant of at least the required amount from a U.S. federal, state, or local government entity ($124,429 as of Oct. 1, 2024); or
+- Alternatively, if the startup entity partially meets one or both of the above funding levels, you may submit additional reliable and compelling evidence of the startup entity’s substantial potential for rapid growth and job creation.
+....
+#### E-2 Treaty Investors\
+\
+You may be eligible for an [E-2 visa](https://www.uscis.gov/working-in-the-united-states/temporary-workers/e-2-treaty-investors) if you invest a substantial amount of money in a new or existing U.S. business. You must be a national of a country that has a treaty of commerce and navigation with the United States, a country included in another international agreement authorizing E-2 classification, or a country designated by Congress as eligible for participation in the E-2 nonimmigrant visa program. For a list of these countries, visit the [Department of State website](https://travel.state.gov/content/travel/en/us-visas/visa-information-resources/fees/treaty.html).\
+\
+Note: If your treaty country nationality was obtained through a financial investment, you must show that you were domiciled in the treaty country for three continuous years prior to the time of filing.\
+\
+_**What are the requirements for investment in a new or existing enterprise?**_\
+\
+USCIS defines an E-2 investment as the investor’s placing of capital, including funds and other assets, at risk in the commercial sense with the objective of generating a profit. Your investment may be for the purpose of establishing a new business venture or purchasing a pre-existing business. In either scenario, you must demonstrate that the capital you are investing is substantial.\
+\
+A bona fide enterprise is one that is a real, active commercial or entrepreneurial undertaking which produces services or goods for profit. The enterprise cannot be an idle investment held for potential appreciation in value, such as undeveloped land or stocks held by an investor who has no intent to direct the enterprise. Some of the evidence you may submit to demonstrate that your business is bona fide includes, but is not limited to:\
+\
+- Notice of assignment of an Employer Identification Number from the Internal Revenue Service (IRS);\
+- Tax returns;\
+- Financial statements;\
+- Quarterly wage reports or payroll summaries (that is, W-2s and W-3);\
+- Business organizational chart;\
+- Business licenses;\
+- Bank statements, utility bills, and advertisements/telephone directory listings;\
+....F-1 OPT section
+#### F-1 Optional Practical Training\
+\
+You may be eligible for [Optional Practical Training (OPT)](https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/[REDACTED]) if you are an F-1 student in the United States and you seek to start a business that is directly related to your major area of study. Students in English language training programs, however, are not eligible for OPT. In addition, you may not qualify for a Science, Technology, Engineering or Mathematics (STEM) OPT extension if the business is not already established and will be your employer.\
+\
+_**Can I start and own my own business?**_\
+\
+You may start, own, and work for your own business during your initial period of OPT.\
+\
+To employ an F-1 student with a STEM OPT extension, the start-up entity must meet all regulatory requirements, including that the employer adheres to the training plan requirements, remains a participant in good standing with E-Verify, will provide compensation to the STEM OPT student commensurate to that provided to similarly situated U.S. workers, and has the resources to comply with the proposed training plan. For instance, alternative compensation may be allowed during a STEM OPT extension if the F-1 student can show that they are a [bona fide employee](https://studyinthestates.dhs.gov/2016/09/reminder-stem-opt-students-must-train-bona-fide-employers) of the employer signing the Form I-9
+\
+_**What type of work may I do for the business?**_\
+\
+While on F-1 OPT, the work you perform must directly relate to your major area of study.\
+\
+_**Can I start and work for a business while I am still in school?**_\
+\
+As an F-1 student, you may be authorized up to a total of 12 months of full-time practical training at each educational level (for example, undergraduate, graduate, and post-graduate). If you are authorized to engage in pre-completion OPT, you may not work more than 20 hours per week while school is in session but may work full-time during your annual vacation and other times when the school is not in session. If you engage in pre-completion OPT, your eligible period of post-completion OPT when you graduate will be reduced. If you have already received one year of part-time pre-completion OPT, the total time of full-time OPT still available would be reduced by six months, 50% of the previou
+\
+Students who graduate with a qualified STEM degree, and are currently in an approved post-completion OPT period based on a designated STEM degree, may apply for a 24-month STEM extension of their post-completion OPT.\
+\
+_**How do I apply for F-1 OPT?**_\
+\
+Once you receive a recommendation from your Designated School Official (DSO) to pursue OPT, you must apply for an Employment Authorization Document (EAD) with USCIS. For pre-completion OPT, you may apply up to 90 days before you complete a full academic year, if you do not start OPT until you complete one full academic year. For post-completion OPT, you must apply within 30 days after your DSO enters the recommendation into your SEVIS record. Additionally, you may apply up to 90 days prior to your program end date but no later than 60 days after your program end date.\
+\
+_**How do I get a 24-month STEM extension of my post-completion OPT?**_\
+\
+If you have completed a qualifying STEM degree, and you are currently in an approved post-completion OPT period based on a designated STEM degree, you may be eligible to apply for a 24-month STEM extension of your post-completion OPT. For a STEM degree to qualify, it must appear on the [DHS STEM Designated Degree Program List (PDF)](https://www.ice.gov/doclib/sevis/pdf/stemList2022.pdf). If you want to apply for a STEM extension, you must apply for the extension with USCIS before your current OPT work authorization expires, but no more than 90 days before the expiration of your OPT. Additionally, you must apply within 60 days after your DSO enters the recommendation into your SEVIS record.\
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -a -n -i -E "regular cap.*(first|then|before)|first.*regular cap|advanced degree exemption.*(second|subsequent|remaining|after)|master's cap.*(second|remaining|after)|selected.*under the regular cap" fc/wsel.txt | head -12 | cut -c1-220`
+```
+344:those for the advanced degree exemption, submitted on or after the
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -a -n -i -E "advanced degree" fc/wsel.txt | sed -n '1,40p' | cut -c1-200`
+```
+344:those for the advanced degree exemption, submitted on or after the 
+947:benefit from the existing advanced degree exemption and cap selection 
+1889:the 20,000 advanced degree exemption, it will deprive the workforce of 
+1927:of higher education already benefit from the existing advanced degree 
+6151:field, with larger weights for advanced degree holders in science and 
+6365:weighting by education level with higher weights for advanced degrees, 
+6416:characteristics--for example, a STEM degree plus an advanced degree--is 
+6426:advanced degree exemption selection.
+7421:regular cap (65,000 visas) and the advanced degree exception pool 
+7424:proportion of advanced degree beneficiaries are at wage level I (36 
+7431:    Response: Since the wage level distribution of advanced degree 
+7433:and advanced degree registrants have slightly higher concentration in 
+7436:advanced degree exemption would result in a decrease in wage level I 
+7445:towards the advanced degree exemption, and the wage-level mix of 
+7446:advanced degree filings is broadly similar to that of the total pool. 
+8466:eligible for the advanced degree exemption. USCIS then selects from the 
+8468:to reach the advanced degree exemption. A prospective petitioner that 
+8490:eligibility for the advanced degree exemption, to allow for weighting 
+8498:cap (65,000) slots and advanced degree exemption (20,000) slots are 
+8531:28.\106\ Although the advanced degree exemption cap is 20,000, there 
+8808:suspended), including those eligible for the advanced degree exemption. 
+8821:higher education not to exceed 20,000 (advanced degree exemption). 
+8828:advanced degree exemption (20,000) are approximately 75 percent and 25 
+8885:is suspended), including those eligible for the advanced degree 
+8922:including those eligible for the advanced degree exemption. USCIS then 
+8924:projected as needed to reach the advanced degree exemption. 8 CFR 
+8933:the advanced degree exemption and presents the probabilities of being 
+8938:regular cap and the advanced degree exemption would result in a 
+10065:the advanced degree exemption in a weighted manner based on the wage 
+10346:properly submitted than needed to meet the H-1B advanced degree 
+10350:beneficiaries who may be eligible for the H-1B advanced degree 
+10353:beneficiaries to meet the H-1B advanced degree exemption numerical 
+10365:meet the H-1B advanced degree exemption numerical limitation.
+10366:    (ii) Sufficient registrations to meet the H-1B advanced degree 
+10369:registrations were properly submitted to meet the H-1B advanced degree 
+10376:meet the H-1B advanced degree exemption numerical limitation.
+10378:H-1B regular cap or advanced degree exemption allocations in a fiscal 
+10383:advanced degree exemption allocation, and select additional unique 
+10390:number to meet the H-1B regular cap or advanced degree exemption 
+10393:than needed to meet the H-1B regular cap or advanced degree exemption
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '8460,8500p;8924,8945p' fc/wsel.txt | grep -a -v '^\s*$' | cut -c1-200`
+```
+numerical allocations, USCIS randomly selects from among unique 
+beneficiaries for whom registrations were properly submitted, the 
+number of unique beneficiaries projected as needed to reach the H-1B 
+numerical allocations. See 8 CFR 214.2(h)(8)(iii)(A)(5) and (6). Under 
+this purely random H-1B registration selection process, USCIS first 
+selects from a pool of all unique beneficiaries, including those 
+eligible for the advanced degree exemption. USCIS then selects from the 
+remaining unique beneficiaries a sufficient number projected as needed 
+to reach the advanced degree exemption. A prospective petitioner that 
+properly registered for a beneficiary who is selected is notified of 
+the selection and instructed that the petitioner is eligible to file an 
+H-1B cap-subject petition for the beneficiary named in the selected 
+registration within a filing period that is at least 90 days in 
+duration. See 8 CFR 214.2(h)(8)(iii)(D)(3). When registration is 
+required, a petitioner seeking to file an H-1B cap-subject petition is 
+not eligible to file the petition unless the petition is based on a 
+valid, selected registration for the beneficiary named in the petition. 
+See 8 CFR 214.2(h)(8)(iii)(A)(1).
+    In general, prior to filing an H-1B petition, the employer is 
+required to obtain a certified LCA from the DOL. See 8 CFR 
+214.2(h)(4)(i)(B). The LCA collects information about the employer and 
+the occupation for the H-1B worker(s). The LCA requires certain 
+attestations from the employer, including, among others, that the 
+employer will pay the H-1B worker(s) at least the required wage. See 20 
+CFR 655.731 through 735.
+    This final rule will amend DHS regulations concerning the selection 
+of electronic registrations submitted by or on behalf of prospective 
+petitioners seeking to file H-1B cap-subject petitions (or the 
+selection of petitions, if the registration process is suspended), 
+which includes petitions subject to the regular cap and those asserting 
+eligibility for the advanced degree exemption, to allow for weighting 
+and selection generally based on OEWS wage levels for simultaneously 
+submitted registrations (including registrations submitted within the 
+same window of time). When applicable, USCIS will weight and select the 
+registrations for unique beneficiaries (or petitions) received 
+generally based on the highest OEWS wage level that the beneficiary's 
+proffered wage would equal or exceed for the relevant SOC code and in 
+the area(s) of intended employment. Although the allocation of regular 
+cap (65,000) slots and advanced degree exemption (20,000) slots are 
+approximately 75 percent and 25 percent respectively, the multiple-
+stage random selection process results in an increased probability that 
+projected as needed to reach the advanced degree exemption. 8 CFR 
+214.2(h)(8)(iii)(A)(5) through (6). This process allows beneficiaries 
+who have earned a qualifying U.S. master's degree or higher a greater 
+chance to be selected. The final rule will maintain this two-stage 
+selection process to keep a higher chance of beneficiaries with a 
+qualifying U.S. master's degree or higher of being selected. However, 
+for the simplicity of comparing the probabilities of being selected in 
+the current random selection process and in the weighted selection 
+process, DHS combines the pool of beneficiaries for the regular cap and 
+the advanced degree exemption and presents the probabilities of being 
+selected at different wage levels in this analysis.\118\
+---------------------------------------------------------------------------
+    \118\ DHS recognizes combining the pool of beneficiaries for the 
+regular cap and the advanced degree exemption would result in a 
+decrease in wage level I beneficiaries under the final rule. 
+However, modeling the weighted selection as a single pooled draw 
+across all registrations is more tractable and clarifies the rule's 
+impact with minor loss of accuracy.
+---------------------------------------------------------------------------
+    Table 13 compares the probabilities of being selected and
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+node fc.js scrape "https://flag.dol.gov/wage-data/wage-data-downloads" fc/b8/oflc.md 3000
+grep -n -i -E "zip|2026|2025|download" fc/b8/oflc.md | head -20 | cut -c1-240`
+```
+OK 1361 chars -> fc/b8/oflc.md | OFLC Wage Data Downloads | Flag.dol.gov
+1:<!-- url: https://flag.dol.gov/wage-data/wage-data-downloads
+2:     title: OFLC Wage Data Downloads | Flag.dol.gov
+5:[Skip to main content](https://flag.dol.gov/wage-data/wage-data-downloads#main-content)
+7:# OFLC Wage Data Downloads
+9:_Last Updated: July 1st, 2026_
+15:| Wage Year | Updated On | Download |
+17:| 7/2026 - 6/2027 | July 1, 2026 | [2026-2027 Wage Files](https://flag.dol.gov/sites/default/files/wages/OFLC_Wages_2026-27.zip) (.zip, 12MB) |
+21:| Wage Year | Updated On | Download |
+23:| 7/2025 - 6/2026 | August 1, 2025 | [2025-2026 Wage Files](https://flag.dol.gov/sites/default/files/wages/OFLC_Wages_2025-26.zip) (.zip, 11MB) |
+24:| 7/2024 - 6/2025 | July 1, 2024 | [2024-2025 Wage Files](https://flag.dol.gov/sites/default/files/wages/OFLC_Wages_2024-25.zip) (.zip, 12MB) |
+25:| 7/2023 - 6/2024 | July 1, 2023 | [2023-2024 Wage Files](https://flag.dol.gov/sites/default/files/wages/OFLC_Wages_2023-24.zip) (.zip, 13MB) |
+26:| 7/2022 - 6/2023 | July 1, 2022 | [2022-2023 Wage Files](https://flag.dol.gov/sites/default/files/wages/OFLC_Wages_2022-23.zip) (.zip, 12MB) |
+27:| 7/2021 - 6/2022 | July 1, 2021 | [2021-2022 Wage Files](https://flag.dol.gov/sites/default/files/wages/OFLC_Wages_2021-22.zip) (.zip, 11MB) |
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+rm -rf fc/wages26 && mkdir -p fc/wages26 && cd fc/wages26 && curl -sL -m 120 -o w.zip -w "zip http %{http_code} %{size_download}\n" "https://flag.dol.gov/sites/default/files/wages/OFLC_Wages_2026-27.zip" && (unzip -o -q w.zip 2>&1 | head -3 || true); ls -la | head -20`
+```
+zip http 200 12652309
+total 62756
+drwxr-xr-x 1 anant 197609        0 Oct 23 16:33 .
+drwxr-xr-x 1 anant 197609        0 Oct 23 16:33 ..
+-rw-r--r-- 1 anant 197609 29263437 Jun 15 07:36 ALC_Export.csv
+-rw-r--r-- 1 anant 197609 21156090 Jun 15 07:36 EDC_Export.csv
+-rw-r--r-- 1 anant 197609   442073 Jul  1 08:28 [REDACTED].pdf
+-rw-r--r-- 1 anant 197609   256523 Jun 15 07:36 Geography.csv
+-rw-r--r-- 1 anant 197609    11655 Jul  1 10:07 Wage Year 2026-27 ACWIA Crosswalks as of July 2026.xlsx
+-rw-r--r-- 1 anant 197609   116984 Jun 17 09:19 Wage Year 2026-27 Appendix A, Job Zone, and Education.xlsx
+-rw-r--r-- 1 anant 197609   221749 Jun 16 13:02 oes_soc_occs.csv
+-rw-r--r-- 1 anant 197609 12652309 Oct 23 16:33 w.zip
+-rw-r--r-- 1 anant 197609   107296 Jun 15 07:36 xwalk_plus.csv
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/wages26"; head -2 ALC_Export.csv | cut -c1-300; echo; head -2 Geography.csv | cut -c1-300; echo; grep -i "minneapolis" Geography.csv | head -3 | cut -c1-300; echo; grep -E "15-1252|15-1251|15-1253|15-1211|15-1299" oes_soc_occs.csv | head -8 | cut -c1-200`
+```
+"Area","SocCode","GeoLvl","Level1","Level2","Level3","Level4","Average","Label"
+"10180","11-1011",1,"49.19","74.04","98.88","123.73","99.14",""
+
+"Area","AreaName","StateAb","State","CountyTownName"
+"1000005","Sussex Delaware nonmetropolitan area","DE","Delaware","Sussex County"
+
+"33460","Minneapolis-St. Paul-Bloomington, MN-WI","MN","Minnesota","Anoka County"
+"33460","Minneapolis-St. Paul-Bloomington, MN-WI","MN","Minnesota","Carver County"
+"33460","Minneapolis-St. Paul-Bloomington, MN-WI","MN","Minnesota","Chisago County"
+
+"15-1211","Computer Systems Analysts","Analyze science, engineering, business, and other data processing problems to develop and implement solutions to complex applications problems, system administra
+"15-1251","Computer Programmers","Create, modify, and test the code and scripts that allow computer applications to run. Work from specifications drawn up by software and web developers or other indiv
+"15-1252","Software Developers","Research, design, and develop computer and network software or specialized utility programs. Analyze user needs and develop software solutions, applying principles and
+"15-1253","Software Quality Assurance Analysts and Testers","Develop and execute software tests to identify software problems and their causes. Test system modifications to prepare for implementation.
+"15-1299","Computer Occupations, All Other","All computer occupations not listed separately."
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/wages26"; echo "Area,SOC,GeoLvl,L1,L2,L3,L4,Avg (hourly dollars)"; grep -E '^"33460","15-1252"' ALC_Export.csv; echo "--- Data scientists/others in Minneapolis:"; for s in 15-1221 15-2051 15-1299 15-1211 15-1244 15-1241; do grep -E "^\"33460\",\"$s\"" ALC_Export.csv; done; echo "--- national (area 99999?) software dev:"; grep -E '^"99999","15-1252"|^"[0-9]*","15-1252",0' ALC_Export.csv | head -3; echo "--- SOC names:"; grep -E '^"(15-1221|15-2051|15-1244|15-1241)"' oes_soc_occs.csv | cut -c1-90; echo; grep -i -E "wage year|effective|OEWS" /dev/null; echo "Level definitions row sample for MN statewide:"; grep -E '^"[0-9]*","15-1252",1' ALC_Export.csv | head -0`
+```
+Area,SOC,GeoLvl,L1,L2,L3,L4,Avg (hourly dollars)
+"33460","15-1252",1,"44.05","53.33","62.60","71.88","62.70",""
+--- Data scientists/others in Minneapolis:
+"33460","15-1221",1,"48.71","57.51","66.31","75.11","66.40",""
+"33460","15-2051",1,"38.41","50.23","62.06","73.88","62.18",""
+"33460","15-1299",1,"33.58","42.33","51.09","59.84","51.18",""
+"33460","15-1211",1,"40.52","47.81","55.11","62.40","55.18",""
+"33460","15-1244",1,"35.90","44.07","52.23","60.40","52.31",""
+"33460","15-1241",1,"45.35","54.78","64.21","73.64","64.31",""
+--- national (area 99999?) software dev:
+--- SOC names:
+"15-1221","Computer and Information Research Scientists","Conduct research into fundamenta
+"15-1241","Computer Network Architects","Design and implement computer and information net
+"15-1244","Network and Computer Systems Administrators","Install, configure, and maintain 
+"15-2051","Data Scientists","Develop and implement a set of techniques or analytics applic
+
+Level definitions row sample for MN statewide:
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/wages26"; node -e '
+const fs=require("fs");
+const geo=fs.readFileSync("Geography.csv","utf8").split(/\r?\n/);
+const name={}; for(const l of geo){const m=l.match(/^"(\d+)","([^"]*)"/); if(m) name[m[1]]=m[2];}
+const rows=fs.readFileSync("ALC_Export.csv","utf8").split(/\r?\n/).filter(l=>l.includes("\"15-1252\""));
+const want=["33460","41940","41860","42660","35620","12420","16980","14460","19740","19100","31080","47900"];
+for(const l of rows){const c=l.split(",").map(s=>s.replace(/"/g,"")); if(want.includes(c[0])){const [a,s,g,l1,l2,l3,l4]=c; const f=x=>Math.round(parseFloat(x)*2080).toLocaleString("en-US"); console.log((name[a]||a).padEnd(52), "L1 $"+f(l1).padStart(8), "L2 $"+f(l2).padStart(8), "L3 $"+f(l3).padStart(8), "L4 $"+f(l4).padStart(8), " (hourly L1 "+l1+", L4 "+l4+")");}}
+console.log("count rows for 15-1252:",rows.length);
+'; echo; echo "Minneapolis annual (x2080): L1 $(echo '44.05*2080' | bc 2>/dev/null) ..."; ls *.pdf | head -2`
+```
+Austin-Round Rock-San Marcos, TX                     L1 $  95,888 L2 $ 119,642 L3 $ 143,395 L4 $ 167,149  (hourly L1 46.10, L4 80.36)
+Boston-Cambridge-Newton, MA-NH                       L1 $ 114,275 L2 $ 138,237 L3 $ 162,198 L4 $ 186,160  (hourly L1 54.94, L4 89.50)
+Chicago-Naperville-Elgin, IL-IN                      L1 $  92,789 L2 $ 117,083 L3 $ 141,398 L4 $ 165,693  (hourly L1 44.61, L4 79.66)
+Dallas-Fort Worth-Arlington, TX                      L1 $  95,202 L2 $ 116,896 L3 $ 138,590 L4 $ 160,285  (hourly L1 45.77, L4 77.06)
+Denver-Aurora-Centennial, CO                         L1 $ 104,624 L2 $ 126,901 L3 $ 149,178 L4 $ 171,454  (hourly L1 50.30, L4 82.43)
+Los Angeles-Long Beach-Anaheim, CA                   L1 $ 106,787 L2 $ 134,202 L3 $ 161,637 L4 $ 189,051  (hourly L1 51.34, L4 90.89)
+Minneapolis-St. Paul-Bloomington, MN-WI              L1 $  91,624 L2 $ 110,926 L3 $ 130,208 L4 $ 149,510  (hourly L1 44.05, L4 71.88)
+New York-Newark-Jersey City, NY-NJ                   L1 $ 109,845 L2 $ 137,717 L3 $ 165,589 L4 $ 193,461  (hourly L1 52.81, L4 93.01)
+San Francisco-Oakland-Fremont, CA                    L1 $ 137,093 L2 $ 165,131 L3 $ 193,149 L4 $ 221,187  (hourly L1 65.91, L4 106.34)
+San Jose-Sunnyvale-Santa Clara, CA                   L1 $ 152,797 L2 $ 187,075 L3 $ 221,374 L4 $ 255,653  (hourly L1 73.46, L4 122.91)
+Seattle-Tacoma-Bellevue, WA                          L1 $ 111,613 L2 $ 143,104 L3 $ 174,595 L4 $ 206,086  (hourly L1 53.66, L4 99.08)
+Washington-Arlington-Alexandria, DC-VA-MD-WV         L1 $ 102,086 L2 $ 127,462 L3 $ 152,838 L4 $ 178,214  (hourly L1 49.08, L4 85.68)
+count rows for 15-1252: 530
+
+Minneapolis annual (x2080): L1  ...
+[REDACTED].pdf
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+node fc.js search "University of Minnesota Twin Cities academic calendar spring 2028 last day of semester finals" fc/s_cal.json - 6 | head -30`
+```
+1. Academic calendar | Twin Cities One Stop Student Services
+   https://onestop.umn.edu/calendar/academic-calendar
+   View the academic calendar of dates including term start and end, registration, drop deadlines, billing dates, spring break, and more.
+2. 2027-28 Twin Cities and Rochester calendar
+   https://asr.umn.edu/[REDACTED]
+   # 2027-28 Twin Cities and Rochester calendar
+## Spring Semester 2028 (70 class days)
+| Date | Day(s) | Event |
+|-|-|-|
+| May 1 | Monday | Last day of instruction |
+| May 4-6, 8-10 | Thurs.-Sat., Mon.-Wed. | Final exams |
+3. Final exam times | Twin Cities One Stop Student Services
+   https://onestop.umn.edu/calendar/final-exam-times
+   +. Spring 2027 final exam schedule ... Finals exams occur on Thursday, May 6 through Saturday, May 8, and Monday, May 10, through Wednesday, May 12. Study days ...
+4. Dates and deadlines - Academic Support Resources
+   https://asr.umn.edu/dates-and-deadlines
+   Use the filters below to find dates for degree posting (semester, Twin Cities) or monthly degree posting, financial aid and scholarships, grading due dates, ...
+5. Official Academic Calendars | University of Minnesota Crookston
+   https://crk.umn.edu/registrar/official-academic-calendar
+   View current and past academic calendars, in addition to refund schedule and cancel/add requirements.
+6. Academic Calendars: Crookston, Morris, Rochester, Twin Cities
+   https://policy.umn.edu/education/academiccalendar
+   The academic calendar has a fall and a spring semester, each of which includes a minimum of 70 days of instruction, a maximum of 75 days of instruction, and ...
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+node fc.js scrape "https://asr.umn.edu/2027-28-twin-cities-and-rochester-calendar" fc/b8/cal2728.md
+grep -v '^\s*$' fc/b8/cal2728.md | sed -n '1,90p' | cut -c1-220`
+```
+OK 6491 chars -> fc/b8/cal2728.md | 2027-28 Twin Cities and Rochester calendar | Academic Support Resources
+<!-- url: https://asr.umn.edu/[REDACTED]
+     title: 2027-28 Twin Cities and Rochester calendar | Academic Support Resources
+     statusCode: 200
+     modified:  -->
+Menu![UMN block M wordmark](https://asr.umn.edu/themes/custom/folwell/images/branding/wordmarks/M-wordmark.png) [close menu](https://asr.umn.edu/[REDACTED]#mm-0)
+- [About ASR](https://asr.umn.edu/about-asr) [Open submenu](https://asr.umn.edu/[REDACTED]#mm-2)
+- [ASR Units and teams](https://asr.umn.edu/units-and-teams) [Open submenu](https://asr.umn.edu/[REDACTED]#mm-3)
+- [Technology and process resources](https://asr.umn.edu/technology-and-process-resources) [Open submenu](https://asr.umn.edu/[REDACTED]#mm-4)
+- [Dates and deadlines](https://asr.umn.edu/dates-and-deadlines)
+- [Contact us](https://asr.umn.edu/contact-us)
+[Close submenu](https://asr.umn.edu/[REDACTED]#mm-1) [About ASR](https://asr.umn.edu/[REDACTED]#mm-1)![UMN block M wordmark](https://asr.umn.edu/themes/cust
+- [Organization and structure](https://asr.umn.edu/about-asr/organization-and-structure)
+- [Leadership](https://asr.umn.edu/leadership)
+- [News](https://asr.umn.edu/about-asr/news)
+[Close submenu](https://asr.umn.edu/[REDACTED]#mm-1) [ASR Units and teams](https://asr.umn.edu/[REDACTED]#mm-1)![UMN block M wordmark](https://asr.umn.edu/t
+- [ASR Information Technology](https://asr.umn.edu/asr-units-and-teams/asr-information-technology)
+- [ASR Operations and Strategic Initiatives](https://asr.umn.edu/asr-units-and-teams/asr-operations-and-strategic-initiatives)
+- [Office of Classroom Management](https://asr.umn.edu/asr-units-and-teams/office-classroom-management)
+- [Office of Student Finance](https://asr.umn.edu/asr-units-and-teams/office-student-finance)
+- [Office of the Registrar](https://asr.umn.edu/asr-units-and-teams/office-registrar)
+- [One Stop Student Services](https://asr.umn.edu/asr-units-and-teams/one-stop-student-services)
+[Close submenu](https://asr.umn.edu/[REDACTED]#mm-1) [Technology and process resources](https://asr.umn.edu/[REDACTED]#mm-1)![UMN block M wordmark](https://
+- [Applications](https://asr.umn.edu/technology-and-process-resources/applications) [Open submenu](https://asr.umn.edu/[REDACTED]#mm-5)
+- [FERPA](https://asr.umn.edu/technology-and-process-resources/ferpa)
+- [Forms](https://asr.umn.edu/technology-and-process-resources/forms)
+- [Final exam information](https://asr.umn.edu/technology-and-process-resources/final-exam-information)
+- [Grading resources](https://asr.umn.edu/technology-and-process-resources/grading-resources)
+- [Policy](https://asr.umn.edu/technology-and-process-resources/policy)
+- [Reporting Center student data](https://asr.umn.edu/technology-and-process-resources/reporting-center-student-data)
+- [Scholarship administration](https://asr.umn.edu/technology-and-process-resources/scholarship-administration)
+- [Tuition attribution](https://asr.umn.edu/technology-and-process-resources/tuition-attribution)
+[Close submenu](https://asr.umn.edu/[REDACTED]#mm-4) [Applications](https://asr.umn.edu/[REDACTED]#mm-4)![UMN block M wordmark](https://asr.umn.edu/themes/c
+- [25Live (external)](https://classroom.umn.edu/scheduling/25live)
+- [Advisor Center](https://asr.umn.edu/technology-and-process-resources/applications/advisor-center)
+- [APAS](https://asr.umn.edu/technology-and-process-resources/applications/apas)
+- [APLUS](https://asr.umn.edu/technology-and-process-resources/applications/aplus)
+- [Coursedog](https://asr.umn.edu/technology-and-process-resources/applications/coursedog)
+- [DORS (external)](https://dors.umn.edu/)
+- [Faculty Center](https://asr.umn.edu/technology-and-process-resources/applications/faculty-center)
+- [GPAS](https://asr.umn.edu/technology-and-process-resources/applications/gpas)
+- [PeopleSoft](https://asr.umn.edu/technology-and-process-resources/applications/peoplesoft-campus-solutions)
+- [QuikPay](https://asr.umn.edu/technology-and-process-resources/applications/quikpay)
+- [Student Services Center](https://asr.umn.edu/technology-and-process-resources/applications/student-services-center)
+- [TES and Transferology](https://asr.umn.edu/technology-and-process-resources/applications/tes-and-transferology)
+- [TFMS (external)](https://sites.google.com/a/umn.edu/tuition-and-fee-management/)
+[Skip to main content](https://asr.umn.edu/[REDACTED]#content)
+# 2027-28 Twin Cities and Rochester calendar
+**Approved by:** Senate Committee on Educational Policy (October 11, 2023)
+**Approved by:** Faculty Senate (November 30, 2023)
+## Fall Semester 2027 (70 class days)
+| Date | Day(s) | Event |
+| --- | --- | --- |
+| September 7 | Tuesday | Classes begin |
+| December 15 | Wednesday | Last day of instruction |
+| December 16 | Thursday | Study day |
+| December 19 | Sunday | Study day |
+| December 17-18, 20-23 | Fri.-Sat., Mon.-Thurs. | Final exams |
+| December 23 | Thursday | End of the term |
+## Spring Semester 2028 (70 class days)
+| Date | Day(s) | Event |
+| --- | --- | --- |
+| January 18 | Tuesday | Classes begin |
+| May 1 | Monday | Last day of instruction |
+| May 2-3, 7 | Tues.-Wed., Sun. | Study days |
+| May 4-6, 8-10 | Thurs.-Sat., Mon.-Wed. | Final exams |
+| May 10 | Wednesday | End of the term |
+## May Session 2028 (14 class days)
+| Date | Day(s) | Event |
+| --- | --- | --- |
+| May 15 | Monday | May session begins |
+| June 2 | Friday | May session ends |
+## Summer Session 2028 (38 class days)
+| Date | Day(s) | Event |
+| --- | --- | --- |
+| June 5 | Monday | Classes begin |
+| July 28 | Friday | 8-week summer session ends |
+[Close menu](https://asr.umn.edu/[REDACTED]#mm-0)
+|     |     |
+| --- | --- |
+|  |  |
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Bash` -- `node -e '
+const d=(s)=>new Date(s+"T12:00:00Z"); const f=(x)=>x.toISOString().slice(0,10)+" "+["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][x.getUTCDay()];
+const add=(x,n)=>new Date(x.getTime()+n*86400000);
+const addM=(s,m)=>{const x=d(s); x.setUTCMonth(x.getUTCMonth()+m); return x;};
+function win(label,end){const e=d(end);console.log("\n"+label+"  end of term "+f(e));console.log("  earliest ISSS request (end-100d):",f(add(e,-100)));console.log("  earliest USCIS receipt (end-90d):",f(add(e,-90)));console.log("  latest USCIS receipt (end+60d):",f(add(e,60)));console.log("  14-month outer limit:",f(addM(end,14)));console.log("  postponed-rule latest filing (end+30d):",f(add(e,30)));}
+win("CHECK: Fall 2026 (ISSS says Sep 14 / Sep 24 / Feb 21)","2026-12-23");
+win("SPRING 2028","2028-05-10");
+win("IF FINISHED EARLY: Fall 2027","2027-12-23");
+// pre-completion summer 2027 examples
+for(const s of ["2027-05-17","2027-06-01","2027-06-14"]){const e=d(s);console.log("\nPre-OPT requested start "+f(e)+": ISSS request opens (start-100d) "+f(add(e,-100))+"; USCIS filing opens (start-90d) "+f(add(e,-90)));}
+// proposal timelines
+const nprmDS=d("2025-08-28"), finalDS=d("2026-07-17"); console.log("\nD/S NPRM->final days:",Math.round((finalDS-nprmDS)/86400000));
+const nprmW=d("2025-09-24"), finalW=d("2025-12-29"); console.log("Weighted NPRM->final days:",Math.round((finalW-nprmW)/86400000));
+const opt=d("2026-10-08"); console.log("OPT fee NPRM + 98d (weighted analog) final:",f(add(opt,96)),"; effective +60:",f(add(opt,156)));
+console.log("OPT fee NPRM + 323d (D/S analog) final:",f(add(opt,323)),"; effective +60:",f(add(opt,383)));
+// 30 business days from 2027-03-17 (ignoring holidays)
+let x=d("2027-03-17"),n=0; while(n<30){x=add(x,1); const w=x.getUTCDay(); if(w!==0&&w!==6) n++;} console.log("30 business days after 2027-03-17 (no holidays):",f(x));
+let y=d("2028-02-10"),m=0; while(m<30){y=add(y,1); const w=y.getUTCDay(); if(w!==0&&w!==6) m++;} console.log("30 business days after 2028-02-10:",f(y));
+console.log("5 months after 2028-02-10:",f(addM("2028-02-10",5)),"; after 2027-03-17:",f(addM("2027-03-17",5)));
+'`
+```
+CHECK: Fall 2026 (ISSS says Sep 14 / Sep 24 / Feb 21)  end of term 2026-12-23 Wed
+  earliest ISSS request (end-100d): 2026-09-14 Mon
+  earliest USCIS receipt (end-90d): 2026-09-24 Thu
+  latest USCIS receipt (end+60d): 2027-02-21 Sun
+  14-month outer limit: 2028-02-23 Wed
+  postponed-rule latest filing (end+30d): 2027-01-22 Fri
+
+SPRING 2028  end of term 2028-05-10 Wed
+  earliest ISSS request (end-100d): 2028-01-31 Mon
+  earliest USCIS receipt (end-90d): 2028-02-10 Thu
+  latest USCIS receipt (end+60d): 2028-07-09 Sun
+  14-month outer limit: 2029-07-10 Tue
+  postponed-rule latest filing (end+30d): 2028-06-09 Fri
+
+IF FINISHED EARLY: Fall 2027  end of term 2027-12-23 Thu
+  earliest ISSS request (end-100d): 2027-09-14 Tue
+  earliest USCIS receipt (end-90d): 2027-09-24 Fri
+  latest USCIS receipt (end+60d): 2028-02-21 Mon
+  14-month outer limit: 2029-02-23 Fri
+  postponed-rule latest filing (end+30d): 2028-01-22 Sat
+
+Pre-OPT requested start 2027-05-17 Mon: ISSS request opens (start-100d) 2027-02-06 Sat; USCIS filing opens (start-90d) 2027-02-16 Tue
+
+Pre-OPT requested start 2027-06-01 Tue: ISSS request opens (start-100d) 2027-02-21 Sun; USCIS filing opens (start-90d) 2027-03-03 Wed
+
+Pre-OPT requested start 2027-06-14 Mon: ISSS request opens (start-100d) 2027-03-06 Sat; USCIS filing opens (start-90d) 2027-03-16 Tue
+
+D/S NPRM->final days: 323
+Weighted NPRM->final days: 96
+OPT fee NPRM + 98d (weighted analog) final: 2027-01-12 Tue ; effective +60: 2027-03-13 Sat
+OPT fee NPRM + 323d (D/S analog) final: 2027-08-27 Fri ; effective +60: 2027-10-26 Tue
+30 business days after 2027-03-17 (no holidays): 2027-04-28 Wed
+30 business days after 2028-02-10: 2028-03-23 Thu
+5 months after 2028-02-10: 2028-07-10 Mon ; after 2027-03-17: 2027-08-17 Tue
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\ISSS\October Meeting Transcript.md`
+```diff
+- type: input
+status: seed
+created:
+input_kind: transcript
+source_url:
+related_progress: []
+tags:
+  - transcript
+next:
+---
++ type: input
+status: seed
+created: 2026-10-23
+input_kind: transcript
+source_url:
+related_progress:
+  - "[[VISA Plan]]"
+  - "[[ISSS October Meeting Brief]]"
+tags:
+  - transcript
+next: "[[ISSS October Meeting Brief]]"
+---
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\UMN\Links.md`
+```diff
+- [Career Pathway](https://cseumn.pathwayu.com/journey)
++ [Career Pathway](https://cseumn.pathwayu.com/journey)
+[ISSS: Basics of Pre-Completion OPT](https://isss.umn.edu/fstudents/employment/opt/pre-completion-opt): eligibility, hours, how much OPT time it uses up, and the 100-day request window. Part of [[VISA Plan]].
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\ISSS\ISSS October Meeting Brief.md`
+```
+---
+type: input
+status: sprout
+created: 2026-10-23
+updated: 2026-10-23
+tags:
+  - meeting
+  - isss
+  - visa
+  - opt
+input_kind: brief
+source_note: "[[October Meeting Transcript]]"
+related_progress:
+  - "[[VISA Plan]]"
+  - "[[OPT Playbook]]"
+  - "[[Junior Year Internship Decision]]"
+next: "Run /note-to-actions on this brief if a task list is wanted; the follow-ups are already built into OPT Playbook and VISA Plan"
+---
+# ISSS October Meeting Brief
+**Source:** Meeting with an ISSS advisor, University of Minnesota International Student and Scholar Services, over video call.
+**Transcript:** [[October Meeting Transcript]]
+**Date of conversation:** 2026-10-23, a Friday.
+## What This Was
+A one-on-one call between me and Shweta S Gaitonde, an ISSS advisor who handles work authorization (she says "our office" and "I'm not an H-1B advisor"). The first 30 lines of the transcript are me talking to myself before she joined. The connection dropped twice (her answer about CPT timing is cut off), and I call her "Shayla" near the end by mistake. I had expected to speak with a career-services person, but she is an ISSS advisor and sends the career questions to Career Services.
+## What Was Decided
+- **Pre-completion OPT stays on the table, and the decision waits for the application window.** She says we are "not quite in the window to apply" and that waiting also lets the CPT lawsuit play out and gives me time to look for a position. She will help me request it when the time comes.
+- **I should focus on the application process, not the fee rule.** The $70,000 proposal is still in its comment period, and nobody knows its outcome.
+- **I answer "authorized to work: yes" and "need sponsorship: yes" on applications.** She says this is accurate because pre-completion or post-completion OPT can authorize me, and I may need sponsorship in the future.
+- **For the next 3 to 4 months I watch ISSS emails, tell ISSS the moment I find a job, use Career Services for resume and LinkedIn, keep going to career fairs, and network.**
+- **Take the OPT online workshop whenever I like.** It is self-paced and not urgent for a spring 2028 graduate.
+- **Plan post-completion OPT in detail at the start of my last semester,** with a rough plan about four months before the program end date.
+- **Nothing was decided about CPT.** She said she has "genuinely no idea" when or how it ends.
+## Key Threads
+### Pre-Completion OPT And Summer 2027
+This was my main agenda. She called the pause on elective CPT "really unfortunate," said the lawsuit's outcome is unknown, and said pre-completion OPT is "certainly an option" for people who want to work next summer. Her facts about how it works:
+- It needs two steps. First I ask ISSS for a recommendation, which comes as a new I-20 listing the OPT dates I want. Then I send that I-20 to USCIS. This applies to pre- and post-completion OPT.
+- I cannot file with USCIS more than **90 days before the requested start date** (pre-completion) or before the end of the degree (post-completion).
+- **Pre-completion and post-completion are separate applications.** During the school term I am only eligible for part-time pre-completion OPT, up to 20 hours a week, and only during the summer for full-time. A part-time stretch followed by a full-time stretch needs two separate applications.
+- **The 20 hours includes on-campus work.** ISSS's page says the combination of on- and off-campus jobs cannot exceed 20 hours a week in term.
+- **Part-time pre-completion OPT uses up post-completion time at 50 percent.** Her example: 4 months of part-time pre-completion removes 2 months from post-completion OPT. (The ISSS page adds that full-time counts 100 percent.)
+- ISSS has no workshop for pre-completion OPT, since it was almost never done before. There is a web page with eligibility and impact ([[Pre-Completion OPT]]).
+### How Long OPT Takes
+USCIS's expected processing time is about **5 months**, and she says this is now normal because of "a clear backlog." Earlier it varied between 2 and 4 months. This clashes with the 90-day filing window, which is about 3 months, so a normal application can still be pending when the work was supposed to start. **Premium processing** costs about $1,800 on top of the almost-$500 base fee, USCIS guarantees a response in 30 business days, and "lately we've seen them pretty much take the entire 30 business days." I checked both numbers against USCIS's fee schedule: the base work-permit fee is $470 online or $520 on paper and premium processing for OPT is $1,780 ([[EAD and OPT Processing]]).
+### The $70,000 Fee And How A Rule Gets Made
+She explained the process in plain terms: the government publishes a proposed rule, people and organizations write letters during the **comment period** (it ends November 9), the government must read and answer them, and only then does it publish a final rule, which usually takes effect about 60 days later. She does not expect fast action: for the rule ending duration of status, "it took a year for them to go through all the comments, or almost a year." I checked: that proposal was published August 28, 2025 and the final rule July 17, 2026, which is 323 days. The OPT fee notice was published October 8, 2026 ([[OPT Fee Proposal]], [[US Immigration Rules Explained]]).
+### How CPT Used To Work At UMN
+Before August, ISSS approved CPT "within about 2 weeks" if I was registered for the course, my academic advisor agreed it related to my major, and it counted as part of my degree through credit. Because CPT was that smooth, ISSS rarely did pre-completion OPT outside the last two months. Post-completion OPT took 2 to 4 months before and now takes about 5. I mentioned my own March offer letter from sophomore year, which I could not use because I had no work authorization, and that is the lesson behind this whole project: authorization takes weeks to months, so it has to start early ([[CPT Program]]).
+### Internships Abroad
+She said "you are not tied by F-1 regulations when you physically are in another country," so an internship back home or in another country is an option. This answers a question I could not find a source for. It covers physically being abroad. Working remotely for someone while sitting in the U.S. is still U.S. employment ([[F-1 Employment Options]]).
+### Answering "Are You Authorized To Work?"
+Yes and yes is correct, in her words "answer it how you feel is truthful." I may be authorized through OPT and may need sponsorship later.
+### H-1B Timing
+She is not an H-1B advisor, but anecdotally students move to H-1B "the first year or the second year of their OPT," depending on the employer and the lottery. This corrects my assumption that H-1B only comes after STEM OPT. The calendar in [[2028 Graduation Timeline]] already shows why: the first registration happens in March 2028, before graduation ([[H-1B Odds Plan]]).
+### A Warning About Projects, Volunteering, And Resumes
+This was the most important caution. "Be careful of how you present volunteer or unpaid positions on your resume or LinkedIn." If a group project is described as an employment opportunity, the government has asked students to explain why they worked without authorization, which can make them "not eligible for OPT, but in fact, it was just a project." Talk to professors. The rule of thumb is to call a project a project ([[OPT Playbook]]).
+### Employers And Career Fairs
+Employers are still hiring and interviewing international students. Some have advocated to keep people hired, and some have always refused CPT or OPT candidates. Handshake and career fairs have a filter showing which employers accept work authorization. She encouraged me to keep going to career fairs and networking, and sent resume and LinkedIn questions to Career Services.
+### Program End Date And Planning
+The program end date on my I-20 is only an estimate. It shortens to the end of the semester in which I finish all degree requirements. Plan about 4 months ahead, request the OPT I-20 from ISSS (never earlier than 100 days before the end date), then file with USCIS no more than 90 days before it. The online workshop is a self-paced Canvas class reachable from MyISSS under the OPT e-form. For travel and start-date choices she wants a detailed talk at the start of my final semester.
+### What Nobody Knows
+CPT's future, the duration of status rule (still blocked, no date for a final decision), and the OPT fee all sit outside ISSS's knowledge. Her words: "we are all in the dark on this one."
+### What This Changes In My Earlier Notes
+| Earlier note said | The meeting showed |
+| --- | --- |
+| Whether remote work abroad is allowed was unanswered | ISSS: not tied by F-1 rules while physically abroad |
+| Pre-completion OPT was a last resort | It is a real option, decided at the window, with limits and costs now known |
+| Premium fee and base fee were unread | Verified at $1,780 and $470 online or $520 paper |
+| Processing was "months" | ISSS: about 5 months is normal; the complaint's figure agrees |
+| "Yes and yes" on sponsorship questions was unconfirmed | ISSS confirms it |
+| H-1B comes after STEM OPT | Students move to H-1B in OPT year one or two |
+| Program end date meant degree conferral | It is the end of the semester you finish all requirements |
+| One pre-OPT application would do | Part-time term work and full-time summer work are two applications |
+| The 20-hour cap applied to OPT only | It includes on-campus jobs |
+## Open Questions
+- [ ] Her CPT-timing answer was cut off by the dropped connection; confirm the roughly 2-week approval with ISSS in writing
+- [ ] She said the pause is on "elective" CPT; the ISSS page says all applications are paused with exceptions for required experiences. Ask which is right
+- [ ] I did not get to ask whether a required practical training course could be created for CS, how fast CPT would restart after a ruling, what happens to CPT already approved, who would pay the OPT fee, or whether UMN is commenting by November 9
+- [ ] I did not ask about campus research jobs, E-Verify employers, wage levels, or travel advice
+- [ ] Ask what an internship abroad does to my F-1 status, my summer enrollment, and my re-entry
+- [ ] Find the announcement of ISSS's pre-completion OPT request process, which its web page promises "in Fall 2026"
+## Follow-Up Actions
+- [ ] Email ISSS the unasked questions above and ask for a written answer 📅 2026-10-30
+- [ ] Rebuild the summer plan around pre-completion OPT as a real option with a decision at the window ([[Junior Year Internship Decision]]) 📅 2026-10-30
+- [ ] Use the Handshake work-authorization filter and keep attending career fairs
+- [ ] Write the OPT process out step by step with real dates ([[OPT Playbook]])
+- [ ] Review how any project, volunteer, or unpaid work is worded on my resume and LinkedIn before applying anywhere
+- [ ] Watch for ISSS emails about CPT and the pre-completion process
+## Related Notes
+[[VISA Plan]], [[OPT Playbook]], [[H-1B Odds Plan]], [[US Immigration Rules Explained]], [[Pre-Completion OPT]], [[OPT Program]], [[EAD and OPT Processing]], [[OPT Fee Proposal]], [[CPT Program]], [[2028 Graduation Timeline]], [[Junior Year Internship Decision]], [[ISSS Meeting]]
+
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\ISSS\ISSS October Meeting Brief.md`
+```diff
+- The first 30 lines of the transcript are me talking to myself before she joined. The connection dropped twice (her answer about CPT timing is cut off), and I call her "Shayla" near the end by mistake. I had expected to speak with a career-services person, but she is an ISSS advisor and sends the career questions to Career Services.
++ The first dozen lines of the transcript are me talking to myself before she joined. The connection dropped twice (her answer about CPT timing is cut off), and I call her "Shayla" near the end by mistake. I had planned for a career professional, but she is an ISSS advisor and sends the career questions to Career Services.
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\US Immigration Rules Explained.md`
+```
+---
+type: reference
+status: seed
+created: 2026-10-23
+updated: 2026-10-23
+reviewed: 2026-10-23
+tags:
+  - career
+  - visa
+  - beginner
+  - glossary
+reference_kind: resource
+area:
+  - career
+notes:
+  - "[[VISA Plan]]"
+  - "[[F-1 Visa]]"
+  - "[[SEVP and DSOs]]"
+  - "[[Visa Litigation Tracker]]"
+  - "[[ISSS October Meeting Brief]]"
+  - "[[Current News]]"
+---
+# US Immigration Rules Explained
+Almost every note in this folder uses words like "regulation," "comment period," "injunction," "I-20," or "SEVIS" as if everyone knows them. This note explains them from zero, using the real rules that affect me as the examples. Read it once end to end, then come back to the glossary whenever a word in another note is unclear.
+## The Big Picture In Plain Words
+==US immigration rules come in layers, and a higher layer beats a lower one: Congress writes the law, agencies turn it into detailed regulations, and agencies then explain how to apply them in guidance, while courts can pause any of it.== I need to know which layer a rule lives in, because that tells me how solid it is and how fast it can change.
+Here is the layering for something I care about, practical training for F-1 students:
+1. The law (written by Congress) says F-1 students come to study.
+2. A regulation (written by the Department of Homeland Security) says exactly when a student may do practical training.
+3. Guidance (written by the school-oversight office) tells school officials how to read the regulation.
+4. A court can pause or cancel an agency's rule or guidance if it breaks a rule about rule-making.
+This is the whole CPT fight in one picture. The regulation did not change in August 2026. The guidance did, and the lawsuit says the guidance went too far ([[CPT Broadcast Messages]], [[CPT Lawsuit]]).
+## Who Is Who
+| Body | What it is | What it does to me |
+| --- | --- | --- |
+| Congress | Makes laws | Wrote the Immigration and Nationality Act (INA) that created F-1 and H-1B |
+| The President | Signs laws, issues proclamations and executive orders | Issued the proclamation about the $100,000 H-1B payment |
+| DHS | The Department of Homeland Security, the parent of most agencies below | Writes most immigration regulations |
+| ICE | Immigration and Customs Enforcement, inside DHS | Runs SEVP and the OPT fee proposal |
+| SEVP | The Student and Exchange Visitor Program, an ICE office | Certifies schools, tracks students in SEVIS, issues guidance |
+| USCIS | U.S. Citizenship and Immigration Services, inside DHS | Approves my OPT work permit, my H-1B petition, and any extension |
+| CBP | Customs and Border Protection, inside DHS | Admits me at the airport and records my I-94 |
+| Department of Labor | Sets wage levels and approves job conditions | Its wage data decides my H-1B lottery weight |
+| State Department | Issues visas at consulates abroad | Issues the F-1 visa stamp |
+| Courts | Judges who can pause or cancel agency actions | Currently hold the fates of CPT guidance and the duration-of-status rule |
+| My school's DSO | A designated school official at UMN's ISSS office | Signs my I-20 and recommends CPT or OPT |
+## Visa, Status, And Work Permission Are Three Different Things
+==The most common beginner mistake is to treat the F-1 visa, F-1 status, and permission to work as one thing; they are three separate things issued by three different offices.==
+- *The visa stamp:* a sticker in the passport, issued by a U.S. consulate abroad, that lets me ask to enter. Once I am inside it matters little, except for re-entering after travel.
+- *The status:* the category I am lawfully in once admitted, F-1. My I-20 and the I-94 record prove it. I keep it by studying full-time and following the rules ([[F-1 Visa]]).
+- *Work permission:* a separate permission. F-1 status alone allows on-campus work only. Off-campus work needs CPT (my school's DSO signs the I-20), or OPT (USCIS issues a work permit card). Without one of these, an off-campus job is unauthorized, even if the job is unpaid ([[F-1 Employment Options]]).
+So I can be in perfect F-1 status and still be forbidden to start an internship. This is exactly what happened to me with the March offer letter in sophomore year.
+## The Forms
+| Form | Plain meaning | Who issues or reads it |
+| --- | --- | --- |
+| I-20 | The student's certificate of eligibility. Carries my program dates and, later, CPT or OPT approvals | My school's DSO |
+| I-94 | The arrival record that says how long I may stay. Today it says "D/S," duration of status | CBP |
+| I-765 | The application for a work permit | I file it, USCIS decides |
+| EAD or I-766 | The work permit card itself. OPT work is only legal once I hold it and its start date has arrived | USCIS |
+| I-907 | The request to add premium processing (faster decision) | USCIS |
+| I-539 | The application to extend stay or change status | USCIS |
+| I-129 | The employer's petition for an H-1B worker | The employer files, USCIS decides |
+| I-983 | The training plan I and my employer sign for the STEM extension | My DSO reviews |
+| I-797 | A notice from USCIS: a receipt, an approval, or a request for evidence | USCIS |
+## Laws, Rules, And Guidance: How To Read A Citation
+- *A statute* is a law Congress passed. The INA is the main one. A citation like "INA 101(a)(15)(F)" names the exact section that creates F-1 status.
+- *A regulation* is a detailed rule an agency writes. They are collected in the Code of Federal Regulations, and Title 8 is "Aliens and Nationality." "8 CFR 214.2(f)(10)" means Title 8, part 214, section 2, paragraph (f), subparagraph (10), which is the practical training rule.
+- *The Federal Register* is the government's daily newspaper of new rules. "91 FR 64566" means volume 91, page 64566, which is the OPT fee proposal. Every proposal and final rule appears there.
+- *Guidance* explains how to apply a regulation. A broadcast message from SEVP is guidance. Each one says it "is not itself a rule" and creates no enforceable right. Guidance can still change what schools do, because schools fear losing certification.
+- *Proclamations and executive orders* are documents signed by the President. A proclamation can restrict who may enter. These are also printed in the Federal Register.
+> [!WARNING]
+> The online version of the rule book called eCFR shows what was published, not what a court allows. In 2026 its "current" page printed rules a court had postponed. Always use a dated version, like the one dated July 1, 2026.
+## How A Rule Is Made
+1. **Proposal.** The agency publishes a **Notice of Proposed Rulemaking** (NPRM). It says what the agency wants to do and why, and sets a deadline for public comments.
+2. **Comment period.** Anyone, such as students, schools, and companies, can write comments on regulations.gov. The advisor explained this in the meeting: people and organizations send letters saying why a rule is good or bad, and the government is supposed to look at all of them and respond before finalizing ([[ISSS October Meeting Brief]]).
+3. **Final rule.** The agency publishes the final rule with an effective date, often 30 to 60 days later. The OPT fee proposal says 60 days.
+4. **Lawsuits.** Groups can sue, arguing the agency broke the law. A judge may pause the rule, which is what happened to the duration-of-status rule.
+An **interim final rule** skips step 2: it takes effect right away and the comments come after. The end of automatic work-permit extensions was done this way.
+## How Long Rules Have Taken
+| Rule | Proposed | Final | Days | Note |
+| --- | --- | --- | --- | --- |
+| Weighted H-1B lottery | Sept 24, 2025 | Dec 29, 2025 | 96 | In force Feb 27, 2026 |
+| Duration of status | Aug 28, 2025 | July 17, 2026 | 323 | Postponed by a court Sept 14, 2026 |
+| OPT fee | Oct 8, 2026 | Not yet | Open | Comments close Nov 9 |
+### What These Numbers Mean
+Two recent examples took 96 and 323 days, and the advisor says the second took "almost a year." Applying those two gaps to the OPT fee proposal would put a final rule between mid-January and late August 2027, and an effective date 60 days later, roughly mid-March to late October 2027. That is only an analogy, not a forecast. It does say one thing clearly: the fee could be in force before I request my post-graduation OPT in early 2028 ([[OPT Fee Proposal]]).
+## How Courts Fit In
+- *Complaint:* the document that starts a lawsuit. *Plaintiffs* sue, *defendants* are sued.
+- *Motion:* a request to the judge. A *preliminary injunction* motion asks for an order now, before the case is finished.
+- *Postponement (section 705):* the judge delays a rule's start date while the case goes on. *Vacatur* cancels the agency action completely.
+- *Appeal:* the loser asks a higher court to review. An appeal does not by itself undo the order being appealed.
+- *Docket:* the list of everything filed in a case. I track mine in [[Visa Litigation Tracker]].
+## The Glossary
+| Word | Meaning |
+| --- | --- |
+| AUD | Admit Until Date, the end date on an I-94 if the fixed-period rule takes effect |
+| Cap | The yearly limit on new H-1B workers: 65,000 plus 20,000 for U.S. master's holders |
+| Cap-gap | An automatic extension of F-1 status and OPT while an H-1B petition is pending |
+| Cap-exempt | A kind of employer, such as a university, that is not subject to the cap |
+| CIP code | A six-digit code for a major printed next to my major on the I-20; it decides STEM eligibility |
+| COS | Change of status, such as from F-1 to H-1B without leaving the country |
+| CPT | Curricular practical training: work approved by my school as part of my degree |
+| D/S | Duration of status: being allowed to stay as long as I keep studying |
+| DSO | Designated school official, the school staff who sign I-20s |
+| E-Verify | A government system that employers use to check workers' eligibility; STEM OPT employers must use it |
+| EOS | Extension of stay |
+| ISSS | International Student and Scholar Services, UMN's DSO office |
+| LCA | Labor Condition Application, the employer's wage promise to the Department of Labor for an H-1B |
+| OEWS | The government wage survey that defines the four wage levels |
+| OPT | Optional practical training: a work permit tied to my major, up to 12 months |
+| PDSO | Principal DSO, the lead school official |
+| Premium processing | Paying extra so USCIS must act within a set time; for OPT, 30 business days |
+| RFE | Request for evidence: USCIS asks for more documents, and the clock stops |
+| SEVIS | The database that tracks every F-1 student |
+| SEVP Portal | The website where an OPT student reports address and job changes within 10 days |
+| STEM OPT | A 24-month OPT extension for STEM degrees |
+| Unemployment days | Days on OPT without a qualifying job: at most 90, or 150 with STEM OPT |
+| USCIS | The agency that approves work permits and petitions |
+| Wage level | One of four tiers, I to IV, based on the offered salary, which sets lottery weight |
+## How To Check What Is True Today
+- *Broadcast messages:* ICE's [SEVIS What's New page](https://www.ice.gov/sevis/whats-new).
+- *New rules:* the [Federal Register](https://www.federalregister.gov/) and comments at [regulations.gov](https://www.regulations.gov).
+- *Court cases:* the dockets on [CourtListener](https://www.courtlistener.com/), which my [[Visa Litigation Tracker]] links.
+- *Processes and fees:* the USCIS page for the form, and the fee schedule, Form G-1055.
+- *What my school does:* ISSS pages and the Weekly Update email. Check the "last updated" date on every page.
+## Who To Ask For What
+- *ISSS advisors:* anything about my status, CPT, and OPT. They said plainly they are not H-1B advisors.
+- *Career Services:* resumes, LinkedIn, which employers accept work authorization.
+- *The employer's immigration lawyer or HR:* H-1B registration, petitions, and cap-gap paperwork. ISSS says it cannot recommend specific attorneys.
+## Sources
+- [Federal Register](https://www.federalregister.gov/documents/2026/07/17/2026-14439/establishing-a-fixed-time-period-of-admission-and-an-extension-of-stay-procedure-for-nonimmigrant) rule documents named above, and [8 CFR 214.2, version dated July 1, 2026](https://www.ecfr.gov/on/2026-07-01/title-8/chapter-I/subchapter-B/part-214/section-214.2).
+- [ISSS pre-completion OPT](https://isss.umn.edu/fstudents/employment/opt/pre-completion-opt) and [requirements during OPT](https://isss.umn.edu/fstudents/employment/opt/requirements).
+- [October Meeting Transcript](ISSS/October%20Meeting%20Transcript.md): the advisor's explanation of the comment period.
+
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\US Immigration Rules Explained.md`
+```diff
+- - [October Meeting Transcript](ISSS/October%20Meeting%20Transcript.md): the advisor's explanation of the comment period.
++ - [[October Meeting Transcript]]: the advisor's explanation of the comment period.
+```
+- `Bash` -- `node -e '
+const d=s=>new Date(s+"T12:00:00Z"); const add=(x,n)=>new Date(x.getTime()+n*86400000);
+const dn=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]; const f=x=>x.toISOString().slice(0,10)+" "+dn[x.getUTCDay()];
+const nextBiz=x=>{while(x.getUTCDay()===0||x.getUTCDay()===6)x=add(x,1);return x;};
+const addBiz=(x,n)=>{let c=0;while(c<n){x=add(x,1);if(x.getUTCDay()!==0&&x.getUTCDay()!==6)c++;}return x;};
+console.log("PRE-OPT summer 2027 (no US holidays modeled)");
+for(const s of ["2027-05-17","2027-06-01","2027-06-14"]){
+ const S=d(s); const req=nextBiz(add(S,-100)); const i20=addBiz(req,10); const open=add(S,-90); const file=i20>open?i20:nextBiz(open);
+ const deadline30=add(i20,30);
+ console.log("start "+f(S)+" | ISSS request opens "+f(add(S,-100))+" -> submit "+f(req)+" | I-20 by (10 biz days) "+f(i20)+" | USCIS filing opens "+f(open)+" | file on "+f(file)+" | USCIS must receive by (I-20+30d) "+f(deadline30)+" | premium decision by "+f(addBiz(file,30))+" | 5 months later "+f(new Date(Date.UTC(file.getUTCFullYear(),file.getUTCMonth()+5,file.getUTCDate(),12))));
+}
+console.log("\nPOST-OPT spring 2028");
+const req=d("2028-01-31"); const i20=addBiz(req,10); const open=d("2028-02-10"); const file=i20>open?i20:open;
+console.log("ISSS request "+f(req)+" | I-20 by "+f(i20)+" | USCIS opens "+f(open)+" | file "+f(file)+" | premium decision by "+f(addBiz(file,30))+" | +5 months "+f(new Date(Date.UTC(2028,file.getUTCMonth()+5,file.getUTCDate(),12)))+" | last receipt "+f(d("2028-07-09")));
+console.log("\nSTEM if card runs to 2029-07-09: ISSS request opens "+f(add(d("2029-07-09"),-100))+"; USCIS filing opens "+f(add(d("2029-07-09"),-90))+"; USCIS must receive by "+f(d("2029-07-09")));
+console.log("If post-OPT starts 2028-05-11 (12 months): ends "+f(add(d("2029-05-10"),0)));
+console.log("Dec 23 2027 early-finish path: ISSS request opens "+f(add(d("2027-12-23"),-100)));
+console.log("Days between 2026-10-23 and 2027-03-08:",Math.round((d("2027-03-08")-d("2026-10-23"))/86400000));
+'`
+```
+PRE-OPT summer 2027 (no US holidays modeled)
+start 2027-05-17 Mon | ISSS request opens 2027-02-06 Sat -> submit 2027-02-08 Mon | I-20 by (10 biz days) 2027-02-22 Mon | USCIS filing opens 2027-02-16 Tue | file on 2027-02-22 Mon | USCIS must receive by (I-20+30d) 2027-03-24 Wed | premium decision by 2027-04-05 Mon | 5 months later 2027-07-22 Thu
+start 2027-06-01 Tue | ISSS request opens 2027-02-21 Sun -> submit 2027-02-22 Mon | I-20 by (10 biz days) 2027-03-08 Mon | USCIS filing opens 2027-03-03 Wed | file on 2027-03-08 Mon | USCIS must receive by (I-20+30d) 2027-04-07 Wed | premium decision by 2027-04-19 Mon | 5 months later 2027-08-08 Sun
+start 2027-06-14 Mon | ISSS request opens 2027-03-06 Sat -> submit 2027-03-08 Mon | I-20 by (10 biz days) 2027-03-22 Mon | USCIS filing opens 2027-03-16 Tue | file on 2027-03-22 Mon | USCIS must receive by (I-20+30d) 2027-04-21 Wed | premium decision by 2027-05-03 Mon | 5 months later 2027-08-22 Sun
+
+POST-OPT spring 2028
+ISSS request 2028-01-31 Mon | I-20 by 2028-02-14 Mon | USCIS opens 2028-02-10 Thu | file 2028-02-14 Mon | premium decision by 2028-03-27 Mon | +5 months 2028-07-14 Fri | last receipt 2028-07-09 Sun
+
+STEM if card runs to 2029-07-09: ISSS request opens 2029-03-31 Sat; USCIS filing opens 2029-04-10 Tue; USCIS must receive by 2029-07-09 Mon
+If post-OPT starts 2028-05-11 (12 months): ends 2029-05-10 Thu
+Dec 23 2027 early-finish path: ISSS request opens 2027-09-14 Tue
+Days between 2026-10-23 and 2027-03-08: 136
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\OPT Playbook.md`
+```
+---
+type: reference
+status: seed
+created: 2026-10-23
+updated: 2026-10-23
+reviewed: 2026-10-23
+tags:
+  - career
+  - visa
+  - opt
+  - playbook
+reference_kind: resource
+area:
+  - career
+notes:
+  - "[[VISA Plan]]"
+  - "[[OPT Program]]"
+  - "[[Pre-Completion OPT]]"
+  - "[[STEM OPT Extension]]"
+  - "[[EAD and OPT Processing]]"
+  - "[[2028 Graduation Timeline]]"
+  - "[[ISSS October Meeting Brief]]"
+  - "[[US Immigration Rules Explained]]"
+---
+# OPT Playbook
+OPT is the permission I will actually use, in one form or another, from summer 2027 to the end of my STEM extension. This note is the step-by-step plan for getting it correctly: what each kind is, what it costs in money and months, the exact dates for my graduation, and the mistakes that cost students their eligibility. It is written for a complete beginner. Read it before the first OPT request, and again each time I am about to file anything.
+## In Plain Words
+**Optional Practical Training (OPT)** is a work permit for F-1 students. It lets me work in the United States in a job that is directly related to my major. USCIS, the government agency that handles immigration benefits, grants it, and my school's international office has to recommend it first.
+==OPT is something I already have the right to ask for, I do not need a job offer to apply, and it is measured in 12-month blocks that get used up whether or not I find work.== There are three kinds. **Pre-completion OPT** is used before graduation. **Post-completion OPT** starts after graduation. The **STEM extension** adds 24 months after post-completion OPT for qualifying majors. If any word here is new, [[US Immigration Rules Explained]] defines it.
+## The Three Kinds Side By Side
+| | Pre-completion | Post-completion | STEM extension |
+| --- | --- | --- | --- |
+| When | Before I finish my degree | After I finish my degree | After 12 months of post-completion OPT |
+| Hours | 20 a week or less in term. Full-time allowed only in vacations | At least 20 a week | At least 20 a week |
+| Time it uses | Part-time counts half, full-time counts in full, against my 12 months | The rest of my 12 months | Adds 24 months |
+| Needs a job offer to apply | No | No | Yes, an employer in E-Verify who signs a training plan |
+| Unemployment limit | None | 90 days | 60 more, for 150 total |
+| Who approves | USCIS, after UMN recommends | USCIS, after UMN recommends | USCIS, after UMN recommends |
+| UMN workshop | None, only a web page | Required online workshop | Required online workshop |
+## What It Costs In Money
+| Item | Cost | Source |
+| --- | --- | --- |
+| USCIS work permit application (Form I-765) | $470 online, $520 on paper | USCIS fee schedule, edition 10/16/26 |
+| Premium processing (optional, Form I-907) | $1,780 | Same schedule, "OPT and STEM-OPT classifications" |
+| Biometric fee | Not required | ISSS |
+| ISSS STEM fee for alumni | $400, one time | ISSS STEM application page |
+| Employer may pay these | Yes, if they agree | ISSS |
+### What That Adds Up To
+Filing online with premium processing is $470 plus $1,780, which is **$2,250** per application (my sum). A part-time school-term stretch and a full-time summer stretch are separate applications, so doing both would double it. The advisor quoted "almost $500" and "about $1,800," and the schedule confirms both. If the proposed school fee of $70,000 is finalized, the school pays it and may pass it on, which is a separate question ([[OPT Fee Proposal]]).
+## What It Costs In Time
+| Step or limit | Rule | Source |
+| --- | --- | --- |
+| Ask ISSS for the OPT I-20 | No earlier than 100 days before the start (pre) or the program end date (post) | ISSS |
+| ISSS makes the I-20 | Up to 10 business days | ISSS |
+| USCIS must receive my application | Within 30 days of the I-20's issue date, or it is denied | ISSS |
+| USCIS filing window, post | 90 days before to 60 days after the program end date | USCIS, ISSS |
+| USCIS filing window, pre | Not earlier than 90 days before the requested start date | Advisor, SEVP guidance |
+| Normal USCIS wait | About 5 months | Advisor, and the court filing |
+| With premium processing | A response in 30 business days, usually all 30 | USCIS, advisor |
+| When I may start work | Only when the card is in my hand and its start date has arrived | ISSS |
+| Outer limit | All initial OPT within 14 months of the program end date | 8 CFR 214.2(f)(10)(ii)(A)(3) |
+### Why The Wait Is The Real Problem
+The filing window is about 90 days and the normal wait is about 5 months, so a normal application filed on the first possible day is still pending when the work was supposed to start. The card's start date is the later of the date I request and the date USCIS approves. Waiting costs me the start date of a job, and in the worst case it also costs OPT months at the end if the approval lands near the 14-month limit.
+## Post-Completion OPT: My Dates
+UMN counts the "date of degree completion" as the last day of the term. UMN's official calendar says the Spring 2028 term ends **Wednesday, May 10, 2028**. I tested the date formula on ISSS's own Fall 2026 example (term ends Dec 23, 2026, which gives Sept 14, Sept 24, and Feb 21) and it matches exactly.
+| What | Date |
+| --- | --- |
+| Take the OPT workshop and meet my academic advisor to confirm the end date | Fall 2027 to January 2028 |
+| Earliest I can ask ISSS for the OPT I-20 | Monday, January 31, 2028 |
+| I-20 from ISSS, at the latest | About February 14, 2028 |
+| Earliest USCIS can receive my application | Thursday, February 10, 2028 |
+| Realistic filing day | About February 14, 2028 |
+| Decision with premium processing, by | About March 27, 2028 |
+| Decision without premium, expected | About July 14, 2028 |
+| Last day USCIS can receive my application | Sunday, July 9, 2028 |
+| Outer limit for using the 12 months | Tuesday, July 10, 2029 |
+### How To Read These Dates
+- The advisor said to be ready about four months before the end date, which is early January 2028, so the workshop and the advisor visit should be finished by then.
+- If I finish all degree requirements earlier, the end date moves earlier, and every date above moves with it. A finish at the end of Fall 2027 (December 23, 2027) would open the ISSS request on September 14, 2027.
+- Premium processing on this timeline buys a card by late March, so a job could start right after graduation. Without it, the normal wait ends in mid-July, about two months after graduation. For a job that needs me on a fixed start date, the premium fee is cheap insurance.
+## Pre-Completion OPT: The Summer 2027 Playbook
+The advisor said ISSS is "not quite in the window" yet, and ISSS's own page says it is still building its request process and will announce it in Fall 2026. Pre-completion OPT also has no job-offer requirement, so I can apply before I have an offer, but any approved time is deducted from my 12 months whether or not I work.
+| If my summer start date is | ISSS request opens | I-20 by, at the latest | USCIS filing opens | Premium decision by | Normal wait ends |
+| --- | --- | --- | --- | --- | --- |
+| Monday, May 17, 2027 | Feb 6 (a Saturday) | Feb 22 | Feb 16 | About April 5 | About July 22 |
+| Tuesday, June 1, 2027 | Feb 21 (a Sunday) | Mar 8 | Mar 3 | About April 19 | About Aug 8 |
+| Monday, June 14, 2027 | Mar 6 (a Saturday) | Mar 22 | Mar 16 | About May 3 | About Aug 22 |
+### What The Summer Table Shows
+- Without premium processing, the normal wait ends after most of the summer is over. Premium processing is not optional for a summer plan.
+- The decision lands about 6 weeks after filing and I assume it takes all 30 business days, as the advisor said it has been lately. These dates ignore holidays and a request for more evidence, which stops and restarts the clock.
+- Mid-March 2027 is the practical start of the window for a June internship. Today is October 23, 2026, so there are about 136 days to the earliest realistic request.
+### What It Costs Me In OPT Months
+| Pre-OPT I might use | Months deducted from my 12 | Months left for after graduation |
+| --- | --- | --- |
+| 3 months full-time (a summer) | 3 | 9 |
+| 3 months part-time | 1.5 | 10.5 |
+| 4 months part-time, as the advisor's example | 2 | 10 |
+| 3 months full-time plus 9 months part-time | 3 + 4.5 = 7.5 | 4.5 |
+The last row is ISSS's own worked example, and it is the warning: continuing part-time into the school year eats the OPT I need after graduation.
+### My Rules For Choosing It
+I use pre-completion OPT only if all of these are true. If any is false, I wait for the next window or take another route ([[Junior Year Internship Decision]]).
+1. I hold a written offer for a role directly related to computer science.
+2. The job's start date is at least about 10 weeks after the ISSS request window opens, so premium processing fits.
+3. I have budgeted the $2,250 and asked whether my employer will pay it.
+4. The deduction leaves me at least 9 months for after graduation, and I do not plan to use all 12 before I graduate, so the STEM extension stays possible.
+5. I checked the status of the $70,000 school-fee rule before the recommendation date, because the fee applies to recommendations dated after its effective date, and in the fast scenario that date could be as early as mid-March 2027.
+6. ISSS has announced its pre-completion process and confirmed the turnaround in writing.
+## The STEM Extension: Step By Step
+The STEM extension is a second, separate application near the end of post-completion OPT. UMN runs it in five steps.
+1. Check the CIP code, the six-digit number printed next to my major on my I-20, against the DHS STEM list. Computer Science (11.0701) is on it. ISSS does not decide this for me.
+2. Find an employer who is enrolled in E-Verify, a government employment-eligibility checking system, and who will sign the training plan.
+3. Take the online STEM workshop, complete the training plan (Form I-983) with the employer, and pay the $400 ISSS fee, then ask ISSS for the STEM I-20.
+4. File with USCIS no more than 90 days before the current work permit expires and no later than its expiry date, with the new I-20, my last card, my passport page, my I-94, my diploma and final transcript, and UMN's accreditation page.
+5. Wait about 3.5 to 4 months, while a timely filing keeps me working up to 180 days or until USCIS decides.
+If my post-completion card runs to July 9, 2029, ISSS opens on March 31, 2029 and USCIS opens on April 10, 2029 (my arithmetic). I cannot apply for the STEM extension at the same time as post-completion OPT, only once I have 90 days left.
+## While I Am On OPT
+- *Card first:* I may not work until I hold the card and its start date has arrived, even if my requested start date has passed.
+- *Send ISSS a copy of the card* as soon as it arrives, and check it for mistakes.
+- *Create the SEVP Portal account* when the email arrives from the government (the link expires in 31 days). I must report any new employer, address, or phone change there within 10 days. The portal will not accept a job that started more than 10 days ago. ISSS will not do it for me.
+- *Work at least 20 hours a week* in jobs related to my major. Paid jobs, several jobs, contract work, agency work, self-employment, unpaid internships, and volunteer work all count on post-completion OPT. Keep written proof of every job.
+- *Stay under 90 days without a qualifying job* (150 with STEM). Days spent outside the U.S. count.
+- *Do not start a new degree or transfer schools.* Either ends the remaining OPT time and it cannot be recovered.
+- *Travel carefully.* Re-entering needs a passport, a valid F-1 visa, an OPT I-20 with a travel signature under 6 months old, the work permit or its receipt, and proof of a job or job offer. Renew the F-1 visa before graduating if I can.
+## Protect My OPT Eligibility
+The advisor's strongest warning was about how I describe projects and unpaid work. The government has asked students to explain work done without authorization, and the answer "it was just a project" only helps if the resume, LinkedIn, and reality all say a project. ISSS also says an unpaid arrangement is not safe: a free-rent caretaking job counts as employment.
+### What To Say And What Not To Say
+| Safe | Risky |
+| --- | --- |
+| "Course project, CSCI 4041, built a graph tool with 3 classmates" | "Software Engineer, StartupName, unpaid" for a project nobody employed me for |
+| "Personal project: a trading dashboard" | "Intern, my friend's company" for work done in the U.S. without CPT or OPT |
+| "Research project with Professor X for credit" | "Research assistant" for an unpaid job off campus |
+| Internship done physically abroad, labelled as abroad | A remote role worked from my U.S. apartment |
+### How I Apply That
+- Describe any project as a project, with the course, the team, and the output.
+- Never describe unpaid or volunteer U.S. work as a job, and ask ISSS in writing before doing any of it.
+- An internship done while physically in another country is not governed by F-1 work rules, according to the advisor. Work done from inside the U.S. is.
+- Show resume and LinkedIn changes to Career Services and a professor as she suggested.
+## What Can Go Wrong
+| Risk | Why it happens | What I do |
+| --- | --- | --- |
+| Card arrives after the job starts | Normal wait is about 5 months | File on the first possible day and use premium processing when a start date matters |
+| USCIS rejects for timing | Filed more than 30 days after the I-20 date, or outside the 90 and 60 day windows | Get the I-20 first, then file immediately |
+| Request for evidence | USCIS wants a document | Tell ISSS at once; the premium clock stops and restarts |
+| Leaving the country in the 60-day period before filing | ISSS says it ends the period and the right to apply | Do not travel until the application is filed |
+| Using up the OPT before graduation | Pre-OPT deducts even if I do not work | Follow my choosing rules |
+| A USCIS hold for my country | A January 2026 memo paused applications from some countries; USCIS marks it as no longer in effect because of court orders, but ISSS still warns about it | Check whether my country of birth or citizenship is on the December 2025 list and ask ISSS |
+| The $70,000 school fee | The school may decline, pass it on, or stop recommending | Ask ISSS what UMN will do and watch the rule |
+| The duration-of-status rule returns | OPT windows shrink to 30 days and an extension application may be needed | Read [[Duration of Status Rule]] |
+| Photos or biometrics | USCIS changed its photo policy in December 2025 | Follow the form and be ready for a biometrics appointment |
+## Checklists
+### Before Summer 2027
+- [ ] Ask ISSS in writing for the pre-completion process and turnaround 📅 2026-10-30
+- [ ] Decide my target start date and compute my own table from it 📅 2027-01-31
+- [ ] Hold a written offer before the ISSS request window opens
+- [ ] Budget $2,250 and ask the employer about paying it
+### For Spring 2028
+- [ ] Take the OPT workshop in MyISSS under the OPT e-form 📅 2027-12-15
+- [ ] Meet my academic advisor to confirm the end date 📅 2028-01-15
+- [ ] Ask ISSS for the OPT I-20 on January 31, 2028 📅 2028-01-31
+- [ ] File with USCIS as soon as the I-20 arrives, no earlier than February 10 📅 2028-02-14
+- [ ] Open the SEVP Portal account when the email arrives
+## Open Questions
+- [ ] Ask whether premium processing and the ISSS I-20 can be sped up in the same week
+- [ ] Ask what ISSS recommends for a job that starts mid-June if the pre-completion process is not yet open
+- [ ] Look up the live USCIS processing time for the OPT application
+## Sources
+- [ISSS pre-completion OPT](https://isss.umn.edu/fstudents/employment/opt/pre-completion-opt), [post-completion OPT](https://isss.umn.edu/fstudents/employment/opt/basics), [applying](https://isss.umn.edu/fstudents/employment/opt/apply), [requirements](https://isss.umn.edu/fstudents/employment/opt/requirements), [travel](https://isss.umn.edu/fstudents/employment/opt/travel-study), [STEM application](https://isss.umn.edu/fstudents/employment/opt/stem-opt-extension/application), and [OPT vs. CPT](https://isss.umn.edu/fstudents/employment/opt-cpt-comparison).
+- [USCIS fee schedule, Form G-1055](https://www.uscis.gov/g-1055) and [premium processing](https://www.uscis.gov/forms/all-forms/how-do-i-request-premium-processing).
+- [UMN 2027-28 calendar](https://asr.umn.edu/[REDACTED]): the May 10, 2028 end of term.
+- [[October Meeting Transcript]]: the advisor's statements.
+
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\OPT Playbook.md`
+```diff
+- The STEM extension is a second, separate application near the end of post-completion OPT. UMN runs it in five steps.
++ The STEM extension is a second, separate application near the end of post-completion OPT. UMN's own process is a workshop, an ISSS recommendation, assembling documents, filing with USCIS, and waiting. Here it is in five steps, with the employer check added.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\OPT Playbook.md`
+```diff
+- ### What To Say And What Not To Say
+| Safe | Risky |
++ ### What To Say And What Not To Say
+These rows illustrate the advisor's principle. They are not legal advice, so I confirm any real case with ISSS in writing.
+| Safe | Risky |
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\OPT Playbook.md`
+```diff
+- These rows illustrate the advisor's principle. They are not legal advice, so I confirm any real case with ISSS in writing.
+| Safe | Risky |
++ > [!NOTE]
+> These rows illustrate the advisor's principle. They are not legal advice, so I confirm any real case with ISSS in writing.
+
+| Safe | Risky |
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/wages26"; node -e '
+const fs=require("fs");
+const rows=fs.readFileSync("ALC_Export.csv","utf8").split(/\r?\n/).filter(l=>l.startsWith("\"33460\","));
+const names={"15-1252":"Software Developers","15-1221":"Computer & Information Research Scientists","15-2051":"Data Scientists","15-1211":"Computer Systems Analysts","15-1241":"Computer Network Architects","15-1244":"Network & Systems Admins","15-1299":"Computer Occupations, All Other"};
+console.log("Twin Cities annual (hourly x 2080), wage year 2026-27");
+for(const l of rows){const c=l.split(",").map(s=>s.replace(/"/g,"")); if(names[c[1]]) console.log(names[c[1]].padEnd(46),[c[3],c[4],c[5],c[6]].map(x=>"$"+Math.round(parseFloat(x)*2080).toLocaleString("en-US")).join("  "));}
+const t={L1:91624,L2:110926,L3:130208,L4:149510};
+console.log("\nOffer -> level (software developers, Twin Cities)");
+for(const o of [85000,95000,105000,115000,125000,135000,145000,155000]){let lv="below L1"; if(o>=t.L4)lv="IV (4 tickets)"; else if(o>=t.L3)lv="III (3 tickets)"; else if(o>=t.L2)lv="II (2 tickets)"; else if(o>=t.L1)lv="I (1 ticket)"; console.log("$"+o.toLocaleString("en-US").padStart(8),lv);}
+console.log("\nIllustration: chance to be picked at least once in N independent draws using TRAC modeled per-draw odds");
+const p={I:0.1529,II:0.3058,III:0.4587,IV:0.6116, random:0.2959, FY25actual:135137/470342, FY26actual:120141/343981};
+for(const k of Object.keys(p)){const q=1-p[k]; console.log(k.padEnd(10),"per-draw "+(p[k]*100).toFixed(1)+"%","| 1 draw "+(p[k]*100).toFixed(1)+"% | 2 draws "+((1-q*q)*100).toFixed(1)+"% | 3 draws "+((1-q*q*q)*100).toFixed(1)+"%");}
+'; node -e 'const r=(a,b)=>console.log(a,(b*2080).toFixed(0));'`
+```
+Twin Cities annual (hourly x 2080), wage year 2026-27
+Computer Systems Analysts                      $84,282  $99,445  $114,629  $129,792
+Computer & Information Research Scientists     $101,317  $119,621  $137,925  $156,229
+Computer Network Architects                    $94,328  $113,942  $133,557  $153,171
+Network & Systems Admins                       $74,672  $91,666  $108,638  $125,632
+Software Developers                            $91,624  $110,926  $130,208  $149,510
+Computer Occupations, All Other                $69,846  $88,046  $106,267  $124,467
+Data Scientists                                $79,893  $104,478  $129,085  $153,670
+
+Offer -> level (software developers, Twin Cities)
+$  85,000 below L1
+$  95,000 I (1 ticket)
+$ 105,000 I (1 ticket)
+$ 115,000 II (2 tickets)
+$ 125,000 II (2 tickets)
+$ 135,000 III (3 tickets)
+$ 145,000 III (3 tickets)
+$ 155,000 IV (4 tickets)
+
+Illustration: chance to be picked at least once in N independent draws using TRAC modeled per-draw odds
+I          per-draw 15.3% | 1 draw 15.3% | 2 draws 28.2% | 3 draws 39.2%
+II         per-draw 30.6% | 1 draw 30.6% | 2 draws 51.8% | 3 draws 66.5%
+III        per-draw 45.9% | 1 draw 45.9% | 2 draws 70.7% | 3 draws 84.1%
+IV         per-draw 61.2% | 1 draw 61.2% | 2 draws 84.9% | 3 draws 94.1%
+random     per-draw 29.6% | 1 draw 29.6% | 2 draws 50.4% | 3 draws 65.1%
+FY25actual per-draw 28.7% | 1 draw 28.7% | 2 draws 49.2% | 3 draws 63.8%
+FY26actual per-draw 34.9% | 1 draw 34.9% | 2 draws 57.7% | 3 draws 72.4%
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H-1B Odds Plan.md`
+```
+---
+type: reference
+status: seed
+created: 2026-10-23
+updated: 2026-10-23
+reviewed: 2026-10-23
+tags:
+  - career
+  - visa
+  - h1b
+  - strategy
+reference_kind: research
+area:
+  - career
+notes:
+  - "[[VISA Plan]]"
+  - "[[H1B Visa]]"
+  - "[[H-1B Lottery]]"
+  - "[[H-1B Rule Proposals]]"
+  - "[[Cap-Gap Extension]]"
+  - "[[STEM OPT Extension]]"
+  - "[[OPT Playbook]]"
+  - "[[2028 Graduation Timeline]]"
+  - "[[US Immigration Rules Explained]]"
+---
+# H-1B Odds Plan
+The H-1B lottery looks like pure luck, but several parts of it are decided by choices I make before the draw. This note lists every lever I found in official sources, shows the numbers behind the biggest one (the wage level), and sets a dated plan so that by March 2028 I have done everything within my control. Read it before any job negotiation, any decision about a master's degree, and each January before the registration window.
+## In Plain Words
+The **H-1B** is a work visa tied to a specific job at a specific employer. There is a yearly limit, the **cap**, of 65,000 new workers plus 20,000 more for people with a U.S. master's degree or higher. More employers ask than there are slots, so the government draws registrations at random, like a raffle.
+Since the 2027 fiscal year the raffle gives **tickets by wage level**. Each registration goes in once at level I, twice at level II, three times at level III, and four times at level IV. A **wage level** is just a tier, I to IV, that compares what an employer offers with what the Department of Labor says people in that job and city earn. My offer, and where the job is located, decide my tier.
+==I cannot stop the draw from being random, but I can raise my tickets per draw, increase the number of draws, find routes that skip the draw, and keep backups, and together those turn a coin flip into a plan.==
+## The Plan In One Table
+| Lever | What it does | Evidence | My cost | When I act |
+| --- | --- | --- | --- | --- |
+| Higher wage level | 1 to 4 tickets per draw | Weighting rule; modeled odds 15.3% at level I to 61.2% at level IV | Choosing and negotiating jobs | Fall 2027 offers |
+| A U.S. master's degree | A second chance in the 20,000-slot pool | USCIS rule: two-stage selection; 66.1% of FY2027 registrants had one | Tuition and time | Decide before senior year |
+| More draws | Each OPT year can be a new registration | OPT 12 months plus STEM 24 months | Employer must register me each March | March 2028, 2029, 2030 |
+| A cap-exempt employer | No draw at all | USCIS: universities, affiliated nonprofits, nonprofit and government research | Role and pay may differ | Search during 2027 |
+| O-1A visa | No cap, no draw | USCIS: 3 of 8 criteria, no annual limit | Evidence and legal cost | Build evidence from now |
+| L-1 transfer | Skips the draw | USCIS: one continuous year abroad with a multinational | Work abroad a year first | Only if an offer fits |
+| Entrepreneur routes | No lottery | OPT self-employment; entrepreneur parole; E-2 | Funding and nationality limits | Only with a real venture |
+| A good sponsor | Registers every year, files cleanly | E-Verify, training plans, site visits | Researching employers | During recruiting |
+## Lever 1: The Wage Level
+### How The Level Is Set
+The employer registers me at the highest tier that my offered salary meets or beats for my job type and the city where I will work. The Department of Labor publishes the four thresholds every July 1. I downloaded the 2026-27 files. The job type is an occupational code, and software developers are 15-1252.
+| Occupation, Twin Cities | Level I | Level II | Level III | Level IV |
+| --- | --- | --- | --- | --- |
+| Software Developers | $91,624 | $110,926 | $130,208 | $149,510 |
+| Computer & Information Research Scientists | $101,317 | $119,621 | $137,925 | $156,229 |
+| Data Scientists | $79,893 | $104,478 | $129,085 | $153,670 |
+| Computer Systems Analysts | $84,282 | $99,445 | $114,629 | $129,792 |
+| Computer Network Architects | $94,328 | $113,942 | $133,557 | $153,171 |
+### What The Numbers Mean
+The government publishes hourly rates. I multiplied by 2,080 hours, which is a full-time year, for a yearly figure (my arithmetic). The area is the Minneapolis-St. Paul-Bloomington metro area. Here is how some offers for a software developer there would land:
+| Offer | Wage level | Tickets |
+| --- | --- | --- |
+| $85,000 | Below level I | Does not clear level I |
+| $95,000 or $105,000 | I | 1 |
+| $115,000 or $125,000 | II | 2 |
+| $135,000 or $145,000 | III | 3 |
+| $155,000 | IV | 4 |
+### The Same Job Costs More In Other Cities
+| Software developers, metro area | Level I | Level IV |
+| --- | --- | --- |
+| Minneapolis-St. Paul | $91,624 | $149,510 |
+| Chicago | $92,789 | $165,693 |
+| Austin | $95,888 | $167,149 |
+| Denver | $104,624 | $171,454 |
+| New York | $109,845 | $193,461 |
+| Seattle | $111,613 | $206,086 |
+| San Francisco | $137,093 | $221,187 |
+| San Jose | $152,797 | $255,653 |
+So the same $150,000 is a level IV job in the Twin Cities and would not clear level I in San Jose. The tier depends on the worksite, so it is a fact about the job, not a trick. The employer's labor condition filing must describe the real worksite, so I treat the location as a real choice to weigh, not something to game.
+### Three Cautions
+1. The thresholds change every July 1. The March 2028 registration will use the data in effect then, not this file.
+2. The Department of Labor has proposed moving the four floors from about the 17th, 34th, 50th, and 67th percentiles of local wages to the 34th, 52nd, 70th, and 88th. If that is finalized, a salary that is level IV today would be about level III (my inference from the percentiles) ([[H-1B Rule Proposals]]).
+3. Pay must fit the job. The employer must show evidence for the level it picked, and a mismatch between registration and petition can cause a rejection.
+## Lever 2: A U.S. Master's Degree
+USCIS fills the cap in two stages. It first draws from everyone, including people eligible for the master's exemption. Then it draws more from the remaining master's-eligible people to fill the 20,000 slots. In DHS's words the final rule keeps this "to keep a higher chance of beneficiaries with a qualifying U.S. master's degree or higher of being selected."
+The proclamation reports that master's holders rose from 45.1 to 66.1 percent of registrants in one year, so the crowd with this advantage is getting bigger. The degree must come from a U.S. institution of higher education. I do not yet know whether UMN offers a combined bachelor's-to-master's program that adds only a year, so that is a question for my advisor. The master's route also resets my practical training: a new degree level gives another 12 months of OPT ([[OPT Program]]).
+## Lever 3: More Than One Draw
+OPT gives 12 months and the STEM extension gives 24 more, so an employer can register me in March 2028, March 2029, and March 2030, if I keep an employer who is willing each year. Draws are not guaranteed to be independent, so this table is an illustration and not a forecast.
+| Per-draw chance used | One draw | Two draws | Three draws |
+| --- | --- | --- | --- |
+| Modeled level I, 15.3% | 15.3% | 28.2% | 39.2% |
+| Modeled level II, 30.6% | 30.6% | 51.8% | 66.5% |
+| Modeled level III, 45.9% | 45.9% | 70.7% | 84.1% |
+| Modeled level IV, 61.2% | 61.2% | 84.9% | 94.1% |
+| FY2026 actual, 34.9% of eligible registrations | 34.9% | 57.7% | 72.4% |
+### How To Read The Illustration
+The modeled figures come from TRAC's table built on data in DHS's own rule, not from actual FY2027 results. The FY2026 figure is my division of USCIS's published selected registrations by eligible registrations (120,141 over 343,981). The lesson is the gap between rows: three draws at level I are worth less than one at level IV.
+## Lever 4: An Employer That Needs No Draw
+A **cap-exempt** employer files without a lottery. USCIS says H-1B workers "petitioned for or employed at an institution of higher education or its affiliated or related nonprofit entities, a nonprofit research organization, or a government research organization" are not subject to the cap. That includes universities, nonprofits tied to them, and nonprofit or government research labs.
+- A person in a cap-exempt job can also work for a cap-subject employer at the same time. USCIS lets them do so while keeping the cap-exempt job, without becoming subject to the cap again in the same validity period.
+- Moving from a cap-exempt job to a cap-subject job later requires going through the lottery then.
+- Cap-gap does not apply to cap-exempt petitions ([[Cap-Gap Extension]]).
+This is a real route for someone with research experience, like my [[BOOM]] work, but pay and roles can differ from industry jobs.
+## Lever 5: O-1A, A Visa With No Cap
+USCIS says the O-1A for people of extraordinary ability has "no annual numerical cap" and no limit on extensions. To qualify, the petitioner shows either a major international award or at least three of eight kinds of evidence:
+1. Nationally or internationally recognized prizes.
+2. Membership in associations that require outstanding achievement.
+3. Published material about me and my work.
+4. Judging the work of others, such as reviewing papers.
+5. Original contributions of major significance.
+6. Authorship of scholarly articles.
+7. A critical role at a distinguished organization.
+8. A high salary.
+USCIS lists STEM-friendly examples: peer-reviewed publications, patents, being named on competitive government research grants, unsolicited invitations to speak, and employment at leading research universities. It also says an employer or an agent files the petition, and a company the beneficiary owns can petition for them. A new graduate is a long shot, but evidence takes years to build, and my research and open-source work can start now. It is a backup, not a first plan.
+## Other Routes, With Their Gates
+- *L-1:* for employees of a multinational company who worked abroad for a qualifying branch, parent, subsidiary, or affiliate for at least one continuous year in the last three, then transfer to the U.S. It can last up to seven years for managers and executives.
+- *OPT self-employment:* USCIS says a student may start, own, and work for their own business during initial OPT if it relates to the major. The STEM extension is much harder for a self-owned business, because the employer must meet all the training-plan and E-Verify rules.
+- *International Entrepreneur Rule:* a case-by-case permission for founders with at least 10 percent ownership of a U.S. startup formed within the last five years, who show substantial funding (a qualified investment of $311,071 or a government grant of $124,429, as of October 1, 2024) or other strong evidence.
+- *E-2 treaty investor:* open only to nationals of treaty countries who invest a substantial amount in a real business. I would have to check my own country on the State Department list.
+## A Good Sponsor Is A Lever Too
+The government says it wants to reduce H-1B use by IT staffing and outsourcing firms and it describes site visits finding shell employers. A sponsor that registers me every year, is in E-Verify, signs a real training plan, and is not a staffing front lowers my risk at every step.
+### Questions For Every Employer
+- Do you sponsor H-1B, and do you register employees every March?
+- At which wage level would you register an entry-level software developer in my role and city?
+- Are you enrolled in E-Verify, and do you sign STEM OPT training plans?
+- Have your H-1B registrations been selected in recent years?
+- Who files, an in-house team or a law firm? Do you pay the registration and filing fees?
+- Would the worksite city change the wage level?
+## The Calendar
+| When | What I do |
+| --- | --- |
+| Now to Dec 2026 | Ask ISSS about a combined master's, and start an evidence file for O-1A (projects, research, reviews, talks) |
+| Spring 2027 | Research cap-exempt employers (university labs, nonprofit research) as a parallel track |
+| Fall 2027 | Recruit for full-time roles. Ask the employer questions above, and negotiate to the highest wage level the offer can reach |
+| Jan 2028 | Confirm the employer will register me in March |
+| March 2028 | First registration, as a senior, so I need an employer who hires before I graduate |
+| April 1, 2028 | Petition filed if selected, with a final transcript or registrar letter |
+| Oct 1, 2028 | H-1B starts and replaces F-1 status |
+| March 2029 and 2030 | Second and third registrations if still on OPT or STEM OPT |
+### An Important Timing Fact
+If I am selected in March 2028, the H-1B starts October 1, 2028, which ends my F-1 status and any OPT time still unused. USCIS says that if an employer withdraws the petition before the start, I can recover unused OPT. This matters because selection in my first draw uses my practical training sooner than I planned, which may be fine, but I should decide it deliberately.
+## What I Cannot Control
+The draw itself, the wage rule proposal, a $103,265 petition fee that employers may refuse to pay, and the status of the $100,000 payment, which does not apply to a granted in-country change of status. A weaker market for entry-level hires may also shrink the pool of employers willing to register.
+## Open Questions
+- [ ] Ask ISSS and the CS department about a combined bachelor's-to-master's program at UMN 📅 2026-11-15
+- [ ] Look up the wage thresholds for the occupation code and city of each target employer 📅 2027-09-01
+- [ ] Check whether my country is on the State Department's list for E-2 eligibility
+- [ ] Find the actual FY2027 selection counts by wage level when USCIS publishes them
+## Sources
+- [USCIS H-1B cap season](https://www.uscis.gov/working-in-the-united-states/temporary-workers/[REDACTED]/h-1b-cap-season), [H-1B specialty occupations](https://www.uscis.gov/working-in-the-united-states/[REDACTED]), and [electronic registration](https://www.uscis.gov/working-in-the-united-states/temporary-workers/[REDACTED]/[REDACTED]).
+- [Federal Register, weighted selection final rule, 90 FR 60864](https://www.federalregister.gov/documents/2025/12/29/2025-23853/[REDACTED]): the two-stage master's selection.
+- [Department of Labor OFLC wage data downloads](https://flag.dol.gov/wage-data/wage-data-downloads): the 2026-27 wage files, effective July 1, 2026.
+- [USCIS STEM pathways](https://www.uscis.gov/working-in-the-united-states/stem-employment-pathways/nonimmigrant-pathways-for-stem-employment-in-the-united-states) and [entrepreneur pathways](https://www.uscis.gov/working-in-the-united-states/entrepreneur-employment-pathways/nonimmigrant-or-parole-pathways-for-entrepreneur-employment-in-the-united-states).
+- [TRAC, Fundamental Changes to H-1B Visas](https://tracreports.org/reports/768/).
+
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H-1B Odds Plan.md`
+```diff
+- The job type is an occupational code, and software developers are 15-1252.
+| Occupation, Twin Cities |
++ The job type is an occupational code, and software developers are 15-1252.
+#### The Twin Cities Thresholds
+| Occupation, Twin Cities |
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H-1B Odds Plan.md`
+```diff
+- Here is how some offers for a software developer there would land:
+| Offer | Wage level | Tickets |
++ Here is how some offers for a software developer there would land:
+#### Offers And Their Levels
+| Offer | Wage level | Tickets |
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H-1B Odds Plan.md`
+```diff
+- | San Jose | $152,797 | $255,653 |
+So the same $150,000
++ | San Jose | $152,797 | $255,653 |
+#### Reading The City Table
+So the same $150,000
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H-1B Odds Plan.md`
+```diff
+- Draws are not guaranteed to be independent, so this table is an illustration and not a forecast.
+| Per-draw chance used |
++ Draws are not guaranteed to be independent, so this table is an illustration and not a forecast.
+### The Illustration
+| Per-draw chance used |
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H-1B Odds Plan.md`
+```diff
+- This is a real route for someone with research experience, like my [[BOOM]] work, but pay and roles can differ from industry jobs.
++ This is a real route for someone with research experience, like the [[BOOM]] research project in this vault, but pay and roles can differ from industry jobs.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H-1B Odds Plan.md`
+```diff
+- then transfer to the U.S. It can last up to seven years for managers and executives.
++ then transfer to the U.S. USCIS says it can last up to seven years.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H-1B Odds Plan.md`
+```diff
+- USCIS says that if an employer withdraws the petition before the start, I can recover unused OPT.
++ USCIS says that if the employer withdraws the petition before the start, I can recover unused OPT as long as my work permit has not expired.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H-1B Odds Plan.md`
+```diff
+- The government says it wants to reduce H-1B use by IT staffing and outsourcing firms and it describes site visits finding shell employers.
++ The government says it wants to reduce H-1B use by IT staffing and outsourcing firms, and in its OPT proposal it describes site visits finding shell employers.
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\Pre-Completion OPT.md`
+```
+---
+type: reference
+status: seed
+created: 2026-10-23
+updated: 2026-10-23
+reviewed: 2026-10-23
+tags:
+  - career
+  - visa
+  - opt
+  - pre-completion
+reference_kind: research
+area:
+  - career
+notes:
+  - "[[VISA Plan]]"
+  - "[[OPT Playbook]]"
+  - "[[OPT Program]]"
+  - "[[F-1 Employment Options]]"
+  - "[[OPT Fee Proposal]]"
+  - "[[STEM OPT Extension]]"
+  - "[[EAD and OPT Processing]]"
+  - "[[ISSS October Meeting Brief]]"
+  - "[[Junior Year Internship Decision]]"
+---
+# Pre-Completion OPT
+Pre-completion OPT is the work permit I can use for an internship before I graduate, and now that CPT is paused it is the main legal route to a summer 2027 internship. This note explains how it works in plain terms, what UMN's advisor and web page say about it, and what it costs in OPT months, money, and waiting time. The step-by-step dates are in [[OPT Playbook]]. Read this one first to decide whether to use it.
+## In Plain Words
+**OPT** is a work permit from USCIS for an F-1 student. The "pre-completion" kind is used **before** I finish my degree, for example in a summer. I get 12 months of OPT for my bachelor's degree in total. Any pre-completion time I use is taken out of those 12 months, so it leaves less for after graduation.
+==The advisor called pre-completion OPT "certainly an option," ISSS confirms I need no job offer to apply, and the real price is the OPT months it uses up, the money, and a wait that is longer than the 90-day window to apply.== UMN seldom used it before this fall, because CPT was easy. That is why there is no workshop, only a web page.
+## What The Advisor Said
+- Pre-completion OPT is "certainly an option for those hoping to work next summer."
+- "We're not quite in the window to apply" yet, and waiting gives time to watch the CPT lawsuit and look for a position.
+- She and ISSS can go through the request process when the time comes. ISSS's own page says it is "developing a request process" to announce in Fall 2026.
+- It takes two steps: ask ISSS for a recommendation, then send the new I-20 to USCIS.
+- USCIS expects about 5 months. A normal application filed at the earliest allowed time can still be pending when work should start.
+- The earliest I can file is 90 days before the requested start date.
+## How It Works At UMN
+| Question | Answer |
+| --- | --- |
+| Who can apply | An F-1 student who has finished one academic year of full-time study by the time the OPT starts, for a job directly related to the major |
+| Who cannot | Anyone with 12 or more months of full-time CPT at this degree level, or who already used 12 months of full-time OPT |
+| Job offer needed | No, it can be requested before an offer |
+| Hours during fall or spring | 20 or fewer per week, and the limit includes on-campus work |
+| Hours in the summer | Part-time or full-time |
+| Separate applications | One for part-time in term and another for full-time in the summer |
+| Unemployment limit | None for pre-completion OPT |
+| STEM extension | Not available on pre-completion OPT |
+| UMN workshop | None, only a web page |
+| Starting work | Only when the card is in hand and its start date has arrived |
+## What It Costs In OPT Months
+==ISSS counts full-time pre-completion OPT in full and part-time at half, and it counts the approved time whether or not I ever work.== A student who is approved for three months and finds no internship still loses the three months.
+| What I use | Months removed from my 12 | Months left |
+| --- | --- | --- |
+| 3 months full-time | 3 | 9 |
+| 3 months part-time | 1.5 | 10.5 |
+| 4 months part-time (the advisor's example) | 2 | 10 |
+| 3 months full-time, then 9 months part-time (ISSS's example) | 3 + 4.5 = 7.5 | 4.5 |
+### The STEM Trap
+ISSS says a STEM extension is not available on pre-completion OPT and I must be on post-completion OPT to apply for it. So if I used all 12 months before graduating, I would lose the chance to apply for the 24-month extension ([[STEM OPT Extension]]). That is why I want to leave at least 9 months.
+## What It Costs In Money
+| Item | Cost |
+| --- | --- |
+| USCIS work permit application | $470 online or $520 on paper |
+| Premium processing, optional | $1,780 |
+| Both together, online | $2,250 (my sum) |
+| If a part-time term stretch is also needed | A second application and fee |
+### The Proposed School Fee
+The government proposed that a school pay $70,000 for a student's first OPT of any kind and $30,000 for each later one. The notice itself says pre-completion followed by post-completion would total $100,000 against $70,000 for post-completion alone, and it expects schools to steer students to post-completion only ([[OPT Fee Proposal]]). It is only a proposal. But the fee attaches to the date of the school's recommendation, so a recommendation made in spring 2027 is affected only if a final rule takes effect first. In the fastest historical case (96 days from proposal to final rule, plus the 60 days) that could be mid-March 2027. In the slower case (323 days) it would be late October 2027. These are analogies, not predictions.
+## What It Costs In Time
+USCIS says the earliest filing is 90 days before the start date, and the normal wait is about 5 months, so the plain truth is that without premium processing a summer job would be over before the card arrives. With premium, USCIS must act within 30 business days, and the advisor says it has been taking all 30. For a mid-June start, the playbook shows ISSS opening in early March 2027, filing about March 22, and a decision by about May 3 ([[OPT Playbook]]).
+## When To Use It
+I use it only when all of these hold: a written offer for a role directly related to computer science, a start date late enough that the 30-business-day premium wait fits, a budget for $2,250, at least about 9 months left afterward, a check of the fee-rule status, and ISSS's confirmation of its process and turnaround. Anything less, I wait or take another route ([[Junior Year Internship Decision]]).
+## Words Used In This Note
+- *Recommendation:* ISSS's formal support for my OPT, issued as a new I-20.
+- *Premium processing:* paying extra so USCIS must act within a fixed time.
+- *Deducted:* subtracted from the 12 months I get for my degree level.
+- *Start date:* the first day I may work, shown on the work permit card.
+## Failure Modes
+- Counting on the card in time and committing to a start date before it arrives.
+- Continuing part-time into the school year and using up the post-graduation months.
+- Applying for time I never use, since it is still deducted.
+- Filing more than 30 days after the date on the new I-20, which gets the application denied.
+- Assuming the fee rule is irrelevant because it is not final.
+## Open Questions
+- [ ] Find ISSS's announcement of its pre-completion request process 📅 2026-12-15
+- [ ] Ask whether premium processing and a quick I-20 can be arranged together
+- [ ] Ask what ISSS has seen for actual turnaround on pre-completion applications this year
+## Sources
+- [ISSS Basics of Pre-Completion OPT](https://isss.umn.edu/fstudents/employment/opt/pre-completion-opt), updated September 18, 2026, and [OPT vs. CPT](https://isss.umn.edu/fstudents/employment/opt-cpt-comparison).
+- [USCIS, OPT for F-1 Students](https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/[REDACTED]) and the [fee schedule, Form G-1055](https://www.uscis.gov/g-1055).
+- [Federal Register, OPT fee proposal](https://www.federalregister.gov/documents/2026/10/08/2026-20660/optional-practical-training-fees).
+- [[October Meeting Transcript]].
+
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\Pre-Completion OPT.md`
+```diff
+- A student who is approved for three months and finds no internship still loses the three months.
+| What I use |
++ A student who is approved for three months and finds no internship still loses the three months.
+### The Arithmetic
+| What I use |
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\OPT Program.md`
+```
+---
+type: reference
+status: seed
+created: 2026-10-23
+updated: 2026-10-23
+reviewed: 2026-10-23
+tags:
+  - career
+  - visa
+  - opt
+reference_kind: resource
+area:
+  - career
+notes:
+  - "[[VISA Plan]]"
+  - "[[OPT Playbook]]"
+  - "[[F-1 Visa]]"
+  - "[[F-1 Employment Options]]"
+  - "[[Pre-Completion OPT]]"
+  - "[[STEM OPT Extension]]"
+  - "[[EAD and OPT Processing]]"
+  - "[[OPT Fee Proposal]]"
+  - "[[2028 Graduation Timeline]]"
+  - "[[Companies giving OPT & CPT]]"
+  - "[[US Immigration Rules Explained]]"
+---
+# OPT Program
+Optional Practical Training is the F-1 work permit I will actually spend, in one form or another, from summer 2027 until a work visa takes over. This is the hub note for everything OPT: what it is, the three kinds, the clocks, what changed in 2026, and the traps. The dated step-by-step is in [[OPT Playbook]]. Read this first when anything about work authorization comes up, and read the playbook before filing.
+## In Plain Words
+An F-1 student comes to the U.S. to study, so working is the exception. **OPT** is the main exception: a permit that lets me work in a job directly related to my major. A school official at ISSS must recommend it, and USCIS, the agency that handles immigration benefits, issues the work permit card.
+==OPT is a right I can ask for, not sponsorship from an employer, and it is spent in 12-month units by the calendar whether or not I find a job.== That is why the job-screening notes read "no visa sponsorship" as "no H-1B," not "no OPT": OPT is authorization I already hold. The screening only excludes a posting for an explicit citizenship, clearance, or "OPT not accepted" requirement ([[Companies giving OPT & CPT]]).
+## The Three Kinds
+- [[Pre-Completion OPT]] happens during the degree, at 20 hours or less in term and full-time in vacations, and it uses up the same 12 months.
+- Post-completion OPT starts after the program ends and needs at least 20 hours a week.
+- The [[STEM OPT Extension]] adds 24 months for an eligible degree, with an E-Verify employer and a training plan.
+All OPT must relate directly to the major. A new, higher degree level gives another 12 months. USCIS also says a student may start and work for their own business on initial OPT.
+## How UMN Runs It
+ISSS's page has five steps. The detail with dates is in [[OPT Playbook]].
+1. **Ask ISSS for the OPT I-20.** In MyISSS, finish the online workshop and the OPT request form. ISSS takes up to 10 business days. Never file with USCIS without this new I-20.
+2. **Gather the application papers** while waiting: the filing fee, the electronic I-94, the passport photo page, past I-20s, and the new I-20.
+3. **Send the application to USCIS,** online or by mail. USCIS must receive it within 30 days of the I-20's issue date.
+4. **Wait for the card.** No work until the card is in hand and its start date has come.
+5. **Report.** Send ISSS a copy of the card, open the SEVP Portal, and report any job or address change within 10 days.
+## The Clocks
+| Clock | Rule | Source |
+| --- | --- | --- |
+| Total OPT | 12 months per degree level | 8 CFR 214.2(f)(10) |
+| Ask ISSS | Up to 100 days before the program end date | ISSS |
+| File with USCIS | 90 days before to 60 days after the program end date | USCIS, ISSS |
+| After the I-20 is issued | USCIS must receive within 30 days | ISSS |
+| Normal USCIS wait | About 5 months | Advisor, court filing |
+| Outer limit | All initial OPT within 14 months of the end date | 8 CFR 214.2(f)(10)(ii)(A)(3) |
+| Unemployment | 90 days, or 150 with STEM | USCIS |
+| After OPT ends | 60 days to leave or change status | 8 CFR 214.2(f)(5)(iv) |
+## What 2026 Changed Or Proposes
+- A proposed fee of $70,000 for first OPT and $30,000 for each later OPT, charged to the school ([[OPT Fee Proposal]]).
+- A final rule that ends automatic extensions for renewal work permits. It does not name OPT ([[EAD and OPT Processing]]).
+- A fixed-end-date rule that would shrink the post-completion windows to 30 days and add an extension-of-stay application. A court postponed it ([[Duration of Status Rule]]).
+- Slow processing: about 5 months is now normal, according to ISSS, and USCIS data cited in the CPT complaint agree.
+- A USCIS pause on applications from some countries, in a January 2026 memo that USCIS now marks as no longer in effect because of court orders, though ISSS still warns about it.
+## The Costs
+USCIS charges $470 online or $520 on paper for the application, and $1,780 more for premium processing, so $2,250 online with premium. UMN charges alumni $400 once for the STEM extension. The F-1 payroll tax exemption is a reason employers like OPT workers and a reason DHS criticizes it: F-1 students on practical training are generally not subject to Social Security and Medicare taxes until after their fifth calendar year in F-1 status.
+## Words Used In This Note
+- *EAD:* the work permit card, also called the OPT card.
+- *I-20:* my school's certificate, where OPT is recommended.
+- *SEVP Portal:* the website where OPT students report changes.
+- *Premium processing:* extra payment for a fixed response time.
+## Failure Modes
+- Filing outside the 90-days-before to 60-days-after window, or more than 30 days after the I-20 date.
+- Leaving the country in the 60-day period before OPT is approved.
+- Letting a slow approval run into the 14-month limit.
+- Using all 12 months before graduation, which loses the STEM extension.
+- Not reporting a job or address change within 10 days.
+- Treating a job offer as authorization.
+## Open Questions
+- [ ] Ask ISSS how its process changes if the OPT fee rule is finalized before spring 2028 📅 2026-11-30
+- [ ] Check USCIS's case processing page myself for the current OPT time
+## Sources
+- [USCIS OPT page](https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/[REDACTED]) and [Form I-765](https://www.uscis.gov/i-765).
+- [ISSS applying for OPT](https://isss.umn.edu/fstudents/employment/opt/apply), [requirements](https://isss.umn.edu/fstudents/employment/opt/requirements), and [post-completion OPT](https://isss.umn.edu/fstudents/employment/opt/basics).
+- [8 CFR 214.2(f), version dated July 1, 2026](https://www.ecfr.gov/on/2026-07-01/title-8/chapter-I/subchapter-B/part-214/section-214.2).
+- [[October Meeting Transcript]].
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\2028 Graduation Timeline.md`
+```
+---
+type: reference
+status: seed
+created: 2026-10-23
+updated: 2026-10-23
+reviewed: 2026-10-23
+tags:
+  - career
+  - visa
+  - timeline
+  - opt
+  - h1b
+reference_kind: research
+area:
+  - career
+notes:
+  - "[[VISA Plan]]"
+  - "[[OPT Playbook]]"
+  - "[[F-1 Visa]]"
+  - "[[OPT Program]]"
+  - "[[STEM OPT Extension]]"
+  - "[[EAD and OPT Processing]]"
+  - "[[H-1B Odds Plan]]"
+  - "[[H-1B Lottery]]"
+  - "[[Cap-Gap Extension]]"
+  - "[[Duration of Status Rule]]"
+  - "[[OPT Fee Proposal]]"
+---
+# 2028 Graduation Timeline
+This is the dated route from now to an H-1B start for a student who finishes in spring 2028. Every OPT window counts from my program end date, and the H-1B calendar is fixed by the government, so the order of steps cannot change even when details do. Read it each semester, and re-check each row against its source before acting.
+> [!NOTE]
+> The program end date is the **last day of the term**, which UMN's official 2027-28 calendar sets at **Wednesday, May 10, 2028**. ISSS's own Fall 2026 example (term ends Dec 23, 2026, so its dates are Sept 14, Sept 24, and Feb 21) matches the same arithmetic. The advisor said the I-20 dates are only estimates and the real end date is the end of the semester in which all requirements are finished. Dates assume the rules in force today, with 60-day OPT windows.
+
+## The Route By Date
+| When | Step | Why that date | Where |
+| --- | --- | --- | --- |
+| Now to Oct 30, 2026 | Email ISSS the open questions and confirm the CIP code on my I-20 | The STEM extension depends on it | [[ISSS October Meeting Brief]] |
+| Early 2027 | Decide the summer 2027 route | Pre-completion OPT needs a written offer and a March start | [[Junior Year Internship Decision]] |
+| Mar 6 to Mar 22, 2027 | If I use pre-completion OPT for a mid-June start: ask ISSS (Mar 8), file with USCIS (about Mar 22), decision with premium by about May 3 | 100 and 90 days before a June 14 start | [[Pre-Completion OPT]] |
+| Mar 2027 | FY2028 H-1B registration happens (forecast). Not mine, but it shows how the weighting plays out. The report on renewing the $100,000 payment is due 30 days after the draw | Registration ran Mar 4 to 19 in 2026 | [[H-1B Lottery]] |
+| Mar 18, 2027 | The date in the fixed-end-date rule after which OPT filers need an extension application, if that rule returns | Fixed in the rule's text | [[Duration of Status Rule]] |
+| Summer 2027 | Authorized work only | Each route has its own gate | [[F-1 Employment Options]] |
+| Sept 21, 2027 | The $100,000 payment proclamation expires unless renewed | Proclamation text | [[H-1B 100K Payment]] |
+| Fall 2027 | Recruit for full-time jobs. Ask each employer about E-Verify, training plans, H-1B registration, and wage level | The employer shapes the STEM extension and the lottery | [[H-1B Odds Plan]] |
+| By Dec 15, 2027 | Finish the online OPT workshop | The ISSS request form requires it | [[OPT Playbook]] |
+| Jan 15, 2028 | Meet my academic advisor to confirm the end date. Classes begin Jan 18 | The advisor said to be ready about four months ahead | [[OPT Playbook]] |
+| **Mon Jan 31, 2028** | Ask ISSS for the OPT I-20 | 100 days before May 10 | [[OPT Program]] |
+| **Thu Feb 10, 2028** | Earliest day USCIS can receive my application | 90 days before May 10 | [[OPT Program]] |
+| About Feb 14, 2028 | File as soon as the I-20 arrives | ISSS takes up to 10 business days | [[EAD and OPT Processing]] |
+| Mar 2028 | H-1B registration (forecast). The employer registers me at a wage level | FY2027 ran Mar 4 to 19 | [[H-1B Lottery]] |
+| About Mar 27, 2028 | Premium-processing decision, at the latest | 30 business days after Feb 14 | [[EAD and OPT Processing]] |
+| Apr 1, 2028 | Earliest H-1B petition if selected | Filing window is at least 90 days | [[H-1B Lottery]] |
+| **Wed May 10, 2028** | Program end date | End of term | [[F-1 Visa]] |
+| Sun Jul 9, 2028 | Last day USCIS can receive an OPT application | 60 days after May 10 | [[OPT Program]] |
+| About Jul 14, 2028 | When a normal 5-month wait ends | 5 months after Feb 14 | [[EAD and OPT Processing]] |
+| Oct 1, 2028 | Earliest H-1B start | Start of the government's fiscal year | [[Cap-Gap Extension]] |
+| Mar 31 and Apr 10, 2029 | STEM request and filing open, if my card ends July 9, 2029 | 100 and 90 days before | [[STEM OPT Extension]] |
+| Tue Jul 10, 2029 | Outer limit for using the initial 12 months | 14 months after May 10, 2028 | [[EAD and OPT Processing]] |
+| Mar 2029 and Mar 2030 | Later H-1B registrations, if I am still on OPT and an employer registers me | My reading of the calendar | [[H-1B Lottery]] |
+## What The Dates Teach
+==The deadline that matters most is January 31 to February 14, 2028, because everything after it, a job start, a work permit, and cap-gap, depends on filing on the first possible day.==
+- *Start date:* with the normal wait, the card arrives around mid-July, about two months after graduation. With premium processing it arrives by late March. A job that wants me in June needs premium or an offer with a flexible start.
+- *Early finish:* if I finish everything by December 23, 2027, my end date moves to that day and the ISSS request opens on September 14, 2027. I would need to ask ISSS before deciding.
+- *H-1B timing:* the advisor said students move to H-1B in the first or second OPT year, depending on the employer and the lottery. The first registration is in March 2028, before I graduate ([[H-1B Odds Plan]]).
+## The Branches
+1. **The OPT fee is finalized, or not**
+	If a final rule takes effect before my recommendation date, my school must pay $70,000 before it can enter the recommendation, and it may pass the cost on. The advisor said ISSS does not know the timing. The two recent comparisons (96 and 323 days from proposal to final rule) put an effective date between about March and October 2027 ([[OPT Fee Proposal]]).
+2. **The fixed-end-date rule returns, or not**
+	If it does, the March 18, 2027 exemption will already have passed, so I should expect an extension-of-stay application with OPT, 30-day windows, and a 30-day departure period ([[Duration of Status Rule]]).
+3. **CPT is restored, or not**
+	It decides the summer 2027 route. It does not change the 2028 steps, except that pre-completion OPT would use months and trigger the fee early ([[CPT Lawsuit]]).
+4. **The proclamation is renewed in September 2027, or lapses**
+	An in-country change of status is not covered either way ([[H-1B 100K Payment]]).
+## Job-Specific Rules
+- *OPT job:* directly related to the major, at least 20 hours a week, with at most 90 days of unemployment. The job does not have to exist before the recommendation.
+- *STEM extension job:* the employer must use E-Verify, sign a training plan, report a departure within five business days, and keep the job at 20 hours or more.
+- *H-1B job:* the employer must register me, state the wage level, and file a cap-subject petition. A cap-exempt employer, such as a university or research lab, files with no lottery but gets no cap-gap.
+- *Screening postings:* "no sponsorship" means no H-1B, not no OPT ([[Companies giving OPT & CPT]]).
+## Words Used In This Note
+- *Program end date:* the end of the term in which I finish all requirements.
+- *Cap-gap:* an automatic extension that keeps me working between OPT and H-1B.
+- *Registration:* the employer's entry into the H-1B lottery.
+## Open Questions
+- [ ] Confirm the end date and CIP code on my I-20 with ISSS 📅 2026-10-30
+- [ ] Re-derive every row of this table in January 2028 from the then-current sources
+## Sources
+- [UMN 2027-28 Twin Cities calendar](https://asr.umn.edu/[REDACTED]): May 10, 2028.
+- [ISSS applying for OPT](https://isss.umn.edu/fstudents/employment/opt/apply): the key-dates formula and the 10-day I-20.
+- [USCIS OPT](https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/[REDACTED]), [H-1B cap season](https://www.uscis.gov/working-in-the-united-states/temporary-workers/[REDACTED]/h-1b-cap-season), and [cap-gap](https://www.uscis.gov/working-in-the-united-states/temporary-workers/[REDACTED]/[REDACTED]).
+- [[October Meeting Transcript]].
+
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\2028 Graduation Timeline.md`
+```diff
+- Dates assume the rules in force today, with 60-day OPT windows.
+
+## The Route By Date
++ Dates assume the rules in force today, with 60-day OPT windows.
+## The Route By Date
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\Junior Year Internship Decision.md`
+```
+---
+type: reference
+status: seed
+created: 2026-10-23
+updated: 2026-10-23
+reviewed: 2026-10-23
+tags:
+  - career
+  - visa
+  - internship
+  - decision
+reference_kind: research
+area:
+  - career
+notes:
+  - "[[VISA Plan]]"
+  - "[[OPT Playbook]]"
+  - "[[F-1 Employment Options]]"
+  - "[[CPT Program]]"
+  - "[[Pre-Completion OPT]]"
+  - "[[CPT Lawsuit]]"
+  - "[[OPT Fee Proposal]]"
+  - "[[Companies giving OPT & CPT]]"
+  - "[[2028 Graduation Timeline]]"
+  - "[[ISSS October Meeting Brief]]"
+next: "Email ISSS the unanswered questions below by 2026-10-30, then decide the summer route in March 2027"
+---
+# Junior Year Internship Decision
+I want a real internship in summer 2027, and the usual route, CPT, is paused at my school. This note lays out every legal route I found, what each one costs in months, money, and waiting time, and a plan with dated decision points. It was rebuilt after the ISSS meeting, which made pre-completion OPT a live option instead of a last resort. Read it before accepting any offer that starts before graduation, and again after the November 6 court hearing.
+## In Plain Words
+As an F-1 student I may not take an off-campus job just because someone offers it. Someone has to authorize it first, and the authorization has to be in my hands before the first day. For an internship before I graduate there are two ways: CPT, which my school signs, and pre-completion OPT, which the government issues. CPT is paused. So the question is whether to use pre-completion OPT, or find another lawful route.
+==The decision is not whether to intern but which authorization route to build the summer around, because the route has to exist before the employer's start date and no offer can create it.==
+## What Changed After The Meeting
+- ISSS called pre-completion OPT "certainly an option" and said to decide when the application window opens.
+- An internship physically abroad is not covered by F-1 work rules, in ISSS's words.
+- Answering "authorized to work: yes" and "sponsorship: yes" is correct.
+- Pre-completion OPT needs no job offer to apply, but any approved time is used up even if I do not work.
+- Part-time in term and full-time in summer are two separate applications.
+- The normal USCIS wait is about 5 months, and premium processing guarantees a response in 30 business days.
+- Unpaid or volunteer U.S. work and projects must be described carefully, or they can be mistaken for unauthorized employment ([[ISSS October Meeting Brief]]).
+## The Options
+| Option | Gate | Cost | Open today | Verdict |
+| --- | --- | --- | --- | --- |
+| On-campus work, including research | Incident to status | Modest pay, 20 hours in term | Yes | Core lane |
+| Pre-completion OPT | ISSS recommendation, then USCIS card | OPT months, $2,250 with premium, fee-rule risk | Opens about March 2027 | Real option, decide at the window |
+| Internship physically abroad | Not tied to F-1 work rules | Travel, enrollment and re-entry questions | Yes | Real option, confirm with ISSS |
+| CPT | DSO authorization | None once available | Paused for elective CPT | Wait and keep ready |
+| Remote work from inside the U.S. | Counts as U.S. employment | Not authorized without CPT or OPT | No | Do not do |
+| Unpaid or volunteer U.S. internship | May still count as employment | Can harm OPT eligibility | Unanswered | Do not do without ISSS in writing |
+| Hardship work permit | USCIS | 4 to 7 months, needs an unforeseen change | Rarely | Not a plan |
+| No internship; build and network | None | Slower route to a first job | Yes | Fallback |
+## Reasoning Per Route
+1. **On-campus work**
+	It needs no application, allows 20 hours in term and full-time in the summer, and the 20 hours includes any off-campus OPT hours. A faculty or lab research job counts. A company project does not unless it is tied to the curriculum or to contracted post-graduate research ([[F-1 Employment Options]]).
+2. **Pre-completion OPT**
+	It works legally but is costly. A summer of 12 weeks full-time uses about 3 of my 12 months, premium processing is needed for a summer start, and the proposed school fee could apply to a recommendation made in spring 2027 only if a final rule takes effect first. The playbook gives dates for three possible start days ([[OPT Playbook]], [[Pre-Completion OPT]]).
+3. **Internship abroad**
+	The advisor said I am not tied by F-1 regulations while physically in another country, whether home or elsewhere. I still need to ask how it affects my enrollment, my summer status, and re-entry.
+4. **CPT**
+	It is the best route when open: no OPT months and no fee. It returns only through a court order, a required practical training course, or DHS withdrawing the guidance. At UMN it used to take about 2 weeks if I was registered for the course and my advisor agreed ([[CPT Program]], [[CPT Lawsuit]]).
+5. **No internship**
+	A research role or a shipped project plus networking is a weaker resume line than an internship but costs no authorization ([[Summer Grind]]). Projects must be labelled as projects.
+## The Plan
+Three lanes run in parallel, with decision points.
+1. **Lane 1: on-campus research or lab role** for the summer, secured by February 2027.
+2. **Lane 2: apply to internships anyway.** Answer the authorization question "yes" and "yes," filter with Handshake's work-authorization setting, and accept nothing until the authorization route exists in writing.
+3. **Lane 3: portfolio and contacts** for the senior-year search ([[Portfolio]]).
+- *Gate 1, October 30, 2026:* ISSS answers my written questions.
+- *Gate 2, November 6, 2026:* the CPT hearing. Read any order and ISSS's response.
+- *Gate 3, December 2026:* check whether ISSS has announced its pre-completion process and whether the OPT fee became a final rule.
+- *Gate 4, February 2027:* if I hold an offer, apply my rules below. This is when the ISSS request window opens for a May start.
+- *Gate 5, early March 2027:* a mid-June start needs the ISSS request about March 8. After this, pre-completion OPT is too slow.
+### My Rules For Pre-Completion OPT
+I use it only if all are true: a written offer in computer science, a start date that fits premium processing, $2,250 budgeted (or the employer pays), at least about 9 months left afterward, the fee rule checked, and ISSS's confirmation. Otherwise the answer is no for this summer.
+## What Is Still Unanswered For ISSS
+- [ ] Is the pause on all CPT or only elective CPT, and could a required practical training course be created for CS? 📅 2026-10-30
+- [ ] How fast would CPT restart after a ruling, and what happens to CPT already on an I-20?
+- [ ] Which UMN summer research and lab jobs count as on-campus work?
+- [ ] What does an internship abroad do to my F-1 status, my summer enrollment, and re-entry?
+- [ ] Does UMN plan to pay or pass on the OPT fee, and is it commenting by November 9?
+## What To Ask Employers
+- Can the start date move if my authorization takes longer?
+- Have you hosted international students on CPT or OPT before, and which?
+- Would you consider a start date in July?
+## Failure Modes
+- Accepting an offer before the route exists.
+- Starting before the I-20 endorsement or the card's start date.
+- Treating the lawsuit as a plan.
+- Describing a project as a job.
+- Using part-time pre-completion OPT into the school year and draining the post-graduation months.
+## Words Used In This Note
+- *Authorization:* permission to work, from my school or from USCIS.
+- *Premium processing:* paying extra so USCIS must answer within 30 business days.
+- *On-campus employment:* work that needs no application, on UMN premises or an affiliated site.
+## Sources
+- [ISSS pre-completion OPT](https://isss.umn.edu/fstudents/employment/opt/pre-completion-opt), [OPT vs. CPT](https://isss.umn.edu/fstudents/employment/opt-cpt-comparison), and [on-campus employment](https://isss.umn.edu/fstudents/employment/on-campus).
+- [USCIS OPT](https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/[REDACTED]) and the [fee schedule](https://www.uscis.gov/g-1055).
+- [[October Meeting Transcript]].
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\VISA Plan.md`
+```
+---
+type: index
+status: sprout
+created: 2026-10-23
+updated: 2026-10-23
+tags:
+  - moc
+  - career
+  - visa
+notes:
+  - "[[OPT Playbook]]"
+  - "[[OPT Program]]"
+  - "[[Pre-Completion OPT]]"
+  - "[[STEM OPT Extension]]"
+  - "[[EAD and OPT Processing]]"
+  - "[[OPT Fee Proposal]]"
+  - "[[2028 Graduation Timeline]]"
+  - "[[Junior Year Internship Decision]]"
+  - "[[CPT Program]]"
+  - "[[CPT Broadcast Messages]]"
+  - "[[CPT Lawsuit]]"
+  - "[[F-1 Visa]]"
+  - "[[F-1 Employment Options]]"
+  - "[[SEVP and DSOs]]"
+  - "[[Duration of Status Rule]]"
+  - "[[Cap-Gap Extension]]"
+  - "[[H1B Visa]]"
+  - "[[H-1B Odds Plan]]"
+  - "[[H-1B Lottery]]"
+  - "[[H-1B 100K Payment]]"
+  - "[[H-1B Rule Proposals]]"
+  - "[[US Immigration Rules Explained]]"
+  - "[[ISSS October Meeting Brief]]"
+  - "[[Visa Litigation Tracker]]"
+  - "[[Current News]]"
+next: "Email ISSS the unanswered questions by 2026-10-30, then decide the summer 2027 route in March 2027"
+---
+# VISA Plan
+## Purpose
+This folder exists to get me from F-1 student to a well-paid job in the U.S. without a gap in work authorization, in a year when almost every step is being rewritten. This plan is about OPT, which I can apply for correctly now, and about keeping CPT ready in case it comes back. Read it first: it says where I stand, what I do next, and where every detail lives.
+## Map
+### Where I Stand
+I am a junior at the University of Minnesota studying computer science, in [[F-1 Visa|F-1 status]], finishing in spring 2028. The term ends Wednesday, May 10, 2028, and every OPT date counts from it ([[2028 Graduation Timeline]]). The ISSS advisor I met on October 23 confirmed that the I-20 end date is only an estimate and that the real one is the end of the semester when all requirements are done ([[ISSS October Meeting Brief]]).
+The two facts that drive everything: CPT is paused at ISSS for elective internships, and the normal wait for an OPT work permit is about five months. If you are new to the words in this folder, start with [[US Immigration Rules Explained]].
+### The Plan: OPT First
+==OPT is the permission I can still apply for correctly today, in three forms, and the whole plan is to hit each filing window on its first possible day with the right fee and the right paperwork.==
+OPT is a work permit from USCIS for a job directly related to my major, and ISSS has to recommend it first. [[OPT Program]] is the hub that explains the three kinds, and [[OPT Playbook]] is the step-by-step with my exact dates and costs. The three kinds are:
+- **Pre-completion OPT** for summer 2027. It is a real option, decided at the application window in March 2027, using the rules in [[Pre-Completion OPT]]. It needs a written offer, a start date that fits premium processing, and about $2,250.
+- **Post-completion OPT** after May 2028. ISSS opens requests on January 31, 2028, USCIS accepts them from February 10, and I file about February 14. That is explained in the playbook and in [[EAD and OPT Processing]], which also covers the five-month wait and the 14-month limit.
+- **The STEM extension** for 24 more months, which needs an E-Verify employer and a signed training plan ([[STEM OPT Extension]]).
+Three risks sit over the plan. The proposed $70,000 school fee ([[OPT Fee Proposal]]) could be in force before my recommendation date. The fixed-end-date rule ([[Duration of Status Rule]]) could return and shrink my windows. And careless wording of projects or unpaid work could cost me OPT eligibility, which is covered in the playbook.
+### CPT: Waiting And Ready
+CPT is work approved by my school as part of my degree. ISSS is not approving elective CPT today. The government's August messages say only training required of every student qualifies ([[CPT Broadcast Messages]]), and four education groups, including one my university belongs to, sued over it, with a hearing on November 6 ([[CPT Lawsuit]]). The advisor says nobody knows the outcome.
+If CPT comes back, I want to be two steps ahead. Here is what UMN's process was before August, from ISSS's pages and the advisor, so I can run it the same week:
+1. Have a written internship offer in computer science, with exact start and end dates, because a CPT approval is for one employer and those dates.
+2. Take the ISSS CPT online workshop and save the certificate.
+3. Meet my academic advisor to confirm the job fits the major.
+4. Register for a CPT course of at least one credit (for example, an internship reflection course) and get the course instructor's signature on the verification form.
+5. Submit the CPT request in MyISSS. ISSS takes up to 7 business days and about 2 to 3 weeks in all, then issues a new I-20 with the CPT on page 2. I may not start before I hold it.
+There is no fee. Part-time CPT is unlimited, but 12 months of full-time CPT ends my OPT eligibility at this degree level ([[CPT Program]]). I do not wait on CPT: OPT runs in parallel, and I decide in March 2027 whichever route is open.
+### What Else Is Moving
+The 2026 rule changes are explained once each. The [[Visa Litigation Tracker]] lists every court case and its next date, and [[Current News]] lists the primary sources. The H-1B side, where I want to turn the lottery into a plan, lives in [[H-1B Odds Plan]], with the mechanics in [[H-1B Lottery]], [[H1B Visa]], [[Cap-Gap Extension]], [[H-1B 100K Payment]], and [[H-1B Rule Proposals]].
+### How We Proceed
+1. **By October 30: email ISSS in writing**
+	Send the unanswered questions from [[Junior Year Internship Decision]]: whether the pause covers only elective CPT, whether a required CS practical training course is possible, how an internship abroad affects status, what UMN will do about the fee, and the CIP code on my I-20.
+2. **October 28 and November 6: watch the CPT case**
+	The government's response is due October 28 and the hearing is November 6 at 3:00 PM. Update [[CPT Lawsuit]] and the tracker the same day.
+3. **By November 9: decide on an OPT fee comment**
+	Anyone can file a comment on regulations.gov under docket ICEB-2026-0100. A student comment about lost access is what the record lacks.
+4. **December 2026: check two announcements**
+	Whether ISSS has published its pre-completion OPT request process, and whether the OPT fee rule became final.
+5. **January to March 2027: choose the summer route**
+	Secure an on-campus research role, apply to internships, and accept none until its authorization exists in writing. For a mid-June start, the ISSS request is about March 8.
+6. **Fall 2027: recruit and finish the workshop**
+	Ask each employer the questions in [[H-1B Odds Plan]], and finish the OPT workshop by mid-December.
+7. **January 31 to February 14, 2028: file post-completion OPT**
+	This is the most important window in the plan. File on the first possible day.
+### How The Notes Fit Together
+Three layers keep the folder honest. The status notes, [[F-1 Visa]], [[OPT Program]], [[CPT Program]], and [[H1B Visa]], hold the rules that rarely change. The research notes capture one government action each in depth. The time-sensitive notes, [[Visa Litigation Tracker]] and [[Current News]], hold dates and links and go stale first.
+When news lands, the update path is short. A CPT order changes [[CPT Lawsuit]], [[CPT Program]], [[Junior Year Internship Decision]], and this plan. A final fee rule changes [[OPT Fee Proposal]], [[Pre-Completion OPT]], and the timeline. The transcript behind this plan's newest facts is [[October Meeting Transcript]].
+## Status
+| Item | State on 2026-10-23 | Next date | Note |
+| --- | --- | --- | --- |
+| Post-completion OPT | Not yet in the window | Jan 31, 2028 ISSS request | [[OPT Playbook]] |
+| Pre-completion OPT | ISSS process not yet announced | About Mar 8, 2027 for a mid-June start | [[Pre-Completion OPT]] |
+| STEM OPT | After 12 months of OPT | Mar 31, 2029 if the card ends Jul 9, 2029 | [[STEM OPT Extension]] |
+| CPT at UMN | Elective CPT paused | Nov 6 hearing | [[CPT Lawsuit]] |
+| OPT fee | Proposed, comments open | Nov 9 | [[OPT Fee Proposal]] |
+| Fixed-end-date rule | Postponed by court, on appeal | Nov 9 government brief | [[Duration of Status Rule]] |
+| H-1B plan | Levers mapped | Mar 2028 registration | [[H-1B Odds Plan]] |
+## Dataview
+```dataview
+TABLE status, updated
+FROM "10_Areas/Career/VISAs & Work Auth"
+SORT file.name ASC
+```
+## Links
+- [ISSS Basics of Pre-Completion OPT](https://isss.umn.edu/fstudents/employment/opt/pre-completion-opt), [Applying for OPT](https://isss.umn.edu/fstudents/employment/opt/apply), and [OPT vs. CPT](https://isss.umn.edu/fstudents/employment/opt-cpt-comparison).
+- [ICE SEVIS What's New](https://www.ice.gov/sevis/whats-new) and [Study in the States](https://studyinthestates.dhs.gov/).
+- [USCIS OPT page](https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/[REDACTED]).
+
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\F-1 Visa.md`
+```diff
+-   - "[[Companies giving OPT & CPT]]"
+---
++   - "[[Companies giving OPT & CPT]]"
+  - "[[US Immigration Rules Explained]]"
+  - "[[ISSS October Meeting Brief]]"
+  - "[[OPT Playbook]]"
+---
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\F-1 Visa.md`
+```diff
+- ## What The Status Is
+==F-1 status is granted
++ ## In Plain Words
+F-1 is the category the U.S. puts international college students in. It says: you may be in the country because you are studying full-time at an approved school. It is not a job permit. Nothing about F-1 lets me take an off-campus job by itself.
+Three different things are often mixed up. The **visa** is a sticker in my passport from a consulate abroad, used to ask for entry. The **status** is the category I am in once admitted, F-1, which I keep by following the rules. **Work permission** is a separate permit that CPT or OPT provides. I can be in perfect F-1 status and still not be allowed to start an internship. That is exactly why my sophomore-year offer in March could not be used. [[US Immigration Rules Explained]] has the full beginner guide, including every acronym.
+## What The Status Is
+==F-1 status is granted
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\F-1 Visa.md`
+```diff
+- I am at the University of Minnesota Twin Cities, a junior in Fall 2026, with a computer science degree. The internship research notes already filter for a Spring 2028 graduation ([[Companies giving OPT & CPT]]), so every window here counts from a program end date in spring 2028. The exact date on the I-20 decides all of them, so confirm it with ISSS before trusting a calendar.
++ I am at the University of Minnesota Twin Cities, a junior in Fall 2026, with a computer science degree. The internship research notes already filter for a Spring 2028 graduation ([[Companies giving OPT & CPT]]), so every window here counts from a program end date in spring 2028.
+The ISSS advisor explained what that date is. The dates on my first I-20 were only estimates. If I finish all degree requirements earlier, the end date shortens to the end of that semester. ISSS counts the end of the term as the date of degree completion, and UMN's official calendar puts the end of the Spring 2028 term at May 10, 2028 ([[2028 Graduation Timeline]], [[ISSS October Meeting Brief]]). She suggested a detailed planning talk at the start of my last semester, and ISSS offers drop-in hours, email, and appointments.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\F-1 Visa.md`
+```diff
+- ## Failure Modes
+- Working off campus without authorization
++ ## Words Used In This Note
+- *DSO:* a designated school official, the staff member at ISSS who signs my I-20.
+- *SEVIS:* the government database that tracks every F-1 student.
+- *I-94:* the record of my entry that shows how long I may stay.
+- *CIP code:* a six-digit code next to my major on the I-20.
+- *Duration of status:* being allowed to stay as long as I keep studying.
+## Failure Modes
+- Working off campus without authorization
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\F-1 Employment Options.md`
+```diff
+-   - "[[STEM OPT Extension]]"
+  - "[[Junior Year Internship Decision]]"
+---
++   - "[[STEM OPT Extension]]"
+  - "[[Junior Year Internship Decision]]"
+  - "[[OPT Playbook]]"
+  - "[[ISSS October Meeting Brief]]"
+  - "[[US Immigration Rules Explained]]"
+---
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\F-1 Employment Options.md`
+```diff
+- ## The Options Compared
+| Option |
++ ## In Plain Words
+The rule for F-1 students is simple to state: no work unless a specific exception applies. Each exception is a different permission, from a different office, with different hours. Working without the right one, even for no pay, can put my F-1 status and my later OPT at risk. The table below is the complete list, and the sections after it explain each in plain terms. "Authorizer" means who gives the permission: it is the law itself for on-campus work, my school for CPT, and the government agency USCIS for OPT.
+## The Options Compared
+| Option |
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\F-1 Employment Options.md`
+```diff
+- - Remote work from abroad for a foreign employer. No source I read addresses it, so treat it as unresolved until ISSS answers in writing ([[Junior Year Internship Decision]]).
++ - Remote work done while sitting in the U.S. That is U.S. employment, so it needs CPT or OPT. The ISSS advisor drew the line at location: "you are not tied by F-1 regulations when you physically are in another country," so an internship done while physically abroad is not covered by these rules. I still need ISSS to confirm how it affects my status, summer enrollment, and re-entry ([[ISSS October Meeting Brief]], [[Junior Year Internship Decision]]).
+- Volunteer or unpaid roles described as jobs. The advisor warned that students have been asked by the government to explain work done without authorization, and that a group project should not be presented as an employment opportunity.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\F-1 Employment Options.md`
+```diff
+- All OPT is capped at 12 months per education level, and time used before graduation is deducted.
++ All OPT is capped at 12 months per education level, and time used before graduation is deducted. Two ISSS facts from the meeting matter here. During the school term, pre-completion OPT is only part-time (20 hours a week or less), and that 20 hours includes any on-campus job. And a part-time stretch in term and a full-time stretch in the summer are two separate applications.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\F-1 Employment Options.md`
+```diff
+- ## UMN Snapshot
+ISSS says international students "must always obtain work authorization to work off-campus,"
++ ## Words Used In This Note
+- *Incident to status:* allowed automatically because of F-1 status, with no application.
+- *Authorization:* the specific permission that makes a job legal.
+- *Educationally affiliated site:* an off-campus place tied to the curriculum or to contracted research.
+- *Unauthorized employment:* working without the right permission, paid or not.
+## UMN Snapshot
+ISSS says international students "must always obtain work authorization to work off-campus,"
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\F-1 Employment Options.md`
+```diff
+- - [ ] Ask ISSS whether remote work done entirely outside the U.S. for a foreign or U.S. employer needs any authorization
++ - [ ] Ask ISSS what an internship done physically abroad does to my F-1 status, summer enrollment, and re-entry, since the advisor said it is outside F-1 work rules
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\SEVP and DSOs.md`
+```diff
+- ## The Two Layers
++ ## In Plain Words
+Two groups of people decide what an international student can actually do. The first is **SEVP**, a government office that approves schools and watches the data. The second is the school's own staff, called **DSOs**, who sign each student's papers. If a student has a question about work, the DSO is the person to ask, and at UMN that is an advisor at ISSS. I met one on October 23. She was careful to say what she could and could not answer: she handles work authorization, she is "not an H-1B advisor," and she sent resume and employer questions to Career Services. ISSS offers drop-in hours, email, and appointments ([[ISSS October Meeting Brief]], [[US Immigration Rules Explained]]).
+## The Two Layers
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\SEVP and DSOs.md`
+```diff
+-   - "[[Current News]]"
+---
++   - "[[Current News]]"
+  - "[[ISSS October Meeting Brief]]"
+  - "[[US Immigration Rules Explained]]"
+---
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\SEVP and DSOs.md`
+```diff
+- ## Working With ISSS
+- Ask in writing, and keep the reply.
++ ## Words Used In This Note
+- *SEVP:* the Student and Exchange Visitor Program, an office inside ICE.
+- *SEVIS:* the database where my record lives.
+- *DSO and PDSO:* the school official who signs my I-20, and the lead one.
+- *Certification:* SEVP's approval of a school to enroll F-1 students.
+- *Broadcast message:* an email from SEVP to DSOs that explains how to apply a rule.
+## Working With ISSS
+- Ask in writing, and keep the reply.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\CPT Program.md`
+```diff
+-   - "[[OPT Program]]"
+  - "[[Junior Year Internship Decision]]"
+---
++   - "[[OPT Program]]"
+  - "[[Junior Year Internship Decision]]"
+  - "[[OPT Playbook]]"
+  - "[[ISSS October Meeting Brief]]"
+  - "[[US Immigration Rules Explained]]"
+---
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\CPT Program.md`
+```diff
+- ## What CPT Is
+==CPT is training
++ ## In Plain Words
+Think of CPT as an internship that my school treats like a class. The school, not the government, approves it, usually within a couple of weeks, and it shows up as a note on my I-20. Because it counts as part of my degree, it does not use up my OPT. In August 2026 the federal government told schools to approve CPT only when the training is required of every student in the degree. Most computer science degrees, including mine as far as I know, do not require an internship, so UMN stopped approving the elective kind. The advisor put it this way: the pause on elective CPT "is really unfortunate," a lawsuit is going on, and "we do not know what CPT will look like going forward" ([[ISSS October Meeting Brief]]).
+## What CPT Is
+==CPT is training
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\CPT Program.md`
+```diff
+- ## Two Readings Of "Integral"
++ ## How CPT Worked At UMN, Step By Step
+This is the process before August, from ISSS's OPT-versus-CPT page and the advisor. If CPT returns, I run it the same week.
+1. **Have a written offer.** CPT needs a specific internship or co-op offer in my major, with exact start and end dates, because an approval is for one employer.
+2. **Take the ISSS CPT online workshop** and save the completion certificate.
+3. **Meet my academic advisor** to confirm the work relates to my major.
+4. **Register for a CPT course.** Most authorizations require at least one course credit, such as an internship reflection course, a CPT course, or an independent or directed study. The course instructor signs the Course Instructor Verification form.
+5. **Submit the CPT request in MyISSS** and wait for the new I-20. ISSS takes up to 7 business days. The advisor said ISSS could approve within about 2 weeks if everything was ready, and ISSS tells students to allow 2 to 3 weeks after an offer.
+6. **Do not start until the new I-20 is in my hands.** Page 2 lists the employer, address, and dates.
+There is no fee. Part-time CPT has no limit, but 12 months of full-time CPT ends my right to post-completion OPT at this degree level. The CSE co-op route uses the same steps through the course CSE 4896.
+### Why Pre-Completion OPT Was Rare
+The advisor said ISSS did not generally do pre-completion OPT before the last two months because CPT was "a lot more streamlined." ISSS's page also calls pre-completion OPT a category that is "rarely used." That is why UMN has no pre-completion workshop and is now building its request process ([[Pre-Completion OPT]]).
+## Two Readings Of "Integral"
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\CPT Program.md`
+```diff
+- ## Failure Modes
+- Starting work on an offer letter
++ ## Words Used In This Note
+- *Integral:* essential to completeness, as the government now defines it, so the training must be required of everyone in the degree.
+- *Elective:* optional. A course I may take but need not take to graduate.
+- *Cooperative agreement:* a formal arrangement between my school and the employer.
+- *Authorization:* here, the CPT note on page 2 of my I-20.
+## Failure Modes
+- Starting work on an offer letter
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\CPT Program.md`
+```diff
+- None is scheduled except the November 6 hearing ([[Junior Year Internship Decision]]).
++ None is scheduled except the November 6 hearing. In the meantime the advisor's answer is that pre-completion OPT remains available, and an internship physically abroad is outside F-1 work rules ([[Junior Year Internship Decision]], [[Pre-Completion OPT]]).
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\CPT Broadcast Messages.md`
+```diff
+- ## What They Are
+==The two messages never admit
++ ## In Plain Words
+A **broadcast message** is an email that a government office sends to every school official in the country. These two went to the people at every college who sign international students' papers. They said, in effect: from now on, only approve CPT if the training is required for every student in the degree, and if you approve anything else, your school could lose its right to enroll international students and you could face penalties for false statements. The government also called them "reminders," as if nothing had changed, which is the heart of the lawsuit. At UMN, the result is that ISSS stopped approving elective CPT ([[ISSS October Meeting Brief]], [[US Immigration Rules Explained]]).
+## What They Are
+==The two messages never admit
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\CPT Broadcast Messages.md`
+```diff
+- ## Open Questions
+- [ ] Ask ISSS whether any UMN CS or CSE program has a required practical training course
++ ## Words Used In This Note
+- *Perjury:* lying while swearing something is true. DSOs sign I-20s "under penalty of perjury."
+- *Certification (of a school):* SEVP's approval that lets a school enroll F-1 students. Losing it is the worst outcome for a school.
+- *Cooperative agreement:* a formal arrangement between a school and an employer for student training.
+- *Tipline:* a confidential channel for reporting concerns to SEVP.
+## Open Questions
+- [ ] Ask ISSS whether any UMN CS or CSE program has a required practical training course
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\CPT Lawsuit.md`
+```diff
+- ## The Case At A Glance
+| Item | Detail |
++ ## In Plain Words
+Four organizations that represent universities asked a federal court to cancel the August CPT guidance. Their argument is that the government changed a 35-year-old reading of its own rule through an email, without telling the public or asking for comments, which the law requires for a real rule change. On November 6 a judge will hear whether to pause the guidance while the case continues. A pause would not end the case, and it would not by itself make my school start approving CPT again. The ISSS advisor said she does not know the outcome or what CPT will look like afterward, and she described everyone as "in the dark" ([[ISSS October Meeting Brief]], [[US Immigration Rules Explained]]).
+## The Case At A Glance
+| Item | Detail |
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\CPT Lawsuit.md`
+```diff
+- ## Open Questions
+- [ ] Read the government's October 28 response
++ ## Words Used In This Note
+- *Plaintiff:* the side that sues. Here, the four associations.
+- *Preliminary injunction:* a court order, made early, that bars the government from enforcing something while the case continues.
+- *Stay under section 705:* a pause on the effective date of an agency action.
+- *Administrative Procedure Act:* the law that sets how agencies must make and explain rules.
+- *Arbitrary and capricious:* a legal term for an agency decision that is not reasoned or explained.
+- *Retroactive:* applied to things that happened before the rule.
+## Open Questions
+- [ ] Read the government's October 28 response
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\STEM OPT Extension.md`
+```diff
+- ## What It Is
+==The STEM extension is 24 more months
++ ## In Plain Words
+After my first 12 months of OPT, a computer science degree lets me ask for 24 more months of work permission. That extension is what turns one try at the H-1B lottery into three. It is not automatic. It needs three things: my degree must be on the government's STEM list, my employer must be enrolled in E-Verify, and my employer and I must sign a training plan. Because of that, the first employer I choose after graduation matters for the next two years. ISSS runs it as a separate application with its own workshop, a $400 school fee for alumni, and about 3.5 to 4 months of USCIS waiting ([[OPT Playbook]], [[US Immigration Rules Explained]]).
+## What It Is
+==The STEM extension is 24 more months
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\STEM OPT Extension.md`
+```diff
+- ## Why DHS Is Looking Hard At It
++ ## How UMN Runs The Application
+- *Timing:* I ask ISSS for the STEM I-20 up to 100 days before my current work permit expires. USCIS must receive my application no more than 90 days before it expires and no later than its expiry date. I cannot apply at the same time as the first OPT. ISSS says to wait until about 90 days remain.
+- *ISSS steps:* finish the online STEM workshop, upload the certificate, the signed training plan (Form I-983), and the receipt for the $400 one-time ISSS fee, then wait up to 10 business days for the I-20.
+- *USCIS papers:* the I-20 signed on page 1, my last work permit, the electronic I-94, my passport page, my UMN diploma and final transcript, and UMN's accreditation page. Online filing uses the same list.
+- *Waiting:* ISSS says about 3.5 to 4 months. A timely filing lets me keep working for up to 180 days or until USCIS decides, whichever is first.
+- *CIP code:* ISSS does not decide whether my major is STEM. The six-digit code next to my major on the I-20 is checked against the DHS list.
+- *Country hold:* ISSS's page warns that a January 2026 USCIS memo put pending applications from people born in or citizens of certain countries on hold. USCIS now marks that memo as no longer in effect because of court orders. I need to check whether my country is on the December 2025 list.
+## Why DHS Is Looking Hard At It
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\STEM OPT Extension.md`
+```diff
+- ## Failure Modes
+- Using pre-completion OPT until the 12 months are gone
++ ## Words Used In This Note
+- *E-Verify:* a free government system employers use to confirm workers may legally work.
+- *Form I-983:* the training plan I and my employer sign.
+- *STEM list:* the DHS list of majors that qualify, by CIP code.
+- *Site visit:* a visit by DHS to check the employer is providing the training it promised.
+## Failure Modes
+- Using pre-completion OPT until the 12 months are gone
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\EAD and OPT Processing.md`
+```diff
+- ## The Form And The Card
++ ## In Plain Words
+OPT is only real when a physical card, the **EAD**, arrives in the mail. To get it, I ask my school for a new I-20, then I send the I-20 and a form (**I-765**) to USCIS with a fee, then I wait. The wait is the hardest part of the whole track. ISSS says USCIS now takes about 5 months, and the advisor said that is "now the normal amount of time." For a faster answer I can pay a second fee for **premium processing**, which forces USCIS to act within 30 business days (the advisor said "lately we've seen them pretty much take the entire 30 business days"). I cannot start work until I hold the card and its start date has come ([[OPT Playbook]], [[US Immigration Rules Explained]]).
+## What It Costs And Who Does What
+USCIS's fee schedule (edition 10/16/26) lists the general work permit application at $470 online or $520 on paper, and premium processing for OPT and STEM OPT at $1,780. ISSS does not charge for the post-completion I-20, and does not require the $85 biometrics fee. UMN's online lookup for the current wait is USCIS's processing-times page, with the form I-765, the category (c)(3) for F-1 students, and the Potomac Service Center selected. ISSS makes the I-20 in up to 10 business days, and USCIS must receive my application within 30 days of that I-20's issue date or it denies it.
+## The Form And The Card
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\EAD and OPT Processing.md`
+```diff
+- ## Processing Time
+==The only fact the track can rely on
++ ## Processing Time
+==The only fact the track can rely on
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\EAD and OPT Processing.md`
+```diff
+- That is a party's citation of a government page. USCIS's tool blocked my own automated fetch, so check the live figure by hand before relying on it.
++ That is a party's citation of a government page. USCIS's tool blocked my own automated fetch, so check the live figure by hand before relying on it. The ISSS advisor independently gave about 5 months on October 23, and ISSS's own pages say 3 to 5 months for OPT and about 3.5 to 4 months for the STEM extension. Earlier in the year, the advisor said, the wait was between 2 and 4 months.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\EAD and OPT Processing.md`
+```diff
+- A law firm writing in 2026 says delays have stretched from weeks into months and in some cases past a year. I could not verify the "past a year" claim, and I give it no weight beyond showing the direction of travel.
++ A law firm writing in 2026 says delays have stretched from weeks into months and in some cases past a year. I could not verify the "past a year" claim, and I give it no weight beyond showing the direction of travel. The five-month figure is now backed by three sources: the court filing, the ISSS advisor, and ISSS's pages.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\EAD and OPT Processing.md`
+```diff
+- ## Failure Modes
+- Filing at the last day of the window
++ ## Words Used In This Note
+- *EAD:* Employment Authorization Document, the work permit card.
+- *Request for evidence:* a USCIS letter asking for more documents; it stops the clock.
+- *Adjudicate:* to decide an application.
+- *Interim final rule:* a rule that takes effect before the public comments are read.
+## Failure Modes
+- Filing at the last day of the window
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\EAD and OPT Processing.md`
+```diff
+- ISSS does not charge for the post-completion I-20, and does not require the $85 biometrics fee.
++ ISSS's page lists no fee for the post-completion I-20, and tells students not to pay the $85 biometrics fee.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\OPT Fee Proposal.md`
+```diff
+- ## The Proposal At A Glance
++ ## In Plain Words
+The government has proposed a new charge for OPT. It would not be billed to me. The school would pay $70,000 the first time it recommends a student for any OPT and $30,000 for each later recommendation, and the school's international office could not even enter the recommendation until it was paid. The proposal does not say the school must absorb the cost, so UMN could pay it, charge it to students or employers, or stop recommending OPT.
+A "proposal" is not a rule yet. The ISSS advisor walked me through what happens next: there is a comment period that ends November 9, the government must read and answer the comments, and only then does it publish a final rule that usually starts about 60 days later. She does not expect fast action, because the end-of-duration-of-status rule took "almost a year." I checked: from proposal to final it took 323 days, while the weighted H-1B lottery rule took 96. Her advice was to focus on the application process and decide when I am applying ([[ISSS October Meeting Brief]], [[US Immigration Rules Explained]]).
+## The Proposal At A Glance
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\OPT Fee Proposal.md`
+```diff
+- ## How To Comment
++ ## When Could It Take Effect
+The two recent examples give a range, and they are analogies, not forecasts.
+| If it moves like | Final rule about | In force about |
+| --- | --- | --- |
+| The weighted H-1B lottery rule (96 days) | Jan 12, 2027 | Mar 13, 2027 |
+| The duration-of-status rule (323 days) | Aug 27, 2027 | Oct 26, 2027 |
+### What The Range Means
+Both examples land before the Jan 31, 2028 date when I could ask ISSS for my post-graduation OPT I-20, and the fast example lands before a March 2027 pre-completion request. The fee applies to recommendations dated on or after the effective date. So I plan as if the fee could apply, and I watch the rule rather than assume it will stall ([[2028 Graduation Timeline]]).
+## How To Comment
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\OPT Fee Proposal.md`
+```diff
+- ## Open Questions
+- [ ] Decide whether to comment by November 9
++ ## Words Used In This Note
+- *Notice of proposed rulemaking:* the government's announcement of a rule it wants to make.
+- *Comment period:* the time when the public may write to the government about a proposal.
+- *Final rule:* the version that becomes law, with an effective date.
+- *Recommendation:* the school official's formal support for my OPT, entered in SEVIS.
+- *Pass-through:* the school billing its cost to students or employers.
+## Open Questions
+- [ ] Decide whether to comment by November 9
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\OPT Fee Proposal.md`
+```diff
+- The two recent examples give a range, and they are analogies, not forecasts.
+| If it moves like |
++ The two recent examples give a range, and they are analogies, not forecasts.
+### The Two Analogies
+| If it moves like |
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\Duration of Status Rule.md`
+```diff
+- ## The Rule At A Glance
++ ## In Plain Words
+Today an F-1 student is admitted with no end date. I can stay as long as I keep studying or working on OPT. The July 2026 rule would give every student an end date, the "Admit Until Date," of up to four years, and anyone who needs more time, including time for OPT, would have to apply to extend it. A federal judge paused the rule the day before it was to start, so for now the old system continues. The ISSS advisor said the same: "there's still an injunction, but we don't know if or when that would be lifted," and ISSS's OPT page says the OPT process "remains unchanged" ([[ISSS October Meeting Brief]], [[US Immigration Rules Explained]]).
+For me the worry is paperwork and timing. If the rule returns, OPT windows would shrink from 60 to 30 days, and I would probably file an extension application together with my OPT application ([[2028 Graduation Timeline]]).
+## The Rule At A Glance
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\Duration of Status Rule.md`
+```diff
+- ## Open Questions
+- [ ] Watch First Circuit No. 26-2112
++ ## Words Used In This Note
+- *Duration of status (D/S):* the open-ended stay F-1 students have now.
+- *Admit Until Date:* the fixed end date the new rule would put on the I-94.
+- *Extension of stay:* an application to USCIS for more time.
+- *Injunction:* a court order that bars the government from doing something.
+- *Appeal:* asking a higher court to review a ruling.
+## Open Questions
+- [ ] Watch First Circuit No. 26-2112
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\Cap-Gap Extension.md`
+```diff
+- ## Why The Gap Exists
++ ## In Plain Words
+"Cap-gap" is the safety net between OPT and H-1B. An employer can only file an H-1B petition starting April 1, and the job can only start October 1. If my OPT runs out in between, I would have to stop working. The cap-gap rule automatically extends my F-1 status and my work permission until October 1 or until the H-1B starts, as long as the employer files on time. I do not apply for it. ISSS adds that I do not even need a special I-20 to keep working, but I can request one from MyISSS under the practical training tab if an employer wants proof ([[US Immigration Rules Explained]]).
+ISSS gives two examples. James's OPT ends June 25, which is after April 1, and his employer files on April 1 for an October 1 start, so he gets cap-gap. Pierre's OPT ends March 20, before April 1, so no petition can be filed in time, he gets no cap-gap, and he must stop working on March 20. The lesson is that the OPT end date matters: OPT that ends before April 1 cannot use cap-gap.
+## Why The Gap Exists
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\Cap-Gap Extension.md`
+```diff
+- ## Open Questions
+- [ ] Ask ISSS how it documents cap-gap
++ ## What It Means For My Plan
+For a May 2028 graduate, the first registration is in March 2028, while I am still a student. If I am selected, the petition is filed from April 1, 2028 and the H-1B starts October 1, 2028, which replaces my F-1 and any unused OPT. Cap-gap matters more in later years: a student whose OPT ends between April 1 and October 1 and whose employer files on time keeps working through the gap ([[H-1B Odds Plan]]).
+## Words Used In This Note
+- *Cap-subject:* an H-1B petition that counts against the yearly limit.
+- *Change of status:* switching from F-1 to H-1B without leaving the country.
+- *Grace period:* the 60 days to leave if a petition is denied.
+## Open Questions
+- [ ] Ask ISSS how it documents cap-gap
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H1B Visa.md`
+```diff
+- ## What H-1B Is
+==H-1B is employer-tied
++ ## In Plain Words
+The H-1B is the most common work visa for graduates in technology. Unlike OPT, which belongs to me, an H-1B belongs to a job. A company must ask for it, pay for it, and prove the job needs a college degree. Because more companies ask than there are visas, the government draws registrations at random each March, and since the 2027 fiscal year higher-paid jobs get more tickets. The ISSS advisor was careful: she is not an H-1B advisor, so employers and their immigration lawyers handle it. She did say students typically move to H-1B "the first year or the second year of their OPT," depending on the employer and the lottery. That corrects my earlier assumption that H-1B only comes after STEM OPT ([[ISSS October Meeting Brief]], [[H-1B Odds Plan]], [[US Immigration Rules Explained]]).
+## What H-1B Is
+==H-1B is employer-tied
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H1B Visa.md`
+```diff
+- ## How An F-1 Student Gets There
+1. **Hold OPT status.**
++ ## Is There A Way Around The Lottery
+Yes, several, and they are laid out with evidence in [[H-1B Odds Plan]]. The main ones: a cap-exempt employer such as a university or research lab, which files without a draw. The O-1A visa for people with extraordinary ability, which has no cap. An L-1 transfer within a multinational company. A U.S. master's degree, which gives a second chance in the draw. And a higher wage level, which gives more lottery tickets.
+## How An F-1 Student Gets There
+1. **Hold OPT status.**
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H1B Visa.md`
+```diff
+- ## Open Questions
+- [ ] Learn which wage level each target employer
++ ## Words Used In This Note
+- *Specialty occupation:* a job that normally requires a bachelor's degree or higher in a specific field.
+- *Cap:* the yearly limit on new H-1B workers.
+- *Petition (Form I-129):* the employer's request for the visa.
+- *Labor Condition Application:* the employer's wage promise to the Department of Labor.
+- *Registration:* the entry in the March lottery.
+## Open Questions
+- [ ] Learn which wage level each target employer
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H-1B Lottery.md`
+```diff
+- ## How Registration Works
++ ## In Plain Words
+Every March, employers who want to hire a foreign worker on an H-1B enter that worker's name in a drawing. Only people whose names are drawn may then be petitioned for. The drawing is not equal anymore: a job paying at a higher wage tier puts the name in more times. I cannot enter myself, because my employer has to. So my part is to be a person an employer is willing to enter every year, at the highest tier the job allows. The full list of things I can influence is in [[H-1B Odds Plan]], and [[US Immigration Rules Explained]] defines the terms.
+## How Registration Works
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H-1B Lottery.md`
+```diff
+- - *A master's degree* changes the odds in the reported numbers, but I have not researched the master's-cap mechanics in the weighted pool.
++ - *A master's degree* gives a second chance: USCIS first draws from everyone, then draws more from the remaining master's-eligible people to fill the 20,000 slots, and DHS kept this two-stage process on purpose to give U.S. master's holders a higher chance ([[H-1B Odds Plan]]).
+- *My wage level* is set by the offer and the work city. In the Twin Cities for 2026-27, a software developer needs about $91,624 for level I, $110,926 for II, $130,208 for III, and $149,510 for IV. The table is in [[H-1B Odds Plan]].
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H-1B Lottery.md`
+```diff
+- ## Open Questions
+- [ ] Find the USCIS FY2027 registration and selection counts
++ ## Words Used In This Note
+- *Registration:* the employer's entry for one person in the lottery.
+- *Wage level:* tier I to IV, set by comparing the offered pay with local pay for the job.
+- *Selected:* drawn, so the employer may file a petition.
+- *Cap-subject:* counted against the yearly limit.
+## Open Questions
+- [ ] Find the USCIS FY2027 registration and selection counts
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H-1B 100K Payment.md`
+```diff
+- ## The Text
+==The proclamation restricts
++ ## In Plain Words
+In September 2025 the President ordered that a company hiring certain H-1B workers from abroad must pay $100,000. Courts have since stopped the government from collecting it, but the President extended the order to September 2027 anyway. For a student like me the key fact comes from USCIS's own page: the payment does not apply to someone already in the U.S. who is approved to change from F-1 to H-1B. It does apply if that change is denied or I leave the country before it is decided. So the practical rule is to stay put while a petition is pending ([[Cap-Gap Extension]], [[US Immigration Rules Explained]]).
+## The Text
+==The proclamation restricts
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H-1B 100K Payment.md`
+```diff
+- ## Open Questions
+- [ ] Read the Northern District of California order
++ ## Words Used In This Note
+- *Proclamation:* a formal order signed by the President.
+- *Vacated:* a court cancelled the guidance.
+- *Preliminary injunction:* an early court order stopping the government from enforcing something.
+- *Consular notification:* when an approved petition tells a U.S. embassy to issue the visa.
+## Open Questions
+- [ ] Read the Northern District of California order
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H-1B Rule Proposals.md`
+```diff
+- ## The Measures At A Glance
++ ## In Plain Words
+Several government proposals this year would make hiring a foreign graduate on an H-1B more expensive or harder to keep. None of them is final except two small ones. A fee of $103,265 per new H-1B, a higher minimum wage for H-1B jobs, an end to treating a first approval as a reason to approve extensions quickly, and an end to the 60-day cushion after a layoff. The effect on me is mostly through the employer: a company that must pay more is less willing to sponsor, so my plan is to ask each employer how it expects these to affect it ([[H-1B Odds Plan]], [[US Immigration Rules Explained]]).
+## The Measures At A Glance
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H-1B Rule Proposals.md`
+```diff
+- ## Open Questions
+- [ ] Read the September 10 correction
++ ## Words Used In This Note
+- *Prevailing wage:* the pay level the Department of Labor says is normal for a job and city.
+- *Deference:* USCIS giving weight to an earlier approval of the same facts.
+- *Grace period:* time allowed after a job ends before status is lost.
+- *Cap-subject:* counted against the yearly H-1B limit.
+- *Notice of proposed rulemaking:* a rule the government is thinking about.
+## Open Questions
+- [ ] Read the September 10 correction
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\Visa Litigation Tracker.md`
+```diff
+- ## The Cases
+| Case |
++ ## In Plain Words
+A court case matters to me because a judge can pause or cancel a government rule. A "lawsuit" starts in a trial court. The loser can "appeal" to a higher court, but an appeal alone does not change the ruling being appealed. The ISSS advisor said the only certainty is that there is none: "we are all in the dark on this one." This note keeps every case in one table, so I can see the next date at a glance ([[US Immigration Rules Explained]], [[ISSS October Meeting Brief]]).
+## The Cases
+| Case |
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\Current News.md`
+```diff
+- ## Where Things Stand
+==ICE did not change the CPT regulation.
++ ## The Golden Source
+==The single most useful source for my own situation is the transcript of my October 23 meeting with an ISSS advisor, because it records what my own school actually says and does.== It is kept untouched at [[October Meeting Transcript]], summarized in [[ISSS October Meeting Brief]], and its facts are carried into the notes mapped from [[VISA Plan]]. Its main points: CPT for elective internships is paused and nobody knows the outcome, pre-completion OPT is an option decided at the window, USCIS takes about five months, premium processing costs about $1,800 and takes up to 30 business days, the OPT fee is still in its comment period, an internship physically abroad is outside F-1 work rules, and projects or unpaid work must not be described as jobs.
+## Where Things Stand
+==ICE did not change the CPT regulation.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\Current News.md`
+```diff
+- ## What UMN Says
+Left as originally found. Stale and queued for a rewrite.
++ ## What UMN Says
+Refreshed on October 23, 2026 from the live pages, with their update dates. The older entries below stay for the record.
+1. **ISSS Basics of Pre-Completion OPT** ([isss.umn.edu](https://isss.umn.edu/fstudents/employment/opt/pre-completion-opt), updated Sept 18)
+	==Part-time pre-completion OPT counts half and full-time counts in full against the 12 months, whether or not I work, and the 20-hour term limit includes on-campus jobs.== Examples with 3-month stretches are on the page, and it says part-time in term and full-time in vacation are separate applications.
+2. **ISSS Applying for OPT** ([isss.umn.edu](https://isss.umn.edu/fstudents/employment/opt/apply), updated Sept 23)
+	==The five steps, the 10-business-day I-20, the 30-day rule after the I-20 date, and a key-dates table (Fall 2026 graduates: request Sept 14, file from Sept 24, until Feb 21) that proves the date formula.==
+3. **ISSS Requirements During OPT** ([isss.umn.edu](https://isss.umn.edu/fstudents/employment/opt/requirements), updated Sept 15)
+	==Report any job or address change in the SEVP Portal within 10 days, work at least 20 hours a week, and stay under 90 days of unemployment.==
+4. **ISSS Travel, Study, and More** ([isss.umn.edu](https://isss.umn.edu/fstudents/employment/opt/travel-study), updated Sept 15)
+	==The OPT travel signature lasts 6 months, re-entry needs proof of a job, and a cap-gap example shows OPT ending before April 1 gets no cap-gap.==
+5. **ISSS STEM OPT Application Process** ([isss.umn.edu](https://isss.umn.edu/fstudents/employment/opt/stem-opt-extension/application), updated July 28)
+	==The STEM request needs a workshop, a signed training plan, and a $400 ISSS fee, and USCIS takes about 3.5 to 4 months.== It also warns about a country-based USCIS hold.
+6. **ISSS OPT vs. CPT** ([isss.umn.edu](https://isss.umn.edu/fstudents/employment/opt-cpt-comparison), updated Sept 15)
+	==The old CPT path took ISSS up to 7 business days and 2 to 3 weeks overall, and pre-completion OPT has no job-offer requirement.== It says ISSS is developing the pre-completion request process for Fall 2026.
+7. **USCIS fee schedule, Form G-1055** ([uscis.gov](https://www.uscis.gov/sites/default/files/document/forms/g-1055.pdf), edition 10/16/26)
+	==OPT work permit application: $470 online or $520 on paper. Premium processing for OPT and STEM OPT: $1,780.==
+8. **UMN 2027-28 academic calendar** ([asr.umn.edu](https://asr.umn.edu/[REDACTED]))
+	==The Spring 2028 term ends May 10, 2028, the date ISSS treats as degree completion.==
+9. **USCIS policy memo PM-602-0194** ([uscis.gov](https://www.uscis.gov/sites/default/files/document/policy-alerts/[REDACTED].pdf))
+	==It put pending applications from people from listed countries on hold, and USCIS now states the memo is no longer in effect due to court orders.== ISSS still cites it.
+Older entries from the first pass:
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\Current News.md`
+```diff
+-  The UMN section is deliberately left as it was found and is due for a rewrite.
++  The UMN section was refreshed from the live ISSS pages on October 23, after the meeting with an ISSS advisor.
+```
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\ISSS Meeting.md`
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\ISSS Meeting.md`
+```diff
+-   - "[[Current News]]"
+next: "Save the transcript, then run /transcript-to-brief and update the notes in the table at the bottom"
+---
++   - "[[Current News]]"
+  - "[[ISSS October Meeting Brief]]"
+  - "[[October Meeting Transcript]]"
+next: "The meeting happened on 2026-10-23. Use the Brief for what was said and the table below for which prepared questions are still open"
+---
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\ISSS Meeting.md`
+```diff
+- ## Read This First
+==The summer 2027 problem
++ ## What Happened
+The meeting took place on October 23, 2026 with an ISSS advisor, not a career-services professional. The transcript is [[October Meeting Transcript]] and everything in it is summarized in [[ISSS October Meeting Brief]]. This table shows what became of the questions prepared below. The unanswered ones are carried into the tasks in [[Junior Year Internship Decision]].
+| Question | Result |
+| --- | --- |
+| 1, 2, 4, 5 (CPT details, required course, restart, existing CPT) | Only partly: the pause is on elective CPT and the outcome is unknown. Not asked: required course, restart, existing CPT |
+| 3 (what other students do) | She would not speak for them; seniors with a fixed start date may use pre-completion OPT |
+| 6, 8 (pre-completion OPT, turnaround, whether to avoid it) | Answered: option, decide at the window, about 5 months, 50 percent counting, separate applications |
+| 7 (OPT fee stance) | Answered in general: comment period ends Nov 9; no UMN stance given |
+| 9, 10, 11, 12 (warning, campus jobs, off-campus labs) | Not asked, except that the 20-hour limit includes on-campus work |
+| 13 (employers) | Answered: still hiring; use Handshake's work-authorization filter |
+| 14 (authorization question) | Answered: "yes and yes" is truthful |
+| 15, 16, 17 (E-Verify employers, contingent offers, alumni data) | Not asked |
+| 18, 19, 20 (end date, workshop, start date) | Answered: end of the semester you finish; self-paced online workshop; plan at the start of the last semester |
+| 21 (H-1B help) | Answered: she is not an H-1B advisor |
+| 22, 23, 24 (communication, rule returns, travel) | Partly: watch ISSS emails; rule still blocked; travel depends on plans |
+| 25 (memberships) | Not asked |
+| 26, 27 (remote abroad, unpaid work) | Answered: physically abroad is outside F-1 work rules; unpaid and project work must be worded carefully |
+| 28 (who answers in writing) | Answered: drop-ins, email, or another appointment |
+## Read This First
+==The summer 2027 problem
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\ISSS Meeting.md`
+```diff
+- The unanswered ones are carried into the tasks in [[Junior Year Internship Decision]].
+| Question | Result |
++ The unanswered ones are carried into the tasks in [[Junior Year Internship Decision]].
+### The Result Table
+| Question | Result |
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" && sed -i 's#const files = fs.readdirSync(FOLDER).filter((f) => f.endsWith(".md"));#const files = fs.readdirSync(FOLDER).filter((f) => f.endsWith(".md")).concat(fs.readdirSync(path.join(FOLDER,"ISSS")).filter((f)=>f.endsWith(".md")).map((f)=>"ISSS/"+f));#' audit.js && node audit.js 2>&1 | grep -B1 -A3 -E "ISSUE|TOTAL|notes in folder"`
+```
+notes in folder: 28
+
+2028 Graduation Timeline.md  [1428 words, 41 wikilinks, blanks at: 90]
+   ok
+--
+OPT Playbook.md  [3083 words, 13 wikilinks, blanks at: 129,174]
+   ISSUE: table directly after text at 66
+   ISSUE: table directly after text at 83
+   ISSUE: text directly after table row at 98
+
+OPT Program.md  [1049 words, 20 wikilinks, blanks at: 83]
+   ok
+--
+ISSS/October Meeting Transcript.md  [4607 words, 3 wikilinks, blanks at: 19,215]
+   ISSUE: em/en dash present
+
+TOTAL ISSUES: 4
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\Jarvis
+[This command modified 1 file you've previously read: C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\scratchpad\audit.js. Call Read before editing.]
+```
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\OPT Playbook.md`
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\OPT Playbook.md`
+```diff
+- and it matches exactly.
+| What | Date |
++ and it matches exactly.
+### The Dates
+| What | Date |
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\OPT Playbook.md`
+```diff
+- whether or not I work.
+| If my summer start date is |
++ whether or not I work.
+### The Windows For Three Start Dates
+| If my summer start date is |
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\OPT Playbook.md`
+```diff
+- ### What It Costs Me In OPT Months
+| Pre-OPT I might use |
++ ### What It Costs Me In OPT Months
+The last row of the table is ISSS's own worked example, and it is the warning: continuing part-time into the school year eats the OPT I need after graduation.
+#### The Examples
+| Pre-OPT I might use |
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\OPT Playbook.md`
+```diff
+- | 3 months full-time plus 9 months part-time | 3 + 4.5 = 7.5 | 4.5 |
+The last row is ISSS's own worked example, and it is the warning: continuing part-time into the school year eats the OPT I need after graduation.
+### My Rules For Choosing It
++ | 3 months full-time plus 9 months part-time | 3 + 4.5 = 7.5 | 4.5 |
+### My Rules For Choosing It
+```
+- `Bash` -- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" && node audit.js 2>&1 | grep -E "ISSUE|TOTAL|notes in folder|unresolved"; echo ----; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "10_Areas/Career/VISAs & Work Auth/" --list 30 2>&1 | head -30`
+```
+notes in folder: 28
+   ISSUE: em/en dash present
+TOTAL ISSUES: 1
+----
+Scanned 28 notes in scope (excluded: 1 out of scope, 1468 tier 4, 78 templates). Specs: 76. Vocabulary parsed: true
+FIT: 27/28 = 96.4%
+
+By tier:
+  tier 1: 27/28 = 96.4%
+
+By family (fit / total, near-fit, failing checks):
+  reference-resource              25/25    100.0%  near    0  
+  brief                            1/1     100.0%  near    0  
+  (unmapped)                       0/1       0.0%  near    0  F5:1 F6:1
+  moc                              1/1     100.0%  near    0  
+
+Top failure reasons:
+      1  6:unmapped
+      1  5:extra-blank-lines
+
+First 30 failing notes:
+  10_Areas/Career/VISAs & Work Auth/ISSS/October Meeting Transcript.md  [(unmapped)]  6:unmapped; 5:extra-blank-lines:1
+```
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis"; echo "key scan vault folder:"; grep -rIlE "fc-[A-Za-z0-9]{20,}" "10_Areas/Career/VISAs & Work Auth" 40_Resources/UMN/Links.md 2>/dev/null; echo "key scan scratchpad (excluding downloaded data):"; grep -rIlE "fc-[A-Za-z0-9]{20,}" "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" --include=*.js --include=*.json --include=*.md --include=*.txt 2>/dev/null | head -3; echo "(blank = none)"; echo; git status --short -- "10_Areas/Career/VISAs & Work Auth" 40_Resources/UMN/Links.md | sed 's/^/  /' | head -40; echo; ls "10_Areas/Career/VISAs & Work Auth" "10_Areas/Career/VISAs & Work Auth/ISSS" | wc -l`
+```
+key scan vault folder:
+key scan scratchpad (excluding downloaded data):
+(blank = none)
+
+   M "10_Areas/Career/VISAs & Work Auth/2028 Graduation Timeline.md"
+   M "10_Areas/Career/VISAs & Work Auth/CPT Broadcast Messages.md"
+   M "10_Areas/Career/VISAs & Work Auth/CPT Lawsuit.md"
+   M "10_Areas/Career/VISAs & Work Auth/CPT Program.md"
+   M "10_Areas/Career/VISAs & Work Auth/Cap-Gap Extension.md"
+   M "10_Areas/Career/VISAs & Work Auth/Current News.md"
+   M "10_Areas/Career/VISAs & Work Auth/Duration of Status Rule.md"
+   M "10_Areas/Career/VISAs & Work Auth/EAD and OPT Processing.md"
+   M "10_Areas/Career/VISAs & Work Auth/F-1 Employment Options.md"
+   M "10_Areas/Career/VISAs & Work Auth/F-1 Visa.md"
+   M "10_Areas/Career/VISAs & Work Auth/H-1B 100K Payment.md"
+   M "10_Areas/Career/VISAs & Work Auth/H-1B Lottery.md"
+   M "10_Areas/Career/VISAs & Work Auth/H-1B Rule Proposals.md"
+   M "10_Areas/Career/VISAs & Work Auth/H1B Visa.md"
+   M "10_Areas/Career/VISAs & Work Auth/ISSS Meeting.md"
+   M "10_Areas/Career/VISAs & Work Auth/ISSS/October Meeting Transcript.md"
+   M "10_Areas/Career/VISAs & Work Auth/Junior Year Internship Decision.md"
+   M "10_Areas/Career/VISAs & Work Auth/OPT Fee Proposal.md"
+   M "10_Areas/Career/VISAs & Work Auth/OPT Program.md"
+   M "10_Areas/Career/VISAs & Work Auth/Pre-Completion OPT.md"
+   M "10_Areas/Career/VISAs & Work Auth/SEVP and DSOs.md"
+   M "10_Areas/Career/VISAs & Work Auth/STEM OPT Extension.md"
+   M "10_Areas/Career/VISAs & Work Auth/VISA Plan.md"
+   M "10_Areas/Career/VISAs & Work Auth/Visa Litigation Tracker.md"
+   M 40_Resources/UMN/Links.md
+  ?? "10_Areas/Career/VISAs & Work Auth/H-1B Odds Plan.md"
+  ?? "10_Areas/Career/VISAs & Work Auth/ISSS/ISSS October Meeting Brief.md"
+  ?? "10_Areas/Career/VISAs & Work Auth/OPT Playbook.md"
+  ?? "10_Areas/Career/VISAs & Work Auth/US Immigration Rules Explained.md"
+
+32
+```
+
 ## Actions Taken
 
 **Files created:**
@@ -10173,20 +13559,25 @@ FIT: 23/23 = 100.0%
 - `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\F-1 Visa.md`
 - `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H-1B 100K Payment.md`
 - `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H-1B Lottery.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H-1B Odds Plan.md`
 - `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H-1B Rule Proposals.md`
 - `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\H1B Visa.md`
 - `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\ISSS Meeting.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\ISSS\ISSS October Meeting Brief.md`
 - `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\Junior Year Internship Decision.md`
 - `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\OPT Fee Proposal.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\OPT Playbook.md`
 - `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\OPT Program.md`
 - `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\Pre-Completion OPT.md`
 - `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\SEVP and DSOs.md`
 - `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\STEM OPT Extension.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\US Immigration Rules Explained.md`
 - `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\Visa Litigation Tracker.md`
 - `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\VISA Plan.md`
 
 **Files modified:**
-_None_
+- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Career\VISAs & Work Auth\ISSS\October Meeting Transcript.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\40_Resources\UMN\Links.md`
 
 **Files deleted (heuristic, from Bash commands):**
 - `rm -f /tmp/fc_err.txt
@@ -10503,5 +13894,133 @@ for i in 01 02; do echo; echo "######## b7/$i"; grep -v '^\s*$' fc/b7/$i.md | gr
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && ls | head; node vault-lint.js --path "10_Areas/Career/VISAs & Work Auth/" --list 40 2>&1 | head -80`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis"; echo "vault notes folder:"; grep -rIlE "fc-[A-Za-z0-9]{20,}" "10_Areas/Career/VISAs & Work Auth" 2>/dev/null | head -3; echo "scratchpad:"; grep -rIlE "fc-[A-Za-z0-9]{20,}" "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" 2>/dev/null | head -3; echo "(blank above = no key found)"; echo; echo "git status of the folder:"; git status --short -- "10_Areas/Career/VISAs & Work Auth" | head -30`
 - `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" && node audit.js 2>&1 | grep -A2 -E "ISSS Meeting|TOTAL|ISSUE"; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "10_Areas/Career/VISAs & Work Auth/" 2>&1 | sed -n '1,3p'`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis"; echo "### ISSS folder"; ls -la "10_Areas/Career/VISAs & Work Auth/" | head -40; echo; ls -la "10_Areas/Career/VISAs & Work Auth/ISSS/" 2>&1 | head; echo; echo "### UMN resources candidates"; find . -type f -ipath "*umn*" -iname "*.md" -not -path "./.stversions/*" -not -path "./50_Archive/*" -not -path "./.git/*" -not -path "./60_Claude/05_Clippings/*" 2>/dev/null | grep -i -E "resource|link|umn\.md|UMN Resources|ISSS" | head -20`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis"; echo "### Brief standard/template"; find 30_Order -iname "Brief Standard.md" -o -iname "Brief Template.md" -o -iname "Transcript to Brief.md" | head; echo; echo "### UMN Links head"; sed -n '1,40p' 40_Resources/UMN/Links.md | cut -c1-200; echo; echo "### mineru?"; command -v mineru mineru-parse 2>&1 | head -2; pip list 2>/dev/null | grep -i mineru | head -2`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis"; wc -l 40_Resources/UMN/Links.md; grep -n -i -E "isss|international|visa|opt|cpt|career|^#" 40_Resources/UMN/Links.md | cut -c1-220`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+grep -n -i -E "\\$[0-9,]+|fee" fc/b4/01.md | head -30 | cut -c1-260`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+mkdir -p fc/b8
+node fc.js scrape "https://www.uscis.gov/sites/default/files/document/forms/g-1055.pdf" fc/b8/g1055.md
+node fc.js scrape "https://www.uscis.gov/i-907" fc/b8/i907.md
+echo "--- G-1055 hits:"; grep -n -i -E "I-765|optional practical|\(c\)\(3\)|F-1|student" fc/b8/g1055.md | head -20 | cut -c1-260
+echo "--- I-907 hits:"; grep -n -i -E "\\$[0-9,]+" fc/b8/i907.md | head -15 | cut -c1-260`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b8"; sed -n '488,492p;499,503p;512,520p' g1055.md | cut -c1-900; echo ....; grep -n -i -E "\(c\)\(3\)" g1055.md | cut -c1-700 | head -6; echo; grep -n -i "edition\|effective" g1055.md | head -5 | cut -c1-200; sed -n '310,312p' g1055.md | cut -c1-600; grep -n -F '*' g1055.md | grep -i -E "premium" | head -3 | cut -c1-300`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+node fc.js search "studyinthestates.dhs.gov F-1 optional practical training students reporting SEVP Portal unemployment days" fc/s_sits1.json - 8 | head -40
+echo ======
+cat > fc/u8.txt <<'EOF'
+https://isss.umn.edu/fstudents/employment/opt/pre-completion-opt
+https://isss.umn.edu/fstudents/employment/opt/apply
+https://isss.umn.edu/fstudents/employment/opt/requirements
+https://isss.umn.edu/fstudents/employment/opt/travel-study
+https://isss.umn.edu/fstudents/employment/opt/basics
+https://isss.umn.edu/fstudents/employment/opt/stem-opt-extension/eligibility
+https://isss.umn.edu/fstudents/employment/opt/stem-opt-extension/application
+https://isss.umn.edu/fstudents/employment/opt-cpt-comparison
+https://isss.umn.edu/fstudents/employment/cpt/basics
+EOF
+node fc.js multi fc/u8.txt fc/b9`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b9"; grep -n -E "^# |^## |Last updated" 01.md | head -20; `
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b9"; for f in 01 02 03 04 05 07 08; do s=$(grep -n -m1 -E "^# " $f.md | cut -d: -f1); e=$(grep -n -m1 "Last updated" $f.md | cut -d: -f1); echo "$f: content lines $s-$e"; done; echo; sed -n '461,552p' 01.md | grep -v '^\s*$' | cut -c1-900`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b9"; sed -n '461,590p' 02.md | grep -v '^\s*$' | cut -c1-1100`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b9"; sed -n '461,585p' 03.md | grep -v '^\s*$' | cut -c1-1000`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b9"; sed -n '461,576p' 04.md | grep -v '^\s*$' | cut -c1-1000`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b9"; echo "######## 05 post-completion basics"; sed -n '461,531p' 05.md | grep -v '^\s*$' | cut -c1-800; echo; echo "######## 08 OPT vs CPT"; sed -n '461,482p' 08.md | grep -v '^\s*$' | cut -c1-900`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b9"; echo "######## 07 STEM application"; sed -n '461,589p' 07.md | grep -v '^\s*$' | cut -c1-900`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+node fc.js scrape "https://www.uscis.gov/sites/default/files/document/policy-alerts/PM-602-0194-PendingApplicationsAdditionalHighRiskCountries-20260101.pdf" fc/b8/hold.md
+grep -v '^\s*$' fc/b8/hold.md | head -60 | cut -c1-700`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+cat > fc/u9.txt <<'EOF'
+https://www.uscis.gov/working-in-the-united-states/stem-employment-pathways/nonimmigrant-pathways-for-stem-employment-in-the-united-states
+https://www.uscis.gov/working-in-the-united-states/entrepreneur-employment-pathways/nonimmigrant-or-parole-pathways-for-entrepreneur-employment-in-the-united-states
+https://www.uscis.gov/working-in-the-united-states/temporary-workers/o-1-visa-individuals-with-extraordinary-ability-or-achievement
+EOF
+node fc.js multi fc/u9.txt fc/b10
+echo "=== cap-exempt in USCIS H-1B page (earlier scrape):"; grep -n -i "cap-exempt\|cap exempt" fc/b3/04.md | head -8 | cut -c1-500`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc"; echo "######## H-1B page: cap-exempt section"; sed -n '120,150p' b3/04.md | grep -v '^\s*$' | cut -c1-1100; echo; echo "######## STEM pathways: headings + cap/F-1 relevant"; grep -n -E "^#{1,4} " b10/01.md | head -40 | cut -c1-160`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b10"; sed -n '137,217p' 01.md | grep -v '^\s*$' | cut -c1-650`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b10"; echo "### entrepreneur page headings"; grep -n -E "^#{1,4} " 02.md | cut -c1-170 | head -40; echo; echo "### L-1 section (STEM page)"; sed -n '218,260p' 01.md | grep -v '^\s*$' | cut -c1-500 | head -22`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/b10"; sed -n '11,30p' 02.md | grep -v '^\s*$' | cut -c1-700; echo ....; sed -n '117,135p' 02.md | grep -v '^\s*$' | cut -c1-700; echo ....F-1 OPT section; sed -n '196,222p' 02.md | grep -v '^\s*$' | cut -c1-700`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -a -n -i -E "regular cap.*(first|then|before)|first.*regular cap|advanced degree exemption.*(second|subsequent|remaining|after)|master's cap.*(second|remaining|after)|selected.*under the regular cap" fc/wsel.txt | head -12 | cut -c1-220`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; grep -a -n -i -E "advanced degree" fc/wsel.txt | sed -n '1,40p' | cut -c1-200`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"; sed -n '8460,8500p;8924,8945p' fc/wsel.txt | grep -a -v '^\s*$' | cut -c1-200`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+node fc.js scrape "https://flag.dol.gov/wage-data/wage-data-downloads" fc/b8/oflc.md 3000
+grep -n -i -E "zip|2026|2025|download" fc/b8/oflc.md | head -20 | cut -c1-240`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+rm -rf fc/wages26 && mkdir -p fc/wages26 && cd fc/wages26 && curl -sL -m 120 -o w.zip -w "zip http %{http_code} %{size_download}\n" "https://flag.dol.gov/sites/default/files/wages/OFLC_Wages_2026-27.zip" && (unzip -o -q w.zip 2>&1 | head -3 || true); ls -la | head -20`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/wages26"; head -2 ALC_Export.csv | cut -c1-300; echo; head -2 Geography.csv | cut -c1-300; echo; grep -i "minneapolis" Geography.csv | head -3 | cut -c1-300; echo; grep -E "15-1252|15-1251|15-1253|15-1211|15-1299" oes_soc_occs.csv | head -8 | cut -c1-200`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/wages26"; echo "Area,SOC,GeoLvl,L1,L2,L3,L4,Avg (hourly dollars)"; grep -E '^"33460","15-1252"' ALC_Export.csv; echo "--- Data scientists/others in Minneapolis:"; for s in 15-1221 15-2051 15-1299 15-1211 15-1244 15-1241; do grep -E "^\"33460\",\"$s\"" ALC_Export.csv; done; echo "--- national (area 99999?) software dev:"; grep -E '^"99999","15-1252"|^"[0-9]*","15-1252",0' ALC_Export.csv | head -3; echo "--- SOC names:"; grep -E '^"(15-1221|15-2051|15-1244|15-1241)"' oes_soc_occs.csv | cut -c1-90; echo; grep -i -E "wage year|effective|OEWS" /dev/null; echo "Level definitions row sample for MN statewide:"; grep -E '^"[0-9]*","15-1252",1' ALC_Export.csv | head -0`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/wages26"; node -e '
+const fs=require("fs");
+const geo=fs.readFileSync("Geography.csv","utf8").split(/\r?\n/);
+const name={}; for(const l of geo){const m=l.match(/^"(\d+)","([^"]*)"/); if(m) name[m[1]]=m[2];}
+const rows=fs.readFileSync("ALC_Export.csv","utf8").split(/\r?\n/).filter(l=>l.includes("\"15-1252\""));
+const want=["33460","41940","41860","42660","35620","12420","16980","14460","19740","19100","31080","47900"];
+for(const l of rows){const c=l.split(",").map(s=>s.replace(/"/g,"")); if(want.includes(c[0])){const [a,s,g,l1,l2,l3,l4]=c; const f=x=>Math.round(parseFloat(x)*2080).toLocaleString("en-US"); console.log((name[a]||a).padEnd(52), "L1 $"+f(l1).padStart(8), "L2 $"+f(l2).padStart(8), "L3 $"+f(l3).padStart(8), "L4 $"+f(l4).padStart(8), " (hourly L1 "+l1+", L4 "+l4+")");}}
+console.log("count rows for 15-1252:",rows.length);
+'; echo; echo "Minneapolis annual (x2080): L1 $(echo '44.05*2080' | bc 2>/dev/null) ..."; ls *.pdf | head -2`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+node fc.js search "University of Minnesota Twin Cities academic calendar spring 2028 last day of semester finals" fc/s_cal.json - 6 | head -30`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad"
+node fc.js scrape "https://asr.umn.edu/2027-28-twin-cities-and-rochester-calendar" fc/b8/cal2728.md
+grep -v '^\s*$' fc/b8/cal2728.md | sed -n '1,90p' | cut -c1-220`
+- `node -e '
+const d=(s)=>new Date(s+"T12:00:00Z"); const f=(x)=>x.toISOString().slice(0,10)+" "+["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][x.getUTCDay()];
+const add=(x,n)=>new Date(x.getTime()+n*86400000);
+const addM=(s,m)=>{const x=d(s); x.setUTCMonth(x.getUTCMonth()+m); return x;};
+function win(label,end){const e=d(end);console.log("\n"+label+"  end of term "+f(e));console.log("  earliest ISSS request (end-100d):",f(add(e,-100)));console.log("  earliest USCIS receipt (end-90d):",f(add(e,-90)));console.log("  latest USCIS receipt (end+60d):",f(add(e,60)));console.log("  14-month outer limit:",f(addM(end,14)));console.log("  postponed-rule latest filing (end+30d):",f(add(e,30)));}
+win("CHECK: Fall 2026 (ISSS says Sep 14 / Sep 24 / Feb 21)","2026-12-23");
+win("SPRING 2028","2028-05-10");
+win("IF FINISHED EARLY: Fall 2027","2027-12-23");
+// pre-completion summer 2027 examples
+for(const s of ["2027-05-17","2027-06-01","2027-06-14"]){const e=d(s);console.log("\nPre-OPT requested start "+f(e)+": ISSS request opens (start-100d) "+f(add(e,-100))+"; USCIS filing opens (start-90d) "+f(add(e,-90)));}
+// proposal timelines
+const nprmDS=d("2025-08-28"), finalDS=d("2026-07-17"); console.log("\nD/S NPRM->final days:",Math.round((finalDS-nprmDS)/86400000));
+const nprmW=d("2025-09-24"), finalW=d("2025-12-29"); console.log("Weighted NPRM->final days:",Math.round((finalW-nprmW)/86400000));
+const opt=d("2026-10-08"); console.log("OPT fee NPRM + 98d (weighted analog) final:",f(add(opt,96)),"; effective +60:",f(add(opt,156)));
+console.log("OPT fee NPRM + 323d (D/S analog) final:",f(add(opt,323)),"; effective +60:",f(add(opt,383)));
+// 30 business days from 2027-03-17 (ignoring holidays)
+let x=d("2027-03-17"),n=0; while(n<30){x=add(x,1); const w=x.getUTCDay(); if(w!==0&&w!==6) n++;} console.log("30 business days after 2027-03-17 (no holidays):",f(x));
+let y=d("2028-02-10"),m=0; while(m<30){y=add(y,1); const w=y.getUTCDay(); if(w!==0&&w!==6) m++;} console.log("30 business days after 2028-02-10:",f(y));
+console.log("5 months after 2028-02-10:",f(addM("2028-02-10",5)),"; after 2027-03-17:",f(addM("2027-03-17",5)));
+'`
+- `node -e '
+const d=s=>new Date(s+"T12:00:00Z"); const add=(x,n)=>new Date(x.getTime()+n*86400000);
+const dn=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]; const f=x=>x.toISOString().slice(0,10)+" "+dn[x.getUTCDay()];
+const nextBiz=x=>{while(x.getUTCDay()===0||x.getUTCDay()===6)x=add(x,1);return x;};
+const addBiz=(x,n)=>{let c=0;while(c<n){x=add(x,1);if(x.getUTCDay()!==0&&x.getUTCDay()!==6)c++;}return x;};
+console.log("PRE-OPT summer 2027 (no US holidays modeled)");
+for(const s of ["2027-05-17","2027-06-01","2027-06-14"]){
+ const S=d(s); const req=nextBiz(add(S,-100)); const i20=addBiz(req,10); const open=add(S,-90); const file=i20>open?i20:nextBiz(open);
+ const deadline30=add(i20,30);
+ console.log("start "+f(S)+" | ISSS request opens "+f(add(S,-100))+" -> submit "+f(req)+" | I-20 by (10 biz days) "+f(i20)+" | USCIS filing opens "+f(open)+" | file on "+f(file)+" | USCIS must receive by (I-20+30d) "+f(deadline30)+" | premium decision by "+f(addBiz(file,30))+" | 5 months later "+f(new Date(Date.UTC(file.getUTCFullYear(),file.getUTCMonth()+5,file.getUTCDate(),12))));
+}
+console.log("\nPOST-OPT spring 2028");
+const req=d("2028-01-31"); const i20=addBiz(req,10); const open=d("2028-02-10"); const file=i20>open?i20:open;
+console.log("ISSS request "+f(req)+" | I-20 by "+f(i20)+" | USCIS opens "+f(open)+" | file "+f(file)+" | premium decision by "+f(addBiz(file,30))+" | +5 months "+f(new Date(Date.UTC(2028,file.getUTCMonth()+5,file.getUTCDate(),12)))+" | last receipt "+f(d("2028-07-09")));
+console.log("\nSTEM if card runs to 2029-07-09: ISSS request opens "+f(add(d("2029-07-09"),-100))+"; USCIS filing opens "+f(add(d("2029-07-09"),-90))+"; USCIS must receive by "+f(d("2029-07-09")));
+console.log("If post-OPT starts 2028-05-11 (12 months): ends "+f(add(d("2029-05-10"),0)));
+console.log("Dec 23 2027 early-finish path: ISSS request opens "+f(add(d("2027-12-23"),-100)));
+console.log("Days between 2026-10-23 and 2027-03-08:",Math.round((d("2027-03-08")-d("2026-10-23"))/86400000));
+'`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad/fc/wages26"; node -e '
+const fs=require("fs");
+const rows=fs.readFileSync("ALC_Export.csv","utf8").split(/\r?\n/).filter(l=>l.startsWith("\"33460\","));
+const names={"15-1252":"Software Developers","15-1221":"Computer & Information Research Scientists","15-2051":"Data Scientists","15-1211":"Computer Systems Analysts","15-1241":"Computer Network Architects","15-1244":"Network & Systems Admins","15-1299":"Computer Occupations, All Other"};
+console.log("Twin Cities annual (hourly x 2080), wage year 2026-27");
+for(const l of rows){const c=l.split(",").map(s=>s.replace(/"/g,"")); if(names[c[1]]) console.log(names[c[1]].padEnd(46),[c[3],c[4],c[5],c[6]].map(x=>"$"+Math.round(parseFloat(x)*2080).toLocaleString("en-US")).join("  "));}
+const t={L1:91624,L2:110926,L3:130208,L4:149510};
+console.log("\nOffer -> level (software developers, Twin Cities)");
+for(const o of [85000,95000,105000,115000,125000,135000,145000,155000]){let lv="below L1"; if(o>=t.L4)lv="IV (4 tickets)"; else if(o>=t.L3)lv="III (3 tickets)"; else if(o>=t.L2)lv="II (2 tickets)"; else if(o>=t.L1)lv="I (1 ticket)"; console.log("$"+o.toLocaleString("en-US").padStart(8),lv);}
+console.log("\nIllustration: chance to be picked at least once in N independent draws using TRAC modeled per-draw odds");
+const p={I:0.1529,II:0.3058,III:0.4587,IV:0.6116, random:0.2959, FY25actual:135137/470342, FY26actual:120141/343981};
+for(const k of Object.keys(p)){const q=1-p[k]; console.log(k.padEnd(10),"per-draw "+(p[k]*100).toFixed(1)+"%","| 1 draw "+(p[k]*100).toFixed(1)+"% | 2 draws "+((1-q*q)*100).toFixed(1)+"% | 3 draws "+((1-q*q*q)*100).toFixed(1)+"%");}
+'; node -e 'const r=(a,b)=>console.log(a,(b*2080).toFixed(0));'`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" && sed -i 's#const files = fs.readdirSync(FOLDER).filter((f) => f.endsWith(".md"));#const files = fs.readdirSync(FOLDER).filter((f) => f.endsWith(".md")).concat(fs.readdirSync(path.join(FOLDER,"ISSS")).filter((f)=>f.endsWith(".md")).map((f)=>"ISSS/"+f));#' audit.js && node audit.js 2>&1 | grep -B1 -A3 -E "ISSUE|TOTAL|notes in folder"`
+- `cd "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" && node audit.js 2>&1 | grep -E "ISSUE|TOTAL|notes in folder|unresolved"; echo ----; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "10_Areas/Career/VISAs & Work Auth/" --list 30 2>&1 | head -30`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis"; echo "key scan vault folder:"; grep -rIlE "fc-[A-Za-z0-9]{20,}" "10_Areas/Career/VISAs & Work Auth" 40_Resources/UMN/Links.md 2>/dev/null; echo "key scan scratchpad (excluding downloaded data):"; grep -rIlE "fc-[A-Za-z0-9]{20,}" "C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/a8711819-664b-4922-952b-4190546bfc01/scratchpad" --include=*.js --include=*.json --include=*.md --include=*.txt 2>/dev/null | head -3; echo "(blank = none)"; echo; git status --short -- "10_Areas/Career/VISAs & Work Auth" 40_Resources/UMN/Links.md | sed 's/^/  /' | head -40; echo; ls "10_Areas/Career/VISAs & Work Auth" "10_Areas/Career/VISAs & Work Auth/ISSS" | wc -l`
 
 

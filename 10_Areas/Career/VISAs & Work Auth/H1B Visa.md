@@ -23,6 +23,8 @@ notes:
 ---
 # H1B Visa
 H-1B is where the F-1 track is supposed to end, and in 2026 it is also the status under the heaviest policy pressure. This note explains what H-1B is, how the cap and the registration lottery work, how an F-1 student gets there, and which 2026 measures are law, blocked, or only proposed. It is the hub for the H-1B notes. Read it when an employer says "we sponsor" and you need to know what that actually means.
+## In Plain Words
+The H-1B is the most common work visa for graduates in technology. Unlike OPT, which belongs to me, an H-1B belongs to a job. A company must ask for it, pay for it, and prove the job needs a college degree. Because more companies ask than there are visas, the government draws registrations at random each March, and since the 2027 fiscal year higher-paid jobs get more tickets. The ISSS advisor was careful: she is not an H-1B advisor, so employers and their immigration lawyers handle it. She did say students typically move to H-1B "the first year or the second year of their OPT," depending on the employer and the lottery. That corrects my earlier assumption that H-1B only comes after STEM OPT ([[ISSS October Meeting Brief]], [[H-1B Odds Plan]], [[US Immigration Rules Explained]]).
 ## What H-1B Is
 ==H-1B is employer-tied work status for a specialty occupation, so unlike F-1 it exists because of a job and an employer has to ask for it.== USCIS describes the classification as covering people who perform services in a specialty occupation, services of exceptional merit and ability on a Department of Defense cooperative research project, or as a fashion model of distinguished merit. For a software role, the specialty-occupation route is the relevant one.
 The employer files a petition on Form I-129 backed by a Labor Condition Application, and the petition must be supported by evidence of the beneficiary's education and of a bona fide position as of the start date. If the degree has not yet been awarded, the petitioner may submit a final transcript or a registrar's letter confirming all requirements are met.
@@ -31,6 +33,8 @@ The employer files a petition on Form I-129 backed by a Labor Condition Applicat
 - *The master's cap:* an additional 20,000 for beneficiaries with a master's or higher degree from a U.S. institution of higher education.
 - *Cap-exempt employers:* petitions filed by U.S. institutions of higher education are exempt, as are some roles in Guam and the Northern Mariana Islands filed before December 31, 2029. Cap-gap does not apply to cap-exempt petitions ([[Cap-Gap Extension]]).
 Together that is the 85,000 that DHS uses as the basis for its proposed new fee, and it is why the lottery exists. Employers must register each beneficiary electronically before filing, DHS selects registrations, and only selected registrations can file ([[H-1B Lottery]]).
+## Is There A Way Around The Lottery
+Yes, several, and they are laid out with evidence in [[H-1B Odds Plan]]. The main ones: a cap-exempt employer such as a university or research lab, which files without a draw. The O-1A visa for people with extraordinary ability, which has no cap. An L-1 transfer within a multinational company. A U.S. master's degree, which gives a second chance in the draw. And a higher wage level, which gives more lottery tickets.
 ## How An F-1 Student Gets There
 1. **Hold OPT status.** An employer must be willing to register me and later file, which makes the first OPT employer the first sponsor candidate ([[OPT Program]]).
 2. **Be registered in March.** The FY2027 window ran March 4 to 19, 2026, with a $215 fee per registration. The employer picks the wage level.
@@ -51,6 +55,12 @@ Together that is the 85,000 that DHS uses as the basis for its proposed new fee,
 ## The Direction Of Travel
 The September 18 proclamation and an executive order of the same date explain the government's goals in its own words: to reduce the use of the program by IT outsourcing and staffing firms and to protect recent graduates. It reports that registrations by the largest IT staffing firms fell 92 percent, from 24,946 to 2,055, and that registrations for beneficiaries with a U.S. master's degree rose from 45.1 to 66.1 percent of the total. The executive order directs agencies to weigh employer layoffs when processing petitions and tells the Department of Labor to review labor condition application data for enforcement ([[H-1B Rule Proposals]]).
 The direction is toward higher wages, advanced degrees, and fewer small or outsourcing sponsors. A bachelor's-level graduate hired by a mid-size employer at an entry wage level is in the group the weighting disfavors. That is my inference from the numbers, and it argues for knowing a sponsor's wage level before I join.
+## Words Used In This Note
+- *Specialty occupation:* a job that normally requires a bachelor's degree or higher in a specific field.
+- *Cap:* the yearly limit on new H-1B workers.
+- *Petition (Form I-129):* the employer's request for the visa.
+- *Labor Condition Application:* the employer's wage promise to the Department of Labor.
+- *Registration:* the entry in the March lottery.
 ## Open Questions
 - [ ] Learn which wage level each target employer would register an entry SWE hire at, since that sets the lottery weight 📅 2027-09-01
 - [ ] Track the Proclamation 11069 renewal recommendation due 30 days after the March 2027 lottery

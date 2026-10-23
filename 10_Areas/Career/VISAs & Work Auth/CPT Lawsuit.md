@@ -22,6 +22,8 @@ notes:
 ---
 # CPT Lawsuit
 Four higher-education groups sued the federal government on October 5, 2026 over the August CPT messages, and the first court date is November 6. This note records the case itself: who is suing, what each count argues, the 35-year history the plaintiffs rely on, and what the docket shows so far. Read it before the hearing, again after the government's response, and once more after any order.
+## In Plain Words
+Four organizations that represent universities asked a federal court to cancel the August CPT guidance. Their argument is that the government changed a 35-year-old reading of its own rule through an email, without telling the public or asking for comments, which the law requires for a real rule change. On November 6 a judge will hear whether to pause the guidance while the case continues. A pause would not end the case, and it would not by itself make my school start approving CPT again. The ISSS advisor said she does not know the outcome or what CPT will look like afterward, and she described everyone as "in the dark" ([[ISSS October Meeting Brief]], [[US Immigration Rules Explained]]).
 ## The Case At A Glance
 | Item | Detail |
 | --- | --- |
@@ -80,6 +82,13 @@ This section is analysis, not source text.
 - *Denied:* the guidance stays in force while the case continues, and schools remain where they are.
 - *Partial:* relief limited to plaintiffs' members would leave students elsewhere unprotected.
 - *No decision soon:* the docket shows no deadline for a ruling, so planning for summer 2027 on a hoped-for win is a gamble ([[Junior Year Internship Decision]]).
+## Words Used In This Note
+- *Plaintiff:* the side that sues. Here, the four associations.
+- *Preliminary injunction:* a court order, made early, that bars the government from enforcing something while the case continues.
+- *Stay under section 705:* a pause on the effective date of an agency action.
+- *Administrative Procedure Act:* the law that sets how agencies must make and explain rules.
+- *Arbitrary and capricious:* a legal term for an agency decision that is not reasoned or explained.
+- *Retroactive:* applied to things that happened before the rule.
 ## Open Questions
 - [ ] Read the government's October 28 response when it posts to see its defense of "required of all students"
 - [ ] Check the docket after November 6 for an order, a bench ruling, or a supplemental briefing schedule

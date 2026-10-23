@@ -23,6 +23,8 @@ notes:
 ---
 # STEM OPT Extension
 The STEM extension turns 12 months of post-graduation work authorization into 36, which is what buys three tries at the H-1B lottery instead of one. It is also the part of OPT the government is watching most closely, because it has grown far beyond what DHS forecast. Read this before choosing a first employer after graduation, since that employer shapes eligibility for the next 24 months.
+## In Plain Words
+After my first 12 months of OPT, a computer science degree lets me ask for 24 more months of work permission. That extension is what turns one try at the H-1B lottery into three. It is not automatic. It needs three things: my degree must be on the government's STEM list, my employer must be enrolled in E-Verify, and my employer and I must sign a training plan. Because of that, the first employer I choose after graduation matters for the next two years. ISSS runs it as a separate application with its own workshop, a $400 school fee for alumni, and about 3.5 to 4 months of USCIS waiting ([[OPT Playbook]], [[US Immigration Rules Explained]]).
 ## What It Is
 ==The STEM extension is 24 more months of work authorization for a graduate whose degree is on the DHS STEM list, available only to someone already on post-completion OPT with an employer that uses E-Verify and signs a training plan.== The regulation caps a student at two lifetime STEM extensions, and a second one must rest on a higher-level degree. The extension begins the day after the initial OPT ends and runs 24 months, regardless of the date the approval arrives.
 ## Eligibility
@@ -45,6 +47,13 @@ This is the answer to the job-specific question: a startup, a staffing firm, or 
 	A timely and proper filing, with the signed I-983 given to the DSO, extends the old work permit automatically for up to 180 days or until USCIS decides, whichever is first. This sits in the F-1 regulations and in USCIS's OPT page, and the October 8 OPT fee notice restates it, so I read the October 14 end of automatic renewals as separate ([[EAD and OPT Processing]]).
 3. **Unemployment**
 	An additional 60 days on top of the 90 on initial OPT, for 150 in all.
+## How UMN Runs The Application
+- *Timing:* I ask ISSS for the STEM I-20 up to 100 days before my current work permit expires. USCIS must receive my application no more than 90 days before it expires and no later than its expiry date. I cannot apply at the same time as the first OPT. ISSS says to wait until about 90 days remain.
+- *ISSS steps:* finish the online STEM workshop, upload the certificate, the signed training plan (Form I-983), and the receipt for the $400 one-time ISSS fee, then wait up to 10 business days for the I-20.
+- *USCIS papers:* the I-20 signed on page 1, my last work permit, the electronic I-94, my passport page, my UMN diploma and final transcript, and UMN's accreditation page. Online filing uses the same list.
+- *Waiting:* ISSS says about 3.5 to 4 months. A timely filing lets me keep working for up to 180 days or until USCIS decides, whichever is first.
+- *CIP code:* ISSS does not decide whether my major is STEM. The six-digit code next to my major on the I-20 is checked against the DHS list.
+- *Country hold:* ISSS's page warns that a January 2026 USCIS memo put pending applications from people born in or citizens of certain countries on hold. USCIS now marks that memo as no longer in effect because of court orders. I need to check whether my country is on the December 2025 list.
 ## Why DHS Is Looking Hard At It
 The OPT fee notice gives DHS's numbers. DHS projected in 2016 that STEM OPT would involve almost 50,000 students in year one and about 92,000 by year ten, which is 2026. By 2024 it counted 165,524 STEM OPT participants alongside 194,554 on other OPT. DHS calls that nearly double the 85,000 annual H-1B limit and says the extension has become a channel to avoid H-1B caps ([[OPT Fee Proposal]]).
 DHS also says employer attestations on the I-983 are not verified unless there is a site visit, and it describes site visits finding clusters of employers with identical websites and shared personnel. It quotes the presidential proclamation's unemployment rates for recent graduates, 6.1 percent for computer science majors and 7.5 percent for computer engineering, and argues OPT labor adds to that pressure. These are the government's claims, and the notice is a proposal.
@@ -55,6 +64,11 @@ DHS also says employer attestations on the I-983 are not verified unless there i
 - Computer science is on the list, so the extension should be available if the I-20 shows 11.0701 or another listed code.
 - The first post-graduation employer should be in E-Verify and willing to sign an I-983, or I must plan to change employers with a new I-983 within 10 days of starting.
 - The extension supplies the second and third H-1B registrations, which is my inference from the OPT and registration calendars ([[H-1B Lottery]], [[2028 Graduation Timeline]]).
+## Words Used In This Note
+- *E-Verify:* a free government system employers use to confirm workers may legally work.
+- *Form I-983:* the training plan I and my employer sign.
+- *STEM list:* the DHS list of majors that qualify, by CIP code.
+- *Site visit:* a visit by DHS to check the employer is providing the training it promised.
 ## Failure Modes
 - Using pre-completion OPT until the 12 months are gone ([[Pre-Completion OPT]]).
 - An employer not in E-Verify.

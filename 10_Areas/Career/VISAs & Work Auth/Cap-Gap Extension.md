@@ -23,6 +23,9 @@ notes:
 ---
 # Cap-Gap Extension
 The cap-gap rule is the bridge between the day OPT work authorization ends and the day H-1B work authorization begins, and without it a selected H-1B worker could be forced to stop working for months. This note captures USCIS's rules for it, the way it can fail, and how it interacts with the other 2026 changes. Read it before an employer files a cap-subject H-1B petition for me.
+## In Plain Words
+"Cap-gap" is the safety net between OPT and H-1B. An employer can only file an H-1B petition starting April 1, and the job can only start October 1. If my OPT runs out in between, I would have to stop working. The cap-gap rule automatically extends my F-1 status and my work permission until October 1 or until the H-1B starts, as long as the employer files on time. I do not apply for it. ISSS adds that I do not even need a special I-20 to keep working, but I can request one from MyISSS under the practical training tab if an employer wants proof ([[US Immigration Rules Explained]]).
+ISSS gives two examples. James's OPT ends June 25, which is after April 1, and his employer files on April 1 for an October 1 start, so he gets cap-gap. Pierre's OPT ends March 20, before April 1, so no petition can be filed in time, he gets no cap-gap, and he must stop working on March 20. The lesson is that the OPT end date matters: OPT that ends before April 1 cannot use cap-gap.
 ## Why The Gap Exists
 ==An employer cannot file a cap-subject H-1B petition more than six months before the work start, so the earliest filing is April 1 and the earliest start is October 1, which leaves five months in which an OPT permit may already have expired.== USCIS describes it this way: the cap-gap period starts when the student's status and employment authorization expire and, unless terminated, ends on April 1 of the fiscal year for which H-1B status is requested or at the validity start date of the approved petition, whichever is earlier.
 For a May 2028 graduate with an H-1B for fiscal year 2029, the petition would be filed from April 1, 2028, the start date would be October 1, 2028, and the cap-gap ceiling would be April 1, 2029 ([[2028 Graduation Timeline]]).
@@ -52,6 +55,12 @@ It also extends the dependents' stay. If the petition is approved, the extension
 - *Unemployment limits:* initial OPT allows 90 days, with 60 more under STEM OPT for 150 in all.
 - *The fixed-period rule:* DHS's transition guidance says cap-gap students need no extension of stay and remain in F-1 until approval or April 1 ([[Duration of Status Rule]]).
 - *The page is dated:* USCIS's cap-gap page was last updated January 17, 2025 and still uses duration of status wording, so re-check it if the fixed-period rule returns.
+## What It Means For My Plan
+For a May 2028 graduate, the first registration is in March 2028, while I am still a student. If I am selected, the petition is filed from April 1, 2028 and the H-1B starts October 1, 2028, which replaces my F-1 and any unused OPT. Cap-gap matters more in later years: a student whose OPT ends between April 1 and October 1 and whose employer files on time keeps working through the gap ([[H-1B Odds Plan]]).
+## Words Used In This Note
+- *Cap-subject:* an H-1B petition that counts against the yearly limit.
+- *Change of status:* switching from F-1 to H-1B without leaving the country.
+- *Grace period:* the 60 days to leave if a petition is denied.
 ## Open Questions
 - [ ] Ask ISSS how it documents cap-gap for students on OPT and what it needs from the employer 📅 2027-12-01
 - [ ] Re-read the cap-gap page before the March 2028 registration

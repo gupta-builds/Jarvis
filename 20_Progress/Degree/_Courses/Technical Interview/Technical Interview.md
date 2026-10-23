@@ -74,7 +74,7 @@ The captured session sequence differs from the generic sample table: captured Un
 | 3 | Recursion, whole-batch partitioning, linked-list interleaving, expression parsing | Queue simulation, stack/array conditions, two pointers, bracket edits, monotonic next-greater tasks | [[20_Progress/Degree/_Courses/Technical Interview/_Transcripts/Unit - 3 Problems Transcript\|Unit 3]] |
 | 4 | Python classes, objects and linked nodes | Binary-tree traversal, aggregates, expressions, leaves and equivalence | [[20_Progress/Degree/_Courses/Technical Interview/_Transcripts/Unit - 4 Problems Transcript\|Unit 4]] |
 | 5 | Graph representations, BFS/DFS, paths, components | Weighted path cost, connectivity, path reconstruction, prerequisite cycles, edge orientation, DAG paths | [[20_Progress/Degree/_Courses/Technical Interview/_Transcripts/Unit - 5 Problems Transcript\|Unit 5]] |
-The catalog identifies 99 prompt headings: 78 with substantive text and 21 title-only entries. These are captured entries across versions, not deduplicated unique problems or proof of individual attempts. See [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#Captured session catalog|the session catalog]].
+The catalog identifies 99 prompt headings: 78 with substantive text and 21 title-only entries. These are captured entries across versions, not deduplicated unique problems or proof of individual attempts. See [[Detailed Problems List#Captured session catalog|the session catalog]].
 ## Recorded progress
 | Measure | Evidence-based state on 2026-10-13 |
 |---|---|
@@ -89,10 +89,10 @@ The catalog identifies 99 prompt headings: 78 with substantive text and 21 title
 - [[20_Progress/Degree/_Courses/Technical Interview/Preparation & Sources|Personal syllabus and budget]]
 - [[20_Progress/Degree/_Courses/Technical Interview/DSA|Dated weekly execution map]]
 - [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041 Relation|Exact source-file and concept crosswalk]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List|Problem catalog]]
+- [[Detailed Problems List|Problem catalog]]
 - [[20_Progress/Degree/_Courses/Technical Interview/Problems Solver|Resource decisions and execution ledger]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Weekly Set|Current week]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/CSCI 4041 Board|Completed CSCI 4041 reference course]]
+- [[Weekly Set|Current week]]
+- [[CSCI 4041 Board|Completed CSCI 4041 reference course]]
 ## Open questions
 - [ ] The supplied [extra-resources Google Doc](https://docs.google.com/document/d/1Pr73gUvmz9wEkMH9fHmE-3DV8zegyTtfE87P3OdnLVo/edit?tab=t.0) could not be read through the browser on 2026-10-13. Provide an export or readable copy if its contents should extend this map; no unseen content is assumed.
 - [ ] Check the portal/welcome email for cohort dates, live deadlines, contacts, office hours and any policy overrides.

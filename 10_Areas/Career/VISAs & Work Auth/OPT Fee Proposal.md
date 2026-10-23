@@ -23,6 +23,9 @@ notes:
 ---
 # OPT Fee Proposal
 On October 8, 2026 ICE proposed charging schools $70,000 for a student's first OPT and $30,000 for each later one. It is the largest threat to the plan I am building, because I will ask for OPT in early 2028 and a final rule could be in force by then. This note captures the proposal from the Federal Register text: what it says, how DHS justifies it, the numbers it uses, what it admits, and how to comment. Read it before the November 9 comment deadline and whenever a final rule is announced.
+## In Plain Words
+The government has proposed a new charge for OPT. It would not be billed to me. The school would pay $70,000 the first time it recommends a student for any OPT and $30,000 for each later recommendation, and the school's international office could not even enter the recommendation until it was paid. The proposal does not say the school must absorb the cost, so UMN could pay it, charge it to students or employers, or stop recommending OPT.
+A "proposal" is not a rule yet. The ISSS advisor walked me through what happens next: there is a comment period that ends November 9, the government must read and answer the comments, and only then does it publish a final rule that usually starts about 60 days later. She does not expect fast action, because the end-of-duration-of-status rule took "almost a year." I checked: from proposal to final it took 323 days, while the weighted H-1B lottery rule took 96. Her advice was to focus on the application process and decide when I am applying ([[ISSS October Meeting Brief]], [[US Immigration Rules Explained]]).
 ## The Proposal At A Glance
 | Item | Detail |
 | --- | --- |
@@ -68,8 +71,23 @@ The notice calls the fee "a crucial first step" in "a graduated strategy" and sa
 - *Timing:* the 60-day delay means the earliest a final rule could bite is spring 2027, and my recommendation request falls in early 2028. Nothing is known about when or whether it is finalized.
 - *The sequence matters:* the notice itself prices pre-completion plus post-completion OPT at $100,000, against $70,000 for post-completion alone, and expects institutions to steer students to the latter. Adding a STEM extension makes $130,000 under the per-recommendation rule, my arithmetic ([[Pre-Completion OPT]]).
 - *The decider is ISSS:* UMN's choice to pay, pass on, or decline is the variable I cannot see ([[SEVP and DSOs]]).
+## When Could It Take Effect
+The two recent examples give a range, and they are analogies, not forecasts.
+### The Two Analogies
+| If it moves like | Final rule about | In force about |
+| --- | --- | --- |
+| The weighted H-1B lottery rule (96 days) | Jan 12, 2027 | Mar 13, 2027 |
+| The duration-of-status rule (323 days) | Aug 27, 2027 | Oct 26, 2027 |
+### What The Range Means
+Both examples land before the Jan 31, 2028 date when I could ask ISSS for my post-graduation OPT I-20, and the fast example lands before a March 2027 pre-completion request. The fee applies to recommendations dated on or after the effective date. So I plan as if the fee could apply, and I watch the rule rather than assume it will stall ([[2028 Graduation Timeline]]).
 ## How To Comment
 Comments are filed on regulations.gov under docket ICEB-2026-0100, must say which section they address and why, and must reach DHS by 11:59 PM Eastern on November 9. Emails and letters are not accepted as comments. Comments become public with whatever personal information is in them. Students can comment on the real effect on access to training and the school's ability to pay, which the notice invites.
+## Words Used In This Note
+- *Notice of proposed rulemaking:* the government's announcement of a rule it wants to make.
+- *Comment period:* the time when the public may write to the government about a proposal.
+- *Final rule:* the version that becomes law, with an effective date.
+- *Recommendation:* the school official's formal support for my OPT, entered in SEVIS.
+- *Pass-through:* the school billing its cost to students or employers.
 ## Open Questions
 - [ ] Decide whether to comment by November 9, and on which section 📅 2026-11-06
 - [ ] Ask ISSS whether UMN has said it will pay, pass on, or decline the fee if finalized

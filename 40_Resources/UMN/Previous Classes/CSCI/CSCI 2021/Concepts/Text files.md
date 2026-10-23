@@ -5,7 +5,7 @@ created: 2025-10-23
 updated: 2025-09-12
 area:
   - "[[C Language]]"
-  - "[[Week - 3]]"
+  - "[[20_Progress/Degree/CSCI 4061/Weekly/Week - 3]]"
   - "[[40_Resources/UMN/Previous Classes/CSCI 2033/Midterm - 1]]"
 tags:
   - "#class"

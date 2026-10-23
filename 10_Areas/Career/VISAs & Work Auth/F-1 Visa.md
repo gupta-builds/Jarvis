@@ -20,9 +20,15 @@ notes:
   - "[[CPT Program]]"
   - "[[OPT Program]]"
   - "[[Companies giving OPT & CPT]]"
+  - "[[US Immigration Rules Explained]]"
+  - "[[ISSS October Meeting Brief]]"
+  - "[[OPT Playbook]]"
 ---
 # F-1 Visa
 F-1 is the student status the whole track hangs from: CPT, OPT, STEM OPT, cap-gap, and finally H-1B are either exceptions carved out of it or exits from it. This note holds the rules of the status itself so the work-authorization notes can assume them. Read it first when another note says "maintain status" and you need to know what that costs.
+## In Plain Words
+F-1 is the category the U.S. puts international college students in. It says: you may be in the country because you are studying full-time at an approved school. It is not a job permit. Nothing about F-1 lets me take an off-campus job by itself.
+Three different things are often mixed up. The **visa** is a sticker in my passport from a consulate abroad, used to ask for entry. The **status** is the category I am in once admitted, F-1, which I keep by following the rules. **Work permission** is a separate permit that CPT or OPT provides. I can be in perfect F-1 status and still not be allowed to start an internship. That is exactly why my sophomore-year offer in March could not be used. [[US Immigration Rules Explained]] has the full beginner guide, including every acronym.
 ## What The Status Is
 ==F-1 status is granted for one purpose, a full course of study at a school certified by the Student and Exchange Visitor Program, so every right to work is an exception carved out of that purpose.== The statute describes a bona fide student with a residence abroad who enters "temporarily and solely for the purpose of pursuing" that course of study, as DHS restates it in the [[OPT Fee Proposal|OPT fee notice]]. That is the opposite design from H-1B, where the status exists because of a job and ends when the job does ([[H1B Visa]]).
 DHS leans on this purpose in its current rulemaking. The OPT fee notice says the F-1 visa "was never intended to provide a pathway to employment in the United States." That sentence is the government's position, not settled law, but it explains why each 2026 change tightens the employment exceptions rather than the study itself ([[Current News]]).
@@ -56,8 +62,15 @@ The fixed-period rule would replace this with an Admit Until Date of up to four 
 | Admission, Admit Until Date, and whether a returning student is admitted | CBP at the port of entry | Form I-94 |
 | School certification, broadcast messages, and what counts as a compliant DSO decision | SEVP, a program inside ICE | Broadcast messages |
 ## Where I Stand
-I am at the University of Minnesota Twin Cities, a junior in Fall 2026, with a computer science degree. The internship research notes already filter for a Spring 2028 graduation ([[Companies giving OPT & CPT]]), so every window here counts from a program end date in spring 2028. The exact date on the I-20 decides all of them, so confirm it with ISSS before trusting a calendar.
+I am at the University of Minnesota Twin Cities, a junior in Fall 2026, with a computer science degree. The internship research notes already filter for a Spring 2028 graduation ([[Companies giving OPT & CPT]]), so every window here counts from a program end date in spring 2028.
+The ISSS advisor explained what that date is. The dates on my first I-20 were only estimates. If I finish all degree requirements earlier, the end date shortens to the end of that semester. ISSS counts the end of the term as the date of degree completion, and UMN's official calendar puts the end of the Spring 2028 term at May 10, 2028 ([[2028 Graduation Timeline]], [[ISSS October Meeting Brief]]). She suggested a detailed planning talk at the start of my last semester, and ISSS offers drop-in hours, email, and appointments.
 Practical training requires one full academic year of full-time enrollment, which a junior has met on its face. Computer Science (CIP 11.0701) is on the DHS STEM Designated Degree Program List, but the code printed on the I-20 is what counts ([[STEM OPT Extension]]). The University of Minnesota is also a member of the Association of American Universities, one of the plaintiffs challenging the CPT guidance ([[CPT Lawsuit]]).
+## Words Used In This Note
+- *DSO:* a designated school official, the staff member at ISSS who signs my I-20.
+- *SEVIS:* the government database that tracks every F-1 student.
+- *I-94:* the record of my entry that shows how long I may stay.
+- *CIP code:* a six-digit code next to my major on the I-20.
+- *Duration of status:* being allowed to stay as long as I keep studying.
 ## Failure Modes
 - Working off campus without authorization, including unpaid or benefit-in-kind work. ISSS lists a free-rent caretaking job as employment that needs authorization.
 - Dropping below full-time without the DSO's approval first.

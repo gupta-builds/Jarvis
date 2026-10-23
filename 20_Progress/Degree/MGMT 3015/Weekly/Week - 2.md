@@ -28,7 +28,7 @@ next:
 # Lecture - 2 — Session 2: What Does It Take to Be an Entrepreneur (Mon 9/14)
 Source: real slide deck `2026 f3015 S2 What does it take to be an entrepreneurs Final.pptx` (16 slides), read in full 2026-09-21. Reading: Ch 1 & 2, per [[20_Progress/Degree/MGMT 3015/Textbook/Textbook Map|Textbook Map]].
 ## What you must be able to do
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 1 & 2]]
+- [[20_Progress/Degree/CSCI 4041/Textbook/Chapter - 1 & 2]]
 - Self-assess against the 10-statement entrepreneurial-mindset quiz and place your own score band honestly.
 - Name the five paradoxes Zahra uses to describe entrepreneurs and explain why each one is a real tension, not a contradiction to resolve.
 - Distinguish the four candidate explanations for "why some people are more entrepreneurial than others" (traits, resources, culture, cognitive biases, prior experience) instead of defaulting to "personality."
@@ -64,7 +64,7 @@ Answered with: networks (parents/family, role models, advisors, colleagues), geo
 Two open questions posed with no slide answer given: "Why do they do it?" and "What do they learn from experience?" — left as class-discussion prompts, not resolved in the deck itself.
 ## Textbook integration
 > [!IMPORTANT]
-> Main chapters: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 1 & 2]] (not yet written — blocked on the Gemini Notebook paste per [[Textbook Standard]]; prompt is ready in `Repetitive Things.md`)
+> Main chapters: [[20_Progress/Degree/CSCI 4041/Textbook/Chapter - 1 & 2]] (not yet written — blocked on the Gemini Notebook paste per [[Textbook Standard]]; prompt is ready in `Repetitive Things.md`)
 Chapter 2's own table of contents runs "Critical Factors for Starting a New Enterprise," "Evaluating Opportunities for New Businesses," "Determining Resource Needs and Acquiring Resources," "Profit Potential," and "Ingredients for a Successful New Business" — the textbook's structured version of today's nature/nurture factor list (resources, prior experience) and the "ingredients" framing maps directly onto today's paradoxes and environment sections. Chapter 1 covers the broader "Entrepreneurial Revolution" and "Causes of the Entrepreneurial Revolution" material that underlies why environment/context matters as much as individual traits.
 ## Takeaways (questions to resolve)
 - [ ] Answer the class's own open question: what specifically do serial entrepreneurs learn from a failed or exited venture that a first-timer doesn't have access to?
@@ -74,7 +74,7 @@ Chapter 2's own table of contents runs "Critical Factors for Starting a New Ente
 ==Entrepreneurs operate inside five real paradoxes at once — risk-taking and risk-averse, overconfident and humble, independent and reliant on others — and this tension, not a fixed personality profile, is what nature-vs-nurture research and the course's own environment factors are trying to explain.==
 *Mechanism:* If entrepreneurship were a single stable trait, the nature/nurture question would have a clean answer. Instead the slide gives five co-existing factors (traits, resources, culture, cognitive bias, prior experience) precisely because the paradoxes mean no one trait dominates — someone can be risk-tolerant by personality but risk-averse by environment (limited resources), and the outcome depends on which factor is load-bearing in their specific case.
 - Lecture example/scenario: the "Fix My Day" exercise puts the discovery stage into practice under exactly this tension — groups are told to "encourage wild ideas, the goal is to think creatively, not realistically (yet)," then immediately forced into a realistic 1-minute pitch, enacting the dreamer-vs-realist paradox live.
-- Textbook connection: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 1 & 2]] — Chapter 2's "Ingredients for a Successful New Business" is the book's structured answer to the same "why some succeed" question the nature/nurture slide poses informally.
+- Textbook connection: [[20_Progress/Degree/CSCI 4041/Textbook/Chapter - 1 & 2]] — Chapter 2's "Ingredients for a Successful New Business" is the book's structured answer to the same "why some succeed" question the nature/nurture slide poses informally.
 - Concept links: none yet (concepts out of scope this pass).
 > [!WARNING]
 > Don't read the mindset quiz's 0-4/5-7/8-10 bands as a real predictive instrument — the slide itself frames the lowest band as "entrepreneurship is a skill anyone can grow," explicitly refusing to gatekeep. Treating the score as diagnostic misses the point of the exercise.
@@ -90,7 +90,7 @@ Supportive entrepreneurial environment, per Session 2::Networks (family, role mo
 # Lecture - 3 — Session 3: The Entrepreneurial Personality (Wed 9/16)
 Source: real slide deck `2026 S3015 S3 Entrepreneurial Persoanlity.pptx` (25 slides), read in full 2026-09-21. Reading: Ch 2 continued, per [[20_Progress/Degree/MGMT 3015/Textbook/Textbook Map|Textbook Map]].
 ## What you must be able to do
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 1 & 2]]
+- [[20_Progress/Degree/CSCI 4041/Textbook/Chapter - 1 & 2]]
 - Take the 7-question personality quiz and correctly classify your own dominant type (Explorer, Architect, Connector, Steward) plus its named risk.
 - List the six named entrepreneurial attributes (determination, motivation drivers, energy, desire for financial success, need to achieve, independence, support network) and give one line on why each matters.
 - Explain why "necessary but insufficient" is the right way to describe entrepreneurial personality, not "sufficient on its own."
@@ -131,7 +131,7 @@ A successful entrepreneur needs a support network — the more positive support 
 Two open prompts with no slide answer: "What do these entrepreneurs have in common?" and "Are there negative attributes for entrepreneurial personality? If so, what?" — the second question is a real pivot, since every attribute up to this point was framed positively.
 ## Textbook integration
 > [!IMPORTANT]
-> Main chapters: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 1 & 2]] (not yet written — blocked on the Gemini Notebook paste per [[Textbook Standard]]; prompt is ready in `Repetitive Things.md`)
+> Main chapters: [[20_Progress/Degree/CSCI 4041/Textbook/Chapter - 1 & 2]] (not yet written — blocked on the Gemini Notebook paste per [[Textbook Standard]]; prompt is ready in `Repetitive Things.md`)
 This session's six named attributes (determination, motivation, energy, financial success, achievement, independence, support network) aren't broken out as their own subheading in Chapter 2's table of contents — the closest match is "Ingredients for a Successful New Business," which is likely where the book formalizes what the slides present as a bulleted list. The four motivation sub-factors (achievement, recognition, self-efficacy, locus of control) are named but undefined on the slide — this is exactly the kind of definitional gap the Gemini Notebook chapter note should close.
 ## Takeaways (questions to resolve)
 - [ ] Answer the closing question directly: what are the negative-side entrepreneurial attributes the deck never lists (overconfidence, disregard for others' time, tunnel vision)? The deck stops at positive traits only.
@@ -142,7 +142,7 @@ This session's six named attributes (determination, motivation, energy, financia
 ==Entrepreneurial personality is necessary but insufficient: the course names six real attributes (determination, motivation, energy, drive for financial success, need to achieve, independence, support network), but frames every one of them as a starting condition, not a guarantee.==
 *Mechanism:* The "necessary but insufficient" framing does real work — it explains why the course spends far more time later on process (opportunity evaluation, business models, financing) than on personality. Personality gets one session; execution gets the rest of the semester. The four-type quiz reinforces this by refusing to rank styles — Explorer, Architect, Connector, and Steward are all viable, each with a named failure mode, which only makes sense if personality is a starting style, not a success predictor.
 - Lecture example/scenario: the two Steve Jobs quotes are doing different jobs — the determination quote argues perseverance beats talent, the achievement quote argues purpose beats wealth. Together they push back against "wants financial success" being the deck's own primary framing two slides earlier — a real internal tension in the source, not resolved by the deck itself.
-- Textbook connection: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 1 & 2]] — "Ingredients for a Successful New Business" should be where the book gives the fuller, referenced version of these six attributes.
+- Textbook connection: [[20_Progress/Degree/CSCI 4041/Textbook/Chapter - 1 & 2]] — "Ingredients for a Successful New Business" should be where the book gives the fuller, referenced version of these six attributes.
 - Concept links: none yet (concepts out of scope this pass).
 > [!WARNING]
 > Don't treat the four-type quiz (Explorer/Architect/Connector/Steward) as a validated psychometric instrument — it's a seven-question classroom exercise with no cited source or reliability data, unlike the Granovetter weak-ties research that Session 4 cites by name. Use it as a self-reflection prompt, not a fact.

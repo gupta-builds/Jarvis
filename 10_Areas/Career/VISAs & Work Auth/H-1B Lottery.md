@@ -23,6 +23,8 @@ notes:
 ---
 # H-1B Lottery
 Getting an H-1B for a new graduate means first being drawn in a yearly lottery, and since the 2027 fiscal year that lottery gives more tickets to higher-paid jobs. This note covers the registration steps, the weighting, the official numbers, what a selected employer must prove, and what it all means for a 2028 graduate. Read it before talking about salary with any employer who might sponsor.
+## In Plain Words
+Every March, employers who want to hire a foreign worker on an H-1B enter that worker's name in a drawing. Only people whose names are drawn may then be petitioned for. The drawing is not equal anymore: a job paying at a higher wage tier puts the name in more times. I cannot enter myself, because my employer has to. So my part is to be a person an employer is willing to enter every year, at the highest tier the job allows. The full list of things I can influence is in [[H-1B Odds Plan]], and [[US Immigration Rules Explained]] defines the terms.
 ## How Registration Works
 ==The lottery draws people, not jobs, and since FY2027 a person whose offered wage falls in a higher wage level gets more entries in the draw.== An employer that wants a cap-subject H-1B for a beneficiary must first register that person electronically and pay a non-refundable fee, $215 for FY2027. USCIS then selects registrations, and only selected registrations can file a petition.
 - *Window:* the FY2027 registration period opened at noon Eastern on March 4, 2026 and closed at 5:00 PM Eastern on March 19. Selection was completed by March 31, and petitions could be filed from April 1.
@@ -63,12 +65,18 @@ FY2027 is the first weighted year. USCIS reports it reached both the regular cap
 - *Wage level is my lever:* the same job at the same company can sit in different levels depending on salary and the job's duties, so ask each sponsor which level it expects to register an entry-level software role at.
 - *The DOL proposal cuts the other way:* it would raise every level's floor, so a given salary could land in a lower level and carry fewer entries. That is my inference from the thresholds.
 - *More than one draw:* the STEM extension keeps me on OPT for two more cycles after the first, though each needs an employer willing to register ([[STEM OPT Extension]]).
-- *A master's degree* changes the odds in the reported numbers, but I have not researched the master's-cap mechanics in the weighted pool.
+- *A master's degree* gives a second chance: USCIS first draws from everyone, then draws more from the remaining master's-eligible people to fill the 20,000 slots, and DHS kept this two-stage process on purpose to give U.S. master's holders a higher chance ([[H-1B Odds Plan]]).
+- *My wage level* is set by the offer and the work city. In the Twin Cities for 2026-27, a software developer needs about $91,624 for level I, $110,926 for II, $130,208 for III, and $149,510 for IV. The table is in [[H-1B Odds Plan]].
 ## Failure Modes
 - An employer that never registers, since a registration cannot be filed for me by anyone else.
 - A mismatch between registration and petition, which can lead to rejection or denial.
 - An overstated wage level that the employer cannot prove.
 - Travel during a pending change of status, which risks abandonment and the $100,000 payment ([[Cap-Gap Extension]]).
+## Words Used In This Note
+- *Registration:* the employer's entry for one person in the lottery.
+- *Wage level:* tier I to IV, set by comparing the offered pay with local pay for the job.
+- *Selected:* drawn, so the employer may file a petition.
+- *Cap-subject:* counted against the yearly limit.
 ## Open Questions
 - [ ] Find the USCIS FY2027 registration and selection counts when posted, and replace the law firm figures
 - [ ] Ask target employers how many H-1B registrations they filed in March 2026 and at which levels 📅 2027-09-01

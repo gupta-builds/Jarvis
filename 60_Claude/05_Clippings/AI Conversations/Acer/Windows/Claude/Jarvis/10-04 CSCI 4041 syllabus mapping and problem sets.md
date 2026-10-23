@@ -563,7 +563,7 @@ tags:
 notes:
   - "[[DSA|DSA]]"
   - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041 Relation|CSCI 4041 Relation]]"
-  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Weekly Set|Weekly Set]]"
+  - [[Weekly Set|Weekly Set]]]"
   - "[[20_Progress/Degree/_Courses/Technical Interview/Problems Solver|Problems Solver]]"
 next: "Fill the Hard(3) and Interview(2) columns every week from liquidslr and coding-interview-university; fill remaining empty Easy/Medium cells from Grind75 filtered to that week's topic"
 ---
@@ -576,8 +576,8 @@ next: "Fill the Hard(3) and Interview(2) columns every week from liquidslr and c
 - "Resource pool" per week names the specific filter to apply, not a new source.
 - Day 1–7 slots take one problem link + name each once solved; the `DSA Common To Share All` folder is fully dropped from this build — none of its files are used.
 ## Week 1 & 2 — Introduction, Insertion Sort, Merge Sort
-- Vault: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 1 & 2|Week - 1 & 2]]
-- Textbook: [[Chapter - 1 & 2]]
+- Vault:[[20_Progress/Degree/CSCI 4041/Weekly/Week - 1 & 2|Week - 1 & 2]]]
+- Textbook:[[20_Progress/Degree/MGMT 3015/Textbook/Chapter - 1 & 2]]]
 - Concept: [[Sorting Algorithms#Definition|Sorting Algorithms]]
 - Resource pool: Grind75 filtered to "Sorting" / warm-up arrays — no Pareto-set coverage this week.
 | Day | LeetCode Hard (3) | LeetCode Easy (1) | LeetCode Medium (1) | Interview-Based (2) | Solved? |
@@ -590,8 +590,8 @@ next: "Fill the Hard(3) and Interview(2) columns every week from liquidslr and c
 | Day 6 | | | | | |
 | Day 7 | | | | | |
 ## Week 3 — Asymptotic Analysis and Divide-and-Conquer
-- Vault: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 3|Week - 3]]
-- Textbook: [[Chapter - 3 & 4]]
+- Vault:[[20_Progress/Degree/CSCI 4041/Weekly/Week - 3|Week - 3]]]
+- Textbook:[[20_Progress/Degree/MGMT 3015/Textbook/Chapter - 3 & 4]]]
 - Concept: [[Time Complexity#Definition|Time Complexity]], [[Divide and Conquer#Definition|Divide and Conquer]]
 - Resource pool: Pareto set's Binary Search + Sliding Window blocks (below); remaining cells from Grind75 filtered to "Binary Search" / "Sliding Window."
 | Day | LeetCode Hard (3) | LeetCode Easy (1) | LeetCode Medium (1) | Interview-Based (2) | Solved? |
@@ -604,7 +604,7 @@ next: "Fill the Hard(3) and Interview(2) columns every week from liquidslr and c
 | Day 6 | | | | | |
 | Day 7 | | | | | |
 ## Week 4 — Quicksort and Elementary Data Structures
-- Vault: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 4|Week - 4]]
+- Vault:[[20_Progress/Degree/CSCI 4041/Weekly/Week - 4|Week - 4]]]
 - Textbook: [[Chapter - 7 & 10]]
 - Concept: [[QuickSort#Definition|QuickSort]], [[Elementary Data Structures#Definition|Elementary Data Structures]]
 - Resource pool: Pareto set's Two Pointers + Stack + Linked List blocks (below, 13 problems — slightly over the 14-slot week capacity, one medium overflows); remaining cells from Grind75 filtered to "Two Pointers" / "Stack" / "Linked List."
@@ -619,7 +619,7 @@ next: "Fill the Hard(3) and Interview(2) columns every week from liquidslr and c
 | Day 7 | | | 19. Remove Nth Node From End of List | | |
 - Overflow (no day slot left): 146. LRU Cache (Medium) — work in whenever this week's slots are solved early.
 ## Week 5 — Heaps and Binary Search Trees
-- Vault: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 5|Week - 5]]
+- Vault:[[20_Progress/Degree/CSCI 4041/Weekly/Week - 5|Week - 5]]]
 - Textbook: [[Chapter - 6 & 12]]
 - Concept: [[HeapSort#Definition|HeapSort]], [[Elementary Data Structures#Definition|Elementary Data Structures]]
 - Resource pool: Pareto set's Trees + Heap/Priority Queue blocks (below, 15 problems — one easy overflows); remaining cells from Grind75 filtered to "Trees" / "Heap."
@@ -634,8 +634,8 @@ next: "Fill the Hard(3) and Interview(2) columns every week from liquidslr and c
 | Day 7 | | 703. Kth Largest Element in a Stream | 215. Kth Largest Element in an Array | | |
 - Overflow (no day slot left): 1046. Last Stone Weight (Easy) — work in whenever this week's slots are solved early.
 ## Week 6 — Rotations, AVL, and B-Trees
-- Vault: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 6|Week - 6]]
-- Textbook: [[Chapter - 13]], [[Chapter - 18]]
+- Vault:[[20_Progress/Degree/CSCI 4041/Weekly/Week - 6|Week - 6]]]
+- Textbook:[[40_Resources/UMN/Previous Classes/Minor/MGMT 3001/Textbook/Chapter - 13]]], [[Chapter - 18]]
 - Concept: [[AVL Trees#Definition|AVL Trees]], [[B-Trees#Definition|B-Trees]]
 - Resource pool: Grind75 filtered to "Trees" (balanced-tree-adjacent problems) — no Pareto-set coverage this week.
 | Day | LeetCode Hard (3) | LeetCode Easy (1) | LeetCode Medium (1) | Interview-Based (2) | Solved? |
@@ -648,8 +648,8 @@ next: "Fill the Hard(3) and Interview(2) columns every week from liquidslr and c
 | Day 6 | | | | | |
 | Day 7 | | | | | |
 ## Week 7 — Red-Black Trees and AVL Project
-- Vault: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 7|Week - 7]]
-- Textbook: [[Chapter - 13]]
+- Vault:[[20_Progress/Degree/CSCI 4041/Weekly/Week - 7|Week - 7]]]
+- Textbook:[[40_Resources/UMN/Previous Classes/Minor/MGMT 3001/Textbook/Chapter - 13]]]
 - Concept: [[AVL Trees#Definition|AVL Trees]]
 - Resource pool: Grind75 filtered to "Trees" — no Pareto-set coverage this week.
 | Day | LeetCode Hard (3) | LeetCode Easy (1) | LeetCode Medium (1) | Interview-Based (2) | Solved? |
@@ -664,8 +664,8 @@ next: "Fill the Hard(3) and Interview(2) columns every week from liquidslr and c
 ## Spring Break (Not Counted in Vault Weeks)
 - Review weakest topics from Weeks 1–7; redo 2–3 prior problems from memory. No new day-slots.
 ## Week 8 — Hash Maps
-- Vault: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 8|Week - 8]]
-- Textbook: [[Chapter - 11]]
+- Vault:[[20_Progress/Degree/CSCI 4041/Weekly/Week - 8|Week - 8]]]
+- Textbook:[[40_Resources/UMN/Previous Classes/Minor/MGMT 3001/Textbook/Chapter - 11]]]
 - Concept: [[Hashing#Definition|Hashing]]
 - Resource pool: Pareto set's Arrays & Hashing block (below, 8 problems); remaining cells from Grind75 filtered to "Hashing."
 | Day | LeetCode Hard (3) | LeetCode Easy (1) | LeetCode Medium (1) | Interview-Based (2) | Solved? |
@@ -678,8 +678,8 @@ next: "Fill the Hard(3) and Interview(2) columns every week from liquidslr and c
 | Day 6 | | | | | |
 | Day 7 | | | | | |
 ## Week 9 — Dynamic Programming
-- Vault: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 9|Week - 9]]
-- Textbook: [[Chapter - 14]]
+- Vault:[[20_Progress/Degree/CSCI 4041/Weekly/Week - 9|Week - 9]]]
+- Textbook:[[40_Resources/UMN/Previous Classes/Minor/MGMT 3001/Textbook/Chapter - 14]]]
 - Concept: [[Dynamic Programming#Definition|Dynamic Programming]]
 - Resource pool: Grind75 filtered to "Dynamic Programming" — no Pareto-set coverage this week (the 49-question set stops before DP; it mirrors NeetCode's roadmap only through Graphs).
 | Day | LeetCode Hard (3) | LeetCode Easy (1) | LeetCode Medium (1) | Interview-Based (2) | Solved? |
@@ -692,8 +692,8 @@ next: "Fill the Hard(3) and Interview(2) columns every week from liquidslr and c
 | Day 6 | | | | | |
 | Day 7 | | | | | |
 ## Week 10 — Greedy Algorithms and Huffman Coding
-- Vault: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 10|Week - 10]]
-- Textbook: [[Chapter - 15]]
+- Vault:[[20_Progress/Degree/CSCI 4041/Weekly/Week - 10|Week - 10]]]
+- Textbook:[[20_Progress/Degree/CSCI 4061/Textbook/Chapter - 15]]]
 - Concept: [[Greedy Algorithms#Definition|Greedy Algorithms]]
 - Resource pool: Grind75 filtered to "Greedy" — no Pareto-set coverage this week.
 | Day | LeetCode Hard (3) | LeetCode Easy (1) | LeetCode Medium (1) | Interview-Based (2) | Solved? |
@@ -706,7 +706,7 @@ next: "Fill the Hard(3) and Interview(2) columns every week from liquidslr and c
 | Day 6 | | | | | |
 | Day 7 | | | | | |
 ## Week 11 — Graphs, BFS, and DFS
-- Vault: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 11|Week - 11]]
+- Vault:[[20_Progress/Degree/CSCI 4041/Weekly/Week - 11|Week - 11]]]
 - Textbook: [[Chapter - 20]]
 - Concept: [[Graph Algorithms#Definition|Graph Algorithms]]
 - Resource pool: Pareto set's Graphs block, grid/basic-traversal half (below, 5 problems, all medium); remaining cells from Grind75 filtered to "Graphs."
@@ -720,7 +720,7 @@ next: "Fill the Hard(3) and Interview(2) columns every week from liquidslr and c
 | Day 6 | | | | | |
 | Day 7 | | | | | |
 ## Week 12 — Topological Sort, SCC, and MST
-- Vault: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 12|Week - 12]]
+- Vault:[[20_Progress/Degree/CSCI 4041/Weekly/Week - 12|Week - 12]]]
 - Textbook: [[Chapter - 20]], [[Chapter - 21]]
 - Concept: [[Graph Algorithms#Definition|Graph Algorithms]], [[Minimum Spanning Trees#Definition|Minimum Spanning Trees]]
 - Resource pool: Pareto set's Graphs block, topological-sort half (below, 2 problems); remaining cells from Grind75 filtered to "Graphs" / "Advanced Graphs."
@@ -734,7 +734,7 @@ next: "Fill the Hard(3) and Interview(2) columns every week from liquidslr and c
 | Day 6 | | | | | |
 | Day 7 | | | | | |
 ## Week 13 — Shortest Paths (Single-Source and All-Pairs)
-- Vault: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 13|Week - 13]]
+- Vault:[[20_Progress/Degree/CSCI 4041/Weekly/Week - 13|Week - 13]]]
 - Textbook: [[Chapter - 22]], [[Chapter - 23]]
 - Concept: [[Shortest Paths#Definition|Shortest Paths]]
 - Resource pool: Grind75 filtered to "Graphs" / "Advanced Graphs" — no Pareto-set coverage this week.
@@ -748,7 +748,7 @@ next: "Fill the Hard(3) and Interview(2) columns every week from liquidslr and c
 | Day 6 | | | | | |
 | Day 7 | | | | | |
 ## Week 14 — Maximum Flow
-- Vault: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 14|Week - 14]]
+- Vault:[[20_Progress/Degree/CSCI 4041/Weekly/Week - 14|Week - 14]]]
 - Textbook: [[Chapter - 24]]
 - Concept: [[Maximum Flow#Definition|Maximum Flow]]
 - Resource pool: Grind75 filtered to "Advanced Graphs" — no Pareto-set coverage this week; this topic is past what TIP103's own nine syllabus topics ask for per [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041 Relation|CSCI 4041 Relation]].

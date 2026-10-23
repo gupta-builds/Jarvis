@@ -25,6 +25,7 @@ Good/All college resources: [**Collegiate life, SUA, and activities**](http://ad
 [UMN Food events]( https://calendar.google.com/calendar/embed?src=c_499m0285d5qsut8katvlq7so4k%40group.calendar.google.com&ctz=America%2FChicago)
 [Career Services Administration | University of Minnesota](https://career.umn.edu/)
 [Career Pathway](https://cseumn.pathwayu.com/journey)
+[ISSS: Basics of Pre-Completion OPT](https://isss.umn.edu/fstudents/employment/opt/pre-completion-opt): eligibility, hours, how much OPT time it uses up, and the 100-day request window. Part of [[VISA Plan]].
 
 [Department of Computer Science & Engineering](https://cse.umn.edu/cs)
 

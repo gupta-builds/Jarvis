@@ -19,11 +19,11 @@ notes:
 # Technical Interview Workflow
 Use [[20_Progress/Degree/_Courses/Technical Interview/Technical Interview|Technical Interview]] for verified Direct-to-Student syllabus facts and course evidence. Use [[20_Progress/Degree/_Courses/Technical Interview/Preparation & Sources|Preparation & Sources]] for the personal October 12-December 28 curriculum and confirmed effort budget.
 ## Read and route
-1. Read the current [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Weekly Set|Weekly Set]] and [[20_Progress/Degree/_Courses/Technical Interview/Problems Solver#Execution ledger|execution ledger]].
+1. Read the current [[Weekly Set|Weekly Set]] and [[20_Progress/Degree/_Courses/Technical Interview/Problems Solver#Execution ledger|execution ledger]].
 2. Use [[20_Progress/Degree/_Courses/Technical Interview/DSA|DSA]] for dated files and exact assignments. Personal week numbers differ from CSCI lecture folders, captured sessions and HackerRank assessment units.
 3. Use [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041 Relation|CSCI 4041 Relation]] for exact source-file matches and direct/adjacent coverage.
-4. Use [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List|Detailed Problems List]] for checked statements, fit grades, prerequisites, dates and task IDs.
-5. Follow [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/How to Solve Problems|How to Solve Problems]] and log actual results.
+4. Use [[Detailed Problems List|Detailed Problems List]] for checked statements, fit grades, prerequisites, dates and task IDs.
+5. Follow [[How to Solve Problems|How to Solve Problems]] and log actual results.
 ## Captures and completion
 Units 1-5 transcripts are landed; 99 headings include 78 substantive bodies and 21 held title-only alternate entries. Keep raw captures unchanged. Units 1-4 session solving and Homework 1-3 completion are user-reported; Unit 5 completion is unknown. Independent execution is 0 at the build baseline. Neither transcript landing nor a populated schedule proves independent solving.
 ## Course requirements

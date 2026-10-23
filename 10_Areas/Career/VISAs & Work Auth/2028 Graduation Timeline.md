@@ -15,58 +15,75 @@ area:
   - career
 notes:
   - "[[VISA Plan]]"
+  - "[[OPT Playbook]]"
   - "[[F-1 Visa]]"
   - "[[OPT Program]]"
   - "[[STEM OPT Extension]]"
   - "[[EAD and OPT Processing]]"
+  - "[[H-1B Odds Plan]]"
   - "[[H-1B Lottery]]"
   - "[[Cap-Gap Extension]]"
   - "[[Duration of Status Rule]]"
   - "[[OPT Fee Proposal]]"
 ---
 # 2028 Graduation Timeline
-This is the dated route from now to an H-1B start for a student who finishes the degree in spring 2028, built from the rules in force on 2026-10-23. I need it because every OPT window counts from the program end date and the H-1B calendar is fixed by the government, so the order of steps is not negotiable even when the details are. Read it each semester and re-check each row against its source before acting.
+This is the dated route from now to an H-1B start for a student who finishes in spring 2028. Every OPT window counts from my program end date, and the H-1B calendar is fixed by the government, so the order of steps cannot change even when details do. Read it each semester, and re-check each row against its source before acting.
 > [!NOTE]
-> Dates assume a May 2028 program end date and the pre-fixed-period rules, with 60-day OPT windows. Offsets are approximate until ISSS confirms the exact end date on the I-20. Anything marked forecast is a pattern from earlier years, not an announcement.
+> The program end date is the **last day of the term**, which UMN's official 2027-28 calendar sets at **Wednesday, May 10, 2028**. ISSS's own Fall 2026 example (term ends Dec 23, 2026, so its dates are Sept 14, Sept 24, and Feb 21) matches the same arithmetic. The advisor said the I-20 dates are only estimates and the real end date is the end of the semester in which all requirements are finished. Dates assume the rules in force today, with 60-day OPT windows.
 ## The Route By Date
-| When | Step | Rule | Where it is explained |
+| When | Step | Why that date | Where |
 | --- | --- | --- | --- |
-| Now to Dec 2026 | Learn the program end date and CIP code on the I-20; ask ISSS the CPT and fee questions | Dates drive every window | [[F-1 Visa]] |
-| Jan to Feb 2027 | Decide the summer 2027 route and, if any, line up an employer | Pre-completion OPT filing opens 90 days before a start | [[Junior Year Internship Decision]] |
-| Mar 2027 | FY2028 H-1B registration happens (forecast); not for me, but it shows the weighting in practice. Proclamation renewal recommendation due 30 days after the lottery | Registration ran Mar 4 to 19 in 2026 | [[H-1B Lottery]] |
-| Mar 18, 2027 | Cutoff written into the fixed-period rule for filing OPT without an extension of stay, if the rule returns | Date fixed in the rule text | [[Duration of Status Rule]] |
-| Summer 2027 | Authorized work only, by on-campus work, CPT if restored, or pre-completion OPT if chosen | Each route has a different gate | [[F-1 Employment Options]] |
-| Fall 2027 | First recruiting cycle for full-time roles starting after graduation; ask about E-Verify and wage level | STEM extension needs an E-Verify employer | [[STEM OPT Extension]] |
-| About Feb 2028 | Request the OPT recommendation (UMN: 100 days before completion). The USCIS window opens 90 days before the end date | File within 30 days of the DSO entry | [[OPT Program]] |
-| Mar 2028 | FY2029 H-1B registration (forecast). The employer registers me at a wage level | $215 per registration in 2026 | [[H-1B Lottery]] |
-| Apr 1, 2028 | Earliest cap-subject H-1B petition filing, with a degree evidence rule | Filing window at least 90 days | [[H-1B Lottery]] |
-| May 2028 | Program ends. A 60-day period to leave or begin OPT starts | 8 CFR 214.2(f)(5)(iv) | [[F-1 Visa]] |
-| By about July 2028 | Last day to file OPT and last requested start | 60 days after the end date | [[EAD and OPT Processing]] |
-| Oct 1, 2028 | Earliest H-1B start for a selected petition | Cap-gap bridges OPT to this date | [[Cap-Gap Extension]] |
-| By about July 2029 | Initial OPT must be used within 14 months of the end date | STEM extension is exempt | [[EAD and OPT Processing]] |
-| Up to 90 days before OPT ends | File for the STEM extension | Needs an I-983 and E-Verify employer | [[STEM OPT Extension]] |
-| Mar 2029 and Mar 2030 | Later H-1B registrations, if I am still on OPT and an employer registers me | My inference | [[H-1B Lottery]] |
+| Now to Oct 30, 2026 | Email ISSS the open questions and confirm the CIP code on my I-20 | The STEM extension depends on it | [[ISSS October Meeting Brief]] |
+| Early 2027 | Decide the summer 2027 route | Pre-completion OPT needs a written offer and a March start | [[Junior Year Internship Decision]] |
+| Mar 6 to Mar 22, 2027 | If I use pre-completion OPT for a mid-June start: ask ISSS (Mar 8), file with USCIS (about Mar 22), decision with premium by about May 3 | 100 and 90 days before a June 14 start | [[Pre-Completion OPT]] |
+| Mar 2027 | FY2028 H-1B registration happens (forecast). Not mine, but it shows how the weighting plays out. The report on renewing the $100,000 payment is due 30 days after the draw | Registration ran Mar 4 to 19 in 2026 | [[H-1B Lottery]] |
+| Mar 18, 2027 | The date in the fixed-end-date rule after which OPT filers need an extension application, if that rule returns | Fixed in the rule's text | [[Duration of Status Rule]] |
+| Summer 2027 | Authorized work only | Each route has its own gate | [[F-1 Employment Options]] |
+| Sept 21, 2027 | The $100,000 payment proclamation expires unless renewed | Proclamation text | [[H-1B 100K Payment]] |
+| Fall 2027 | Recruit for full-time jobs. Ask each employer about E-Verify, training plans, H-1B registration, and wage level | The employer shapes the STEM extension and the lottery | [[H-1B Odds Plan]] |
+| By Dec 15, 2027 | Finish the online OPT workshop | The ISSS request form requires it | [[OPT Playbook]] |
+| Jan 15, 2028 | Meet my academic advisor to confirm the end date. Classes begin Jan 18 | The advisor said to be ready about four months ahead | [[OPT Playbook]] |
+| **Mon Jan 31, 2028** | Ask ISSS for the OPT I-20 | 100 days before May 10 | [[OPT Program]] |
+| **Thu Feb 10, 2028** | Earliest day USCIS can receive my application | 90 days before May 10 | [[OPT Program]] |
+| About Feb 14, 2028 | File as soon as the I-20 arrives | ISSS takes up to 10 business days | [[EAD and OPT Processing]] |
+| Mar 2028 | H-1B registration (forecast). The employer registers me at a wage level | FY2027 ran Mar 4 to 19 | [[H-1B Lottery]] |
+| About Mar 27, 2028 | Premium-processing decision, at the latest | 30 business days after Feb 14 | [[EAD and OPT Processing]] |
+| Apr 1, 2028 | Earliest H-1B petition if selected | Filing window is at least 90 days | [[H-1B Lottery]] |
+| **Wed May 10, 2028** | Program end date | End of term | [[F-1 Visa]] |
+| Sun Jul 9, 2028 | Last day USCIS can receive an OPT application | 60 days after May 10 | [[OPT Program]] |
+| About Jul 14, 2028 | When a normal 5-month wait ends | 5 months after Feb 14 | [[EAD and OPT Processing]] |
+| Oct 1, 2028 | Earliest H-1B start | Start of the government's fiscal year | [[Cap-Gap Extension]] |
+| Mar 31 and Apr 10, 2029 | STEM request and filing open, if my card ends July 9, 2029 | 100 and 90 days before | [[STEM OPT Extension]] |
+| Tue Jul 10, 2029 | Outer limit for using the initial 12 months | 14 months after May 10, 2028 | [[EAD and OPT Processing]] |
+| Mar 2029 and Mar 2030 | Later H-1B registrations, if I am still on OPT and an employer registers me | My reading of the calendar | [[H-1B Lottery]] |
+## What The Dates Teach
+==The deadline that matters most is January 31 to February 14, 2028, because everything after it, a job start, a work permit, and cap-gap, depends on filing on the first possible day.==
+- *Start date:* with the normal wait, the card arrives around mid-July, about two months after graduation. With premium processing it arrives by late March. A job that wants me in June needs premium or an offer with a flexible start.
+- *Early finish:* if I finish everything by December 23, 2027, my end date moves to that day and the ISSS request opens on September 14, 2027. I would need to ask ISSS before deciding.
+- *H-1B timing:* the advisor said students move to H-1B in the first or second OPT year, depending on the employer and the lottery. The first registration is in March 2028, before I graduate ([[H-1B Odds Plan]]).
 ## The Branches
-==The route has four forks, each decided by something outside my control: the CPT ruling, the OPT fee, the fixed-period rule, and the proclamation's renewal.==
-1. **The OPT fee is finalized or it is not**
-	If it is finalized before the recommendation date, my school must pay $70,000 before the DSO can enter the recommendation, and may pass the cost on. If not, nothing changes. Either way it hits the recommendation, not the filing ([[OPT Fee Proposal]]).
-2. **The fixed-period rule returns or it does not**
-	If it does, the exemption date of March 18, 2027 will have passed by my filing, so I should expect an extension-of-stay application with OPT, 30-day windows, and a 30-day departure period. If it does not, the 60-day rules hold ([[Duration of Status Rule]]).
-3. **The proclamation is renewed in September 2027 or it lapses**
-	An in-country change-of-status petition is not covered either way, so this fork affects employers' willingness more than my petition ([[H-1B 100K Payment]]).
-4. **The CPT guidance survives or does not**
-	It decides the summer 2027 route and has no direct effect on the 2028 steps, except that pre-completion OPT would consume months and trigger the fee early ([[CPT Lawsuit]]).
-## Job-Specific Constraints
-- *OPT job:* directly related to the major, 20 or more hours a week, and unemployment capped at 90 days on initial OPT. The job does not have to exist before the recommendation.
-- *STEM extension job:* an employer in E-Verify that signs a training plan and reports departures within five business days. Ask in the interview.
-- *H-1B job:* an employer that registers me, picks the wage level, and files a cap-subject petition with a change of status. A cap-exempt employer, such as a university, files outside the lottery but gets no cap-gap.
-- *Screening:* a posting that says it will not sponsor visas means no H-1B, not no OPT, as the internship pipeline already assumes ([[Companies giving OPT & CPT]]).
-- *Sponsor quality:* the proclamation and executive order target IT staffing and outsourcing firms, and DHS says site visits found shell employers. A thinly documented sponsor is a risk to the STEM extension and to petition approval.
+1. **The OPT fee is finalized, or not**
+	If a final rule takes effect before my recommendation date, my school must pay $70,000 before it can enter the recommendation, and it may pass the cost on. The advisor said ISSS does not know the timing. The two recent comparisons (96 and 323 days from proposal to final rule) put an effective date between about March and October 2027 ([[OPT Fee Proposal]]).
+2. **The fixed-end-date rule returns, or not**
+	If it does, the March 18, 2027 exemption will already have passed, so I should expect an extension-of-stay application with OPT, 30-day windows, and a 30-day departure period ([[Duration of Status Rule]]).
+3. **CPT is restored, or not**
+	It decides the summer 2027 route. It does not change the 2028 steps, except that pre-completion OPT would use months and trigger the fee early ([[CPT Lawsuit]]).
+4. **The proclamation is renewed in September 2027, or lapses**
+	An in-country change of status is not covered either way ([[H-1B 100K Payment]]).
+## Job-Specific Rules
+- *OPT job:* directly related to the major, at least 20 hours a week, with at most 90 days of unemployment. The job does not have to exist before the recommendation.
+- *STEM extension job:* the employer must use E-Verify, sign a training plan, report a departure within five business days, and keep the job at 20 hours or more.
+- *H-1B job:* the employer must register me, state the wage level, and file a cap-subject petition. A cap-exempt employer, such as a university or research lab, files with no lottery but gets no cap-gap.
+- *Screening postings:* "no sponsorship" means no H-1B, not no OPT ([[Companies giving OPT & CPT]]).
+## Words Used In This Note
+- *Program end date:* the end of the term in which I finish all requirements.
+- *Cap-gap:* an automatic extension that keeps me working between OPT and H-1B.
+- *Registration:* the employer's entry into the H-1B lottery.
 ## Open Questions
-- [ ] Confirm the exact program end date, so each offset becomes a real date 📅 2026-10-30
+- [ ] Confirm the end date and CIP code on my I-20 with ISSS 📅 2026-10-30
 - [ ] Re-derive every row of this table in January 2028 from the then-current sources
 ## Sources
-- [USCIS, OPT](https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-opt-for-f-1-students), [Form I-765](https://www.uscis.gov/i-765), [cap-gap](https://www.uscis.gov/working-in-the-united-states/temporary-workers/h-1b-specialty-occupations/extension-of-post-completion-optional-practical-training-opt-and-f-1-status-for-eligible-students), [H-1B cap season](https://www.uscis.gov/working-in-the-united-states/temporary-workers/h-1b-specialty-occupations/h-1b-cap-season).
-- [8 CFR 214.2(f), version dated July 1, 2026](https://www.ecfr.gov/on/2026-07-01/title-8/chapter-I/subchapter-B/part-214/section-214.2).
-- [Federal Register, duration of status rule](https://www.federalregister.gov/documents/2026/07/17/2026-14439/establishing-a-fixed-time-period-of-admission-and-an-extension-of-stay-procedure-for-nonimmigrant): the March 18, 2027 date.
-- [ISSS OPT pages](https://isss.umn.edu/fstudents/employment/opt/basics): the 100-day recommendation window.
+- [UMN 2027-28 Twin Cities calendar](https://asr.umn.edu/2027-28-twin-cities-and-rochester-calendar): May 10, 2028.
+- [ISSS applying for OPT](https://isss.umn.edu/fstudents/employment/opt/apply): the key-dates formula and the 10-day I-20.
+- [USCIS OPT](https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-opt-for-f-1-students), [H-1B cap season](https://www.uscis.gov/working-in-the-united-states/temporary-workers/h-1b-specialty-occupations/h-1b-cap-season), and [cap-gap](https://www.uscis.gov/working-in-the-united-states/temporary-workers/h-1b-specialty-occupations/extension-of-post-completion-optional-practical-training-opt-and-f-1-status-for-eligible-students).
+- [[October Meeting Transcript]].

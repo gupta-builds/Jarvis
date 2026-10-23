@@ -7,14 +7,14 @@ created: 2026-01-22
 topics:
   - "[[CSCI 4041 Board]]"
   - "[[40_Resources/CS/Links|Links]]"
-  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Introduction to Algorithms]]"
+  - "[[20_Progress/Degree/CSCI 4041/Concepts/Introduction to Algorithms]]"
 related:
   - "[[UMN Board]]"
 updated: 2026-10-13
-next: "Start October 13 with Unit 1-2 source review and LC217/LC242; record actual execution in Problems Solver"
+next: Start October 13 with Unit 1-2 source review and LC217/LC242; record actual execution in Problems Solver
 ---
 # DSA - Dated weekly execution
-This is the execution map for October 12-December 28, 2026. Each week lists the exact study files and practice IDs; [[20_Progress/Degree/_Courses/Technical Interview/Preparation & Sources|the personal syllabus]] owns learning requirements, [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041 Relation|the relation map]] owns file provenance, and [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List|the catalog]] owns problem contracts and fit grades.
+This is the execution map for October 12-December 28, 2026. Each week lists the exact study files and practice IDs; [[20_Progress/Degree/_Courses/Technical Interview/Preparation & Sources|the personal syllabus]] owns learning requirements, [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041 Relation|the relation map]] owns file provenance, and [[Detailed Problems List|the catalog]] owns problem contracts and fit grades.
 Budget: 20-25 hours in Weeks 1-2; 12-15 hours in Weeks 3-11. The working allocation is 22.5 / 13.5 hours. Dates are sequencing targets, not booked clock appointments. Day 1 was missed; Week 1 begins execution on October 13.
 ## Week 1 - 2026-10-12 to 2026-10-18
 Units 1-5 refresh and Day 1 recovery | 22.5 hours.
@@ -31,14 +31,14 @@ Units 1-5 refresh and Day 1 recovery | 22.5 hours.
 - [[20_Progress/Degree/_Courses/Technical Interview/_Transcripts/Unit - 3 Problems Transcript|Unit - 3 Problems Transcript]]
 - [[20_Progress/Degree/_Courses/Technical Interview/_Transcripts/Unit - 4 Problems Transcript|Unit - 4 Problems Transcript]]
 - [[20_Progress/Degree/_Courses/Technical Interview/_Transcripts/Unit - 5 Problems Transcript|Unit - 5 Problems Transcript]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 1 & 2|Week - 1 & 2]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 3|Week - 3]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 4|Week - 4]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 8|Week - 8]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 11|Week - 11]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 1 & 2|Chapter - 1 & 2]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 7 & 10|Chapter - 7 & 10]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Time Complexity|Time Complexity]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 1 & 2|Week - 1 & 2]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 3|Week - 3]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 4|Week - 4]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 8|Week - 8]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 11|Week - 11]]
+- [[20_Progress/Degree/CSCI 4041/Textbook/Chapter - 1 & 2|Chapter - 1 & 2]]
+- [[Chapter - 7 & 10|Chapter - 7 & 10]]
+- [[Time Complexity|Time Complexity]]
 ### Original study files
 - [Homework/Paper/Paper HW - 1 (Ch - 2).pdf](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Homework/Paper/Paper HW - 1 (Ch - 2).pdf>)
 - [Lectures/Week - 1 & 2/ch2_Asymptotic_Analysis-FLOPS.ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Lectures/Week - 1 & 2/ch2_Asymptotic_Analysis-FLOPS.ipynb>)
@@ -65,15 +65,15 @@ Units 1-5 refresh and Day 1 recovery | 22.5 hours.
 ### Required practice
 | Date | Exact assignment | Difficulty / cap |
 |---|---|---|
-| 2026-10-13 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 217\|LC 217]] - Contains Duplicate | Easy / 30 min |
-| 2026-10-13 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 242\|LC 242]] - Valid Anagram | Easy / 30 min |
-| 2026-10-14 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 125\|LC 125]] - Valid Palindrome | Easy / 30 min |
-| 2026-10-14 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 704\|LC 704]] - Binary Search | Easy / 30 min |
-| 2026-10-14 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 20\|LC 20]] - Valid Parentheses | Easy / 30 min |
-| 2026-10-15 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 206\|LC 206]] - Reverse Linked List | Easy / 30 min |
-| 2026-10-15 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 232\|LC 232]] - Implement Queue using Stacks | Easy / 30 min |
-| 2026-10-16 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 104\|LC 104]] - Maximum Depth of Binary Tree | Easy / 30 min |
-| 2026-10-16 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 733\|LC 733]] - Flood Fill | Easy / 30 min |
+| 2026-10-13 | [[Detailed Problems List#LC 217\|LC 217]] - Contains Duplicate | Easy / 30 min |
+| 2026-10-13 | [[Detailed Problems List#LC 242\|LC 242]] - Valid Anagram | Easy / 30 min |
+| 2026-10-14 | [[Detailed Problems List#LC 125\|LC 125]] - Valid Palindrome | Easy / 30 min |
+| 2026-10-14 | [[Detailed Problems List#LC 704\|LC 704]] - Binary Search | Easy / 30 min |
+| 2026-10-14 | [[Detailed Problems List#LC 20\|LC 20]] - Valid Parentheses | Easy / 30 min |
+| 2026-10-15 | [[Detailed Problems List#LC 206\|LC 206]] - Reverse Linked List | Easy / 30 min |
+| 2026-10-15 | [[Detailed Problems List#LC 232\|LC 232]] - Implement Queue using Stacks | Easy / 30 min |
+| 2026-10-16 | [[Detailed Problems List#LC 104\|LC 104]] - Maximum Depth of Binary Tree | Easy / 30 min |
+| 2026-10-16 | [[Detailed Problems List#LC 733\|LC 733]] - Flood Fill | Easy / 30 min |
 | 2026-10-16 | P1.2 - [Homework/Paper/Paper HW - 1 (Ch - 2).pdf](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Homework/Paper/Paper HW - 1 (Ch - 2).pdf>) Q2 / p.2 | Paper drill / 30 min |
 ### Sunday recall and evidence
 - State an invariant for first-index search and for an in-place reversal.
@@ -87,15 +87,15 @@ Units 1-5 transfer and data-structure drills | 22.5 hours.
 - Attempt C3.1, C3.2 and C8.4; trace P3.4; record two HackerRank platform attempts.
 - Review Homework 1-3 artifacts for errors without listing them as outstanding work.
 ### Study files
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 4|Week - 4]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 5|Week - 5]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 8|Week - 8]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 11|Week - 11]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 12|Week - 12]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 11|Chapter - 11]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 6 & 12|Chapter - 6 & 12]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 20|Chapter - 20]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Data Structures & Methods/Elementary Data Structures|Elementary Data Structures]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 4|Week - 4]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 5|Week - 5]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 8|Week - 8]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 11|Week - 11]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 12|Week - 12]]
+- [[20_Progress/Degree/CSCI 4041/Textbook/Chapter - 11|Chapter - 11]]
+- [[Chapter - 6 & 12|Chapter - 6 & 12]]
+- [[Chapter - 20|Chapter - 20]]
+- [[Elementary Data Structures|Elementary Data Structures]]
 - [[20_Progress/Degree/_Courses/Technical Interview/Homework/Homework - 1|Homework - 1]]
 - [[20_Progress/Degree/_Courses/Technical Interview/Homework/Homework - 2|Homework - 2]]
 - [[20_Progress/Degree/_Courses/Technical Interview/Homework/Homework - 3|Homework - 3]]
@@ -117,17 +117,17 @@ Units 1-5 transfer and data-structure drills | 22.5 hours.
 ### Required practice
 | Date | Exact assignment | Difficulty / cap |
 |---|---|---|
-| 2026-10-19 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 49\|LC 49]] - Group Anagrams | Medium / 45 min |
-| 2026-10-19 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 155\|LC 155]] - Min Stack | Medium / 45 min |
-| 2026-10-20 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 141\|LC 141]] - Linked List Cycle | Easy / 30 min |
-| 2026-10-20 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 21\|LC 21]] - Merge Two Sorted Lists | Easy / 30 min |
-| 2026-10-21 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 19\|LC 19]] - Remove Nth Node From End of List | Medium / 45 min |
-| 2026-10-21 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 143\|LC 143]] - Reorder List | Medium / 45 min |
-| 2026-10-22 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 226\|LC 226]] - Invert Binary Tree | Easy / 30 min |
-| 2026-10-22 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 102\|LC 102]] - Binary Tree Level Order Traversal | Medium / 45 min |
-| 2026-10-23 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 98\|LC 98]] - Validate Binary Search Tree | Medium / 45 min |
-| 2026-10-23 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 210\|LC 210]] - Course Schedule II | Medium / 45 min |
-| 2026-10-24 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 133\|LC 133]] - Clone Graph | Medium / 45 min |
+| 2026-10-19 | [[Detailed Problems List#LC 49\|LC 49]] - Group Anagrams | Medium / 45 min |
+| 2026-10-19 | [[Detailed Problems List#LC 155\|LC 155]] - Min Stack | Medium / 45 min |
+| 2026-10-20 | [[Detailed Problems List#LC 141\|LC 141]] - Linked List Cycle | Easy / 30 min |
+| 2026-10-20 | [[Detailed Problems List#LC 21\|LC 21]] - Merge Two Sorted Lists | Easy / 30 min |
+| 2026-10-21 | [[Detailed Problems List#LC 19\|LC 19]] - Remove Nth Node From End of List | Medium / 45 min |
+| 2026-10-21 | [[Detailed Problems List#LC 143\|LC 143]] - Reorder List | Medium / 45 min |
+| 2026-10-22 | [[Detailed Problems List#LC 226\|LC 226]] - Invert Binary Tree | Easy / 30 min |
+| 2026-10-22 | [[Detailed Problems List#LC 102\|LC 102]] - Binary Tree Level Order Traversal | Medium / 45 min |
+| 2026-10-23 | [[Detailed Problems List#LC 98\|LC 98]] - Validate Binary Search Tree | Medium / 45 min |
+| 2026-10-23 | [[Detailed Problems List#LC 210\|LC 210]] - Course Schedule II | Medium / 45 min |
+| 2026-10-24 | [[Detailed Problems List#LC 133\|LC 133]] - Clone Graph | Medium / 45 min |
 | 2026-10-20 | [HR1 Arrays: Left Rotation](https://www.hackerrank.com/challenges/ctci-array-left-rotation/problem) | Easy / 30 min |
 | 2026-10-22 | [HR2 Hash Tables: Ransom Note](https://www.hackerrank.com/challenges/ctci-ransom-note/problem) | Easy / 30 min |
 | 2026-10-23 | C3.1 - [Homework/Coding/CodingHW_3(chapter10-CLRS).ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Homework/Coding/CodingHW_3(chapter10-CLRS).ipynb>) task 1 | Local implementation / 45 min |
@@ -135,7 +135,7 @@ Units 1-5 transfer and data-structure drills | 22.5 hours.
 | 2026-10-23 | C8.4 - [Homework/Coding/CodingHW_8(chapter20-CLRS).ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Homework/Coding/CodingHW_8(chapter20-CLRS).ipynb>) task 4 | Local implementation / 45 min |
 | 2026-10-23 | P3.4 - [Homework/Paper/Paper HW - 3 (Ch - 7 & 10).pdf](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Homework/Paper/Paper HW - 3 (Ch - 7 & 10).pdf>) Q4 / p.4 | Paper drill / 30 min |
 ### Optional after required work
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 167|LC 167]] - Two Sum II - Input Array Is Sorted (Medium, 45 min; 2026-10-24).
+- [[Detailed Problems List#LC 167|LC 167]] - Two Sum II - Input Array Is Sorted (Medium, 45 min; 2026-10-24).
 ### Sunday recall and evidence
 - Explain why Python set membership cannot replace a frequency map.
 - Explain head/tail mutation and empty/single-node cases in linked structures.
@@ -147,15 +147,15 @@ Sorting, search, heaps and priority queues | 13.5 hours.
 - Trace insertion/merge/partition examples; compare recurrence and measured-operation discussions.
 - Attempt C4.1 and P4.3. Read C4.3 alongside LC23; produce one merged-list artifact, not two duplicate solves.
 ### Study files
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 1 & 2|Week - 1 & 2]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 3|Week - 3]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 4|Week - 4]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 5|Week - 5]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 3 & 4|Chapter - 3 & 4]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 6 & 12|Chapter - 6 & 12]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Algorithms/Sorting Algorithms|Sorting Algorithms]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Algorithms/QuickSort|QuickSort]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Algorithms/HeapSort|HeapSort]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 1 & 2|Week - 1 & 2]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 3|Week - 3]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 4|Week - 4]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 5|Week - 5]]
+- [[20_Progress/Degree/CSCI 4041/Textbook/Chapter - 3 & 4|Chapter - 3 & 4]]
+- [[Chapter - 6 & 12|Chapter - 6 & 12]]
+- [[Sorting Algorithms|Sorting Algorithms]]
+- [[QuickSort|QuickSort]]
+- [[HeapSort|HeapSort]]
 ### Original study files
 - [Homework/Coding/Ch6_ArrayTree.ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Homework/Coding/Ch6_ArrayTree.ipynb>)
 - [Homework/Coding/Ch6_Heaps.ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Homework/Coding/Ch6_Heaps.ipynb>)
@@ -177,21 +177,21 @@ Sorting, search, heaps and priority queues | 13.5 hours.
 ### Required practice
 | Date | Exact assignment | Difficulty / cap |
 |---|---|---|
-| 2026-10-26 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 153\|LC 153]] - Find Minimum in Rotated Sorted Array | Medium / 45 min |
-| 2026-10-26 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 33\|LC 33]] - Search in Rotated Sorted Array | Medium / 45 min |
-| 2026-10-27 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 215\|LC 215]] - Kth Largest Element in an Array | Medium / 45 min |
-| 2026-10-28 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 703\|LC 703]] - Kth Largest Element in a Stream | Easy / 30 min |
-| 2026-10-28 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 1046\|LC 1046]] - Last Stone Weight | Easy / 30 min |
-| 2026-10-29 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 347\|LC 347]] - Top K Frequent Elements | Medium / 45 min |
-| 2026-10-30 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 148\|LC 148]] - Sort List | Medium / 45 min |
-| 2026-10-30 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 23\|LC 23]] - Merge k Sorted Lists | Hard / 75 min |
-| 2026-10-31 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 295\|LC 295]] - Find Median from Data Stream | Hard / 75 min |
+| 2026-10-26 | [[Detailed Problems List#LC 153\|LC 153]] - Find Minimum in Rotated Sorted Array | Medium / 45 min |
+| 2026-10-26 | [[Detailed Problems List#LC 33\|LC 33]] - Search in Rotated Sorted Array | Medium / 45 min |
+| 2026-10-27 | [[Detailed Problems List#LC 215\|LC 215]] - Kth Largest Element in an Array | Medium / 45 min |
+| 2026-10-28 | [[Detailed Problems List#LC 703\|LC 703]] - Kth Largest Element in a Stream | Easy / 30 min |
+| 2026-10-28 | [[Detailed Problems List#LC 1046\|LC 1046]] - Last Stone Weight | Easy / 30 min |
+| 2026-10-29 | [[Detailed Problems List#LC 347\|LC 347]] - Top K Frequent Elements | Medium / 45 min |
+| 2026-10-30 | [[Detailed Problems List#LC 148\|LC 148]] - Sort List | Medium / 45 min |
+| 2026-10-30 | [[Detailed Problems List#LC 23\|LC 23]] - Merge k Sorted Lists | Hard / 75 min |
+| 2026-10-31 | [[Detailed Problems List#LC 295\|LC 295]] - Find Median from Data Stream | Hard / 75 min |
 | 2026-10-28 | [HR3 Minimum Swaps 2](https://www.hackerrank.com/challenges/minimum-swaps-2/problem) | Medium / 45 min |
 | 2026-10-30 | C4.1 - [Homework/Coding/CodingHW_4(chapter6_and_12-CLRS).ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Homework/Coding/CodingHW_4(chapter6_and_12-CLRS).ipynb>) task 1 | Local implementation / 45 min |
 | 2026-10-30 | P4.3 - [Homework/Paper/Paper HW - 4 (Ch - 6 & 12).pdf](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Homework/Paper/Paper HW - 4 (Ch - 6 & 12).pdf>) Q3 / p.3 | Paper drill / 30 min |
 ### Optional after required work
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 4|LC 4]] - Median of Two Sorted Arrays (Hard, 75 min; 2026-10-31).
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 74|LC 74]] - Search a 2D Matrix (Medium, 45 min; 2026-10-31).
+- [[Detailed Problems List#LC 4|LC 4]] - Median of Two Sorted Arrays (Hard, 75 min; 2026-10-31).
+- [[Detailed Problems List#LC 74|LC 74]] - Search a 2D Matrix (Medium, 45 min; 2026-10-31).
 ### Sunday recall and evidence
 - Why can building a heap be linear while repeated insertion is not?
 - What stays true before and after a binary-search boundary update?
@@ -203,16 +203,16 @@ Trees, BST invariants and balanced-tree project | 13.5 hours.
 - Read the AVL implementation, its imports and the Experiment cases; identify LL/LR/RR/RL and deletion invariants.
 - Trace P4.4. Inspect optional multiway/RB sources only after the required tree contracts.
 ### Study files
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 5|Week - 5]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 6|Week - 6]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 7|Week - 7]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 6 & 12|Chapter - 6 & 12]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 13|Chapter - 13]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 18|Chapter - 18]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Trees/AVL Trees|AVL Trees]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Trees/B-Trees|B-Trees]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Midterm Project/AVL Tree Project|AVL Tree Project]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Midterm Project/Midterm Project|Midterm Project]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 5|Week - 5]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 6|Week - 6]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 7|Week - 7]]
+- [[Chapter - 6 & 12|Chapter - 6 & 12]]
+- [[20_Progress/Degree/CSCI 4041/Textbook/Chapter - 13|Chapter - 13]]
+- [[Chapter - 18|Chapter - 18]]
+- [[AVL Trees|AVL Trees]]
+- [[B-Trees|B-Trees]]
+- [[AVL Tree Project|AVL Tree Project]]
+- [[Midterm Project|Midterm Project]]
 ### Original study files
 - [Homework/Coding/Ch12_BinarySearchTree.ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Homework/Coding/Ch12_BinarySearchTree.ipynb>)
 - [Lectures/Week - 5/Ch12_BinarySearchTree.ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Lectures/Week - 5/Ch12_BinarySearchTree.ipynb>)
@@ -228,16 +228,16 @@ Trees, BST invariants and balanced-tree project | 13.5 hours.
 ### Required practice
 | Date | Exact assignment | Difficulty / cap |
 |---|---|---|
-| 2026-11-02 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 110\|LC 110]] - Balanced Binary Tree | Easy / 30 min |
-| 2026-11-02 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 543\|LC 543]] - Diameter of Binary Tree | Easy / 30 min |
-| 2026-11-03 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 235\|LC 235]] - Lowest Common Ancestor of a Binary Search Tree | Medium / 45 min |
-| 2026-11-03 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 572\|LC 572]] - Subtree of Another Tree | Easy / 30 min |
-| 2026-11-04 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 230\|LC 230]] - Kth Smallest Element in a BST | Medium / 45 min |
-| 2026-11-05 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 1448\|LC 1448]] - Count Good Nodes in Binary Tree | Medium / 45 min |
-| 2026-11-05 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 199\|LC 199]] - Binary Tree Right Side View | Medium / 45 min |
-| 2026-11-06 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 105\|LC 105]] - Construct Binary Tree from Preorder and Inorder Traversal | Medium / 45 min |
-| 2026-11-06 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 297\|LC 297]] - Serialize and Deserialize Binary Tree | Hard / 75 min |
-| 2026-11-07 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 124\|LC 124]] - Binary Tree Maximum Path Sum | Hard / 75 min |
+| 2026-11-02 | [[Detailed Problems List#LC 110\|LC 110]] - Balanced Binary Tree | Easy / 30 min |
+| 2026-11-02 | [[Detailed Problems List#LC 543\|LC 543]] - Diameter of Binary Tree | Easy / 30 min |
+| 2026-11-03 | [[Detailed Problems List#LC 235\|LC 235]] - Lowest Common Ancestor of a Binary Search Tree | Medium / 45 min |
+| 2026-11-03 | [[Detailed Problems List#LC 572\|LC 572]] - Subtree of Another Tree | Easy / 30 min |
+| 2026-11-04 | [[Detailed Problems List#LC 230\|LC 230]] - Kth Smallest Element in a BST | Medium / 45 min |
+| 2026-11-05 | [[Detailed Problems List#LC 1448\|LC 1448]] - Count Good Nodes in Binary Tree | Medium / 45 min |
+| 2026-11-05 | [[Detailed Problems List#LC 199\|LC 199]] - Binary Tree Right Side View | Medium / 45 min |
+| 2026-11-06 | [[Detailed Problems List#LC 105\|LC 105]] - Construct Binary Tree from Preorder and Inorder Traversal | Medium / 45 min |
+| 2026-11-06 | [[Detailed Problems List#LC 297\|LC 297]] - Serialize and Deserialize Binary Tree | Hard / 75 min |
+| 2026-11-07 | [[Detailed Problems List#LC 124\|LC 124]] - Binary Tree Maximum Path Sum | Hard / 75 min |
 | 2026-11-06 | P4.4 - [Homework/Paper/Paper HW - 4 (Ch - 6 & 12).pdf](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Homework/Paper/Paper HW - 4 (Ch - 6 & 12).pdf>) Q4 / p.4 | Paper drill / 30 min |
 ### Optional after required work
 - [Lectures/Week - 6/AVL-tree(original).pdf](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Lectures/Week - 6/AVL-tree(original).pdf>) - Reference skim; inspect the relevant chapter/abstract or project output.
@@ -268,9 +268,9 @@ Hashing, windows, prefix sums and tries | 13.5 hours.
 - Use Unit 2 S2 P6 as the captured remainder-counting reference.
 - Attempt C5.4; compare chain/probe analyses and deletion semantics; use Handbook trie/window bridges.
 ### Study files
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 8|Week - 8]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 11|Chapter - 11]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Data Structures & Methods/Hashing|Hashing]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 8|Week - 8]]
+- [[20_Progress/Degree/CSCI 4041/Textbook/Chapter - 11|Chapter - 11]]
+- [[Hashing|Hashing]]
 - [[20_Progress/Degree/_Courses/Technical Interview/_Transcripts/Unit - 2 Problems Transcript|Unit - 2 Problems Transcript]]
 ### Original study files
 - [Homework/Coding/CodingHW_5(chapter11-CLRS).ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Homework/Coding/CodingHW_5(chapter11-CLRS).ipynb>)
@@ -285,23 +285,23 @@ Hashing, windows, prefix sums and tries | 13.5 hours.
 ### Required practice
 | Date | Exact assignment | Difficulty / cap |
 |---|---|---|
-| 2026-11-09 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 36\|LC 36]] - Valid Sudoku | Medium / 45 min |
-| 2026-11-09 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 238\|LC 238]] - Product of Array Except Self | Medium / 45 min |
-| 2026-11-10 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 128\|LC 128]] - Longest Consecutive Sequence | Medium / 45 min |
-| 2026-11-10 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 3\|LC 3]] - Longest Substring Without Repeating Characters | Medium / 45 min |
-| 2026-11-11 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 424\|LC 424]] - Longest Repeating Character Replacement | Medium / 45 min |
-| 2026-11-11 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 438\|LC 438]] - Find All Anagrams in a String | Medium / 45 min |
-| 2026-11-12 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 560\|LC 560]] - Subarray Sum Equals K | Medium / 45 min |
-| 2026-11-12 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 208\|LC 208]] - Implement Trie (Prefix Tree) | Medium / 45 min |
-| 2026-11-13 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 211\|LC 211]] - Design Add and Search Words Data Structure | Medium / 45 min |
-| 2026-11-13 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 76\|LC 76]] - Minimum Window Substring | Hard / 75 min |
-| 2026-11-14 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 239\|LC 239]] - Sliding Window Maximum | Hard / 75 min |
+| 2026-11-09 | [[Detailed Problems List#LC 36\|LC 36]] - Valid Sudoku | Medium / 45 min |
+| 2026-11-09 | [[Detailed Problems List#LC 238\|LC 238]] - Product of Array Except Self | Medium / 45 min |
+| 2026-11-10 | [[Detailed Problems List#LC 128\|LC 128]] - Longest Consecutive Sequence | Medium / 45 min |
+| 2026-11-10 | [[Detailed Problems List#LC 3\|LC 3]] - Longest Substring Without Repeating Characters | Medium / 45 min |
+| 2026-11-11 | [[Detailed Problems List#LC 424\|LC 424]] - Longest Repeating Character Replacement | Medium / 45 min |
+| 2026-11-11 | [[Detailed Problems List#LC 438\|LC 438]] - Find All Anagrams in a String | Medium / 45 min |
+| 2026-11-12 | [[Detailed Problems List#LC 560\|LC 560]] - Subarray Sum Equals K | Medium / 45 min |
+| 2026-11-12 | [[Detailed Problems List#LC 208\|LC 208]] - Implement Trie (Prefix Tree) | Medium / 45 min |
+| 2026-11-13 | [[Detailed Problems List#LC 211\|LC 211]] - Design Add and Search Words Data Structure | Medium / 45 min |
+| 2026-11-13 | [[Detailed Problems List#LC 76\|LC 76]] - Minimum Window Substring | Hard / 75 min |
+| 2026-11-14 | [[Detailed Problems List#LC 239\|LC 239]] - Sliding Window Maximum | Hard / 75 min |
 | 2026-11-13 | [HR4 Frequency Queries](https://www.hackerrank.com/challenges/frequency-queries/problem) | Medium / 45 min |
 | 2026-11-13 | C5.4 - [Homework/Coding/CodingHW_5(chapter11-CLRS).ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Homework/Coding/CodingHW_5(chapter11-CLRS).ipynb>) task 4 | Local implementation / 45 min |
 ### Optional after required work
 - [Textbook/Puru/DAA Syllabus.png](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Textbook/Puru/DAA Syllabus.png>) - Reference skim; inspect the relevant chapter/abstract or project output.
 - [Textbook/Puru/DSA Syllabus.png](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Textbook/Puru/DSA Syllabus.png>) - Reference skim; inspect the relevant chapter/abstract or project output.
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 41|LC 41]] - First Missing Positive (Hard, 75 min; 2026-11-14).
+- [[Detailed Problems List#LC 41|LC 41]] - First Missing Positive (Hard, 75 min; 2026-11-14).
 ### Sunday recall and evidence
 - What differs between expected and worst-case hash lookup?
 - Why can negative values invalidate a simple expanding-window assumption?
@@ -313,10 +313,10 @@ Recursion, memoization, DP and backtracking | 13.5 hours.
 - Attempt C6.3 and P6.1; read all five CodingHW6 task descriptions for state/reconstruction differences.
 - Keep N-Queens as the required hard transfer; other backtracking extensions are optional.
 ### Study files
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 9|Week - 9]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 14|Chapter - 14]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Algorithms/Dynamic Programming|Dynamic Programming]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Algorithms/Divide and Conquer|Divide and Conquer]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 9|Week - 9]]
+- [[20_Progress/Degree/CSCI 4041/Textbook/Chapter - 14|Chapter - 14]]
+- [[Dynamic Programming|Dynamic Programming]]
+- [[Divide and Conquer|Divide and Conquer]]
 ### Original study files
 - [Homework/Coding/CodingHW_6(chapter14-CLRS).ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Homework/Coding/CodingHW_6(chapter14-CLRS).ipynb>)
 - [Homework/Paper/Paper HW - 6 (Ch - 14).pdf](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Homework/Paper/Paper HW - 6 (Ch - 14).pdf>)
@@ -327,25 +327,25 @@ Recursion, memoization, DP and backtracking | 13.5 hours.
 ### Required practice
 | Date | Exact assignment | Difficulty / cap |
 |---|---|---|
-| 2026-11-16 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 70\|LC 70]] - Climbing Stairs | Easy / 30 min |
-| 2026-11-16 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 198\|LC 198]] - House Robber | Medium / 45 min |
-| 2026-11-17 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 322\|LC 322]] - Coin Change | Medium / 45 min |
-| 2026-11-17 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 139\|LC 139]] - Word Break | Medium / 45 min |
-| 2026-11-18 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 416\|LC 416]] - Partition Equal Subset Sum | Medium / 45 min |
-| 2026-11-18 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 62\|LC 62]] - Unique Paths | Medium / 45 min |
-| 2026-11-19 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 300\|LC 300]] - Longest Increasing Subsequence | Medium / 45 min |
-| 2026-11-19 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 39\|LC 39]] - Combination Sum | Medium / 45 min |
-| 2026-11-20 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 78\|LC 78]] - Subsets | Medium / 45 min |
-| 2026-11-20 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 79\|LC 79]] - Word Search | Medium / 45 min |
-| 2026-11-21 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 51\|LC 51]] - N-Queens | Hard / 75 min |
+| 2026-11-16 | [[Detailed Problems List#LC 70\|LC 70]] - Climbing Stairs | Easy / 30 min |
+| 2026-11-16 | [[Detailed Problems List#LC 198\|LC 198]] - House Robber | Medium / 45 min |
+| 2026-11-17 | [[Detailed Problems List#LC 322\|LC 322]] - Coin Change | Medium / 45 min |
+| 2026-11-17 | [[Detailed Problems List#LC 139\|LC 139]] - Word Break | Medium / 45 min |
+| 2026-11-18 | [[Detailed Problems List#LC 416\|LC 416]] - Partition Equal Subset Sum | Medium / 45 min |
+| 2026-11-18 | [[Detailed Problems List#LC 62\|LC 62]] - Unique Paths | Medium / 45 min |
+| 2026-11-19 | [[Detailed Problems List#LC 300\|LC 300]] - Longest Increasing Subsequence | Medium / 45 min |
+| 2026-11-19 | [[Detailed Problems List#LC 39\|LC 39]] - Combination Sum | Medium / 45 min |
+| 2026-11-20 | [[Detailed Problems List#LC 78\|LC 78]] - Subsets | Medium / 45 min |
+| 2026-11-20 | [[Detailed Problems List#LC 79\|LC 79]] - Word Search | Medium / 45 min |
+| 2026-11-21 | [[Detailed Problems List#LC 51\|LC 51]] - N-Queens | Hard / 75 min |
 | 2026-11-19 | [HR5 Max Array Sum](https://www.hackerrank.com/challenges/max-array-sum/problem) | Medium / 45 min |
 | 2026-11-20 | C6.3 - [Homework/Coding/CodingHW_6(chapter14-CLRS).ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Homework/Coding/CodingHW_6(chapter14-CLRS).ipynb>) task 3 | Local implementation / 45 min |
 | 2026-11-20 | P6.1 - [Homework/Paper/Paper HW - 6 (Ch - 14).pdf](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Homework/Paper/Paper HW - 6 (Ch - 14).pdf>) Q1 / p.1 | Paper drill / 30 min |
 ### Optional after required work
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 212|LC 212]] - Word Search II (Hard, 75 min; 2026-11-21).
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 37|LC 37]] - Sudoku Solver (Hard, 75 min; 2026-11-21).
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 1143|LC 1143]] - Longest Common Subsequence (Medium, 45 min; 2026-11-21).
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 46|LC 46]] - Permutations (Medium, 45 min; 2026-11-21).
+- [[Detailed Problems List#LC 212|LC 212]] - Word Search II (Hard, 75 min; 2026-11-21).
+- [[Detailed Problems List#LC 37|LC 37]] - Sudoku Solver (Hard, 75 min; 2026-11-21).
+- [[Detailed Problems List#LC 1143|LC 1143]] - Longest Common Subsequence (Medium, 45 min; 2026-11-21).
+- [[Detailed Problems List#LC 46|LC 46]] - Permutations (Medium, 45 min; 2026-11-21).
 ### Sunday recall and evidence
 - What exactly belongs in a memoization key?
 - How do recursion, backtracking and dynamic programming differ on the assigned tasks?
@@ -357,10 +357,10 @@ Greedy reasoning, intervals and scheduling | 13.5 hours.
 - Attempt C7.2 and P7.4; compare the source’s weighted-activity DP with LC1235.
 - Inspect Huffman heap dependencies and preserve the interval endpoint differences across problems.
 ### Study files
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 10|Week - 10]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 15|Chapter - 15]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Algorithms/Greedy Algorithms|Greedy Algorithms]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Algorithms/Dynamic Programming|Dynamic Programming]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 10|Week - 10]]
+- [[20_Progress/Degree/CSCI 4041/Textbook/Chapter - 15|Chapter - 15]]
+- [[Greedy Algorithms|Greedy Algorithms]]
+- [[Dynamic Programming|Dynamic Programming]]
 ### Original study files
 - [Homework/Coding/CodingHW_7(chapter15-CLRS).ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Homework/Coding/CodingHW_7(chapter15-CLRS).ipynb>)
 - [Homework/Paper/Paper HW - 7 (Ch - 15).pdf](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Homework/Paper/Paper HW - 7 (Ch - 15).pdf>)
@@ -370,16 +370,16 @@ Greedy reasoning, intervals and scheduling | 13.5 hours.
 ### Required practice
 | Date | Exact assignment | Difficulty / cap |
 |---|---|---|
-| 2026-11-23 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 121\|LC 121]] - Best Time to Buy and Sell Stock | Easy / 30 min |
-| 2026-11-23 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 55\|LC 55]] - Jump Game | Medium / 45 min |
-| 2026-11-24 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 134\|LC 134]] - Gas Station | Medium / 45 min |
-| 2026-11-24 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 57\|LC 57]] - Insert Interval | Medium / 45 min |
-| 2026-11-25 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 435\|LC 435]] - Non-overlapping Intervals | Medium / 45 min |
-| 2026-11-26 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 621\|LC 621]] - Task Scheduler | Medium / 45 min |
-| 2026-11-26 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 53\|LC 53]] - Maximum Subarray | Medium / 45 min |
-| 2026-11-27 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 152\|LC 152]] - Maximum Product Subarray | Medium / 45 min |
-| 2026-11-27 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 1235\|LC 1235]] - Maximum Profit in Job Scheduling | Hard / 75 min |
-| 2026-11-28 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 42\|LC 42]] - Trapping Rain Water | Hard / 75 min |
+| 2026-11-23 | [[Detailed Problems List#LC 121\|LC 121]] - Best Time to Buy and Sell Stock | Easy / 30 min |
+| 2026-11-23 | [[Detailed Problems List#LC 55\|LC 55]] - Jump Game | Medium / 45 min |
+| 2026-11-24 | [[Detailed Problems List#LC 134\|LC 134]] - Gas Station | Medium / 45 min |
+| 2026-11-24 | [[Detailed Problems List#LC 57\|LC 57]] - Insert Interval | Medium / 45 min |
+| 2026-11-25 | [[Detailed Problems List#LC 435\|LC 435]] - Non-overlapping Intervals | Medium / 45 min |
+| 2026-11-26 | [[Detailed Problems List#LC 621\|LC 621]] - Task Scheduler | Medium / 45 min |
+| 2026-11-26 | [[Detailed Problems List#LC 53\|LC 53]] - Maximum Subarray | Medium / 45 min |
+| 2026-11-27 | [[Detailed Problems List#LC 152\|LC 152]] - Maximum Product Subarray | Medium / 45 min |
+| 2026-11-27 | [[Detailed Problems List#LC 1235\|LC 1235]] - Maximum Profit in Job Scheduling | Hard / 75 min |
+| 2026-11-28 | [[Detailed Problems List#LC 42\|LC 42]] - Trapping Rain Water | Hard / 75 min |
 | 2026-11-26 | [HR6 Greedy Florist](https://www.hackerrank.com/challenges/greedy-florist/problem) | Medium / 45 min |
 | 2026-11-27 | C7.2 - [Homework/Coding/CodingHW_7(chapter15-CLRS).ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Homework/Coding/CodingHW_7(chapter15-CLRS).ipynb>) task 2 | Local implementation / 45 min |
 | 2026-11-27 | P7.4 - [Homework/Paper/Paper HW - 7 (Ch - 15).pdf](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Homework/Paper/Paper HW - 7 (Ch - 15).pdf>) Q4 / p.4 | Paper drill / 30 min |
@@ -394,12 +394,12 @@ Graphs, topological order, union-find and MST | 13.5 hours.
 - Attempt C9.3 and P9.2; compare the professor’s set-based Kruskal with the existing DSU implementation.
 - Read SCC/topological sources and the five CodingHW8/9 prompts without assuming every optional variant must be implemented.
 ### Study files
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 11|Week - 11]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 12|Week - 12]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 20|Chapter - 20]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 21|Chapter - 21]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Graphs/Graph Algorithms|Graph Algorithms]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Graphs/Minimum Spanning Trees|Minimum Spanning Trees]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 11|Week - 11]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 12|Week - 12]]
+- [[Chapter - 20|Chapter - 20]]
+- [[Chapter - 21|Chapter - 21]]
+- [[Graph Algorithms|Graph Algorithms]]
+- [[Minimum Spanning Trees|Minimum Spanning Trees]]
 ### Original study files
 - [Homework/Coding/Ch20(Graphs-CodeBase).ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Homework/Coding/Ch20(Graphs-CodeBase).ipynb>)
 - [Homework/Coding/CodingHW_8(chapter20-CLRS).ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Homework/Coding/CodingHW_8(chapter20-CLRS).ipynb>)
@@ -414,15 +414,15 @@ Graphs, topological order, union-find and MST | 13.5 hours.
 ### Required practice
 | Date | Exact assignment | Difficulty / cap |
 |---|---|---|
-| 2026-11-30 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 200\|LC 200]] - Number of Islands | Medium / 45 min |
-| 2026-11-30 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 695\|LC 695]] - Max Area of Island | Medium / 45 min |
-| 2026-12-01 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 417\|LC 417]] - Pacific Atlantic Water Flow | Medium / 45 min |
-| 2026-12-02 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 130\|LC 130]] - Surrounded Regions | Medium / 45 min |
-| 2026-12-02 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 721\|LC 721]] - Accounts Merge | Medium / 45 min |
-| 2026-12-03 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 684\|LC 684]] - Redundant Connection | Medium / 45 min |
-| 2026-12-04 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 1584\|LC 1584]] - Min Cost to Connect All Points | Medium / 45 min |
-| 2026-12-04 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 310\|LC 310]] - Minimum Height Trees | Medium / 45 min |
-| 2026-12-05 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 127\|LC 127]] - Word Ladder | Hard / 75 min |
+| 2026-11-30 | [[Detailed Problems List#LC 200\|LC 200]] - Number of Islands | Medium / 45 min |
+| 2026-11-30 | [[Detailed Problems List#LC 695\|LC 695]] - Max Area of Island | Medium / 45 min |
+| 2026-12-01 | [[Detailed Problems List#LC 417\|LC 417]] - Pacific Atlantic Water Flow | Medium / 45 min |
+| 2026-12-02 | [[Detailed Problems List#LC 130\|LC 130]] - Surrounded Regions | Medium / 45 min |
+| 2026-12-02 | [[Detailed Problems List#LC 721\|LC 721]] - Accounts Merge | Medium / 45 min |
+| 2026-12-03 | [[Detailed Problems List#LC 684\|LC 684]] - Redundant Connection | Medium / 45 min |
+| 2026-12-04 | [[Detailed Problems List#LC 1584\|LC 1584]] - Min Cost to Connect All Points | Medium / 45 min |
+| 2026-12-04 | [[Detailed Problems List#LC 310\|LC 310]] - Minimum Height Trees | Medium / 45 min |
+| 2026-12-05 | [[Detailed Problems List#LC 127\|LC 127]] - Word Ladder | Hard / 75 min |
 | 2026-12-03 | [HR7 DFS: Connected Cell in a Grid](https://www.hackerrank.com/challenges/ctci-connected-cell-in-a-grid/problem) | Hard / 60 min |
 | 2026-12-04 | C9.3 - [Homework/Coding/CodingHW_9(chapter20-23-CLRS).ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Homework/Coding/CodingHW_9(chapter20-23-CLRS).ipynb>) task 3 | Local implementation / 45 min |
 | 2026-12-04 | P9.2 - [Homework/Paper/Paper HW - 9 (Ch - 21).pdf](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Homework/Paper/Paper HW - 9 (Ch - 21).pdf>) Q2 / p.2 | Paper drill / 30 min |
@@ -437,13 +437,13 @@ Shortest paths and maze project | 13.5 hours.
 - Attempt C9.4. Inspect Maze Final.ipynb and Experiment.ipynb; compare the existing generation/solving outputs.
 - Read the APSP notebook; Johnson and heuristic-project implementations remain optional.
 ### Study files
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 13|Week - 13]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 22|Chapter - 22]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 23|Chapter - 23]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Graphs/Shortest Paths|Shortest Paths]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Final Project/Final Project Report - Revised|Final Project Report - Revised]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Final Project/Maze Project|Maze Project]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Final Project/Maze Project Details|Maze Project Details]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 13|Week - 13]]
+- [[Chapter - 22|Chapter - 22]]
+- [[Chapter - 23|Chapter - 23]]
+- [[Shortest Paths|Shortest Paths]]
+- [[Final Project Report - Revised|Final Project Report - Revised]]
+- [[Maze Project|Maze Project]]
+- [[Maze Project Details|Maze Project Details]]
 ### Original study files
 - [Final Project/Maze/Ch20(Graphs-CodeBase)-MAZE.ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Final Project/Maze/Ch20(Graphs-CodeBase)-MAZE.ipynb>)
 - [Final Project/Maze/Experiment.ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Final Project/Maze/Experiment.ipynb>)
@@ -454,13 +454,13 @@ Shortest paths and maze project | 13.5 hours.
 ### Required practice
 | Date | Exact assignment | Difficulty / cap |
 |---|---|---|
-| 2026-12-07 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 743\|LC 743]] - Network Delay Time | Medium / 45 min |
-| 2026-12-07 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 787\|LC 787]] - Cheapest Flights Within K Stops | Medium / 45 min |
-| 2026-12-08 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 994\|LC 994]] - Rotting Oranges | Medium / 45 min |
-| 2026-12-09 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 542\|LC 542]] - 01 Matrix | Medium / 45 min |
-| 2026-12-10 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 1631\|LC 1631]] - Path With Minimum Effort | Medium / 45 min |
-| 2026-12-11 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 329\|LC 329]] - Longest Increasing Path in a Matrix | Hard / 75 min |
-| 2026-12-12 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 815\|LC 815]] - Bus Routes | Hard / 75 min |
+| 2026-12-07 | [[Detailed Problems List#LC 743\|LC 743]] - Network Delay Time | Medium / 45 min |
+| 2026-12-07 | [[Detailed Problems List#LC 787\|LC 787]] - Cheapest Flights Within K Stops | Medium / 45 min |
+| 2026-12-08 | [[Detailed Problems List#LC 994\|LC 994]] - Rotting Oranges | Medium / 45 min |
+| 2026-12-09 | [[Detailed Problems List#LC 542\|LC 542]] - 01 Matrix | Medium / 45 min |
+| 2026-12-10 | [[Detailed Problems List#LC 1631\|LC 1631]] - Path With Minimum Effort | Medium / 45 min |
+| 2026-12-11 | [[Detailed Problems List#LC 329\|LC 329]] - Longest Increasing Path in a Matrix | Hard / 75 min |
+| 2026-12-12 | [[Detailed Problems List#LC 815\|LC 815]] - Bus Routes | Hard / 75 min |
 | 2026-12-08 | [HR8 BFS: Shortest Reach in a Graph](https://www.hackerrank.com/challenges/ctci-bfs-shortest-reach/problem) | Hard / 60 min |
 | 2026-12-11 | C9.4 - [Homework/Coding/CodingHW_9(chapter20-23-CLRS).ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Homework/Coding/CodingHW_9(chapter20-23-CLRS).ipynb>) task 4 | Local implementation / 45 min |
 ### Optional after required work
@@ -493,10 +493,10 @@ OA practice, integrated structures and flow reference | 13.5 hours.
 - Dec 18: 90-minute OA rehearsal with HR8 and HR6; 15-minute error classification after the timer.
 - Read the existing flow example and compare residual/augmenting-path behavior. Optional project papers must fit the remaining budget.
 ### Study files
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 14|Week - 14]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 24|Chapter - 24]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Graphs/Maximum Flow|Maximum Flow]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Final Project/Network Flow Project|Network Flow Project]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 14|Week - 14]]
+- [[Chapter - 24|Chapter - 24]]
+- [[Maximum Flow|Maximum Flow]]
+- [[Network Flow Project|Network Flow Project]]
 ### Original study files
 - [Lectures/Week - 14/Ch20(Graphs-CodeBase)-2.ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Lectures/Week - 14/Ch20(Graphs-CodeBase)-2.ipynb>)
 - [Lectures/Week - 14/Ch20(Graphs-CodeBase)-NETWORK.ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Lectures/Week - 14/Ch20(Graphs-CodeBase)-NETWORK.ipynb>)
@@ -504,10 +504,10 @@ OA practice, integrated structures and flow reference | 13.5 hours.
 ### Required practice
 | Date | Exact assignment | Difficulty / cap |
 |---|---|---|
-| 2026-12-14 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 146\|LC 146]] - LRU Cache | Medium / 45 min |
-| 2026-12-15 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 380\|LC 380]] - Insert Delete GetRandom O(1) | Medium / 45 min |
-| 2026-12-17 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 224\|LC 224]] - Basic Calculator | Hard / 75 min |
-| 2026-12-18 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 84\|LC 84]] - Largest Rectangle in Histogram | Hard / 75 min |
+| 2026-12-14 | [[Detailed Problems List#LC 146\|LC 146]] - LRU Cache | Medium / 45 min |
+| 2026-12-15 | [[Detailed Problems List#LC 380\|LC 380]] - Insert Delete GetRandom O(1) | Medium / 45 min |
+| 2026-12-17 | [[Detailed Problems List#LC 224\|LC 224]] - Basic Calculator | Hard / 75 min |
+| 2026-12-18 | [[Detailed Problems List#LC 84\|LC 84]] - Largest Rectangle in Histogram | Hard / 75 min |
 | 2026-12-15 | Timed OA: HR3 + HR4 | 90 min + 15 min diagnosis |
 | 2026-12-18 | Timed OA: HR8 + HR6 | 90 min + 15 min diagnosis |
 ### Optional after required work
@@ -517,9 +517,9 @@ OA practice, integrated structures and flow reference | 13.5 hours.
 - [Final Project/Network Flow/MaximalFlowThroughANetwork-FordFulkerson-1954.pdf](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Final Project/Network Flow/MaximalFlowThroughANetwork-FordFulkerson-1954.pdf>) - Reference skim; inspect the relevant chapter/abstract or project output.
 - [Final Project/Network Flow/NetworkFlowTheory_Ford(1956).pdf](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Final Project/Network Flow/NetworkFlowTheory_Ford(1956).pdf>) - Reference skim; inspect the relevant chapter/abstract or project output.
 - [Final Project/Network Flow/OntheMaxFLowMinCutTheoremofNetworks.pdf](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Final Project/Network Flow/OntheMaxFLowMinCutTheoremofNetworks.pdf>) - Reference skim; inspect the relevant chapter/abstract or project output.
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 25|LC 25]] - Reverse Nodes in k-Group (Hard, 75 min; 2026-12-19).
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 32|LC 32]] - Longest Valid Parentheses (Hard, 75 min; 2026-12-19).
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 312|LC 312]] - Burst Balloons (Hard, 75 min; 2026-12-19).
+- [[Detailed Problems List#LC 25|LC 25]] - Reverse Nodes in k-Group (Hard, 75 min; 2026-12-19).
+- [[Detailed Problems List#LC 32|LC 32]] - Longest Valid Parentheses (Hard, 75 min; 2026-12-19).
+- [[Detailed Problems List#LC 312|LC 312]] - Burst Balloons (Hard, 75 min; 2026-12-19).
 ### Sunday recall and evidence
 - What operations make an LRU cache contract different from a plain dictionary?
 - What is a residual edge and why can its direction differ from the original edge?
@@ -533,17 +533,17 @@ Timed interviews, retrieval and repairs | 13.5 hours.
 - Dec 28: final deadline review; record independent recall, unresolved gaps and the next maintenance action.
 ### Study files
 - [[20_Progress/Degree/_Courses/Technical Interview/Problems Solver|Problems Solver]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/How to Solve Problems|How to Solve Problems]]
+- [[How to Solve Problems|How to Solve Problems]]
 ### Original study files
 ### Required practice
 | Date | Exact assignment | Difficulty / cap |
 |---|---|---|
-| 2026-12-21 | Mock reattempt: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 3\|LC 3]] | 45 min unaided |
-| 2026-12-22 | Mock reattempt: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 215\|LC 215]] | 45 min unaided |
-| 2026-12-23 | Mock reattempt: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 98\|LC 98]] | 45 min unaided |
-| 2026-12-24 | Mock reattempt: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 322\|LC 322]] | 45 min unaided |
-| 2026-12-25 | Mock reattempt: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 210\|LC 210]] | 45 min unaided |
-| 2026-12-26 | Mock reattempt: [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List#LC 743\|LC 743]] | 45 min unaided |
+| 2026-12-21 | Mock reattempt: [[Detailed Problems List#LC 3\|LC 3]] | 45 min unaided |
+| 2026-12-22 | Mock reattempt: [[Detailed Problems List#LC 215\|LC 215]] | 45 min unaided |
+| 2026-12-23 | Mock reattempt: [[Detailed Problems List#LC 98\|LC 98]] | 45 min unaided |
+| 2026-12-24 | Mock reattempt: [[Detailed Problems List#LC 322\|LC 322]] | 45 min unaided |
+| 2026-12-25 | Mock reattempt: [[Detailed Problems List#LC 210\|LC 210]] | 45 min unaided |
+| 2026-12-26 | Mock reattempt: [[Detailed Problems List#LC 743\|LC 743]] | 45 min unaided |
 | 2026-12-27 | Failure-ledger repair and final evidence audit | Remaining weekly budget |
 ### Sunday recall and evidence
 - Explain a failed mock’s contract and invariant before revising its code.

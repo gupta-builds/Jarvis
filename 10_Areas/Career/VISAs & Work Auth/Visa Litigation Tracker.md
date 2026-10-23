@@ -21,6 +21,8 @@ notes:
 ---
 # Visa Litigation Tracker
 Four lawsuits and four appeals decide, in practice, which of the 2026 rules reach me, and each has its own judge, record, and calendar. This note is the single table of all of them with the next dated event, plus a glossary of the rulings that appear on the dockets. Read it first when checking whether something has changed, and update it in the same session as any new ruling.
+## In Plain Words
+A court case matters to me because a judge can pause or cancel a government rule. A "lawsuit" starts in a trial court. The loser can "appeal" to a higher court, but an appeal alone does not change the ruling being appealed. The ISSS advisor said the only certainty is that there is none: "we are all in the dark on this one." This note keeps every case in one table, so I can see the next date at a glance ([[US Immigration Rules Explained]], [[ISSS October Meeting Brief]]).
 ## The Cases
 | Case | Court and number | Judge or panel | Subject | Last verified event | Next event |
 | --- | --- | --- | --- | --- | --- |

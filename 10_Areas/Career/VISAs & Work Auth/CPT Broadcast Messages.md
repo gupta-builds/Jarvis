@@ -22,6 +22,8 @@ notes:
 ---
 # CPT Broadcast Messages
 Two unsigned emails to school officials in August 2026 are the entire reason my school stopped approving CPT. This note captures both in full, section by section, so I never have to rely on someone else's summary of them. Read it before arguing about what the government "announced," and again after any court ruling to see which sentences survived.
+## In Plain Words
+A **broadcast message** is an email that a government office sends to every school official in the country. These two went to the people at every college who sign international students' papers. They said, in effect: from now on, only approve CPT if the training is required for every student in the degree, and if you approve anything else, your school could lose its right to enroll international students and you could face penalties for false statements. The government also called them "reminders," as if nothing had changed, which is the heart of the lawsuit. At UMN, the result is that ISSS stopped approving elective CPT ([[ISSS October Meeting Brief]], [[US Immigration Rules Explained]]).
 ## What They Are
 ==The two messages never admit the rule changed; they restate "integral part of an established curriculum" as "required of all students" and attach perjury and decertification risk to the older reading.== Both are addressed "To: PDSOs and DSOs at SEVP-certified schools." BCM 2608-01 (August 12, 2026) is titled "Reminder of Liability for DSOs Regarding CPT Authorization." BCM 2608-02 (August 24, 2026) is titled "Guidance for Designated School Officials regarding Curricular Practical Training." Each ends with the same disclaimer that it is not "itself a rule or a final action by SEVP" and creates no enforceable right ([[SEVP and DSOs]]).
 The regulation they interpret did not change. It still reads that CPT is "an integral part of an established curriculum" and is defined as "alternative work/study, internship, cooperative education or any other type of required internship or practicum that is offered by sponsoring employers through cooperative agreements with the school" ([[CPT Program]]).
@@ -59,6 +61,11 @@ The supporting declarations report that Columbia denied Fall CPT to more than 12
 - The messages are addressed to DSOs, so a student cannot "violate" one. The consequence reaches a student as a denied or withdrawn authorization.
 - Keep the course syllabus, credit hours, and the original I-20 for any past CPT. The plaintiffs allege DHS officers have started asking about earlier CPT when students apply for other benefits.
 - The path that survives the messages is a curriculum where everyone does the training. If a CS program ever adopts one, CPT returns for that program only.
+## Words Used In This Note
+- *Perjury:* lying while swearing something is true. DSOs sign I-20s "under penalty of perjury."
+- *Certification (of a school):* SEVP's approval that lets a school enroll F-1 students. Losing it is the worst outcome for a school.
+- *Cooperative agreement:* a formal arrangement between a school and an employer for student training.
+- *Tipline:* a confidential channel for reporting concerns to SEVP.
 ## Open Questions
 - [ ] Ask ISSS whether any UMN CS or CSE program has a required practical training course for all enrolled students 📅 2026-10-30
 - [ ] After Oct 28, read the government's court response to see how it defends the "required of all students" reading

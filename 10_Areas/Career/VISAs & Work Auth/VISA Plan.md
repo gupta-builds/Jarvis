@@ -8,70 +8,86 @@ tags:
   - career
   - visa
 notes:
-  - "[[F-1 Visa]]"
-  - "[[F-1 Employment Options]]"
-  - "[[SEVP and DSOs]]"
-  - "[[CPT Program]]"
-  - "[[CPT Broadcast Messages]]"
-  - "[[CPT Lawsuit]]"
+  - "[[OPT Playbook]]"
   - "[[OPT Program]]"
   - "[[Pre-Completion OPT]]"
   - "[[STEM OPT Extension]]"
   - "[[EAD and OPT Processing]]"
   - "[[OPT Fee Proposal]]"
+  - "[[2028 Graduation Timeline]]"
+  - "[[Junior Year Internship Decision]]"
+  - "[[CPT Program]]"
+  - "[[CPT Broadcast Messages]]"
+  - "[[CPT Lawsuit]]"
+  - "[[F-1 Visa]]"
+  - "[[F-1 Employment Options]]"
+  - "[[SEVP and DSOs]]"
   - "[[Duration of Status Rule]]"
   - "[[Cap-Gap Extension]]"
   - "[[H1B Visa]]"
+  - "[[H-1B Odds Plan]]"
   - "[[H-1B Lottery]]"
   - "[[H-1B 100K Payment]]"
   - "[[H-1B Rule Proposals]]"
-  - "[[2028 Graduation Timeline]]"
-  - "[[Junior Year Internship Decision]]"
+  - "[[US Immigration Rules Explained]]"
+  - "[[ISSS October Meeting Brief]]"
   - "[[Visa Litigation Tracker]]"
   - "[[Current News]]"
-next: "Send ISSS the written questions in Junior Year Internship Decision by 2026-10-30"
+next: "Email ISSS the unanswered questions by 2026-10-30, then decide the summer 2027 route in March 2027"
 ---
 # VISA Plan
 ## Purpose
-This folder exists to get me from F-1 student to H-1B worker without a gap in lawful status or work authorization, in a year when almost every step on that route is being rewritten. Read this note first: it says where I stand, what is moving, and what I do next, and every other note hangs from it.
+This folder exists to get me from F-1 student to a well-paid job in the U.S. without a gap in work authorization, in a year when almost every step is being rewritten. This plan is about OPT, which I can apply for correctly now, and about keeping CPT ready in case it comes back. Read it first: it says where I stand, what I do next, and where every detail lives.
 ## Map
 ### Where I Stand
-I am a junior at the University of Minnesota with a computer science degree and a spring 2028 graduation, so I am in [[F-1 Visa|F-1 status]] and every rule in the folder counts from a program end date I still need to confirm on my I-20. My school's CPT process is paused, which closes the usual way to hold a summer internship, and I have decided not to use [[Pre-Completion OPT]] before graduating. That leaves a real problem for summer 2027, worked through in [[Junior Year Internship Decision]], and a longer route to H-1B that the [[2028 Graduation Timeline]] lays out date by date.
-### The Track
-F-1 status permits study and little else, so work is a set of exceptions listed in [[F-1 Employment Options]]. Before graduation the exceptions are on-campus work, [[CPT Program|curricular practical training]] approved by my school, and pre-completion OPT. After graduation there is [[OPT Program|post-completion OPT]] for 12 months, extended by 24 more with the [[STEM OPT Extension]] if my degree code is on the list and my employer uses E-Verify. Every one of those needs a work permit that takes months, which is why [[EAD and OPT Processing]] matters more than it sounds.
-The exit is [[H1B Visa|H-1B]], an employer-tied status gated by a yearly lottery that now favors higher wage levels ([[H-1B Lottery]]). A selected petition filed from inside the country is bridged by the [[Cap-Gap Extension]] so work does not stop between OPT and October 1. All of it runs through school officials, who are explained in [[SEVP and DSOs]] because their caution, not only the regulations, sets what actually gets approved.
-### What Is Moving
-==The route is being rebuilt by seven separate actions, and only the weighted lottery is final: two broadcast messages on CPT, one proposed OPT fee, one blocked status rule, one blocked payment, a new lottery, and a set of H-1B cost proposals.==
-In August SEVP told schools to approve CPT only for training required of every student, which the [[CPT Broadcast Messages]] set out in full and the [[CPT Lawsuit]] challenges, with a hearing on November 6. In October ICE proposed that schools pay $70,000 for a student's first OPT and $30,000 for each later one, detailed in the [[OPT Fee Proposal]], and comments close November 9. A final rule that would give every F-1 student a fixed end date, described in [[Duration of Status Rule]], is postponed by a court and on expedited appeal.
-On the H-1B side a presidential payment of $100,000 is blocked by courts but extended to September 2027, covered in [[H-1B 100K Payment]], and it does not reach an in-country change of status. The remaining proposals on fees, wages, deference, and grace periods are in [[H-1B Rule Proposals]]. The courts, dockets, and next dates for all of it sit in one place in the [[Visa Litigation Tracker]], and [[Current News]] holds the primary-source links behind everything.
+I am a junior at the University of Minnesota studying computer science, in [[F-1 Visa|F-1 status]], finishing in spring 2028. The term ends Wednesday, May 10, 2028, and every OPT date counts from it ([[2028 Graduation Timeline]]). The ISSS advisor I met on October 23 confirmed that the I-20 end date is only an estimate and that the real one is the end of the semester when all requirements are done ([[ISSS October Meeting Brief]]).
+The two facts that drive everything: CPT is paused at ISSS for elective internships, and the normal wait for an OPT work permit is about five months. If you are new to the words in this folder, start with [[US Immigration Rules Explained]].
+### The Plan: OPT First
+==OPT is the permission I can still apply for correctly today, in three forms, and the whole plan is to hit each filing window on its first possible day with the right fee and the right paperwork.==
+OPT is a work permit from USCIS for a job directly related to my major, and ISSS has to recommend it first. [[OPT Program]] is the hub that explains the three kinds, and [[OPT Playbook]] is the step-by-step with my exact dates and costs. The three kinds are:
+- **Pre-completion OPT** for summer 2027. It is a real option, decided at the application window in March 2027, using the rules in [[Pre-Completion OPT]]. It needs a written offer, a start date that fits premium processing, and about $2,250.
+- **Post-completion OPT** after May 2028. ISSS opens requests on January 31, 2028, USCIS accepts them from February 10, and I file about February 14. That is explained in the playbook and in [[EAD and OPT Processing]], which also covers the five-month wait and the 14-month limit.
+- **The STEM extension** for 24 more months, which needs an E-Verify employer and a signed training plan ([[STEM OPT Extension]]).
+Three risks sit over the plan. The proposed $70,000 school fee ([[OPT Fee Proposal]]) could be in force before my recommendation date. The fixed-end-date rule ([[Duration of Status Rule]]) could return and shrink my windows. And careless wording of projects or unpaid work could cost me OPT eligibility, which is covered in the playbook.
+### CPT: Waiting And Ready
+CPT is work approved by my school as part of my degree. ISSS is not approving elective CPT today. The government's August messages say only training required of every student qualifies ([[CPT Broadcast Messages]]), and four education groups, including one my university belongs to, sued over it, with a hearing on November 6 ([[CPT Lawsuit]]). The advisor says nobody knows the outcome.
+If CPT comes back, I want to be two steps ahead. Here is what UMN's process was before August, from ISSS's pages and the advisor, so I can run it the same week:
+1. Have a written internship offer in computer science, with exact start and end dates, because a CPT approval is for one employer and those dates.
+2. Take the ISSS CPT online workshop and save the certificate.
+3. Meet my academic advisor to confirm the job fits the major.
+4. Register for a CPT course of at least one credit (for example, an internship reflection course) and get the course instructor's signature on the verification form.
+5. Submit the CPT request in MyISSS. ISSS takes up to 7 business days and about 2 to 3 weeks in all, then issues a new I-20 with the CPT on page 2. I may not start before I hold it.
+There is no fee. Part-time CPT is unlimited, but 12 months of full-time CPT ends my OPT eligibility at this degree level ([[CPT Program]]). I do not wait on CPT: OPT runs in parallel, and I decide in March 2027 whichever route is open.
+### What Else Is Moving
+The 2026 rule changes are explained once each. The [[Visa Litigation Tracker]] lists every court case and its next date, and [[Current News]] lists the primary sources. The H-1B side, where I want to turn the lottery into a plan, lives in [[H-1B Odds Plan]], with the mechanics in [[H-1B Lottery]], [[H1B Visa]], [[Cap-Gap Extension]], [[H-1B 100K Payment]], and [[H-1B Rule Proposals]].
 ### How We Proceed
-These steps are in order, and each says what decides the next one.
-1. **By October 30: ask ISSS in writing**
-	Send the questions listed in [[Junior Year Internship Decision]]: whether any CS course is required for practical training, whether remote work abroad is allowed, whether pre-completion OPT is open and whether UMN would pay the fee. Also confirm the program end date and CIP code on my I-20, since the [[STEM OPT Extension]] and every window depend on them.
-2. **From October 28: watch the CPT case**
-	The government's response is due October 28 and the hearing is November 6 at 3:00 PM. Read the response, then any order, and update the [[CPT Lawsuit]] and [[Visa Litigation Tracker]] the same day.
-3. **By November 9: decide on the OPT fee comment**
-	The notice invites comments on legal authority, amounts, transition, and alternatives. A student's comment about lost access and a school's ability to pay is what the record lacks ([[OPT Fee Proposal]]).
-4. **December: check whether the fee became real**
-	See whether a final rule is scheduled and whether UMN has said it will pay, pass on, or decline. That changes whether [[Pre-Completion OPT]] stays an exception or becomes closed.
-5. **January to March 2027: choose the summer lane**
-	Secure an on-campus research role, hold off on any internship offer until the route exists in writing, and note that a June start needs an OPT recommendation request by early March if I ever use it. The March 2027 H-1B lottery will show how the weighting plays out, and the proclamation renewal recommendation is due 30 days after it ([[H-1B Lottery]], [[H-1B 100K Payment]]).
-6. **Fall 2027: recruit for full-time roles**
-	Ask each employer whether it is in E-Verify, signs training plans, registers for H-1B, and at which wage level. A sponsor that cannot answer is a risk to the STEM extension and to the petition.
-7. **February to October 2028: run the graduation route**
-	Request the OPT recommendation about 100 days before the program ends, file within the 90-day window, register for the lottery in March, and use cap-gap if selected. The exact dates are in [[2028 Graduation Timeline]], which must be re-derived from the then-current rules in January 2028.
+1. **By October 30: email ISSS in writing**
+	Send the unanswered questions from [[Junior Year Internship Decision]]: whether the pause covers only elective CPT, whether a required CS practical training course is possible, how an internship abroad affects status, what UMN will do about the fee, and the CIP code on my I-20.
+2. **October 28 and November 6: watch the CPT case**
+	The government's response is due October 28 and the hearing is November 6 at 3:00 PM. Update [[CPT Lawsuit]] and the tracker the same day.
+3. **By November 9: decide on an OPT fee comment**
+	Anyone can file a comment on regulations.gov under docket ICEB-2026-0100. A student comment about lost access is what the record lacks.
+4. **December 2026: check two announcements**
+	Whether ISSS has published its pre-completion OPT request process, and whether the OPT fee rule became final.
+5. **January to March 2027: choose the summer route**
+	Secure an on-campus research role, apply to internships, and accept none until its authorization exists in writing. For a mid-June start, the ISSS request is about March 8.
+6. **Fall 2027: recruit and finish the workshop**
+	Ask each employer the questions in [[H-1B Odds Plan]], and finish the OPT workshop by mid-December.
+7. **January 31 to February 14, 2028: file post-completion OPT**
+	This is the most important window in the plan. File on the first possible day.
 ### How The Notes Fit Together
-Three layers keep the folder honest. The status notes, [[F-1 Visa]], [[OPT Program]], [[CPT Program]], and [[H1B Visa]], hold the rules that rarely change. The research notes, such as the [[CPT Lawsuit]] and [[OPT Fee Proposal]], capture one government action each in enough depth to replace reading the original. The time-sensitive notes, [[Visa Litigation Tracker]] and [[Current News]], hold dates and links and are the first to go stale.
-When a ruling or rule lands, the update path is short. A CPT order changes [[CPT Lawsuit]], [[CPT Program]], [[Junior Year Internship Decision]], and the tracker. A final fee rule changes [[OPT Fee Proposal]], [[Pre-Completion OPT]], and the timeline. A duration of status ruling changes [[Duration of Status Rule]], [[EAD and OPT Processing]], and the timeline. UMN's own policies are a separate note that does not yet exist and is queued (to create).
+Three layers keep the folder honest. The status notes, [[F-1 Visa]], [[OPT Program]], [[CPT Program]], and [[H1B Visa]], hold the rules that rarely change. The research notes capture one government action each in depth. The time-sensitive notes, [[Visa Litigation Tracker]] and [[Current News]], hold dates and links and go stale first.
+When news lands, the update path is short. A CPT order changes [[CPT Lawsuit]], [[CPT Program]], [[Junior Year Internship Decision]], and this plan. A final fee rule changes [[OPT Fee Proposal]], [[Pre-Completion OPT]], and the timeline. The transcript behind this plan's newest facts is [[October Meeting Transcript]].
 ## Status
 | Item | State on 2026-10-23 | Next date | Note |
 | --- | --- | --- | --- |
-| CPT at UMN | Paused by ISSS | Nov 6 hearing | [[CPT Lawsuit]] |
+| Post-completion OPT | Not yet in the window | Jan 31, 2028 ISSS request | [[OPT Playbook]] |
+| Pre-completion OPT | ISSS process not yet announced | About Mar 8, 2027 for a mid-June start | [[Pre-Completion OPT]] |
+| STEM OPT | After 12 months of OPT | Mar 31, 2029 if the card ends Jul 9, 2029 | [[STEM OPT Extension]] |
+| CPT at UMN | Elective CPT paused | Nov 6 hearing | [[CPT Lawsuit]] |
 | OPT fee | Proposed, comments open | Nov 9 | [[OPT Fee Proposal]] |
-| Fixed-period rule | Postponed by court, on appeal | Nov 9 government brief | [[Duration of Status Rule]] |
-| $100,000 payment | Blocked, extended to Sept 2027 | Jan 14, 2027 stay hearing (N.D. Cal.) | [[H-1B 100K Payment]] |
-| H-1B fee, wage, deference, grace | Proposed | Nov 10 and 13 | [[H-1B Rule Proposals]] |
-| Summer 2027 route | Undecided | ISSS answers | [[Junior Year Internship Decision]] |
+| Fixed-end-date rule | Postponed by court, on appeal | Nov 9 government brief | [[Duration of Status Rule]] |
+| H-1B plan | Levers mapped | Mar 2028 registration | [[H-1B Odds Plan]] |
 ## Dataview
 ```dataview
 TABLE status, updated
@@ -79,6 +95,6 @@ FROM "10_Areas/Career/VISAs & Work Auth"
 SORT file.name ASC
 ```
 ## Links
-- [ICE SEVIS What's New](https://www.ice.gov/sevis/whats-new): the official list of broadcast messages.
-- [Study in the States](https://studyinthestates.dhs.gov/): DHS's student site, including the duration of status FAQ.
-- [USCIS H-1B page](https://www.uscis.gov/working-in-the-united-states/h-1b-specialty-occupations) and [ISSS off-campus work](https://isss.umn.edu/fstudents/employment/off-campus).
+- [ISSS Basics of Pre-Completion OPT](https://isss.umn.edu/fstudents/employment/opt/pre-completion-opt), [Applying for OPT](https://isss.umn.edu/fstudents/employment/opt/apply), and [OPT vs. CPT](https://isss.umn.edu/fstudents/employment/opt-cpt-comparison).
+- [ICE SEVIS What's New](https://www.ice.gov/sevis/whats-new) and [Study in the States](https://studyinthestates.dhs.gov/).
+- [USCIS OPT page](https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-opt-for-f-1-students).

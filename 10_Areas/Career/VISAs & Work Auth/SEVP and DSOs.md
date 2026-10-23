@@ -19,9 +19,13 @@ notes:
   - "[[CPT Lawsuit]]"
   - "[[OPT Fee Proposal]]"
   - "[[Current News]]"
+  - "[[ISSS October Meeting Brief]]"
+  - "[[US Immigration Rules Explained]]"
 ---
 # SEVP and DSOs
 Most F-1 rules are written in a regulation, but they are applied by two kinds of people: federal staff in the Student and Exchange Visitor Program (SEVP) and the school officials it certifies. This note explains who they are, what each can do to a student and to a school, and why a policy change reaches me through my own school's advisors before it reaches me through the law. Read it when a decision turns on whether ISSS "will approve" something.
+## In Plain Words
+Two groups of people decide what an international student can actually do. The first is **SEVP**, a government office that approves schools and watches the data. The second is the school's own staff, called **DSOs**, who sign each student's papers. If a student has a question about work, the DSO is the person to ask, and at UMN that is an advisor at ISSS. I met one on October 23. She was careful to say what she could and could not answer: she handles work authorization, she is "not an H-1B advisor," and she sent resume and employer questions to Career Services. ISSS offers drop-in hours, email, and appointments ([[ISSS October Meeting Brief]], [[US Immigration Rules Explained]]).
 ## The Two Layers
 ==SEVP certifies schools and the schools' designated officials certify students, so a federal policy reaches a student as a school's decision about what it dares to sign.== SEVP is the ICE program office that administers the F-1 program for DHS. It certifies each school to enroll F-1 students under 8 CFR 214.3, tracks students in the SEVIS database, and publishes guidance as broadcast messages and on its public site, Study in the States.
 A **designated school official** (DSO) is a regular school employee whom the school nominates and the government approves. A school must name a principal DSO, and it may name more. The CPT complaint lists what a DSO does: issues the Form I-20, maintains each student's SEVIS record, and advises on status, employment, and practical training. At UMN that office is International Student and Scholar Services (ISSS), and students make requests through the MyISSS portal.
@@ -41,6 +45,12 @@ The plaintiffs report that at least one DSO with more than twenty years of exper
 The OPT fee proposal shifts the same pressure to a new point. Under it a DSO cannot enter an OPT recommendation in SEVIS until the school has paid, so the school's willingness to pay becomes the gate ([[OPT Fee Proposal]]).
 > [!NOTE]
 > A court order in the CPT case would bind the government, but each school would still decide how fast to restart authorizations, as the fear of retroactive scrutiny the plaintiffs describe does not vanish on the day of a ruling. Expect ISSS to move after a ruling, not with it.
+## Words Used In This Note
+- *SEVP:* the Student and Exchange Visitor Program, an office inside ICE.
+- *SEVIS:* the database where my record lives.
+- *DSO and PDSO:* the school official who signs my I-20, and the lead one.
+- *Certification:* SEVP's approval of a school to enroll F-1 students.
+- *Broadcast message:* an email from SEVP to DSOs that explains how to apply a rule.
 ## Working With ISSS
 - Ask in writing, and keep the reply. Verbal assurances do not protect a student when the DSO signs under perjury.
 - Request a recommendation through the portal before any application to USCIS. UMN's page says not to submit an OPT application until the new I-20 with the recommendation is in hand ([[OPT Program]]).

@@ -25,8 +25,10 @@ notes:
 # Current News
 Primary sources only for the ==*F-1* to *OPT* to *STEM OPT* to *H-1B* track==, rebuilt on 2026-10-23 with Firecrawl and checked against court dockets, the Federal Register, and agency pages. This vault uses it as the place to re-check a rule, a date, or a dollar figure before [[VISA Plan]] or [[Junior Year Internship Decision]] relies on it. Read it first when anything in those notes cites a deadline, and re-verify anything older than a few weeks. Each section below is written up in depth in an area note: the [[CPT Broadcast Messages]], [[CPT Lawsuit]], [[OPT Fee Proposal]], [[Duration of Status Rule]], [[2028 Graduation Timeline]], [[H-1B Lottery]], [[H-1B 100K Payment]], and [[H-1B Rule Proposals]], all mapped from [[VISA Plan]].
 > [!WARNING]
-> Everything here was true on 2026-10-23 and most of it is moving. Law firm blogs, news sites, and social posts were used to find documents, never as the source of a claim, except where a row says "secondary". The UMN section is deliberately left as it was found and is due for a rewrite.
+> Everything here was true on 2026-10-23 and most of it is moving. Law firm blogs, news sites, and social posts were used to find documents, never as the source of a claim, except where a row says "secondary". The UMN section was refreshed from the live ISSS pages on October 23, after the meeting with an ISSS advisor.
 > Each resource below carries one ==highlighted== line: the single fact it gave that the others did not.
+## The Golden Source
+==The single most useful source for my own situation is the transcript of my October 23 meeting with an ISSS advisor, because it records what my own school actually says and does.== It is kept untouched at [[October Meeting Transcript]], summarized in [[ISSS October Meeting Brief]], and its facts are carried into the notes mapped from [[VISA Plan]]. Its main points: CPT for elective internships is paused and nobody knows the outcome, pre-completion OPT is an option decided at the window, USCIS takes about five months, premium processing costs about $1,800 and takes up to 30 business days, the OPT fee is still in its comment period, an internship physically abroad is outside F-1 work rules, and projects or unpaid work must not be described as jobs.
 ## Where Things Stand
 ==ICE did not change the CPT regulation. It changed how DSOs must read it through two broadcast messages, and a court has not yet touched that.==
 - *Blocked by a court:* the duration of status rule (since Sept 14) and the $100,000 H-1B payment (vacated June 8, in effect since the First Circuit denied a stay on July 24, appeals pending).
@@ -165,7 +167,26 @@ Primary sources only for the ==*F-1* to *OPT* to *STEM OPT* to *H-1B* track==, r
 	*Weight:* primary, all proposed.
 	==The $103,265 fee would apply to all cap-subject petitions including the master's exemption, the new rule would end deference for H-1B extensions, and the grace-period rule lists E, H-1B, L-1, O-1 and TN but not F-1.== None is final. The first two are the ones that change a 2028 graduate's employer cost.
 ## What UMN Says
-Left as originally found. Stale and queued for a rewrite.
+Refreshed on October 23, 2026 from the live pages, with their update dates. The older entries below stay for the record.
+1. **ISSS Basics of Pre-Completion OPT** ([isss.umn.edu](https://isss.umn.edu/fstudents/employment/opt/pre-completion-opt), updated Sept 18)
+	==Part-time pre-completion OPT counts half and full-time counts in full against the 12 months, whether or not I work, and the 20-hour term limit includes on-campus jobs.== Examples with 3-month stretches are on the page, and it says part-time in term and full-time in vacation are separate applications.
+2. **ISSS Applying for OPT** ([isss.umn.edu](https://isss.umn.edu/fstudents/employment/opt/apply), updated Sept 23)
+	==The five steps, the 10-business-day I-20, the 30-day rule after the I-20 date, and a key-dates table (Fall 2026 graduates: request Sept 14, file from Sept 24, until Feb 21) that proves the date formula.==
+3. **ISSS Requirements During OPT** ([isss.umn.edu](https://isss.umn.edu/fstudents/employment/opt/requirements), updated Sept 15)
+	==Report any job or address change in the SEVP Portal within 10 days, work at least 20 hours a week, and stay under 90 days of unemployment.==
+4. **ISSS Travel, Study, and More** ([isss.umn.edu](https://isss.umn.edu/fstudents/employment/opt/travel-study), updated Sept 15)
+	==The OPT travel signature lasts 6 months, re-entry needs proof of a job, and a cap-gap example shows OPT ending before April 1 gets no cap-gap.==
+5. **ISSS STEM OPT Application Process** ([isss.umn.edu](https://isss.umn.edu/fstudents/employment/opt/stem-opt-extension/application), updated July 28)
+	==The STEM request needs a workshop, a signed training plan, and a $400 ISSS fee, and USCIS takes about 3.5 to 4 months.== It also warns about a country-based USCIS hold.
+6. **ISSS OPT vs. CPT** ([isss.umn.edu](https://isss.umn.edu/fstudents/employment/opt-cpt-comparison), updated Sept 15)
+	==The old CPT path took ISSS up to 7 business days and 2 to 3 weeks overall, and pre-completion OPT has no job-offer requirement.== It says ISSS is developing the pre-completion request process for Fall 2026.
+7. **USCIS fee schedule, Form G-1055** ([uscis.gov](https://www.uscis.gov/sites/default/files/document/forms/g-1055.pdf), edition 10/16/26)
+	==OPT work permit application: $470 online or $520 on paper. Premium processing for OPT and STEM OPT: $1,780.==
+8. **UMN 2027-28 academic calendar** ([asr.umn.edu](https://asr.umn.edu/2027-28-twin-cities-and-rochester-calendar))
+	==The Spring 2028 term ends May 10, 2028, the date ISSS treats as degree completion.==
+9. **USCIS policy memo PM-602-0194** ([uscis.gov](https://www.uscis.gov/sites/default/files/document/policy-alerts/PM-602-0194-PendingApplicationsAdditionalHighRiskCountries-20260101.pdf))
+	==It put pending applications from people from listed countries on hold, and USCIS now states the memo is no longer in effect due to court orders.== ISSS still cites it.
+Older entries from the first pass:
 1. **ISSS off-campus work page** ([isss.umn.edu](https://isss.umn.edu/fstudents/employment/off-campus))
 	==Updated Sept 3. ISSS is pausing every CPT application and its only exception is an experience "required for their degree."==
 2. **ISSS pre-completion OPT page** ([isss.umn.edu](https://isss.umn.edu/fstudents/employment/opt/pre-completion-opt))

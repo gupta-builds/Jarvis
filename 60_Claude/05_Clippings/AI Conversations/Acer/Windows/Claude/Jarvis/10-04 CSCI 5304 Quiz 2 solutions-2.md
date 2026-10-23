@@ -89,7 +89,7 @@ The note is written and interlinked. Quick recap of the math I verified against 
 - **(b) No.** Counterexample: $B=\mathrm{diag}(3,2)$, $A=QB$ with $Q$ a 90° rotation. Same singular values ($\{3,2\}$, verified via $A^TA$), but $A$'s eigenvalues are complex ($\pm i\sqrt6$) while $B$'s are real ($3,2$) — so they can't be similar, hence can't be unitarily equivalent.
 - **(c)** Uses the swap matrix $P=\begin{bmatrix}0&1\\1&0\end{bmatrix}$ directly, building the SVD as $A=P\Sigma P^T$ off of part (a)'s own machinery, with no $AA^T$/$A^TA$/eigenvalues.
 
-Each step cites the specific theorem from your [[Lecture - 4]] and [[Lecture - 2 & 3]] notes, and I kept the steps short and boxed so they'll fit the handwriting space on the physical quiz. [[Week - 4]] now links back to the solved quiz under its Takeaways section.
+Each step cites the specific theorem from your [[Lecture - 4]] and [[Lecture - 2 & 3]] notes, and I kept the steps short and boxed so they'll fit the handwriting space on the physical quiz.[[20_Progress/Degree/CSCI 4061/Weekly/Week - 4]]] now links back to the solved quiz under its Takeaways section.
 
 ### Tool Calls
 

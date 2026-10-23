@@ -1,13 +1,15 @@
 ---
 type: input
 status: seed
-created:
+created: 2026-10-23
 input_kind: transcript
 source_url:
-related_progress: []
+related_progress:
+  - "[[VISA Plan]]"
+  - "[[ISSS October Meeting Brief]]"
 tags:
   - transcript
-next:
+next: "[[ISSS October Meeting Brief]]"
 ---
 # October Meeting Transcript
 **Captured:** 2026-10-23

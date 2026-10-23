@@ -31,9 +31,9 @@ This is the personal interview-preparation syllabus for October 12 through Decem
 | This note | Personal curriculum, competency order, hours, gates and gap handling |
 | [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041 Relation\|CSCI 4041 Relation]] | Complete original-file inventory and concept/file crosswalk |
 | [[20_Progress/Degree/_Courses/Technical Interview/DSA\|DSA]] | Dated execution-only files and exact practice assignments |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List\|Detailed Problems List]] | Per-problem fit, statements, sources, prerequisites, dates and all captured/local tasks |
+| [[Detailed Problems List\|Detailed Problems List]] | Per-problem fit, statements, sources, prerequisites, dates and all captured/local tasks |
 | [[20_Progress/Degree/_Courses/Technical Interview/Problems Solver\|Problems Solver]] | Resource decisions, solving cadence and append-only execution ledger |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Weekly Set\|Weekly Set]] | Current-week task checklist |
+| [[Weekly Set\|Weekly Set]] | Current-week task checklist |
 ## Dated curriculum and effort
 The allocations are independent revision/practice budgets, not reserved appointments. Matching live CodePath content can replace its corresponding source-review block; any additional attendance or assessment commitment must be reconciled with the week’s budget. Optional work never displaces a required failed-pattern review.
 | Week / dates | Required knowledge | Checked LeetCode / hard | Other required practice | Budget: source / attempts and drills / recall |

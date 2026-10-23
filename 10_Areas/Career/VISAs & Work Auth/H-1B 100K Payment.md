@@ -23,6 +23,8 @@ notes:
 ---
 # H-1B 100K Payment
 A presidential proclamation told employers to pay $100,000 for certain H-1B workers, courts blocked the government from collecting it, and the president extended it anyway on September 18. This note separates what the proclamation says, who USCIS says it covers, what the courts have actually done, and what is still open. It matters to me mainly for one narrow reason: the payment does not reach an F-1 student changing status inside the country. Read it before any employer says "the $100,000 fee" is why they do not sponsor.
+## In Plain Words
+In September 2025 the President ordered that a company hiring certain H-1B workers from abroad must pay $100,000. Courts have since stopped the government from collecting it, but the President extended the order to September 2027 anyway. For a student like me the key fact comes from USCIS's own page: the payment does not apply to someone already in the U.S. who is approved to change from F-1 to H-1B. It does apply if that change is denied or I leave the country before it is decided. So the practical rule is to stay put while a petition is pending ([[Cap-Gap Extension]], [[US Immigration Rules Explained]]).
 ## The Text
 ==The proclamation restricts the entry of H-1B workers abroad unless their employer pays $100,000, so it was written as a limit on who may enter, not as a fee on every H-1B petition.== Proclamation 10973 of September 19, 2025 took effect September 21, 2025. Proclamation 11069 of September 18, 2026 extends it twelve months, to 12:01 AM Eastern on September 21, 2027.
 - *Section 1:* entry as a specialty-occupation worker is restricted except for aliens whose petitions are accompanied or supplemented by a $100,000 payment. DHS is to restrict decisions on unpaid petitions for workers currently outside the United States.
@@ -53,6 +55,11 @@ DHS has separately proposed a $103,265 fee on every cap-subject petition, includ
 - *If I leave before the decision,* USCIS says the payment applies. That makes travel during the pending petition risky on two counts.
 - *Expiry is September 21, 2027,* before my first cap season in March 2028, unless renewed. The extension decision is due to follow the March 2027 lottery, so a signal should appear in spring 2027.
 - *Employers may still hesitate,* because the legal state is unsettled and the proposed $103,265 fee is separate.
+## Words Used In This Note
+- *Proclamation:* a formal order signed by the President.
+- *Vacated:* a court cancelled the guidance.
+- *Preliminary injunction:* an early court order stopping the government from enforcing something.
+- *Consular notification:* when an approved petition tells a U.S. embassy to issue the visa.
 ## Open Questions
 - [ ] Read the Northern District of California order itself for the scope of the injunction 📅 2026-11-15
 - [ ] Watch the First Circuit and D.C. Circuit dockets for merits decisions

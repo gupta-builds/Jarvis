@@ -19,10 +19,31 @@ notes:
   - "[[Pre-Completion OPT]]"
   - "[[OPT Fee Proposal]]"
   - "[[Current News]]"
-next: "Save the transcript, then run /transcript-to-brief and update the notes in the table at the bottom"
+  - "[[ISSS October Meeting Brief]]"
+  - "[[October Meeting Transcript]]"
+next: "The meeting happened on 2026-10-23. Use the Brief for what was said and the table below for which prepared questions are still open"
 ---
 # ISSS Meeting
 This is the prep sheet for my meeting with a career professional who works with international students at UMN. It holds the whole research brief on one page and the questions ranked by what each answer would change. Read the first two sections now, keep the question list open during the call, and use the last section afterward to route the transcript into the 22 notes in [[VISA Plan]].
+## What Happened
+The meeting took place on October 23, 2026 with an ISSS advisor, not a career-services professional. The transcript is [[October Meeting Transcript]] and everything in it is summarized in [[ISSS October Meeting Brief]]. This table shows what became of the questions prepared below. The unanswered ones are carried into the tasks in [[Junior Year Internship Decision]].
+### The Result Table
+| Question | Result |
+| --- | --- |
+| 1, 2, 4, 5 (CPT details, required course, restart, existing CPT) | Only partly: the pause is on elective CPT and the outcome is unknown. Not asked: required course, restart, existing CPT |
+| 3 (what other students do) | She would not speak for them; seniors with a fixed start date may use pre-completion OPT |
+| 6, 8 (pre-completion OPT, turnaround, whether to avoid it) | Answered: option, decide at the window, about 5 months, 50 percent counting, separate applications |
+| 7 (OPT fee stance) | Answered in general: comment period ends Nov 9; no UMN stance given |
+| 9, 10, 11, 12 (warning, campus jobs, off-campus labs) | Not asked, except that the 20-hour limit includes on-campus work |
+| 13 (employers) | Answered: still hiring; use Handshake's work-authorization filter |
+| 14 (authorization question) | Answered: "yes and yes" is truthful |
+| 15, 16, 17 (E-Verify employers, contingent offers, alumni data) | Not asked |
+| 18, 19, 20 (end date, workshop, start date) | Answered: end of the semester you finish; self-paced online workshop; plan at the start of the last semester |
+| 21 (H-1B help) | Answered: she is not an H-1B advisor |
+| 22, 23, 24 (communication, rule returns, travel) | Partly: watch ISSS emails; rule still blocked; travel depends on plans |
+| 25 (memberships) | Not asked |
+| 26, 27 (remote abroad, unpaid work) | Answered: physically abroad is outside F-1 work rules; unpaid and project work must be worded carefully |
+| 28 (who answers in writing) | Answered: drop-ins, email, or another appointment |
 ## Read This First
 ==The summer 2027 problem is that CPT, the usual internship permit, is paused at UMN, and the only other open route before graduation costs OPT months, STEM eligibility, and possibly a $70,000 school fee, so I need her to tell me what UMN will actually allow and what students are doing.==
 1. **Goal:** finish spring 2028, start OPT right after, get picked in the March 2028 H-1B lottery, and keep work authorization unbroken through October 1, 2028 and beyond with the STEM extension.

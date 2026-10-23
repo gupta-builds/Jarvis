@@ -9,7 +9,7 @@ related_progress:
   - "[[C Language]]"
 tags:
   - input
-next: "[[Week - 3]]"
+next: "[[20_Progress/Degree/CSCI 4061/Weekly/Week - 3]]"
 ---
 This example code snippet creates a linked list containing three elements (the list itself is referred to by the `head` variable that points to the first node in the list):
 

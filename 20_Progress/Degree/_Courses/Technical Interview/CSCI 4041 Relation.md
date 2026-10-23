@@ -10,13 +10,13 @@ tags:
   - technical-interview
 notes:
   - "[[20_Progress/Degree/_Courses/Technical Interview/Technical Interview|Technical Interview]]"
-  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/CSCI 4041 Board|CSCI 4041 Board]]"
+  - "[[CSCI 4041 Board|CSCI 4041 Board]]"
   - "[[DSA|DSA]]"
-  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Introduction to Algorithms|Textbook: Introduction to Algorithms]]"
+  - "[[20_Progress/Degree/CSCI 4041/Textbook/Introduction to Algorithms|Textbook: Introduction to Algorithms]]"
   - "[[20_Progress/Degree/_Courses/Technical Interview/Problems Solver|Problems Solver]]"
-  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Weekly Board|Weekly Board]]"
+  - "[[20_Progress/Degree/CSCI 4041/Weekly/Weekly Board|Weekly Board]]"
   - "[[20_Progress/Degree/_Courses/Technical Interview/Preparation & Sources|Preparation & Sources]]"
-next: "Use the exact bundle/file rows from DSA; restore title-only prompt bodies without editing the raw captures"
+next: Use the exact bundle/file rows from DSA; restore title-only prompt bodies without editing the raw captures
 ---
 # CSCI 4041 Relation - Files, concepts and preparation weeks
 This note maps the TIP103 captures and personal syllabus to the specific CSCI 4041 textbook, lecture, coding, homework and project files that support them. Each row names its use and preparation week; adjacency is labeled where the interview pattern goes beyond the source.
@@ -40,57 +40,57 @@ Source root: `D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041`. Personal week numb
 - Some Unit 5 image asset URLs include `unit10_session1` or `unit10_session2`; keep the captured Unit 5 labels and flag portal reconciliation rather than renumbering the raw notes.
 ## B-A Arrays and strings
 TIP evidence: U1 S1-S2; U3 S2. Personal weeks: W1, W2, W5, W7. Textbook: CLRS 2.1-2.3, 10.1; string-matching extension 32.1-32.4.
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 1 & 2|Week - 1 & 2]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 1 & 2|Chapter - 1 & 2]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 7 & 10|Chapter - 7 & 10]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Time Complexity|Time Complexity]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 1 & 2|Week - 1 & 2]]
+- [[20_Progress/Degree/CSCI 4041/Textbook/Chapter - 1 & 2|Chapter - 1 & 2]]
+- [[Chapter - 7 & 10|Chapter - 7 & 10]]
+- [[Time Complexity|Time Complexity]]
 - [Lectures/Week - 1 & 2/ch2_Asymptotic_Analysis.ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Lectures/Week - 1 & 2/ch2_Asymptotic_Analysis.ipynb>)
 - [Lectures/Week - 1 & 2/ch2_Asymptotic_Analysis-FLOPS.ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Lectures/Week - 1 & 2/ch2_Asymptotic_Analysis-FLOPS.ipynb>)
 - [Lectures/Week - 4/Ch7_QuickSort(AlgorithmicModifcationExamples).ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Lectures/Week - 4/Ch7_QuickSort(AlgorithmicModifcationExamples).ipynb>)
 Coverage: CSCI array/invariant support is direct; interview two-pointer, sliding-window, interval and Python string techniques need the captured CodePath material and Handbook sheets.
 ## B-H Hashing
 TIP evidence: U2 S1-S2. Personal weeks: W1, W2, W5, W10. Textbook: CLRS 11.1-11.5; Appendix B.1; bit-vector application in CodingHW5.
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 8|Week - 8]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 11|Chapter - 11]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Data Structures & Methods/Hashing|Hashing]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 8|Week - 8]]
+- [[20_Progress/Degree/CSCI 4041/Textbook/Chapter - 11|Chapter - 11]]
+- [[Hashing|Hashing]]
 - [Lectures/Week - 8/Ch11_ChainHashMap.ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Lectures/Week - 8/Ch11_ChainHashMap.ipynb>)
 - [Lectures/Week - 8/Ch11_ProbeHashMap.ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Lectures/Week - 8/Ch11_ProbeHashMap.ipynb>)
 - [Homework/Coding/CodingHW_5(chapter11-CLRS).ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Homework/Coding/CodingHW_5(chapter11-CLRS).ipynb>)
 Coverage: Hash-table internals support dict/set complexity. Frequency maps, normalized keys and prefix-sum lookups require an explicit transfer from those internals.
 ## B-R Recursion
 TIP evidence: U3 S1. Personal weeks: W1, W2, W3, W6. Textbook: CLRS 4.1-4.5; 14.1 and 14.3 for memoization.
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 3|Week - 3]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 3 & 4|Chapter - 3 & 4]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Algorithms/Divide and Conquer|Divide and Conquer]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 3|Week - 3]]
+- [[20_Progress/Degree/CSCI 4041/Textbook/Chapter - 3 & 4|Chapter - 3 & 4]]
+- [[Divide and Conquer|Divide and Conquer]]
 - [Lectures/Week - 3/Ch4_Divide_and_Conquer(Examples).ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Lectures/Week - 3/Ch4_Divide_and_Conquer(Examples).ipynb>)
 - [Lectures/Week - 3/Ch4_Divide_and_Conquer(Matrix-Multiply).ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Lectures/Week - 3/Ch4_Divide_and_Conquer(Matrix-Multiply).ipynb>)
 Coverage: Recurrences and recursion are supported. Whole-batch partitioning, nested-expression parsing and output-sensitive backtracking need additional interview practice. A memoization header alone does not prove mastery.
 ## B-S Stacks and queues
 TIP evidence: U3 S2. Personal weeks: W1, W2, W5, W10. Textbook: CLRS 10.1, 16.1-16.4.
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 4|Week - 4]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 7 & 10|Chapter - 7 & 10]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Data Structures & Methods/Elementary Data Structures|Elementary Data Structures]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 4|Week - 4]]
+- [[Chapter - 7 & 10|Chapter - 7 & 10]]
+- [[Elementary Data Structures|Elementary Data Structures]]
 - [Lectures/Week - 4/Ch10_Stacks_and_Queues.ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Lectures/Week - 4/Ch10_Stacks_and_Queues.ipynb>)
 - [Homework/Coding/CodingHW_3(chapter10-CLRS).ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Homework/Coding/CodingHW_3(chapter10-CLRS).ipynb>)
 Coverage: Basic ADTs are direct. Monotonic stacks, queue-via-stacks amortization and expression parsing are interview extensions.
 ## B-L Linked lists and OOP
 TIP evidence: U3 S1 P4-P5; U4 S1. Personal weeks: W1, W2, W3, W10. Textbook: CLRS 10.2; object/reference conventions in lecture code.
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 4|Week - 4]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 7 & 10|Chapter - 7 & 10]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Data Structures & Methods/Elementary Data Structures|Elementary Data Structures]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 4|Week - 4]]
+- [[Chapter - 7 & 10|Chapter - 7 & 10]]
+- [[Elementary Data Structures|Elementary Data Structures]]
 - [Lectures/Week - 4/Ch10_LinkedLists.ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Lectures/Week - 4/Ch10_LinkedLists.ipynb>)
 - [Homework/Coding/Ch10_LinkedLists.ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Homework/Coding/Ch10_LinkedLists.ipynb>)
 - [Homework/Coding/CodingHW_3(chapter10-CLRS).ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Homework/Coding/CodingHW_3(chapter10-CLRS).ipynb>)
 Coverage: Node operations are direct. Track identity, aliasing, head/tail changes and mutation contracts; sorted merging differs from the transcript interleaving task.
 ## B-T Trees and BSTs
 TIP evidence: U4 S2. Personal weeks: W1, W2, W4. Textbook: CLRS 10.3, 12.1-12.3; 13.1-13.4 and 18 as academic extensions.
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 5|Week - 5]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 6 & 12|Chapter - 6 & 12]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Data Structures & Methods/Elementary Data Structures|Elementary Data Structures]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Trees/AVL Trees|AVL Trees]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Trees/B-Trees|B-Trees]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Midterm Project/AVL Tree Project|AVL Tree Project]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Midterm Project/Midterm Project|Midterm Project]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 5|Week - 5]]
+- [[Chapter - 6 & 12|Chapter - 6 & 12]]
+- [[Elementary Data Structures|Elementary Data Structures]]
+- [[AVL Trees|AVL Trees]]
+- [[B-Trees|B-Trees]]
+- [[AVL Tree Project|AVL Tree Project]]
+- [[Midterm Project|Midterm Project]]
 - [Lectures/Week - 4/Ch10_BinaryTree.ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Lectures/Week - 4/Ch10_BinaryTree.ipynb>)
 - [Lectures/Week - 5/Ch12_BinarySearchTree.ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Lectures/Week - 5/Ch12_BinarySearchTree.ipynb>)
 - [Lectures/Week - 5/Ch12_Examples.ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Lectures/Week - 5/Ch12_Examples.ipynb>)
@@ -100,10 +100,10 @@ TIP evidence: U4 S2. Personal weeks: W1, W2, W4. Textbook: CLRS 10.3, 12.1-12.3;
 Coverage: Tree representation and BST operations are direct. A right-child-only vine is different from a level-wise right-side view. Balance assumptions in captured complexity prompts do not apply to arbitrary interview trees.
 ## B-G Graph traversal
 TIP evidence: U5 S1-S2. Personal weeks: W1, W2, W8, W9. Textbook: CLRS 20.1-20.5; Appendix B.4.
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 11|Week - 11]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 12|Week - 12]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 20|Chapter - 20]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Graphs/Graph Algorithms|Graph Algorithms]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 11|Week - 11]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 12|Week - 12]]
+- [[Chapter - 20|Chapter - 20]]
+- [[Graph Algorithms|Graph Algorithms]]
 - [Lectures/Week - 11/Ch20_Graphs_and_BFS.ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Lectures/Week - 11/Ch20_Graphs_and_BFS.ipynb>)
 - [Lectures/Week - 11/Ch20_AdjacencyLists_and_DFS.ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Lectures/Week - 11/Ch20_AdjacencyLists_and_DFS.ipynb>)
 - [Lectures/Week - 12/Ch20_Topological_Sort_Connected_Components.ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Lectures/Week - 12/Ch20_Topological_Sort_Connected_Components.ipynb>)
@@ -111,14 +111,14 @@ TIP evidence: U5 S1-S2. Personal weeks: W1, W2, W8, W9. Textbook: CLRS 20.1-20.5
 Coverage: Representations, BFS/DFS, parent reconstruction and topological order are direct. Preserve directedness, neighbor order and grid adjacency. U5 flight cost requests any path, not a minimum-cost path.
 ## B-Q Sorting search and heaps
 TIP evidence: U1 arrays; U2 header mentions heaps, but captured prompts do not establish heap practice. Personal weeks: W3, W7. Textbook: CLRS 2.1-2.3, 3.1-3.3, 4.3-4.5, 6.1-6.5, 7.1-7.4; 8-9 and 16 as bridges.
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 1 & 2|Week - 1 & 2]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 3|Week - 3]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 4|Week - 4]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 5|Week - 5]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 6 & 12|Chapter - 6 & 12]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Algorithms/HeapSort|HeapSort]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Algorithms/QuickSort|QuickSort]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Algorithms/Sorting Algorithms|Sorting Algorithms]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 1 & 2|Week - 1 & 2]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 3|Week - 3]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 4|Week - 4]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 5|Week - 5]]
+- [[Chapter - 6 & 12|Chapter - 6 & 12]]
+- [[HeapSort|HeapSort]]
+- [[QuickSort|QuickSort]]
+- [[Sorting Algorithms|Sorting Algorithms]]
 - [Lectures/Week - 1 & 2/Ch2_Merge_Sort.ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Lectures/Week - 1 & 2/Ch2_Merge_Sort.ipynb>)
 - [Lectures/Week - 4/Ch7_QuickSort.ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Lectures/Week - 4/Ch7_QuickSort.ipynb>)
 - [Lectures/Week - 5/Ch6_Heaps.ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Lectures/Week - 5/Ch6_Heaps.ipynb>)
@@ -127,10 +127,10 @@ TIP evidence: U1 arrays; U2 header mentions heaps, but captured prompts do not e
 Coverage: Heap/BST/partition mechanics are direct. Binary-search boundary contracts, streaming order statistics and heap-based interview designs need transfer practice.
 ## B-D DP and backtracking
 TIP evidence: U3 recursion; syllabus sample units 7-9; U5 S2 DAG path enumeration. Personal weeks: W6, W7, W9. Textbook: CLRS 14.1-14.5; recursion state from Chapter 4.
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 9|Week - 9]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 14|Chapter - 14]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Algorithms/Dynamic Programming|Dynamic Programming]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Algorithms/Divide and Conquer|Divide and Conquer]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 9|Week - 9]]
+- [[20_Progress/Degree/CSCI 4041/Textbook/Chapter - 14|Chapter - 14]]
+- [[Dynamic Programming|Dynamic Programming]]
+- [[Divide and Conquer|Divide and Conquer]]
 - [Lectures/Week - 9/ch14_DynamicProgramming(Fibonacci).ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Lectures/Week - 9/ch14_DynamicProgramming(Fibonacci).ipynb>)
 - [Lectures/Week - 9/Ch14_DynamicProgramming(Knapsack).ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Lectures/Week - 9/Ch14_DynamicProgramming(Knapsack).ipynb>)
 - [Lectures/Week - 9/Ch14_DynamicProgramming(Knapsack)-Testing.ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Lectures/Week - 9/Ch14_DynamicProgramming(Knapsack)-Testing.ipynb>)
@@ -139,28 +139,28 @@ TIP evidence: U3 recursion; syllabus sample units 7-9; U5 S2 DAG path enumeratio
 Coverage: State, recurrence and memoization are present. Separate choice-tree backtracking from overlapping-subproblem DP; account for output size in path/permutation enumeration.
 ## B-I Greedy and intervals
 TIP evidence: U1 S2 interval tasks; syllabus sample unit 7. Personal weeks: W7. Textbook: CLRS 15.1-15.4; weighted scheduling bridge to 14.
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 10|Week - 10]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 15|Chapter - 15]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Algorithms/Greedy Algorithms|Greedy Algorithms]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 10|Week - 10]]
+- [[20_Progress/Degree/CSCI 4041/Textbook/Chapter - 15|Chapter - 15]]
+- [[Greedy Algorithms|Greedy Algorithms]]
 - [Lectures/Week - 10/Ch15_GreedyAlgorithms(ActivitySelectionProblem).ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Lectures/Week - 10/Ch15_GreedyAlgorithms(ActivitySelectionProblem).ipynb>)
 - [Lectures/Week - 10/Ch15_GreedyAlgorithms(HuffmanCoding).ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Lectures/Week - 10/Ch15_GreedyAlgorithms(HuffmanCoding).ipynb>)
 - [Homework/Coding/CodingHW_7(chapter15-CLRS).ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Homework/Coding/CodingHW_7(chapter15-CLRS).ipynb>)
 Coverage: Activity selection, counterexamples and Huffman are direct. Weighted scheduling is a DP bridge; sorting intervals alone does not establish a valid greedy choice.
 ## B-U Union-find and MST
 TIP evidence: Syllabus sample unit 6; connectivity extension to U5. Personal weeks: W8. Textbook: CLRS 19.1-19.3, 21.1-21.2.
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 12|Week - 12]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 21|Chapter - 21]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Graphs/Minimum Spanning Trees|Minimum Spanning Trees]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 12|Week - 12]]
+- [[Chapter - 21|Chapter - 21]]
+- [[Minimum Spanning Trees|Minimum Spanning Trees]]
 - [Lectures/Week - 12/Ch21_MinimumSpanningTree.ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Lectures/Week - 12/Ch21_MinimumSpanningTree.ipynb>)
 - [Homework/Coding/CodingHW_9(chapter20-23-CLRS).ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Homework/Coding/CodingHW_9(chapter20-23-CLRS).ipynb>)
 Coverage: A standalone union-find note is absent, but CLRS Chapter 19 and CodingHW9 better_kruskal already supply union by rank and path compression. This is a note/index gap, not missing source material.
 ## B-P Weighted shortest paths
 TIP evidence: Syllabus sample unit 6; U5 weighted-path task is only adjacent. Personal weeks: W9. Textbook: CLRS 22.1-22.3, 23.1-23.3.
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 13|Week - 13]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 22|Chapter - 22]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 23|Chapter - 23]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Graphs/Shortest Paths|Shortest Paths]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Final Project/Final Project Report - Revised|Final Project Report - Revised]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 13|Week - 13]]
+- [[Chapter - 22|Chapter - 22]]
+- [[Chapter - 23|Chapter - 23]]
+- [[Shortest Paths|Shortest Paths]]
+- [[Final Project Report - Revised|Final Project Report - Revised]]
 - [Lectures/Week - 13/Ch22_Single-Source_Shortest_Path.ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Lectures/Week - 13/Ch22_Single-Source_Shortest_Path.ipynb>)
 - [Lectures/Week - 13/Ch23_All-Pairs_Shortest_Path.ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Lectures/Week - 13/Ch23_All-Pairs_Shortest_Path.ipynb>)
 - [Final Project/Maze/Final.ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Final Project/Maze/Final.ipynb>)
@@ -169,17 +169,17 @@ TIP evidence: Syllabus sample unit 6; U5 weighted-path task is only adjacent. Pe
 Coverage: Dijkstra, Bellman-Ford and APSP are direct. Stop-limited, minimax and transport-state problems require new state/model choices. Heuristic pathfinding papers remain optional.
 ## B-F Flow extension
 TIP evidence: CSCI extension; not listed among standard TIP103 topics. Personal weeks: W10. Textbook: CLRS 24.1-24.3; 25 as optional matching extension.
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 14|Week - 14]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 24|Chapter - 24]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Graphs/Maximum Flow|Maximum Flow]]
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Final Project/Network Flow Project|Network Flow Project]]
+- [[20_Progress/Degree/CSCI 4041/Weekly/Week - 14|Week - 14]]
+- [[Chapter - 24|Chapter - 24]]
+- [[Maximum Flow|Maximum Flow]]
+- [[Network Flow Project|Network Flow Project]]
 - [Lectures/Week - 14/Ch24_Maximum_Flow.ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Lectures/Week - 14/Ch24_Maximum_Flow.ipynb>)
 - [Lectures/Week - 14/Ch20(Graphs-CodeBase)-NETWORK.ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Lectures/Week - 14/Ch20(Graphs-CodeBase)-NETWORK.ipynb>)
 - [Final Project/Network Flow/Distribution-Network-Template.ipynb](<D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4041/Final Project/Network Flow/Distribution-Network-Template.ipynb>)
 Coverage: Study the existing residual-network example. Research papers and a full new flow implementation are optional within the fixed deadline.
 ## B-X Tries and string patterns
 TIP evidence: Interview supplement to U1/U2; not evidenced as a dedicated captured session. Personal weeks: W5, W6. Textbook: CLRS 32.1-32.4 as optional string-matching reference; Handbook trie material.
-- [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Data Structures & Methods/Hashing|Hashing]]
+- [[Hashing|Hashing]]
 Coverage: No dedicated CSCI trie, prefix-sum or sliding-window note exists. Use the verified Handbook sheets and official problem contracts; do not label these as professor-taught methods.
 ## Complete original-file inventory
 132 educational files are enumerated below, including duplicate copies and optional outputs. Notebook cells, function names, imports and task text were inspected; PDF text was extracted, with relevant sections sampled. Image-only theory references were visually sampled. Indexing a file does not mean the student has studied it or that every page was reread.
@@ -338,67 +338,67 @@ Coverage: No dedicated CSCI trie, prefix-sum or sliding-window note exists. Use 
 ## Vault-note inventory
 | Existing note | Preparation use |
 |---|---|
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Algorithms/Divide and Conquer\|Divide and Conquer]] | Use the corresponding bundle above |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Algorithms/Dynamic Programming\|Dynamic Programming]] | Use the corresponding bundle above |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Algorithms/Greedy Algorithms\|Greedy Algorithms]] | Use the corresponding bundle above |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Algorithms/HeapSort\|HeapSort]] | Use the corresponding bundle above |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Algorithms/QuickSort\|QuickSort]] | Use the corresponding bundle above |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Algorithms/Sorting Algorithms\|Sorting Algorithms]] | Use the corresponding bundle above |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Concepts Board\|Concepts Board]] | Use the corresponding bundle above |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Data Structures & Methods/Elementary Data Structures\|Elementary Data Structures]] | Use the corresponding bundle above |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Data Structures & Methods/Hashing\|Hashing]] | Use the corresponding bundle above |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Graphs/Graph Algorithms\|Graph Algorithms]] | Use the corresponding bundle above |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Graphs/Maximum Flow\|Maximum Flow]] | Use the corresponding bundle above |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Graphs/Minimum Spanning Trees\|Minimum Spanning Trees]] | Use the corresponding bundle above |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Graphs/Shortest Paths\|Shortest Paths]] | Use the corresponding bundle above |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Introduction to Algorithms\|Introduction to Algorithms]] | Use the corresponding bundle above |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Time Complexity\|Time Complexity]] | Use the corresponding bundle above |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Trees/AVL Trees\|AVL Trees]] | Use the corresponding bundle above |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Concepts/Trees/B-Trees\|B-Trees]] | Use the corresponding bundle above |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/CSCI 4041 Board\|CSCI 4041 Board]] | Course/reference index |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Final Project/Final Project Report - Revised\|Final Project Report - Revised]] | W9 maze/pathfinding or W10 network flow |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Final Project/Final Project Report\|Final Project Report]] | W9 maze/pathfinding or W10 network flow |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Final Project/Heuristic Pathfinding Project\|Heuristic Pathfinding Project]] | W9 maze/pathfinding or W10 network flow |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Final Project/Maze Project Details\|Maze Project Details]] | W9 maze/pathfinding or W10 network flow |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Final Project/Maze Project\|Maze Project]] | W9 maze/pathfinding or W10 network flow |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Final Project/Network Flow Project\|Network Flow Project]] | W9 maze/pathfinding or W10 network flow |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Midterm Project/AVL Tree Project\|AVL Tree Project]] | W4 balanced-tree source and project review |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Midterm Project/Midterm Project\|Midterm Project]] | W4 balanced-tree source and project review |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Midterm Project/Multiway Search Tree Project\|Multiway Search Tree Project]] | W4 balanced-tree source and project review |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Midterm Project/Red Black Tree Project\|Red Black Tree Project]] | W4 balanced-tree source and project review |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Competitive Coding/HackerRank Practice Test Prompt\|HackerRank Practice Test Prompt]] | Execution/catalog/rules, linked from DSA |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List\|Detailed Problems List]] | Execution/catalog/rules, linked from DSA |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/How to Solve Problems\|How to Solve Problems]] | Execution/catalog/rules, linked from DSA |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Weekly Set\|Weekly Set]] | Execution/catalog/rules, linked from DSA |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 1 & 2\|Chapter - 1 & 2]] | Use the corresponding bundle and printed CLRS sections |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 11\|Chapter - 11]] | Use the corresponding bundle and printed CLRS sections |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 13\|Chapter - 13]] | Use the corresponding bundle and printed CLRS sections |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 14\|Chapter - 14]] | Use the corresponding bundle and printed CLRS sections |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 15\|Chapter - 15]] | Use the corresponding bundle and printed CLRS sections |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 18\|Chapter - 18]] | Use the corresponding bundle and printed CLRS sections |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 20\|Chapter - 20]] | Use the corresponding bundle and printed CLRS sections |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 21\|Chapter - 21]] | Use the corresponding bundle and printed CLRS sections |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 22\|Chapter - 22]] | Use the corresponding bundle and printed CLRS sections |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 23\|Chapter - 23]] | Use the corresponding bundle and printed CLRS sections |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 24\|Chapter - 24]] | Use the corresponding bundle and printed CLRS sections |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 3 & 4\|Chapter - 3 & 4]] | Use the corresponding bundle and printed CLRS sections |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 6 & 12\|Chapter - 6 & 12]] | Use the corresponding bundle and printed CLRS sections |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Chapter - 7 & 10\|Chapter - 7 & 10]] | Use the corresponding bundle and printed CLRS sections |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Textbook/Introduction to Algorithms\|Introduction to Algorithms]] | Use the corresponding bundle and printed CLRS sections |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 1 & 2\|Week - 1 & 2]] | Original CSCI week 1; map by topic through the bundles above |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 10\|Week - 10]] | Original CSCI week 10; map by topic through the bundles above |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 11\|Week - 11]] | Original CSCI week 11; map by topic through the bundles above |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 12\|Week - 12]] | Original CSCI week 12; map by topic through the bundles above |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 13\|Week - 13]] | Original CSCI week 13; map by topic through the bundles above |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 14\|Week - 14]] | Original CSCI week 14; map by topic through the bundles above |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 3\|Week - 3]] | Original CSCI week 3; map by topic through the bundles above |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 4\|Week - 4]] | Original CSCI week 4; map by topic through the bundles above |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 5\|Week - 5]] | Original CSCI week 5; map by topic through the bundles above |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 6\|Week - 6]] | Original CSCI week 6; map by topic through the bundles above |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 7\|Week - 7]] | Original CSCI week 7; map by topic through the bundles above |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 8\|Week - 8]] | Original CSCI week 8; map by topic through the bundles above |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Week - 9\|Week - 9]] | Original CSCI week 9; map by topic through the bundles above |
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Weekly/Weekly Board\|Weekly Board]] | Course/reference index |
+| [[Divide and Conquer\|Divide and Conquer]] | Use the corresponding bundle above |
+| [[Dynamic Programming\|Dynamic Programming]] | Use the corresponding bundle above |
+| [[Greedy Algorithms\|Greedy Algorithms]] | Use the corresponding bundle above |
+| [[HeapSort\|HeapSort]] | Use the corresponding bundle above |
+| [[QuickSort\|QuickSort]] | Use the corresponding bundle above |
+| [[Sorting Algorithms\|Sorting Algorithms]] | Use the corresponding bundle above |
+| [[20_Progress/Degree/CSCI 4041/Concepts/Concepts Board\|Concepts Board]] | Use the corresponding bundle above |
+| [[Elementary Data Structures\|Elementary Data Structures]] | Use the corresponding bundle above |
+| [[Hashing\|Hashing]] | Use the corresponding bundle above |
+| [[Graph Algorithms\|Graph Algorithms]] | Use the corresponding bundle above |
+| [[Maximum Flow\|Maximum Flow]] | Use the corresponding bundle above |
+| [[Minimum Spanning Trees\|Minimum Spanning Trees]] | Use the corresponding bundle above |
+| [[Shortest Paths\|Shortest Paths]] | Use the corresponding bundle above |
+| [[20_Progress/Degree/CSCI 4041/Concepts/Introduction to Algorithms\|Introduction to Algorithms]] | Use the corresponding bundle above |
+| [[Time Complexity\|Time Complexity]] | Use the corresponding bundle above |
+| [[AVL Trees\|AVL Trees]] | Use the corresponding bundle above |
+| [[B-Trees\|B-Trees]] | Use the corresponding bundle above |
+| [[CSCI 4041 Board\|CSCI 4041 Board]] | Course/reference index |
+| [[Final Project Report - Revised\|Final Project Report - Revised]] | W9 maze/pathfinding or W10 network flow |
+| [[Final Project Report\|Final Project Report]] | W9 maze/pathfinding or W10 network flow |
+| [[Heuristic Pathfinding Project\|Heuristic Pathfinding Project]] | W9 maze/pathfinding or W10 network flow |
+| [[Maze Project Details\|Maze Project Details]] | W9 maze/pathfinding or W10 network flow |
+| [[Maze Project\|Maze Project]] | W9 maze/pathfinding or W10 network flow |
+| [[Network Flow Project\|Network Flow Project]] | W9 maze/pathfinding or W10 network flow |
+| [[AVL Tree Project\|AVL Tree Project]] | W4 balanced-tree source and project review |
+| [[Midterm Project\|Midterm Project]] | W4 balanced-tree source and project review |
+| [[Multiway Search Tree Project\|Multiway Search Tree Project]] | W4 balanced-tree source and project review |
+| [[Red Black Tree Project\|Red Black Tree Project]] | W4 balanced-tree source and project review |
+| [[HackerRank Practice Test Prompt\|HackerRank Practice Test Prompt]] | Execution/catalog/rules, linked from DSA |
+| [[Detailed Problems List\|Detailed Problems List]] | Execution/catalog/rules, linked from DSA |
+| [[How to Solve Problems\|How to Solve Problems]] | Execution/catalog/rules, linked from DSA |
+| [[Weekly Set\|Weekly Set]] | Execution/catalog/rules, linked from DSA |
+| [[20_Progress/Degree/CSCI 4041/Textbook/Chapter - 1 & 2\|Chapter - 1 & 2]] | Use the corresponding bundle and printed CLRS sections |
+| [[20_Progress/Degree/CSCI 4041/Textbook/Chapter - 11\|Chapter - 11]] | Use the corresponding bundle and printed CLRS sections |
+| [[20_Progress/Degree/CSCI 4041/Textbook/Chapter - 13\|Chapter - 13]] | Use the corresponding bundle and printed CLRS sections |
+| [[20_Progress/Degree/CSCI 4041/Textbook/Chapter - 14\|Chapter - 14]] | Use the corresponding bundle and printed CLRS sections |
+| [[20_Progress/Degree/CSCI 4041/Textbook/Chapter - 15\|Chapter - 15]] | Use the corresponding bundle and printed CLRS sections |
+| [[Chapter - 18\|Chapter - 18]] | Use the corresponding bundle and printed CLRS sections |
+| [[Chapter - 20\|Chapter - 20]] | Use the corresponding bundle and printed CLRS sections |
+| [[Chapter - 21\|Chapter - 21]] | Use the corresponding bundle and printed CLRS sections |
+| [[Chapter - 22\|Chapter - 22]] | Use the corresponding bundle and printed CLRS sections |
+| [[Chapter - 23\|Chapter - 23]] | Use the corresponding bundle and printed CLRS sections |
+| [[Chapter - 24\|Chapter - 24]] | Use the corresponding bundle and printed CLRS sections |
+| [[20_Progress/Degree/CSCI 4041/Textbook/Chapter - 3 & 4\|Chapter - 3 & 4]] | Use the corresponding bundle and printed CLRS sections |
+| [[Chapter - 6 & 12\|Chapter - 6 & 12]] | Use the corresponding bundle and printed CLRS sections |
+| [[Chapter - 7 & 10\|Chapter - 7 & 10]] | Use the corresponding bundle and printed CLRS sections |
+| [[20_Progress/Degree/CSCI 4041/Textbook/Introduction to Algorithms\|Introduction to Algorithms]] | Use the corresponding bundle and printed CLRS sections |
+| [[20_Progress/Degree/CSCI 4041/Weekly/Week - 1 & 2\|Week - 1 & 2]] | Original CSCI week 1; map by topic through the bundles above |
+| [[20_Progress/Degree/CSCI 4041/Weekly/Week - 10\|Week - 10]] | Original CSCI week 10; map by topic through the bundles above |
+| [[20_Progress/Degree/CSCI 4041/Weekly/Week - 11\|Week - 11]] | Original CSCI week 11; map by topic through the bundles above |
+| [[20_Progress/Degree/CSCI 4041/Weekly/Week - 12\|Week - 12]] | Original CSCI week 12; map by topic through the bundles above |
+| [[20_Progress/Degree/CSCI 4041/Weekly/Week - 13\|Week - 13]] | Original CSCI week 13; map by topic through the bundles above |
+| [[20_Progress/Degree/CSCI 4041/Weekly/Week - 14\|Week - 14]] | Original CSCI week 14; map by topic through the bundles above |
+| [[20_Progress/Degree/CSCI 4041/Weekly/Week - 3\|Week - 3]] | Original CSCI week 3; map by topic through the bundles above |
+| [[20_Progress/Degree/CSCI 4041/Weekly/Week - 4\|Week - 4]] | Original CSCI week 4; map by topic through the bundles above |
+| [[20_Progress/Degree/CSCI 4041/Weekly/Week - 5\|Week - 5]] | Original CSCI week 5; map by topic through the bundles above |
+| [[20_Progress/Degree/CSCI 4041/Weekly/Week - 6\|Week - 6]] | Original CSCI week 6; map by topic through the bundles above |
+| [[20_Progress/Degree/CSCI 4041/Weekly/Week - 7\|Week - 7]] | Original CSCI week 7; map by topic through the bundles above |
+| [[20_Progress/Degree/CSCI 4041/Weekly/Week - 8\|Week - 8]] | Original CSCI week 8; map by topic through the bundles above |
+| [[20_Progress/Degree/CSCI 4041/Weekly/Week - 9\|Week - 9]] | Original CSCI week 9; map by topic through the bundles above |
+| [[20_Progress/Degree/CSCI 4041/Weekly/Weekly Board\|Weekly Board]] | Course/reference index |
 ## Open questions
 - [ ] Restore the 21 title-only alternate prompt bodies from the CodePath portal. Their catalog rows stay on hold until then.
 - [ ] Add compact bridges for tries, windows, prefix sums and union-find when study produces an actual explanation; existing sources are already assigned.

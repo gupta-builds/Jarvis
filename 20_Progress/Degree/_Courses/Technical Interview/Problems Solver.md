@@ -7,18 +7,18 @@ tags:
   - technical-interview
   - leetcode
 notes:
-  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Weekly Set|Weekly Set]]"
-  - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/How to Solve Problems|How to Solve Problems]]"
+  - "[[Weekly Set|Weekly Set]]"
+  - "[[How to Solve Problems|How to Solve Problems]]"
   - "[[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041 Relation|CSCI 4041 Relation]]"
   - "[[40_Resources/CS/Repos]]"
-next: "Start the dated Week 1 tasks and append actual results; keep planned, independent, assisted and recall counts separate"
+next: Start the dated Week 1 tasks and append actual results; keep planned, independent, assisted and recall counts separate
 ---
 # Problems Solver - Resources, cadence and evidence
-The dated practice selections are in [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List|Detailed Problems List]] and [[20_Progress/Degree/_Courses/Technical Interview/DSA|DSA]]. This note records why the sources are used and logs actual execution; the baseline remains 0 independent practice problems.
+The dated practice selections are in [[Detailed Problems List|Detailed Problems List]] and [[20_Progress/Degree/_Courses/Technical Interview/DSA|DSA]]. This note records why the sources are used and logs actual execution; the baseline remains 0 independent practice problems.
 ## Confirmed resource roles
 | Resource | Decision after this audit |
 |---|---|
-| [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/Detailed Problems List\|Captured Pareto set]]; [original landing URL](https://www.amanmanazir.com/leetcode) | Retain all 49 existing entries. The current landing page redirects to an email signup; the old curator attribution is not newly verified. Each selected problem’s current contract and difficulty was checked on LeetCode. |
+| [[Detailed Problems List\|Captured Pareto set]]; [original landing URL](https://www.amanmanazir.com/leetcode) | Retain all 49 existing entries. The current landing page redirects to an email signup; the old curator attribution is not newly verified. Each selected problem’s current contract and difficulty was checked on LeetCode. |
 | [Grind 75](https://www.techinterviewhandbook.org/grind75/) and [FAQ](https://www.techinterviewhandbook.org/grind75/faq) | Retain as the main ranked public pool and algorithm-sheet reference. Its public pool has 169 entries and includes hard questions. The older claim that it contains no hard questions was wrong. |
 | [[60_Claude/10_Source_Summaries/Github Ingestion/Jobs Starred/interview-company-wise-problems\|liquidslr source note]]; [repository](https://github.com/liquidslr/leetcode-company-wise-problems) | Retain for additional named hard/transfer questions and later employer-specific review. The inspected Google/Amazon All CSVs include Difficulty, Title, Frequency, Acceptance Rate, Link and Topics. Treat their declared 2025 snapshot as historical evidence, not current frequency or a target-employer decision. |
 | [Coding Interview University](https://github.com/jwasham/coding-interview-university) | Retain as a topic checklist and source of conceptual review. It is not a fixed bank of two daily interview problems. The weekly oral questions are planning checks derived from the mapped sources. |
@@ -37,7 +37,7 @@ First attempts are capped at 30 minutes for LeetCode Easy, 45 for Medium and 75 
 - The changing platform Daily Challenge is optional: inspect its full statement, fit and prerequisites before substituting it for a same-topic P1 slot. Future challenge titles are not known or preassigned.
 - Use W10’s two timed OA sets and W11’s six fixed mocks. Treat a previously seen question as a timed reattempt, not an unseen interview simulation.
 ## Independent solving and note destination
-Follow [[20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/How to Solve Problems|How to Solve Problems]]. The student writes code manually. Captured session prompts are reviewed as records; existing in-class solutions are not counted as new independent work.
+Follow [[How to Solve Problems|How to Solve Problems]]. The student writes code manually. Captured session prompts are reviewed as records; existing in-class solutions are not counted as new independent work.
 When a real problem is attempted, its note belongs directly in the existing `20_Progress/Degree/_Courses/Technical Interview/CSCI 4041/Problems/` folder, named `LC - <id> <title>.md` or `HR - <slug>.md`. Do not create empty solved notes. Record problem URL, exact source bundle, plan, manual solution when written, edge cases, time/space bounds, hint use and next retrieval date. Retain the original problem statement’s contract when adapting professor code.
 ## Execution ledger
 | Actual date | Problem/task ID | Elapsed | Independent / assisted | Result and failing cases | Next retrieval |

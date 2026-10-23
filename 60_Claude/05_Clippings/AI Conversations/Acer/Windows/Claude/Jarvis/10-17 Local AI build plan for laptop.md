@@ -6,7 +6,7 @@ source_os: windows
 title: "Local AI build plan for laptop"
 started_at: 2026-10-17T21:33:08
 ended_at: 2026-10-17T21:42:11
-exported_at: 2026-10-23T16:03:06
+exported_at: 2026-10-23T18:06:41
 duration_minutes: 9.1
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'

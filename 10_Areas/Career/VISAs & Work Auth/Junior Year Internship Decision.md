@@ -14,6 +14,7 @@ area:
   - career
 notes:
   - "[[VISA Plan]]"
+  - "[[OPT Playbook]]"
   - "[[F-1 Employment Options]]"
   - "[[CPT Program]]"
   - "[[Pre-Completion OPT]]"
@@ -21,71 +22,77 @@ notes:
   - "[[OPT Fee Proposal]]"
   - "[[Companies giving OPT & CPT]]"
   - "[[2028 Graduation Timeline]]"
-next: "Send ISSS the written questions below by 2026-10-30"
+  - "[[ISSS October Meeting Brief]]"
+next: "Email ISSS the unanswered questions below by 2026-10-30, then decide the summer route in March 2027"
 ---
 # Junior Year Internship Decision
-I need a lawful way to work during the summer of 2027, and the usual one, CPT, is paused at my school. This note lays out every route I could find, what each costs, which are open today, and a plan with dated decision points. Read it before accepting any internship offer that starts before graduation, and again after the November 6 hearing.
-## The Question
-==The decision is not whether to intern but which authorization route to build the summer around, because the route has to exist before the employer's start date and no offer can create it.== My constraints: I am a junior at UMN with a computer science degree and a Spring 2028 graduation, CPT applications are paused at ISSS, and I do not want to use [[Pre-Completion OPT]] before I graduate, for the reasons the CPT and OPT notes spell out.
-Applications for summer 2027 internships are being made now. The internship research already screens postings for OPT eligibility ([[Companies giving OPT & CPT]], [[Internship Pipeline]]), but that filter checks the employer's text, not whether I can be authorized to start.
+I want a real internship in summer 2027, and the usual route, CPT, is paused at my school. This note lays out every legal route I found, what each one costs in months, money, and waiting time, and a plan with dated decision points. It was rebuilt after the ISSS meeting, which made pre-completion OPT a live option instead of a last resort. Read it before accepting any offer that starts before graduation, and again after the November 6 court hearing.
+## In Plain Words
+As an F-1 student I may not take an off-campus job just because someone offers it. Someone has to authorize it first, and the authorization has to be in my hands before the first day. For an internship before I graduate there are two ways: CPT, which my school signs, and pre-completion OPT, which the government issues. CPT is paused. So the question is whether to use pre-completion OPT, or find another lawful route.
+==The decision is not whether to intern but which authorization route to build the summer around, because the route has to exist before the employer's start date and no offer can create it.==
+## What Changed After The Meeting
+- ISSS called pre-completion OPT "certainly an option" and said to decide when the application window opens.
+- An internship physically abroad is not covered by F-1 work rules, in ISSS's words.
+- Answering "authorized to work: yes" and "sponsorship: yes" is correct.
+- Pre-completion OPT needs no job offer to apply, but any approved time is used up even if I do not work.
+- Part-time in term and full-time in summer are two separate applications.
+- The normal USCIS wait is about 5 months, and premium processing guarantees a response in 30 business days.
+- Unpaid or volunteer U.S. work and projects must be described carefully, or they can be mistaken for unauthorized employment ([[ISSS October Meeting Brief]]).
 ## The Options
-| Option | Gate | Main cost | Open today | Verdict |
+| Option | Gate | Cost | Open today | Verdict |
 | --- | --- | --- | --- | --- |
-| On-campus employment, including research | Incident to status | Pay and fit are modest | Yes | Core lane |
-| CPT, if restored or if a required course exists | DSO authorization | None once available | No, paused | Wait and watch |
-| Pre-completion OPT | DSO recommendation, then USCIS permit | OPT months, STEM risk, proposed fee, approval time | Yes, with delay | Last resort only |
-| Remote work abroad for a foreign employer | Unknown | Unknown | Unanswered | Ask, do not assume |
-| Unpaid or volunteer internship | Unknown | May still be unauthorized employment | Unanswered | Ask, do not assume |
-| Severe economic hardship | USCIS | 4 to 7 months, needs an unforeseen change | Rarely | Not a plan |
-| International organization internship | USCIS | Narrow eligibility | Rarely | Not a plan |
-| No internship, build and network | None | Slower route to a first job | Yes | Fallback |
+| On-campus work, including research | Incident to status | Modest pay, 20 hours in term | Yes | Core lane |
+| Pre-completion OPT | ISSS recommendation, then USCIS card | OPT months, $2,250 with premium, fee-rule risk | Opens about March 2027 | Real option, decide at the window |
+| Internship physically abroad | Not tied to F-1 work rules | Travel, enrollment and re-entry questions | Yes | Real option, confirm with ISSS |
+| CPT | DSO authorization | None once available | Paused for elective CPT | Wait and keep ready |
+| Remote work from inside the U.S. | Counts as U.S. employment | Not authorized without CPT or OPT | No | Do not do |
+| Unpaid or volunteer U.S. internship | May still count as employment | Can harm OPT eligibility | Unanswered | Do not do without ISSS in writing |
+| Hardship work permit | USCIS | 4 to 7 months, needs an unforeseen change | Rarely | Not a plan |
+| No internship; build and network | None | Slower route to a first job | Yes | Fallback |
 ## Reasoning Per Route
-1. **On-campus employment**
-	It needs no application and allows full-time work in the summer, up to 20 hours a week in term. Off-campus sites count only when tied to the curriculum or to contractually funded research at the post-graduate level, so a company project does not qualify. A faculty or lab research job at UMN does. It is the only route fully in my control ([[F-1 Employment Options]]).
-2. **CPT**
-	It is the best route when it works: no OPT months used and no fee. It returns only through a court order restoring the credit pathway, a required practical training course in my program, or DHS withdrawing the guidance. The earliest event is the November 6 hearing, and even a win would need ISSS to restart its process ([[CPT Program]], [[CPT Lawsuit]]).
-3. **Pre-completion OPT**
-	A 12-week full-time summer would cost about three of my 12 OPT months by USCIS's own rule, the proposed fee would price the first recommendation at $70,000 and a later one at $30,000, and USCIS data cited in the CPT complaint show only 80 percent of applications finishing within five months. Those costs are why my default is no ([[Pre-Completion OPT]], [[OPT Fee Proposal]]).
-4. **Remote work abroad**
-	No source I read says whether work done outside the United States for a foreign employer needs any U.S. authorization, or what travel does to status. ISSS must answer in writing before I plan on it.
-5. **Unpaid internships**
-	ISSS lists benefits in kind, such as free rent, as employment that needs authorization, so unpaid does not mean unregulated. I have not researched the volunteer exceptions, so I assume nothing.
-6. **No internship**
-	A research role or a shipped project, plus networking, is a weaker line on a resume than an internship but costs no authorization. It is the fallback if every other lane closes ([[Summer Grind]]).
-## The Plan I Would Run
-Three lanes, run in parallel, with gates where I choose between them.
-1. **Lane 1: secure an on-campus research or lab role** for the summer by February 2027.
-2. **Lane 2: apply to internships anyway,** but accept none until the authorization route exists in writing from ISSS. Ask employers about start-date flexibility and their willingness to wait for authorization.
-3. **Lane 3: build the portfolio and contacts** that make the senior-year full-time search work without an internship line ([[Portfolio]]).
-- *Gate 1, by October 30:* ISSS answers my written questions. This tells me whether any CS course qualifies for CPT, whether remote work abroad is allowed, and whether pre-completion OPT is open.
-- *Gate 2, after November 6:* read the order, if one issues, and ISSS's reaction. If CPT is restored, Lane 2 becomes the main lane.
-- *Gate 3, early December:* check whether the OPT fee comment period closed with a final rule scheduled and whether UMN says it will pay.
-- *Gate 4, February 2027:* employers set offer deadlines. If I hold an offer that depends on pre-completion OPT, apply my decision rule below.
-- *Gate 5, early March 2027:* a mid-June start needs a DSO recommendation request about now. Past this point the OPT route is too slow.
-## My Rule For An Exception
-Use pre-completion OPT only if all four hold: a strong offer in hand, ISSS confirms in writing it will recommend and its expected turnaround, the part-time or short-summer deduction leaves at least nine post-completion months, and the fee has not been finalized or ISSS says it will absorb it. Otherwise the answer stays no.
-## What To Ask ISSS
-- [ ] Does any CS or CSE course or program require practical training of every student, or could the department create one? 📅 2026-10-30
-- [ ] Is CPT for an elective for-credit course paused indefinitely, and what would restart it?
-- [ ] Is pre-completion OPT open, what is the turnaround, and would UMN pay or pass on the proposed fee?
-- [ ] Is remote work from outside the United States for any employer allowed, and what does it do to status and travel?
-- [ ] Do unpaid or volunteer internships need authorization?
-- [ ] Which UMN research or lab jobs count as on-campus employment for the summer, and how do I find them?
+1. **On-campus work**
+	It needs no application, allows 20 hours in term and full-time in the summer, and the 20 hours includes any off-campus OPT hours. A faculty or lab research job counts. A company project does not unless it is tied to the curriculum or to contracted post-graduate research ([[F-1 Employment Options]]).
+2. **Pre-completion OPT**
+	It works legally but is costly. A summer of 12 weeks full-time uses about 3 of my 12 months, premium processing is needed for a summer start, and the proposed school fee could apply to a recommendation made in spring 2027 only if a final rule takes effect first. The playbook gives dates for three possible start days ([[OPT Playbook]], [[Pre-Completion OPT]]).
+3. **Internship abroad**
+	The advisor said I am not tied by F-1 regulations while physically in another country, whether home or elsewhere. I still need to ask how it affects my enrollment, my summer status, and re-entry.
+4. **CPT**
+	It is the best route when open: no OPT months and no fee. It returns only through a court order, a required practical training course, or DHS withdrawing the guidance. At UMN it used to take about 2 weeks if I was registered for the course and my advisor agreed ([[CPT Program]], [[CPT Lawsuit]]).
+5. **No internship**
+	A research role or a shipped project plus networking is a weaker resume line than an internship but costs no authorization ([[Summer Grind]]). Projects must be labelled as projects.
+## The Plan
+Three lanes run in parallel, with decision points.
+1. **Lane 1: on-campus research or lab role** for the summer, secured by February 2027.
+2. **Lane 2: apply to internships anyway.** Answer the authorization question "yes" and "yes," filter with Handshake's work-authorization setting, and accept nothing until the authorization route exists in writing.
+3. **Lane 3: portfolio and contacts** for the senior-year search ([[Portfolio]]).
+- *Gate 1, October 30, 2026:* ISSS answers my written questions.
+- *Gate 2, November 6, 2026:* the CPT hearing. Read any order and ISSS's response.
+- *Gate 3, December 2026:* check whether ISSS has announced its pre-completion process and whether the OPT fee became a final rule.
+- *Gate 4, February 2027:* if I hold an offer, apply my rules below. This is when the ISSS request window opens for a May start.
+- *Gate 5, early March 2027:* a mid-June start needs the ISSS request about March 8. After this, pre-completion OPT is too slow.
+### My Rules For Pre-Completion OPT
+I use it only if all are true: a written offer in computer science, a start date that fits premium processing, $2,250 budgeted (or the employer pays), at least about 9 months left afterward, the fee rule checked, and ISSS's confirmation. Otherwise the answer is no for this summer.
+## What Is Still Unanswered For ISSS
+- [ ] Is the pause on all CPT or only elective CPT, and could a required practical training course be created for CS? 📅 2026-10-30
+- [ ] How fast would CPT restart after a ruling, and what happens to CPT already on an I-20?
+- [ ] Which UMN summer research and lab jobs count as on-campus work?
+- [ ] What does an internship abroad do to my F-1 status, my summer enrollment, and re-entry?
+- [ ] Does UMN plan to pay or pass on the OPT fee, and is it commenting by November 9?
 ## What To Ask Employers
-- Whether the start date can move if my authorization takes longer than expected.
-- Whether the role can be done remotely from outside the United States, only if ISSS says that is allowed.
-- Whether they have hosted international students on CPT or OPT, and which route.
-## What Would Change The Plan
-- A court order restoring the credit pathway, plus an ISSS restart date. CPT becomes Lane 1.
-- A final OPT fee rule with a school decision not to pay. Pre-completion OPT would stop being an exception.
-- An ISSS answer that remote work abroad is allowed. It becomes a real internship lane.
-- A UMN curriculum change that makes practical training required for every CS student.
+- Can the start date move if my authorization takes longer?
+- Have you hosted international students on CPT or OPT before, and which?
+- Would you consider a start date in July?
 ## Failure Modes
-- Accepting an offer before the route exists and then discovering it cannot start on time.
-- Starting work before the I-20 endorsement or the card's start date.
-- Treating the lawsuit as a plan instead of a possibility.
-- Using the part-time exception once and then letting months accumulate.
+- Accepting an offer before the route exists.
+- Starting before the I-20 endorsement or the card's start date.
+- Treating the lawsuit as a plan.
+- Describing a project as a job.
+- Using part-time pre-completion OPT into the school year and draining the post-graduation months.
+## Words Used In This Note
+- *Authorization:* permission to work, from my school or from USCIS.
+- *Premium processing:* paying extra so USCIS must answer within 30 business days.
+- *On-campus employment:* work that needs no application, on UMN premises or an affiliated site.
 ## Sources
-- [ISSS off-campus](https://isss.umn.edu/fstudents/employment/off-campus), [pre-completion OPT](https://isss.umn.edu/fstudents/employment/opt/pre-completion-opt), [on-campus](https://isss.umn.edu/fstudents/employment/on-campus).
-- [USCIS OPT page](https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-opt-for-f-1-students) and [8 CFR 214.2(f)(9)](https://www.ecfr.gov/on/2026-07-01/title-8/chapter-I/subchapter-B/part-214/section-214.2).
-- The notes linked above, which cite the primary sources.
+- [ISSS pre-completion OPT](https://isss.umn.edu/fstudents/employment/opt/pre-completion-opt), [OPT vs. CPT](https://isss.umn.edu/fstudents/employment/opt-cpt-comparison), and [on-campus employment](https://isss.umn.edu/fstudents/employment/on-campus).
+- [USCIS OPT](https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-opt-for-f-1-students) and the [fee schedule](https://www.uscis.gov/g-1055).
+- [[October Meeting Transcript]].

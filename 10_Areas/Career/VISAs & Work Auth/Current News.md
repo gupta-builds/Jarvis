@@ -19,9 +19,11 @@ notes:
   - "[[OPT Program]]"
   - "[[H1B Visa]]"
   - "[[Junior Year Internship Decision]]"
+  - "[[Visa Litigation Tracker]]"
+  - "[[2028 Graduation Timeline]]"
 ---
 # Current News
-Primary sources only for the F-1 to OPT to STEM OPT to H-1B track, rebuilt on 2026-10-23 with Firecrawl and checked against court dockets, the Federal Register, and agency pages. This vault uses it as the place to re-check a rule, a date, or a dollar figure before [[VISA Plan]] or [[Junior Year Internship Decision]] relies on it. Read it first when anything in those notes cites a deadline, and re-verify anything older than a few weeks.
+Primary sources only for the ==*F-1* to *OPT* to *STEM OPT* to *H-1B* track==, rebuilt on 2026-10-23 with Firecrawl and checked against court dockets, the Federal Register, and agency pages. This vault uses it as the place to re-check a rule, a date, or a dollar figure before [[VISA Plan]] or [[Junior Year Internship Decision]] relies on it. Read it first when anything in those notes cites a deadline, and re-verify anything older than a few weeks. Each section below is written up in depth in an area note: the [[CPT Broadcast Messages]], [[CPT Lawsuit]], [[OPT Fee Proposal]], [[Duration of Status Rule]], [[2028 Graduation Timeline]], [[H-1B Lottery]], [[H-1B 100K Payment]], and [[H-1B Rule Proposals]], all mapped from [[VISA Plan]].
 > [!WARNING]
 > Everything here was true on 2026-10-23 and most of it is moving. Law firm blogs, news sites, and social posts were used to find documents, never as the source of a claim, except where a row says "secondary". The UMN section is deliberately left as it was found and is due for a rewrite.
 > Each resource below carries one ==highlighted== line: the single fact it gave that the others did not.
@@ -89,7 +91,7 @@ Primary sources only for the F-1 to OPT to STEM OPT to H-1B track, rebuilt on 20
 ## Duration Of Status
 1. **Federal Register final rule, 91 FR 44976, July 17, 2026** ([notice](https://www.federalregister.gov/documents/2026/07/17/2026-14439/establishing-a-fixed-time-period-of-admission-and-an-extension-of-stay-procedure-for-nonimmigrant))
 	*Weight:* primary. Docket ICEB-2025-0001, RIN 1653-AA95.
-	==Admission would be fixed to the I-20 end date, capped at four years, with an extension of stay needed for OPT.== Effective date Sept 15, 2026, now postponed.
+	==Admission would be fixed to the I-20 end date, capped at four years, with an extension of stay needed for OPT.== Effective date Sept 15, 2026, now postponed. The text fixes March 18, 2027 as the last day to file OPT without an extension of stay, a date DHS may extend, and ISSS and Johns Hopkins quote it correctly.
 2. **District docket, No. 1:26-cv-13799** ([CourtListener](https://www.courtlistener.com/docket/74661796/presidents-alliance-on-higher-education-and-immigration-v-united-states/))
 	*Weight:* primary.
 	==Judge Saylor's Sept 14 order is relief under Administrative Procedure Act section 705, which postpones the effective date. The docket titles it a preliminary injunction.== Vacatur and summary judgment were denied without prejudice.
@@ -115,6 +117,7 @@ Primary sources only for the F-1 to OPT to STEM OPT to H-1B track, rebuilt on 20
 | Any time on OPT | Unemployment limit | 90 days on initial OPT, 150 with STEM | USCIS cap-gap page |
 | Up to 90 days before OPT ends | STEM OPT filing | E-Verify employer and Form I-983 required | 8 CFR dated July 1 |
 | About March 2029 and March 2030 (inference) | Later registration chances while on OPT and STEM OPT | Requires an employer willing to register each year | My reading of the above, not a source's statement |
+### Sources Behind The Table
 1. **USCIS, OPT for F-1 Students** ([uscis.gov](https://www.uscis.gov/working-in-the-united-states/students-and-exchange-visitors/optional-practical-training-opt-for-f-1-students))
 	*Weight:* primary, last updated Nov 25, 2024, so it predates the duration of status rule.
 	==Pre-completion OPT is deducted from post-completion at a rate that depends on hours: one year part-time costs 6 months, one year full-time costs the whole 12.== File with USCIS up to 90 days before and no later than 60 days after the program end date, and within 30 days of the DSO recommendation. A timely STEM OPT filing gets an automatic 180-day extension.
@@ -157,7 +160,7 @@ Primary sources only for the F-1 to OPT to STEM OPT to H-1B track, rebuilt on 20
 	==The $100,000 payment "does not apply" to an in-U.S. change of status that is granted, which covers F-1 to H-1B.== It does apply if the change of status is denied or the person leaves the U.S. before it is decided.
 7. **Court dockets for the $100,000 payment**
 	*Weight:* primary. [First Circuit No. 26-1699](https://www.courtlistener.com/docket/73476893/state-of-california-v-mullin/), [Ninth Circuit No. 26-6667](https://www.courtlistener.com/docket/74966923/global-nurse-force-et-al-v-trump-et-al/), [D.C. Circuit No. 25-5473](https://www.courtlistener.com/docket/72095497/chamber-of-commerce-of-the-united-states-of-ameri-v-dhs/).
-	==Three appeals are pending in three circuits, and the D.C. Circuit has had argument since March 2026 with no decision, as of the parties' Oct 15 letters.== The First Circuit denied the government's stay on July 24 and denied reconsideration on Sept 21. I did not read the lower-court rulings, so I am not claiming the circuits disagree.
+	==Three appeals are pending in three circuits, and the D.C. Circuit has had argument since March 2026 with no decision, as of the parties' Oct 15 letters.== The First Circuit denied the government's stay on July 24 and denied reconsideration on Sept 21. I did not read the lower-court rulings, so I am not claiming the circuits disagree. The Northern District of California docket shows a September 30 order "granting in part and denying in part" a preliminary injunction in Global Nurse Force, which some summaries described as a vacatur.
 8. **Federal Register proposals** ([$103,265 fee](https://www.federalregister.gov/documents/2026/08/25/2026-17324/fee-for-certain-h-1b-petitions), [DOL wage rule](https://www.federalregister.gov/documents/2026/03/27/2026-06017/improving-wage-protections-for-the-temporary-and-permanent-employment-of-certain-foreign-nationals), [no deference to prior approvals](https://www.federalregister.gov/documents/2026/10/14/2026-20941/removing-deference-to-prior-uscis-determinations-of-eligibility), [60-day grace period](https://www.federalregister.gov/documents/2026/09/11/2026-18631/eliminating-the-discretionary-60-day-grace-period))
 	*Weight:* primary, all proposed.
 	==The $103,265 fee would apply to all cap-subject petitions including the master's exemption, the new rule would end deference for H-1B extensions, and the grace-period rule lists E, H-1B, L-1, O-1 and TN but not F-1.== None is final. The first two are the ones that change a 2028 graduate's employer cost.
@@ -183,7 +186,7 @@ Left as originally found. Stale and queued for a rewrite.
 - [ ] Ask ISSS in writing whether any non-required CPT for a CS major is possible during the pause, and whether any CS course carries a required experience 📅 2026-10-30
 - [ ] Ask ISSS whether remote work for a foreign employer, done while outside the U.S. over the summer, is allowed under the pause; no source I read answers this
 - [ ] Check the CPT docket after Nov 6 for an order, and again after Oct 28 for the government's opposition brief
-- [ ] Check USCIS's Case Processing Times page for I-765 OPT yourself; it blocked automated access, so the law firm's delay claim is unverified
+- [ ] Check USCIS's Case Processing Times page for I-765 OPT yourself; it blocked automated access. The CPT complaint cites it as showing 80 percent done within five months as of Sept 28, which corroborates the direction but is a party's citation
 - [ ] Read the OPT fee notice's transition language and decide whether to file a comment by Nov 9
 - [ ] Ask the CS department and ISSS whether UMN would pay, pass on, or decline the OPT fee if it is finalized
 - [ ] Verify FY2027 registration counts (211,600 per one law firm) against a USCIS data release; only FY2026 is official so far

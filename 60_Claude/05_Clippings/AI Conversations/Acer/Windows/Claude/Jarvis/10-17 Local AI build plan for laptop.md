@@ -6,7 +6,7 @@ source_os: windows
 title: "Local AI build plan for laptop"
 started_at: 2026-10-17T21:33:08
 ended_at: 2026-10-17T21:42:11
-exported_at: 2026-10-22T11:19:52
+exported_at: 2026-10-23T14:03:02
 duration_minutes: 9.1
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
@@ -17,12 +17,12 @@ tools_used:
   Agent: 1
   ToolSearch: 1
 tokens:
-  input: 18
-  output: 14792
-  cache_creation: 244871
-  cache_read: 461435
-  total: 721116
-cost_usd: 1.219727
+  input: 8
+  output: 5922
+  cache_creation: 84840
+  cache_read: 232868
+  total: 323638
+cost_usd: 0.44517
 model:
   - "claude-sonnet-5"
 files_touched: []

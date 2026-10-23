@@ -39,6 +39,7 @@ Full folder definitions: [[40_Resources/Obsidian/Jarvis Vault Architecture]]. Ro
 6. **Use [[AI_CONTEXT]] for continuity** — read its cold-start order, then the dashboard and session log tail, before assuming current project state.
 7. **Use context packs, not vault dumps** — follow [[Claude Pro Workflow]]: read the manifest, dashboard, session log tail, and task-specific notes instead of scanning the whole vault.
 8. **No personal-life content in Jarvis** — health, personal finance, relationships, and confessional journaling belong in The Plan (`00_Live/`), not here. `10_Areas/Life/Truths of Life/` is scoped narrowly to builder-identity evidence only. Full rule: [[AGENTS.md]] → Write Contract → Golden rules.
+9. **PDF extraction**: use mineru parse, never pdftotext.
 
 ### Note Creation Conventions
 

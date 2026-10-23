@@ -1,74 +1,278 @@
 ---
 type: class
 class_kind: homework
-status: seed
+status: sprout
 created: 2026-10-23
 updated: 2026-10-23
 tags:
   - class
   - homework
 area:
-next:
+  - "[[CSCI 4511W Board]]"
+next: "Paste main.tex and citations.bib into a new Overleaf project, compile, run the pre-submit checks, submit the PDF on Canvas (Lectures 11 and 12 say due Friday 2026-10-23; confirm the time on Canvas)"
 ---
 # Writing - 2
 ## Overview
-<!-- What must be produced, for whom, and why; verified due date only. -->
+A report of about 500 words, written in LaTeX on Overleaf and submitted as a PDF on Canvas, on one of four search papers. I chose [[#The paper|D\* Lite]] (Koenig and Likhachev, AAAI 2002) because it extends the A\* we studied and has both proofs and experiments to judge.
+Due date: Lectures 11 and 12 both announce "Writing 2 due Friday". Lecture 12 is dated Oct 21, 2026, so that Friday is Oct 23, 2026, which is the day this note was written. The time and the Canvas due date are not verified, so `deadline` is left empty.
 ## Requirements
 For this writing you will write a short report on *one* of several options.  All of these are computer science literature, they are extensions or different versions of various searches we've seen so far.
-
 #### You may choose one of the following options:
-
 - Finding Optimal Solutions to Rubik's Cube Using Pattern Databases - Richard E. Korf
 - Online Graph Pruning for Pathfinding on Grid Maps - Daniel Harabor and Alban Grastien
 - Boosting Combinatorial Search Through Randomization - Carla P. Gomes, Bart Selman, Henry Kautz
 - D* Lite - Sven Koenig and Maxim Likhachev
-
 These papers can be accessed online, but for some of them you may need to use the Library. Figuring out how to access and download them is part of the assignment.
-
 Your writing should be approximately 500 words (not counting references), but it can be longer and has to be done in [Latex](https://www.overleaf.com/read/gspqjhghhhyg#f5635c).
-
 [](https://canvas.umn.edu/courses/391207/files/38108172?wrap=1 "acmtemplate.tex")
-
 1. When writing, avoid simply rehashing the abstract of the paper or paraphrasing the paper.  Use your own words and summarize the ideas presented in the paper and the major results obtained in a clear and concise way. 
-
 2. Include at least three sections in your response.  The first section should be a summary of the paper you chose.  The second (or the rest) section will contain your responses to the following section.  The last section is the references section.
-
 3. Here are suggestions for what to cover in your writing:
-
 - What problems is the paper trying to solve?  For what types of problems are the proposed algorithms appropriate for?
 - Is the approach validated experimentally or theoretically? If the validation is done experimentally, are the experimental results sufficient to demonstrate the power of the algorithms?
 - Is the paper clearly written and easy to follow? Are the algorithms described clearly so it is possible to implement them and replicate the results?
 - What did you find most interesting in the paper?  Do you find the paper useful?
-
 4.  You need to include in your paper at least 4 bibliographical references, which could be of the following different types:
-
 - a book  (which requires in bibtex  @book{..}),
 - a conference paper (which requires @inproceedings{..}),
 - a journal article (which requires @article{..}),
 - material found on the web (which requires @misc{..}),
 - instead of material found on the web, you may reference a patent (which requires @patent{..})
-
 5. The references have to be cited in your writing.  You can use the class textbook for a book, the paper itself for a conference paper, or the patent you chose for the web material or patent material.  For this assignment, you do not need to read in full what you cite, you just need to know what it is about; you can get this from reading the abstract. You can look at the citations in the paper or patent itself, or at the Bibliographical and Historical Notes in Chapter 3 of the textbook and look in the citation index for the type of those references. When you look for references, make sure you check where the paper was published, so you include citations of all those different types. You have to format the references properly. Follow the style in our provided template.
-
 6. As a footnote, include a brief description of how much you used Generative AI assistance on your paper.
 7. Submit the .pdf of your paper on Canvas.
-
 #### Grading criteria:
-
 - 6 points for the completeness of your summary and response. Use the suggestions given above to address the many different aspects of the paper. You do not have to address all of them in the given order.  They are given as guidelines to help you structure your writing and help you understand what typically goes into a review.
     - 2 points for summary: Do you correctly identify the important parts of the paper and describe what they cover
     - 4 points for response: Did you respond to at least 3 of the 4 listed questions above?
 - 2 points for using proper citations
-    
 - 2 points for the quality of writing (specifically including: spelling, grammar, clarity of expression, structure, proper formatting and characters)
-    
     - 0.5 points for spelling and correct word usage
     - 0.5 points for grammar and clarity
     - 0.5 points for structure (summary, response, citations, in that order)
     - 0.5 points for proper formatting (spacing, characters, indentation, etc.)
+#### Checklist (derived from the prompt above)
+**Must submit**
+- [ ] One PDF on Canvas, compiled from LaTeX (Overleaf).
+- [ ] About 500 words of prose, references not counted. Longer is allowed.
+- [ ] At least three sections in this order: summary, response, references.
+- [ ] At least four references, each cited in the text, using proper BibTeX types (`@book`, `@inproceedings`, `@article`, `@misc` or `@patent`).
+- [ ] A footnote that briefly states how much Generative AI was used.
+**Must demonstrate**
+- [ ] The summary is in my own words and is not the abstract paraphrased.
+- [ ] The response answers at least 3 of the 4 questions: problem and fit, validation, clarity and reproducibility, most interesting and useful.
+- [ ] Reference formatting follows the course example (`main.tex` and `rf1.bib`).
+**Must not do**
+- [ ] Leave a `[?]` in the PDF (a `\cite` key that does not match the `.bib`).
+- [ ] List a reference that the text never cites.
+**Rubric (10 points):** completeness 6 (summary 2, response 4), citations 2, writing quality 2 (spelling 0.5, grammar and clarity 0.5, structure 0.5, formatting 0.5).
+**Template note:** the prompt links `acmtemplate.tex` (Canvas file 38108172) and an Overleaf project. Neither was readable by my tools, and neither is mentioned in Discussion 6, Discussion 7, Lecture 11 or Lecture 12. The three files below came from the course source folder and are my working template. This is an inference, not a confirmed match for `acmtemplate.tex`.
+- `wa1_template.tex`: the page layout and header from Writing 1 (identical contents to the version used for Writing 1).
+- `main.tex` and `rf1.bib`: the TA's LaTeX tutorial. It uses `\bibliographystyle{acm}` and shows one entry each of `@book`, `@article`, `@inproceedings` and `@misc`, which are the types this prompt lists.
 ## Work log
-<!-- Attempts with evidence, diagnosis, and fix; add a ### Submission when submitted. -->
+### The paper
+==D\* Lite== is an incremental replanning algorithm for a robot in unknown terrain. It reuses the previous search instead of rerunning A\*, and its first search is exactly A\*.
+| Field | Value |
+| --- | --- |
+| Authors | Sven Koenig (Georgia Institute of Technology), Maxim Likhachev (Carnegie Mellon University) |
+| Venue | Proceedings of the Eighteenth National Conference on Artificial Intelligence (AAAI-02), Edmonton, Alberta, Canada, 2002 |
+| Pages | 476 to 483 |
+| Official page | [aaai.org/papers/00476-aaai02-072-d-lite](https://aaai.org/papers/00476-aaai02-072-d-lite/) |
+| Official PDF | [cdn.aaai.org/AAAI/2002/AAAI02-072.pdf](https://cdn.aaai.org/AAAI/2002/AAAI02-072.pdf) |
+| Recognition | 2019 AAAI Classic Paper Honorable Mention ([award page](https://aaai.org/about-aaai/aaai-awards/aaai-classic-paper-award/)) |
+- *Verified:* the AAAI page and the award page were opened. The first page, 476, comes from the page URL. The PDF has 8 pages, which gives 483. Bibliographies in search results list the same range.
+- *Not verified:* publisher and DOI. The CMU Robotics Institute and idm-lab record pages refused the fetch. Neither goes in the `.bib`.
+- *Extraction:* the PDF text was read with `mineru parse`, after `pdftotext` returned garbled math. All claims below were checked against the clean extraction.
+### Why this paper
+- A\* from Chapter 3 ([[Concept - Informed Search]]) is the base, so the paper connects to lecture instead of starting from nothing.
+- It has theorems and experiments, which matches the "Evidence in a search paper" frame from Discussion 6: problem and assumptions, guarantee, experiment, limits.
+- The Rubik's Cube paper is the common pick. D\* Lite gave concrete numbers to critique (three measures, 50 terrains per size, ablations).
+### Claim to location in the paper
+Page numbers are PDF pages of the 8-page AAAI PDF. Use this to re-check any sentence in the draft.
+| Claim in the draft | Where |
+| --- | --- |
+| Robot assumes unseen cells are free, replans on a blocked cell, sees its 8 neighbors | p. 1, Motivation |
+| Conventional replanning can take minutes on large maps | p. 1, Introduction |
+| Only a few goal distances change after one obstacle | p. 1 to 2, Figure 1 and text |
+| `g`, `rhs`, locally consistent | p. 2, Equation 1 |
+| Queue holds exactly the inconsistent cells, two-part key, first part matches A\* `f` | p. 2 to 3, Invariants 2 and 3 |
+| First search expands exactly what A\* expands | p. 3, "The Algorithm" |
+| Each cell expanded at most twice; same order as A\* with suitable tie-breaking | p. 3 to 4, Theorems 1 and 4; p. 6 for D\* Lite |
+| Proofs are in a separate technical report | p. 3, "Analytical Results" |
+| Backward search from the goal | p. 4 to 5, "Search Direction" |
+| Offset `k_m`, recheck on pop, no heap reordering | p. 5, "Heap Reordering"; p. 4 and 5, Figures 3 and 4 |
+| Heuristic must not overestimate and obey a triangle inequality; holds if derived by relaxation | p. 5, "Heap Reordering" |
+| Simulation only; D\* already worked on real robots; three machine-independent measures | p. 6, "Experimental Results" |
+| 50 random terrains per size, density 10 to 40 percent, 95 percent confidence intervals | p. 6, Figure 5 text |
+| Ablations: more than a factor of seven in vertex expansions at best; two small-size exceptions in heap percolates | p. 6 to 7, Figure 6 text |
+| Adaptive resolution: D\* Lite and the no-heuristic variant about equal | p. 7, Figure 7 text |
+| D\* used on real robots including outdoor HMMWVs | p. 1, Introduction |
+| Terrain generator and start and goal placement not described | absent from p. 6 to 8 |
+### Reference plan
+Five entries, one per type the prompt lists except `@patent`. Every key is cited at least once in `main.tex`.
+| Key | Type | Entry | Verified by |
+| --- | --- | --- | --- |
+| `koenig2002dstarlite` | `@inproceedings` | Koenig and Likhachev, D\* Lite, AAAI-02, pp. 476 to 483 | AAAI page and PDF |
+| `hart1968astar` | `@article` | Hart, Nilsson, Raphael, "A Formal Basis for the Heuristic Determination of Minimum Cost Paths", IEEE Trans. Systems Science and Cybernetics 4(2), 100 to 107, 1968 | Cited in the Chapter 3 notes of the textbook; volume, pages and DOI 10.1109/TSSC.1968.300136 matched in a search |
+| `stentz1995focussed` | `@inproceedings` | Stentz, The Focussed D\* Algorithm for Real-Time Replanning, IJCAI, pp. 1652 to 1659, 1995 | D\* Lite's reference list; CMU RI and mlanthology listings |
+| `russell2020aima` | `@book` | Russell and Norvig, Artificial Intelligence: A Modern Approach, 4th ed., Pearson, 2020 | The course textbook |
+| `aaaiclassic` | `@misc` | AAAI Classic Paper Award page, accessed 2026-10-23 | Opened the page |
+### How to cite (rules for this document)
+- Put `\cite{key}` after a space and before the period that ends the sentence: `...as shown \cite{key}.` (from the course citation guide).
+- Two sources in one place: `\cite{key1,key2}` with no space after the comma.
+- A key must match the first line of its `.bib` entry exactly, including case. A mismatch prints `[?]` in the PDF.
+- Do not use `\nocite{*}` here. The prompt requires every listed reference to be cited, and an uncited entry would otherwise show up or be silently dropped.
+- Put URLs inside `\url{...}` in `howpublished` (for `@misc`) or `note`. The `xurl` package breaks long URLs across lines and handles `_` and `%` inside `\url{}`. No manual backslashes are needed.
+- `acm` is a classic BibTeX style, so it numbers references `[1]` to `[5]` and sorts them by author. The heading "References" is added automatically.
+- If the course asks for `plainurl` instead, change the one line `\bibliographystyle{acm}` to `\bibliographystyle{plainurl}`. Nothing else changes.
+- Fields the style needs: `@inproceedings` author, title, booktitle, year. `@article` author, title, journal, year. `@book` author, title, publisher, year. `@misc` has no required field.
+### Draft report (main.tex)
+Built from `wa1_template.tex`. Three edits only: the `xurl` line, the title and author, and the body plus the two bibliography lines.
+```latex
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+ \geometry{
+ letterpaper,
+ left=20mm,
+ top=20mm,
+ }
+\setlength{\headheight}{12.5pt}
+ \usepackage{titling}
+\usepackage{xurl}
+
+ \title{Writing \#2: D* Lite}
+\author{Anant Gupta}
+ 
+ \usepackage{fancyhdr}
+\fancypagestyle{plain}{%  the preset of fancyhdr 
+    \fancyhf{} % clear all header and footer fields
+    \fancyhead[L]{\thetitle}
+    \fancyhead[R]{\theauthor}
+}
+\makeatletter
+\def\@maketitle{%
+  \newpage
+  \null
+  \vskip 1em%
+    \begin{center}
+    {\LARGE \@title \par}
+    \vskip 1em
+    \end{center}
+  \par
+  \vskip 1em}
+\makeatother
+
+\begin{document}
+
+\maketitle
+
+\section{Summary}
+
+This report covers ``D* Lite'' by Koenig and Likhachev \cite{koenig2002dstarlite}.\footnote{Generative AI use: I used Claude (Anthropic) to research the four paper options, extract and read the paper's text, and draft this report. I checked each claim against the paper and edited the final text myself.} A robot must reach a goal on a grid map without seeing every wall in advance. It assumes unseen cells are free, plans a shortest path, follows it, and replans whenever it sees a blocked cell. Rerunning conventional graph search each time can take minutes on large maps, yet one new obstacle changes the goal distance of only a few cells \cite{koenig2002dstarlite}. D* Lite recomputes just those cells.
+
+The method extends Lifelong Planning A* (LPA*) \cite{koenig2002dstarlite}, an incremental version of the A* algorithm of Hart, Nilsson, and Raphael \cite{hart1968astar}. Every cell stores $g$, its current distance estimate, and $\mathit{rhs}$, a one-step lookahead computed from its neighbors. If the two match, the cell is consistent. Only inconsistent cells wait in a priority queue, ordered by a key whose first part corresponds to the A* value $f = g + h$. When an edge cost changes, the cells next to that edge are updated and the queue is processed until the robot's own cell is consistent again. The very first search expands the same cells A* would \cite{koenig2002dstarlite}.
+
+Two changes turn LPA* into D* Lite. First, the search runs backward from the goal, so the stored values are goal distances and stay valid while the robot moves. Second, moving makes the heuristic part of every queued key out of date. Instead of reordering the queue, the algorithm adds a running offset $k_m$ to each new key and rechecks a cell when it is removed from the queue. The result behaves like Stentz's Focussed D* \cite{stentz1995focussed}, but it is shorter and easier to analyze \cite{koenig2002dstarlite}.
+
+The authors state that a search terminates with a correct path and expands each cell at most twice, with the proofs in a separate technical report. In simulation on random eight-connected grids, D* Lite beat Focussed D* on vertex expansions, heap percolates, and vertex accesses. It also beat its own variants without incremental search (which is repeated A*) or without the heuristic on almost every comparison, by more than a factor of seven in vertex expansions at best \cite{koenig2002dstarlite}.
+
+\section{Response}
+
+The paper targets replanning on a graph whose edge costs change over time, with navigation in unknown terrain as the main case. It fits when changes are local and a good heuristic exists. The heuristic must never overestimate and must obey a triangle inequality, which the authors note holds when it comes from relaxing the problem \cite{koenig2002dstarlite}. The model is narrow: the robot sees which of its eight neighbors are blocked, and the paper does not address noisy sensors or actions that can fail.
+
+The theorems support correctness, but the proofs are in a technical report, so I could not check them from the paper alone. The experiments are simulation only, because D* had already worked on real robots. The authors count vertex expansions, heap percolates, and vertex accesses instead of run time. Counts do not depend on the machine, and 50 random terrains per size with 95 percent confidence intervals support the claim that D* Lite is at least as efficient as D* \cite{koenig2002dstarlite}. I would still want wall-clock time, since a count says little about how costly each operation is. One result is easy to miss: on the adaptive-resolution grids, D* Lite and its variant without the heuristic performed about equally, so the heuristic does not always help.
+
+The paper is easy to follow for a reader who knows A*. The pseudocode has numbered lines, and the analysis keeps comparing LPA* with A*, which connects it to the textbook treatment of A* \cite{russell2020aima}. The $k_m$ argument is the hardest part to follow. Implementing the algorithm from the pseudocode looks feasible, but reproducing the exact numbers does not, because the paper does not describe how the random terrains were generated or where the start and goal cells were placed.
+
+What I found most interesting is how little is added to A*. The first search is plain A*, and the incremental behavior comes from keeping $g$ between searches, adding $\mathit{rhs}$, and carrying one number, $k_m$. In the textbook, A* runs once on a fixed graph \cite{russell2020aima}; here the question is what to keep when the graph changes. The paper also looks useful beyond theory: it notes that D* has been used on real robots, including outdoor vehicles \cite{koenig2002dstarlite}, and AAAI gave D* Lite a Classic Paper Honorable Mention in 2019 \cite{aaaiclassic}. A follow-up I would test is how obstacle density changes the run-time gap between D* Lite and repeated A*.
+
+\bibliographystyle{acm}
+\bibliography{citations}
+
+\end{document}
+```
+### Reference file (citations.bib)
+A separate file in the Overleaf project. The name must be exactly `citations.bib` because `main.tex` ends with `\bibliography{citations}` (no extension). The course example calls it `rf1.bib`; the name does not matter as long as the two agree.
+```bibtex
+@inproceedings{koenig2002dstarlite,
+  author    = {Sven Koenig and Maxim Likhachev},
+  title     = {{D*} {Lite}},
+  booktitle = {Proceedings of the Eighteenth National Conference on Artificial Intelligence ({AAAI}-02)},
+  pages     = {476--483},
+  year      = {2002},
+  address   = {Edmonton, Alberta, Canada},
+  note      = {\url{https://cdn.aaai.org/AAAI/2002/AAAI02-072.pdf}}
+}
+
+@article{hart1968astar,
+  author  = {Peter E. Hart and Nils J. Nilsson and Bertram Raphael},
+  title   = {A Formal Basis for the Heuristic Determination of Minimum Cost Paths},
+  journal = {{IEEE} Transactions on Systems Science and Cybernetics},
+  volume  = {4},
+  number  = {2},
+  pages   = {100--107},
+  year    = {1968}
+}
+
+@inproceedings{stentz1995focussed,
+  author    = {Anthony Stentz},
+  title     = {The Focussed {D*} Algorithm for Real-Time Replanning},
+  booktitle = {Proceedings of the International Joint Conference on Artificial Intelligence ({IJCAI})},
+  pages     = {1652--1659},
+  year      = {1995}
+}
+
+@book{russell2020aima,
+  author    = {Stuart Russell and Peter Norvig},
+  title     = {Artificial Intelligence: A Modern Approach},
+  edition   = {Fourth},
+  publisher = {Pearson},
+  year      = {2020}
+}
+
+@misc{aaaiclassic,
+  author       = {{Association for the Advancement of Artificial Intelligence}},
+  title        = {{AAAI} Classic Paper Award},
+  howpublished = {\url{https://aaai.org/about-aaai/aaai-awards/aaai-classic-paper-award/}},
+  note         = {Accessed October 23, 2026}
+}
+```
+### Overleaf project: exact steps
+1. Open overleaf.com and sign in. Click **New Project**, then **Blank Project**. Name it `Writing 2 - D Star Lite`. Click **Create**.
+2. The file list on the left shows one file, `main.tex`, with sample text. Click it, press `Ctrl+A`, press `Delete`, then paste the full `main.tex` block above.
+3. In the file list, click the **New File** icon (page with a plus). Type the name `citations.bib` exactly, leave the template choice on blank, click **Create**. Click the new file and paste the full `citations.bib` block above.
+4. Click **Menu** (top left). Set **Compiler** to `pdfLaTeX`, **Main document** to `main.tex`. Close the menu.
+5. Click **Recompile**. Overleaf runs BibTeX by itself. If the PDF shows `[?]` or no References, click the arrow beside Recompile and choose **Recompile from scratch**, then recompile once more.
+6. Check the PDF against the pre-submit list below.
+7. Click the **Download PDF** icon (download icon above the preview). Optionally also **Menu**, then **Download Source**, and keep the zip next to the other homework files.
+8. Upload the PDF to the Writing 2 assignment on Canvas and confirm the upload before the due time.
+### Pre-submit checks
+- [ ] Header on every page: `Writing #2: D* Lite` on the left, `Anant Gupta` on the right.
+- [ ] Sections appear in order: Summary, Response, References.
+- [ ] References lists five entries, each with a number, and the text shows citations as `[1]` to `[5]` style numbers. No `[?]` anywhere.
+- [ ] The footnote shows at the bottom of page 1 and states the real level of AI use. Edit the wording if it is not accurate.
+- [ ] The Logs panel shows no `Citation ... undefined` and no `Undefined control sequence`. Overfull box warnings are fine.
+- [ ] The prose is about 500 words or more (see the count below).
+- [ ] I have read the report and every claim traces to the table above.
+### Checks run in this vault (no LaTeX engine used)
+A script read the two code blocks above on 2026-10-23, using the course environment's Python (`CSCI 4511W\Code\.venv`, nothing installed). 29 checks, all passed. This is a lint, not a compile.
+- Every `\cite` key exists in `citations.bib`, and every `.bib` key is cited. Five entries: `@inproceedings` twice, `@article`, `@book`, `@misc`.
+- Braces balance in both files, `\begin` and `\end` match, `$` signs are even, quotes use ` `` ` and `''`.
+- Both files are plain ASCII (no pasted special characters), and there are no unescaped `&`, `_`, `#` or `%` in the prose.
+- No citation sits after a period. Every `\cite` is followed by a period, comma or semicolon.
+- Title, author, `xurl`, `\bibliographystyle{acm}` and `\bibliography{citations}` are present, and the template placeholders are gone.
+- Sections are in order: Summary, Response, then the generated References.
+- *Word count:* 747 words of prose, which excludes the footnote, section headings, citations and references. The prompt says about 500 and allows longer. To get closer to 500, cut the second Summary paragraph down to two sentences and the last sentence of the first Response paragraph.
+- *Not checked:* anything that needs a real compile, such as the header look, page breaks, and BibTeX warnings. That happens in Overleaf, step 5.
+### Open items
+- `acmtemplate.tex` from Canvas was never seen. If it turns out to be `acmart` or another class, the preamble and bibliography style change; the reference entries and body text stay the same.
+- Nobody has compiled this. Overleaf is the first real compile.
+- Due time on Canvas is unconfirmed.
 ## Concepts used
-<!-- Concepts actually used, each with its role. -->
+- **A\* and consistent heuristics** ([[Concept - Informed Search]]): D\* Lite's first search is exactly A\*, and the paper requires a consistent heuristic for LPA\*. The response compares both with the textbook version.
+- **Incremental search (LPA\*, D\* Lite)**: the new idea here. `g`, `rhs`, local consistency, and the offset `k_m`. No concept note exists yet; this paper exposes a reusable mechanism, so one is worth creating after submission.
+- **Reading a search paper** (Discussion 6): the problem, guarantee, experiment and limits frame shaped the response section.
+- **BibTeX and LaTeX citing**: `\cite` before the period, one entry per type, `xurl` for URLs, from the course citation guide and the TA example.
 ## Post-submit reflection
 <!-- Optional until feedback: the first failure, the pattern, and what to change. -->

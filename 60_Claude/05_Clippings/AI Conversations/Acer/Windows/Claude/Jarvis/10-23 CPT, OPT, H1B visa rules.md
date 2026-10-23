@@ -6,7 +6,7 @@ source_os: windows
 title: "CPT, OPT, H1B visa rules"
 started_at: 2026-10-23T13:01:28
 ended_at: 2026-10-23T14:45:40
-exported_at: 2026-10-23T15:03:04
+exported_at: 2026-10-23T16:03:10
 duration_minutes: 104.2
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'

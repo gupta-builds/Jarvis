@@ -5,9 +5,9 @@ source_app: claude-code
 source_os: windows
 title: "CPT, OPT, H1B visa rules"
 started_at: 2026-10-23T13:01:28
-ended_at: 2026-10-23T16:50:36
-exported_at: 2026-10-23T16:50:40
-duration_minutes: 229.1
+ended_at: 2026-10-23T18:06:38
+exported_at: 2026-10-23T18:06:43
+duration_minutes: 305.2
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: a8711819-664b-4922-952b-4190546bfc01

@@ -53,19 +53,45 @@ function Resolve-PricingKey {
     return $null
 }
 
-# Explicit cwd -> project name map for the 3 known Windows project roots.
-# Falls back to the basename of cwd for anything new.
+# cwd -> project name. Vault roots are resolved from this script's own location, never
+# a hardcoded drive layout (the old literal map only matched the Dell). Anything inside
+# the Jarvis or The Plan vault belongs to that vault's project: a session that cd's into
+# a vault subfolder must not become its own sibling project. Home is exact-match only.
+# Anything outside these roots falls back to the basename of cwd.
 function Get-ProjectName {
     param([string]$CwdPath)
     if ([string]::IsNullOrWhiteSpace($CwdPath)) { return "Unknown" }
-    $norm = $CwdPath.TrimEnd('\', '/').ToLowerInvariant()
-    switch ($norm) {
-        'c:\users\anant gupta' { return 'Home' }
-        'c:\users\anant' { return 'Home' }
-        'd:\users\_anant\10_areas\documents\jarvis' { return 'Jarvis' }
-        'd:\users\_anant\10_areas\documents\the plan' { return 'The Plan' }
-        default { return (Split-Path -Path $CwdPath.TrimEnd('\', '/') -Leaf) }
+    $norm = $CwdPath.TrimEnd('\', '/')
+    $vaults = @(
+        @{ Name = 'Jarvis'; Root = $VaultRoot },
+        @{ Name = 'The Plan'; Root = (Join-Path (Split-Path -Path $VaultRoot -Parent) 'The Plan') }
+    )
+    foreach ($v in $vaults) {
+        $root = $v.Root.TrimEnd('\', '/')
+        if ($norm -ieq $root -or $norm.StartsWith($root + '\', [StringComparison]::OrdinalIgnoreCase)) { return $v.Name }
     }
+    if ($env:USERPROFILE -and $norm -ieq $env:USERPROFILE.TrimEnd('\', '/')) { return 'Home' }
+    return (Split-Path -Path $norm -Leaf)
+}
+
+# The .exported marker lives inside the derived project folder, so any change in how a
+# session's project name is derived (live cwd from the hook vs first cwd from backfill)
+# used to lose the marker and re-export the whole session as a second note. A session
+# that already has a marker stays in that folder; the newest marker wins if there are two.
+function Find-ExistingSessionDir {
+    param([string]$SessionIdIn)
+    if (-not $OutRoot -or -not (Test-Path -LiteralPath $OutRoot)) { return $null }
+    $best = $null
+    foreach ($d in Get-ChildItem -LiteralPath $OutRoot -Directory -ErrorAction SilentlyContinue) {
+        if ($d.Name.StartsWith('_') -or $d.Name -eq 'Cowork') { continue }
+        $m = Join-Path $d.FullName ".exported\$SessionIdIn.done"
+        if (Test-Path -LiteralPath $m) {
+            $t = (Get-Item -LiteralPath $m).LastWriteTimeUtc
+            if (-not $best -or $t -gt $best.Time) { $best = @{ Dir = $d.FullName; Time = $t } }
+        }
+    }
+    if ($best) { return $best.Dir }
+    return $null
 }
 
 function Redact-Secrets {
@@ -224,6 +250,23 @@ function Add-ModelUsage {
     }
 }
 
+# One API response is written as several 'assistant' JSONL lines (one per content
+# block: thinking, text, each tool_use), all sharing message.id and repeating the
+# identical message.usage. Summing per line counted each response 2-3x.
+function Set-ResponseUsage {
+    param([hashtable]$UsageById, $AssistantLine)
+    $m = $AssistantLine.message
+    $key = if ($m.id) { [string]$m.id } else { [guid]::NewGuid().ToString() }
+    $UsageById[$key] = @{ Model = [string]$m.model; Usage = $m.usage }
+}
+
+function Add-DedupedModelUsage {
+    param([hashtable]$ModelUsage, [hashtable]$UsageById)
+    foreach ($e in $UsageById.Values) {
+        Add-ModelUsage -ModelUsage $ModelUsage -Model $e.Model -Usage $e.Usage
+    }
+}
+
 function Get-SessionMonthBucket {
     param([string]$Path)
     try {
@@ -355,6 +398,11 @@ function Export-Session {
     if ($SourceAppIn -eq "ClaudeCode") {
         $projectName = Get-ProjectName -CwdPath $CwdIn
         $projectDir = Join-Path $OutRoot $projectName
+        $existingDir = Find-ExistingSessionDir -SessionIdIn $SessionIdIn
+        if ($existingDir) {
+            $projectDir = $existingDir
+            $projectName = Split-Path -Path $existingDir -Leaf
+        }
         $rawTarget = Split-Path -Path $TranscriptPathIn -Parent
     }
     else {
@@ -438,6 +486,7 @@ function Export-Session {
     $aiTitles = New-Object System.Collections.Generic.List[string]
     $toolResults = @{}
     $modelUsage = @{}
+    $usageById = @{}
     $firstTimestamp = $null
     $lastTimestamp = $null
 
@@ -462,9 +511,10 @@ function Export-Session {
             }
         }
         elseif ($o.type -eq 'assistant' -and $o.message -and $o.message.usage) {
-            Add-ModelUsage -ModelUsage $modelUsage -Model ([string]$o.message.model) -Usage $o.message.usage
+            Set-ResponseUsage -UsageById $usageById -AssistantLine $o
         }
     }
+    Add-DedupedModelUsage -ModelUsage $modelUsage -UsageById $usageById
 
     # Pass 2: reconstruct turns. Consecutive assistant JSONL lines merge into
     # one turn; user string-content flushes as its own single turn; user

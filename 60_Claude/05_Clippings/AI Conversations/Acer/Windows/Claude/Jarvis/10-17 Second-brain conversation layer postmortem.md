@@ -6,7 +6,7 @@ source_os: windows
 title: "Second-brain conversation layer postmortem"
 started_at: 2026-10-17T21:57:31
 ended_at: 2026-10-22T11:20:22
-exported_at: 2026-10-22T11:33:07
+exported_at: 2026-10-22T22:49:13
 duration_minutes: 6562.8
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
@@ -28,11 +28,11 @@ tools_used:
   WebSearch: 62
   Write: 40
 tokens:
-  input: 1130
-  output: 2046197
-  cache_creation: 12787077
-  cache_read: 258207374
-  total: 273041778
+  input: 320
+  output: 427689
+  cache_creation: 2059859
+  cache_read: 66767258
+  total: 69255126
 cost_usd: null
 model:
   - "claude-sonnet-5"

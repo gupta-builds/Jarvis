@@ -82,6 +82,41 @@ function Resolve-PricingKey {
     return $null
 }
 
+function Add-ModelUsage {
+    param([hashtable]$ModelUsage, [string]$Model, $Usage)
+    if (-not $Model -or $Model -eq '<synthetic>') { return }
+    if (-not $ModelUsage.ContainsKey($Model)) {
+        $ModelUsage[$Model] = @{ input = 0; output = 0; cache_read = 0; cache_5m = 0; cache_1h = 0 }
+    }
+    if ($Usage.input_tokens) { $ModelUsage[$Model].input += [int]$Usage.input_tokens }
+    if ($Usage.output_tokens) { $ModelUsage[$Model].output += [int]$Usage.output_tokens }
+    if ($Usage.cache_read_input_tokens) { $ModelUsage[$Model].cache_read += [int]$Usage.cache_read_input_tokens }
+    if ($Usage.cache_creation) {
+        if ($Usage.cache_creation.ephemeral_5m_input_tokens) { $ModelUsage[$Model].cache_5m += [int]$Usage.cache_creation.ephemeral_5m_input_tokens }
+        if ($Usage.cache_creation.ephemeral_1h_input_tokens) { $ModelUsage[$Model].cache_1h += [int]$Usage.cache_creation.ephemeral_1h_input_tokens }
+    }
+    elseif ($Usage.cache_creation_input_tokens) {
+        $ModelUsage[$Model].cache_5m += [int]$Usage.cache_creation_input_tokens
+    }
+}
+
+# One API response is written as several 'assistant' JSONL lines (one per content
+# block), all sharing message.id and repeating the identical message.usage.
+# Summing per line counted each response 2-3x.
+function Set-ResponseUsage {
+    param([hashtable]$UsageById, $AssistantLine)
+    $m = $AssistantLine.message
+    $key = if ($m.id) { [string]$m.id } else { [guid]::NewGuid().ToString() }
+    $UsageById[$key] = @{ Model = [string]$m.model; Usage = $m.usage }
+}
+
+function Add-DedupedModelUsage {
+    param([hashtable]$ModelUsage, [hashtable]$UsageById)
+    foreach ($e in $UsageById.Values) {
+        Add-ModelUsage -ModelUsage $ModelUsage -Model $e.Model -Usage $e.Usage
+    }
+}
+
 function Redact-Secrets {
     param([string]$Text)
     if (-not $Text) { return $Text }
@@ -342,6 +377,7 @@ function Export-Session {
     # Pass 1: tool_result text by tool_use_id, per-model token usage, ai-title(s), timestamps.
     $toolResults = @{}
     $modelUsage = @{}
+    $usageById = @{}
     $aiTitles = New-Object System.Collections.Generic.List[string]
     $firstTimestamp = $null
     $lastTimestamp = $null
@@ -366,25 +402,10 @@ function Export-Session {
             }
         }
         elseif ($o.type -eq 'assistant' -and $o.message -and $o.message.usage) {
-            $model = [string]$o.message.model
-            if ($model -and $model -ne '<synthetic>') {
-                if (-not $modelUsage.ContainsKey($model)) {
-                    $modelUsage[$model] = @{ input = 0; output = 0; cache_read = 0; cache_5m = 0; cache_1h = 0 }
-                }
-                $u = $o.message.usage
-                if ($u.input_tokens) { $modelUsage[$model].input += [int]$u.input_tokens }
-                if ($u.output_tokens) { $modelUsage[$model].output += [int]$u.output_tokens }
-                if ($u.cache_read_input_tokens) { $modelUsage[$model].cache_read += [int]$u.cache_read_input_tokens }
-                if ($u.cache_creation) {
-                    if ($u.cache_creation.ephemeral_5m_input_tokens) { $modelUsage[$model].cache_5m += [int]$u.cache_creation.ephemeral_5m_input_tokens }
-                    if ($u.cache_creation.ephemeral_1h_input_tokens) { $modelUsage[$model].cache_1h += [int]$u.cache_creation.ephemeral_1h_input_tokens }
-                }
-                elseif ($u.cache_creation_input_tokens) {
-                    $modelUsage[$model].cache_5m += [int]$u.cache_creation_input_tokens
-                }
-            }
+            Set-ResponseUsage -UsageById $usageById -AssistantLine $o
         }
     }
+    Add-DedupedModelUsage -ModelUsage $modelUsage -UsageById $usageById
 
     # Pass 2: reconstruct turns, tool tally, files created/modified, commands run.
     $turns = New-Object System.Collections.Generic.List[object]

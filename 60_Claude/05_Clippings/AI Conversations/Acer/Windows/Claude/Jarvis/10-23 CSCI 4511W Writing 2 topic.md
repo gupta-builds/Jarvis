@@ -5,11 +5,11 @@ source_app: claude-code
 source_os: windows
 title: "CSCI 4511W Writing 2 topic"
 started_at: 2026-10-23T13:44:06
-ended_at: 2026-10-23T21:55:36
-exported_at: 2026-10-23T21:55:37
-duration_minutes: 491.5
+ended_at: 2026-10-23T21:58:40
+exported_at: 2026-10-23T22:03:04
+duration_minutes: 494.6
 project: Jarvis
-cwd: 'D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint'
+cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: 27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7
 status: raw
 turn_count: 10

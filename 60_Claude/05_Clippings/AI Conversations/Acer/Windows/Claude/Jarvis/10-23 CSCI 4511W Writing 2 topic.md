@@ -5,31 +5,31 @@ source_app: claude-code
 source_os: windows
 title: "CSCI 4511W Writing 2 topic"
 started_at: 2026-10-23T13:44:06
-ended_at: 2026-10-23T14:44:45
-exported_at: 2026-10-23T20:33:03
-duration_minutes: 60.7
+ended_at: 2026-10-23T21:55:36
+exported_at: 2026-10-23T21:55:37
+duration_minutes: 491.5
 project: Jarvis
-cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
+cwd: 'D:\_Anant\20_Progress\Documents\Jarvis\30_Order\System\vault-lint'
 session_id: 27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7
 status: raw
-turn_count: 8
+turn_count: 10
 tools_used:
   Agent: 4
-  Bash: 44
-  Edit: 13
+  Bash: 49
+  Edit: 20
   Glob: 7
-  Grep: 10
+  Grep: 11
   PowerShell: 2
-  Read: 24
+  Read: 27
   ToolSearch: 1
   WebSearch: 8
-  Write: 2
+  Write: 5
 tokens:
-  input: 138
-  output: 99069
-  cache_creation: 305047
-  cache_read: 13919178
-  total: 14323432
+  input: 166
+  output: 120643
+  cache_creation: 644872
+  cache_read: 18590054
+  total: 19355735
 cost_usd: null
 model:
   - "claude-sonnet-5-5"
@@ -41,7 +41,10 @@ files_touched:
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7\\scratchpad\\dstarlite.txt"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7\\scratchpad\\dstarlite_mineru.md"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7\\scratchpad\\lint_writing2.py"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7\\scratchpad\\new_body.tex"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7\\scratchpad\\scan_asterisks.py"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7\\scratchpad\\strip_blanks.py"
+  - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7\\scratchpad\\swap_body.py"
   - "C:\\Users\\anant\\AppData\\Local\\Temp\\claude\\D---Anant-20-Progress-Documents-Jarvis\\27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7\\scratchpad\\writing1_prompt.md"
   - "D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4511W\\Code\\latex-practice\\main.tex"
   - "D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4511W\\Code\\latex-practice\\references.bib"
@@ -2592,11 +2595,334 @@ ALL PASS
 19
 ```
 
+## You
+
+```
+
+<pasted_content id="9688">
+This report covers ``D Lite'' by Koenig and Likhachev \cite{koenig2002dstarlite}.\footnote{Generative AI use: I used Claude (Anthropic) to research the four paper options, extract and read the paper's text, and draft this report. I checked each claim against the paper and edited the final text myself.} A robot must reach a goal on a grid map, not knowing every wall in advance. It assumes that every cell that is not seen is free and plans a shortest path to proceed. When it observes a blocked cell, it replans, and may require minutes of rerunning a conventional graph search on a large map while one new obstacle changes the goal's distance by only a few cells \cite{koenig2002dstarlite}. D Lite only recomputes those few cells.
+
+The method builds on Lifelong Planning A (LPA) \cite{koenig2002dstarlite}, an incremental version of the A algorithm of Hart, Nilsson, and Raphael \cite{hart1968astar}. Every cell stores $g$, its current distance estimate, and $\mathit{rhs}$, a one-step lookahead based upon its neighbors. If both match, the cell is consistent. Only inconsistent cells are kept in a priority queue, sorted by a key of which the first part corresponds to the A value $f = g + h$. When the edge cost of a cell changes, its adjacent cells are updated and the queue is processed, until the robot's cell is consistent again. The very first search expands the same cells that A would \cite{koenig2002dstarlite}.
+
+Two changes transform LPA into D Lite. First, the search proceeds backward from the goal, so that the stored values are distances to the goal and valid while the robot moves. Second, the movement invalidates the heuristic stored in each queued key. Rather than reordering the queue, D Lite adds a running offset $k_m$ to each key and rechecks a cell when it is dequeued. This yields a similar performance to Stentz's Focussed D \cite{stentz1995focussed}, but is shorter and easier to analyze \cite{koenig2002dstarlite}.
+
+The authors state that a search terminates with a correct path and expands each cell at most twice, with proofs in a separate technical report. In a simulation over eight-connected random grids, D Lite outperformed Focussed D on vertex expansions, heap percolates, and vertex accesses. It also outperformed its variants that omit the incremental search (which is repeated A) or the heuristic, on almost every comparison, by more than a factor of seven in the vertex expansions, at best \cite{koenig2002dstarlite}.
+
+\section{Response}
+
+The paper targets replanning on a graph where edge costs change over time, with navigation in unknown terrain as the main example. It is appropriate when changes are local and a good heuristic is available. The heuristic must never overestimate and must satisfy a triangle inequality, which the authors note holds when it comes from relaxing the problem \cite{koenig2002dstarlite}. The model is narrow: the robot observes which of its eight neighbors are blocked and does not handle noisy sensors or actions that can fail.
+
+The theorems justify correctness, but the proofs are in a technical report; I was unable to check them from the paper alone. The experiments are simulation-only, as D had already been tested on real robots. The authors report vertex expansions, heap percolates, and vertex accesses rather than run time. Counts do not depend on the machine, and 50 random terrains per size with 95 percent confidence intervals justify the claim that D Lite is at least as efficient as D \cite{koenig2002dstarlite}. I would still want the wall-clock time, as a count does not say much about a single operation's cost. One result is easy to miss: in the adaptive-resolution grids, D Lite and its variant that omit the heuristic ran about equally well, so that the heuristic is not always beneficial.
+
+The paper is easy to follow for a reader familiar with A. The pseudocode has numbered lines, and the analysis constantly compares LPA to A, which anchors it in the textbook treatment of A \cite{russell2020aima}. The $k_m$ argument is the hardest part to follow. The implementation from the pseudocode seems plausible, but reproducing the exact numbers is not, since the paper does not describe how the random terrains were generated and where the start and goal cells were placed.
+
+What I found most interesting is how little is added to A. The first search is simply A, and the incremental behavior is achieved by maintaining $g$ between searches, $\mathit{rhs}$, and carrying one number, $k_m$. In the textbook, A runs once on a fixed graph \cite{russell2020aima}; here, the question is what to maintain as the graph changes. The paper also looks useful beyond theoretical interest: it mentions that D has been used on real robots, including outdoor vehicles \cite{koenig2002dstarlite}, and AAAI gave it a Classic Paper Honorable Mention in 2019 \cite{aaaiclassic}. A follow-up I would test is how obstacle density affects the run-time gap between D Lite and repeated A.
+</pasted_content id="9688">
+
+``` - more humanized version that needs to be updated on the writing - 2 main.tex file. Also make sure that the content written out is perfectly ready for submission now. All the content should be finalized and ready. This should wrap the assignment up.
+
+## Claude
+
+The paste lost every asterisk, so "D\* Lite" became "D Lite" and "A\*" became "A", and it also lost the `\section{Summary}` line. I'll restore those. While merging, I'm also fixing a few wording changes that altered the meaning compared with the paper, and I'll list each one afterwards.
+
+Two problems: my one-off scan script had a regex error, and Vault Lint now reports a failure. I'll see what Vault Lint says.
+
+Now I'll update the checks section for the new text and log the revision. First I'll read the exact text I need to replace.
+
+The final text reads correctly. Now I'll log the revision, including each meaning fix, and update the checks section with the new word count.
+
+I've merged your humanized version into the `main.tex` block in `Writing - 2.md`, and the writing is ready to paste into Overleaf. It hasn't been compiled. Vault Lint reports the note at 100% fit, and all 29 checks on the LaTeX and BibTeX blocks pass. The prose is 771 words against the "about 500" target, which the prompt allows exceeding.
+
+## What I changed in your paste
+
+- **Lost asterisks.** The paste had dropped every one: "D\* Lite" read "D Lite", "A\*" read "A", "LPA\*" read "LPA", and "Focussed D\*" read "Focussed D". I restored all of them and scanned for any left. The only two "A" hits are the sentence-initial article ("A robot…", "A follow-up…").
+- **Missing heading.** The paste began mid-paragraph, so I put `\section{Summary}` back.
+- **Meaning fixes.** Several rewordings said something the paper doesn't. I corrected them and kept your tone and structure:
+  - "changes the goal's distance by only a few cells" became "changes the goal distance of only a few cells". The paper says only a few cells have a changed goal distance.
+  - "invalidates the heuristic" became "makes it out of date", since the stored keys are stale but still valid lower bounds.
+  - "yields a similar performance to Focussed D\*" became "behaves like". The paper claims the same navigation behavior and efficiency at least as good.
+  - "appropriate when changes are local" became "handles any pattern of cost changes, but reuse should pay off most when few costs change at once". The paper says it makes no assumption about where or how costs change. The "should" marks the payoff as my inference.
+  - "does not handle noisy sensors" became "does not address", because the paper is silent on them.
+  - "justify" became "support" in two places.
+- **Grammar.** I fixed three spots: "variant that omit", "seems plausible… is not", and the list "maintaining g, rhs, and carrying".
+
+The note's Work log has a "Revision" entry with each fix and the paper page it rests on.
+
+## Vault Lint
+
+Something added blank lines before three tables, probably Obsidian's auto-format, and Vault Lint counts those as errors. Putting a table directly under its heading satisfies both. I moved the sentence that sat above each table to a bullet below it.
+
+## Before you submit
+
+1. Check that the footnote is true. It says you checked each claim against the paper and edited the final text yourself.
+2. Confirm the Canvas due time. The lectures say today, Friday.
+
+The Overleaf steps from my last message are unchanged. The two code blocks to paste are under `### Draft report (main.tex)` and `### Reference file (citations.bib)` in the note.
+
+### Tool Calls
+
+- `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7\scratchpad\new_body.tex`
+```
+\section{Summary}
+
+This report covers ``D* Lite'' by Koenig and Likhachev \cite{koenig2002dstarlite}.\footnote{Generative AI use: I used Claude (Anthropic) to research the four paper options, extract and read the paper's text, and draft this report. I checked each claim against the paper and edited the final text myself.} A robot must reach a goal on a grid map, not knowing every wall in advance. It assumes that every unseen cell is free and plans a shortest path. When it observes a blocked cell, it replans. Rerunning a conventional graph search each time can take minutes on a large map, yet one new obstacle changes the goal distance of only a few cells \cite{koenig2002dstarlite}. D* Lite recomputes only the changed cells that matter for the path.
+
+The method builds on Lifelong Planning A* (LPA*) \cite{koenig2002dstarlite}, an incremental version of the A* algorithm of Hart, Nilsson, and Raphael \cite{hart1968astar}. Every cell stores $g$, its current distance estimate, and $\mathit{rhs}$, a one-step lookahead based on its neighbors. If both match, the cell is consistent. Only inconsistent cells are kept in a priority queue, sorted by a key whose first part corresponds to the A* value $f = g + h$. When an edge cost changes, the affected cells are updated and the queue is processed until the robot's cell is consistent again. The very first search expands the same cells that A* would \cite{koenig2002dstarlite}.
+
+Two changes transform LPA* into D* Lite. First, the search proceeds backward from the goal, so the stored values are distances to the goal and stay valid while the robot moves. Second, movement makes the heuristic stored in each queued key out of date. Rather than reordering the queue, D* Lite adds a running offset $k_m$ to each key and rechecks a cell when it is dequeued. The result behaves like Stentz's Focussed D* \cite{stentz1995focussed}, but it is shorter and easier to analyze \cite{koenig2002dstarlite}.
+
+The authors state that a search terminates with a correct path and expands each cell at most twice, with proofs in a separate technical report. In a simulation over eight-connected random grids, D* Lite outperformed Focussed D* on vertex expansions, heap percolates, and vertex accesses. It also outperformed its variants that omit the incremental search (which is repeated A*) or the heuristic, on almost every comparison, by more than a factor of seven in the vertex expansions, at best \cite{koenig2002dstarlite}.
+
+\section{Response}
+
+The paper targets replanning on a graph where edge costs change over time, with navigation in unknown terrain as the main example. It handles any pattern of cost changes, but reuse should pay off most when few costs change at once and a good heuristic is available. The heuristic must never overestimate and must satisfy a triangle inequality, which the authors note holds when it comes from relaxing the problem \cite{koenig2002dstarlite}. The model is narrow: the robot observes which of its eight neighbors are blocked, and the paper does not address noisy sensors or actions that can fail.
+
+The theorems support correctness, but the proofs are in a technical report, so I was unable to check them from the paper alone. The experiments are simulation-only, as D* had already been demonstrated on real robots. The authors report vertex expansions, heap percolates, and vertex accesses rather than run time. Counts do not depend on the machine, and 50 random terrains per size with 95 percent confidence intervals support the claim that D* Lite is at least as efficient as D* \cite{koenig2002dstarlite}. I would still want the wall-clock time, as a count does not say much about a single operation's cost. One result is easy to miss: on the adaptive-resolution grids, D* Lite and its variant without the heuristic ran about equally well, so the heuristic is not always beneficial.
+
+The paper is easy to follow for a reader familiar with A*. The pseudocode has numbered lines, and the analysis repeatedly compares LPA* to A*, which anchors it in the textbook treatment of A* \cite{russell2020aima}. The $k_m$ argument is the hardest part to follow. Implementing the algorithm from the pseudocode looks feasible, but reproducing the exact numbers does not, since the paper does not describe how the random terrains were generated or where the start and goal cells were placed.
+
+What I found most interesting is how little is added to A*. The first search is simply A*, and the incremental behavior comes from keeping $g$ between searches, adding $\mathit{rhs}$, and carrying one number, $k_m$. In the textbook, A* runs once on a fixed graph \cite{russell2020aima}; here, the question is what to keep as the graph changes. The paper also looks useful beyond theoretical interest: it mentions that D* has been used on real robots, including outdoor vehicles \cite{koenig2002dstarlite}, and AAAI gave it a Classic Paper Honorable Mention in 2019 \cite{aaaiclassic}. A follow-up I would test is how obstacle density affects the run-time gap between D* Lite and repeated A*.
+
+
+```
+- `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7\scratchpad\swap_body.py`
+```
+import re
+import sys
+
+note_path, body_path = sys.argv[1], sys.argv[2]
+note = open(note_path, "rb").read().decode("utf-8")
+body = open(body_path, "rb").read().decode("utf-8").replace("\r\n", "\n")
+
+m = re.search(r"(```latex\n)(.*?)(\n```)", note, re.S)
+tex = m.group(2)
+start = tex.index("\\section{Summary}")
+end = tex.index("\\bibliographystyle{acm}")
+new_tex = tex[:start] + body + tex[end:]
+note = note[: m.start(2)] + new_tex + note[m.end(2):]
+open(note_path, "wb").write(note.encode("utf-8"))
+print("replaced", end - start, "chars with", len(body))
+
+```
+- `Bash` -- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
+SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
+N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md"
+"$PY" -I "$SP/swap_body.py" "$N" "$SP/new_body.tex"
+echo "=== lost-asterisk scan on the LaTeX body (expect no hits) ==="
+"$PY" -I - "$N" <<'EOF'
+import re, sys
+t = open(sys.argv[1], encoding="utf-8").read()
+tex = re.search(r"```latex\n(.*?)\n```", t, re.S).group(1)
+body = tex.split(r"\begin{document}", 1)[1]
+prose = re.sub(r"\\(cite|footnote)\{[^}]*\}", "", body)
+prose = re.sub(r"\$[^$]*\$", "", prose)
+hits = []
+for pat in (r"\bD Lite", r"\bLPA(?!\*)\b", r"\bFocussed D(?!\*)\b", r"\bD(?![*\w])", r"\bA(?![*\w])(?! Modern)"):
+    for m in re.finditer(pat, prose):
+        hits.append((pat, prose[max(0, m.start()-25):m.end()+25].replace("\n", " ")))
+for h in hits: print("HIT", h)
+print("asterisk counts  D*:", len(re.findall(r"D\*", body)), " A*:", len(re.findall(r"A\*", body)), " LPA*:", len(re.findall(r"LPA\*", body)))
+print("hits:", len(hits))
+EOF
+echo "=== my lint ==="
+"$PY" -I "$SP/lint_writing2.py" "$N" | grep -E "FAIL|words|ALL PASS|SOME"
+echo "=== vault lint ==="
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" --list 3 2>&1 | sed -n 2,3p`
+```
+replaced 4907 chars with 5059
+=== lost-asterisk scan on the LaTeX body (expect no hits) ===
+Traceback (most recent call last):
+  File "<stdin>", line 5, in <module>
+  File "C:\Users\anant\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\Lib\re\__init__.py", line 186, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\anant\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\Lib\re\__init__.py", line 307, in _compile
+    p = _compiler.compile(pattern, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\anant\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\Lib\re\_compiler.py", line 750, in compile
+    p = _parser.parse(p, flags)
+        ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\anant\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\Lib\re\_parser.py", line 984, in parse
+    raise source.error("unbalanced parenthesis")
+re.error: unbalanced parenthesis at position 15
+=== my lint ===
+     prose words (no footnote, no headings, no references): 771
+PASS at least 500 words :: 771
+ALL PASS
+=== vault lint ===
+FIT: 0/1 = 0.0%
+```
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" --list 3 2>&1 | tail -6`
+```
+Top failure reasons:
+      1  5:extra-blank-lines
+
+First 3 failing notes:
+  20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md  [course-homework]  5:extra-blank-lines:3
+```
+- `Bash` -- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
+N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md"
+"$PY" -I -c "
+import re,sys
+lines=open(sys.argv[1],encoding='utf-8').read().split('\n')
+inF=False
+for i,l in enumerate(lines,1):
+    if re.match(r'^\s*\`\`\`',l):
+        inF=not inF; continue
+    if not inF and l.strip()=='' and i!=len(lines):
+        print('blank outside fence at line',i,'| prev:',lines[i-2][:60],'| next:',lines[i][:60])
+print('total lines',len(lines))
+" "$N"`
+```
+blank outside fence at line 75 | prev: ==D\* Lite== is an incremental replanning algorithm for a ro | next: | Field | Value |
+blank outside fence at line 93 | prev: Page numbers are PDF pages of the 8-page AAAI PDF. Use this  | next: | Claim in the draft | Where |
+blank outside fence at line 115 | prev: Five entries, one per type the prompt lists except `@patent` | next: | Key | Type | Entry | Verified by |
+total lines 282
+```
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Assignments\Written\Writing - 2.md`
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Assignments\Written\Writing - 2.md`
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Assignments\Written\Writing - 2.md`
+```diff
+- ### The paper
+==D\* Lite== is an incremental replanning algorithm for a robot in unknown terrain. It reuses the previous search instead of rerunning A\*, and its first search is exactly A\*.
+
+| Field | Value |
++ ### The paper
+| Field | Value |
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Assignments\Written\Writing - 2.md`
+```diff
+- - *Verified:* the AAAI page and the award page were opened.
++ - *What it is:* ==D\* Lite== is an incremental replanning algorithm for a robot in unknown terrain. It reuses the previous search instead of rerunning A\*, and its first search is exactly A\*.
+- *Verified:* the AAAI page and the award page were opened.
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Assignments\Written\Writing - 2.md`
+```diff
+- ### Claim to location in the paper
+Page numbers are PDF pages of the 8-page AAAI PDF. Use this to re-check any sentence in the draft.
+
+| Claim in the draft | Where |
++ ### Claim to location in the paper
+| Claim in the draft | Where |
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Assignments\Written\Writing - 2.md`
+```diff
+- | Terrain generator and start and goal placement not described | absent from p. 6 to 8 |
+### Reference plan
+Five entries, one per type the prompt lists except `@patent`. Every key is cited at least once in `main.tex`.
+
+| Key | Type | Entry | Verified by |
++ | Terrain generator and start and goal placement not described | absent from p. 6 to 8 |
+- Page numbers are PDF pages of the 8-page AAAI PDF. Use the table to re-check any sentence in the draft.
+### Reference plan
+| Key | Type | Entry | Verified by |
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Assignments\Written\Writing - 2.md`
+```diff
+- | `aaaiclassic` | `@misc` | AAAI Classic Paper Award page, accessed 2026-10-23 | Opened the page |
+### How to cite
++ | `aaaiclassic` | `@misc` | AAAI Classic Paper Award page, accessed 2026-10-23 | Opened the page |
+- Five entries, one per type the prompt lists except `@patent`. Every key is cited at least once in `main.tex`.
+### How to cite
+```
+- `Grep` -- pattern `^### (Pre-submit checks|Checks run|Open items)|Word count:|prose words|747` path `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Assignments\Written\Writing - 2.md`
+- `Write` -- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7\scratchpad\scan_asterisks.py`
+```
+import re
+import sys
+
+t = open(sys.argv[1], encoding="utf-8").read()
+tex = re.search(r"```latex\n(.*?)\n```", t, re.S).group(1)
+body = tex.split(r"\begin{document}", 1)[1]
+prose = re.sub(r"\\(?:cite|footnote)\{[^}]*\}", "", body)
+prose = re.sub(r"\$[^$]*\$", "", prose)
+
+hits = []
+patterns = [
+    r"\bD Lite",
+    r"\bLPA(?![*\w])",
+    r"\bFocussed D(?![*\w])",
+    r"\bD(?![*\w])",
+    r"\bA(?![*\w])",
+]
+for pat in patterns:
+    for m in re.finditer(pat, prose):
+        hits.append((pat, prose[max(0, m.start() - 25): m.end() + 25].replace("\n", " ")))
+for h in hits:
+    print("HIT", h)
+print("asterisk counts  D*:", len(re.findall(r"D\*", body)),
+      " A*:", len(re.findall(r"A\*", body)),
+      " LPA*:", len(re.findall(r"LPA\*", body)))
+print("lost-asterisk hits:", len(hits))
+
+```
+- `Bash` -- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
+SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
+N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md"
+"$PY" -I "$SP/scan_asterisks.py" "$N"
+echo "=== my lint ==="; "$PY" -I "$SP/lint_writing2.py" "$N" | grep -E "FAIL|words|ALL PASS|SOME"
+echo "=== vault lint ==="; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" --list 3 2>&1 | sed -n 2,3p`
+```
+HIT ('\\bA(?![*\\w])', 'y Koenig and Likhachev . A robot must reach a goal ')
+HIT ('\\bA(?![*\\w])', 'orable Mention in 2019 . A follow-up I would test i')
+asterisk counts  D*: 13  A*: 15  LPA*: 3
+lost-asterisk hits: 2
+=== my lint ===
+     prose words (no footnote, no headings, no references): 771
+PASS at least 500 words :: 771
+ALL PASS
+=== vault lint ===
+FIT: 1/1 = 100.0%
+```
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Assignments\Written\Writing - 2.md`
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Assignments\Written\Writing - 2.md`
+```diff
+- ### Pre-submit checks
+- [ ] Header on every page
++ ### Revision: humanized text merged (2026-10-23)
+The pasted rewrite had lost every asterisk ("D\* Lite" read "D Lite", "A\*" read "A", "LPA\*" read "LPA", "Focussed D\*" read "Focussed D") and the `\section{Summary}` line. All are restored. The `main.tex` body now holds 13 `D*`, 15 `A*` and 3 `LPA*`, and a scan finds no stripped ones.
+Wording that changed the meaning against the paper was corrected. Tone and structure are kept.
+- "changes the goal's distance by only a few cells" became "changes the goal distance of only a few cells". The paper says few cells have a changed goal distance (p. 1 to 2), not that the goal moves a little.
+- "it replans, and may require minutes of rerunning..." was split into two sentences, because the subject of "may require" was wrong.
+- "the edge cost of a cell" became "an edge cost", and "its adjacent cells" became "the affected cells". Costs belong to edges.
+- "invalidates the heuristic" became "makes it out of date". The stored keys stay valid lower bounds on the true keys and are only stale (p. 5).
+- "yields a similar performance to Focussed D\*" became "behaves like". The paper claims the same navigation behavior and efficiency at least as good (p. 1, p. 6), not similar performance.
+- "appropriate when changes are local" became "handles any pattern of cost changes, but reuse should pay off most when few costs change at once". The paper says it assumes nothing about where or how costs change (p. 4). The "should" marks the payoff as my inference.
+- "does not handle noisy sensors" became "does not address". The paper is silent on them.
+- "justify" became "support" in two places, so the claims are not overstated.
+- Grammar: "variant that omit" became "variant without"; "seems plausible, but reproducing... is not" became "looks feasible, but... does not"; and the list "maintaining g, rhs, and carrying" became "keeping g, adding rhs, and carrying".
+### Pre-submit checks
+- [ ] Header on every page
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4511W\Assignments\Written\Writing - 2.md`
+```diff
+- - *Word count:* 747 words of prose, which excludes the footnote, section headings, citations and references. The prompt says about 500 and allows longer. To get closer to 500, cut the second Summary paragraph down to two sentences and the last sentence of the first Response paragraph.
++ - The scan for lost asterisks and the 29 checks were re-run on the merged text and pass. Vault Lint reports the note at 100% fit.
+- *Word count:* 771 words of prose, which excludes the footnote, section headings, citations and references. The prompt says about 500 and allows longer, so this is submittable as it stands.
+```
+- `Bash` -- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
+SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
+N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md"
+"$PY" -I "$SP/lint_writing2.py" "$N" | grep -E "FAIL|words|ALL PASS|SOME"
+"$PY" -I "$SP/scan_asterisks.py" "$N" | tail -2
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" 2>&1 | sed -n 2,2p`
+```
+     prose words (no footnote, no headings, no references): 771
+PASS at least 500 words :: 771
+ALL PASS
+asterisk counts  D*: 13  A*: 15  LPA*: 3
+lost-asterisk hits: 2
+FIT: 1/1 = 100.0%
+```
+
 ## Actions Taken
 
 **Files created:**
 - `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7\scratchpad\lint_writing2.py`
+- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7\scratchpad\new_body.tex`
+- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7\scratchpad\scan_asterisks.py`
 - `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7\scratchpad\strip_blanks.py`
+- `C:\Users\anant\AppData\Local\Temp\claude\D---Anant-20-Progress-Documents-Jarvis\27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7\scratchpad\swap_body.py`
 
 **Files modified:**
 - `C:\Users\anant\.mineru\config.yaml`
@@ -2713,5 +3039,55 @@ echo "=== re-run my lint ==="
 "$PY" -I "$SP/lint_writing2.py" "$N" | grep -E "FAIL|words|ALL PASS|SOME"
 echo "=== code blocks still contain their blank lines? ==="
 grep -c '^$' "$N"`
+- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
+SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
+N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md"
+"$PY" -I "$SP/swap_body.py" "$N" "$SP/new_body.tex"
+echo "=== lost-asterisk scan on the LaTeX body (expect no hits) ==="
+"$PY" -I - "$N" <<'EOF'
+import re, sys
+t = open(sys.argv[1], encoding="utf-8").read()
+tex = re.search(r"```latex\n(.*?)\n```", t, re.S).group(1)
+body = tex.split(r"\begin{document}", 1)[1]
+prose = re.sub(r"\\(cite|footnote)\{[^}]*\}", "", body)
+prose = re.sub(r"\$[^$]*\$", "", prose)
+hits = []
+for pat in (r"\bD Lite", r"\bLPA(?!\*)\b", r"\bFocussed D(?!\*)\b", r"\bD(?![*\w])", r"\bA(?![*\w])(?! Modern)"):
+    for m in re.finditer(pat, prose):
+        hits.append((pat, prose[max(0, m.start()-25):m.end()+25].replace("\n", " ")))
+for h in hits: print("HIT", h)
+print("asterisk counts  D*:", len(re.findall(r"D\*", body)), " A*:", len(re.findall(r"A\*", body)), " LPA*:", len(re.findall(r"LPA\*", body)))
+print("hits:", len(hits))
+EOF
+echo "=== my lint ==="
+"$PY" -I "$SP/lint_writing2.py" "$N" | grep -E "FAIL|words|ALL PASS|SOME"
+echo "=== vault lint ==="
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" --list 3 2>&1 | sed -n 2,3p`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" --list 3 2>&1 | tail -6`
+- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
+N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md"
+"$PY" -I -c "
+import re,sys
+lines=open(sys.argv[1],encoding='utf-8').read().split('\n')
+inF=False
+for i,l in enumerate(lines,1):
+    if re.match(r'^\s*\`\`\`',l):
+        inF=not inF; continue
+    if not inF and l.strip()=='' and i!=len(lines):
+        print('blank outside fence at line',i,'| prev:',lines[i-2][:60],'| next:',lines[i][:60])
+print('total lines',len(lines))
+" "$N"`
+- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
+SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
+N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md"
+"$PY" -I "$SP/scan_asterisks.py" "$N"
+echo "=== my lint ==="; "$PY" -I "$SP/lint_writing2.py" "$N" | grep -E "FAIL|words|ALL PASS|SOME"
+echo "=== vault lint ==="; cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" --list 3 2>&1 | sed -n 2,3p`
+- `PY="D:/_Anant/10_Areas/UMN/Classes/CSCI/CSCI 4511W/Code/.venv/Scripts/python.exe"
+SP="C:/Users/anant/AppData/Local/Temp/claude/D---Anant-20-Progress-Documents-Jarvis/27ce02c5-1ff0-4ea5-8ce6-ea96493f43b7/scratchpad"
+N="D:/_Anant/20_Progress/Documents/Jarvis/20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md"
+"$PY" -I "$SP/lint_writing2.py" "$N" | grep -E "FAIL|words|ALL PASS|SOME"
+"$PY" -I "$SP/scan_asterisks.py" "$N" | tail -2
+cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/vault-lint" && node vault-lint.js --path "20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md" 2>&1 | sed -n 2,2p`
 
 

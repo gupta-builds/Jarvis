@@ -71,7 +71,6 @@ Your writing should be approximately 500 words (not counting references), but it
 - `main.tex` and `rf1.bib`: the TA's LaTeX tutorial. It uses `\bibliographystyle{acm}` and shows one entry each of `@book`, `@article`, `@inproceedings` and `@misc`, which are the types this prompt lists.
 ## Work log
 ### The paper
-==D\* Lite== is an incremental replanning algorithm for a robot in unknown terrain. It reuses the previous search instead of rerunning A\*, and its first search is exactly A\*.
 | Field | Value |
 | --- | --- |
 | Authors | Sven Koenig (Georgia Institute of Technology), Maxim Likhachev (Carnegie Mellon University) |
@@ -80,6 +79,7 @@ Your writing should be approximately 500 words (not counting references), but it
 | Official page | [aaai.org/papers/00476-aaai02-072-d-lite](https://aaai.org/papers/00476-aaai02-072-d-lite/) |
 | Official PDF | [cdn.aaai.org/AAAI/2002/AAAI02-072.pdf](https://cdn.aaai.org/AAAI/2002/AAAI02-072.pdf) |
 | Recognition | 2019 AAAI Classic Paper Honorable Mention ([award page](https://aaai.org/about-aaai/aaai-awards/aaai-classic-paper-award/)) |
+- *What it is:* ==D\* Lite== is an incremental replanning algorithm for a robot in unknown terrain. It reuses the previous search instead of rerunning A\*, and its first search is exactly A\*.
 - *Verified:* the AAAI page and the award page were opened. The first page, 476, comes from the page URL. The PDF has 8 pages, which gives 483. Bibliographies in search results list the same range.
 - *Not verified:* publisher and DOI. The CMU Robotics Institute and idm-lab record pages refused the fetch. Neither goes in the `.bib`.
 - *Extraction:* the PDF text was read with `mineru parse`, after `pdftotext` returned garbled math. All claims below were checked against the clean extraction.
@@ -88,7 +88,6 @@ Your writing should be approximately 500 words (not counting references), but it
 - It has theorems and experiments, which matches the "Evidence in a search paper" frame from Discussion 6: problem and assumptions, guarantee, experiment, limits.
 - The Rubik's Cube paper is the common pick. D\* Lite gave concrete numbers to critique (three measures, 50 terrains per size, ablations).
 ### Claim to location in the paper
-Page numbers are PDF pages of the 8-page AAAI PDF. Use this to re-check any sentence in the draft.
 | Claim in the draft | Where |
 | --- | --- |
 | Robot assumes unseen cells are free, replans on a blocked cell, sees its 8 neighbors | p. 1, Motivation |
@@ -108,8 +107,8 @@ Page numbers are PDF pages of the 8-page AAAI PDF. Use this to re-check any sent
 | Adaptive resolution: D\* Lite and the no-heuristic variant about equal | p. 7, Figure 7 text |
 | D\* used on real robots including outdoor HMMWVs | p. 1, Introduction |
 | Terrain generator and start and goal placement not described | absent from p. 6 to 8 |
+- Page numbers are PDF pages of the 8-page AAAI PDF. Use the table to re-check any sentence in the draft.
 ### Reference plan
-Five entries, one per type the prompt lists except `@patent`. Every key is cited at least once in `main.tex`.
 | Key | Type | Entry | Verified by |
 | --- | --- | --- | --- |
 | `koenig2002dstarlite` | `@inproceedings` | Koenig and Likhachev, D\* Lite, AAAI-02, pp. 476 to 483 | AAAI page and PDF |
@@ -117,6 +116,7 @@ Five entries, one per type the prompt lists except `@patent`. Every key is cited
 | `stentz1995focussed` | `@inproceedings` | Stentz, The Focussed D\* Algorithm for Real-Time Replanning, IJCAI, pp. 1652 to 1659, 1995 | D\* Lite's reference list; CMU RI and mlanthology listings |
 | `russell2020aima` | `@book` | Russell and Norvig, Artificial Intelligence: A Modern Approach, 4th ed., Pearson, 2020 | The course textbook |
 | `aaaiclassic` | `@misc` | AAAI Classic Paper Award page, accessed 2026-10-23 | Opened the page |
+- Five entries, one per type the prompt lists except `@patent`. Every key is cited at least once in `main.tex`.
 ### How to cite (rules for this document)
 - Put `\cite{key}` after a space and before the period that ends the sentence: `...as shown \cite{key}.` (from the course citation guide).
 - Two sources in one place: `\cite{key1,key2}` with no space after the comma.
@@ -169,23 +169,23 @@ Built from `wa1_template.tex`. Three edits only: the `xurl` line, the title and 
 
 \section{Summary}
 
-This report covers ``D* Lite'' by Koenig and Likhachev \cite{koenig2002dstarlite}.\footnote{Generative AI use: I used Claude (Anthropic) to research the four paper options, extract and read the paper's text, and draft this report. I checked each claim against the paper and edited the final text myself.} A robot must reach a goal on a grid map without seeing every wall in advance. It assumes unseen cells are free, plans a shortest path, follows it, and replans whenever it sees a blocked cell. Rerunning conventional graph search each time can take minutes on large maps, yet one new obstacle changes the goal distance of only a few cells \cite{koenig2002dstarlite}. D* Lite recomputes just those cells.
+This report covers ``D* Lite'' by Koenig and Likhachev \cite{koenig2002dstarlite}.\footnote{Generative AI use: I used Claude (Anthropic) to research the four paper options, extract and read the paper's text, and draft this report. I checked each claim against the paper and edited the final text myself.} A robot must reach a goal on a grid map, not knowing every wall in advance. It assumes that every unseen cell is free and plans a shortest path. When it observes a blocked cell, it replans. Rerunning a conventional graph search each time can take minutes on a large map, yet one new obstacle changes the goal distance of only a few cells \cite{koenig2002dstarlite}. D* Lite recomputes only the changed cells that matter for the path.
 
-The method extends Lifelong Planning A* (LPA*) \cite{koenig2002dstarlite}, an incremental version of the A* algorithm of Hart, Nilsson, and Raphael \cite{hart1968astar}. Every cell stores $g$, its current distance estimate, and $\mathit{rhs}$, a one-step lookahead computed from its neighbors. If the two match, the cell is consistent. Only inconsistent cells wait in a priority queue, ordered by a key whose first part corresponds to the A* value $f = g + h$. When an edge cost changes, the cells next to that edge are updated and the queue is processed until the robot's own cell is consistent again. The very first search expands the same cells A* would \cite{koenig2002dstarlite}.
+The method builds on Lifelong Planning A* (LPA*) \cite{koenig2002dstarlite}, an incremental version of the A* algorithm of Hart, Nilsson, and Raphael \cite{hart1968astar}. Every cell stores $g$, its current distance estimate, and $\mathit{rhs}$, a one-step lookahead based on its neighbors. If both match, the cell is consistent. Only inconsistent cells are kept in a priority queue, sorted by a key whose first part corresponds to the A* value $f = g + h$. When an edge cost changes, the affected cells are updated and the queue is processed until the robot's cell is consistent again. The very first search expands the same cells that A* would \cite{koenig2002dstarlite}.
 
-Two changes turn LPA* into D* Lite. First, the search runs backward from the goal, so the stored values are goal distances and stay valid while the robot moves. Second, moving makes the heuristic part of every queued key out of date. Instead of reordering the queue, the algorithm adds a running offset $k_m$ to each new key and rechecks a cell when it is removed from the queue. The result behaves like Stentz's Focussed D* \cite{stentz1995focussed}, but it is shorter and easier to analyze \cite{koenig2002dstarlite}.
+Two changes transform LPA* into D* Lite. First, the search proceeds backward from the goal, so the stored values are distances to the goal and stay valid while the robot moves. Second, movement makes the heuristic stored in each queued key out of date. Rather than reordering the queue, D* Lite adds a running offset $k_m$ to each key and rechecks a cell when it is dequeued. The result behaves like Stentz's Focussed D* \cite{stentz1995focussed}, but it is shorter and easier to analyze \cite{koenig2002dstarlite}.
 
-The authors state that a search terminates with a correct path and expands each cell at most twice, with the proofs in a separate technical report. In simulation on random eight-connected grids, D* Lite beat Focussed D* on vertex expansions, heap percolates, and vertex accesses. It also beat its own variants without incremental search (which is repeated A*) or without the heuristic on almost every comparison, by more than a factor of seven in vertex expansions at best \cite{koenig2002dstarlite}.
+The authors state that a search terminates with a correct path and expands each cell at most twice, with proofs in a separate technical report. In a simulation over eight-connected random grids, D* Lite outperformed Focussed D* on vertex expansions, heap percolates, and vertex accesses. It also outperformed its variants that omit the incremental search (which is repeated A*) or the heuristic, on almost every comparison, by more than a factor of seven in the vertex expansions, at best \cite{koenig2002dstarlite}.
 
 \section{Response}
 
-The paper targets replanning on a graph whose edge costs change over time, with navigation in unknown terrain as the main case. It fits when changes are local and a good heuristic exists. The heuristic must never overestimate and must obey a triangle inequality, which the authors note holds when it comes from relaxing the problem \cite{koenig2002dstarlite}. The model is narrow: the robot sees which of its eight neighbors are blocked, and the paper does not address noisy sensors or actions that can fail.
+The paper targets replanning on a graph where edge costs change over time, with navigation in unknown terrain as the main example. It handles any pattern of cost changes, but reuse should pay off most when few costs change at once and a good heuristic is available. The heuristic must never overestimate and must satisfy a triangle inequality, which the authors note holds when it comes from relaxing the problem \cite{koenig2002dstarlite}. The model is narrow: the robot observes which of its eight neighbors are blocked, and the paper does not address noisy sensors or actions that can fail.
 
-The theorems support correctness, but the proofs are in a technical report, so I could not check them from the paper alone. The experiments are simulation only, because D* had already worked on real robots. The authors count vertex expansions, heap percolates, and vertex accesses instead of run time. Counts do not depend on the machine, and 50 random terrains per size with 95 percent confidence intervals support the claim that D* Lite is at least as efficient as D* \cite{koenig2002dstarlite}. I would still want wall-clock time, since a count says little about how costly each operation is. One result is easy to miss: on the adaptive-resolution grids, D* Lite and its variant without the heuristic performed about equally, so the heuristic does not always help.
+The theorems support correctness, but the proofs are in a technical report, so I was unable to check them from the paper alone. The experiments are simulation-only, as D* had already been demonstrated on real robots. The authors report vertex expansions, heap percolates, and vertex accesses rather than run time. Counts do not depend on the machine, and 50 random terrains per size with 95 percent confidence intervals support the claim that D* Lite is at least as efficient as D* \cite{koenig2002dstarlite}. I would still want the wall-clock time, as a count does not say much about a single operation's cost. One result is easy to miss: on the adaptive-resolution grids, D* Lite and its variant without the heuristic ran about equally well, so the heuristic is not always beneficial.
 
-The paper is easy to follow for a reader who knows A*. The pseudocode has numbered lines, and the analysis keeps comparing LPA* with A*, which connects it to the textbook treatment of A* \cite{russell2020aima}. The $k_m$ argument is the hardest part to follow. Implementing the algorithm from the pseudocode looks feasible, but reproducing the exact numbers does not, because the paper does not describe how the random terrains were generated or where the start and goal cells were placed.
+The paper is easy to follow for a reader familiar with A*. The pseudocode has numbered lines, and the analysis repeatedly compares LPA* to A*, which anchors it in the textbook treatment of A* \cite{russell2020aima}. The $k_m$ argument is the hardest part to follow. Implementing the algorithm from the pseudocode looks feasible, but reproducing the exact numbers does not, since the paper does not describe how the random terrains were generated or where the start and goal cells were placed.
 
-What I found most interesting is how little is added to A*. The first search is plain A*, and the incremental behavior comes from keeping $g$ between searches, adding $\mathit{rhs}$, and carrying one number, $k_m$. In the textbook, A* runs once on a fixed graph \cite{russell2020aima}; here the question is what to keep when the graph changes. The paper also looks useful beyond theory: it notes that D* has been used on real robots, including outdoor vehicles \cite{koenig2002dstarlite}, and AAAI gave D* Lite a Classic Paper Honorable Mention in 2019 \cite{aaaiclassic}. A follow-up I would test is how obstacle density changes the run-time gap between D* Lite and repeated A*.
+What I found most interesting is how little is added to A*. The first search is simply A*, and the incremental behavior comes from keeping $g$ between searches, adding $\mathit{rhs}$, and carrying one number, $k_m$. In the textbook, A* runs once on a fixed graph \cite{russell2020aima}; here, the question is what to keep as the graph changes. The paper also looks useful beyond theoretical interest: it mentions that D* has been used on real robots, including outdoor vehicles \cite{koenig2002dstarlite}, and AAAI gave it a Classic Paper Honorable Mention in 2019 \cite{aaaiclassic}. A follow-up I would test is how obstacle density affects the run-time gap between D* Lite and repeated A*.
 
 \bibliographystyle{acm}
 \bibliography{citations}
@@ -247,6 +247,18 @@ A separate file in the Overleaf project. The name must be exactly `citations.bib
 6. Check the PDF against the pre-submit list below.
 7. Click the **Download PDF** icon (download icon above the preview). Optionally also **Menu**, then **Download Source**, and keep the zip next to the other homework files.
 8. Upload the PDF to the Writing 2 assignment on Canvas and confirm the upload before the due time.
+### Revision: humanized text merged (2026-10-23)
+The pasted rewrite had lost every asterisk ("D\* Lite" read "D Lite", "A\*" read "A", "LPA\*" read "LPA", "Focussed D\*" read "Focussed D") and the `\section{Summary}` line. All are restored. The `main.tex` body now holds 13 `D*`, 15 `A*` and 3 `LPA*`, and a scan finds no stripped ones.
+Wording that changed the meaning against the paper was corrected. Tone and structure are kept.
+- "changes the goal's distance by only a few cells" became "changes the goal distance of only a few cells". The paper says few cells have a changed goal distance (p. 1 to 2), not that the goal moves a little.
+- "it replans, and may require minutes of rerunning..." was split into two sentences, because the subject of "may require" was wrong.
+- "the edge cost of a cell" became "an edge cost", and "its adjacent cells" became "the affected cells". Costs belong to edges.
+- "invalidates the heuristic" became "makes it out of date". The stored keys stay valid lower bounds on the true keys and are only stale (p. 5).
+- "yields a similar performance to Focussed D\*" became "behaves like". The paper claims the same navigation behavior and efficiency at least as good (p. 1, p. 6), not similar performance.
+- "appropriate when changes are local" became "handles any pattern of cost changes, but reuse should pay off most when few costs change at once". The paper says it assumes nothing about where or how costs change (p. 4). The "should" marks the payoff as my inference.
+- "does not handle noisy sensors" became "does not address". The paper is silent on them.
+- "justify" became "support" in two places, so the claims are not overstated.
+- Grammar: "variant that omit" became "variant without"; "seems plausible, but reproducing... is not" became "looks feasible, but... does not"; and the list "maintaining g, rhs, and carrying" became "keeping g, adding rhs, and carrying".
 ### Pre-submit checks
 - [ ] Header on every page: `Writing #2: D* Lite` on the left, `Anant Gupta` on the right.
 - [ ] Sections appear in order: Summary, Response, References.
@@ -263,7 +275,8 @@ A script read the two code blocks above on 2026-10-23, using the course environm
 - No citation sits after a period. Every `\cite` is followed by a period, comma or semicolon.
 - Title, author, `xurl`, `\bibliographystyle{acm}` and `\bibliography{citations}` are present, and the template placeholders are gone.
 - Sections are in order: Summary, Response, then the generated References.
-- *Word count:* 747 words of prose, which excludes the footnote, section headings, citations and references. The prompt says about 500 and allows longer. To get closer to 500, cut the second Summary paragraph down to two sentences and the last sentence of the first Response paragraph.
+- The scan for lost asterisks and the 29 checks were re-run on the merged text and pass. Vault Lint reports the note at 100% fit.
+- *Word count:* 771 words of prose, which excludes the footnote, section headings, citations and references. The prompt says about 500 and allows longer, so this is submittable as it stands.
 - *Not checked:* anything that needs a real compile, such as the header look, page breaks, and BibTeX warnings. That happens in Overleaf, step 5.
 ### Open items
 - `acmtemplate.tex` from Canvas was never seen. If it turns out to be `acmart` or another class, the preamble and bibliography style change; the reference entries and body text stay the same.

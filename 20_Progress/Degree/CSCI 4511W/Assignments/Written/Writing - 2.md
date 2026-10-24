@@ -127,23 +127,18 @@ Your writing should be approximately 500 words (not counting references), but it
 - If the course asks for `plainurl` instead, change the one line `\bibliographystyle{acm}` to `\bibliographystyle{plainurl}`. Nothing else changes.
 - Fields the style needs: `@inproceedings` author, title, booktitle, year. `@article` author, title, journal, year. `@book` author, title, publisher, year. `@misc` has no required field.
 ### Draft report (main.tex)
-Built from `wa1_template.tex`, with the Writing 1 layout that scored 5/5 (1 inch margins, double spacing, header with title left and author right). Changes after the first compile are listed in the revision entry above.
+Built from `wa1_template.tex`: the default 10pt article class as in Writing 1, 1 inch margins, single spacing, and the template's header with title on the left and author on the right, now on every page with a page number below. The changes after each compile are in the two layout reviews above.
 ```latex
-\documentclass[12pt]{article}
+\documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage{geometry}
 \geometry{
  letterpaper,
  margin=1in,
 }
-\setlength{\headheight}{14.5pt}
+\setlength{\headheight}{12.5pt}
 \usepackage{titling}
 \usepackage{url}
-\usepackage{setspace}
-\doublespacing
-\usepackage{titlesec}
-\titleformat{\section}{\large\bfseries}{\thesection.}{0.6em}{}
-\titlespacing*{\section}{0pt}{1.5em}{0.5em}
 
 \title{Writing \#2: D* Lite}
 \author{Anant Gupta}
@@ -162,19 +157,22 @@ Built from `wa1_template.tex`, with the Writing 1 layout that scored 5/5 (1 inch
     \fancyfoot[C]{\thepage}
     \renewcommand{\headrulewidth}{0.4pt}
 }
+\renewcommand{\thesection}{\arabic{section}.}
 \makeatletter
+\renewcommand\section{\@startsection{section}{1}{\z@}%
+  {-2.5ex \@plus -0.8ex \@minus -.2ex}%
+  {1.2ex \@plus .2ex}%
+  {\normalfont\large\bfseries}}
 \def\@maketitle{%
   \newpage
   \null
   \vskip 1em%
     \begin{center}
-    \begin{singlespace}
     {\LARGE \@title \par}
     \vskip 1em
     {\large \@author \par}
     \vskip 0.3em
     {\normalsize CSCI 4511W \par}
-    \end{singlespace}
     \end{center}
   \par
   \vskip 1em}
@@ -205,10 +203,8 @@ The paper is easy to follow for a reader familiar with A*. The pseudocode has nu
 What I found most interesting is how little is added to A*. The first search is simply A*, and the incremental behavior comes from keeping $g$ between searches, adding $\mathit{rhs}$, and carrying one number, $k_m$. In the textbook, A* runs once on a fixed graph \cite{russell2020aima}; here, the question is what to keep as the graph changes. The paper also looks useful beyond theoretical interest: it mentions that D* has been used on real robots, including outdoor vehicles \cite{koenig2002dstarlite}, and AAAI gave it a Classic Paper Honorable Mention in 2019 \cite{aaaiclassic}. A follow-up I would test is how obstacle density affects the run-time gap between D* Lite and repeated A*.
 
 \renewcommand{\refname}{3. References}
-\begin{singlespace}
 \bibliographystyle{acm}
 \bibliography{citations}
-\end{singlespace}
 
 \end{document}
 ```
@@ -282,20 +278,31 @@ Wording that changed the meaning against the paper was corrected. Tone and struc
 ### Layout review of the first compile (2026-10-23)
 I read the compiled PDF (`CSCI_4511W_Writing___2.pdf`, 2 pages) with `mineru parse` for the text and `mineru read -f image` for the rendered pages. Content, citations, footnote and the final period were all correct. The layout was not.
 - *Margins:* left about 0.8 in, right about 1.3 in, bottom about 1.9 in. The template sets only `left=20mm` and `top=20mm`, so geometry derives the rest. Fix: `margin=1in` on all sides, as in Writing 1.
-- *Spacing:* single spaced with no paragraph gap, so the text looked packed. Fix: `\doublespacing` as in Writing 1. The footnote stays single spaced by default, and the reference list is wrapped in `singlespace` so it reads as a list.
+- *Spacing:* single spaced with no paragraph gap, so the text looked packed. First fix: `\doublespacing`, which pushed the report to 3 pages. Replaced in the second review below.
 - *Header on page 1 only:* page 2 had a bare page number and no header. Diagnosis (inferred from the output, not tested in isolation): the template redefines the `plain` page style, but article had already activated `plain` before that redefinition, so only page 1, which `\maketitle` forces to `plain`, picked it up. Fix: `\pagestyle{fancy}` plus the same definition for `plain`, so every page has the header.
 - *Footer:* page 1 had no page number, because the template clears the footer. Fix: a centered `\thepage` in both styles. The header also gets a thin rule.
-- *Header height:* raised from 12.5pt to 14.5pt, which 12pt text needs. Writing 1 used the same value.
-- *Headings:* `1 Summary` and `2 Response` now read `1. Summary` and `2. Response`, through `titlesec`. The reference list heading is renamed `3. References` so the three required sections are numbered alike.
+- *Header height:* raised to 14.5pt for 12pt text. Replaced in the second review below.
+- *Headings:* `1 Summary` and `2 Response` should read `1. Summary` and `2. Response`, and the reference list `3. References` so the three required sections are numbered alike. The first version used `titlesec`, which broke the header; the second review has the final method.
 - *Title block:* the title now has the author and `CSCI 4511W` underneath, so page 1 does not open with only a title that repeats the header. The name still comes from `\author`.
 - *URL splitting:* `cdn.aa` and `ai.org` were split mid-word by `xurl`. Fix: the plain `url` package.
 - *Reference title:* the Stentz title printed as "The focussed D\* algorithm". `{Focussed}` is now protected in the `.bib` so it keeps its capital.
 - *Not changed:* the body text, the five references, the citation placement and the footnote.
-- *Not verified:* this layout has not been compiled. It uses only `geometry`, `titling`, `url`, `setspace`, `titlesec` and `fancyhdr`, all part of the Overleaf TeX Live. Page count should land around 4.
+- *Not verified:* this layout had not been compiled when written. See the second review for what happened when it was.
+### Second compile review (2026-10-23)
+I read `CSCI_4511W_Writing___2 (1).pdf` (3 pages) the same way, and the Writing 1 PDF for reference. Writing 1 is the default 10pt `article` class, double spaced, with 1 inch margins; its line pitch of about 19.8pt matches 10pt text at 1.66 spacing.
+- *Length:* 3 pages, caused by my change to 12pt plus double spacing. Fix: back to the default 10pt `article` class and single spacing. The font is the same size as Writing 1, and `setspace` is gone.
+- *Header bug I introduced:* the left header read `1`, `2`, `3` (the page number) instead of `Writing #2: D* Lite`. Cause: `titlesec`, which I added for the `1.` headings, defines its own `\thetitle`, and the template's header uses `\thetitle`. The first compile, without `titlesec`, had the correct title. Fix: `titlesec` removed, and the header keeps the template's `\thetitle` and `\theauthor`.
+- *Headings without `titlesec`:* `\thesection` is redefined to `\arabic{section}.`, and `\section` is redefined with the standard `\@startsection` call at `\large\bfseries`. The unnumbered reference heading takes the same style, and `\refname` is `3. References`.
+- *Header height:* back to the template's 12.5pt, which 10pt text fits.
+- *Reference [5]:* the compiled PDF still printed "The focussed D\*". The Overleaf `citations.bib` did not have the `{Focussed}` brace yet. Paste the current `.bib` block too.
+- *Page estimate:* a line-wrapping model, calibrated on the 12pt compile (55 body lines, which matches the printed pages), gives about 1.4 pages at 10pt single spaced. For comparison it gives about 1.6 at 11pt and about 1.9 at 12pt, which is too close to the limit. The model has some error, so 10pt is the safe choice. It is an estimate, not a compile.
+- *Unchanged:* body text, citations, references, footnote.
 ### Pre-submit checks
 - [ ] Header on every page, including page 2 onward: `Writing #2: D* Lite` on the left, `Anant Gupta` on the right, with a thin rule.
 - [ ] A centered page number at the bottom of every page, including page 1.
-- [ ] Margins look equal on all four sides, and the body is double spaced.
+- [ ] The left header reads `Writing #2: D* Lite`, not a page number.
+- [ ] Margins look equal on all four sides, and the body is single spaced.
+- [ ] The whole report, including references, fits on two pages.
 - [ ] Headings read `1. Summary`, `2. Response` and `3. References`, in that order.
 - [ ] References lists five entries, each with a number, and the text shows citations as `[1]` to `[5]` style numbers. No `[?]` anywhere.
 - [ ] The footnote shows at the bottom of page 1 and states the real level of AI use. Edit the wording if it is not accurate.
@@ -309,14 +316,14 @@ A script read the two code blocks above on 2026-10-23, using the course environm
 - Both files are plain ASCII (no pasted special characters), and there are no unescaped `&`, `_`, `#` or `%` in the prose.
 - No citation sits after a period. Every `\cite` is followed by a period, comma or semicolon.
 - Title, author, `\bibliographystyle{acm}` and `\bibliography{citations}` are present, and the template placeholders are gone.
-- After the layout revision, 12 more checks were added and pass: 12pt article, 1 inch margins on all sides, header height 14.5pt, double spacing on, single-spaced references, header and footer defined for both `fancy` and `plain`, `N.` section labels, `3. References`, author and course in the title block, `url` loaded without `xurl`, and `{Focussed}` protected in the `.bib`.
+- After the layout revisions, the lint has 43 checks in total (14 more than the first 29), and all pass. The added ones cover: default 10pt article, 1 inch margins on all sides, header height 12.5pt, no `setspace` or spacing commands, no `titlesec`, the header built from `\thetitle` and `\theauthor` in both page styles, a page number footer in both, `N.` section labels, the redefined `\section`, `3. References`, author and course in the title block, `\makeatletter` paired with `\makeatother`, `url` loaded without `xurl`, and `{Focussed}` protected in the `.bib`.
 - Sections are in order: Summary, Response, then the generated References.
 - The scan for lost asterisks and the 29 checks were re-run on the merged text and pass. Vault Lint reports the note at 100% fit.
 - *Word count:* 771 words of prose, which excludes the footnote, section headings, citations and references. The prompt says about 500 and allows longer, so this is submittable as it stands.
 - *Not checked:* anything that needs a real compile, such as the header look, page breaks, and BibTeX warnings. That happens in Overleaf, step 5.
 ### Open items
 - `acmtemplate.tex` from Canvas was never seen. If it turns out to be `acmart` or another class, the preamble and bibliography style change; the reference entries and body text stay the same.
-- Nobody has compiled this. Overleaf is the first real compile.
+- The final layout (10pt, single spaced) has not been compiled. Two earlier compiles were read and drove the fixes. The next compile should show a correct header and two pages or fewer.
 - Due time on Canvas is unconfirmed.
 ## Concepts used
 - **A\* and consistent heuristics** ([[Concept - Informed Search]]): D\* Lite's first search is exactly A\*, and the paper requires a consistent heuristic for LPA\*. The response compares both with the textbook version.

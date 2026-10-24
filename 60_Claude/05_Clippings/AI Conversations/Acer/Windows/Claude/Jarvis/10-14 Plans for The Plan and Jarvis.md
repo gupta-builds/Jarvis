@@ -6,7 +6,7 @@ source_os: windows
 title: "Plans for The Plan and Jarvis"
 started_at: 2026-10-14T23:13:07
 ended_at: 2026-10-18T18:32:33
-exported_at: 2026-10-23T18:06:41
+exported_at: 2026-10-23T19:33:16
 duration_minutes: 5479.4
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'

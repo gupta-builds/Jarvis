@@ -122,33 +122,45 @@ Your writing should be approximately 500 words (not counting references), but it
 - Two sources in one place: `\cite{key1,key2}` with no space after the comma.
 - A key must match the first line of its `.bib` entry exactly, including case. A mismatch prints `[?]` in the PDF.
 - Do not use `\nocite{*}` here. The prompt requires every listed reference to be cited, and an uncited entry would otherwise show up or be silently dropped.
-- Put URLs inside `\url{...}` in `howpublished` (for `@misc`) or `note`. The `xurl` package breaks long URLs across lines and handles `_` and `%` inside `\url{}`. No manual backslashes are needed.
+- Put URLs inside `\url{...}` in `howpublished` (for `@misc`) or `note`. The `url` package breaks a long URL after a slash or a dot and handles `_` and `%` inside `\url{}`, so no manual backslashes are needed. `xurl` was dropped after the first compile because it split `cdn.aaai.org` in the middle of a word.
 - `acm` is a classic BibTeX style, so it numbers references `[1]` to `[5]` and sorts them by author. The heading "References" is added automatically.
 - If the course asks for `plainurl` instead, change the one line `\bibliographystyle{acm}` to `\bibliographystyle{plainurl}`. Nothing else changes.
 - Fields the style needs: `@inproceedings` author, title, booktitle, year. `@article` author, title, journal, year. `@book` author, title, publisher, year. `@misc` has no required field.
 ### Draft report (main.tex)
-Built from `wa1_template.tex`. Three edits only: the `xurl` line, the title and author, and the body plus the two bibliography lines.
+Built from `wa1_template.tex`, with the Writing 1 layout that scored 5/5 (1 inch margins, double spacing, header with title left and author right). Changes after the first compile are listed in the revision entry above.
 ```latex
-\documentclass{article}
+\documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{geometry}
- \geometry{
+\geometry{
  letterpaper,
- left=20mm,
- top=20mm,
- }
-\setlength{\headheight}{12.5pt}
- \usepackage{titling}
-\usepackage{xurl}
+ margin=1in,
+}
+\setlength{\headheight}{14.5pt}
+\usepackage{titling}
+\usepackage{url}
+\usepackage{setspace}
+\doublespacing
+\usepackage{titlesec}
+\titleformat{\section}{\large\bfseries}{\thesection.}{0.6em}{}
+\titlespacing*{\section}{0pt}{1.5em}{0.5em}
 
- \title{Writing \#2: D* Lite}
+\title{Writing \#2: D* Lite}
 \author{Anant Gupta}
- 
- \usepackage{fancyhdr}
-\fancypagestyle{plain}{%  the preset of fancyhdr 
-    \fancyhf{} % clear all header and footer fields
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\thetitle}
+\fancyhead[R]{\theauthor}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancypagestyle{plain}{%
+    \fancyhf{}
     \fancyhead[L]{\thetitle}
     \fancyhead[R]{\theauthor}
+    \fancyfoot[C]{\thepage}
+    \renewcommand{\headrulewidth}{0.4pt}
 }
 \makeatletter
 \def\@maketitle{%
@@ -156,8 +168,13 @@ Built from `wa1_template.tex`. Three edits only: the `xurl` line, the title and 
   \null
   \vskip 1em%
     \begin{center}
+    \begin{singlespace}
     {\LARGE \@title \par}
     \vskip 1em
+    {\large \@author \par}
+    \vskip 0.3em
+    {\normalsize CSCI 4511W \par}
+    \end{singlespace}
     \end{center}
   \par
   \vskip 1em}
@@ -187,8 +204,11 @@ The paper is easy to follow for a reader familiar with A*. The pseudocode has nu
 
 What I found most interesting is how little is added to A*. The first search is simply A*, and the incremental behavior comes from keeping $g$ between searches, adding $\mathit{rhs}$, and carrying one number, $k_m$. In the textbook, A* runs once on a fixed graph \cite{russell2020aima}; here, the question is what to keep as the graph changes. The paper also looks useful beyond theoretical interest: it mentions that D* has been used on real robots, including outdoor vehicles \cite{koenig2002dstarlite}, and AAAI gave it a Classic Paper Honorable Mention in 2019 \cite{aaaiclassic}. A follow-up I would test is how obstacle density affects the run-time gap between D* Lite and repeated A*.
 
+\renewcommand{\refname}{3. References}
+\begin{singlespace}
 \bibliographystyle{acm}
 \bibliography{citations}
+\end{singlespace}
 
 \end{document}
 ```
@@ -217,7 +237,7 @@ A separate file in the Overleaf project. The name must be exactly `citations.bib
 
 @inproceedings{stentz1995focussed,
   author    = {Anthony Stentz},
-  title     = {The Focussed {D*} Algorithm for Real-Time Replanning},
+  title     = {The {Focussed} {D*} Algorithm for Real-Time Replanning},
   booktitle = {Proceedings of the International Joint Conference on Artificial Intelligence ({IJCAI})},
   pages     = {1652--1659},
   year      = {1995}
@@ -259,9 +279,24 @@ Wording that changed the meaning against the paper was corrected. Tone and struc
 - "does not handle noisy sensors" became "does not address". The paper is silent on them.
 - "justify" became "support" in two places, so the claims are not overstated.
 - Grammar: "variant that omit" became "variant without"; "seems plausible, but reproducing... is not" became "looks feasible, but... does not"; and the list "maintaining g, rhs, and carrying" became "keeping g, adding rhs, and carrying".
+### Layout review of the first compile (2026-10-23)
+I read the compiled PDF (`CSCI_4511W_Writing___2.pdf`, 2 pages) with `mineru parse` for the text and `mineru read -f image` for the rendered pages. Content, citations, footnote and the final period were all correct. The layout was not.
+- *Margins:* left about 0.8 in, right about 1.3 in, bottom about 1.9 in. The template sets only `left=20mm` and `top=20mm`, so geometry derives the rest. Fix: `margin=1in` on all sides, as in Writing 1.
+- *Spacing:* single spaced with no paragraph gap, so the text looked packed. Fix: `\doublespacing` as in Writing 1. The footnote stays single spaced by default, and the reference list is wrapped in `singlespace` so it reads as a list.
+- *Header on page 1 only:* page 2 had a bare page number and no header. Diagnosis (inferred from the output, not tested in isolation): the template redefines the `plain` page style, but article had already activated `plain` before that redefinition, so only page 1, which `\maketitle` forces to `plain`, picked it up. Fix: `\pagestyle{fancy}` plus the same definition for `plain`, so every page has the header.
+- *Footer:* page 1 had no page number, because the template clears the footer. Fix: a centered `\thepage` in both styles. The header also gets a thin rule.
+- *Header height:* raised from 12.5pt to 14.5pt, which 12pt text needs. Writing 1 used the same value.
+- *Headings:* `1 Summary` and `2 Response` now read `1. Summary` and `2. Response`, through `titlesec`. The reference list heading is renamed `3. References` so the three required sections are numbered alike.
+- *Title block:* the title now has the author and `CSCI 4511W` underneath, so page 1 does not open with only a title that repeats the header. The name still comes from `\author`.
+- *URL splitting:* `cdn.aa` and `ai.org` were split mid-word by `xurl`. Fix: the plain `url` package.
+- *Reference title:* the Stentz title printed as "The focussed D\* algorithm". `{Focussed}` is now protected in the `.bib` so it keeps its capital.
+- *Not changed:* the body text, the five references, the citation placement and the footnote.
+- *Not verified:* this layout has not been compiled. It uses only `geometry`, `titling`, `url`, `setspace`, `titlesec` and `fancyhdr`, all part of the Overleaf TeX Live. Page count should land around 4.
 ### Pre-submit checks
-- [ ] Header on every page: `Writing #2: D* Lite` on the left, `Anant Gupta` on the right.
-- [ ] Sections appear in order: Summary, Response, References.
+- [ ] Header on every page, including page 2 onward: `Writing #2: D* Lite` on the left, `Anant Gupta` on the right, with a thin rule.
+- [ ] A centered page number at the bottom of every page, including page 1.
+- [ ] Margins look equal on all four sides, and the body is double spaced.
+- [ ] Headings read `1. Summary`, `2. Response` and `3. References`, in that order.
 - [ ] References lists five entries, each with a number, and the text shows citations as `[1]` to `[5]` style numbers. No `[?]` anywhere.
 - [ ] The footnote shows at the bottom of page 1 and states the real level of AI use. Edit the wording if it is not accurate.
 - [ ] The Logs panel shows no `Citation ... undefined` and no `Undefined control sequence`. Overfull box warnings are fine.
@@ -273,7 +308,8 @@ A script read the two code blocks above on 2026-10-23, using the course environm
 - Braces balance in both files, `\begin` and `\end` match, `$` signs are even, quotes use ` `` ` and `''`.
 - Both files are plain ASCII (no pasted special characters), and there are no unescaped `&`, `_`, `#` or `%` in the prose.
 - No citation sits after a period. Every `\cite` is followed by a period, comma or semicolon.
-- Title, author, `xurl`, `\bibliographystyle{acm}` and `\bibliography{citations}` are present, and the template placeholders are gone.
+- Title, author, `\bibliographystyle{acm}` and `\bibliography{citations}` are present, and the template placeholders are gone.
+- After the layout revision, 12 more checks were added and pass: 12pt article, 1 inch margins on all sides, header height 14.5pt, double spacing on, single-spaced references, header and footer defined for both `fancy` and `plain`, `N.` section labels, `3. References`, author and course in the title block, `url` loaded without `xurl`, and `{Focussed}` protected in the `.bib`.
 - Sections are in order: Summary, Response, then the generated References.
 - The scan for lost asterisks and the 29 checks were re-run on the merged text and pass. Vault Lint reports the note at 100% fit.
 - *Word count:* 771 words of prose, which excludes the footnote, section headings, citations and references. The prompt says about 500 and allows longer, so this is submittable as it stands.
@@ -286,6 +322,6 @@ A script read the two code blocks above on 2026-10-23, using the course environm
 - **A\* and consistent heuristics** ([[Concept - Informed Search]]): D\* Lite's first search is exactly A\*, and the paper requires a consistent heuristic for LPA\*. The response compares both with the textbook version.
 - **Incremental search (LPA\*, D\* Lite)**: the new idea here. `g`, `rhs`, local consistency, and the offset `k_m`. No concept note exists yet; this paper exposes a reusable mechanism, so one is worth creating after submission.
 - **Reading a search paper** (Discussion 6): the problem, guarantee, experiment and limits frame shaped the response section.
-- **BibTeX and LaTeX citing**: `\cite` before the period, one entry per type, `xurl` for URLs, from the course citation guide and the TA example.
+- **BibTeX and LaTeX citing**: `\cite` before the period, one entry per type, `\url{}` for URLs, from the course citation guide and the TA example.
 ## Post-submit reflection
 <!-- Optional until feedback: the first failure, the pattern, and what to change. -->

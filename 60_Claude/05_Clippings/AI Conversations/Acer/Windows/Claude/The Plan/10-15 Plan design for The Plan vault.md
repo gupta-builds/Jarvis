@@ -6,7 +6,7 @@ source_os: windows
 title: "Plan design for The Plan vault"
 started_at: 2026-10-15T16:33:33
 ended_at: 2026-10-15T16:36:58
-exported_at: 2026-10-24T21:03:09
+exported_at: 2026-10-24T22:03:06
 duration_minutes: 3.4
 project: The Plan
 cwd: 'D:\_Anant\20_Progress\Documents\The Plan'

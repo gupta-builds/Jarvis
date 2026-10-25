@@ -182,6 +182,13 @@
 // side.
 (?d)30_Order/System/claude-workflow/scripts/.weekly-review.lock
 
+// .git-auto-sync.lock - git-auto-sync.ps1's own per-run mutex. Already excluded
+// from git (see .gitignore) but never from Syncthing. The W42 review (2026-10-18)
+// reported adding this line, but .stignore's mtime stayed at 2026-10-15 and the
+// entry was absent on 2026-10-25, so it is re-added here (W43 review). Same
+// per-machine transient-state reasoning as .weekly-review.lock above.
+(?d)30_Order/System/claude-workflow/scripts/.git-auto-sync.lock
+
 // .sync-alert-state.json (Build 9, 2026-10-02) is Jarvis-Syncthing-Health's own
 // per-machine alert-rate-limiting counter, rewritten every 5 minutes on each
 // laptop independently - same per-machine-artifact reasoning as git-auto-sync.log

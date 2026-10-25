@@ -2,7 +2,7 @@
 type: evergreen
 status: tree
 created: 2025-07-18
-updated: 2026-05-28
+updated: 2026-10-25
 tags:
   - index
   - capability
@@ -47,3 +47,4 @@ Use [[Weekly Synthesis Template]] to generate new review notes. The template inc
 | 2026-W40 | [[Weekly Synthesis — 2026-W40]] | First real unattended fire of the scheduled task; git sync fixed, but Syncthing itself down ~21 hours with one log entry lost and restored; applications still at zero |
 | 2026-W41 | [[Weekly Synthesis — 2026-W41]] | ENGL 1004 dropped, grading criteria filled in, Obsidian OOM crash root-caused and fixed; daily-note floor collapsed to zero for six days and a live git-auto-sync conflict (14 uncommitted copilot-skill files) grew to 653 failed runs before being fixed 2026-10-12; applications still at zero, third review running |
 | 2026-W42 | [[Weekly Synthesis — 2026-W42]] | Old Laptop Rebuild documentation closed out; a live session-export sync conflict found and resolved mid-review (merge pushed pending human confirmation); CSCI 5304's midterm date still unreconciled 4 days out; applications frozen 23 days, daily floor down to one unfilled stub in seven days, fourth review running |
+| 2026-W43 | [[Weekly Synthesis — 2026-W43]] | Exam week: CSCI 4521, 5304, 4061 coursework and the conversation-layer docs landed, but internship tracker frozen at 29/0/0 for 29 days (fifth review at zero) and no daily note for seven days; Dell offline so Syncthing reads NOT IN SYNC; a `.stignore` entry W42 reported adding was missing and was re-added |

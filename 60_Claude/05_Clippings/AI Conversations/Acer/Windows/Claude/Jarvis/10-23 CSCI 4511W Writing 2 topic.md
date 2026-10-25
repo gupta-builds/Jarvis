@@ -6,7 +6,7 @@ source_os: windows
 title: "CSCI 4511W Writing 2 topic"
 started_at: 2026-10-23T13:44:06
 ended_at: 2026-10-23T23:58:15
-exported_at: 2026-10-24T22:03:02
+exported_at: 2026-10-24T23:03:02
 duration_minutes: 614.2
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'

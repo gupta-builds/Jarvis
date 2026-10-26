@@ -5,26 +5,27 @@ source_app: claude-code
 source_os: windows
 title: "Dashboard plugin build review"
 started_at: 2026-10-25T20:12:38
-ended_at: 2026-10-25T20:21:05
-exported_at: 2026-10-26T13:03:04
-duration_minutes: 8.5
+ended_at: 2026-10-26T14:00:52
+exported_at: 2026-10-26T14:03:05
+duration_minutes: 1068.2
 project: The Plan
 cwd: 'D:\_Anant\20_Progress\Documents\The Plan'
 session_id: c444e1cb-b1fd-4c4e-a3c6-55f5d4180bcd
 status: raw
-turn_count: 2
+turn_count: 7
 tools_used:
-  Bash: 29
+  Bash: 36
   Read: 1
 tokens:
-  input: 62
-  output: 21145
-  cache_creation: 143546
-  cache_read: 3643477
-  total: 3808230
+  input: 72
+  output: 24333
+  cache_creation: 306659
+  cache_read: 4401291
+  total: 4732355
 cost_usd: null
 model:
   - "claude-opus-5-5"
+  - "claude-sonnet-5-5"
 files_touched:
   - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Dashboard Build\\Plugin Build Prompts.md"
 tags:
@@ -4029,6 +4030,778 @@ The engine and view tests are part of the 87 in `npm test` and pass, including t
 Not submitted to the community directory. The Home links point at `30_Order/Standards/Dashboards/` after the redeploy. The milestone level titles are in config and not shown yet. There is no Monthly or review view.
 ```
 
+## You
+
+<local-command-caveat>The command below was run directly in Claude Code, not sent to you as a request, and its output goes straight to the user. It's recorded here as context for later messages.</local-command-caveat>
+
+## You
+
+<command-name>/model</command-name>
+            <command-message>model</command-message>
+            <command-args></command-args>
+
+## You
+
+<local-command-stdout>Set model to `Sonnet 5.5` and saved as your default for new sessions</local-command-stdout>
+
+## You
+
+the entire research was now provided to the plan on the laptop, which is taking care of the problems and steps provided to achieve success with the vault. But inside this directory (jarvis), we were not working on the plan. We were working on improving jarvis's own dashboard plans, daily recording, etc. Now, let's take care of the automation layer that was discussed with toggl for time management. The plan steps are being taken care of, now that you have documented the builds that theplan took (when everything was working, perfectly desired state explained in the notes mentioned above). The notes that you wrote will come useful to lay out the jarvis workflow in detail. Toggl and the automation layer for time management is going to be built out in the plan because that's our primary daily monitoring system which pulls professional information from jarvis. So, we do not need toggl exactly over here in jarvis. But an automation layer will exist inside jarvis which solves daily workflow to be much easier on google calenders, reminders and maybe future platforms that are not being in use (zapier, etc.). Let's rethink the automation layer required for jarvis, rethink how exactly jarvis dashboard was laid out, how to design the jarvis dashboard plugin (same idea as the plan), ui things required for this. A + point is that we have already done this for the canvas that's currently there, also a markdown note. But, now we will be removing of plugins when adding this dashboard because we created our own plugin. Now, how exactly is this going to take place? Base it of the plan principles but to avoid mistakes and specialize it to jarvis. How can we design this process to be successful? There are going to be a lot of questions, thinking etc. that is going to be done over here to make sure that the notes for build are designed (similar to the plan): `40_Resources/Obsidian/Dashboard/Prompts` - one main note which is rewritten over and over again to implement build prompts, `40_Resources/Obsidian/Dashboard/Jarvis Builds` - all the necessary information for the builds to be successful, `40_Resources/Obsidian/Dashboard/Jarvis Builds/Ran` - already run phases and prompts. All the prompts are going to run by sonnet 5.5. You are required to write these build design notes first. Then, think about the prompts that are required to be run. First, we are going to in detail design what exactly is to be existing on the jarvis dashboard plugin, what carries forward from the current setup? We have a lot more information over here(plans, weekly, resolutions, etc.). How are all these plans used across the vault (mentorship, project based, umn based)? There are a lot of more things to consider to make this daily dashboard so addicting and easy to understand. This should be astonishing to me every single day once put in habit because it pushes me to do better every single day by understanding my goals, functions, etc. Help me improve by forming identities, habits and be a better version of myself. The intention behind this is to simply bring stability in my life and to make sure that we have actually made progress on a daily basis. Let's do this correctly. Make no mistakes laying out these notes. Ask me a lot of questions. Let's design everything for the dashboard to completely frictionless, manage everything in the vault, have a better understanding of everything that is currently in place. How to make everything substantially more easier to navigate and clean? Let's design everything here by asking me a lot of questions for this design process, understanding jarvis, making sure that the ui is clean, easy to understand, clickable, editable, streak counting, etc. We need to implement a lot of things, so to design it all correctly. Scratch my head till each and every single tiny detail is understood about the dashboard. The dashboard should be one page, no scrollable features at all on the dashboard. But things to tick are write. The only scroll that works is horizontal scroll due the the text not being able to fit inside the lines for that specific component. There is no vertical scroll at all. There is no horizontal scroll on anything except text which is written on a daily basis (might extend the boundaries, which is why the horizontal scroll is there). But nothing on design should have a horizontal scroll, only text that's written might have horizontal scroll. Let's make sure that we draft everything correctly for this dashboard. Ask me a lot of questions here.
+
+## Claude
+
+I'll check which directory this session is in, then read Jarvis's current dashboard, canvas, plans and plugins before asking questions.
+
+### Tool Calls
+
+- `Bash` -- `pwd; cd "D:/_Anant/20_Progress/Documents/Jarvis" 2>/dev/null && pwd && git log --oneline | head -5; cat 00_Dashboard.md | head -120; echo ---; ls 40_Resources/Obsidian 2>&1; ls 40_Resources | head -30; ls .obsidian/plugins; cat .obsidian/community-plugins.json`
+```
+/d/_Anant/20_Progress/Documents/The Plan
+/d/_Anant/20_Progress/Documents/Jarvis
+4a6df081 Auto-sync: 2026-10-26 13:48,  11 files changed, 8099 insertions(+), 88 deletions(-)
+17678fc7 Auto-sync: 2026-10-26 13:18,  33 files changed, 975 insertions(+), 265 deletions(-)
+401460ae Auto-sync: 2026-10-26 12:48,  2 files changed, 159 insertions(+)
+b3494715 Auto-sync: 2026-10-26 12:18,  8 files changed, 99 insertions(+), 33 deletions(-)
+51a569e2 Auto-sync: 2026-10-25 23:33,  3 files changed, 3 insertions(+), 3 deletions(-)
+---
+type: dashboard
+status: tree
+created: 2026-04-23
+updated: 2026-10-26
+tags:
+  - dashboard
+  - daily
+cssclasses:
+  - dashboard
+today_focus: ""
+today_80: ""
+today_20: ""
+notes:
+  - "[[CLAUDE.md]]"
+  - "[[AGENTS.md]]"
+  - "[[Jarvis OS — North Star]]"
+---
+<!-- SYNC-ALERT:BEGIN -->
+![[30_Order/System/sync-workflow/Sync Alert Banner]]
+<!-- SYNC-ALERT:END -->
+
+# Jarvis — `$= moment().format("dddd, D MMMM YYYY")`
+> [!focus] CURRENT FOCUS
+> **`INPUT[text:today_focus]`**
+> `INPUT[text:today_80]`
+> `INPUT[text:today_20]`
+> *Patched by /startday · cleared by /closeday.*
+
+=== start-multi-column: JarvisDash
+```column-settings
+Number of Columns: 2
+Largest Column: left
+Border: off
+Shadow: off
+```
+## Today's Numbers
+```dataviewjs
+// Every number here is read from today's daily note. Nothing is stored on this page.
+const DAILY = "10_Areas/Life/Enumerate/Daily";
+const todayStr = dv.date("today").toFormat("yyyy-MM-dd");
+const p = dv.page(`${DAILY}/${todayStr}`);
+const count = (keys) => (p ? keys.filter((k) => p[k] === true).length : 0);
+const lc = Number(p?.lc_count ?? 0);
+const study = Number(p?.study_today ?? 0);
+const wins = count(["win_project", "win_career", "win_cleanup", "win_review"]);
+const floor = count(["floor_1", "floor_2", "floor_3"]);
+const open = dv.pages(`"${DAILY}"`).file.tasks
+  .where((t) => !t.checked && String(t.section?.subpath ?? t.section).includes("Daily Loses")).length;
+const lcClass = lc >= 5 ? 'green' : lc > 0 ? 'yellow' : '';
+const winsClass = wins >= 4 ? 'green' : wins >= 2 ? 'yellow' : '';
+const floorClass = floor >= 3 ? 'green' : floor >= 1 ? 'yellow' : '';
+const losesClass = open === 0 ? 'green' : open > 3 ? 'red' : 'yellow';
+const container = dv.el('div', '', {cls: 'stat-grid'});
+container.innerHTML = `
+  <div class="stat-tile ${winsClass}">
+    <div class="stat-label">Wins</div>
+    <div class="stat-value">${wins}<span style="font-size:0.85rem;opacity:0.6">/4</span></div>
+    <div class="stat-delta ${wins >= 4 ? 'positive' : wins >= 2 ? 'neutral' : 'negative'}">${wins >= 4 ? 'all four' : 'toggles ticked'}</div>
+  </div>
+  <div class="stat-tile ${floorClass}">
+    <div class="stat-label">Floor</div>
+    <div class="stat-value">${floor}<span style="font-size:0.85rem;opacity:0.6">/3</span></div>
+    <div class="stat-delta ${floor >= 3 ? 'positive' : floor >= 1 ? 'neutral' : 'negative'}">${floor >= 3 ? 'floor held' : 'toggles ticked'}</div>
+  </div>
+  <div class="stat-tile ${lcClass}">
+    <div class="stat-label">Problems</div>
+    <div class="stat-value">${lc}</div>
+    <div class="stat-delta ${lc >= 5 ? 'positive' : 'neutral'}">target 5</div>
+  </div>
+  <div class="stat-tile">
+    <div class="stat-label">Study Hours</div>
+    <div class="stat-value">${study}h</div>
+    <div class="stat-delta neutral">today</div>
+  </div>
+  <div class="stat-tile ${losesClass}">
+    <div class="stat-label">Open Loses</div>
+    <div class="stat-value">${open}</div>
+    <div class="stat-delta ${open === 0 ? 'positive' : 'negative'}">${open === 0 ? 'none slipped' : 'not made up'}</div>
+  </div>
+`;
+if (!p) dv.paragraph("No daily note for today yet. Run /startday.");
+```
+## This Week
+```dataviewjs
+const folder = '"10_Areas/Life/Enumerate/Daily"';
+const pages = dv.pages(folder).where(p => {
+  if (!p.file.day) return false;
+  const today = dv.date("today");
+  const monday = today.minus({days: today.weekday - 1});
+  return p.file.day >= monday && p.file.day <= today;
+});
+const tick = (p, keys) => keys.filter((k) => p[k] === true).length;
+const WINS = ["win_project", "win_career", "win_cleanup", "win_review"];
+const FLOORS = ["floor_1", "floor_2", "floor_3"];
+const lcTotal = pages.values.reduce((a,p) => a + (Number(p.lc_count) || 0), 0);
+const studyTotal = pages.values.reduce((a,p) => a + (Number(p.study_today) || 0), 0);
+const winsTotal = pages.values.reduce((a,p) => a + tick(p, WINS), 0);
+const floorTotal = pages.values.reduce((a,p) => a + tick(p, FLOORS), 0);
+const days = pages.length;
+const clippings = dv.pages('"60_Claude/10_Source_Summaries"')
+  .where(p => {
+    const monday = dv.date("today").minus({days: dv.date("today").weekday - 1});
+    return p.file.ctime >= monday;
+  }).length;
+dv.paragraph(`**Days with a note:** ${days}/7 · **Problems:** ${lcTotal}/35 · **Study:** ${studyTotal}h · **Wins:** ${winsTotal}/${days * 4} · **Floor:** ${floorTotal}/${days * 3} · **Clippings this week:** ${clippings}`);
+```
+## Today's Priorities
+```dataviewjs
+// Open tasks in today's note, leaving out the Loses (they have their own list on the right).
+const t = dv.page(`10_Areas/Life/Enumerate/Daily/${dv.date("today").toFormat("yyyy-MM-dd")}`);
+const tasks = t ? t.file.tasks.where((x) => !x.checked && !String(x.section?.subpath ?? x.section).includes("Daily Loses")) : [];
+if (tasks.length) dv.taskList(tasks.slice(0, 8), false);
+else dv.paragraph(t ? "Nothing open in today's note." : "No daily note for today yet.");
+```
+## Active Projects
+```dataview
+TABLE status, deadline, next, file.mtime AS "Updated"
+FROM "20_Progress"
+WHERE type = "project" AND status != "archived" AND status != "complete"
+---
+Dashboard
+Data View's
+Jarvis AI Infrastructure - Concepts and Research.md
+Jarvis Enrichment Engine.md
+Jarvis Vault Architecture.md
+MCP-Hub-Index.md
+Plugins
+Portfolio Option A — RAG + Hybrid Search (jarvis-memory Build).md
+Second Brain.md
+Settings
+Vault Operating System.md
+CS
+Capability
+Obsidian
+Random.md
+UMN
+calendar
+cmdr
+code-styler
+dataview
+excalibrain
+file-explorer-plus
+homepage
+lazy-plugins
+lean-terminal
+multi-column-markdown
+ninja-cursor
+obsidian-excalidraw-plugin
+obsidian-git
+obsidian-kanban
+obsidian-latex-suite
+obsidian-local-rest-api
+obsidian-meta-bind-plugin
+obsidian-spaced-repetition
+obsidian-style-settings
+periodic-notes
+quickadd
+recent-edits
+recent-files-obsidian
+templater-obsidian
+text-extractor
+url-into-selection
+[
+  "code-styler",
+  "file-explorer-plus",
+  "lazy-plugins",
+  "ninja-cursor",
+  "obsidian-latex-suite",
+  "obsidian-style-settings",
+  "templater-obsidian",
+  "url-into-selection",
+  "obsidian-local-rest-api",
+  "recent-files-obsidian",
+  "homepage"
+]
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
+```
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && find . -iname "*.canvas" -not -path "./50_Archive/*" -not -path "./.git/*" | head; echo ---; ls 10_Areas 10_Areas/Life 10_Areas/Life/Plans 10_Areas/Life/Habits 10_Areas/Life/Enumerate 10_Areas/Career 20_Progress 2>&1 | head -80; echo ---; head -60 AGENTS.md`
+```
+./10_Areas/Jarvis OS Dashboard.canvas
+./20_Progress/AI/Claude OS Dashboard.canvas
+./60_Claude/40_Project_Briefs/Internship/graph.canvas
+---
+10_Areas:
+AI
+Career
+Excalidraw
+Jarvis OS Dashboard.canvas
+Life
+Notes
+Summer Grind.md
+Trading
+
+10_Areas/Career:
+Certifications
+Engineer Edge Roadmap.md
+Finance
+Freelancing.md
+Hackathon
+Internships
+Mentors
+Useful Links.md
+VISAs & Work Auth
+
+10_Areas/Life:
+Books
+Enumerate
+Habits
+Plans
+Tracking
+Truths of Life
+
+10_Areas/Life/Enumerate:
+Daily
+Enumerate Board.md
+Monthly
+Weekly
+Yearly
+
+10_Areas/Life/Habits:
+Habit Experiments Board.md
+Habit Scorecard Board.md
+Habit Tracker Board.md
+Habits Stacking.md
+
+10_Areas/Life/Plans:
+2025
+Fall 2026
+Plans Board.md
+Plans-to-Create.md
+Summer 2026
+Zero-Cost AI Stack
+
+20_Progress:
+AI
+Degree
+Internship
+Mentorship Program
+Projects
+---
+---
+type: ai
+status: sprout
+created: 2026-03-19
+updated: 2026-10-15
+tags:
+  - "#ai"
+  - "#evergreen"
+  - "#ai-infrastructure"
+related:
+  - "[[CLAUDE]]"
+  - "[[HUMAN_WRITING]]"
+  - "[[AI_CONTEXT]]"
+---
+# Jarvis Agent Guide
+
+This vault is an AI-assisted second brain built in Obsidian. Treat it as a knowledge system first and a file tree second. This file owns the write contract and the routing table. Everything else it points to owns its own job.
+
+## Cold start
+
+Follow the single read order in [[AI_CONTEXT]]. Do not read the full instruction stack. Load only what the task touches.
+
+| Question | Owner |
+| --- | --- |
+| Why does Jarvis exist and where is it going? | [[Jarvis OS — North Star]] |
+| Where does this note go? | [[40_Resources/Obsidian/Jarvis Vault Architecture]] |
+| How is this note type shaped? | `30_Order/` (see the rule below) |
+| What do the frontmatter properties mean? | [[40_Resources/Obsidian/Vault Operating System]] |
+| How must the prose sound? | [[HUMAN_WRITING]] |
+| How do I format it in Obsidian? | [[Jarvis Writing and Formatting]] |
+| What is happening right now? | [[00_Dashboard]] and `Session Logs/log.md` |
+| Which agent, skill, or tool do I use? | [[CLAUDE]] and `30_Order/Standards/AI Loop/` |
+
+## The 30_Order rule
+
+Every note written into this vault follows a Standard, a Template, and (where one exists) a Workflow from `30_Order/`. This is strict.
+
+- Find the note type in [[Note Type Registry]]. It names the Template, Standard, and Workflow, and the folder.
+- Start from the matching file in `30_Order/Templates/`. Do not write frontmatter or headings that no template defines. `type` and `status` come only from [[Frontmatter Standard]].
+- Read the matching Standard in `30_Order/Standards/` for what each heading must contain.
+- Follow the matching Workflow in `30_Order/Workflows/` for the process around it ([[00_Workflows Index]] lists them).
+- Before saving, run [[Vault Lint]] on the note. When you open an older note for any reason, bring it to its Standard in the same edit ([[Conformance on Touch]]).
+- If no template exists for the note type, do not improvise. Say so, and design the Standard, then the Template, then the Workflow, in that order ([[30_Order/00_How This Folder Works|How This Folder Works]]). Until then, write the note to `60_Claude/00_Inbox/`.
+
+## Write Contract
+
+Every agent follows this, regardless of which tool is driving. Full version: [[40_Resources/Obsidian/Jarvis Vault Architecture]].
+
+### Golden rules
+
+1. **Never create a new top-level file or folder at the vault root.** Root holds only `00_Dashboard.md`, `AGENTS.md`, `CLAUDE.md`, `HUMAN_WRITING.md`, and the numbered folders `10_Areas` through `60_Claude`. This is the single most damaging mistake an agent can make.
+2. **When unsure where a note goes, write it to `60_Claude/00_Inbox/`.** Unsure is the trigger to use the Inbox, never to invent a location.
+3. **Read `30_Order/` before writing.** Its Standards, Templates, and Workflows are the structural half of [[HUMAN_WRITING]].
+4. **Search before creating.** Extend an existing canonical note instead of duplicating.
+5. **Preserve frontmatter and wikilinks. Patch by heading.**
+6. **No personal-life content in Jarvis.** Jarvis is the execution and technical workshop: course work, projects, career mechanics, business and project income. Health, personal finance, relationships, reflective or confessional journaling, and identity-as-a-person content live in The Plan (`00_Live/`). `10_Areas/Life/Truths of Life/` is the one exception, scoped narrowly to builder-identity evidence (what the work says about me as an engineer), never personal reflection.
+
+### Where does this note go?
+
+| If the note is | Write it to | Read first (30_Order) |
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
+```
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && ls -la --time-style=long-iso "40_Resources/Obsidian/Dashboard" "40_Resources/Obsidian/Dashboard"/* | head -60; echo ---; sed -n 120,260p 00_Dashboard.md; echo ---; ls "10_Areas/Life/Plans/Fall 2026" "10_Areas/Life/Plans/Summer 2026" 20_Progress/Mentorship\ Program 20_Progress/Internship 20_Progress/Degree 20_Progress/Projects 2>&1 | head -70`
+```
+-rw-r--r-- 1 anant 197609 4905 2026-10-26 13:20 40_Resources/Obsidian/Dashboard/Jarvis Build Overview.md
+-rw-r--r-- 1 anant 197609    0 2026-10-26 13:51 40_Resources/Obsidian/Dashboard/Prompts.md
+-rw-r--r-- 1 anant 197609 4622 2026-10-26 13:20 40_Resources/Obsidian/Dashboard/The Plan Overview.md
+
+40_Resources/Obsidian/Dashboard:
+total 20
+drwxr-xr-x 1 anant 197609    0 2026-10-26 13:51 .
+drwxr-xr-x 1 anant 197609    0 2026-10-26 12:54 ..
+-rw-r--r-- 1 anant 197609 4905 2026-10-26 13:20 Jarvis Build Overview.md
+drwxr-xr-x 1 anant 197609    0 2026-10-26 13:51 Jarvis Builds
+-rw-r--r-- 1 anant 197609    0 2026-10-26 13:51 Prompts.md
+drwxr-xr-x 1 anant 197609    0 2026-10-26 13:20 The Plan
+-rw-r--r-- 1 anant 197609 4622 2026-10-26 13:20 The Plan Overview.md
+
+40_Resources/Obsidian/Dashboard/Jarvis Builds:
+total 4
+drwxr-xr-x 1 anant 197609 0 2026-10-26 13:51 .
+drwxr-xr-x 1 anant 197609 0 2026-10-26 13:51 ..
+drwxr-xr-x 1 anant 197609 0 2026-10-26 13:51 Ran
+
+40_Resources/Obsidian/Dashboard/The Plan:
+total 48
+drwxr-xr-x 1 anant 197609     0 2026-10-26 13:20 .
+drwxr-xr-x 1 anant 197609     0 2026-10-26 13:51 ..
+-rw-r--r-- 1 anant 197609 10121 2026-10-26 13:20 The Plan Dashboard Architecture and Infrastructure.md
+-rw-r--r-- 1 anant 197609  8638 2026-10-26 13:20 The Plan Dashboard Build History and Method.md
+-rw-r--r-- 1 anant 197609  7776 2026-10-26 13:20 The Plan Dashboard Daily Workflow and AI Loop.md
+-rw-r--r-- 1 anant 197609  7459 2026-10-26 13:20 The Plan Dashboard State and Gaps 2026-10-25.md
+-rw-r--r-- 1 anant 197609  7697 2026-10-26 13:20 The Plan Dashboard UI and What Appears.md
+---
+WHERE type = "project" AND status != "archived" AND status != "complete"
+SORT deadline ASC
+LIMIT 8
+```
+=== end-column ===
+## Wins and Floor
+```dataviewjs
+// The Done toggles in today's note, counted live. Tick them in the note; they are the evidence /closeday uses.
+const todayStr = dv.date("today").toFormat("yyyy-MM-dd");
+const p = dv.page(`10_Areas/Life/Enumerate/Daily/${todayStr}`);
+const bar = (label, keys) => {
+  const done = p ? keys.filter((k) => p[k] === true).length : 0;
+  const pct = Math.round((done / keys.length) * 100);
+  const wrap = dv.el('div', '', {cls: 'progress-wrap'});
+  wrap.innerHTML = `
+    <div class="progress-label">${label}: ${done} / ${keys.length} · ${pct}%</div>
+    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:${pct}%"></div></div>
+  `;
+};
+bar("Daily Wins", ["win_project", "win_career", "win_cleanup", "win_review"]);
+bar("Daily Floor", ["floor_1", "floor_2", "floor_3"]);
+```
+## Daily Loses
+```dataviewjs
+// Every promise not yet made up, from every daily note. [x] made up, [>] carried and [-] dropped do not show.
+const DAILY = "10_Areas/Life/Enumerate/Daily";
+const open = dv.pages(`"${DAILY}"`).file.tasks
+  .where((t) => !t.checked && String(t.section?.subpath ?? t.section).includes("Daily Loses"));
+const today = dv.date("today");
+const age = (t) => {
+  const s = t.since ? String(t.since).slice(0, 10) : t.path.split("/").pop().replace(".md", "");
+  const d = dv.date(s);
+  return d ? Math.max(0, Math.floor(today.diff(d, "days").days)) : 0;
+};
+if (open.length === 0) {
+  dv.paragraph("No open Loses.");
+} else {
+  const sorted = open.sort((t) => age(t), "desc");
+  dv.paragraph(`**${sorted.length} open** · oldest ${age(sorted[0])} days`);
+  dv.taskList(sorted.slice(0, 8), false);
+}
+```
+
+## Internship Pipeline
+```dataview
+TABLE status, next
+FROM "10_Areas/Career/Internships"
+SORT file.mtime DESC
+LIMIT 5
+```
+## Clippings Queue
+```dataviewjs
+const remaining = dv.pages('"60_Claude/05_Clippings"')
+  .where(p => !p.file.name.includes("board") && !p.file.name.includes("README")).length;
+dv.paragraph(`**${remaining}** items awaiting distillation`);
+```
+## Vault Health
+```dataview
+TABLE file.folder AS Folder, file.mtime AS "Updated"
+FROM "10_Areas" OR "20_Progress" OR "40_Resources" OR "60_Claude"
+WHERE !type OR !status
+SORT file.mtime DESC
+LIMIT 8
+```
+=== end-multi-column
+
+---
+**System:** [[CLAUDE.md]] · [[AGENTS.md]] · [[Jarvis OS — North Star]] · [[AI_CONTEXT]] · [[HUMAN_WRITING]]
+**Claude OS:** [[Claude OS]] · [[20_Progress/AI/Claude OS Dashboard|Claude OS Dashboard]] · [[10_Areas/Excalidraw/Claude OS Map|OS Map]]
+**AI:** [[10_Areas/AI/Claude Code|Claude Code]] · [[10_Areas/AI/Cursor|Cursor]] · [[10_Areas/AI/Kiro|Kiro]] · [[10_Areas/AI/Codex|Codex]]
+**Daily OS:** [[Daily Operating System|Daily Operating System]] · personal, health, and finance tracking live in The Plan, not here
+**Mentorship:** [[Mentorship Board]] · current must-do: send the Jesse outreach email, deadline 2026-11-02 · see [[Plan - Ahnaf]] and [[Plan - Jesse]]
+
+## 10_Areas Overview
+
+What each area is for, and where it stands right now. This is an area-level field, not a daily one — don't touch it from `/startday` or `/closeday`; update it when an area's purpose or state materially changes.
+
+| Area | Purpose | Current state |
+|------|---------|----------------|
+| [[Engineer Edge Roadmap\|Career]] | Internship pipeline, freelancing, business-income tracking (`Career/Finance/`, scoped to project/business money only — no personal finance here) | 18 companies researched in tracker `Current/`, 0 in `Applied/` as of 2026-09-07 — the one number [[10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan\|Fall 2026 Plan]] exists to move; Finance folder empty until real income lands |
+| [[10_Areas/Trading/Stocks Trading AI Hub\|Trading]] | TradingView project — treated as an engineering/evaluation build, not a promise to beat the market | Month 1 (data ingestion foundation) real and in progress — Pydantic models, DuckDB storage, quality auditing, read API built; strategy/AI-analyst/dashboard phases gated behind it |
+| [[10_Areas/AI/Claude Code\|AI]] | Reference notes for the AI tools actually in use (Claude Code, Cursor, Kiro, Codex) | Stable reference, low-churn |
+| [[Daily Operating System\|Life]] | Execution only: Enumerate daily/weekly/monthly notes, Fall 2026 plan, operational habit boards, builder-identity Truths of Life. No personal-life content — that lives in The Plan. | Active — this is what `/startday` and `/closeday` read every day. As of 2026-09-07, read [[10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan\|Fall 2026 Plan]] first (frame: [[10_Areas/Life/Plans/Fall 2026/Fall 2026 - The One Thing\|Fall 2026 - The One Thing]]) — it's the one source of truth for the daily floor and real project status. |
+| Notes | Raw course-era captures (F'25, Files, PDFs) awaiting distillation or archive | Not actively worked — candidate for a cleanup pass |
+
+Full folder definitions: [[40_Resources/Obsidian/Jarvis Vault Architecture]]. The Plan holds the personal-life equivalent of this table on its own dashboard.
+---
+10_Areas/Life/Plans/Fall 2026:
+Anti-Drift Rules.md
+Fall 2026 - The One Thing.md
+Fall 2026 Builds.md
+Fall 2026 Plan.md
+LeetCode & CodePath.md
+Weekly Rhythm.md
+
+10_Areas/Life/Plans/Summer 2026:
+00 - Summer Plans Index.md
+Anti-Drift Rules.md
+Daily Operating System.md
+Final Month Plan (Jul 28 - Sep 1).md
+LeetCode & CSCI 4041.md
+ML Fundamentals (2033 + 2230).md
+Weekly Operating System.md
+
+20_Progress/Degree:
+CSCI 4041
+CSCI 4061
+CSCI 4511W
+CSCI 4521
+CSCI 5304
+Course Production Board — Fall'26.md
+Every Week.md
+Fall'26 Syllabus.md
+Hit or Miss - Miss.md
+MGMT 3015
+Repetitive Things.md
+UMN Board.md
+_Courses
+
+20_Progress/Internship:
+Applying
+Building System
+Career Fair
+Career Fair '25 & '26.md
+Companies giving OPT & CPT.md
+Cover Letters
+Posts
+Preperation
+Resumes
+
+20_Progress/Mentorship Program:
+Ahnaf
+Jesse
+Meetings
+Mentorship Board.md
+Plans
+
+20_Progress/Projects:
+AI Use
+CS
+Extra
+Jarvis & The Plan
+Projects Board.md
+Research
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
+```
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/40_Resources/Obsidian/Dashboard" && cat "Jarvis Build Overview.md"; echo =====; sed -n 1,60p "The Plan Overview.md"`
+```
+---
+type: reference
+status: seed
+created: 2026-10-26
+updated: 2026-10-26
+tags:
+  - dashboard
+  - jarvis
+reference_kind: resource
+area:
+  - "[[Daily Operating System]]"
+notes:
+  - "[[The Plan Overview]]"
+  - "[[Jarvis Dashboard Build Record]]"
+  - "[[Daily Note Standard]]"
+  - "[[Daily Close Loop]]"
+  - "[[Dataview and Dashboards]]"
+---
+# Jarvis Build Overview
+This note says what the Jarvis dashboard is made of, what appears on it, and how the daily workflow feeds it. Read it before changing `00_Dashboard.md`, the homepage canvas, `Better Today`, or the `/startday` and `/closeday` skills. The dated history of how it got here is in [[Jarvis Dashboard Build Record]]. The Plan's dashboard is a different build: [[The Plan Overview]].
+## Layers
+| Layer | What it is | Where |
+|---|---|---|
+| Data | One daily note per day. Frontmatter booleans for the toggles, typed numbers for problems and study hours, and a `## Daily Loses` list | `10_Areas/Life/Enumerate/Daily/YYYY-MM-DD.md`, shaped by [[Daily Note Standard]] and [[Better Today]] |
+| Query | DataviewJS blocks that read today's note and every note's open Loses. Nothing is stored in the dashboard | `00_Dashboard.md` and `10_Areas/Jarvis OS Dashboard.canvas` |
+| Input | Meta Bind `INPUT[...]` fields: toggles bound to frontmatter booleans, numbers for `lc_count` and `study_today`, text for the three focus lines | The daily note and the dashboard's own frontmatter |
+| Look | `.obsidian/snippets/dashboard.css` (`.stat-grid`, `.stat-tile`, `.progress-wrap`), the AnuPpuccin theme, Multi-Column Markdown for the two-column page | `.obsidian/snippets/` |
+| Open | Homepage opens the canvas on startup, replacing open notes. `00_Dashboard.md` is the markdown twin, linked from the canvas | `.obsidian/plugins/homepage/data.json` |
+| Writers | `/startday` fills the plan and carries Loses. `/closeday` counts the toggles and writes Loses. Both patch the three `today_*` focus lines | `.claude/skills/startday/`, `.claude/skills/closeday/` |
+Plugin versions on 2026-10-26: Dataview 0.5.68, Meta Bind 1.5.1, Multi-Column Markdown 0.9.1, Homepage 4.5.0, Templater 2.26.0, Periodic Notes 0.0.17, QuickAdd 2.32.1.
+## What appears, and where each number comes from
+| On screen | Source | Rule |
+|---|---|---|
+| Today's focus, the 80, the 20 | `today_focus`, `today_80`, `today_20` in `00_Dashboard.md` | Patched by `/startday`, cleared by `/closeday`. The only fields the dashboard owns |
+| Wins `n/4`, Floor `n/3` | `win_*` and `floor_*` toggles in today's note | Counted live. A tile turns green at 4 of 4 wins or 3 of 3 floor |
+| Problems | `lc_count` in today's note | Typed. Green at 5 |
+| Study hours | `study_today` in today's note | Typed |
+| Open Loses | Every unchecked task under `## Daily Loses` in any daily note | Sorted oldest first, with the age from `since`. Ticking in the list should write back to the source line, as Dataview task queries do; not yet confirmed for `dv.taskList` here |
+| This week | Notes from Monday to today | Sums problems and study hours, counts toggles against `days x 4` and `days x 3` |
+| Today's priorities | Unchecked tasks in today's note outside Daily Loses | First eight |
+| Active projects, internship pipeline, clippings queue, vault health | Dataview over `20_Progress`, `10_Areas/Career/Internships`, `60_Claude/05_Clippings`, and notes missing `type` or `status` | Unchanged by the 2026-10-26 rebuild |
+## Why the toggles are frontmatter
+Obsidian does not render task checkboxes inside table cells. On 2026-07-10 the Wins and Floor tables used plain `[ ]` text that never ticked. The fix put a Meta Bind toggle in each cell, bound to a boolean such as `win_project`, so a tick persists in the note. The cost is that a toggle is only evidence if something reads it. Until 2026-10-26 nothing did: `wins_done` was a number typed by hand and `/closeday` asked for it in chat. Now the dashboard counts the booleans and `/closeday` writes the counts from them.
+## What Anant does to run it
+1. `/startday` in the morning. Read the plan, the blocks and the open Loses it prints.
+2. Tick a toggle only when the thing is done. Write a Lose when a promise slips, with the `why` in your own words.
+3. `/closeday` before 10:30pm. Answer one question block: the counts, and a `why` and a `fix` for each proposed Lose.
+4. Turn on Templater's "Trigger Templater on new file creation" so new daily notes get a real `created` date. Today `/startday` repairs the date, and that setting is the permanent fix.
+## Known drift to watch
+- Two landing pages hold the same queries: the canvas and `00_Dashboard.md`. Both were updated on 2026-10-26. Keep one and link to it when convenient.
+- `.agents/skills/startday` and `closeday` are older copies of the `.claude` skills and already differed before 2026-10-26. They were not changed.
+- Inline DataviewJS is off in settings. Daily notes must not rely on a `$=` expression.=====
+---
+type: reference
+status: seed
+created: 2026-10-26
+updated: 2026-10-26
+tags:
+  - dashboard
+  - the-plan
+reference_kind: resource
+area:
+  - "[[Daily Operating System]]"
+notes:
+  - "[[Jarvis Build Overview]]"
+  - "[[The Plan Dashboard Architecture and Infrastructure]]"
+  - "[[The Plan Dashboard UI and What Appears]]"
+  - "[[The Plan Dashboard Build History and Method]]"
+  - "[[The Plan Dashboard Daily Workflow and AI Loop]]"
+  - "[[The Plan Dashboard State and Gaps 2026-10-25]]"
+---
+# The Plan Overview
+This is the entry note for how The Plan's dashboard was designed and built. Jarvis keeps it because the two vaults share a daily loop but little else, and the Jarvis daily workflow is being rebuilt next to it. Read this first, then the five notes under `The Plan/`. Every fact was read from The Plan's own notes, its plugin repository, or its vault files between 2026-10-12 and 2026-10-26, and the state note says which parts were checked on disk.
+## What The Plan is
+The Plan is the second Obsidian vault, at `D:\_Anant\20_Progress\Documents\The Plan`. Jarvis owns work: courses, projects, career mechanics. The Plan owns personal growth: habits, health, money, learning, and one career line a day. Its dashboard design record starts at `40_Resources/Obsidian/Dashboards/Dashboards Hub.md` in that vault.
+## Two dashboards, built differently on purpose
+| | Jarvis | The Plan |
+|---|---|---|
+| Medium | A markdown page and a canvas: DataviewJS, Meta Bind, Multi-Column Markdown, one CSS snippet | A private Obsidian plugin, `the-plan-dashboard`, with its own React view |
+| What a day is | An 80/20 plan, four wins, a three-row floor, and Daily Loses | Five categories (Morning, Study, Fitness, Mind, Career), each a list of checkbox actions |
+| When a day counts | Every number is counted from toggles in today's note | MET at 3 of 5 categories done; one isolated miss is forgiven, two in a row reset the streak |
+| How ticking works | Meta Bind toggles bound to frontmatter booleans, because Obsidian does not render task checkboxes inside table cells | Plain `- [ ]` lines with a `[cat:: morning]` field, flipped by `Vault.process` |
+| Who computes numbers | Dataview, in the page | One TypeScript engine shared by the plugin, the Claude Code hooks, and the reviews |
+| Opens at launch | Homepage opens `10_Areas/Jarvis OS Dashboard.canvas` | Homepage runs the command `the-plan-dashboard:open-dashboard` |
+Details for the Jarvis side: [[Jarvis Build Overview]].
+## How it was built
+1. **A design hour (2026-10-12).** One session designed everything and wrote nothing outside the Dashboards folder: research of both vaults, a Decisions Log of answered questions, four specs, a build plan, and a prompt for every later session.
+2. **Research with evidence labels.** Each option for the dashboard medium was marked Verified, Inferred or Unverified. The result was a private plugin, because a markdown note with DataviewJS flickers on refresh and Bases cannot walk a sequence of days to compute a streak.
+3. **One prompt per slice.** B1 to B8, then stages S0 to S6, then five plugin prompts. Each runs in its own Claude Code session, reads a shared Build Log first, appends one entry, and stops at its gate.
+4. **An orchestration session (2026-10-13).** It built the engine's review modules, the command-line program `plan-cli`, three hooks, and the tests, outside the five prompts.
+5. **Reviews.** A corrections note (2026-10-13), a stack and phone audit (2026-10-14), and a full build review (2026-10-25) that found the dashboard had never shown a real number.
+The longer account: [[The Plan Dashboard Build History and Method]].
+## Where it stands
+Built and tested in the repository: the engine, 87 tests, the React view, and the CLI. Not working in the vault on 2026-10-25: an old copy of `.claude` overwrote the skills, agents and hooks on 2026-10-16, and Periodic Notes has been creating `DD-MM-YYYY` daily notes that the engine cannot read, so `plan-cli streak` returns `first_day: null`. The phone has never been tested. See [[The Plan Dashboard State and Gaps 2026-10-25]].
+## Map
+| Question | Note |
+|---|---|
+| What is it made of, and how does data move? | [[The Plan Dashboard Architecture and Infrastructure]] |
+| What is on the screen, and how does each part draw? | [[The Plan Dashboard UI and What Appears]] |
+| What was built when, and how? | [[The Plan Dashboard Build History and Method]] |
+| What does the daily loop, the streak and the AI tooling do? | [[The Plan Dashboard Daily Workflow and AI Loop]] |
+| What is broken, and what is next? | [[The Plan Dashboard State and Gaps 2026-10-25]] |
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
+```
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/10_Areas/Life/Plans/Fall 2026" && sed -n 1,200p "Fall 2026 - The One Thing.md" | head -70; echo ====; grep -n "^#" "Fall 2026 Plan.md" "Weekly Rhythm.md" "Anti-Drift Rules.md" "LeetCode & CodePath.md" "Fall 2026 Builds.md"`
+```
+---
+type: evergreen
+status: sprout
+created: 2026-09-07
+updated: 2026-09-07
+tags:
+  - plan
+  - fall2026
+notes:
+  - "[[10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan|Fall 2026 Plan]]"
+  - "[[10_Areas/Life/Plans/Fall 2026/Fall 2026 Builds|Fall 2026 Builds]]"
+  - "[[20_Progress/Degree/_Courses/_Courses Board|_Courses Board]]"
+next: "[[10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan|Fall 2026 Plan]]"
+---
+# Fall 2026 - The One Thing
+==Internships. Everything else this fall is either mandatory (classes) or in service of that one goal.== The tracker already has 18 companies researched in `Tracker/Each One/Current/` and zero in `Applied/`, per [[10_Areas/Career/Internships/Tracker/Tracker|Application Tracker]] as of 2026-09-07. The September flood is already dropping. The gap between researched and applied is the only number that matters right now. The week-by-week system that moves that number lives in [[10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan|Fall 2026 Plan]]; this note is the frame that decides what gets attention when two things compete for the same hour.
+
+## The one thing
+Land a real internship offer for Summer 2027 - a software engineering or AI/ML role, at a company worth actually working for. Everything below is judged against whether it moves that number.
+
+## What's mandatory regardless of priority
+- **Classes.** 21 credits confirmed across 6 courses in [[20_Progress/Degree/Fall'26 Syllabus|Fall'26 Syllabus]] - a 7th CSCI class would make it 22 once it's approved, not before. A 4.0 doesn't get skipped because the internship push is on; it gets scheduled around, per the 80/20 split in [[10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan|Fall 2026 Plan]].
+- **CodePath TIP103.** Free technical-interview course, already enrolled - confirmed 2026-09-07 as [[20_Progress/Degree/_Courses/Technical Interview/Technical Interview|CodePath's TIP103]]. Correction, same date: the vault's `20_Progress/Degree/CSCI 4041/` folder is a different, already-completed Spring'26 UMN class (graded A, archived) - it is not TIP103's material, and calling this "the CSCI 4041 track" was a naming conflation. Its job is forcing the LeetCode reps that certification study alone won't. Same daily floor as the internship push, because it's the mechanism that gets an application through the technical round once it lands one.
+- **System design.** No fixed start date - begins once GitHub Foundations, AI Associate Engineer, and the LeetCode/CodePath floor all reach real stability, then runs self-paced via [the System Design Primer repo](https://github.com/donnemartin/system-design-primer), confirmed 2026-09-07. Corrects this note's original "starts 2026-09-14" claim, which was wrong. Full sequencing: [[20_Progress/Degree/_Courses/_Courses Board|_Courses Board]].
+
+## What's in service of the one thing, and how it's bounded
+- **AIIS Club.** Real deadlines this week (SAO budget + panelist confirmations due 2026-09-10, per [[40_Resources/UMN/SAO/AIIS|AIIS]]) and a full fall calendar through an AI Convention on Oct 1. Worth running well because "organized and ran a club" is a real leadership line on a resume - but it does not get more hours than that line is worth. If a week forces a choice between an AIIS event and shipping applications, the applications win unless the AIIS deadline is externally fixed (like Sept 10).
+- **Mentorship.** Ahnaf, ongoing, alternate weeks - fall goals are being built from real meetings, not decided in advance, per [[20_Progress/Mentorship Program/Plans/Fall 2026 — Detailed Expectations|Fall 2026 - Detailed Expectations]]. A second mentor is a live idea, not yet enrolled. Both exist to sharpen the build and the story that goes into an application, not as a parallel project.
+- **Scholarships.** No tracker exists yet in the vault - this is a real gap, not a hidden system. Worth pursuing because paid-for tuition is real leverage, but it runs on whatever hours are left after the floor, not before it.
+- **Networking, conferences, hackathons, career fair.** Target from the original scope: 100+ people met, 5 conferences, 5 hackathons this fall. [[10_Areas/Career/Hackathon/Hackathons|Hackathons]] already has a judge-credibility playbook worth following instead of entering the first thing available. Every one of these is a lead-generation system for the one thing, not a separate goal - a hackathon win is a resume line and a set of judge contacts, not an end in itself.
+- **LinkedIn content.** No posting plan exists yet. Publishing gradually and consistently is worth doing because recruiters and referrals come from visibility, not because content is the goal.
+- **Portfolio v2 and a blog.** The Next.js/Sanity/Orby build is already real and in progress (security hardening, SEO/AEO strategy, and a Blog section already built per `20_Progress/Projects/CS/Portfolio/frontend/Ran/08 - Blog, Contact & Footer.md`). v2 ships first; blog posting ramps up in what the user calls "v3" as of 2026-09-07 - not yet a scoped iteration anywhere in the vault, just stated intent. Once v3 deploys: publish weekly, share resources, post about it on LinkedIn, and pursue ads/sponsors per post plus some form of subdomain income - mechanism not yet chosen. Writing one real thing a week is the discipline worth keeping regardless of monetization - it is the single clearest proof of "can explain technical work clearly" that an interviewer will ever see before a call. Detail: [[10_Areas/Life/Plans/Fall 2026/Fall 2026 Builds|Fall 2026 Builds]].
+- **TradingView.** Guardrailed against fabricated data or execution language per `20_Progress/AI/Claude Code/Trading View/CLAUDE.md`. It is a portfolio project, not a live goal to be "printing money" - that line from the original scope is corrected in [[10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan|Fall 2026 Plan]]'s Goal section. The Fall build target: a basic UI, a self-improving ingestion system, and real market-niche strategy notes - detail and evidence-sourcing caveats in [[10_Areas/Life/Plans/Fall 2026/Fall 2026 Builds|Fall 2026 Builds]]. It stays in scope because a working, tested, guardrailed trading research tool is a strong interview story; it does not get the hours a live trading goal would.
+- **ClaudeKit / the agentic OS visualization.** `second-brain-claudekit` already runs a real qualification pipeline (sandbox to tested-tools to promotion) and syncs across the Windows and WSL machines via Unison - with a known, unresolved permission-bit failure on the Windows side, visible in its own `Sync-Log.md`. Making the whole system visible across both laptops is worth doing because it is the same infrastructure the internship-research-loop's 24/7 discovery automation runs on top of. It is maintenance on the thing that already produces the 18 researched companies, not a new project competing for the same week.
+- **New laptop setup.** Resource notes already exist under `40_Resources/CS/Concepts/New Laptop/`. One-time task, done once and left alone.
+- **Jarvis automations.** A new, undated weekend project: Gmail/GCal/other info-source integrations plus a mobile share-to-Obsidian pipeline for Reels/YouTube watched, landing in Obsidian somehow. Nothing built yet - `20_Progress/Projects/Automations/` exists as an empty folder. Detail in [[10_Areas/Life/Plans/Fall 2026/Fall 2026 Builds|Fall 2026 Builds]].
+
+## Dropped
+**Arc (Learning Tracker)** is dropped as of 2026-09-07, reversing this note's original "carried over, not dropped" status. Its planning docs (`20_Progress/Projects/CS/Arc/` - a 5-sprint roadmap and data-model sketch, no code ever written per the Summer close-out) are slated for deletion, not yet actioned. A UROP with Jaideep Srivastava and getting The Plan's sync fully active remain genuinely carried over - neither had a system built this session because neither was in scope; they get their own Systems row in [[10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan|Fall 2026 Plan]] once actually worked.
+
+## What this is not
+This is not the semester TradingView gets finished, AIIS becomes a full-time job, or every conference on a list gets attended. Essentialism means most of the things above get the minimum real effort that keeps them alive, so the one thing gets the rest.
+
+---
+**Action:** Every day, before anything else on the list, move at least one company from `Current/` to `Applied/` - nothing else here gets attention until that is true most days this week.
+====
+Fall 2026 Plan.md:26:# Fall 2026 Plan
+Fall 2026 Plan.md:30:## Goal
+Fall 2026 Plan.md:44:## Timeframe
+Fall 2026 Plan.md:49:### Week by week - the One Hard Thing
+Fall 2026 Plan.md:70:## Systems
+Fall 2026 Plan.md:97:## Implementation Status
+Fall 2026 Plan.md:113:## Current Progress
+Fall 2026 Plan.md:121:## Update Protocol
+Weekly Rhythm.md:16:# Weekly Rhythm — Fall 2026
+Weekly Rhythm.md:20:## The daily rhythm
+Weekly Rhythm.md:25:## The weekly rhythm
+Weekly Rhythm.md:30:## The rule that forces a re-scope
+Weekly Rhythm.md:34:## Verified gap this note closes
+Anti-Drift Rules.md:15:# Anti-Drift Rules — Fall 2026
+Anti-Drift Rules.md:19:## The core rules
+Anti-Drift Rules.md:27:## The "Do NOT do today" list (goes in every Today note)
+Anti-Drift Rules.md:38:## Friction log
+Anti-Drift Rules.md:46:## Tool/optimization parking lot
+Anti-Drift Rules.md:52:## Night-before setup (makes morning obvious)
+LeetCode & CodePath.md:18:# LeetCode & CodePath — Fall 2026
+LeetCode & CodePath.md:22:## Why this file has a different accountability hook than Summer's
+LeetCode & CodePath.md:26:## 1. What this covers
+LeetCode & CodePath.md:32:## 2. TIP103 unit tracker
+LeetCode & CodePath.md:51:## 3. Company rotation
+LeetCode & CodePath.md:55:## 4. Daily Log
+LeetCode & CodePath.md:63:### Weekly totals (target ≥35/week)
+LeetCode & CodePath.md:71:## 5. Pre-interview cram list
+LeetCode & CodePath.md:77:## 6. Wiring
+Fall 2026 Builds.md:17:# Fall 2026 Builds
+Fall 2026 Builds.md:20:## Map
+Fall 2026 Builds.md:36:## Evidence Discipline
+Fall 2026 Builds.md:39:## Status
+Fall 2026 Builds.md:51:## Links
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
+```
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents" && grep -rli "toggl" --include=*.md Jarvis "The Plan" 2>/dev/null | grep -v "50_Archive\|\.git/" | head; echo ---; sed -n 70,96p "Jarvis/10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan.md"; echo ---; sed -n 16,34p "Jarvis/10_Areas/Life/Plans/Fall 2026/Weekly Rhythm.md"; echo ---; python3 - <<'E' 2>/dev/null || node -e 'const c=JSON.parse(require("fs").readFileSync("Jarvis/10_Areas/Jarvis OS Dashboard.canvas","utf8"));console.log(c.nodes.length+" nodes, "+(c.edges||[]).length+" edges");console.log(c.nodes.map(n=>n.type+":"+(n.text||n.file||n.label||"").slice(0,60).replace(/\n/g," ")).join("\n"))'
+E
+ls Jarvis/.claude/settings.json && node -e 'const s=require("./Jarvis/.claude/settings.json");console.log(Object.keys(s.hooks||{}))'`
+```
+PreToolUse:Bash hook error: 50_Archive is never read or written.
+```
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents" && grep -rli "toggl" --include=*.md Jarvis/10_Areas Jarvis/20_Progress Jarvis/30_Order Jarvis/40_Resources "The Plan/00_Live" "The Plan/30_Order" "The Plan/40_Resources" 2>/dev/null | head; echo ---; sed -n 70,96p "Jarvis/10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan.md"; echo ---; sed -n 16,34p "Jarvis/10_Areas/Life/Plans/Fall 2026/Weekly Rhythm.md"`
+```
+Jarvis/10_Areas/AI/Claude Code.md
+Jarvis/10_Areas/Career/Internships/List/Dossiers/1 - AI & ML/Applied AI Engineer Intern - Millennium.md
+Jarvis/10_Areas/Career/Internships/List/Dossiers/3 - CyS & Finance/Blockchain Application Developer Intern - DMS International.md
+Jarvis/10_Areas/Career/Internships/List/Dossiers/3 - CyS & Finance/Quantitative Developer Intern - Millennium.md
+Jarvis/10_Areas/Life/Enumerate/Daily/2026-07-10.md
+Jarvis/10_Areas/Life/Enumerate/Daily/2026-08-01.md
+Jarvis/10_Areas/Life/Enumerate/Daily/2026-08-03.md
+Jarvis/10_Areas/Life/Enumerate/Daily/2026-08-07.md
+Jarvis/10_Areas/Life/Enumerate/Daily/2026-08-08.md
+Jarvis/10_Areas/Life/Enumerate/Daily/2026-08-10.md
+---
+## Systems
+Every track needs a cadence and a done-definition checkable on any given day. "Ship TradingView" is a category; each row below states the actual mechanism.
+
+| Track | Cadence | Done-definition | Where it lives |
+|---|---|---|---|
+| Internship application floor | Daily | A company note actually moves `Current/` → `Applied/` in the real Tracker folder | [[10_Areas/Career/Internships/Tracker/Tracker|Application Tracker]] (dataview reflects folder moves automatically) |
+| Resume/Cover Letter evidence bank | One-time, this week | `Main Resume.md` and `Main Cover Letter.md` hold real evidence-tagged content, both Cursor skills' prerequisite checks pass | Research Loop Prompt 6, `Research Loop - Implementation Plan.md` |
+| Technical interview prep (CodePath TIP103 + LeetCode) | Daily LeetCode; TIP103 material Tue + Thu | Logged same day in [[10_Areas/Life/Plans/Fall 2026/LeetCode & CodePath|LeetCode & CodePath]] (created 2026-09-15, real accountability hook via `/closeday`'s scorecard and `/weekly-review`'s Step 2, not a copy of the closed Summer file). TIP103 ≠ the vault's `CSCI 4041` folder (a different, closed UMN class) - see [[20_Progress/Degree/_Courses/Technical Interview/Technical Interview|Technical Interview]] | [[10_Areas/Life/Plans/Fall 2026/LeetCode & CodePath|LeetCode & CodePath]] |
+| GitHub Foundations | One-time, in progress | Exam registered and written once the GitHub Student Developer Pack promo code arrives | [[20_Progress/Degree/_Courses/_Courses Board|_Courses Board]] |
+| AI Associate Engineer | 30-day window, 2 exams (AIEDEVA101 timed + AIEDEVA501P practical), 2 attempts each | Both exams passed by 2026-09-30 - whether the deadline covers both is unconfirmed, see [[20_Progress/Degree/_Courses/AI Associate Engineer/AI Associate Engineer|AI Associate Engineer]] | [[20_Progress/Degree/_Courses/_Courses Board|_Courses Board]] |
+| ML Engineer (DataCamp) | Ongoing, parallel | Course material implemented in a real local repo (repo not yet named) | [[20_Progress/Degree/_Courses/_Courses Board|_Courses Board]] |
+| ML Ops (DataTalks) | Ongoing, parallel | Same - implemented in a real local repo | [[20_Progress/Degree/_Courses/_Courses Board|_Courses Board]] |
+| System design | No fixed cadence yet | Starts once GitHub Foundations, AI Associate Engineer, and the LeetCode/CodePath floor are all stable; resource not yet chosen | [[20_Progress/Degree/_Courses/_Courses Board|_Courses Board]] |
+| Cloud Architect (LinkedIn Learning) | One-time, starts 2026-11-01 | Course completed during the LinkedIn Learning/Premium free trial month, alongside a maximized outreach push | [[20_Progress/Degree/_Courses/_Courses Board|_Courses Board]] |
+| Classes | Per class, weekly, per syllabus | Grading-criteria section in [[20_Progress/Degree/Fall'26 Syllabus|Fall'26 Syllabus]] filled in and tracked against | `Fall'26 Syllabus.md` |
+| AIIS Club | Per event on the fall calendar | SAO grant training course finished, proposal submitted, each event run per its own plan | [[40_Resources/UMN/SAO/AIIS|AIIS]] |
+| Mentorship (Ahnaf) | Alternate weeks | Meeting held, `/transcript-to-brief` then `/note-to-actions` run on it | [[20_Progress/Mentorship Program/Plans/Fall 2026 — Detailed Expectations|Fall 2026 - Detailed Expectations]] |
+| Second mentor | Opportunistic | Real first contact made, not just noted as an idea | Same note |
+| Scholarships | Weekly scan | A real shortlist exists and at least one application is submitted | Not yet created - open task |
+| Networking / conferences / hackathons / career fair | Ongoing, target 100 contacts / 5 conferences / 5 hackathons | A real running count kept somewhere checkable, not memory | [[10_Areas/Career/Hackathon/Hackathons|Hackathons]] playbook; `Networking Strategies.md` exists but is currently empty - needs real content, not just a filename |
+| LinkedIn content | Weekly post | A real post published, not drafted; process/templates refined through 2026-10-31, then a maximized push during the 2026-11-01 LinkedIn Learning/Premium free trial | [[20_Progress/Degree/_Courses/_Courses Board|_Courses Board]] |
+| Portfolio v2 / blog (v3) | Weekly publish once v3 is live | v2 ships initially; one real piece written and published once blog hosting moves to v3, plus a LinkedIn post about it, per [[10_Areas/Life/Plans/Fall 2026/Fall 2026 Builds|Fall 2026 Builds]] | `20_Progress/Projects/CS/Portfolio/frontend/Ran/08 - Blog, Contact & Footer.md` |
+| TradingView | Ongoing build | Basic UI, self-improving ingestion, and market-niche strategy notes exist - verified against the repo mirror's own docs, not a local `kiro-status` run (no `.kiro/` exists in this vault mirror) | [[10_Areas/Life/Plans/Fall 2026/Fall 2026 Builds|Fall 2026 Builds]] |
+| ClaudeKit / agentic OS visibility | Ongoing maintenance | Windows/WSL sync runs clean - the current permission-bit failure in `Sync-Log.md` gets root-caused, not just retried | `20_Progress/AI/Claude Code/second-brain-claudekit/` |
+| New laptop setup | One-time | Setup notes in `40_Resources/CS/Concepts/New Laptop/` actually executed, not just drafted | Same folder |
+| Jarvis automations (Gmail/GCal/mobile-to-Obsidian) | One weekend, undated | Real automations built and running, not just scoped | [[10_Areas/Life/Plans/Fall 2026/Fall 2026 Builds|Fall 2026 Builds]] - `20_Progress/Projects/Automations/` currently empty |
+
+---
+# Weekly Rhythm — Fall 2026
+
+Fall doesn't run Summer's manual Sunday ritual (7 written questions in a `Weekly Operating System` note). `/weekly-review` is a different, more automated design — this note states what it actually does so the rhythm is legible without reading the skill file.
+
+## The daily rhythm
+
+- **Morning, `/startday`**: reads [[10_Areas/Life/Plans/Fall 2026/Fall 2026 - The One Thing|Fall 2026 - The One Thing]] and [[10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan|Fall 2026 Plan]]'s week-by-week and Systems tables, fills today's daily note (Fall Daily Wins + Fall Daily Floor), patches `00_Dashboard.md`'s `today_focus`/`today_80`/`today_20`.
+- **Evening, `/closeday`**: scores the day against the Fall Ops Scorecard (Application / LeetCode-CodePath / class step / 4 Wins), writes tracking frontmatter, clears the dashboard for tomorrow, logs the session.
+
+## The weekly rhythm
+
+- **Sunday, `/weekly-review`**: runs the Fall Execution Audit (internship floor movement, LeetCode/CodePath log health, class deadlines, project shipping, AIIS/mentorship/scholarships/networking against the Systems table), plus vault-health checks (orphans, missing next actions, metadata gaps). Writes a full `Weekly Synthesis — YYYY-WXX.md` note to `60_Claude/30_Reviews/Weekly Synthesis/`, then patches the lightweight periodic note at `10_Areas/Life/Enumerate/Weekly/YYYY-Www.md` with a one-line summary.
+- **Where to look**: the periodic Weekly note for a quick glance; the Weekly Synthesis note for the full audit, including which tracks are ✅/⚠️/❌ against the Systems table's done-definitions.
+
+## The rule that forces a re-scope
+
+Per [[10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan|Fall 2026 Plan]]'s Update Protocol: two consecutive missed `/weekly-review` runs means a full re-scope conversation before the plan continues, not a third silent week. The same logic applies one level down — per [[10_Areas/Life/Plans/Fall 2026/Anti-Drift Rules|Anti-Drift Rules]], two missed `/startday`/`/closeday` days in a row is the trigger to stop and diagnose, not push through on memory.
+
+## Verified gap this note closes
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
+```
+
 ## Actions Taken
 
 **Files created:**
@@ -4070,5 +4843,14 @@ _None detected_
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis" && ls 10_Areas/Life/Enumerate/Daily | tail -12; echo ---; f=$(ls 10_Areas/Life/Enumerate/Daily | grep 2026-10 | tail -1); echo "$f"; head -60 "10_Areas/Life/Enumerate/Daily/$f"; echo ---; sed -n 1,40p .claude/skills/closeday/SKILL.md`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan" && head -12 "30_Order/Templates/Daily Dashboard/Daily Note.md"; grep -n "tp\.\|{{" "30_Order/Templates/Daily Dashboard/Daily Note.md" | head; echo ---; sed -n '/^# /,$p' "30_Order/Workflows/Daily Dashboard.md" | head -80; echo ---; grep -o '"[a-zA-Z_]*[Ff]older[a-zA-Z_]*": *"[^"]*"\|"enable_folder_templates": *[a-z]*\|"trigger_on_file_creation": *[a-z]*' .obsidian/plugins/templater-obsidian/data.json`
 - `cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard/src" && grep -n "export\|cause\|month\|grade\|milestoneTitles" core/model.ts | head -30; grep -rn "#[0-9a-fA-F]\{6\}" ui/styles.ts | head -8; grep -n "links" core/config.ts; echo ---; cd "D:/_Anant/20_Progress/Documents/The Plan" && sed -n '/^# /,$p' "30_Order/Standards/References/Reference - the-plan-dashboard.md" | head -60`
+- `pwd; cd "D:/_Anant/20_Progress/Documents/Jarvis" 2>/dev/null && pwd && git log --oneline | head -5; cat 00_Dashboard.md | head -120; echo ---; ls 40_Resources/Obsidian 2>&1; ls 40_Resources | head -30; ls .obsidian/plugins; cat .obsidian/community-plugins.json`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && find . -iname "*.canvas" -not -path "./50_Archive/*" -not -path "./.git/*" | head; echo ---; ls 10_Areas 10_Areas/Life 10_Areas/Life/Plans 10_Areas/Life/Habits 10_Areas/Life/Enumerate 10_Areas/Career 20_Progress 2>&1 | head -80; echo ---; head -60 AGENTS.md`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && ls -la --time-style=long-iso "40_Resources/Obsidian/Dashboard" "40_Resources/Obsidian/Dashboard"/* | head -60; echo ---; sed -n 120,260p 00_Dashboard.md; echo ---; ls "10_Areas/Life/Plans/Fall 2026" "10_Areas/Life/Plans/Summer 2026" 20_Progress/Mentorship\ Program 20_Progress/Internship 20_Progress/Degree 20_Progress/Projects 2>&1 | head -70`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/40_Resources/Obsidian/Dashboard" && cat "Jarvis Build Overview.md"; echo =====; sed -n 1,60p "The Plan Overview.md"`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/10_Areas/Life/Plans/Fall 2026" && sed -n 1,200p "Fall 2026 - The One Thing.md" | head -70; echo ====; grep -n "^#" "Fall 2026 Plan.md" "Weekly Rhythm.md" "Anti-Drift Rules.md" "LeetCode & CodePath.md" "Fall 2026 Builds.md"`
+- `cd "D:/_Anant/20_Progress/Documents" && grep -rli "toggl" --include=*.md Jarvis "The Plan" 2>/dev/null | grep -v "50_Archive\|\.git/" | head; echo ---; sed -n 70,96p "Jarvis/10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan.md"; echo ---; sed -n 16,34p "Jarvis/10_Areas/Life/Plans/Fall 2026/Weekly Rhythm.md"; echo ---; python3 - <<'E' 2>/dev/null || node -e 'const c=JSON.parse(require("fs").readFileSync("Jarvis/10_Areas/Jarvis OS Dashboard.canvas","utf8"));console.log(c.nodes.length+" nodes, "+(c.edges||[]).length+" edges");console.log(c.nodes.map(n=>n.type+":"+(n.text||n.file||n.label||"").slice(0,60).replace(/\n/g," ")).join("\n"))'
+E
+ls Jarvis/.claude/settings.json && node -e 'const s=require("./Jarvis/.claude/settings.json");console.log(Object.keys(s.hooks||{}))'`
+- `cd "D:/_Anant/20_Progress/Documents" && grep -rli "toggl" --include=*.md Jarvis/10_Areas Jarvis/20_Progress Jarvis/30_Order Jarvis/40_Resources "The Plan/00_Live" "The Plan/30_Order" "The Plan/40_Resources" 2>/dev/null | head; echo ---; sed -n 70,96p "Jarvis/10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan.md"; echo ---; sed -n 16,34p "Jarvis/10_Areas/Life/Plans/Fall 2026/Weekly Rhythm.md"`
 
 

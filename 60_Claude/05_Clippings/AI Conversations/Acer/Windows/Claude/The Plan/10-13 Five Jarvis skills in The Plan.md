@@ -3314,13 +3314,13 @@ tags:
 notes:
   - "[[Dashboards Hub]]"
   - "[[Decisions Log]]"
-  - "[[Prompts]]"
+  - [[20_Progress/Projects/AI Use/Claude Kit/Claude Code/Prompts]]]"
   - "[[The Plan Vault Architecture]]"
 next: "Run R1, then B1"
 ---
 # Build Plan
 
-This session (about one hour) designs the whole system and writes the prompts. Each later session builds one slice. Ready-to-paste prompts are in [[Prompts]].
+This session (about one hour) designs the whole system and writes the prompts. Each later session builds one slice. Ready-to-paste prompts are in[[20_Progress/Projects/AI Use/Claude Kit/Claude Code/Prompts]]].
 
 ## Order and dependencies
 
@@ -3346,7 +3346,7 @@ Step 3 (B3, Home dashboard and CSS) is replaced by stages S0 to S6 in [[Dashboar
 - Research of Jarvis and The Plan: [[Research - Jarvis Dashboard Findings]].
 - Every question answered: [[Decisions Log]].
 - Specs: [[Spec - Streak and Daily Note]], [[Spec - Home and Monthly Dashboards]], [[Spec - AI Loop]], [[Spec - Automation Layers]].
-- Prompts for every later session: [[Prompts]].
+- Prompts for every later session:[[20_Progress/Projects/AI Use/Claude Kit/Claude Code/Prompts]]].
 - Nothing outside this folder was written or moved.
 
 ## Next-day target

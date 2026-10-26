@@ -1904,13 +1904,13 @@ tags:
 notes:
   - "[[Dashboards Hub]]"
   - "[[Decisions Log]]"
-  - "[[Prompts]]"
+  - [[20_Progress/Projects/AI Use/Claude Kit/Claude Code/Prompts]]]"
   - "[[The Plan Vault Architecture]]"
 next: "Run R1, then B1"
 ---
 # Build Plan
 
-This session (about one hour) designs the whole system and writes the prompts. Each later session builds one slice. Ready-to-paste prompts are in [[Prompts]].
+This session (about one hour) designs the whole system and writes the prompts. Each later session builds one slice. Ready-to-paste prompts are in[[20_Progress/Projects/AI Use/Claude Kit/Claude Code/Prompts]]].
 
 ## Order and dependencies
 
@@ -1932,7 +1932,7 @@ This session (about one hour) designs the whole system and writes the prompts. E
 - Research of Jarvis and The Plan: [[Research - Jarvis Dashboard Findings]].
 - Every question answered: [[Decisions Log]].
 - Specs: [[Spec - Streak and Daily Note]], [[Spec - Home and Monthly Dashboards]], [[Spec - AI Loop]], [[Spec - Automation Layers]].
-- Prompts for every later session: [[Prompts]].
+- Prompts for every later session:[[20_Progress/Projects/AI Use/Claude Kit/Claude Code/Prompts]]].
 - Nothing outside this folder was written or moved.
 
 ## Next-day target
@@ -1966,7 +1966,7 @@ notes:
   - "[[Spec - AI Loop]]"
   - "[[Spec - Automation Layers]]"
   - "[[Build Plan]]"
-  - "[[Prompts]]"
+  - [[20_Progress/Projects/AI Use/Claude Kit/Claude Code/Prompts]]]"
   - "[[Life OS]]"
 next: "Run prompt R1, then B1 (see Build Plan)"
 ---
@@ -1995,7 +1995,7 @@ The design record for The Plan's daily dashboard, streak system and AI loop, fro
 | [[Spec - AI Loop]] | Skills, agents, hooks, toolkit, logging, `60_Jarvis` zones |
 | [[Spec - Automation Layers]] | Daily, weekly and monthly layers and their constraints |
 | [[Build Plan]] | Order, dependencies, gates, risks |
-| [[Prompts]] | One prompt per session |
+|[[20_Progress/Projects/AI Use/Claude Kit/Claude Code/Prompts]]] | One prompt per session |
 
 ## Principles
 
@@ -3810,7 +3810,7 @@ notes:
   - "[[Dashboard Build Hub]]"
   - "[[Spec - Streak and Daily Note]]"
   - "[[Spec - Home and Monthly Dashboards]]"
-  - "[[Prompts]]"
+  - [[20_Progress/Projects/AI Use/Claude Kit/Claude Code/Prompts]]]"
   - "[[Build Plan]]"
   - "[[Decisions Log]]"
   - "[[Architecture]]"
@@ -3824,15 +3824,15 @@ A read-through of every note in `40_Resources/Obsidian/Dashboards` on 2026-10-13
 
 | # | Earlier statement | Where | Now | Action |
 |---|---|---|---|---|
-| 1 | Home is DataviewJS with inline SVG on `00_Dashboard.md` | [[Spec - Home and Monthly Dashboards]], B3 in [[Prompts]] | Home is a plugin view. See [[Dashboard Build Hub]] | Patch B3 pointer; B3 is not run |
-| 2 | Streak script is Python in `30_Order/System/streak`; DataviewJS must match it | [[Spec - Streak and Daily Note]], B2 in [[Prompts]] | One TypeScript engine shared by the plugin and the hooks | B2 shrinks to template and QuickAdd steps only |
+| 1 | Home is DataviewJS with inline SVG on `00_Dashboard.md` | [[Spec - Home and Monthly Dashboards]], B3 in[[20_Progress/Projects/AI Use/Claude Kit/Claude Code/Prompts]]] | Home is a plugin view. See [[Dashboard Build Hub]] | Patch B3 pointer; B3 is not run |
+| 2 | Streak script is Python in `30_Order/System/streak`; DataviewJS must match it | [[Spec - Streak and Daily Note]], B2 in[[20_Progress/Projects/AI Use/Claude Kit/Claude Code/Prompts]]] | One TypeScript engine shared by the plugin and the hooks | B2 shrinks to template and QuickAdd steps only |
 | 3 | Ring colours proposed grey, gold, green | [[Spec - Streak and Daily Note]] | Red, golden orange, green (answered 2026-10-12) | Patch the spec line when Anant approves |
 | 4 | Plugin set lists Dataview as core for Home and Multi-Column as dropped | [[Spec - Home and Monthly Dashboards]] | Home no longer needs Dataview or Meta Bind; Meta Bind and Dataview stay for other notes | None |
 | 5 | Dataview refresh 2500 ms risk | [[Spec - Home and Monthly Dashboards]] | Not relevant to the plugin view | None |
-| 6 | Hooks to deny every write under `.obsidian` | B5 in [[Prompts]] | The build deploys three files into `.obsidian/plugins/the-plan-dashboard/` | The write guard must allow that one folder, or the deploy step runs outside Claude Code |
-| 7 | Daily-note validator and `/closeday` call a Python script | B4 and B5 in [[Prompts]] | They call `node streak-cli.cjs` | Update B4 and B5 wording when they run |
+| 6 | Hooks to deny every write under `.obsidian` | B5 in[[20_Progress/Projects/AI Use/Claude Kit/Claude Code/Prompts]]] | The build deploys three files into `.obsidian/plugins/the-plan-dashboard/` | The write guard must allow that one folder, or the deploy step runs outside Claude Code |
+| 7 | Daily-note validator and `/closeday` call a Python script | B4 and B5 in[[20_Progress/Projects/AI Use/Claude Kit/Claude Code/Prompts]]] | They call `node streak-cli.cjs` | Update B4 and B5 wording when they run |
 | 8 | `.claude/` is carried by git | [[Research - Jarvis Dashboard Findings]] | `.gitignore` ignores everything except directories and `.md`, plus listed exceptions. `.claude/settings.json`, hook scripts and the engine bundle are not tracked unless whitelisted | Whitelist them in `.gitignore` during B5, with Anant's approval |
-| 9 | The Standing instructions say edits under `.obsidian` need a yes | [[Prompts]] | Still true | Each plugin prompt names its exact write paths and asks once |
+| 9 | The Standing instructions say edits under `.obsidian` need a yes |[[20_Progress/Projects/AI Use/Claude Kit/Claude Code/Prompts]]] | Still true | Each plugin prompt names its exact write paths and asks once |
 | 10 | Map is a separate canvas and a Home section | [[Spec - Home and Monthly Dashboards]], [[Front End and Visual System]] | The Explore section of the plugin is the primary map. A canvas version is optional later | Keep canvas out of the five prompts |
 | 11 | `first_template_day` is where the streak starts | [[Spec - Streak and Daily Note]] | The engine takes it as the earliest note that has at least one category action | Written into the engine prompt |
 | 12 | Homepage target is `00_Dashboard` | `.obsidian/plugins/homepage/data.json` | Becomes `Dashboard.plan` (or the command) | Set in the last prompt, with approval |
@@ -3864,7 +3864,7 @@ tags:
 notes:
   - "[[Dashboard Build Hub]]"
   - "[[Build Prompts]]"
-  - "[[Prompts]]"
+  - [[20_Progress/Projects/AI Use/Claude Kit/Claude Code/Prompts]]]"
 next: "Apply these rules to every prompt in Plugin Build Prompts"
 ---
 # Sonnet 5.5 Prompt Rules
@@ -3973,7 +3973,7 @@ Five prompts that build the dashboard plugin, run one after another. This note s
 
 ## How to run
 
-1. Run B1 and B2 from [[Prompts]] first. Prompt 1 checks they are done and stops if not.
+1. Run B1 and B2 from[[20_Progress/Projects/AI Use/Claude Kit/Claude Code/Prompts]]] first. Prompt 1 checks they are done and stops if not.
 2. Open a fresh Claude Code session in `D:\_Anant\20_Progress\Documents\The Plan`. Model Sonnet 5.5. Set effort to high in the session settings, not in the text.
 3. Paste the **Shared preamble**, then **one** prompt. Run them in order, one per session. Do not start the next until the previous ends with every gate passed and its entry is in [[Build Log]].
 4. Each prompt asks only the questions listed in it. Everything else is answered by the notes.

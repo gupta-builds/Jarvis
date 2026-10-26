@@ -5,30 +5,43 @@ source_app: claude-code
 source_os: windows
 title: "Dashboard plugin build review"
 started_at: 2026-10-25T20:12:38
-ended_at: 2026-10-26T14:41:37
-exported_at: 2026-10-26T14:41:38
-duration_minutes: 1109
+ended_at: 2026-10-26T15:00:48
+exported_at: 2026-10-26T15:03:04
+duration_minutes: 1128.2
 project: The Plan
 cwd: 'D:\_Anant\20_Progress\Documents\The Plan'
 session_id: c444e1cb-b1fd-4c4e-a3c6-55f5d4180bcd
 status: raw
-turn_count: 7
+turn_count: 10
 tools_used:
   AskUserQuestion: 4
-  Bash: 40
+  Bash: 53
+  Edit: 3
   Read: 1
+  Write: 11
 tokens:
-  input: 88
-  output: 41064
-  cache_creation: 331786
-  cache_read: 6044927
-  total: 6417865
+  input: 122
+  output: 99382
+  cache_creation: 424973
+  cache_read: 10556917
+  total: 11081394
 cost_usd: null
 model:
   - "claude-opus-5-5"
   - "claude-sonnet-5-5"
 files_touched:
   - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Dashboard Build\\Plugin Build Prompts.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Jarvis Build\\Jarvis Architecture.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Jarvis Build\\Jarvis Build Hub.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Jarvis Build\\Jarvis Build Log.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Jarvis Build\\Jarvis Decisions Log.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Jarvis Build\\Jarvis Plugin Retirement List.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Jarvis Build\\Jarvis Spec - Automation Layer.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Jarvis Build\\Jarvis Spec - Carry Forward.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Jarvis Build\\Jarvis Spec - Dashboard Page.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Jarvis Build\\Jarvis Spec - Day Model and Streak.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Jarvis Build\\Jarvis Spec - Plans Feed.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Jarvis Build\\Jarvis Verification and Risks.md"
 tags:
   - input
   - ai-conversation
@@ -5032,10 +5045,2304 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
 - `AskUserQuestion` -- `{"questions":[{"header":"Floor rows","question":"The Fall plan\u0027s floor has three rows: application moved Current to Applied, LeetCode or CodePath reps (5 or more), and one class step. Should these drive the streak, and how should they change next term?","multiSelect":false,"options":[{"label":"Rows set per term in config (Recommended)","description":"Fall\u0027s three rows are the floor now, as checkbox lines with a `[track::]` field. Next term you change a config table and the plan note, not code. The streak counts a day when all floor rows are done, one miss forgiven."},{"label":"Fixed three rows","description":"Hard-code the three rows. Simpler, but a new term means a code change."},{"label":"Floor is 2 of 3","description":"A day counts when any two floor rows are done. Softer, and it weakens the application floor."}]},{"header":"Wins","question":"What should happen to the four wins (project, career, cleanup, review)?","multiSelect":false,"options":[{"label":"Separate score, not in the streak (Recommended)","description":"Wins show as a 0 to 4 ring beside the streak and in the weekly total. The streak stays tied to the floor, so a cleanup win can never rescue a day with no application."},{"label":"Wins count toward the streak","description":"A day counts at floor plus a minimum number of wins. Richer score, blurrier signal."},{"label":"Drop the wins","description":"Floor, the 80 and the 20 only. Simplest page, loses the project and review habits."}]},{"header":"No-scroll fit","question":"Windows on the Dell and Acer differ in size. How should the no-vertical-scroll guarantee hold, given no content is removed?","multiSelect":false,"options":[{"label":"Scale the whole page to fit (Recommended)","description":"Font size and grid scale with the pane, as The Plan\u0027s view does. Below a readable minimum size a plain banner says \u0027Window too small\u0027. Only written text scrolls sideways."},{"label":"Fixed layout with minimum window","description":"One layout, tested at a set minimum window size, and a banner below it."},{"label":"Two layouts, wide and compact","description":"A wide grid and a compact grid like The Plan, switching on pane shape. More to test, but better use of tall narrow panes."}]},{"header":"Daily Loses","question":"Daily Loses are promises that slipped, carried until made up, each with a why and a fix. What should the new design do with them?","multiSelect":false,"options":[{"label":"Keep, tickable on the page (Recommended)","description":"Same mechanic, as `- [ ]` lines under `## Daily Loses` with `[since::]`, shown oldest first with age. Ticking writes back to the source note line. `/closeday` still asks for the why and fix."},{"label":"Fold into the 20","description":"Open Loses simply become carried tasks in the 20. Fewer concepts, loses the accountability framing."},{"label":"Retire Loses","description":"Drop the mechanic and rely on the floor streak and weekly review."}]}]}`
 
+## You
+
+`40_Resources/Obsidian/Dashboards/Jarvis Build` - write the notes over here since you cannot write into jarvis. it's alright but write the notes mentioned in context to jarvis and the notes inside jarvis. This folder will simply be cut and pasted inside the correct directory (jarvis). So, these notes should be written inside the plan as if they were written inside jarvis. 
+
+Now, to focus on the open questions:
+
+## You
+
+`40_Resources/Obsidian/Dashboards/Jarvis Build` - write the notes over here since you cannot write into jarvis. it's alright but write the notes mentioned in context to jarvis and the notes inside jarvis. This folder will simply be cut and pasted inside the correct directory (jarvis). So, these notes should be written inside the plan as if they were written inside jarvis. 
+
+Now, to focus on the open questions:
+
+
+
+<pasted_content id="99d6">
+Default term ends on 24 December. That day will be the last day of the Fall 2026 plan. Whatever the Plan completes, it completes. In the next term we will continue some items and discontinue others. The date marks the end of the Plan vault and many other plans currently in Jarvis.
+
+**Second question:** what exact rule picks 20 each 10? The 20 is based on the main 80 tasks that need to be completed that day. For example, if my main agenda is to submit 10 or 5 applications today, the 20 focuses on the small tasks required to have five applications ready for entry: drafting cover letters, completing resumes, and any other work Jarvis must handle.
+
+If the ET is mid‑down, the 20 focuses on the core tasks that support the ET, while the ET outlines the main items to be done. The 20 represents 20 % of the work needed and complements the ET by adding exactly what must be done; the ET remains the primary task.
+
+The Google account that the calendar should read from is **gupt0479@umn.edu**. All calendars and related data will be provided in detail. This information is also recorded in Jarvis and drafted for the weekly note. Additional notes will be supplied now to give a clearer picture of today’s workflow in Jarvis.
+
+Review these notes to understand the Google account, the calendar, and the calendars. The wording for the builder levels should match The Plan. I don’t recall the exact standard builder levels, so use the same ones as The Plan.
+
+**Question 5:** The weekly target for applications is ten per week. The goal is to send out ten applications and ensure each is completed correctly.
+
+Daily notes from July and August mention Doge. I only discovered this tool recently and have not tracked anything with the store. I started using the store about a week ago.
+
+I no longer want to use Todoist inside Jarvis. I want to manage time while referring to the daily notes I created in The Plan. The timestamps in The Plan should be used to document the time spent on each task, giving a clearer view of how our time is allocated.
+
+The toggle has been added to The Plan. Jarvis reads The Plan on /start day and /close day, and the agents monitor the Plan notes so that both daily notes remain consistent. Complete part 1 personally and the portion related to work. Adjourn. Answer all your questions.
+</pasted_content id="99d6">
+
+
+## Claude
+
+You asked for the notes to be written here as if they were in Jarvis, so I'll read Jarvis's note standards and calendar notes before writing. I'll start with the standards that govern spec, plan and prompt notes.
+
+Now the calendar notes you pointed to, the account `gupt0479@umn.edu`, and how Jarvis's weekly note uses them.
+
+The other session has already reworked the Jarvis daily note standard, close loop and calendar guide. I need these to stay consistent with them.
+
+The folder is new and empty. I'm writing the eleven notes now, starting with the decision record and the day model.
+
+Next are the page spec, the plans feed, the automation layer and the carry-forward map.
+
+One line in the plans feed asserts a tracker rule I haven't verified. I'm correcting it before writing the rest.
+
+The last five are the architecture, the plugin list, the verification and risk note, the build log and the hub.
+
+The hub is last. It holds the sequence of build prompts and every open question in one place.
+
+Now the checks: em dashes, in-folder links, and frontmatter on all eleven notes.
+
+The eleven design notes are written in The Plan's `40_Resources/Obsidian/Dashboards/Jarvis Build/`, ready to cut and paste into the Jarvis vault. I did not write `Prompts.md`, because I want your answers to the open questions first. I wrote nothing else.
+
+I checked that none of the notes contain an em dash, that each has valid frontmatter, and that every link between them resolves. I could not run Vault Lint on them, since that only works inside Jarvis. The links to Jarvis notes (`Daily Note Standard`, `Better Today`, `2026-W44` and others) will only resolve there. I did not copy the notes already in Jarvis's Dashboard folder, to avoid a second copy. I did read them and the other Jarvis notes you pointed me to, and the specs build on them.
+
+## The notes
+| Note | Holds |
+|---|---|
+| Jarvis Build Hub | The build sequence P1 to P6 and all open questions |
+| Jarvis Decisions Log | 23 decisions, the dictated answers I had to interpret, and 5 corrections |
+| Jarvis Spec - Day Model and Streak | Daily note shape, fields, floor rows, streak rule, 10 validator rules |
+| Jarvis Spec - Dashboard Page | The no-scroll rules, blocks, layout, scaling, states |
+| Jarvis Spec - Plans Feed | How plans become the 80, the 20 and the floor |
+| Jarvis Spec - Automation Layer | Calendar read, planned blocks, time from The Plan |
+| Jarvis Spec - Carry Forward | A fate for every block of the old page |
+| Jarvis Architecture | Layers, CLI, tests, two-laptop guards |
+| Jarvis Plugin Retirement List | Evidence only, nothing removed |
+| Jarvis Verification and Risks | 13 untested claims, a failure register, acceptance list |
+| Jarvis Build Log | Fixed answers and the first entry |
+
+## Corrections to what I told you earlier
+- **Toggl is in no vault note.** My search matched the word `toggle`. The July and August Jarvis daily notes do not mention Toggl, and neither does anything in The Plan. I recorded your statement that it lives in The Plan as unverified.
+- **The day model changes.** Checkbox lines replace the frontmatter toggles that the other session built this morning. The Daily Loses format stays.
+- **The Plans Board has a different term end.** It says the Fall plan ends 2026-12-14. I used your 2026-12-24 and flagged the Plans Board line.
+
+## Questions I need answered
+1. **Dictation:** "20 each 10" is read as the 20 each day, "ET" as the One Thing, and "Doge" and "the store" as Toggl. Is that right?
+2. **Unclear sentence:** what did "Complete part 1 personally and the portion related to work. Adjourn." mean?
+3. **Toggl in The Plan:** where do its timestamps land? I found no note for it.
+4. **Applications:** is the floor row one a day or two a day, given a target of 10 a week? Is `date_applied` strictly a finished application?
+5. **Too many Loses:** if more open Loses exist than fit on the page, may it show the oldest that fit plus a "+N more" chip, with a cap of 7 open? This is the only place a rule would hide content, and it needs your yes.
+6. **Old page blocks:** decide the six marked Decide in the carry-forward note (projects, clippings queue, vault health, week strip, sync banner, areas table).
+7. **Build:** React or plain DOM? Should the plugin be desktop-only? Where does the repo live on the Dell and the Acer?
+8. **Cross-vault read:** may a Jarvis session read The Plan's daily note, and what is its path on the Acer?
+9. **Window sizes:** which Dell and Acer window sizes must the page fit?
+
+After your answers, I'll write `Prompts.md` with prompt P1 only, to the Agent Prompt Standard, since the Prompt Cycle keeps one prompt in the queue.
+
+### Tool Calls
+
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && find . -name "Agent Prompt Standard.md" -o -name "Spec and Plan Standard.md" -o -name "Frontmatter Standard.md" -o -name "Project Spec Template.md" -o -name "Project Plan Template.md" -o -name "Agent Prompt Template.md" -o -name "Prompt Cycle.md" -o -name "Conformance Standard.md" | head; `
+```
+./Standards/Conformance Standard.md
+./Standards/Frontmatter Standard.md
+./Standards/Projects/Agent Prompt Standard.md
+./Standards/Projects/Spec and Plan Standard.md
+./Templates/Projects/Agent Prompt Template.md
+./Templates/Projects/Project Plan Template.md
+./Templates/Projects/Project Spec Template.md
+./Workflows/Projects/Prompt Cycle.md
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
+```
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && cat Standards/Projects/Agent\ Prompt\ Standard.md Standards/Projects/Spec\ and\ Plan\ Standard.md Templates/Projects/Agent\ Prompt\ Template.md Templates/Projects/Project\ Spec\ Template.md Templates/Projects/Project\ Plan\ Template.md`
+```
+---
+type: system
+status: sprout
+created: 2026-10-16
+updated: 2026-10-16
+tags:
+  - system
+  - standards
+system_kind: standard
+family: agent-prompt
+tier: 1
+maps_to:
+  - "[[Agent Prompt Template]]"
+used_by:
+  - "[[Prompt Cycle]]"
+gold_standard: "[[60_Claude/40_Project_Briefs/CausalOps/claude code/ran/01 - Fix MCP Server Deployment and Housekeeping|Prompt 1: Fix the MCP Server Deployment]]"
+notes:
+  - "[[Spec and Plan Standard]]"
+  - "[[Project Standard]]"
+---
+# Agent Prompt Standard
+==A prompt note holds one task for a fresh agent session and everything that session needs, so the run does not depend on what the writer remembers.==
+This is the standard for notes that hold a prompt to paste into Claude Code, Codex, or another agent: the numbered CausalOps prompts and the Internship Building System runs. It covers the prompt note and, in a second Spec, the rolling queue file that holds only the next prompt. The plan a prompt belongs to is a [[Spec and Plan Standard]] note.
+## Spec
+```json
+{
+  "family": "agent-prompt",
+  "tier": 1,
+  "match": {"type": "project", "kind": "prompt", "path": "^(20_Progress|60_Claude/40_Project_Briefs)/", "where": {}, "where_not": {"prompt_shape": "queue"}},
+  "legacy_match": [
+    {"path": "^60_Claude/40_Project_Briefs/CausalOps/claude code/"},
+    {"type": "project", "path": "^20_Progress/Internship/Building System/Runs/Prompt "}
+  ],
+  "status": ["active", "paused", "complete", "archived"],
+  "required_keys": ["type", "status", "created", "updated", "tags", "project_kind", "task", "model"],
+  "key_types": {"created": "date", "updated": "date", "tags": "list"},
+  "headings": ["Why This Exists", "Hard Rules", "Implementation Order", "Report Back"],
+  "optional_headings": ["What Not To Do", "Status", "Related Notes"]
+}
+```
+```json
+{
+  "family": "prompt-queue",
+  "tier": 1,
+  "match": {"type": "project", "kind": "prompt", "path": "^20_Progress/", "where": {"prompt_shape": "queue"}, "where_not": {}},
+  "legacy_match": [{"type": "project", "path": "^20_Progress/Internship/Building System/Runs/(Claude Code|Codex) Prompts( - Archive)?\\.md"}],
+  "status": ["active", "paused", "complete", "archived"],
+  "required_keys": ["type", "status", "created", "updated", "tags", "project_kind", "prompt_shape", "next"],
+  "key_types": {"created": "date", "updated": "date", "tags": "list"},
+  "headings": ["Prompting Guide In Use"],
+  "optional_headings": []
+}
+```
+## Headings
+### Frontmatter
+`project_kind: prompt`. `task` is a short slug of the job, for example `mcp-server-port-fix`. `model` is the agent and model it was written for. `status` is `active` until it runs, `complete` after the result is reviewed, `archived` once superseded. `prompt_shape: queue` marks the rolling file; it is omitted on a single prompt.
+### Why This Exists
+The evidence behind the task: the finding, with a file path, commit, or review reference. A hypothesis the note wrote itself is labeled as one.
+> [!WARNING]
+> Handing the agent a diagnosis that was never checked. State what was verified and what is assumed, and tell the agent to re-check it.
+### Hard Rules
+Scope limits and constraints, one line each: what to leave untouched, what must stay green, what is out of scope this round.
+### Implementation Order
+Numbered steps with the files touched, in the order to do them.
+### Report Back
+What the agent must report so the result can be reviewed: files changed, commands run with output, anything it could not do. A prompt without this gets a report nobody can check.
+### What Not To Do
+Optional. The two or three mistakes a past run made.
+### Queue file
+The queue holds only the next prompt or two, under `Prompting Guide In Use` and one `##` per prompt, and is rewritten each cycle ([[Prompt Cycle]]).
+## Legacy Shapes
+| Old shape | New shape | Move |
+|---|---|---|
+| No `project_kind`, `task`, or `model` (the CausalOps `ran/` prompts have `tags`, `created`, sometimes `task`, `model`) | Add all three | Mechanical once the model is known |
+| Prompt without Report Back or Hard Rules | Add the missing section from the prompt text | Judgment |
+| `status: active` on a prompt that already ran | `complete` | Judgment |
+| Rolling `Claude Code Prompts` or `Codex Prompts` file | Add `prompt_shape: queue`; archive files get `status: archived` | Mechanical |
+| A scratch ledger from one run (Freshness Sweep Scratch) | Not a prompt: keep as `project_kind: plan` with `status: complete`, or drop it | Judgment |
+## Done Conditions
+- A prompt note has the four required headings, `task`, and `model`.
+- Every claim in Why This Exists says whether it was verified and how.
+- A finished prompt moves to `status: complete` or to the Archive note, with its result linked.
+- The note passes [[Vault Lint]] for `agent-prompt` or `prompt-queue`.
+## Gold Standard Example
+[[60_Claude/40_Project_Briefs/CausalOps/claude code/ran/01 - Fix MCP Server Deployment and Housekeeping|Prompt 1: Fix the MCP Server Deployment]]: a cited finding, hard rules, an ordered implementation, and a report-back section. It predates `project_kind`, `status`, and `updated`, which Legacy Shapes adds.
+---
+type: system
+status: sprout
+created: 2026-10-16
+updated: 2026-10-16
+tags:
+  - system
+  - standards
+system_kind: standard
+family: project-spec-plan
+tier: 1
+maps_to:
+  - "[[Project Spec Template]]"
+  - "[[Project Plan Template]]"
+used_by: []
+gold_standard: "[[20_Progress/Internship/Building System/Source of Truth|Source of Truth]]"
+notes:
+  - "[[Project Standard]]"
+  - "[[Agent Prompt Standard]]"
+  - "[[Note Type Registry]]"
+---
+# Spec and Plan Standard
+==A spec closes what a thing is built to do, a plan orders how to get there, and both are corrected by dated layers that keep the original, never rewritten.==
+This is the standard for the thinking that sits behind a project: `project_kind: spec` (what it is and what it will not do) and `project_kind: plan` (the order of work). They live in `20_Progress/` or `60_Claude/40_Project_Briefs/`. A transcript summary is a [[Brief Standard]] note; the status page is a [[Project Standard]] note.
+## Spec
+```json
+{
+  "family": "project-spec",
+  "tier": 1,
+  "match": {"type": "project", "kind": "spec", "path": "^(20_Progress|60_Claude/40_Project_Briefs)/", "where": {}, "where_not": {}},
+  "legacy_match": [
+    {"type": "project", "path": "^20_Progress/Internship/Building System/Source of Truth"},
+    {"type": "project", "path": "^20_Progress/Projects/CS/TradingView/Canon/"},
+    {"type": "project", "path": "^60_Claude/40_Project_Briefs/CausalOps/(Memory Layer|_Index)\\.md"}
+  ],
+  "status": ["active", "paused", "complete", "archived"],
+  "required_keys": ["type", "status", "created", "updated", "tags", "project_kind", "next"],
+  "key_types": {"created": "date", "updated": "date", "tags": "list"},
+  "headings": ["What This Is", "Current State", "Non-Goals"],
+  "optional_headings": ["Definition of Done", "Next Action", "Open Questions", "Corrections", "Evidence", "Related Notes"]
+}
+```
+```json
+{
+  "family": "project-plan",
+  "tier": 1,
+  "match": {"type": "project", "kind": "plan", "path": "^(20_Progress|60_Claude/40_Project_Briefs)/", "where": {}, "where_not": {}},
+  "legacy_match": [
+    {"type": "project", "path": "^20_Progress/Internship/Building System/Research Loop - (Implementation|Improvement) Plan"},
+    {"type": "project", "path": "^60_Claude/40_Project_Briefs/CausalOps/(Memory Layer Implementation Plan|Roadmap)\\.md"}
+  ],
+  "status": ["active", "paused", "complete", "archived"],
+  "required_keys": ["type", "status", "created", "updated", "tags", "project_kind", "next"],
+  "key_types": {"created": "date", "updated": "date", "tags": "list"},
+  "headings": ["Goal", "Sequence", "Open Questions"],
+  "optional_headings": ["Current State", "Non-Goals", "Decisions", "Done When", "Next Action", "Corrections", "Evidence", "Related Notes"]
+}
+```
+## Headings
+### Frontmatter
+`project_kind` is `spec` or `plan`. `next` is the one thing to do with this note, `none` once the note is final or archived. A superseded spec or plan sets `status: archived`; superseded notes have been left `active`.
+### What This Is (spec)
+The closed statement of what the system does and for whom, opening with a single `==highlight==` sentence.
+*Density:* a short opening plus the few sections the system needs; Source of Truth uses its gates, classification, and pipeline.
+### Current State (spec)
+What is built versus specified, dated. Every claim about code cites a file and line, a commit, or command output, and a claim that was checked live says when.
+> [!WARNING]
+> Spec text that describes the design as if it were shipped.
+### Non-Goals (spec)
+What the system deliberately does not do, one bullet each. Real notes call it Explicit Non-Goals or Out of Scope.
+### Goal (plan)
+The outcome in one sentence, as the `==highlight==` anchor.
+### Sequence (plan)
+Ordered steps by dependency, each with the way to tell it is done. Name what is explicitly out of scope this round.
+*Density:* a numbered list; a long prompt belongs in an [[Agent Prompt Standard]] note.
+### Open Questions (plan)
+`- [ ]` tasks for decisions that block the sequence.
+### Corrections
+When a claim turns out wrong, keep the original text and add a dated section: `## Corrections` with what was wrong, how it was found, and what replaced it.
+> [!WARNING]
+> Quietly editing the original so the history disappears. Layering, with the original kept, is how these notes stay trustworthy.
+## Legacy Shapes
+| Old shape | New shape | Move |
+|---|---|---|
+| Type `project` with no `project_kind` | `project_kind: spec` or `plan` by content | Judgment |
+| `status: tree` or `sprout` | `active`, or `complete` if final | Judgment |
+| Spec headings: What This System Is, The End Goal, Explicit Non-Goals, Out of Scope | What This Is, Non-Goals | Judgment |
+| Plan headings: Path To N, Priority 1..N, Implementation Sequence, Execution Plan | Sequence | Judgment |
+| A dated heading such as "2026-10-03 Corrections (original text above kept)" | `## Corrections` with a dated entry inside | Mechanical |
+| Portfolio design docs typed `concept` (about 85) | `type: project`, `project_kind: spec` | Judgment |
+| Roadmap with a status table | `project_kind: plan`; the table goes under Current State | Judgment |
+## Done Conditions
+- `project_kind` is set and matches the note, and `next` is live or `none`.
+- A spec has What This Is, Current State, and Non-Goals; a plan has Goal, Sequence, and Open Questions.
+- Code claims cite evidence, and corrections keep the original.
+- The note passes [[Vault Lint]] for `project-spec` or `project-plan`.
+## Gold Standard Example
+[[20_Progress/Internship/Building System/Source of Truth|Source of Truth]] for a spec: a highlighted lead, hard gates, explicit non-goals, and a dated corrections layer that keeps the original. [[20_Progress/Internship/Building System/Research Loop - Improvement Plan|Improvement Plan]] for a plan: verdict, causes, a prioritized path, blocking decisions, and a correction. Both still carry `status` values outside the vocabulary.
+---
+type: project
+status: active
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags: []
+project_kind: prompt
+task:
+model:
+---
+# <% tp.file.title %>
+## Why This Exists
+<!-- The evidence behind the task, with a path or commit. Say what was verified and what is assumed. -->
+## Hard Rules
+<!-- Scope limits, one line each: what stays untouched, what must stay green, what is out of scope. -->
+## Implementation Order
+<!-- Numbered steps with the files touched, in the order to do them. -->
+## Report Back
+<!-- What the agent must report: files changed, commands run with output, anything it could not do. -->
+---
+type: project
+status: active
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags: []
+project_kind: spec
+next:
+related_progress: []
+---
+# <% tp.file.title %>
+## What This Is
+<!-- The closed statement of what the system does and for whom, opening with one ==highlight== sentence. -->
+## Current State
+<!-- What is built versus specified, dated. Cite file and line, a commit, or command output for every code claim. -->
+## Non-Goals
+<!-- What it deliberately does not do, one bullet each. -->
+---
+type: project
+status: active
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags: []
+project_kind: plan
+next:
+related_progress: []
+---
+# <% tp.file.title %>
+## Goal
+<!-- The outcome in one sentence, with one ==highlight==. -->
+## Sequence
+<!-- Numbered steps in dependency order, each with how to tell it is done. Name what is out of scope this round. -->
+## Open Questions
+<!-- Tasks only, as - [ ] decisions that block the sequence. -->
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
+```
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && cat Workflows/Projects/Prompt\ Cycle.md; sed -n 1,80p Standards/Frontmatter\ Standard.md`
+```
+---
+type: system
+status: sprout
+created: 2026-10-16
+updated: 2026-10-16
+tags:
+  - system
+  - workflow
+system_kind: workflow
+serves: "[[Agent Prompt Standard]]"
+trigger: A build or fix round on a codebase will be run by an agent session.
+notes:
+  - "[[Agent Prompt Template]]"
+  - "[[Spec and Plan Standard]]"
+---
+# Prompt Cycle
+Write the next prompt, run it, review the result against the repo, and archive it, so the queue only ever holds what runs next.
+## Use when
+A project like the internship research loop or CausalOps has a round of agent work to run. The Building System runs are the worked example.
+## Steps
+1. Open the queue note (`Claude Code Prompts`, `Codex Prompts`). It holds the next prompt and only that.
+2. Check the evidence for Why This Exists against the live repo. A hypothesis the queue wrote itself is labeled, and said plainly when it turns out wrong.
+3. Write the prompt from [[Agent Prompt Template]] with scope in Hard Rules and a Report Back section.
+4. Run it in a fresh agent session.
+5. Review Report Back against the repo: the commands and their output, not the agent's summary.
+6. Move the finished prompt and its reviewed result to the Archive note and set its `status` to `complete`.
+7. Rewrite the queue with the next prompt, and add a Log entry to the project note.
+## Do not
+Do not let finished prompts pile up in the queue, hand over an unchecked diagnosis, or accept a report you did not compare to the repo.
+## Done when
+- The queue holds only the next prompt.
+- The finished prompt and its result are in the Archive note, with `status: complete`.
+- The project Log names the round and what was verified.
+---
+type: system
+status: sprout
+created: 2026-10-16
+updated: 2026-10-16
+tags:
+  - system
+  - standards
+system_kind: standard
+family: policy
+maps_to: []
+used_by:
+  - "[[Conformance on Touch]]"
+gold_standard: none
+notes:
+  - "[[Note Kit Standard]]"
+  - "[[Conformance Standard]]"
+  - "[[40_Resources/Obsidian/Vault Operating System]]"
+---
+# Frontmatter Standard
+==One closed vocabulary decides every note's `type` and `status`. Anything finer is a `*_kind` key, anything pipeline-specific is a scoped key, and nothing else becomes a new value.==
+This is the canonical schema for note properties in Jarvis. Before it, the type and status lists lived in CLAUDE.md, Vault Operating System, and the templates, and the three disagreed (8, 12, and about 20 types, against 40+ in the notes). Vault Operating System now points here. A property that matters to one family only is defined in that family's Standard, not in this file.
+## type
+Seventeen values. A note has exactly one.
+| type | What it is | Kind key | Allowed kinds |
+|---|---|---|---|
+| `input` | Captured or source-derived: a clip, summary, transcript, brief | `input_kind` | clipping, source-summary, pdf-summary, web-summary, video-summary, repo-card, transcript, brief, ai-conversation, ai-conversation-summary, job-dossier |
+| `evergreen` | Distilled claim you understand and reuse | `evergreen_kind` | distilled, synthesis, identity |
+| `concept` | One course or technical concept with mechanism and contrast | none | none |
+| `class` | A course workspace note (week, lab, board, textbook) | `class_kind` | week, textbook, textbook-map, lab, homework, exam, exam-material, board, subboard, discussion, preparation, project, syllabus, control, track, audit |
+| `project` | Active work with an outcome and a `next:` | `project_kind` | project, spec, plan, code-mirror, prompt |
+| `plan` | A standing plan with a review cadence | none | none |
+| `thought` | Personal working notes: daily, weekly, reflection | `thought_kind` | daily, weekly, monthly, yearly, reflection, brainstorm |
+| `index` | A MOC: prose map of a folder | none | none |
+| `dashboard` | A live query surface or board | `dashboard_kind` | dashboard, board, habit-board, field-os, depth-ladder, question-bank |
+| `review` | A periodic or one-off review of work | `review_kind` | weekly, monthly, capability, internship-loop, ops, audit, curator, project |
+| `output` | A deliverable made from understanding | `output_kind` | story, bullet, one-pager, prompt, post, resume, cover-letter |
+| `action` | A link-dense map of next steps | none | none |
+| `tracker` | One application or item moving through stages | none | none |
+| `contact` | A person | none | none |
+| `reference` | Stable lookup material | `reference_kind` | tool-profile, resource, plugin-doc, settings-doc, runbook, research, repo, program, company, diagram, link-hub |
+| `system` | The vault's own rules, logs, and operating docs | `system_kind` | standard, workflow, contract, spec, log, runbook, guide |
+| `generated` | Written by a tool, not by a person or an agent | `gen_kind` | code, rationale, document, community, index, report |
+If two types seem to fit, pick by what the reader does with the note: studies it (`concept`, `evergreen`), executes it (`project`, `plan`, `tracker`), looks it up (`reference`), or follows it (`system`).
+## status
+One axis only. Maturity for knowledge, lifecycle for work.
+| type | Allowed status | Default |
+|---|---|---|
+| `input`, `concept`, `evergreen`, `index`, `output`, `reference` | seed, sprout, tree, archived | seed |
+| `class` | seed, sprout, tree, archived | seed |
+| `thought` | seed, sprout, active, complete | seed (`active` for daily) |
+| `project`, `plan`, `tracker`, `action` | active, paused, complete, archived | active |
+| `contact` | active, paused, archived | active |
+| `dashboard` | active, archived | active |
+| `review` | seed, sprout, tree, complete | sprout |
+| `system` | seed, sprout, tree, archived | sprout |
+| `generated` | no `status` | none |
+`seed` is a rough capture, `sprout` a working draft, `tree` trusted and stable. A maturity value moves up only when the note earns it. Never invent a status such as `raw`, `unreviewed`, `Preparing`, or `stale`; the next two keys exist for those.
+## Machine and pipeline states
+- `review_state: raw | unreviewed | reviewed` records whether a human or agent has checked a captured or generated note. It replaces `raw`, `unreviewed`, and `auto-generated` in `status`.
+- `stage` holds a pipeline position such as `applied` or `interview`. It is owned by the Standard of the pipeline that uses it (the internship Standards), and its values are listed there.
+## Universal keys
+Required on every Tier 1 and Tier 2 note. Tier rules are in [[Conformance Standard]].
+| Key | YAML type | Rule |
+|---|---|---|
+| `type` | text | One of the seventeen above |
+| `status` | text | Allowed value for the type |
+| `created` | date | `YYYY-MM-DD`, set once |
+| `updated` | date | `YYYY-MM-DD`, set on a meaningful change only |
+| `tags` | list | No `#`, no folder replicas; `[]` is allowed |
+Optional everywhere: `notes` (list of wikilinks), `next` (text), `area`, `source_url`, `deadline` (date), `reviewed` (date), `track` (list), `source_status`, `related_progress`. The capability keys (`prerequisites`, `used_in`, `evidence`, `mastery_level`, `next_drill`, `drill_interval`, `question_status`, `source_concepts`) apply to the families that define them.
+## YAML typing rules
+- Numbers are bare: `mastery_level: 0`, never `"0"`. A quoted number turns into text in Properties and sorts as text in Dataview.
+- Dates are bare ISO: `created: 2026-10-16`. A quoted date breaks date sorting the same way.
+- Wikilinks are quoted strings: `"[[Note]]"`. Lists of them use one quoted item per line.
+- Empty relational fields are `[]`. Empty scalars are left blank, never `""`.
+- Keys are `snake_case` with no spaces or parentheses. No duplicate keys. `---` appears only twice in a file, to open and close the frontmatter.
+- Files are UTF-8, LF, with no byte-order mark.
+- Every wikilink in frontmatter points at a file that exists. A stub belongs in the body, labeled `(to create)`.
+## Scoped keys
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
+```
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents" && grep -rli "gupt0479\|google calendar\|gcal" --include=*.md Jarvis/10_Areas Jarvis/20_Progress Jarvis/30_Order Jarvis/40_Resources Jarvis/60_Claude "The Plan/00_Live" "The Plan/10_UMN" "The Plan/20_Progress" "The Plan/30_Order" "The Plan/40_Resources" "The Plan/60_Jarvis" 2>/dev/null | head -30`
+```
+Jarvis/10_Areas/Life/Plans/Fall 2026/Fall 2026 - The One Thing.md
+Jarvis/10_Areas/Life/Plans/Fall 2026/Fall 2026 Builds.md
+Jarvis/10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan.md
+Jarvis/10_Areas/Life/Plans/Summer 2026/00 - Summer Plans Index.md
+Jarvis/20_Progress/AI/Claude Code/.claude_windows/skills/synced/[REDACTED]/morning/SKILL.md
+Jarvis/20_Progress/AI/Claude Code/OpsPilot/.claude/PRD.md
+Jarvis/20_Progress/AI/Claude Code/second-brain-claudekit/_docs/Current-Setup.md
+Jarvis/20_Progress/Degree/_Courses/_Courses Board.md
+Jarvis/20_Progress/Internship/Resumes/Main Resume.md
+Jarvis/20_Progress/Projects/Jarvis & The Plan/Builds - Jarvis/Jarvis Dashboard Build Record.md
+Jarvis/30_Order/Standards/Operations/Daily Note Standard.md
+Jarvis/30_Order/Workflows/Operations/Daily Close Loop.md
+Jarvis/40_Resources/CS/Concepts/New Laptop/Old Laptop Rebuild/Runs/_backups/acer-5c-20261017/log.md
+Jarvis/40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Build 7 Findings.md
+Jarvis/40_Resources/CS/Concepts/New Laptop/Sync/Cross-Laptop Sync - Jarvis Wrap-Up.md
+Jarvis/40_Resources/CS/Concepts/New Laptop/Sync/Google Drive Sync Policy.md
+Jarvis/40_Resources/CS/Concepts/New Laptop/Sync/WSL Session Briefing.md
+Jarvis/40_Resources/Obsidian/Dashboard/The Plan/The Plan Dashboard Daily Workflow and AI Loop.md
+Jarvis/40_Resources/Obsidian/Dashboard/The Plan/The Plan Dashboard State and Gaps 2026-10-25.md
+Jarvis/60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Conversations/10-17 Second-brain conversation layer postmortem.md
+Jarvis/60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Home/09-21 Calendar connection and Wednesday schedule.md
+Jarvis/60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Home/09-24 VS Code professional setup configuration.md
+Jarvis/60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis/09-19 Cross-laptop sync Build 7.md
+Jarvis/60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis/10-04 Read .claudeskillsweekly-review.md and execute every step.md
+Jarvis/60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis/10-07 Pointers and Addresses merge conflicts.md
+Jarvis/60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis/10-14 Plans for The Plan and Jarvis.md
+Jarvis/60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis/10-17 Second-brain conversation layer postmortem.md
+Jarvis/60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis/10-21 Syncthing Obsidian sync conflicts.md
+Jarvis/60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis/10-23 CPT, OPT, H1B visa rules.md
+Jarvis/60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis/10-25 Read .claudeskillsweekly-reviewweekly-review.md and execute.md
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
+```
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && grep -n -i "gupt0479\|google calendar\|gcal\|calendar" "10_Areas/Life/Plans/Fall 2026/Fall 2026 Builds.md" "30_Order/Standards/Operations/Daily Note Standard.md" "30_Order/Workflows/Operations/Daily Close Loop.md" "20_Progress/Projects/Jarvis & The Plan/Builds - Jarvis/Jarvis Dashboard Build Record.md" "40_Resources/CS/Concepts/New Laptop/Sync/Google Drive Sync Policy.md" | cut -c1-400 | head -40; echo ======; cat "60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Home/09-21 Calendar connection and Wednesday schedule.md" | head -120`
+```
+10_Areas/Life/Plans/Fall 2026/Fall 2026 Builds.md:15:next: "Pick the tool stack for the Jarvis automations weekend project (Gmail, GCal, mobile-to-Obsidian) - currently unscoped"
+10_Areas/Life/Plans/Fall 2026/Fall 2026 Builds.md:32:**Jarvis automations** is the one genuinely new, unscoped build this session: a weekend (no date set yet) spent building real automations across Gmail, Google Calendar, and other information-providing tools, plus a pipeline that ingests videos shared from the phone - Reels, YouTube videos watched - landing in Obsidian somehow. `20_Progress/Proje
+10_Areas/Life/Plans/Fall 2026/Fall 2026 Builds.md:48:| Jarvis automations | Empty folder, nothing scoped | Real Gmail/GCal/mobile-to-Obsidian automations built and running |
+30_Order/Standards/Operations/Daily Note Standard.md:21:  - "[[How to Use Google Calendar]]"
+30_Order/Standards/Operations/Daily Note Standard.md:53:`*Goal*:` one line. Under it, `### 80 - The One Thing` holds one checkbox ("I will ... at ... in ..."); `### 20 - Supporting Work` holds two to four; `### Blocks` lists the day's calendar events, time then deliverable; `**Do NOT do today:**` is copied from the plan's anti-drift rules. All of it comes from the weekly Goals and the calendar, no
+30_Order/Standards/Operations/Daily Note Standard.md:66:| text | The promise, as the weekly note, the calendar or the toggle named it. |
+30_Order/Standards/Operations/Daily Note Standard.md:69:| `from` | `weekly` (a Goal or Friday checkpoint), `calendar` (a block that passed), `win`, `floor`, or `other`. |
+30_Order/Standards/Operations/Daily Note Standard.md:78:Sources: a weekly Goal or Friday checkpoint not met, a calendar block that passed without its deliverable, a toggle still `false` at close, an open Lose from an earlier day. Lines are never deleted.
+30_Order/Workflows/Operations/Daily Close Loop.md:16:  - "[[How to Use Google Calendar]]"
+30_Order/Workflows/Operations/Daily Close Loop.md:20:Plan first, record second. The weekly note says what was promised, the calendar says when, the daily note says what happened, and Daily Loses holds the gap.
+30_Order/Workflows/Operations/Daily Close Loop.md:25:2. It reads the weekly Goals, the Systems table and today's calendar blocks, read only ([[How to Use Google Calendar]]).
+30_Order/Workflows/Operations/Daily Close Loop.md:29:6. `/closeday` reads the toggles, calendar, session log and weekly Goals. It proposes a Lose for each false toggle, passed block without evidence, or unmet Goal, then asks for the counts and each `why` and `fix` in one block.
+30_Order/Workflows/Operations/Daily Close Loop.md:33:Do not fill End of Day from memory, type `wins_done` or `floors_done`, write a `why` for Anant, or write to the calendar. Do not tick a toggle without evidence. Do not delete a Lose: make it up with `[x]` or drop it with `[-]` and a reason.
+20_Progress/Projects/Jarvis & The Plan/Builds - Jarvis/Jarvis Dashboard Build Record.md:36:| 2026-10-25 | Time layer | The W44 calendar rebuild and [[How to Use Google Calendar]]: events in a five-line format on the working calendar | The guide's frontmatter |
+20_Progress/Projects/Jarvis & The Plan/Builds - Jarvis/Jarvis Dashboard Build Record.md:44:6. **The skills did not know the week.** `/startday` and `/closeday` read the Fall plan and the session log, not the weekly note's Goals or the calendar.
+20_Progress/Projects/Jarvis & The Plan/Builds - Jarvis/Jarvis Dashboard Build Record.md:47:- **Standard and Workflow**: [[Daily Note Standard]] now says what each toggle feeds and defines Daily Loses: a task line with `why`, `fix`, `from` and `since`, and four marks (`[ ]` open, `[x]` made up, `[>]` carried, `[-]` dropped). [[Daily Close Loop]] was rewritten around the weekly note, the calendar, t
+20_Progress/Projects/Jarvis & The Plan/Builds - Jarvis/Jarvis Dashboard Build Record.md:49:- **Skills**: `/startday` repairs leftover placeholders, reads the weekly Goals and today's calendar (read only), and carries open Loses forward by copying the line and marking the old one `[>]`. `/closeday` reads the toggles as evidence, proposes a Lose for each false toggle, passed block and unmet Goal, as
+20_Progress/Projects/Jarvis & The Plan/Builds - Jarvis/Jarvis Dashboard Build Record.md:57:- The automation layer: Toggl time, phone screen time, calendar writes. It is designed in a separate step and nothing here depends on it.
+40_Resources/CS/Concepts/New Laptop/Sync/Google Drive Sync Policy.md:39:A direct Drive search for "Backup" during this session's cleanup surfaced individual raw `.py` files actively uploading from the "UMN" backed-up folder, owned by the UMN university account (`gupt0479@umn.edu`): `BackupRead_BackupWrite.py`, `BackupEventLog.py`, `BackupSeek_streamheaders.py` — loose coursework source files, no
+======
+﻿---
+type: input
+input_kind: ai-conversation
+source_app: claude-code
+source_os: windows
+title: "Calendar connection and Wednesday schedule"
+started_at: 2026-09-21T22:07:45
+ended_at: 2026-09-21T22:08:44
+exported_at: 2026-10-17T21:06:39
+duration_minutes: 1
+project: Home
+cwd: 'C:\Users\anant'
+session_id: [REDACTED]
+status: raw
+turn_count: 2
+tools_used:
+  mcp__claude_ai_Google_Calendar__list_calendars: 1
+  mcp__claude_ai_Google_Calendar__list_events: 1
+  ToolSearch: 1
+tokens:
+  input: 12
+  output: 2072
+  cache_creation: 51814
+  cache_read: 309014
+  total: 362912
+cost_usd: 0.289803
+model:
+  - "claude-sonnet-5"
+files_touched: []
+tags:
+  - input
+  - ai-conversation
+  - claude-code
+  - windows
+---
+
+# Calendar connection and Wednesday schedule
+
+## You
+
+What calendar are you connected to and what do you see registered for wednesday?
+
+## Claude
+
+You're connected to your primary Google Calendar (**gupt0479@umn.edu**), alongside several others in your calendar list (Todoist x2, VIT, US Holidays, DataTalks.Club, CSE Student Groups, Goldy's Winter Break, Partiful, UMN.LOL).
+
+For **Wednesday, September 23, 2026**, on your primary calendar I see two events:
+
+1. **AIIS Leadership meet** — 5:00–6:45 PM (Winnipeg time), at HSEC 2-193. Recurring meeting with several umn.edu attendees, organized by garg0088@umn.edu; your RSVP is still "needs action."
+2. **Gym - Legs** — 5:15–7:00 PM (Chicago time), recurring, organized by you.
+
+Note the two overlap by about 30–45 minutes depending on time zone conversion, if that matters for planning.
+
+### Tool Calls
+
+- `ToolSearch` -- `{"query":"select:mcp__claude_ai_Google_Calendar__list_calendars,mcp__claude_ai_Google_Calendar__list_events","max_results":5}`
+- `mcp__claude_ai_Google_Calendar__list_calendars` -- `{}`
+- `mcp__claude_ai_Google_Calendar__list_events` -- `{"startTime":"2026-09-23T00:00:00","endTime":"2026-09-24T00:00:00"}`
+
 ## Actions Taken
 
 **Files created:**
 _None_
+
+**Files modified:**
+_None_
+
+**Files deleted (heuristic, from Bash commands):**
+_None detected_
+
+**Commands run:**
+_None_
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
+```
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && cat "30_Order/Standards/Operations/Daily Note Standard.md"; echo =======; cat "30_Order/Workflows/Operations/Daily Close Loop.md"`
+```
+---
+type: system
+status: sprout
+created: 2026-10-16
+updated: 2026-10-26
+tags:
+  - system
+  - standards
+system_kind: standard
+family: daily-note
+tier: 2
+maps_to:
+  - "[[Better Today]]"
+used_by:
+  - "[[Daily Close Loop]]"
+gold_standard: none
+notes:
+  - "[[Plan Standard]]"
+  - "[[Periodic Review Note Standard]]"
+  - "[[Frontmatter Standard]]"
+  - "[[How to Use Google Calendar]]"
+---
+# Daily Note Standard
+==A daily note is the day's plan first and its record second: the toggles and Daily Loses keep the record honest.==
+The Standard for `10_Areas/Life/Enumerate/Daily/` notes. `/startday` writes the plan and carries open Loses forward, `/closeday` counts the toggles and writes the Loses, and the note fits even if the day is never closed. Standing plans are [[Plan Standard]]; weekly, monthly, and yearly notes are [[Periodic Review Note Standard]].
+## Spec
+```json
+{
+  "family": "daily-note",
+  "tier": 2,
+  "match": {"type": "thought", "kind": "daily", "path": "^10_Areas/Life/Enumerate/Daily/", "where": {}, "where_not": {}},
+  "status": ["seed", "sprout", "active", "complete"],
+  "required_keys": ["type", "status", "created", "updated", "tags", "thought_kind", "day_state"],
+  "key_types": {"created": "date", "updated": "date", "tags": "list", "lc_count": "number", "study_today": "number", "wins_done": "number", "floors_done": "number", "win_project": "bool", "win_career": "bool", "win_cleanup": "bool", "win_review": "bool", "floor_1": "bool", "floor_2": "bool", "floor_3": "bool"},
+  "headings": ["Morning Plan", "Daily Wins", "Daily Loses", "Daily Floor"],
+  "optional_headings": ["Carryover from Previous Sessions", "Productivity", "End of Day"],
+  "legacy_match": [{"path": "^10_Areas/Life/Enumerate/Daily/"}]
+}
+```
+## What the toggles do
+A toggle is a Meta Bind input bound to one frontmatter boolean. It is evidence, and three things read it:
+- **Dashboard.** `00_Dashboard.md` counts `win_*` out of 4 and `floor_*` out of 3 live, and stores no copy.
+- **`/closeday`.** It counts them into `wins_done` and `floors_done`, never asks, and turns every toggle still `false` into a Daily Loses line.
+- **Weekly review.** It sums `wins_done` and `floors_done` across the week.
+Nobody types the two totals. An unclosed day has them at 0 while the dashboard shows the live count.
+## Headings
+The title is the fixed prompt `# Did you get better today?`.
+### Frontmatter
+`type: thought`, `thought_kind: daily`, `status` (`active` while the day runs, `complete` once closed), `day_state` (`planned` or `closed`), `created`, `updated`, `tags: [daily]`. Tracking keys: the toggles `win_project`, `win_career`, `win_cleanup`, `win_review`, `floor_1` to `floor_3` (booleans); `lc_count` and `study_today` (typed numbers); `wins_done` and `floors_done` (counted at close).
+> [!WARNING]
+> A `created` that still holds `<% tp.date.now("YYYY-MM-DD") %>`. Periodic Notes copies the template, and Templater resolves the placeholder only when "Trigger Templater on new file creation" is on. Otherwise date queries skip the note. `/startday` resolves it to the file name's date.
+### Morning Plan
+`*Goal*:` one line. Under it, `### 80 - The One Thing` holds one checkbox ("I will ... at ... in ..."); `### 20 - Supporting Work` holds two to four; `### Blocks` lists the day's calendar events, time then deliverable; `**Do NOT do today:**` is copied from the plan's anti-drift rules. All of it comes from the weekly Goals and the calendar, not memory.
+*Density:* the 80 is a single task.
+> [!WARNING]
+> Leaving the template's empty checkbox unfilled.
+### Daily Wins
+Four rows: Project, Career, Cleanup, Review. The target comes from the weekly Goals and is a deliverable ("CSCI 4061 P2: Part 1 tests pass"), not a topic; Done is a toggle.
+### Daily Loses
+==Promises not kept, written the day they slip, until made up.== One task line each, with inline fields:
+```
+- [ ] CSCI 4041: 5 problems logged in Weekly Set [why:: opened YouTube first, no slot] [fix:: laptop opens on DSA.md at 9:30] [from:: weekly] [since:: 2026-10-26]
+```
+| Field | Holds |
+|---|---|
+| text | The promise, as the weekly note, the calendar or the toggle named it. |
+| `why` | Why, how and where it slipped, in Anant's words. The assistant asks and never invents it. If unanswered, `(unanswered)`. |
+| `fix` | One concrete change that makes the same loss less likely. Not a wish. |
+| `from` | `weekly` (a Goal or Friday checkpoint), `calendar` (a block that passed), `win`, `floor`, or `other`. |
+| `since` | The date it first slipped. It never changes, so age is `today - since`. |
+The checkbox mark is the state:
+| Mark | Meaning |
+|---|---|
+| `[ ]` | Open. Counts on the dashboard and ages one day each midnight. |
+| `[x]` | Made up. It stays in the note as a record, and the dashboard drops it. |
+| `[>]` | Carried. `/startday` copied it to the new day and marked the old line. Only the newest copy is open. |
+| `[-]` | Dropped on purpose. Needs a reason in `why`. |
+Sources: a weekly Goal or Friday checkpoint not met, a calendar block that passed without its deliverable, a toggle still `false` at close, an open Lose from an earlier day. Lines are never deleted.
+### Daily Floor
+Rows come from the active plan's Systems table, not the template: track, target, topic, and a `floor_n` toggle.
+> [!WARNING]
+> A heading that names the term ("Fall Daily Floor"). It breaks next term, and a skill that patches by name stops finding it.
+### Carryover from Previous Sessions (optional)
+Work the session log left open. Broken promises go in Daily Loses.
+### Productivity (optional)
+Inputs bound to `lc_count` and `study_today`, no totals. No meals, water, or health tracking: that belongs in The Plan ([[AGENTS]], golden rule 6).
+### End of Day (optional)
+Appended by `/closeday`: a scorecard, `Day Status` GREEN or RED, `What Actually Happened` in two or three honest sentences, a `Friction Fix` when RED, and `Preview Tomorrow`. Never written from memory; an unclosed day stays `planned`.
+## Legacy Shapes
+| Old shape | New shape | Move |
+|---|---|---|
+| `thought_kind: reflection` | `daily` | mechanical |
+| `status: seed` | `active`, or `complete` if End of Day exists | mechanical |
+| No `day_state` | `closed` if End of Day exists, else `planned` | mechanical |
+| `tags: ["#journal"]` | `[daily]` | mechanical |
+| `created` empty or an unresolved `<% %>` | The date in the file name | mechanical |
+| `## Fall Daily Wins`, `## Summer OS Checklist` | `## Daily Wins` | mechanical |
+| `## Fall Daily Floor`, `## Academic Stack` | `## Daily Floor` | mechanical |
+| `ac_application`, `ac_leetcode`, `ac_class`, and the Summer `ac_*` toggles | `floor_1`, `floor_2`, `floor_3` by row order, in frontmatter and in the `INPUT[toggle:...]` cells | mechanical |
+| `### 80 — The One Thing` (em dash) | `### 80 - The One Thing` | mechanical |
+| `**Wins hit:** INPUT[number:wins_done]` typed by hand | Remove the line; `/closeday` writes the count | mechanical |
+| `habits_done` | Not written any more; the floor toggles replace it | mechanical |
+| Daily Loses as a bare numbered list | Task lines with `why`, `fix`, `from`, `since` | judgment: the why is Anant's |
+| Meals and Water table, a Physical win row | Remove; it belongs in The Plan | judgment |
+## Done Conditions
+- Frontmatter passes the Spec, and `day_state: closed` appears only when End of Day exists.
+- Morning Plan has a filled 80, at least two 20 items, and Blocks or "connector unavailable".
+- Every open Lose has `since`; a missing `why` reads `(unanswered)`.
+- No heading names a term.
+- A closed day has `wins_done` and `floors_done` equal to the toggle count, End of Day, and `status: complete`.
+- A day left `planned` is counted in the weekly review, not failed ([[Daily Close Loop]]).
+## Gold Standard Example
+None yet. Name the first daily made from [[Better Today]] and closed with `/closeday`. The closest old-shape note is [[2026-10-05]].=======
+---
+type: system
+status: sprout
+created: 2026-10-16
+updated: 2026-10-26
+tags:
+  - system
+  - workflow
+system_kind: workflow
+serves: "[[Daily Note Standard]]"
+trigger: The working day starts with /startday or ends with /closeday.
+notes:
+  - "[[Better Today]]"
+  - "[[Plan Standard]]"
+  - "[[Plan Review Cadence]]"
+  - "[[How to Use Google Calendar]]"
+  - "[[2026-W44]]"
+---
+# Daily Close Loop
+Plan first, record second. The weekly note says what was promised, the calendar says when, the daily note says what happened, and Daily Loses holds the gap.
+## Use when
+The day opens with `/startday` or closes with `/closeday`. Closing is optional: the dashboard still shows live toggle counts and open Loses, and holds no number of its own.
+## Steps
+1. `/startday` finds or creates today's note from [[Better Today]], resolves any leftover `<% %>` date, and never creates it elsewhere.
+2. It reads the weekly Goals, the Systems table and today's calendar blocks, read only ([[How to Use Google Calendar]]).
+3. It carries each open Lose forward: the line is copied with its original `since`, and the old line becomes `[>]`.
+4. It fills Morning Plan, Wins targets and Floor rows, and patches only the three `today_*` fields of `00_Dashboard.md`. `day_state` stays `planned`.
+5. Work the day. Tick a toggle only with evidence. Write a Lose when a promise slips.
+6. `/closeday` reads the toggles, calendar, session log and weekly Goals. It proposes a Lose for each false toggle, passed block without evidence, or unmet Goal, then asks for the counts and each `why` and `fix` in one block.
+7. It writes `lc_count`, `study_today`, `wins_done` and `floors_done` (counted), the confirmed Loses and End of Day, sets `day_state: closed`, clears the `today_*` fields, and logs one line.
+8. An unclosed day stays `planned` and its Loses carry on. `/weekly-review` counts unclosed days, sums wins and floors, and lists open Loses with ages.
+## Do not
+Do not fill End of Day from memory, type `wins_done` or `floors_done`, write a `why` for Anant, or write to the calendar. Do not tick a toggle without evidence. Do not delete a Lose: make it up with `[x]` or drop it with `[-]` and a reason.
+## Done when
+- Today's note has a real `created` date and a matching `day_state`.
+- A closed day has the counts equal to the toggles, every slipped promise in Daily Loses, and a session-log line.
+- The dashboard's numbers match the note.
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
+```
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && f=$(find . -name "How to Use Google Calendar.md" -not -path "./.git/*" | head -3); echo "$f"; cat "$(echo "$f" | head -1)"; echo ======; cat "20_Progress/Projects/Jarvis & The Plan/Builds - Jarvis/Jarvis Dashboard Build Record.md"`
+```
+./60_Claude/07_AI_Information/How to Use Claude/How to Use Google Calendar.md
+---
+type: system
+status: sprout
+created: 2026-10-25
+updated: 2026-10-25
+tags:
+  - system
+  - guide
+  - calendar
+system_kind: guide
+notes:
+  - "[[10_Areas/Life/Enumerate/Weekly/2026-W44|2026-W44]]"
+  - "[[60_Claude/20_Distilled_Notes/W44 Calendar Rebuild - What Was Done (2026-10-25)|W44 Calendar Rebuild - What Was Done]]"
+  - "[[60_Claude/20_Distilled_Notes/W44 Calendar Rebuild - Actions (2026-10-25)|W44 Calendar Rebuild - Actions]]"
+  - "[[60_Claude/07_AI_Information/How to Use Claude/Track Conversations|Track Conversations]]"
+---
+# How to Use Google Calendar
+This guide covers what the Google Calendar connector is for, what it can and cannot touch, which of the ten calendars on the account matter, and the rules any Claude model follows before writing to one. Everything here was checked against the live account on 2026-10-25 during the W44 rebuild ([[60_Claude/20_Distilled_Notes/W44 Calendar Rebuild - What Was Done (2026-10-25)|What Was Done]]). If a calendar name or count below no longer matches, re-run `list_calendars` before trusting the rest.
+## What it is
+The connector is the claude.ai Google Calendar integration. In Claude Code its tools are named `mcp__claude_ai_Google_Calendar__*`, and it acts as `gupt0479@umn.edu`, the UMN Google account. It is not the `jarvis` or `the-plan` Obsidian MCP, and it cannot read the vault.
+
+Calendar is the time layer: when a task happens, where, and for how long. What the task is comes from Obsidian: the weekly note, the plans in `10_Areas/Life/Plans/`, and the course boards. An event is a pointer to that work, never the only place the work is described.
+## Use when
+- Sunday planning, after the new weekly note's Goals exist: placing the week's tasks as blocks.
+- Before `/startday`, to read what is on today, or before agreeing to a new deadline, to see what it collides with.
+- Rewriting a vague block ("CSCI 4521 Catch Up") into the event format below.
+- During `/closeday`, moving a missed block into the next free slot.
+
+Not for task content that belongs in a note, for one-off timed reminders (see the platform split in [[60_Claude/20_Distilled_Notes/W44 Calendar Rebuild - Actions (2026-10-25)|Actions]]), or for the 12-week map, which lives in Todoist and [[10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan|Fall 2026 Plan]].
+## What it can do
+
+| Tool | What it does | Used on 2026-10-25 |
+|---|---|---|
+| `list_calendars` | Lists calendars the account owns or subscribes to. This is a subset; a calendar outside the list is reachable only by its exact id. | Yes |
+| `list_events` | Events on one calendar in a time range. By default it returns only regular, out-of-office, focus-time, and Gmail events. | Yes, three calendars |
+| `search_events` | Semantic search on the primary calendar only. | Yes, found nothing for lecture names |
+| `get_event` | One event by id. | Yes, to confirm an edit stuck |
+| `create_event` | A new event: title, times, description, location, color, reminders, recurrence, attendees. | 19 created |
+| `update_event` | Changes any field on one event, or on one date of a recurring series. | 43 updated |
+| `delete_event` | Deletes an event. | Not used |
+| `respond_to_event` | Accept, decline, or tentative on an invite. | Not used |
+| `suggest_time` | Finds free slots across calendars. | Not used yet; it is the right tool for placing buffers |
+
+Three fields matter more than the rest:
+- **`overrideReminders`** sets popup or email reminders per event. This is the lever for phone notifications. The working calendar has no default reminder, as the calendar table below shows.
+- **`colorId`** colors one event, which allows color-coding by kind of block.
+- **`notificationLevel: NONE`** stops Google from emailing attendees about an edit. Every write on 2026-10-25 used it.
+## What it cannot do
+- Rename, create, delete, hide, or recolor a whole calendar, or change a calendar's default notifications. Those are settings in the Google Calendar app.
+- Read or write Google Tasks, phone reminders, or Todoist. None of the three has a tool in this session.
+- See the UMN class blocks (lectures, the CSCI 4061 lab, the CSCI 4511W discussion). They show in the app, but no listed calendar holds them and `search_events` finds nothing. Their source is unknown. Treat them as fixed anchors, read from a screenshot or the course boards.
+- Change a meeting someone else owns for everyone (see Meetings).
+- See the "Office" working-location bar unless working-location events are requested explicitly.
+- Confirm that a reminder actually buzzed the phone.
+- Edit a whole recurring series by editing one date. Six of the W44 edits were single dates of recurring events (Short Quiz, Quiz & Lab, Lab Due, CSCI 5304 Quiz, Mass Apply, CSCI 4511W Homework - 2). Next week those dates show the old title again.
+## The calendars
+The account has ten calendars. Two are in active use, and the class schedule comes from somewhere the connector cannot see.
+
+| Calendar | Time zone | What it holds | How to treat it |
+|---|---|---|---|
+| `gupt0479@umn.edu` (primary) | America/Chicago | Gym and calisthenics (recurring, 6am), plus every invite: CodePath, TIP103, cricket, AIIS, the CSCI 4511W office-hour booking | Read it. Write only to events you own. Default reminder: popup at 10 minutes. |
+| "Todoist" (id starts `c_2195`) | America/Chicago | Every red work block. Despite the name, it is a plain Google calendar, filled by hand and by Claude. It stopped syncing with the Todoist app long ago. | The working calendar. Read and write here. The API reports no default reminder. |
+| "Todoist" (id starts `2a35`) | Asia/Kolkata | Nothing in W44; last changed 2026-10-13 | Ignored. Candidate to hide. |
+| VIT | Asia/Kolkata | A VIT (India) class timetable, created by another account and shared with full rights. Almost all of it lands overnight in Chicago. BSSC102N (8:20-9pm IST) lands Wed 9:50-10:30am. | Ignored for planning. It caused the Wednesday overlap. |
+| Holidays in United States | America/Chicago | Public holidays (Halloween shows Sat 10/31) | Read only, ignored |
+| DataTalks.Club events | Europe/Berlin | Community events | Ignored, not read |
+| CSE Student Groups' Events Calendar | America/Chicago | Shared student-group meetings | Ignored, not read |
+| Goldy's Winter Break Calendar 2025-26 | America/Chicago | Last winter's campus events | Ignored, stale |
+| Partiful | UTC | Imported event invites | Ignored, not read |
+| UMN.LOL Schedule | UTC | A club schedule | Ignored, not read |
+
+"Not read" means the row describes the calendar from its own name and description only.
+## Meetings
+A meeting is any event that someone else organizes or that has other attendees. In W44 those are:
+- the CodePath 1:1 Resume Review (organizer: CodePath's review calendar, on Zoom)
+- the TIP103 live classes (the Technical Interview Prep calendar)
+- UMN Cricket practice
+- the AIIS Leadership meet
+- the CSCI 4511W office-hour booking
+
+Meetings are anchors. Claude never moves, renames, or rewrites them, because a change either does not reach the organizer or notifies other people. The one allowed action is an RSVP through `respond_to_event`, when asked. Preparation for a meeting goes in a separate block you own, placed before it. "Resume: 3 questions ready for the 11:30 CodePath 1:1" is that pattern: your own 10:30 event, ahead of CodePath's 11:30 one.
+## Time zones
+The calendar's zone is America/Chicago. The app shows GMT+04 as the main column and U.S. as the second, so screenshots carry both; read the U.S. column. The tools take local times with no offset (`2026-10-26T07:30:00`) and resolve them in America/Chicago. Some events store another zone ("Rate yourself" is in Asia/Kolkata, TIP103 in America/Los_Angeles), but their timestamps carry correct offsets, so trust the offset over the zone label.
+## The event format
+Every block has a title made of the course or project, a verb, and the deliverable: `CSCI 4061 P2: all tests pass locally`, not `CSCI 4061 Project Completed`. The description is five plain-text lines, with no HTML:
+
+```
+WHAT:  the thing that exists when the block ends
+WHY:   one line on what it unblocks
+HOW:   the source to open, the steps, the time cap
+WHERE: the place, plus the vault path the output lands in
+BY:    the hard stop, and what proves it is done
+```
+
+Friday blocks are checkpoints, titled "By Fri: ...", not work sessions. The Saturday 4pm block audits them in the weekly note.
+## Rules for Claude models
+1. **Read before writing.** List the week on the primary and working calendars first. Never plan from memory or from an old screenshot.
+2. **Write to the working calendar.** Work blocks go only to the `c_2195` "Todoist" calendar. The primary calendar is for events the user already owns there. Never write to VIT, holidays, or any subscribed calendar.
+3. **Leave meetings alone** except for an RSVP the user asked for.
+4. **Silence every write** with `notificationLevel: NONE`.
+5. **Format every block.** Use a deliverable title and the five lines. If you cannot fill WHAT, ask instead of inventing it. "Laptop Builds - 6 & more" was left alone for that reason.
+6. **Apply the buffer rules before placing anything.** They are in [[60_Claude/20_Distilled_Notes/W44 Calendar Rebuild - Actions (2026-10-25)|Actions]]: 10 minutes between blocks, travel time, meals, at most 3 hours without a break, one overflow block a day, and one dev task per evening.
+7. **Propose, then write.** For a whole week, put the block table in the weekly note and get a yes before bulk-creating. A single move during `/closeday` can go straight in.
+8. **Set reminders explicitly.** Pass a popup at 5 minutes, because the working calendar has none by default.
+9. **Edit one date of a recurring event** unless the user asks for the whole series, and say that next week will revert.
+10. **Do not delete.** Rename, move, or ask.
+11. **Count after writing.** Re-list the week and report exact numbers. On 2026-10-25 the chat reply said 36 events were rewritten when the real number was 43.
+12. **Take dates from the board, not a block.** Exam and due dates come from the course board, never from a calendar title. W43's CSCI 5304 midterm block said Wednesday; the midterm was Tuesday 10/20 ([[20_Progress/Degree/CSCI 5304/CSCI 5304 Board|CSCI 5304 Board]]).
+13. **Keep descriptions shareable.** They reach the phone and anyone the calendar is shared with, so no secrets and no personal-life content.
+## Suggestions
+- Rename the `c_2195` calendar from "Todoist" to "Blocks" in the app. The name led a model (this one) to assume a sync that does not exist.
+- Hide VIT and the empty second "Todoist" calendar from the main view.
+- In the app, set the working calendar's default event notification to 5 minutes, then confirm one test event buzzes the phone.
+- Color by kind with `colorId`: classes and meetings as anchors, prep, coursework, dev, daily defaults, and Friday checkpoints.
+- Keep phone reminders for one-off actions that are too small for a block. If Claude should place those too, a separate "Reminders" calendar is the way, because the connector cannot reach any reminders app.
+## Do not
+- Do not let an event title define a task. The weekly note does.
+- Do not place blocks edge to edge.
+- Do not expect an event on the "Todoist" calendar to create a Todoist task. Nothing syncs.
+======
+---
+type: project
+status: active
+created: 2026-10-26
+updated: 2026-10-26
+tags:
+  - jarvis
+  - dashboard
+  - build-record
+project_kind: spec
+next: Turn on Templater's "Trigger Templater on new file creation", run /startday and /closeday once on a real day, and name the first closed daily as the Daily Note Standard's gold example.
+related_progress:
+  - '[[Jarvis Build History - July to October 2026]]'
+  - '[[Jarvis Build Overview]]'
+  - '[[The Plan Overview]]'
+  - '[[Daily Note Standard]]'
+  - '[[Daily Close Loop]]'
+---
+# Jarvis Dashboard Build Record
+## What This Is
+==This is the dated record of how Jarvis's daily dashboard and daily-note workflow were built and rebuilt, July to October 2026, kept so the next change starts from what exists and not from a memory of it.==
+It covers `00_Dashboard.md`, the homepage canvas, the daily note and its template, and the `/startday` and `/closeday` skills. What each part is and what it shows is in [[Jarvis Build Overview]]. The infrastructure around it (sync, tasks, memory) is in [[Jarvis Build History - July to October 2026]] and [[Jarvis Current State - 2026-10-17]]. The Plan's dashboard is a separate build: [[The Plan Overview]].
+## Current State
+### Chronology
+| Date | Build | How | Evidence |
+|---|---|---|---|
+| 2026-04-23 | `00_Dashboard.md` created | A markdown page with a Dataview list | Frontmatter `created` |
+| 2026-07-02 and 07-03 | First dashboard pass with Fable 5 | Meta Bind inputs bound to frontmatter targets, a weekly DataviewJS roll-up, `dashboard.css` with `.stat-tile` and `.card`, a write-guard allowlist for daily-operations paths, directory skills, five agents | `Fable Prompt - Dashboard and Ingestion Pass`, "What was done in Pass 1" |
+| 2026-07-04 | Visual rebuild | `10_Areas/Jarvis OS Dashboard.canvas` rebuilt at 1600 px with ten text nodes and no edges. The brief's Meta Bind syntax `file(00_Dashboard)` does not exist; the session read the plugin docs and used `INPUT[text:00_Dashboard#today_focus]`. Homepage was repointed at the canvas by editing `.obsidian/plugins/homepage/data.json`. A second canvas, an Excalidraw Claude OS map, and `dashboard.css` additions for the progress bar and tile colours followed. `00_Dashboard.md` was rebuilt as a Multi-Column Markdown page | `07-04 Rebuild Jarvis dashboard canvas and Excalidraw OS map` |
+| 2026-07-08 | Skill repair | `startday` still read a deleted habit board; both skills counted five wins after the Physical win moved to The Plan. Fixed to four wins and the current board | `07-08 Fix corrupted daily note template and habit tracker` |
+| 2026-07-10 | Tickable Done column | Obsidian does not render checkboxes inside table cells. Each Done cell became a Meta Bind toggle bound to a frontmatter boolean (`win_project`, `win_career`, `win_cleanup`, `win_review`, then Summer `ac_*`) | `07-10 Fix untickable checklist in table` |
+| 2026-09-15 | Fall 2026 layout | Headings `Fall Daily Wins` and `Fall Daily Floor`, three floor rows (application, LeetCode/CodePath, class step) | `09-15 Fall 2026 semester planning and vault setup` |
+| 2026-09-20 | DataviewJS risk audit | Every dashboard block read and judged read-and-render. The `innerHTML` pattern is safe only while the interpolated values are numbers | [[Dataview and Dashboards]] |
+| 2026-10-04 | Sync banner | Competing dashboard writers replaced by per-machine banner files and a stable embed at the top of `00_Dashboard.md` | Sync Build 11 in [[Jarvis Build History - July to October 2026]] |
+| 2026-10-16 | Standard and Workflow | [[Daily Note Standard]] and [[Daily Close Loop]] created; the template mapped to the registry | Both notes' `created` |
+| 2026-10-25 | Time layer | The W44 calendar rebuild and [[How to Use Google Calendar]]: events in a five-line format on the working calendar | The guide's frontmatter |
+| 2026-10-26 | Daily workflow rebuild | See below | This note |
+### The 2026-10-26 findings
+1. **The Done toggles fed nothing.** No skill, query, script or canvas read `win_*` or `floor_*`. `wins_done` was a number typed by hand, and `/closeday` asked for it in chat.
+2. **Two dashboards, one stale.** `00_Dashboard.md` and the homepage canvas held the same queries by hand. Both read `lc_today`, `wins_done` and `study_today` from the dashboard's own frontmatter, last set on 2026-10-09, while the daily notes used `lc_count`. The week total never saw today.
+3. **Unrendered dates.** Six dailies carried `<% tp.date.now(...) %>` in `created` or `updated`, including today's. Periodic Notes copies the template, and Templater's "Trigger Templater on new file creation" is off in `data.json`, so the placeholder is never resolved.
+4. **Template and Standard disagreed.** The template had the invalid key `wins:loses (ratio):`, used `study_hours` where everything else used `study_today`, and had no `win_*` or `floor_*` keys to bind to.
+5. **Daily Loses was free text.** Nothing carried an unfinished promise forward or showed its age.
+6. **The skills did not know the week.** `/startday` and `/closeday` read the Fall plan and the session log, not the weekly note's Goals or the calendar.
+### What changed
+- **Template** [[Better Today]]: frontmatter now holds the seven toggles, `lc_count`, `study_today`, `wins_done`, `floors_done`. Morning Plan gains a `### Blocks` heading and checkbox 80 and 20 lines. Daily Loses gets its line format. The typed "Wins hit" input is gone.
+- **Standard and Workflow**: [[Daily Note Standard]] now says what each toggle feeds and defines Daily Loses: a task line with `why`, `fix`, `from` and `since`, and four marks (`[ ]` open, `[x]` made up, `[>]` carried, `[-]` dropped). [[Daily Close Loop]] was rewritten around the weekly note, the calendar, the toggles and the Loses. Both pass `vault-lint --kit` apart from the template's old table-body warnings.
+- **Dashboard and canvas**: both now read only today's daily note and every note's open Loses. Wins `n/4`, Floor `n/3`, problems, study hours and open Loses are tiles; the old habit bar and static habit list are replaced by a Wins and Floor bar and an aged Loses list. `lc_today`, `study_today` and `wins_done` were removed from the dashboard's frontmatter, which now holds only the three `today_*` lines.
+- **Skills**: `/startday` repairs leftover placeholders, reads the weekly Goals and today's calendar (read only), and carries open Loses forward by copying the line and marking the old one `[>]`. `/closeday` reads the toggles as evidence, proposes a Lose for each false toggle, passed block and unmet Goal, asks only for counts and each `why` and `fix`, and writes `wins_done` and `floors_done` as counts. The `daily-operator` agent and two skill-table notes were updated to match.
+- **Notes repaired**: today's note was moved to the new shape with the existing Lose kept word for word, and the five older dailies had their dates resolved from the file name.
+### Not done
+- Templater's setting is under `.obsidian`, so it is Anant's to switch on.
+- The copies in `.agents/skills/startday` and `.agents/skills/closeday` already differed from the `.claude` skills and were left alone.
+- Nothing was run end to end on a real day. The `dataviewjs` blocks were syntax-checked with Node and not rendered in Obsidian. Ticking a task from `dv.taskList` is not yet confirmed to write back.
+- Changes are not committed.
+## Non-Goals
+- The automation layer: Toggl time, phone screen time, calendar writes. It is designed in a separate step and nothing here depends on it.
+- Any change to The Plan's vault. Cross-vault reads go through `/jarvis-dump` there, never writes.
+- Merging the canvas and the markdown page into one landing page. That is worth doing and was not asked.
+## Open Questions
+- [ ] Should Jarvis keep two landing pages, or point the canvas at the markdown page?
+- [ ] Does a tick from the Daily Loses list on the dashboard write back to its source note?
+- [ ] Should the weekly review use the Sunday-start week that Periodic Notes names, or an ISO week as The Plan's standard says?
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
+```
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && sed -n 1,90p "10_Areas/Life/Enumerate/Weekly/2026-W44.md" | cut -c1-300; echo =====; f=$(find 30_Order/Templates -name "Better Today.md"); echo $f; cat "$f"`
+```
+---
+type: thought
+thought_kind: weekly
+status: sprout
+created: 2026-10-25
+updated: 2026-10-25
+period: "2026-W44"
+review: "[[60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis — 2026-W43]]"
+tags:
+  - weekly
+next: "CSCI 4061 Project 2 due Fri 10/30 11:59pm. Both parts are still untouched starter code."
+---
+# 2026-W44
+> [!NOTE] Summary: Catch-up week. Every course gets closed through Week 8, CSCI 4061 Project 2 ships Friday, and the dev 80 (Portfolio, ClaudeKit, Local AI) runs only after 6pm. Every day opens with a daily note and CSCI 4041 problems, and closes by 10:30pm. After this week, 9 weeks of 2026 are left
+
+## Goals
+
+**The day, every day:**
+1. Morning is gym, breakfast, then the laptop. Open today's daily note first (`/startday`). Then 5 CSCI 4041 problems from `DSA.md` Week 3, each logged in `Weekly Set.md`. Then one internship action: the cover letter on Monday, one application every day after.
+2. The calendar runs the day from there. The block before each lecture is that lecture's prep and finishes inside its own time. CSCI 5304 is the one exception: its block sits after the lecture.
+3. Coursework lives in the daytime blocks. Dev work (Portfolio, ClaudeKit, Local AI, automations) starts at 6pm and not before.
+4. Every dev block runs on a timer. When it ends, write one line on where you stopped and move on.
+5. Close by 10:30pm (`/closeday`). Every block gets ticked or marked missed with a reason. Nothing is scheduled after 10:30.
+
+**The 80, UMN:**
+- [ ] CSCI 4061 Project 2 submitted by Fri 10/30. Part 1 is `swish` shell pipelines (n-1 pipes, redirection, SIGPIPE). Part 2 is the Hadamard product three ways (pipes, shared memory, pthreads) called from Python through a C extension. Learn it from Weeks 2-8 rather than chasing tests, because each 
+- [ ] CSCI 5304 Weeks 1-8 studied and written: the Week 1 and Week 8 weekly notes, textbook Lectures 13-18, a HW3 note, and one concept map that traces the CSCI 2033 core (span, rank, orthogonality, LU, least squares, eigenvalues) into each 5304 lecture. [[20_Progress/Degree/CSCI 5304/CSCI 5304 Boar
+- [ ] CSCI 4061 Weeks 5-8 notes (shared memory, multiplexed I/O, C/Python interop, threads, synchronization). Midterm 2 is Thu 11/12.
+- [ ] CSCI 4521 Week 8 note (DBSCAN, regression, PyTorch, gradient descent), HW2's status settled, HW3 (due Tue 11/3) started.
+- [ ] CSCI 4511W Weeks 5-8 notes (Ch 4 local search, Ch 5 games), Short Quiz 07 (Mon 6pm), Discussion Participation (Fri 11:59pm), and Writing 2 plus PS2 Q4-5 confirmed submitted.
+- [ ] MGMT 3015 Ch 5, 6 and 12 notes, plus one concept map applied to the group's idea that feeds the Wed 11/4 pitch slides.
+
+**The 80, Development:**
+- [ ] Portfolio: UI repolished, Orby on the updated model and guardrailed, security checks, Clerk/OAuth, images, animations, Cloudflare deployment check. [[20_Progress/Projects/CS/Portfolio/Portfolio|Portfolio]].
+- [ ] ClaudeKit: Codex and Claude conversations captured on both laptops, ingestion from the repo clones, home-directory settings, skills and agents in sync, recurring scheduled tasks running in Jarvis and secondbrain-claudekit. Notes: `20_Progress/Projects/AI Use/Claude Kit/` (last Log entry 2026-0
+
+**The 80, Others:**
+- [ ] Local AI: a small local model runs one meaningful repetitive task on a schedule, with a per-run log of what changed and why it got better. Personal side: The Plan workflow running on Jan. The only source today is the 10-17 Local AI build plan clipping; [[20_Progress/Projects/AI Use/Ollama|Olla
+- [ ] Both vaults: dashboard, plans, and daily notes written every day, morning and night.
+
+**Friday checkpoints (due by end of Fri 10/30, audited here Sat 4pm):**
+- [ ] CSCI 4061 Project 2 submitted on Gradescope
+- [ ] CSCI 5304 Weeks 1-8 done and the 2033 map exists
+- [ ] CSCI 4521 caught up through Week 8
+- [ ] MGMT 3015 entrepreneur map exists
+- [ ] CSCI 4041 Units 1-5 reviewed, every morning problem logged
+- [ ] `Main Cover Letter.md` exists and 5 applications sit in `Applied/`
+- [ ] CSCI 4511W Writing 2 and Discussion Participation submitted
+
+**Carried from W43, and why each one slipped:**
+
+| Item | State at W43 close | Why it slipped |
+|---|---|---|
+| Internship: cover letter and first application | 29 researched, 0 applied, frozen 29 days | Only ever scheduled as all-day "Mass Apply" or "Internship Loop work". No time, no finish line. |
+| CSCI 4041 / LeetCode daily | 0 logged, `Weekly Set.md` 0/20 | "First thing on the laptop" never had a calendar slot, and two trackers compete for the same job. |
+| Daily notes and dashboard | 0 of 7 days | No open or close slot existed, so nothing forced either. |
+| Assessment outcomes | 4 sat with no outcome note | "Log it the same day" was a rule with no block behind it. |
+| Portfolio, TradingView, automations | zero commits | Exam week carried a normal dev load (2.5 hours of Local AI on exam day). |
+| ClaudeKit conversation capture | partial: both exporters fixed, the layer's notes written, the both-laptop loop not running | Real progress with no done-definition, so it still reads as unfinished. |
+| Hackathon entry (Fall plan row for 10/19) | no entry | Never on the calendar. Left out of W44 on purpose. |
+
+Was it wishful time management? Yes, in three specific ways. Blocks named topics instead of deliverables. The daily defaults had no time at all. Exam days were planned as if exams cost nothing. The W44 calendar fixes the first two. The third is still a risk, below.
+
+> [!WARNING] Where the W44 calendar is still wishful
+> - CSCI 4061 Project 2 gets about 4.5 hours (Mon 4:45-6:15, Tue 12:30-1, Thu 12:30-1 and 4:15-5, Fri 12-1) for two untouched parts and four implementations. If Part 1's tests don't pass by Tuesday's close, Wednesday's 6:30-8pm ClaudeKit block goes to the project.
+> - Tuesday cricket runs 9-11pm, past the 10:30 close.
+> - Wednesday's VIT BSSC102N event overlaps the 9am CSCI 5304/4521 lock-in.
+> - No block has a buffer. A block that runs out stops anyway, and the leftover goes into that night's close.
+
+**Calendar format, every event from now on:**
+
+Title: the course or project, then a verb and the deliverable (`CSCI 4061 P2: all tests pass locally`). Description, five lines:
+
+```
+WHAT:  the thing that exists when the block ends
+WHY:   one line on what it unblocks
+HOW:   the source to open, the steps, the time cap
+WHERE: the place, plus the vault path the output lands in
+BY:    the hard stop, and what proves it is done
+```
+
+Friday events are checkpoints ("By Fri: ..."), not work sessions. Saturday's 4pm block audits them in this note.
+
+**Assessments already sat, outcomes still to record:** CSCI 5304 Midterm (Tue 10/20), CSCI 4521 Quiz 3 (Thu 10/22), and CSCI 4511W Long Quiz 1 (Wed 10/14) were reported as "45-1, 40, 61", with the course-to-score mapping not yet confirmed. CSCI 4061 Midterm 1 (Thu 10/8) has no outcome recorded.
+
+## Productivity
+<!-- What landed, with the note, commit, or number that shows it. Evidence, not mood. -->
+## Good habits
+<!-- One or two specific behaviors that worked. -->
+## Bad habits
+=====
+30_Order/Templates/Enumerate/Better Today.md
+---
+type: thought
+thought_kind: daily
+status: active
+day_state: planned
+created: <% tp.date.now("YYYY-MM-DD") %>
+updated: <% tp.date.now("YYYY-MM-DD") %>
+tags:
+  - daily
+notes: []
+next:
+win_project: false
+win_career: false
+win_cleanup: false
+win_review: false
+floor_1: false
+floor_2: false
+floor_3: false
+lc_count: 0
+study_today: 0
+wins_done: 0
+floors_done: 0
+---
+# Did you get better today?
+> [!NOTE] Summary:
+## Morning Plan
+<!-- From the weekly Goals. 80 and 20: I will [BEHAVIOR] at [TIME] in [LOCATION]. Blocks: today's calendar events, time then deliverable. -->
+*Goal*: ==You get to do==
+### 80 - The One Thing
+- [ ] 
+### 20 - Supporting Work
+- [ ] 
+### Blocks
+**Do NOT do today:**
+## Daily Wins
+<!-- Four rows. Targets come from the weekly note and the active plan; Done is a toggle. -->
+
+| Win     | Target | Done                        |
+| ------- | ------ | --------------------------- |
+| Project |        | `INPUT[toggle:win_project]` |
+| Career  |        | `INPUT[toggle:win_career]`  |
+| Cleanup |        | `INPUT[toggle:win_cleanup]` |
+| Review  |        | `INPUT[toggle:win_review]`  |
+## Daily Loses
+<!-- One line per promise not kept: - [ ] what [why:: ] [fix:: ] [from:: weekly] [since:: YYYY-MM-DD] -->
+## Daily Floor
+<!-- Rows come from the active plan's Systems table. Never put the term in a heading. -->
+
+| Track | Target | Topic | Done                    |
+| ----- | ------ | ----- | ----------------------- |
+|       |        |       | `INPUT[toggle:floor_1]` |
+|       |        |       | `INPUT[toggle:floor_2]` |
+|       |        |       | `INPUT[toggle:floor_3]` |
+## Productivity
+<!-- Typed numbers only. Wins and floor totals are counted from the toggles by /closeday and the dashboard. -->
+**LeetCode today:** `INPUT[number:lc_count]`
+**Study hours:** `INPUT[number:study_today]`
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
+```
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && for n in "Plan Standard" "Plan Review Cadence" "Periodic Review Note Standard" "Vault Lint" "Note Kit Standard" "Reference Standard"; do printf "%s: " "$n"; find 30_Order -name "$n.md" | head -1; done; ls "20_Progress/Mentorship Program/Plans" 20_Progress/Degree/_Courses 2>&1 | head -20; sed -n 1,40p "10_Areas/Life/Plans/Plans Board.md" | cut -c1-250`
+```
+Plan Standard: 30_Order/Standards/Plan Standard.md
+Plan Review Cadence: 30_Order/Workflows/Ingestion/Plan Review Cadence.md
+Periodic Review Note Standard: 30_Order/Standards/Operations/Periodic Review Note Standard.md
+Vault Lint: 30_Order/System/vault-lint/Vault Lint.md
+Note Kit Standard: 30_Order/Standards/Note Kit Standard.md
+Reference Standard: 30_Order/Standards/Enrich/Reference Standard.md
+20_Progress/Degree/_Courses:
+AI Associate Engineer
+Cloud Architect
+Github Foundations
+How does this Help.md
+ML Engineer
+System Design
+Technical Interview
+_Courses Board.md
+
+20_Progress/Mentorship Program/Plans:
+Overall Plan.md
+Plan - Ahnaf.md
+Plan - Jesse.md
+---
+type: evergreen
+status: sprout
+created: 2026-06-11
+updated: 2026-07-27
+tags:
+  - plan
+  - moc
+notes:
+  - "[[Plans-to-Create]]"
+  - "[[Winter Break]]"
+next: "[[00 - Summer Plans Index|Summer Plans Index]]"
+---
+# Plans — Map of Content
+==Every active plan in the vault, one row each — before adding a new plan here, read [[Plans-to-Create]].== Not a plan itself; a pointer to the real ones.
+## Active
+- [[10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan|Fall 2026 Plan]] — the fall semester, through 2026-12-14. Frame: [[10_Areas/Life/Plans/Fall 2026/Fall 2026 - The One Thing|Fall 2026 - The One Thing]]. Companion maps: [[10_Areas/Life/Plans/Fall 2026
+- [[Final Month Plan (Jul 28 - Sep 1)|Final Month Plan (Jul 28 - Sep 1)]] — the summer, through 2026-09-01 (end date passed; still marked `status: active` in its own frontmatter, unverified whether it needs closing)
+## Reference
+- [[Winter Break]] — prior seasonal plan, closed
+## Process
+- [[Plans-to-Create]] — how any new plan here gets created
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
+```
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && for n in "Jarvis Build Hub" "Jarvis Decisions Log" "Jarvis Architecture" "Jarvis Build Log" "Jarvis Verification and Risks"; do find . -name "$n*.md" -not -path "./.git/*" | head -2; done; echo "--- tracked plugin folders:"; git ls-files .obsidian/plugins | cut -d/ -f3 | sort -u | tr '\n' ' '; echo; git check-ignore -v .obsidian/plugins/jarvis-dashboard/main.js || echo "main.js would NOT be ignored"; echo "--- tracker:"; ls "10_Areas/Career/Internships/Tracker" "10_Areas/Career/Internships/Tracker/Each One" 2>&1 | head; f=$(find "10_Areas/Career/Internships/Tracker/Each One/Applied" -name "*.md" 2>/dev/null | head -1); echo "applied sample: ${f:-none}"; ls "10_Areas/Career/Internships/Tracker/Each One/Current" 2>/dev/null | wc -l; cd "../The Plan" && grep -rli toggl --include=*.md 00_Live 30_Order 40_Resources 60_Jarvis .claude 2>/dev/null | head -3; echo "plan toggl hits above (blank = none)"`
+```
+--- tracked plugin folders:
+calendar cmdr code-styler dataview excalibrain file-explorer-plus homepage lazy-plugins lean-terminal multi-column-markdown ninja-cursor obsidian-excalidraw-plugin obsidian-git obsidian-kanban obsidian-latex-suite obsidian-local-rest-api obsidian-meta-bind-plugin obsidian-spaced-repetition obsidian-style-settings periodic-notes quickadd recent-edits recent-files-obsidian templater-obsidian text-extractor url-into-selection 
+main.js would NOT be ignored
+--- tracker:
+10_Areas/Career/Internships/Tracker:
+Application Tracker.md
+Deadline Tracker.md
+Each One
+Habit Tracker.md
+Internship - Dashboard.md
+Main Log.md
+Tracker.md
+
+10_Areas/Career/Internships/Tracker/Each One:
+applied sample: none
+29
+00_Live/Enumerate/Daily/2026-10-26.md
+30_Order/Templates/Daily Dashboard/Better Today.md
+30_Order/Workflows/Agentic OS/How to Use Plugins.md
+plan toggl hits above (blank = none)
+```
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && grep -n -i -B2 -A6 "toggl" "00_Live/Enumerate/Daily/2026-10-26.md" | head -60; echo ====; grep -n -i -B1 -A4 "toggl" "30_Order/Templates/Daily Dashboard/Better Today.md" "30_Order/Workflows/Agentic OS/How to Use Plugins.md" | cut -c1-300 | head -50; echo ====; cd ../Jarvis/10_Areas/Career/Internships/Tracker && ls "Each One"; ls "Each One/Applied" 2>&1 | head -3; ls "Each One/Current" | head -3; sed -n 1,14p "Each One/Current/$(ls 'Each One/Current' | head -1)"`
+```
+39-| Win     | Target | Done                        |
+40-| ------- | ------ | --------------------------- |
+41:| Project |        | `INPUT[toggle:win_project]` |
+42:| Career  |        | `INPUT[toggle:win_career]`  |
+43:| Cleanup |        | `INPUT[toggle:win_cleanup]` |
+44:| Review  |        | `INPUT[toggle:win_review]`  |
+45-## Daily Floor
+46-
+47-| Track | Target | Topic | Done                    |
+48-| ----- | ------ | ----- | ----------------------- |
+49:|       |        |       | `INPUT[toggle:floor_1]` |
+50:|       |        |       | `INPUT[toggle:floor_2]` |
+51:|       |        |       | `INPUT[toggle:floor_3]` |
+52-## Productivity
+53-
+54-**LeetCode today:** `INPUT[number:lc_count]`
+55-**Study hours:** `INPUT[number:study_today]`
+56-**Wins hit:** `INPUT[number:wins_done]` / 4
+57-## Just Write
+====
+30_Order/Templates/Daily Dashboard/Better Today.md-40-| ------- | ------ | --------------------------- |
+30_Order/Templates/Daily Dashboard/Better Today.md:41:| Project |        | `INPUT[toggle:win_project]` |
+30_Order/Templates/Daily Dashboard/Better Today.md:42:| Career  |        | `INPUT[toggle:win_career]`  |
+30_Order/Templates/Daily Dashboard/Better Today.md:43:| Cleanup |        | `INPUT[toggle:win_cleanup]` |
+30_Order/Templates/Daily Dashboard/Better Today.md:44:| Review  |        | `INPUT[toggle:win_review]`  |
+30_Order/Templates/Daily Dashboard/Better Today.md-45-## Daily Floor
+30_Order/Templates/Daily Dashboard/Better Today.md-46-
+30_Order/Templates/Daily Dashboard/Better Today.md-47-| Track | Target | Topic | Done                    |
+30_Order/Templates/Daily Dashboard/Better Today.md-48-| ----- | ------ | ----- | ----------------------- |
+30_Order/Templates/Daily Dashboard/Better Today.md:49:|       |        |       | `INPUT[toggle:floor_1]` |
+30_Order/Templates/Daily Dashboard/Better Today.md:50:|       |        |       | `INPUT[toggle:floor_2]` |
+30_Order/Templates/Daily Dashboard/Better Today.md:51:|       |        |       | `INPUT[toggle:floor_3]` |
+30_Order/Templates/Daily Dashboard/Better Today.md-52-## Productivity
+30_Order/Templates/Daily Dashboard/Better Today.md-53-
+30_Order/Templates/Daily Dashboard/Better Today.md-54-**LeetCode today:** `INPUT[number:lc_count]`
+30_Order/Templates/Daily Dashboard/Better Today.md-55-**Study hours:** `INPUT[number:study_today]`
+--
+30_Order/Workflows/Agentic OS/How to Use Plugins.md-63-
+30_Order/Workflows/Agentic OS/How to Use Plugins.md:64:Turn on both community-plugin toggles in Sync settings on the phone, then force-quit after the first sync. A plugin that arrives through Sync may be installed and disabled until someone enables it. Quick actions that call QuickAdd need Obsidian 
+30_Order/Workflows/Agentic OS/How to Use Plugins.md-65-
+30_Order/Workflows/Agentic OS/How to Use Plugins.md-66-## If something goes wrong
+30_Order/Workflows/Agentic OS/How to Use Plugins.md-67-
+30_Order/Workflows/Agentic OS/How to Use Plugins.md-68-| Problem | What to do |
+====
+Current
+Data Intern - Key Technology & Services - Data Track - KeyBank.md
+Data Science Machine Learning Intern - Castleton Commodities International.md
+Trackings-to-Create.md
+ls: cannot access 'Each One/Applied': No such file or directory
+2027 Software Engineering Internship - Uber.md
+A.I. Developer Co-Op (Boston, MA) - Manhattan Associates.md
+AI and Data Engineering Summer Scholar Intern - Government & Public Services - Deloitte.md
+---
+type: tracker
+program: "[[10_Areas/Career/Internships/Programs/Serious/[REDACTED]]]"
+contact: "[[10_Areas/Career/Internships/Contacts/Each One/Ongoing/2027 Software Engineering Internship - Uber]]"
+company: Uber
+url: https://jobs.uber.com/en/jobs/300697/
+date_noted: 2026-07-20
+date_researched: 2026-09-05
+date_created: 2026-09-05
+date_applied:
+date_result:
+result:
+deadline:
+related_notes:
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
+```
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && ls "Jarvis Build" 2>&1 | head -2; mkdir -p "Jarvis Build" && ls -d "Jarvis Build"`
+```
+Jarvis Build
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Decisions Log.md`
+```
+---
+type: system
+status: sprout
+created: 2026-10-26
+updated: 2026-10-26
+tags:
+  - dashboard
+  - jarvis
+  - decisions
+system_kind: log
+notes:
+  - "[[Jarvis Build Hub]]"
+  - "[[Jarvis Spec - Day Model and Streak]]"
+  - "[[Jarvis Spec - Dashboard Page]]"
+  - "[[Jarvis Spec - Plans Feed]]"
+  - "[[Jarvis Spec - Automation Layer]]"
+---
+# Jarvis Decisions Log
+==Every question answered while designing the Jarvis dashboard plugin, with what each answer forces on the build.== Answers were given by Anant on 2026-10-26. A row marked Interpreted was dictated and read by the assistant, so it needs a yes. A row marked Conflict disagrees with a note that already exists.
+
+## Confirmed
+
+| # | Question | Answer | Consequence | State |
+|---|---|---|---|---|
+| D1 | How does the Jarvis plugin relate to The Plan's plugin? | Separate plugin `jarvis-dashboard`, own engine, no shared code | Copy The Plan's structure, not its files. A Plan change can never break Jarvis. | Confirmed |
+| D2 | Which devices? | The Dell and the Acer laptop only. Jarvis is not synced to the phone. | No phone build, no phone test. The layout is still responsive, because that is CSS. | Confirmed |
+| D3 | How is a day recorded so the plugin can tick it? | Checkbox lines with a field, for example `[track:: application]` | Replaces the frontmatter toggles built on 2026-10-26 morning. Meta Bind is no longer needed by the dashboard. See Correction 3. | Confirmed |
+| D4 | What does the streak count? | The floor. A day counts when every floor row is done. One miss is forgiven, two in a row break it. Floor rows are set per term in a config table. | The Plan's rule, with floor rows in place of five categories. | Confirmed |
+| D5 | What happens to the four wins? | A separate score from 0 to 4, never part of the streak | A cleanup win cannot rescue a day with no application. | Confirmed |
+| D6 | Daily Loses? | Kept, tickable on the page, same line format as the [[Daily Note Standard]] | The plugin can only tick a Lose to `[x]`. Carrying and dropping need a why, so they stay with `/closeday`. | Confirmed |
+| D7 | Identity and habits in Jarvis? | Builder identity only. Personal identity, health and habits stay in The Plan. | Matches AGENTS.md golden rule 6. No second copy to drift. | Confirmed |
+| D8 | Page shape | One page. No vertical scroll anywhere. Only text Anant writes may scroll sideways. The whole page scales to fit the pane, and below a readable size a banner says the window is too small. No content is removed. | Tests must prove no vertical overflow at set sizes. See [[Jarvis Spec - Dashboard Page]]. | Confirmed |
+| D9 | What is always on the page? | Today core, calendar strip, loses and carryover, pipeline numbers | All four groups are on the one page. | Confirmed |
+| D10 | Delight elements | Builder levels, proof of the day, a floor heatmap, pipeline momentum | Each has a data source in [[Jarvis Spec - Day Model and Streak]]. | Confirmed |
+| D11 | Who creates today's note? | The plugin, from the template. A name that is not `YYYY-MM-DD` is refused and flagged. | Avoids The Plan's ten days of zeros caused by `DD-MM-YYYY` names. | Confirmed |
+| D12 | Where does the 80 come from? | From the plans already drafted: the Fall 2026 plan, the weekly Goals and the project plans. The One Thing for the day is chosen daily. | `/startday` proposes, Anant approves. See [[Jarvis Spec - Plans Feed]]. | Confirmed |
+| D13 | What picks the 20? | The 20 is the supporting work the 80 needs. If the 80 is five applications, the 20 is the cover letters, resumes and Jarvis work that make those five ready. | A 20 line must name the 80 it serves, with `[for:: 80]`. A task that serves nothing is not a 20. | Confirmed |
+| D14 | When does the term end? | 2026-12-24. That is the last day of the Fall 2026 plan. Some items continue next term and some stop. | Config holds the term end. Floor rows change at that date. | Confirmed, see Correction 2 |
+| D15 | Weekly application target | 10 per week, each one complete and correct | Pipeline momentum shows `n / 10`. | Confirmed |
+| D16 | Builder level wording | The same as The Plan | The Plan's titles: The beginning (3), Toward 21 (7), Now it gets hard (21), Work pays off (66), Consistency, discipline, mindset (100). | Confirmed |
+| D17 | Which calendar account? | `gupt0479@umn.edu`. The details of the calendars are in [[How to Use Google Calendar]] and the weekly note [[2026-W44]]. | The plugin never calls Google. Claude writes `### Blocks` into the daily note and the page reads it. | Confirmed |
+| D18 | Todoist in Jarvis? | No longer used | Todoist leaves the Jarvis design. See Correction 5. | Confirmed |
+| D19 | Time management | Manage time by reference to the daily notes in The Plan. Timestamps in The Plan record time spent per task. | Jarvis reads time totals from The Plan and never tracks time itself. See [[Jarvis Spec - Automation Layer]]. | Interpreted, see below |
+| D20 | Does Jarvis read The Plan? | `/startday` and `/closeday` in Jarvis read The Plan's daily note. Agents watch both notes so they stay consistent. | Reads only. Needs a check that Jarvis's hooks allow it. See Correction 4. | Interpreted |
+| D21 | Automation | Design only for now. Calendar read plus planned blocks. Other platforms (Apple Reminders, Zapier, further MCP servers) are decided later and must be simple and frictionless. | No transport is built. | Confirmed |
+| D22 | Existing plugins | Nothing is removed. Anant receives a list and decides. | See [[Jarvis Plugin Retirement List]]. | Confirmed |
+| D23 | Canvas and `00_Dashboard.md` | Both are replaced by the plugin | They retire after the plugin runs clean for a fortnight, and only on Anant's word. | Confirmed |
+
+## Interpreted, needs a yes
+The answer on 2026-10-26 was dictated and reached the assistant garbled. These readings drive rows above.
+- "20 each 10" is read as "the 20 each day". "ET" is read as "the One Thing", which is the 80.
+- "Doge" and "the store" are read as Toggl.
+- "The toggle has been added to The Plan" is read as "Toggl is in use in The Plan". The assistant found no Toggl note in either vault, so this is unverified.
+- "Complete part 1 personally and the portion related to work. Adjourn." has no clear meaning and was not acted on. Say what it meant if it matters.
+
+## Corrections
+Each correction keeps the original statement and says what replaced it.
+1. **Toggl in the daily notes.** The assistant said the July and August Jarvis daily notes mention Toggl. They do not. The search matched the word `toggle`, the Meta Bind inputs. No vault note mentions Toggl.
+2. **Term end.** The Plans Board says the Fall 2026 plan runs through 2026-12-14. Anant's answer is 2026-12-24 and wins. The Plans Board line needs a change in Jarvis.
+3. **Day model.** [[Jarvis Dashboard Build Record]] says the Done toggles became frontmatter booleans (`win_*`, `floor_1` to `floor_3`) on 2026-10-26, and that `/closeday` counts them. D3 replaces the toggles with checkbox lines. The Daily Loses format and the `wins_done` and `floors_done` counts stay.
+4. **Cross-vault reads.** [[Jarvis Dashboard Build Record]] lists as a non-goal that cross-vault reads go through `/jarvis-dump` and never write. D20 adds a read of The Plan from Jarvis sessions. It stays read-only, and the Build Record line needs an update.
+5. **Todoist.** [[How to Use Google Calendar]] says the 12-week map lives in Todoist and names the working calendar "Todoist". D18 drops Todoist. The calendar keeps its name until Anant renames it in the Google Calendar app, which the guide already suggests.
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Spec - Day Model and Streak.md`
+```
+---
+type: project
+status: active
+created: 2026-10-26
+updated: 2026-10-26
+tags:
+  - dashboard
+  - jarvis
+  - spec
+project_kind: spec
+next: "Anant confirms the open questions; prompt P1 then patches the Daily Note Standard and the template"
+related_progress:
+  - "[[Jarvis Build Hub]]"
+  - "[[Jarvis Decisions Log]]"
+  - "[[Jarvis Spec - Dashboard Page]]"
+---
+# Jarvis Spec - Day Model and Streak
+## What This Is
+==A Jarvis day is a daily note made of checkbox lines that the plugin can flip, and a streak that counts the days on which every floor row was done.==
+This note defines the daily note shape the plugin reads, the fields on each line, the streak rule and the checks that guard them. It sits on top of the [[Daily Note Standard]] and keeps its headings, its Daily Loses format and its frontmatter keys. It changes how the wins and the floor are recorded. The rules for the page are in [[Jarvis Spec - Dashboard Page]].
+
+## Current State
+Checked on 2026-10-26.
+- The daily note [[Better Today]] holds seven frontmatter booleans (`win_project`, `win_career`, `win_cleanup`, `win_review`, `floor_1`, `floor_2`, `floor_3`), shown by Meta Bind toggles inside two tables. The numbers `lc_count` and `study_today` are typed. `wins_done` and `floors_done` are written by `/closeday`.
+- The 80 and the 20 are checkbox lines under `### 80 - The One Thing` and `### 20 - Supporting Work`. `### Blocks` is a plain list.
+- Daily Loses are task lines with `[why::]`, `[fix::]`, `[from::]` and `[since::]`, and four marks: `[ ]` open, `[x]` made up, `[>]` carried, `[-]` dropped.
+- The dashboard counts the toggles with DataviewJS. Nothing else reads them.
+- Application progress is a field on each tracker note: `date_applied` in `10_Areas/Career/Internships/Tracker/Each One/Current/`. On 2026-10-26 the folder holds 29 notes. [[2026-W44]] records 29 researched and 0 applied. There is no `Applied/` folder.
+- Nothing in this note is built.
+
+## The new daily note shape
+Headings stay as the Standard names them. Only the line formats under them change.
+
+```markdown
+---
+type: thought
+thought_kind: daily
+status: active
+day_state: planned
+created: 2026-10-27
+updated: 2026-10-27
+tags:
+  - daily
+lc_count: 0
+study_today: 0
+wins_done: 0
+floors_done: 0
+---
+# Did you get better today?
+## Morning Plan
+*Goal*: one line
+### 80 - The One Thing
+- [ ] I will submit 5 applications at 2 pm at my desk. [plan:: Fall 2026 Plan]
+### 20 - Supporting Work
+- [ ] Cover letter for Uber is final. [for:: 80]
+- [ ] Resume tailored for Deloitte. [for:: 80]
+### Blocks
+- [ ] 14:00-16:00 Internship: 5 applications sent [cal:: abc123]
+**Do NOT do today:**
+## Daily Wins
+- [ ] Project: Portfolio UI repolished [win:: project]
+- [ ] Career: one application sent [win:: career]
+- [ ] Cleanup: inbox at zero [win:: cleanup]
+- [ ] Review: close the day by 10:30 pm [win:: review]
+## Daily Loses
+- [ ] CSCI 4041: 5 problems logged [why:: opened YouTube first] [fix:: laptop opens on DSA.md] [from:: weekly] [since:: 2026-10-26]
+## Daily Floor
+- [ ] One company moved to Applied [track:: application]
+- [ ] 5 problems logged in Weekly Set [track:: practice]
+- [ ] One class step for CSCI 4061 [track:: class]
+## Productivity
+## Proof of the day
+- [proof:: Shipped 5 applications with the final cover letter]
+```
+
+## Fields
+| Field | On which line | Holds |
+|---|---|---|
+| `[plan:: name]` | The 80, optional on a 20 | The plan or board note that owns the task, so the line holds no copy of the plan |
+| `[for:: 80]` | Every 20 line | The 80 it serves. A 20 line without it is invalid. |
+| `[cal:: id]` | A Blocks line | The Google Calendar event id, so a moved event updates its line and does not duplicate |
+| `[win:: project, career, cleanup, review]` | A wins line | Which win it is. Each value appears once. |
+| `[track:: name]` | A floor line | A floor row name from the term's config table |
+| `[why::]`, `[fix::]`, `[from::]`, `[since::]` | A Lose | Unchanged from the Standard |
+| `[due:: YYYY-MM-DD]` | A weekly Goal line | A deadline the calendar strip can list |
+| `[proof:: text]` | One line under `## Proof of the day` | One line of evidence, written at close |
+
+Blocks marks: `[ ]` open, `[x]` done, `[-]` missed with a `[why::]`.
+
+## Floor rows per term
+The rows live in a config table, not in code. A new term changes the table and the plan note.
+
+| Term | Row | Track | Done when |
+|---|---|---|---|
+| Fall 2026 | 1 | `application` | A tracker note has `date_applied` equal to today |
+| Fall 2026 | 2 | `practice` | LeetCode or CodePath reps logged, at least 5 |
+| Fall 2026 | 3 | `class` | One class step finished |
+| Term end | | | 2026-12-24 |
+
+A floor line is ticked by Anant with evidence. Nothing ticks it for him. The validator warns when the `application` line is ticked and no tracker note has today's `date_applied`, and when `practice` is ticked with `lc_count` under 5. The warning does not change the tick.
+
+## Streak rule
+It is the rule from The Plan's Streak Rule with the floor as the unit.
+1. A day is MET when it has at least one floor line and every floor line is ticked.
+2. A day is MISS when a floor line is open at the day's end, or the note is missing. A missing note is a MISS.
+3. Today is PENDING until midnight, unless it is already MET. The rollover is midnight. A tick after midnight belongs to the new date.
+4. The streak starts on the earliest day whose note has at least one floor line.
+5. Walk from the start day to yesterday. A MET day adds one. An isolated MISS is forgiven: it adds nothing and does not reset. A second MISS in a row resets the run to zero.
+6. The current streak is the run, plus one when today is MET.
+7. The best streak counts closed days only. Today joins it the next day.
+8. A forgiven day counts as a lost day in the month totals.
+9. At risk means yesterday was a MISS and today is not yet MET.
+10. Milestones are 3, 7, 21, 66 and 100. The titles are in [[Jarvis Decisions Log]], D16.
+
+Wins score is the count of ticked win lines, from 0 to 4, and is separate.
+
+## Validator rules
+The engine's `validate` command reports each breach with the line and the rule. It never rewrites a note.
+1. The file name is `YYYY-MM-DD.md`. Any other name in the Daily folder is reported as misnamed.
+2. `created` and `updated` are real dates. A leftover `<% %>` is reported.
+3. Exactly one 80 line.
+4. Two to four 20 lines, each with `[for:: 80]`.
+5. Each floor line has a `[track::]` that is in the term's config table.
+6. Four win lines, one per `[win::]` value.
+7. Each Lose has `[since::]`. A missing `[why::]` reads `(unanswered)`.
+8. On a closed day, `wins_done` and `floors_done` equal the ticked lines, and an End of Day exists.
+9. Each Blocks time reads `HH:MM-HH:MM` and ends after it starts.
+10. A line that has a mark other than `[ ]`, `[x]`, `[X]`, `[>]` or `[-]` is reported.
+
+## Migration
+Old notes keep the old shape. The engine reads only the new shape. A day in the old shape has no floor lines, so it never starts or extends a streak, and the page shows its date as before the start. The 87 older notes that use Meta Bind inputs stay as they are. Whether to convert them is an open question.
+
+## Non-Goals
+- No streak for the wins, and no second streak for any single track.
+- No automatic ticking from a count, a tracker note or a calendar event.
+- No health, meals, water or personal habits. Those belong to The Plan.
+- No change to the Daily Loses format.
+- No change to any note while this is a design.
+
+## Open Questions
+- [ ] Should the `application` row become "two applications a day", since the weekly target is 10 and the floor says one?
+- [ ] Should the typed numbers `lc_count` and `study_today` stay in frontmatter, edited by the plugin with plus and minus buttons, or move to inline fields in the body?
+- [ ] Should `## Proof of the day` be added to the [[Daily Note Standard]] as an optional heading?
+- [ ] Should the 87 older notes be converted, or left as history?
+- [ ] Should a Blocks line that passed with no tick turn into a Lose automatically at close, as the Close Loop proposes today?
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Spec - Dashboard Page.md`
+```
+---
+type: project
+status: active
+created: 2026-10-26
+updated: 2026-10-26
+tags:
+  - dashboard
+  - jarvis
+  - spec
+  - ui
+project_kind: spec
+next: "Anant answers the open questions on overflow and the old page blocks; prompt P4 builds the page"
+related_progress:
+  - "[[Jarvis Build Hub]]"
+  - "[[Jarvis Decisions Log]]"
+  - "[[Jarvis Spec - Day Model and Streak]]"
+  - "[[Jarvis Spec - Carry Forward]]"
+---
+# Jarvis Spec - Dashboard Page
+## What This Is
+==The Jarvis dashboard is one page that never scrolls vertically, shows the whole working day at a glance, and rewards a day done right with a number that grows.==
+It is a view inside the `jarvis-dashboard` plugin. It replaces `00_Dashboard.md` and `10_Areas/Jarvis OS Dashboard.canvas` ([[Jarvis Decisions Log]], D23). The data it reads is defined in [[Jarvis Spec - Day Model and Streak]]. What it keeps from the old page is in [[Jarvis Spec - Carry Forward]].
+
+## Current State
+Checked on 2026-10-26.
+- The page is a markdown note with DataviewJS, Meta Bind and Multi-Column Markdown, plus a canvas. Homepage opens the canvas.
+- Both hold the same queries by hand. [[Jarvis Dashboard Build Record]] lists this as known drift.
+- The plugin is not built. The Plan's plugin is the reference: a React view with a scaled grid, drawn with inline SVG. Its screens were never verified against real data. See [[Jarvis Verification and Risks]].
+
+## The rules of the page
+1. **No vertical scroll, anywhere.** The root and every card use `overflow: hidden` on the vertical axis. No `overflow-y: auto` or `scroll` exists in the styles.
+2. **Horizontal scroll only for written text.** A line that Anant wrote (an 80, a 20, a Lose, a block title, a proof line) is one row with `white-space: nowrap` and `overflow-x: auto`. The scrollbar is hidden. The line scrolls by wheel, drag, touchpad or keyboard. Numbers, labels, rings, the heatmap and buttons never scroll in either direction.
+3. **The page scales to fit.** The grid and the font size follow the pane size, as The Plan's view does, so every card fits at any window size above a minimum. Below the minimum, a plain banner reads "Window too small". Nothing is hidden to make it fit.
+4. **Everything that ticks stays live.** A tick is one click or the space key on a row. The row updates at once, and the redraw from disk then confirms or reverts it.
+5. **Plain words.** No praise and no guilt. A miss reads "Day 2 of miss. Streak breaks tomorrow." with numbers.
+6. **Every number comes from the engine.** The page computes nothing the engine does not.
+
+## Blocks on the page
+All four groups from D9 are always shown.
+
+| Block | Shows | Source | Interaction |
+|---|---|---|---|
+| Hero | Streak number, builder level and the next milestone with days to go, the floor ring (rows done out of rows), the wins ring (0 to 4), an at-risk line | Engine | None |
+| Today | The 80, then the 20, each a tick row with its plan pointer | The daily note | Tick, click the text to open the note at that line |
+| Blocks | Now and next from today's calendar blocks, then deadlines due in the next 7 days | `### Blocks` in the daily note, `[due::]` on weekly Goals | Tick a block, click to open |
+| Loses and carryover | Open Loses oldest first with age, the count, and carried work from the session log | `## Daily Loses`, `## Carryover` | Tick a Lose to `[x]` |
+| Pipeline | Applications today and this week out of 10, LeetCode out of 5, study hours | Tracker `date_applied`, `lc_count`, `study_today` | Plus and minus on the two numbers |
+| Heatmap | The last 30 days of floor rows done, today outlined, forgiven days dashed, missing notes faint | Engine | Click a day to open its note |
+| Proof | Yesterday's proof line, and today's proof field | `[proof::]` | Type and save one line |
+| Health chip | One chip that is green when `validate` and `doctor` are clean and red with a count when they are not | Engine | Click for the list in a note |
+| Links | Chips for the system notes, Mentorship Board and the plan notes | Config | Click to open |
+
+## Layout
+Two layouts, chosen by pane shape, as in The Plan. The wide layout:
+
+```
++------------------+----------------------------------+------------------+
+| HERO             | TODAY: the 80 and the 20         | LOSES            |
+| streak, level    |                                  | and carryover    |
+| floor ring       +----------------------------------+                  |
+| wins ring        | BLOCKS: now, next, due soon      |                  |
++------------------+----------------------------------+------------------+
+| PIPELINE: applications, LeetCode, study hours | HEALTH chip | LINKS     |
++-----------------------------------------------+-------------+-----------+
+| HEATMAP, 30 days                              | PROOF                   |
++-----------------------------------------------+-------------------------+
+```
+
+The compact layout is two columns for a narrow or tall pane. It holds the same blocks. The compact layout is also how the page reads at an iPhone 15 width of 393 px, which is a CSS test only. No phone build is in scope ([[Jarvis Decisions Log]], D2).
+
+Row limits keep each card inside its cell at the minimum font size: the 80 is one row, the 20 at most four, blocks at most eight, visible Loses at most seven.
+
+## Scaling
+The root measures its pane with a ResizeObserver. Font size is the smaller of a width term and a height term, clamped between a minimum of 11 px and a maximum of 22 px. The exact constants are set in prompt P4 against the fixtures in the next section. Below 11 px the banner shows.
+
+## Visual system
+- Colours are CSS variables defined in `styles.css` under the class prefix `jd-`, built on Obsidian variables. No colour is hard coded in a script. The Plan's build broke this rule, so a test greps for hex colours in the bundle.
+- Dark and light follow Obsidian through the class on `body`.
+- Tokens: an accent, a good, a warning and a bad colour, and a green ramp of six shades for the heatmap.
+- The floor ring is red at 0 rows done, golden orange between 1 row and all rows minus one, and green when all rows are done.
+- Big numbers use the monospace font with tabular digits.
+- The ring animates over 350 ms and pulses once when it completes. `prefers-reduced-motion` turns both off.
+- Every interactive row is a button with a visible focus ring, and keyboard operable.
+- No `innerHTML`, no inline colour styles.
+
+## Delight, kept small
+- **Builder levels.** The title sits beside the streak and changes at 3, 7, 21, 66 and 100.
+- **Proof of the day.** Yesterday's proof is shown as "Yesterday you proved: ...". Writing today's takes one line.
+- **Heatmap.** Thirty days, six columns by five rows in the compact layout and ten by three in the wide one.
+- **Pipeline momentum.** "Applications this week: 4 of 10" with the gap stated plainly.
+
+## States and errors
+| State | What the page shows |
+|---|---|
+| Today's note is missing | An empty floor ring and a "Create today's note" button that builds `YYYY-MM-DD.md` from the template |
+| A note in the Daily folder is misnamed | A red banner with the file name and the correct name. The engine ignores the note. |
+| A note has a leftover `<% %>` date | A banner naming the note |
+| The window is too small | The banner from rule 3 |
+| Blocks are stale or the calendar was unavailable | The strip says "Blocks not loaded today. Run /startday." |
+| The engine and the screen disagree | The health chip turns red. A debug command prints both. |
+
+## Non-Goals
+- No vertical scroll, no tabs, no pop-up pages that scroll.
+- No calls to Google, Todoist, Toggl or any outside service from the plugin.
+- No personal-life content: no health, meals, water or relationships.
+- No phone build.
+- No chart that cannot be read at the minimum size.
+
+## Open Questions
+- [ ] What happens when open Loses outnumber what fits? Recommended: show the oldest that fit, add a "+N more" chip that opens the Loses heading in the daily note, and cap open Loses at 7 so that a bigger pile forces a make-up or a drop at close. This hides rows, so it needs your yes.
+- [ ] Heatmap length: 30 days, as in The Plan, or 60?
+- [ ] Which Dell and Acer window sizes must hold? Needed for the fixtures in prompt P4.
+- [ ] Should the health chip also check that the skills and hooks exist, as a guard against The Plan's 16 October overwrite?
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Spec - Plans Feed.md`
+```
+---
+type: project
+status: active
+created: 2026-10-26
+updated: 2026-10-26
+tags:
+  - dashboard
+  - jarvis
+  - spec
+  - plans
+project_kind: spec
+next: "Anant confirms the open questions; prompt P5 builds the feed"
+related_progress:
+  - "[[Jarvis Build Hub]]"
+  - "[[Jarvis Decisions Log]]"
+  - "[[Jarvis Spec - Day Model and Streak]]"
+---
+# Jarvis Spec - Plans Feed
+## What This Is
+==Every plan keeps one owner note, and the daily note holds only a one-line pointer to it, so planning feeds the day without a second copy.==
+This note says how the standing plans (the Fall 2026 plan, the weekly note, the project plans, the mentorship plans and the UMN course boards) become the 80, the 20 and the floor of one day. It follows [[Plan Standard]] for what a plan is.
+
+## Current State
+Checked on 2026-10-26.
+- The Fall 2026 Plan has a Systems table of 22 tracks, each with a cadence and a done-definition. Three of them run daily: the application floor, LeetCode and CodePath, and the class step. The rest run weekly, monthly or once. It also has a week-by-week One Hard Thing table. Source: `10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan.md`.
+- [[2026-W44]] holds the week: daily Goals, three groups of "The 80" (UMN, Development, Others), Friday checkpoints and carried items.
+- [[Daily Note Standard]] says the 80 and the 20 come from the weekly Goals and the calendar, not from memory.
+- The Plans Board says the Fall plan ends 2026-12-14. Anant's answer is 2026-12-24 ([[Jarvis Decisions Log]], D14).
+- Mentorship plans are `Plan - Ahnaf` and `Plan - Jesse` in `20_Progress/Mentorship Program/Plans/`. The Jarvis dashboard note records one must-do: the Jesse outreach email, due 2026-11-02.
+- Course material is under `20_Progress/Degree/`, with a board per course and `_Courses/_Courses Board.md`.
+- Nothing in this note is built.
+
+## Single ownership
+| Plan family | Owner note | The daily note holds |
+|---|---|---|
+| Term plan | Fall 2026 Plan | `[plan:: Fall 2026 Plan]` on the 80 or a floor row, nothing more |
+| The week | The weekly note | The chosen Goal as the 80, copied once as one line |
+| Project plans | The project note's `next:` and Log | A 20 or an 80 line with `[plan:: project name]` |
+| Mentorship | `Plan - Ahnaf`, `Plan - Jesse` | The next action from `/note-to-actions`, as a 20 |
+| UMN courses | The course board and `Fall'26 Syllabus` | A deadline as `[due::]` on a weekly Goal, never a copy of the board |
+| Career pipeline | Tracker notes in `Each One/` | Nothing. The page reads `date_applied` directly. |
+
+Personal plans, including the resolutions, belong to The Plan and do not appear here ([[Jarvis Decisions Log]], D7).
+
+## How the 80 is chosen
+1. `/startday` reads the weekly Goals, the week-by-week table, today's Blocks and any `[due::]` within seven days.
+2. It proposes up to three candidates for the 80, ordered by the Fall plan's One Thing first, then a hard deadline, then the open Goal that has slipped longest.
+3. Anant picks or edits one. It is written as one line: "I will [behavior] at [time] in [place]."
+4. If the One Thing is applications, the 80 is the day's application count, and the floor row still reads one company moved.
+Anant decides the 80. The skill never chooses alone.
+
+## How the 20 is chosen
+1. A 20 line is a task without which the 80 cannot finish today. Anant's example: if the 80 is five applications, the 20 is the cover letters, the resume edits and the other Jarvis work that make those five ready.
+2. The skill derives candidates by reading the 80's own plan note and listing its unfinished prerequisites.
+3. It writes two to four lines, each with `[for:: 80]`.
+4. A task that does not serve the 80 is not a 20. It goes to the weekly Goals or becomes a Lose.
+5. When the One Thing changes mid-day, the 20 is rewritten to match and the old lines are marked `[-]` with a reason.
+
+## Pipeline momentum
+- The weekly target is 10 applications, each complete and correct ([[Jarvis Decisions Log]], D15).
+- The count is the number of tracker notes whose `date_applied` falls in the current week. The page shows it as "n of 10".
+- The Standard's week is not settled. Periodic Notes names a Sunday-start week and The Plan uses ISO weeks. This is an open question in [[Jarvis Dashboard Build Record]], and it decides which days count.
+
+## The term end
+On 2026-12-24 the Fall 2026 plan closes. Whatever is done is done. At that date a short review decides which Systems rows continue, which stop and which floor rows change. The config table in [[Jarvis Spec - Day Model and Streak]] then gets a new term. The streak carries over, because it counts the floor, not the term.
+
+## Failure modes
+| Trigger | Effect | Smallest fix |
+|---|---|---|
+| The weekly note has no Goals for the week | The 80 has no source | `/startday` says so and asks for the 80 by hand |
+| The 80 is chosen but has no plan note | The 20 cannot be derived | The skill asks for the prerequisites once and writes them |
+| A plan changes and the daily line keeps the old text | Two versions exist | The line holds a pointer, and the validator flags a 20 whose 80 was dropped |
+| The term ends and nobody updates the config | The page shows rows of a closed plan | The health chip turns red on 2026-12-24 until the config has a new term |
+| Ten applications are sent but one is incomplete | The count overstates | `date_applied` is set only when the application is complete, as a rule in the tracker standard |
+
+## Non-Goals
+- No plan text is copied into the daily note.
+- No new plan is created and no existing plan note is edited by this design.
+- No automatic choice of the 80.
+- No personal plan in Jarvis.
+
+## Open Questions
+- [ ] Which week does the pipeline count: ISO or Sunday-start?
+- [ ] Where do mentorship deadlines live so the strip can list them? Recommended: `[due::]` on a weekly Goal line.
+- [ ] Is the tracker standard strict that `date_applied` means a finished application?
+- [ ] What decides which Fall Systems rows continue after 2026-12-24? Recommended: one review on that date, written in the weekly note.
+
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Spec - Plans Feed.md`
+```diff
+- | `date_applied` is set only when the application is complete, as a rule in the tracker standard |
++ | `date_applied` is set only when the application is complete. This rule is not confirmed in any tracker standard yet, so it is an open question below. |
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Spec - Automation Layer.md`
+```
+---
+type: project
+status: active
+created: 2026-10-26
+updated: 2026-10-26
+tags:
+  - dashboard
+  - jarvis
+  - spec
+  - automation
+project_kind: spec
+next: "Anant answers the open questions; nothing is built until the manual versions have run clean for two weeks"
+related_progress:
+  - "[[Jarvis Build Hub]]"
+  - "[[Jarvis Decisions Log]]"
+  - "[[Jarvis Spec - Plans Feed]]"
+  - "[[Jarvis Verification and Risks]]"
+---
+# Jarvis Spec - Automation Layer
+## What This Is
+==The automation layer makes the Jarvis day easier on the calendar and on later platforms, with no tokens in the plugin and no silent writes.==
+It is a design. It covers how today's calendar reaches the page, how a planned block reaches the calendar, how time spent is read from The Plan and what is left open for later transports. It does not build anything ([[Jarvis Decisions Log]], D21).
+
+## Current State
+Checked on 2026-10-26.
+- The connector is the claude.ai Google Calendar integration, acting as `gupt0479@umn.edu`. It cannot read the vault, and the vault has no way to call it. Its tools, limits and the ten calendars on the account are in [[How to Use Google Calendar]], which was checked against the live account on 2026-10-25.
+- The working calendar is a plain Google calendar named "Todoist" (id starts `c_2195`). It does not sync with Todoist. The guide suggests renaming it "Blocks".
+- The guide's rules for writes: read before writing, write only to the working calendar, leave meetings alone, silence every write with `notificationLevel: NONE`, use the five-line event format, set a 5 minute popup, propose a week's blocks in the weekly note and get a yes before bulk creation, and re-list the week after writing.
+- The UMN class blocks are not visible to the connector.
+- The Daily Note Standard already has a `### Blocks` heading, filled by `/startday` from today's calendar, read only.
+- Toggl is not mentioned in any vault note. Anant says it is used in The Plan, and this is unverified.
+- The Plan holds no time entries that Jarvis can read today.
+- Todoist is out of the Jarvis design ([[Jarvis Decisions Log]], D18).
+
+## The principle
+The plugin only reads the vault. Claude is the bridge to every outside service. The daily note is the hand-off: Claude writes a line, the plugin shows it. This keeps tokens, expiry and failures out of the plugin, and a failed call leaves the page honest rather than blank.
+
+## Layer 1: Today's blocks onto the page
+| Step | Actor | Read | Write | Approval |
+|---|---|---|---|---|
+| 1 | `/startday` | Primary calendar and the working calendar for today, read only | `### Blocks` lines: time, title, `[cal:: id]` | None, it is a read of the calendar and a write to a section the Standard assigns to it |
+| 2 | The plugin | `### Blocks` | Nothing | None |
+| 3 | The page | The clock and the lines | Nothing | None |
+
+The page shows the block that is running now, the next one and the deadlines due within seven days. If Claude or the connector was unavailable, the section says "connector unavailable", as the Standard requires, and the page says "Blocks not loaded today. Run /startday."
+
+A block that passed with no tick is not decided by the page. At `/closeday` it becomes a candidate Lose, as the [[Daily Close Loop]] says.
+
+## Layer 2: Planned blocks onto the calendar
+1. Sunday planning, after the weekly Goals exist: Claude lists the week, proposes the blocks as a table in the weekly note and waits for a yes.
+2. After the yes it creates the blocks on the working calendar in the five-line format, then re-lists the week and reports the exact count.
+3. `/closeday` may move one missed block into the next free slot without a table, as the guide allows.
+4. Meetings are never moved. Prep blocks are placed before them.
+5. Blocks that cannot fill the WHAT line are not created. Claude asks.
+Calendar writes stay manual: one tap, one approval, one count.
+
+## Layer 3: Time spent, read from The Plan
+- The Plan is the primary daily monitor. Timestamps in The Plan's daily note record time per task ([[Jarvis Decisions Log]], D19). Jarvis does not track time.
+- `/startday` and `/closeday` read The Plan's daily note, read only, and use it for one purpose: fill `study_today` and show time spent against each block.
+- The format of those timestamps is defined in The Plan's own builds. This design waits for it.
+- The consistency agent reads both daily notes and reports mismatches: study hours that disagree, a block ticked in Jarvis with no time in The Plan, one piece of work counted twice. It writes nothing.
+- Whether a Jarvis session may read The Plan, and the path on the Acer, are unverified ([[Jarvis Verification and Risks]]).
+
+## Layer 4: Later transports
+Apple Reminders, Zapier and further MCP servers are not designed. The rule for choosing is fixed now so the choice stays simple:
+1. Each type of task has one owner: the daily note, the calendar or one reminders app. Nothing is written to two places.
+2. A transport must work with the laptop off, or say plainly that it does not.
+3. A transport makes one kind of write, and a failure is visible in the note the next morning.
+4. A transport the vault cannot test is not built.
+Todoist is not a candidate.
+
+## Scheduling
+Everything above is manual or one tap until the manual version has run clean for two weeks. This matches Decision 40 in The Plan's record. A scheduled run, if it ever exists, needs a dry run, a log entry and a kill switch, and writes only to the section it owns.
+
+## Failure register
+| Trigger | Effect | What Anant sees | Detection | Smallest fix |
+|---|---|---|---|---|
+| The calendar token expires | `### Blocks` stays empty | "Blocks not loaded today" | `/startday` reports the error | Reconnect the connector |
+| A calendar write creates the wrong count | Week has duplicates or gaps | A wrong count in the report | Re-list after writing, per the guide | Delete the duplicate by hand, since Claude does not delete |
+| Time zone mix | A block shows an hour off | The strip is wrong | A test with a Winnipeg and an India event | Trust the offset, not the zone label |
+| Two laptops write the same daily note | One edit is lost | A tick reverts | The line text check refuses a stale write | Use one laptop per day, or re-tick |
+| The class blocks are invisible | The strip omits lectures | Missing lectures | Known limit in the guide | Add lecture anchors to the weekly note by hand |
+| The Plan has no time entries | `study_today` stays typed | No time per block | Consistency agent reports it | Type the number |
+| A skill writes the wrong section | A heading holds foreign lines | The validator reports it | `plan-cli`-style `validate` | Fix by hand, the validator never rewrites |
+
+## Non-Goals
+- No Toggl, Todoist or other service called by the plugin.
+- No scheduled or unattended run in this build.
+- No deleting of calendar events.
+- No writes to The Plan.
+- No phone reminders until a transport is chosen.
+
+## Open Questions
+- [ ] What is the format of Toggl timestamps in The Plan, and where do they land in its daily note?
+- [ ] Which exact calendars besides the primary and the working one matter ("all calendars and related data will be provided")?
+- [ ] Should the working calendar be renamed "Blocks" now, so the name stops suggesting a Todoist sync?
+- [ ] Do Jarvis's own hooks allow a read of The Plan's daily note, and what is the path on the Acer?
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Spec - Carry Forward.md`
+```
+---
+type: project
+status: active
+created: 2026-10-26
+updated: 2026-10-26
+tags:
+  - dashboard
+  - jarvis
+  - spec
+  - migration
+project_kind: spec
+next: "Anant decides the blocks marked Decide; prompt P6 retires the old page only after a clean fortnight"
+related_progress:
+  - "[[Jarvis Build Hub]]"
+  - "[[Jarvis Decisions Log]]"
+  - "[[Jarvis Spec - Dashboard Page]]"
+  - "[[Jarvis Plugin Retirement List]]"
+---
+# Jarvis Spec - Carry Forward
+## What This Is
+==Every block of the current Jarvis dashboard gets a fate in the plugin, so nothing disappears by accident.==
+The current setup is `00_Dashboard.md`, `10_Areas/Jarvis OS Dashboard.canvas`, the `dashboard.css` snippet, the daily template and the skills. This note lists each part, says where it goes and marks the ones that need Anant's decision. [[Jarvis Build Overview]] describes the current setup and [[Jarvis Dashboard Build Record]] gives its history.
+
+## Current State
+Checked on 2026-10-26. `00_Dashboard.md` and the canvas were both rebuilt that day to read today's daily note and every note's open Loses. Homepage opens the canvas. Inline DataviewJS is off in settings.
+
+## Blocks of the old page
+| Old block | Source today | Fate in the plugin |
+|---|---|---|
+| Sync alert banner | Embed of a banner note | Decide. Recommended: the health chip shows a sync problem, and the banner embed stays until the page retires. |
+| Current focus (`today_focus`, `today_80`, `today_20`) | Three frontmatter fields of the page, patched by the skills | Retired. The page shows the 80 and the 20 from the daily note, so the skills stop patching these fields. |
+| Wins `n/4`, Floor `n/3` tiles | Frontmatter booleans | Hero rings, counted from checkbox lines |
+| Problems, Study Hours | `lc_count`, `study_today` | Pipeline block, plus and minus buttons |
+| Open Loses tile and list | Open tasks under Daily Loses, any note | Loses block, ticking writes back to the source line |
+| This Week roll-up | Notes from Monday to today | Decide. Recommended: a one-line week strip in the Hero (days with a note, wins total, floors total, problems, study hours). The clippings count moves to the weekly review. |
+| Today's Priorities | Open tasks in today's note outside Loses | The 80 and the 20, which hold exactly that |
+| Wins and Floor bars | Meta Bind and DataviewJS | The two rings |
+| Active Projects | Dataview over `20_Progress` | Decide. Recommended: three chips with each project's `next:`, or a link to the Projects Board. |
+| Internship Pipeline | Dataview over the tracker | Pipeline block, from `date_applied` |
+| Clippings Queue | Count of `60_Claude/05_Clippings` | Decide. Recommended: weekly review, not the daily page. |
+| Vault Health | Notes missing `type` or `status` | Decide. Recommended: `doctor` output behind the health chip. |
+| System, Claude OS, AI and Daily OS link rows | Static wikilinks | Links block |
+| Mentorship must-do (Jesse outreach, 2026-11-02) | A typed line on the page | A `[due::]` line in the weekly note, shown in the Blocks strip |
+| 10_Areas Overview table | Typed table | Decide. Recommended: leave it in `00_Dashboard.md` as a note until retired, then move it to `Jarvis Vault Architecture`. |
+
+Dictation said no content is removed. The Decide rows are the only places a block could leave the page, and each needs a yes.
+
+## The canvas
+The canvas has ten text nodes and no edges. It retires with the page ([[Jarvis Decisions Log]], D23). The Plan kept its map canvas as an exploration surface. Whether Jarvis keeps one is an open question.
+
+## Template and skills
+| Part | Change |
+|---|---|
+| [[Better Today]] | Rewritten to the shape in [[Jarvis Spec - Day Model and Streak]]. The two Meta Bind tables become checkbox lists. The frontmatter booleans go. |
+| [[Daily Note Standard]] | Patched: line formats, the new fields, an optional `## Proof of the day` heading, the validator rules. A patch to a standard needs Anant's approval first. |
+| `/startday` | Writes the 80, 20, wins, floor and Blocks as lines. Stops patching the `today_*` fields. Reads The Plan's daily note read only. |
+| `/closeday` | Counts ticked lines instead of booleans. Still asks the why and the fix. |
+| `daily-operator` agent | Updated to the new shape. |
+| `.agents/skills/startday` and `closeday` | Already differ from the `.claude` copies. Left alone until Anant decides which is canonical. |
+
+## Old notes
+- The 87 notes with Meta Bind inputs stay as history. Removing Meta Bind turns their inputs into raw text ([[Jarvis Plugin Retirement List]]).
+- The engine ignores old-shape days. Whether to convert them is an open question in [[Jarvis Spec - Day Model and Streak]].
+
+## Non-Goals
+- No change to any note in this design.
+- No removal of a plugin, snippet or setting.
+- No merge of the canvas and the page before the plugin exists.
+- No move of personal-life content into Jarvis.
+
+## Open Questions
+- [ ] Decide the six rows marked Decide above.
+- [ ] Does Jarvis keep an exploration canvas after the old one retires?
+- [ ] Which copy of `startday` and `closeday` is canonical, `.claude` or `.agents`?
+- [ ] Does Anant want the old page kept read-only as a fallback for the fortnight, or removed from Homepage at once?
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Architecture.md`
+```
+---
+type: project
+status: active
+created: 2026-10-26
+updated: 2026-10-26
+tags:
+  - dashboard
+  - jarvis
+  - spec
+  - architecture
+project_kind: spec
+next: "Anant decides React versus plain DOM and the repo location; prompt P2 builds the engine"
+related_progress:
+  - "[[Jarvis Build Hub]]"
+  - "[[Jarvis Decisions Log]]"
+  - "[[Jarvis Spec - Day Model and Streak]]"
+  - "[[Jarvis Verification and Risks]]"
+---
+# Jarvis Architecture
+## What This Is
+==The Jarvis dashboard is three replaceable layers: the daily notes as data, a pure TypeScript engine, and a view, plus a command-line program that gives Claude the same numbers the screen shows.==
+It follows the structure of The Plan's plugin, which worked in its tests, and adds guards for the faults that plugin met in practice. The two plugins share no code ([[Jarvis Decisions Log]], D1).
+
+## Current State
+Checked on 2026-10-26.
+- Jarvis is a git repository with remote `https://github.com/gupta-builds/Jarvis.git`. Its commits are auto-sync commits (`Auto-sync: 2026-10-26 13:48, ...`). The Dell and the Acer sync through it.
+- `.gitignore` ignores `workspace.json`, caches, `data.json` of three plugins and `.claude/settings.json`. It does not ignore `.obsidian/plugins/jarvis-dashboard/`. A test with `git check-ignore` found `main.js` would be tracked. Twenty-five plugin folders are tracked today.
+- Obsidian is at plugin versions listed in [[Jarvis Plugin Retirement List]]. Obsidian Sync is off in the core plugin list.
+- `30_Order/System/` holds `claude-workflow`, `cursor-workflow`, `excalidraw-mcp`, `jarvis-cli`, `jarvis-memory`, `sync-workflow` and `vault-lint`. A folder named `jarvis-cli` already exists and may be taken. It is checked in prompt P2.
+- The Plan's plugin is the model. Its repository `D:\_Anant\20_Progress\Projects\the-plan-dashboard` has 3 commits and no remote. Its engine has 87 tests. Its screens were never shown real data. An old copy of `.claude` overwrote its skills and hooks on 2026-10-16, because two laptops auto-synced.
+- Nothing in this note is built.
+
+## Layers
+| Layer | What it is | Replaceable because |
+|---|---|---|
+| Data | Daily notes `YYYY-MM-DD.md` in `10_Areas/Life/Enumerate/Daily/`, the weekly note, tracker notes. Plain markdown. | The plugin can be disabled and nothing is lost |
+| Engine | Pure TypeScript in `src/core/`. It imports nothing from Obsidian or Node. Text in, numbers out. | The plugin and the CLI run the same file |
+| View | A plugin view that draws the page from the engine's model | It holds no rule of its own |
+| CLI | `jarvis-cli`, the engine bundled for Node | Claude's skills read its JSON and never compute a number |
+
+## Engine modules
+`parse` (lines, fields, headings), `streak` (the rule in [[Jarvis Spec - Day Model and Streak]]), `toggle` (flip one checkbox character and refuse a stale line), `config` (floor rows per term, milestones and titles, folder names, term end), `periods` (weeks and months), `validate` (the ten rules), `blocks` (parse `### Blocks` and find now and next), `pipeline` (count `date_applied` in a week), `model` (everything the page needs in one call).
+
+## Plugin
+- Id `jarvis-dashboard`. Name "Jarvis dashboard". Never submitted to the community directory.
+- `isDesktopOnly`: recommended true, because Jarvis is on two laptops only. The first version uses no Node or Electron API, so the choice costs nothing. Open question.
+- Writes: three paths only. Flip one checkbox through `Vault.process`. Change `lc_count` or `study_today` with `processFrontMatter`. Create today's note from the template.
+- Creating a note refuses any name that is not `YYYY-MM-DD`.
+- Reads tracker `date_applied` through the metadata cache. Never loops over all files.
+- Obsidian guidelines: no `innerHTML`, `this.app` only, every event and interval registered, `normalizePath` on every path, sentence case in the interface, no default hotkeys.
+- React 19, as in The Plan, or plain DOM. Recommended: React, because a scaled grid with live ticking is simpler to keep correct and test. The Plan's own build prompts asked for plain DOM and the build used React, so this is recorded here as a decision and not as a surprise. Open question.
+
+## Command-line program
+`jarvis-cli` has these commands. Each prints JSON and writes nothing.
+| Command | Prints |
+|---|---|
+| `streak <dailyFolder> <date>` | Current, best, today's rows done, at risk, 30 days of status |
+| `day <dailyFolder> <date>` | One day's lines and marks |
+| `week <weekly|date>` | Totals for a week: days, wins, floors, problems, study, applications |
+| `validate <note>` | Breaches of the ten rules |
+| `doctor` | Misnamed notes, leftover placeholders, plugin version against the repo, whether the skills, agents and hooks exist |
+
+`doctor` exists because of The Plan's two silent failures: misnamed notes and an overwritten `.claude`.
+
+## Repository, build and deploy
+- Repo location proposed: `D:\_Anant\20_Progress\Projects\jarvis-dashboard`. Whether the Acer has the same path is unverified. A private GitHub repository is created only after Anant says yes.
+- Commands: `npm run dev`, `npm test`, `npm run build`, `npm run build:cli`, `npm run deploy` and `npm run deploy:cli`. Deploy copies `main.js`, `manifest.json` and `styles.css` to `.obsidian/plugins/jarvis-dashboard/`, and the CLI to a folder chosen in prompt P2.
+- The vault copy of the plugin is never edited by hand.
+- Writes under `.obsidian` need Anant's yes each time.
+
+## Tests
+- Golden month fixtures with expected values worked out by hand before any engine code, covering a milestone, a forgiven miss, a break, a missing note, a month boundary and a leap year.
+- One unit test per validator rule and per streak edge.
+- Toggle tests: one character changes, LF and CRLF are kept, a stale line is refused, frontmatter bytes stay identical.
+- jsdom view tests, including the page rule: the root and each card have no vertical overflow at the fixture sizes, and no vertical scroll style exists in the bundle.
+- A grep test that the bundle has no hard-coded hex colours.
+- A debug command that prints the screen's numbers, compared with `jarvis-cli` for the last 30 days.
+
+## Guards for two laptops
+1. The plugin shows its version and build stamp in the health chip, and `doctor` compares them with the repo.
+2. `doctor` also checks the skills, agents and hooks, so a stale overwrite shows within a day.
+3. A plugin build travels through git. A stale tree on the other laptop can overwrite it, so deploys are checked on both laptops after each release.
+4. Jarvis's auto-sync is not changed by this build.
+
+## Non-Goals
+- No shared code with The Plan's plugin.
+- No phone build.
+- No outside service called from the plugin.
+- No community-directory submission.
+- No change to Jarvis's sync or hooks.
+
+## Open Questions
+- [ ] React or plain DOM?
+- [ ] `isDesktopOnly: true`?
+- [ ] Repo location, and is the same path on the Acer?
+- [ ] Is the existing `30_Order/System/jarvis-cli` folder something else, and where should this CLI live?
+- [ ] Should the daily-note validator also run as a hook after a write, as it does in The Plan?
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Plugin Retirement List.md`
+```
+---
+type: reference
+status: seed
+created: 2026-10-26
+updated: 2026-10-26
+tags:
+  - dashboard
+  - jarvis
+  - plugins
+reference_kind: resource
+notes:
+  - "[[Jarvis Build Hub]]"
+  - "[[Jarvis Decisions Log]]"
+  - "[[Jarvis Spec - Carry Forward]]"
+---
+# Jarvis Plugin Retirement List
+==Anant decides which plugins go. This note is evidence only, and nothing is removed.== The suggestion column is the assistant's reading, not a decision.
+
+## How this was checked
+On 2026-10-26, read from `.obsidian/plugins/*/manifest.json`, `community-plugins.json`, the Lazy Plugin Loader's settings (it holds no secret), the enabled CSS snippets and `appearance.json`, and counted in `10_Areas`, `20_Progress`, `30_Order`, `40_Resources`, `60_Claude` and `00_Dashboard.md`. The archive was not searched. Counts are notes, not blocks. Twenty-six plugin folders are installed. `community-plugins.json` lists 11. The Lazy Plugin Loader loads the others after a delay, so the file is not the enabled list.
+
+## Tied to the old dashboard
+| Plugin or item | Version | What depends on it | If removed | Suggestion |
+|---|---|---|---|---|
+| Meta Bind | 1.5.1 | 87 notes with `INPUT[...]` or `BUTTON[...]`, nearly all daily notes. Today's `Better Today` template. | Those inputs show as raw text in old notes. | Keep until the template and old notes are decided, then remove |
+| Multi-Column Markdown | 0.9.1 | 14 notes, including `00_Dashboard.md` | Columns collapse into one | Safe after `00_Dashboard.md` retires |
+| `dashboard.css` snippet | | `00_Dashboard.md` classes `.stat-grid`, `.stat-tile`, `.progress-wrap`. 26 notes set `cssclasses`. | The old page loses its tiles. Other classed notes are unchecked. | Check the 26 notes first |
+
+## Keep, used far beyond the dashboard
+| Plugin | Version | What depends on it | Note |
+|---|---|---|---|
+| Dataview | 0.5.68 | 440 query blocks and 80 DataviewJS blocks | Boards and trackers depend on it |
+| Kanban | 2.0.51 | 17 notes | |
+| Local REST API | 5.5.2 | The `jarvis` MCP tools that Claude uses to read and write this vault | Removing it cuts Claude's access |
+| Latex Suite | 1.14.0 | 157 notes with `$$` | |
+| Spaced Repetition | 1.15.4 | 16 notes | |
+| Templater | 2.26.0 | 74 template files with `<%`. Its "Trigger on new file creation" setting is off, which leaves placeholders in new notes. | Needed until the plugin creates notes itself |
+
+## Depends on what the design decides
+| Plugin | Version | Question |
+|---|---|---|
+| Homepage | 4.5.0 | It will open the plugin view. Stays. |
+| Periodic Notes | 0.0.17 | The plugin creates today's note ([[Jarvis Decisions Log]], D11). Periodic Notes also makes weekly and monthly notes. |
+| Calendar | 1.5.10 | Uses Periodic Notes' settings for weekly links |
+| QuickAdd | 2.32.1 | Capture choices. Its `data.json` is not read. |
+| Excalidraw, ExcaliBrain | 2.29.0, 0.2.19 | 21 drawing files. Needed only if the map and OS drawings stay. |
+| Obsidian Git | 2.42.0 | The vault syncs through git. Check its auto settings before changing anything. |
+
+## Not related to the dashboard
+Code Styler 1.1.7, File Explorer Plus 1.3.1, Ninja Cursor 0.0.14, URL into selection 1.11.4, Recent Files 1.7.10, Recent Edits 1.6.0, Cmdr 0.7.0, Style Settings 1.0.9, Text Extractor 0.7.0, Lean Terminal 1.5.0, Lazy Plugin Loader 1.0.24.
+
+## Theme and snippets
+Theme AnuPpuccin. Enabled snippets: `dashboard`, `myedits`, `rainbowfile_colors`, `readingview`, `headerspace`. Only `dashboard` relates to the old page.
+
+## What would make each removal safe
+1. The plugin has run clean for a fortnight and the acceptance list in [[Jarvis Verification and Risks]] passed.
+2. The old page and canvas are retired on Anant's word.
+3. The notes that depend on the plugin are converted, archived on purpose or accepted as history.
+4. Each removal is its own step, with the plugin folder kept in git history.
+
+## Decision record
+| Plugin | Decision | Date |
+|---|---|---|
+| | | |
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Verification and Risks.md`
+```
+---
+type: reference
+status: seed
+created: 2026-10-26
+updated: 2026-10-26
+tags:
+  - dashboard
+  - jarvis
+  - risks
+  - verification
+reference_kind: resource
+notes:
+  - "[[Jarvis Build Hub]]"
+  - "[[Jarvis Architecture]]"
+  - "[[Jarvis Spec - Dashboard Page]]"
+  - "[[Jarvis Spec - Automation Layer]]"
+---
+# Jarvis Verification and Risks
+==Every claim in the Jarvis design that nobody has tested, the exact test for each, and what breaks if it fails.== The Plan's dashboard shipped with a table like this and left every row unfilled. Each prompt in [[Jarvis Build Hub]] fills the rows it can settle.
+
+## Unverified, and how to settle each
+| # | Claim | Test | If it fails |
+|---|---|---|---|
+| 1 | Homepage can open the plugin view at launch by command on both laptops | Restart each laptop five times and check the view opens each time | Open the view from `onLayoutReady` as a backup, idempotent |
+| 2 | A plugin build travels through git to the Acer and loads there | Deploy on the Dell, sync, enable on the Acer, read the version in the health chip | Copy the three files by hand per release |
+| 3 | The auto-sync on one laptop cannot overwrite the plugin or `.claude` with a stale tree | Run a sync on the Acer with an old tree and confirm `doctor` flags it | Whitelist and pin the paths, as The Plan needs to do |
+| 4 | `Vault.process` ticks write back without a conflict, and a `modify` event fires | Tick, watch the page redraw; edit the same line in the note at the same time | The stale-line check refuses the write |
+| 5 | A Jarvis session may read The Plan's daily note, read only | Read one Plan daily note from a Jarvis session under Jarvis's hooks | `/startday` asks for the numbers by hand |
+| 6 | The Plan's path is the same on the Dell and the Acer | List the folder on each laptop | Put the path in config per machine |
+| 7 | The Plan has Toggl time entries that Jarvis can read | Ask Anant where they land. No vault note mentions Toggl today. | Layer 3 of [[Jarvis Spec - Automation Layer]] waits |
+| 8 | `date_applied` is set only on a finished application | Read the tracker standard and ask Anant | The application count overstates |
+| 9 | The page can hold every block without vertical scroll at the sizes that matter | jsdom tests at the fixture sizes, then a real window on each laptop | Decide the Loses overflow rule in [[Jarvis Spec - Dashboard Page]] |
+| 10 | Calendar blocks written by `/startday` match the calendar | Compare `### Blocks` with a live list of the day | The strip says it is stale |
+| 11 | The existing `30_Order/System/jarvis-cli` is free for this CLI | List its contents | Name the new CLI differently |
+| 12 | Templater's "Trigger on new file creation" is on | Anant checks the setting in Obsidian. It is under `.obsidian`. | The plugin creates notes with resolved dates itself |
+| 13 | Ticking a Lose from the page writes back to its source note | Test with a Lose in an older note | Open the source note instead of ticking |
+
+## Failure register
+| Trigger | Effect | What Anant sees | Detection | Smallest fix |
+|---|---|---|---|---|
+| A note is named `DD-MM-YYYY` | The engine ignores it. The streak shows zeros. | A red banner naming the note | `validate` and the page | Rename it. This happened in The Plan for ten days. |
+| An old `.claude` overwrites the skills | `/startday` finds nothing | Commands missing, a red health chip | `doctor` | Restore from git history |
+| Today's note is missing | The day is a MISS | An empty ring and a Create button | The engine | Press Create |
+| A leftover `<% %>` date | Date queries skip the note | A banner | `validate` | Run `/startday` or fix the date |
+| Midnight passes during a session | A tick lands on the wrong date | None | The page reads the date every 30 seconds | A tick after midnight belongs to the new day |
+| Two laptops edit one note | A stale tick is refused | The row snaps back | The line check | Reload the page |
+| Open Loses pile up | The Loses card cannot fit them | A "+N more" chip, or a cap, depending on the decision | Row count | Decide the overflow rule |
+| The term ends on 2026-12-24 | The floor rows describe a closed plan | A red health chip | Config date | Add the next term's rows |
+| The calendar token expires | No blocks load | "Blocks not loaded today" | `/startday` report | Reconnect |
+| The window is too small | The page cannot fit | "Window too small" | The size check | Enlarge the window |
+| A plan changes after the 80 was written | The line points at a dropped plan | A validator warning | `validate` | Rewrite the line |
+| The page and the engine disagree | Wrong numbers | Red health chip | The debug command | Fix the page, never the engine |
+
+## Acceptance for the whole dashboard
+1. The dashboard opens at launch on the Dell and the Acer with no manual step.
+2. A tick updates the rings, the streak and the heatmap within one second.
+3. The screen's numbers equal `jarvis-cli` for the last 30 days.
+4. The root and every card have no vertical overflow at the agreed window sizes, and only written text scrolls sideways.
+5. The daily note stays valid markdown that reads well without the plugin.
+6. Disabling the plugin loses the view and none of the data.
+7. `doctor` reports clean on both laptops.
+
+## Risks
+| Risk | Likelihood | Effect | Control |
+|---|---|---|---|
+| Scope creep into the automation layer | Medium | Delay | Automation is design only until two clean weeks |
+| The Plan's lessons not applied | Medium | Silent zeros again | `doctor`, the banners and the unfilled-table rule above |
+| React adds weight | Low | Slower start | Measure first paint in prompt P3 |
+| Reading The Plan from Jarvis is blocked | Medium | No time totals | Fall back to a typed number |
+| Secrets exposure | Low | | The plugin reads only the daily, weekly and tracker folders. No `data.json` of another plugin is read. |
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Build Log.md`
+```
+---
+type: system
+status: seed
+created: 2026-10-26
+updated: 2026-10-26
+tags:
+  - dashboard
+  - jarvis
+  - build-log
+system_kind: log
+notes:
+  - "[[Jarvis Build Hub]]"
+  - "[[Jarvis Decisions Log]]"
+  - "[[Jarvis Verification and Risks]]"
+---
+# Jarvis Build Log
+Handoff between the build prompts. Each prompt reads this note first and appends one entry at the end of its run. An entry holds facts only: what was built, what was checked and the result, decisions made, and what the next prompt must know. Earlier entries are never rewritten.
+
+## Fixed answers (2026-10-26)
+| Item | Value |
+|---|---|
+| Plugin id | `jarvis-dashboard` |
+| Code location | `D:\_Anant\20_Progress\Projects\jarvis-dashboard`, proposed, not confirmed |
+| Hosting | Private GitHub repository, created only after Anant says yes in the session |
+| Devices | The Dell and the Acer. No phone. |
+| Daily folder | `10_Areas/Life/Enumerate/Daily` |
+| Day rollover | Midnight. A tick after midnight belongs to the new date. |
+| Streak | The floor, one forgiven miss, two in a row reset |
+| Floor rows, Fall 2026 | `application`, `practice`, `class` |
+| Term end | 2026-12-24 |
+| Weekly application target | 10 |
+| Calendar account | `gupt0479@umn.edu`, read through Claude only |
+| Model for every prompt | Sonnet 5.5 |
+
+## Entries
+
+### 2026-10-26, design notes written
+- Written in The Plan's `40_Resources/Obsidian/Dashboards/Jarvis Build/` as if they were in Jarvis, to be cut and pasted into `40_Resources/Obsidian/Dashboard/Jarvis Builds/` in the Jarvis vault. Eleven notes, listed in [[Jarvis Build Hub]].
+- Checked: the standards for specs, plans and prompts, the Daily Note Standard, the Daily Close Loop, the calendar guide, the weekly note [[2026-W44]], the Fall 2026 plan, the plugin list, the git ignore rules and the tracker's note fields.
+- Not checked: the notes were not linted with Vault Lint, because they are outside Jarvis. No wikilink to a Jarvis note was resolved in The Plan, because those targets exist only in Jarvis. Names were checked against Jarvis with a file search.
+- Open: every question under Open Questions in [[Jarvis Build Hub]]. `Prompts.md` is not written yet.
+- The next prompt must know: the day model replaces the frontmatter toggles built on 2026-10-26 morning ([[Jarvis Decisions Log]], Correction 3).
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Build Hub.md`
+```
+---
+type: project
+status: active
+created: 2026-10-26
+updated: 2026-10-26
+tags:
+  - dashboard
+  - jarvis
+  - plan
+project_kind: plan
+next: "Anant answers the open questions below, then the main Prompts note is written with prompt P1"
+related_progress:
+  - "[[Jarvis Decisions Log]]"
+  - "[[Jarvis Spec - Day Model and Streak]]"
+  - "[[Jarvis Spec - Dashboard Page]]"
+  - "[[Jarvis Spec - Plans Feed]]"
+  - "[[Jarvis Spec - Automation Layer]]"
+  - "[[Jarvis Spec - Carry Forward]]"
+  - "[[Jarvis Architecture]]"
+  - "[[Jarvis Plugin Retirement List]]"
+  - "[[Jarvis Verification and Risks]]"
+  - "[[Jarvis Build Log]]"
+---
+# Jarvis Build Hub
+## Goal
+==Build a private `jarvis-dashboard` plugin that shows one no-scroll page of the Jarvis working day, counts a floor streak, and removes the friction from planning, ticking and closing the day.==
+It is the Jarvis counterpart of The Plan's dashboard and is designed to avoid the faults that one met: silent zeros from a misnamed note, an old copy of `.claude` overwriting the skills, screens never shown real data and a verification table left empty. Its home in the Jarvis vault is `40_Resources/Obsidian/Dashboard/Jarvis Builds/`. These notes were written in The Plan and are to be cut and pasted there.
+
+## Where to put this folder
+1. Cut the folder `Jarvis Build` and paste its contents into `40_Resources/Obsidian/Dashboard/Jarvis Builds/` in the Jarvis vault. Do not paste a second folder inside it.
+2. Run Vault Lint on the eleven notes. They were written outside Jarvis, so lint has not seen them.
+3. The links to Jarvis notes (`Daily Note Standard`, `Better Today`, `2026-W44` and others) resolve there and not in The Plan.
+4. The finished prompts go to `Jarvis Builds/Ran/` and the one main `Prompts` note holds the next prompt only, following the [[Prompt Cycle]].
+
+## Map
+| Note | Holds |
+|---|---|
+| [[Jarvis Decisions Log]] | Every answer, the readings that need a yes, and five corrections |
+| [[Jarvis Spec - Day Model and Streak]] | The daily note shape, fields, floor rows, streak rule and validator |
+| [[Jarvis Spec - Dashboard Page]] | The no-scroll page, blocks, layout, scaling, visual system, states |
+| [[Jarvis Spec - Plans Feed]] | How plans become the 80, the 20 and the floor |
+| [[Jarvis Spec - Automation Layer]] | Calendar read, planned blocks, time from The Plan, later transports |
+| [[Jarvis Spec - Carry Forward]] | What each part of the old setup becomes |
+| [[Jarvis Architecture]] | Layers, modules, CLI, build, tests, two-laptop guards |
+| [[Jarvis Plugin Retirement List]] | Evidence for the plugin decision, no removals |
+| [[Jarvis Verification and Risks]] | Unverified claims, tests, failure register, acceptance |
+| [[Jarvis Build Log]] | Handoff between prompts |
+
+Existing Jarvis notes that this build starts from: [[Jarvis Build Overview]], [[The Plan Overview]] and its five notes, [[Jarvis Dashboard Build Record]], [[Daily Note Standard]], [[Daily Close Loop]], [[How to Use Google Calendar]] and [[2026-W44]].
+
+## Sequence
+Each prompt is a fresh Sonnet 5.5 session, written to the [[Agent Prompt Standard]] with the headings Why This Exists, Hard Rules, Implementation Order and Report Back. Each reads the Build Log first, appends one entry and stops at its gate. None starts before the one above it has passed. The prompts are not written yet.
+
+1. **P1, the day shape.** Patch the Daily Note Standard, rewrite [[Better Today]], and update `/startday`, `/closeday` and the `daily-operator` agent to the new shape. Each edit is shown first and waits for a yes. Done when: a new note made from the template passes the validator rules by hand, and a dry run of both skills writes the new lines.
+2. **P2, the engine and the CLI.** Create the repo, write hand-computed golden fixtures first, then `parse`, `streak`, `toggle`, `validate`, `blocks`, `pipeline` and the CLI with `doctor`. Done when: all tests pass and the CLI matches the golden values.
+3. **P3, the plugin base.** Data layer, safe ticking, creating today's note, the Hero and Today blocks. Done when: a tick changes the note, the numbers equal the CLI and first paint is measured.
+4. **P4, the page.** Every other block, the scaling, the no-scroll tests, the visual tokens and the heatmap. Done when: no vertical overflow at the agreed sizes and no hard-coded colour in the bundle.
+5. **P5, the feeds.** The plans feed, the Blocks strip from `/startday`, the read of The Plan's daily note and the consistency agent, all read only. Done when: a real day shows its blocks and time totals, or the page says plainly why not.
+6. **P6, wire and verify.** Deploy on both laptops, Homepage settings by Anant's own clicks, the acceptance list in [[Jarvis Verification and Risks]], and the retirement list for Anant. The old page and canvas retire only after a clean fortnight and only on Anant's word.
+
+Out of this plan: the automation transports, any scheduled run, any phone build and any plugin removal.
+
+## Open Questions
+Day model and page
+- [ ] Should the `application` floor row be one a day or two a day, given the weekly target of 10?
+- [ ] Typed numbers `lc_count` and `study_today`: frontmatter with plus and minus, or inline fields?
+- [ ] Add `## Proof of the day` to the Daily Note Standard as an optional heading?
+- [ ] Convert the 87 older notes that use Meta Bind, or leave them as history?
+- [ ] Open Loses overflow: show what fits plus a "+N more" chip, and cap open Loses at 7? This hides rows.
+- [ ] Heatmap: 30 or 60 days?
+- [ ] Which Dell and Acer window sizes must hold?
+- [ ] Decide the six rows marked Decide in [[Jarvis Spec - Carry Forward]], and whether Jarvis keeps an exploration canvas.
+
+Plans and the week
+- [ ] ISO week or Sunday-start week for the pipeline count?
+- [ ] Where do mentorship deadlines live so the strip can list them?
+- [ ] Is `date_applied` strictly a finished application?
+- [ ] What decides which Fall rows continue after 2026-12-24, and should the Plans Board date of 2026-12-14 be corrected?
+
+Automation and The Plan
+- [ ] What is the format of Toggl timestamps in The Plan, and where do they land? No vault note mentions Toggl.
+- [ ] Which calendars besides the primary and the working one matter?
+- [ ] Rename the working calendar "Blocks" in the Google Calendar app?
+- [ ] May a Jarvis session read The Plan's daily note, and what is the path on the Acer?
+- [ ] What did "Complete part 1 personally and the portion related to work. Adjourn." mean?
+
+Build
+- [ ] React or plain DOM, and `isDesktopOnly: true`?
+- [ ] Repo location, and is the existing `30_Order/System/jarvis-cli` folder free?
+- [ ] Which copy of `startday` and `closeday` is canonical, `.claude` or `.agents`?
+- [ ] Should a daily-note validator also run as a hook after a write?
+
+```
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards/Jarvis Build" && ls; echo "--- em dash / en dash count per file:"; grep -c "—" *.md | grep -v ":0" || echo "none"; echo "--- frontmatter delimiters (expect 2 per file in first 30 lines) and first/last key:"; for f in *.md; do n=$(head -40 "$f" | grep -c '^---$'); echo "$f: $n"; done; echo "--- unresolved in-folder links (names starting with Jarvis ):"; grep -oh "\[\[Jarvis [^]|]*" *.md | sed 's/\[\[//' | sort -u | while read n; do [ -f "$n.md" ] || echo "MISSING: $n"; done; echo "--- non-folder link targets used (should exist in Jarvis):"; grep -oh "\[\[[^]|#]*" *.md | sed 's/\[\[//' | grep -v "^Jarvis \(Build Hub\|Decisions\|Spec\|Architecture\|Plugin\|Verification\|Build Log\)" | sort | uniq -c | sort -rn`
+```
+Jarvis Architecture.md
+Jarvis Build Hub.md
+Jarvis Build Log.md
+Jarvis Decisions Log.md
+Jarvis Plugin Retirement List.md
+Jarvis Spec - Automation Layer.md
+Jarvis Spec - Carry Forward.md
+Jarvis Spec - Dashboard Page.md
+Jarvis Spec - Day Model and Streak.md
+Jarvis Spec - Plans Feed.md
+Jarvis Verification and Risks.md
+--- em dash / en dash count per file:
+none
+--- frontmatter delimiters (expect 2 per file in first 30 lines) and first/last key:
+Jarvis Architecture.md: 2
+Jarvis Build Hub.md: 2
+Jarvis Build Log.md: 2
+Jarvis Decisions Log.md: 2
+Jarvis Plugin Retirement List.md: 2
+Jarvis Spec - Automation Layer.md: 2
+Jarvis Spec - Carry Forward.md: 2
+Jarvis Spec - Dashboard Page.md: 2
+Jarvis Spec - Day Model and Streak.md: 3
+Jarvis Spec - Plans Feed.md: 2
+Jarvis Verification and Risks.md: 2
+--- unresolved in-folder links (names starting with Jarvis ):
+MISSING: Jarvis Build Overview
+MISSING: Jarvis Dashboard Build Record
+--- non-folder link targets used (should exist in Jarvis):
+      6 Jarvis Dashboard Build Record
+      6 Daily Note Standard
+      5 2026-W44
+      4 How to Use Google Calendar
+      3 Better Today
+      2 Jarvis Build Overview
+      2 Daily Close Loop
+      1 The Plan Overview
+      1 Prompt Cycle
+      1 Plan Standard
+      1 Agent Prompt Standard
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Spec - Day Model and Streak.md`
+```diff
+- ```markdown
+---
+type: thought
++ ```markdown
+(frontmatter starts)
+type: thought
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Spec - Day Model and Streak.md`
+```diff
+- floors_done: 0
+---
+# Did you get better today?
++ floors_done: 0
+(frontmatter ends)
+# Did you get better today?
+```
+
+## Actions Taken
+
+**Files created:**
+- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Architecture.md`
+- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Build Hub.md`
+- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Build Log.md`
+- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Decisions Log.md`
+- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Plugin Retirement List.md`
+- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Spec - Automation Layer.md`
+- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Spec - Carry Forward.md`
+- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Spec - Dashboard Page.md`
+- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Spec - Day Model and Streak.md`
+- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Spec - Plans Feed.md`
+- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Verification and Risks.md`
 
 **Files modified:**
 _None_
@@ -5086,5 +7393,18 @@ ls Jarvis/.claude/settings.json && node -e 'const s=require("./Jarvis/.claude/se
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis" && D="10_Areas 20_Progress 30_Order 40_Resources 60_Claude 00_Dashboard.md"; echo "meta-bind INPUT/BUTTON notes:"; grep -rlE "INPUT\[|BUTTON\[|meta-bind" --include=*.md $D | wc -l; echo "dataviewjs notes:"; grep -rl '```dataviewjs' --include=*.md $D | wc -l; echo "dataview notes:"; grep -rlE '```dataview$' --include=*.md $D | wc -l; echo "multi-column notes:"; grep -rl "start-multi-column" --include=*.md $D | wc -l; echo "kanban notes:"; grep -rl "kanban-plugin" --include=*.md $D | wc -l; echo "excalibrain/excalidraw files:"; find . -name "*.excalidraw*" -not -path "./.git/*" -not -path "./5*" | wc -l; echo "spaced rep (#flashcards):"; grep -rlE "#flashcards|#review" --include=*.md $D | wc -l; echo "latex notes:"; grep -rlE '\$\$' --include=*.md $D | wc -l; echo "templater <% notes in templates:"; grep -rl "<%" --include=*.md 30_Order/Templates | wc -l; echo "css classes:"; grep -rlE "cssclasses" --include=*.md $D | wc -l; echo --- ; grep -rl "INPUT\[" --include=*.md $D | head -15`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis" && f=$(find 30_Order -name "Note Type Registry.md" | head -1); echo "$f"; grep -n "reference\|project\|prompt\|build" "$f" | head -30; ls 30_Order/Templates | head -40; ls 40_Resources/Obsidian/Dashboard/"Jarvis Builds"/Ran; ls 20_Progress/Projects/"Jarvis & The Plan" 2>&1 | head`
 - `cd "D:/_Anant/20_Progress/Documents/Jarvis" && grep -n "obsidian\|claude\|^\*\|^!" .gitignore | head -30; ls 30_Order/System 2>/dev/null; ls 30_Order/System/sync-workflow 2>/dev/null | head; git remote -v | head -2`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && find . -name "Agent Prompt Standard.md" -o -name "Spec and Plan Standard.md" -o -name "Frontmatter Standard.md" -o -name "Project Spec Template.md" -o -name "Project Plan Template.md" -o -name "Agent Prompt Template.md" -o -name "Prompt Cycle.md" -o -name "Conformance Standard.md" | head; `
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && cat Standards/Projects/Agent\ Prompt\ Standard.md Standards/Projects/Spec\ and\ Plan\ Standard.md Templates/Projects/Agent\ Prompt\ Template.md Templates/Projects/Project\ Spec\ Template.md Templates/Projects/Project\ Plan\ Template.md`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis/30_Order" && cat Workflows/Projects/Prompt\ Cycle.md; sed -n 1,80p Standards/Frontmatter\ Standard.md`
+- `cd "D:/_Anant/20_Progress/Documents" && grep -rli "gupt0479\|google calendar\|gcal" --include=*.md Jarvis/10_Areas Jarvis/20_Progress Jarvis/30_Order Jarvis/40_Resources Jarvis/60_Claude "The Plan/00_Live" "The Plan/10_UMN" "The Plan/20_Progress" "The Plan/30_Order" "The Plan/40_Resources" "The Plan/60_Jarvis" 2>/dev/null | head -30`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && grep -n -i "gupt0479\|google calendar\|gcal\|calendar" "10_Areas/Life/Plans/Fall 2026/Fall 2026 Builds.md" "30_Order/Standards/Operations/Daily Note Standard.md" "30_Order/Workflows/Operations/Daily Close Loop.md" "20_Progress/Projects/Jarvis & The Plan/Builds - Jarvis/Jarvis Dashboard Build Record.md" "40_Resources/CS/Concepts/New Laptop/Sync/Google Drive Sync Policy.md" | cut -c1-400 | head -40; echo ======; cat "60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Home/09-21 Calendar connection and Wednesday schedule.md" | head -120`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && cat "30_Order/Standards/Operations/Daily Note Standard.md"; echo =======; cat "30_Order/Workflows/Operations/Daily Close Loop.md"`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && f=$(find . -name "How to Use Google Calendar.md" -not -path "./.git/*" | head -3); echo "$f"; cat "$(echo "$f" | head -1)"; echo ======; cat "20_Progress/Projects/Jarvis & The Plan/Builds - Jarvis/Jarvis Dashboard Build Record.md"`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && sed -n 1,90p "10_Areas/Life/Enumerate/Weekly/2026-W44.md" | cut -c1-300; echo =====; f=$(find 30_Order/Templates -name "Better Today.md"); echo $f; cat "$f"`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && for n in "Plan Standard" "Plan Review Cadence" "Periodic Review Note Standard" "Vault Lint" "Note Kit Standard" "Reference Standard"; do printf "%s: " "$n"; find 30_Order -name "$n.md" | head -1; done; ls "20_Progress/Mentorship Program/Plans" 20_Progress/Degree/_Courses 2>&1 | head -20; sed -n 1,40p "10_Areas/Life/Plans/Plans Board.md" | cut -c1-250`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && for n in "Jarvis Build Hub" "Jarvis Decisions Log" "Jarvis Architecture" "Jarvis Build Log" "Jarvis Verification and Risks"; do find . -name "$n*.md" -not -path "./.git/*" | head -2; done; echo "--- tracked plugin folders:"; git ls-files .obsidian/plugins | cut -d/ -f3 | sort -u | tr '\n' ' '; echo; git check-ignore -v .obsidian/plugins/jarvis-dashboard/main.js || echo "main.js would NOT be ignored"; echo "--- tracker:"; ls "10_Areas/Career/Internships/Tracker" "10_Areas/Career/Internships/Tracker/Each One" 2>&1 | head; f=$(find "10_Areas/Career/Internships/Tracker/Each One/Applied" -name "*.md" 2>/dev/null | head -1); echo "applied sample: ${f:-none}"; ls "10_Areas/Career/Internships/Tracker/Each One/Current" 2>/dev/null | wc -l; cd "../The Plan" && grep -rli toggl --include=*.md 00_Live 30_Order 40_Resources 60_Jarvis .claude 2>/dev/null | head -3; echo "plan toggl hits above (blank = none)"`
+- `cd "D:/_Anant/20_Progress/Documents/The Plan" && grep -n -i -B2 -A6 "toggl" "00_Live/Enumerate/Daily/2026-10-26.md" | head -60; echo ====; grep -n -i -B1 -A4 "toggl" "30_Order/Templates/Daily Dashboard/Better Today.md" "30_Order/Workflows/Agentic OS/How to Use Plugins.md" | cut -c1-300 | head -50; echo ====; cd ../Jarvis/10_Areas/Career/Internships/Tracker && ls "Each One"; ls "Each One/Applied" 2>&1 | head -3; ls "Each One/Current" | head -3; sed -n 1,14p "Each One/Current/$(ls 'Each One/Current' | head -1)"`
+- `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && ls "Jarvis Build" 2>&1 | head -2; mkdir -p "Jarvis Build" && ls -d "Jarvis Build"`
+- `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards/Jarvis Build" && ls; echo "--- em dash / en dash count per file:"; grep -c "—" *.md | grep -v ":0" || echo "none"; echo "--- frontmatter delimiters (expect 2 per file in first 30 lines) and first/last key:"; for f in *.md; do n=$(head -40 "$f" | grep -c '^---$'); echo "$f: $n"; done; echo "--- unresolved in-folder links (names starting with Jarvis ):"; grep -oh "\[\[Jarvis [^]|]*" *.md | sed 's/\[\[//' | sort -u | while read n; do [ -f "$n.md" ] || echo "MISSING: $n"; done; echo "--- non-folder link targets used (should exist in Jarvis):"; grep -oh "\[\[[^]|#]*" *.md | sed 's/\[\[//' | grep -v "^Jarvis \(Build Hub\|Decisions\|Spec\|Architecture\|Plugin\|Verification\|Build Log\)" | sort | uniq -c | sort -rn`
 
 

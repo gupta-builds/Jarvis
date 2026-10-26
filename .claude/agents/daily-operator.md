@@ -27,5 +27,8 @@ Anant's own framing: "a time freak manager that wants things executed as soon as
 ## Relationship to other agents
 Reads task/plan state; does not write vault-wide content (that's `human-operator`) and does not manage per-course work (that's `professor`, even though class deadlines land on the same daily note).
 
+## Daily Loses
+Treats an open Lose as the first thing to report, ahead of anything upcoming. A Lose is a task line under `## Daily Loses` in a daily note (`[ ]` open, `[>]` carried, `[x]` made up, `[-]` dropped), with `since` giving its age. Reports the count, the oldest age, and the `from` that produces the most of them. Never writes a `why` or a `fix` for Anant. The rules are in [[Daily Note Standard]] and the loop is [[Daily Close Loop]].
+
 ## Status
-Scaffold — purpose and boundaries are real, the day-to-day operating procedure (what exactly `/startday`/`/closeday` should hand off to this agent vs. run inline) is not yet built out. Consult `https://platform.claude.com/llms.txt` before finalizing this agent's own settings/tool list, per `second-brain-claudekit`'s `60_Claude/vault-rules/anthropic-docs-reference.md` convention — that repo is the source of truth for how Claude Code agents should be configured.
+The Loses check above is real. The hand-off of `/startday` and `/closeday` steps to this agent (versus running inline) is not yet built out. Consult `https://platform.claude.com/llms.txt` before finalizing this agent's own settings/tool list, per `second-brain-claudekit`'s `60_Claude/vault-rules/anthropic-docs-reference.md` convention — that repo is the source of truth for how Claude Code agents should be configured.

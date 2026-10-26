@@ -33,8 +33,8 @@ The current roster, triggers, and tool allowlists live in one place: [[Orchestra
 
 | Command | Shape | Notes |
 |---------|-------|-------|
-| /startday | directory (SKILL.md + reference.md) | patches dashboard focus fields (Step 3b) |
-| /closeday | directory (SKILL.md + reference.md) | writes lc_count/study_today/wins_done/habits_done, resets dashboard |
+| /startday | directory (SKILL.md + reference.md) | fills the day from weekly Goals and calendar, carries open Loses, patches dashboard focus fields (Step 3b) |
+| /closeday | directory (SKILL.md + reference.md) | counts toggles into wins_done/floors_done, writes Loses and lc_count/study_today, clears dashboard focus lines |
 | /ingest-clipping | directory (+ examples.md + scripts/extract_pdf.py) | the gold-standard skill shape |
 | /distill-note, /remove-ai-slop, /context, /trace-topic, /connect-notes, /weekly-review, /lint-claude-layer, /ops, /organize-csci2033, /tag-month, mcp-hub | flat .md | convert most-used first per North Star 5.1 |
 

@@ -29,8 +29,8 @@ The Resq pattern is worth copying: its `.claude/` holds the project canon (PRD, 
 Table corrected 2026-08-19 against the diff already identified in [[20_Progress/Projects/AI Use/Claude Kit/Toolkit/Commands/What Commands|What Commands]] — this table was dated 2026-07-03 and had drifted: missing seven commands built 2026-07-29, and still listing `organize-csci2033`, which is no longer present in the live `commands/` folder.
 | Command | What it does |
 | --- | --- |
-| `/startday` | Fills today's daily note from the Summer OS plans + session history, patches the dashboard focus fields (directory skill: `startday/SKILL.md` + `reference.md`) |
-| `/closeday` | Auto-gathers the day, asks one 5-question block, writes `lc_count`/`study_today`/`wins_done`/`habits_done` to the daily note, resets the dashboard (directory skill) |
+| `/startday` | Fills today's daily note from the weekly Goals, the calendar and the Fall plan, carries open Daily Loses forward, patches the dashboard focus fields (directory skill: `startday/SKILL.md` + `reference.md`) |
+| `/closeday` | Counts the toggles, proposes a Daily Loses line for each broken promise, asks one block, writes `lc_count`/`study_today` and the counted `wins_done`/`floors_done`, clears the dashboard focus lines (directory skill) |
 | `/ingest-clipping` | Routes any source (PDF/image/web/repo) into `60_Claude/10_Source_Summaries/` (directory skill with `scripts/extract_pdf.py`) |
 | `/distill-note` | Distills a note into a durable evergreen |
 | `/remove-ai-slop` | Rewrites AI-sounding prose per [[HUMAN_WRITING]] |

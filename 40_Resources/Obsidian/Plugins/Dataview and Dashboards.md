@@ -43,6 +43,8 @@ The Risk Register has carried "DataviewJS and HTML enabled" as a flag since this
 
 This replaces the old unexamined flag; the Risk Register entry below reflects it.
 
+*Update 2026-10-26: the dashboard blocks above no longer read `lc_today`, `study_today` or `habits_done` from `00_Dashboard`. They read today's daily note (`lc_count`, `study_today`, and the `win_*` and `floor_*` toggles counted live) and the open lines under each note's `## Daily Loses`. `.obsidian/plugins/dataview/data.json` also shows `enableInlineDataviewJs: false` today, so the "Inline DataviewJS: enabled" line above no longer matches the file; `dataviewjs` blocks still run.*
+
 ## Why This Is Central
 
 [[00_Dashboard]] already uses Dataview for:

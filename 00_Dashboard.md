@@ -2,21 +2,15 @@
 type: dashboard
 status: tree
 created: 2026-04-23
-updated: 2026-10-09
+updated: 2026-10-26
 tags:
   - dashboard
   - daily
 cssclasses:
   - dashboard
-today_focus: Close the Main Cover Letter.md blocker and send the first
-  real application; CSCI 4061 Midterm 1 is Thursday 10/8
-today_80: Build Main Cover Letter.md's bullet bank for real and move
-  Uber - 2027 SWE Intern from Current/ to Applied/
-today_20: LeetCode/CodePath ≥5 (Google rotation, TIP103 Unit 1), start
-  CSCI 4061 Midterm 1 review (due 10/8), run /closeday
-lc_today: 0
-study_today: 4
-wins_done: 4
+today_focus: ""
+today_80: ""
+today_20: ""
 notes:
   - "[[CLAUDE.md]]"
   - "[[AGENTS.md]]"
@@ -42,30 +36,50 @@ Shadow: off
 ```
 ## Today's Numbers
 ```dataviewjs
-const curr = dv.current();
-const lc = curr.lc_today ?? 0;
-const wins = curr.wins_done ?? 0;
-const study = curr.study_today ?? 0;
+// Every number here is read from today's daily note. Nothing is stored on this page.
+const DAILY = "10_Areas/Life/Enumerate/Daily";
+const todayStr = dv.date("today").toFormat("yyyy-MM-dd");
+const p = dv.page(`${DAILY}/${todayStr}`);
+const count = (keys) => (p ? keys.filter((k) => p[k] === true).length : 0);
+const lc = Number(p?.lc_count ?? 0);
+const study = Number(p?.study_today ?? 0);
+const wins = count(["win_project", "win_career", "win_cleanup", "win_review"]);
+const floor = count(["floor_1", "floor_2", "floor_3"]);
+const open = dv.pages(`"${DAILY}"`).file.tasks
+  .where((t) => !t.checked && String(t.section?.subpath ?? t.section).includes("Daily Loses")).length;
 const lcClass = lc >= 5 ? 'green' : lc > 0 ? 'yellow' : '';
-const winsClass = wins >= 5 ? 'green' : wins >= 3 ? 'yellow' : '';
+const winsClass = wins >= 4 ? 'green' : wins >= 2 ? 'yellow' : '';
+const floorClass = floor >= 3 ? 'green' : floor >= 1 ? 'yellow' : '';
+const losesClass = open === 0 ? 'green' : open > 3 ? 'red' : 'yellow';
 const container = dv.el('div', '', {cls: 'stat-grid'});
 container.innerHTML = `
-  <div class="stat-tile ${lcClass}">
-    <div class="stat-label">LeetCode Today</div>
-    <div class="stat-value">${lc}</div>
-    <div class="stat-delta ${lc >= 5 ? 'positive' : 'neutral'}">target ≥5</div>
-  </div>
   <div class="stat-tile ${winsClass}">
-    <div class="stat-label">5-Wins</div>
-    <div class="stat-value">${wins}<span style="font-size:0.85rem;opacity:0.6">/5</span></div>
-    <div class="stat-delta ${wins >= 5 ? 'positive' : wins >= 3 ? 'neutral' : 'negative'}">${wins >= 5 ? '✓ GREEN' : wins >= 3 ? 'in progress' : 'behind'}</div>
+    <div class="stat-label">Wins</div>
+    <div class="stat-value">${wins}<span style="font-size:0.85rem;opacity:0.6">/4</span></div>
+    <div class="stat-delta ${wins >= 4 ? 'positive' : wins >= 2 ? 'neutral' : 'negative'}">${wins >= 4 ? 'all four' : 'toggles ticked'}</div>
+  </div>
+  <div class="stat-tile ${floorClass}">
+    <div class="stat-label">Floor</div>
+    <div class="stat-value">${floor}<span style="font-size:0.85rem;opacity:0.6">/3</span></div>
+    <div class="stat-delta ${floor >= 3 ? 'positive' : floor >= 1 ? 'neutral' : 'negative'}">${floor >= 3 ? 'floor held' : 'toggles ticked'}</div>
+  </div>
+  <div class="stat-tile ${lcClass}">
+    <div class="stat-label">Problems</div>
+    <div class="stat-value">${lc}</div>
+    <div class="stat-delta ${lc >= 5 ? 'positive' : 'neutral'}">target 5</div>
   </div>
   <div class="stat-tile">
     <div class="stat-label">Study Hours</div>
     <div class="stat-value">${study}h</div>
     <div class="stat-delta neutral">today</div>
   </div>
+  <div class="stat-tile ${losesClass}">
+    <div class="stat-label">Open Loses</div>
+    <div class="stat-value">${open}</div>
+    <div class="stat-delta ${open === 0 ? 'positive' : 'negative'}">${open === 0 ? 'none slipped' : 'not made up'}</div>
+  </div>
 `;
+if (!p) dv.paragraph("No daily note for today yet. Run /startday.");
 ```
 ## This Week
 ```dataviewjs
@@ -76,22 +90,28 @@ const pages = dv.pages(folder).where(p => {
   const monday = today.minus({days: today.weekday - 1});
   return p.file.day >= monday && p.file.day <= today;
 });
-const lcTotal = pages.values.reduce((a,p) => a + (p.lc_count || 0), 0);
-const studyTotal = pages.values.reduce((a,p) => a + (p.study_today || 0), 0);
-const winsTotal = pages.values.reduce((a,p) => a + (p.wins_done || 0), 0);
+const tick = (p, keys) => keys.filter((k) => p[k] === true).length;
+const WINS = ["win_project", "win_career", "win_cleanup", "win_review"];
+const FLOORS = ["floor_1", "floor_2", "floor_3"];
+const lcTotal = pages.values.reduce((a,p) => a + (Number(p.lc_count) || 0), 0);
+const studyTotal = pages.values.reduce((a,p) => a + (Number(p.study_today) || 0), 0);
+const winsTotal = pages.values.reduce((a,p) => a + tick(p, WINS), 0);
+const floorTotal = pages.values.reduce((a,p) => a + tick(p, FLOORS), 0);
+const days = pages.length;
 const clippings = dv.pages('"60_Claude/10_Source_Summaries"')
   .where(p => {
     const monday = dv.date("today").minus({days: dv.date("today").weekday - 1});
     return p.file.ctime >= monday;
   }).length;
-dv.paragraph(`**LC:** ${lcTotal}/35 · **Study:** ${studyTotal}h · **Wins:** ${winsTotal} · **Clippings this week:** ${clippings}`);
+dv.paragraph(`**Days with a note:** ${days}/7 · **Problems:** ${lcTotal}/35 · **Study:** ${studyTotal}h · **Wins:** ${winsTotal}/${days * 4} · **Floor:** ${floorTotal}/${days * 3} · **Clippings this week:** ${clippings}`);
 ```
 ## Today's Priorities
-```dataview
-TASK
-FROM "10_Areas/Life/Enumerate/Daily"
-WHERE file.day = date(today) AND !completed
-LIMIT 8
+```dataviewjs
+// Open tasks in today's note, leaving out the Loses (they have their own list on the right).
+const t = dv.page(`10_Areas/Life/Enumerate/Daily/${dv.date("today").toFormat("yyyy-MM-dd")}`);
+const tasks = t ? t.file.tasks.where((x) => !x.checked && !String(x.section?.subpath ?? x.section).includes("Daily Loses")) : [];
+if (tasks.length) dv.taskList(tasks.slice(0, 8), false);
+else dv.paragraph(t ? "Nothing open in today's note." : "No daily note for today yet.");
 ```
 ## Active Projects
 ```dataview
@@ -102,25 +122,43 @@ SORT deadline ASC
 LIMIT 8
 ```
 === end-column ===
-## Daily Drivers
+## Wins and Floor
 ```dataviewjs
+// The Done toggles in today's note, counted live. Tick them in the note; they are the evidence /closeday uses.
 const todayStr = dv.date("today").toFormat("yyyy-MM-dd");
-const todayPage = dv.pages('"10_Areas/Life/Enumerate/Daily"')
-  .where(p => p.file.name === todayStr).first();
-const done = (todayPage && Array.isArray(todayPage.habits_done)) ? todayPage.habits_done.length : 0;
-const total = 5;
-const pct = Math.round((done / total) * 100);
-const wrap = dv.el('div', '', {cls: 'progress-wrap'});
-wrap.innerHTML = `
-  <div class="progress-label">${done} / ${total} complete · ${pct}%</div>
-  <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:${pct}%"></div></div>
-`;
+const p = dv.page(`10_Areas/Life/Enumerate/Daily/${todayStr}`);
+const bar = (label, keys) => {
+  const done = p ? keys.filter((k) => p[k] === true).length : 0;
+  const pct = Math.round((done / keys.length) * 100);
+  const wrap = dv.el('div', '', {cls: 'progress-wrap'});
+  wrap.innerHTML = `
+    <div class="progress-label">${label}: ${done} / ${keys.length} · ${pct}%</div>
+    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:${pct}%"></div></div>
+  `;
+};
+bar("Daily Wins", ["win_project", "win_career", "win_cleanup", "win_review"]);
+bar("Daily Floor", ["floor_1", "floor_2", "floor_3"]);
 ```
-> [!todo] Habits — check off in today's note
-> - [ ] Move ≥1 company Current/ → Applied/
-> - [ ] LeetCode/CodePath ≥5
-> - [ ] Fall'26 class step (4511W / 4061 / 5304 / 4521 / MGMT 3015)
-> - [ ] Review — run /closeday
+## Daily Loses
+```dataviewjs
+// Every promise not yet made up, from every daily note. [x] made up, [>] carried and [-] dropped do not show.
+const DAILY = "10_Areas/Life/Enumerate/Daily";
+const open = dv.pages(`"${DAILY}"`).file.tasks
+  .where((t) => !t.checked && String(t.section?.subpath ?? t.section).includes("Daily Loses"));
+const today = dv.date("today");
+const age = (t) => {
+  const s = t.since ? String(t.since).slice(0, 10) : t.path.split("/").pop().replace(".md", "");
+  const d = dv.date(s);
+  return d ? Math.max(0, Math.floor(today.diff(d, "days").days)) : 0;
+};
+if (open.length === 0) {
+  dv.paragraph("No open Loses.");
+} else {
+  const sorted = open.sort((t) => age(t), "desc");
+  dv.paragraph(`**${sorted.length} open** · oldest ${age(sorted[0])} days`);
+  dv.taskList(sorted.slice(0, 8), false);
+}
+```
 
 ## Internship Pipeline
 ```dataview

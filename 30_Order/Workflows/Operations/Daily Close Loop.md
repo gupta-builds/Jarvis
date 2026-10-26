@@ -2,7 +2,7 @@
 type: system
 status: sprout
 created: 2026-10-16
-updated: 2026-10-16
+updated: 2026-10-26
 tags:
   - system
   - workflow
@@ -13,23 +13,25 @@ notes:
   - "[[Better Today]]"
   - "[[Plan Standard]]"
   - "[[Plan Review Cadence]]"
+  - "[[How to Use Google Calendar]]"
+  - "[[2026-W44]]"
 ---
 # Daily Close Loop
-Run the day as plan first and record second, so the note is useful in the morning and honest at night.
+Plan first, record second. The weekly note says what was promised, the calendar says when, the daily note says what happened, and Daily Loses holds the gap.
 ## Use when
-The day opens with `/startday` or closes with `/closeday`. Closing is optional: the note fits without it.
+The day opens with `/startday` or closes with `/closeday`. Closing is optional: the dashboard still shows live toggle counts and open Loses, and holds no number of its own.
 ## Steps
-1. `/startday` finds or creates `10_Areas/Life/Enumerate/Daily/YYYY-MM-DD.md` from [[Better Today]] with dates resolved. It never creates the note anywhere else.
-2. It fills the plan sections from the active plan ([[Plan Review Cadence]]) and the latest session-log entries: Morning Plan, Daily Wins targets, Daily Floor rows, Carryover. `day_state` stays `planned`.
-3. It patches only the three `today_*` fields of `00_Dashboard.md`.
-4. Work the day and tick toggles as things happen.
-5. `/closeday` (optional) gathers session-log and file evidence, asks the day's numbers in one block, and writes `lc_count`, `study_today`, `wins_done`, and `habits_done`.
-6. It appends End of Day (scorecard, Day Status, What Actually Happened, Friction Fix if RED, Preview Tomorrow), sets `day_state: closed` and `status: complete`, clears the dashboard fields, and adds one session-log line.
-7. An unclosed day stays `planned`. The next `/startday` carries its open items forward and does not wait for a close.
-8. `/weekly-review` counts unclosed days as a number in the weekly note, not as a failure.
+1. `/startday` finds or creates today's note from [[Better Today]], resolves any leftover `<% %>` date, and never creates it elsewhere.
+2. It reads the weekly Goals, the Systems table and today's calendar blocks, read only ([[How to Use Google Calendar]]).
+3. It carries each open Lose forward: the line is copied with its original `since`, and the old line becomes `[>]`.
+4. It fills Morning Plan, Wins targets and Floor rows, and patches only the three `today_*` fields of `00_Dashboard.md`. `day_state` stays `planned`.
+5. Work the day. Tick a toggle only with evidence. Write a Lose when a promise slips.
+6. `/closeday` reads the toggles, calendar, session log and weekly Goals. It proposes a Lose for each false toggle, passed block without evidence, or unmet Goal, then asks for the counts and each `why` and `fix` in one block.
+7. It writes `lc_count`, `study_today`, `wins_done` and `floors_done` (counted), the confirmed Loses and End of Day, sets `day_state: closed`, clears the `today_*` fields, and logs one line.
+8. An unclosed day stays `planned` and its Loses carry on. `/weekly-review` counts unclosed days, sums wins and floors, and lists open Loses with ages.
 ## Do not
-Do not fill End of Day from memory after the day. Do not tick a toggle without evidence; write "(unverified)". Do not put a term name in a heading.
+Do not fill End of Day from memory, type `wins_done` or `floors_done`, write a `why` for Anant, or write to the calendar. Do not tick a toggle without evidence. Do not delete a Lose: make it up with `[x]` or drop it with `[-]` and a reason.
 ## Done when
-- Today's note exists in the right folder with `day_state` matching its body.
-- A closed day has the tracking keys, End of Day, and a session-log line.
-- The weekly review has the count of unclosed days.
+- Today's note has a real `created` date and a matching `day_state`.
+- A closed day has the counts equal to the toggles, every slipped promise in Daily Loses, and a session-log line.
+- The dashboard's numbers match the note.

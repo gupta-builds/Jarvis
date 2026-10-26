@@ -18,7 +18,6 @@ notes:
 ---
 # Jarvis Build Overview
 This note says what the Jarvis dashboard is made of, what appears on it, and how the daily workflow feeds it. Read it before changing `00_Dashboard.md`, the homepage canvas, `Better Today`, or the `/startday` and `/closeday` skills. The dated history of how it got here is in [[Jarvis Dashboard Build Record]]. The Plan's dashboard is a different build: [[The Plan Overview]].
-
 ## Layers
 | Layer | What it is | Where |
 |---|---|---|
@@ -28,9 +27,7 @@ This note says what the Jarvis dashboard is made of, what appears on it, and how
 | Look | `.obsidian/snippets/dashboard.css` (`.stat-grid`, `.stat-tile`, `.progress-wrap`), the AnuPpuccin theme, Multi-Column Markdown for the two-column page | `.obsidian/snippets/` |
 | Open | Homepage opens the canvas on startup, replacing open notes. `00_Dashboard.md` is the markdown twin, linked from the canvas | `.obsidian/plugins/homepage/data.json` |
 | Writers | `/startday` fills the plan and carries Loses. `/closeday` counts the toggles and writes Loses. Both patch the three `today_*` focus lines | `.claude/skills/startday/`, `.claude/skills/closeday/` |
-
 Plugin versions on 2026-10-26: Dataview 0.5.68, Meta Bind 1.5.1, Multi-Column Markdown 0.9.1, Homepage 4.5.0, Templater 2.26.0, Periodic Notes 0.0.17, QuickAdd 2.32.1.
-
 ## What appears, and where each number comes from
 | On screen | Source | Rule |
 |---|---|---|
@@ -42,16 +39,13 @@ Plugin versions on 2026-10-26: Dataview 0.5.68, Meta Bind 1.5.1, Multi-Column Ma
 | This week | Notes from Monday to today | Sums problems and study hours, counts toggles against `days x 4` and `days x 3` |
 | Today's priorities | Unchecked tasks in today's note outside Daily Loses | First eight |
 | Active projects, internship pipeline, clippings queue, vault health | Dataview over `20_Progress`, `10_Areas/Career/Internships`, `60_Claude/05_Clippings`, and notes missing `type` or `status` | Unchanged by the 2026-10-26 rebuild |
-
 ## Why the toggles are frontmatter
 Obsidian does not render task checkboxes inside table cells. On 2026-07-10 the Wins and Floor tables used plain `[ ]` text that never ticked. The fix put a Meta Bind toggle in each cell, bound to a boolean such as `win_project`, so a tick persists in the note. The cost is that a toggle is only evidence if something reads it. Until 2026-10-26 nothing did: `wins_done` was a number typed by hand and `/closeday` asked for it in chat. Now the dashboard counts the booleans and `/closeday` writes the counts from them.
-
 ## What Anant does to run it
 1. `/startday` in the morning. Read the plan, the blocks and the open Loses it prints.
 2. Tick a toggle only when the thing is done. Write a Lose when a promise slips, with the `why` in your own words.
 3. `/closeday` before 10:30pm. Answer one question block: the counts, and a `why` and a `fix` for each proposed Lose.
 4. Turn on Templater's "Trigger Templater on new file creation" so new daily notes get a real `created` date. Today `/startday` repairs the date, and that setting is the permanent fix.
-
 ## Known drift to watch
 - Two landing pages hold the same queries: the canvas and `00_Dashboard.md`. Both were updated on 2026-10-26. Keep one and link to it when convenient.
 - `.agents/skills/startday` and `closeday` are older copies of the `.claude` skills and already differed before 2026-10-26. They were not changed.

@@ -42,7 +42,6 @@ A toggle is a Meta Bind input bound to one frontmatter boolean. It is evidence, 
 - **Dashboard.** `00_Dashboard.md` counts `win_*` out of 4 and `floor_*` out of 3 live, and stores no copy.
 - **`/closeday`.** It counts them into `wins_done` and `floors_done`, never asks, and turns every toggle still `false` into a Daily Loses line.
 - **Weekly review.** It sums `wins_done` and `floors_done` across the week.
-
 Nobody types the two totals. An unclosed day has them at 0 while the dashboard shows the live count.
 ## Headings
 The title is the fixed prompt `# Did you get better today?`.
@@ -62,7 +61,6 @@ Four rows: Project, Career, Cleanup, Review. The target comes from the weekly Go
 ```
 - [ ] CSCI 4041: 5 problems logged in Weekly Set [why:: opened YouTube first, no slot] [fix:: laptop opens on DSA.md at 9:30] [from:: weekly] [since:: 2026-10-26]
 ```
-
 | Field | Holds |
 |---|---|
 | text | The promise, as the weekly note, the calendar or the toggle named it. |
@@ -70,16 +68,13 @@ Four rows: Project, Career, Cleanup, Review. The target comes from the weekly Go
 | `fix` | One concrete change that makes the same loss less likely. Not a wish. |
 | `from` | `weekly` (a Goal or Friday checkpoint), `calendar` (a block that passed), `win`, `floor`, or `other`. |
 | `since` | The date it first slipped. It never changes, so age is `today - since`. |
-
 The checkbox mark is the state:
-
 | Mark | Meaning |
 |---|---|
 | `[ ]` | Open. Counts on the dashboard and ages one day each midnight. |
 | `[x]` | Made up. It stays in the note as a record, and the dashboard drops it. |
 | `[>]` | Carried. `/startday` copied it to the new day and marked the old line. Only the newest copy is open. |
 | `[-]` | Dropped on purpose. Needs a reason in `why`. |
-
 Sources: a weekly Goal or Friday checkpoint not met, a calendar block that passed without its deliverable, a toggle still `false` at close, an open Lose from an earlier day. Lines are never deleted.
 ### Daily Floor
 Rows come from the active plan's Systems table, not the template: track, target, topic, and a `floor_n` toggle.

@@ -20,7 +20,6 @@ notes:
 ---
 # The Plan Dashboard Build History and Method
 This note records what was built for The Plan's dashboard, in what order, and by what method, so Jarvis can tell a design that was written from a build that was run. Read it when you plan the next slice or want to copy the method. The sources are The Plan's `Dashboards Hub`, `Decisions Log`, `Build Plan`, `Build Log`, `Verification and Risks`, the plugin repository's git log, and the Claude Code session exports in `60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/The Plan/`. Session lengths in those exports are wall-clock spans that include idle time, so they are not used here.
-
 ## The method, as practised
 1. **Brainstorm by voice, then fix the words.** The first session took Anant's spoken answers. One word, DOPPLER, was a speech-to-text error for "dashboard" (Decision 1). Every answered question became a numbered row in the Decisions Log, with the consequence for the build next to it.
 2. **Design before code.** The design hour wrote four specs, a Decisions Log, a build plan, and a ready-to-paste prompt for each later session, and nothing outside the Dashboards folder.
@@ -29,9 +28,7 @@ This note records what was built for The Plan's dashboard, in what order, and by
 5. **Handoff through a log.** Each plugin prompt reads the `Build Log` first and appends one factual entry at the end. Earlier entries are never rewritten.
 6. **Tests before the screen.** The engine was written against a hand-computed fixture month and compared with a Python reference on 200 random histories and 20 random months. The view was tested in jsdom and previewed in headless Edge before it was deployed.
 7. **Review in a fresh session.** The corrections note (2026-10-13), the stack audit (2026-10-14) and the build review (2026-10-25) each read the notes and the disk without being the session that built them.
-
 What Anant does in this loop: speaks the requirements, answers the batched questions, approves or rejects each risky step, edits `.obsidian` settings by hand (the write guard blocks them), and is the only one who can test the phone.
-
 ## Chronology
 | Date | Build | How it ran | Result and evidence |
 |---|---|---|---|
@@ -51,16 +48,13 @@ What Anant does in this loop: speaks the requirements, answers the batched quest
 | 2026-10-16 | Regression | The second laptop pushed a stale working tree | `.claude` skills, agents, hooks and `.gitignore` reverted (see the state note) |
 | 2026-10-19 on | Daily notes in the wrong name | Periodic Notes kept creating `DD-MM-YYYY` files | `19-10-2026.md` is filled but unreadable by the engine; `25-10-2026.md` is 0 bytes |
 | 2026-10-25 | Build review | A read-only Claude Code session (Opus 5.5) over the notes, plugin repo, engine and `.claude` | The state note. Nothing was written |
-
 ## What the method got right
 - **Decisions are numbered and dated.** Fifty by 2026-10-14. When a later session contradicted an earlier note, the corrections note named the winner.
 - **One engine.** The streak, the reviews and the hooks cannot disagree with the screen because they share a source file. The parity tests turned a design claim into a check.
 - **Unverified claims carried a test.** Phone, Sync of plugin files, Homepage cold start and the `modify` event after a Sync write each had an exact test and a fallback written before the build.
-
 ## What it got wrong
 - **Documentation ran ahead of verification.** Notes said hooks were registered and skills existed. After 2026-10-16 neither was true and no check noticed, because nothing re-ran the verification.
 - **A silent filter.** `DailyRepo` skips any file that is not `YYYY-MM-DD.md`. Periodic Notes was left on `DD-MM-YYYY`, so the dashboard showed zeros with no warning. The audit had recommended disabling Periodic Notes; the review had to find out why it mattered.
 - **Plan and build drifted.** React, hard-coded hex colours, no dev vault, and no remote repository all departed from the prompts, and the departures were not logged as decisions until the 2026-10-25 review listed them.
 - **Prompts that never ran as written.** The plugin prompts' gates and the Verification table were never filled in.
-
 For the evidence behind each failure and the ordered fix list, see [[The Plan Dashboard State and Gaps 2026-10-25]].

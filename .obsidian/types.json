@@ -70,6 +70,7 @@
     "ended_at": "datetime",
     "tokens": "multitext",
     "tools_used": "multitext",
-    "exported_at": "datetime"
+    "exported_at": "datetime",
+    "wins:loses (ratio)": "text"
   }
 }

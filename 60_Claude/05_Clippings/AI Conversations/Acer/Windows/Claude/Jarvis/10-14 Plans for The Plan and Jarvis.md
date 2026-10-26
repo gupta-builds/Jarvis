@@ -5,49 +5,70 @@ source_app: claude-code
 source_os: windows
 title: "Plans for The Plan and Jarvis"
 started_at: 2026-10-14T23:13:07
-ended_at: 2026-10-18T18:32:33
-exported_at: 2026-10-25T19:03:03
-duration_minutes: 5479.4
+ended_at: 2026-10-25T20:41:11
+exported_at: 2026-10-25T21:03:03
+duration_minutes: 15688.1
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: fccf6d98-b58f-4f45-af49-035ee41c99e1
 status: raw
-turn_count: 33
+turn_count: 41
 tools_used:
-  Agent: 12
+  Agent: 13
   AskUserQuestion: 4
   Bash: 1
-  Edit: 2
-  Glob: 12
-  Grep: 2
+  Edit: 3
+  Glob: 23
+  Grep: 9
   ListAgents: 1
+  mcp__claude_ai_Google_Calendar__create_event: 19
+  mcp__claude_ai_Google_Calendar__get_event: 1
+  mcp__claude_ai_Google_Calendar__list_calendars: 1
+  mcp__claude_ai_Google_Calendar__list_events: 4
+  mcp__claude_ai_Google_Calendar__search_events: 1
+  mcp__claude_ai_Google_Calendar__update_event: 43
   mcp__the-plan__vault_list: 11
   mcp__the-plan__vault_read: 2
-  Read: 9
+  Read: 21
   SendMessage: 1
   TaskStop: 1
-  ToolSearch: 2
-  Write: 1
+  ToolSearch: 3
+  Write: 5
 tokens:
-  input: 84
-  output: 93745
-  cache_creation: 570622
-  cache_read: 5833640
-  total: 6498091
-cost_usd: 4.386834
+  input: 146
+  output: 213238
+  cache_creation: 1081264
+  cache_read: 13457771
+  total: 14752419
+cost_usd: null
 model:
   - "claude-sonnet-5"
+  - "claude-opus-5-5"
 files_touched:
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\00_Dashboard.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\10_Areas\\Life\\Enumerate\\Weekly\\2026-W39.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\10_Areas\\Life\\Enumerate\\Weekly\\2026-W43.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\10_Areas\\Life\\Enumerate\\Weekly\\2026-W44.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\10_Areas\\Life\\Plans\\Fall 2026\\Weekly Rhythm.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Degree\\CSCI 4061\\CSCI 4061 Board.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Degree\\CSCI 4521\\CSCI 4521 Board.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Degree\\CSCI 5304\\CSCI 5304 Board.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\20_Progress\\Projects\\CS\\CasualOps\\CausalOps — Index.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Note Type Registry.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\Enrich\\Evergreen Standard.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\Ingestion\\Action Standard.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\Operations\\Periodic Review Note Standard.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Standards\\Plan Standard.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Templates\\AI Toolkit\\Deep Dive Template.md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\30_Order\\Templates\\Enumerate\\Better Weekly.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\60_Claude\\07_AI_Information\\How to Use Claude\\How to Use Google Calendar.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\60_Claude\\07_AI_Information\\How to Use Claude\\Track Conversations.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\60_Claude\\20_Distilled_Notes\\40_Resources CS AI - Restructure Plan (2026-08-21).md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\60_Claude\\20_Distilled_Notes\\Distilled Notes Board.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\60_Claude\\20_Distilled_Notes\\W44 Calendar Rebuild - Actions (2026-10-25).md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\60_Claude\\20_Distilled_Notes\\W44 Calendar Rebuild - What Was Done (2026-10-25).md"
   - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\60_Claude\\30_Reviews\\Weekly Synthesis\\Weekly Synthesis — 2026-W42.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\Jarvis\\60_Claude\\30_Reviews\\Weekly Synthesis\\Weekly Synthesis — 2026-W43.md"
 tags:
   - input
   - ai-conversation
@@ -1145,10 +1166,914 @@ Continue the conversation from where it left off without asking the user any fur
 
 The messages after this summary are the most recent messages from before compaction, kept verbatim. The summary was written without seeing them, so something it says has not happened yet may already have happened in them.
 
+## You
+
+
+
+<pasted_content id="8cc4">
+Week 43 is finished. The midterms and the long quiz (scores 45‑1, 40, 61) were completed last week. Grades and any related vulnerabilities will be updated in the UVM plan.
+
+You received a detailed week‑43 note outlining what needed to be done. I haven’t read, edited, or supported it, and I also didn’t create any daily or weekly notes, my oversight.
+
+The main task now isn’t to catch up. We’ve moved several unfinished items from week 43 to week 44; most of them originated last week.
+
+We need to redesign how we create Google Calendar assignments. The previous schedule was impossible to fulfill, how could I handle telehealth work and everything else while taking a midterm? Yet the calendar still shows free buffer time. The remaining tasks are:
+
+- a maintenance check  
+- a maintenance backup  
+- a brief meeting  
+- other similar items  
+
+When planning a task, include three elements: what the task is, an explanation, and the specifics of how, where, and by when it will be done. Every calendar event should list **when**, **how**, and **where**.
+
+All tourist calendar events will follow this model, with the description reflecting those details.
+
+You’re already connected to Google Calendar. It’s week 44 now; the week‑44 note hasn’t been created yet, but I want to see how I use Google Calendar. Please review all tasks moved from week 43 to week 44, complete them for week 44, and remodel the Google Calendar task format accordingly. Simpler is better.
+</pasted_content id="8cc4">
+
+ [Image #2]. Now, this might be a very ambitious week - completing through all the corusework - noting it correctly and studying from it to catch up to all the work done in the courses. At least skimming through it more than enough to have a detailed understanding of everything done till week - 8. yes, we are counting this week. All the lectures now have something just before them except the 5304 (after it). This is so that we have a clear understanding of what needs to take place in that specific lecture. Making sure that the task at hand gets completed in the lecture and we are not just staring into space. We are locked in on the lecutre. We catch up to everything this week, either you go to lecture or not - the task before it needs to be completed in that specific time block. Now, the most important thing over here is that we need to focus on doing that task on that specific time: Like previously explained and also noted down inside the daily worklow plan. Mornings are for morning routines, personal growth and learning, implementing workflows, csci 4041 starting 5 problems, gym and breakfast. Then, begins all the actions that are stated in the calendar. Just mentioned above was that there is too much booked out and there is no buffer time, no space or time to think but this is what is needed to be done in that particular week. All the calendar events that are created on friday state that these are all the things that should be completed by today. Now, only after 6 pm is all the dev related work that has been listed out. This is because in the mornings all the main things are worked on and only after 6 pm we are going to be working on the dev related work, exactly as stated. Keeping our priorities straight and actually learning. Now, let's first - create a note that states that these actions need to be completed this week. Our main 80:
+UMN - [CSCI 4061 Project - 2 completion on my main by learning through whatever that is required in the course, CSCI 5304 - weeks 1-8 are all studied through and mapped out with rigid concepts arriving from csci 2033 (also mapped out - very core concepts)]. 
+Development - [portfolio completely repolishing the ui, finish the orby updated and model updates required, making sure that orby is guardrailed, security checks are applied, clerk work, images, animations. All of this work is laid out correctly for perfectly. Claudekit - conversations, ingestion from the repo's clones. home directory settings, skills, agents, etc. Both laptops conversations sync and loop activated, recursive scehduled tasks created inside jarvis and secondbrain-claudekit. Making sure that each and every single thing is up and running. 
+Others - Local AI has been discussed and been researched upon and will be correctly implemented through this week making sure that they are in usre, scheduled tasks, daily runs, some recursive improvement evironment setting configured and is run to do a repeatitive task, monitor to see it's improvements per run. What exactly was done so that it susbtantially improved? Small environment setting for a local small model to do this task. (task should be meaningful). Local ai for personal - the plan implementation alongside with jan. Making sure that all the perseonal workflow is established with - the plan on this local ai. Dashboards, plans and daily notes and completely written every single day on both the vaults to document success correctly this week. Making sure that everything is getting improved meanwhile. Something to focus on here is time, keep timers for this kind of work. Stop at a point and continue later. What's important is that the note is created and you have updated through it in the morning and the night to close it. Everything needs to be closed every single day. Because - everyday is a new day, focusing on the new task. Let's make sure that we close each and every single thing before 10:30 pm. 10:30 pm is the last time that everything should be written and closed. Wind down and complete. Also why there is nothing after 10:30. 
+
+Now, that everything for the week has been clearly defined and written out over here. I want you write the week 44 file marking everything that needs to be completed, that was moved over from w33, what was missed. Why exactly was it not completed? Is it because of wishful time managment? How to optimize the calendar so that that specific time is exactly when the task is done. What I also want to do is rename each and every single that has been created to be suitable to what was just descrbed - the when is also described in the calndar. Description of each and every single todoist event that has been created should be as explained. Go ahead and do as much work as you can inside obsidian on what has been provided. try to work the google calndar and tell me what exactly can you do, what did you do and what else do i need to do to make sure that everything above explained is accomplshed? Go ahead and think deeply on this task that has been provided to you. Because now this is marking a time bomb for the year, after this week - we are left with only 9 weeks for the year 2026 to be completed. We need to make sure that each and every single thing is locked in and hard worked on - pushing ourselved this week to do only to productive thing. Somthing to notice is that - internships and csci 4041 related work is not mentioned enough in the calndar because these are default things that are taken place every single day. Let's make sure that we make this so obvious daily that it is impossible to not work on. Accomplishing this is a must, daily workflow is slipping like time. Let's grasp it making sure that we do each and every single thing correctly for this week at least. For only week, just focus on doing the hard things. Everything that has been mentioned in the calendar and briefly explained above is all that i want to work on this week.
+
+[image attached]
+
+## You
+
+[Image: source: C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\images\2.png]
+
+## Claude
+
+The primary calendar only holds gym, classes-from-others, TIP103, and cricket. The red blocks in your screenshot aren't there, so I'm checking for the Todoist-synced calendar.
+
+Two Todoist-synced calendars exist. Pulling this week from both.
+
+Zero daily notes after 10/18, which confirms the W43 floor never ran. Checking whether a W43 synthesis exists and reading the daily note standard while the fork works.
+
+The edit landed on the calendar. Re-reading it to see whether Todoist's sync reverted it.
+
+The test held: the new title and WHAT/WHY/HOW/WHERE/BY description are still there on re-read, so the format works on Todoist-synced events from the calendar side. I'm waiting on the course digest before I rewrite the other ~43 events and write the W44 note. Each description needs the real "how" for its course, and I don't want to guess it.
+
+### Tool Calls
+
+- `ToolSearch` -- `{"query":"select:mcp__claude_ai_Google_Calendar__list_calendars,mcp__claude_ai_Google_Calendar__list_events,mcp__claude_ai_Google_Calendar__update_event,mcp__claude_ai_Google_Calendar__create_event,mcp__claude_ai_Google_Calendar__search_events,mcp__claude_ai_Google_Calendar__get_event","max_results":10}`
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304\CSCI 5304 Board.md`
+- `Glob` -- pattern `**/CSCI 4521*` path ``
+- `Glob` -- pattern `**/CSCI 4061*` path ``
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4521\CSCI 4521 Board.md`
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 4061\CSCI 4061 Board.md`
+- `mcp__claude_ai_Google_Calendar__list_events` -- `{"startTime":"2026-10-25T00:00:00","endTime":"2026-11-01T00:00:00","pageSize":100}`
+- `mcp__claude_ai_Google_Calendar__list_calendars` -- `{}`
+- `mcp__claude_ai_Google_Calendar__list_events` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","startTime":"2026-10-25T00:00:00","endTime":"2026-11-01T00:00:00","pageSize":150,"orderBy":"startTime"}`
+- `mcp__claude_ai_Google_Calendar__list_events` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","startTime":"2026-10-25T00:00:00","endTime":"2026-11-01T00:00:00","pageSize":150,"orderBy":"startTime"}`
+- `Agent` -- `{"subagent_type":"fork","description":"Course catch-up digest W1-8","prompt":"Research only, no edits anywhere. Build a compact catch-up digest for the W44 calendar descriptions (week of Sun 10/25 to Sat 10/31). For each of CSCI 4511W, CSCI 4061, CSCI 5304, CSCI 4521, MGMT 3015, and CSCI 4041 (the Technical Interview / 4041 system under 20_Progress/Degree/_Courses/Technical Interview and the CSCI 4041 folder if one exists), report:\n1. Board note path and the course\u0027s real source folder path.\n2. Which weeks 1-8 already have weekly notes / lecture notes in the vault (list paths briefly, e.g. \"Weekly/Week - 2..4 exist; 5-8 missing\") and which lectures/topics weeks 1-8 cover (one line per week max).\n3. Exactly what is due or happening Mon 10/26 to Sat 10/31 per the board (quiz, lab, HW, project, with time) and what that item covers.\n4. CSCI 4061 Project 2: where the spec/notes live, what it asks (2-3 lines), due date/time, and current progress in the vault.\n5. CSCI 4511W: what the \"Short Quiz\" Mon 10/26 and \"Homework 2\" Fri 10/30 cover, and what \"Written\" assignment is due around Fri 10/30.\n6. MGMT 3015: textbook name/path, chapters covered weeks 1-8, and what \"Entrepreneurship mapping\" could concretely produce.\n7. CSCI 4041: what \"Units 1-5\" are and where the 5-problems-a-day source list (Weekly Set.md current slice) is.\nAlso check CSCI 2033 board path (for the 5304 concept mapping).\nAlso find where Portfolio, ClaudeKit (secondbrain-claudekit), and Local AI build notes live (one path each plus the stated next step in each).\nReport as a dense digest under 900 words, grouped by course. No prose padding, no em dashes."}`
+- `Glob` -- pattern `10_Areas/Life/Enumerate/Weekly/2026-W4*.md` path ``
+- `Glob` -- pattern `10_Areas/Life/Enumerate/Daily/2026-10-*.md` path ``
+- `Glob` -- pattern `60_Claude/30_Reviews/Weekly Synthesis/*W43*` path ``
+- `Glob` -- pattern `30_Order/Standards/**/Daily Note Standard.md` path ``
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\30_Reviews\Weekly Synthesis\Weekly Synthesis — 2026-W43.md`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"W44 audit: every Friday checkpoint closed in Jarvis","description":"WHAT: Every Friday 10/30 checkpoint is either ticked with proof or marked missed with a reason, inside the W44 note.\nWHY: Friday blocks are deadlines, not work sessions. Saturday is the audit that stops a miss from silently rolling forward.\nHOW: Open 2026-W44. For each Friday line: tick it and link the proof (note, Gradescope screenshot, commit), or write one line on why it slipped and give it a dated slot next week.\nWHERE: Laptop. Jarvis \u003e 10_Areas/Life/Enumerate/Weekly/2026-W44.md\nBY: Sat 10/31, 5:30pm. Done when no Friday line is left blank.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__get_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]"}`
+
+## You
+
+<task-notification>
+<task-id>a3eae3dbf57e73751</task-id>
+<tool-use-id>[REDACTED]</tool-use-id>
+<output-file>C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\tasks\a3eae3dbf57e73751.output</output-file>
+<status>completed</status>
+<summary>Agent "Course catch-up digest W1-8" finished</summary>
+<note>A task-notification fires each time this agent stops with no live background children of its own. The user can send it another message and resume it, so the same task-id may notify more than once.</note>
+<result>Task: research-only digest of where each course stands on catch-up and what's due Mon 10/26 to Sat 10/31 (W44), for the calendar descriptions.
+
+**CSCI 4511W (AI, Mon/Wed lecture, Fri discussion)**
+- Board: `20_Progress/Degree/CSCI 4511W/CSCI 4511W Board.md`. Source folder: `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4511W`, which holds Lectures 02-12, `HW &amp; Exams/HW` (ps1, ps2, Writing 1 and 2 PDFs) and `Code/aima-python`.
+- Weekly notes: Week 1-4 exist. Week 7 is an empty template. Weeks 5, 6 and 8 are missing. Textbook notes cover Ch 1-4.
+- Weeks 1-8: W1 Turing discussion. W2 Ch 2.1-2.4 agents and Ch 3.1-3.2. W3 Ch 3.3-3.4 uninformed search. W4 Ch 3.5-3.6 informed search. W5 Ch 4.1-4.2 local search. W6 Ch 4.3-4.4, then Long Quiz 1 on 10/14. W7 Ch 5.1-5.2 games. W8 Ch 5.3-5.6 games.
+- Due this week:
+  - Mon 10/26: reading Ch 5.3-5.4 due by 1pm, and Short Quiz 07 due 6pm on Gradescope (open resource).
+  - Wed 10/28: reading Ch 5.5-5.6.
+  - Fri 10/30: Discussion Participation due 11:59pm.
+- "Homework - 2" Fri 10/30 is a recurring Todoist event (created 9/22) with no matching board item. There is no PS3 file in the source folder and the board has no PS3 date. PS2 (due 10/9) still has written answers 4-5 waiting for review and submission.
+- "Written Out" Fri 10/30 has no assignment matching it. Writing 2 (D* Lite, `Assignments/Written/Writing - 2.md`) was due Fri 10/23. Its note's `next:` still says paste into Overleaf and submit, so submission is unconfirmed. The next writing item on the board is Writing 4 on 11/25.
+
+**CSCI 4061 (OS, Tue/Thu 1pm Tate 101, Mon lab)**
+- Board: `20_Progress/Degree/CSCI 4061/CSCI 4061 Board.md`. Source folder: `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4061`. The code repo is `csci4061-fa26/`. Transcripts exist as "Week 1 - 3" and "Week 4 - 8".
+- Weekly notes: Week 1-4 reconciled. Weeks 5-8 are missing. Labs 2-6 are noted. Midterm 1 MOC exists.
+- Weeks 1-8: W1 syscalls and process management. W2 low-level I/O, redirection, pipes. W3 signals. W4 file systems and IPC pipes. W5 shared memory, then Midterm 1 on 10/8. W6 multiplexed I/O and C/Python interop. W7 intro to threads and basic sync. W8 advanced synchronization and the start of networking.
+- Due this week:
+  - Mon 10/26: Lab 7 session (9:05am, Keller 1-250) and Quiz 6 due.
+  - Wed 10/28: Lab 7 due 11:59pm.
+  - Mid-Semester Survey released, worth 5% across the 3 surveys with no drop.
+  - Fri 10/30: Project 2 due. Project 1 was due 11:59pm, so assume the same time. Late work gets 90% within 24h, 80% within 48h, then 0.
+
+**CSCI 4061 Project 2**
+- Code: `CSCI 4061/csci4061-fa26/Projects/proj2-code/`. Notes: only `20_Progress/Degree/CSCI 4061/Projects/Project - 2 Quiz.md` (quiz answer key). There is no assignment or board note.
+- The spec has two parts:
+  - Part 1, `swish`: shell pipelines. n commands need n-1 pipes, using the `strvec` helpers, with input and output redirection and SIGPIPE handling.
+  - Part 2, Hadamard products: parallel element-wise matrix multiply, built three ways (pipes, shared memory, pthreads) and called from Python through a C extension.
+- Progress: none. `swish_funcs.c` and the three `hadamard_*.c` files are untouched starter code (mtime Oct 14, TODOs intact). Every project also has an individual oral exam.
+
+**CSCI 5304 (Tue/Thu 8:15am Keller 3-230)**
+- Board: `20_Progress/Degree/CSCI 5304/CSCI 5304 Board.md`. Source folder: `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 5304`. Transcripts exist as "Week 2 &amp; 3" and "Week 4 - 8". The full textbook extraction is in `Textbook &amp; Resources`.
+- Notes: Weekly 2-7 written, Week 1 skipped on purpose, Week 8 missing. Textbook notes cover L2-8 and L10-12. L13-18 are missing (L9 is an intentional MATLAB skip). Quiz &amp; HW notes: HW1, HW2, Quiz 2, Quiz 3. There is no HW3 note.
+- Weeks 1-8: W1 ethics and L1 matrix action. W2 L2-4 orthogonality, norms, SVD. W3 L5-7 SVD and projectors/QR. W4 L7-8 Gram-Schmidt and L10 Householder. W5 L11 least squares and L12 conditioning. W6 L13-15 floating point and stability. W7 L16 stability of Householder. W8 midterm on Tue 10/20, L17 back substitution, L18 conditioning of least squares.
+- Due this week:
+  - Tue 10/27: L19, stability of least-squares algorithms.
+  - Thu 10/29: Quiz #4 plus L20, Gaussian elimination. Two prior quizzes became take-homes, so confirm on Canvas.
+- CSCI 2033 board for the concept mapping: `40_Resources/UMN/Previous Classes/CSCI 2033/CSCI 2033 Board.md`. A duplicate also sits at `40_Resources/UMN/Previous Classes/CSCI/CSCI 2033/`.
+
+**CSCI 4521 (ML, Tue/Thu 2:30pm Amundson B75)**
+- Board: `20_Progress/Degree/CSCI 4521/CSCI 4521 Board.md`. Source folder: `D:\_Anant\10_Areas\UMN\Classes\CSCI\CSCI 4521`.
+- Notes: Weekly 1-7 have deck-based pre-lecture notes, with no live capture and no quiz captures. Week 8 is missing. Homework folder has only HW1.
+- Weeks 1-8: W1 intro and 1-NN. W2 kNN and overfitting. W3 confusion matrix and F1, Quiz 1. W4 KD-trees/LSH and bag-of-words/tf-idf. W5 NLP practice, Quiz 2. W6 k-means, PCA, embeddings. W7 LDA/QDA/GMM, HW2 due 10/20, Quiz 3. W8 DBSCAN and regression, then PyTorch regression and gradient descent.
+- Due this week: Tue 10/27 LEC 3.2 and Thu 10/29 LEC 3.3. Reading: the PyTorch intro series (not local), ISL 3.1-3.3, 3.5, 6.2-6.4.
+- Flag: HW2 was due Tue 10/20 and the 24h grace has closed. The calendar's "CSCI 4521 Homework - 2" on Mon 10/26 is past the grace window. HW3 is due Tue 11/3.
+
+**MGMT 3015 (Mon/Wed 2:30pm Hanson 1-111)**
+- Board: `20_Progress/Degree/MGMT 3015/MGMT 3015 Board.md`. Source folder: `D:\_Anant\10_Areas\UMN\Classes\Minor\MGMT 3015`. It holds the textbook PDF `MGMT 3015 - Entrepreneurship, 5th Edition.pdf` (Zacharakis, Bygrave and Corbett) and slide decks for S1-S7 only.
+- Notes: Sessions 2-5 written. Textbook notes cover Ch 1&amp;2, 3&amp;4 and 8. Ch 5 and 6 (and 12 for this week) are missing. Assignment notes cover Profile of an Entrepreneur and Business Idea.
+- Sessions through week 8: Ch 1-2 entrepreneur and personality. Ch 3-4 ideas and opportunities. Idea presentations. Ch 8 business plan, Quiz 1 on 10/7. Ch 6 industry analysis and strategy. Ch 5 business models.
+- Due this week:
+  - Mon 10/26: in-class group work on the Idea Pitch.
+  - Wed 10/28: Marketing #1, Ch 12.
+  - The next graded item is the Group Idea Pitch slides on Wed 11/4 (10%).
+- "Entrepreneurship mapping" could concretely produce: Ch 5, 6 and 12 textbook notes, plus a one-page concept map (opportunity, industry analysis, strategy, business model, marketing) applied to the group's idea, feeding the 11/4 pitch slides.
+
+**CSCI 4041 / Technical Interview (TIP103)**
+- Notes: `20_Progress/Degree/_Courses/Technical Interview/Technical Interview.md`, `DSA.md` and `Problems Solver.md`. The `CSCI 4041/` folder is a completed past course used as the reference library.
+- "Units 1-5" are the captured TIP103 units:
+  1. Strings, arrays, two pointers, UMPIRE.
+  2. Dictionaries, sets, Big O.
+  3. Recursion, stacks, queues.
+  4. OOP, linked lists, binary trees.
+  5. Graphs, BFS/DFS.
+- Transcripts are in `_Transcripts/Unit - 1..6`. Recorded progress: only the Unit 1 Session 1 refresh. Unit 5 attendance is unreported.
+- 5-a-day source: `DSA.md` Week 3 (10/26-11/1), the same list `Weekly Set.md` would show. `CSCI 4041/Problems/Weekly Set.md` is stale (still the 10/12-18 slice, Day 1 marked missed).
+  - 10/26: LC 153, LC 33
+  - 10/27: LC 215
+  - 10/28: LC 703, LC 1046, HR Minimum Swaps 2
+  - 10/29: LC 347
+  - 10/30: LC 148, LC 23, plus CLRS HW4 C4.1 and P4.3
+  - 10/31: LC 295
+  - The full catalog is `CSCI 4041/Problems/Detailed Problems List.md`.
+
+**Projects**
+- Portfolio: `20_Progress/Projects/CS/Portfolio/Portfolio.md`. `next:` is empty. Sections exist for Model, Sanity fixes, UI Enhancement and AI / Portfolio Lab, with subfolders `security/`, `chatbot/` and `nextgen-chatbot/`.
+- ClaudeKit: `20_Progress/Projects/AI Use/Claude Kit/` (Overview, Build Map, Log). There is no `next:` field. The last Log entry is 2026-09-05. Open items it lists: the Windows session-export hook gap, placeholder AGENTS.md/MEMORY.md, and empty context/rules files.
+- Local AI: no project note exists. The only source is the clipping `60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis/10-17 Local AI build plan for laptop.md`, with related notes `20_Progress/Projects/AI Use/Ollama.md` and `Jan.md` (neither has a `next:` field).</result>
+<usage><subagent_tokens>216613</subagent_tokens><tool_uses>16</tool_uses><duration_ms>115771</duration_ms></usage>
+</task-notification>
+
+## Claude
+
+The digest is back. It changes three things:
+
+- **CSCI 4061 Project 2 hasn't been started.** It has two parts and four implementations, and only about 4.5 hours are scheduled for it.
+- **CSCI 4521 HW2 has no submission record.** It was due 10/20 and the grace period has closed.
+- **Two Friday 4511W blocks match nothing on the board.** "Homework - 2" and "Written Out" don't correspond to any assignment.
+
+I'm writing the W44 note first, then the calendar.
+
+W44 note is written. Now rewriting the Todoist events, starting with tonight and Monday.
+
+Monday done. Tuesday and Wednesday next.
+
+Tuesday and Wednesday done. Thursday through Saturday next.
+
+I wrote the W44 note and rewrote the whole week on your calendar.
+
+**What I can and can't do with your calendar.** I can read, rename, rewrite, retime, create and delete events on every calendar you own. The red blocks are on a separate "Todoist" calendar, not your main one, and that's the one I edited. I can't see Todoist itself, so I can't confirm the changes reach the Todoist app. I also can't change events other people own: lectures, TIP103, cricket and AIIS.
+
+**What I did:**
+- **The W44 note** (`10_Areas/Life/Enumerate/Weekly/2026-W44.md`) has:
+  - the daily rules
+  - your 80 split into UMN, Development and Others
+  - the seven Friday checkpoints
+  - a table of every item carried from W43 and why it slipped
+  - the event format
+- **Why W43 failed.** Yes, it was wishful time management, in three ways:
+  - Blocks named topics like "Internship Loop work" instead of something you could finish.
+  - The daily basics (CSCI 4041, internships, opening and closing the daily note) had no time slot at all.
+  - Exam days got a normal dev load.
+- **36 events rewritten.** Each title is now the thing you'll have when the block ends, like "CSCI 4061 P2: all tests pass locally". Each description has five short lines: WHAT, WHY, HOW, WHERE, BY. HOW and WHERE use real material from the course boards: the pages to open, the problems to do, and the vault file where the output goes.
+- **19 events added** for the things you said must be impossible to skip:
+  - **Mornings:** open the daily note, then 5 CSCI 4041 problems from the `DSA.md` list for that day.
+  - **Internships:** write `Main Cover Letter.md` Monday, then one application per day, five by Friday.
+  - **Every night:** a 10:15 to 10:30pm close.
+- **Three dev blocks** used to end at 10:30 (Wednesday, Thursday and Friday). I moved them to 10:15 so the close fits.
+
+**What I found that you should know:**
+- **CSCI 4061 Project 2 hasn't been started.** It's due Friday, has two parts and four pieces of code, and only gets about 4.5 hours of blocks. Wednesday's 6:30pm ClaudeKit block says it goes to P2 if Part 1's tests aren't passing by Tuesday night.
+- **CSCI 4521 HW2 has no note.** It was due 10/20 and the grace period closed 10/21. Did you submit it? Monday's 10:30 block starts by checking Gradescope.
+- **Two Friday CSCI 4511W blocks didn't match anything on the board.** I repointed them:
+  - "Written Out" now checks Writing 2, due 10/23, whose note still says "submit".
+  - "Homework - 2" now covers the Weeks 5-6 notes and Discussion Participation.
+
+**What you need to do:**
+1. Open one renamed task in Todoist, for example "CSCI 4061 P2: spec mapped to concepts and TODOs", and check that the new title and description show up. Also check that the 19 new events appeared as tasks. If they didn't, tell me and I'll change approach.
+2. Tell me what "Laptop Builds - 6 & more" (Saturday 1-4pm) means. It's the one event I left untouched.
+3. Decide two conflicts:
+   - Tuesday cricket runs 9-11pm, past your 10:30 close.
+   - Wednesday's VIT BSSC102N event overlaps the 9am lock-in.
+4. Your scores came through as "45-1, 40, 61". Which score goes with which: the CSCI 5304 midterm, CSCI 4521 Quiz 3, or CSCI 4511W Long Quiz 1? And what did you get on CSCI 4061 Midterm 1? None of them has a note yet.
+5. Run `/startday` tomorrow morning. It refreshes the dashboard, which still shows the 10/8 midterm. Because of your no-extra-files rule, I didn't edit the dashboard or W43, or add a session log entry.
+
+### Tool Calls
+
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Life\Enumerate\Weekly\2026-W44.md`
+```
+---
+type: thought
+thought_kind: weekly
+status: sprout
+created: 2026-10-25
+updated: 2026-10-25
+period: "2026-W44"
+review: "[[60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis — 2026-W43]]"
+tags:
+  - weekly
+next: "CSCI 4061 Project 2 due Fri 10/30 11:59pm. Both parts are still untouched starter code."
+---
+# 2026-W44
+> [!NOTE] Summary: Catch-up week. Every course gets closed through Week 8, CSCI 4061 Project 2 ships Friday, and the dev 80 (Portfolio, ClaudeKit, Local AI) runs only after 6pm. Every day opens with a daily note and CSCI 4041 problems, and closes by 10:30pm. After this week, 9 weeks of 2026 are left. Last week's audit: [[60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis — 2026-W43|Weekly Synthesis 2026-W43]].
+
+## Goals
+
+**The day, every day:**
+1. Morning is gym, breakfast, then the laptop. Open today's daily note first (`/startday`). Then 5 CSCI 4041 problems from `DSA.md` Week 3, each logged in `Weekly Set.md`. Then one internship action: the cover letter on Monday, one application every day after.
+2. The calendar runs the day from there. The block before each lecture is that lecture's prep and finishes inside its own time. CSCI 5304 is the one exception: its block sits after the lecture.
+3. Coursework lives in the daytime blocks. Dev work (Portfolio, ClaudeKit, Local AI, automations) starts at 6pm and not before.
+4. Every dev block runs on a timer. When it ends, write one line on where you stopped and move on.
+5. Close by 10:30pm (`/closeday`). Every block gets ticked or marked missed with a reason. Nothing is scheduled after 10:30.
+
+**The 80, UMN:**
+- [ ] CSCI 4061 Project 2 submitted by Fri 10/30. Part 1 is `swish` shell pipelines (n-1 pipes, redirection, SIGPIPE). Part 2 is the Hadamard product three ways (pipes, shared memory, pthreads) called from Python through a C extension. Learn it from Weeks 2-8 rather than chasing tests, because each project ends in an individual oral exam. Code: `CSCI 4061/csci4061-fa26/Projects/proj2-code/`.
+- [ ] CSCI 5304 Weeks 1-8 studied and written: the Week 1 and Week 8 weekly notes, textbook Lectures 13-18, a HW3 note, and one concept map that traces the CSCI 2033 core (span, rank, orthogonality, LU, least squares, eigenvalues) into each 5304 lecture. [[20_Progress/Degree/CSCI 5304/CSCI 5304 Board|CSCI 5304 Board]], [[40_Resources/UMN/Previous Classes/CSCI 2033/CSCI 2033 Board|CSCI 2033 Board]].
+- [ ] CSCI 4061 Weeks 5-8 notes (shared memory, multiplexed I/O, C/Python interop, threads, synchronization). Midterm 2 is Thu 11/12.
+- [ ] CSCI 4521 Week 8 note (DBSCAN, regression, PyTorch, gradient descent), HW2's status settled, HW3 (due Tue 11/3) started.
+- [ ] CSCI 4511W Weeks 5-8 notes (Ch 4 local search, Ch 5 games), Short Quiz 07 (Mon 6pm), Discussion Participation (Fri 11:59pm), and Writing 2 plus PS2 Q4-5 confirmed submitted.
+- [ ] MGMT 3015 Ch 5, 6 and 12 notes, plus one concept map applied to the group's idea that feeds the Wed 11/4 pitch slides.
+
+**The 80, Development:**
+- [ ] Portfolio: UI repolished, Orby on the updated model and guardrailed, security checks, Clerk/OAuth, images, animations, Cloudflare deployment check. [[20_Progress/Projects/CS/Portfolio/Portfolio|Portfolio]].
+- [ ] ClaudeKit: Codex and Claude conversations captured on both laptops, ingestion from the repo clones, home-directory settings, skills and agents in sync, recurring scheduled tasks running in Jarvis and secondbrain-claudekit. Notes: `20_Progress/Projects/AI Use/Claude Kit/` (last Log entry 2026-09-05).
+
+**The 80, Others:**
+- [ ] Local AI: a small local model runs one meaningful repetitive task on a schedule, with a per-run log of what changed and why it got better. Personal side: The Plan workflow running on Jan. The only source today is the 10-17 Local AI build plan clipping; [[20_Progress/Projects/AI Use/Ollama|Ollama]] and [[20_Progress/Projects/AI Use/Jan|Jan]] are the nearest notes.
+- [ ] Both vaults: dashboard, plans, and daily notes written every day, morning and night.
+
+**Friday checkpoints (due by end of Fri 10/30, audited here Sat 4pm):**
+- [ ] CSCI 4061 Project 2 submitted on Gradescope
+- [ ] CSCI 5304 Weeks 1-8 done and the 2033 map exists
+- [ ] CSCI 4521 caught up through Week 8
+- [ ] MGMT 3015 entrepreneur map exists
+- [ ] CSCI 4041 Units 1-5 reviewed, every morning problem logged
+- [ ] `Main Cover Letter.md` exists and 5 applications sit in `Applied/`
+- [ ] CSCI 4511W Writing 2 and Discussion Participation submitted
+
+**Carried from W43, and why each one slipped:**
+
+| Item | State at W43 close | Why it slipped |
+|---|---|---|
+| Internship: cover letter and first application | 29 researched, 0 applied, frozen 29 days | Only ever scheduled as all-day "Mass Apply" or "Internship Loop work". No time, no finish line. |
+| CSCI 4041 / LeetCode daily | 0 logged, `Weekly Set.md` 0/20 | "First thing on the laptop" never had a calendar slot, and two trackers compete for the same job. |
+| Daily notes and dashboard | 0 of 7 days | No open or close slot existed, so nothing forced either. |
+| Assessment outcomes | 4 sat with no outcome note | "Log it the same day" was a rule with no block behind it. |
+| Portfolio, TradingView, automations | zero commits | Exam week carried a normal dev load (2.5 hours of Local AI on exam day). |
+| ClaudeKit conversation capture | partial: both exporters fixed, the layer's notes written, the both-laptop loop not running | Real progress with no done-definition, so it still reads as unfinished. |
+| Hackathon entry (Fall plan row for 10/19) | no entry | Never on the calendar. Left out of W44 on purpose. |
+
+Was it wishful time management? Yes, in three specific ways. Blocks named topics instead of deliverables. The daily defaults had no time at all. Exam days were planned as if exams cost nothing. The W44 calendar fixes the first two. The third is still a risk, below.
+
+> [!WARNING] Where the W44 calendar is still wishful
+> - CSCI 4061 Project 2 gets about 4.5 hours (Mon 4:45-6:15, Tue 12:30-1, Thu 12:30-1 and 4:15-5, Fri 12-1) for two untouched parts and four implementations. If Part 1's tests don't pass by Tuesday's close, Wednesday's 6:30-8pm ClaudeKit block goes to the project.
+> - Tuesday cricket runs 9-11pm, past the 10:30 close.
+> - Wednesday's VIT BSSC102N event overlaps the 9am CSCI 5304/4521 lock-in.
+> - No block has a buffer. A block that runs out stops anyway, and the leftover goes into that night's close.
+
+**Calendar format, every event from now on:**
+
+Title: the course or project, then a verb and the deliverable (`CSCI 4061 P2: all tests pass locally`). Description, five lines:
+
+```
+WHAT:  the thing that exists when the block ends
+WHY:   one line on what it unblocks
+HOW:   the source to open, the steps, the time cap
+WHERE: the place, plus the vault path the output lands in
+BY:    the hard stop, and what proves it is done
+```
+
+Friday events are checkpoints ("By Fri: ..."), not work sessions. Saturday's 4pm block audits them in this note.
+
+**Assessments already sat, outcomes still to record:** CSCI 5304 Midterm (Tue 10/20), CSCI 4521 Quiz 3 (Thu 10/22), and CSCI 4511W Long Quiz 1 (Wed 10/14) were reported as "45-1, 40, 61", with the course-to-score mapping not yet confirmed. CSCI 4061 Midterm 1 (Thu 10/8) has no outcome recorded.
+
+## Productivity
+<!-- What landed, with the note, commit, or number that shows it. Evidence, not mood. -->
+## Good habits
+<!-- One or two specific behaviors that worked. -->
+## Bad habits
+<!-- One or two specific behaviors that slipped, named by what happened. -->
+## Fixes
+<!-- Each fix is one concrete change for next week, not a wish. -->
+## Check-in
+> [!QUESTION] Rate yourself on focus, health, discipline, and connection: Where did I abandon myself this week? Where did I show up?
+
+Focus:
+Discipline:
+Connection:
+
+```
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"CSCI 4511W: Ch 5 games read, Week 7 note written","description":"WHAT: Ch 5.1-5.4 (games, minimax, alpha-beta) read, and the Week 7 note filled in.\nWHY: Weeks 5-8 have no notes. Monday\u0027s reading (5.3-5.4) is due 1pm and Short Quiz 07 is due 6pm.\nHOW: Week 7 lecture deck first, then the textbook sections. Fill the existing empty Week 7 template. Stop at 10pm and write where you stopped.\nWHERE: Laptop. Source: D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4511W. Output: 20_Progress/Degree/CSCI 4511W/Weekly/Week - 7.md\nBY: Sun 10pm. Done when Week 7 has real content.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"CSCI 4521: settle HW2, start HW3","description":"WHAT: HW2\u0027s real status known (submitted or not), and HW3 opened with a plan.\nWHY: HW2 was due Tue 10/20 and the 24h grace closed 10/21. HW3 is due Tue 11/3.\nHOW: Check Gradescope first (2 min). If HW2 is missing, email the instructor today (72h rule). Spend the rest reading the HW3 prompt and listing which lectures each part needs.\nWHERE: Laptop. Source: D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4521. Output: 20_Progress/Degree/CSCI 4521/Homework/\nBY: Mon 11am. Done when HW2 status is written down and HW3 has a parts list.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"MGMT 3015: Ch 5 + Ch 6 notes","description":"WHAT: Textbook notes for Ch 5 (business models) and Ch 6 (industry analysis, strategy).\nWHY: Both were taught and have no notes. They feed the entrepreneur map and the Wed 11/4 pitch.\nHOW: Textbook PDF, 40 min per chapter. Key terms, frameworks, one example each.\nWHERE: Laptop. Source: D:\\_Anant\\10_Areas\\UMN\\Classes\\Minor\\MGMT 3015 (Entrepreneurship 5th ed). Output: 20_Progress/Degree/MGMT 3015/\nBY: Mon 12:30pm. Done when both chapter notes exist.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"CSCI 4511W: Short Quiz 07 submitted","description":"WHAT: Short Quiz 07 submitted on Gradescope, and reading Ch 5.3-5.4 done before lecture.\nWHY: Quiz is due 6pm today and reading is due 1pm. Open resource.\nHOW: Use last night\u0027s Week 7 note and the textbook. Submit before walking to lecture.\nWHERE: Laptop, then Vincent Hall 16 for lecture at 1pm. Gradescope.\nBY: Mon 1pm. Done when the Gradescope submission shows.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"MGMT 3015: one-page chapter map before lecture","description":"WHAT: A one-page list of every textbook chapter with one line on what it covers, marked taught or not.\nWHY: Shows the whole course before today\u0027s Idea Pitch group work, so the group work uses the right chapters.\nHOW: Table of contents only, 15 minutes. Do not read chapters here.\nWHERE: Laptop, then Hanson Hall 1-111 at 2:30. Output: 20_Progress/Degree/MGMT 3015/MGMT 3015 Board.md\nBY: Mon 2:30pm.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"CSCI 4061: Quiz 6 submitted on Canvas","description":"WHAT: Quiz 6 submitted. Lab 7 (from this morning\u0027s session) noted as due Wed 11:59pm.\nWHY: Quiz 6 is due today. Lowest 2 dropped, but 1 drop is already used.\nHOW: Canvas quiz, 10 attempts, open resource. Use Week 7-8 slides.\nWHERE: Laptop. Canvas.\nBY: Mon 4:45pm.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"CSCI 4061 P2: spec mapped to concepts and TODOs","description":"WHAT: A Project 2 note listing every TODO in the starter code, the concept each needs, and the order to build them.\nWHY: P2 is due Fri 10/30 and nothing is started. This map is what the next four blocks execute.\nHOW: Read the spec in proj2-code. List TODOs in swish_funcs.c and the three hadamard_*.c files. Map each to its lecture (pipes W2/W4, shared memory W5, interop W6, threads W7-8) and Stevens chapter. Part 1 (swish) first.\nWHERE: Laptop. Code: D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4061\\csci4061-fa26\\Projects\\proj2-code. Output: 20_Progress/Degree/CSCI 4061/Projects/Project - 2.md\nBY: Mon 6:15pm. Done when every TODO has a concept and a slot.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"Automations: today\u0027s calendar + Todoist land in the daily note","description":"WHAT: One working path that writes today\u0027s calendar and Todoist items into the Jarvis daily note, run once for real.\nWHY: The daily note was empty all of W43 partly because filling it was manual.\nHOW: First 10 min: pick the source (Google Calendar or Todoist API). Then write the script, run it against Tue 10/27, check the note. Timer on.\nWHERE: Laptop. Script under 30_Order/System/. Log the result in 20_Progress/Projects/AI Use/Claude Kit/ Log.\nBY: Mon 8:45pm. Done when Tuesday\u0027s note shows the real blocks.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"ClaudeKit: Codex + Claude conversations captured on this laptop","description":"WHAT: One Claude session and one Codex session from tonight both land as notes in the conversation clippings folder.\nWHY: The exporters were fixed in W43, but the capture loop is not running end to end.\nHOW: Fix the Windows session-export hook gap listed in the Claude Kit Build Map. Run one short session in each tool. Confirm both files appear. Timer on.\nWHERE: Laptop (Acer). Output: 60_Claude/05_Clippings/AI Conversations/Acer/Windows/. Log in 20_Progress/Projects/AI Use/Claude Kit/ Log.\nBY: Mon 10:15pm hard stop, then close the day.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"CSCI 5304: Lecture 19 note + textbook L13-14","description":"WHAT: A note for today\u0027s Lecture 19 (stability of least squares), plus textbook notes for L13-14 (floating point, stability).\nWHY: L13-18 have no notes, and this block sits right after the lecture while it is fresh.\nHOW: Today\u0027s transcript for L19 (30 min). Then the MinerU textbook extraction for L13-14 (30 min). Same shape as the existing Lecture notes.\nWHERE: Laptop, near Keller Hall. Source: D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 5304 (Textbook \u0026 Resources, Lecture/Transcripts). Output: 20_Progress/Degree/CSCI 5304/Textbook/\nBY: Tue 10:30am.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"eventId":"[REDACTED]","summary":"Resume: 3 questions ready for the 11:30 CodePath 1:1","description":"WHAT: Resume reread with 3 specific questions written down for the Cognizant reviewer at 11:30.\nWHY: The 1:1 is 25 minutes. Questions turn it into fixes for the applications this week.\nHOW: Reread the resume as a recruiter would (6 seconds, then line by line). Write the 3 weakest spots as questions. Skim the CodePath FAQ and Career Kit.\nWHERE: Laptop. Zoom link is on the 11:30 event. Notes go in the daily note.\nBY: Tue 11:30am.\n\nOriginal CodePath details: 30 min session (5 intro, 25 feedback) on Zoom. Cancel: https://go.codepath.org/vw-cancel-session  No-show: https://go.codepath.org/vw-noshow-session  Career Kit: https://go.codepath.org/careerkit","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"CSCI 4061 P2: swish pipe loop written","description":"WHAT: The pipe-setup loop in swish_funcs.c (n commands, n-1 pipes) written and compiling.\nWHY: Part 1 is the first item in Monday\u0027s map. Today\u0027s lecture (advanced sync) follows right after.\nHOW: Follow the Project - 2 map. Stevens Ch 15.2 for pipes. Compile in the course container. 30 min cap.\nWHERE: Laptop, then Tate Hall 101 at 1pm. Code: csci4061-fa26/Projects/proj2-code/\nBY: Tue 1pm.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"CSCI 4521: LEC 3.2 deck skimmed before lecture","description":"WHAT: Today\u0027s LEC 3.2 deck skimmed (DBSCAN, intro to regression), with 2 questions to listen for.\nWHY: Walk into lecture knowing what it covers instead of meeting it cold.\nHOW: Deck only, 15 minutes.\nWHERE: Laptop, then Amundson Hall B75 at 2:30. Source: D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4521\\Lectures\nBY: Tue 2:30pm.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"Lock-in: CSCI 5304 L15-16 notes + CSCI 4061 Week 8 note","description":"WHAT: Textbook notes for 5304 L15-16 (more on stability, stability of Householder), and a 4061 Week 8 note started from today\u0027s lecture.\nWHY: Both courses need Weeks 1-8 closed by Friday. Today\u0027s 4061 lecture is fresh.\nHOW: 5304: MinerU extraction, 40 min. 4061: today\u0027s slides plus Stevens Ch 11, 35 min.\nWHERE: Laptop. Outputs: 20_Progress/Degree/CSCI 5304/Textbook/ and 20_Progress/Degree/CSCI 4061/Weekly/Week - 8.md\nBY: Tue 5pm.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"Portfolio: Orby on the updated model, guardrails tested","description":"WHAT: Orby running on the updated model, with a guardrail system prompt that passes 5 adversarial test prompts.\nWHY: Orby is the public face of the portfolio and must be safe before the polished version ships.\nHOW: Portfolio note, Model and AI / Portfolio Lab sections, chatbot/ and nextgen-chatbot/. Swap the model, add the guardrails, run the 5 prompts, record pass or fail. Timer on.\nWHERE: Laptop. Notes: 20_Progress/Projects/CS/Portfolio/Portfolio.md\nBY: Tue 7pm, before TIP103.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"Lock-in: CSCI 5304 L17-18 + Week 8 note, CSCI 4521 PyTorch reading","description":"WHAT: 5304 textbook notes for L17-18 and the Week 8 weekly note. Then the 4521 PyTorch intro (tensors, autograd) read.\nWHY: Closes 5304 Week 8. PyTorch is the prerequisite for Thursday\u0027s LEC 3.3.\nHOW: 5304: MinerU extraction plus the Week 4-8 transcript, 35 min. 4521: PyTorch intro series, 25 min (find it on Canvas and save it locally).\nWHERE: Laptop. Outputs: 20_Progress/Degree/CSCI 5304/Weekly/Week - 8.md and 20_Progress/Degree/CSCI 4521/\nBY: Wed 10am.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"Jobs: 3 on-campus applications sent","description":"WHAT: 3 on-campus job applications submitted.\nWHY: On-campus work is the near-term income track, and it needs applications, not browsing.\nHOW: UMN student job board and Handshake. Filter for on-campus. Reuse the resume from Tuesday\u0027s review. Log each one.\nWHERE: Laptop. Log in today\u0027s daily note.\nBY: Wed 12:30pm. Done when 3 confirmation emails exist.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"CSCI 4511W: Ch 5.5-5.6 read before lecture","description":"WHAT: Ch 5.5-5.6 (stochastic and partially observable games) read, with 3 bullet notes added to Week 8.\nWHY: The reading is due today and the lecture builds on it.\nHOW: Textbook only, 30 minutes.\nWHERE: Laptop, then Vincent Hall 16 at 1pm. Output: 20_Progress/Degree/CSCI 4511W/Weekly/Week - 8.md\nBY: Wed 1pm.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"MGMT 3015: Ch 12 (Marketing) skimmed before lecture","description":"WHAT: Ch 12 (Marketing) skimmed, with headings and key terms noted.\nWHY: Today\u0027s session is Marketing #1, built on Ch 12.\nHOW: Headings and bold terms only, 15 minutes.\nWHERE: Laptop, then Hanson Hall 1-111 at 2:30. Output: 20_Progress/Degree/MGMT 3015/\nBY: Wed 2:30pm.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"CSCI 4061: Lab 7 submitted on Gradescope","description":"WHAT: Lab 7 passing locally and submitted on Gradescope.\nWHY: Due tonight 11:59pm. No late work, and the 2 lab drops are already used, so a miss costs real points.\nHOW: Finish in the course container, run the supplied tests, zip, upload. Screenshot the result.\nWHERE: Laptop. Output: 20_Progress/Degree/CSCI 4061/Labs/Lab - 7.md\nBY: Wed 4:45pm. Done when Gradescope shows the score.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"ClaudeKit: ingestion from repo clones + reviewed with memory","description":"WHAT: Ingestion runs once over the repo clones and writes notes, and one code review runs with memory loaded.\nWHY: Monday got capture working. This turns captured material into vault knowledge.\nHOW: Point the ingestion loop at the repo clones folder. Run it once. Check 3 output notes by hand. Run one code review with memory. Timer on.\nWHERE: Laptop. Log in 20_Progress/Projects/AI Use/Claude Kit/ Log.\nBY: Wed 8pm. If CSCI 4061 P2 Part 1 tests were not passing at Tuesday\u0027s close, this block goes to P2 instead.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"CSCI 4041: TIP103 Units 1-3 reviewed","description":"WHAT: Units 1-3 reviewed (strings, arrays, two pointers; dictionaries, sets, Big O; recursion, stacks, queues), with one pattern summary each.\nWHY: Friday\u0027s checkpoint is Units 1-5 wrapped. Only Unit 1 Session 1 is recorded so far.\nHOW: The Unit transcripts plus one solved problem per unit from the catalog, redone from scratch with UMPIRE. 30 min per unit.\nWHERE: Laptop. Source: 20_Progress/Degree/_Courses/Technical Interview/_Transcripts/. Log in 20_Progress/Degree/CSCI 4041/Problems/Weekly Set.md\nBY: Wed 9:30pm.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"Local AI: small model installed, first scheduled run logged","endTime":"2026-10-28T22:15:00","description":"WHAT: A small local model running through Ollama, one meaningful repetitive task defined, run once, and its output plus timing logged.\nWHY: Local AI has been researched (10-17 build plan) but nothing runs. This is the launch.\nHOW: Follow the 10-17 Local AI build plan. Pick the task in the first 10 min (it must be useful, for example tagging new clippings). Run it, save the output, write run #1 in the log: what it did, how long, what was wrong. Timer on.\nWHERE: Laptop. Source: 60_Claude/05_Clippings/AI Conversations/Acer/Windows/Claude/Jarvis/10-17 Local AI build plan for laptop.md. Log: 20_Progress/Projects/AI Use/Ollama.md\nBY: Wed 10:15pm hard stop (moved from 10:30 so the day can close).","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"CSCI 5304: Lecture 20 note (Gaussian elimination) + Quiz 4 checked","description":"WHAT: A note for today\u0027s Lecture 20 (Gaussian elimination), and Quiz 4\u0027s real format confirmed on Canvas.\nWHY: Quizzes 1 and 2 turned into take-homes without notice. Today\u0027s lecture is fresh right now.\nHOW: Canvas first (2 min). Then today\u0027s transcript, 25 min.\nWHERE: Laptop, near Keller Hall. Output: 20_Progress/Degree/CSCI 5304/Textbook/\nBY: Thu 10am.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"CSCI 4061: Weeks 5-7 notes written","description":"WHAT: Weekly notes for Weeks 5, 6, and 7 (shared memory and Midterm 1, multiplexed I/O and C/Python interop, intro to threads).\nWHY: Weeks 1-4 are done and 5-8 are missing. Midterm 2 is 11/12. Week 8 was started Tuesday.\nHOW: The \"Week 4 - 8\" transcript plus slides, 30 min per week, same shape as Weeks 1-4.\nWHERE: Laptop. Source: D:\\_Anant\\10_Areas\\UMN\\Classes\\CSCI\\CSCI 4061. Output: 20_Progress/Degree/CSCI 4061/Weekly/\nBY: Thu 12:30pm.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"CSCI 4061 P2: Hadamard pthreads version compiling","description":"WHAT: hadamard pthreads version written and compiling (Part 2, third implementation).\nWHY: Threads are fresh from this week\u0027s lectures, and the pipes and shared-memory versions should land in the Tue/Wed slots.\nHOW: Follow the Project - 2 map. Stevens Ch 11. 30 min cap.\nWHERE: Laptop, then Tate Hall 101 at 1pm. Code: csci4061-fa26/Projects/proj2-code/\nBY: Thu 1pm.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"CSCI 4521: LEC 3.3 deck skimmed before lecture","description":"WHAT: Today\u0027s LEC 3.3 deck skimmed (regression with PyTorch, gradient descent), with 2 questions to listen for.\nWHY: Uses Wednesday\u0027s PyTorch reading. Walk in knowing the plan.\nHOW: Deck only, 15 minutes.\nWHERE: Laptop, then Amundson Hall B75 at 2:30.\nBY: Thu 2:30pm.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"CSCI 5304: Quiz 4 done (if take-home)","description":"WHAT: Quiz 4 submitted if it is a take-home, or its in-class outcome written down if it was sat this morning.\nWHY: Quiz average is 30% of the grade. Four assessments have passed with no outcome recorded.\nHOW: Use the L17-19 notes from this week. Submit, then write one outcome line.\nWHERE: Laptop. Gradescope or Canvas. Outcome line: 20_Progress/Degree/CSCI 5304/CSCI 5304 Board.md\nBY: Thu 4:15pm.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"CSCI 4061 P2: all tests pass locally","description":"WHAT: Every supplied P2 test passes in the course container, Part 1 and Part 2.\nWHY: Friday is for submitting, not debugging. Late work drops to 90% at 24h.\nHOW: Run the full test suite. Fix failures in map order. If something can\u0027t be fixed today, write it down for Friday noon.\nWHERE: Laptop. Code: csci4061-fa26/Projects/proj2-code/\nBY: Thu 5pm, before cricket.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"Portfolio: UI polish on the 3 most visible pages","endTime":"2026-10-29T22:15:00","description":"WHAT: Visual polish shipped on the 3 pages a recruiter sees first (home, projects, Orby), checked on mobile.\nWHY: Friday\u0027s long Portfolio block handles auth, security, and deploy. This one handles looks.\nHOW: Portfolio note, UI Enhancement section. List the fixes first (5 min), then do them in order. Commit. Timer on.\nWHERE: Laptop. Notes: 20_Progress/Projects/CS/Portfolio/Portfolio.md\nBY: Thu 10:15pm hard stop (moved from 10:30 so the day can close).","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"By Fri: CSCI 4041 Units 1-5 wrapped, every morning problem logged","description":"WHAT: TIP103 Units 1-5 reviewed (Units 1-3 Wednesday, 4-5 this morning), and every problem from the morning blocks logged.\nWHY: Checkpoint, not a work session. Audited Saturday 4pm in 2026-W44.\nHOW: Units 4-5 (OOP, linked lists, binary trees; graphs, BFS/DFS) in the Friday morning block.\nWHERE: Log: 20_Progress/Degree/CSCI 4041/Problems/Weekly Set.md\nBY: Fri 10/30 end of day.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"By Fri: cover letter done + 5 internship applications sent","description":"WHAT: Main Cover Letter.md exists, and 5 company notes have moved from Current/ to Applied/.\nWHY: Checkpoint. 29 researched, 0 applied, frozen since 9/26. The daily morning internship blocks do the work.\nHOW: Cover letter Monday morning, then one application per morning (Tue 12pm, Wed, Thu 10am, Fri, Sat).\nWHERE: 10_Areas/Career/Internships/Tracker/Each One/Current/ to Applied/\nBY: Fri 10/30 end of day. Audited Saturday 4pm.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"CSCI 4511W: Writing 2 + PS2 Q4-5 submitted","description":"WHAT: Writing 2 (D* Lite) and the PS2 written answers 4-5 confirmed submitted.\nWHY: Writing 2 was due Fri 10/23 and its note still says \"paste into Overleaf and submit\". PS2 Q4-5 were never marked done.\nHOW: Check Gradescope first. If missing, paste into Overleaf, compile, submit, and check the late policy on the Board. Then mark both notes final.\nWHERE: Laptop, then Lind Hall L120 for discussion at 10:10. Notes: 20_Progress/Degree/CSCI 4511W/Assignments/Written/Writing - 2.md\nBY: Fri 10:10am.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"CSCI 4511W: Weeks 5-6 notes + Discussion Participation","description":"WHAT: Week 5 and Week 6 notes (Ch 4 local search), and Discussion Participation submitted.\nWHY: Closes 4511W through Week 8 (7 was Sunday, 8 was Wednesday). Participation is due tonight 11:59pm. This recurring slot had no matching homework on the Board.\nHOW: Lecture decks plus Ch 4.1-4.4, 25 min per week. Participation right after discussion.\nWHERE: Laptop. Output: 20_Progress/Degree/CSCI 4511W/Weekly/\nBY: Fri 12pm.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"CSCI 4061 P2: submitted on Gradescope","description":"WHAT: Project 2 submitted on Gradescope, with the autograder result screenshotted.\nWHY: Due tonight (assumed 11:59pm, same as P1). Submitting at noon leaves the afternoon to fix autograder surprises. The latest submission is the one graded.\nHOW: Rerun all tests, zip, upload, read the autograder output. Prepare for the oral exam by explaining each TODO out loud once.\nWHERE: Laptop. Note: 20_Progress/Degree/CSCI 4061/Projects/Project - 2.md\nBY: Fri 1pm.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"CSCI 5304: 2033 concept map + Weeks 1-8 closed","description":"WHAT: One concept map from the CSCI 2033 core (span, rank, orthogonality, LU, least squares, eigenvalues) to the 5304 lectures that use each, plus Week 1 and HW3 notes. Weeks 1-8 checked complete.\nWHY: Checkpoint. 5304 builds directly on 2033, and the map shows which gaps are old gaps.\nHOW: CSCI 2033 Board for the core list, the 5304 Lecture notes for the targets. Week 1 is ethics plus L1 (matrix action), 15 min.\nWHERE: Laptop. Sources: 40_Resources/UMN/Previous Classes/CSCI 2033/CSCI 2033 Board.md, 20_Progress/Degree/CSCI 5304/. Output: 20_Progress/Degree/CSCI 5304/\nBY: Fri 2pm.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"CSCI 4521: Week 8 note, caught up through Week 8","description":"WHAT: Week 8 note (DBSCAN, regression, PyTorch, gradient descent) from Tuesday and Thursday, and HW3 started from Monday\u0027s parts list.\nWHY: Checkpoint. Weeks 1-7 exist. HW3 is due Tue 11/3.\nHOW: LEC 3.2 and 3.3 decks plus ISL 3.1-3.3, 40 min. Remaining time on HW3 part 1.\nWHERE: Laptop. Output: 20_Progress/Degree/CSCI 4521/Weekly/Week - 8.md\nBY: Fri 3pm.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"MGMT 3015: entrepreneur map applied to the group idea","description":"WHAT: A one-page map of opportunity, industry analysis, strategy, business model, and marketing, applied to the group\u0027s idea.\nWHY: Checkpoint. It becomes the outline for the Wed 11/4 Group Idea Pitch slides (10%).\nHOW: Use Monday\u0027s Ch 5-6 notes and Wednesday\u0027s Ch 12 skim. One box per chapter, one line on how it applies.\nWHERE: Laptop. Output: 20_Progress/Degree/MGMT 3015/\nBY: Fri 4pm.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"Local AI: run #2 compared against run #1","description":"WHAT: The scheduled task\u0027s latest run checked against Wednesday\u0027s run #1, with one line on what changed and why.\nWHY: The point is visible improvement per run, not just a model that runs.\nHOW: Open the log, read both outputs, write the difference. Change one setting for run #3.\nWHERE: Laptop. Log: 20_Progress/Projects/AI Use/Ollama.md\nBY: Fri 6:30pm.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"Portfolio: auth, security, and Cloudflare deploy checked","description":"WHAT: Clerk/OAuth working, the security notes\u0027 checks run (bot check included), images and animations in, and a Cloudflare deployment verified live.\nWHY: This is the last step before the polished version can be published.\nHOW: Portfolio note plus its security/ folder. Order: auth, security checks, assets, deploy. Commit after each. Timer on.\nWHERE: Laptop. Notes: 20_Progress/Projects/CS/Portfolio/Portfolio.md and security/\nBY: Fri 9pm. Done when the live URL loads with sign-in working.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"ClaudeKit: both laptops synced, scheduled tasks live","endTime":"2026-10-30T22:15:00","description":"WHAT: Home-directory settings, skills, and agents identical on both laptops; conversation capture running on the Dell too; recurring scheduled tasks registered in Jarvis and secondbrain-claudekit.\nWHY: Monday and Wednesday made it work on one machine. This makes it run without you.\nHOW: Diff the two home directories, sync, register the scheduled tasks, trigger each once and check its log. Timer on.\nWHERE: Both laptops. Log in 20_Progress/Projects/AI Use/Claude Kit/ Log.\nBY: Fri 10:15pm hard stop (moved from 10:30 so the day can close).","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__update_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","eventId":"[REDACTED]","summary":"TradingView: what to trade, decided in writing","description":"WHAT: One written decision: stocks/ETFs or prediction markets, with the reason and what would change it.\nWHY: The project has been paused on this one question, and the pause is avoidance, not caution.\nHOW: 3 criteria (edge, risk, time). Score both options. Pick one. 60 min cap, and no new research.\nWHERE: Laptop. Output: the TradingView project note in 20_Progress/Projects/\nBY: Sat 1pm.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__create_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","summary":"Close the day: daily note closed by 10:30","startTime":"2026-10-25T22:15:00","endTime":"2026-10-25T22:30:00","description":"WHAT: Today closed. Every block ticked or marked missed with where you stopped, problems and applications counted, tomorrow\u0027s first block known.\nWHY: Every day is a new day. Anything not closed tonight rolls forward silently, which is how W43 was lost.\nHOW: Run /closeday in Claude Code inside Jarvis. Tick Todoist. Unfinished items get one line and a dated slot.\nWHERE: Laptop. Jarvis 10_Areas/Life/Enumerate/Daily/ and the W44 note.\nBY: 10:30pm hard stop. Nothing is scheduled after this.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__create_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","summary":"Morning: daily note opened + CSCI 4041 5 problems (LC 153, LC 33)","startTime":"2026-10-26T07:30:00","endTime":"2026-10-26T08:30:00","description":"WHAT: Today\u0027s daily note opened, and 5 problems attempted and logged: LC 153, LC 33, plus 3 binary-search problems from the catalog.\nWHY: CSCI 4041 practice is the default every day, and none has been logged since 9/29.\nHOW: /startday first (5 min). Then UMPIRE on each problem, 11 min cap each. Log solved, stuck, or skipped.\nWHERE: Laptop, after gym and breakfast. List: 20_Progress/Degree/_Courses/Technical Interview/DSA.md (Week 3). Log: 20_Progress/Degree/CSCI 4041/Problems/Weekly Set.md\nBY: Mon 8:30am.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__create_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","summary":"Internship: Main Cover Letter.md drafted","startTime":"2026-10-26T08:30:00","endTime":"2026-10-26T09:00:00","description":"WHAT: Main Cover Letter.md exists with a reusable body and one slot for company-specific lines.\nWHY: It has been the named blocker for six weeks: 29 companies researched, 0 applied.\nHOW: Three paragraphs: who you are and what you build, one project with a number, why this company (the slot). Use the CPT answer from the VISAs notes. 30 min, then stop.\nWHERE: Laptop. Output: 10_Areas/Career/Internships/Tracker/Main Cover Letter.md\nBY: Mon 9am, then walk to Keller 1-250 for the 9:05 lab.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__create_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","summary":"Close the day: daily note closed by 10:30","startTime":"2026-10-26T22:15:00","endTime":"2026-10-26T22:30:00","description":"WHAT: Today closed. Every block ticked or marked missed with where you stopped, problems and applications counted, tomorrow\u0027s first block known.\nWHY: Every day is a new day. Anything not closed tonight rolls forward silently, which is how W43 was lost.\nHOW: Run /closeday in Claude Code inside Jarvis. Tick Todoist. Unfinished items get one line and a dated slot.\nWHERE: Laptop. Jarvis 10_Areas/Life/Enumerate/Daily/ and the W44 note.\nBY: 10:30pm hard stop. Nothing is scheduled after this.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__create_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","summary":"Morning: daily note opened + CSCI 4041 5 problems (LC 215)","startTime":"2026-10-27T07:15:00","endTime":"2026-10-27T08:05:00","description":"WHAT: Today\u0027s daily note opened, and 5 problems attempted and logged: LC 215, plus 4 heap problems from the catalog.\nWHY: CSCI 4041 practice is the default every day. Short slot today because of the 8:15 lecture.\nHOW: /startday first (5 min). UMPIRE, 9 min cap each. Log solved, stuck, or skipped.\nWHERE: Laptop, after gym. List: DSA.md Week 3. Log: 20_Progress/Degree/CSCI 4041/Problems/Weekly Set.md\nBY: Tue 8:05am, then walk to Keller 3-230.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__create_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","summary":"Internship: application #1 sent (with resume-review fixes)","startTime":"2026-10-27T12:00:00","endTime":"2026-10-27T12:30:00","description":"WHAT: One application submitted, and that company\u0027s note moved from Current/ to Applied/.\nWHY: Right after the CodePath 1:1, the resume is at its best. Breaks the 29-day freeze.\nHOW: Apply the 1:1\u0027s top fix to the resume. Pick the best-fit company in Current/. Tailor the cover-letter slot. Submit. Move the note.\nWHERE: Laptop. 10_Areas/Career/Internships/Tracker/Each One/Current/ to Applied/\nBY: Tue 12:30pm.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__create_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","summary":"Close the day: daily note closed by 10:30","startTime":"2026-10-27T22:15:00","endTime":"2026-10-27T22:30:00","description":"WHAT: Today closed. Every block ticked or marked missed with where you stopped, problems and applications counted, tomorrow\u0027s first block known.\nWHY: Every day is a new day. Anything not closed tonight rolls forward silently.\nHOW: Run /closeday in Claude Code inside Jarvis. Tick Todoist. Unfinished items get one line and a dated slot. Cricket runs 9-11pm tonight, so either close at 9pm before leaving or skip cricket.\nWHERE: Laptop. Jarvis 10_Areas/Life/Enumerate/Daily/ and the W44 note.\nBY: 10:30pm hard stop.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__create_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","summary":"Morning: daily note opened + CSCI 4041 5 problems (LC 703, LC 1046, HR Min Swaps 2)","startTime":"2026-10-28T07:30:00","endTime":"2026-10-28T08:30:00","description":"WHAT: Today\u0027s daily note opened, and 5 problems attempted and logged: LC 703, LC 1046, HackerRank Minimum Swaps 2, plus 2 from the catalog.\nWHY: CSCI 4041 practice is the default every day.\nHOW: /startday first (5 min). UMPIRE, 11 min cap each. Log solved, stuck, or skipped.\nWHERE: Laptop, after gym and breakfast. List: DSA.md Week 3. Log: 20_Progress/Degree/CSCI 4041/Problems/Weekly Set.md\nBY: Wed 8:30am.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__create_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","summary":"Internship: application #2 sent","startTime":"2026-10-28T08:30:00","endTime":"2026-10-28T09:00:00","description":"WHAT: One application submitted, and that company\u0027s note moved from Current/ to Applied/.\nWHY: The Friday checkpoint is 5 applications. One per morning is how it gets there.\nHOW: Next best-fit company in Current/. Tailor the cover-letter slot. Submit. Move the note.\nWHERE: Laptop. 10_Areas/Career/Internships/Tracker/Each One/Current/ to Applied/\nBY: Wed 9am.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__create_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","summary":"Close the day: daily note closed by 10:30","startTime":"2026-10-28T22:15:00","endTime":"2026-10-28T22:30:00","description":"WHAT: Today closed. Every block ticked or marked missed with where you stopped, problems and applications counted, tomorrow\u0027s first block known.\nWHY: Every day is a new day. Anything not closed tonight rolls forward silently.\nHOW: Run /closeday in Claude Code inside Jarvis. Tick Todoist. Unfinished items get one line and a dated slot.\nWHERE: Laptop. Jarvis 10_Areas/Life/Enumerate/Daily/ and the W44 note.\nBY: 10:30pm hard stop. Nothing is scheduled after this.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__create_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","summary":"Morning: daily note opened + CSCI 4041 5 problems (LC 347)","startTime":"2026-10-29T07:15:00","endTime":"2026-10-29T08:05:00","description":"WHAT: Today\u0027s daily note opened, and 5 problems attempted and logged: LC 347, plus 4 heap or hashing problems from the catalog.\nWHY: CSCI 4041 practice is the default every day. Short slot today because of the 8:15 lecture.\nHOW: /startday first (5 min). UMPIRE, 9 min cap each. Log solved, stuck, or skipped.\nWHERE: Laptop, after gym. List: DSA.md Week 3. Log: 20_Progress/Degree/CSCI 4041/Problems/Weekly Set.md\nBY: Thu 8:05am, then walk to Keller 3-230.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__create_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","summary":"Internship: application #3 sent","startTime":"2026-10-29T10:00:00","endTime":"2026-10-29T10:30:00","description":"WHAT: One application submitted, and that company\u0027s note moved from Current/ to Applied/.\nWHY: The Friday checkpoint is 5 applications. Thursday has no morning slot, so this sits in the gap after the 5304 block.\nHOW: Next best-fit company in Current/. Tailor the cover-letter slot. Submit. Move the note.\nWHERE: Laptop. 10_Areas/Career/Internships/Tracker/Each One/Current/ to Applied/\nBY: Thu 10:30am.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__create_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","summary":"Close the day: daily note closed by 10:30","startTime":"2026-10-29T22:15:00","endTime":"2026-10-29T22:30:00","description":"WHAT: Today closed. Every block ticked or marked missed with where you stopped, problems and applications counted, tomorrow\u0027s first block known.\nWHY: Tomorrow is checkpoint Friday. Tonight\u0027s close is what tells you whether P2 is ready to submit at noon.\nHOW: Run /closeday in Claude Code inside Jarvis. Tick Todoist. Unfinished items get one line and a dated slot.\nWHERE: Laptop. Jarvis 10_Areas/Life/Enumerate/Daily/ and the W44 note.\nBY: 10:30pm hard stop. Nothing is scheduled after this.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__create_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","summary":"Morning: daily note opened + CSCI 4041 (LC 148, LC 23, CLRS 4.1, P4.3)","startTime":"2026-10-30T07:30:00","endTime":"2026-10-30T08:30:00","description":"WHAT: Today\u0027s daily note opened, LC 148 and LC 23 attempted, CLRS HW4 C4.1 and P4.3 done, and TIP103 Units 4-5 skimmed if time remains.\nWHY: CSCI 4041 practice is the default every day, and today closes the Units 1-5 checkpoint.\nHOW: /startday first (5 min). UMPIRE, 12 min cap each. Units 4-5 (OOP, linked lists, trees; graphs, BFS/DFS) from the transcripts.\nWHERE: Laptop, after gym and breakfast. Log: 20_Progress/Degree/CSCI 4041/Problems/Weekly Set.md\nBY: Fri 8:30am.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__create_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","summary":"Internship: application #4 sent","startTime":"2026-10-30T08:30:00","endTime":"2026-10-30T09:00:00","description":"WHAT: One application submitted, and that company\u0027s note moved from Current/ to Applied/.\nWHY: The Friday checkpoint is 5 applications by end of day.\nHOW: Next best-fit company in Current/. Tailor the cover-letter slot. Submit. Move the note.\nWHERE: Laptop. 10_Areas/Career/Internships/Tracker/Each One/Current/ to Applied/\nBY: Fri 9am.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__create_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","summary":"Close the day: daily note closed by 10:30","startTime":"2026-10-30T22:15:00","endTime":"2026-10-30T22:30:00","description":"WHAT: Today closed, and each Friday checkpoint marked done or missed in the W44 note.\nWHY: Saturday\u0027s audit runs off what tonight\u0027s close writes down.\nHOW: Run /closeday in Claude Code inside Jarvis. Tick Todoist. Unfinished items get one line and a dated slot.\nWHERE: Laptop. Jarvis 10_Areas/Life/Enumerate/Daily/ and the W44 note.\nBY: 10:30pm hard stop. Nothing is scheduled after this.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__create_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","summary":"Morning: daily note opened + CSCI 4041 5 problems (LC 295)","startTime":"2026-10-31T08:00:00","endTime":"2026-10-31T09:00:00","description":"WHAT: Today\u0027s daily note opened, and 5 problems attempted and logged: LC 295, plus 4 retries of anything marked stuck this week.\nWHY: CSCI 4041 practice is the default every day, and retrying stuck problems is where the learning sticks.\nHOW: /startday first (5 min). UMPIRE, 11 min cap each.\nWHERE: Laptop, after calisthenics. Log: 20_Progress/Degree/CSCI 4041/Problems/Weekly Set.md\nBY: Sat 9am.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__create_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","summary":"Internship: application #5 sent","startTime":"2026-10-31T09:00:00","endTime":"2026-10-31T09:30:00","description":"WHAT: One application submitted, and that company\u0027s note moved from Current/ to Applied/.\nWHY: Covers any shortfall from Friday\u0027s checkpoint before the 4pm audit.\nHOW: Next best-fit company in Current/. Tailor the cover-letter slot. Submit. Move the note.\nWHERE: Laptop. 10_Areas/Career/Internships/Tracker/Each One/Current/ to Applied/\nBY: Sat 9:30am.","notificationLevel":"NONE"}`
+- `mcp__claude_ai_Google_Calendar__create_event` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","summary":"Close the day: daily note closed by 10:30","startTime":"2026-10-31T22:15:00","endTime":"2026-10-31T22:30:00","description":"WHAT: Today closed, and the W44 note\u0027s Productivity, Bad habits, and Fixes filled in from the week\u0027s daily notes.\nWHY: Tomorrow\u0027s weekly review reads this. A filled note means it audits real data.\nHOW: Run /closeday in Claude Code inside Jarvis. Then 3 lines each in Productivity, Bad habits, and Fixes.\nWHERE: Laptop. Jarvis 10_Areas/Life/Enumerate/Weekly/2026-W44.md\nBY: 10:30pm hard stop.","notificationLevel":"NONE"}`
+
+## You
+
+`60_Claude/07_AI_Information/How to Use Claude/How to Use Google Calendar` - is a note that was just created so that we can make sure to understand what to use the plugin/connector/mcp for. How to use it, also indicating what is able to be done and what is not able to done. What calendar are you looking at exactly? How many calendar groups are you looking at? What calendar groups are ignored? What are meetings? In the end suggestions and rules on how to exactly use it for claude's models.
+
+Also, document everything that you have just done, changed and edited inside the folder: `60_Claude/20_Distilled_Notes`. Create one note that says everything that you just did (worked) and the other to make sure that all the required actions are completed on this planning process. 
+
+Now, the above things are what you need to write. What exactly do you write? Well firstly, the time daily routine events created are great and everything else is also great. But this is what it looks like: [Image #3] and some more in top for gym and other things. Well, we clearly established the tasks and clearly. Mostly all correctly and detailed exactly on the task that is required to be completed. But we are still lacking organization, time management and buffer times for each of these tasks. We need to make room inside the tasks next to each other so that we actually start at that specific time and end at that specific time for that specific task. Now, how exactly will any human possibly do everything that is shown on the calendar without breaks and clear time management? Let's think of ways to improve this futher and note it down inside the other note for actions that need to be taken to improve this calndar work. 
+
+Another thing, this category of calendar: todoist was added from the todoist app but is being created directly on the calendar since forever and it does not even show up on todoist anymore. We use reminders for all the daily immediate actions to be completed which are not mentioned on the calendar like send emails, pick this up, or do something at that specific time. Todoist so far has not been used other than a map for all the main tasks that needs to be done for a long period of time. Just a place where all the tasks for a specific time period (usually 12 weeks) is set. There is not much done over here on todoist. Now, these are the three platforms that are being used for the daily workflow alongside obsidian at it's base. We already have claude connected to google calendar which is really useful but what i wish to do is automate this process even further so that the actions to do done are effortless, pop up on phone as notifications and very clearly mapped out the day everything is laid out for the week. Marking that all these actions are to done. Every single sunday - the automation is mapped out alongside the tools that it uses, everything is based of the weekly note, plans, etc. that are created. In the end reaching towards the desired goal all the time. Now, that you have a lot of more information on the calendar and the taks. Go ahead and write the notes mentioned to be written down. Make no mistakes so that this is done excellently and we have it all mapped out.
+
+[image attached]
+
+## You
+
+[Image: source: C:\Users\anant\AppData\Local\Temp\claude\[REDACTED]\[REDACTED]\images\3.png]
+
+## Claude
+
+I'll start by reading the note you just created, its sibling notes for shape, and the 30_Order templates the two distilled notes should follow. At the same time I'll check which calendar the lecture blocks actually come from, so the calendar note is accurate.
+
+I have everything I need. I'm writing the three notes now: the calendar guide first, then the record of what was done, then the actions map that points back to it.
+
+Calendar guide written. Next is the record of what was done, with every one of the 43 renames and 19 creations listed.
+
+All three notes are written. I'm checking that every link target exists and that no em dash slipped into the prose. The only one allowed is inside the Weekly Synthesis filename.
+
+I wrote all three notes. Every link target exists, and none of the new text uses an em dash.
+
+**`How to Use Google Calendar`** (in `07_AI_Information/How to Use Claude/`):
+- **What I'm looking at:** your UMN Google account. It has 10 calendars, but only 2 are in use: your main calendar (gym plus everything you're invited to) and the one named "Todoist", which holds all the red work blocks.
+- **Ignored:** the other 8 are VIT, the empty second "Todoist" calendar, US Holidays, DataTalks, CSE Student Groups, Goldy's Winter Break, Partiful and UMN.LOL.
+  - VIT is an Indian class timetable that another account shared with you. One of its classes is what overlaps your Wednesday morning.
+- **Meetings:** any event someone else organizes: CodePath, TIP103, cricket, AIIS, and the office-hour booking. Claude never moves or rewrites these; it can only RSVP.
+- **Limits:** I can't rename or hide calendars, can't reach Google Tasks, phone reminders or Todoist, and can't see your lecture blocks at all. Their source is still unknown.
+- **The note also covers** what the connector can do, time zones, the event format, and 13 rules for Claude models.
+
+**`W44 Calendar Rebuild - What Was Done`** (in `20_Distilled_Notes/`):
+- Every vault file I wrote or edited on 10-18 and 10-25.
+- All 43 rewritten events, old title next to new.
+- The 19 events I created, and what I deliberately left alone.
+- A table of how long each day runs without a break.
+- My mistakes, recorded so they aren't repeated:
+  - I told you 36 events were rewritten. The real number is 43.
+  - I called the "Todoist" calendar synced with the Todoist app. It isn't, and the seven nightly close blocks still say "Tick Todoist".
+  - The cover-letter block points to the wrong folder. Cover letters belong in `20_Progress/Internship/Cover Letters/`.
+
+**`W44 Calendar Rebuild - Actions`** (in `20_Distilled_Notes/`): every item is tagged as something I can do or something you have to do or decide.
+- **Buffer rules:**
+  - 10 minutes between blocks.
+  - 20 minutes to walk between East Bank buildings and Hanson Hall on the West Bank.
+  - Breakfast, lunch and dinner as their own blocks.
+  - Nothing longer than 3 hours without a break.
+  - One unassigned 30 to 45 minute overflow block every weekday.
+  - One dev task per evening.
+  - Nothing gets dropped; anything that doesn't fit moves to Saturday's open windows.
+- **A rebuilt Monday**, laid out as a table, plus specific changes for Thursday and for the Wednesday and Friday evenings.
+- **Phone notifications.** Your "Todoist" calendar has no default reminder, so the blocks I created probably never buzz your phone.
+- **One job per platform:**
+  - Obsidian decides what gets done.
+  - Google Calendar holds when and where.
+  - Reminders hold one-off actions too small for a block.
+  - Todoist holds the 12-week map.
+- **A Sunday automation**, built on top of blocks you already have:
+  - The 5am headless weekly review keeps running.
+  - In the 11am session, Claude drafts the week's blocks into the weekly note.
+  - In the 3:15 session, you approve them, and Claude writes them with reminders.
+  - It becomes a written workflow only after it has worked by hand twice.
+
+The worst day right now is Thursday: 11am to 10:30pm with no break and no meal. If you say yes, I'll apply the Monday and Thursday rebuilds, fix the three errors above, and add 5-minute phone reminders to every W44 block.
+
+### Tool Calls
+
+- `Glob` -- pattern `60_Claude/07_AI_Information/How to Use Claude/**` path ``
+- `Grep` -- pattern `Distilled|Evergreen|Action Standard|action` path `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Note Type Registry.md`
+- `mcp__claude_ai_Google_Calendar__search_events` -- `{"query":"CSCI 4061 Lecture","pageSize":5}`
+- `mcp__claude_ai_Google_Calendar__list_events` -- `{"calendarId":"[REDACTED]@group.calendar.google.com","startTime":"2026-10-25T00:00:00","endTime":"2026-11-01T00:00:00","pageSize":20}`
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\07_AI_Information\How to Use Claude\How to Use Google Calendar.md`
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\07_AI_Information\How to Use Claude\Track Conversations.md`
+- `Glob` -- pattern `30_Order/**/Note Type Registry.md` path ``
+- `Glob` -- pattern `60_Claude/20_Distilled_Notes/*.md` path ``
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Note Type Registry.md`
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\20_Distilled_Notes\40_Resources CS AI - Restructure Plan (2026-08-21).md`
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\20_Distilled_Notes\Distilled Notes Board.md`
+- `Glob` -- pattern `30_Order/**/{Deep Dive Template,Evergreen Standard,Action Standard,Action Template,Note Kit Standard}.md` path ``
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Enrich\Evergreen Standard.md`
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Templates\AI Toolkit\Deep Dive Template.md`
+- `Read` -- `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Ingestion\Action Standard.md`
+- `Grep` -- pattern `^track:|^  - |track` path `D:\_Anant\20_Progress\Documents\Jarvis\30_Order\Standards\Frontmatter Standard.md`
+- `Grep` -- pattern `^track:` path `D:\_Anant\20_Progress\Documents\Jarvis\60_Claude`
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\07_AI_Information\How to Use Claude\How to Use Google Calendar.md`
+```
+---
+type: system
+status: sprout
+created: 2026-10-25
+updated: 2026-10-25
+tags:
+  - system
+  - guide
+  - calendar
+system_kind: guide
+notes:
+  - "[[10_Areas/Life/Enumerate/Weekly/2026-W44|2026-W44]]"
+  - "[[60_Claude/20_Distilled_Notes/W44 Calendar Rebuild - What Was Done (2026-10-25)|W44 Calendar Rebuild - What Was Done]]"
+  - "[[60_Claude/20_Distilled_Notes/W44 Calendar Rebuild - Actions (2026-10-25)|W44 Calendar Rebuild - Actions]]"
+  - "[[60_Claude/07_AI_Information/How to Use Claude/Track Conversations|Track Conversations]]"
+---
+# How to Use Google Calendar
+This guide covers what the Google Calendar connector is for, what it can and cannot touch, which of the ten calendars on the account matter, and the rules any Claude model follows before writing to one. Everything here was checked against the live account on 2026-10-25 during the W44 rebuild ([[60_Claude/20_Distilled_Notes/W44 Calendar Rebuild - What Was Done (2026-10-25)|What Was Done]]). If a calendar name or count below no longer matches, re-run `list_calendars` before trusting the rest.
+## What it is
+The connector is the claude.ai Google Calendar integration. In Claude Code its tools are named `mcp__claude_ai_Google_Calendar__*`, and it acts as `gupt0479@umn.edu`, the UMN Google account. It is not the `jarvis` or `the-plan` Obsidian MCP, and it cannot read the vault.
+
+Calendar is the time layer: when a task happens, where, and for how long. What the task is comes from Obsidian: the weekly note, the plans in `10_Areas/Life/Plans/`, and the course boards. An event is a pointer to that work, never the only place the work is described.
+## Use when
+- Sunday planning, after the new weekly note's Goals exist: placing the week's tasks as blocks.
+- Before `/startday`, to read what is on today, or before agreeing to a new deadline, to see what it collides with.
+- Rewriting a vague block ("CSCI 4521 Catch Up") into the event format below.
+- During `/closeday`, moving a missed block into the next free slot.
+
+Not for task content that belongs in a note, for one-off timed reminders (see the platform split in [[60_Claude/20_Distilled_Notes/W44 Calendar Rebuild - Actions (2026-10-25)|Actions]]), or for the 12-week map, which lives in Todoist and [[10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan|Fall 2026 Plan]].
+## What it can do
+
+| Tool | What it does | Used on 2026-10-25 |
+|---|---|---|
+| `list_calendars` | Lists calendars the account owns or subscribes to. This is a subset; a calendar outside the list is reachable only by its exact id. | Yes |
+| `list_events` | Events on one calendar in a time range. By default it returns only regular, out-of-office, focus-time, and Gmail events. | Yes, three calendars |
+| `search_events` | Semantic search on the primary calendar only. | Yes, found nothing for lecture names |
+| `get_event` | One event by id. | Yes, to confirm an edit stuck |
+| `create_event` | A new event: title, times, description, location, color, reminders, recurrence, attendees. | 19 created |
+| `update_event` | Changes any field on one event, or on one date of a recurring series. | 43 updated |
+| `delete_event` | Deletes an event. | Not used |
+| `respond_to_event` | Accept, decline, or tentative on an invite. | Not used |
+| `suggest_time` | Finds free slots across calendars. | Not used yet; it is the right tool for placing buffers |
+
+Three fields matter more than the rest:
+- **`overrideReminders`** sets popup or email reminders per event. This is the lever for phone notifications. The working calendar has no default reminder, as the calendar table below shows.
+- **`colorId`** colors one event, which allows color-coding by kind of block.
+- **`notificationLevel: NONE`** stops Google from emailing attendees about an edit. Every write on 2026-10-25 used it.
+## What it cannot do
+- Rename, create, delete, hide, or recolor a whole calendar, or change a calendar's default notifications. Those are settings in the Google Calendar app.
+- Read or write Google Tasks, phone reminders, or Todoist. None of the three has a tool in this session.
+- See the UMN class blocks (lectures, the CSCI 4061 lab, the CSCI 4511W discussion). They show in the app, but no listed calendar holds them and `search_events` finds nothing. Their source is unknown. Treat them as fixed anchors, read from a screenshot or the course boards.
+- Change a meeting someone else owns for everyone (see Meetings).
+- See the "Office" working-location bar unless working-location events are requested explicitly.
+- Confirm that a reminder actually buzzed the phone.
+- Edit a whole recurring series by editing one date. Six of the W44 edits were single dates of recurring events (Short Quiz, Quiz & Lab, Lab Due, CSCI 5304 Quiz, Mass Apply, CSCI 4511W Homework - 2). Next week those dates show the old title again.
+## The calendars
+The account has ten calendars. Two are in active use, and the class schedule comes from somewhere the connector cannot see.
+
+| Calendar | Time zone | What it holds | How to treat it |
+|---|---|---|---|
+| `gupt0479@umn.edu` (primary) | America/Chicago | Gym and calisthenics (recurring, 6am), plus every invite: CodePath, TIP103, cricket, AIIS, the CSCI 4511W office-hour booking | Read it. Write only to events you own. Default reminder: popup at 10 minutes. |
+| "Todoist" (id starts `c_2195`) | America/Chicago | Every red work block. Despite the name, it is a plain Google calendar, filled by hand and by Claude. It stopped syncing with the Todoist app long ago. | The working calendar. Read and write here. The API reports no default reminder. |
+| "Todoist" (id starts `2a35`) | Asia/Kolkata | Nothing in W44; last changed 2026-10-13 | Ignored. Candidate to hide. |
+| VIT | Asia/Kolkata | A VIT (India) class timetable, created by another account and shared with full rights. Almost all of it lands overnight in Chicago. BSSC102N (8:20-9pm IST) lands Wed 9:50-10:30am. | Ignored for planning. It caused the Wednesday overlap. |
+| Holidays in United States | America/Chicago | Public holidays (Halloween shows Sat 10/31) | Read only, ignored |
+| DataTalks.Club events | Europe/Berlin | Community events | Ignored, not read |
+| CSE Student Groups' Events Calendar | America/Chicago | Shared student-group meetings | Ignored, not read |
+| Goldy's Winter Break Calendar 2025-26 | America/Chicago | Last winter's campus events | Ignored, stale |
+| Partiful | UTC | Imported event invites | Ignored, not read |
+| UMN.LOL Schedule | UTC | A club schedule | Ignored, not read |
+
+"Not read" means the row describes the calendar from its own name and description only.
+## Meetings
+A meeting is any event that someone else organizes or that has other attendees. In W44 those are:
+- the CodePath 1:1 Resume Review (organizer: CodePath's review calendar, on Zoom)
+- the TIP103 live classes (the Technical Interview Prep calendar)
+- UMN Cricket practice
+- the AIIS Leadership meet
+- the CSCI 4511W office-hour booking
+
+Meetings are anchors. Claude never moves, renames, or rewrites them, because a change either does not reach the organizer or notifies other people. The one allowed action is an RSVP through `respond_to_event`, when asked. Preparation for a meeting goes in a separate block you own, placed before it. "Resume: 3 questions ready for the 11:30 CodePath 1:1" is that pattern: your own 10:30 event, ahead of CodePath's 11:30 one.
+## Time zones
+The calendar's zone is America/Chicago. The app shows GMT+04 as the main column and U.S. as the second, so screenshots carry both; read the U.S. column. The tools take local times with no offset (`2026-10-26T07:30:00`) and resolve them in America/Chicago. Some events store another zone ("Rate yourself" is in Asia/Kolkata, TIP103 in America/Los_Angeles), but their timestamps carry correct offsets, so trust the offset over the zone label.
+## The event format
+Every block has a title made of the course or project, a verb, and the deliverable: `CSCI 4061 P2: all tests pass locally`, not `CSCI 4061 Project Completed`. The description is five plain-text lines, with no HTML:
+
+```
+WHAT:  the thing that exists when the block ends
+WHY:   one line on what it unblocks
+HOW:   the source to open, the steps, the time cap
+WHERE: the place, plus the vault path the output lands in
+BY:    the hard stop, and what proves it is done
+```
+
+Friday blocks are checkpoints, titled "By Fri: ...", not work sessions. The Saturday 4pm block audits them in the weekly note.
+## Rules for Claude models
+1. **Read before writing.** List the week on the primary and working calendars first. Never plan from memory or from an old screenshot.
+2. **Write to the working calendar.** Work blocks go only to the `c_2195` "Todoist" calendar. The primary calendar is for events the user already owns there. Never write to VIT, holidays, or any subscribed calendar.
+3. **Leave meetings alone** except for an RSVP the user asked for.
+4. **Silence every write** with `notificationLevel: NONE`.
+5. **Format every block.** Use a deliverable title and the five lines. If you cannot fill WHAT, ask instead of inventing it. "Laptop Builds - 6 & more" was left alone for that reason.
+6. **Apply the buffer rules before placing anything.** They are in [[60_Claude/20_Distilled_Notes/W44 Calendar Rebuild - Actions (2026-10-25)|Actions]]: 10 minutes between blocks, travel time, meals, at most 3 hours without a break, one overflow block a day, and one dev task per evening.
+7. **Propose, then write.** For a whole week, put the block table in the weekly note and get a yes before bulk-creating. A single move during `/closeday` can go straight in.
+8. **Set reminders explicitly.** Pass a popup at 5 minutes, because the working calendar has none by default.
+9. **Edit one date of a recurring event** unless the user asks for the whole series, and say that next week will revert.
+10. **Do not delete.** Rename, move, or ask.
+11. **Count after writing.** Re-list the week and report exact numbers. On 2026-10-25 the chat reply said 36 events were rewritten when the real number was 43.
+12. **Take dates from the board, not a block.** Exam and due dates come from the course board, never from a calendar title. W43's CSCI 5304 midterm block said Wednesday; the midterm was Tuesday 10/20 ([[20_Progress/Degree/CSCI 5304/CSCI 5304 Board|CSCI 5304 Board]]).
+13. **Keep descriptions shareable.** They reach the phone and anyone the calendar is shared with, so no secrets and no personal-life content.
+## Suggestions
+- Rename the `c_2195` calendar from "Todoist" to "Blocks" in the app. The name led a model (this one) to assume a sync that does not exist.
+- Hide VIT and the empty second "Todoist" calendar from the main view.
+- In the app, set the working calendar's default event notification to 5 minutes, then confirm one test event buzzes the phone.
+- Color by kind with `colorId`: classes and meetings as anchors, prep, coursework, dev, daily defaults, and Friday checkpoints.
+- Keep phone reminders for one-off actions that are too small for a block. If Claude should place those too, a separate "Reminders" calendar is the way, because the connector cannot reach any reminders app.
+## Do not
+- Do not let an event title define a task. The weekly note does.
+- Do not place blocks edge to edge.
+- Do not expect an event on the "Todoist" calendar to create a Todoist task. Nothing syncs.
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\20_Distilled_Notes\W44 Calendar Rebuild - What Was Done (2026-10-25).md`
+```
+---
+type: evergreen
+status: seed
+created: 2026-10-25
+updated: 2026-10-25
+tags:
+  - evergreen
+  - calendar
+  - planning
+evergreen_kind: distilled
+track:
+  - general
+notes:
+  - "[[10_Areas/Life/Enumerate/Weekly/2026-W44|2026-W44]]"
+  - "[[10_Areas/Life/Enumerate/Weekly/2026-W43|2026-W43]]"
+  - "[[60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis — 2026-W43|Weekly Synthesis 2026-W43]]"
+  - "[[60_Claude/07_AI_Information/How to Use Claude/How to Use Google Calendar|How to Use Google Calendar]]"
+  - "[[60_Claude/20_Distilled_Notes/W44 Calendar Rebuild - Actions (2026-10-25)|W44 Calendar Rebuild - Actions]]"
+next: "Work the Actions note, starting with buffers and reminders on Monday 10/26 and Thursday 10/29"
+---
+# W44 Calendar Rebuild - What Was Done (2026-10-25)
+## Core Claim
+==A calendar block gets done when it names a deliverable, its source, its place, and a hard stop. The W44 rebuild gave every block that shape, but it still packs the blocks edge to edge, so the format works and the schedule does not yet.==
+## Mechanism
+### Why W43 failed
+W43 (10/19 to 10/25) produced real coursework but left four things at zero:
+- internship applications
+- logged LeetCode / CSCI 4041 problems
+- Portfolio, ClaudeKit, and TradingView work
+- daily notes
+
+Exam outcomes also went unrecorded ([[60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis — 2026-W43|Weekly Synthesis 2026-W43]]).
+
+The calendar explains most of it, in three ways:
+- **Topics, not deliverables.** Blocks were named after topics ("Internship Loop work", "Automations building"), so no block had a finish line.
+- **No slot for the daily defaults.** CSCI 4041 problems, internship applications, and opening and closing the daily note had no time at all.
+- **Exams treated as free.** Exam days carried a normal dev load.
+
+The user's own read, given on 2026-10-25: the plan was impossible to execute alongside the midterms, yet the calendar showed free time that did not exist.
+### The fix: one format for every block
+Each event title is the course or project, a verb, and the deliverable. Each description holds five lines:
+- **WHAT** exists when the block ends
+- **WHY** it matters
+- **HOW**: the source, the steps, and a time cap
+- **WHERE**: the place, plus the vault path for the output
+- **BY**: the hard stop and its proof
+
+Friday blocks became checkpoints ("By Fri: ..."), and the Saturday 4pm block audits them in [[10_Areas/Life/Enumerate/Weekly/2026-W44|2026-W44]]. Lecture prep sits in the block right before each lecture, except CSCI 5304, whose block follows the lecture. The full format and the rules for using it are in [[60_Claude/07_AI_Information/How to Use Claude/How to Use Google Calendar|How to Use Google Calendar]].
+### What was written in the vault
+| Date | File | Change |
+|---|---|---|
+| 2026-10-18 | `10_Areas/Life/Enumerate/Weekly/2026-W43.md` | Replaced an unrendered Templater stub with a full W43 plan (Goals only). Its midterm date, Wed 10/21, turned out wrong. |
+| 2026-10-18 | `20_Progress/Degree/CSCI 5304/CSCI 5304 Board.md` | Moved the midterm in the schedule table to Wed 10/21 and logged it under the date-anomaly warning. A later entry, dated 2026-10-21 and user-confirmed, supersedes it with Tue 10/20. |
+| 2026-10-25 | `10_Areas/Life/Enumerate/Weekly/2026-W44.md` | Created. It holds the daily rules, the 80 split into UMN, Development, and Others, seven Friday checkpoints, the W43 carry-over table with a reason per miss, a warning on where W44 is still wishful, the event format, and the unrecorded exam outcomes. |
+| 2026-10-25 | `60_Claude/07_AI_Information/How to Use Claude/How to Use Google Calendar.md` | Written: the calendar guide. |
+| 2026-10-25 | This note and [[60_Claude/20_Distilled_Notes/W44 Calendar Rebuild - Actions (2026-10-25)\|the Actions note]] | Created. |
+
+Not edited: `00_Dashboard.md` (left for `/startday`), the W43 retro sections, the session log, `Weekly Set.md`, and every course board on 2026-10-25.
+### What was read to write the block descriptions
+- The W43 note and the W43 synthesis.
+- Three course boards in full: [[20_Progress/Degree/CSCI 5304/CSCI 5304 Board|CSCI 5304]], [[20_Progress/Degree/CSCI 4521/CSCI 4521 Board|CSCI 4521]], and [[20_Progress/Degree/CSCI 4061/CSCI 4061 Board|CSCI 4061]].
+- A research digest covering CSCI 4511W, MGMT 3015, the CSCI 4041 / TIP103 system, CSCI 4061 Project 2's starter code, and the Portfolio, ClaudeKit, and Local AI notes.
+
+Four facts from that reading shaped the blocks:
+- **CSCI 4061 Project 2 is untouched starter code**, due Fri 10/30.
+- **CSCI 4521 HW2 has no note.** It was due 10/20 and its grace window has closed.
+- **Two Friday CSCI 4511W blocks matched nothing on the board.**
+- **`Weekly Set.md` is stale.** It still shows the 10/12 slice, so the morning problem lists came from `DSA.md` Week 3.
+### Calendar inventory
+Ten calendars sit on `gupt0479@umn.edu`. Three were read in full:
+- the primary calendar
+- the working "Todoist" calendar (`c_2195`)
+- an empty second "Todoist" calendar
+
+VIT was read afterward to explain the Wednesday overlap. The other six were not read. The full table is in [[60_Claude/07_AI_Information/How to Use Claude/How to Use Google Calendar|How to Use Google Calendar]].
+
+The "Todoist" calendar is a plain Google calendar that stopped syncing with the Todoist app long ago. The user confirmed this after the rebuild. Every edit below therefore changed only Google Calendar, and nothing reached Todoist.
+### Events rewritten: 43
+42 are on the working calendar and 1 on the primary (the CodePath prep block, which the user owns). All used `notificationLevel: NONE`. Rows marked (r) are single dates of a recurring series and revert next week.
+
+| Day | Time | Old title | New title |
+|---|---|---|---|
+| Sun 10/25 | 9-10pm | CSCI 4511W Catch Up | CSCI 4511W: Ch 5 games read, Week 7 note written |
+| Mon 10/26 | 10:30-11 | CSCI 4521 Homework - 2 | CSCI 4521: settle HW2, start HW3 |
+| Mon | 11-12:30 | MGMT - Entrepreneurship Mapping, concept learning for startups and ventures. | MGMT 3015: Ch 5 + Ch 6 notes |
+| Mon | 12:30-1 | CSCI 4511W Short Quiz (r) | CSCI 4511W: Short Quiz 07 submitted |
+| Mon | 2:15-2:30 | MGMT - full textbook map | MGMT 3015: one-page chapter map before lecture |
+| Mon | 4:20-4:45 | CSCI 4061 Quiz & Lab (r) | CSCI 4061: Quiz 6 submitted on Canvas |
+| Mon | 4:45-6:15 | CSCI 4061 Project - 2 Mapped out (Concepts, Textbook, Lecture) | CSCI 4061 P2: spec mapped to concepts and TODOs |
+| Mon | 7:30-8:45 | Automations building - Calendar, todoist & ingestion | Automations: today's calendar + Todoist land in the daily note |
+| Mon | 8:45-10:15 | Claudekit Completely working with Conversation logs - Codex and Claude | ClaudeKit: Codex + Claude conversations captured on this laptop |
+| Tue 10/27 | 9:30-10:30 | CSCI 5304 Lock in & Catch Up | CSCI 5304: Lecture 19 note + textbook L13-14 |
+| Tue | 10:30-11:30 | CodePath Resume Review (primary) | Resume: 3 questions ready for the 11:30 CodePath 1:1 |
+| Tue | 12:30-1 | CSCI 4061 Project Studying | CSCI 4061 P2: swish pipe loop written |
+| Tue | 2:15-2:30 | CSCI 4521 Catch Up | CSCI 4521: LEC 3.2 deck skimmed before lecture |
+| Tue | 3:45-5 | CSCI 5403 & 4061 Lock in - Lectures | Lock-in: CSCI 5304 L15-16 notes + CSCI 4061 Week 8 note |
+| Tue | 6-7 | Portfolio - Orby | Portfolio: Orby on the updated model, guardrails tested |
+| Wed 10/28 | 9-10 | CSCI 5304, 4521 lock in | Lock-in: CSCI 5304 L17-18 + Week 8 note, CSCI 4521 PyTorch reading |
+| Wed | 11-12:30 | Search for Work - On Campus | Jobs: 3 on-campus applications sent |
+| Wed | 12:30-1 | CSCI 4511W Study Lock | CSCI 4511W: Ch 5.5-5.6 read before lecture |
+| Wed | 2:15-2:30 | MGMT - concepts | MGMT 3015: Ch 12 (Marketing) skimmed before lecture |
+| Wed | 4:20-4:45 | CSCI 4061 Lab Due (r) | CSCI 4061: Lab 7 submitted on Gradescope |
+| Wed | 6:30-8 | Claudekit - Ingestion Loop & Code Review (with memory) | ClaudeKit: ingestion from repo clones + reviewed with memory |
+| Wed | 8-9:30 | CSCI 4041 Lock in | CSCI 4041: TIP103 Units 1-3 reviewed |
+| Wed | 9:30-10:15 (was 10:30) | Local AI Build Launch | Local AI: small model installed, first scheduled run logged |
+| Thu 10/29 | 9:30-10 | CSCI 5304 already caught up | CSCI 5304: Lecture 20 note (Gaussian elimination) + Quiz 4 checked |
+| Thu | 11-12:30 | CSCI 4061 - Studied Thoroughly. Weeks 1 - 8. | CSCI 4061: Weeks 5-7 notes written |
+| Thu | 12:30-1 | CSCI 4061 Project Written | CSCI 4061 P2: Hadamard pthreads version compiling |
+| Thu | 2:15-2:30 | CSCI 4521 Study | CSCI 4521: LEC 3.3 deck skimmed before lecture |
+| Thu | 3:45-4:15 | CSCI 5304 Quiz (r) | CSCI 5304: Quiz 4 done (if take-home) |
+| Thu | 4:15-5 | CSCI 4061 Project Completed | CSCI 4061 P2: all tests pass locally |
+| Thu | 9-10:15 (was 10:30) | Portfolio - UI Polish | Portfolio: UI polish on the 3 most visible pages |
+| Fri 10/30 | all day | CSCI 4041(Units 1-5) wrap up | By Fri: CSCI 4041 Units 1-5 wrapped, every morning problem logged |
+| Fri | all day | Mass Apply Internships (r) | By Fri: cover letter done + 5 internship applications sent |
+| Fri | 9-10:10 | CSCI 4511W Written Out | CSCI 4511W: Writing 2 + PS2 Q4-5 submitted |
+| Fri | 11-12 | CSCI 4511W Homework - 2 (r) | CSCI 4511W: Weeks 5-6 notes + Discussion Participation |
+| Fri | 12-1 | CSCI 4061 Project - 2 Due | CSCI 4061 P2: submitted on Gradescope |
+| Fri | 1-2 | CSCI 5304 Weeks 1-8 done | CSCI 5304: 2033 concept map + Weeks 1-8 closed |
+| Fri | 2-3 | CSCI 4521 Caught up | CSCI 4521: Week 8 note, caught up through Week 8 |
+| Fri | 3-4 | MGMT - Entrepreneur Map | MGMT 3015: entrepreneur map applied to the group idea |
+| Fri | 6-6:30 | Local AI Build | Local AI: run #2 compared against run #1 |
+| Fri | 6:30-9 | Portfolio - UI Updates, Orby, Evals, Guardrails, Clerk, OAuth, Animations, Security, Bot check, Deployement checks (cloudfare) | Portfolio: auth, security, and Cloudflare deploy checked |
+| Fri | 9-10:15 (was 10:30) | Claudekit - home directory, conversations, implementing ingestion, activating | ClaudeKit: both laptops synced, scheduled tasks live |
+| Sat 10/31 | 12-1 | TradingView Decisions | TradingView: what to trade, decided in writing |
+| Sat | 4-5:30 | Everything from Friday is Completed and Noted In Jarvis | W44 audit: every Friday checkpoint closed in Jarvis |
+
+Three end times moved from 10:30 to 10:15 (Wed, Thu, and Fri evenings) so the close block fits. Two blocks were deliberately repointed because they matched nothing on the course board:
+- Friday "CSCI 4511W Written Out" now confirms Writing 2, due 10/23 and possibly unsubmitted.
+- Friday "CSCI 4511W Homework - 2" now covers the Week 5-6 notes and Discussion Participation.
+### Events created: 19
+All are on the working calendar, in the five-line format, using the calendar's default reminder (which is none).
+
+| Kind | Count | Slots |
+|---|---|---|
+| Morning: daily note opened + 5 CSCI 4041 problems from `DSA.md` Week 3 | 6 | Mon 7:30-8:30, Tue 7:15-8:05, Wed 7:30-8:30, Thu 7:15-8:05, Fri 7:30-8:30, Sat 8-9 |
+| Internship: cover letter Monday, then one application a day | 6 | Mon 8:30-9, Tue 12-12:30, Wed 8:30-9, Thu 10-10:30, Fri 8:30-9, Sat 9-9:30 |
+| Close the day: daily note closed by 10:30 | 7 | Sun to Sat, 10:15-10:30 |
+### Left alone on purpose
+- **"Laptop Builds - 6 & more"** (Sat 1-4pm): its deliverable is unknown.
+- **The four Sunday 10/25 blocks** that had already passed: Rate yourself, Weekly Analysis, Obsidian Second Brain Arranging, Get ready for the Week.
+- **Gym and calisthenics.**
+- **Every meeting:** the CodePath 1:1, TIP103 twice, cricket twice, AIIS, and the 4511W office hour.
+- **The class blocks**, which the connector cannot reach.
+- **VIT and the holidays calendar.**
+## Why This Matters Here
+W44 ends with 9 weeks of 2026 left. It is the test of whether the calendar can carry the [[10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan|Fall 2026 Plan]] at all. The plan's skills (`/startday`, `/closeday`, `/weekly-review`) only check what the weekly and daily notes record, and the user's day runs on the calendar, not on the notes. If the blocks are honest about time, the notes can be honest about what got done.
+## Failure Modes
+> [!WARNING] The format is fixed; the time is not
+> Each block now says exactly what to do, but the day is still drawn as if a person can go from one task straight into the next for 8 to 11 hours. A block that overruns pushes every later block, and with no gap the whole evening slips by the same amount.
+
+What the W44 calendar looks like as of 2026-10-25, measured from the event list and the user's screenshot. A gap shorter than 15 minutes counts as no break.
+
+| Day | First block | Longest run without a break | Lunch slot | Dinner slot | Dev tasks after 6pm |
+|---|---|---|---|---|---|
+| Mon 10/26 | 7:30am | 10:30am to 6:15pm, 7h45m | none | 6:15-7:30 | 2 (Automations, ClaudeKit) |
+| Tue 10/27 | 7:15am | 8:15am to 5pm, 8h45m; then 6 to 11pm | none | none (5-6 is open) | 1 (Portfolio), then TIP103 and cricket |
+| Wed 10/28 | 7:30am | 5:30pm to 10:30pm, 5h | none | none | 3 (ClaudeKit, CSCI 4041, Local AI) |
+| Thu 10/29 | 7:15am | 11am to 10:30pm, 11h30m | none | none | 1 (Portfolio), after cricket and TIP103 |
+| Fri 10/30 | 7:30am | 7:30am to 4pm, 8h30m | none | 4-6 is open | 3 (Local AI, Portfolio, ClaudeKit) |
+| Sat 10/31 | 8am | 12pm to 5:30pm, 5h30m | none | open evening | 0 |
+
+Other traps the rebuild created or left in place:
+- **Prep blocks that are really walking time.** The Monday and Wednesday 2:15-2:30 MGMT prep blocks sit between Vincent Hall on the East Bank and Hanson Hall on the West Bank. Those 15 minutes are the walk.
+- **Too many dev tasks per evening.** Wednesday and Friday evenings hold three dev tasks each, against the rule of one 80 a day plus one 20 ([[10_Areas/Life/Enumerate/Weekly/2026-W43|2026-W43]] Goals).
+- **Project 2 is undersized.** CSCI 4061 Project 2 gets about 4.5 hours for two untouched parts and four implementations.
+- **Phone notifications probably don't fire.** The working calendar reports no default reminder, and the 19 new events use that default.
+- **Recurring dates revert next week.** The six edited single dates go back to their old titles.
+- **Close is only 7.5 hours before gym.** Closing at 10:30pm with gym at 6am leaves at most 7.5 hours of sleep.
+
+Mistakes made during the rebuild, kept so they are not repeated:
+- **The calendar was called "Todoist-synced".** It is not synced, and the seven close-the-day blocks still say "Tick Todoist".
+- **The count was wrong.** The chat reply reported 36 rewritten events; the real number is 43.
+- **The cover-letter block points to the wrong folder.** It names `10_Areas/Career/Internships/Tracker/`, but the [[30_Order/Note Type Registry|Note Type Registry]] puts cover letters in `20_Progress/Internship/Cover Letters/` using the Cover Letter Template.
+- **An exam date came from a calendar block.** On 10-18 the CSCI 5304 midterm date was taken from a block (Wed 10/21) instead of being confirmed. It was Tue 10/20.
+## Evidence
+- [[10_Areas/Life/Enumerate/Weekly/2026-W44|2026-W44]]: the week's goals, checkpoints, and carry-over table.
+- [[60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis — 2026-W43|Weekly Synthesis 2026-W43]]: the audit of what W43 did and did not produce.
+- [[20_Progress/Degree/CSCI 5304/CSCI 5304 Board|CSCI 5304 Board]], [[20_Progress/Degree/CSCI 4521/CSCI 4521 Board|CSCI 4521 Board]], [[20_Progress/Degree/CSCI 4061/CSCI 4061 Board|CSCI 4061 Board]]: the source of every course block's HOW and BY.
+- [[60_Claude/07_AI_Information/How to Use Claude/How to Use Google Calendar|How to Use Google Calendar]]: the calendar inventory and connector limits.
+- The live calendar: every new title and description above was re-read through the connector after writing. One edit (the Saturday audit block) was checked separately with `get_event` before the rest were sent.
+## Related
+- [[60_Claude/20_Distilled_Notes/W44 Calendar Rebuild - Actions (2026-10-25)|W44 Calendar Rebuild - Actions]]
+- [[10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan|Fall 2026 Plan]]
+- [[10_Areas/Life/Plans/Fall 2026/Weekly Rhythm|Weekly Rhythm]]
+- [[Periodic Review Note Standard]]
+- [[Daily Note Standard]]
+- [[Plan Standard]]
+
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\20_Distilled_Notes\W44 Calendar Rebuild - What Was Done (2026-10-25).md`
+```diff
+- - The live calendar: every new title and description above was re-read through the connector after writing. One edit (the Saturday audit block) was checked separately with `get_event` before the rest were sent.
++ - The live calendar: each update and create call returned the saved event with its new title and description. The first edit (the Saturday audit block) was also re-read with `get_event` before the rest were sent, to check that it stuck.
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\20_Distilled_Notes\W44 Calendar Rebuild - Actions (2026-10-25).md`
+```
+---
+type: action
+status: active
+created: 2026-10-25
+updated: 2026-10-25
+tags:
+  - action
+  - calendar
+  - planning
+source_note: "[[60_Claude/20_Distilled_Notes/W44 Calendar Rebuild - What Was Done (2026-10-25)|W44 Calendar Rebuild - What Was Done]]"
+related_progress:
+  - "[[10_Areas/Life/Enumerate/Weekly/2026-W44|2026-W44]]"
+  - "[[10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan|Fall 2026 Plan]]"
+  - "[[60_Claude/07_AI_Information/How to Use Claude/How to Use Google Calendar|How to Use Google Calendar]]"
+next: "Rebuild Monday 10/26 and Thursday 10/29 with buffers, meals, and travel time, and get a yes on the before and after, before Monday 7:30am"
+---
+# W44 Calendar Rebuild - Actions (2026-10-25)
+Source: [[60_Claude/20_Distilled_Notes/W44 Calendar Rebuild - What Was Done (2026-10-25)|W44 Calendar Rebuild - What Was Done]]. Statements only, and each one links to what it is about. **(Claude)** means the calendar connector can do it in a session. **(you)** means it needs the Google Calendar app, the phone, or a decision.
+## Fix the errors in the W44 blocks
+- **(Claude)** Point the Monday 8:30 cover-letter block's WHERE at `20_Progress/Internship/Cover Letters/` and the [[Cover Letter Template]], where the [[30_Order/Note Type Registry|Note Type Registry]] files cover letters.
+- **(Claude)** Replace "Tick Todoist" in the seven close-the-day blocks with "tick today's lines in the daily note". The working calendar does not sync to Todoist ([[60_Claude/07_AI_Information/How to Use Claude/How to Use Google Calendar|How to Use Google Calendar]]).
+- **(Claude)** Fix the W43 note's frontmatter and checked line, which still say the CSCI 5304 midterm was Wed 10/21, against [[20_Progress/Degree/CSCI 5304/CSCI 5304 Board|CSCI 5304 Board]] (Tue 10/20). Do it the next time [[10_Areas/Life/Enumerate/Weekly/2026-W43|2026-W43]] is opened.
+- **(you)** Say what "Laptop Builds - 6 & more" (Sat 10/31, 1-4pm) delivers, so it can take the five-line format from [[60_Claude/07_AI_Information/How to Use Claude/How to Use Google Calendar#The event format|the event format]].
+- **(you)** Decide Tuesday: either cricket runs 9-11pm or the day closes at 10:30, not both ([[10_Areas/Life/Enumerate/Weekly/2026-W44|2026-W44]]).
+- **(you)** Hide the VIT calendar, which removes the Wed 9:50-10:30 BSSC102N overlap ([[60_Claude/07_AI_Information/How to Use Claude/How to Use Google Calendar#The calendars|the calendars]]).
+## Build buffers and time management into the calendar
+- Anchors never move: classes, labs, meetings, deadlines, gym, TIP103, and cricket are placed first, and work blocks fit around them ([[60_Claude/07_AI_Information/How to Use Claude/How to Use Google Calendar#Meetings|Meetings]]).
+- Every work block ends 10 minutes before the next block starts. Those 10 minutes are for writing "where I stopped" in the [[Daily Note Standard|daily note]] and getting to the next thing.
+- Building changes get their own time: 20 minutes between the East Bank (Vincent, Tate, Keller, Amundson, Lind) and Hanson Hall on the West Bank. Today the Mon and Wed 2:15 MGMT prep blocks are really that walk ([[20_Progress/Degree/MGMT 3015/MGMT 3015 Board|MGMT 3015 Board]]).
+- Breakfast gets 30 minutes after gym, lunch 30 minutes between 11:30 and 1, and dinner 45 minutes between 5 and 7:30. None of the three exists as a block in [[10_Areas/Life/Enumerate/Weekly/2026-W44|2026-W44]] today.
+- No stretch runs longer than 3 hours without a 15-minute break. Thursday 10/29 currently runs 11am to 10:30pm without one ([[60_Claude/20_Distilled_Notes/W44 Calendar Rebuild - What Was Done (2026-10-25)#Failure Modes|the load table]]).
+- Plan to 75 percent: every weekday keeps one unassigned 30 to 45 minute overflow block. An overrun lands there instead of pushing every later block ([[10_Areas/Life/Plans/Fall 2026/Weekly Rhythm|Weekly Rhythm]]).
+- Each evening holds one dev task (the 80) and at most one 20, as defined in [[10_Areas/Life/Enumerate/Weekly/2026-W43|2026-W43]] Goals. Wednesday and Friday evenings hold three today.
+- Nothing is dropped to make room. Overflow moves to Saturday's two open windows (9:30am-12pm and 5:30-10:15pm) in [[10_Areas/Life/Enumerate/Weekly/2026-W44|2026-W44]].
+- Friday checkpoints stay all-day markers. The work that closes them sits earlier in the week, so Friday daytime is not seven finishing blocks in a row ([[10_Areas/Life/Enumerate/Weekly/2026-W44|2026-W44]]).
+- Sleep is protected: the 10:30 close with gym at 6am already allows at most 7.5 hours, so nothing ever extends past the close ([[Daily Note Standard]]).
+- **(Claude)** Use `suggest_time` to find free slots instead of reading gaps off a screenshot ([[60_Claude/07_AI_Information/How to Use Claude/How to Use Google Calendar#What it can do|What it can do]]).
+- **(Claude)** Give CSCI 4061 Project 2 at least 8 hours before Thursday 5pm, taken from the Wednesday ClaudeKit block and the overflow blocks. It is due Fri 10/30 and currently has about 4.5 hours ([[20_Progress/Degree/CSCI 4061/CSCI 4061 Board|CSCI 4061 Board]]).
+- **(Claude)** Rebuild Thursday 10/29 as follows, after a yes ([[10_Areas/Life/Enumerate/Weekly/2026-W44|2026-W44]]):
+  - The 4061 Weeks 5-7 block ends at 12pm and lunch runs 12-12:30.
+  - Dinner is 9-9:30, after TIP103.
+  - 9:30-10:15 becomes a Project 2 overflow block.
+  - Portfolio UI polish moves to Saturday 9:30-11:30.
+- **(Claude)** Rebuild Wednesday and Friday evenings to one dev task each, after a yes ([[60_Claude/20_Distilled_Notes/W44 Calendar Rebuild - What Was Done (2026-10-25)#Failure Modes|the load table]]):
+  - Local AI launch moves to Friday 6-7pm, replacing run #2, which needs run #1 first.
+  - The ClaudeKit both-laptops sync moves to Saturday 6-9pm.
+- **(Claude)** Rebuild Monday 10/26 as the table below and show it in [[10_Areas/Life/Enumerate/Weekly/2026-W44|2026-W44]] before writing it. It assumes the 9:05 lab ends at 9:55 and a 15-minute walk to Keller.
+
+| Time | Block | Change from today |
+|---|---|---|
+| 6:00-7:15 | Gym (anchor) | none |
+| 7:15-7:45 | Breakfast | new |
+| 7:45-8:35 | Morning: daily note + CSCI 4041 problems | was 7:30-8:30 |
+| 8:35-8:50 | Internship: cover-letter skeleton (finish in Tuesday's 12pm slot) | was 30 minutes |
+| 8:50-9:05 | Walk to Keller 1-250 | new |
+| 9:05-9:55 | CSCI 4061 Lab 7 (anchor) | none |
+| 10:10-10:20 | CSCI 4511W office hour, Exley (anchor) | none |
+| 10:30-11:00 | CSCI 4521: settle HW2, start HW3 | none |
+| 11:10-12:00 | MGMT 3015: Ch 5 notes, plus the chapter map from the TOC | Ch 6 moves to Wed 10-11, which is open |
+| 12:00-12:30 | Lunch | new |
+| 12:30-12:55 | CSCI 4511W: Short Quiz 07 submitted | ends 5 minutes early |
+| 1:00-2:15 | CSCI 4511W lecture, Vincent 16 (anchor) | none |
+| 2:15-2:30 | Walk to Hanson Hall | replaces the chapter-map block |
+| 2:30-4:10 | MGMT 3015 lecture (anchor) | none |
+| 4:10-4:30 | Walk back | new |
+| 4:30-4:50 | CSCI 4061: Quiz 6 submitted on Canvas | was 4:20-4:45 |
+| 5:00-6:15 | CSCI 4061 P2: spec mapped to concepts and TODOs | was 4:45-6:15 |
+| 6:15-7:00 | Dinner | new |
+| 7:10-9:00 | The 80: ClaudeKit conversation capture | was 8:45-10:15 |
+| 9:10-9:40 | The 20: Automations, first step only | was 7:30-8:45; the rest moves to Sat 9:30-11 |
+| 9:40-10:15 | Overflow, unassigned | new |
+| 10:15-10:30 | Close the day | none |
+## Phone notifications
+- **(Claude)** Set a popup reminder 5 minutes before every W44 block on the working calendar. The API reports no default reminder for that calendar ([[60_Claude/07_AI_Information/How to Use Claude/How to Use Google Calendar#The calendars|the calendars]]).
+- **(you)** In the Google Calendar app, set the working calendar's default event notification to 5 minutes, and confirm one test event buzzes the phone ([[60_Claude/07_AI_Information/How to Use Claude/How to Use Google Calendar#Suggestions|Suggestions]]).
+- **(you)** Rename the "Todoist" calendar (`c_2195...`) to "Blocks" and hide the empty second "Todoist" calendar, so no model mistakes it for a Todoist sync again ([[60_Claude/07_AI_Information/How to Use Claude/How to Use Google Calendar|How to Use Google Calendar]]).
+- **(you)** Name the reminders app used for one-off actions (Google Tasks, the phone's own reminders, or another). The connector cannot reach any of them ([[60_Claude/07_AI_Information/How to Use Claude/How to Use Google Calendar#What it cannot do|What it cannot do]]).
+## The three platforms and their jobs
+- Obsidian is the base: the [[10_Areas/Life/Enumerate/Weekly/2026-W44|weekly note]], the [[10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan|plans]], and the course boards decide what gets done. Nothing gets scheduled that is not written there first.
+- Google Calendar holds when and where: one block per task, in the five-line format, under the rules in [[60_Claude/07_AI_Information/How to Use Claude/How to Use Google Calendar|How to Use Google Calendar]].
+- Reminders hold one-off timed actions that are too small for a block, like sending an email or picking something up. If Claude should place these, a separate "Reminders" calendar is the route ([[60_Claude/07_AI_Information/How to Use Claude/How to Use Google Calendar#Suggestions|Suggestions]]).
+- Todoist holds the 12-week map of big tasks and is read on Sundays, not daily. It mirrors the period that [[10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan|Fall 2026 Plan]] covers.
+- **(you)** Decide whether Todoist stays manual or gets a connector. No Todoist tool exists in this session, so the Sunday planning reads the 12-week map from [[10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan|Fall 2026 Plan]] until one does.
+## Sunday automation
+- **Saturday 4pm:** the audit block closes the week's Friday checkpoints in the weekly note, and Saturday's close fills Productivity, Bad habits, and Fixes ([[Periodic Review Note Standard]]).
+- **Sunday 5am:** the headless `Jarvis-WeeklyReview` task keeps writing the Weekly Synthesis from the vault, as it did for [[60_Claude/30_Reviews/Weekly Synthesis/Weekly Synthesis — 2026-W43|W43]].
+- **Sunday 11am-1pm, the existing Weekly Analysis block:** Claude reads the synthesis, the plans, and the course boards. It writes next week's Goals into the new weekly note, with big tasks broken into parts, per [[Periodic Review Note Standard]].
+- **Same session:** Claude lists the anchors on the primary and working calendars and drafts a block table in the weekly note (day, time, title, five lines), with the buffer rules above applied ([[60_Claude/07_AI_Information/How to Use Claude/How to Use Google Calendar#Rules for Claude models|Rules for Claude models]]).
+- **Sunday 3:15-4:45, the existing "Get ready for the Week" block:** you approve or edit the table. Claude then writes the approved blocks with 5-minute popups, re-lists the week, and reports exact counts ([[60_Claude/07_AI_Information/How to Use Claude/How to Use Google Calendar|How to Use Google Calendar]]).
+- **Every morning and night:** `/startday` reads today's blocks into the [[Daily Note Standard|daily note]], and `/closeday` marks each one done or missed and moves a missed block into the next overflow slot.
+- **(Claude)** Test whether the headless scheduled task can reach the claude.ai Google Calendar connector at all. Until that is proven, calendar writes stay in the interactive Sunday session ([[60_Claude/07_AI_Information/How to Use Claude/How to Use Google Calendar|How to Use Google Calendar]]).
+- **(Claude)** After the manual Sunday run has worked twice, write it as a Workflow in `30_Order/Workflows/` (Standard first) per [[30_Order/00_How This Folder Works|How This Folder Works]]. A skill only comes after that, following the no-new-structure rule in [[Jarvis OS — North Star]].
+## Carry-overs from this planning session
+- **(you)** Map the scores "45-1, 40, 61" onto the CSCI 5304 Midterm, CSCI 4521 Quiz 3, and CSCI 4511W Long Quiz 1, and give the CSCI 4061 Midterm 1 outcome, so each board gets its line ([[20_Progress/Degree/CSCI 5304/CSCI 5304 Board|CSCI 5304 Board]], [[20_Progress/Degree/CSCI 4521/CSCI 4521 Board|CSCI 4521 Board]], [[20_Progress/Degree/CSCI 4061/CSCI 4061 Board|CSCI 4061 Board]]).
+- **(you)** Confirm whether CSCI 4521 HW2 was submitted. No note for it exists under [[20_Progress/Degree/CSCI 4521/CSCI 4521 Board|CSCI 4521]].
+- **(you)** Run `/startday` Monday morning to refresh [[00_Dashboard]], which still shows the 10/8 midterm.
+## Open Threads
+- No listed calendar holds the UMN class blocks, so where they come from is still unknown ([[60_Claude/07_AI_Information/How to Use Claude/How to Use Google Calendar#What it cannot do|What it cannot do]]).
+- Whether popups on the working calendar reach the phone stays unverified until a test event fires ([[60_Claude/07_AI_Information/How to Use Claude/How to Use Google Calendar|How to Use Google Calendar]]).
+- Whether the Sunday planning should become a skill stays open until its Workflow exists and has run ([[Jarvis OS — North Star]]).
+
+```
+- `Glob` -- pattern `**/{Cover Letter Template,Weekly Rhythm,Jarvis OS — North Star,Daily Note Standard,Periodic Review Note Standard,Plan Standard,MGMT 3015 Board,00_How This Folder Works}.md` path ``
+- `Grep` -- pattern `—` path `D:\_Anant\20_Progress\Documents\Jarvis\60_Claude`
+- `Grep` -- pattern `—` path `D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\20_Distilled_Notes`
+- `Grep` -- pattern `—` path `D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\07_AI_Information\How to Use Claude\How to Use Google Calendar.md`
+- `Grep` -- pattern `Weekly Synthesis .{1,3} 2026-W43` path `D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\20_Distilled_Notes`
+
 ## Actions Taken
 
 **Files created:**
 - `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Life\Enumerate\Weekly\2026-W43.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\10_Areas\Life\Enumerate\Weekly\2026-W44.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\07_AI_Information\How to Use Claude\How to Use Google Calendar.md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\20_Distilled_Notes\W44 Calendar Rebuild - Actions (2026-10-25).md`
+- `D:\_Anant\20_Progress\Documents\Jarvis\60_Claude\20_Distilled_Notes\W44 Calendar Rebuild - What Was Done (2026-10-25).md`
 
 **Files modified:**
 - `D:\_Anant\20_Progress\Documents\Jarvis\20_Progress\Degree\CSCI 5304\CSCI 5304 Board.md`

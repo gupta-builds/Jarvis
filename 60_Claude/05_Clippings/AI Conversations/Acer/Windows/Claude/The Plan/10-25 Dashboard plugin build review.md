@@ -5,30 +5,30 @@ source_app: claude-code
 source_os: windows
 title: "Dashboard plugin build review"
 started_at: 2026-10-25T20:12:38
-ended_at: 2026-10-26T15:59:46
-exported_at: 2026-10-26T16:03:05
-duration_minutes: 1187.1
+ended_at: 2026-10-26T16:19:15
+exported_at: 2026-10-26T16:33:04
+duration_minutes: 1206.6
 project: The Plan
 cwd: 'D:\_Anant\20_Progress\Documents\The Plan'
 session_id: c444e1cb-b1fd-4c4e-a3c6-55f5d4180bcd
 status: raw
 turn_count: 13
 tools_used:
-  AskUserQuestion: 4
-  Bash: 54
-  Edit: 3
+  AskUserQuestion: 5
+  Bash: 58
+  Edit: 7
   mcp__plugin_context7_context7__query-docs: 2
   mcp__plugin_context7_context7__resolve-library-id: 1
   Read: 1
   ToolSearch: 1
-  WebSearch: 7
-  Write: 11
+  WebSearch: 8
+  Write: 22
 tokens:
-  input: 128
-  output: 106699
-  cache_creation: 446930
-  cache_read: 11512722
-  total: 12066479
+  input: 152
+  output: 170612
+  cache_creation: 522641
+  cache_read: 15967180
+  total: 16660585
 cost_usd: null
 model:
   - "claude-opus-5-5"
@@ -40,6 +40,8 @@ files_touched:
   - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Jarvis Build\\Jarvis Build Log.md"
   - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Jarvis Build\\Jarvis Decisions Log.md"
   - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Jarvis Build\\Jarvis Plugin Retirement List.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Jarvis Build\\Jarvis Research - Outside Sources.md"
+  - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Jarvis Build\\Jarvis Research - The Plan Parallel Builds.md"
   - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Jarvis Build\\Jarvis Spec - Automation Layer.md"
   - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Jarvis Build\\Jarvis Spec - Carry Forward.md"
   - "D:\\_Anant\\20_Progress\\Documents\\The Plan\\40_Resources\\Obsidian\\Dashboards\\Jarvis Build\\Jarvis Spec - Dashboard Page.md"
@@ -7377,6 +7379,49 @@ I'll ground the finalisation in two places before asking the remaining questions
 
 The web results cover the write APIs, `isDesktopOnly`, the habit evidence and Toggl's API. Two more precise checks from the typed Obsidian API: view registration and the vault events.
 
+The Plan's own record shows a parallel change today, Decision 51. It affects what Jarvis can read from The Plan, so I'm reading it in full.
+
+Next are the page spec, the plans feed and the automation layer. The reader contract for The Plan sits in the last one.
+
+Now the automation layer with the day timeline and the allowlisted reader, plus the carry-forward map and the architecture.
+
+The two research notes come next. The other notes already link to them.
+
+The verification note is next, with each row marked where the research or today's checks settled it, followed by the plugin list touch-up and the build log entry.
+
+The fixed-answers table in the build log is stale on location and stack, so I'm updating it. Then the hub becomes the source of truth.
+
+The Plan standard for a project plan names the heading `Sequence`, so I'm renaming it. Then a full check pass.
+
+The design is final. It now has 13 notes in `40_Resources/Obsidian/Dashboards/Jarvis Build/`, ready to cut and paste into `40_Resources/Obsidian/Dashboard/Jarvis Builds/` in Jarvis.
+
+I checked that all 13 notes have valid frontmatter and the headings their standards require, contain no em dashes, and link correctly to each other. Their links to Jarvis notes only resolve once pasted there. Vault Lint has not run on them.
+
+`Jarvis Build Hub` is now the source of truth. It lists 37 features, each with the note that defines it and the test that proves it. It also holds the build stages, the dependencies on The Plan and a checklist for when the design is done. The prompts are not written, as you asked.
+
+I extended 11 notes and added two research notes:
+- **`Jarvis Research - Outside Sources`:** web and Obsidian API findings, cited, with how sure each one is and what it changed. Examples: `Vault.process` is atomic, `create` events also fire for every existing file at load, and the habit research supports one forgiven miss.
+- **`Jarvis Research - The Plan Parallel Builds`:** what The Plan has built, where it failed, and what to re-read before the Jarvis build starts.
+
+## What your answers changed
+- **The 20:** it supports the 80 on a daily basis, and every 20 line names its 80.
+- **Loses:** they are never copied forward. The next day is recalculated from them, the page counts every open one up to 7, and the carried mark `[>]` is retired. This means patching the Daily Note Standard and the Daily Close Loop. I will not edit either without your approval.
+- **Time:** Toggl lives in The Plan, with an overview in its daily note and a folder of detailed time logs. Jarvis reads both read only, through an allowlist reader in the CLI (`dashboard-cli plan-time`), not through the skills. Only the headings it is told to look for come through. Personal content never reaches a Jarvis note.
+- **Six Decide rows:** the sync banner and vault health fold into one health chip. The week gets a seven-day row. Projects become three chips. The clippings count moves to the weekly review.
+- **Build:** React, desktop only, repo on the Acer, full-screen Obsidian on the laptops only.
+
+## What I found while researching
+- **The Plan changed its daily template today (its Decision 51).** The template now has Jarvis's shape and no `[cat::]` lines, so The Plan's own streak reads 0. This is why the Jarvis reader uses an allowlist and does not depend on a fixed template.
+- **There is no Toggl note in either vault.** My earlier search matched the word `toggle`, so I was wrong that the July and August notes mention it.
+- **`30_Order/System/jarvis-cli` is taken.** It is a Python ops tool, so the new CLI is `dashboard-cli`.
+- **The no-scroll rule cannot be proven in jsdom,** because it has no layout engine. The design uses a real-browser test plus a live check in Obsidian.
+
+## Still open
+- **Defaults to read:** D32 to D45 are my calls and stand unless you change them. D45 adds editing a line in place by double-click, which adds scope. D33 makes the week ISO, Monday to Sunday, based on `2026-W44`.
+- **Waiting on The Plan:** the time overview heading, the time log folder, the entry format and the daily template structure. Build stage 5 waits for them, and the other stages do not.
+- **Unverified:** 17 claims in `Jarvis Verification and Risks`, each with a test. Examples are the Homepage launch route on both laptops and whether Jarvis's hooks allow the read of The Plan.
+- **Last steps of the design:** you keep or change the defaults, and the notes get pasted into Jarvis and linted.
+
 ### Tool Calls
 
 - `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && git log --since=2026-10-25 --format='%h %ad %an %s' --date=iso | head -15; echo ---; find . -name "*.md" -newermt "2026-10-25 20:30" -not -path "./.git/*" -not -path "./50_Archive/*" -not -path "./copilot/*" | head -40; echo --- plugin repo; cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && git log --format='%h %ad %s' --date=iso | head -5; git status --short | head; ls -la --time-style=long-iso main.js dist 2>/dev/null | head -5; echo --- jarvis-cli; ls -la --time-style=long-iso "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/jarvis-cli" | head -20`
@@ -7469,6 +7514,1413 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 - `mcp__plugin_context7_context7__resolve-library-id` -- `{"query":"Obsidian plugin API ItemView registerView metadataCache","libraryName":"Obsidian"}`
 - `mcp__plugin_context7_context7__query-docs` -- `{"libraryId":"/obsidianmd/obsidian-api","query":"workspace.onLayoutReady vault create event fires for existing files at load; registerView ItemView getLeavesOfType detach","language":"TypeScript"}`
 - `mcp__plugin_context7_context7__query-docs` -- `{"libraryId":"/obsidianmd/obsidian-api","query":"metadataCache getFileCache frontmatter changed event and cachedRead versus read","language":"TypeScript"}`
+- `AskUserQuestion` -- `{"questions":[{"header":"Health chip","question":"Sync banner and vault health: how should system problems show on the page?","multiSelect":false,"options":[{"label":"One health chip (Recommended)","description":"A single chip, green when clean and red with a count when not. It covers misnamed notes, leftover placeholders, a stale plugin build on the other laptop, missing skills or hooks, a sync problem, and notes missing type or status. Click it to see the list in a note."},{"label":"Chip plus the sync banner","description":"Keep the sync banner strip on the page as well as the chip. More visible, but it uses space and duplicates a signal."},{"label":"Nothing on the page","description":"Problems appear only when you run the doctor command. Cleanest page, but this is how The Plan showed zeros for ten days without anyone noticing."}]},{"header":"Week strip","question":"What should the page show about the week so far?","multiSelect":false,"options":[{"label":"Seven day row (Recommended)","description":"Seven small cells, Monday to Sunday, each shaded by floor rows done, with today outlined, plus one line of totals: wins, floors, problems, study hours. Fits in the hero with no scroll."},{"label":"Totals line only","description":"One line: days with a note, wins, floors, problems, study hours. Smallest, no daily shape."},{"label":"Weekly review only","description":"Nothing about the week on the daily page. It appears when you run the weekly review."}]},{"header":"Projects","question":"Active projects and the clippings queue: what stays on the daily page?","multiSelect":false,"options":[{"label":"Projects as chips, clippings to review (Recommended)","description":"Three chips show each active project\u0027s `next:` line and open the project note. The clippings count moves to the weekly review."},{"label":"Both off the page","description":"Neither is on the daily page. Both appear in the weekly review. Lowest clutter."},{"label":"Both as chips","description":"Three project chips and one clippings chip. Uses more of the page."}]},{"header":"Loses","question":"You said Loses are noted down and the next day\u0027s actions are recalculated from them, not pushed forward. How long should a Lose stay open?","multiSelect":false,"options":[{"label":"Open until made up or dropped (Recommended)","description":"A Lose stays in the note where it happened and is never copied forward. The page counts every open one across notes, oldest first, capped at 7. The eighth must be made up or dropped at close. `/startday` reads open Loses and recalculates the new day\u0027s 80 and 20 from them. The carried mark `[\u003e]` is retired."},{"label":"Closed once the next day is recalculated","description":"Closing the day marks a Lose as handled when the next day\u0027s actions are built from it. The page then shows only the last day\u0027s Loses, so the cap rarely matters."},{"label":"Open for a fixed number of days","description":"A Lose expires after a set number of days, for example 7, and is dropped automatically. This needs a rule for what an auto-dropped Lose records."}]}]}`
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && git show --stat=160 --format='%h %s' fb8f157 | head -30; echo ---; echo "Plan daily template headings:"; grep -n "^#\|^created\|^[a-z_]*:" "30_Order/Templates/Daily Dashboard/Better Today.md" | head -40; echo ---; echo "Schema headings:"; grep -n "^#" "30_Order/Standards/Dashboards/Daily Note Schema.md" | head -30; echo ---; grep -rniE "time log|time-log|timelog|time spent|stopwatch|clockify|toggl\b" --include=*.md 00_Live 30_Order 40_Resources/Obsidian 60_Jarvis 2>/dev/null | grep -vi "toggle" | cut -c1-200 | head -10; echo "(blank above = no time-log design notes)"; echo ---; ls 00_Live/Enumerate/Daily | tail -5; echo; ls 00_Live | head -30`
+```
+fb8f157 auto-sync: 2026-10-26 15:00 | 21 files
+
+ .claude/skills/closeday/SKILL.md                                                    |   2 +-
+ .claude/skills/closeday/reference.md                                                |   4 +-
+ .claude/skills/startday/SKILL.md                                                    |   2 +-
+ 30_Order/Standards/Dashboards/Daily Note Schema.md                                  |   9 ++++-
+ 30_Order/Standards/Naming and Folder Map.md                                         |   2 +-
+ 30_Order/Standards/References/Reference - closeday.md                               |   2 +-
+ 30_Order/Standards/References/Reference - startday.md                               |   2 +-
+ 30_Order/Standards/The Plan Vault Architecture.md                                   |   2 +-
+ 30_Order/System/streak/QuickAdd Setup.md                                            |   8 ++--
+ 30_Order/Workflows/Daily Dashboard.md                                               |   6 +--
+ 40_Resources/Obsidian/Dashboards/Decisions Log.md                                   |   1 +
+ 40_Resources/Obsidian/Dashboards/Jarvis Build/Jarvis Architecture.md                |  97 +++++++++++++++++++++++++++++++++++++++++++++
+ 40_Resources/Obsidian/Dashboards/Jarvis Build/Jarvis Build Log.md                   |  42 ++++++++++++++++++++
+ 40_Resources/Obsidian/Dashboards/Jarvis Build/Jarvis Decisions Log.md               |  62 +++++++++++++++++++++++++++++
+ 40_Resources/Obsidian/Dashboards/Jarvis Build/Jarvis Plugin Retirement List.md      |  64 ++++++++++++++++++++++++++++++
+ 40_Resources/Obsidian/Dashboards/Jarvis Build/Jarvis Spec - Automation Layer.md     |  97 +++++++++++++++++++++++++++++++++++++++++++++
+ 40_Resources/Obsidian/Dashboards/Jarvis Build/Jarvis Spec - Carry Forward.md        |  75 +++++++++++++++++++++++++++++++++++
+ 40_Resources/Obsidian/Dashboards/Jarvis Build/Jarvis Spec - Dashboard Page.md       | 113 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 40_Resources/Obsidian/Dashboards/Jarvis Build/Jarvis Spec - Day Model and Streak.md | 145 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 40_Resources/Obsidian/Dashboards/Jarvis Build/Jarvis Spec - Plans Feed.md           |  86 ++++++++++++++++++++++++++++++++++++++++
+ 40_Resources/Obsidian/Dashboards/Jarvis Build/Jarvis Verification and Risks.md      |  70 +++++++++++++++++++++++++++++++++
+ 21 files changed, 874 insertions(+), 17 deletions(-)
+---
+Plan daily template headings:
+2:type: thought
+3:thought_kind: reflection
+4:status: seed
+5:related_progress:
+7:tags:
+10:next:
+12:# Did you get better today?
+14:## Morning Plan
+23:### 80
+30:### 20
+37:## Daily Wins
+45:## Daily Floor
+52:## Productivity
+57:## Just Write
+68:### Good Habits 
+72:### Bad Habits 
+75:## Tomorrow
+---
+Schema headings:
+18:# Daily Note Schema
+22:## File
+36:## Template
+41:## Frontmatter
+61:## Body order
+77:### Targets
+88:### Action lines
+100:### Default actions
+114:### Evening close
+124:### Next actions
+134:### Intake
+138:## Cause tags
+142:## Rules
+149:## Validator
+164:## Example
+173:## Targets
+178:## Morning
+184:## Study
+188:## Evening close
+192:## Next actions
+199:## Open points
+---
+40_Resources/Obsidian/Dashboards/Jarvis Build/Jarvis Build Hub.md:81:- [ ] What is the format of Toggl timestamps in The Plan, and where do they land? No vault note mentions Toggl.
+40_Resources/Obsidian/Dashboards/Jarvis Build/Jarvis Decisions Log.md:43:| D19 | Time management | Manage time by reference to the daily notes in The Plan. Timestamps in The Plan record time spent per
+40_Resources/Obsidian/Dashboards/Jarvis Build/Jarvis Decisions Log.md:52:- "Doge" and "the store" are read as Toggl.
+40_Resources/Obsidian/Dashboards/Jarvis Build/Jarvis Spec - Automation Layer.md:22:It is a design. It covers how today's calendar reaches the page, how a planned block reaches the calendar, how time s
+40_Resources/Obsidian/Dashboards/Jarvis Build/Jarvis Spec - Automation Layer.md:31:- Toggl is not mentioned in any vault note. Anant says it is used in The Plan, and this is unverified.
+40_Resources/Obsidian/Dashboards/Jarvis Build/Jarvis Spec - Automation Layer.md:57:## Layer 3: Time spent, read from The Plan
+40_Resources/Obsidian/Dashboards/Jarvis Build/Jarvis Spec - Automation Layer.md:59:- `/startday` and `/closeday` read The Plan's daily note, read only, and use it for one purpose: fill `study_today` a
+40_Resources/Obsidian/Dashboards/Jarvis Build/Jarvis Spec - Automation Layer.md:87:- No Toggl, Todoist or other service called by the plugin.
+40_Resources/Obsidian/Dashboards/Jarvis Build/Jarvis Spec - Automation Layer.md:94:- [ ] What is the format of Toggl timestamps in The Plan, and where do they land in its daily note?
+40_Resources/Obsidian/Dashboards/Jarvis Build/Jarvis Spec - Dashboard Page.md:104:- No calls to Google, Todoist, Toggl or any outside service from the plugin.
+(blank above = no time-log design notes)
+---
+2026-10-05.md
+2026-10-12.md
+2026-10-19.md
+2026-10-25.md
+2026-10-26.md
+
+Books
+Career
+Enumerate
+Headway
+Health & Life
+Life OS.md
+Map Canvas.canvas
+Map.md
+Monthly Dashboard.md
+Tracking
+```
+- `WebSearch` -- `{"query":"CSS container query units cqw cqh clamp scale font size to fit container browser support MDN","mode":"standard"}`
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && echo "headings of today's Plan daily note:"; grep -n "^#\|^created\|^type\|^thought_kind\|cat::" "00_Live/Enumerate/Daily/2026-10-26.md" | cut -c1-90 | head -30; echo "cat:: lines:"; grep -c "cat::" "00_Live/Enumerate/Daily/2026-10-26.md"; echo ---; git show fb8f157 -- "30_Order/Standards/Dashboards/Daily Note Schema.md" "30_Order/Workflows/Daily Dashboard.md" | grep "^[+-]" | grep -v "^+++\|^---" | cut -c1-260; echo ---; echo "Plan periodic notes daily template now:"; grep -o '"daily": *{[^}]*}' .obsidian/plugins/periodic-notes/data.json | cut -c1-260`
+```
+headings of today's Plan daily note:
+2:type: thought
+3:thought_kind: reflection
+12:# Did you get better today?
+14:## Morning Plan
+23:### 80
+30:### 20
+37:## Daily Wins
+45:## Daily Floor
+52:## Productivity
+57:## Just Write
+68:### Good Habits 
+72:### Bad Habits 
+75:## Tomorrow
+cat:: lines:
+0
+---
+-  - "[[Daily Note]]"
++  - "[[Better Today]]"
+-Source: the Daily note schema, Cause tags and Validator rules sections of [[Spec - Streak and Daily Note]]. The daily note is the only source of truth. Dashboards read it and store nothing, and nothing is wiped at night, so history survives. The skeleton is t
++Source: the Daily note schema, Cause tags and Validator rules sections of [[Spec - Streak and Daily Note]]. The daily note is the only source of truth. Dashboards read it and store nothing, and nothing is wiped at night, so history survives. The skeleton is t
++## Template
++
++Since 2026-10-26 the daily template is `30_Order/Templates/Daily Dashboard/Better Today.md` ([[Better Today]], Decision 51). `Daily Note.md` was deleted. Periodic Notes creates each day's note from it, in `00_Live/Enumerate/Daily`, named `YYYY-MM-DD`. The wee
++
++**Known gap, 2026-10-26.** The engine counts only checkbox lines with a `[cat:: ...]` field under the five category headings. `Better Today.md` has none of them: no `type: daily` frontmatter, no `## Targets` to `## Intake` headings, no `[cat::]` lines. A note
+-  - "[[Daily Note]]"
++  - "[[Better Today]]"
+-| Template | The skeleton for a new note | [[Daily Note]], in `30_Order/Templates/Daily Dashboard` |
++| Template | The skeleton for a new note | [[Better Today]], in `30_Order/Templates/Daily Dashboard` |
+-| Today's note is missing | `/startday` offers to create it. Or run QuickAdd, or Templater with [[Daily Note]]. A missing note scores MISS at midnight. |
++| Today's note is missing | `/startday` offers to create it. Or run QuickAdd, or Periodic Notes, which uses [[Better Today]]. A missing note scores MISS at midnight. |
+---
+Plan periodic notes daily template now:
+```
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan" && grep -n "^| 51\|^| 52\|^| 53" "40_Resources/Obsidian/Dashboards/Decisions Log.md" | cut -c1-1800; echo ---; sed -n '/^## Template/,/^## Frontmatter/p' "30_Order/Standards/Dashboards/Daily Note Schema.md" | cut -c1-1500`
+```
+75:| 51 | Daily template is Better Today (2026-10-26) | `Daily Note.md` is deleted. [[Better Today]] is the template for daily notes, set in Periodic Notes with the formats `YYYY-MM-DD`, `gggg-[W]ww`, `YYYY-MM` and `YYYY`. The skills, the standards and the QuickAdd setup now name it. | The template does not yet carry the engine structure (`type: daily`, `## Targets` to `## Intake`, `[cat::]` lines), so the streak reads 0 until it does. See Template in [[Daily Note Schema]]. Open until Anant decides how the structure gets back into the template. |
+---
+## Template
+
+Since 2026-10-26 the daily template is `30_Order/Templates/Daily Dashboard/Better Today.md` ([[Better Today]], Decision 51). `Daily Note.md` was deleted. Periodic Notes creates each day's note from it, in `00_Live/Enumerate/Daily`, named `YYYY-MM-DD`. The week, month and year notes come from [[Better Week]], [[Better Month]] and [[Better Year]], named `gggg-[W]ww`, `YYYY-MM` and `YYYY`. The skills `startday` and `closeday` create a missing note as a verbatim copy of Better Today. The daily-auditor and the validator read this schema, not the template.
+
+**Known gap, 2026-10-26.** The engine counts only checkbox lines with a `[cat:: ...]` field under the five category headings. `Better Today.md` has none of them: no `type: daily` frontmatter, no `## Targets` to `## Intake` headings, no `[cat::]` lines. A note made from it shows every category with `total` 0, so the streak cannot move, and `/closeday` has no `## Targets` heading to put the career line under. The note validates (`ok: true`) because the six rules check names, folders and the lines that exist, not whether any exist. Until the template carries the structure below, treat a note with every category at `total` 0 as unscored and say so instead of reporting a streak.
+## Frontmatter
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Decisions Log.md`
+```
+---
+type: system
+status: sprout
+created: 2026-10-26
+updated: 2026-10-26
+tags:
+  - dashboard
+  - jarvis
+  - decisions
+system_kind: log
+notes:
+  - "[[Jarvis Build Hub]]"
+  - "[[Jarvis Spec - Day Model and Streak]]"
+  - "[[Jarvis Spec - Dashboard Page]]"
+  - "[[Jarvis Spec - Plans Feed]]"
+  - "[[Jarvis Spec - Automation Layer]]"
+  - "[[Jarvis Research - Outside Sources]]"
+---
+# Jarvis Decisions Log
+==Every question answered while designing the Jarvis dashboard plugin, with what each answer forces on the build.== Anant gave the answers on 2026-10-26. A row marked Default is a decision the assistant took so the design could close, and it stands until Anant says otherwise. Corrections keep the original statement and say what replaced it.
+
+## Decided by Anant
+
+| # | Question | Answer | Consequence |
+|---|---|---|---|
+| D1 | How does the Jarvis plugin relate to The Plan's plugin? | Separate plugin `jarvis-dashboard`, own engine, no shared code | Copy The Plan's structure, not its files. A Plan change cannot break Jarvis. |
+| D2 | Which devices? | The Dell and the Acer laptop only. Jarvis is not synced to the phone. | No phone build or test. The dashboard opens only in Obsidian on the laptops. |
+| D3 | How is a day recorded so the plugin can tick it? | Checkbox lines with a field, for example `[track:: application]` | Replaces the frontmatter toggles built on the morning of 2026-10-26. See Correction 3. |
+| D4 | What does the streak count? | The floor. A day counts when every floor row is done. One miss is forgiven, two in a row break it. Floor rows are set per term in a config table. | The Plan's rule with floor rows in place of five categories. |
+| D5 | What happens to the four wins? | A separate score from 0 to 4, never part of the streak | A cleanup win cannot rescue a day with no application. |
+| D6 | Daily Loses | Kept, tickable on the page, line format from the [[Daily Note Standard]] | The page can only tick a Lose to `[x]`. Dropping needs a reason and stays with `/closeday`. |
+| D7 | Identity and habits in Jarvis | Builder identity only. Personal identity, health and habits stay in The Plan. | Matches AGENTS.md golden rule 6. |
+| D8 | Page shape | One page, no vertical scroll anywhere. Only text Anant writes may scroll sideways. The page scales to fit, with a "window too small" banner below a readable size. No content is removed. | Tests must prove no vertical overflow. See [[Jarvis Spec - Dashboard Page]]. |
+| D9 | What is always on the page? | Today core, calendar strip, loses and carryover, pipeline numbers | All four groups are on the one page. |
+| D10 | Delight elements | Builder levels, proof of the day, a floor heatmap, pipeline momentum | Each has a data source in [[Jarvis Spec - Day Model and Streak]]. |
+| D11 | Who creates today's note? | The plugin, from the template. Any name that is not `YYYY-MM-DD` is refused and flagged. | Prevents The Plan's ten days of zeros caused by `DD-MM-YYYY` names. |
+| D12 | Where does the 80 come from? | From the plans already drafted (Fall 2026 plan, weekly Goals, project plans). The One Thing for the day is chosen daily. | `/startday` proposes, Anant approves. See [[Jarvis Spec - Plans Feed]]. |
+| D13 | What is the 20? | It supports the 80 on a daily basis. It is created for the 80's actions, so the extra tasks are done with respect to it. | A 20 line names its 80 with `[for:: 80]`. A task that serves no 80 is not a 20. |
+| D14 | When does the term end? | 2026-12-24, the last day of the Fall 2026 plan. Some items continue next term and some stop. | Config holds the term end. See Correction 2. |
+| D15 | Weekly application target | 10 per week, each complete and correct | Pipeline momentum shows `n of 10`. |
+| D16 | Builder level wording | The same as The Plan | The beginning (3), Toward 21 (7), Now it gets hard (21), Work pays off (66), Consistency, discipline, mindset (100). |
+| D17 | Which calendar account? | `gupt0479@umn.edu`. Calendar detail is in [[How to Use Google Calendar]] and [[2026-W44]]. | The plugin never calls Google. Claude writes `### Blocks` and the page reads it. |
+| D18 | Todoist in Jarvis? | No longer used | Todoist leaves the Jarvis design. See Correction 5. |
+| D19 | Time management | Toggl runs in The Plan. Time is calculated in two places there: an overview in The Plan's daily note, and a folder of detailed time logs written as notes. Neither is designed yet. | Jarvis reads both read only. See [[Jarvis Spec - Automation Layer]]. |
+| D20 | Does Jarvis read The Plan? | Yes, the daily note and the time logs, only the headings it looks for. Personal content never enters Jarvis. The Plan already reads Jarvis's dashboard, weekly, monthly and plans on its own runs. | An allowlist reader in the CLI. Skills never open The Plan's notes. See Correction 4. |
+| D21 | Automation | Design only for now. Calendar read plus planned blocks. Other platforms (Apple Reminders, Zapier, further MCP servers) are decided later and must be simple and frictionless. | No transport is built. |
+| D22 | Existing plugins | Nothing is removed. Anant receives a list and decides. | See [[Jarvis Plugin Retirement List]]. |
+| D23 | Canvas and `00_Dashboard.md` | Both are replaced by the plugin | They retire after a clean fortnight, only on Anant's word. No exploration canvas is kept. |
+| D24 | How long does a Lose stay open? | Until made up or dropped. It is never copied forward. The page counts every open one across notes, oldest first, capped at 7. The eighth must be made up or dropped at close. The next day's actions are recalculated from the day's Loses. | Retires the carried mark `[>]`. See Correction 6. |
+| D25 | React or plain DOM? | React | React 19, as in The Plan. |
+| D26 | Desktop only? | Yes | `isDesktopOnly: true` in the manifest. |
+| D27 | Where does the repository live? | On the Acer. The Dell receives built files through git. | The path is chosen on the Acer when the build starts. See [[Jarvis Architecture]]. |
+| D28 | Which window sizes? | Obsidian full screen on both laptops | Test sizes are measured on each laptop. See [[Jarvis Spec - Dashboard Page]]. |
+| D29 | Sync banner and vault health | One health chip, green or red with a count | Both old blocks fold into it. |
+| D30 | Week so far | A seven day row, Monday to Sunday, plus one line of totals | Sits in the hero. |
+| D31 | Projects and clippings | Projects as three chips showing each `next:`. The clippings count moves to the weekly review. | Chips open the project note. |
+
+## Defaults taken by the assistant
+Each stands until Anant says otherwise.
+
+| # | Question | Default | Why |
+|---|---|---|---|
+| D32 | The areas table of the old page | Stays in `00_Dashboard.md` until it retires, then moves into `Jarvis Vault Architecture` | It is typed prose, not data. That note already defines the areas. |
+| D33 | Which week? | ISO, Monday to Sunday | [[2026-W44]] names `2026-W44`, was made on Sunday 2026-10-25 and plans Monday 10/26 onward. Week 44 of 2026 starts Monday 2026-10-26. |
+| D34 | Heatmap length | 30 days | Same as The Plan. A config value. |
+| D35 | Application floor row | One company a day. The weekly target of 10 is shown by pipeline momentum. | The Fall plan floor is one a day. |
+| D36 | Meaning of `date_applied` | Set only when an application is submitted and complete | The target says each must be complete and correct. |
+| D37 | Where deadlines live | `[due:: YYYY-MM-DD]` on weekly Goal lines | A parseable place the Blocks strip can read. |
+| D38 | Typed numbers | `lc_count` and `study_today` stay in frontmatter, changed with plus and minus on the page | Keys already in the Standard. |
+| D39 | Proof of the day | An optional `## Proof of the day` heading with one `[proof::]` line, added to the Standard | One line is the smallest reward loop. The patch needs approval. |
+| D40 | The 87 older Meta Bind notes | Left as history, not converted | They are records. |
+| D41 | Which copy of `startday` and `closeday` | `.claude` is canonical. `.agents` is left alone. | The 2026-10-26 rebuild changed `.claude` only. |
+| D42 | End of term | A short review on 2026-12-24, written in the weekly note, decides which Systems rows continue and which floor rows change | Keeps the streak, which counts the floor and not the term. |
+| D43 | Name of the CLI | `dashboard-cli`, in `30_Order/System/dashboard-cli/` | `30_Order/System/jarvis-cli` is a Python ops tool already. See Correction 9. |
+| D44 | A validator hook | None in v1. `doctor` and the health chip cover it. | Fewer moving parts. A hook can follow. |
+| D45 | Editing on the page | Double-click a line to edit its text. It saves through the same stale-line check as a tick. | Anant asked for a page that is clickable and editable. |
+
+## Corrections
+1. **Toggl in the daily notes.** The assistant said the July and August Jarvis daily notes mention Toggl. They do not. The search matched the word `toggle`, the Meta Bind inputs. No Jarvis note mentions Toggl. Anant confirmed on 2026-10-26 that Toggl is used in The Plan, and The Plan has no note about it yet.
+2. **Term end.** The Plans Board says the Fall 2026 plan runs through 2026-12-14. D14 says 2026-12-24 and wins. The Plans Board line needs a change in Jarvis.
+3. **Day model.** [[Jarvis Dashboard Build Record]] says the Done toggles became frontmatter booleans (`win_*`, `floor_1` to `floor_3`) and that `/closeday` counts them. D3 replaces the toggles with checkbox lines. The Daily Loses format and the `wins_done` and `floors_done` counts stay.
+4. **Cross-vault reads.** [[Jarvis Dashboard Build Record]] lists as a non-goal that cross-vault reads go through `/jarvis-dump` and never write. D20 adds an allowlisted, read-only read of The Plan from Jarvis. The Build Record line needs an update.
+5. **Todoist.** [[How to Use Google Calendar]] says the 12-week map lives in Todoist and names the working calendar "Todoist". D18 drops Todoist. The calendar keeps its name until Anant renames it in the Google Calendar app, which the guide already suggests.
+6. **Carried Loses.** The [[Daily Note Standard]] and [[Daily Close Loop]] say `/startday` copies each open Lose forward and marks the old line `[>]`. D24 replaces that. A Lose stays where it happened, and the next day is recalculated from it. Both notes need a patch, with approval.
+7. **Phone and window.** An earlier answer said the page should render responsively for an iPhone 15. D2 and D28 replace it. The page opens only in full-screen Obsidian on the two laptops. The compact layout remains only for narrow split panes.
+8. **Week definition.** [[Jarvis Dashboard Build Record]] lists Sunday-start versus ISO as open. D33 settles it as ISO.
+9. **CLI folder.** An earlier note said `30_Order/System/jarvis-cli` might be taken. It holds `jarvis.ps1`, `jarvis_ops.py` and a README, so it is taken. D43 renames the CLI.
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Spec - Day Model and Streak.md`
+```
+---
+type: project
+status: active
+created: 2026-10-26
+updated: 2026-10-26
+tags:
+  - dashboard
+  - jarvis
+  - spec
+project_kind: spec
+next: "Design final. A build session patches the Daily Note Standard and the template, with Anant's approval for each edit"
+related_progress:
+  - "[[Jarvis Build Hub]]"
+  - "[[Jarvis Decisions Log]]"
+  - "[[Jarvis Spec - Dashboard Page]]"
+  - "[[Jarvis Spec - Plans Feed]]"
+---
+# Jarvis Spec - Day Model and Streak
+## What This Is
+==A Jarvis day is a daily note made of checkbox lines that the plugin can flip, and a streak that counts the days on which every floor row was done.==
+This note defines the daily note shape the plugin reads, the fields on each line, the Loses lifecycle, the streak rule and the checks that guard them. It sits on top of the [[Daily Note Standard]] and keeps its headings, its Daily Loses line format and its frontmatter keys. It changes how wins and the floor are recorded and how Loses carry. The page rules are in [[Jarvis Spec - Dashboard Page]].
+
+## Current State
+Checked on 2026-10-26.
+- The template [[Better Today]] holds seven frontmatter booleans (`win_project`, `win_career`, `win_cleanup`, `win_review`, `floor_1`, `floor_2`, `floor_3`) shown by Meta Bind toggles inside two tables. `lc_count` and `study_today` are typed. `wins_done` and `floors_done` are written by `/closeday`.
+- The 80 and the 20 are checkbox lines under `### 80 - The One Thing` and `### 20 - Supporting Work`. `### Blocks` is a plain list.
+- Daily Loses are task lines with `[why::]`, `[fix::]`, `[from::]` and `[since::]`, and four marks: `[ ]` open, `[x]` made up, `[>]` carried, `[-]` dropped. `/startday` copies an open Lose forward.
+- The dashboard counts the toggles with DataviewJS. Nothing else reads them.
+- Application progress is a field on each tracker note: `date_applied` in `10_Areas/Career/Internships/Tracker/Each One/Current/`. The folder holds 29 notes. [[2026-W44]] records 29 researched and 0 applied. There is no `Applied/` folder.
+- Nothing in this note is built.
+
+## The new daily note shape
+Headings stay as the Standard names them. Only the line formats under them change.
+
+```markdown
+(frontmatter starts)
+type: thought
+thought_kind: daily
+status: active
+day_state: planned
+created: 2026-10-27
+updated: 2026-10-27
+tags:
+  - daily
+lc_count: 0
+study_today: 0
+wins_done: 0
+floors_done: 0
+(frontmatter ends)
+# Did you get better today?
+## Morning Plan
+*Goal*: one line
+### 80 - The One Thing
+- [ ] I will submit 5 applications at 2 pm at my desk. [plan:: Fall 2026 Plan]
+### 20 - Supporting Work
+- [ ] Cover letter for Uber is final. [for:: 80]
+- [ ] Resume tailored for Deloitte. [for:: 80]
+### Blocks
+- [ ] 14:00-16:00 Internship: 5 applications sent [cal:: abc123] [spent:: 95]
+**Do NOT do today:**
+## Daily Wins
+- [ ] Project: Portfolio UI repolished [win:: project]
+- [ ] Career: one application sent [win:: career]
+- [ ] Cleanup: inbox at zero [win:: cleanup]
+- [ ] Review: close the day by 10:30 pm [win:: review]
+## Daily Loses
+- [ ] CSCI 4041: 5 problems logged [why:: opened YouTube first] [fix:: laptop opens on DSA.md] [from:: weekly] [since:: 2026-10-26]
+## Daily Floor
+- [ ] One company moved to Applied [track:: application]
+- [ ] 5 problems logged in Weekly Set [track:: practice]
+- [ ] One class step for CSCI 4061 [track:: class]
+## Productivity
+## Carryover from Previous Sessions
+## End of Day
+## Proof of the day
+- [proof:: Shipped 5 applications with the final cover letter]
+```
+
+## Fields
+| Field | On which line | Holds |
+|---|---|---|
+| `[plan:: name]` | The 80, optional on a 20 | The plan or board note that owns the task, so the line holds no copy of the plan |
+| `[for:: 80]` | Every 20 line | The 80 it serves. A 20 line without it is invalid. |
+| `[cal:: id]` | A Blocks line | The Google Calendar event id, so a moved event updates its line and does not duplicate |
+| `[spent:: minutes]` | A Blocks line | Minutes of tracked time, written at close from The Plan's time records ([[Jarvis Spec - Automation Layer]]) |
+| `[win:: project, career, cleanup, review]` | A wins line | Which win it is. Each value appears once. |
+| `[track:: name]` | A floor line | A floor row name from the term's config table |
+| `[why::]`, `[fix::]`, `[from::]`, `[since::]` | A Lose | Unchanged from the Standard. `from` is `weekly`, `calendar`, `win`, `floor` or `other`. |
+| `[due:: YYYY-MM-DD]` | A weekly Goal line | A deadline the Blocks strip lists for the next 7 days |
+| `[proof:: text]` | One line under `## Proof of the day` | One line of evidence, written at close |
+
+Blocks marks: `[ ]` open, `[x]` done, `[-]` missed with a `[why::]`. Win and floor marks: `[ ]` and `[x]`.
+
+## Floor rows per term
+The rows live in a config table, not in code. A new term changes the table and the plan note.
+
+| Term | Row | Track | Done when |
+|---|---|---|---|
+| Fall 2026 | 1 | `application` | A tracker note has `date_applied` equal to today |
+| Fall 2026 | 2 | `practice` | LeetCode or CodePath reps logged, at least 5 |
+| Fall 2026 | 3 | `class` | One class step finished |
+| Term end | | | 2026-12-24 |
+
+Anant ticks a floor line with evidence. Nothing ticks it for him. The validator warns when the `application` line is ticked and no tracker note has today's `date_applied`, and when `practice` is ticked with `lc_count` under 5. A warning never changes a tick.
+
+## Daily Loses lifecycle
+1. A Lose is written the day it slips, in that day's note, with `since` set to that date.
+2. It is never copied forward. It stays where it happened. The `[>]` carried mark is retired.
+3. It is open until made up (`[x]`) or dropped (`[-]` with a reason in `why`).
+4. The page counts every open Lose across all daily notes, oldest first, with its age (today minus `since`).
+5. The cap is 7 open Loses. At close, an eighth cannot be added until one is made up or dropped. `/closeday` refuses to set `day_state: closed` while more than 7 are open.
+6. At close, `/closeday` recalculates tomorrow from the day's Loses and writes a preview ([[Jarvis Spec - Plans Feed]]). A Lose informs tomorrow. It does not become tomorrow's task by copying.
+7. The plugin can tick a Lose to `[x]`. Everything else about a Lose is written by `/closeday`, which asks for the why and the fix and never invents them.
+8. Older notes may hold `[>]`. The engine treats it as closed history.
+
+## Streak rule
+It is the rule from The Plan's Streak Rule with the floor as the unit.
+1. A day is MET when it has at least one floor line and every floor line is ticked.
+2. A day is MISS when a floor line is open at the day's end, or the note is missing. A missing note is a MISS.
+3. Today is PENDING until midnight, unless it is already MET. The rollover is midnight. A tick after midnight belongs to the new date.
+4. The streak starts on the earliest day whose note has at least one floor line.
+5. Walk from the start day to yesterday. A MET day adds one. An isolated MISS is forgiven: it adds nothing and does not reset. A second MISS in a row resets the run to zero.
+6. The current streak is the run, plus one when today is MET.
+7. The best streak counts closed days only. Today joins it the next day.
+8. A forgiven day counts as a lost day in the month totals.
+9. At risk means yesterday was a MISS and today is not yet MET.
+10. Milestones are 3, 7, 21, 66 and 100, with the titles in [[Jarvis Decisions Log]] D16.
+11. The week is ISO, Monday to Sunday ([[Jarvis Decisions Log]] D33).
+
+The wins score is the count of ticked win lines, from 0 to 4, and is separate. The research behind a forgiven miss and the 66 day milestone is in [[Jarvis Research - Outside Sources]].
+
+## Write primitives
+The plugin has three ways to change a file and no others.
+1. **Replace one line.** Used for a tick, an edit in place and the proof line. It runs inside `Vault.process`, checks that the line at the index still equals the text the page saw, and refuses otherwise. It keeps LF or CRLF as found and changes nothing else.
+2. **Change a frontmatter number.** `lc_count` and `study_today` only, through `processFrontMatter`, with plus and minus buttons.
+3. **Create today's note.** From the template, named `YYYY-MM-DD`, refused if the note exists or the name is not an ISO date.
+
+## Validator rules
+`validate` reports each breach with the line and the rule. It never rewrites a note.
+1. The file name is `YYYY-MM-DD.md`. Any other name in the Daily folder is reported as misnamed.
+2. `created` and `updated` are real dates. A leftover `<% %>` is reported.
+3. Exactly one 80 line.
+4. Two to four 20 lines, each with `[for:: 80]`.
+5. Each floor line has a `[track::]` that is in the term's config table.
+6. Four win lines, one per `[win::]` value.
+7. Each Lose has `[since::]`. A missing `[why::]` reads `(unanswered)`.
+8. On a closed day, `wins_done` and `floors_done` equal the ticked lines, and an End of Day exists.
+9. Each Blocks time reads `HH:MM-HH:MM` and ends after it starts.
+10. A mark other than `[ ]`, `[x]`, `[X]` or `[-]` is reported. A `[>]` in a note from before 2026-10-26 is accepted.
+11. Across all notes, open Loses number at most 7. This is a `doctor` and close-time check, not a per-note check.
+
+## Migration
+Old notes keep the old shape and stay as history ([[Jarvis Decisions Log]] D40). The engine reads only the new shape. A day in the old shape has no floor lines, so it never starts or extends a streak. The page shows the streak start as the first day with a floor line. The template and the Standard patch are listed in [[Jarvis Spec - Carry Forward]].
+
+## Non-Goals
+- No streak for the wins, and no separate streak for a single track.
+- No automatic ticking from a count, a tracker note or a calendar event.
+- No health, meals, water or personal habits. Those belong to The Plan.
+- No copying of an open Lose into another day.
+- No change to any note while this is a design.
+
+## Open Questions
+None blocking the build. Every question was answered or defaulted on 2026-10-26, see [[Jarvis Decisions Log]].
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Spec - Dashboard Page.md`
+```
+---
+type: project
+status: active
+created: 2026-10-26
+updated: 2026-10-26
+tags:
+  - dashboard
+  - jarvis
+  - spec
+  - ui
+project_kind: spec
+next: "Design final. A build session measures the real full-screen pane size on each laptop first"
+related_progress:
+  - "[[Jarvis Build Hub]]"
+  - "[[Jarvis Decisions Log]]"
+  - "[[Jarvis Spec - Day Model and Streak]]"
+  - "[[Jarvis Spec - Carry Forward]]"
+  - "[[Jarvis Research - Outside Sources]]"
+---
+# Jarvis Spec - Dashboard Page
+## What This Is
+==The Jarvis dashboard is one page that never scrolls vertically, shows the whole working day at a glance, lets Anant tick and edit in place, and rewards a day done right with a number that grows.==
+It is a view inside the `jarvis-dashboard` plugin. It replaces `00_Dashboard.md` and `10_Areas/Jarvis OS Dashboard.canvas` ([[Jarvis Decisions Log]] D23). The data it reads is defined in [[Jarvis Spec - Day Model and Streak]]. What it keeps from the old page is in [[Jarvis Spec - Carry Forward]].
+
+## Current State
+Checked on 2026-10-26.
+- The page is a markdown note with DataviewJS, Meta Bind and Multi-Column Markdown, plus a canvas. Homepage opens the canvas. Both hold the same queries by hand, which [[Jarvis Dashboard Build Record]] lists as known drift.
+- The plugin is not built. The Plan's plugin is the reference: a React view with a scaled grid and inline SVG. Its screens have never been shown real data, because its notes were misnamed ([[Jarvis Research - The Plan Parallel Builds]]).
+- It opens only inside Obsidian, full screen, on the Dell and the Acer ([[Jarvis Decisions Log]] D2, D28).
+
+## The rules of the page
+1. **No vertical scroll, anywhere.** The root and every card use `overflow: hidden` on the vertical axis. No `overflow-y: auto` or `scroll` exists in the styles.
+2. **Horizontal scroll only for written text.** A line Anant wrote (an 80, a 20, a Lose, a block title, a proof line) is one row with `white-space: nowrap` and `overflow-x: auto`, scrollbar hidden. It scrolls by wheel, drag, touchpad or keyboard. Numbers, labels, rings, the heatmap, chips and buttons never scroll in either direction.
+3. **The page scales to fit.** The grid and the font size follow the pane size, so every card fits at any full-screen size above a minimum. Below the minimum a plain banner reads "Window too small". Nothing is hidden to make it fit.
+4. **Everything that ticks stays live.** A tick is one click or the space key. The row changes at once, and the redraw from disk confirms or reverts it.
+5. **Everything written can be edited in place.** Double-click a line to edit its text. Enter saves, Escape cancels. The save uses the same stale-line check as a tick, and fields such as `[for:: 80]` are kept ([[Jarvis Decisions Log]] D45).
+6. **Plain words.** No praise and no guilt. A miss reads "Day 2 of miss. Streak breaks tomorrow." with numbers.
+7. **Every number comes from the engine.** The page computes nothing the engine does not.
+
+## Blocks on the page
+| Block | Shows | Source | Interaction |
+|---|---|---|---|
+| Hero | Streak number, builder level with the next milestone and days to go, floor ring (rows done of rows), wins ring (0 to 4), an at-risk line, the seven day row (Monday to Sunday, today outlined) and one line of week totals (wins, floors, problems, study hours) | Engine | None |
+| Today | The 80, then the 20, each a tick row with its plan pointer | Daily note | Tick, double-click to edit, click the pointer to open the plan |
+| Blocks | The block running now, the next one, planned against tracked minutes, then deadlines due in 7 days | `### Blocks` and `[due::]` on weekly Goals | Tick a block, click to open |
+| Loses and carryover | Open Loses oldest first with age and the count out of 7, then carried work from the session log | `## Daily Loses`, `## Carryover from Previous Sessions` | Tick a Lose to `[x]`, double-click to edit |
+| Pipeline | Applications today and this week out of 10, LeetCode out of 5, study hours | Tracker `date_applied`, `lc_count`, `study_today` | Plus and minus on the two numbers |
+| Projects | Three chips, each an active project's `next:` line | Project notes' frontmatter | Click opens the project note |
+| Heatmap | The last 30 days of floor rows done, today outlined, forgiven days dashed, missing notes faint | Engine | Click a day to open its note |
+| Proof | Yesterday's proof line and today's proof field | `[proof::]` | Type one line, Enter saves |
+| Health chip | Green when clean, red with a count otherwise | `validate`, `doctor` | Click opens the list as a note |
+| Links | Chips for the system notes, Mentorship Board and the plan notes | Config | Click opens |
+
+Not on the page: the clippings count (weekly review), the areas table and the old sync banner ([[Jarvis Spec - Carry Forward]]).
+
+## Layout
+Two layouts chosen by pane shape. The wide layout is the target, because the page runs in full-screen Obsidian.
+
+```
++------------------+----------------------------------+------------------+
+| HERO             | TODAY: the 80 and the 20         | LOSES, n of 7    |
+| streak, level    |                                  | and carryover    |
+| floor ring       +----------------------------------+                  |
+| wins ring        | BLOCKS: now, next, due soon      |                  |
+| 7 day row        |                                  |                  |
++------------------+----------------------------------+------------------+
+| PIPELINE: applications, LeetCode, study hours | PROJECTS chips          |
++-----------------------------------------------+-------------------------+
+| HEATMAP, 30 days             | PROOF            | HEALTH chip | LINKS   |
++------------------------------+------------------+-------------+---------+
+```
+
+The compact layout is two columns. It holds the same blocks and appears only when a split or sidebar makes the pane narrow, below about 720 px wide. It is not a phone layout ([[Jarvis Decisions Log]] Correction 7).
+
+Row limits keep each card inside its cell at the minimum font size: the 80 is one row, the 20 at most four, blocks at most eight, visible Loses at most seven (the cap itself), project chips three.
+
+## Scaling and window sizes
+- The root measures its pane with a ResizeObserver. Font size is the smaller of a width term and a height term, clamped between 11 px and 22 px. The constants are fixed in the build against the sizes below.
+- CSS container query units (`cqw`, `cqh`) are an alternative. They are supported in current Chromium, Safari and Firefox ([[Jarvis Research - Outside Sources]]), and Obsidian's embedded Chromium version is unverified, so the plan is measured scaling as The Plan does.
+- Sizes to hold: full-screen Obsidian on each laptop with sidebars closed. Each laptop's real view size is read once with a debug command that prints the view's `clientWidth` and `clientHeight`. Until then the fixtures are 1920 by 1080, 1536 by 864 and 1366 by 768 less about 40 px of window chrome, which are common Windows laptop sizes and are an assumption.
+- Below 11 px the "Window too small" banner shows.
+
+## Visual system
+- Colours are CSS variables defined in `styles.css` under the class prefix `jd-`, mapped to Obsidian's theme variables so light and dark follow the theme. No colour is hard coded in a script, and a test greps the bundle for hex colours, because The Plan's build broke this rule.
+- Tokens: surface, text, muted text, accent, good, warning, bad, and a six step ramp for the heatmap.
+- The floor ring is red at 0 rows done, orange from 1 row to all rows minus one, and green when all rows are done.
+- Big numbers use the monospace font with tabular digits.
+- The ring animates over 350 ms and pulses once when it completes. `prefers-reduced-motion` turns both off.
+- Every interactive row is a button with a visible focus ring and works from the keyboard. The plugin ships no default hotkeys.
+- Text contrast meets 4.5 to 1 in both themes. A test computes it for each token pair.
+- No `innerHTML`, no inline colour styles.
+
+## Delight, kept small
+- **Builder levels.** The title sits beside the streak and changes at 3, 7, 21, 66 and 100. The research on intact streaks is in [[Jarvis Research - Outside Sources]]. The page shows the intact streak and never a "broken" count.
+- **Proof of the day.** Yesterday's proof shows as "Yesterday you proved: ...". Writing today's takes one line.
+- **Heatmap.** Thirty days, ten columns by three rows in the wide layout and six by five in the compact one.
+- **Pipeline momentum.** "Applications this week: 4 of 10", with the gap stated plainly.
+
+## States and errors
+| State | What the page shows |
+|---|---|
+| Today's note is missing | An empty floor ring and a "Create today's note" button that builds `YYYY-MM-DD.md` from the template |
+| A note in the Daily folder is misnamed | A red banner with the file name and the correct name. The engine ignores the note. |
+| A note has a leftover `<% %>` date | A banner naming the note |
+| The window is too small | The banner from rule 3 |
+| Blocks are missing or the calendar was unavailable | "Blocks not loaded today. Run /startday." |
+| More than 7 open Loses | The chip shows 7 of 7 in red and the eighth is refused at close. If older notes already hold more, the page shows the oldest 7 and a "+N more" chip that opens the oldest in its note. |
+| Time records are not defined or unreadable | The Blocks card shows planned time only |
+| The engine and the screen disagree | The health chip turns red and a debug command prints both |
+| The term has ended | A red health chip until the config has a new term |
+
+## Performance
+Cold launch to a visible page in under 2 seconds on both laptops, as in The Plan's budget. A tick redraws the Hero, Today, Pipeline and Heatmap within one second. The Hero and Today render first and the rest follow.
+
+## How the page is tested
+A layout engine is needed, which jsdom does not have. Three layers:
+1. A style test: no `overflow-y: auto` or `scroll` anywhere, and every card has `overflow: hidden`.
+2. A real-browser test: the built bundle in a static harness page under headless Chromium, at the three fixture sizes, asserting that the root and each card have `scrollHeight` not above `clientHeight`, with worst-case fixtures (7 Loses, 4 twenties, 8 blocks, long text lines). Playwright is the candidate. It has not been verified here.
+3. A live check: a debug command in Obsidian prints `scrollHeight` and `clientHeight` for the root and each card at the laptop's real full-screen size.
+
+## Non-Goals
+- No vertical scroll, no tabs and no pop-up pages that scroll.
+- No calls to Google, Todoist, Toggl or any outside service from the plugin.
+- No personal-life content: no health, meals, water or relationships.
+- No phone build and no phone layout.
+- No chart that cannot be read at the minimum size.
+- No default hotkeys.
+
+## Open Questions
+None blocking the build. The real pane sizes are measured at the start of the build, as planned above.
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Spec - Plans Feed.md`
+```
+---
+type: project
+status: active
+created: 2026-10-26
+updated: 2026-10-26
+tags:
+  - dashboard
+  - jarvis
+  - spec
+  - plans
+project_kind: spec
+next: "Design final. The 2026-12-24 term review is the first real use"
+related_progress:
+  - "[[Jarvis Build Hub]]"
+  - "[[Jarvis Decisions Log]]"
+  - "[[Jarvis Spec - Day Model and Streak]]"
+  - "[[Jarvis Spec - Automation Layer]]"
+---
+# Jarvis Spec - Plans Feed
+## What This Is
+==Every plan keeps one owner note, and the daily note holds only a one-line pointer to it, so planning feeds the day without a second copy.==
+This note says how the standing plans (the Fall 2026 plan, the weekly note, project plans, mentorship plans, UMN course boards and the career pipeline) become the 80, the 20 and the floor of one day, and how a day's Loses shape the next one. It follows [[Plan Standard]] for what a plan is.
+
+## Current State
+Checked on 2026-10-26.
+- The Fall 2026 Plan has a Systems table of 22 tracks, each with a cadence and a done-definition. Three run daily: the application floor, LeetCode and CodePath, and the class step. The rest run weekly, monthly or once. It also has a week-by-week One Hard Thing table. Source: `10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan.md`.
+- [[2026-W44]] holds the week: daily Goals, three groups of "The 80" (UMN, Development, Others), Friday checkpoints, carried items and a calendar format.
+- The [[Daily Note Standard]] says the 80 and the 20 come from the weekly Goals and the calendar, not from memory.
+- The Plans Board says the Fall plan ends 2026-12-14. Anant's answer is 2026-12-24 ([[Jarvis Decisions Log]] D14).
+- Mentorship plans are `Plan - Ahnaf` and `Plan - Jesse` in `20_Progress/Mentorship Program/Plans/`. The dashboard note records one must-do: the Jesse outreach email, due 2026-11-02.
+- Course material is under `20_Progress/Degree/`, with a board per course and `_Courses/_Courses Board.md`.
+- Nothing in this note is built.
+
+## Single ownership
+Each plan family has one owner, one thing it supplies and one pointer in the day.
+
+| Plan family | Owner note | Supplies | Surfaces as | Written by | Drift guard |
+|---|---|---|---|---|---|
+| Term plan | Fall 2026 Plan | The floor rows, the One Thing frame, the One Hard Thing of the week | `[plan:: Fall 2026 Plan]` on the 80 or a floor row | Anant | The health chip turns red at the term end |
+| The week | The weekly note | Goals, Friday checkpoints, deadlines | The chosen Goal as the 80, one line | Anant, with Claude proposing | A 20 whose 80 is gone fails `validate` |
+| Project plans | The project note's `next:` and Log | The next action of each project | An 80 or 20 line with `[plan:: project]`, and a project chip | Anant | The chip shows the live `next:` |
+| Mentorship | `Plan - Ahnaf`, `Plan - Jesse` | Meetings, outreach, the actions from each meeting | A 20 from `/note-to-actions`, a `[due::]` line | Anant | The meeting actions go to the weekly note, not a second list |
+| UMN courses | Course boards, `Fall'26 Syllabus` | Assignment and exam dates | `[due::]` on a weekly Goal | Anant | Dates come from the board, never from a calendar title |
+| Career pipeline | Tracker notes in `Each One/` | Applications and their dates | Nothing in the note. The page reads `date_applied`. | Anant | `date_applied` only on a finished application |
+| Courses and certifications | `_Courses Board` | The course queue | A 20 or a floor `class` line | Anant | The board owns the order |
+| Clubs, hackathons, networking | The Fall plan rows, the Hackathons note | Counts and dates | A weekly Goal | Anant | One count in one place |
+| Dev projects | Project notes under `20_Progress/Projects` | The development 80 | An 80 line with a plan pointer | Anant | Dev work starts after 6 pm, per [[2026-W44]] |
+
+Personal plans, including resolutions, belong to The Plan and do not appear here ([[Jarvis Decisions Log]] D7).
+
+## How the 80 is chosen
+1. `/startday` reads the previous day's preview (below), the weekly Goals, the week-by-week table, today's Blocks and any `[due::]` within seven days.
+2. It proposes up to three candidates. The order is the Fall plan's One Thing first, then a hard deadline, then the open Goal that has slipped longest.
+3. Anant picks or edits one. It is written as one line: "I will [behavior] at [time] in [place]."
+4. If the One Thing is applications, the 80 is the day's application count. The floor row still reads one company moved.
+Anant decides the 80. The skill never chooses alone.
+
+## How the 20 is chosen
+1. The 20 supports the 80 on that day. It is the set of tasks without which the 80 cannot finish, so the extra work is done with respect to it ([[Jarvis Decisions Log]] D13). If the 80 is five applications, the 20 is the cover letters, the resume edits and the other Jarvis work that make those five ready.
+2. The skill derives candidates by reading the 80's own plan note and listing its unfinished prerequisites.
+3. It writes two to four lines, each with `[for:: 80]`.
+4. A task that does not serve the 80 is not a 20. It goes to the weekly Goals or becomes a Lose.
+5. When the 80 changes during the day, the 20 is rewritten to match and the old lines are marked `[-]` with a reason.
+
+## Recalculation from the day's Loses
+A Lose is not pushed to the next day ([[Jarvis Decisions Log]] D24). The next day is recalculated from it.
+1. At `/closeday`, for each new Lose the skill reads its `why` and `fix`.
+2. It writes a preview under End of Day, as the Standard's `Preview Tomorrow`: the 80 candidate that follows from what slipped, and at most four 20 lines, each derived from a `fix` that is an action.
+3. A `fix` that is a change of environment, such as "laptop opens on DSA.md", becomes a 20 line only when it can be done in the day. Otherwise it stays in the Lose.
+4. In the morning `/startday` builds the day from the preview, the weekly Goals and the calendar. Anant approves the 80 and the 20.
+5. The Lose stays open in its own note until made up or dropped. The cap is 7.
+
+## Pipeline momentum
+- The weekly target is 10 applications, each complete and correct ([[Jarvis Decisions Log]] D15).
+- The count is the number of tracker notes whose `date_applied` falls in the current ISO week, Monday to Sunday ([[Jarvis Decisions Log]] D33). The page shows "n of 10".
+- The daily floor row is one application. The gap to 10 is shown, not enforced.
+
+## The term end
+On 2026-12-24 the Fall 2026 plan closes. Whatever is done is done. A short review, written in the weekly note, decides which Systems rows continue, which stop and which floor rows change ([[Jarvis Decisions Log]] D42). The config table in [[Jarvis Spec - Day Model and Streak]] then gets a new term. The streak carries over, because it counts the floor and not the term.
+
+## Failure modes
+| Trigger | Effect | Smallest fix |
+|---|---|---|
+| The weekly note has no Goals for the week | The 80 has no source | `/startday` says so and asks for the 80 by hand |
+| The 80 has no plan note | The 20 cannot be derived | The skill asks for the prerequisites once and writes them |
+| A plan changes and the daily line keeps the old text | Two versions exist | The line holds a pointer, and `validate` flags a 20 whose 80 was dropped |
+| The term ends and the config is not updated | The page shows rows of a closed plan | The health chip is red from 2026-12-24 |
+| An application is counted before it is complete | The count overstates | `date_applied` only on a finished application |
+| A Lose's `fix` is a wish | The preview has nothing to derive | `/closeday` asks for one concrete change and writes `(unanswered)` otherwise |
+| Dev work starts before 6 pm | The weekly rule breaks | It shows as a missed Blocks line and becomes a Lose |
+
+## Non-Goals
+- No plan text is copied into the daily note.
+- No new plan is created and no existing plan note is edited by this design.
+- No automatic choice of the 80.
+- No personal plan in Jarvis.
+- No copying of Loses between days.
+
+## Open Questions
+None blocking the build. The 2026-12-24 review is scheduled by the plan itself.
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Spec - Automation Layer.md`
+```
+---
+type: project
+status: active
+created: 2026-10-26
+updated: 2026-10-26
+tags:
+  - dashboard
+  - jarvis
+  - spec
+  - automation
+project_kind: spec
+next: "Design final. Nothing is built until the manual versions have run clean for two weeks, and the time reader waits for The Plan's time design"
+related_progress:
+  - "[[Jarvis Build Hub]]"
+  - "[[Jarvis Decisions Log]]"
+  - "[[Jarvis Spec - Plans Feed]]"
+  - "[[Jarvis Verification and Risks]]"
+  - "[[Jarvis Research - Outside Sources]]"
+---
+# Jarvis Spec - Automation Layer
+## What This Is
+==The automation layer makes the Jarvis day easier on the calendar and on later platforms, with no tokens in the plugin, no silent writes and no personal content crossing from The Plan.==
+It is a design. It covers how today's calendar reaches the page, how a planned block reaches the calendar, how time spent is read from The Plan, the step-by-step day and what is left open for later transports. Nothing here is built ([[Jarvis Decisions Log]] D21).
+
+## Current State
+Checked on 2026-10-26.
+- The connector is the claude.ai Google Calendar integration, acting as `gupt0479@umn.edu`. It cannot read the vault and the vault cannot call it. Its tools, limits and the ten calendars on the account are in [[How to Use Google Calendar]], checked against the live account on 2026-10-25.
+- The working calendar is a plain Google calendar named "Todoist" (id starts `c_2195`). It does not sync with Todoist. The guide suggests renaming it "Blocks".
+- The guide's rules for writes: read before writing, write only to the working calendar, leave meetings alone, silence every write with `notificationLevel: NONE`, use the five-line event format, set a 5 minute popup, propose a week's blocks in the weekly note and get a yes before bulk creation, and re-list the week after writing.
+- The UMN class blocks are not visible to the connector.
+- The Daily Note Standard already has a `### Blocks` heading, filled by `/startday` from today's calendar, read only.
+- Toggl is used in The Plan. The Plan has no note or design for it yet ([[Jarvis Research - The Plan Parallel Builds]]). Time is to be calculated in two places there ([[Jarvis Decisions Log]] D19).
+- The Plan's daily template changed on 2026-10-26 and its structure is still open (Decision 51 in The Plan). The Plan says it already reads Jarvis's dashboard, weekly, monthly and plan notes on its own daily, weekly and planned runs. That statement is Anant's and is not verified in the vault.
+- Todoist is out of the Jarvis design ([[Jarvis Decisions Log]] D18).
+
+## The principle
+The plugin only reads Jarvis. Claude is the bridge to every outside service. The daily note is the hand-off: Claude writes a line and the plugin shows it. Tokens, expiry and failures stay out of the plugin, and a failed call leaves the page honest rather than blank. Jarvis never writes to The Plan.
+
+## The day, step by step
+| When | Trigger | Actor | Reads | Writes | Approval | Breaks when |
+|---|---|---|---|---|---|---|
+| Evening, before close | Anant runs `/closeday` | `/closeday` | Toggles' replacement lines, Blocks, The Plan's time records, the weekly Goals | `wins_done`, `floors_done`, `study_today`, Loses, End of Day, the preview for tomorrow, `[spent::]` on Blocks, `day_state: closed` | One block of questions, then one list of writes and a yes | Node or the CLI is missing: it stops |
+| Night | Anant | Nobody | | Tomorrow's note is created by the plugin's Create button or `/startday` | None | The note is missing at midnight and the day is a MISS |
+| Morning | Anant runs `/startday` | `/startday` | The preview, weekly Goals, today's calendar, `[due::]` lines | The 80, the 20, wins, floor, `### Blocks` | A proposal for the 80 and the 20, a yes | The connector is down: "connector unavailable" |
+| During the day | Anant opens Obsidian | The plugin | The daily note, tracker `date_applied` | A tick, an edit, a number, the proof line | None | A stale line is refused and the row reverts |
+| Sunday | Anant runs the weekly review | `/weekly-review`, calendar planning | The week, the Goals | A table of proposed blocks in the weekly note, then calendar events after a yes | A yes before any bulk create | A wrong count after writing: re-list and report |
+| 2026-12-24 | The term ends | Anant, Claude | The Fall plan, the floor config | A term review in the weekly note, a new config term | A yes | The config is not updated |
+
+## Layer 1: Today's blocks onto the page
+1. `/startday` reads the primary calendar and the working calendar for today, read only, and writes `### Blocks` lines: time, title, `[cal:: id]`.
+2. The plugin reads those lines and shows the block that is running now, the next one and the deadlines due in 7 days.
+3. If the connector was unavailable, the section says "connector unavailable", as the Standard requires, and the page says "Blocks not loaded today. Run /startday."
+4. A block that passed with no tick is not decided by the page. At close it becomes a candidate Lose.
+Only the primary calendar and the working calendar are read. The other eight are ignored, as the guide says. The class blocks stay anchors read from the course boards.
+
+## Layer 2: Planned blocks onto the calendar
+1. Sunday planning, after the weekly Goals exist: Claude lists the week, proposes the blocks as a table in the weekly note and waits for a yes.
+2. After the yes it creates the blocks on the working calendar in the five-line format, then re-lists the week and reports the exact count.
+3. `/closeday` may move one missed block into the next free slot without a table, as the guide allows.
+4. Meetings are never moved. Prep blocks are placed before them. A block that cannot fill the WHAT line is not created.
+Calendar writes stay manual: one tap, one approval, one count.
+
+## Layer 3: Time, read from The Plan
+Time is calculated in two places in The Plan, both read only by Jarvis ([[Jarvis Decisions Log]] D19, D20).
+1. **The overview** in The Plan's daily note: a summary of what happened that day.
+2. **Detailed time logs**, a folder of notes with per-task time, so that Jarvis and The Plan can both take a detailed account.
+
+### The reader
+- Skills never open The Plan's notes. They call `dashboard-cli plan-time <date>`.
+- The CLI reads the files in Node and prints only fields from an allowlist: the configured time headings and the time log folder. Every other heading is dropped in the same step and never reaches Claude's context or a Jarvis note. Personal content therefore does not appear in the Jarvis workflow.
+- The allowlist and The Plan's path are config, set per machine ([[Jarvis Architecture]]).
+- The reader never writes, and Jarvis never writes to The Plan.
+- Whether Jarvis's own hooks allow the read is tested before the reader is relied on ([[Jarvis Verification and Risks]]).
+
+### What Jarvis uses it for
+- `study_today`, proposed at close and confirmed by Anant.
+- `[spent:: minutes]` on each Blocks line, so the page shows planned against tracked time.
+- The consistency agent, which compares both days read only and reports mismatches: study hours that disagree, a block ticked with no time in The Plan, one piece of work counted twice. It writes nothing.
+
+### What The Plan must define first
+The Plan's own build owns these. Until they exist, `plan-time` returns `{"status":"not_defined"}` and the page shows planned time only.
+1. The heading in The Plan's daily note that holds the time overview.
+2. The path and naming of the time log folder.
+3. The entry format. A proposal that matches Blocks lines: `- HH:MM-HH:MM task label [proj:: name]`, so a time entry matches a block by overlap.
+4. When entries are written, live or at close.
+Toggl's own API is not used by Jarvis. For reference, its time entries list returns at most 1000 entries and detailed reports page at 50 entries ([[Jarvis Research - Outside Sources]]). The Plan decides how Toggl data reaches its notes.
+
+## Layer 4: Later transports
+Apple Reminders, Zapier and further MCP servers are not designed. The rule for choosing is fixed now so the choice stays simple:
+1. Each type of task has one owner: the daily note, the calendar or one reminders app. Nothing is written to two places.
+2. A transport must work with the laptop off, or say plainly that it does not.
+3. A transport makes one kind of write, and a failure is visible in the note the next morning.
+4. A transport the vault cannot test is not built.
+Todoist is not a candidate.
+
+## Scheduling
+Everything above is manual or one tap until the manual version has run clean for two weeks. This matches Decision 40 in The Plan's record. A scheduled run, if one ever exists, needs a dry run, a log entry and a kill switch, and writes only the section it owns.
+
+## Failure register
+| Trigger | Effect | What Anant sees | Detection | Smallest fix |
+|---|---|---|---|---|
+| The calendar token expires | `### Blocks` stays empty | "Blocks not loaded today" | `/startday` reports the error | Reconnect the connector |
+| A calendar write creates the wrong count | Duplicates or gaps in the week | A wrong count in the report | Re-list after writing, per the guide | Delete the duplicate by hand, since Claude does not delete |
+| Time zone mix | A block shows an hour off | The strip is wrong | A test with a Winnipeg and an India event | Trust the offset, not the zone label |
+| Two laptops write the same daily note | One edit is lost | A tick reverts | The stale-line check refuses | Re-tick, or use one laptop per day |
+| The class blocks are invisible | The strip omits lectures | Missing lectures | Known limit in the guide | Add lecture anchors to the weekly note |
+| The Plan has no time records | `study_today` stays typed | No tracked time per block | `plan-time` status | Type the number |
+| The Plan's headings change | The allowlist finds nothing | `plan-time` returns an empty result | `doctor` compares the allowlist with the live headings | Update the allowlist in config |
+| The reader leaks a non-allowlisted heading | Personal text enters Jarvis | Text in a Jarvis note | A test feeds a Plan note with private headings and asserts none are in the output | Fix the reader before use |
+| A skill writes the wrong section | A heading holds foreign lines | The validator reports it | `validate` | Fix by hand, the validator never rewrites |
+| The Plan's path differs on the other laptop | The reader finds nothing | `not_defined` or an error | `doctor` | Set the path per machine |
+
+## Non-Goals
+- No Toggl, Todoist or other service called by the plugin.
+- No scheduled or unattended run in this build.
+- No deleting of calendar events.
+- No writes to The Plan.
+- No reading of any Plan heading outside the allowlist.
+- No phone reminders until a transport is chosen.
+
+## Open Questions
+None blocking the build. The four items under What The Plan must define first are The Plan's design work, tracked in [[Jarvis Build Hub]] as dependencies.
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Spec - Carry Forward.md`
+```
+---
+type: project
+status: active
+created: 2026-10-26
+updated: 2026-10-26
+tags:
+  - dashboard
+  - jarvis
+  - spec
+  - migration
+project_kind: spec
+next: "Design final. Retirement of the old page happens only after a clean fortnight and on Anant's word"
+related_progress:
+  - "[[Jarvis Build Hub]]"
+  - "[[Jarvis Decisions Log]]"
+  - "[[Jarvis Spec - Dashboard Page]]"
+  - "[[Jarvis Plugin Retirement List]]"
+---
+# Jarvis Spec - Carry Forward
+## What This Is
+==Every block of the current Jarvis dashboard has a decided fate in the plugin, so nothing disappears by accident.==
+The current setup is `00_Dashboard.md`, `10_Areas/Jarvis OS Dashboard.canvas`, the `dashboard.css` snippet, the daily template and the skills. This note lists each part and where it goes. [[Jarvis Build Overview]] describes the current setup and [[Jarvis Dashboard Build Record]] gives its history.
+
+## Current State
+Checked on 2026-10-26. `00_Dashboard.md` and the canvas were both rebuilt that day to read today's daily note and every note's open Loses. Homepage opens the canvas. Inline DataviewJS is off in settings.
+
+## Blocks of the old page
+| Old block | Source today | Fate in the plugin |
+|---|---|---|
+| Sync alert banner | Embed of a banner note | Folded into the health chip ([[Jarvis Decisions Log]] D29). The embed stays on the old page until it retires. |
+| Current focus (`today_focus`, `today_80`, `today_20`) | Three frontmatter fields on the page, patched by the skills | Retired. The page shows the 80 and the 20 from the daily note, so the skills stop patching these fields. |
+| Wins `n/4` and Floor `n/3` tiles | Frontmatter booleans | The two rings, counted from checkbox lines |
+| Problems and Study Hours | `lc_count`, `study_today` | Pipeline block with plus and minus |
+| Open Loses tile and list | Open tasks under Daily Loses in any note | Loses block. Ticking writes back to the source line. Capped at 7. |
+| This Week roll-up | Notes from Monday to today | Seven day row and one totals line in the hero ([[Jarvis Decisions Log]] D30). The clippings count goes to the weekly review. |
+| Today's Priorities | Open tasks outside Loses | The 80 and the 20, which hold exactly that |
+| Wins and Floor bars | Meta Bind and DataviewJS | The two rings |
+| Active Projects | Dataview over `20_Progress` | Three chips showing each project's `next:` ([[Jarvis Decisions Log]] D31) |
+| Internship Pipeline | Dataview over the tracker | Pipeline block, from `date_applied` |
+| Clippings Queue | Count in `60_Claude/05_Clippings` | Moves to the weekly review ([[Jarvis Decisions Log]] D31) |
+| Vault Health | Notes missing `type` or `status` | Behind the health chip, as a count ([[Jarvis Decisions Log]] D29) |
+| System, Claude OS, AI and Daily OS link rows | Static wikilinks | Links block |
+| Mentorship must-do (Jesse outreach, 2026-11-02) | A typed line on the page | A `[due::]` line on a weekly Goal, shown in the Blocks strip |
+| 10_Areas Overview table | Typed table | Stays in `00_Dashboard.md` until it retires, then moves into `Jarvis Vault Architecture` ([[Jarvis Decisions Log]] D32) |
+
+Every block has a fate, so nothing is lost. Three leave the daily page on purpose: the clippings count, the areas table and the sync banner strip.
+
+## The canvas
+The canvas has ten text nodes and no edges. It retires with the page. No exploration canvas is kept ([[Jarvis Decisions Log]] D23).
+
+## Template and skills
+| Part | Change |
+|---|---|
+| [[Better Today]] | Rewritten to the shape in [[Jarvis Spec - Day Model and Streak]]. The two Meta Bind tables become checkbox lists and the frontmatter booleans go. `## Proof of the day` is added. |
+| [[Daily Note Standard]] | Patched: line formats, the new fields, the Loses lifecycle and the cap, the optional Proof heading, the validator rules. A patch to a standard needs Anant's approval first. |
+| [[Daily Close Loop]] | Patched: Loses stay in place, the preview for tomorrow, the cap check, the time read. Needs approval. |
+| `/startday` | Writes the 80, 20, wins, floor and Blocks as lines. Builds the day from the preview. Stops patching the `today_*` fields. |
+| `/closeday` | Counts ticked lines. Asks the why and the fix. Writes the preview. Fills `[spent::]` and proposes `study_today` through `dashboard-cli plan-time`. Refuses to close with more than 7 open Loses. |
+| `daily-operator` agent | Updated to the new shape |
+| `.agents/skills/startday` and `closeday` | Left alone. `.claude` is canonical ([[Jarvis Decisions Log]] D41). |
+
+## Old notes
+- The 87 notes with Meta Bind inputs stay as history ([[Jarvis Decisions Log]] D40). Removing Meta Bind turns their inputs into raw text ([[Jarvis Plugin Retirement List]]).
+- The engine ignores old-shape days.
+
+## Retirement order
+1. The plugin ships and passes the acceptance list in [[Jarvis Verification and Risks]] on both laptops.
+2. It runs clean for a fortnight.
+3. Anant says to retire the page. Homepage is repointed by Anant through the settings screen, since the Homepage settings are under `.obsidian`.
+4. The areas table moves into `Jarvis Vault Architecture` with a link-aware move.
+5. `00_Dashboard.md` and the canvas are moved to the archive folder only on Anant's word, with a link-aware move and a link check.
+6. Plugin removals follow, one at a time, from Anant's own decisions on [[Jarvis Plugin Retirement List]].
+
+## Non-Goals
+- No change to any note in this design.
+- No removal of a plugin, snippet or setting.
+- No merge of the canvas and the page before the plugin exists.
+- No move of personal-life content into Jarvis.
+
+## Open Questions
+None blocking the build.
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Architecture.md`
+```
+---
+type: project
+status: active
+created: 2026-10-26
+updated: 2026-10-26
+tags:
+  - dashboard
+  - jarvis
+  - spec
+  - architecture
+project_kind: spec
+next: "Design final. A build session creates the repository on the Acer"
+related_progress:
+  - "[[Jarvis Build Hub]]"
+  - "[[Jarvis Decisions Log]]"
+  - "[[Jarvis Spec - Day Model and Streak]]"
+  - "[[Jarvis Verification and Risks]]"
+  - "[[Jarvis Research - Outside Sources]]"
+---
+# Jarvis Architecture
+## What This Is
+==The Jarvis dashboard is three replaceable layers: the daily notes as data, a pure TypeScript engine, and a React view, plus a command-line program that gives Claude the same numbers the screen shows.==
+It follows the structure of The Plan's plugin, which worked in its tests, and adds guards for the faults that plugin met in practice. The two plugins share no code ([[Jarvis Decisions Log]] D1).
+
+## Current State
+Checked on 2026-10-26.
+- Jarvis is a git repository with remote `https://github.com/gupta-builds/Jarvis.git`. Commits are auto-sync commits. The Dell and the Acer sync through it.
+- `.gitignore` ignores `workspace.json`, caches, the `data.json` of three plugins and `.claude/settings.json`. It does not ignore `.obsidian/plugins/jarvis-dashboard/`. A `git check-ignore` test found `main.js` would be tracked. Twenty-five plugin folders are tracked today.
+- Obsidian Sync is off in the core plugin list.
+- `30_Order/System/` holds `claude-workflow`, `cursor-workflow`, `excalidraw-mcp`, `jarvis-cli`, `jarvis-memory`, `sync-workflow` and `vault-lint`. `jarvis-cli` holds `jarvis.ps1`, `jarvis_ops.py` and a README, so it is taken.
+- The Plan's plugin repository, `D:\_Anant\20_Progress\Projects\the-plan-dashboard`, has 3 commits and no remote. Its engine has 87 tests. Its deployed build predates two later changes. An old copy of `.claude` overwrote its skills and hooks on 2026-10-16 because two laptops auto-synced ([[Jarvis Research - The Plan Parallel Builds]]).
+- Nothing in this note is built.
+
+## Layers
+| Layer | What it is | Replaceable because |
+|---|---|---|
+| Data | Daily notes `YYYY-MM-DD.md` in `10_Areas/Life/Enumerate/Daily/`, the weekly note, tracker notes. Plain markdown. | The plugin can be disabled and nothing is lost |
+| Engine | Pure TypeScript in `src/core/`. It imports nothing from Obsidian or Node. Text in, numbers out. | The plugin and the CLI run the same file |
+| View | A React 19 view that draws the page from the engine's model | It holds no rule of its own |
+| CLI | `dashboard-cli`, the engine bundled for Node | Claude's skills read its JSON and never compute a number |
+
+## Engine modules
+`parse` (lines, fields, headings), `streak` (the rule in [[Jarvis Spec - Day Model and Streak]]), `edit` (replace one line with the stale-line check, keeping LF or CRLF), `config` (floor rows per term, milestones and titles, folder names, term end, the allowlist for The Plan), `periods` (ISO weeks and months), `validate` (the eleven rules), `loses` (open Loses across notes, age, cap), `blocks` (parse `### Blocks`, find now and next, join `[spent::]`), `pipeline` (count `date_applied` in a week), `planTime` (allowlisted extraction from The Plan's text), `model` (everything the page needs in one call).
+
+## Plugin
+- Id `jarvis-dashboard`. Name "Jarvis dashboard". `isDesktopOnly: true` ([[Jarvis Decisions Log]] D26). Never submitted to the community directory.
+- `isDesktopOnly: true` allows Node and Electron APIs. Version 1 uses none. The Plan is read only through the CLI.
+- Three write primitives and no others, defined in [[Jarvis Spec - Day Model and Streak]]: replace one line, change a frontmatter number, create today's note.
+- Obsidian rules from the research ([[Jarvis Research - Outside Sources]]): register vault events inside `workspace.onLayoutReady`, because `create` also fires for every existing file at load. Read with `read` before a modification and with `cachedRead` for display. Edit with `Vault.process` and `processFrontMatter`, both atomic. Find the view with `getLeavesOfType`, never store a view instance. Use `normalizePath` on every path. Register every event and interval.
+- Reads tracker `date_applied` through the metadata cache and refreshes on the cache's `changed` event, which is not called on rename, so it also listens to the vault `rename` event.
+- Interface rules: no `innerHTML`, `this.app` only, sentence case in the interface, no default hotkeys.
+- React 19 ([[Jarvis Decisions Log]] D25). First paint is measured against the 2 second budget.
+
+## Command-line program
+`dashboard-cli`, bundled for Node and deployed to `30_Order/System/dashboard-cli/` ([[Jarvis Decisions Log]] D43). Each command prints JSON and writes nothing.
+| Command | Prints |
+|---|---|
+| `streak <dailyFolder> <date>` | Current, best, floor rows done, at risk, 30 days of status |
+| `day <dailyFolder> <date>` | One day's lines and marks |
+| `week <date>` | ISO week totals: days, wins, floors, problems, study, applications |
+| `validate <note>` | Breaches of the eleven rules |
+| `loses <dailyFolder>` | Open Loses across notes, age and count out of 7 |
+| `plan-time <date>` | Allowlisted time overview and time log entries from The Plan, or `not_defined` |
+| `doctor` | Misnamed notes, leftover placeholders, plugin version against the repo, the allowlist against The Plan's live headings, skills, agents and hooks present, the term config date |
+
+`doctor` exists because of The Plan's two silent failures: misnamed notes and an overwritten `.claude`.
+
+## Config
+One exported object, per machine where needed.
+| Key | Holds |
+|---|---|
+| `floorRows` | The term table: `application`, `practice`, `class` for Fall 2026 |
+| `termEnd` | 2026-12-24 |
+| `milestones`, `milestoneTitles` | 3, 7, 21, 66, 100 and The Plan's titles |
+| `loseCap` | 7 |
+| `weeklyApplicationTarget` | 10 |
+| `heatDays` | 30 |
+| `dailyFolder`, `weeklyFolder`, `trackerFolder` | The Jarvis folders |
+| `planVaultPath` | The Plan's path, set on each laptop |
+| `planAllowlist` | The headings and the time log folder the reader may take. Empty until The Plan defines them. |
+| `projectChips` | The three project notes whose `next:` shows |
+
+## Repository, build and deploy
+- The repository lives on the Acer ([[Jarvis Decisions Log]] D27). The path is chosen on the Acer when the build starts. The Dell receives only the built files, through git.
+- A private GitHub repository for the source is recommended, because The Plan's plugin repository has no remote and its source exists on one laptop only. It is created only after Anant says yes.
+- Commands: `npm run dev`, `npm test`, `npm run build`, `npm run build:cli`, `npm run deploy`, `npm run deploy:cli`. Deploy copies `main.js`, `manifest.json` and `styles.css` to `.obsidian/plugins/jarvis-dashboard/` and the CLI to `30_Order/System/dashboard-cli/`.
+- The vault copy of the plugin is never edited by hand.
+- A write under `.obsidian` needs Anant's yes each time.
+
+## Tests
+- Golden month fixtures with values worked out by hand before any engine code: a milestone, a forgiven miss, a break, a missing note, a month boundary and a leap year.
+- One unit test per validator rule, per streak edge and per Loses rule (cap, age, `[>]` read as closed).
+- Edit tests: one line changes, LF and CRLF are kept, a stale line is refused, frontmatter bytes stay identical, an edit keeps `[for::]`.
+- The three page tests in [[Jarvis Spec - Dashboard Page]]: style, real browser, live.
+- A reader test: a Plan note with private headings goes in and the output holds only allowlisted fields.
+- A grep test that the bundle has no hard-coded hex colour.
+- A debug command that prints the screen's numbers, compared with `dashboard-cli` for the last 30 days.
+
+## Guards for two laptops
+1. The health chip shows the plugin version and build stamp, and `doctor` compares them with the repo.
+2. `doctor` checks the skills, agents and hooks, so a stale overwrite shows within a day.
+3. A plugin build travels through git. A stale tree on the other laptop can overwrite it, so each release is checked on both laptops.
+4. Jarvis's auto-sync is not changed by this build.
+
+## Non-Goals
+- No shared code with The Plan's plugin.
+- No phone build.
+- No outside service called from the plugin.
+- No community-directory submission.
+- No change to Jarvis's sync or hooks.
+- No validator hook in version 1 ([[Jarvis Decisions Log]] D44).
+
+## Open Questions
+None blocking the build.
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Research - Outside Sources.md`
+```
+---
+type: reference
+status: seed
+created: 2026-10-26
+updated: 2026-10-26
+tags:
+  - dashboard
+  - jarvis
+  - research
+reference_kind: research
+notes:
+  - "[[Jarvis Build Hub]]"
+  - "[[Jarvis Architecture]]"
+  - "[[Jarvis Spec - Dashboard Page]]"
+  - "[[Jarvis Spec - Day Model and Streak]]"
+  - "[[Jarvis Spec - Automation Layer]]"
+---
+# Jarvis Research - Outside Sources
+==What the web and the typed Obsidian documentation say about each specific the Jarvis design leans on, how sure each finding is, and what it changed.== All pages were read on 2026-10-26 through search results and the Obsidian API documentation index. Findings marked Secondary come from a summary and not from the primary page.
+
+## Obsidian plugin API
+| Topic | Finding | Source | Confidence | What it changes |
+|---|---|---|---|---|
+| `Vault.process` | Atomically reads, modifies and saves a note. The callback is synchronous and returns the new text. | [Vault.process](https://docs.obsidian.md/Reference/TypeScript+API/Vault/process), [Vault API](https://github.com/obsidianmd/obsidian-api/blob/master/_autodocs/api-reference/vault.md) | High. Locking against external disk changes is not described. | Every tick and edit uses it, with a stale-line check on top, because atomic does not mean the line is still the one the page saw. |
+| `read` and `cachedRead` | `read` reads from disk and is for content you will modify. `cachedRead` is for display. | [obsidian.d.ts](https://github.com/obsidianmd/obsidian-api/blob/master/obsidian.d.ts) | High | The page displays from `cachedRead`. The edit path re-reads before checking a line. |
+| `processFrontMatter` | Atomically changes a note's frontmatter. The note must be markdown. It can throw a YAML parse error. | [processFrontMatter](https://docs.obsidian.md/Reference/TypeScript+API/FileManager/processFrontMatter) | High | Used only for `lc_count` and `study_today`, with errors handled. |
+| `processFrontMatter` bug report | A forum user reported that from Obsidian 1.5.5 it did not insert the frontmatter delimiters on a new file. No resolution found. | [Forum thread](https://forum.obsidian.md/t/processfronmatter-not-inserting-in-frontmatter/76982) | Low, one report | The create-note path writes the whole frontmatter from the template and does not rely on `processFrontMatter` for a new file. |
+| Vault events at load | `create` also fires for every existing file at initial load. Register inside `Workspace.onLayoutReady`. | [Vault API](https://github.com/obsidianmd/obsidian-api/blob/master/_autodocs/api-reference/vault.md) | High | The plugin registers `create`, `modify`, `delete` and `rename` inside `onLayoutReady`. |
+| Metadata cache events | `changed` fires when a file is indexed and is not called on rename. | [MetadataCache API](https://github.com/obsidianmd/obsidian-api/blob/master/_autodocs/api-reference/metadata-cache.md) | High | The tracker count listens to `changed` and to the vault `rename` event. |
+| Views and leaves | `onLayoutReady` runs at once if the layout is ready. `revealLeaf` brings a leaf forward and should be awaited. | [Workspace API](https://github.com/obsidianmd/obsidian-api/blob/master/_autodocs/api-reference/workspace.md) | High | The open command finds the leaf by type, never stores a view. |
+| Desktop only | A plugin that uses Node modules such as `fs`, `crypto` or `os` must set `isDesktopOnly` to true. | [Submission requirements](https://docs.obsidian.md/Plugins/Releasing/Submission+requirements+for+plugins), [Manifest](https://docs.obsidian.md/Reference/Manifest) | High | `isDesktopOnly: true` is allowed, and version 1 still uses no Node API. |
+| `isDesktopOnly` reset | A forum user reported that a plugin update reset a manually set value. | [Forum thread](https://forum.obsidian.md/t/when-updating-a-plugin-dont-reset-the-isdesktoponly-value-in-manifest-json/108368) | Low, user report | The manifest is checked by `doctor` after each deploy. |
+| Homepage | Runs any Obsidian command when it opens the homepage. | [Homepage listing](https://community.obsidian.md/plugins/homepage) | Medium | The route is a command that opens the plugin view. |
+
+## Layout
+| Topic | Finding | Source | Confidence | What it changes |
+|---|---|---|---|---|
+| Container query units | `cqw`, `cqh`, `cqi`, `cqb`, `cqmin` and `cqmax` size things relative to a query container. `cqh` needs `container-type: size`. | [Can I use](https://caniuse.com/css-container-query-units), [Frontend Masters](https://frontendmasters.com/blog/container-queries-and-units/) | Medium | Kept as an alternative to measured scaling. |
+| Support | Chromium from about version 105, Firefox from 110, Safari from 16. | [Can I use](https://caniuse.com/mdn-css_types_length_container_query_length_units) | Medium, a dated snapshot | Obsidian's bundled Chromium version is unverified, so measured scaling is the plan. |
+| `clamp()` with container units | No source found for the exact pattern. | | Unverified | Not relied on. |
+
+## Habits and streaks
+| Topic | Finding | Source | Confidence | What it changes |
+|---|---|---|---|---|
+| Habit time | Lally and colleagues found a median of 66 days to reach automaticity, with a range of 18 to 254 days. | [UCL news, 2009](https://www.ucl.ac.uk/news/2009/aug/how-long-does-it-take-form-habit) | Secondary. The 2010 paper was not retrieved. | The 66 day milestone in the streak table is grounded, and the page does not promise 66 days for everything. |
+| One miss | The researchers reported that missing one opportunity did not materially affect habit formation, while a pattern of skipping did. | The same page and secondary summaries | Secondary | Supports the forgiven isolated miss and the two in a row reset. |
+| Intact streaks | A seven study paper found that highlighting an intact streak increased later engagement more than highlighting a broken one. | [INSEAD](https://www.insead.edu/faculty-research/publications/journal-articles/or-track-how-broken-streaks-affect-consumer) | Medium. Abstract only. | The page shows the intact streak and never a broken count. |
+| Streak freeze | Duolingo reports that a freeze keeps learners engaged. Its numbers are its own and not independently verified. | [Duolingo blog](https://blog.duolingo.com/how-duolingo-streak-builds-habit/) | Low. Company evidence. | One forgiven miss is the design's version of a freeze. No purchasable or stackable freeze. |
+| Vendor claims | A glossary claimed a 20 to 40 percent daily-active lift with no source. | | Not used | Ignored. |
+
+## Time tracking, for reference only
+| Topic | Finding | Source | Confidence | What it changes |
+|---|---|---|---|---|
+| Time entries list | The Toggl v9 list endpoint takes RFC3339 `start_date` and `end_date` and returns at most 1000 entries. | [Time entries](https://engineering.toggl.com/docs/track/api/time_entries/) | Medium | Jarvis does not call it. The Plan decides how its notes get the data. |
+| Detailed reports | The Reports API pages detailed entries at 50 per call, using response headers for the next page. | [Reports start](https://engineering.toggl.com/docs/track/reports_start/) | Medium | Same. |
+| CSV export | Time entries can be exported as CSV from the Detailed Report page in the web app. | [Exporting data](https://support.toggl.com/en/articles/2564936-exporting-data) | Medium | One way The Plan could build its detailed time log notes. |
+| Detailed CSV by API | No official endpoint path was found. | | Unverified | Not relied on. |
+
+## What was not verified
+- Whether the Homepage plugin has a view kind called "Nothing". The search did not confirm it. The Plan's earlier audit read its settings and saw that kind and a command, so the Jarvis route is the command.
+- Playwright as the real-browser test tool, and the Chromium that Obsidian bundles.
+- The names of Obsidian's theme colour variables. They are confirmed against the live theme in the build.
+- The original Lally paper's exact wording.
+- Whether a controlled study shows that streak freezes help long-term retention.
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Research - The Plan Parallel Builds.md`
+```
+---
+type: reference
+status: seed
+created: 2026-10-26
+updated: 2026-10-26
+tags:
+  - dashboard
+  - jarvis
+  - research
+  - the-plan
+reference_kind: research
+notes:
+  - "[[Jarvis Build Hub]]"
+  - "[[Jarvis Architecture]]"
+  - "[[Jarvis Spec - Automation Layer]]"
+  - "[[Jarvis Verification and Risks]]"
+---
+# Jarvis Research - The Plan Parallel Builds
+==What The Plan's dashboard build has done and learned, read from its vault, repository and git history on 2026-10-26, so the Jarvis build repeats its strengths and none of its faults.== The Plan keeps building while this design is written, so the last section lists what to re-read before the Jarvis build starts.
+
+## State of The Plan's build on 2026-10-26
+| Part | State | Evidence |
+|---|---|---|
+| Engine, CLI, hooks and tests | Built on 2026-10-13 and 2026-10-14. 87 tests passed with the Python parity tests. | The plugin repository's build log and test files |
+| Plugin repository | 3 commits, the last on 2026-10-13. 3 uncommitted changes. No remote. | `git log` and `git status` in `the-plan-dashboard` |
+| Deployed plugin | Built 2026-10-13 19:51. It lacks the later best-streak rule and the new level titles. | File date and a search of the bundle |
+| Claude tooling | Overwritten on 2026-10-16 by a stale tree from the other laptop (commit `0b995c5`). Restored on 2026-10-26 13:46 (commit `1e85ccd`, "restore Agentic OS tooling lost in the Oct 16 stale-tree push"). | `git log` |
+| Daily notes | Notes were misnamed `DD-MM-YYYY` after 2026-10-12, so the engine saw none. `2026-10-25.md` and `2026-10-26.md` now exist with ISO names. | The Daily folder listing |
+| Daily template | Decision 51 on 2026-10-26: the template is now `Better Today.md`, which has the Jarvis shape. `Daily Note.md` was deleted. The engine counts only `[cat::]` lines under five category headings, which the new template lacks, so The Plan's streak reads 0 until the structure returns. The Plan records this itself as a known gap. | The Plan's Decisions Log and Daily Note Schema |
+| Today's Plan note | Headings are Morning Plan, 80, 20, Daily Wins, Daily Floor, Productivity, Just Write, Good Habits, Bad Habits and Tomorrow. It has no `[cat::]` lines. | A headings scan of the note, no personal text read |
+| Toggl and time logs | No note and no design. Anant says the overview goes in the daily note and detailed logs in a folder. | A search of both vaults, excluding the word `toggle` |
+| Phone | Never tested | The Plan's verification notes |
+
+## Lessons applied to Jarvis
+| What happened in The Plan | The Jarvis guard |
+|---|---|
+| A plugin created notes named `DD-MM-YYYY`. The streak read zero for ten days and nothing said so. | The plugin creates the note and refuses any other name. `validate` and the page flag a misnamed note ([[Jarvis Decisions Log]] D11). |
+| An old `.claude` overwrote skills, agents and hooks. | `doctor` checks that they exist. The health chip shows the result ([[Jarvis Architecture]]). |
+| The engine's source exists on one laptop, with no remote. | A private repository is recommended for the source. |
+| The deployed plugin lagged the source by two changes. | `doctor` compares the deployed version with the repository. |
+| The build prompts asked for plain DOM and the build used React with hard-coded colours. | React is decided in advance. A test greps for hex colours. |
+| The verification table was never filled in. | Every row in [[Jarvis Verification and Risks]] has a test and a prompt that owns it. |
+| The tests rendered in jsdom, which has no layout engine, so a no-scroll claim cannot be proven there. | A real-browser test and a live check ([[Jarvis Spec - Dashboard Page]]). |
+| A template was switched without its structure and the streak went to zero quietly. | The reader of The Plan is allowlist based. A heading change shows in `doctor` and does not break Jarvis. |
+| The Plan's daily template is now a copy of Jarvis's shape. | The two daily notes can drift together. The consistency agent reports mismatches, and neither vault reads the other's template. |
+
+## What the Jarvis build takes from The Plan
+- The engine layout and the shared-rule idea: one program for the screen, the skills and the checks.
+- The stale-line check before a tick.
+- The streak rule, with one forgiven miss and best counting closed days only.
+- The scaled grid and the level titles ([[Jarvis Decisions Log]] D16).
+- The rule that a skill shows its exact write and waits for a yes.
+
+## Re-read before the Jarvis build starts
+1. The Plan's decision on how its daily template regains structure (Decision 51, open).
+2. The Plan's time design: the overview heading, the time log folder, the entry format and the timing.
+3. Whether The Plan's plugin was rebuilt and redeployed.
+4. Whether The Plan's skills and hooks are still in place.
+5. Whether The Plan's read of Jarvis's dashboard, weekly, monthly and plan notes exists as a skill or is only intended. Anant says it runs. The vault shows no note that defines it.
+
+## Note on this folder
+The Plan's git auto-sync committed the draft notes of this folder in commit `fb8f157`. They are tracked in The Plan's history. Cutting the folder into Jarvis shows as deletions in The Plan, which is expected and harmless.
+
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Verification and Risks.md`
+```
+---
+type: reference
+status: seed
+created: 2026-10-26
+updated: 2026-10-26
+tags:
+  - dashboard
+  - jarvis
+  - risks
+  - verification
+reference_kind: resource
+notes:
+  - "[[Jarvis Build Hub]]"
+  - "[[Jarvis Architecture]]"
+  - "[[Jarvis Spec - Dashboard Page]]"
+  - "[[Jarvis Spec - Automation Layer]]"
+  - "[[Jarvis Research - Outside Sources]]"
+  - "[[Jarvis Research - The Plan Parallel Builds]]"
+---
+# Jarvis Verification and Risks
+==Every claim in the Jarvis design that nobody has tested, the exact test for each, and what breaks if it fails.== The Plan's dashboard shipped with a table like this and left every row unfilled. Each build session fills the rows it can settle, and no row is closed without the test result written beside it.
+
+## Unverified, and how to settle each
+| # | Claim | Test | If it fails | State |
+|---|---|---|---|---|
+| 1 | Homepage can open the plugin view at launch by command on both laptops | Restart each laptop five times and check the view opens each time | Open the view from `onLayoutReady` as a backup, idempotent | Open |
+| 2 | A plugin build travels through git to the other laptop and loads there | Deploy on the Acer, sync, enable on the Dell, read the version in the health chip | Copy the three files by hand per release | Open. Git tracks the plugin folder, verified with `git check-ignore`. |
+| 3 | The auto-sync on one laptop cannot overwrite the plugin or `.claude` with a stale tree | Run a sync on a laptop with an old tree and confirm `doctor` flags it | Whitelist and pin the paths | Open |
+| 4 | `Vault.process` ticks write back without a conflict, and a `modify` event follows | Tick and watch the page redraw. Edit the same line in the note at the same time. | The stale-line check refuses the write | Open. The API is atomic per the documentation ([[Jarvis Research - Outside Sources]]). |
+| 5 | A Jarvis session may run the reader of The Plan under Jarvis's hooks | Run `dashboard-cli plan-time` from a Jarvis session | `/startday` asks for the numbers by hand | Open. Anant allows the read. |
+| 6 | The Plan's path on each laptop | List the folder on each laptop | Set `planVaultPath` per machine | Open |
+| 7 | The Plan defines a time overview heading, a time log folder and an entry format | Read The Plan's design when it exists | `plan-time` returns `not_defined` and the page shows planned time only | Open, waiting on The Plan |
+| 8 | `date_applied` is set only on a finished application | Add the rule to the tracker's standard | The application count overstates | Default taken, D36 |
+| 9 | The page holds every block with no vertical overflow at full-screen sizes | The three page tests in [[Jarvis Spec - Dashboard Page]] | Adjust the scaling constants | Open |
+| 10 | `/startday` writes Blocks that match the calendar | Compare `### Blocks` with a live list of the day | The strip says it is stale | Open |
+| 11 | The folder for the CLI is free | List `30_Order/System/dashboard-cli` | Name it differently | Settled. `jarvis-cli` is taken, so `dashboard-cli` is used. The new folder does not exist yet. |
+| 12 | Templater's "Trigger Templater on new file creation" is on | Anant checks the setting in Obsidian, which is under `.obsidian` | The plugin creates notes with resolved dates itself | Open, and no longer blocking because the plugin creates the note |
+| 13 | Ticking a Lose from the page writes back to its source note | Test with a Lose in an older note | Open the source note instead of ticking | Open |
+| 14 | The reader never emits a non-allowlisted heading | Feed it a Plan note with private headings and assert none appear | Fix the reader before use | Open |
+| 15 | Playwright runs a headless Chromium test of the built bundle here | Install it as a dev dependency and run one assertion | A live check in Obsidian only | Open, unverified |
+| 16 | Obsidian's theme variables give red, orange and green and recolour with the theme | Read the live variables in the developer console | Define the colours in `styles.css` | Open |
+| 17 | The edit in place keeps `[for::]` and other fields | An edit test with each field | Edit only the text part and reject a change that removes a field | Open |
+
+## Failure register
+| Trigger | Effect | What Anant sees | Detection | Smallest fix |
+|---|---|---|---|---|
+| A note is named `DD-MM-YYYY` | The engine ignores it. The streak shows zeros. | A red banner naming the note | `validate` and the page | Rename it. This happened in The Plan for ten days. |
+| An old `.claude` overwrites the skills | `/startday` finds nothing | Commands missing, a red health chip | `doctor` | Restore from git history |
+| Today's note is missing | The day is a MISS | An empty ring and a Create button | The engine | Press Create |
+| A leftover `<% %>` date | Date queries skip the note | A banner | `validate` | Run `/startday` or fix the date |
+| Midnight passes during a session | A tick lands on the wrong date | None | The page reads the date every 30 seconds | A tick after midnight belongs to the new day |
+| Two laptops edit one note | A stale tick is refused | The row snaps back | The line check | Reload the page |
+| More than 7 open Loses | The eighth cannot be added | A red 7 of 7 and a refused close | `loses` and `/closeday` | Make up or drop one |
+| The term ends on 2026-12-24 | The floor rows describe a closed plan | A red health chip | The config date | Add the next term's rows |
+| The calendar token expires | No blocks load | "Blocks not loaded today" | `/startday` report | Reconnect |
+| The window is too small | The page cannot fit | "Window too small" | The size check | Enlarge the window |
+| A plan changes after the 80 was written | The line points at a dropped plan | A validator warning | `validate` | Rewrite the line |
+| The page and the engine disagree | Wrong numbers | A red health chip | The debug command | Fix the page, never the engine |
+| The Plan's headings change | The reader finds nothing | `not_defined` or an empty result | `doctor` | Update the allowlist |
+| An edit in place removes a field | A 20 loses `[for:: 80]` | A validator warning | `validate` | Undo in the note, and the edit path rejects it |
+| The Plan's template is switched without structure | The Plan's own streak reads zero | Not visible in Jarvis | The Plan's checks | Jarvis is unaffected because it reads only allowlisted headings |
+| The source exists on one laptop only | A disk loss loses the build | Nothing until it happens | The repository has no remote | Create the private repository |
+
+## Acceptance for the whole dashboard
+1. The dashboard opens at launch on the Dell and the Acer with no manual step.
+2. A tick updates the rings, the streak and the heatmap within one second.
+3. The screen's numbers equal `dashboard-cli` for the last 30 days.
+4. The root and every card have no vertical overflow at the measured full-screen sizes, and only written text scrolls sideways.
+5. The daily note stays valid markdown that reads well without the plugin.
+6. Disabling the plugin loses the view and none of the data.
+7. `doctor` reports clean on both laptops.
+8. The reader test passes: no non-allowlisted heading from The Plan appears in any output.
+9. An edit in place saves and a stale line is refused.
+10. A closed day has 7 or fewer open Loses and a preview for tomorrow.
+
+## Risks
+| Risk | Likelihood | Effect | Control |
+|---|---|---|---|
+| Scope creep into the automation layer | Medium | Delay | Automation is design only until two clean weeks |
+| The Plan's lessons not applied | Medium | Silent zeros again | `doctor`, the banners and the filled table above |
+| React adds weight | Low | Slower start | First paint measured against the 2 second budget |
+| Reading The Plan from Jarvis is blocked by hooks | Medium | No time totals | Row 5 tests it, and the page shows planned time only |
+| The Plan's time design arrives late or changes | High | The time layer waits | `not_defined` is a normal state, not an error |
+| Personal content reaches Jarvis | Low | A breach of AGENTS.md golden rule 6 | The allowlist reader and its test |
+| Edit in place corrupts a line | Low | A bad note line | The stale-line check and the field test |
+| Secrets exposure | Low | | The plugin reads only the daily, weekly and tracker folders. No `data.json` of another plugin is read. |
+
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Plugin Retirement List.md`
+```diff
+- ## What would make each removal safe
++ ## What the finished design says about each group
+- Meta Bind and Multi-Column Markdown are the two plugins the dashboard no longer needs ([[Jarvis Spec - Carry Forward]]). Their other uses are the 87 and 14 notes above.
+- Periodic Notes and Calendar are the question: the plugin creates today's note, but Periodic Notes also makes weekly and monthly notes.
+- Templater stays while any template carries `<% %>`.
+- Local REST API stays. The `jarvis` MCP tools depend on it.
+
+## What would make each removal safe
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Build Log.md`
+```diff
+- - The next prompt must know: the day model replaces the frontmatter toggles built on 2026-10-26 morning ([[Jarvis Decisions Log]], Correction 3).
++ - The next prompt must know: the day model replaces the frontmatter toggles built on 2026-10-26 morning ([[Jarvis Decisions Log]], Correction 3).
+
+### 2026-10-26, design finalized
+- Every open question was answered or defaulted. [[Jarvis Decisions Log]] now holds D1 to D45 and nine corrections. Defaults taken by the assistant are D32 to D45.
+- Two research notes were added: [[Jarvis Research - Outside Sources]] and [[Jarvis Research - The Plan Parallel Builds]]. [[Jarvis Build Hub]] is now the source of truth and maps every feature to its owning note.
+- Checked: The Plan's changes of 2026-10-26 (its restore commit, Decision 51 and its daily template), the Obsidian API documentation through search and the typed docs index, `jarvis-cli` contents, git ignore behaviour for the plugin folder.
+- Settled by check: the CLI is `dashboard-cli` because `jarvis-cli` is taken; the week is ISO; the plugin folder is tracked by git.
+- Still unverified: rows 1 to 7, 9, 10 and 13 to 17 of [[Jarvis Verification and Risks]].
+- Waiting on The Plan: the time overview heading, the time log folder and entry format, and the structure of its daily template.
+- Prompts are not written. They are written in a separate session from these notes.
+- The next prompt must know: the page cannot be proven no-scroll in jsdom. It needs the real-browser and live checks in [[Jarvis Spec - Dashboard Page]].
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Build Log.md`
+```diff
+- | Code location | `D:\_Anant\20_Progress\Projects\jarvis-dashboard`, proposed, not confirmed |
+| Hosting | Private GitHub repository, created only after Anant says yes in the session |
+| Devices | The Dell and the Acer. No phone. |
++ | Code location | On the Acer. The path is chosen when the build starts. The Dell receives built files through git. |
+| Hosting | A private GitHub repository for the source is recommended, created only after Anant says yes in the session |
+| Stack | TypeScript, React 19, `isDesktopOnly: true`, no Node API in version 1 |
+| CLI | `dashboard-cli` in `30_Order/System/dashboard-cli/` |
+| Devices | The Dell and the Acer, Obsidian full screen. No phone. |
+| Week | ISO, Monday to Sunday |
+| Open Loses cap | 7 |
+```
+- `Write` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Build Hub.md`
+```
+---
+type: project
+status: active
+created: 2026-10-26
+updated: 2026-10-26
+tags:
+  - dashboard
+  - jarvis
+  - plan
+project_kind: plan
+next: "Design is final. A separate session writes the build prompts from these notes"
+related_progress:
+  - "[[Jarvis Decisions Log]]"
+  - "[[Jarvis Spec - Day Model and Streak]]"
+  - "[[Jarvis Spec - Dashboard Page]]"
+  - "[[Jarvis Spec - Plans Feed]]"
+  - "[[Jarvis Spec - Automation Layer]]"
+  - "[[Jarvis Spec - Carry Forward]]"
+  - "[[Jarvis Architecture]]"
+  - "[[Jarvis Plugin Retirement List]]"
+  - "[[Jarvis Verification and Risks]]"
+  - "[[Jarvis Research - Outside Sources]]"
+  - "[[Jarvis Research - The Plan Parallel Builds]]"
+  - "[[Jarvis Build Log]]"
+---
+# Jarvis Build Hub
+## Goal
+==Build a private `jarvis-dashboard` plugin that shows one no-scroll page of the Jarvis working day, counts a floor streak, and removes the friction from planning, ticking and closing the day.==
+This note is the source of truth for the design. Every feature of the dashboard is listed below with the note that defines it. If a note and this table disagree, fix the note and then this table. The plugin is the Jarvis counterpart of The Plan's dashboard and avoids the faults that one met: silent zeros from a misnamed note, an old `.claude` overwriting the skills, screens never shown real data and a verification table left empty. Its home in the Jarvis vault is `40_Resources/Obsidian/Dashboard/Jarvis Builds/`. These notes were written in The Plan and are to be cut and pasted there.
+
+## Status
+| Item | State on 2026-10-26 |
+|---|---|
+| Design | Final. Every question was answered or defaulted ([[Jarvis Decisions Log]], D1 to D45). |
+| Build | Nothing built |
+| Build prompts | Not written. A separate session writes them from these notes. |
+| Waiting on The Plan | The time overview heading, the time log folder and entry format, and its daily template structure |
+| Unverified claims | Seventeen rows in [[Jarvis Verification and Risks]], each with a test |
+
+## Where to put this folder
+1. Cut the folder `Jarvis Build` and paste its contents into `40_Resources/Obsidian/Dashboard/Jarvis Builds/` in the Jarvis vault. Do not paste a second folder inside it.
+2. Run Vault Lint on the thirteen notes. They were written outside Jarvis, so lint has not seen them.
+3. The links to Jarvis notes (`Daily Note Standard`, `Better Today`, `2026-W44`, `Plan Standard` and others) resolve there and not in The Plan.
+4. The main `Prompts` note and the `Ran/` folder in Jarvis are for the prompt session. Finished prompts move to `Ran/` under the [[Prompt Cycle]].
+
+## Map of the notes
+| Note | Holds |
+|---|---|
+| [[Jarvis Decisions Log]] | Every answer, the defaults, and nine corrections |
+| [[Jarvis Spec - Day Model and Streak]] | The daily note shape, fields, floor rows, Loses lifecycle, streak rule, write primitives, validator |
+| [[Jarvis Spec - Dashboard Page]] | The no-scroll page: rules, blocks, layout, scaling, visual system, states, tests |
+| [[Jarvis Spec - Plans Feed]] | How plans become the 80, the 20 and the floor, and how Loses shape the next day |
+| [[Jarvis Spec - Automation Layer]] | The day step by step, calendar read, planned blocks, the reader of The Plan, later transports |
+| [[Jarvis Spec - Carry Forward]] | What each part of the old setup becomes, and the retirement order |
+| [[Jarvis Architecture]] | Layers, modules, plugin rules, CLI, config, build, tests, two-laptop guards |
+| [[Jarvis Plugin Retirement List]] | Evidence for the plugin decision. No removals. |
+| [[Jarvis Verification and Risks]] | Unverified claims, failure register, acceptance list |
+| [[Jarvis Research - Outside Sources]] | Web and API findings, with confidence and effect |
+| [[Jarvis Research - The Plan Parallel Builds]] | What The Plan built, its faults and what to re-read |
+| [[Jarvis Build Log]] | Fixed answers and the handoff between prompts |
+
+Existing Jarvis notes this build starts from: [[Jarvis Build Overview]], [[The Plan Overview]] with its five notes, [[Jarvis Dashboard Build Record]], [[Daily Note Standard]], [[Daily Close Loop]], [[How to Use Google Calendar]] and [[2026-W44]].
+
+## Feature inventory
+Each row is one thing the dashboard must do. Nothing is built that is not here, and nothing here is left without a note.
+
+| # | Feature | Defined in | Data source | Test or check |
+|---|---|---|---|---|
+| F1 | Streak number, floor rule, one forgiven miss | [[Jarvis Spec - Day Model and Streak]] | Floor lines | Golden month |
+| F2 | Builder level and next milestone | [[Jarvis Spec - Day Model and Streak]] | Engine, config | Unit test |
+| F3 | Floor ring | [[Jarvis Spec - Dashboard Page]] | Floor lines | `dashboard-cli` equality |
+| F4 | Wins ring, 0 to 4, outside the streak | [[Jarvis Spec - Day Model and Streak]] | Win lines | Unit test |
+| F5 | Seven day row and week totals | [[Jarvis Spec - Dashboard Page]] | Engine, ISO week | `week` command |
+| F6 | Today's 80 and 20, tick | [[Jarvis Spec - Day Model and Streak]] | 80 and 20 lines | Edit tests |
+| F7 | Edit a line in place | [[Jarvis Spec - Dashboard Page]] | Any written line | Edit and field tests |
+| F8 | Blocks now and next | [[Jarvis Spec - Automation Layer]] | `### Blocks` | Compare with the calendar |
+| F9 | Tracked against planned time | [[Jarvis Spec - Automation Layer]] | `[spent::]` from The Plan | Reader test |
+| F10 | Deadlines in 7 days | [[Jarvis Spec - Plans Feed]] | `[due::]` on weekly Goals | Unit test |
+| F11 | Open Loses, age, cap 7, tick | [[Jarvis Spec - Day Model and Streak]] | Loses across notes | `loses` command |
+| F12 | Carryover from the session log | [[Jarvis Spec - Dashboard Page]] | Carryover heading | Parse test |
+| F13 | Applications today and this week out of 10 | [[Jarvis Spec - Plans Feed]] | Tracker `date_applied` | `week` command |
+| F14 | LeetCode and study hours with plus and minus | [[Jarvis Spec - Day Model and Streak]] | Frontmatter numbers | Frontmatter test |
+| F15 | Three project chips | [[Jarvis Spec - Carry Forward]] | Project `next:` | Parse test |
+| F16 | 30 day heatmap | [[Jarvis Spec - Dashboard Page]] | Engine | `dashboard-cli` equality |
+| F17 | Proof of the day | [[Jarvis Spec - Day Model and Streak]] | `[proof::]` | Edit test |
+| F18 | Health chip | [[Jarvis Spec - Dashboard Page]] | `validate`, `doctor` | `doctor` test |
+| F19 | Links | [[Jarvis Spec - Dashboard Page]] | Config | Click test |
+| F20 | Create today's note, ISO names only | [[Jarvis Spec - Day Model and Streak]] | Template | Create tests |
+| F21 | Misnamed and placeholder banners | [[Jarvis Spec - Dashboard Page]] | `validate` | Fixture |
+| F22 | Window too small banner and fit | [[Jarvis Spec - Dashboard Page]] | Pane size | Real-browser test |
+| F23 | No vertical scroll, horizontal scroll for written text only | [[Jarvis Spec - Dashboard Page]] | Styles | Three page tests |
+| F24 | Light and dark, tokens, no hard-coded colour | [[Jarvis Spec - Dashboard Page]] | `styles.css` | Hex grep, contrast test |
+| F25 | Opens at launch on both laptops | [[Jarvis Architecture]] | Homepage command | Five restarts |
+| F26 | `dashboard-cli` commands | [[Jarvis Architecture]] | Engine | CLI against golden values |
+| F27 | `doctor` | [[Jarvis Architecture]] | Vault, repo, tooling | `doctor` test |
+| F28 | Validator, eleven rules | [[Jarvis Spec - Day Model and Streak]] | Daily notes | One test per rule |
+| F29 | Allowlisted reader of The Plan | [[Jarvis Spec - Automation Layer]] | The Plan's notes | Reader test |
+| F30 | Choosing the 80 and deriving the 20 | [[Jarvis Spec - Plans Feed]] | Plans, preview, calendar | Dry run of `/startday` |
+| F31 | Recalculating tomorrow from Loses | [[Jarvis Spec - Plans Feed]] | Loses | Dry run of `/closeday` |
+| F32 | Calendar blocks planned and written | [[Jarvis Spec - Automation Layer]] | Weekly Goals | Re-list count |
+| F33 | Consistency agent across the two daily notes | [[Jarvis Spec - Automation Layer]] | Both notes, allowlisted | Fixture with a mismatch |
+| F34 | Template, Standard and skill patches | [[Jarvis Spec - Carry Forward]] | | Vault Lint, dry runs |
+| F35 | Old page and canvas retirement | [[Jarvis Spec - Carry Forward]] | | Anant's word after a fortnight |
+| F36 | Plugin decisions for Anant | [[Jarvis Plugin Retirement List]] | Plugin counts | Anant fills the record |
+| F37 | Term end review | [[Jarvis Spec - Plans Feed]] | Config date | Health chip red on 2026-12-24 |
+
+## Build stages
+These are stages, not prompts. A separate session turns each into a prompt under the Agent Prompt Standard, using the notes above.
+1. **The day shape.** Patch the Standard, the Close Loop and the template. Update `/startday`, `/closeday` and `daily-operator`. Every edit is shown first and waits for a yes. Covers F20, F28, F30, F31, F34.
+2. **The engine and the CLI.** Golden fixtures first, then the engine modules and `dashboard-cli`, with `doctor`. Covers F1, F2, F4, F5, F10, F11, F13, F26, F27, F28.
+3. **The plugin base.** Data layer, the three write primitives, creating today's note, the Hero and Today blocks, Homepage by command. Covers F3, F6, F7, F14, F20, F25.
+4. **The page.** All other blocks, scaling, banners, visual tokens and the three page tests. Covers F8, F12, F15 to F19, F21 to F24.
+5. **The feeds.** The reader of The Plan, `[spent::]`, the Blocks write at start of day, planned calendar blocks and the consistency agent, all read only except the calendar writes already approved by the guide. Covers F9, F29, F32, F33. It waits for The Plan's time design.
+6. **Wire and verify.** Deploy on both laptops, Anant's Homepage clicks, the acceptance list, the plugin list for Anant. The old page retires only after a clean fortnight and only on Anant's word. Covers F25, F35, F36.
+Out of scope: automation transports, any scheduled run, any phone build and any plugin removal.
+
+## Dependencies on The Plan
+These belong to The Plan's own build. Stage 5 starts only after they exist, and the rest of the build does not wait for them.
+1. The heading in The Plan's daily note that holds the time overview.
+2. The path and naming of the time log folder.
+3. The entry format. The proposal is `- HH:MM-HH:MM task label [proj:: name]`.
+4. When entries are written.
+5. The structure of The Plan's daily template (Decision 51).
+
+## Design is complete when
+- [x] Every question in the design session is answered or defaulted, with a row in [[Jarvis Decisions Log]].
+- [x] Every old dashboard block has a fate ([[Jarvis Spec - Carry Forward]]).
+- [x] Every feature has a defining note and a test ([[Jarvis Build Hub]] inventory).
+- [x] Every unverified claim has a test ([[Jarvis Verification and Risks]]).
+- [x] Outside facts are cited with confidence ([[Jarvis Research - Outside Sources]]).
+- [x] The Plan's parallel build is read and its faults have guards ([[Jarvis Research - The Plan Parallel Builds]]).
+- [x] No plugin is removed and the decision list exists ([[Jarvis Plugin Retirement List]]).
+- [ ] Anant has read the defaults D32 to D45 and kept or changed each.
+- [ ] The notes are pasted into Jarvis and pass Vault Lint.
+
+## Open Questions
+None blocking the build. The two unchecked boxes above are the last steps of the design.
+
+```
+- `Edit` -- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Build Hub.md`
+```diff
+- ## Build stages
+These are stages, not prompts.
++ ## Sequence
+These are build stages, not prompts.
+```
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards/Jarvis Build" && echo "files: $(ls *.md | wc -l)"; echo "--- em/en dashes:"; grep -c "[—–]" *.md | grep -v ":0" || echo none; echo "--- '---' lines per file (expect 2):"; for f in *.md; do echo "$(grep -c '^---$' "$f") $f"; done | sort | uniq -c -w2; echo "--- frontmatter required keys (type,status,created,updated,tags):"; for f in *.md; do for k in type status created updated tags; do head -30 "$f" | grep -q "^$k:" || echo "MISSING $k in $f"; done; done; echo "--- in-folder links unresolved:"; grep -oh "\[\[Jarvis [^]|]*" *.md | sed 's/\[\[//' | sort -u | while read n; do [ -f "$n.md" ] || echo "unresolved: $n"; done; echo "--- required headings:"; for f in Jarvis\ Spec*.md Jarvis\ Architecture.md; do for h in "What This Is" "Current State" "Non-Goals"; do grep -q "^## $h" "$f" || echo "$f lacks $h"; done; done; for h in Goal Sequence "Open Questions"; do grep -q "^## $h" "Jarvis Build Hub.md" || echo "Hub lacks $h"; done; echo "--- stale phrases:"; grep -n "Decide\b\|iPhone 15\|\[>\] carried\|Prompts.md is not written\|jarvis-cli\`" *.md | cut -c1-140 | head -20; echo "--- decision refs D1-D45 used vs defined:"; grep -oh "D[0-9][0-9]*" *.md | grep -v "^D1$" | sort -u | tr '\n' ' '`
+```
+files: 13
+--- em/en dashes:
+none
+--- '---' lines per file (expect 2):
+     13 2 Jarvis Architecture.md
+--- frontmatter required keys (type,status,created,updated,tags):
+--- in-folder links unresolved:
+unresolved: Jarvis Build Overview
+unresolved: Jarvis Dashboard Build Record
+--- required headings:
+--- stale phrases:
+Jarvis Architecture.md:30:- `30_Order/System/` holds `claude-workflow`, `cursor-workflow`, `excalidraw-mcp`, `jarvis-cli`, `jarvis-memory`, 
+Jarvis Build Log.md:51:- Checked: The Plan's changes of 2026-10-26 (its restore commit, Decision 51 and its daily template), the Obsidian AP
+Jarvis Build Log.md:52:- Settled by check: the CLI is `dashboard-cli` because `jarvis-cli` is taken; the week is ISO; the plugin folder is t
+Jarvis Decisions Log.md:74:| D43 | Name of the CLI | `dashboard-cli`, in `30_Order/System/dashboard-cli/` | `30_Order/System/jarvis-cli` is 
+Jarvis Decisions Log.md:85:7. **Phone and window.** An earlier answer said the page should render responsively for an iPhone 15. D2 and D28 
+Jarvis Decisions Log.md:87:9. **CLI folder.** An earlier note said `30_Order/System/jarvis-cli` might be taken. It holds `jarvis.ps1`, `jarv
+Jarvis Verification and Risks.md:36:| 11 | The folder for the CLI is free | List `30_Order/System/dashboard-cli` | Name it differently | Set
+--- decision refs D1-D45 used vs defined:
+D10 D11 D12 D13 D14 D15 D16 D17 D18 D19 D2 D20 D21 D22 D23 D24 D25 D26 D27 D28 D29 D3 D30 D31 D32 D33 D34 D35 D36 D37 D38 D39 D4 D40 D41 D42 D43 D44 D45 D5 D6 D7 D8 D9
+```
 
 ## Actions Taken
 
@@ -7478,6 +8930,8 @@ Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 - `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Build Log.md`
 - `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Decisions Log.md`
 - `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Plugin Retirement List.md`
+- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Research - Outside Sources.md`
+- `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Research - The Plan Parallel Builds.md`
 - `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Spec - Automation Layer.md`
 - `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Spec - Carry Forward.md`
 - `D:\_Anant\20_Progress\Documents\The Plan\40_Resources\Obsidian\Dashboards\Jarvis Build\Jarvis Spec - Dashboard Page.md`
@@ -7548,5 +9002,9 @@ ls Jarvis/.claude/settings.json && node -e 'const s=require("./Jarvis/.claude/se
 - `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards" && ls "Jarvis Build" 2>&1 | head -2; mkdir -p "Jarvis Build" && ls -d "Jarvis Build"`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards/Jarvis Build" && ls; echo "--- em dash / en dash count per file:"; grep -c "—" *.md | grep -v ":0" || echo "none"; echo "--- frontmatter delimiters (expect 2 per file in first 30 lines) and first/last key:"; for f in *.md; do n=$(head -40 "$f" | grep -c '^---$'); echo "$f: $n"; done; echo "--- unresolved in-folder links (names starting with Jarvis ):"; grep -oh "\[\[Jarvis [^]|]*" *.md | sed 's/\[\[//' | sort -u | while read n; do [ -f "$n.md" ] || echo "MISSING: $n"; done; echo "--- non-folder link targets used (should exist in Jarvis):"; grep -oh "\[\[[^]|#]*" *.md | sed 's/\[\[//' | grep -v "^Jarvis \(Build Hub\|Decisions\|Spec\|Architecture\|Plugin\|Verification\|Build Log\)" | sort | uniq -c | sort -rn`
 - `cd "D:/_Anant/20_Progress/Documents/The Plan" && git log --since=2026-10-25 --format='%h %ad %an %s' --date=iso | head -15; echo ---; find . -name "*.md" -newermt "2026-10-25 20:30" -not -path "./.git/*" -not -path "./50_Archive/*" -not -path "./copilot/*" | head -40; echo --- plugin repo; cd "D:/_Anant/20_Progress/Projects/the-plan-dashboard" && git log --format='%h %ad %s' --date=iso | head -5; git status --short | head; ls -la --time-style=long-iso main.js dist 2>/dev/null | head -5; echo --- jarvis-cli; ls -la --time-style=long-iso "D:/_Anant/20_Progress/Documents/Jarvis/30_Order/System/jarvis-cli" | head -20`
+- `cd "D:/_Anant/20_Progress/Documents/The Plan" && git show --stat=160 --format='%h %s' fb8f157 | head -30; echo ---; echo "Plan daily template headings:"; grep -n "^#\|^created\|^[a-z_]*:" "30_Order/Templates/Daily Dashboard/Better Today.md" | head -40; echo ---; echo "Schema headings:"; grep -n "^#" "30_Order/Standards/Dashboards/Daily Note Schema.md" | head -30; echo ---; grep -rniE "time log|time-log|timelog|time spent|stopwatch|clockify|toggl\b" --include=*.md 00_Live 30_Order 40_Resources/Obsidian 60_Jarvis 2>/dev/null | grep -vi "toggle" | cut -c1-200 | head -10; echo "(blank above = no time-log design notes)"; echo ---; ls 00_Live/Enumerate/Daily | tail -5; echo; ls 00_Live | head -30`
+- `cd "D:/_Anant/20_Progress/Documents/The Plan" && echo "headings of today's Plan daily note:"; grep -n "^#\|^created\|^type\|^thought_kind\|cat::" "00_Live/Enumerate/Daily/2026-10-26.md" | cut -c1-90 | head -30; echo "cat:: lines:"; grep -c "cat::" "00_Live/Enumerate/Daily/2026-10-26.md"; echo ---; git show fb8f157 -- "30_Order/Standards/Dashboards/Daily Note Schema.md" "30_Order/Workflows/Daily Dashboard.md" | grep "^[+-]" | grep -v "^+++\|^---" | cut -c1-260; echo ---; echo "Plan periodic notes daily template now:"; grep -o '"daily": *{[^}]*}' .obsidian/plugins/periodic-notes/data.json | cut -c1-260`
+- `cd "D:/_Anant/20_Progress/Documents/The Plan" && grep -n "^| 51\|^| 52\|^| 53" "40_Resources/Obsidian/Dashboards/Decisions Log.md" | cut -c1-1800; echo ---; sed -n '/^## Template/,/^## Frontmatter/p' "30_Order/Standards/Dashboards/Daily Note Schema.md" | cut -c1-1500`
+- `cd "D:/_Anant/20_Progress/Documents/The Plan/40_Resources/Obsidian/Dashboards/Jarvis Build" && echo "files: $(ls *.md | wc -l)"; echo "--- em/en dashes:"; grep -c "[—–]" *.md | grep -v ":0" || echo none; echo "--- '---' lines per file (expect 2):"; for f in *.md; do echo "$(grep -c '^---$' "$f") $f"; done | sort | uniq -c -w2; echo "--- frontmatter required keys (type,status,created,updated,tags):"; for f in *.md; do for k in type status created updated tags; do head -30 "$f" | grep -q "^$k:" || echo "MISSING $k in $f"; done; done; echo "--- in-folder links unresolved:"; grep -oh "\[\[Jarvis [^]|]*" *.md | sed 's/\[\[//' | sort -u | while read n; do [ -f "$n.md" ] || echo "unresolved: $n"; done; echo "--- required headings:"; for f in Jarvis\ Spec*.md Jarvis\ Architecture.md; do for h in "What This Is" "Current State" "Non-Goals"; do grep -q "^## $h" "$f" || echo "$f lacks $h"; done; done; for h in Goal Sequence "Open Questions"; do grep -q "^## $h" "Jarvis Build Hub.md" || echo "Hub lacks $h"; done; echo "--- stale phrases:"; grep -n "Decide\b\|iPhone 15\|\[>\] carried\|Prompts.md is not written\|jarvis-cli\`" *.md | cut -c1-140 | head -20; echo "--- decision refs D1-D45 used vs defined:"; grep -oh "D[0-9][0-9]*" *.md | grep -v "^D1$" | sort -u | tr '\n' ' '`
 
 

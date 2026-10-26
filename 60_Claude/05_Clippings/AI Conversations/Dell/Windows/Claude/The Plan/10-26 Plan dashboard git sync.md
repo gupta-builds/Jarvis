@@ -5,9 +5,9 @@ source_app: claude-code
 source_os: windows
 title: "Plan dashboard git sync"
 started_at: 2026-10-26T13:42:15
-ended_at: 2026-10-26T15:05:14
-exported_at: 2026-10-26T15:30:02
-duration_minutes: 83
+ended_at: 2026-10-26T15:45:00
+exported_at: 2026-10-26T16:00:02
+duration_minutes: 122.8
 project: The Plan
 cwd: 'D:\Users\_Anant\10_Areas\Documents\The Plan'
 session_id: 13a85aa4-5faf-402e-95ee-fffab0e6c29f

@@ -5,23 +5,24 @@ source_app: claude-code
 source_os: windows
 title: "Dashboard plugin build review"
 started_at: 2026-10-25T20:12:38
-ended_at: 2026-10-26T14:00:52
-exported_at: 2026-10-26T14:03:05
-duration_minutes: 1068.2
+ended_at: 2026-10-26T14:41:37
+exported_at: 2026-10-26T14:41:38
+duration_minutes: 1109
 project: The Plan
 cwd: 'D:\_Anant\20_Progress\Documents\The Plan'
 session_id: c444e1cb-b1fd-4c4e-a3c6-55f5d4180bcd
 status: raw
 turn_count: 7
 tools_used:
-  Bash: 36
+  AskUserQuestion: 4
+  Bash: 40
   Read: 1
 tokens:
-  input: 72
-  output: 24333
-  cache_creation: 306659
-  cache_read: 4401291
-  total: 4732355
+  input: 88
+  output: 41064
+  cache_creation: 331786
+  cache_read: 6044927
+  total: 6417865
 cost_usd: null
 model:
   - "claude-opus-5-5"
@@ -4052,6 +4053,63 @@ the entire research was now provided to the plan on the laptop, which is taking 
 
 I'll check which directory this session is in, then read Jarvis's current dashboard, canvas, plans and plugins before asking questions.
 
+Second batch, on the one-page layout, the time and calendar layer, transports and plugin removal:
+
+The decisions below are settled. No notes are written yet, because I need your yes on the list first.
+
+## Settled so far
+
+| Area | Decision |
+|---|---|
+| Plugin | Separate `jarvis-dashboard` plugin and repo. It has its own engine and day model, copies The Plan's structure, and shares no code with it. |
+| Scope | The Dell and Acer laptops only. The phone is out of scope. The layout stays responsive in CSS at no extra cost. |
+| Day model | Checkbox lines with a field, for example `[track:: application]`. Meta Bind toggles and frontmatter booleans are retired. |
+| Streak | Counts the floor. A day counts when every floor row is done. One miss is forgiven and two in a row break it. Floor rows are set per term in a config table. |
+| Wins | A separate 0 to 4 score beside the streak. They never rescue a streak day. |
+| Loses | Kept as tickable `## Daily Loses` lines with `[since::]`, oldest first, with a why and a fix at close. |
+| Identity | Builder identity only, in line with AGENTS.md rule 6. Personal identity and habits stay in The Plan. |
+| Page | One page, no vertical scroll. Only text you write may scroll sideways. The whole page scales to fit the pane, and a "window too small" banner shows below a readable minimum. All content stays. |
+| Always visible | Today core, the calendar strip, loses and carryover, and pipeline numbers. |
+| Delight | Builder levels, proof of the day, a floor heatmap and pipeline momentum. |
+| Today's note | The plugin creates it from the template. Any name that is not `YYYY-MM-DD` is refused and flagged loudly. |
+| The 80 | Comes from the Fall plan and the project plans. You approve it each day. |
+| Canvas and page | Both are replaced by the plugin. They retire after a clean fortnight and only on your word. |
+| Automation | Design only. The calendar is read, and blocks are planned in Calendar for now. Transports (Todoist, Reminders, Zapier and others) are decided later. |
+| Plugins | Nothing is removed. The list above is yours to decide. |
+
+## Proposed notes
+
+Under `40_Resources/Obsidian/Dashboard/Jarvis Builds/`, following Jarvis's `agent-prompt`, `project-spec` and `project-plan` kits:
+
+1. **Jarvis Builds Hub:** index, status and next step.
+2. **Decisions Log:** every answer above, with the date.
+3. **Spec - Day Model and Streak:** daily note schema, floor and wins, loses, proof line, validator rules.
+4. **Spec - Dashboard Page:** the no-scroll layout, blocks, scaling, visual system and delight.
+5. **Spec - Plans Feed:** how the Fall plan, projects, mentorship and UMN feed the 80, the 20 and the floor without a second copy.
+6. **Spec - Automation Layer:** calendar read, block planning, frictionless rules and the future transports.
+7. **Spec - Carry Forward:** what moves from `00_Dashboard.md`, the canvas and the old skills, plus the migration of old notes.
+8. **Architecture:** plugin, engine, CLI, hooks, repo and deploy. It includes a guard against the two-laptop git overwrite that hit The Plan.
+9. **Plugin Retirement List:** the table above, with no removals.
+10. **Verification and Risks:** unverified claims, their tests and the failure register.
+11. **Build Log:** the handoff between prompts.
+
+`Prompts.md` is the one main note, rewritten for each session, and `Ran/` receives finished prompts. I would write the prompts after these notes, so each prompt can name exactly which notes to read.
+
+## Open questions for the next round
+
+1. When does the Fall term end, and which of its plans carry into next term?
+2. What exact rule picks the 20 each day?
+3. Which Google account should the calendar read from, and which calendars?
+4. What wording do you want for the builder levels at 3, 7, 21, 66 and 100?
+5. What weekly target should pipeline momentum show for applications?
+6. Daily notes from July and August mention Toggl. What did you track there that you still want?
+
+## One blocker
+
+This session runs from The Plan's folder, and The Plan's CLAUDE.md says its write guard refuses writes to the Jarvis vault. The guard blocked a command earlier today, so it looks active again. I probably cannot write these notes from here. Either start a session in the Jarvis folder, or tell me to try from here.
+
+Reply "yes" to the note list, or tell me what to change.
+
 ### Tool Calls
 
 - `Bash` -- `pwd; cd "D:/_Anant/20_Progress/Documents/Jarvis" 2>/dev/null && pwd && git log --oneline | head -5; cat 00_Dashboard.md | head -120; echo ---; ls 40_Resources/Obsidian 2>&1; ls 40_Resources | head -30; ls .obsidian/plugins; cat .obsidian/community-plugins.json`
@@ -4801,6 +4859,178 @@ Per [[10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan|Fall 2026 Plan]]'s Update Pro
 ## Verified gap this note closes
 Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
 ```
+- `AskUserQuestion` -- `{"questions":[{"header":"Plugin shape","question":"How should the Jarvis dashboard plugin relate to The Plan\u0027s plugin and engine?","multiSelect":false,"options":[{"label":"Separate plugin, own engine (Recommended)","description":"New repo `jarvis-dashboard`. It copies The Plan\u0027s proven structure (core engine, repo, safe tick via Vault.process, CLI, hooks) but has its own day model. No shared code, so a Plan change can never break Jarvis."},{"label":"Shared core package","description":"One engine package imported by both plugins. Less duplication, but a change for one vault can break the other and the build gets harder to reason about."},{"label":"One plugin, two vault profiles","description":"A single plugin with a config per vault. Fewest repos, but the two day models are different enough that it becomes a pile of conditionals."}]},{"header":"Day model","question":"How should a Jarvis day be recorded in the daily note so the plugin can tick it safely?","multiSelect":false,"options":[{"label":"Checkbox lines with a field (Recommended)","description":"Wins, floor and tasks become `- [ ] ... [track:: application]` lines, like The Plan\u0027s `[cat::]`. The plugin flips one character. Meta Bind toggles and frontmatter booleans go away, which also lets Meta Bind be removed."},{"label":"Keep frontmatter booleans","description":"Keep `win_*` and `floor_*` in frontmatter. The plugin writes them with processFrontMatter. Fewer skill changes, but the day stays split between properties and text."},{"label":"Hybrid","description":"Checkbox lines for things you do, frontmatter only for numbers (problems, study hours). Needs a clear rule for which is which."}]},{"header":"Streak","question":"What should the Jarvis streak count? This is the main habit-forming mechanic.","multiSelect":false,"options":[{"label":"The floor (Recommended)","description":"A day counts when the daily floor is held: one company moved Current to Applied, LeetCode reps, one class or study step. It rewards the Fall 2026 \u0027One Thing\u0027 directly. One forgiven miss, as in The Plan."},{"label":"Floor plus wins score","description":"A day counts at N of 7 (3 floor plus 4 wins). Softer, but the headline number blurs the one thing that matters."},{"label":"Application streak only","description":"Streak equals days with at least one application sent. Sharp and motivating, but a class or exam day breaks it."},{"label":"Several separate streaks","description":"One each for applications, LeetCode and study. Rich, but harder to keep to one screen with no scroll."}]},{"header":"Identity","question":"Jarvis AGENTS.md bans personal-life content, but you want identity and habit pull here. How should that work?","multiSelect":false,"options":[{"label":"Builder identity only in Jarvis (Recommended)","description":"Jarvis shows work identity: \u0027I am a builder who ships\u0027, proof of the day, evidence from Truths of Life. Personal identity, health and habits stay in The Plan. Matches the current rule and avoids two copies drifting."},{"label":"Read-only Plan summary","description":"Jarvis also shows The Plan\u0027s streak and ring as one small tile, read-only. A plugin cannot read another vault, so this needs a small synced note that The Plan\u0027s `/closeday` writes."},{"label":"Change the rule","description":"Allow identity and habit content in Jarvis. Needs an AGENTS.md change and creates duplication with The Plan."}]}]}`
+- `AskUserQuestion` -- `{"questions":[{"header":"Always visible","question":"Which groups must always be on the single no-scroll page, including on the phone? Anything not chosen goes to desktop-only or a one-tap detail view. Pick all that apply.","multiSelect":true,"options":[{"label":"Today core","description":"Streak number, floor ring, the 80 (One Thing) and the 20 supporting tasks, tickable."},{"label":"Pipeline numbers","description":"Applications moved Current to Applied today and this week, LeetCode count against 5, study hours."},{"label":"Calendar strip","description":"Now and next from Google Calendar, plus deadlines due within 7 days."},{"label":"Loses and carryover","description":"Open Daily Loses with age, plus carryover from yesterday, tickable."}]},{"header":"Time layer","question":"Toggl is not going into Jarvis. What should the Jarvis time and calendar layer do?","multiSelect":false,"options":[{"label":"Read the calendar, plan blocks (Recommended)","description":"Dashboard shows now and next from Google Calendar. `/startday` proposes time blocks for the 80 and the floor and creates them in Google Calendar only after your yes. Plan owns tracked time."},{"label":"Read-only calendar","description":"Dashboard only shows events. Nothing is ever created in Calendar. Safest, least help."},{"label":"Full scheduling","description":"The dashboard or a scheduled run also moves and reschedules blocks when the day slips. Most help, highest risk of surprise edits."}]},{"header":"First transport","question":"Which outbound path should the automation layer design first for reminders and blocks?","multiSelect":false,"options":[{"label":"Google Calendar through the Claude connector (Recommended)","description":"Already attached to the session, runs from a Claude Code run on the laptop, and syncs to the phone through Calendar. Reminders come from Calendar alarms."},{"label":"Apple Reminders through a Shortcut","description":"Native phone alerts, but there is no Windows API and the transport is unverified."},{"label":"Zapier","description":"Can bridge Calendar, Todoist and Reminders, but adds a service, a cost and a token to expire."},{"label":"Design all three, build one","description":"Compare them in the design notes, then build the winner first."}]},{"header":"Plugin removal","question":"When the Jarvis plugin ships, which existing plugins should be removed? Dataview is still used by other notes.","multiSelect":false,"options":[{"label":"Remove only after a clean fortnight (Recommended)","description":"Disable Meta Bind and Multi-Column Markdown for the dashboard only after the plugin has run clean for two weeks. Keep Dataview, Kanban and Homepage for other notes. Retire the markdown page and canvas last."},{"label":"Remove at ship","description":"Disable Meta Bind and Multi-Column the day the plugin ships. Faster, but there is no fallback if it breaks."},{"label":"Keep everything","description":"Add the plugin and leave the rest in place. No removal."}]}]}`
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && for d in .obsidian/plugins/*/; do n=$(basename $d); v=$(node -e 'try{console.log(require("./'$d'manifest.json").version)}catch(e){console.log("?")}'); echo "$n $v"; done; echo ---; node -e 'const d=require("./.obsidian/plugins/lazy-plugins/data.json");console.log(JSON.stringify(d.desktop||d,null,0).slice(0,1500))'; echo ---; cat .obsidian/core-plugins.json | tr -d '\n ' | head -c 700; echo; ls .obsidian/snippets; cat .obsidian/appearance.json | tr -d '\n '`
+```
+calendar 1.5.10
+cmdr 0.7.0
+code-styler 1.1.7
+dataview 0.5.68
+excalibrain 0.2.19
+file-explorer-plus 1.3.1
+homepage 4.5.0
+lazy-plugins 1.0.24
+lean-terminal 1.5.0
+multi-column-markdown 0.9.1
+ninja-cursor 0.0.14
+obsidian-excalidraw-plugin 2.29.0
+obsidian-git 2.42.0
+obsidian-kanban 2.0.51
+obsidian-latex-suite 1.14.0
+obsidian-local-rest-api 5.5.2
+obsidian-meta-bind-plugin 1.5.1
+obsidian-spaced-repetition 1.15.4
+obsidian-style-settings 1.0.9
+periodic-notes 0.0.17
+quickadd 2.32.1
+recent-edits 1.6.0
+recent-files-obsidian 1.7.10
+templater-obsidian 2.26.0
+text-extractor 0.7.0
+url-into-selection 1.11.4
+---
+{"shortDelaySeconds":5,"longDelaySeconds":15,"delayBetweenPlugins":40,"defaultStartupType":"short","showDescriptions":true,"enableDependencies":false,"plugins":{"code-styler":{"startupType":"instant"},"dataview":{"startupType":"short"},"excalibrain":{"startupType":"long"},"obsidian-excalidraw-plugin":{"startupType":"long"},"file-explorer-plus":{"startupType":"instant"},"obsidian-kanban":{"startupType":"short"},"obsidian-latex-suite":{"startupType":"instant"},"obsidian-local-rest-api":{"startupType":"instant"},"ninja-cursor":{"startupType":"instant"},"url-into-selection":{"startupType":"instant"},"periodic-notes":{"startupType":"short"},"quickadd":{"startupType":"short"},"recent-files-obsidian":{"startupType":"instant"},"obsidian-spaced-repetition":{"startupType":"short"},"obsidian-style-settings":{"startupType":"instant"},"templater-obsidian":{"startupType":"instant"},"obsidian-git":{"startupType":"short"},"lean-terminal":{"startupType":"short"},"homepage":{"startupType":"instant"},"obsidian-meta-bind-plugin":{"startupType":"short"},"multi-column-markdown":{"startupType":"short"},"text-extractor":{"startupType":"short"},"cmdr":{"startupType":"short"},"recent-edits":{"startupType":"short"},"calendar":{"startupType":"short"}}}
+---
+{"file-explorer":true,"global-search":true,"switcher":true,"graph":true,"backlink":true,"canvas":true,"outgoing-link":true,"tag-pane":true,"footnotes":true,"properties":true,"page-preview":true,"daily-notes":false,"templates":false,"note-composer":true,"command-palette":true,"slash-command":true,"editor-status":true,"bookmarks":true,"markdown-importer":true,"zk-prefixer":false,"random-note":true,"outline":true,"word-count":true,"slides":true,"audio-recorder":false,"workspaces":true,"file-recovery":true,"publish":false,"sync":false,"bases":true,"webviewer":false}
+dashboard.css
+headerspace.css
+myedits.css
+rainbowfile_colors.css
+readingview.css
+{"enabledCssSnippets":["dashboard","myedits","rainbowfile_colors","readingview","headerspace"],"cssTheme":"AnuPpuccin","baseFontSizeAction":false}
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
+```
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && D="10_Areas 20_Progress 30_Order 40_Resources 60_Claude 00_Dashboard.md"; echo "meta-bind INPUT/BUTTON notes:"; grep -rlE "INPUT\[|BUTTON\[|meta-bind" --include=*.md $D | wc -l; echo "dataviewjs notes:"; grep -rl '```dataviewjs' --include=*.md $D | wc -l; echo "dataview notes:"; grep -rlE '```dataview$' --include=*.md $D | wc -l; echo "multi-column notes:"; grep -rl "start-multi-column" --include=*.md $D | wc -l; echo "kanban notes:"; grep -rl "kanban-plugin" --include=*.md $D | wc -l; echo "excalibrain/excalidraw files:"; find . -name "*.excalidraw*" -not -path "./.git/*" -not -path "./5*" | wc -l; echo "spaced rep (#flashcards):"; grep -rlE "#flashcards|#review" --include=*.md $D | wc -l; echo "latex notes:"; grep -rlE '\$\$' --include=*.md $D | wc -l; echo "templater <% notes in templates:"; grep -rl "<%" --include=*.md 30_Order/Templates | wc -l; echo "css classes:"; grep -rlE "cssclasses" --include=*.md $D | wc -l; echo --- ; grep -rl "INPUT\[" --include=*.md $D | head -15`
+```
+meta-bind INPUT/BUTTON notes:
+87
+dataviewjs notes:
+80
+dataview notes:
+440
+multi-column notes:
+14
+kanban notes:
+17
+excalibrain/excalidraw files:
+21
+spaced rep (#flashcards):
+16
+latex notes:
+157
+templater <% notes in templates:
+74
+css classes:
+26
+---
+10_Areas/Life/Enumerate/Daily/2026-07-05.md
+10_Areas/Life/Enumerate/Daily/2026-07-08.md
+10_Areas/Life/Enumerate/Daily/2026-07-09.md
+10_Areas/Life/Enumerate/Daily/2026-07-10.md
+10_Areas/Life/Enumerate/Daily/2026-08-01.md
+10_Areas/Life/Enumerate/Daily/2026-08-03.md
+10_Areas/Life/Enumerate/Daily/2026-08-07.md
+10_Areas/Life/Enumerate/Daily/2026-08-08.md
+10_Areas/Life/Enumerate/Daily/2026-08-10.md
+10_Areas/Life/Enumerate/Daily/2026-09-07.md
+10_Areas/Life/Enumerate/Daily/2026-09-08.md
+10_Areas/Life/Enumerate/Daily/2026-09-15.md
+10_Areas/Life/Enumerate/Daily/2026-09-19.md
+10_Areas/Life/Enumerate/Daily/2026-09-21.md
+10_Areas/Life/Enumerate/Daily/2026-09-28.md
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
+```
+- `AskUserQuestion` -- `{"questions":[{"header":"Note creation","question":"Who should create today\u0027s daily note? The Plan\u0027s dashboard showed zeros for ten days because the creating plugin used the wrong file name.","multiSelect":false,"options":[{"label":"The plugin, from the template (Recommended)","description":"A \u0027Create today\u0027s note\u0027 action in the dashboard builds `YYYY-MM-DD.md` from the template and refuses any other name. The dashboard also warns loudly when a note in the Daily folder is misnamed. `/startday` calls the same rule."},{"label":"`/startday` only","description":"The skill creates it when you start the day. Simple, but nothing creates it on a day you forget to run the skill."},{"label":"Keep Periodic Notes and Templater","description":"Leave creation to the existing plugins and only fix their settings. Smallest change, same failure risk as The Plan."}]},{"header":"The 80","question":"Where should today\u0027s 80 (the One Thing) come from each day?","multiSelect":false,"options":[{"label":"From the Fall plan, you approve (Recommended)","description":"`/startday` reads the week\u0027s One Hard Thing and the application-floor rule from the Fall 2026 Plan and proposes today\u0027s 80. You say yes or edit it, then it writes one line."},{"label":"You type it every morning","description":"Free text on the dashboard. Total control, but it breaks on tired mornings."},{"label":"Always the application floor","description":"The 80 is always \u0027move one company Current to Applied\u0027, and the One Hard Thing becomes a 20. Matches the One Thing note exactly."}]},{"header":"Daily delight","question":"Which elements should make the page feel rewarding every day? Pick all you want.","multiSelect":true,"options":[{"label":"Builder levels","description":"Level titles at streak milestones (3, 7, 21, 66, 100), with your own wording, shown beside the streak."},{"label":"Proof of the day","description":"One line of evidence you shipped, written at close, shown tomorrow as \u0027Yesterday you proved: ...\u0027."},{"label":"Heatmap of floor days","description":"The last 30 or 60 days as a GitHub-style grid, shaded by how much of the floor was held."},{"label":"Pipeline momentum","description":"A running count of companies Current to Applied this week against the target, with the gap shown plainly."}]},{"header":"Canvas fate","question":"What should happen to the current canvas (`Jarvis OS Dashboard.canvas`) and `00_Dashboard.md`?","multiSelect":false,"options":[{"label":"Canvas becomes the map, page retires (Recommended)","description":"Keep the canvas as an exploration map only, as The Plan did with its Map Canvas. Homepage opens the plugin view. `00_Dashboard.md` is retired last, after a clean fortnight, and only on your word."},{"label":"Replace both with the plugin","description":"Plugin view only. Both the canvas and the page retire after the fortnight."},{"label":"Keep both as fallbacks","description":"Leave the canvas and page untouched. The plugin is a third surface, which risks three copies of the same queries."}]}]}`
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && f=$(find 30_Order -name "Note Type Registry.md" | head -1); echo "$f"; grep -n "reference\|project\|prompt\|build" "$f" | head -30; ls 30_Order/Templates | head -40; ls 40_Resources/Obsidian/Dashboard/"Jarvis Builds"/Ran; ls 20_Progress/Projects/"Jarvis & The Plan" 2>&1 | head`
+```
+30_Order/Note Type Registry.md
+18:To write or fix a note, find its row, open the Standard, copy the Template, follow the Workflow. A note type with no row has no kit; build one with [[Building a Note Kit]] before writing it. Tiers are defined in [[Conformance Standard]]. A kit's state is `built` (written to the contract), `align` (exists, must be rewritten to the contract), `planned` (not written, named here), or `decide` (waiting on a user decision). Planned names are plain text and become links when written.
+46:| course-project | 1 | class / project | same | [[Project Template]] | [[Course Project Standard]] | [[Projects Workflow]] | built |
+47:| course-project-companion | 2 | class / project, `project_role: companion` | same | none | same Standard | [[Projects Workflow]] | built |
+57:| internship-program | 1 | reference / program | `10_Areas/Career/Internships/Programs/` | [[Program Template]] | [[Program Standard]] | [[Internship Pipeline]] | built |
+59:| internship-applying | 1 | project / project | `20_Progress/Internship/Applying/` | [[Applying Template]] | [[Applying Standard]] | [[Application Document Preparation]] | built (unexercised) |
+61:| interview-prep | 1 | project / project | `20_Progress/Internship/Preperation/Interviews/` | [[Interview Prep Template]] | [[Interview Prep Standard]] | none | built |
+62:| mentorship-meeting | 1 | project / plan | `20_Progress/Mentorship Program/` | [[Mentorship Meeting Template]] | [[Mentorship Meeting Standard]] | none | built |
+69:| job-company | 1 | reference / company | none yet | [[Job & Company Template]] | none until a first note exists | none | decide |
+71:| cheat | 1 | project | `20_Progress/Internship/` | [[Cheat Template]] | none until a decision | none | decide |
+75:| project | 1 | project / project | `20_Progress/Projects/`, `20_Progress/Internship/`, `20_Progress/Mentorship Program/` | [[Project Note Template]] | [[30_Order/Standards/Project Standard|Project Standard]] | [[Brief to Progress]] | built |
+76:| project-spec | 1 | project / spec | `20_Progress/`, `60_Claude/40_Project_Briefs/` | [[Project Spec Template]] | [[Spec and Plan Standard]] | none | built |
+77:| project-plan | 1 | project / plan | `20_Progress/`, `60_Claude/40_Project_Briefs/` | [[Project Plan Template]] | [[Spec and Plan Standard]] | none | built |
+78:| code-mirror-doc | 1 | project / code-mirror | `60_Claude/40_Project_Briefs/CausalOps/` | [[Code Mirror Template]] | [[Code Mirror Doc Standard]] | none | built |
+79:| agent-prompt | 1 | project / prompt | `20_Progress/`, `60_Claude/40_Project_Briefs/` | [[Agent Prompt Template]] | [[Agent Prompt Standard]] | [[Prompt Cycle]] | built |
+80:| prompt-queue | 1 | project / prompt (`prompt_shape: queue`) | `20_Progress/Internship/Building System/Runs/` | none | [[Agent Prompt Standard]] | [[Prompt Cycle]] | built |
+81:| machine-runbook | 1 | reference / runbook | `40_Resources/CS/` | [[Machine Runbook Template]] | [[Machine Runbook Standard]] | none | built |
+95:| reference-resource | 1 | reference | `40_Resources/`, `10_Areas/AI`, `10_Areas/Trading` | [[Reference Template]] | [[Reference Standard]] | [[Promotion]] | built |
+96:| output-story | 1 | output / story | next to its project, `20_Progress/` | [[Output Template]] | [[Output Standard]] | [[Output with Provenance]] | built |
+117:| project-review | policy | log entry in the project note | the project's own `## Log` | none | [[Per Project Review]] | none | built |
+118:| graphify-note | 1 | reference / repo | `60_Claude/40_Project_Briefs/` | [[Graphify Notes Template]] | [[Graphify Notes]] | [[Graphify Folders]] | built |
+119:| tool-setup | 1 | reference / tool-profile | `20_Progress/AI/<Tool>/<Project>/Setup.md` | [[Tool Setup Template]] | [[Tool Setup]] | [[Files Tracking]] | built |
+AI Toolkit
+Capability
+Career
+Classes
+Enumerate
+Frontmatter
+Knowledge
+MOC.md
+Projects
+System
+AI Learning Across Vaults.md
+Builds - Jarvis
+Jarvis Multi-Agent PKM Plan.md
+Jarvis Three-Month Research Engine Master Plan.md
+Jarvis.md
+My AI Twin.md
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
+```
+- `Bash` -- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && grep -n "obsidian\|claude\|^\*\|^!" .gitignore | head -30; ls 30_Order/System 2>/dev/null; ls 30_Order/System/sync-workflow 2>/dev/null | head; git remote -v | head -2`
+```
+2:.obsidian/workspace.json
+3:.obsidian/workspace-mobile.json
+4:.obsidian/cache
+8:# obsidian-tasks-plugin and omnisearch were both confirmed, direct
+13:# effect). obsidian-hover-editor was crashing with an uncaught TypeError
+14:# wrapping obsidian-spaced-repetition's Review Queue view. Renaming the
+15:# folder *in place* (obsidian-tasks-plugin.disabled/ etc, still inside
+16:# .obsidian/plugins/) was believed sufficient but was proven NOT durable on
+21:# removing the folder from .obsidian/plugins/ entirely - moved to
+22:# .obsidian/_disabled-plugins/ instead.
+23:.obsidian/_disabled-plugins/
+43:.obsidian/community-plugins.json
+44:.obsidian/plugins/lazy-plugins/data.json
+47:.obsidian/graph.json
+48:.obsidian/workspaces.json
+49:.obsidian/plugins/*/*.bak
+52:.obsidian/plugins/copilot/data.json
+53:.obsidian/plugins/copilot/data-*backup*.json
+54:.obsidian/plugins/quickadd/data.json
+55:.obsidian/plugins/obsidian-local-rest-api/data.json
+56:.claude/settings.json
+57:.claude/settings.local.json
+62:.obsidian/copilot-index-*.json
+73:*.tmp
+78:.claude/.env.local
+87:*.pyc
+92:*.env.local
+93:**/.kiro/settings/
+102:30_Order/System/claude-workflow/logs/git-auto-sync.log
+103:30_Order/System/claude-workflow/scripts/.git-auto-sync.lock
+claude-workflow
+cursor-workflow
+excalidraw-mcp
+jarvis-cli
+jarvis-memory
+sync-workflow
+vault-lint
+README.md
+Sync Alert Banner.md
+scripts
+origin	https://github.com/gupta-builds/Jarvis.git (fetch)
+origin	https://github.com/gupta-builds/Jarvis.git (push)
+Shell cwd was reset to D:\_Anant\20_Progress\Documents\The Plan
+```
+- `AskUserQuestion` -- `{"questions":[{"header":"Floor rows","question":"The Fall plan\u0027s floor has three rows: application moved Current to Applied, LeetCode or CodePath reps (5 or more), and one class step. Should these drive the streak, and how should they change next term?","multiSelect":false,"options":[{"label":"Rows set per term in config (Recommended)","description":"Fall\u0027s three rows are the floor now, as checkbox lines with a `[track::]` field. Next term you change a config table and the plan note, not code. The streak counts a day when all floor rows are done, one miss forgiven."},{"label":"Fixed three rows","description":"Hard-code the three rows. Simpler, but a new term means a code change."},{"label":"Floor is 2 of 3","description":"A day counts when any two floor rows are done. Softer, and it weakens the application floor."}]},{"header":"Wins","question":"What should happen to the four wins (project, career, cleanup, review)?","multiSelect":false,"options":[{"label":"Separate score, not in the streak (Recommended)","description":"Wins show as a 0 to 4 ring beside the streak and in the weekly total. The streak stays tied to the floor, so a cleanup win can never rescue a day with no application."},{"label":"Wins count toward the streak","description":"A day counts at floor plus a minimum number of wins. Richer score, blurrier signal."},{"label":"Drop the wins","description":"Floor, the 80 and the 20 only. Simplest page, loses the project and review habits."}]},{"header":"No-scroll fit","question":"Windows on the Dell and Acer differ in size. How should the no-vertical-scroll guarantee hold, given no content is removed?","multiSelect":false,"options":[{"label":"Scale the whole page to fit (Recommended)","description":"Font size and grid scale with the pane, as The Plan\u0027s view does. Below a readable minimum size a plain banner says \u0027Window too small\u0027. Only written text scrolls sideways."},{"label":"Fixed layout with minimum window","description":"One layout, tested at a set minimum window size, and a banner below it."},{"label":"Two layouts, wide and compact","description":"A wide grid and a compact grid like The Plan, switching on pane shape. More to test, but better use of tall narrow panes."}]},{"header":"Daily Loses","question":"Daily Loses are promises that slipped, carried until made up, each with a why and a fix. What should the new design do with them?","multiSelect":false,"options":[{"label":"Keep, tickable on the page (Recommended)","description":"Same mechanic, as `- [ ]` lines under `## Daily Loses` with `[since::]`, shown oldest first with age. Ticking writes back to the source note line. `/closeday` still asks for the why and fix."},{"label":"Fold into the 20","description":"Open Loses simply become carried tasks in the 20. Fewer concepts, loses the accountability framing."},{"label":"Retire Loses","description":"Drop the mechanic and rely on the floor streak and weekly review."}]}]}`
 
 ## Actions Taken
 
@@ -4852,5 +5082,9 @@ _None detected_
 E
 ls Jarvis/.claude/settings.json && node -e 'const s=require("./Jarvis/.claude/settings.json");console.log(Object.keys(s.hooks||{}))'`
 - `cd "D:/_Anant/20_Progress/Documents" && grep -rli "toggl" --include=*.md Jarvis/10_Areas Jarvis/20_Progress Jarvis/30_Order Jarvis/40_Resources "The Plan/00_Live" "The Plan/30_Order" "The Plan/40_Resources" 2>/dev/null | head; echo ---; sed -n 70,96p "Jarvis/10_Areas/Life/Plans/Fall 2026/Fall 2026 Plan.md"; echo ---; sed -n 16,34p "Jarvis/10_Areas/Life/Plans/Fall 2026/Weekly Rhythm.md"`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && for d in .obsidian/plugins/*/; do n=$(basename $d); v=$(node -e 'try{console.log(require("./'$d'manifest.json").version)}catch(e){console.log("?")}'); echo "$n $v"; done; echo ---; node -e 'const d=require("./.obsidian/plugins/lazy-plugins/data.json");console.log(JSON.stringify(d.desktop||d,null,0).slice(0,1500))'; echo ---; cat .obsidian/core-plugins.json | tr -d '\n ' | head -c 700; echo; ls .obsidian/snippets; cat .obsidian/appearance.json | tr -d '\n '`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && D="10_Areas 20_Progress 30_Order 40_Resources 60_Claude 00_Dashboard.md"; echo "meta-bind INPUT/BUTTON notes:"; grep -rlE "INPUT\[|BUTTON\[|meta-bind" --include=*.md $D | wc -l; echo "dataviewjs notes:"; grep -rl '```dataviewjs' --include=*.md $D | wc -l; echo "dataview notes:"; grep -rlE '```dataview$' --include=*.md $D | wc -l; echo "multi-column notes:"; grep -rl "start-multi-column" --include=*.md $D | wc -l; echo "kanban notes:"; grep -rl "kanban-plugin" --include=*.md $D | wc -l; echo "excalibrain/excalidraw files:"; find . -name "*.excalidraw*" -not -path "./.git/*" -not -path "./5*" | wc -l; echo "spaced rep (#flashcards):"; grep -rlE "#flashcards|#review" --include=*.md $D | wc -l; echo "latex notes:"; grep -rlE '\$\$' --include=*.md $D | wc -l; echo "templater <% notes in templates:"; grep -rl "<%" --include=*.md 30_Order/Templates | wc -l; echo "css classes:"; grep -rlE "cssclasses" --include=*.md $D | wc -l; echo --- ; grep -rl "INPUT\[" --include=*.md $D | head -15`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && f=$(find 30_Order -name "Note Type Registry.md" | head -1); echo "$f"; grep -n "reference\|project\|prompt\|build" "$f" | head -30; ls 30_Order/Templates | head -40; ls 40_Resources/Obsidian/Dashboard/"Jarvis Builds"/Ran; ls 20_Progress/Projects/"Jarvis & The Plan" 2>&1 | head`
+- `cd "D:/_Anant/20_Progress/Documents/Jarvis" && grep -n "obsidian\|claude\|^\*\|^!" .gitignore | head -30; ls 30_Order/System 2>/dev/null; ls 30_Order/System/sync-workflow 2>/dev/null | head; git remote -v | head -2`
 
 

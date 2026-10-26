@@ -6,7 +6,7 @@ source_os: windows
 title: "Jarvis AI orchestration and knowledge graph review"
 started_at: 2026-10-17T15:29:37
 ended_at: 2026-10-26T16:10:19
-exported_at: 2026-10-26T16:33:02
+exported_at: 2026-10-26T17:33:04
 duration_minutes: 13000.7
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'

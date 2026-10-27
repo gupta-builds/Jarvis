@@ -5,9 +5,9 @@ source_app: claude-code
 source_os: windows
 title: "Valorant fullscreen resolution settings"
 started_at: 2026-10-26T22:17:10
-ended_at: 2026-10-26T22:54:52
-exported_at: 2026-10-26T22:54:59
-duration_minutes: 37.7
+ended_at: 2026-10-26T22:58:01
+exported_at: 2026-10-26T23:03:08
+duration_minutes: 40.8
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: fc64a558-0fb7-49f1-bec9-d00fcd7a2632

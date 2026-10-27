@@ -6,7 +6,7 @@ source_os: windows
 title: "CSCI 4061 quiz questions on poll and Python C extensions"
 started_at: 2026-10-26T22:08:20
 ended_at: 2026-10-26T22:15:15
-exported_at: 2026-10-26T22:17:10
+exported_at: 2026-10-26T22:33:03
 duration_minutes: 6.9
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'

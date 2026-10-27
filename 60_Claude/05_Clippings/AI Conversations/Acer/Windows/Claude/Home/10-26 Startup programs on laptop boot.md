@@ -6,7 +6,7 @@ source_os: windows
 title: "Startup programs on laptop boot"
 started_at: 2026-10-26T18:45:11
 ended_at: 2026-10-26T18:45:41
-exported_at: 2026-10-26T18:45:41
+exported_at: 2026-10-26T19:03:02
 duration_minutes: 0.5
 project: Home
 cwd: 'C:\Users\anant'

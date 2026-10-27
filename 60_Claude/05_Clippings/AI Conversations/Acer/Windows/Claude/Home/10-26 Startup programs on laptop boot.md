@@ -5,24 +5,25 @@ source_app: claude-code
 source_os: windows
 title: "Startup programs on laptop boot"
 started_at: 2026-10-26T18:45:11
-ended_at: 2026-10-26T20:32:36
-exported_at: 2026-10-26T20:33:02
-duration_minutes: 107.4
+ended_at: 2026-10-26T21:01:01
+exported_at: 2026-10-26T21:03:03
+duration_minutes: 135.8
 project: Home
 cwd: 'C:\Users\anant'
 session_id: 4db8e529-8678-4f78-be00-8ff8849354ea
 status: raw
-turn_count: 13
+turn_count: 18
 tools_used:
-  PowerShell: 49
+  Agent: 4
+  PowerShell: 56
   ToolSearch: 1
   WebSearch: 4
 tokens:
-  input: 60
-  output: 67229
-  cache_creation: 178957
-  cache_read: 2986983
-  total: 3233229
+  input: 88
+  output: 92941
+  cache_creation: 216985
+  cache_read: 5136736
+  total: 5446750
 cost_usd: null
 model:
   - "claude-sonnet-5-5"
@@ -673,6 +674,146 @@ Sources: [Acer community results](https://community.acer.com/en/discussion/72828
 - `WebSearch` -- `{"query":"Intel Arc and Iris Xe graphics Windows driver latest version 32.0.101 2026 release notes","mode":"standard"}`
 - `WebSearch` -- `{"query":"Windhawk Windows 11 Taskbar Styler mod translucent taskbar background border auto-hide","mode":"standard"}`
 - `PowerShell` -- `{"command":"\"Plan: \" + ((powercfg /getactivescheme) -replace \u0027Power Scheme GUID: \u0027,\u0027\u0027); \"Temp: \" + (Get-Counter \u0027\\Thermal Zone Information(*)\\Temperature\u0027).CounterSamples[0].CookedValue.ToString(\u0027N0\u0027) + \" K\"\n\"== EZService loop still running?\"; Get-Content \u0027C:\\ProgramData\\OEM\\EZService\\log\\EZService-Stdout.log\u0027 -Tail 3 | ForEach-Object { if($_.Length -gt 150){$_.Substring(0,150)}else{$_} }; (Get-Item \u0027C:\\ProgramData\\OEM\\EZService\\log\\EZService-Stdout.log\u0027).Length/1MB | ForEach-Object { \"log size MB: {0:N1}\" -f $_ }\n\"== AICO2_svc binary exists?\"; Test-Path \u0027C:\\WINDOWS\\System32\\drivers\\Acer\\AICO2\\AICO2_svc.exe\u0027\n\"== Wi-Fi adapter power mgmt\"; Get-NetAdapter -Physical | Where-Object Status -eq \u0027Up\u0027 | Select-Object Name,InterfaceDescription | Format-Table -AutoSize | Out-String","description":"Verify power plan, EZService loop, AICO2 binary, Wi-Fi adapter"}`
+
+## You
+
+`https://github.com/ramensoftware/[REDACTED]/blob/main/Themes/RosePine/README.md` this is the desired taskbar but maybe with some slide modifications. How do i install and make the modifications? - Wi-Fi: The Wi-Fi driver is the top priority, since the three hardware errors happened on resume with the Wi-Fi driver resetting. Get it from Intel's Killer Performance Suite page, and check the AX1675i entry matches before installing. the link(`https://www.intel.com/content/www/us/en/download/19779/intel-killer-performance-suite.html`) was opened and seems official to download from, what exactly do i verify here? Verify it with the driver currently active and tell me whether to install it or not, what happens after the install? Where do i store this install? Let's implement it considering the wifi lags we have been experiencing. Go ahead and install the taskbar just mentioned and tell me how exactly did you do it. Do it correctly exactly as the official website suggests.
+
+## Claude
+
+I'll read the Rose Pine theme page and Intel's download page directly before installing anything.
+
+Windhawk 1.7.3 is installed and running, and winget confirmed the installer hash before running it. Next is the font the theme uses.
+
+Windhawk and the font are installed. The last steps of the taskbar are clicks inside Windhawk, which I can't do from here. The Wi-Fi driver I recommend installing, but you have to download it, because Intel puts a license gate before the file.
+
+## Taskbar
+
+**What I did**
+- Installed Windhawk 1.7.3 with `winget install --id RamenSoftware.Windhawk -e`. winget checked the installer hash, and the install ran with admin rights after your permission prompt. Windhawk is now running.
+- Installed the JetBrainsMono Nerd Font (3.3.0), which the theme uses. The README links a v3.2.1 zip. I used a community winget package instead, which registered as `JetBrainsMono NF`, the name the theme asks for.
+
+**What you do in Windhawk** (this is the README's route, from the [RosePine theme page](https://github.com/ramensoftware/[REDACTED]/blob/main/Themes/RosePine/README.md))
+1. In Windhawk, open Explore, search "Windows 11 Taskbar Styler" and click Install.
+2. Open the mod, go to its **Settings** tab, pick **RosePine** from the theme list, and click **Save settings**.
+3. Install the three companion mods the same way: Taskbar height and icon size, Taskbar Clock Customization, and Taskbar Labels for Windows 11. For each one, open its **Advanced** tab, paste the JSON below into the "Mod settings" box, and click **Save**. These come from the theme author's [config files](https://github.com/lunar-os/windowsdesktop/tree/main/WindhawkConfigs).
+
+Taskbar height and icon size:
+```json
+{ "IconSize": 16, "TaskbarHeight": 36, "TaskbarButtonWidth": 37 }
+```
+Taskbar Labels:
+```json
+{ "taskbarItemWidth": 0, "minimumTaskbarItemWidth": 0, "maximumTaskbarItemWidth": 100, "runningIndicatorStyle": "fullWidth", "progressIndicatorStyle": "fullWidth", "fontSize": 11, "leftAndRightPaddingSize": 12, "spaceBetweenIconAndLabel": 14, "labelForSingleItem": "%name%", "labelForMultipleItems": "[%amount%] %name%" }
+```
+Clock Customization: the original config shows a weather reading from `http://localhost:8089/weather`, a service on the theme author's PC that you don't have. I removed that and changed nothing else:
+```json
+{ "ShowSeconds": 0, "TimeFormat": "hh':'mm'", "DateFormat": "ddd dd MMM", "WeekdayFormat": "dddd", "TopLine": "", "BottomLine": " %date% %time% ", "MiddleLine": "%weekday%", "TooltipLine": "", "Width": 180, "Height": 60, "TextSpacing": 1, "WebContentsItems[0].Url": "", "WebContentsUpdateInterval": 10, "TimeStyle.Visible": 0, "TimeStyle.TextColor": "#FFFFFF", "DateStyle.TextColor": "#ebbcba", "DateStyle.FontSize": 11, "DateStyle.FontFamily": "JetBrainsMono NF", "DateStyle.FontWeight": "SemiLight", "oldTaskbarOnWin11": 0 }
+```
+
+The theme hides the Start button and the network icon. The README says how to bring them back.
+
+**Your lighter, translucent look.** As shipped, RosePine makes the bar fully transparent (`Fill=Transparent`), the top border transparent, and the hover pop-up solid `#302d47`. To change that, open the styler's Settings tab, switch to **Textual mode**, and edit three rules. These colours are my starting points (`#AARRGGBB`, so lower the first two characters for more see-through):
+
+| Rule target | Change `Fill` to |
+|---|---|
+| `...Rectangle#BackgroundFill` (the bar) | `#26e0def4` |
+| `Rectangle#BackgroundStroke` (top border) | `#66e0def4` |
+| `Taskbar.TaskbarBackground#HoverFlyoutBackgroundControl > Grid > Rectangle#BackgroundFill` (hover pop-up) | `#99403d52` |
+
+To undo everything, turn the mod off in Windhawk.
+
+## Wi-Fi driver: install it
+
+**What I checked on the adapter:**
+- **Hardware ID:** `PCI\VEN_8086&DEV_7F70&SUBSYS_16721A56`, an Intel Wi-Fi 6E card with Acer's Killer branding.
+- **Driver in use:** `Netwtw14.sys`, version **23.120.0.3**, dated Feb 2025.
+- **Intel's side:** Intel's page for the AX1675 (i/s) card lists the Killer Performance Suite as its driver. The page never literally says "AX1675i" or "211NGW", so the match rests on the hardware ID plus that listing. The suite has a newer Wi-Fi driver, **24.80.0.2**, and Intel lists no standalone Wi-Fi driver for this card.
+
+**Why I'd install it:**
+- Over 7 days the adapter logged **30 disconnects** and **9 full driver restarts**.
+- The router averages 8.5 ms away, with spikes to 38 ms. At 86% signal on 5 GHz I'd expect about 2 to 5 ms, but that comparison is my judgment.
+- I couldn't read Intel's release notes, so I can't promise 24.80.0.2 fixes the resume errors.
+
+**Cautions:**
+- Intel says the suite is supported only on selected platforms and to verify with your manufacturer, and this is an Acer laptop.
+- The suite also installs the Killer Control Center software. Your Killer services are currently **Disabled**. I'll check after the install and keep them off unless you want them.
+
+**Steps:**
+1. **Admin PowerShell, safety net first.** This creates a restore point and saves your current driver so you can roll back. It also creates the folders used below.
+```powershell
+New-Item -ItemType Directory -Force 'D:\Apps\_Installers\Intel-Killer-50.26.915.2621','D:\Apps\_Installers\WiFi-driver-backup-23.120.0.3' | Out-Null
+Enable-ComputerRestore -Drive 'C:\'
+Checkpoint-Computer -Description 'Before Intel Killer Wi-Fi 50.26.915 install' -RestorePointType MODIFY_SETTINGS
+pnputil /export-driver oem51.inf 'D:\Apps\_Installers\WiFi-driver-backup-23.120.0.3'
+```
+2. **Download** from [Intel's page](https://www.intel.com/content/www/us/en/download/19779/intel-killer-performance-suite.html), accept the license, and save it into `D:\Apps\_Installers\Intel-Killer-50.26.915.2621\`. The page lists version 50.26.915.2621, dated 10/21/2026, 214.5 MB, with this SHA512 checksum: `[REDACTED]`.
+3. **Tell me when it's saved.** I'll compare the file's SHA512 against that value and check its digital signature. Don't run it before that check passes.
+4. **Run the installer** by double-clicking it and accepting the permission prompt. Wi-Fi will drop for a while and it may ask for a reboot. Your saved networks stay.
+5. **After the install,** I'll confirm the driver version, check the Killer services, and repeat the latency and disconnect counts. For comparison, my baseline is 8.5 ms average and 38 ms peak to the router.
+
+The driver files land in Windows' driver store, which you can't choose. The installer you keep in that D: folder is only for reinstalling.
+
+**Rollback:** Device Manager, then the adapter's Driver tab, then Roll Back Driver. Failing that, use the restore point or the saved driver.
+
+### Tool Calls
+
+- `Agent` -- `{"description":"Fetch Rose Pine taskbar theme README","subagent_type":"web-fetch","prompt":"Fetch https://raw.githubusercontent.com/ramensoftware/[REDACTED]/main/Themes/RosePine/README.md (if that fails, try https://github.com/ramensoftware/[REDACTED]/blob/main/Themes/RosePine/README.md). Return the FULL content of the page verbatim, especially: (1) every installation step, (2) every required Windhawk mod name and any other mods needed, (3) the complete style rules / theme code exactly as written (every target, style, resource variable, and any YAML/JSON/text block to paste), (4) any notes about required settings, fonts, or caveats. Do not summarize or paraphrase code blocks; reproduce them exactly. Also list any links the README gives to other files (for example a theme .yaml or .json file) with full URLs."}`
+- `Agent` -- `{"description":"Fetch Intel Killer suite download details","subagent_type":"web-fetch","prompt":"Fetch https://www.intel.com/content/www/us/en/download/19779/intel-killer-performance-suite.html (Intel Killer Performance Suite download page). Report exactly: the latest version number, release date, file name(s) and file size(s) for each download option (e.g. exe/zip, \u0027Wi-Fi driver only\u0027 options), the SHA256 or MD5 checksum shown for each file, the direct download URL(s) (downloadmirror.intel.com ...), the full list of supported products (specifically whether \u0027Killer Wi-Fi 6E AX1675i\u0027 / \u0027AX1675i 160MHz\u0027 / 211NGW is listed), supported operating systems, any notes about what the suite installs (Wi-Fi driver version, Bluetooth, Ethernet, Killer Control Center / Intelligent Engine software), and any warnings about OEM/laptop manufacturers customizing drivers. If the page content is not rendered (JavaScript), say so and report whatever you can see, and also try the release notes link and any readme at downloadmirror.intel.com for this download ID 860573 or the newest record. Reproduce checksums and URLs exactly."}`
+- `PowerShell` -- `{"command":"\"== Adapter + driver (live)\"; $a=Get-NetAdapter -Physical | Where-Object Name -eq \u0027Wi-Fi\u0027; $a | Select-Object Name,InterfaceDescription,Status,LinkSpeed,DriverVersion,DriverDate,DriverProvider,DriverFileName | Format-List | Out-String\n$d=Get-CimInstance Win32_PnPSignedDriver | Where-Object { $_.DeviceName -like \u0027Killer(R) Wi-Fi 6E*\u0027 }; \"InfName=$($d.InfName) | Provider=$($d.DriverProviderName) | Signer=$($d.Signer) | HardwareID=$(($d.HardWareID))\"\n\"== Other Killer/Intel networking software installed\"; Get-Package -ErrorAction SilentlyContinue | Where-Object Name -match \u0027Killer|PROSet|Intel.*Wi-?Fi|Intel.*Wireless|Smart Network\u0027 | Select-Object Name,Version | Format-Table -AutoSize | Out-String; Get-AppxPackage | Where-Object Name -match \u0027Killer|IntelConnectivity|RivetNetworks\u0027 | Select-Object Name,Version\nGet-CimInstance Win32_Service | Where-Object { $_.Name -match \u0027Killer|Rivet|RstMwService|Intel.*(Wi|Wlan)|IntelAudio\u0027 -or $_.DisplayName -match \u0027Killer\u0027 } | Select-Object Name,StartMode,State | Format-Table -AutoSize | Out-String\n\"== Current link\"; netsh wlan show interfaces | Select-String \u0027State|Radio type|Band|Channel|Receive rate|Transmit rate|Signal|Authentication\u0027 | ForEach-Object { $_.Line.Trim() }\n\"== Wi-Fi driver reset/error events, last 7 days (Netwtw14)\"; Get-WinEvent -FilterHashtable @{LogName=\u0027System\u0027;ProviderName=\u0027Netwtw14\u0027;StartTime=(Get-Date).AddDays(-7)} -ErrorAction SilentlyContinue | Group-Object Id | Select-Object Count,Name,@{n=\u0027Sample\u0027;e={ ($_.Group[0].Message -split \"`n\")[0] }} | Format-Table -AutoSize -Wrap | Out-String -Width 200\n\"== WLAN-AutoConfig disconnect events (last 7 days)\"; Get-WinEvent -FilterHashtable @{LogName=\[REDACTED]/Operational\u0027;StartTime=(Get-Date).AddDays(-7)} -ErrorAction SilentlyContinue | Where-Object Id -in 8003,11004,11005,11006,11010,12013 | Group-Object Id | Select-Object Count,Name | Format-Table -AutoSize | Out-String","description":"Inspect live Wi-Fi adapter, driver, software and reset history"}`
+- `PowerShell` -- `{"command":"\"== Latency test to gateway and internet (30 pings each)\"; $gw=(Get-NetRoute -DestinationPrefix \u00270.0.0.0/0\u0027 | Sort-Object RouteMetric | Select-Object -First 1).NextHop; foreach($t in $gw,\u00271.1.1.1\u0027){ $r=Test-Connection -TargetName $t -Count 30 -ErrorAction SilentlyContinue; $ok=@($r | Where-Object { $_.Status -eq \u0027Success\u0027 }); $lat=$ok | ForEach-Object { $_.Latency }; if($lat){ $m=($lat|Measure-Object -Average -Maximum -Minimum); \"{0}: ok {1}/30 | min {2} avg {3:N1} max {4} ms | jitter(max-min) {5}\" -f $t,$ok.Count,$m.Minimum,$m.Average,$m.Maximum,($m.Maximum-$m.Minimum) } else { \"$t : no replies\" } }\n\"== winget: Windhawk package\"; winget show --id RamenSoftware.Windhawk -e --accept-source-agreements 2\u003e\u00261 | Select-Object -First 30\n\"== JetBrainsMono NF installed?\"; $f=Get-ItemProperty \u0027HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Fonts\u0027,\u0027HKCU:\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Fonts\u0027 -ErrorAction SilentlyContinue; ($f.PSObject.Properties | Where-Object Name -match \u0027JetBrainsMono\u0027).Name | Select-Object -First 4","description":"Measure Wi-Fi latency; inspect Windhawk package and font"}`
+- `Agent` -- `{"description":"Confirm AX1675i equals 211NGW on Intel","subagent_type":"web-fetch","prompt":"Fetch https://www.intel.com/content/www/us/en/products/sku/211486/[REDACTED]/specifications.html (and, if needed, https://www.intel.com/content/www/us/en/products/sku/211486/[REDACTED]/downloads.html). Report exactly: the product name, the code name / \u0027Intel product code\u0027, whether \u0027211NGW\u0027 or \u0027AX1675i\u0027 appears anywhere on the page, the form factor (M.2 CNVi?), the underlying chip family (e.g. AX211), and which drivers/downloads the page recommends for this product (names, versions, dates, links). Quote the relevant lines verbatim."}`
+- `PowerShell` -- `{"command":"winget install --id RamenSoftware.Windhawk -e --accept-package-agreements --accept-source-agreements 2\u003e\u00261 | Select-Object -Last 15\n\"== Installed?\"; winget list --id RamenSoftware.Windhawk -e 2\u003e\u00261 | Select-Object -Last 4; foreach($p in \u0027C:\\Program Files\\Windhawk\\windhawk.exe\u0027,\"$env:LOCALAPPDATA\\Programs\\Windhawk\\windhawk.exe\"){ \"$p : $(Test-Path $p)\" }; Get-Process windhawk -ErrorAction SilentlyContinue | Select-Object Name,Id","description":"Install Windhawk via winget and verify","timeout":300000}`
+- `Agent` -- `{"description":"Fetch Rose Pine companion mod settings","subagent_type":"web-fetch","prompt":"Fetch these three raw files and return the FULL text of each verbatim, labeled by file name, with nothing summarized or omitted: (1) https://raw.githubusercontent.com/lunar-os/windowsdesktop/main/WindhawkConfigs/Taskbar%20height%20and%20icon%20size  (2) https://raw.githubusercontent.com/lunar-os/windowsdesktop/main/WindhawkConfigs/Taskbar%20Clock%20Customization  (3) https://raw.githubusercontent.com/lunar-os/windowsdesktop/main/WindhawkConfigs/Taskbar%20Labels . If a raw URL fails, try the github.com/.../blob/main/... equivalent. Also state whether each file is JSON/INI/other text and its approximate size."}`
+- `PowerShell` -- `{"command":"winget install --id DEVCOM.JetBrainsMonoNerdFont -e --accept-package-agreements --accept-source-agreements 2\u003e\u00261 | Select-Object -Last 8\n\"== Font registered?\"; $f=Get-ItemProperty \u0027HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Fonts\u0027,\u0027HKCU:\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Fonts\u0027 -ErrorAction SilentlyContinue; ($f.PSObject.Properties | Where-Object Name -match \u0027JetBrainsMono\u0027) | Select-Object -First 3 -ExpandProperty Name\nAdd-Type -AssemblyName System.Drawing; (New-Object System.Drawing.Text.InstalledFontCollection).Families | Where-Object Name -match \u0027JetBrainsMono\u0027 | Select-Object -ExpandProperty Name | Select-Object -First 5","description":"Install JetBrainsMono Nerd Font via winget and verify","timeout":240000}`
+
+## You
+
+Right the font, can we change the font to be the same as the terminal font that is currently configured? or do we like the jetbrain mono font more? I think i like the jetbrains mono font much better actually. We might need to change the terminal font based on it. Let's see once this in configured correctly. "1. In Windhawk, open Explore, search "Windows 11 Taskbar Styler" and click Install." Wasn't windhawk just installed? As soon as the mod is opened it asks to install windhawk through it's setup. I have already have it installed so it asked to reinstall or delete. Why is that? Did you install the wrong thing? Where have you installed these things? The font should land correctly over here: `D:\Apps` just like the terminal font so that it can be used across multiple platforms. Let's make sure that everything is done correctly here. Then, the next steps over here: [Image #4] will not let me select anything. I reloaded the page as well. What exactly is going on here?
+
+[image attached]
+
+## You
+
+[Image: source: C:\Users\anant\AppData\Local\Temp\claude\C--Users-anant\[REDACTED]\images\4.png]
+
+## Claude
+
+Good news: nothing was installed wrong. The screenshot is the windhawk.net website preview in your browser, not the Windhawk app. I'll confirm where everything landed and what your terminal font is before changing anything.
+
+Your Iosevka font is installed system-wide, with an identical 81-file copy kept on D: for use elsewhere. I'm mirroring that layout for JetBrains Mono, then opening the Windhawk app.
+
+Nothing was installed wrong. You were on the windhawk.net website in your browser, not in the Windhawk app, so the Windhawk app and everything below are fine.
+
+## Why it asked to reinstall and why you couldn't select anything
+- **The reinstall prompt:** The blue "Get Windhawk to install this mod" button on the website launches Windhawk's setup program, because the website can't tell the app is already on your PC. The setup saw it, so it offered reinstall or uninstall. Cancel it and don't click that button again.
+- **The greyed-out settings:** The page says "This is a preview of the mod's settings. Install the mod to configure settings." That is the website's read-only preview, so the theme list there can't be selected. Reloading won't change it.
+
+**What to do instead:** Open the **Windhawk app** (Start menu, or its tray icon under the hidden-icons arrow). I just launched it, but I couldn't confirm a window appeared. Then:
+1. Click **Explore** inside the app, search "Windows 11 Taskbar Styler", and click **Install**.
+2. In the installed mod, open **Settings**, choose the **RosePine** theme, and click **Save settings**.
+
+## Where everything is
+| Item | Location |
+|---|---|
+| Windhawk program | `C:\Program Files\Windhawk` |
+| Windhawk mods and settings | `C:\ProgramData\Windhawk` |
+| JetBrains Mono Nerd Font, installed for Windows | `C:\Windows\Fonts` (96 files) |
+| JetBrains Mono Nerd Font, your portable copy | `D:\Apps\JetBrainsMono (Font)` (96 files) |
+
+- **The font:** I copied the 96 font files into `D:\Apps\JetBrainsMono (Font)` and checked every file's hash against the originals, with 0 mismatches. This mirrors your Iosevka setup, which is installed in `C:\Windows\Fonts` (81 files) and kept as a copy in `D:\Apps\IosevkaTerm (Font)`. Windows apps need the font installed in `C:\Windows\Fonts` to use it, and the D: copy is for other platforms. Pointing Windows at the D: copy instead would break the font if D: weren't ready.
+- **Windhawk:** I left it on C:. It loads into Windows Explorer at logon, so it's safer on the system drive. I can reinstall it to D: if you prefer.
+
+## Terminal font
+Your terminal currently uses **IosevkaTerm Nerd Font**, and the theme's taskbar labels use **JetBrainsMono NF**. Both are Nerd Fonts, so your prompt icons will render in either. JetBrains Mono is wider and often easier to read, while Iosevka is narrower and fits more per line. I haven't changed the terminal font. Once the taskbar looks right, we can try `JetBrainsMono Nerd Font Mono` in Terminal's settings, since the Mono variant is the one built for terminals. If you don't like it, switching back is one line.
+
+Tell me when the mod and theme are saved and what the taskbar looks like, and we'll do the lighter-translucent tweaks next. The Wi-Fi driver steps from earlier are still waiting on your download.
+
+### Tool Calls
+
+- `PowerShell` -- `{"command":"\"== Windows Terminal font config\"; $f=\"$env:LOCALAPPDATA\\Packages\\Microsoft.[REDACTED]\\LocalState\\settings.json\"; Select-String -Path $f -Pattern \u0027\"face\"|\"fontFace\"|\"size\"|\"weight\"|\"font\"\u0027 | ForEach-Object { \"$($_.LineNumber): $($_.Line.Trim())\" }\n\"== Where JetBrainsMono NF landed\"; Get-ChildItem \u0027C:\\Windows\\Fonts\u0027 -Filter \u0027JetBrainsMono*\u0027 -ErrorAction SilentlyContinue | Select-Object -First 3 FullName,Length; Get-ChildItem \"$env:LOCALAPPDATA\\Microsoft\\Windows\\Fonts\" -Filter \u0027JetBrainsMono*\u0027 -ErrorAction SilentlyContinue | Select-Object -First 3 FullName\n$r=Get-ItemProperty \u0027HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Fonts\u0027; ($r.PSObject.Properties | Where-Object Name -match \u0027JetBrainsMono NF \\(\u0027) | Select-Object -First 2 | ForEach-Object { \"$($_.Name) = $($_.Value)\" }\n\"== Fonts stored under D:\\Apps\"; Get-ChildItem \u0027D:\\Apps\u0027 -Directory -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Name; Get-ChildItem \u0027D:\\Apps\u0027 -Recurse -Include *.ttf,*.otf -ErrorAction SilentlyContinue -Depth 4 | Select-Object -First 12 FullName\n\"== Registered font entries pointing outside C:\\Windows\\Fonts\"; foreach($k in \u0027HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Fonts\u0027,\u0027HKCU:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Fonts\u0027){ (Get-ItemProperty $k).PSObject.Properties | Where-Object { $_.Name -notlike \u0027PS*\u0027 -and $_.Value -match \u0027^[A-Za-z]:\\\\\u0027 -and $_.Value -notmatch \u0027^C:\\\\Windows\\\\Fonts\u0027 -and $_.Value -notmatch \u0027AppData\\\\Local\\\\Microsoft\\\\Windows\\\\Fonts\u0027 } | Select-Object -First 8 | ForEach-Object { \"$k | $($_.Name) = $($_.Value)\" } }\n\"== Windhawk locations\"; foreach($p in \u0027C:\\Program Files\\Windhawk\u0027,\u0027C:\\ProgramData\\Windhawk\u0027){ \"$p : $(Test-Path $p)\" }; Get-ChildItem \u0027C:\\ProgramData\\Windhawk\u0027 -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Name; Get-Process windhawk | Select-Object Id,MainWindowTitle; Get-CimInstance Win32_Service | Where-Object Name -match \u0027windhawk\u0027 | Select-Object Name,StartMode,State","description":"Inspect terminal font config and install locations"}`
+- `PowerShell` -- `{"command":"\"== How IosevkaTerm is registered with Windows\"; $m=(Get-ItemProperty \u0027HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Fonts\u0027).PSObject.Properties | Where-Object Name -match \u0027IosevkaTerm\u0027; \"HKLM entries: $(@($m).Count)\"; $m | Select-Object -First 2 | ForEach-Object { \"  $($_.Name) = $($_.Value)\" }\n$u=(Get-ItemProperty \u0027HKCU:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Fonts\u0027 -ErrorAction SilentlyContinue).PSObject.Properties | Where-Object Name -match \u0027IosevkaTerm\u0027; \"HKCU entries: $(@($u).Count)\"; $u | Select-Object -First 2 | ForEach-Object { \"  $($_.Name) = $($_.Value)\" }\n\"Iosevka files in C:\\Windows\\Fonts: $(@(Get-ChildItem \u0027C:\\Windows\\Fonts\u0027 -Filter \u0027IosevkaTerm*\u0027 -ErrorAction SilentlyContinue).Count) | per-user dir: $(@(Get-ChildItem \"$env:LOCALAPPDATA\\Microsoft\\Windows\\Fonts\" -Filter \u0027IosevkaTerm*\u0027 -ErrorAction SilentlyContinue).Count) | D:\\Apps copy: $(@(Get-ChildItem \u0027D:\\Apps\\IosevkaTerm (Font)\u0027 -Filter *.ttf -ErrorAction SilentlyContinue).Count)\"\n\"== JetBrains files installed by the MSI\"; $jb=Get-ChildItem \u0027C:\\Windows\\Fonts\u0027 -Filter \u0027JetBrainsMono*.ttf\u0027; \"count: $($jb.Count)\"; $jb | Group-Object { $_.Name -replace \u0027-.*\u0027,\u0027\u0027 } | Select-Object Count,Name | Format-Table -AutoSize | Out-String","description":"Check how the Iosevka font is registered and JetBrains files"}`
+- `PowerShell` -- `{"command":"$dst=\u0027D:\\Apps\\JetBrainsMono (Font)\u0027; New-Item -ItemType Directory -Force $dst | Out-Null\nGet-ChildItem \u0027C:\\Windows\\Fonts\u0027 -Filter \u0027JetBrainsMono*.ttf\u0027 | Copy-Item -Destination $dst -Force\n$src=Get-ChildItem \u0027C:\\Windows\\Fonts\u0027 -Filter \u0027JetBrainsMono*.ttf\u0027; $cp=Get-ChildItem $dst -Filter *.ttf\n\"source files: $($src.Count) | copied: $($cp.Count) | bytes equal: $((($src|Measure-Object Length -Sum).Sum) -eq (($cp|Measure-Object Length -Sum).Sum))\"\n$bad=@($src | Where-Object { (Get-FileHash $_.FullName -Algorithm SHA256).Hash -ne (Get-FileHash (Join-Path $dst $_.Name) -Algorithm SHA256).Hash }); \"hash mismatches: $($bad.Count)\"\n\"== Folder\"; Get-Item $dst | Select-Object FullName\n\"== Opening Windhawk window\"; Start-Process \u0027C:\\Program Files\\Windhawk\\windhawk.exe\u0027; Start-Sleep 4; Get-Process windhawk | Select-Object Id,MainWindowTitle | Format-Table -AutoSize | Out-String","description":"Copy JetBrains font to D:\\Apps, verify, open Windhawk"}`
 
 ## Actions Taken
 

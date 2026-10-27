@@ -6,7 +6,7 @@ source_os: windows
 title: "Plan dashboard git sync"
 started_at: 2026-10-26T13:42:15
 ended_at: 2026-10-26T16:00:04
-exported_at: 2026-10-26T18:00:03
+exported_at: 2026-10-26T19:00:03
 duration_minutes: 137.8
 project: The Plan
 cwd: 'D:\Users\_Anant\10_Areas\Documents\The Plan'

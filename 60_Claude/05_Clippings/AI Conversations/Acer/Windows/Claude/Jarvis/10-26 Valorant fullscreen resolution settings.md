@@ -5,28 +5,28 @@ source_app: claude-code
 source_os: windows
 title: "Valorant fullscreen resolution settings"
 started_at: 2026-10-26T22:17:10
-ended_at: 2026-10-26T22:58:01
-exported_at: 2026-10-26T23:03:08
-duration_minutes: 40.8
+ended_at: 2026-10-26T23:19:24
+exported_at: 2026-10-26T23:33:05
+duration_minutes: 62.2
 project: Jarvis
 cwd: 'D:\_Anant\20_Progress\Documents\Jarvis'
 session_id: fc64a558-0fb7-49f1-bec9-d00fcd7a2632
 status: raw
-turn_count: 5
+turn_count: 7
 tools_used:
   Agent: 1
   Glob: 1
-  Grep: 2
-  PowerShell: 1
+  Grep: 3
+  PowerShell: 2
   Read: 1
   ToolSearch: 1
-  WebSearch: 3
+  WebSearch: 4
 tokens:
-  input: 12
-  output: 5631
-  cache_creation: 49459
-  cache_read: 241439
-  total: 296541
+  input: 18
+  output: 8377
+  cache_creation: 55359
+  cache_read: 408742
+  total: 472496
 cost_usd: null
 model:
   - "claude-sonnet-5-5"
@@ -107,6 +107,39 @@ Sources:
 - `Agent` -- `{"description":"Read Riot supported resolutions page","subagent_type":"web-fetch","prompt":"Fetch https://support-valorant.riotgames.com/hc/en-us/articles/[REDACTED] (fallback: https://support.riotgames.com/en-us/valorant/support-tools/supported-resolutions-in-valorant). Report exactly what Riot says about: (1) the list of supported resolutions, especially 16:10 ones such as 2560x1600, 1920x1200, 1680x1050; (2) the recommendation on fullscreen vs windowed vs windowed fullscreen for 16:10; (3) anything about letterbox, black bars, the Aspect Ratio Method (Fill vs Letterbox) setting, or how 16:10 is rendered (extra vertical view or cropped). Quote the relevant sentences."}`
 - `Grep` -- pattern `ResolutionSize|FullscreenMode|bShouldLetterbox|FrameRateLimit` path `C:\Users\anant\AppData\Local\VALORANT\Saved\Config`
 - `WebSearch` -- `{"query":"Valorant 16:10 resolution 1920x1200 2560x1600 extra vertical field of view competitive advantage pros","mode":"standard"}`
+
+## You
+
+the valorant settings are correct but still it's like that
+
+## Claude
+
+The settings file still says letterboxing is on, which matches what you're seeing. Valorant is running, and all three of its config files have `bShouldLetterbox=True` (the common one and both account ones). The same files show 2560x1600 and Fullscreen. So the resolution is right and the letterbox flag is the problem.
+
+I'm inferring from the name that this flag is the Aspect Ratio Method: `True` would mean Letterbox, `False` would mean Fill. I haven't confirmed that mapping. The most likely reasons it still says `True`:
+- Fill was never saved. The game may only write the file on exit.
+- The menu option isn't what I assumed.
+- Your account's cloud-synced settings re-applied Letterbox.
+
+**The fix I'd try first:** close Valorant completely, including the Riot client, and tell me. I'll set `bShouldLetterbox=False` in the three config files. If the bars are gone next launch, that confirms it. The game rewrites these files while running, so editing now would be pointless.
+
+**Other causes, if that doesn't work.** These come from guides for other setups, not your exact laptop:
+1. **GPU scaling.** In NVIDIA Control Panel, open Adjust desktop size and position. Set Scaling to GPU and tick "Override the scaling mode set by games or programs" ([source](https://www.technewstoday.com/fix-ultrawide-issue-in-valorant/)). Hybrid laptops also have an Intel scaling option. A Counter-Strike thread suggests setting Intel's scaling to full screen, but that thread isn't about Valorant.
+2. **Windows GPU choice.** Valorant's entry under Settings, System, Display, Graphics is set to "let Windows decide" (`GpuPreference=0`). Setting it to High performance puts the game on the RTX 5070 Ti and removes one hybrid-graphics variable.
+3. **Fullscreen optimizations.** Right-click `D:\Games\Riot Games\VALORANT\live\ShooterGame\Binaries\Win64\VALORANT-Win64-Shipping.exe`, open Properties, then Compatibility, and tick "Disable fullscreen optimizations". One guide recommends this for hybrid-graphics laptops.
+4. **Windowed Fullscreen at 2560x1600 with Fill.** This is the fallback Riot's own page points to for 16:10, since it says full-screen mode can have issues there ([Riot](https://support.riotgames.com/en-us/valorant/support-tools/supported-resolutions-in-valorant)).
+
+I found nothing written for a 2560x1600 laptop in Valorant, so all of this is adapted from other setups.
+
+Sources:
+- [How to Fix Ultrawide Issue in Valorant (Tech News Today)](https://www.technewstoday.com/fix-ultrawide-issue-in-valorant/)
+- [Supported Resolutions in VALORANT (Riot)](https://support.riotgames.com/en-us/valorant/support-tools/supported-resolutions-in-valorant)
+
+### Tool Calls
+
+- `Grep` -- pattern `ResolutionSize|FullscreenMode|bShouldLetterbox|DesiredScreen|bUseDesired` path `C:\Users\anant\AppData\Local\VALORANT\Saved\Config`
+- `WebSearch` -- `{"query":"Valorant black bars top and bottom 16:10 laptop 2560x1600 fullscreen \"Letterbox\" fix NVIDIA scaling","mode":"extended"}`
+- `PowerShell` -- `{"command":"Get-Process | Where-Object { $_.ProcessName -match \u0027VALORANT\u0027 } | Select-Object ProcessName,Id | Format-Table; Get-ItemProperty \u0027HKCU:\\Software\\Microsoft\\DirectX\\UserGpuPreferences\u0027 -ErrorAction SilentlyContinue | Select-Object * -ExcludeProperty PS* | Format-List; Get-CimInstance -Namespace root\\wmi -ClassName WmiMonitorBasicDisplayParams -ErrorAction SilentlyContinue | Select-Object InstanceName,MaxHorizontalImageSize,MaxVerticalImageSize | Format-Table","description":"Check Valorant process, GPU preference, monitor size"}`
 
 ## Actions Taken
 

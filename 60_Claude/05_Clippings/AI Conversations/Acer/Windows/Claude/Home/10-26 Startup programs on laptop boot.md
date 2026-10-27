@@ -5,25 +5,25 @@ source_app: claude-code
 source_os: windows
 title: "Startup programs on laptop boot"
 started_at: 2026-10-26T18:45:11
-ended_at: 2026-10-26T21:15:35
-exported_at: 2026-10-26T21:33:03
-duration_minutes: 150.4
+ended_at: 2026-10-26T21:55:15
+exported_at: 2026-10-26T21:55:16
+duration_minutes: 190.1
 project: Home
 cwd: 'C:\Users\anant'
 session_id: 4db8e529-8678-4f78-be00-8ff8849354ea
 status: raw
-turn_count: 20
+turn_count: 28
 tools_used:
   Agent: 4
-  PowerShell: 60
+  PowerShell: 67
   ToolSearch: 1
   WebSearch: 4
 tokens:
-  input: 98
-  output: 101212
-  cache_creation: 227447
-  cache_read: 6190572
-  total: 6519329
+  input: 114
+  output: 125038
+  cache_creation: 253265
+  cache_read: 8199180
+  total: 8577597
 cost_usd: null
 model:
   - "claude-sonnet-5-5"
@@ -920,6 +920,337 @@ If the taskbar still looks wrong after that, send me a screenshot and I'll read 
 - `PowerShell` -- `{"command":"\"== Windhawk mods installed (source folders)\"; Get-ChildItem \u0027C:\\ProgramData\\Windhawk\\ModsSource\u0027 -ErrorAction SilentlyContinue | Select-Object Name,LastWriteTime | Format-Table -AutoSize | Out-String\n\"== Mod registry state\"; $base=\u0027HKLM:\\SOFTWARE\\Windhawk\\Engine\\Mods\u0027; if(Test-Path $base){ Get-ChildItem $base | ForEach-Object { $p=Get-ItemProperty $_.PSPath; \"--- $($_.PSChildName) | Disabled=$($p.Disabled) | LibraryFileName=$($p.LibraryFileName)\"; $sp=Join-Path $_.PSPath \u0027Settings\u0027; if(Test-Path $sp){ $sv=Get-ItemProperty $sp; $sv.PSObject.Properties | Where-Object { $_.Name -notlike \u0027PS*\u0027 } | Select-Object -First 40 | ForEach-Object { $val=\"$($_.Value)\"; if($val.Length -gt 90){$val=$val.Substring(0,90)+\u0027...\u0027}; \"     $($_.Name) = $val\" } } } } else { \"no $base\" }\n\"== Windhawk process / explorer start\"; Get-Process explorer | Select-Object Id,StartTime | Format-Table -AutoSize | Out-String","description":"Read which Windhawk mods and settings are installed"}`
 - `PowerShell` -- `{"command":"\"== Search for the Intel installer\"; $hits=@(); foreach($root in \u0027D:\\Apps\\_Installers\u0027,\"$env:USERPROFILE\\Downloads\",\u0027D:\\\u0027,\u0027C:\\Users\\anant\\Desktop\u0027){ if(Test-Path $root){ $hits+=Get-ChildItem $root -Recurse -Filter \[REDACTED]*\u0027 -ErrorAction SilentlyContinue -Depth 4 } }; $hits | Select-Object FullName,@{n=\u0027MB\u0027;e={[math]::Round($_.Length/1MB,1)}},LastWriteTime | Format-Table -AutoSize -Wrap | Out-String -Width 220\n\"== Folder contents of _Installers\"; Get-ChildItem \u0027D:\\Apps\\_Installers\u0027 -Recurse -Depth 2 -ErrorAction SilentlyContinue | Where-Object { -not $_.PSIsContainer -and $_.FullName -notmatch \u0027WiFi-driver-backup\u0027 } | Select-Object FullName,@{n=\u0027MB\u0027;e={[math]::Round($_.Length/1MB,1)}} | Format-Table -AutoSize | Out-String -Width 200\n\"== Has the Wi-Fi driver changed already?\"; Get-NetAdapter -Physical | Where-Object Name -eq \u0027Wi-Fi\u0027 | Select-Object InterfaceDescription,DriverVersion,DriverDate | Format-List | Out-String\nGet-CimInstance Win32_PnPSignedDriver | Where-Object { $_.DeviceName -like \u0027Killer(R) Wi-Fi 6E*\u0027 } | Select-Object InfName,DriverVersion,DriverDate | Format-List | Out-String\n\"== Killer software/services now\"; Get-CimInstance Win32_Service | Where-Object { $_.Name -match \u0027Killer|KAPS|KNDBWM\u0027 -or $_.DisplayName -match \u0027Killer\u0027 } | Select-Object Name,StartMode,State | Format-Table -AutoSize | Out-String; Test-Path \u0027C:\\Program Files\\Killer Networking\u0027\n\"== Any driver install events in the last 3 hours\"; Get-WinEvent -FilterHashtable @{LogName=\[REDACTED]/Configuration\u0027;StartTime=(Get-Date).AddHours(-3)} -ErrorAction SilentlyContinue | Where-Object Message -match \u0027netwtw|Netwtw|Killer\u0027 | Select-Object -First 5 TimeCreated,Id | Format-Table -AutoSize | Out-String","description":"Locate Intel installer; check if Wi-Fi driver already changed"}`
 - `PowerShell` -- `{"command":"$f=\u0027D:\\Apps\\_Installers\\[REDACTED].26.915.26210_UWD_x64.exe\u0027; $want=\[REDACTED]\u0027\n$h=(Get-FileHash $f -Algorithm SHA512).Hash.ToLower(); \"SHA512 on disk : $h\"; \"SHA512 on Intel: $want\"; \"MATCH: $($h -eq $want)\"; \"Size: $((Get-Item $f).Length) bytes ($([math]::Round((Get-Item $f).Length/1MB,1)) MB; Intel lists 214.5 MB)\"\n$s=Get-AuthenticodeSignature $f; \"Signature status : $($s.Status) ($($s.StatusMessage))\"; \"Signer           : $($s.SignerCertificate.Subject)\"; \"Issuer           : $($s.SignerCertificate.Issuer)\"; \"Cert valid       : $($s.SignerCertificate.NotBefore) to $($s.SignerCertificate.NotAfter)\"; \"Timestamp cert   : $($s.TimeStamperCertificate.Subject)\"\n$v=(Get-Item $f).VersionInfo; \"Product : $($v.ProductName)\"; \"Version : $($v.ProductVersion) / $($v.FileVersion)\"; \"Company : $($v.CompanyName)\"; \"Desc    : $($v.FileDescription)\"\n\"Zone.Identifier (download origin mark):\"; Get-Content $f -Stream Zone.Identifier -ErrorAction SilentlyContinue | ForEach-Object { \"  $_\" }","description":"Verify Intel installer SHA512, signature and properties"}`
+
+## You
+
+```
+
+<pasted_content id="0e7d">
+ShowSeconds: 1
+TimeFormat: hh':'mm'
+DateFormat: ddd',' dd MMM
+DateLocale: ''
+WeekdayFormat: dddd
+WeekdayFormatCustom: Sun, Mon, Tue, Wed, Thu, Fri, Sat
+TopLine: ''
+BottomLine: '%date% %time%'
+MiddleLine: '%weekday%'
+TooltipLine: '""'
+TooltipLineMode: append
+Width: 180
+Height: 60
+MaxWidth: 0
+TextSpacing: 0
+DataCollection:
+  NetworkMetricsFormat: mbs
+  NetworkMetricsFixedDecimals: -1
+  DiskMetricsFormat: sameAsNetwork
+  DiskMetricsFixedDecimals: -1
+  PercentageFormat: spacePaddingAndSymbol
+  UpdateInterval: 1
+  NetworkAdapterName: ''
+  GpuAdapterName: ''
+MediaPlayer:
+  IgnoredPlayers:
+    - ''
+  MaxLength: 28
+  MediaInfoFormat: '%media_artist% - %media_title%'
+  NoMediaText: No media
+  RemoveBrackets: 0
+WebContentWeatherLocation: ''
+WebContentWeatherFormat: '%c 🌡️%t 🌬️%w'
+WebContentWeatherUnits: autoDetect
+WebContentsItems:
+  - Url: '""'
+    BlockStart: <item>
+    Start: <title>
+    End: </title>
+    ContentMode: xmlHtml
+    SearchReplace:
+      - Search: ''
+        Replace: ''
+    MaxLength: 28
+WebContentsUpdateInterval: 10
+TimeZones:
+  - Eastern Standard Time
+TimeStyle:
+  Hidden: 0
+  TextColor: '#FFFFFF'
+  TextAlignment: ''
+  FontSize: 0
+  FontFamily: JetBrainsMono NF
+  FontWeight: SemiLight
+  FontStyle: ''
+  FontStretch: ''
+  CharacterSpacing: 0
+  LineHeight: 0
+DateStyle:
+  Hidden: 0
+  TextColor: ''
+  TextAlignment: ''
+  FontSize: 0
+  FontFamily: ''
+  FontWeight: ''
+  FontStyle: ''
+  FontStretch: ''
+  CharacterSpacing: 0
+  LineHeight: 0
+oldTaskbarOnWin11: 0
+</pasted_content id="0e7d">
+
+``` - clock. ```
+
+<pasted_content id="0e7d">
+TaskbarHeight: 36
+IconSize: 16
+TaskbarButtonWidth: 37
+IconSizeSmall: 16
+TaskbarButtonWidthSmall: 37
+</pasted_content id="0e7d">
+
+``` - height and icon size. ```
+
+<pasted_content id="0e7d">
+mode: labelsWithoutCombining
+taskbarItemWidth: 0
+runningIndicatorStyle: fullWidth
+progressIndicatorStyle: fullWidth
+excludedPrograms:
+  - ''
+minimumTaskbarItemWidth: 0
+maximumTaskbarItemWidth: 100
+fontSize: 11
+fontFamily: JetBrainsMono NF
+textTrimming: characterEllipsis
+leftAndRightPaddingSize: 12
+spaceBetweenIconAndLabel: 14
+runningIndicatorHeight: 0
+runningIndicatorVerticalOffset: 0
+alwaysShowThumbnailLabels: 0
+labelForSingleItem: '%name%'
+labelForMultipleItems: '[%amount%] %name%'
+</pasted_content id="0e7d">
+
+``` - labels. ```
+
+<pasted_content id="0e7d">
+theme: RosePine
+styleConstants:
+  - ''
+controlStyles:
+  - target: ''
+    styles:
+      - ''
+themeResourceVariables:
+  - ''
+clickThroughTaskbar: 0
+xamlDiagnosticsHandling: alert
+</pasted_content id="0e7d">
+
+``` - taskbar styler. All the configs have been provided to you. This is what the taskbar currently looks like: [Image #10]. The clock configs are very detailed and complicated to be honest. Let's look at everything carefully. The font is still not being anywhere.
+
+[image attached]
+
+## You
+
+[Image: source: C:\Users\anant\AppData\Local\Temp\claude\C--Users-anant\[REDACTED]\images\10.png]
+
+## Claude
+
+The taskbar is now close, with the Rose Pine pills, labels and tray all in place. That means the mods are installed, so the font and clock are the remaining problems. I'll check three things: whether Explorer ever restarted after the font was installed, whether the font name matches exactly, and what the clock mod's newer settings format expects.
+
+### Tool Calls
+
+- `PowerShell` -- `{"command":"\"== Explorer start vs font install time\"; Get-Process explorer | Select-Object Id,StartTime | Format-Table -AutoSize | Out-String\n$fnt=Get-Item \u0027C:\\Windows\\Fonts\\JetBrainsMonoNerdFont-Regular.ttf\u0027; \"Font file written: $($fnt.CreationTime) / $($fnt.LastWriteTime)\"\n\"== Exact installed family names (Windows)\"; Add-Type -AssemblyName System.Drawing; (New-Object System.Drawing.Text.InstalledFontCollection).Families | Where-Object Name -match \u0027JetBrains\u0027 | Select-Object -ExpandProperty Name\n\"== Mods installed + state\"; Get-ChildItem \u0027HKLM:\\SOFTWARE\\Windhawk\\Engine\\Mods\u0027 | ForEach-Object { $p=Get-ItemProperty $_.PSPath; \"{0} | Disabled={1} | {2}\" -f $_.PSChildName,$p.Disabled,$p.LibraryFileName }\n\"== Labels mod: is fontFamily saved?\"; $sp=\u0027HKLM:\\SOFTWARE\\Windhawk\\Engine\\Mods\\taskbar-labels\\Settings\u0027; if(Test-Path $sp){ $v=Get-ItemProperty $sp; \"mode=$($v.mode) fontFamily=$($v.fontFamily) fontSize=$($v.fontSize)\" }\n\"== Clock mod saved settings (key ones)\"; $sp=\u0027HKLM:\\SOFTWARE\\Windhawk\\Engine\\Mods\\taskbar-clock-customization\\Settings\u0027; if(Test-Path $sp){ $v=Get-ItemProperty $sp; foreach($n in \u0027ShowSeconds\u0027,\u0027TopLine\u0027,\u0027MiddleLine\u0027,\u0027BottomLine\u0027,\u0027TooltipLine\u0027,\u0027Width\u0027,\u0027Height\u0027,\u0027MaxWidth\u0027,\u0027TextSpacing\u0027,\u0027TimeStyle.Hidden\u0027,\u0027TimeStyle.FontFamily\u0027,\u0027TimeStyle.FontWeight\u0027,\u0027TimeStyle.TextColor\u0027,\u0027DateStyle.Hidden\u0027,\u0027DateStyle.FontFamily\u0027,\u0027DateStyle.TextColor\u0027,\u0027DateStyle.FontSize\u0027,\u0027DateStyle.FontWeight\u0027){ \"{0} = {1}\" -f $n,$v.$n } }\n\"== Clock mod source: settings documentation (TimeStyle/DateStyle/Height/Width)\"; $src=Get-ChildItem \u0027C:\\ProgramData\\Windhawk\\ModsSource\u0027 -Filter \[REDACTED]*\u0027 | Select-Object -First 1; if($src){ \"$($src.Name) $($src.Length) bytes\"; Select-String -Path $src.FullName -Pattern \u0027^\\s*//\\s*(-\\s*(TimeStyle|DateStyle|Width|Height|MaxWidth|TextSpacing|TopLine|MiddleLine|BottomLine|FontFamily|Hidden)|\\$name:\\s*(Time|Date|Top|Middle|Bottom|Width|Height|Max|Text|Font|Hidden|Line))\u0027 -Context 0,2 | Select-Object -First 40 | ForEach-Object { $_.Line.Trim(); $_.Context.PostContext | ForEach-Object { $_.Trim() } } }","description":"Check explorer restart, font names, mod settings and clock mod docs"}`
+
+## You
+
+[Request interrupted by user]
+
+## Claude
+
+No response requested.
+
+## You
+
+The laptop was restarted after the installer ran and installed everything, the previous session was interrupted because we just ran the installer. I have provided you with all the settings because the existing taskbar was updated to this: [Image #11] after the reboot took place. So, this helps that the font is at least seen now. But how can we rename the text that appears per app? is there a way to do that? becuase i did not find it on right click. Based on the settings provided to you, first let's fix clock and make sure that the font is clearly applied and seen to us. I also want the wifi button to appear alongisde the speaker button, the three dots instead of an arrow is nice. Now, only the clock is messed up. Let's fix that and make sure the font is correctly applied. The battery percent should be seen. Based on all the mods settings provided to you, let's make sure to design the perfect settings for each mod to our preferences and this laptop. What was just mentioned to you above was a preference, to change the names of the app that is seen. Let's make sure that we finish this task quickly now.
+
+[image attached]
+
+## You
+
+[Image: source: C:\Users\anant\AppData\Local\Temp\claude\C--Users-anant\[REDACTED]\images\11.png]
+
+## Claude
+
+I'll read the mods' own settings documentation so I'm not guessing: how the clock's two text blocks work and whether Labels can rename apps.
+
+Before the settings, I'll run the post-install Wi-Fi check I promised, since the suite has now been installed and rebooted.
+
+The Wi-Fi driver is updated and the router latency improved. The suite also re-enabled some Killer services, so I'll check whether it added new startup entries before I finish.
+
+The Wi-Fi update worked, and I have corrected settings for the clock, Wi-Fi icon and app labels. Apps can't be renamed individually with the mods you have.
+
+## Wi-Fi check after the install
+- **Driver:** it's now **24.80.0.2** (was 23.120.0.3).
+- **Router latency:** average 3.9 ms with a 10 ms peak, down from 8.5 ms and 38 ms.
+- **Stability:** 0 disconnects since the reboot.
+- **Killer services:** the suite re-enabled `Killer Network Service`, `Killer Analytics Service` and `Killer Provider Data Helper Service`, and `KillerTray` is running. It added no startup entries, so your startup list is unchanged. Latency is good with them on, so I'd leave them alone for a day. If you want the usage-reporting one off, run this in an admin shell: `Set-Service 'Killer Analytics Service' -StartupType Disabled`.
+
+## Why the clock is wrong
+On Windows 11 the clock has only two lines: a top line and a bottom line. The "Middle line", "Height" and "Width" settings are Windows 10 only and are ignored. Your config put the time in both lines, so the clock tried to fit two lines into a 36 px bar and clipped. It also had a stray `'` in the time format and literal `""` in the tooltip and weather URL.
+
+The fix is one line: `Mon, 26 Oct  09:48 PM`, in rose-coloured JetBrains Mono, with the bottom line hidden. I used `ShowSeconds: 0`. Set it to 1 if you want seconds.
+
+## How to apply
+In the Windhawk app, open each mod, go to Settings, switch to **Textual mode**, replace the text with the block below, and click **Save settings**. Mods reload on their own, so you don't need to restart Explorer.
+
+**Clock**
+```yaml
+ShowSeconds: 0
+TimeFormat: "hh':'mm tt"
+DateFormat: ddd',' dd MMM
+DateLocale: ''
+WeekdayFormat: dddd
+WeekdayFormatCustom: Sun, Mon, Tue, Wed, Thu, Fri, Sat
+TopLine: '%date%  %time%'
+BottomLine: ''
+MiddleLine: ''
+TooltipLine: ''
+TooltipLineMode: append
+Width: 180
+Height: 60
+MaxWidth: 0
+TextSpacing: 0
+DataCollection:
+  NetworkMetricsFormat: mbs
+  NetworkMetricsFixedDecimals: -1
+  DiskMetricsFormat: sameAsNetwork
+  DiskMetricsFixedDecimals: -1
+  PercentageFormat: spacePaddingAndSymbol
+  UpdateInterval: 1
+  NetworkAdapterName: ''
+  GpuAdapterName: ''
+MediaPlayer:
+  IgnoredPlayers:
+    - ''
+  MaxLength: 28
+  MediaInfoFormat: '%media_artist% - %media_title%'
+  NoMediaText: No media
+  RemoveBrackets: 0
+WebContentWeatherLocation: ''
+WebContentWeatherFormat: '%c 🌡️%t 🌬️%w'
+WebContentWeatherUnits: autoDetect
+WebContentsItems:
+  - Url: ''
+    BlockStart: <item>
+    Start: <title>
+    End: </title>
+    ContentMode: xmlHtml
+    SearchReplace:
+      - Search: ''
+        Replace: ''
+    MaxLength: 28
+WebContentsUpdateInterval: 10
+TimeZones:
+  - Eastern Standard Time
+TimeStyle:
+  Hidden: 0
+  TextColor: '#ebbcba'
+  TextAlignment: ''
+  FontSize: 12
+  FontFamily: JetBrainsMono NF
+  FontWeight: SemiLight
+  FontStyle: ''
+  FontStretch: ''
+  CharacterSpacing: 0
+  LineHeight: 0
+DateStyle:
+  Hidden: 1
+  TextColor: ''
+  TextAlignment: ''
+  FontSize: 0
+  FontFamily: JetBrainsMono NF
+  FontWeight: ''
+  FontStyle: ''
+  FontStretch: ''
+  CharacterSpacing: 0
+  LineHeight: 0
+oldTaskbarOnWin11: 0
+```
+
+**Taskbar Styler** (keeps RosePine and adds your preferences on top):
+```yaml
+theme: RosePine
+styleConstants:
+  - ''
+controlStyles:
+  - target: SystemTray.OmniButton#ControlCenterButton > Grid > ContentPresenter > ItemsPresenter > StackPanel > ContentPresenter[1] > SystemTray.IconView > Grid > Grid
+    styles:
+      - Visibility=Visible
+  - target: Taskbar.TaskbarFrame > Grid#RootGrid > Taskbar.TaskbarBackground > Grid > Rectangle#BackgroundFill
+    styles:
+      - Fill=#26e0def4
+  - target: Rectangle#BackgroundStroke
+    styles:
+      - Fill=#40e0def4
+  - target: Taskbar.TaskbarBackground#HoverFlyoutBackgroundControl > Grid > Rectangle#BackgroundFill
+    styles:
+      - Fill=#99403d52
+  - target: SystemTray.TextIconContent > Grid#ContainerGrid > SystemTray.AdaptiveTextBlock#Base > TextBlock#InnerTextBlock
+    styles:
+      - FontFamily=JetBrainsMono NF
+themeResourceVariables:
+  - ''
+clickThroughTaskbar: 0
+xamlDiagnosticsHandling: alert
+```
+The first rule undoes RosePine's rule that hides one tray icon, which is what should bring the Wi-Fi icon back beside the speaker. The next three give the lighter translucent bar, lighter top border and hover pop-up. The last one puts the battery percentage in JetBrains Mono.
+
+**Labels** (only change: wider buttons, so names aren't cut off at "Kille..."):
+```yaml
+mode: labelsWithoutCombining
+taskbarItemWidth: 0
+runningIndicatorStyle: fullWidth
+progressIndicatorStyle: fullWidth
+excludedPrograms:
+  - ''
+minimumTaskbarItemWidth: 0
+maximumTaskbarItemWidth: 150
+fontSize: 11
+fontFamily: JetBrainsMono NF
+textTrimming: characterEllipsis
+leftAndRightPaddingSize: 12
+spaceBetweenIconAndLabel: 14
+runningIndicatorHeight: 0
+runningIndicatorVerticalOffset: 0
+alwaysShowThumbnailLabels: 0
+labelForSingleItem: '%name%'
+labelForMultipleItems: '[%amount%] %name%'
+```
+**Height and icon size:** keep as is. 36 px with 16 px icons suits the layout.
+
+## Things I can't promise
+- **Wi-Fi icon:** the tray icon order is my best reading of the mod's source, not something I can see. Send me a screenshot after saving. If the wrong icon appears, I'll adjust the number in that first rule.
+- **Battery percentage:** the 80% is already showing in your screenshot, so nothing is needed there beyond the font.
+- **Style rules:** I'm assuming your custom rules win over the theme's, which is the usual order. If the bar looks unchanged, tell me.
+
+## Renaming apps on the taskbar
+There is no setting for it, and the right-click menu has nothing either. The Labels mod only offers `%name%` and `%amount%`, and `%name%` is the app's own window title or name. It has no per-app renaming. You can still:
+- **Change the title at the source.** Windows Terminal tab titles are editable per profile, and Obsidian titles follow the vault and note name. This works now.
+- **Use a per-app rule in the Styler,** targeted at one app, to force fixed text. I haven't verified it, since the Labels mod may overwrite the text.
+- **Write a small custom Windhawk mod.** That's the clean solution but takes more work.
+
+If you tell me which apps you want renamed and to what, I'll try the second option on one app first.
+
+### Tool Calls
+
+- `PowerShell` -- `{"command":"function Show-Settings($file,$pat){ $t=Get-Content $file -Raw; $m=[regex]::Match($t,\u0027(?s)// ==WindhawkModSettings==(.*?)// ==/WindhawkModSettings==\u0027); $m.Groups[1].Value -split \"`n\" | ForEach-Object { $_.TrimEnd() } | Where-Object { $_ -match $pat } }\n$d=\u0027C:\\ProgramData\\Windhawk\\ModsSource\u0027\n\"=================== LABELS: settings docs\"; Show-Settings \"$d\\taskbar-labels.wh.cpp\" \u0027\\$name|\\$description|rename|replace|regex|%\u0027\n\"=================== LABELS: readme-style notes (variables / rename)\"; Select-String -Path \"$d\\taskbar-labels.wh.cpp\" -Pattern \u0027%name%|%amount%|%.*%|rename|regex|replace|custom\u0027 | Select-Object -First 25 | ForEach-Object { $l=$_.Line.Trim(); if($l.Length -gt 200){$l.Substring(0,200)}else{$l} }","description":"Read Taskbar Labels mod settings documentation"}`
+- `PowerShell` -- `{"command":"function Show-Settings($file,$pat){ $t=Get-Content $file -Raw; $m=[regex]::Match($t,\u0027(?s)// ==WindhawkModSettings==(.*?)// ==/WindhawkModSettings==\u0027); $m.Groups[1].Value -split \"`n\" | ForEach-Object { $_.TrimEnd() } | Where-Object { $_ -match $pat } }\n$d=\u0027C:\\ProgramData\\Windhawk\\ModsSource\u0027\n\"=================== CLOCK: settings docs (Width/Height/Style/Lines/Hidden)\"; Show-Settings \"$d\\taskbar-clock-customization.wh.cpp\" \u0027\\$name:\\s*(Show|Time|Date|Weekday|Top|Middle|Bottom|Tooltip|Width|Height|Max|Text|Font|Hidden|Line|Text|Align|Spacing|Char)|\\$description\u0027 | Select-Object -First 90\n\"=================== CLOCK: lines about Hidden / two lines / height\"; Select-String -Path \"$d\\taskbar-clock-customization.wh.cpp\" -Pattern \u0027Hidden|height of|two lines|three lines|Height\u0027 | Select-Object -First 14 | ForEach-Object { $l=$_.Line.Trim(); if($l.Length -gt 220){$l.Substring(0,220)}else{$l} }\n\"=================== Clock mod: format codes for date/time and battery\"; Select-String -Path \"$d\\taskbar-clock-customization.wh.cpp\" -Pattern \u0027%battery|%cpu|%weekday|%date%|%time%\u0027 | Select-Object -First 8 | ForEach-Object { $l=$_.Line.Trim(); if($l.Length -gt 200){$l.Substring(0,200)}else{$l} }","description":"Read Taskbar Clock mod settings documentation"}`
+- `PowerShell` -- `{"command":"$d=\u0027C:\\ProgramData\\Windhawk\\ModsSource\u0027\n\"== Labels: where does %name% come from?\"; Select-String -Path \"$d\\taskbar-labels.wh.cpp\" -Pattern \[REDACTED]|GetName|AutomationId|\\.Name\\b|GetWindowText|AppUserModel\u0027 | Select-Object -First 8 | ForEach-Object { $l=$_.Line.Trim(); if($l.Length -gt 170){$l.Substring(0,170)}else{$l} }\n\"== Styler: theme option list in settings\"; $t=Get-Content \"$d\\[REDACTED].wh.cpp\" -Raw; $m=[regex]::Match($t,\u0027(?s)// ==WindhawkModSettings==(.*?)// ==/WindhawkModSettings==\u0027); ($m.Groups[1].Value -split \"`n\" | Select-Object -First 22) | ForEach-Object { $_.TrimEnd() }\n\"== Clock: Top/Bottom line style key names\"; Select-String -Path \"$d\\taskbar-clock-customization.wh.cpp\" -Pattern \u0027^\\s*-\\s*(TimeStyle|DateStyle|TopLine|BottomLine|Width|MaxWidth|TextSpacing|ShowSeconds)\\b|\\$name: (Top line style|Bottom line style|Width|Maximum width|Clock width|Line spacing)\u0027 | Select-Object -First 14 | ForEach-Object { $_.Line.Trim() }","description":"Check label name source, theme none value, clock style keys"}`
+- `PowerShell` -- `{"command":"$src=\u0027C:\\ProgramData\\Windhawk\\ModsSource\\[REDACTED].wh.cpp\u0027\n\"== RosePine theme block: lines that hide things (Visibility / Text= selectors), with code points\"\n$t=Get-Content $src -Raw -Encoding UTF8\n$i=$t.IndexOf(\u0027RosePine\u0027); \"first RosePine mention at char $i\"\n$lines=Get-Content $src -Encoding UTF8\n$hits=for($n=0;$n -lt $lines.Count;$n++){ if($lines[$n] -match \u0027Text=|Visibility=Collapsed|ControlCenterButton|NotificationCenterButton\u0027){ [pscustomobject]@{Line=$n+1;Text=$lines[$n]} } }\n$hits | Select-Object -First 40 | ForEach-Object { $s=$_.Text.Trim(); $cp=($s.ToCharArray() | Where-Object { [int]$_ -ge 0xE000 -and [int]$_ -le 0xF8FF } | ForEach-Object { \u0027U+{0:X4}\u0027 -f [int]$_ }) -join \u0027,\u0027; \"{0}: {1}  {2}\" -f $_.Line,($s -replace \u0027[\\uE000-\\uF8FF]\u0027,\u0027\u003cglyph\u003e\u0027),$(if($cp){\"[$cp]\"}) }\n\"== Order: theme vs custom controlStyles\"; Select-String -Path $src -Pattern \u0027theme.*controlStyles|controlStyles.*theme|themeStyles|ApplyCustomizations|LoadSettings\u0027 | Select-Object -First 10 | ForEach-Object { $l=$_.Line.Trim(); if($l.Length -gt 170){$l.Substring(0,170)}else{$l} }","description":"Extract RosePine glyph rules and merge order from mod source"}`
+- `PowerShell` -- `{"command":"\"== Driver now\"; Get-NetAdapter -Physical | Where-Object Name -eq \u0027Wi-Fi\u0027 | Select-Object InterfaceDescription,Status,LinkSpeed,DriverVersion,DriverDate | Format-List | Out-String\nGet-CimInstance Win32_PnPSignedDriver | Where-Object { $_.DeviceName -like \u0027Killer(R) Wi-Fi 6E*\u0027 } | Select-Object InfName,DriverVersion,DriverDate | Format-List | Out-String\n\"== Killer services after install\"; Get-CimInstance Win32_Service | Where-Object { $_.Name -match \u0027Killer|KAPS|KNDBWM\u0027 -or $_.DisplayName -match \u0027Killer\u0027 } | Select-Object Name,StartMode,State | Format-Table -AutoSize | Out-String\n\"Killer software folder: $(Test-Path \u0027C:\\Program Files\\Killer Networking\u0027)\"; Get-Process | Where-Object Name -match \u0027Killer|KAPS\u0027 | Select-Object Name,Id | Format-Table -AutoSize | Out-String\n\"== Boot time / Wi-Fi events since boot\"; $b=(Get-CimInstance Win32_OperatingSystem).LastBootUpTime; \"Boot: $b\"; Get-WinEvent -FilterHashtable @{LogName=\[REDACTED]/Operational\u0027;StartTime=$b} -ErrorAction SilentlyContinue | Where-Object Id -in 8003,11006 | Group-Object Id | Select-Object Count,Name | Format-Table -AutoSize | Out-String\nGet-WinEvent -FilterHashtable @{LogName=\u0027System\u0027;ProviderName=\u0027Netwtw14\u0027,\u0027Netwtw16\u0027;StartTime=$b} -ErrorAction SilentlyContinue | Group-Object Id | Select-Object Count,Name | Format-Table -AutoSize | Out-String\n\"== Latency (30 pings)\"; $gw=(Get-NetRoute -DestinationPrefix \u00270.0.0.0/0\u0027 | Sort-Object RouteMetric | Select-Object -First 1).NextHop; foreach($t in $gw,\u00271.1.1.1\u0027){ $r=Test-Connection -TargetName $t -Count 30 -ErrorAction SilentlyContinue; $ok=@($r | Where-Object Status -eq \u0027Success\u0027); $lat=$ok | ForEach-Object { $_.Latency }; if($lat){ $m=$lat|Measure-Object -Average -Maximum -Minimum; \"{0}: ok {1}/30 | min {2} avg {3:N1} max {4} ms\" -f $t,$ok.Count,$m.Minimum,$m.Average,$m.Maximum } }\nnetwtw=1 | Out-Null; netsh wlan show interfaces | Select-String \u0027Band|Channel|Signal|Receive rate|Radio type\u0027 | ForEach-Object { $_.Line.Trim() }","description":"Verify Wi-Fi driver, Killer services and latency after install"}`
+- `PowerShell` -- `{"command":"\"== New/changed startup entries (Killer / Intel / Rivet)\"; foreach($k in \u0027HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\u0027,\u0027HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\u0027){ $ap=Get-ItemProperty ($k -replace \u0027CurrentVersion\\\\Run\u0027,\u0027CurrentVersion\\Explorer\\StartupApproved\\Run\u0027); (Get-ItemProperty $k).PSObject.Properties | Where-Object { $_.Name -notlike \u0027PS*\u0027 -and ($_.Name -match \u0027Killer|Rivet|Intel\u0027 -or $_.Value -match \u0027Killer|Rivet\u0027) } | ForEach-Object { $b=$ap.($_.Name); \"{0} | {1} | approved={2} | {3}\" -f $k.Split(\u0027:\u0027)[0],$_.Name,$(if($b){$b[0]}else{\u0027none\u0027}),$_.Value } }\nGet-ScheduledTask | Where-Object { $_.TaskName -match \u0027Killer|Rivet\u0027 -or ($_.Actions | ForEach-Object { $_.Execute }) -match \u0027Killer\u0027 } | Select-Object TaskName,TaskPath,State | Format-Table -AutoSize | Out-String\n\"== Total startup count check (non-disabled logon tasks, non-Microsoft)\"; Get-ScheduledTask | Where-Object { $_.State -ne \u0027Disabled\u0027 -and $_.TaskPath -notlike \u0027\\Microsoft\\*\u0027 -and ($_.Triggers | Where-Object { $_.CimClass.CimClassName -match \u0027Logon|Boot\u0027 }) } | Select-Object -ExpandProperty TaskName | Sort-Object","description":"Check startup entries added by the Killer suite"}`
 
 ## Actions Taken
 

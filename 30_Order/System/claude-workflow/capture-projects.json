@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "comment": "To add a project: add a rule to the rules list. First match wins, so put narrower paths above wider ones. project is the folder name under the machine's Claude folder. match is 'under' (the path itself or anything inside it) or 'exact' (only that path). path may use {vault}, {root}, {home} and {localappdata}, and may use \\..\\ to step up. Directories no rule matches get a folder named after the directory (fallback 'leaf'). Edit by hand; the exporter reads this file on every run and falls back to built-in rules if it is missing or invalid.",
+  "tokens": {
+    "{vault}": "the Jarvis vault, found from the exporter's own location",
+    "{root}": "the folder three levels above the vault (D:\\_Anant on the Acer)",
+    "{home}": "USERPROFILE",
+    "{localappdata}": "LOCALAPPDATA"
+  },
+  "rules": [
+    { "project": "Jarvis", "match": "under", "path": "{vault}" },
+    { "project": "The Plan", "match": "under", "path": "{vault}\\..\\The Plan" },
+    { "project": "UMN Courses", "match": "under", "path": "{root}\\10_Areas\\UMN" },
+    { "project": "Home", "match": "exact", "path": "{home}" },
+    { "project": "Scratch", "match": "under", "path": "{localappdata}\\Temp\\claude" }
+  ],
+  "fallback": "leaf"
+}

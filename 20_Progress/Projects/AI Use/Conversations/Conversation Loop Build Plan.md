@@ -2,14 +2,14 @@
 type: project
 status: active
 created: 2026-10-22
-updated: 2026-10-22
+updated: 2026-10-28
 tags:
   - project
   - ai
   - conversations
   - build
 project_kind: plan
-next: Run Prompts/P0 (retention and snapshot) before 2026-10-24 17:56, then P1 and P2; refine P3 to P5 with what they return. Phases, prompts and the B-to-P mapping are in Corrections below.
+next: Run Prompts/P2 (project routing and re-export); P0 and P1 ran on 2026-10-28. Refine P3 to P5 with what they return. Phases, prompts and the B-to-P mapping are in Corrections below.
 notes:
   - "[[20_Progress/Projects/AI Use/Conversations/Conversation Loop Design|Conversation Loop Design]]"
   - "[[20_Progress/Projects/AI Use/Conversations/Conversation Layer|Conversation Layer]]"
@@ -59,7 +59,7 @@ Platforms other than Claude Code, any `30_Order` change before B10, and any buil
 ## Corrections
 *2026-10-22, later the same day. The sections above are kept as written.*
 ### What had changed since the plan was written
-- B1 is half done. A Dell session on 2026-10-22 added message-id token dedup and vault-root-aware project routing to both exporters, with `test-token-dedup.ps1` and `test-project-routing.ps1`. The dedup test passes under PowerShell 7 (re-run on the Acer). The price table, `status: seed`, the BOM, and the fenced commands are still open. The changes are uncommitted in the shared tree.
+- B1 is half done. A Dell session on 2026-10-22 added message-id token dedup and vault-root-aware project routing to both exporters, with `test-token-dedup.ps1` and `test-project-routing.ps1`. The dedup test passes under PowerShell 7 (re-run on the Acer). The price table, `status: seed`, the BOM, and the fenced commands are still open. The changes are uncommitted in the shared tree. *Update 2026-10-28:* [[20_Progress/Projects/AI Use/Conversations/Prompts - Acer/P1 - Exporter Correctness|P1]] closed those four for new notes, and the Dell changes are committed. Old notes are unchanged until P2 re-exports them.
 - The Dell's `Jarvis-GitAutoSync` is disabled. The Acer is the only git writer, so the Syncthing conflict risk in the handoff is much smaller (0 live conflict copies found).
 - The oldest transcript on the Acer is dated 2026-09-24 and moves forward daily, so B0 is urgent, not just first.
 - Claude Code is 2.1.309 on the Acer, not 2.1.307.

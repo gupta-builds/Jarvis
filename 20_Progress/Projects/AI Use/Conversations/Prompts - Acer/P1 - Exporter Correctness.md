@@ -2,7 +2,7 @@
 type: project
 status: active
 created: 2026-10-22
-updated: 2026-10-22
+updated: 2026-10-28
 tags:
   - project
   - ai
@@ -84,8 +84,8 @@ Reply with: the twelve baseline results; the price table you wrote with the sour
 </report>
 ````
 ## Run Record
-- Ran:
-- Result:
+- Ran: 2026-10-28, Sonnet 5.5, in the Jarvis directory on the Acer.
+- Result: all steps done. `run-all-tests.ps1` passes 8 of 8 (four test files, `pwsh` and `powershell.exe`). Two real sessions matched an independent token count exactly. The baseline was six runs, not twelve, and `test-token-aggregation.ps1` failed before any change because its fake transcript no longer existed; it now builds its own. Pricing page read 2026-10-28, not 2026-10-22. Report line is in [[20_Progress/Projects/AI Use/Conversations/Conversation Layer|Conversation Layer]].
 - Reviewed by owner:
 ## Related Notes
 [[20_Progress/Projects/AI Use/Conversations/Export Conformance|Export Conformance]], [[20_Progress/Projects/AI Use/Conversations/Capture Scripts|Capture Scripts]], [[30_Order/Standards/AI Loop/Conversations|Conversations]], [[20_Progress/Projects/AI Use/Conversations/Conversation Loop Build Plan|Build Plan]].
